@@ -23,57 +23,57 @@ Record<K, T>是一种对象类型，其属性键为K，属性值为T。该工具
 示例代码如下：
  
 ```text
-type <span style="color: rgb(128,128,128);">IDirection </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'up' </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,0,170);">'down'</span><span style="color: rgb(181,106,1);">;</span>
-type <span style="color: rgb(128,128,128);">RecordDirection </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">IDirection</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+type IDirection = 'up' | 'down';
+type RecordDirection = Record<IDirection, number>;
 
-function <span style="color: rgb(0,0,255);">isRecord</span><span style="color: rgb(0,0,255);">(</span>
-  <span style="color: rgb(0,0,255);">variable</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ESObject</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">keyChecker</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">valueChecker</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ESObject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">boolean</span>
-<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span>typeof <span style="color: rgb(0,0,255);">variable </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,170);">'object' </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">variable </span><span style="color: rgb(181,106,1);">=== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+function isRecord(
+  variable: ESObject,
+  keyChecker?: (key: string) => boolean,
+  valueChecker?: (value: ESObject) => boolean
+): boolean {
+  if (typeof variable !== 'object' || variable === null) {
+    return false;
+  }
 
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyChecker </span><span style="color: rgb(181,106,1);">=== </span>undefined <span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">valueChecker </span><span style="color: rgb(181,106,1);">=== </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">排除数组、排除</span><span style="color: rgb(128,128,128);">Date</span><span style="color: rgb(128,128,128);">对象</span></em>
-    return <span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isArray</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">variable</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);"> !</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">variable </span>instanceof <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  if (keyChecker === undefined || valueChecker === undefined) {
+  <em>  // 排除数组、排除Date对象</em>
+    return !Array.isArray(variable) && !(variable instanceof Date);
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">遍历对象的键和值，进行类型检查</span></em>
-  const <span style="color: rgb(0,0,255);">arr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Object</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">keys</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">variable</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    const <span style="color: rgb(0,0,255);">key </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">keyChecker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">|| !</span><span style="color: rgb(0,0,255);">valueChecker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">variable</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">])) </span><span style="color: rgb(255,0,170);">{</span>
-      return false<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+ <em> // 遍历对象的键和值，进行类型检查</em>
+  const arr = Object.keys(variable);
+  for (let i = 0; i < arr.length; i++) {
+    const key = arr[i];
+    if (!keyChecker(key) || !valueChecker(variable[key])) {
+      return false;
+    }
+  }
 
-  return true<span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  return true;
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">RecordJudgment </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">cDirection</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RecordDirection </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(255,0,170);">'up'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">'down'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct RecordJudgment {
+  cDirection: RecordDirection = {
+    'up': 1,
+    'down': 2
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'check'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          const <span style="color: rgb(0,0,255);">keyChecker </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">key </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'up' </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">key </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'down'</span><span style="color: rgb(181,106,1);">;</span>
-          const <span style="color: rgb(0,0,255);">valueChecker </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ESObject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> typeof <span style="color: rgb(0,0,255);">value </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'number'</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      Button('check')
+        .onClick(() => {
+          const keyChecker = (key: string) => key === 'up' || key === 'down';
+          const valueChecker = (value: ESObject) => typeof value === 'number';
 
-          const <span style="color: rgb(0,0,255);">result1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">isRecord</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cDirection</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          const <span style="color: rgb(0,0,255);">result2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">isRecord</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cDirection</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">keyChecker</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">valueChecker</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`flag:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">result1</span><span style="color: rgb(255,0,170);">} ${</span><span style="color: rgb(0,0,255);">result2</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// flag:true true</span></em>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+          const result1 = isRecord(this.cDirection);
+          const result2 = isRecord(this.cDirection, keyChecker, valueChecker);
+          console.info(`flag:${result1} ${result2}`); <em>// flag:true true</em>
+        });
+    }
+    .height('100%')
+    .width('100%')
+  }
+}
 ```

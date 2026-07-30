@@ -31,54 +31,54 @@ PromptAction自定义弹窗如何实现在点击弹窗外围的蒙层时，弹�
 实现PromptAction弹窗禁用点击蒙层隐藏弹窗功能时，只需要在onWillDismiss内控制关闭信息：在dismissDialogAction.reason !== DismissReason.TOUCH_OUTSIDE条件下调用dismiss()关闭函数即可，在该条件下除了点击蒙层不关闭弹窗外，其他关闭条件都不影响。
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">PromptAction </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { PromptAction } from '@kit.ArkUI';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">PromptAction </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">customDialogComponentId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  promptAction: PromptAction = this.getUIContext().getPromptAction();
+  private customDialogComponentId: number = 0;
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">customDialogComponent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">弹窗</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">50 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确认</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">customDialogComponentId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">取消</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">customDialogComponentId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceBetween</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  @Builder
+  customDialogComponent() {
+    Column() {
+      Text('弹窗').fontSize(30)
+      Row({ space: 50 }) {
+        Button('确认').onClick(() => {
+          this.promptAction.closeCustomDialog(this.customDialogComponentId);
+        })
+        Button('取消').onClick(() => {
+          this.promptAction.closeCustomDialog(this.customDialogComponentId);
+        })
+      }
+    }.height(200).padding(5).justifyContent(FlexAlign.SpaceBetween)
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'click me'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">builder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">customDialogComponent</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">onWillDismiss</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">dismissDialogAction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DismissDialogAction</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-                if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">dismissDialogAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">reason </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,255,255);">DismissReason</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TOUCH_OUTSIDE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-                  <span style="color: rgb(255,255,255);">dismissDialogAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dismiss</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">              }</span>
-<span style="color: rgb(181,106,1);">            }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">dialogId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">customDialogComponentId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">dialogId</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Button('click me')
+          .onClick(() => {
+            this.promptAction.openCustomDialog({
+              builder: () => {
+                this.customDialogComponent();
+              },
+              onWillDismiss: (dismissDialogAction: DismissDialogAction) => {
+                if (dismissDialogAction.reason !== DismissReason.TOUCH_OUTSIDE) {
+                  dismissDialogAction.dismiss();
+                }
+              }
+            }).then((dialogId: number) => {
+              this.customDialogComponentId = dialogId;
+            });
+          })
+      }
+      .width('100%')
+      .height('100%')
+    }
+    .height('100%')
+  }
+}
 ```
  
  

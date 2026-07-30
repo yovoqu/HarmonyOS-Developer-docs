@@ -29,14 +29,14 @@
 
   ArkTS API:        
 ```text
-<span style="color: rgb(0,0,255);">import</span> { deviceInfo } <span style="color: rgb(0,0,255);">from</span> <span style="color: rgb(255,0,0);">'@kit.BasicServicesKit'</span>;
-<span style="color: rgb(80,160,79);">//针对HarmonyOS专有接口，即接口标记为since M.F.S(N)的接口</span>
-getTestData(): <span style="color: rgb(0,0,255);">void</span> {
-    <span style="color: rgb(80,160,79);">// 兼容性判断，50002是由新接口的since字段M*10000+F*100+S转换而来</span>
-    <span style="color: rgb(0,0,255);">if</span> (deviceInfo.distributionOSApiVersion >=  50002) {
-        <span style="color: rgb(80,160,79);">// </span><span style="color: rgb(80,160,79);">适配5.0.2(14)版本某API行为变更后的处理</span>
-    } <span style="color: rgb(0,0,255);">else</span> {
-        <span style="color: rgb(80,160,79);">// 兼容原有逻辑</span>
+import { deviceInfo } from '@kit.BasicServicesKit';
+//针对HarmonyOS专有接口，即接口标记为since M.F.S(N)的接口
+getTestData(): void {
+    // 兼容性判断，50002是由新接口的since字段M*10000+F*100+S转换而来
+    if (deviceInfo.distributionOSApiVersion >=  50002) {
+        // 适配5.0.2(14)版本某API行为变更后的处理
+    } else {
+        // 兼容原有逻辑
     }
 }
 ```
@@ -46,15 +46,15 @@ getTestData(): <span style="color: rgb(0,0,255);">void</span> {
 
   
 ```text
-<span style="color: rgb(255,0,170);">#include</span> <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">deviceinfo.h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(255,0,170);">#include</span> <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">stdio.h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(80,160,79);">//针对HarmonyOS专有接口，即接口标记为since M.F.S(N)的接口</span>
-<span style="color: rgb(0,0,255);">void</span> <span style="color: rgb(181,106,1);">GetTestData</span>() {
-<span style="color: rgb(80,160,79);">    // 兼容性判断，50002是由新接口的since字段M*10000+F*100+S转换而来</span>
-    <span style="color: rgb(255,0,170);">if</span> (<span style="color: rgb(181,106,1);">OH_GetDistributionOSApiVersion</span>() >=  50002) {
-<span style="color: rgb(80,160,79);">        // 适配5.0.2(14)版本某API行为变更后的处理</span>
-    } <span style="color: rgb(255,0,170);">else</span> {
-<span style="color: rgb(80,160,79);">        // 兼容原有逻辑</span>
+#include <deviceinfo.h>
+#include <stdio.h>
+//针对HarmonyOS专有接口，即接口标记为since M.F.S(N)的接口
+void GetTestData() {
+    // 兼容性判断，50002是由新接口的since字段M*10000+F*100+S转换而来
+    if (OH_GetDistributionOSApiVersion() >=  50002) {
+        // 适配5.0.2(14)版本某API行为变更后的处理
+    } else {
+        // 兼容原有逻辑
     }
 }
 ```
@@ -63,14 +63,14 @@ getTestData(): <span style="color: rgb(0,0,255);">void</span> {
 
   ArkTS API:        
 ```text
-<span style="color: rgb(0,0,255);">import</span> { deviceInfo } <span style="color: rgb(0,0,255);">from</span> <span style="color: rgb(255,0,0);">'@kit.BasicServicesKit'</span>;
-<span style="color: rgb(80,160,79);">//针对OpenHarmony底座公共接口，即接口标记为since N</span>
-getTestData(): <span style="color: rgb(0,0,255);">void</span> {
-    <span style="color: rgb(80,160,79);">// 增加兼容性判断</span>
-    <span style="color: rgb(0,0,255);">if</span> (deviceInfo.sdkApiVersion >= 14) {
-        <span style="color: rgb(80,160,79);">// 适配5.0.2(14)版本某API行为变更后的处理</span>
-    } <span style="color: rgb(0,0,255);">else</span> {
-        <span style="color: rgb(80,160,79);">// 兼容原有逻辑</span>
+import { deviceInfo } from '@kit.BasicServicesKit';
+//针对OpenHarmony底座公共接口，即接口标记为since N
+getTestData(): void {
+    // 增加兼容性判断
+    if (deviceInfo.sdkApiVersion >= 14) {
+        // 适配5.0.2(14)版本某API行为变更后的处理
+    } else {
+        // 兼容原有逻辑
     }
 }
 ```
@@ -80,15 +80,15 @@ getTestData(): <span style="color: rgb(0,0,255);">void</span> {
 
   
 ```text
-<span style="color: rgb(255,0,170);">#include</span> <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">deviceinfo.h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(255,0,170);">#include</span> <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">stdio.h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(80,160,79);">//针对OpenHarmony底座公共接口，即接口标记为since N</span>
-<span style="color: rgb(0,0,255);">void</span> <span style="color: rgb(181,106,1);">GetTestData</span>() {
-<span style="color: rgb(80,160,79);">    // 增加兼容性判断</span>
-    <span style="color: rgb(255,0,170);">if</span> (<span style="color: rgb(181,106,1);">OH_GetSdkApiVersion</span>() >=  <span style="color: rgb(80,160,79);">14</span>) {
-<span style="color: rgb(80,160,79);">        // 适配5.0.2(14)版本某API行为变更后的处理</span>
-    } <span style="color: rgb(255,0,170);">else</span> {
-<span style="color: rgb(80,160,79);">        // 兼容原有逻辑</span>
+#include <deviceinfo.h>
+#include <stdio.h>
+//针对OpenHarmony底座公共接口，即接口标记为since N
+void GetTestData() {
+    // 增加兼容性判断
+    if (OH_GetSdkApiVersion() >=  14) {
+        // 适配5.0.2(14)版本某API行为变更后的处理
+    } else {
+        // 兼容原有逻辑
     }
 }
 ```

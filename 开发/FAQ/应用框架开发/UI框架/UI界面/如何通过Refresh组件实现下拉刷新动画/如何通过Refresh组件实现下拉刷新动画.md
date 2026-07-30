@@ -39,133 +39,133 @@ ohpm install @ohos/lottie
 
 3. 加载并配置Lottie动画：使用Lottie来配置下拉时的动画效果。
 ```json
-<span style="color: rgb(0,0,255);">loadPullDownAnimation</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateItem </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">lottie</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadAnimation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">container</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">渲染上下文</span></em>
-    <span style="color: rgb(255,255,255);">renderer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'canvas'</span><span style="color: rgb(181,106,1);">, </span><em>// canvas</em><em><span style="color: rgb(128,128,128);">渲染模式</span></em>
-    <span style="color: rgb(255,255,255);">loop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">是否循环播放</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">默认</span><span style="color: rgb(128,128,128);">true</span></em>
-    <span style="color: rgb(255,255,255);">autoplay</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否自动播放，默认</span><span style="color: rgb(128,128,128);">true</span></em>
-    <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateName</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">contentMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'Contain'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'common/lottie/animation.json'</span><span style="color: rgb(181,106,1);">, </span><em>// json</em><em><span style="color: rgb(128,128,128);">路径</span></em>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-<span style="color: rgb(181,106,1);">}</span>
+loadPullDownAnimation() {
+  this.animateItem = lottie.loadAnimation({
+    container: this.context, <em>// </em><em>渲染上下文</em>
+    renderer: 'canvas', <em>// canvas</em><em>渲染模式</em>
+    loop: 10, <em>// </em><em>是否循环播放,默认true</em>
+    autoplay: true, <em>// 是否自动播放，默认true</em>
+    name: this.animateName,
+    contentMode: 'Contain',
+    path: 'common/lottie/animation.json', <em>// json</em><em>路径</em>
+  })
+}
 ```
 
 
 4. 在Refresh组件中使用[onStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh#onstatechange)和[onRefreshing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh#onrefreshing)等事件来配置下拉时不同状态下的动画效果。
 ```json
-import <span style="color: rgb(255,255,255);">lottie</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">AnimationItem </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@ohos/lottie'</span>
+import lottie, { AnimationItem } from '@ohos/lottie'
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">RefreshExample </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">isRefreshing</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">String</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'4'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'5'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'6'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'7'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'8'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'9'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'10'</span><span style="color: rgb(255,0,170);">]</span>
-  private <span style="color: rgb(255,255,255);">mainCanvasRenderingContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(255,0,170);">()</span>
-  private <span style="color: rgb(255,255,255);">animateItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimationItem </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null
-  private <span style="color: rgb(255,255,255);">animateName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'pullDownAnimate'</span>
-  private <span style="color: rgb(255,255,255);">setting</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">setting</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">lottieName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'lottie_data'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct RefreshExample {
+  @State isRefreshing: boolean = false
+  @State arr: String[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+  private mainCanvasRenderingContext: CanvasRenderingContext2D = new CanvasRenderingContext2D()
+  private animateItem: AnimationItem | null = null
+  private animateName: string = 'pullDownAnimate'
+  private setting: RenderingContextSettings = new RenderingContextSettings(true);
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.setting);
+  private lottieName: string = 'lottie_data';
 
-  <span style="color: rgb(0,0,255);">loadPullDownAnimation</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateItem </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">lottie</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadAnimation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">container</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">渲染上下文</span></em>
-      <span style="color: rgb(255,255,255);">renderer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'canvas'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// canvas</span><span style="color: rgb(128,128,128);">渲染模式</span></em>
-      <span style="color: rgb(255,255,255);">loop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否循环播放</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">默认</span><span style="color: rgb(128,128,128);">true</span></em>
-      <span style="color: rgb(255,255,255);">autoplay</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否自动播放，默认</span><span style="color: rgb(128,128,128);">true</span></em>
-      <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateName</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">contentMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'Contain'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'common/lottie/animation.json'</span><span style="color: rgb(181,106,1);">, </span><em>// json</em><em><span style="color: rgb(128,128,128);">路径</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  loadPullDownAnimation() {
+    this.animateItem = lottie.loadAnimation({
+      container: this.context, <em>// </em><em>渲染上下文</em>
+      renderer: 'canvas', <em>// canvas渲染模式</em>
+      loop: 10,<em> </em><em>// 是否循环播放,默认true</em>
+      autoplay: true, <em>// 是否自动播放，默认true</em>
+      name: this.animateName,
+      contentMode: 'Contain',
+      path: 'common/lottie/animation.json', <em>// json</em><em>路径</em>
+    })
+  }
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">customRefreshComponent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50%'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#aabbcc'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDisAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">lottie</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">destroy</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lottieName</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// Canvas</span><span style="color: rgb(128,128,128);">销毁时顺带销毁</span><span style="color: rgb(128,128,128);">lottie</span><span style="color: rgb(128,128,128);">动画</span></em>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainCanvasRenderingContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainCanvasRenderingContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageSmoothingEnabled </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainCanvasRenderingContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageSmoothingQuality </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'medium'</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadPullDownAnimation</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'mainCanvasRenderingContext is not initialized'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clip</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置最小高度约束保证自定义组件高度随刷新区域高度变化时自定义组件高度不会低于</span><span style="color: rgb(128,128,128);">minHeight</span></em>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constraintSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">minHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  @Builder
+  customRefreshComponent() {
+    Stack() {
+      Row() {
+        Canvas(this.context)
+          .width('50%')
+          .backgroundColor('#aabbcc')
+          .onDisAppear(() => {
+            lottie.destroy(this.lottieName) <em>// Canvas销毁时顺带销毁lottie动画</em>
+          })
+          .onReady(() => {
+            if (this.mainCanvasRenderingContext) {
+              this.mainCanvasRenderingContext.imageSmoothingEnabled = true;
+              this.mainCanvasRenderingContext.imageSmoothingQuality = 'medium';
+              this.loadPullDownAnimation();
+            } else {
+              console.error('mainCanvasRenderingContext is not initialized');
+            }
+          })
+      }
+      .alignItems(VerticalAlign.Center)
+    }
+    .align(Alignment.Center)
+    .clip(true)
+   <em> // 设置最小高度约束保证自定义组件高度随刷新区域高度变化时自定义组件高度不会低于minHeight</em>
+    .constraintSize({ minHeight: 32 })
+    .width('100%')
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Refresh</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">refreshing</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">$$this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isRefreshing</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">builder</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">customRefreshComponent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'70%'</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">80</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0xFFFFFF)</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onScrollIndex</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">first</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">first</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignListItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ListItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Off</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0x89CFF0)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pullToRefresh</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">refreshOffset</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">64</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onStateChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">refreshStatus</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RefreshStatus</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Refresh onStatueChange state is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">refreshStatus</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">refreshStatus </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">未下拉</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateItem</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(0,0,255);">destroy</span><span style="color: rgb(255,0,170);">()</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateItem </span><span style="color: rgb(181,106,1);">= </span>null
-        <span style="color: rgb(181,106,1);">}</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">refreshStatus </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">下拉中</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadPullDownAnimation</span><span style="color: rgb(255,0,170);">()</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">refreshStatus </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">刷新中</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateItem</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">play</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">refreshStatus </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">刷新结束</span></em>
-          <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateItem</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(0,0,255);">destroy</span><span style="color: rgb(255,0,170);">()</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">animateItem </span><span style="color: rgb(181,106,1);">= </span>null
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">75</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onRefreshing</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isRefreshing </span><span style="color: rgb(181,106,1);">= </span>false
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`onRefreshing test`</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Refresh({ refreshing: $$this.isRefreshing, builder: this.customRefreshComponent() }) {
+        List() {
+          ForEach(this.arr, (item: string) => {
+            ListItem() {
+              Text('' + item)
+                .width('70%')
+                .height(80)
+                .fontSize(16)
+                .margin(10)
+                .textAlign(TextAlign.Center)
+                .borderRadius(10)
+                .backgroundColor(0xFFFFFF)
+            }
+          }, (item: string) => item)
+        }
+        .onScrollIndex((first: number) => {
+          console.info(first.toString())
+        })
+        .width('100%')
+        .height('100%')
+        .alignListItem(ListItemAlign.Center)
+        .scrollBar(BarState.Off)
+      }
+      .backgroundColor(0x89CFF0)
+      .pullToRefresh(true)
+      .refreshOffset(64)
+      .onStateChange((refreshStatus: RefreshStatus) => {
+        console.info(`Refresh onStatueChange state is ${refreshStatus}`)
+        if (refreshStatus === 0) { <em>// 未下拉</em>
+          this.animateItem!.destroy()
+          this.animateItem = null
+        }
+        if (refreshStatus === 1) { <em>// 下拉中</em>
+          this.loadPullDownAnimation()
+        }
+        if (refreshStatus === 3) {<em> </em><em>// 刷新中</em>
+          this.animateItem?.play();
+        }
+        if (refreshStatus === 4) { <em>// 刷新结束</em>
+          setTimeout(() => {
+            this.animateItem!.destroy()
+            this.animateItem = null
+          }, 75)
+        }
+      })
+      .onRefreshing(() => {
+        setTimeout(() => {
+          this.isRefreshing = false
+        }, 2000)
+        console.info(`onRefreshing test`)
+      })
+    }
+  }
+}
 ```
 
 
@@ -179,7 +179,7 @@ Q：在Tab栏中通过Refresh组件实现下拉刷新后，重复刷新同一项
 A：可以给Refresh组件绑定一个参数用来控制刷新状态。
  
 ```text
-<span style="color: rgb(0,0,255);">Refresh</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">refreshing</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$$this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRefreshing </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+Refresh({ refreshing: $$this.isRefreshing })
 ```
  
 每次重复刷新时，重置状态变量isRefreshing即可重复触发刷新效果。

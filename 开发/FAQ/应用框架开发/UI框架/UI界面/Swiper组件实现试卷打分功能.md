@@ -35,142 +35,142 @@
  
 ```ArkTS
 <em>// Index.ets</em>
-class <span style="color: rgb(0,0,255);">MyDataSource </span>implements <span style="color: rgb(0,0,255);">IDataSource </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+class MyDataSource implements IDataSource {
+  private list: number[] = [];
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[]) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">list </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  constructor(list: number[]) {
+    this.list = list;
+  }
 
-  <span style="color: rgb(0,0,255);">totalCount</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(255,0,170);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  totalCount(): number {
+    return this.list.length;
+  }
 
-  <span style="color: rgb(0,0,255);">getData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(255,0,170);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  getData(index: number): number {
+    return this.list[index];
+  }
 
-  <span style="color: rgb(0,0,255);">registerDataChangeListener</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">  }</span>
+  registerDataChangeListener(): void {
+  }
 
-  <span style="color: rgb(0,0,255);">unregisterDataChangeListener</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+  unregisterDataChangeListener() {
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Page </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SwiperController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SwiperController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MyDataSource </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyDataSource</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextInputController </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Page {
+  private swiperController: SwiperController = new SwiperController();
+  private data: MyDataSource = new MyDataSource([]);
+  controller: TextInputController | undefined;
+  @State scores: string[] = ['0', '0', '0', '0', '0'];
+  @State sum: number = 0;
+  @State currentIndex: number = 0;
 
-  <span style="color: rgb(0,0,255);">calculate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">sum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">sum </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  calculate(): void {
+    let sum = 0;
+    for (let i = 0; i < 5; i++) {
+      sum += parseInt(this.scores[i].toString());
+    }
+    this.sum = sum;
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyDataSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear(): void {
+    let list: number[] = [];
+    for (let i = 0; i < 6; i++) {
+      list.push(i);
+    }
+    this.data = new MyDataSource(list);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">LazyForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">总得分：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">分</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">第</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">题</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0xAFEEEE)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column({ space: 5 }) {
+      Swiper(this.swiperController) {
+        LazyForEach(this.data, (index: number) => {
+          Column() {
+            if (index === 5) {
+              Text(`总得分：${this.sum} 分`)
+                .textAlign(TextAlign.Center)
+                .fontSize(30);
+            } else {
+              Row() {
+                Text(`第${index + 1}题`)
+                  .backgroundColor(0xAFEEEE)
+                  .textAlign(TextAlign.Center)
+                  .fontSize(30);
+              };
 
-              <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">本题得分：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">分</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0xAFEEEE)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0xAFEEEE)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">displayCount</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interval</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">4000</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">itemSpace</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationEnd</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">calculate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              Row() {
+                Text(`本题得分：${this.scores[index]}分`)
+                  .backgroundColor(0xAFEEEE)
+                  .textAlign(TextAlign.Center)
+                  .fontSize(30);
+              };
+            }
+          }
+          .backgroundColor(0xAFEEEE)
+          .width('100%')
+          .height('100%')
+          .justifyContent(FlexAlign.Center);
+        }, (item: string) => item);
+      }
+      .displayCount(1, true)
+      .interval(4000)
+      .duration(1000)
+      .itemSpace(10)
+      .indicator(false)
+      .width('100%')
+      .height('80%')
+      .loop(false)
+      .onAnimationEnd((index: number) => {
+        this.calculate();
+        this.currentIndex = index;
+      });
 
-      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">上一题</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showPrevious</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">下一题</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showNext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      if (this.currentIndex !== 5) {
+        Row({ space: 20 }) {
+          Button('上一题')
+            .onClick(() => {
+              this.swiperController.showPrevious();
+            });
+          Button('下一题')
+            .onClick(() => {
+              this.swiperController.showNext();
+            });
+        };
 
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">本题满分</span><span style="color: rgb(255,0,170);">20</span><span style="color: rgb(255,0,170);">分，请输入得分：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+        Row() {
+          Text('本题满分20分，请输入得分：');
+        };
 
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入</span><span style="color: rgb(255,0,170);">0-20</span><span style="color: rgb(255,0,170);">之间的数字</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputFilter</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[</span>\-<span style="color: rgb(255,0,170);">0-9]'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">val</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'TextInputExample </span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);"> ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">val</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              return <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">num</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">num </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">num </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'20'</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">num</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxLength</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">placeholderFont</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">14 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSubmit</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">EnterKeyType</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scores</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+        Row() {
+          TextInput({ text: this.scores[this.currentIndex], placeholder: '请输入0-20之间的数字' })
+            .inputFilter('[\-0-9]', (val) => {
+              console.error('TextInputExample ： ' + val);
+              return 0;
+            })
+            .onChange((text) => {
+              let num: number = Number(text);
+              if (num < 0) {
+                this.scores[this.currentIndex] = '0';
+              } else if (num > 20) {
+                this.scores[this.currentIndex] = '20';
+              } else {
+                this.scores[this.currentIndex] = num.toString();
+              }
+            })
+            .maxLength(2)
+            .padding({ left: 16 })
+            .placeholderFont({ size: 14 })
+            .fontSize(14)
+            .onSubmit((EnterKeyType, Event) => {
+              this.scores[this.currentIndex] = Event.text;
+            })
+            .width('80%');
+        };
+      }
+    }.width('100%')
+    .margin({ top: 5 });
+  }
+}
 ```

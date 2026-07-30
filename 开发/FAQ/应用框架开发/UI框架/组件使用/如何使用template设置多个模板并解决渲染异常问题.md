@@ -12,109 +12,109 @@
 
   
 ```text
-<span style="color: rgb(128,128,128);">// ...</span>
-<span style="color: rgb(0,0,255);">Repeat</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">virtualScroll</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开启虚拟滚动</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">each</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// ...</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'_' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">templateId</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">由</span><span style="color: rgb(128,128,128);">template type</span><span style="color: rgb(128,128,128);">渲染对应的</span><span style="color: rgb(128,128,128);">template</span><span style="color: rgb(128,128,128);">子组件</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模板</span><span style="color: rgb(128,128,128);">1</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模板</span><span style="color: rgb(128,128,128);">2</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模板</span><span style="color: rgb(128,128,128);">3</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'4'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模板</span><span style="color: rgb(128,128,128);">4</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'5'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模板</span><span style="color: rgb(128,128,128);">5</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(128,128,128);">// ...</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模板</span><span style="color: rgb(128,128,128);">100</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// ...
+Repeat<string>(this.message)
+  .virtualScroll() // 开启虚拟滚动
+  .each((item: RepeatItem<string>) => {
+    // ...
+  })
+  .key((item: string, index: number) => {
+    return item + '_' + index;
+  })
+  .templateId((item: string, index: number): string => {
+    return item;
+  })
+    // 由template type渲染对应的template子组件
+  .template('1', (item: RepeatItem<string>) => {
+    // 模板1
+  })
+  .template('2', (item: RepeatItem<string>) => {
+    // 模板2
+  })
+  .template('3', (item: RepeatItem<string>) => {
+    // 模板3
+  })
+  .template('4', (item: RepeatItem<string>) => {
+    // 模板4
+  })
+  .template('5', (item: RepeatItem<string>) => {
+    // 模板5
+  })
+    // ...
+  .template('100', (item: RepeatItem<string>) => {
+    // 模板100
+  });
 ```
 
 - 场景二：刷新数据源，数据项未按照设定模板进行渲染如何处理？首次渲染时，按照template type渲染对应的template子组件，但刷新数据源后，数据项的template type变化，对应的数据项未按照对应的template进行渲染，仍显示首次渲染的模板，问题代码如下：
 
   
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@ComponentV2</span>
-struct <span style="color: rgb(0,0,255);">RepeatPage </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@ComponentV2
+struct RepeatPage {
+  @Local message: string[] = ['1', '1', '1', '1', '1', '1', '1', '1'];
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">刷新数据源</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'refresh'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      // 刷新数据源
+      Button('refresh')
+        .onClick(() => {
+          this.message = ['2', '3', '2', '3', '2', '3', '2', '2', '3', '2', '3', '2', '3', '2'];
+        })
+        .margin({
+          left: 16,
+          top: 16,
+          bottom: 16,
+          right: 16
+        });
 
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">18 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Repeat</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">each</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`each: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            return <span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'_' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">templateId</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`item = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, index = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            return <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">由</span><span style="color: rgb(128,128,128);">template type</span><span style="color: rgb(128,128,128);">渲染对应的</span><span style="color: rgb(128,128,128);">template</span><span style="color: rgb(128,128,128);">子组件</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`template_1: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`template_2: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      List({ space: 18 }) {
+        Repeat<string>(this.message)
+          .each((item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`each: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          })
+          .key((item: string, index: number) => {
+            return item + '_' + index;
+          })
+          .templateId((item: string, index: number): string => {
+            console.info(`item = ${item}, index = ${index}`);
+            return item;
+          })
+            // 由template type渲染对应的template子组件
+          .template('1', (item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`template_1: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          }, { cachedCount: 2 })
+          .template('2', (item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`template_2: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          }, { cachedCount: 2 });
+      }
+      .layoutWeight(1)
+      .width('100%');
+    };
+  }
+}
 ```
 
 
@@ -142,91 +142,91 @@ struct <span style="color: rgb(0,0,255);">RepeatPage </span><span style="color: 
  1. Repeat的渲染模板（template）能力，需要通过.templateId()方法为每个数据项指定模板类型，并在.template()中定义对应的渲染逻辑。不同模板类型对应不同的子组件结构，Repeat会根据类型自动复用相同模板的组件节点。详细参考：[循环渲染能力说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#循环渲染能力说明)。
 2. 若模板数量多时，不希望重复设置template定义多个模板，避免代码重复。可以考虑把结构相似的子组件放在一个template中处理，将数据项相关信息（例如item，index等）作为参数传给@Builder函数，在@Builder内使用visibility、if/else条件渲染等方式进行处理。例如通过visibility控制子组件内部组件的显示隐藏：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@ComponentV2</span>
-struct <span style="color: rgb(0,0,255);">TemplatePageOne </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'4'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'4'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'5'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'5'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@ComponentV2
+struct TemplatePageOne {
+  @Local message: string[] = ['1', '2', '1', '2', '3', '3', '4', '4', '5', '5',];
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">18 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Repeat</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">virtualScroll</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开启虚拟滚动</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">each</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`each: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            return <span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'_' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">templateId</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`item = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, index = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,170);">'3' </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,170);">'4'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              return <span style="color: rgb(255,0,170);">'other'</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            return <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">由</span><span style="color: rgb(128,128,128);">template type</span><span style="color: rgb(128,128,128);">渲染对应的</span><span style="color: rgb(128,128,128);">template</span><span style="color: rgb(128,128,128);">子组件</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`template_1: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`template_2: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'other'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`template_other: `</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                    <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                    <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">visibility</span><span style="color: rgb(128,128,128);">控制组件显示隐藏</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`this is template 3`</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,170);">'3' </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                    <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                    <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`this is template 4`</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,170);">'4' </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                    <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                    <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      List({ space: 18 }) {
+        Repeat<string>(this.message)
+          .virtualScroll() // 开启虚拟滚动
+          .each((item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`each: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          })
+          .key((item: string, index: number) => {
+            return item + '_' + index;
+          })
+          .templateId((item: string, index: number): string => {
+            console.info(`item = ${item}, index = ${index}`);
+            if (item == '3' || item == '4') {
+              return 'other';
+            }
+            return item;
+          })
+            // 由template type渲染对应的template子组件
+          .template('1', (item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`template_1: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          }, { cachedCount: 2 })
+          .template('2', (item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`template_2: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          }, { cachedCount: 2 })
+          .template('other', (item: RepeatItem<string>) => {
+            ListItem() {
+              Row() {
+                Text(`template_other: `)
+                  .backgroundColor('#f1f3f5')
+                  .margin({
+                    left: 16,
+                    right: 16
+                  });
+                // 通过visibility控制组件显示隐藏
+                Text(`this is template 3`)
+                  .backgroundColor('#f1f3f5')
+                  .visibility(item.item == '3' ? Visibility.Visible : Visibility.None)
+                  .margin({
+                    left: 16,
+                    right: 16
+                  });
+                Text(`this is template 4`)
+                  .backgroundColor('#f1f3f5')
+                  .visibility(item.item == '4' ? Visibility.Visible : Visibility.None)
+                  .margin({
+                    left: 16,
+                    right: 16
+                  });
+              }
+            };
+          }, { cachedCount: 2 });
 
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      }
+      .layoutWeight(1)
+      .width('100%');
+    };
+  }
+}
 ```
 
  
@@ -235,70 +235,70 @@ struct <span style="color: rgb(0,0,255);">TemplatePageOne </span><span style="co
 2. 当未开启virtualScroll()时，Repeat会一次性渲染全部数据项对应的组件，template的复用失效。详细参考：[关闭懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#关闭懒加载)。
 3. 所以刷新数据源后，虽然template type变化，但是template的复用失效，仍显示首次渲染的模板。需要手动设置.virtualScroll()，完整示例如下：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@ComponentV2</span>
-struct <span style="color: rgb(0,0,255);">TemplatePageTwo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@ComponentV2
+struct TemplatePageTwo {
+  @Local message: string[] = ['1', '1', '1', '1', '1', '1', '1', '1'];
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">刷新数据源</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'refresh'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      // 刷新数据源
+      Button('refresh')
+        .onClick(() => {
+          this.message = ['2', '3', '2', '3', '2', '3', '2', '2', '3', '2', '3', '2', '3', '2'];
+        })
+        .margin({
+          left: 16,
+          top: 16,
+          bottom: 16,
+          right: 16
+        });
 
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">18 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Repeat</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">virtualScroll</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开启虚拟滚动</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">each</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`each: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            return <span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'_' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">templateId</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`item = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, index = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            return <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">由</span><span style="color: rgb(128,128,128);">template type</span><span style="color: rgb(128,128,128);">渲染对应的</span><span style="color: rgb(128,128,128);">template</span><span style="color: rgb(128,128,128);">子组件</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`template_1: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">template</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RepeatItem</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`template_2: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      List({ space: 18 }) {
+        Repeat<string>(this.message)
+          .virtualScroll() // 开启虚拟滚动
+          .each((item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`each: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          })
+          .key((item: string, index: number) => {
+            return item + '_' + index;
+          })
+          .templateId((item: string, index: number): string => {
+            console.info(`item = ${item}, index = ${index}`);
+            return item;
+          })
+            // 由template type渲染对应的template子组件
+          .template('1', (item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`template_1: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          }, { cachedCount: 2 })
+          .template('2', (item: RepeatItem<string>) => {
+            ListItem() {
+              Text(`template_2: ${item.item}`)
+                .backgroundColor('#f1f3f5')
+                .margin({
+                  left: 16,
+                  right: 16
+                });
+            };
+          }, { cachedCount: 2 });
+      }
+      .layoutWeight(1)
+      .width('100%');
+    };
+  }
+}
 ```

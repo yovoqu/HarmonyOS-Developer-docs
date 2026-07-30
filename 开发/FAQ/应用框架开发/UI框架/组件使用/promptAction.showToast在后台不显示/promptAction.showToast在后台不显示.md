@@ -32,70 +32,70 @@ APP进入后台时，希望能弹出Toast提示用户进入后台，但是Toast�
  
 - 在EntryAbility.ets文件中增加以下代码，在程序退至后台时会触发[onBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle#onbackground)回调，在此回调中弹出横幅提醒用户。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">notificationManager </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.NotificationKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { notificationManager } from '@kit.NotificationKit';
 ```
  
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">通知方法</span></em>
-<span style="color: rgb(0,0,255);">publishNotification</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">notificationRequest</span><span style="color: rgb(181,106,1);">:</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">描述通知的请求</span></em>
-    <span style="color: rgb(181,106,1);">notificationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NotificationRequest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通知</span><span style="color: rgb(128,128,128);">ID</span></em>
-    <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通知内容</span></em>
-    <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">notificationContentType</span><span style="color: rgb(181,106,1);">:</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">普通文本类型通知</span></em>
-      <span style="color: rgb(255,255,255);">notificationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ContentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NOTIFICATION_CONTENT_BASIC_TEXT</span><span style="color: rgb(181,106,1);">,</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">基本类型通知内容</span></em>
-      <span style="color: rgb(255,255,255);">normal</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">应用名称</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">应用在后台运行</span><span style="color: rgb(132,63,161);">'</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">notificationSlotType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">notificationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SlotType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SOCIAL_COMMUNICATION</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">发布通知</span></em>
-  <span style="color: rgb(255,255,255);">notificationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">publish</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">notificationRequest</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'publish success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`publish failed,message is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// </em><em>通知方法</em>
+publishNotification() {
+  let notificationRequest:
+  <em>  // 描述通知的请求</em>
+    notificationManager.NotificationRequest = {
+   <em> // 通知ID</em>
+    id: 1,
+   <em> // 通知内容</em>
+    content: {
+      notificationContentType:
+   <em>   // 普通文本类型通知</em>
+      notificationManager.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
+     <em> // 基本类型通知内容</em>
+      normal: {
+        title: '应用名称',
+        text: '应用在后台运行'
+      },
+    },
+    notificationSlotType: notificationManager.SlotType.SOCIAL_COMMUNICATION,
+  };
+  <em>// 发布通知</em>
+  notificationManager.publish(notificationRequest).then(() => {
+    console.info('publish success');
+  }).catch((err: Error) => {
+    console.error(`publish failed,message is ${err}`);
+  });
+}
 
-<span style="color: rgb(0,0,255);">onBackground</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span>void <span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">publishNotification</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-<em>  <span style="color: rgb(128,128,128);">// Ability has back to background</span></em>
-  <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onBackground'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+onBackground(): void {
+  this.publishNotification();
+<em>  // Ability has back to background</em>
+  hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
+}
 ```
 
 - 应用页面按照正常业务逻辑写即可，以hello world工程为例。Index.ets：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State message: string = 'Hello World';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'HelloWorld'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.float.page_text_font_size'</span><span style="color: rgb(255,0,170);">))</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'Welcome'</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    RelativeContainer() {
+      Text(this.message)
+        .id('HelloWorld')
+        .fontSize($r('app.float.page_text_font_size'))
+        .fontWeight(FontWeight.Bold)
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+        .onClick(() => {
+          this.message = 'Welcome';
+        });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
 ```
 
 

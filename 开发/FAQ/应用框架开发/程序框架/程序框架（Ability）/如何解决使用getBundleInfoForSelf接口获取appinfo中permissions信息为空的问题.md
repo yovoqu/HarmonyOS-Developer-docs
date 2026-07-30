@@ -9,11 +9,11 @@
 在开发应用时，需要获取应用包申请权限信息，系统提供了bundleManager.getBundleInfoForSelf接口去获取应用包权限信息，但接口返回后获取的appinfo信息中permissions为空值，是什么原因？
  
 ```json
-let <span style="color: rgb(0,0,255);">bundleFlags </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">bundleManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BundleFlag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GET_BUNDLE_INFO_WITH_APPLICATION</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(0,0,255);">bundleManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getBundleInfoForSelf</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bundleFlags</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  let <span style="color: rgb(0,0,255);">permissions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reqPermissionDetails</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`permissions: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION;
+bundleManager.getBundleInfoForSelf(this.bundleFlags).then((data) => {
+  let permissions = JSON.stringify(data.reqPermissionDetails);
+  hilog.info(0x0000, 'test', `permissions: ${permissions}`);
+})
 ```
  
  
@@ -42,37 +42,37 @@ let <span style="color: rgb(0,0,255);">bundleFlags </span><span style="color: rg
 添加包信息标志GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION，以获取包申请权限信息。
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bundleManager </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { bundleManager } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">GetBundleInfo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">getInfo</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">bundleFlags </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">bundleManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BundleFlag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GET_BUNDLE_INFO_WITH_APPLICATION </span><span style="color: rgb(181,106,1);">|</span>
-    <span style="color: rgb(0,0,255);">bundleManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BundleFlag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">bundleManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getBundleInfoForSelf</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">bundleFlags</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">permissions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reqPermissionDetails</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'TAG'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'permissions:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'TAG'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+@Entry
+@Component
+struct GetBundleInfo {
+  getInfo() {
+    let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION |
+    bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION;
+    bundleManager.getBundleInfoForSelf(bundleFlags).then((data) => {
+      let permissions = JSON.stringify(data.reqPermissionDetails);
+      hilog.info(0x0000, 'TAG', 'permissions:' + permissions);
+    }).catch((err: BusinessError) => {
+      hilog.error(0x0000, 'TAG', err.message);
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击获取包申请权限信息</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Button('点击获取包申请权限信息')
+        .fontSize(30)
+        .onClick(() => {
+          this.getInfo();
+        });
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```
  
  

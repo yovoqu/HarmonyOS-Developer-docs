@@ -76,7 +76,7 @@ App running unique id:6954091671400091859
 Process life time:24s
 Process Memory(kB): 80670(Rss)
 Device Memory(kB): Total 11699072, Free 574140, Available 5592064
-<strong><span style="color: rgb(255,0,0);">Reason:Signal:SIGTRAP(TRAP_BRKPT)@0x0000005a2e7a86e8</span></strong>
+<strong>Reason:Signal:SIGTRAP(TRAP_BRKPT)@0x0000005a2e7a86e8</strong>
 Fault thread info:
 Tid:40974, Name:ppcrashanalysis
 #00 pc 00000000000286e8 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerBrkInstruction(napi_env__*, napi_callback_info__*)+12)(4687a4d714038f89c2e644d7b764097814597256)
@@ -178,7 +178,7 @@ Tid:41223, Name:ppcrashanalysis
 ```text
 .text:00000000000B9908 loc_B9908                               ; CODE XREF: cache_bin_dalloc_safety_checks+94↓j
 .text:00000000000B9908                                         ; cache_bin_dalloc_safety_checks+A0↓j
-<strong><span style="color: rgb(255,0,0);">.text:00000000000B9908                 BRK             #1</span></strong>
+<strong>.text:00000000000B9908                 BRK             #1</strong>
 .text:00000000000B9908
 ```
 
@@ -199,7 +199,7 @@ cache_bin_dalloc_safety_checks
 
   
 ```text
-<strong style="color: rgb(255,0,0);">#00 pc 00000000000b9908 </strong><span style="color: rgb(255,0,0);">/system/lib/ld-musl-aarch64.so.1(cache_bin_dalloc_safety_checks+108)</span>(f9a4c305648402bdc0bcb0933fea9780)
+<strong style="color: rgb(255,0,0);">#00 pc 00000000000b9908 </strong>/system/lib/ld-musl-aarch64.so.1(cache_bin_dalloc_safety_checks+108)(f9a4c305648402bdc0bcb0933fea9780)
 #01 pc 00000000000c6160 /system/lib/ld-musl-aarch64.so.1(je_free+408)(f9a4c305648402bdc0bcb0933fea9780)
 #02 pc 000000000002874c /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerDoubleFreeTrap(napi_env__*, napi_callback_info__*)+84)(4687a4d714038f89c2e644d7b764097814597256)
 ```

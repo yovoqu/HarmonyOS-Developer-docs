@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-remove-redundant-nest-container"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
+  "rules": {
+    "@performance/hp-arkui-remove-redundant-nest-container": "suggestion",
   }
 }
 ```
@@ -31,24 +31,24 @@
 #### 正例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>  
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>  
+@Entry  
+@Component  
 struct MyComponent {  
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> children: <span style="color: rgb(0,128,128);">number</span>[] = <span style="color: rgb(0,128,128);">Array</span>.<span style="color: rgb(0,0,255);">from</span>(<span style="color: rgb(0,128,128);">Array</span><<span style="color: rgb(0,0,255);">number</span>>(<span style="color: rgb(9,134,88);">900</span>), (v, k) => k);  
+  @State children: number[] = Array.from(Array<number>(900), (v, k) => k);  
   
   build() {  
-    <span style="color: rgb(0,128,128);">Scroll</span>() {  
-      <span style="color: rgb(0,128,128);">Grid</span>() {  
-        <span style="color: rgb(0,128,128);">ForEach</span>(<span style="color: rgb(0,0,255);">this</span>.children, (item: <span style="color: rgb(0,128,128);">Number</span>[]) => {  
-          <span style="color: rgb(0,128,128);">GridItem</span>() {  
-            <span style="color: rgb(0,128,128);">Text</span>(item.toString())  
-          }.backgroundColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Yellow</span>)  
-        }, (item: <span style="color: rgb(0,0,255);">string</span>) => item)  
+    Scroll() {  
+      Grid() {  
+        ForEach(this.children, (item: Number[]) => {  
+          GridItem() {  
+            Text(item.toString())  
+          }.backgroundColor(Color.Yellow)  
+        }, (item: string) => item)  
       }  
-      .columnsTemplate(<span style="color: rgb(163,21,21);">'1fr 1fr 1fr 1fr'</span>)  
-      .columnsGap(<span style="color: rgb(9,134,88);">0</span>)  
-      .rowsGap(<span style="color: rgb(9,134,88);">0</span>)  
-      .size({ width: <span style="color: rgb(163,21,21);">"100%"</span>, height: <span style="color: rgb(163,21,21);">"100%"</span> })  
+      .columnsTemplate('1fr 1fr 1fr 1fr')  
+      .columnsGap(0)  
+      .rowsGap(0)  
+      .size({ width: "100%", height: "100%" })  
     }  
   }  
 }
@@ -59,31 +59,31 @@ struct MyComponent {
 #### 反例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
+@Entry
+@Component
 struct MyComponent {
-    <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> children: <span style="color: rgb(0,128,128);">number</span>[] = <span style="color: rgb(0,128,128);">Array</span>.<span style="color: rgb(0,0,255);">from</span>(<span style="color: rgb(0,128,128);">Array</span><<span style="color: rgb(0,0,255);">number</span>>(<span style="color: rgb(9,134,88);">900</span>), (v, k) => k);
+    @State children: number[] = Array.from(Array<number>(900), (v, k) => k);
     
     build() {
-      <span style="color: rgb(0,128,128);">Scroll</span>() {
-      <span style="color: rgb(0,128,128);">Grid</span>() {
-        <span style="color: rgb(0,128,128);">ForEach</span>(<span style="color: rgb(0,0,255);">this</span>.children, (item: <span style="color: rgb(0,128,128);">Number</span>[]) => {
-          <span style="color: rgb(0,128,128);">GridItem</span>() {
-            <span style="color: rgb(0,128,0);">// 冗余Stack</span>
-            <span style="color: rgb(0,128,128);">Stack</span>() {  
-              <span style="color: rgb(0,128,128);">Stack</span>() {  
-                <span style="color: rgb(0,128,128);">Stack</span>() {  
-                  <span style="color: rgb(0,128,128);">Text</span>(item.toString())  
-                }.size({ width: <span style="color: rgb(163,21,21);">"100%"</span>})  
-              }.backgroundColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Yellow</span>)  
-            }.backgroundColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Pink</span>)  
+      Scroll() {
+      Grid() {
+        ForEach(this.children, (item: Number[]) => {
+          GridItem() {
+            // 冗余Stack
+            Stack() {  
+              Stack() {  
+                Stack() {  
+                  Text(item.toString())  
+                }.size({ width: "100%"})  
+              }.backgroundColor(Color.Yellow)  
+            }.backgroundColor(Color.Pink)  
           }  
-        }, (item: <span style="color: rgb(0,0,255);">string</span>) => item)  
+        }, (item: string) => item)  
       }  
-      .columnsTemplate(<span style="color: rgb(163,21,21);">'1fr 1fr 1fr 1fr'</span>)  
-      .columnsGap(<span style="color: rgb(9,134,88);">0</span>)  
-      .rowsGap(<span style="color: rgb(9,134,88);">0</span>)  
-      .size({ width: <span style="color: rgb(163,21,21);">"100%"</span>, height: <span style="color: rgb(163,21,21);">"100%"</span> })  
+      .columnsTemplate('1fr 1fr 1fr 1fr')  
+      .columnsGap(0)  
+      .rowsGap(0)  
+      .size({ width: "100%", height: "100%" })  
     }  
   }  
 }
@@ -94,7 +94,7 @@ struct MyComponent {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
+plugin:@performance/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

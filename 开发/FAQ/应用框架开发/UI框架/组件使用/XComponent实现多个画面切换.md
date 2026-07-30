@@ -28,165 +28,165 @@
 完整示例参考如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">media </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.MediaKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { window } from '@kit.ArkUI';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { media } from '@kit.MediaKit';
+import { common } from '@kit.AbilityKit';
 
-function <span style="color: rgb(0,0,255);">setAVPlayerCallback</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVPlayer</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">avPlayer </span><span style="color: rgb(181,106,1);">=== </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">监听播放状态机</span><span style="color: rgb(128,128,128);">AVPlayerState</span><span style="color: rgb(128,128,128);">切换的事件</span></em>
-  <span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'stateChange'</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      case <span style="color: rgb(255,0,170);">'idle'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state idle called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'initialized'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state initialized called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'prepared'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state prepared called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer start to play.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'playing'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state playing called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">play</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'paused'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state paused called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">pause</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'completed'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state completed called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">reset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'stopped'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state stopped called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'released'</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0X0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AVPlayer state released called.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      default<span style="color: rgb(181,106,1);">:</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+function setAVPlayerCallback(avPlayer: media.AVPlayer) {
+  if (avPlayer === undefined) {
+    return;
+  }
+ <em> // 监听播放状态机AVPlayerState切换的事件</em>
+  avPlayer?.on('stateChange', async (state: string) => {
+    switch (state) {
+      case 'idle':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state idle called.');
+        break;
+      case 'initialized':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state initialized called.');
+        break;
+      case 'prepared':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state prepared called.');
+        hilog.info(0X0000, 'testTag', 'AVPlayer start to play.');
+        break;
+      case 'playing':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state playing called.');
+        avPlayer?.play();
+        break;
+      case 'paused':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state paused called.');
+        avPlayer?.pause();
+        break;
+      case 'completed':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state completed called.');
+        avPlayer?.reset();
+        break;
+      case 'stopped':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state stopped called.');
+        break;
+      case 'released':
+        hilog.info(0X0000, 'testTag', 'AVPlayer state released called.');
+        avPlayer?.release();
+        break;
+      default:
+        break;
+    }
+  });
+}
 
-class <span style="color: rgb(0,0,255);">AvPlayerInstance </span><span style="color: rgb(255,0,170);">{</span>
-  private static <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">objects </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Map</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVPlayer</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+class AvPlayerInstance {
+  private static instance: AvPlayerInstance;
+  private objects = new Map<string, media.AVPlayer>();
 
-  public static <span style="color: rgb(0,0,255);">getObjectContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">AvPlayerInstance </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    return <span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  public static getObjectContext(): AvPlayerInstance {
+    if (!AvPlayerInstance.instance) {
+      AvPlayerInstance.instance = new AvPlayerInstance();
+    }
+    return AvPlayerInstance.instance;
+  }
 
-  <span style="color: rgb(0,0,255);">getObject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVPlayer </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(255,0,170);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objects</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  getObject(value: string): media.AVPlayer | undefined {
+    return this.objects.get(value);
+  }
 
-  <span style="color: rgb(0,0,255);">setObject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">objectClass</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVPlayer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objects</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">objectClass</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  setObject(key: string, objectClass: media.AVPlayer): void {
+    this.objects.set(key, objectClass);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">xAh</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'30%'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">xBw</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">xbM</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'70%'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">xbMl</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'0%'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">surfaceId2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">xComponentController1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">XComponentController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">xComponentController2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">XComponentController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State xAh: string = '30%';
+  @State xBw: string = '100%';
+  @State xbM: string = '70%';
+  @State xbMl: string = '0%';
+  context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+  private surfaceId: string = '';
+  private surfaceId2: string = '';
+  xComponentController1: XComponentController = new XComponentController();
+  xComponentController2: XComponentController = new XComponentController();
 
-  async <span style="color: rgb(0,0,255);">avPlayerLiveDemo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">avPlayer</span><span style="color: rgb(128,128,128);">实例对象</span></em>
-    let <span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVPlayer </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAVPlayer</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建状态机变化回调函数</span></em>
-    <span style="color: rgb(0,0,255);">setAVPlayerCallback</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">fileDescriptor </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFd</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fdSrc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileDescriptor</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getObjectContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setObject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">avPlayer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  async avPlayerLiveDemo(value: string, file: string) {
+   <em> // 创建avPlayer实例对象</em>
+    let avPlayer: media.AVPlayer = await media.createAVPlayer();
+  <em>  // 创建状态机变化回调函数</em>
+    setAVPlayerCallback(avPlayer);
+    let fileDescriptor = await this.context.resourceManager.getRawFd(file);
+    avPlayer.fdSrc = fileDescriptor;
+    AvPlayerInstance.getObjectContext().setObject(value, avPlayer);
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avPlayerLiveDemo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'valueA'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处</span><span style="color: rgb(128,128,128);">'test.mp4'</span><span style="color: rgb(128,128,128);">等资源仅作示例，请开发者自行替换。</span></em>
+  aboutToAppear() {
+    this.avPlayerLiveDemo('valueA', 'test.mp4');<em> </em><em>// 此处'test.mp4'等资源仅作示例，请开发者自行替换。</em>
 
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avPlayerLiveDemo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'valueB'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test2.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处</span><span style="color: rgb(128,128,128);">'test2.mp4'</span><span style="color: rgb(128,128,128);">等资源仅作示例，请开发者自行替换。</span></em>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'aboutToAppear start'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    this.avPlayerLiveDemo('valueB', 'test2.mp4');<em> </em><em>// 此处'test2.mp4'等资源仅作示例，请开发者自行替换。</em>
+    console.info('aboutToAppear start');
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">层叠布局创建</span><span style="color: rgb(128,128,128);">2</span><span style="color: rgb(128,128,128);">个</span><span style="color: rgb(128,128,128);">XComponent</span><span style="color: rgb(128,128,128);">组件，组件</span><span style="color: rgb(128,128,128);">id</span><span style="color: rgb(128,128,128);">设置唯一</span></em>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Top </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">XComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'A'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SURFACE</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xComponentController1</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xAh</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onLoad</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'onload start'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">surfaceId </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xComponentController1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getXComponentSurfaceId</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">player </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getObjectContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getObject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'valueA'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">player </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">surfaceId </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">;</span>
-              await <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">prepare</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">play</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频播放</span></em>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TopStart</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'xcomponent'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> // 层叠布局创建2个XComponent组件，组件id设置唯一</em>
+  build() {
+    Column() {
+      Stack({ alignContent: Alignment.Top }) {
+        XComponent({
+          id: 'A',
+          type: XComponentType.SURFACE,
+          controller: this.xComponentController1
+        })
+          .width('100%')
+          .height(this.xAh)
+          .onLoad(async () => {
+            console.info('onload start');
+            this.surfaceId = this.xComponentController1.getXComponentSurfaceId();
+            let player = AvPlayerInstance.getObjectContext().getObject('valueA');
+            if (player !== undefined) {
+              player.surfaceId = this.surfaceId;
+              await player.prepare();
+            }
+            player?.play();<em> </em><em>// 音频播放</em>
+          })
+          .align(Alignment.TopStart)
+          .id('xcomponent');
 
-        <span style="color: rgb(0,0,255);">XComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'B'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SURFACE</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xComponentController2</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xBw</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'35%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onLoad</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">surfaceId2 </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xComponentController2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getXComponentSurfaceId</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">player </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AvPlayerInstance</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getObjectContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getObject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'valueB'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">player </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">surfaceId </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">surfaceId2</span><span style="color: rgb(181,106,1);">;</span>
-              await <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">prepare</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">play</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'xcomponent'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">End</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xbM</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xbMl </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        XComponent({
+          id: 'B',
+          type: XComponentType.SURFACE,
+          controller: this.xComponentController2
+        })
+          .width(this.xBw)
+          .height('35%')
+          .onLoad(async () => {
+            this.surfaceId2 = this.xComponentController2.getXComponentSurfaceId();
+            let player = AvPlayerInstance.getObjectContext().getObject('valueB');
+            if (player !== undefined) {
+              player.surfaceId = this.surfaceId2;
+              await player.prepare();
+            }
+            player?.play();
+          })
+          .id('xcomponent')
+          .align(Alignment.End)
+          .margin({ top: this.xbM, left: this.xbMl });
+      }.height('80%');
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">切换屏幕</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">实时改变</span><span style="color: rgb(128,128,128);">XComponent</span><span style="color: rgb(128,128,128);">组件的宽高和位置。</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xAh </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xBw </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xbM </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'20%'</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xbMl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLastWindow</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">win</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          let <span style="color: rgb(0,0,255);">currentOrientation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">win</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPreferredOrientation</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentOrientation </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PORTRAIT</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">win</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LANDSCAPE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">setPreferredOrientation</span><span style="color: rgb(128,128,128);">实现多个画面切换。</span></em>
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">win</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PORTRAIT</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">setPreferredOrientation</span><span style="color: rgb(128,128,128);">实现多个画面切换。</span></em>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Button('切换屏幕').onClick(() => { <em>// 实时改变XComponent组件的宽高和位置。</em>
+        this.xAh = '100%';
+        this.xBw = '50%';
+        this.xbM = '20%';
+        this.xbMl = '50%';
+        window.getLastWindow(this.context, (err, win) => {
+          let currentOrientation = win.getPreferredOrientation();
+          if (currentOrientation == window.Orientation.PORTRAIT) {
+            win.setPreferredOrientation(window.Orientation.LANDSCAPE); <em>// 通过setPreferredOrientation实现多个画面切换。</em>
+          } else {
+            win.setPreferredOrientation(window.Orientation.PORTRAIT); <em>// 通过setPreferredOrientation实现多个画面切换。</em>
+          }
+        });
+      });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
 ```

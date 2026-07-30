@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-performance-no-closures"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
+  "rules": {
+    "@performance/hp-performance-no-closures": "suggestion",
   }
 }
 ```
@@ -45,9 +45,9 @@ foo(arr);
 
 ```text
 let arr = [0, 1, 2];
-<span style="color: rgb(86,156,214);">function</span> foo() {
+function foo() {
   // arr 尽量通过参数传递
-<span style="color: rgb(86,156,214);">  return</span> arr[0] + arr[1];
+  return arr[0] + arr[1];
 }
 foo();
 ```
@@ -57,7 +57,7 @@ foo();
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
+plugin:@performance/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

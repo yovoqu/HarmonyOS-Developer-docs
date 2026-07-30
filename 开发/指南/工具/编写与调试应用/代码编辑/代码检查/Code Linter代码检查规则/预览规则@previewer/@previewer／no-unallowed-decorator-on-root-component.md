@@ -11,11 +11,11 @@
 
 ```json
 // code-linter.json5
-<span style="color: rgb(65,97,0);">{</span>
-<span style="color: rgb(65,97,0);">  "rules": {</span>
-<span style="color: rgb(65,97,0);">    "</span><span style="color: rgb(65,97,0);">@previewer/no-unallowed-decorator-on-root-component": "warn"</span>
-<span style="color: rgb(65,97,0);">  }</span>
-<span style="color: rgb(65,97,0);">}</span>
+{
+  "rules": {
+    "@previewer/no-unallowed-decorator-on-root-component": "warn"
+  }
+}
 ```
  
  
@@ -29,25 +29,25 @@
 #### 正例
 
 ```text
-<span style="color: rgb(65,97,0);">@</span><span style="color: rgb(65,97,0);">Entry</span>
-<span style="color: rgb(65,97,0);">@Component</span>
-<span style="color: rgb(65,97,0);">struct LinkSampleContainer {</span>
-<span style="color: rgb(65,97,0);">  @State message: string = 'Hello World';</span>
-<span style="color: rgb(65,97,0);">  build() {</span>
-<span style="color: rgb(65,97,0);">    Row() {</span>
-<span style="color: rgb(65,97,0);">      LinkSample({message: this.message})</span>
-<span style="color: rgb(65,97,0);">    }</span>
-<span style="color: rgb(65,97,0);">  }</span>
-<span style="color: rgb(65,97,0);">}</span>
-<span style="color: rgb(65,97,0);">@Component</span>
-<span style="color: rgb(65,97,0);">struct LinkSample {</span>
-<span style="color: rgb(65,97,0);">  @Link message: string;</span>
-<span style="color: rgb(65,97,0);">  build() {</span>
-<span style="color: rgb(65,97,0);">    Row() {</span>
-<span style="color: rgb(65,97,0);">      Text(this.message)</span>
-<span style="color: rgb(65,97,0);">    }</span>
-<span style="color: rgb(65,97,0);">  }</span>
-<span style="color: rgb(65,97,0);">}</span>
+@Entry
+@Component
+struct LinkSampleContainer {
+  @State message: string = 'Hello World';
+  build() {
+    Row() {
+      LinkSample({message: this.message})
+    }
+  }
+}
+@Component
+struct LinkSample {
+  @Link message: string;
+  build() {
+    Row() {
+      Text(this.message)
+    }
+  }
+}
 ```
  
  
@@ -55,16 +55,16 @@
 #### 反例
 
 ```text
-<span style="color: rgb(65,97,0);">@</span><span style="color: rgb(65,97,0);">Preview</span>
-<span style="color: rgb(65,97,0);">@Component</span>
-<span style="color: rgb(65,97,0);">struct LinkSample {</span>
-<span style="color: rgb(65,97,0);">  @Link message: string;</span>
-<span style="color: rgb(65,97,0);">  build() {</span>
-<span style="color: rgb(65,97,0);">    Row() {</span>
-<span style="color: rgb(65,97,0);">      Text(this.message)</span>
-<span style="color: rgb(65,97,0);">    }</span>
-<span style="color: rgb(65,97,0);">  }</span>
-<span style="color: rgb(65,97,0);">}</span>
+@Preview
+@Component
+struct LinkSample {
+  @Link message: string;
+  build() {
+    Row() {
+      Text(this.message)
+    }
+  }
+}
 ```
  
  
@@ -72,8 +72,8 @@
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@previewer/recommended</span>
-<span style="color: rgb(106,135,89);">plugin:@previewer/all</span>
+plugin:@previewer/recommended
+plugin:@previewer/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

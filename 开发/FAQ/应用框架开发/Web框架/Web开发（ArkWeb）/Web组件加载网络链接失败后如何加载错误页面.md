@@ -45,100 +45,100 @@ Hidden：隐藏，但参与布局进行占位。
 
   定义successLoad变量控制页面显示，当加载失败后把errorCode赋值给successLoad变量，重新刷新页面时设置successLoad的值为0（若不设置为0，则缺省页面一直展示）。页面采用Stack布局，包含缺省页面层和Web页面层，当successLoad为0时展示Web页面，successLoad为其他值展示缺省页面。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">请换成实际应用的在线地址</span></em>
-const <span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'www.example.com'</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em>请换成实际应用的在线地址</em>
+const WEB_URL: string | Resource = 'www.example.com';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WebLoadErrorPage1 </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">successLoad</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">webController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WebLoadErrorPage1 {
+  @State successLoad: number = 0;
+  webController: webview.WebviewController = new webview.WebviewController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{ </span><em>// </em><em><span style="color: rgb(128,128,128);">缺省页</span></em>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">重新加载</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">successLoad </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">refresh</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">successLoad </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Stack() {
+      Column() { <em>// </em><em>缺省页</em>
+        Button('重新加载')
+          .onClick(() => {
+            this.successLoad = 0;
+            this.webController.refresh();
+          });
+      }
+      .width('100%')
+      .height('100%')
+      .justifyContent(FlexAlign.Center)
+      .visibility(this.successLoad !== 0 ? Visibility.Visible : Visibility.None);
 
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webController </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><em>// Web</em><em><span style="color: rgb(128,128,128);">页面</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">successLoad </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Hidden</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onErrorReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorCode</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">successLoad </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorCode</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Web({ src: WEB_URL, controller: this.webController }) <em>// Web</em><em>页面</em>
+        .width('100%')
+        .height('100%')
+        .domStorageAccess(true)
+        .fileAccess(false)
+        .geolocationAccess(false)
+        .visibility(this.successLoad === 0 ? Visibility.Visible : Visibility.Hidden)
+        .onErrorReceive((event) => {
+          if (event.error.getErrorCode() !== 0) {
+            this.successLoad = event.error.getErrorCode();
+          }
+        });
+    }
+    .width('100%')
+    .height('100%');
+  }
+}
 ```
 
 - **场景二**：
 
   ArkTS侧实现Web加载H5页面的功能，当加载失败后onErrorReceive回调的errorCode不为0时，使用loadUrl加载本地H5页面，并通过javaScriptProxy接口给H5注入对应的对象和方法，以便H5侧能调用。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">请换成实际应用的在线地址</span></em>
-const <span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'www.example.com'</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em>请换成实际应用的在线地址</em>
+const WEB_URL: string | Resource = 'www.example.com';
 
-class <span style="color: rgb(0,0,255);">WebManager </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(181,106,1);">;</span>
+class WebManager {
+  private controller?: webview.WebviewController;
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  constructor(controller: webview.WebviewController) {
+    this.controller = controller;
+  }
 
-  <span style="color: rgb(0,0,255);">refresh</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  refresh() {
+    this.controller?.loadUrl(WEB_URL);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WebLoadErrorPage2 </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">webController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">webManager</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WebManager </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">WebManager</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webController</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WebLoadErrorPage2 {
+  webController: webview.WebviewController = new webview.WebviewController;
+  webManager: WebManager = new WebManager(this.webController);
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webController </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptProxy</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">object</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webManager</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'WebManager'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'refresh'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webController</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onErrorReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorCode</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index.html'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Web({ src: WEB_URL, controller: this.webController })
+        .domStorageAccess(true)
+        .fileAccess(false)
+        .geolocationAccess(false)
+        .javaScriptProxy({
+          object: this.webManager,
+          name: 'WebManager',
+          methodList: ['refresh'],
+          controller: this.webController,
+        })
+        .domStorageAccess(true)
+        .onErrorReceive((event) => {
+          if (event.error.getErrorCode() !== 0) {
+            this.webController.loadUrl($rawfile('index.html'));
+          }
+        });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
 ```
 
 
@@ -188,175 +188,175 @@ struct <span style="color: rgb(0,0,255);">WebLoadErrorPage2 </span><span style="
 - **场景三**：
 **方案一**：ArkTS侧实现Web加载H5页面的功能，当加载失败后onErrorReceive回调的errorCode不为0时，使用loadData加载本地html格式的文本数据，并通过javaScriptProxy接口给H5注入对应的对象和方法，以便H5侧能调用。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">请换成实际应用的在线地址</span></em>
-const <span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'www.example.com'</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em>请换成实际应用的在线地址</em>
+const WEB_URL: string | Resource = 'www.example.com';
 
-class <span style="color: rgb(0,0,255);">WebManager </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(181,106,1);">;</span>
+class WebManager {
+  private controller?: webview.WebviewController;
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  constructor(controller: webview.WebviewController) {
+    this.controller = controller;
+  }
 
-  <span style="color: rgb(0,0,255);">refresh</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  refresh() {
+    this.controller?.loadUrl(WEB_URL);
+  }
+}
 
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WebLoadErrorPage3 </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">webManager</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WebManager </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">WebManager</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WebLoadErrorPage3 {
+  controller: webview.WebviewController = new webview.WebviewController();
+  webManager: WebManager = new WebManager(this.controller);
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptProxy</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">object</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webManager</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'WebManager'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'refresh'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onErrorReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorCode</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(0,0,255);">(</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">html</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">head</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'    </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta charset=</span>\"<span style="color: rgb(255,0,170);">UTF-8</span>\"<span style="color: rgb(255,0,170);"> /</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'   </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta name=</span>\"<span style="color: rgb(255,0,170);">viewport</span>\"<span style="color: rgb(255,0,170);"> content=</span>\"<span style="color: rgb(255,0,170);">width=device-width, initial-scale=1.0</span>\"<span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'    </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">style</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'        body {</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          height: 90vh;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          display: flex;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          justify-content: center;  /* </span><span style="color: rgb(255,0,170);">水平居中</span><span style="color: rgb(255,0,170);"> */</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          align-items: center;      /* </span><span style="color: rgb(255,0,170);">垂直居中</span><span style="color: rgb(255,0,170);"> */</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'        }</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'        .btn {</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          border: none;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          border-radius: 30px;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          padding: 12px 30px;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          font-size: 16px;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          background-color: #0A59F7;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          color: white;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'          cursor: pointer;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'        }</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'    </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/style</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/head</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta name=</span>\"<span style="color: rgb(255,0,170);">viewport</span>\"<span style="color: rgb(255,0,170);"> content=</span>\"<span style="color: rgb(255,0,170);">width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover</span>\"<span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">body</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">button class=</span>\"<span style="color: rgb(255,0,170);">btn</span>\"<span style="color: rgb(255,0,170);"> onclick=</span>\"<span style="color: rgb(255,0,170);">refresh()</span>\"<span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">重新加载</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/button</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/body</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/html</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">script</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'    function refresh() {</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'      console.info("refresh")</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'      return window.WebManager.refresh()</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'    }</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-                <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/script</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,0,170);">'text/html'</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,0,170);">'UTF-8'</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,0,170);">' '</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// baseUrl</span><span style="color: rgb(128,128,128);">设置为空格</span></em>
-              <span style="color: rgb(255,0,170);">' ' </span><em><span style="color: rgb(128,128,128);">// historyUrl</span><span style="color: rgb(128,128,128);">设置为空格</span></em>
-            <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Web({ src: WEB_URL, controller: this.controller })
+        .domStorageAccess(true)
+        .fileAccess(false)
+        .geolocationAccess(false)
+        .javaScriptProxy({
+          object: this.webManager,
+          name: 'WebManager',
+          methodList: ['refresh'],
+          controller: this.controller,
+        })
+        .onErrorReceive((event) => {
+          if (event.error.getErrorCode() !== 0) {
+            this.controller.loadData(
+              '<html>\n' +
+                '<head>\n' +
+                '    <meta charset=\"UTF-8\" />\n' +
+                '   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n' +
+                '    <style>\n' +
+                '        body {\n' +
+                '          height: 90vh;\n' +
+                '          display: flex;\n' +
+                '          justify-content: center;  /* 水平居中 */\n' +
+                '          align-items: center;      /* 垂直居中 */\n' +
+                '        }\n' +
+                '        .btn {\n' +
+                '          border: none;\n' +
+                '          border-radius: 30px;\n' +
+                '          padding: 12px 30px;\n' +
+                '          font-size: 16px;\n' +
+                '          background-color: #0A59F7;\n' +
+                '          color: white;\n' +
+                '          cursor: pointer;\n' +
+                '        }\n' +
+                '    </style>\n' +
+                '</head>\n' +
+                '<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover\"/>\n' +
+                '<body>\n' +
+                '<button class=\"btn\" onclick=\"refresh()\">重新加载</button>\n' +
+                '</body>\n' +
+                '</html>\n' +
+                '<script>\n' +
+                '    function refresh() {\n' +
+                '      console.info("refresh")\n' +
+                '      return window.WebManager.refresh()\n' +
+                '    }\n' +
+                '</script>',
+              'text/html',
+              'UTF-8',
+              ' ',<em> </em><em>// baseUrl设置为空格</em>
+              ' ' <em>// historyUrl设置为空格</em>
+            );
+          }
+        });
+    };
+  }
+}
 ```
 
 - **方案二**：如果在API20及以上版本，可以在onControllerAttached回调中将setErrorPageEnabled设置为true启用默认错误页。当加载网络页面加载失败后会回调onOverrideErrorPage接口，该接口是一个用于处理错误页面的机制，将需要实现html文本return后，就会把内容渲染在该页面上。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">请换成实际应用的在线地址</span></em>
-const <span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'www.baidu.com'</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em>请换成实际应用的在线地址</em>
+const WEB_URL: string | Resource = 'www.baidu.com';
 
-class <span style="color: rgb(0,0,255);">WebManager </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(181,106,1);">;</span>
+class WebManager {
+  private controller?: webview.WebviewController;
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  constructor(controller: webview.WebviewController) {
+    this.controller = controller;
+  }
 
-  <span style="color: rgb(0,0,255);">refresh</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  refresh() {
+    this.controller?.loadUrl(WEB_URL);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WebLoadErrorPage4 </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">webManager</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WebManager </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">WebManager</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WebLoadErrorPage4 {
+  controller: webview.WebviewController = new webview.WebviewController();
+  webManager: WebManager = new WebManager(this.controller);
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WEB_URL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onControllerAttached</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setErrorPageEnabled</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorPageEnabled</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setErrorPageEnabled</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptProxy</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">object</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webManager</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'WebManager'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'refresh'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onOverrideErrorPage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorCode</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">htmlStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">html</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">head</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'    </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta charset=</span>\"<span style="color: rgb(255,0,170);">UTF-8</span>\"<span style="color: rgb(255,0,170);"> /</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'   </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta name=</span>\"<span style="color: rgb(255,0,170);">viewport</span>\"<span style="color: rgb(255,0,170);"> content=</span>\"<span style="color: rgb(255,0,170);">width=device-width, initial-scale=1.0</span>\"<span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'    </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">style</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'        body {</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          height: 100vh;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          display: flex;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          justify-content: center;  /* </span><span style="color: rgb(255,0,170);">水平居中</span><span style="color: rgb(255,0,170);"> */</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          align-items: center;      /* </span><span style="color: rgb(255,0,170);">垂直居中</span><span style="color: rgb(255,0,170);"> */</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'        }</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'        .btn {</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          border: none;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          border-radius: 30px;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          padding: 12px 30px;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          font-size: 16px;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          background-color: #0A59F7;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          color: white;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'          cursor: pointer;</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'        }</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'    </span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/style</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/head</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta name=</span>\"<span style="color: rgb(255,0,170);">viewport</span>\"<span style="color: rgb(255,0,170);"> content=</span>\"<span style="color: rgb(255,0,170);">width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover</span>\"<span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">body</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">button class=</span>\"<span style="color: rgb(255,0,170);">btn</span>\"<span style="color: rgb(255,0,170);"> onclick=</span>\"<span style="color: rgb(255,0,170);">refresh()</span>\"<span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">重新加载</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/button</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/body</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/html</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">script</span><span style="color: rgb(255,0,170);">></span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'    function refresh() {</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'      console.info("refresh")</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'      return window.WebManager.refresh()</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'    }</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/script</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
-            return <span style="color: rgb(0,0,255);">htmlStr</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          return null<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Web({ src: WEB_URL, controller: this.controller })
+        .domStorageAccess(true)
+        .fileAccess(false)
+        .geolocationAccess(false)
+        .onControllerAttached(() => {
+          this.controller.setErrorPageEnabled(true);
+          if (!this.controller.getErrorPageEnabled()) {
+            this.controller.setErrorPageEnabled(true);
+          }
+        })
+        .javaScriptProxy({
+          object: this.webManager,
+          name: 'WebManager',
+          methodList: ['refresh'],
+          controller: this.controller,
+        })
+        .onOverrideErrorPage(event => {
+          if (event.error.getErrorCode() !== 0) {
+            let htmlStr = '<html>\n' +
+              '<head>\n' +
+              '    <meta charset=\"UTF-8\" />\n' +
+              '   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n' +
+              '    <style>\n' +
+              '        body {\n' +
+              '          height: 100vh;\n' +
+              '          display: flex;\n' +
+              '          justify-content: center;  /* 水平居中 */\n' +
+              '          align-items: center;      /* 垂直居中 */\n' +
+              '        }\n' +
+              '        .btn {\n' +
+              '          border: none;\n' +
+              '          border-radius: 30px;\n' +
+              '          padding: 12px 30px;\n' +
+              '          font-size: 16px;\n' +
+              '          background-color: #0A59F7;\n' +
+              '          color: white;\n' +
+              '          cursor: pointer;\n' +
+              '        }\n' +
+              '    </style>\n' +
+              '</head>\n' +
+              '<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover\"/>\n' +
+              '<body>\n' +
+              '<button class=\"btn\" onclick=\"refresh()\">重新加载</button>\n' +
+              '</body>\n' +
+              '</html>\n' +
+              '<script>\n' +
+              '    function refresh() {\n' +
+              '      console.info("refresh")\n' +
+              '      return window.WebManager.refresh()\n' +
+              '    }\n' +
+              '</script>';
+            return htmlStr;
+          }
+          return null;
+        });
+    };
+  }
+}
 ```
  
 > [!NOTE]

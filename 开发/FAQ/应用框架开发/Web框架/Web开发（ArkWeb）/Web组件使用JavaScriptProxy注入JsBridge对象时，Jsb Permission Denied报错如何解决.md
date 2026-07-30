@@ -8,37 +8,37 @@
 
 Web组件用file协议加载位于Download目录下的html文件，用JavaScriptProxy注入JsBridge对象，但前端页面无法调用注入的JsBridge对象的方法，前端页面报错为Uncaught Error：Jsb Permission Denied。部分问题代码如下：
 ```text
-<span style="color: rgb(181,106,1);">jsBridgePermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JsBridgePermission </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">javascriptProxyPermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[      </span><em> </em><em><span style="color: rgb(128,128,128);">// Object</span><span style="color: rgb(128,128,128);">级权限，如果匹配，所有</span><span style="color: rgb(128,128,128);">Method</span><span style="color: rgb(128,128,128);">都授权</span></em>
-      <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'resource'</span><span style="color: rgb(181,106,1);">,    </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rawfile'</span><span style="color: rgb(181,106,1);">,      </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,            </span><em>  </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-        <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''             </span><em>  </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">前缀匹配，为空不检查</span></em>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'file'</span><span style="color: rgb(181,106,1);">,  </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,  </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,       </span><em>   </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-        <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''        </span><em>   </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">前缀匹配，为空不检查</span></em>
-      <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
-      <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">methodName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[  </span><em> </em><em><span style="color: rgb(128,128,128);">// Method</span><span style="color: rgb(128,128,128);">级权限</span></em>
-          <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'resource'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-            <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rawfile'</span><span style="color: rgb(181,106,1);">,  </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-            <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,       </span><em>   </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-            <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''        </span><em>   </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">前缀匹配，为空不检查</span></em>
-          <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(0,0,255);">]</span>
-      <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">]</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+jsBridgePermission: JsBridgePermission = {
+  javascriptProxyPermission: {
+    urlPermissionList: [      <em> </em><em>// Object级权限，如果匹配，所有Method都授权</em>
+      {
+        scheme: 'resource',    <em>// 精确匹配，不能为空</em>
+        host: 'rawfile',      <em> </em><em>// 精确匹配，不能为空</em>
+        port: '',            <em>  </em><em>// 精确匹配，为空不检查</em>
+        path: ''             <em>  </em><em>// 前缀匹配，为空不检查</em>
+      },
+      {
+        scheme: 'file',  <em> </em><em>// 精确匹配，不能为空</em>
+        host: '',  <em> </em><em>// 精确匹配，不能为空</em>
+        port: '',       <em>   </em><em>// 精确匹配，为空不检查</em>
+        path: ''        <em>   </em><em>// 前缀匹配，为空不检查</em>
+      }
+    ],
+    methodList: [
+      {
+        methodName: 'test',
+        urlPermissionList: [  <em> </em><em>// Method级权限</em>
+          {
+            scheme: 'resource', <em>// </em><em>精确匹配，不能为空</em>
+            host: 'rawfile',  <em> </em><em>// 精确匹配，不能为空</em>
+            port: '',       <em>   </em><em>// 精确匹配，为空不检查</em>
+            path: ''        <em>   </em><em>// 前缀匹配，为空不检查</em>
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
  
  
@@ -79,177 +79,177 @@ Web组件用file协议加载位于Download目录下的html文件，用JavaScript
 - 不需要对JsBridge进行权限管控时，不配置JavaScriptProxy的permission参数即可。
 - 只需要对JsBridge的所有方法统一权限管控时，只配置JavaScriptProxy的permission参数的object级白名单即可，配置项如下（使用对象形式方便修改和展示，实际使用时需将对象转换为JSON字符串格式）：
 ```text
-<span style="color: rgb(181,106,1);">jsBridgePermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JsBridgePermission </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">javascriptProxyPermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span> <em>// Object</em><em><span style="color: rgb(128,128,128);">级权限，如果匹配，所有</span><span style="color: rgb(128,128,128);">Method</span><span style="color: rgb(128,128,128);">都授权</span></em>
-      <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'resource'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rawfile'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-        <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''            </span><em>   </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">前缀匹配，为空不检查</span></em>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'file'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'docs'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-        <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-        <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'/storage/Users/currentUser/Download/'          </span><em> </em><em><span style="color: rgb(128,128,128);">// file</span><span style="color: rgb(128,128,128);">协议加载</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">时，所有</span><span style="color: rgb(128,128,128);">JsBridge</span><span style="color: rgb(128,128,128);">方法只允许</span><span style="color: rgb(128,128,128);">Download</span><span style="color: rgb(128,128,128);">目录下的</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">调用</span></em>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">]</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+jsBridgePermission: JsBridgePermission = {
+  javascriptProxyPermission: {
+    urlPermissionList: [ <em>// Object</em><em>级权限，如果匹配，所有Method都授权</em>
+      {
+        scheme: 'resource', <em>// 精确匹配，不能为空</em>
+        host: 'rawfile', <em>// 精确匹配，不能为空</em>
+        port: '', <em>// </em><em>精确匹配，为空不检查</em>
+        path: ''            <em>   </em><em>// 前缀匹配，为空不检查</em>
+      },
+      {
+        scheme: 'file',<em> </em><em>// 精确匹配，不能为空</em>
+        host: 'docs', <em>// </em><em>精确匹配，不能为空</em>
+        port: '', <em>// </em><em>精确匹配，为空不检查</em>
+        path: '/storage/Users/currentUser/Download/'          <em> </em><em>// file协议加载HTML时，所有JsBridge方法只允许Download目录下的HTML调用</em>
+      },
+    ]
+  }
+};
 ```
 
 
  
 - 需要针对JsBridge的某些方法进行权限管控时，应同时在object级和该方法的method级配置相同scheme、host、port的白名单，且path不能冲突（完全相同或method级path为object级path的子目录）。配置项如下（使用对象形式方便修改和展示，实际使用时需将对象转换为JSON字符串格式）：
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">picker </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">JSON </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { fileIo, picker } from '@kit.CoreFileKit';
+import { common } from '@kit.AbilityKit';
+import { JSON } from '@kit.ArkTS';
 
-class <span style="color: rgb(0,0,255);">TestClass </span><span style="color: rgb(255,0,170);">{</span>
-  constructor<span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">  }</span>
+class TestClass {
+  constructor() {
+  }
 
-  <span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">Hello, I am ets!`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  test(param: string): string {
+    return `${param}->Hello, I am ets!`;
+  }
+}
 
-interface <span style="color: rgb(0,0,255);">JsBridgePermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">javascriptProxyPermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JavascriptProxyPermission</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface JsBridgePermission {
+  javascriptProxyPermission: JavascriptProxyPermission;
+}
 
-interface <span style="color: rgb(0,0,255);">JavascriptProxyPermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UrlPermission</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">MethodPermission</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface JavascriptProxyPermission {
+  urlPermissionList: UrlPermission[];
+  methodList?: MethodPermission[];
+}
 
-interface <span style="color: rgb(0,0,255);">MethodPermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UrlPermission</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">methodName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface MethodPermission {
+  urlPermissionList: UrlPermission[];
+  methodName: string;
+}
 
-interface <span style="color: rgb(0,0,255);">UrlPermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface UrlPermission {
+  scheme: string;
+  host: string;
+  port: string;
+  path: string;
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">webviewController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">声明需要注册的对象</span></em>
-  <span style="color: rgb(0,0,255);">testObj</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TestClass </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">jsBridgePermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JsBridgePermission </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">javascriptProxyPermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span> <em>// Object</em><em><span style="color: rgb(128,128,128);">级权限，如果匹配，所有</span><span style="color: rgb(128,128,128);">Method</span><span style="color: rgb(128,128,128);">都授权</span></em>
-        <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'resource'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rawfile'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-          <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''             </span><em>  </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">前缀匹配，为空不检查</span></em>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'file'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'docs'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-          <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'/storage/Users/currentUser/'         </span><em>  </em><em><span style="color: rgb(128,128,128);">// file</span><span style="color: rgb(128,128,128);">协议加载</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">时，所有</span><span style="color: rgb(128,128,128);">JsBridge</span><span style="color: rgb(128,128,128);">方法只允许</span><span style="color: rgb(128,128,128);">docs/storage/Users/currentUser/</span><span style="color: rgb(128,128,128);">目录下的</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">调用</span></em>
-        <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
-        <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">methodName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><em> // Method</em><em><span style="color: rgb(128,128,128);">级权限</span></em>
-            <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'resource'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rawfile'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-              <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''         </span><em>  </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">前缀匹配，为空不检查</span></em>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'file'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'docs'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-              <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'/storage/Users/currentUser/Download/'         </span><em>  </em><em><span style="color: rgb(128,128,128);">// file</span><span style="color: rgb(128,128,128);">协议加载</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">时，</span><span style="color: rgb(128,128,128);">test</span><span style="color: rgb(128,128,128);">方法只允许</span><span style="color: rgb(128,128,128);">Download</span><span style="color: rgb(128,128,128);">目录下的</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">调用</span></em>
-            <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(0,0,255);">]</span>
-        <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">]</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  webviewController: webview.WebviewController = new webview.WebviewController();
+ <em> // 声明需要注册的对象</em>
+  testObj: TestClass = new TestClass();
+  jsBridgePermission: JsBridgePermission = {
+    javascriptProxyPermission: {
+      urlPermissionList: [ <em>// Object</em><em>级权限，如果匹配，所有Method都授权</em>
+        {
+          scheme: 'resource',<em> </em><em>// 精确匹配，不能为空</em>
+          host: 'rawfile', <em>// 精确匹配，不能为空</em>
+          port: '',<em> </em><em>// 精确匹配，为空不检查</em>
+          path: ''             <em>  </em><em>// 前缀匹配，为空不检查</em>
+        },
+        {
+          scheme: 'file',<em> </em><em>// 精确匹配，不能为空</em>
+          host: 'docs', <em>// </em><em>精确匹配，不能为空</em>
+          port: '', <em>// </em><em>精确匹配，为空不检查</em>
+          path: '/storage/Users/currentUser/'         <em>  </em><em>// file协议加载HTML时，所有JsBridge方法只允许docs/storage/Users/currentUser/目录下的HTML调用</em>
+        }
+      ],
+      methodList: [
+        {
+          methodName: 'test',
+          urlPermissionList: [<em> // Method</em><em>级权限</em>
+            {
+              scheme: 'resource', <em>// </em><em>精确匹配，不能为空</em>
+              host: 'rawfile',<em> </em><em>// 精确匹配，不能为空</em>
+              port: '',<em> </em><em>// 精确匹配，为空不检查</em>
+              path: ''         <em>  </em><em>// 前缀匹配，为空不检查</em>
+            },
+            {
+              scheme: 'file', <em>// </em><em>精确匹配，不能为空</em>
+              host: 'docs', <em>// 精确匹配，不能为空</em>
+              port: '',<em> </em><em>// 精确匹配，为空不检查</em>
+              path: '/storage/Users/currentUser/Download/'         <em>  </em><em>// file协议加载HTML时，test方法只允许Download目录下的HTML调用</em>
+            }
+          ]
+        }
+      ]
+    }
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">将</span><span style="color: rgb(255,0,170);">index.html</span><span style="color: rgb(255,0,170);">下载到</span><span style="color: rgb(255,0,170);">Download</span><span style="color: rgb(255,0,170);">目录</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ROUNDED_RECTANGLE</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">documentSaveOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentSaveOptions</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">documentSaveOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">newFileNames </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'index.html'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">documentPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentViewPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">documentPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">save</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">documentSaveOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'DocumentViewPicker.select successfully, documentSelectResult uri: ' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">path </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">data </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContentSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index.html'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">文件写入成功</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`DocumentViewPicker.select failed with err, code is: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to getRdbStore. code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column({ space: 20 }) {
+      Button('将index.html下载到Download目录')
+        .type(ButtonType.ROUNDED_RECTANGLE)
+        .onClick(async () => {
+          try {
+            let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+            let documentSaveOptions = new picker.DocumentSaveOptions();
+            documentSaveOptions.newFileNames = ['index.html'];
+            let documentPicker = new picker.DocumentViewPicker(context);
+            documentPicker.save(documentSaveOptions).then((documentSelectResult: Array<string>) => {
+              console.info('DocumentViewPicker.select successfully, documentSelectResult uri: ' +
+              JSON.stringify(documentSelectResult));
+              let path = documentSelectResult[0];
+              let file = fileIo.openSync(path, fileIo.OpenMode.READ_WRITE);
+              let data = context.resourceManager.getRawFileContentSync('index.html');
+              fileIo.writeSync(file.fd, data.buffer);
+              fileIo.closeSync(file);
+              console.info(`文件写入成功`);
+            }).catch((err: BusinessError) => {
+              console.error(`DocumentViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);
+            });
+          } catch (err) {
+            console.error(`Failed to getRdbStore. code: ${err.code}, message: ${err.message}`);
+          }
+        });
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">选择</span><span style="color: rgb(255,0,170);">Download</span><span style="color: rgb(255,0,170);">下</span><span style="color: rgb(255,0,170);">index.html'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">choseHtml</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webviewController </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptProxy</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">object</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">testObj</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'testObjName'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webviewController</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">asyncMethodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">permission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">jsBridgePermission</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+      Button('选择Download下index.html')
+        .onClick(() => {
+          this.choseHtml();
+        });
+      Web({ src: '', controller: this.webviewController })
+        .javaScriptProxy({
+          object: this.testObj,
+          name: 'testObjName',
+          methodList: ['test'],
+          controller: this.webviewController,
+          asyncMethodList: [],
+          permission: JSON.stringify(this.jsBridgePermission)
+        })
+        .fileAccess(true)
+        .javaScriptAccess(true)
+        .geolocationAccess(false)
+        .domStorageAccess(true);
+    };
+  }
 
-  <span style="color: rgb(0,0,255);">choseHtml</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    const <span style="color: rgb(0,0,255);">documentSelectOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentSelectOptions</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">documentSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">documentSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileSuffixFilters </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">文档</span><span style="color: rgb(255,0,170);">|.html'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">documentViewPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentViewPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">documentViewPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">select</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">documentSelectOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">uris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// file://docs/storage/Users/currentUser/Download/index.html</span></em>
-      try <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webviewController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`ErrorCode: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,  Message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Invoke documentViewPicker.select failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  choseHtml() {
+    const documentSelectOptions = new picker.DocumentSelectOptions();
+    documentSelectOptions.maxSelectNumber = 1;
+    documentSelectOptions.fileSuffixFilters = ['文档|.html'];
+    let uris: Array<string> = [];
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+    const documentViewPicker = new picker.DocumentViewPicker(context);
+    documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
+      uris = documentSelectResult;
+      console.info(uris[0]);<em> </em><em>// file://docs/storage/Users/currentUser/Download/index.html</em>
+      try {
+        this.webviewController.loadUrl(uris[0]);
+      } catch (error) {
+        console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+      }
+    }).catch((err: BusinessError) => {
+      console.error(`Invoke documentViewPicker.select failed, code is ${err.code}, message is ${err.message}`);
+    });
+  }
+}
 ```
 
 
@@ -259,153 +259,153 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 ArkTS示例代码：
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">picker </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">JSON </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { fileIo, picker } from '@kit.CoreFileKit';
+import { common } from '@kit.AbilityKit';
+import { JSON } from '@kit.ArkTS';
 
-class <span style="color: rgb(0,0,255);">TestClass </span><span style="color: rgb(255,0,170);">{</span>
-  constructor<span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">  }</span>
+class TestClass {
+  constructor() {
+  }
 
-  <span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">Hello, I am ets!`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  test(param: string): string {
+    return `${param}->Hello, I am ets!`;
+  }
+}
 
-interface <span style="color: rgb(0,0,255);">JsBridgePermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">javascriptProxyPermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JavascriptProxyPermission</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface JsBridgePermission {
+  javascriptProxyPermission: JavascriptProxyPermission;
+}
 
-interface <span style="color: rgb(0,0,255);">JavascriptProxyPermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UrlPermission</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">MethodPermission</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface JavascriptProxyPermission {
+  urlPermissionList: UrlPermission[];
+  methodList?: MethodPermission[];
+}
 
-interface <span style="color: rgb(0,0,255);">MethodPermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UrlPermission</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">methodName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface MethodPermission {
+  urlPermissionList: UrlPermission[];
+  methodName: string;
+}
 
-interface <span style="color: rgb(0,0,255);">UrlPermission </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+interface UrlPermission {
+  scheme: string;
+  host: string;
+  port: string;
+  path: string;
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">webviewController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">声明需要注册的对象</span></em>
-  <span style="color: rgb(0,0,255);">testObj</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TestClass </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">jsBridgePermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JsBridgePermission </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">javascriptProxyPermission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span> <em>// Object</em><em><span style="color: rgb(128,128,128);">级权限，如果匹配，所有</span><span style="color: rgb(128,128,128);">Method</span><span style="color: rgb(128,128,128);">都授权</span></em>
-        <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'resource'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rawfile'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-          <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''             </span><em>  </em><em><span style="color: rgb(128,128,128);">// </span></em><em>前缀匹配，为空不检查</em>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'file'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'docs'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-          <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-          <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'/storage/Users/currentUser/'         </span><em>  </em><em><span style="color: rgb(128,128,128);">// file</span><span style="color: rgb(128,128,128);">协议加载</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">时，所有</span><span style="color: rgb(128,128,128);">JsBridge</span><span style="color: rgb(128,128,128);">方法只允许</span><span style="color: rgb(128,128,128);">docs/storage/Users/currentUser/</span><span style="color: rgb(128,128,128);">目录下的</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">调用</span></em>
-        <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
-        <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">methodName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">urlPermissionList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><em> // Method</em><em><span style="color: rgb(128,128,128);">级权限</span></em>
-            <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'resource'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rawfile'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-              <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''       </span><em>    </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">前缀匹配，为空不检查</span></em>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">scheme</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'file'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'docs'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精确匹配，不能为空</span></em>
-              <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">精确匹配，为空不检查</span></em>
-              <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'/storage/Users/currentUser/Download/'       </span><em>    </em><em><span style="color: rgb(128,128,128);">// file</span><span style="color: rgb(128,128,128);">协议加载</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">时，</span><span style="color: rgb(128,128,128);">test</span><span style="color: rgb(128,128,128);">方法只允许</span><span style="color: rgb(128,128,128);">Download</span><span style="color: rgb(128,128,128);">目录下的</span><span style="color: rgb(128,128,128);">HTML</span><span style="color: rgb(128,128,128);">调用</span></em>
-            <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(0,0,255);">]</span>
-        <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">]</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  webviewController: webview.WebviewController = new webview.WebviewController();
+ <em> // 声明需要注册的对象</em>
+  testObj: TestClass = new TestClass();
+  jsBridgePermission: JsBridgePermission = {
+    javascriptProxyPermission: {
+      urlPermissionList: [ <em>// Object</em><em>级权限，如果匹配，所有Method都授权</em>
+        {
+          scheme: 'resource', <em>// </em><em>精确匹配，不能为空</em>
+          host: 'rawfile', <em>// 精确匹配，不能为空</em>
+          port: '', <em>// 精确匹配，为空不检查</em>
+          path: ''             <em>  </em><em>// </em><em>前缀匹配，为空不检查</em>
+        },
+        {
+          scheme: 'file', <em>// </em><em>精确匹配，不能为空</em>
+          host: 'docs',<em> </em><em>// 精确匹配，不能为空</em>
+          port: '', <em>// 精确匹配，为空不检查</em>
+          path: '/storage/Users/currentUser/'         <em>  </em><em>// file协议加载HTML时，所有JsBridge方法只允许docs/storage/Users/currentUser/目录下的HTML调用</em>
+        }
+      ],
+      methodList: [
+        {
+          methodName: 'test',
+          urlPermissionList: [<em> // Method</em><em>级权限</em>
+            {
+              scheme: 'resource', <em>// 精确匹配，不能为空</em>
+              host: 'rawfile',<em> </em><em>// 精确匹配，不能为空</em>
+              port: '', <em>// 精确匹配，为空不检查</em>
+              path: ''       <em>    </em><em>// 前缀匹配，为空不检查</em>
+            },
+            {
+              scheme: 'file',<em> </em><em>// 精确匹配，不能为空</em>
+              host: 'docs', <em>// 精确匹配，不能为空</em>
+              port: '', <em>// </em><em>精确匹配，为空不检查</em>
+              path: '/storage/Users/currentUser/Download/'       <em>    </em><em>// file协议加载HTML时，test方法只允许Download目录下的HTML调用</em>
+            }
+          ]
+        }
+      ]
+    }
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">将</span><span style="color: rgb(255,0,170);">index.html</span><span style="color: rgb(255,0,170);">下载到</span><span style="color: rgb(255,0,170);">Download</span><span style="color: rgb(255,0,170);">目录</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ROUNDED_RECTANGLE</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">documentSaveOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentSaveOptions</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">documentSaveOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">newFileNames </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'index.html'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">documentPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentViewPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">documentPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">save</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">documentSaveOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'DocumentViewPicker.select successfully, documentSelectResult uri: ' </span><span style="color: rgb(181,106,1);">+</span>
-              <span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">path </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">data </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContentSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index.html'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">文件写入成功</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`DocumentViewPicker.select failed with err, code is: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to getRdbStore. code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column({ space: 20 }) {
+      Button('将index.html下载到Download目录')
+        .type(ButtonType.ROUNDED_RECTANGLE)
+        .onClick(async () => {
+          try {
+            let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+            let documentSaveOptions = new picker.DocumentSaveOptions();
+            documentSaveOptions.newFileNames = ['index.html'];
+            let documentPicker = new picker.DocumentViewPicker(context);
+            documentPicker.save(documentSaveOptions).then((documentSelectResult: Array<string>) => {
+              console.info('DocumentViewPicker.select successfully, documentSelectResult uri: ' +
+              JSON.stringify(documentSelectResult));
+              let path = documentSelectResult[0];
+              let file = fileIo.openSync(path, fileIo.OpenMode.READ_WRITE);
+              let data = context.resourceManager.getRawFileContentSync('index.html');
+              fileIo.writeSync(file.fd, data.buffer);
+              fileIo.closeSync(file);
+              console.info(`文件写入成功`);
+            }).catch((err: BusinessError) => {
+              console.error(`DocumentViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);
+            });
+          } catch (err) {
+            console.error(`Failed to getRdbStore. code: ${err.code}, message: ${err.message}`);
+          }
+        });
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">选择</span><span style="color: rgb(255,0,170);">Download</span><span style="color: rgb(255,0,170);">下</span><span style="color: rgb(255,0,170);">index.html'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">choseHtml</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webviewController </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptProxy</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">object</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">testObj</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'testObjName'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">methodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webviewController</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">asyncMethodList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">permission</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">jsBridgePermission</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+      Button('选择Download下index.html')
+        .onClick(() => {
+          this.choseHtml();
+        });
+      Web({ src: '', controller: this.webviewController })
+        .javaScriptProxy({
+          object: this.testObj,
+          name: 'testObjName',
+          methodList: ['test'],
+          controller: this.webviewController,
+          asyncMethodList: [],
+          permission: JSON.stringify(this.jsBridgePermission)
+        })
+        .fileAccess(true)
+        .javaScriptAccess(true)
+        .geolocationAccess(false)
+        .domStorageAccess(true);
+    };
+  }
 
-  <span style="color: rgb(0,0,255);">choseHtml</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    const <span style="color: rgb(0,0,255);">documentSelectOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentSelectOptions</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">documentSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">documentSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileSuffixFilters </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">文档</span><span style="color: rgb(255,0,170);">|.html'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">documentViewPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">picker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DocumentViewPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">documentViewPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">select</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">documentSelectOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">uris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">documentSelectResult</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// file://docs/storage/Users/currentUser/Download/index.html</span></em>
-      try <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webviewController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`ErrorCode: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,  Message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Invoke documentViewPicker.select failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  choseHtml() {
+    const documentSelectOptions = new picker.DocumentSelectOptions();
+    documentSelectOptions.maxSelectNumber = 1;
+    documentSelectOptions.fileSuffixFilters = ['文档|.html'];
+    let uris: Array<string> = [];
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+    const documentViewPicker = new picker.DocumentViewPicker(context);
+    documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
+      uris = documentSelectResult;
+      console.info(uris[0]); <em>// file://docs/storage/Users/currentUser/Download/index.html</em>
+      try {
+        this.webviewController.loadUrl(uris[0]);
+      } catch (error) {
+        console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+      }
+    }).catch((err: BusinessError) => {
+      console.error(`Invoke documentViewPicker.select failed, code is ${err.code}, message is ${err.message}`);
+    });
+  }
+}
 ```
  
 html示例代码：

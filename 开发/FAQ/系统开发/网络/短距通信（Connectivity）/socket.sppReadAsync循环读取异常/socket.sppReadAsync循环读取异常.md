@@ -9,27 +9,27 @@
 蓝牙spp连接成功后，调用socket.sppReadAsync，循环读取设备数据，只会成功读取一次，而后出现异常。问题代码如下：
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">socket </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ConnectivityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-let <span style="color: rgb(0,0,255);">clientNumber </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">入参</span><span style="color: rgb(128,128,128);">clientNumber</span><span style="color: rgb(128,128,128);">由</span><span style="color: rgb(128,128,128);">sppAccept</span><span style="color: rgb(128,128,128);">或</span><span style="color: rgb(128,128,128);">sppConnect</span><span style="color: rgb(128,128,128);">接口获取。</span>
-let <span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1024</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-let <span style="color: rgb(0,0,255);">data </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-let <span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
-while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">flag</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  try <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sppReadAsync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">clientNumber</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">outBuffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">outBuffer</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">!= </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`sppRead success, data = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'sppRead error, data is null'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`startSppRead errCode: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, errMessage: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+import { socket } from '@kit.ConnectivityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+let clientNumber = -1; // 入参clientNumber由sppAccept或sppConnect接口获取。
+let buffer = new ArrayBuffer(1024);
+let data = new Uint8Array(buffer);
+let flag = 1;
+while (flag) {
+  try {
+    socket.sppReadAsync(clientNumber).then((outBuffer: ArrayBuffer) => {
+      buffer = outBuffer;
+      if (buffer != null) {
+        console.info(`sppRead success, data = ${JSON.stringify(buffer)}`);
+      } else {
+        console.error('sppRead error, data is null');
+      }
+    });
+  } catch (err) {
+    flag = 0;
+    console.error(`startSppRead errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
+  }
+}
 ```
  
  

@@ -9,7 +9,7 @@
 NDK工程使用CMake编译时，报告链接错误，找不到符号，报错信息如下：
  
 ```text
-<span style="color: rgb(0,0,255);">ld</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lld</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span>undefined <span style="color: rgb(0,0,255);">symbol</span>：<span style="color: rgb(0,0,255);">XXX</span>
+ld.lld: error: undefined symbol：XXX
 ```
  
  
@@ -40,32 +40,32 @@ NDK工程使用CMake编译时，报告链接错误，找不到符号，报错信
 
 2. 通过file命令查看预构建库的ABI信息，是否为软链接文件，是否为HarmonyOS工程支持的arm64版本。
 ```text
-<span style="color: rgb(0,0,255);">arm64</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">v8a</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">lib</span><span style="color: rgb(181,106,1);"># </span><span style="color: rgb(0,0,255);">file libxxx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span>
-<span style="color: rgb(0,0,255);">libxxx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ELF </span><span style="color: rgb(255,0,0);">64</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">bit LSB shared object</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ARM aarch64</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">version </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">SYSV</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dynamically linked</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">BuildID</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">sha1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">xxxxxxxxx</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">not stripped</span>
+arm64-v8a/lib# file libxxx.so
+libxxx.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[sha1]=xxxxxxxxx, not stripped
 ```
 
 
 1. 对预构建的so，使用nm命令查看未找到的符号，是否包含在so导出的符号中（strip的库无法查看符号）。
 ```text
-<span style="color: rgb(181,106,1);"># </span><span style="color: rgb(0,0,255);">nm libxxx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span>
-<span style="color: rgb(255,0,0);">0000000000000270 </span><span style="color: rgb(0,0,255);">r abitag</span>
-<span style="color: rgb(255,0,0);">000000000000</span><span style="color: rgb(0,0,255);">aa78 t add_format_xxx</span>
-<span style="color: rgb(255,0,0);">000000000000</span><span style="color: rgb(0,0,255);">ab98 t add_sheet_xxx</span>
-<span style="color: rgb(255,0,0);">000000000000</span><span style="color: rgb(0,0,255);">ab1c t add_xf_xxx</span>
+# nm libxxx.so
+0000000000000270 r abitag
+000000000000aa78 t add_format_xxx
+000000000000ab98 t add_sheet_xxx
+000000000000ab1c t add_xf_xxx
 ```
 
 
 2. 通过objdump或者readelf命令，查看预构建so是否还依赖了其他so库。
 ```text
-<span style="color: rgb(181,106,1);"># </span><span style="color: rgb(0,0,255);">objdump </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">x libxxx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">grep NEEDED</span>
-<span style="color: rgb(0,0,255);">NEEDED               libc</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span>
+# objdump -x libxxx.so | grep NEEDED
+NEEDED               libc.so
 ```
  
 ```text
-<span style="color: rgb(181,106,1);"># </span><span style="color: rgb(0,0,255);">readelf </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">d libxxx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span>
-<span style="color: rgb(0,0,255);">Dynamic section at offset </span><span style="color: rgb(0,0,255);">0x15b48 </span><span style="color: rgb(0,0,255);">contains </span><span style="color: rgb(255,0,0);">24 </span><span style="color: rgb(181,106,1);">entries</span><span style="color: rgb(181,106,1);">: </span>
-<span style="color: rgb(0,0,255);">Tag        Type                         Name</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">Value</span>
-<span style="color: rgb(0,0,255);">0x0000000000000001 (</span><span style="color: rgb(0,0,255);">NEEDED</span><span style="color: rgb(0,0,255);">)             </span><span style="color: rgb(0,0,255);">Shared </span><span style="color: rgb(181,106,1);">library</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">libc</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(0,0,255);">]</span>
+# readelf -d libxxx.so
+Dynamic section at offset 0x15b48 contains 24 entries: 
+Tag        Type                         Name/Value
+0x0000000000000001 (NEEDED)             Shared library: [libc.so]
 ```
 
 

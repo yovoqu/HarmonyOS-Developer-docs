@@ -33,7 +33,7 @@ HarmonyOS组件如何实现加载富文本HTML文本。
 struct Solution3Page {
   data: string = '<p style="color:black;font-size:50px;font-weight:800">穿越时空回到过去我也是一个人才了</p>' +
     '<p style="color:black;font-size:50px;">神作大赏</p>' +
-    '<span style="color:blue;font-size:50px;">#我重生在国庆放假的前一天</span>' + '</p><p>' +
+    '#我重生在国庆放假的前一天' + '</p><p>' +
     '<a style="color:blue;font-size:40px;" href="https://developer.huawei.com/consumer/cn/discover/" >《苏梅梅的超市》</a>' +
     '</p><p>' + '<br/>';
   controller: RichEditorController = new RichEditorController();
@@ -68,7 +68,7 @@ struct Solution2Page {
   private controller: RichEditorController = new RichEditorController();
   @State StyledString: StyledString | undefined = undefined;
   message: string =
-    '<span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #000000E5;">啦啦啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #FF0000FF;">啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #000000E5;">啦啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: bolder;color: #000000E5;">啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #000000E5;">啦啦啦啦啦啦啦啦啦啦</span>';
+    '啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦';
 
   aboutToAppear(): void {
     StyledString.fromHtml(this.message).then((StyledString: StyledString) => {

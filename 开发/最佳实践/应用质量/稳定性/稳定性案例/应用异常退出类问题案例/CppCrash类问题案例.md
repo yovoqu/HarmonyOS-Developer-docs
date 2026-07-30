@@ -546,7 +546,7 @@ int main()
 
 2. 通过反汇编查看汇编指令，汇编指令片段如下:
 ```text
-0000000000001954 <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(0,0,255);">main</span><span style="color: rgb(128,128,128);">></span>:
+0000000000001954 <main>:
 1954: d10103ff sub sP, sp, #64
 1958: a9037bfd stp x29, x30, [sp, #48] 
 195c: 9100c3fd add x29, sp, #48
@@ -555,17 +555,17 @@ int main()
 1968: b81fc3bf stur wzr,[x29, #-4]
 196c: d294a3e8 mov x8, #42271
 1970: f81f03a8 stur x8, [x29, #-16]
-1974: bo00008  adrp x8, 0x2000 <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(0,0,255);">main+0x24</span><span style="color: rgb(128,128,128);">></span>
+1974: bo00008  adrp x8, 0x2000 <main+0x24>
 1978: f9464d08 ldr x8, [x8, #3224]
 197c: f9000fe8 str x8, [sp, #24]
 1980: 910043e0 add x0, sp, #16 
-1984: f90003e0 str x0,[<span style="color: rgb(181,106,1);">sp</span>] 
+1984: f90003e0 str x0,[sp] 
 1988: f90oobff str xzr, [sp, #16]
 198c: d503201f nop
 1990: 10011b01 adr x1, #9056
 1994: d2800182 mov x2, #12 
 1998: 9400003a bl 0x1a80 <memcpy@plt>
-199c: f94003e1 ldr x1, [<span style="color: rgb(181,106,1);">sp</span>] 
+199c: f94003e1 ldr x1, [sp] 
 19a0: f9400fe8 ldr x8, [sp, #24]
 19a4: f85f03a9 ldur. x9. [x29, #-16]
 19a8: dac11128 autia x8, x9            <- 异常位置

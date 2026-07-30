@@ -203,29 +203,29 @@ dir：待检查的工程根目录，可选，默认为当前上下文目录。
 在ArkTS工程中，pages/Index.ets文件下增加以下用例：
 
 ```text
-class <span style="color: rgb(0,169,158);">Foo </span><span style="color: rgb(233,134,205);">{</span>
-  static <span style="color: rgb(0,169,158);">bar</span><span style="color: rgb(108,113,196);">() </span><span style="color: rgb(233,134,205);">{}</span>
-<span style="color: rgb(233,134,205);">}</span>
+class Foo {
+  static bar() {}
+}
 
-<span style="color: rgb(17,64,142);">Foo</span><span style="color: rgb(133,152,1);">.</span><span style="color: rgb(0,169,158);">bar</span><span style="color: rgb(108,113,196);">()</span><span style="color: rgb(133,152,1);">;</span>
+Foo.bar();
 ```
 
 在工程根目录下新建code-linter.json5文件（文件名不可修改），新增以下配置：
 
 ```text
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@typescript-eslint/no-restricted-syntax"</span>: [
+  "rules": {
+    "@typescript-eslint/no-restricted-syntax": [
       // 告警级别: 枚举类型, 支持配置为error, warn, off
-      <span style="color: rgb(6,125,23);">"error"</span>,
+      "error",
       {
-        <span style="color: rgb(140,140,140);">// selector</span><span style="color: rgb(140,140,140);">属性必选，配置要禁用的语法</span>
-        <span style="color: rgb(140,140,140);">// </span><span style="color: rgb(140,140,140);">可通过特定</span><span style="color: rgb(140,140,140);">DSL</span><span style="color: rgb(140,140,140);">筛选待限制的语句，</span><span style="color: rgb(140,140,140);">CallExpression</span><span style="color: rgb(140,140,140);">表示方法调用表达式，后面的中括号里面是筛选条件（根据语法树</span><span style="color: rgb(140,140,140);">Node</span><span style="color: rgb(140,140,140);">节点来确定）</span>
-        <span style="color: rgb(140,140,140);">// </span><span style="color: rgb(140,140,140);">其中</span><span style="color: rgb(140,140,140);">callee.object.name</span><span style="color: rgb(140,140,140);">根据指定的名称筛选调用方法的对象（</span><span style="color: rgb(140,140,140);">class</span><span style="color: rgb(140,140,140);">，</span><span style="color: rgb(140,140,140);">namespace</span><span style="color: rgb(140,140,140);">或</span><span style="color: rgb(140,140,140);">module</span><span style="color: rgb(140,140,140);">），以上示例中为</span><span style="color: rgb(140,140,140);">"Foo"</span>
-<span style="color: rgb(140,140,140);">        // callee.property.name</span><span style="color: rgb(140,140,140);">则根据指定的名称筛选被调用的方法，以上示例中为</span><span style="color: rgb(140,140,140);">"bar"</span>
-        <span style="color: rgb(135,16,148);">"selector"</span>: <span style="color: rgb(6,125,23);">"CallExpression[callee.object.name='Foo'][callee.property.name='bar']</span><span style="color: rgb(6,125,23);">"</span>,
-        <span style="color: rgb(140,140,140);">// message</span><span style="color: rgb(140,140,140);">属性可选，配置要展示的报错信息</span>
-        <span style="color: rgb(135,16,148);">"message"</span>: <span style="color: rgb(6,125,23);">"Foo.bar() is not allowed"</span>
+        // selector属性必选，配置要禁用的语法
+        // 可通过特定DSL筛选待限制的语句，CallExpression表示方法调用表达式，后面的中括号里面是筛选条件（根据语法树Node节点来确定）
+        // 其中callee.object.name根据指定的名称筛选调用方法的对象（class，namespace或module），以上示例中为"Foo"
+        // callee.property.name则根据指定的名称筛选被调用的方法，以上示例中为"bar"
+        "selector": "CallExpression[callee.object.name='Foo'][callee.property.name='bar']",
+        // message属性可选，配置要展示的报错信息
+        "message": "Foo.bar() is not allowed"
       }
     ]
   },
@@ -253,29 +253,29 @@ class <span style="color: rgb(0,169,158);">Foo </span><span style="color: rgb(23
 在ArkTS工程中，pages/Index.ets文件下增加以下用例：
 
 ```text
-class <span style="color: rgb(0,169,158);">foo </span><span style="color: rgb(233,134,205);">{</span>    //此处构造一个命名风格错误的示例，foo为错误使用类名，正确类名应为Foo
-  <span style="color: rgb(0,169,158);">bar</span><span style="color: rgb(108,113,196);">() </span><span style="color: rgb(233,134,205);">{}</span> 
-<span style="color: rgb(233,134,205);">}</span>
+class foo {    //此处构造一个命名风格错误的示例，foo为错误使用类名，正确类名应为Foo
+  bar() {} 
+}
 ```
 
 在工程根目录下新建code-linter.json5文件，新增以下配置：
 
 ```text
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@typescript-eslint/naming-convention"</span>: [
-      <span style="color: rgb(6,125,23);">"error"</span>,
+  "rules": {
+    "@typescript-eslint/naming-convention": [
+      "error",
       {
-        <span style="color: rgb(140,140,140);">// selector</span><span style="color: rgb(140,140,140);">属性必选，配置要检查的语法，这里配置的class</span><span style="color: rgb(140,140,140);">表示检查自定义组件名</span>
-        <span style="color: rgb(135,16,148);">"selector"</span>: <span style="color: rgb(6,125,23);">"class"</span>,
-        <span style="color: rgb(140,140,140);">// format</span><span style="color: rgb(140,140,140);">属性必选，配置期望的命名风格，支持枚举值，这里配置的</span>PascalCase<span style="color: rgb(140,140,140);">表示大驼峰风格</span>
-        <span style="color: rgb(135,16,148);">"format"</span>: [<span style="color: rgb(6,125,23);">"PascalCase"</span>],
-        <span style="color: rgb(140,140,140);">// custom</span><span style="color: rgb(140,140,140);">属性可选，配置用户自定义的命名风格</span>
-        <span style="color: rgb(135,16,148);">"custom"</span>: {
-          <span style="color: rgb(140,140,140);">// regex</span><span style="color: rgb(140,140,140);">属性必选，配置具体的正则</span>
-          <span style="color: rgb(135,16,148);">"regex"</span>: <span style="color: rgb(6,125,23);">"^[a-zA-Z]+$"</span>,
-          <span style="color: rgb(140,140,140);">// match</span><span style="color: rgb(140,140,140);">属性必选，配置为</span><span style="color: rgb(140,140,140);">true</span><span style="color: rgb(140,140,140);">表示正则未命中时报错；配置为</span><span style="color: rgb(140,140,140);">false</span><span style="color: rgb(140,140,140);">表示正则命中时报错</span>
-          <span style="color: rgb(135,16,148);">"match"</span>: <span style="color: rgb(0,51,179);">true</span>
+        // selector属性必选，配置要检查的语法，这里配置的class表示检查自定义组件名
+        "selector": "class",
+        // format属性必选，配置期望的命名风格，支持枚举值，这里配置的PascalCase表示大驼峰风格
+        "format": ["PascalCase"],
+        // custom属性可选，配置用户自定义的命名风格
+        "custom": {
+          // regex属性必选，配置具体的正则
+          "regex": "^[a-zA-Z]+$",
+          // match属性必选，配置为true表示正则未命中时报错；配置为false表示正则命中时报错
+          "match": true
         }
       }
     ]
@@ -322,15 +322,15 @@ class <span style="color: rgb(0,169,158);">foo </span><span style="color: rgb(23
 
 ```text
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@hw-stylistic/file-naming-convention"</span>: [
-      <span style="color: rgb(140,140,140);">// </span><span style="color: rgb(140,140,140);">告警级别：枚举类型，支持配置为</span><span style="color: rgb(140,140,140);">error</span><span style="color: rgb(140,140,140);">，</span><span style="color: rgb(140,140,140);">warn</span><span style="color: rgb(140,140,140);">，</span><span style="color: rgb(140,140,140);">off</span>
-      <span style="color: rgb(6,125,23);">"error"</span>,
+  "rules": {
+    "@hw-stylistic/file-naming-convention": [
+      // 告警级别：枚举类型，支持配置为error，warn，off
+      "error",
       {
-        <span style="color: rgb(140,140,140);">// selector</span><span style="color: rgb(140,140,140);">属性可选，支持配置为</span><span style="color: rgb(140,140,140);">code</span><span style="color: rgb(140,140,140);">或者</span><span style="color: rgb(140,140,140);">resources</span>
-<span style="color: rgb(140,140,140);">        // code</span><span style="color: rgb(140,140,140);">表示检查代码文件的命名风格</span>
-        <span style="color: rgb(140,140,140);">// resources</span><span style="color: rgb(140,140,140);">表示检查资源文件的命名风格</span>
-        <span style="color: rgb(135,16,148);">"selector"</span>: <span style="color: rgb(6,125,23);">"code"</span>
+        // selector属性可选，支持配置为code或者resources
+        // code表示检查代码文件的命名风格
+        // resources表示检查资源文件的命名风格
+        "selector": "code"
       }
     ]
   },

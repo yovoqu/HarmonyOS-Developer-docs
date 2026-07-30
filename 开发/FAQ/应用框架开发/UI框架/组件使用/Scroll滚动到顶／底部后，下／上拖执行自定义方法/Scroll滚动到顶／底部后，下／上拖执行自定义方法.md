@@ -36,37 +36,37 @@ Scroll滚动到顶部时继续下拖和滚动到底部时继续上拖，如何�
  
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ScrollDemo </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">panOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">PanGestureOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PanGestureOptions</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PanDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Vertical </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">scrollerForScroll</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct ScrollDemo {
+  private panOption: PanGestureOptions = new PanGestureOptions({ direction: PanDirection.Vertical });
+  private scrollerForScroll: Scroller = new Scroller();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scrollerForScroll</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处</span><span style="color: rgb(128,128,128);">'app.media.startIcon'</span><span style="color: rgb(128,128,128);">仅作示例</span></em>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">400</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1050 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">edgeEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">EdgeEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Spring</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parallelGesture</span><span style="color: rgb(255,0,170);">(</span>
-        <span style="color: rgb(0,0,255);">PanGesture</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">panOption</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">GestureEvent</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PanGesture end'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">滑动到底部并且继续滑动</span></em>
-            if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scrollerForScroll</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAtEnd</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">执行自定义操作</span><span style="color: rgb(132,63,161);">1'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">滑动到顶部并且继续滑动</span></em>
-            const <span style="color: rgb(255,255,255);">offsetRes </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scrollerForScroll</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentOffset</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">Scroll</span><span style="color: rgb(128,128,128);">现在的位置</span></em>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">offsetRes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">yOffset </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">执行自定义操作</span><span style="color: rgb(132,63,161);">2'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">GestureMask</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Scroll(this.scrollerForScroll) {
+       <em> // 此处'app.media.startIcon'仅作示例</em>
+        Image($r('app.media.startIcon'))
+          .size({ width: 400, height: 1050 });
+      }
+      .width('100%')
+      .height('100%')
+      .edgeEffect(EdgeEffect.Spring)
+      .parallelGesture(
+        PanGesture(this.panOption)
+          .onActionEnd((event: GestureEvent) => {
+            console.info('PanGesture end');
+        <em>    // 滑动到底部并且继续滑动</em>
+            if (this.scrollerForScroll.isAtEnd() && event.offsetY < 0) {
+              console.info('执行自定义操作1');
+            }
+         <em>   // 滑动到顶部并且继续滑动</em>
+            const offsetRes = this.scrollerForScroll.currentOffset(); <em>// 获取Scroll现在的位置</em>
+            if (offsetRes.yOffset <= 0 && event.offsetY > 0) {
+              console.info('执行自定义操作2');
+            }
+          }), GestureMask.Normal);
+    };
+  }
+}
 ```

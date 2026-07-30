@@ -31,126 +31,126 @@
 方法二：使用多开Ability的方案，拉起新的Ability窗口，悬浮窗口需要满足如下特点：无窗口标签栏；无最大化、最小化、关闭窗口按钮；悬浮窗口保持全局置顶效果；主窗口最小化之后，悬浮窗口不跟随最小化；悬浮窗口不响应拖拽到屏幕边缘最大化、分屏等效果。
  1. 新建独立窗口的代码“src/main/ets/pages/pageTwo.ets”并在配置文件“src/main/resources/base/profile/main_pages.json”中新增路径：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PageTwo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Float Window'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Entry
+@Component
+struct PageTwo {
+  build() {
+    Column() {
+      Text('Float Window')
+        .width('100%')
+        .height('100%')
+        .fontSize(30)
+        .textAlign(TextAlign.Center)
+    }
+  }
+}
 ```
  
 ```json
 {
-  <span style="color: rgb(132,63,161);">"src"</span><span style="color: rgb(181,106,1);">: </span>[
-    <span style="color: rgb(80,160,79);">"pages/Index"</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(80,160,79);">"pages/pageTwo"</span>
+  "src": [
+    "pages/Index",
+    "pages/pageTwo"
   ]
 }
 ```
 
 2. 在“src/main/module.json5”中配置窗口全局置顶权限：
 ```json
-<span style="color: rgb(80,160,79);">"requestPermissions"</span><span style="color: rgb(181,106,1);">: </span>[
+"requestPermissions": [
   {
-    <span style="color: rgb(80,160,79);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"ohos.permission.WINDOW_TOPMOST"</span>
+    "name": "ohos.permission.WINDOW_TOPMOST"
   }
-]<span style="color: rgb(181,106,1);">,</span>
+],
 ```
 
 3. 新增文件“src/main/ets/entryability/FloatWindowAbility.ets”，声明FloatWindowAbility类，继承自UIAbility，在接口[onWindowStageCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle#onwindowstagecreate)中[loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#loadcontent9)之后获取主窗口对象。对该窗口设置标题栏不可见，最大化、最小化、关闭按钮不可见，设置窗口全局置顶等属性：
 ```text
-export default class <span style="color: rgb(0,0,255);">FloatWindowAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(181,106,1);">{</span>
-  private async <span style="color: rgb(0,0,255);">resizeWindow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      await <span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Succeeded in resizing window.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`resize window failed: </span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+export default class FloatWindowAbility extends UIAbility {
+  private async resizeWindow(win: window.Window, width: number, height: number): Promise<void> {
+    try {
+      await win.resize(width, height);
+      console.info('Succeeded in resizing window.');
+    } catch (err) {
+      console.error(`resize window failed: <${err.code}>${err.message}`);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">setDecorVisible</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setWindowDecorVisible</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isVisible</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'set window decor visible success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`set window decor visible failed: </span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private setDecorVisible(win: window.Window, isVisible: boolean) {
+    try {
+      win.setWindowDecorVisible(isVisible);
+      console.info('set window decor visible success.');
+    } catch (err) {
+      console.error(`set window decor visible failed: <${err.code}>${err.message}`);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">setTitleButtonVisible</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isMaxVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">isMinVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isCloseVisible</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setWindowTitleButtonVisible</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isMaxVisible</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isMinVisible</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isCloseVisible</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'set window title button visible success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`set window title button visible failed: </span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private setTitleButtonVisible(win: window.Window, isMaxVisible: boolean,
+    isMinVisible: boolean, isCloseVisible?: boolean) {
+    try {
+      win.setWindowTitleButtonVisible(isMaxVisible, isMinVisible, isCloseVisible);
+      console.info('set window title button visible success.');
+    } catch (err) {
+      console.error(`set window title button visible failed: <${err.code}>${err.message}`);
+    }
+  }
 
-  private async <span style="color: rgb(0,0,255);">setTopmost</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isWindowTopmost</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      await <span style="color: rgb(255,255,255);">win</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setWindowTopmost</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isWindowTopmost</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'set window topmost success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`set window topmost failed: </span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private async setTopmost(win: window.Window, isWindowTopmost: boolean): Promise<void> {
+    try {
+      await win.setWindowTopmost(isWindowTopmost);
+      console.info('set window topmost success.');
+    } catch (err) {
+      console.error(`set window topmost failed: <${err.code}>${err.message}`);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WindowStage</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加载主窗口对应的页面。</span></em>
-    <span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pages/pageTwo'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">mainWindow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取应用主窗口。</span></em>
-      <span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMainWindow</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          return<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(255,255,255);">mainWindow </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置窗口大小</span></em>
-        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resizeWindow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">mainWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置窗口标题可见</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setDecorVisible</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">mainWindow</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置窗口最大化、最小化、关闭按钮可见</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setTitleButtonVisible</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">mainWindow</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置窗口置顶</span></em>
-        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setTopmost</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">mainWindow</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to obtain the main window. Cause code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+   <em> // 加载主窗口对应的页面。</em>
+    windowStage.loadContent('pages/pageTwo', () => {
+      let mainWindow: window.Window | undefined = undefined;
+    <em>  // 获取应用主窗口。</em>
+      windowStage.getMainWindow().then(async (data: window.Window) => {
+        if (!data) {
+          return;
+        }
+        mainWindow = data;
+     <em>   // 设置窗口大小</em>
+        await this.resizeWindow(mainWindow, 200, 100);
+      <em>  // 设置窗口标题可见</em>
+        this.setDecorVisible(mainWindow, false);
+      <em>  // 设置窗口最大化、最小化、关闭按钮可见</em>
+        this.setTitleButtonVisible(mainWindow, false, false, false);
+      <em>  // 设置窗口置顶</em>
+        await this.setTopmost(mainWindow, true);
+      }).catch((err: BusinessError) => {
+        if (err.code) {
+          console.error(`Failed to obtain the main window. Cause code: ${err.code}, message: ${err.message}`);
+        }
+      });
+    });
+  }
+}
 ```
 
 4. 在应用配置文件“src/main/module.json5”的abilities属性中，新增FloatWindowAbility配置项以及supportWindowMode属性为floating：
 ```ArkTS
 {
-  <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"FloatWindowAbility"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"srcEntry"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"./ets/entryability/FloatWindowAbility.ets"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"description"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$string:EntryAbility_desc"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"icon"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$media:layered_image"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"label"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$string:EntryAbility_label"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"supportWindowMode"</span><span style="color: rgb(181,106,1);">: </span>[<span style="color: rgb(80,160,79);">"floating"</span>]<span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"startWindowIcon"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$media:startIcon"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"startWindowBackground"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$color:start_window_background"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"exported"</span><span style="color: rgb(181,106,1);">: true,</span>
-  <span style="color: rgb(132,63,161);">"skills"</span><span style="color: rgb(181,106,1);">: </span>[
+  "name": "FloatWindowAbility",
+  "srcEntry": "./ets/entryability/FloatWindowAbility.ets",
+  "description": "$string:EntryAbility_desc",
+  "icon": "$media:layered_image",
+  "label": "$string:EntryAbility_label",
+  "supportWindowMode": ["floating"],
+  "startWindowIcon": "$media:startIcon",
+  "startWindowBackground": "$color:start_window_background",
+  "exported": true,
+  "skills": [
     {
-      <span style="color: rgb(132,63,161);">"entities"</span><span style="color: rgb(181,106,1);">: </span>[
-        <span style="color: rgb(80,160,79);">"entity.system.home"</span>
-      ]<span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"actions"</span><span style="color: rgb(181,106,1);">: </span>[
-        <span style="color: rgb(80,160,79);">"ohos.want.action.home"</span>
+      "entities": [
+        "entity.system.home"
+      ],
+      "actions": [
+        "ohos.want.action.home"
       ]
     }
   ]
@@ -159,35 +159,35 @@ export default class <span style="color: rgb(0,0,255);">FloatWindowAbility </spa
 
 5. 在主界面配置拉起FloatWindowAbility窗口按钮：
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Want </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { common, Want } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">abilityContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  private abilityContext: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">拉起悬浮窗</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">want</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Want </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-        <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处需要根据实际包名进行更改</span></em>
-            <span style="color: rgb(255,255,255);">bundleName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'com.example.myapplication'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">abilityName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'FloatWindowAbility'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">moduleName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'entry'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">abilityContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">startAbility</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">want</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'start ability success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`start ability failed, code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column({ space: 20 }) {
+      Button('拉起悬浮窗')
+        .onClick(() => {
+          let want: Want = {
+        <em>    // 此处需要根据实际包名进行更改</em>
+            bundleName: 'com.example.myapplication',
+            abilityName: 'FloatWindowAbility',
+            moduleName: 'entry',
+          };
+          this.abilityContext?.startAbility(want)
+            .then(() => {
+              console.info('start ability success');
+            }).catch((error: BusinessError) => {
+            console.error(`start ability failed, code: ${error.code}, message: ${error.message}`);
+          });
+        })
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+  }
+}
 ```

@@ -21,26 +21,26 @@
 以下为导致编译报错的配置示例：
  
 ```json
-<span style="color: rgb(135,16,148);">"targets"</span>: [
+"targets": [
   {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
-    <span style="color: rgb(135,16,148);">"config"</span>: {
-      <span style="color: rgb(135,16,148);">"buildOption"</span>: {
-        <span style="color: rgb(135,16,148);">"arkOptions"</span>: {
-          <span style="color: rgb(135,16,148);">"buildProfileFields"</span>: {
-            <span style="color: rgb(135,16,148);">"targetName"</span>: <span style="color: rgb(6,125,23);">"default"</span>
+    "name": "default",
+    "config": {
+      "buildOption": {
+        "arkOptions": {
+          "buildProfileFields": {
+            "targetName": "default"
           }
         }
       }
     }
   },
   {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default1"</span>,
-    <span style="color: rgb(135,16,148);">"config"</span>: {
-      <span style="color: rgb(135,16,148);">"buildOption"</span>: {
-        <span style="color: rgb(135,16,148);">"arkOptions"</span>: {
-          <span style="color: rgb(135,16,148);">"buildProfileFields"</span>: {
-            <span style="color: rgb(135,16,148);">"targetName1"</span>: <span style="color: rgb(6,125,23);">"default1"</span>
+    "name": "default1",
+    "config": {
+      "buildOption": {
+        "arkOptions": {
+          "buildProfileFields": {
+            "targetName1": "default1"
           }
         }
       }

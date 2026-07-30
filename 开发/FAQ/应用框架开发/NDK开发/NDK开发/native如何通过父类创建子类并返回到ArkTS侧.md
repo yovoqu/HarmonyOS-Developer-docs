@@ -24,65 +24,65 @@ C/C++侧同时创建了父类和子类，可以通过父类方法创建子类，
 代码示例：
  1. native侧Parent类为父类，Child类为子类。
 ```text
-<span style="color: rgb(0,0,255);">extern </span>class <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(181,106,1);">;</span>
+extern class Child;
 
-class <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">public</span><span style="color: rgb(181,106,1);">:</span>
-    <span style="color: rgb(0,0,255);">void </span><span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">CreateChild</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+class Parent {
+  public:
+    void DoSomething();
+  Child *CreateChild();
+};
 
-class <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">public</span><span style="color: rgb(181,106,1);">:</span>
-    void <span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+class Child : Parent {
+  public:
+    void DoSomething();
+};
 ```
  通过napi方法[napi_define_class](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-class#napi_define_class)定义ArkTS侧的Parent类和Child类并导出。
 
   
 ```text
-<span style="color: rgb(0,0,255);">EXTERN_C_START</span>
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">Init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_value exports</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">napi_property_descriptor parentDesc</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">        {</span><span style="color: rgb(255,0,170);">"doSomething"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ParentDoSomething</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_default</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"createChild"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ParentCreateChild</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_default</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
+EXTERN_C_START
+static napi_value Init(napi_env env, napi_value exports)
+{
+    napi_property_descriptor parentDesc[] = {
+        {"doSomething", nullptr, ParentDoSomething, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"createChild", nullptr, ParentCreateChild, nullptr, nullptr, nullptr, napi_default, nullptr}
+    };
 
-    <span style="color: rgb(0,0,255);">napi_property_descriptor childDesc</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">        {</span><span style="color: rgb(255,0,170);">"doSomething"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ChildDoSomething</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_default</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
+    napi_property_descriptor childDesc[] = {
+        {"doSomething", nullptr, ChildDoSomething, nullptr, nullptr, nullptr, napi_default, nullptr}
+    };
 
-    <span style="color: rgb(0,0,255);">napi_value parentConstructor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_define_class</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Parent"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NAPI_AUTO_LENGTH</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ParentConstructor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">parentDesc</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">parentDesc</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">,</span>
-                      <span style="color: rgb(0,0,255);">parentDesc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">parentConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_set_named_property</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Parent"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">parentConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    napi_value parentConstructor = nullptr;
+    napi_define_class(env, "Parent", NAPI_AUTO_LENGTH, ParentConstructor, nullptr, sizeof(parentDesc) / sizeof(parentDesc[0]),
+                      parentDesc, &parentConstructor);
+    napi_set_named_property(env, exports, "Parent", parentConstructor);
 
-    <span style="color: rgb(0,0,255);">napi_value childConstructor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_define_class</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Child"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NAPI_AUTO_LENGTH</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ChildConstructor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">childDesc</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">childDesc</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">,</span>
-                      <span style="color: rgb(0,0,255);">childDesc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">childConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_set_named_property</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Child"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">childConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(0,0,255);">EXTERN_C_END</span>
+    napi_value childConstructor = nullptr;
+    napi_define_class(env, "Child", NAPI_AUTO_LENGTH, ChildConstructor, nullptr, sizeof(childDesc) / sizeof(childDesc[0]),
+                      childDesc, &childConstructor);
+    napi_set_named_property(env, exports, "Child", childConstructor);
+    return exports;
+}
+EXTERN_C_END
 ```
  Index.d.ts中导出的定义：
 
   
 ```text
-export class <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
-  constructor<span style="color: rgb(0,0,255);">()</span>
+export class Parent {
+  constructor()
 
-  <span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void</span>
+  doSomething(): void
 
-  <span style="color: rgb(0,0,255);">createChild</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">obj</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ESObject</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Child</span>
-<span style="color: rgb(255,0,170);">}</span>
+  createChild(obj: ESObject): Child
+}
 
-export class <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(255,0,170);">{</span>
-  constructor<span style="color: rgb(0,0,255);">()</span>
+export class Child {
+  constructor()
 
-  <span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void</span>
-<span style="color: rgb(255,0,170);">}</span>
+  doSomething(): void
+}
 ```
 
 2. 执行native侧的ParentCreateChild函数。
@@ -97,76 +97,76 @@ export class <span style="color: rgb(0,0,255);">Child </span><span style="color:
 
   
 ```text
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">ParentCreateChild</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">size_t argc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_value args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_value jsthis</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instanceParent </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">bool bRet </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_value result </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_status status</span><span style="color: rgb(181,106,1);">;</span>
+static napi_value ParentCreateChild(napi_env env, napi_callback_info info)
+{
+  size_t argc = 1;
+  napi_value args[1] = {nullptr};
+  napi_value jsthis;
+  Parent *instanceParent = nullptr;
+  bool bRet = false;
+  napi_value result = nullptr;
+  napi_status status;
 
-  <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">argc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild napi_get_cb_info fail.Status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  status = napi_get_cb_info(env, info, &argc, args, &jsthis, nullptr);
+  if (status != napi_ok) {
+    OH_LOG_ERROR(LOG_APP, "ParentcreateChild napi_get_cb_info fail.Status:%{public}d", status);
+    return nullptr;
+  }
 
-  <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_unwrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">**</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">instanceParent</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild napi_unwrap fail.Status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  status = napi_unwrap(env, jsthis, reinterpret_cast<void **>(&instanceParent));
+  if (status != napi_ok) {
+    OH_LOG_ERROR(LOG_APP, "ParentcreateChild napi_unwrap fail.Status:%{public}d", status);
+    return nullptr;
+  }
 
-  <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_new_instance</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild napi_new_instance fail.Status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  status = napi_new_instance(env, args[0], 0, nullptr, &result);
+  if (status != napi_ok) {
+    OH_LOG_ERROR(LOG_APP, "ParentcreateChild napi_new_instance fail.Status:%{public}d", status);
+    return nullptr;
+  }
 
-  <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instanceChild </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">instanceParent</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">CreateChild</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  Child *instanceChild = instanceParent->CreateChild();
 
 
-  <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_wrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">instanceChild</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">DerefChild</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">主动释放内存</span></em>
-    <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild ChildConstructor napi_wrap fail status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    delete <span style="color: rgb(0,0,255);">instanceChild</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  status = napi_wrap(env, result, reinterpret_cast<void *>(instanceChild), DerefChild, NULL, NULL);
+  if (status != napi_ok) {
+   <em> // 主动释放内存</em>
+    OH_LOG_INFO(LOG_APP, "ParentcreateChild ChildConstructor napi_wrap fail status:%{public}d", status);
+    delete instanceChild;
+  }
 
-  return <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  return result;
+}
 ```
 
 - ArkTS侧的调用逻辑：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State message: string = 'Hello World';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.float.page_text_font_size'</span><span style="color: rgb(0,0,255);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Welcome'</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">parent </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Parent</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">child </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">parent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">child</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">newChild</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createChild</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">newChild</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Text(this.message)
+          .fontSize($r('app.float.page_text_font_size'))
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            this.message = 'Welcome';
+            let parent = new testNapi.Parent();
+            let child = new testNapi.Child();
+            parent.doSomething();
+            child.doSomething();
+            let newChild: testNapi.Child = parent.createChild(testNapi.Child);
+            newChild.doSomething();
+          })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
 ```
 
 
@@ -176,284 +176,284 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 ArkTS侧实现：
  
 ```text
-import <span style="color: rgb(0,0,255);">testNapi </span>from <span style="color: rgb(255,0,170);">'libentry.so'</span><span style="color: rgb(181,106,1);">;</span>
+import testNapi from 'libentry.so';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State message: string = 'Hello World';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.float.page_text_font_size'</span><span style="color: rgb(0,0,255);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Welcome'</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">parent </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Parent</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">child </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">parent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">child</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">newChild</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createChild</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">newChild</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Text(this.message)
+          .fontSize($r('app.float.page_text_font_size'))
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            this.message = 'Welcome';
+            let parent = new testNapi.Parent();
+            let child = new testNapi.Child();
+            parent.doSomething();
+            child.doSomething();
+            let newChild: testNapi.Child = parent.createChild(testNapi.Child);
+            newChild.doSomething();
+          })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
 ```
  
 native侧实现：
  
 ```text
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(255,0,170);">"hilog/log.h"</span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(255,0,170);">"napi/native_api.h"</span>
+#include "hilog/log.h"
+#include "napi/native_api.h"
 
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">define LOG_TAG </span><span style="color: rgb(255,0,170);">"test"</span>
-<span style="color: rgb(0,0,255);">extern </span>class <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(181,106,1);">;</span>
+#define LOG_TAG "test"
+extern class Child;
 
-class <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(0,0,255);">public</span><span style="color: rgb(181,106,1);">:</span>
-    <span style="color: rgb(0,0,255);">void </span><span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">CreateChild</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+class Parent {
+public:
+    void DoSomething();
+    Child *CreateChild();
+};
 
-class <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(181,106,1);">public</span><span style="color: rgb(181,106,1);">:</span>
-    void <span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-void <span style="color: rgb(0,0,255);">Parent</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Parent DoSomething"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,0,170);">}</span>
+class Child : Parent {
+public:
+    void DoSomething();
+};
+void Parent::DoSomething() { OH_LOG_ERROR(LOG_APP, "Parent DoSomething"); }
 
-<span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">Parent</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">CreateChild</span><span style="color: rgb(0,0,255);">()</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instance </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+Child *Parent::CreateChild()
+{
+    Child *instance = new Child();
+    return instance;
+}
 
-void <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Child DoSomething"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,0,170);">}</span>
-
-
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">Add</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">size_t argc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-
-    <span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">argc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-
-    <span style="color: rgb(0,0,255);">napi_valuetype valuetype0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_typeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">valuetype0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-
-    <span style="color: rgb(0,0,255);">napi_valuetype valuetype1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_typeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">valuetype1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-
-    <span style="color: rgb(0,0,255);">double value0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_get_value_double</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">value0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-
-    <span style="color: rgb(0,0,255);">double value1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_get_value_double</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">value1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-
-    <span style="color: rgb(0,0,255);">napi_value sum</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_create_double</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">value0 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">value1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-
-    return <span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+void Child::DoSomething() { OH_LOG_ERROR(LOG_APP, "Child DoSomething"); }
 
 
-<span style="color: rgb(0,0,255);">static </span>void <span style="color: rgb(0,0,255);">DerefParent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">hint</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">可选的原生回调，用于在</span><span style="color: rgb(128,128,128);">ArkTS</span><span style="color: rgb(128,128,128);">对象被垃圾回收时释放原生实例</span></em>
-    <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Node-API DerefItem"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">obj </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">obj </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        delete <span style="color: rgb(0,0,255);">obj</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+static napi_value Add(napi_env env, napi_callback_info info)
+{
+    size_t argc = 2;
+    napi_value args[2] = {nullptr};
 
-<span style="color: rgb(0,0,255);">static </span>void <span style="color: rgb(0,0,255);">DerefChild</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">hint</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">可选的原生回调，用于在</span><span style="color: rgb(128,128,128);">ArkTS</span><span style="color: rgb(128,128,128);">对象被垃圾回收时释放原生实例</span></em>
-    <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Node-API DerefItem"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">obj </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">obj </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        delete <span style="color: rgb(0,0,255);">obj</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
+    napi_valuetype valuetype0;
+    napi_typeof(env, args[0], &valuetype0);
 
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">ParentConstructor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">napi_value undefineVar </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_get_undefined</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">undefineVar</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value jsInstance </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">jsInstance</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        return <span style="color: rgb(0,0,255);">undefineVar</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
+    napi_valuetype valuetype1;
+    napi_typeof(env, args[1], &valuetype1);
 
-    <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instance </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Parent</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    double value0;
+    napi_get_value_double(env, args[0], &value0);
 
-    <span style="color: rgb(0,0,255);">napi_status status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_wrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">jsInstance</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">DerefParent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">主动释放内存</span></em>
-        <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentConstructor napi_wrap fail"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        delete <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentConstructor success"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">jsInstance</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+    double value1;
+    napi_get_value_double(env, args[1], &value1);
 
-<em>// </em><em><span style="color: rgb(128,128,128);">定义类</span><span style="color: rgb(128,128,128);">Parent</span><span style="color: rgb(128,128,128);">的方法</span></em>
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">ParentDoSomething</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">napi_value jsthis</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instance </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">bool bRet </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value result </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    napi_value sum;
+    napi_create_double(env, value0 + value1, &sum);
 
-    <span style="color: rgb(0,0,255);">napi_unwrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">**</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+    return sum;
+}
 
 
-    <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+static void DerefParent(napi_env env, void *data, void *hint)
+{
+    <em>// </em><em>可选的原生回调，用于在ArkTS对象被垃圾回收时释放原生实例</em>
+    OH_LOG_INFO(LOG_APP, "Node-API DerefItem");
+    Parent *obj = reinterpret_cast<Parent *>(data);
+    if (obj != nullptr) {
+        delete obj;
+    }
+}
 
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">ParentCreateChild</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">size_t argc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value jsthis</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instanceParent </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">bool bRet </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value result </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_status status</span><span style="color: rgb(181,106,1);">;</span>
-
-    <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">argc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild napi_get_cb_info fail.Status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-
-    <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_unwrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">**</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">instanceParent</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild napi_unwrap fail.Status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-
-    <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_new_instance</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">OH_LOG_ERROR</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild napi_new_instance fail.Status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-
-    <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instanceChild </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">instanceParent</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">CreateChild</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+static void DerefChild(napi_env env, void *data, void *hint)
+{
+   <em> // 可选的原生回调，用于在ArkTS对象被垃圾回收时释放原生实例</em>
+    OH_LOG_INFO(LOG_APP, "Node-API DerefItem");
+    Child *obj = reinterpret_cast<Child *>(data);
+    if (obj != nullptr) {
+        delete obj;
+    }
+}
 
 
-    <span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_wrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">instanceChild</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">DerefChild</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">主动释放内存</span></em>
-        <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ParentcreateChild ChildConstructor napi_wrap fail status:%{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        delete <span style="color: rgb(0,0,255);">instanceChild</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
+static napi_value ParentConstructor(napi_env env, napi_callback_info info)
+{
+    napi_value undefineVar = nullptr;
+    napi_get_undefined(env, &undefineVar);
+    napi_value jsInstance = nullptr;
+    if (napi_get_cb_info(env, info, nullptr, nullptr, &jsInstance, nullptr) != napi_ok) {
+        return undefineVar;
+    }
 
-    return <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+    Parent *instance = new Parent();
+
+    napi_status status = napi_wrap(env, jsInstance, reinterpret_cast<void *>(instance), DerefParent, NULL, NULL);
+    if (status != napi_ok) {
+      <em>  // 主动释放内存</em>
+        OH_LOG_INFO(LOG_APP, "ParentConstructor napi_wrap fail");
+        delete instance;
+    }
+    OH_LOG_INFO(LOG_APP, "ParentConstructor success");
+    return jsInstance;
+}
+
+<em>// </em><em>定义类Parent的方法</em>
+static napi_value ParentDoSomething(napi_env env, napi_callback_info info)
+{
+    napi_value jsthis;
+    Parent *instance = nullptr;
+    bool bRet = false;
+    napi_value result = nullptr;
+    napi_get_cb_info(env, info, nullptr, nullptr, &jsthis, nullptr);
+
+    napi_unwrap(env, jsthis, reinterpret_cast<void **>(&instance));
 
 
-<em>// </em><em><span style="color: rgb(128,128,128);">定义类</span><span style="color: rgb(128,128,128);">Child</span><span style="color: rgb(128,128,128);">的构造函数</span></em>
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">ChildConstructor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">napi_value undefineVar </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_get_undefined</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">undefineVar</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value jsInstance </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">jsInstance</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(0,0,255);">undefineVar</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+    instance->DoSomething();
+    return result;
+}
 
-    <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instance </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_status status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">napi_wrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">jsInstance</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">DerefChild</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NULL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">napi_ok</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">主动释放内存</span></em>
-        <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ChildConstructor napi_wrap fail"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        delete <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">OH_LOG_INFO</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_APP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ChildConstructor success"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">jsInstance</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+static napi_value ParentCreateChild(napi_env env, napi_callback_info info)
+{
+    size_t argc = 1;
+    napi_value args[1] = {nullptr};
+    napi_value jsthis;
+    Parent *instanceParent = nullptr;
+    bool bRet = false;
+    napi_value result = nullptr;
+    napi_status status;
 
-<em>// </em><em><span style="color: rgb(128,128,128);">定义类</span><span style="color: rgb(128,128,128);">Child</span><span style="color: rgb(128,128,128);">的方法</span></em>
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">ChildDoSomething</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">napi_value jsthis</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">instance </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">bool bRet </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_value result </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    status = napi_get_cb_info(env, info, &argc, args, &jsthis, nullptr);
+    if (status != napi_ok) {
+        OH_LOG_ERROR(LOG_APP, "ParentcreateChild napi_get_cb_info fail.Status:%{public}d", status);
+        return nullptr;
+    }
 
-    <span style="color: rgb(0,0,255);">napi_unwrap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">jsthis</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">**</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+    status = napi_unwrap(env, jsthis, reinterpret_cast<void **>(&instanceParent));
+    if (status != napi_ok) {
+        OH_LOG_ERROR(LOG_APP, "ParentcreateChild napi_unwrap fail.Status:%{public}d", status);
+        return nullptr;
+    }
 
-    <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">DoSomething</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+    status = napi_new_instance(env, args[0], 0, nullptr, &result);
+    if (status != napi_ok) {
+        OH_LOG_ERROR(LOG_APP, "ParentcreateChild napi_new_instance fail.Status:%{public}d", status);
+        return nullptr;
+    }
 
-<span style="color: rgb(0,0,255);">EXTERN_C_START</span>
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">Init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_value exports</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">napi_property_descriptor parentDesc</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">        {</span><span style="color: rgb(255,0,170);">"doSomething"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ParentDoSomething</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_default</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"createChild"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ParentCreateChild</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_default</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
+    Child *instanceChild = instanceParent->CreateChild();
 
-    <span style="color: rgb(0,0,255);">napi_property_descriptor childDesc</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">        {</span><span style="color: rgb(255,0,170);">"doSomething"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ChildDoSomething</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_default</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
 
-    <span style="color: rgb(0,0,255);">napi_value parentConstructor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_define_class</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Parent"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NAPI_AUTO_LENGTH</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ParentConstructor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">parentDesc</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">parentDesc</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">,</span>
-                      <span style="color: rgb(0,0,255);">parentDesc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">parentConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_set_named_property</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Parent"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">parentConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    status = napi_wrap(env, result, reinterpret_cast<void *>(instanceChild), DerefChild, NULL, NULL);
+    if (status != napi_ok) {
+       <em> // 主动释放内存</em>
+        OH_LOG_INFO(LOG_APP, "ParentcreateChild ChildConstructor napi_wrap fail status:%{public}d", status);
+        delete instanceChild;
+    }
 
-    <span style="color: rgb(0,0,255);">napi_value childConstructor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_define_class</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Child"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NAPI_AUTO_LENGTH</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ChildConstructor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">childDesc</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">childDesc</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">,</span>
-                      <span style="color: rgb(0,0,255);">childDesc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">childConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">napi_set_named_property</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Child"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">childConstructor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(0,0,255);">EXTERN_C_END</span>
+    return result;
+}
 
-<span style="color: rgb(0,0,255);">static napi_module demoModule </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nm_version </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">    .</span><span style="color: rgb(0,0,255);">nm_flags </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">    .</span><span style="color: rgb(0,0,255);">nm_filename </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">    .</span><span style="color: rgb(0,0,255);">nm_register_func </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Init</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">    .</span><span style="color: rgb(0,0,255);">nm_modname </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"entry"</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">    .</span><span style="color: rgb(0,0,255);">nm_priv </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">((</span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">    .</span><span style="color: rgb(0,0,255);">reserved </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-<span style="color: rgb(0,0,255);">extern </span><span style="color: rgb(255,0,170);">"C" </span><span style="color: rgb(0,0,255);">__attribute__</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">constructor</span><span style="color: rgb(0,0,255);">)) </span>void <span style="color: rgb(0,0,255);">RegisterEntryModule</span><span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">napi_module_register</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">demoModule</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,0,170);">}</span>
+<em>// </em><em>定义类Child的构造函数</em>
+static napi_value ChildConstructor(napi_env env, napi_callback_info info)
+{
+    napi_value undefineVar = nullptr;
+    napi_get_undefined(env, &undefineVar);
+    napi_value jsInstance = nullptr;
+    if (napi_get_cb_info(env, info, nullptr, nullptr, &jsInstance, nullptr) != napi_ok) {
+    return undefineVar;
+}
+
+    Child *instance = new Child();
+    napi_status status = napi_wrap(env, jsInstance, reinterpret_cast<void *>(instance), DerefChild, NULL, NULL);
+    if (status != napi_ok) {
+      <em>  // 主动释放内存</em>
+        OH_LOG_INFO(LOG_APP, "ChildConstructor napi_wrap fail");
+        delete instance;
+    }
+    OH_LOG_INFO(LOG_APP, "ChildConstructor success");
+    return jsInstance;
+}
+
+<em>// </em><em>定义类Child的方法</em>
+static napi_value ChildDoSomething(napi_env env, napi_callback_info info)
+{
+    napi_value jsthis;
+    Child *instance = nullptr;
+    bool bRet = false;
+    napi_value result = nullptr;
+    napi_get_cb_info(env, info, nullptr, nullptr, &jsthis, nullptr);
+
+    napi_unwrap(env, jsthis, reinterpret_cast<void **>(&instance));
+
+    instance->DoSomething();
+    return result;
+}
+
+EXTERN_C_START
+static napi_value Init(napi_env env, napi_value exports)
+{
+    napi_property_descriptor parentDesc[] = {
+        {"doSomething", nullptr, ParentDoSomething, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"createChild", nullptr, ParentCreateChild, nullptr, nullptr, nullptr, napi_default, nullptr}
+    };
+
+    napi_property_descriptor childDesc[] = {
+        {"doSomething", nullptr, ChildDoSomething, nullptr, nullptr, nullptr, napi_default, nullptr}
+    };
+
+    napi_value parentConstructor = nullptr;
+    napi_define_class(env, "Parent", NAPI_AUTO_LENGTH, ParentConstructor, nullptr, sizeof(parentDesc) / sizeof(parentDesc[0]),
+                      parentDesc, &parentConstructor);
+    napi_set_named_property(env, exports, "Parent", parentConstructor);
+
+    napi_value childConstructor = nullptr;
+    napi_define_class(env, "Child", NAPI_AUTO_LENGTH, ChildConstructor, nullptr, sizeof(childDesc) / sizeof(childDesc[0]),
+                      childDesc, &childConstructor);
+    napi_set_named_property(env, exports, "Child", childConstructor);
+    return exports;
+}
+EXTERN_C_END
+
+static napi_module demoModule = {
+    .nm_version = 1,
+    .nm_flags = 0,
+    .nm_filename = nullptr,
+    .nm_register_func = Init,
+    .nm_modname = "entry",
+    .nm_priv = ((void *)0),
+    .reserved = {0},
+};
+
+extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_module_register(&demoModule); }
 ```
  
 CMakeLists.txt编译脚本：
  
 ```text
-<span style="color: rgb(181,106,1);"># </span><span style="color: rgb(0,0,255);">the minimum version of CMake</span><span style="color: rgb(181,106,1);">.</span>
-<span style="color: rgb(0,0,255);">cmake_minimum_required</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">VERSION </span><span style="color: rgb(255,0,0);">3.5.0</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">project</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MultipleClass</span><span style="color: rgb(0,0,255);">)</span>
+# the minimum version of CMake.
+cmake_minimum_required(VERSION 3.5.0)
+project(MultipleClass)
 
-<span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">NATIVERENDER_ROOT_PATH $</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">CMAKE_CURRENT_SOURCE_DIR</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
-if<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DEFINED PACKAGE_FIND_FILE</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">include</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">PACKAGE_FIND_FILE</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">endif</span><span style="color: rgb(0,0,255);">()</span>
+if(DEFINED PACKAGE_FIND_FILE)
+include(${PACKAGE_FIND_FILE})
+endif()
 
-<span style="color: rgb(0,0,255);">include_directories</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">NATIVERENDER_ROOT_PATH</span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(0,0,255);">$</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">NATIVERENDER_ROOT_PATH</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">/include)</span>
+include_directories(${NATIVERENDER_ROOT_PATH}
+${NATIVERENDER_ROOT_PATH}/include)
 
-<span style="color: rgb(0,0,255);">add_library</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">entry SHARED napi_init</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cpp</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">target_link_libraries</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">entry PUBLIC libace_napi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">z</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so libhilog_ndk</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">z</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(0,0,255);">)</span>
+add_library(entry SHARED napi_init.cpp)
+target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 ```
  
  

@@ -34,62 +34,62 @@ List组件可以下拉上滑，期望实现以下效果：
  
 - 使用onTouch监听触摸事件，根据触摸类型执行相应的操作。当触摸类型为Down时，记录当前触摸位置和图片初始高度。当触摸类型为Move时，根据图片展开状态和触摸移动的距离调整图片高度。当触摸类型为Up时，判断是否需要展开图片，并使用getUIContext().animateTo执行动画，根据图片高度变化展开或收起图片。动画结束后，设置isAnimating为false，表示动画结束。
 ```text
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onTouch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TouchEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAnimating</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">非动画中</span></em>
-    const <span style="color: rgb(0,0,255);">currentY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touches</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">;</span>
-    switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      case <span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Down</span><span style="color: rgb(181,106,1);">: </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">记录当前触摸位置和图片初始高度</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentY</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
+.onTouch((event: TouchEvent) => {
+  if (!this.isAnimating) {<em> </em><em>// 非动画中</em>
+    const currentY = event.touches[0].y;
+    switch (event.type) {
+      case TouchType.Down: <em>// 记录当前触摸位置和图片初始高度</em>
+        this.touchStartY = currentY;
+        this.touchStartHeight = this.imageHeight;
+        break;
 
-      case <span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Move</span><span style="color: rgb(181,106,1);">: </span><em>// </em><em><span style="color: rgb(128,128,128);">根据图片展开状态和触摸移动的距离调整图片高度</span></em>
-        const <span style="color: rgb(0,0,255);">deltaY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentY </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartY</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isExpanded</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">deltaY </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            return<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            const <span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">max</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartHeight </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">deltaY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">newHeight</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span>
-<span style="color: rgb(255,0,170);">        } </span>else <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">deltaY </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            const <span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">deltaY</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxImageHeight</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">newHeight</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span>
-<span style="color: rgb(255,0,170);">        }</span>
-        break<span style="color: rgb(181,106,1);">;</span>
+      case TouchType.Move: <em>// </em><em>根据图片展开状态和触摸移动的距离调整图片高度</em>
+        const deltaY = currentY - this.touchStartY;
+        if (this.isExpanded) {
+          if (deltaY >= 0) {
+            return;
+          } else {
+            const newHeight = Math.max(this.touchStartHeight + deltaY, 0);
+            if (Math.abs(newHeight - this.imageHeight) > 1) {
+              this.imageHeight = newHeight;
+            }
+          }
+        } else {
+          if (this.startIndex === 0 && deltaY > 0) {
+            const newHeight = Math.min(deltaY, this.maxImageHeight);
+            if (Math.abs(newHeight - this.imageHeight) > 1) {
+              this.imageHeight = newHeight;
+            }
+          }
+        }
+        break;
 
-      case <span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Up</span><span style="color: rgb(181,106,1);">:</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">手指抬起，判断当前组件展开的高度进行完全展开或收起动作</span></em>
-        const <span style="color: rgb(0,0,255);">movedDistance </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentY </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartHeight</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">移动距离小于</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">不做操作</span></em>
-        const <span style="color: rgb(0,0,255);">isMove </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">movedDistance </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">;</span>
+      case TouchType.Up:<em> </em><em>// 手指抬起，判断当前组件展开的高度进行完全展开或收起动作</em>
+        const movedDistance = Math.abs(currentY - this.touchStartHeight);<em> </em><em>// 移动距离小于5不做操作</em>
+        const isMove = movedDistance > 5;
 
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isMove</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAnimating </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">400</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cubicBezierCurve</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0.2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1.0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAnimating </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">threshold</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxImageHeight</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isExpanded </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isExpanded </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        if (isMove) {
+          this.isAnimating = true;
+          this.getUIContext()?.animateTo({
+            duration: 400,
+            curve: curves.cubicBezierCurve(0.2, 0.8, 0.1, 1.0),
+            onFinish: () => {
+              this.isAnimating = false;
+            }
+          }, () => {
+            if (this.imageHeight > this.threshold) {
+              this.imageHeight = this.maxImageHeight;
+              this.isExpanded = true;
+            } else {
+              this.imageHeight = 0;
+              this.isExpanded = false;
+            }
+          });
+        }
+        break;
+    }
+  }
+})
 ```
 
 
@@ -97,130 +97,130 @@ List组件可以下拉上滑，期望实现以下效果：
 完整示例参考如下：
  
 ```text
-import <span style="color: rgb(0,0,255);">curves </span>from <span style="color: rgb(255,0,170);">'@ohos.curves'</span><span style="color: rgb(181,106,1);">;</span>
+import curves from '@ohos.curves';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ListDownDemo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span><em> // </em><em><span style="color: rgb(128,128,128);">图片容器高度</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">startIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">列表起始索引</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">isExpanded</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片展开状态</span></em>
-  private <span style="color: rgb(0,0,255);">maxImageHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">240</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">图片最大高度</span></em>
-  private <span style="color: rgb(0,0,255);">touchStartY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">触摸起始位置</span></em>
-  private <span style="color: rgb(0,0,255);">threshold</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">120</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">触发阈值</span></em>
-  private <span style="color: rgb(0,0,255);">isAnimating</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否正在动画中</span></em>
-  private <span style="color: rgb(0,0,255);">touchStartHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><em>//</em><em><span style="color: rgb(128,128,128);"> 触摸图片起始高度</span></em>
+@Entry
+@Component
+struct ListDownDemo {
+  @State imageHeight: number = 0;<em> // </em><em>图片容器高度</em>
+  @State startIndex: number = 0;<em> </em><em>// 列表起始索引</em>
+  @State isExpanded: boolean = false; <em>// 图片展开状态</em>
+  private maxImageHeight: number = 240; <em>// </em><em>图片最大高度</em>
+  private touchStartY: number = 0;<em> </em><em>// 触摸起始位置</em>
+  private threshold: number = 120; <em>// </em><em>触发阈值</em>
+  private isAnimating: boolean = false; <em>// 是否正在动画中</em>
+  private touchStartHeight: number = 0; <em>//</em><em> 触摸图片起始高度</em>
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">下拉组件内容区</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f1f3f5'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clip</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">End</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transition</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">200 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">))</span>
+  build() {
+    Column() {
+      Column() {
+        Text('下拉组件内容区')
+          .fontSize(20)
+      }
+      .width('100%')
+      .backgroundColor('#f1f3f5')
+      .height(this.imageHeight)
+      .clip(true)
+      .margin({ bottom: 10 })
+      .align(Alignment.Bottom)
+      .justifyContent(FlexAlign.End)
+      .transition(TransitionEffect.opacity(1).animation({ duration: 200 }))
 
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">7</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">组件二内容： </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0.7</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(255,0,170);">}</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#FFFFFF'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">shadow</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#00000020'</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">offsetX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">offsetY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">enableScrollInteraction</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isExpanded </span><span style="color: rgb(181,106,1);">? </span>false <span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onScrollIndex</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">edgeEffect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">EdgeEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onTouch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TouchEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAnimating</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">非动画中</span></em>
-        const <span style="color: rgb(0,0,255);">currentY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touches</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">;</span>
-        switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          case <span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Down</span><span style="color: rgb(181,106,1);">:</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">记录当前触摸位置和图片初始高度</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentY</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(181,106,1);">;</span>
-            break<span style="color: rgb(181,106,1);">;</span>
+      List() {
+        ForEach([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item: number) => {
+          ListItem() {
+            Row() {
+              Column() {
+                Text(`组件二内容： ${item} `)
+                  .fontSize(14)
+                  .opacity(0.7)
+              }
+              .layoutWeight(1)
+              .margin({ right: 10 })
+            }
+            .padding(8)
+            .backgroundColor('#FFFFFF')
+            .height(100)
+            .margin({
+              top: 8,
+              bottom: 8,
+              left: 16,
+              right: 16
+            })
+            .shadow({
+              radius: 4,
+              color: '#00000020',
+              offsetX: 1,
+              offsetY: 1
+            })
+          }
+        })
+      }
+      .width('100%')
+      .height('100%')
+      .enableScrollInteraction(this.isExpanded ? false : true)
+      .onScrollIndex((start: number) => {
+        this.startIndex = start;
+      })
+      .layoutWeight(1)
+      .edgeEffect(EdgeEffect.None)
+    }
+    .onTouch((event: TouchEvent) => {
+      if (!this.isAnimating) { <em>// 非动画中</em>
+        const currentY = event.touches[0].y;
+        switch (event.type) {
+          case TouchType.Down:<em> </em><em>// 记录当前触摸位置和图片初始高度</em>
+            this.touchStartY = currentY;
+            this.touchStartHeight = this.imageHeight;
+            break;
 
-          case <span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Move</span><span style="color: rgb(181,106,1);">: </span><em>// </em><em><span style="color: rgb(128,128,128);">根据图片展开状态和触摸移动的距离调整图片高度</span></em>
-            const <span style="color: rgb(0,0,255);">deltaY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentY </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartY</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isExpanded</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">deltaY </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                return<span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-                const <span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">max</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartHeight </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">deltaY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">newHeight</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">              }</span>
-<span style="color: rgb(255,0,170);">            } </span>else <span style="color: rgb(255,0,170);">{</span>
-              if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">deltaY </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                const <span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">deltaY</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxImageHeight</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newHeight </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">newHeight</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">              }</span>
-<span style="color: rgb(255,0,170);">            }</span>
-            break<span style="color: rgb(181,106,1);">;</span>
+          case TouchType.Move: <em>// </em><em>根据图片展开状态和触摸移动的距离调整图片高度</em>
+            const deltaY = currentY - this.touchStartY;
+            if (this.isExpanded) {
+              if (deltaY >= 0) {
+                return;
+              } else {
+                const newHeight = Math.max(this.touchStartHeight + deltaY, 0);
+                if (Math.abs(newHeight - this.imageHeight) > 1) {
+                  this.imageHeight = newHeight;
+                }
+              }
+            } else {
+              if (this.startIndex === 0 && deltaY > 0) {
+                const newHeight = Math.min(deltaY, this.maxImageHeight);
+                if (Math.abs(newHeight - this.imageHeight) > 1) {
+                  this.imageHeight = newHeight;
+                }
+              }
+            }
+            break;
 
-          case <span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Up</span><span style="color: rgb(181,106,1);">: </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">手指抬起，判断当前组件展开的高度进行完全展开或收起动作</span></em>
-            const <span style="color: rgb(0,0,255);">movedDistance </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentY </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touchStartHeight</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">移动距离小于</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">不做操作</span></em>
-            const <span style="color: rgb(0,0,255);">isMove </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">movedDistance </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">;</span>
+          case TouchType.Up: <em>// 手指抬起，判断当前组件展开的高度进行完全展开或收起动作</em>
+            const movedDistance = Math.abs(currentY - this.touchStartHeight);<em> </em><em>// 移动距离小于5不做操作</em>
+            const isMove = movedDistance > 5;
 
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isMove</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAnimating </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">400</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cubicBezierCurve</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0.2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1.0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAnimating </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">threshold</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxImageHeight</span><span style="color: rgb(181,106,1);">;</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isExpanded </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isExpanded </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            break<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+            if (isMove) {
+              this.isAnimating = true;
+              this.getUIContext()?.animateTo({
+                duration: 400,
+                curve: curves.cubicBezierCurve(0.2, 0.8, 0.1, 1.0),
+                onFinish: () => {
+                  this.isAnimating = false;
+                }
+              }, () => {
+                if (this.imageHeight > this.threshold) {
+                  this.imageHeight = this.maxImageHeight;
+                  this.isExpanded = true;
+                } else {
+                  this.imageHeight = 0;
+                  this.isExpanded = false;
+                }
+              });
+            }
+            break;
+        }
+      }
+    })
+  }
+}
 ```

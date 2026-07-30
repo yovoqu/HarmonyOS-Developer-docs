@@ -258,23 +258,23 @@ specialAPIs是声明应用调用的可用于生成设备指纹的API信息，包
 
 ```text
 {
-  <span style="color: rgb(132,63,161);">"dataProcess"</span><span style="color: rgb(181,106,1);">: </span>[
+  "dataProcess": [
     {
-      <span style="color: rgb(132,63,161);">"dataType"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"Identifiers"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"dataLabels"</span><span style="color: rgb(181,106,1);">: </span>[
+      "dataType": "Identifiers",
+      "dataLabels": [
         {
-        <span style="color: rgb(132,63,161);">  "label"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"MAC"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">  "purposes"</span><span style="color: rgb(181,106,1);">: </span>[<span style="color: rgb(80,160,79);">"App functionality"</span>]<span style="color: rgb(181,106,1);">,</span>
-          "userLinked": true<span style="color: rgb(181,106,1);">,</span>
+          "label": "MAC",
+          "purposes": ["App functionality"],
+          "userLinked": true,
           "tracking": true
         }
       ]
     }
-  ]<span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(132,63,161);">"specialAPIs"</span><span style="color: rgb(181,106,1);">: </span>[
+  ],
+  "specialAPIs": [
     {
-      <span style="color: rgb(132,63,161);">"apiType"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"File timestamp APIs"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"reasons"</span><span style="color: rgb(181,106,1);">: </span>[<span style="color: rgb(80,160,79);">"Display to user on-device"</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">"Access file metadata in-app"</span>]
+      "apiType": "File timestamp APIs",
+      "reasons": ["Display to user on-device","Access file metadata in-app"]
     }
   ]
 }

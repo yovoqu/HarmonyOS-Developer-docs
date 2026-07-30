@@ -28,64 +28,64 @@
  
 - 定义检测结果对象，可根据业务需求自定义实现，简单示例：
 ```text
-<span style="color: rgb(128,128,128);">/**</span>
-<span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">人脸识别结果对象</span>
-<span style="color: rgb(128,128,128);"> */</span>
-export class <span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义</span><span style="color: rgb(128,128,128);">code</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">message</span>
-  <span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">|</span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 人脸识别结果对象
+ */
+export class DetectionResult {
+  // 自定义code和message
+  finalResult: Record<string, number | string>|undefined = undefined;
+}
 ```
 
 
  
 - [startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)接口的callback回调函数中获取检测结果：
 ```text
-<span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startLivenessDetection</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">routerOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">InteractiveLivenessResult </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当路由跳转错误时，获取结果失败，</span><span style="color: rgb(128,128,128);">result</span><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">undefined</span>
-  let <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">DetectionResult</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  if<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);"> !</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在发生错误如路由跳转失败</span><span style="color: rgb(128,128,128);">/</span><span style="color: rgb(128,128,128);">参数错误</span><span style="color: rgb(128,128,128);">/</span><span style="color: rgb(128,128,128);">权限被拒绝时，会抛出错误码，详见</span><span style="color: rgb(128,128,128);">ArkTS API</span><span style="color: rgb(128,128,128);">错误码</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`LivenessCollectionIndex failed to detect. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">，</span><span style="color: rgb(255,0,170);">message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(255,0,170);">'code'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Error'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessError,
+  result: interactiveLiveness.InteractiveLivenessResult | undefined) => { // 当路由跳转错误时，获取结果失败，result返回undefined
+  let detectionResult: DetectionResult = new DetectionResult();
+  if(err.code !== 0 && !result) { // 在发生错误如路由跳转失败/参数错误/权限被拒绝时，会抛出错误码，详见ArkTS API错误码
+    console.error(`LivenessCollectionIndex failed to detect. Code: ${err.code}，message: ${err.message}`);
+    detectionResult.finalResult = {
+      'code': err.code,
+      'message': 'Error'
+    };
 
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'StartLivenessDetectionFailed'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    this.pathStack.pushPath({name: 'StartLivenessDetectionFailed', param: detectionResult});
+    return;
+  }
 
-  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`LivenessCollectionIndex Succeeded in detecting result: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  console.info(`LivenessCollectionIndex Succeeded in detecting result: ${result}`);
 
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">mPixelMap</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(255,0,170);">'code'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Success'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  if (result?.mPixelMap) {
+    detectionResult.finalResult = {
+      'code': 0,
+      'message': 'Success'
+    };
 
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'StartLivenessDetectionSuccess'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(255,0,170);">'code'</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Failed'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Detection'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this.pathStack.pushPath({name: 'StartLivenessDetectionSuccess', param: detectionResult});
+  } else {
+    detectionResult.finalResult = {
+      'code': -1,
+      'message': 'Failed'
+    };
+    this.pathStack.pushPath({name: 'Detection', param: detectionResult});
+  }
+});
 ```
 
 - 检测结果目标页面接收路由参数。
 ```text
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavDestinationContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getParamByIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">DetectionResult</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Detection result is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Detection result is succeed.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+.onReady((context: NavDestinationContext) => {
+  this.pathStack = context.pathStack;
+  let detectionResult: DetectionResult = this.pathStack.getParamByIndex(1) as DetectionResult;
+  if (detectionResult?.finalResult) {
+    let message = detectionResult?.finalResult['message'];
+    console.info(`Detection result is ${message}.`);
+  } else {
+    console.info(`Detection result is succeed.`);
+  }
+});
 ```
 
 
@@ -106,7 +106,7 @@ export class <span style="color: rgb(0,0,255);">DetectionResult </span><span sty
     "deliveryWithInstall": true,
     "installationFree": false,
     "pages": "$profile:main_pages",
-    "routerMap": "$profile:route_map", <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">路由配置</span>
+    "routerMap": "$profile:route_map", // 路由配置
     "abilities": [
       {
         "name": "EntryAbility",
@@ -143,7 +143,7 @@ export class <span style="color: rgb(0,0,255);">DetectionResult </span><span sty
         ],
       }
     ],
-    "requestPermissions": [ <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">权限声明</span>
+    "requestPermissions": [ // 权限声明
       {
         "name": "ohos.permission.CAMERA",
         "reason": "$string:reason_of_camera",
@@ -214,263 +214,263 @@ export class <span style="color: rgb(0,0,255);">DetectionResult </span><span sty
 
 - 首页（src/main/ets/pages/Index.ets）:
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">pageInfos</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getParams</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'StartLivenessDetectionSuccess'</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageInfos</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">去检测</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Capsule </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Detection' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">name</span><span style="color: rgb(128,128,128);">指定的</span><span style="color: rgb(128,128,128);">NavDestination</span><span style="color: rgb(128,128,128);">页面信息入栈</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">NavigationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Auto</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">首页</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Entry
+@Component
+struct Index {
+  pageInfos: NavPathStack = new NavPathStack();
+  aboutToAppear(): void {
+    let param = this.getUIContext().getRouter().getParams();
+    if (param) {
+      this.pageInfos.pushPath({name: 'StartLivenessDetectionSuccess'});
+    }
+  }
+  build() {
+    Navigation(this.pageInfos) {
+      Column() {
+        Button('去检测', { stateEffect: true, type: ButtonType.Capsule })
+          .width('80%')
+          .height(40)
+          .margin(20)
+          .onClick(() => {
+            this.pageInfos.pushPath({ name: 'Detection' }); //将name指定的NavDestination页面信息入栈
+          })
+      }
+    }
+    .mode(NavigationMode.Auto)
+    .title('首页')
+  }
+}
 ```
 
 - 检测页面（src/main/ets/pages/Detection.ets）：
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Permissions </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">interactiveLiveness </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.VisionKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { common, abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
+import { interactiveLiveness } from '@kit.VisionKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(128,128,128);">/**</span>
-<span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">人脸识别结果对象</span>
-<span style="color: rgb(128,128,128);"> */</span>
-export class <span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义</span><span style="color: rgb(128,128,128);">code</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">message</span>
-  <span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">|</span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 人脸识别结果对象
+ */
+export class DetectionResult {
+  // 自定义code和message
+  finalResult: Record<string, number | string>|undefined = undefined;
+}
 
-<span style="color: rgb(181,106,1);">@Builder</span>
-export function <span style="color: rgb(0,0,255);">DetectionBuilder</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">Detection</span><span style="color: rgb(0,0,255);">()</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Builder
+export function DetectionBuilder() {
+  Detection()
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">Detection </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">failResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(255,0,170);">'code'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1008302000</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+export struct Detection {
+  private context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
+  @State pathStack: NavPathStack = new NavPathStack();
+  @State failResult: Record<string, number | string> = {
+    'code': 1008302000,
+    'message': ''
+  };
 
-  private <span style="color: rgb(0,0,255);">array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Permissions</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'ohos.permission.CAMERA'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">actionsNum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">isSilentMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DetectionMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">INTERACTIVE_MODE </span><span style="color: rgb(181,106,1);">=</span>
-    <span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DetectionMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">INTERACTIVE_MODE</span><span style="color: rgb(181,106,1);">;</span>
+  private array: Array<Permissions> = ['ohos.permission.CAMERA'];
+  private actionsNum: number = 3;
+  private isSilentMode: interactiveLiveness.DetectionMode.INTERACTIVE_MODE =
+    interactiveLiveness.DetectionMode.INTERACTIVE_MODE;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Top</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">动作数量：</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">actionsNum</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span>
-<span style="color: rgb(255,0,170);">        }</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">80 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
+  build() {
+    NavDestination() {
+      Stack({
+        alignContent: Alignment.Top
+      }) {
+        Column() {
+          Row() {
+            Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.Start, alignItems: ItemAlign.Center }) {
+              Text('动作数量：' + this.actionsNum)
+                .fontSize(30)
+                .width('50%')
+            }
+          }
+        }
+        .margin({ left: 24, top: 80 })
+        .zIndex(1)
 
-        <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">开始检测</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Normal</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">192</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0x317aff)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">56</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startDetection</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">检测页面</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavDestinationContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        let <span style="color: rgb(0,0,255);">detectionResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span>as <span style="color: rgb(0,0,255);">DetectionResult</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">failResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+        Stack({
+          alignContent: Alignment.Bottom
+        }) {
+          Button('开始检测', { type: ButtonType.Normal, stateEffect: true })
+            .width(192)
+            .height(40)
+            .fontSize(16)
+            .backgroundColor(0x317aff)
+            .borderRadius(20)
+            .margin({
+              bottom: 56
+            })
+            .onClick(() => {
+              this.startDetection();
+            })
+        }
+        .height('100%')
+      }
+    }.title('检测页面')
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+      if (context.pathInfo.param) {
+        let detectionResult = context.pathInfo.param as DetectionResult;
+        if (detectionResult.finalResult) {
+          this.failResult = detectionResult.finalResult;
+        }
+      }
+    });
+  }
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">跳转到人脸活体检测控件</span>
-  private <span style="color: rgb(0,0,255);">routerLibrary</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">routerOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">InteractiveLivenessConfig </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">isSilentMode</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isSilentMode</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">routeMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouteRedirectionMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BACK_MODE</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">actionsNum</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">actionsNum</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  // 跳转到人脸活体检测控件
+  private routerLibrary() {
+    let routerOptions: interactiveLiveness.InteractiveLivenessConfig = {
+      isSilentMode: this.isSilentMode,
+      routeMode: interactiveLiveness.RouteRedirectionMode.BACK_MODE,
+      actionsNum: this.actionsNum
+    };
 
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">canIUse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SystemCapability.AI.Component.LivenessDetect'</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startLivenessDetection</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">routerOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">InteractiveLivenessResult </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当路由跳转错误时，获取结果失败，</span><span style="color: rgb(128,128,128);">result</span><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">undefined</span>
-        let <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">DetectionResult</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        if<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);"> !</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在发生错误如路由跳转失败</span><span style="color: rgb(128,128,128);">/</span><span style="color: rgb(128,128,128);">参数错误</span><span style="color: rgb(128,128,128);">/</span><span style="color: rgb(128,128,128);">权限被拒绝时，会抛出错误码，详见</span><span style="color: rgb(128,128,128);">ArkTS API</span><span style="color: rgb(128,128,128);">错误码</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`LivenessCollectionIndex failed to detect. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">，</span><span style="color: rgb(255,0,170);">message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(255,0,170);">'code'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Error'</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    if (canIUse('SystemCapability.AI.Component.LivenessDetect')) {
+      interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessError,
+        result: interactiveLiveness.InteractiveLivenessResult | undefined) => { // 当路由跳转错误时，获取结果失败，result返回undefined
+        let detectionResult: DetectionResult = new DetectionResult();
+        if(err.code !== 0 && !result) { // 在发生错误如路由跳转失败/参数错误/权限被拒绝时，会抛出错误码，详见ArkTS API错误码
+          console.error(`LivenessCollectionIndex failed to detect. Code: ${err.code}，message: ${err.message}`);
+          detectionResult.finalResult = {
+            'code': err.code,
+            'message': 'Error'
+          };
 
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'StartLivenessDetectionFailed'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          return<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
+          this.pathStack.pushPath({name: 'StartLivenessDetectionFailed', param: detectionResult});
+          return;
+        }
 
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`LivenessCollectionIndex Succeeded in detecting result: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        console.info(`LivenessCollectionIndex Succeeded in detecting result: ${result}`);
 
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">mPixelMap</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(255,0,170);">'code'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Success'</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+        if (result?.mPixelMap) {
+          detectionResult.finalResult = {
+            'code': 0,
+            'message': 'Success'
+          };
 
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'StartLivenessDetectionSuccess'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finalResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(255,0,170);">'code'</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Failed'</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Detection'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'LivenessCollectionIndex this api is not supported on this device'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+          this.pathStack.pushPath({name: 'StartLivenessDetectionSuccess', param: detectionResult});
+        } else {
+          detectionResult.finalResult = {
+            'code': -1,
+            'message': 'Failed'
+          };
+          this.pathStack.pushPath({name: 'Detection', param: detectionResult});
+        }
+      });
+    } else {
+      console.error('LivenessCollectionIndex this api is not supported on this device');
+    }
+  }
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">校验</span><span style="color: rgb(128,128,128);">CAMERA</span><span style="color: rgb(128,128,128);">权限</span>
-  private <span style="color: rgb(0,0,255);">startDetection</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAtManager</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">requestPermissionsFromUser</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'ohos.permission.CAMERA' </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">authResults</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">routerLibrary</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to request permissions from user. Code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  // 校验CAMERA权限
+  private startDetection() {
+    abilityAccessCtrl.createAtManager().requestPermissionsFromUser(this.context, this.array).then((res) => {
+      for (let i = 0; i < res.permissions.length; i++) {
+        if (res.permissions[i] === 'ohos.permission.CAMERA' && res.authResults[i] === 0) {
+          this.routerLibrary();
+        }
+      }
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to request permissions from user. Code is ${err.code}, message is ${err.message}`);
+    });
+  }
+}
 ```
 
 - 检测成功页面（src/main/ets/pages/StartLivenessDetectionSuccess.ets）：
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./Detection'</span><span style="color: rgb(181,106,1);">;</span>
+import { DetectionResult } from './Detection';
 
-<span style="color: rgb(181,106,1);">@Builder</span>
-export function <span style="color: rgb(0,0,255);">StartLivenessDetectionSuccessBuilder</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">StartLivenessDetectionSuccess</span><span style="color: rgb(0,0,255);">()</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Builder
+export function StartLivenessDetectionSuccessBuilder() {
+  StartLivenessDetectionSuccess()
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">StartLivenessDetectionSuccess </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+export struct StartLivenessDetectionSuccess {
+  @State pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Top</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Success'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Green</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">260 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavDestinationContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getParamByIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">DetectionResult</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        let <span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Detection result is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Detection result is succeed.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    NavDestination() {
+      Stack({
+        alignContent: Alignment.Top
+      }) {
+        Column() {
+          Stack({
+            alignContent: Alignment.Bottom
+          }) {
+            Text('Success')
+              .fontSize(100)
+              .fontColor(Color.Green)
+              .align(Alignment.Center)
+              .margin({ bottom: 260 })
+          }
+        }
+      }
+    }
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+      let detectionResult: DetectionResult = this.pathStack.getParamByIndex(1) as DetectionResult;
+      if (detectionResult?.finalResult) {
+        let message = detectionResult?.finalResult['message'];
+        console.info(`Detection result is ${message}.`);
+      } else {
+        console.info(`Detection result is succeed.`);
+      }
+    });
+  }
+}
 ```
 
 - 检测失败页面（src/main/ets/pages/StartLivenessDetectionFailed.ets）：
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./Detection'</span><span style="color: rgb(181,106,1);">;</span>
+import { DetectionResult } from './Detection';
 
-<span style="color: rgb(181,106,1);">@Builder</span>
-export function <span style="color: rgb(0,0,255);">StartLivenessDetectionFailedBuilder</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">StartLivenessDetectionFailed</span><span style="color: rgb(0,0,255);">()</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Builder
+export function StartLivenessDetectionFailedBuilder() {
+  StartLivenessDetectionFailed()
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">StartLivenessDetectionFailed </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+export struct StartLivenessDetectionFailed {
+  @State pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Top</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Failed'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Red</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bolder</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">260 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavDestinationContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DetectionResult </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getParamByIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">DetectionResult</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        let <span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">detectionResult</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finalResult</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Detection result is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Detection result is failed.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    NavDestination() {
+      Stack({
+        alignContent: Alignment.Top
+      }) {
+        Column() {
+          Stack({
+            alignContent: Alignment.Bottom
+          }) {
+            Text('Failed')
+              .fontSize(100)
+              .fontColor(Color.Red)
+              .fontWeight(FontWeight.Bolder)
+              .align(Alignment.Center)
+              .margin({ bottom: 260 })
+          }
+        }
+      }
+    }
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+      let detectionResult: DetectionResult = this.pathStack.getParamByIndex(1) as DetectionResult;
+      if (detectionResult?.finalResult) {
+        let message = detectionResult?.finalResult['message'];
+        console.info(`Detection result is ${message}.`);
+      } else {
+        console.info(`Detection result is failed.`);
+      }
+    });
+  }
+}
 ```
 
 

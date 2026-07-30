@@ -33,11 +33,11 @@ struct WebComponent {
               '<body>\n' +
                 '<div">\n' +
                 '<p><strong>' +
-                '<span style="font-size: 20px; color: rgb(34, 34, 34)">' +
+                '' +
                 '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
                 '#特别提示：Test: LoadData Test！' +
                 '</mark>' +
-                '</span>' +
+                '' +
                 '</strong>\n' +
                 '</p>\n' +
                 '</div>\n' +
@@ -98,11 +98,11 @@ struct WebComponent {
               '<body>\n' +
                 '<div">\n' +
                 '<p><strong>' +
-                '<span style="font-size: 20px; color: rgb(34, 34, 34)">' +
+                '' +
                 '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
                 '#特别提示：Test: LoadData Test！' +
                 '</mark>' +
-                '</span>' +
+                '' +
                 '</strong>\n' +
                 '</p>\n' +
                 '</div>\n' +
@@ -145,11 +145,11 @@ struct WebComponent1 {
           let htmlStr = '<body>\n' +
             '<div">\n' +
             '<p><strong>' +
-            '<span style="font-size: 20px; color: rgb(34, 34, 34)">' +
+            '' +
             '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
             '#特别提示：Test: LoadData Test！' +
             '</mark>' +
-            '</span>' +
+            '' +
             '</strong>\n' +
             '</p>\n' +
             '</div>\n' +

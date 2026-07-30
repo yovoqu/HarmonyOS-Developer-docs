@@ -19,24 +19,24 @@
 #### 解决方案
 1. 创建一个proxy.ts作为rcp的封装代理函数。
 ```text
-export function <span style="color: rgb(0,0,255);">createSessionProxy</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SessionConfiguration</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Session </span><span style="color: rgb(255,0,170);">{</span>
-  return <span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSession</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export function createSessionProxy(config: rcp.SessionConfiguration): rcp.Session {
+  return rcp.createSession(config);
+}
 ```
 
 2. 在业务需要采用拦截器的模块调用该方法。
 ```text
-export function <span style="color: rgb(0,0,255);">injectRcpAspect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Aspect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addBefore</span><span style="color: rgb(0,0,255);">(</span>
-    <span style="color: rgb(0,0,255);">createSessionProxy</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">'createSession'</span><span style="color: rgb(181,106,1);">,</span>
-    false<span style="color: rgb(181,106,1);">,</span>
-    <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">下面函数是在</span><span style="color: rgb(128,128,128);">createSession</span><span style="color: rgb(128,128,128);">方法前执行。</span></em>
-    <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">object</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SessionConfiguration</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`[</span><span style="color: rgb(255,0,170);">切面</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(255,0,170);">创建</span><span style="color: rgb(255,0,170);"> Session</span><span style="color: rgb(255,0,170);">，目标为：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">，配置为</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export function injectRcpAspect(): void {
+  util.Aspect.addBefore(
+    createSessionProxy,
+    'createSession',
+    false,
+    <em>// 下面函数是在createSession方法前执行。</em>
+    (target: object, config: rcp.SessionConfiguration) => {
+      console.info(`[切面] 创建 Session，目标为：${target}，配置为:${config}`);
+    }
+  );
+}
 ```
 
  

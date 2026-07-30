@@ -164,7 +164,7 @@ export default {
 <!-- xxx.hml -->
 <div class="doc-page">
   <text style="margin-top: 60px;margin-left: 30px;">
-    <span>{{date}} events</span>
+    {{date}} events
   </text>
   <div class="btnDiv">
     <button type="circle" class="btn" onclick="addSchedule">+</button>

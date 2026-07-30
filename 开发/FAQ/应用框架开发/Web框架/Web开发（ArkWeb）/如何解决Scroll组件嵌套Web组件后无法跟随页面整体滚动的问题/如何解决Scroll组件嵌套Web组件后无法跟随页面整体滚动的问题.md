@@ -9,12 +9,12 @@
 在Scroll组件内嵌套使用Web组件和其他容器组件的组合时，嵌套布局如下：
  
 ```text
-<span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{}</span>
-  <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{}</span>
-  <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{}</span>
-  <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{}</span>
-<span style="color: rgb(181,106,1);">}</span>
+Scroll() {
+  Row() {}
+  Web() {}
+  Row() {}
+  List() {}
+}
 ```
  
 Web组件显示不全或只能单独滚动，无法实现与Row、List等组件连为一个整体进行滚动。
@@ -50,76 +50,76 @@ Web组件显示不全或只能单独滚动，无法实现与Row、List等组件�
 通过设置layoutMode属性为WebLayoutMode.FIT_CONTENT让Web自适应内容高度。
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">webview </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WebFit </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">webviewController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WebFit {
+  webviewController: webview.WebviewController = new webview.WebviewController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">测试顶部</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'30%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Scroll() {
+      Column() {
+        Row() {
+          Text('测试顶部');
+        }
+        .width('100%')
+        .height('30%')
+        .justifyContent(FlexAlign.Center)
+        .backgroundColor(Color.Gray);
 
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">网页内容过宽或者过长时需要设置为</span><span style="color: rgb(128,128,128);">RenderMode.SYNC_RENDER</span></em>
-        <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'test.html'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">webviewController</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">renderMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">RenderMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SYNC_RENDER </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">metaViewport</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">WebLayoutMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FIT_CONTENT</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置</span><span style="color: rgb(128,128,128);">Web</span><span style="color: rgb(128,128,128);">组件高度进行自适应</span></em>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">overScrollMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">OverScrollMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NEVER</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关闭过界回弹效果</span></em>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zoomAccess</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关闭手势缩放</span></em>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">测试底部</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'30%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+     <em>   // 网页内容过宽或者过长时需要设置为RenderMode.SYNC_RENDER</em>
+        Web({ src: $rawfile('test.html'), controller: this.webviewController, renderMode: RenderMode.SYNC_RENDER })
+          .width('100%')
+          .height('100%')
+          .metaViewport(true)
+          .layoutMode(WebLayoutMode.FIT_CONTENT)<em> </em><em>// 设置Web组件高度进行自适应</em>
+          .overScrollMode(OverScrollMode.NEVER) <em>// 关闭过界回弹效果</em>
+          .zoomAccess(false)<em> </em><em>// 关闭手势缩放</em>
+          .fileAccess(false)
+          .geolocationAccess(false);
+        Row() {
+          Text('测试底部');
+        }
+        .width('100%')
+        .height('30%')
+        .justifyContent(FlexAlign.Center)
+        .backgroundColor(Color.Gray);
+      };
+    };
+  }
+}
 ```
  
 ```text
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">!DOCTYPE </span><span style="color: rgb(128,128,128);">html</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">html</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">head</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">meta </span><span style="color: rgb(128,128,128);">charset</span><span style="color: rgb(80,160,79);">="UTF-8"</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">meta </span><span style="color: rgb(128,128,128);">name</span><span style="color: rgb(80,160,79);">="viewport" </span><span style="color: rgb(128,128,128);">content</span><span style="color: rgb(80,160,79);">="width=device-width, initial-scale=1, user-scalable=no"</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">title</span><span style="color: rgb(181,106,1);">></span>Fit-Content<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/title</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/head</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">body</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-    <span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">p</span><span style="color: rgb(181,106,1);">></span>这就是一个测试话题。<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/p</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/body</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/html</span><span style="color: rgb(181,106,1);">></span>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Fit-Content</title>
+</head>
+<body>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+    <p>这就是一个测试话题。</p>
+</body>
+</html>
 ```
  
  

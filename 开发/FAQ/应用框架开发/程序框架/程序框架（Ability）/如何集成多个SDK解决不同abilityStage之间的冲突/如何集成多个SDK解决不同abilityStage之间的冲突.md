@@ -23,30 +23,30 @@
 模仿OneSDK提供的方法：
  
 ```text
-export function <span style="color: rgb(0,0,255);">preInit</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'strOne' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export function preInit(str: string) {
+  console.info('strOne' + str);
+}
 ```
  
 模仿TwoSDK提供的方法：
  
 ```text
-export function <span style="color: rgb(0,0,255);">preInit</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'strTwo' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export function preInit(str: string) {
+  console.info('strTwo' + str);
+}
 ```
  
 使用方合并采用的方法：
  
 ```text
-import <span style="color: rgb(0,0,255);">AbilityStage </span>from <span style="color: rgb(255,0,170);">'@ohos.app.ability.AbilityStage'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">preInit </span>as <span style="color: rgb(0,0,255);">preInitOne </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./OneAnalytics'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">preInit </span>as <span style="color: rgb(0,0,255);">preInitTwo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./TwoAnalytics'</span><span style="color: rgb(181,106,1);">;</span>
+import AbilityStage from '@ohos.app.ability.AbilityStage';
+import { preInit as preInitOne } from './OneAnalytics';
+import { preInit as preInitTwo } from './TwoAnalytics';
 
-export default class <span style="color: rgb(0,0,255);">MyAbilityStage </span>extends <span style="color: rgb(0,0,255);">AbilityStage </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">onCreate</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">preInitOne</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'One'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">preInitTwo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Two'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+export default class MyAbilityStage extends AbilityStage {
+  onCreate() {
+    preInitOne('One');
+    preInitTwo('Two');
+  }
+};
 ```

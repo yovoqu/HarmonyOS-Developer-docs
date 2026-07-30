@@ -107,7 +107,7 @@ search{
 <!-- xxx.hml-->
 <div class="container">
   <text style="margin-left: -7px;">
-    <span>Enter text and then touch and hold what you've entered</span>
+    Enter text and then touch and hold what you've entered
   </text>
   <search hint="Please enter the search content"  searchbutton="search" onsearch="search" onchange="change" ontranslate="translate" onshare="share"
   onsubmit="submit">

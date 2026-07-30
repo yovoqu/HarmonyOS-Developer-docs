@@ -108,7 +108,7 @@ App running unique id:1975637108740622813
 Process life time:9s
 Process Memory(kB): 113418(Rss)
 Device Memory(kB): Total 11699072, Free 283332, Available 5270528
-<strong><span style="color: rgb(255,0,0);">Reason:Signal:SIGILL(ILL_ILLOPC)@000000000000000000 </span></strong>
+<strong>Reason:Signal:SIGILL(ILL_ILLOPC)@000000000000000000 </strong>
 Fault thread info:
 Tid:40168, Name:ppcrashanalysis
 #00 pc 00000000000286b0 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerUD2Instruction(napi_env__*, napi_callback_info__*)+12)(4687a4d714038f89c2e644d7b764097814597256)
@@ -204,7 +204,7 @@ App running unique id:16554467495764280840
 Process life time:27s
 Process Memory(kB): 80236(Rss)
 Device Memory(kB): Total 11699072, Free 464960, Available 5491712
-<strong><span style="color: rgb(255,0,0);">Reason:Signal:SIGILL(ILL_ILLOPC)@000000000000000000 </span></strong>
+<strong>Reason:Signal:SIGILL(ILL_ILLOPC)@000000000000000000 </strong>
 Fault thread info:
 Tid:40645, Name:ppcrashanalysis
 #00 pc 00000000000286cc /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerUndefinedInstruction(napi_env__*, napi_callback_info__*)+12)(4687a4d714038f89c2e644d7b764097814597256)

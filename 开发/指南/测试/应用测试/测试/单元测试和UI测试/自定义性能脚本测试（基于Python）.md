@@ -415,19 +415,19 @@ def create_tag(self, step_name="", scene_type="", tag_id="", pkg_name="", dynami
 **3、****场景tag类型**
  
 ```text
-<span style="color: rgb(181,106,1);">class </span>SceneType(Enum):
-    <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">起播时延</span>
-    PLAY_VIDEO = <span style="color: rgb(80,160,79);">"PLAY_VIDEO"</span>
-    <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">冷启</span>
-    COLD_START = <span style="color: rgb(80,160,79);">"COLD_START"</span>
-    <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">热启</span>
-    HOT_START = <span style="color: rgb(80,160,79);">"HOT_START"</span>
-    <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">有页面切换</span>
-    WITH_PAGE_SWITCH = <span style="color: rgb(80,160,79);">"WITH_PAGE_SWITCH"</span>
-    <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">无页面切换</span>
-    NO_PAGE_SWITCH = <span style="color: rgb(80,160,79);">"NO_PAGE_SWITCH"</span>
-    <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">视频观看</span>
-    WATCH = <span style="color: rgb(80,160,79);">"WATCH"</span>
+class SceneType(Enum):
+    # 起播时延
+    PLAY_VIDEO = "PLAY_VIDEO"
+    # 冷启
+    COLD_START = "COLD_START"
+    # 热启
+    HOT_START = "HOT_START"
+    # 有页面切换
+    WITH_PAGE_SWITCH = "WITH_PAGE_SWITCH"
+    # 无页面切换
+    NO_PAGE_SWITCH = "NO_PAGE_SWITCH"
+    # 视频观看
+    WATCH = "WATCH"
 ```
  
  
@@ -452,7 +452,7 @@ def create_tag(self, step_name="", scene_type="", tag_id="", pkg_name="", dynami
 **1、点击****操作**
  
 ```text
-def <span style="color: rgb(192,0,0);">touch_perf</span>(self, target: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[By, UiComponent, <span style="color: rgb(79,129,189);">tuple</span>], wait_time: <span style="color: rgb(79,129,189);">float </span>= <span style="color: rgb(75,172,198);">0.1</span>, tag: Tag = <span style="color: rgb(75,172,198);">None</span>)
+def touch_perf(self, target: <strong>Union</strong>[By, UiComponent, tuple], wait_time: float = 0.1, tag: Tag = None)
 ```
  
 **接口说明**
@@ -472,15 +472,15 @@ def <span style="color: rgb(192,0,0);">touch_perf</span>(self, target: <strong><
  
 ```text
 # 点击文本为"hello"的控件
-driver.touch_perf(BY.text(<span style="color: rgb(192,0,0);">"hello"</span>), tag=self.create_tag("<span style="color: rgb(192,0,0);">点击hello"</span>, SceneType.NO_PAGE_SWITCH))
+driver.touch_perf(BY.text("hello"), tag=self.create_tag("点击hello", SceneType.NO_PAGE_SWITCH))
 
 # 点击（100，200）的位置
-driver.touch_perf(（100，200）, tag=self.create_tag(<span style="color: rgb(192,0,0);">"点击（100，200）"</span>, SceneType.NO_PAGE_SWITCH))
+driver.touch_perf(（100，200）, tag=self.create_tag("点击（100，200）", SceneType.NO_PAGE_SWITCH))
 
 # 冷启动相机
 APP_NAME="相机"
 icon_pos = self.driver.find_app_in_launcher(APP_NAME)
-driver.touch_perf(icon_pos, tag=self.create_tag(<span style="color: rgb(192,0,0);">"相机冷启动"</span>, SceneType.COLD_START))
+driver.touch_perf(icon_pos, tag=self.create_tag("相机冷启动", SceneType.COLD_START))
 ```
  
 
@@ -488,7 +488,7 @@ driver.touch_perf(icon_pos, tag=self.create_tag(<span style="color: rgb(192,0,0)
 **2、长按****操作**
  
 ```text
-def <span style="color: rgb(255,0,0);">long_</span><span style="color: rgb(255,0,0);">touch_perf</span>(self, target: <strong><span style="color: rgb(0,0,255);">Union</span></strong>[By, UiComponent, <span style="color: rgb(0,0,255);">tuple</span>], tag: Tag = <span style="color: rgb(0,0,255);">None</span>)
+def long_touch_perf(self, target: <strong>Union</strong>[By, UiComponent, tuple], tag: Tag = None)
 ```
  
 **接口说明**
@@ -509,7 +509,7 @@ def <span style="color: rgb(255,0,0);">long_</span><span style="color: rgb(255,0
 # 长按相机图标，弹出弹窗
 APP_NAME="相机"
 icon_pos = self.driver.find_app_in_launcher(APP_NAME)
-driver.long_touch_perf(icon_pos, tag=self.create_tag(<span style="color: rgb(255,0,0);">"长按相机图标弹出弹窗"</span>, SceneType.NO_PAGE_SWITCH))
+driver.long_touch_perf(icon_pos, tag=self.create_tag("长按相机图标弹出弹窗", SceneType.NO_PAGE_SWITCH))
 ```
  
 
@@ -517,7 +517,7 @@ driver.long_touch_perf(icon_pos, tag=self.create_tag(<span style="color: rgb(255
 **3、双击****操作**
  
 ```text
-def <span style="color: rgb(255,0,0);">double_</span><span style="color: rgb(255,0,0);">touch_perf</span>(self, target: <strong><span style="color: rgb(0,0,255);">Union</span></strong>[By, UiComponent, <span style="color: rgb(0,0,255);">tuple</span>], tag: Tag = <span style="color: rgb(0,0,255);">None</span>)
+def double_touch_perf(self, target: <strong>Union</strong>[By, UiComponent, tuple], tag: Tag = None)
 ```
  
 **接口说明**
@@ -536,7 +536,7 @@ def <span style="color: rgb(255,0,0);">double_</span><span style="color: rgb(255
  
 ```text
 # 双击确认按钮（控件文本为确认）
-driver.double_touch_perf(BY.text("确认"), tag=self.create_tag(<span style="color: rgb(255,0,0);">"双击确认按钮"</span>, SceneType.WITH_PAGE_SWITCH))
+driver.double_touch_perf(BY.text("确认"), tag=self.create_tag("双击确认按钮", SceneType.WITH_PAGE_SWITCH))
 ```
  
 
@@ -544,7 +544,7 @@ driver.double_touch_perf(BY.text("确认"), tag=self.create_tag(<span style="col
 **4、执行指定距离的滑动操作**
  
 ```text
-def <strong><span style="color: rgb(192,0,0);">swipe_perf</span></strong>(self, direction:<span style="color: rgb(79,129,189);"> str</span>, distance: <span style="color: rgb(79,129,189);">int</span> = 60, start_point: <span style="color: rgb(79,129,189);">tuple</span> = <span style="color: rgb(75,172,198);">None</span>, swipe_time: <span style="color: rgb(79,129,189);">float</span> =<span style="color: rgb(75,172,198);"> None</span>, tag: Tag = <span style="color: rgb(75,172,198);">None</span>)
+def <strong>swipe_perf</strong>(self, direction: str, distance: int = 60, start_point: tuple = None, swipe_time: float = None, tag: Tag = None)
 ```
  
 
@@ -566,13 +566,13 @@ def <strong><span style="color: rgb(192,0,0);">swipe_perf</span></strong>(self, 
  
 ```text
 # 在屏幕上向上滑动40
-driver.swipe_perf(UiParam.UP, distance=40, tag=self.create_tag(<span style="color: rgb(192,0,0);">"向上滑动"</span>, SceneType.NO_PAGE_SWITCH))
+driver.swipe_perf(UiParam.UP, distance=40, tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))
 
 # 在屏幕上向右滑动, 滑动时间为0.1秒
-driver.swipe_perf(UiParam.RIGHT, swipe_time=0.1, tag=self.create_tag(<span style="color: rgb(192,0,0);">"向右滑动"</span>, SceneType.NO_PAGE_SWITCH))
+driver.swipe_perf(UiParam.RIGHT, swipe_time=0.1, tag=self.create_tag("向右滑动", SceneType.NO_PAGE_SWITCH))
 
 # 在屏幕起始点为比例坐标为(0.8, 0.8)的位置向上滑动30
-driver.swipe_perf(UiParam.UP, <span style="color: rgb(75,172,198);">30</span>, start_point=(<span style="color: rgb(75,172,198);">0.8, 0.8</span>), tag=self.create_tag(<span style="color: rgb(192,0,0);">"向上滑动"</span>, SceneType.NO_PAGE_SWITCH))
+driver.swipe_perf(UiParam.UP, 30, start_point=(0.8, 0.8), tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))
 ```
  
 
@@ -580,7 +580,7 @@ driver.swipe_perf(UiParam.UP, <span style="color: rgb(75,172,198);">30</span>, s
 **5、执行精准的滑动操作**
  
 ```text
-def <strong><span style="color: rgb(192,0,0);">slide_perf</span></strong>(self, start: <strong style="color: rgb(79,129,189);">Union</strong>[By, <span style="color: rgb(79,129,189);">tuple</span>], end: Union[By, <span style="color: rgb(79,129,189);">tuple</span>], slide_time: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">2</span>, tag: Tag = <span style="color: rgb(75,172,198);">None</span>)
+def <strong>slide_perf</strong>(self, start: <strong style="color: rgb(79,129,189);">Union</strong>[By, tuple], end: Union[By, tuple], slide_time: float = 2, tag: Tag = None)
 ```
  
 **接口说明**
@@ -601,13 +601,13 @@ def <strong><span style="color: rgb(192,0,0);">slide_perf</span></strong>(self, 
  
 ```text
 # 从类型为Slider的控件滑动到文本为最大的控件
-driver.slide_perf(BY.type("Slider"), BY.text(<span style="color: rgb(192,0,0);">"最大"</span>),tag=self.create_tag(<span style="color: rgb(192,0,0);">"滑动到最大"</span>, SceneType.NO_PAGE_SWITCH))
+driver.slide_perf(BY.type("Slider"), BY.text("最大"),tag=self.create_tag("滑动到最大", SceneType.NO_PAGE_SWITCH))
 
 # 从坐标100，200滑动到300，400
-driver.slide_perf(（100，200）, (<span style="color: rgb(75,172,198);">300, 400</span>), tag=self.create_tag(<span style="color: rgb(192,0,0);">"向上滑动"</span>, SceneType.NO_PAGE_SWITCH))
+driver.slide_perf(（100，200）, (300, 400), tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))
 
 # 从坐标100，200滑动到300，400, 滑动时间为3秒
-driver.slide_perf(（100，200）, (<span style="color: rgb(75,172,198);">300, 400</span>), slide_time=3, tag=self.create_tag(<span style="color: rgb(192,0,0);">"向上滑动"</span>, SceneType.NO_PAGE_SWITCH))
+driver.slide_perf(（100，200）, (300, 400), slide_time=3, tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))
 ```
  
 
@@ -615,8 +615,8 @@ driver.slide_perf(（100，200）, (<span style="color: rgb(75,172,198);">300, 4
 **6、拖拽****操作**
  
 ```text
-def <strong style="color: rgb(192,0,0);">drag_perf</strong>(self, start: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[By, <span style="color: rgb(79,129,189);">tuple</span>], end: <strong style="color: rgb(79,129,189);">Union</strong>[By, <span style="color: rgb(79,129,189);">tuple</span>],
-                  area: By = None, press_time: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">1</span>, drag_time: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">1</span>, tag: Tag = <span style="color: rgb(75,172,198);">None</span>)
+def <strong style="color: rgb(192,0,0);">drag_perf</strong>(self, start: <strong>Union</strong>[By, tuple], end: <strong style="color: rgb(79,129,189);">Union</strong>[By, tuple],
+                  area: By = None, press_time: float = 1, drag_time: float = 1, tag: Tag = None)
 ```
  
 **接口说明**
@@ -639,16 +639,16 @@ def <strong style="color: rgb(192,0,0);">drag_perf</strong>(self, start: <strong
  
 ```text
 # 拖拽文本为"文件.txt"的控件到文本为"上传文件"的控件
-driver.drag_perf(BY.text(<span style="color: rgb(192,0,0);">"文件.txt"</span>), BY.text(<span style="color: rgb(192,0,0);">"上传文件"</span>), tag=self.create_tag("<span style="color: rgb(192,0,0);">拖拽文件"</span>, SceneType.NO_PAGE_SWITCH))
+driver.drag_perf(BY.text("文件.txt"), BY.text("上传文件"), tag=self.create_tag("拖拽文件", SceneType.NO_PAGE_SWITCH))
 
 # 拖拽id为"start_bar"的控件到坐标（100，200）的位置, 拖拽时间为2秒
-driver.drag_perf(BY.key(<span style="color: rgb(192,0,0);">"start_bar"</span>), （100，200）, drag_time=2, tag=self.create_tag(<span style="color: rgb(192,0,0);">"拖拽start_bar"</span>, SceneType.NO_PAGE_SWITCH))
+driver.drag_perf(BY.key("start_bar"), （100，200）, drag_time=2, tag=self.create_tag("拖拽start_bar", SceneType.NO_PAGE_SWITCH))
 
 # 在id为"Canvas"的控件上从相对位置(10, 20)拖拽到（100，200）
-driver.drag_perf((<span style="color: rgb(75,172,198);">10, 20</span>), （100，200）, area = BY.id(<span style="color: rgb(192,0,0);">"Canvas"</span>), tag=self.create_tag(<span style="color: rgb(192,0,0);">"拖拽Canvas"</span>, SceneType.NO_PAGE_SWITCH))
+driver.drag_perf((10, 20), （100，200）, area = BY.id("Canvas"), tag=self.create_tag("拖拽Canvas", SceneType.NO_PAGE_SWITCH))
 
 # 在滑动条上从相对位置(10, 10)拖拽到(10, 200)
-driver.drag_perf((<span style="color: rgb(75,172,198);">10, 10</span>), (<span style="color: rgb(75,172,198);">10, 200</span>), area=BY.type(<span style="color: rgb(192,0,0);">"Slider"</span>), tag=self.create_tag(<span style="color: rgb(192,0,0);">"拖拽滑动条"</span>, SceneType.NO_PAGE_SWITCH))
+driver.drag_perf((10, 10), (10, 200), area=BY.type("Slider"), tag=self.create_tag("拖拽滑动条", SceneType.NO_PAGE_SWITCH))
 ```
  
 
@@ -656,7 +656,7 @@ driver.drag_perf((<span style="color: rgb(75,172,198);">10, 10</span>), (<span s
 **7、屏幕侧边滑动返回****操作**
  
 ```text
-def <strong><span style="color: rgb(192,0,0);">swipe_to_back_perf</span></strong>(self, side=UiParam.RIGHT, times: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">1</span>, height: <span style="color: rgb(79,129,189);">float</span> = 0.5, tag: <span style="color: rgb(79,129,189);">Tag</span> = <span style="color: rgb(75,172,198);">None</span>)
+def <strong>swipe_to_back_perf</strong>(self, side=UiParam.RIGHT, times: int = 1, height: float = 0.5, tag: Tag = None)
 ```
  
 **接口说明**
@@ -677,13 +677,13 @@ def <strong><span style="color: rgb(192,0,0);">swipe_to_back_perf</span></strong
  
 ```text
 # 侧滑返回
-self.driver.swipe_to_back_perf(tag=self.create_tag(<span style="color: rgb(192,0,0);">"侧滑返回"</span>, SceneType.WITH_PAGE_SWITCH))
+self.driver.swipe_to_back_perf(tag=self.create_tag("侧滑返回", SceneType.WITH_PAGE_SWITCH))
 
 # 侧滑2次返回
-self.driver.swipe_to_back_perf(times=<span style="color: rgb(75,172,198);">2</span>, tag=self.create_tag(<span style="color: rgb(192,0,0);">"侧滑2次返回"</span>, SceneType.WITH_PAGE_SWITCH))
+self.driver.swipe_to_back_perf(times=2, tag=self.create_tag("侧滑2次返回", SceneType.WITH_PAGE_SWITCH))
 
 # 设置侧滑位置的高度比例为屏幕高度的80%，即在屏幕靠下的位置侧滑返回
-self.driver.swipe_to_back_perf(height=<span style="color: rgb(75,172,198);">0.8</span>, tag=self.create_tag(<span style="color: rgb(192,0,0);">"屏幕靠下的位置侧滑返回"</span>, SceneType.WITH_PAGE_SWITCH))
+self.driver.swipe_to_back_perf(height=0.8, tag=self.create_tag("屏幕靠下的位置侧滑返回", SceneType.WITH_PAGE_SWITCH))
 ```
  
 
@@ -691,7 +691,7 @@ self.driver.swipe_to_back_perf(height=<span style="color: rgb(75,172,198);">0.8<
 **8、从屏幕底部上滑返回桌面**
  
 ```text
-def <strong style="color: rgb(192,0,0);">swipe_to_home_perf</strong>(self, times:<span style="color: rgb(79,129,189);"> int</span> =<span style="color: rgb(75,172,198);"> 1</span>, tag: <span style="color: rgb(79,129,189);">Tag</span> = <span style="color: rgb(75,172,198);">None</span>)
+def <strong style="color: rgb(192,0,0);">swipe_to_home_perf</strong>(self, times: int = 1, tag: Tag = None)
 ```
  
 **接口说明**
@@ -710,10 +710,10 @@ def <strong style="color: rgb(192,0,0);">swipe_to_home_perf</strong>(self, times
  
 ```text
 # 上滑返回桌面
-self.driver.swipe_to_home_perf(tag=self.create_tag(<span style="color: rgb(192,0,0);">"上滑返回桌面"</span>, SceneType.WITH_PAGE_SWITCH))
+self.driver.swipe_to_home_perf(tag=self.create_tag("上滑返回桌面", SceneType.WITH_PAGE_SWITCH))
 
 # 连续上滑2次返回桌面
-self.driver.swipe_to_home_perf(times=2, tag=self.create_tag(<span style="color: rgb(192,0,0);">"上滑返回桌面"</span>, SceneType.WITH_PAGE_SWITCH))
+self.driver.swipe_to_home_perf(times=2, tag=self.create_tag("上滑返回桌面", SceneType.WITH_PAGE_SWITCH))
 ```
  
 
@@ -721,7 +721,7 @@ self.driver.swipe_to_home_perf(times=2, tag=self.create_tag(<span style="color: 
 **9、观看视频**
  
 ```text
-def <span style="color: rgb(255,0,0);">watch_perf</span>(self, watch_time<span style="color: rgb(181,106,1);">, </span>is_bullet_screen=False, is_full_screen=False, watch_tag_desc=None)
+def watch_perf(self, watch_time, is_bullet_screen=False, is_full_screen=False, watch_tag_desc=None)
 ```
  
 **接口说明**
@@ -756,7 +756,7 @@ self.watch_perf(20, watch_tag_desc="观看直播视频")
 **10、在桌面滑动查找APP，并打开应用**
  
 ```text
-def <span style="color: rgb(255,0,0);">start_application_perf</span>(self, app_name<span style="color: rgb(181,106,1);">, </span>scene_type, tag=None)
+def start_application_perf(self, app_name, scene_type, tag=None)
 ```
  
 **接口说明**
@@ -787,7 +787,7 @@ self.driver.start_application_perf("设置", SceneType.COLD_START)
 # 查找需要操作的窗口
 window = driver.find_window(WindowFilter().bundle_name(package_name))
 # 点击窗口最小化
-driver.minimize_window_perf(window, tag=self.create_tag(<span style="color: rgb(192,0,0);">"点击窗口最小化"</span>, 
+driver.minimize_window_perf(window, tag=self.create_tag("点击窗口最小化", 
 scene_type=SceneType.WITH_PAGE_SWITCH))
 ```
  

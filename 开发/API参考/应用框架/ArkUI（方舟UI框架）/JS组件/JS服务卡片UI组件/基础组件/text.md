@@ -75,7 +75,7 @@
 ```text
 <div class="container">
     <text class="line_height">
-        <span>这是设置了行高的文本。</span>
+        这是设置了行高的文本。
     </text>
     <text class="letter_spacing">这是设置了字符间距的文本。</text>
     <text class="font_style">这是设置为斜体的文本。</text>

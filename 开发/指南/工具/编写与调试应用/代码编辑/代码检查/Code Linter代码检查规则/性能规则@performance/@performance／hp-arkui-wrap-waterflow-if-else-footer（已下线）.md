@@ -195,7 +195,7 @@ struct ReusableFlowItem {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
+plugin:@performance/all
 ```
  
  

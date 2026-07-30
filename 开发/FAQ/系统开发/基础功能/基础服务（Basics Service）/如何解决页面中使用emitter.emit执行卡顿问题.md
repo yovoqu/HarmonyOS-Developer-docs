@@ -20,15 +20,15 @@
 1. 在页面上多次重复执行分发事件并监听事件的步骤。
 2. 查阅日志发现目标页的监听会重复监听：
 ```text
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     MyPageOne aboutToAppear</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     receive</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     MyPageOne aboutToAppear</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     receive</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     receive</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     MyPageOne aboutToAppear</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     receive</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     receive</span>
-<span style="color: rgb(0,0,255);">emitter</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">nemitter  I     receive</span>
+emitter/JSAPP  com.examp...nemitter  I     MyPageOne aboutToAppear
+emitter/JSAPP  com.examp...nemitter  I     receive
+emitter/JSAPP  com.examp...nemitter  I     MyPageOne aboutToAppear
+emitter/JSAPP  com.examp...nemitter  I     receive
+emitter/JSAPP  com.examp...nemitter  I     receive
+emitter/JSAPP  com.examp...nemitter  I     MyPageOne aboutToAppear
+emitter/JSAPP  com.examp...nemitter  I     receive
+emitter/JSAPP  com.examp...nemitter  I     receive
+emitter/JSAPP  com.examp...nemitter  I     receive
 ```
 
 3. 通过设置页面销毁时移除监听或监听单次事件，查看日志发现监听触发多次监听的问题已不存在。

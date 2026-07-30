@@ -14,17 +14,17 @@ DevEco Studio启动预览时将执行PreviewChecker，检测通过后才可进�
 **反例**
  
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Index</span> {
-  message?: <span style="color: rgb(0,0,255);">string</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">BuilderParam</span> myBuilder: () => <span style="color: rgb(0,0,255);">void</span>;
+@Entry
+@Component
+struct Index {
+  message?: string;
+  @BuilderParam myBuilder: () => void;
 
   build() {
-    <span style="color: rgb(0,128,128);">Row</span>() {
-      <span style="color: rgb(0,128,128);">Column</span>() {
-        <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
-        <span style="color: rgb(0,0,255);">this</span>.myBuilder()
+    Row() {
+      Column() {
+        Text(this.message)
+        this.myBuilder()
       }
     }
   }
@@ -34,24 +34,24 @@ struct <span style="color: rgb(0,128,128);">Index</span> {
 **正例**
  
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Builder</span> <span style="color: rgb(0,0,255);">function</span> <span style="color: rgb(0,128,128);">MyBuilderFunction</span>(): <span style="color: rgb(0,0,255);">void</span> {}
+@Builder function MyBuilderFunction(): void {}
 
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Index</span> {
-  message?: <span style="color: rgb(0,0,255);">string</span> = <span style="color: rgb(163,21,21);">'message'</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Provide</span> messageA: <span style="color: rgb(0,0,255);">string</span> = <span style="color: rgb(163,21,21);">'messageA'</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">StorageLink</span>(<span style="color: rgb(163,21,21);">'varA'</span>) varA: <span style="color: rgb(0,0,255);">number</span> = <span style="color: rgb(9,134,88);">2</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">StorageProp</span>(<span style="color: rgb(163,21,21);">'languageCode'</span>) lang: <span style="color: rgb(0,0,255);">string</span> = <span style="color: rgb(163,21,21);">'en'</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">LocalStorageLink</span>(<span style="color: rgb(163,21,21);">'PropA'</span>) storageLink1: <span style="color: rgb(0,0,255);">number</span> = <span style="color: rgb(9,134,88);">1</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">LocalStorageProp</span>(<span style="color: rgb(163,21,21);">'PropB'</span>) storageLink2: <span style="color: rgb(0,0,255);">number</span> = <span style="color: rgb(9,134,88);">2</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">BuilderParam</span> myBuilder: () => <span style="color: rgb(0,0,255);">void</span> = <span style="color: rgb(0,128,128);">MyBuilderFunction</span>;
+@Entry
+@Component
+struct Index {
+  message?: string = 'message';
+  @Provide messageA: string = 'messageA';
+  @StorageLink('varA') varA: number = 2;
+  @StorageProp('languageCode') lang: string = 'en';
+  @LocalStorageLink('PropA') storageLink1: number = 1;
+  @LocalStorageProp('PropB') storageLink2: number = 2;
+  @BuilderParam myBuilder: () => void = MyBuilderFunction;
 
   build() {
-    <span style="color: rgb(0,128,128);">Row</span>() {
-      <span style="color: rgb(0,128,128);">Column</span>() {
-        <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
-        <span style="color: rgb(0,0,255);">this</span>.myBuilder()
+    Row() {
+      Column() {
+        Text(this.message)
+        this.myBuilder()
       }
     }
   }
@@ -69,14 +69,14 @@ struct <span style="color: rgb(0,128,128);">Index</span> {
 **反例**
  
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Preview</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">LinkSample</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Link</span> message: <span style="color: rgb(0,0,255);">string</span>;
+@Preview
+@Component
+struct LinkSample {
+  @Link message: string;
 
   build() {
-    <span style="color: rgb(0,128,128);">Row</span>() {
-      <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
+    Row() {
+      Text(this.message)
     }
   }
 }
@@ -85,25 +85,25 @@ struct <span style="color: rgb(0,128,128);">LinkSample</span> {
 **正例**
  
 ```text
-<span style="color: rgb(205,49,49);">@</span>Entry
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">LinkSampleContainer</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> message: <span style="color: rgb(0,0,255);">string</span> = <span style="color: rgb(163,21,21);">'Hello World'</span>;
+@Entry
+@Component
+struct LinkSampleContainer {
+  @State message: string = 'Hello World';
 
   build() {
-    <span style="color: rgb(0,128,128);">Row</span>() {
-      <span style="color: rgb(0,128,128);">LinkSample</span>({message: <span style="color: rgb(0,0,255);">this</span>.message})
+    Row() {
+      LinkSample({message: this.message})
     }
   }
 }
  
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">LinkSample</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Link</span> message: <span style="color: rgb(0,0,255);">string</span>;
+@Component
+struct LinkSample {
+  @Link message: string;
 
   build() {
-    <span style="color: rgb(0,128,128);">Row</span>() {
-      <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
+    Row() {
+      Text(this.message)
     }
   }
 }
@@ -122,22 +122,22 @@ API version 19及以前，@Consume装饰的变量不支持设置默认值，建�
 **反例**
  
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Parent</span> {
+@Entry
+@Component
+struct Parent {
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Child</span>()
+    Column() {
+      Child()
     }
   }
 }
  
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Child</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Consume</span> message: <span style="color: rgb(0,0,255);">string</span>;
+@Component
+struct Child {
+  @Consume message: string;
  
   build() {
-    <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
+    Text(this.message)
   }
 }
 ```
@@ -163,24 +163,24 @@ struct Parent {
  
 ```text
 // 所有版本均可使用此方式
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Parent</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Provide</span> message: <span style="color: rgb(0,0,255);">string</span> = <span style="color: rgb(163,21,21);">'hello world'</span>;
+@Entry
+@Component
+struct Parent {
+  @Provide message: string = 'hello world';
  
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Child</span>()
+    Column() {
+      Child()
     }
   }
 }
  
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Child</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Consume</span> message: <span style="color: rgb(0,0,255);">string</span>;
+@Component
+struct Child {
+  @Consume message: string;
  
   build() {
-    <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
+    Text(this.message)
   }
 }
 ```
@@ -194,18 +194,18 @@ struct <span style="color: rgb(0,128,128);">Child</span> {
 **反例**
  
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Preview</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Index</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> message: <span style="color: rgb(0,0,255);">string</span> = <span style="color: rgb(163,21,21);">'Hello World'</span>;
+@Preview
+@Component
+struct Index {
+  @State message: string = 'Hello World';
 
-  onPageShow(): <span style="color: rgb(0,0,255);">void</span> {}
-  onPageHide(): <span style="color: rgb(0,0,255);">void</span> {}
-  onBackPress(): <span style="color: rgb(0,0,255);">void</span> {}
+  onPageShow(): void {}
+  onPageHide(): void {}
+  onBackPress(): void {}
 
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
+    Column() {
+      Text(this.message)
     }
   }
 }
@@ -214,18 +214,18 @@ struct <span style="color: rgb(0,128,128);">Index</span> {
 **正例**
  
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">Index</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> message: <span style="color: rgb(0,0,255);">string</span> = <span style="color: rgb(163,21,21);">'Hello World'</span>;
+@Entry
+@Component
+struct Index {
+  @State message: string = 'Hello World';
 
-  onPageShow(): <span style="color: rgb(0,0,255);">void</span> {}
-  onPageHide(): <span style="color: rgb(0,0,255);">void</span> {}
-  onBackPress(): <span style="color: rgb(0,0,255);">void</span> {}
+  onPageShow(): void {}
+  onPageHide(): void {}
+  onBackPress(): void {}
 
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(0,0,255);">this</span>.message)
+    Column() {
+      Text(this.message)
     }
   }
 }

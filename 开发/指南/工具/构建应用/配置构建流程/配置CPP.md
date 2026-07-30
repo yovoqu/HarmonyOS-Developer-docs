@@ -205,12 +205,12 @@ librariesInfo用于声明so的透传依赖信息。仅模块级build-profile.jso
 如果需要声明库之间的依赖关系，例如entry依赖curl，可在模块内build-profile.json5中配置librariesInfo。
 
 ```json
-<span style="color: rgb(152,118,170);">"buildOption"</span><span style="color: rgb(204,120,50);">: </span>{
-  <span style="color: rgb(152,118,170);">"nativeLib"</span><span style="color: rgb(204,120,50);">: </span>{
-    <span style="color: rgb(152,118,170);">"librariesInfo"</span><span style="color: rgb(204,120,50);">: </span>[
+"buildOption": {
+  "nativeLib": {
+    "librariesInfo": [
       {
-        <span style="color: rgb(152,118,170);">"name"</span><span style="color: rgb(204,120,50);">: </span><span style="color: rgb(106,135,89);">"libentry.so"</span><span style="color: rgb(204,120,50);">,</span>
-        <span style="color: rgb(152,118,170);">"linkLibraries"</span><span style="color: rgb(204,120,50);">: </span>[<span style="color: rgb(106,135,89);">"curl::curl"</span>]
+        "name": "libentry.so",
+        "linkLibraries": ["curl::curl"]
       }
     ]
   }
@@ -220,10 +220,10 @@ librariesInfo用于声明so的透传依赖信息。仅模块级build-profile.jso
 当其他模块依赖声明了依赖透传的模块并使用libentry.so时，libentry.so会将依赖curl::curl添加到参数INTERFACE_LINK_LIBRARIES，开发者无需关注它的依赖。
 
 ```text
-<span style="color: rgb(204,120,50);">add_library</span>(library::library SHARED <span style="color: rgb(104,151,187);">IMPORTED</span>)
-<span style="color: rgb(204,120,50);">set_target_properties</span>(library::library PROPERTIES
-    <span style="color: rgb(104,151,187);">IMPORTED_LOCATION </span><span style="color: rgb(106,135,89);">"/path/to/file"</span>
-    <span style="color: rgb(104,151,187);">INTERFACE_LINK_LIBRARIES </span><span style="color: rgb(106,135,89);">"curl::curl"</span>)
+add_library(library::library SHARED IMPORTED)
+set_target_properties(library::library PROPERTIES
+    IMPORTED_LOCATION "/path/to/file"
+    INTERFACE_LINK_LIBRARIES "curl::curl")
 ```
 
 
@@ -250,30 +250,30 @@ librariesInfo用于声明so的透传依赖信息。仅模块级build-profile.jso
         }
       },
       "externalNativeOptions": {
-        "path": "./src/main/cpp/CMakeLists.txt", <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义</span><span style="color: rgb(128,128,128);">CMake</span><span style="color: rgb(128,128,128);">配置脚本</span><span style="color: rgb(128,128,128);">CMakeLists.txt</span><span style="color: rgb(128,128,128);">的位置，它是以模块根目录为起始位置的相对路径</span>
-        "arguments": ["-DCMAKE_BUILD_TYPE=Debug"], <span style="color: rgb(128,128,128);">// Hvigor</span><span style="color: rgb(128,128,128);">将会把此处的自定义参数传递给</span><span style="color: rgb(128,128,128);">CMake</span><span style="color: rgb(128,128,128);">构建工具，您可通过</span><span style="color: rgb(128,128,128);">CMake</span><span style="color: rgb(128,128,128);">官方文档查找您所需的编译参数，同时它也将覆盖默认同名参数</span>
-        "cppFlags": "-g", <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义</span><span style="color: rgb(128,128,128);">cpp flags</span><span style="color: rgb(128,128,128);">参数</span>
-        "abiFilters": ["arm64-v8a"] <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义</span><span style="color: rgb(128,128,128);">cpp</span><span style="color: rgb(128,128,128);">编译架构，默认编译架构为</span><span style="color: rgb(128,128,128);">arm64-v8a</span>
+        "path": "./src/main/cpp/CMakeLists.txt", // 自定义CMake配置脚本CMakeLists.txt的位置，它是以模块根目录为起始位置的相对路径
+        "arguments": ["-DCMAKE_BUILD_TYPE=Debug"], // Hvigor将会把此处的自定义参数传递给CMake构建工具，您可通过CMake官方文档查找您所需的编译参数，同时它也将覆盖默认同名参数
+        "cppFlags": "-g", // 自定义cpp flags参数
+        "abiFilters": ["arm64-v8a"] // 自定义cpp编译架构，默认编译架构为arm64-v8a
       },
       "nativeLib": {
-        "debugSymbol": { <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">可通过此配置对</span><span style="color: rgb(128,128,128);">cpp</span><span style="color: rgb(128,128,128);">编译产物</span><span style="color: rgb(128,128,128);">so</span><span style="color: rgb(128,128,128);">执行</span><span style="color: rgb(128,128,128);">strip</span><span style="color: rgb(128,128,128);">，移除</span><span style="color: rgb(128,128,128);">so</span><span style="color: rgb(128,128,128);">中的调试信息与符号表等</span>
-          "strip": true, <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">执行</span><span style="color: rgb(128,128,128);">strip</span>
-          "exclude": [] <span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">执行</span><span style="color: rgb(128,128,128);">strip</span><span style="color: rgb(128,128,128);">的过滤正则表达式规则</span>
+        "debugSymbol": { // 可通过此配置对cpp编译产物so执行strip，移除so中的调试信息与符号表等
+          "strip": true, // 执行strip
+          "exclude": [] //执行strip的过滤正则表达式规则
         },
-        "filter": { <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">可通过此选项自定义此</span><span style="color: rgb(128,128,128);">cpp</span><span style="color: rgb(128,128,128);">产物</span><span style="color: rgb(128,128,128);">so</span><span style="color: rgb(128,128,128);">是否打包到应用包中</span>
-          "excludes": [ <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据正则表达式排除匹配到的.so文件，匹配到的so文件将不会被打包，可用于打包时缩小包体积</span>
-<span style="color: rgb(104,153,50);">            "**/3.so"</span>, <span style="color: rgb(204,14,45);">// 排除所有名称为“3”的so文件</span>
-<span style="color: rgb(104,153,50);">            "**/x86_64/*.so"</span> <span style="color: rgb(204,14,45);">// 排除所有x86_64架构的so文件</span>
+        "filter": { // 可通过此选项自定义此cpp产物so是否打包到应用包中
+          "excludes": [ // 根据正则表达式排除匹配到的.so文件，匹配到的so文件将不会被打包，可用于打包时缩小包体积
+            "**/3.so", // 排除所有名称为“3”的so文件
+            "**/x86_64/*.so" // 排除所有x86_64架构的so文件
           ], 
-          "pickFirsts": ["**/1.so"], <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">按照</span><span style="color: rgb(128,128,128);">.so</span><span style="color: rgb(128,128,128);">文件的优先级顺序，打包最高优先级的</span><span style="color: rgb(128,128,128);">.so</span><span style="color: rgb(128,128,128);">文件</span>
-          "pickLasts": ["**/2.so"], <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">按照</span><span style="color: rgb(128,128,128);">.so</span><span style="color: rgb(128,128,128);">文件的优先级顺序，打包最低优先级的</span><span style="color: rgb(128,128,128);">.so</span><span style="color: rgb(128,128,128);">文件</span>
-          "enableOverride": true, <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当</span><span style="color: rgb(128,128,128);">.so</span><span style="color: rgb(128,128,128);">重名冲突时，</span>使用高优先级的.so文件覆盖低优先级的.so文件
+          "pickFirsts": ["**/1.so"], // 按照.so文件的优先级顺序，打包最高优先级的.so文件
+          "pickLasts": ["**/2.so"], // 按照.so文件的优先级顺序，打包最低优先级的.so文件
+          "enableOverride": true, // 当.so重名冲突时，使用高优先级的.so文件覆盖低优先级的.so文件
         },
-        "headerPath": "./src/main/cpp/include", <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">声明模块打包共享的</span><span style="color: rgb(128,128,128);">c/cpp</span><span style="color: rgb(128,128,128);">接口</span>
+        "headerPath": "./src/main/cpp/include", // 声明模块打包共享的c/cpp接口
         "librariesInfo":[
           {
-             <span style="color: rgb(152,118,170);">"name"</span><span style="color: rgb(204,120,50);">: </span><span style="color: rgb(106,135,89);">"libentry.so"</span><span style="color: rgb(204,120,50);">,</span>
-             <span style="color: rgb(152,118,170);">"linkLibraries"</span><span style="color: rgb(204,120,50);">: </span>[<span style="color: rgb(106,135,89);">"curl::curl"</span>]
+             "name": "libentry.so",
+             "linkLibraries": ["curl::curl"]
           }
         ]
       },

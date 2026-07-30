@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    "@performance/high-frequency-log-check": <span style="color: rgb(6,125,23);">"warn"</span>,
+  "rules": {
+    "@performance/high-frequency-log-check": "warn",
   }
 }
 ```
@@ -74,8 +74,8 @@ struct Index {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
-<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
+plugin:@performance/recommended
+plugin:@performance/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -37,76 +37,76 @@ List中有Checkbox组件，全选只能选中屏幕中的选项，超出屏幕�
 List组件按需加载的特性使得每次只有当前可见项被渲染，导致全选时无法选中所有组件，可以在List组件外再套一层Scroll组件，确保所有组件可以被渲染。
  
 ```json
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SelectAllCheckBoxSample </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">dataArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct SelectAllCheckBoxSample {
+  @State dataArray: string[] = [];
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  aboutToAppear(): void {
+    for (let i = 0; i < 50; i++) {
+      this.dataArray.push(i + '');
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">alignItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">CheckboxGroup</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">group</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'checkboxGroup' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">checkboxShape</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">CheckBoxShape</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ROUNDED_SQUARE</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'FF0858F8'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">itemName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CheckboxGroupResult</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`checkbox group content </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">itemName</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">} </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mark</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">strokeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">strokeWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">unselectedColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Select All'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">40 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  build() {
+    Row() {
+      Column() {
+        Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
+          CheckboxGroup({ group: 'checkboxGroup' })
+            .checkboxShape(CheckBoxShape.ROUNDED_SQUARE)
+            .selectedColor('FF0858F8')
+            .onChange((itemName: CheckboxGroupResult) => {
+              console.info(`checkbox group content ${JSON.stringify(itemName)} `);
+            })
+            .mark({
+              strokeColor: Color.White,
+              size: 40,
+              strokeWidth: 5
+            })
+            .unselectedColor(Color.Gray)
+            .width(30)
+            .height(30)
+          Text('Select All').fontSize(20);
+        }.margin({ right: 40 })
 
-        <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在外面套一层</span><span style="color: rgb(128,128,128);">scroll</span></em>
-          <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataArray</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-                <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-                  <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Start</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">alignItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-                    <span style="color: rgb(0,0,255);">Checkbox</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'checkbox' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">group</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'checkboxGroup' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-                      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'FF0858F8'</span><span style="color: rgb(255,0,170);">)</span>
-                      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">shape</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">CheckBoxShape</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ROUNDED_SQUARE</span><span style="color: rgb(255,0,170);">)</span>
-                      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-                        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Checkbox</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">change is</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-                      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-                      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mark</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-                        <span style="color: rgb(255,255,255);">strokeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(181,106,1);">,</span>
-                        <span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">,</span>
-                        <span style="color: rgb(255,255,255);">strokeWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span>
-                      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-                      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">unselectedColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span>
-                      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-                      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-                    <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Checkbox</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(181,106,1);">}</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">160</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">}</span>
-            <span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignListItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ListItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        Scroll() { <em>// 在外面套一层scroll</em>
+          List() {
+            ForEach(this.dataArray,
+              (item: string, index: number) => {
+                ListItem() {
+                  Flex({ justifyContent: FlexAlign.Start, alignItems: ItemAlign.Center }) {
+                    Checkbox({ name: 'checkbox' + index, group: 'checkboxGroup' })
+                      .selectedColor('FF0858F8')
+                      .shape(CheckBoxShape.ROUNDED_SQUARE)
+                      .onChange((value: boolean) => {
+                        console.info(`Checkbox${index}change is${value}`);
+                      })
+                      .mark({
+                        strokeColor: Color.White,
+                        size: 50,
+                        strokeWidth: 5
+                      })
+                      .unselectedColor(Color.Gray)
+                      .width(30)
+                      .height(30)
+                    Text(`Checkbox${index}`).fontSize(20);
+                  }
+                  .width(160)
+                }.backgroundColor(Color.White)
+              }
+            )
+          }
+          .alignListItem(ListItemAlign.Center)
+          .width('100%')
 
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'16PX' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        }
+      }.layoutWeight(1)
+      .width(300)
+      .height('100%')
+    }
+    .height('100%')
+    .margin({ top: '16PX' })
 
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  }
+}
 ```

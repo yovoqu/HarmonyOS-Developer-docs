@@ -36,54 +36,54 @@
 
   
 ```json
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">NavPopSolution </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">展示返回参数</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct NavPopSolution {
+  pathStack: NavPathStack = new NavPathStack();
+  @State message: string = '展示返回参数';
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">pageMap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">PageOne</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  @Builder
+  pageMap(name: string) {
+    if (name === 'PageOne') {
+      PageOne();
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转到</span><span style="color: rgb(132,63,161);">PageOne'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-         <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用于页面出栈时触发该回调处理返回结果。</span></em>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">result</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Navigation(this.pathStack) {
+      Column({ space: 16 }) {
+        Text(this.message);
+        Button('跳转到PageOne', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.pushPathByName('PageOne', '', (data) => {
+         <em>     // 用于页面出栈时触发该回调处理返回结果。</em>
+              this.message = JSON.stringify(data.result);
+            });
+          });
+      };
+    }.title('首页')
+    .navDestination(this.pageMap);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PageOne </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+struct PageOne {
+  pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">携带参数回退首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'c' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    NavDestination() {
+      Column() {
+        Button('携带参数回退首页', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.pop({ 'content': 'c' });
+          });
+      };
+    }.title('PageOne')
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+    });
+  }
+}
 ```
  效果预览：
 
@@ -99,106 +99,106 @@ struct <span style="color: rgb(0,0,255);">PageOne </span><span style="color: rgb
 
 2. 从PageTwo页面跳转至MainPage，先使用clear()清除路由栈，再主动调用pushPath跳转到自定义首页MainPage。MainPage页面通过onReady方法获取传递参数。
 ```json
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">NavMainPageExample </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct NavMainPageExample {
+  pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">MainPage</span><span style="color: rgb(128,128,128);">设置成自定义首页</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'MainPage'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置</span><span style="color: rgb(128,128,128);">Navigation</span><span style="color: rgb(128,128,128);">页面跳转拦截回调</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setInterception</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">willShow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(132,63,161);">'navBar'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">to</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(132,63,161);">'navBar'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavigationOperation</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">animated</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">to</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">animated</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果要返回到首页，就</span><span style="color: rgb(128,128,128);">push</span><span style="color: rgb(128,128,128);">名为</span><span style="color: rgb(128,128,128);">MainPage</span><span style="color: rgb(128,128,128);">的子页面</span></em>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">to </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'navBar'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'MainPage'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear() {
+  <em>  // 将MainPage设置成自定义首页</em>
+    this.pathStack.pushPathByName('MainPage', '', false);
+   <em> // 设置Navigation页面跳转拦截回调</em>
+    this.pathStack.setInterception({
+      willShow: (from: NavDestinationContext | 'navBar', to: NavDestinationContext | 'navBar',
+        operation: NavigationOperation, animated: boolean) => {
+        console.info(`${from} ${to} ${operation} ${animated}`);
+      <em>  // 如果要返回到首页，就push名为MainPage的子页面</em>
+        if (to === 'navBar') {
+          this.pathStack.pushPathByName('MainPage', '', false);
+        }
+      }
+    });
+  }
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">pageMap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'MainPage'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">MainPage</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">PageOne</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'PageTwo'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">PageTwo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  @Builder
+  pageMap(name: string) {
+    if (name === 'MainPage') {
+      MainPage();
+    } else if (name === 'PageOne') {
+      PageOne();
+    } else if (name === 'PageTwo') {
+      PageTwo();
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideNavBar</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">隐藏首页</span></em>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Navigation(this.pathStack) {
+    }.hideNavBar(true) <em>// 隐藏首页</em>
+    .navDestination(this.pageMap);
+  }
+}
 
-<em>// NavDestination</em><em><span style="color: rgb(128,128,128);">作为首页</span></em>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">MainPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+<em>// NavDestination</em><em>作为首页</em>
+@Component
+struct MainPage {
+  @State message: string = '';
+  pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转到</span><span style="color: rgb(132,63,161);">PageOne'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'MainPage'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">ctx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getParamByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'MainPage'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    NavDestination() {
+      Column({ space: 16 }) {
+        Text(this.message);
+        Button('跳转到PageOne', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.pushPathByName('PageOne', null, true);
+          });
+      };
+    }.title('MainPage')
+    .onReady((ctx: NavDestinationContext) => {
+      this.pathStack = ctx.pathStack;
+      this.message = JSON.stringify(this.pathStack.getParamByName('MainPage'));
+    });
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">PageOne </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+export struct PageOne {
+  pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转到</span><span style="color: rgb(132,63,161);">PageTwo'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageTwo'</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    NavDestination() {
+      Column() {
+        Button('跳转到PageTwo', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.pushPathByName('PageTwo', null, true);
+          });
+      };
+    }.title('PageOne')
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+    });
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PageTwo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+struct PageTwo {
+  pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">携带参数回退首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">清除路由栈</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'MainPage'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'context' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">跳转到自定义首页</span></em>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageTwo'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    NavDestination() {
+      Column() {
+        Button('携带参数回退首页', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.clear(); <em>// </em><em>清除路由栈</em>
+            this.pathStack.pushPath({ name: 'MainPage', param: 'context' });<em> </em><em>// 跳转到自定义首页</em>
+          });
+      };
+    }.title('PageTwo')
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+    });
+  }
+}
 ```
  
 > [!NOTE]
@@ -212,86 +212,86 @@ struct <span style="color: rgb(0,0,255);">PageTwo </span><span style="color: rgb
 
 - **方案二**：在首页的aboutToAppear订阅事件，在clear清除路由栈时通过订阅的事件将参数传递回首页。
 ```json
-import <span style="color: rgb(255,255,255);">emitter </span>from <span style="color: rgb(132,63,161);">'@ohos.events.emitter'</span><span style="color: rgb(181,106,1);">;</span>
+import emitter from '@ohos.events.emitter';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">EmitterSolution </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">EventData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{}</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct EmitterSolution {
+  pathStack: NavPathStack = new NavPathStack();
+  @State message: emitter.EventData = {};
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">监听</span><span style="color: rgb(128,128,128);">back</span><span style="color: rgb(128,128,128);">事件，获取参数</span></em>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'back'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear() {
+  <em>  // 监听back事件，获取参数</em>
+    emitter.on('back', (data) => {
+      this.message = data;
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToDisappear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'back'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">取消监听</span></em>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToDisappear() {
+    emitter.off('back'); <em>// 取消监听</em>
+  }
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">pageMap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">PageOne</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'PageTwo'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">PageTwo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  @Builder
+  pageMap(name: string) {
+    if (name === 'PageOne') {
+      PageOne();
+    } else if (name === 'PageTwo') {
+      PageTwo();
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转到</span><span style="color: rgb(132,63,161);">PageOne'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Navigation(this.pathStack) {
+      Column({ space: 16 }) {
+        Text(JSON.stringify(this.message));
+        Button('跳转到PageOne', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.pushPathByName('PageOne', null, true);
+          });
+      };
+    }.title('首页')
+    .navDestination(this.pageMap);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PageOne </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+struct PageOne {
+  pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转到</span><span style="color: rgb(132,63,161);">PageTwo'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageTwo'</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PageOne'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    NavDestination() {
+      Column() {
+        Button('跳转到PageTwo', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.pushPathByName('PageTwo', null, true);
+          });
+      };
+    }.title('PageOne')
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+    });
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PageTwo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+struct PageTwo {
+  pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">回退到首页，通过</span><span style="color: rgb(132,63,161);">emitter</span><span style="color: rgb(132,63,161);">传递参数</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(255,255,255);">eventData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">EventData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'c'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'id'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'1' </span><span style="color: rgb(181,106,1);">} }</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'back'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">eventData</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">传递</span><span style="color: rgb(128,128,128);">back</span><span style="color: rgb(128,128,128);">事件给首页</span></em>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageTwo'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    NavDestination() {
+      Column() {
+        Button('回退到首页，通过emitter传递参数', { stateEffect: true, type: ButtonType.Capsule })
+          .onClick(() => {
+            this.pathStack.clear();
+            let eventData: emitter.EventData = { data: { 'content': 'c', 'id': '1' } };
+            emitter.emit('back', eventData);<em> </em><em>// 传递back事件给首页</em>
+          });
+      };
+    }.title('pageTwo').onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack;
+    });
+  }
+}
 ```
  效果预览：
 

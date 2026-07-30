@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-ffrt-no-use-std"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
+  "rules": {
+    "@performance/hp-ffrt-no-use-std": "suggestion",
   }
 }
 ```
@@ -216,7 +216,7 @@ int M = 100;
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
+plugin:@performance/recommended
 plugin:@performance/all
 ```
  

@@ -23,41 +23,41 @@ IPv4地址采用点分十进制表示法，每个点分部分称为一个"八位
 2. 检查目标IP是否在指定的起始IP和结束IP范围内。
  
 ```text
-function <span style="color: rgb(0,0,255);">ipToLong</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ip</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(255,0,170);">{</span>
-  const <span style="color: rgb(0,0,255);">parts </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ip</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">part </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">part</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">parts</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">256</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">parts</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">256</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">parts</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">256 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">parts</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+function ipToLong(ip: string): number {
+  const parts = ip.split('.').map(part => parseInt(part));
+  return parts[0] * Math.pow(256, 3) + parts[1] * Math.pow(256, 2) + parts[2] * 256 + parts[3];
+}
 
-function <span style="color: rgb(0,0,255);">isIPInRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ip</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">startIP</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endIP</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
-  const <span style="color: rgb(0,0,255);">ipNum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ipToLong</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ip</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  const <span style="color: rgb(0,0,255);">startIPNum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ipToLong</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startIP</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  const <span style="color: rgb(0,0,255);">endIPNum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ipToLong</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">endIP</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+function isIPInRange(ip: string, startIP: string, endIP: string): boolean {
+  const ipNum = ipToLong(ip);
+  const startIPNum = ipToLong(startIP);
+  const endIPNum = ipToLong(endIP);
 
-  return <span style="color: rgb(0,0,255);">ipNum </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">startIPNum </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">ipNum </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">endIPNum</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  return ipNum >= startIPNum && ipNum <= endIPNum;
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">JudgeIp </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">judge</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    const <span style="color: rgb(0,0,255);">targetIP </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'192.168.9.230'</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">startIP </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'10.101.10.210'</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">endIP </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'255.201.255.1'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct JudgeIp {
+  judge() {
+    const targetIP = '192.168.9.230';
+    const startIP = '10.101.10.210';
+    const endIP = '255.201.255.1';
 
-    let <span style="color: rgb(0,0,255);">res </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">isIPInRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">targetIP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">startIP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endIP</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    try <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">目标</span><span style="color: rgb(255,0,170);">ip</span><span style="color: rgb(255,0,170);">地址是否在范围内</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, Message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+    let res = isIPInRange(targetIP, startIP, endIP);
+    try {
+      this.getUIContext().getPromptAction().showToast({ message: `目标ip地址是否在范围内: ${res}` });
+    } catch (error) {
+      console.error(`Error code: ${error.code}, Message: ${error.message}`);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">查询</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">judge</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Button('查询').onClick(() => {
+        this.judge();
+      });
+    }.width('100%').height('100%').justifyContent(FlexAlign.Center);
+  }
+}
 ```

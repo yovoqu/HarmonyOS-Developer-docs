@@ -26,7 +26,7 @@ DevEco Studio 6.0.0 Beta1版本DevEco Studio内置的Java版本为21，当前Gra
 
   
 ```text
-<span style="color: rgb(181,106,1);">distributionUrl</span><span style="color: rgb(128,128,128);">=</span><span style="color: rgb(80,160,79);">https</span>\:<span style="color: rgb(80,160,79);">//repo.huaweicloud.com/gradle/gradle-8.4-bin.zip</span>
+distributionUrl=https\://repo.huaweicloud.com/gradle/gradle-8.4-bin.zip
 ```
 
 

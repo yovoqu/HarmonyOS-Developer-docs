@@ -35,36 +35,36 @@
 将CustomPopupOptions中的width设为100%：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PopupWidth </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">handlePopup</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct PopupWidth {
+  @State handlePopup: boolean = false;
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">popupBuilder</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Custom Popup'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  @Builder
+  popupBuilder() {
+    Row({ space: 2 }) {
+      Text('Custom Popup').fontSize(12);
+    }.width(100).height(50).padding(5);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'CustomPopupOptions</span><span style="color: rgb(255,0,170);">中</span><span style="color: rgb(255,0,170);">width</span><span style="color: rgb(255,0,170);">设置为</span><span style="color: rgb(255,0,170);">100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handlePopup </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handlePopup</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bindPopup</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handlePopup</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">builder</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">popupBuilder</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">arrowPointPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrowPointPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">START</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">设置箭头的位置</span></em>
-          <span style="color: rgb(0,0,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NONE</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">关闭气泡的模糊背景</span></em>
-          <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">50 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column({ space: 100 }) {
+      Button('CustomPopupOptions中width设置为100%')
+        .onClick(() => {
+          this.handlePopup = !this.handlePopup;
+        })
+        .bindPopup(this.handlePopup, {
+          width: '100%',
+          builder: this.popupBuilder,
+          arrowPointPosition: ArrowPointPosition.START, <em>// </em><em>设置箭头的位置</em>
+          backgroundBlurStyle: BlurStyle.NONE, <em>// </em><em>关闭气泡的模糊背景</em>
+          autoCancel: true,
+        });
+    }
+    .margin({ top: 50 })
+    .width('100%');
+  }
+}
 ```
  
  
@@ -74,18 +74,18 @@ struct <span style="color: rgb(0,0,255);">PopupWidth </span><span style="color: 
 Q：使用Popup时，创建监听，会导致崩溃，是什么原因？
  
 ```text
-<span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span>void <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'draw'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageMainContentHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">componentUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRectangleById</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pageMainContent'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">单位是</span><span style="color: rgb(128,128,128);">px</span></em>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">}</span>
+aboutToAppear(): void {
+  this.listener.on('draw', () => {
+    this.pageMainContentHeight = componentUtils.getRectangleById('pageMainContent').size.height<em> </em><em>// 单位是px</em>
+  })
+}
 ```
  
 A：使用Popup时要手动取消监听。
  
 ```text
-<span style="color: rgb(0,0,255);">aboutToDisappear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
- <em> <span style="color: rgb(128,128,128);">// Unregister callback before destruction</span></em>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'draw'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+aboutToDisappear() {
+ <em> // Unregister callback before destruction</em>
+  this.listener.off('draw', () => {});
+}
 ```

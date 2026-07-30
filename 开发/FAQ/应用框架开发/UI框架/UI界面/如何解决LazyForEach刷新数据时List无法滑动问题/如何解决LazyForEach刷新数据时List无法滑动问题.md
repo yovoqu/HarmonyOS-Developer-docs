@@ -11,302 +11,302 @@
 问题代码示例参考如下：
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BaseDataSource </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./BaseDataSource'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">StringListModel </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./StringListModel'</span><span style="color: rgb(181,106,1);">;</span>
+import { BaseDataSource } from './BaseDataSource';
+import { StringListModel } from './StringListModel';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">MyComponent </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">dataSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BaseDataSource</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDataSource</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct MyComponent {
+  private dataSource: BaseDataSource<string> = StringListModel.instance().getDataSource();
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">load</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear() {
+    StringListModel.instance().load();
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToDisappear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToDisappear(): void {
+    StringListModel.instance().release();
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  build() {
+    Column() {
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">刷新数据</span><span style="color: rgb(132,63,161);">-</span><span style="color: rgb(132,63,161);">添加</span><span style="color: rgb(132,63,161);">hello'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadByKeyword</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'hello'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      Button('刷新数据-添加hello')
+        .onClick(() => {
+          StringListModel.instance().loadByKeyword('hello');
+        });
 
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">3 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">LazyForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataSource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-                  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'appear:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReachEnd</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadMore</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+      List({ space: 3 }) {
+        LazyForEach(this.dataSource, (item: string) => {
+          ListItem() {
+            Row() {
+              Text(item).fontSize(50)
+                .onAppear(() => {
+                  console.info('appear:', `${item}`);
+                });
+            }
+            .justifyContent(FlexAlign.Center)
+            .width('100%')
+            .margin({ left: 10, right: 10 });
+          };
+        }, (item: string) => item);
+      }
+      .height(0)
+      .layoutWeight(1)
+      .onReachEnd(() => {
+        StringListModel.instance().loadMore();
+      });
+    };
+  }
+}
 ```
  
 BaseDataSource.ets：
  
 ```text
-export class <span style="color: rgb(0,0,255);">BaseDataSource</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">></span> implements <span style="color: rgb(0,0,255);">IDataSource </span><span style="color: rgb(181,106,1);">{</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">存储实际数据的数组。</span></em>
-  private <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">存储所有已注册的数据变更监听器。</span></em>
-  private <span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">DataChangeListener</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+export class BaseDataSource<T> implements IDataSource {
+<em>  // 存储实际数据的数组。</em>
+  private datas: Array<T> = [];
+  <em>// 存储所有已注册的数据变更监听器。</em>
+  private listeners: Array<DataChangeListener> = [];
 
-  <span style="color: rgb(0,0,255);">totalCount</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  totalCount(): number {
+    return this.datas.length;
+  }
 
-  <span style="color: rgb(0,0,255);">getData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">T </span><span style="color: rgb(181,106,1);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  getData(index: number): T {
+    return this.datas[index];
+  }
 
-  <span style="color: rgb(0,0,255);">registerDataChangeListener</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataChangeListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  registerDataChangeListener(listener: DataChangeListener): void {
+    let index = this.listeners.indexOf(listener);
+    if (index < 0) {
+      this.listeners.push(listener);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">unregisterDataChangeListener</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataChangeListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    let index = this.listeners.indexOf(listener);
+    if (index >= 0) {
+      this.listeners.splice(index, 1);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataReloaded</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDataReloaded</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataReloaded() {
+    for (let listener of this.listeners) {
+      listener.onDataReloaded();
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataAdd</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">addCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">addOperation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataAddOperation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DataOperationType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ADD</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">addCount</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDatasetChange</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">addOperation</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataAdd(index: number, addCount: number = 1) {
+    for (let listener of this.listeners) {
+      let addOperation: DataAddOperation = {
+        type: DataOperationType.ADD,
+        index,
+        count: addCount
+      };
+      listener.onDatasetChange([addOperation]);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataDelete</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">delOperation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataDeleteOperation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DataOperationType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DELETE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">delCount</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDatasetChange</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">delOperation</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataDelete(index: number, delCount: number = 1) {
+    for (let listener of this.listeners) {
+      let delOperation: DataDeleteOperation = {
+        type: DataOperationType.DELETE,
+        index,
+        count: delCount
+      };
+      listener.onDatasetChange([delOperation]);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataChange</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDataChange</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataChange(index: number) {
+    for (let listener of this.listeners) {
+      listener.onDataChange(index);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">setDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataReloaded</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  setDatas(datas: Array<T>) {
+    this.datas = datas;
+    this.notifyDataReloaded();
+  }
 
-  <span style="color: rgb(0,0,255);">addData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addDatas</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  addData(data: T) {
+    this.addDatas([data]);
+  }
 
-  <span style="color: rgb(0,0,255);">addDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">insertIndex </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">addCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataAdd</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">insertIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">addCount</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  addDatas(datas: Array<T>) {
+    let insertIndex = this.datas.length;
+    let addCount = datas.length;
+    this.datas.push(...datas);
+    this.notifyDataAdd(insertIndex, addCount);
+  }
 
-  <span style="color: rgb(0,0,255);">delData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataDelete</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  delData(index: number) {
+    this.datas.splice(index, 1);
+    this.notifyDataDelete(index);
+  }
 
-  <span style="color: rgb(0,0,255);">delAllData</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">delCount </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataDelete</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delCount</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  delAllData() {
+    let delCount = this.datas.length;
+    this.datas = [];
+    this.notifyDataDelete(0, delCount);
+  }
 
-  <span style="color: rgb(0,0,255);">changeData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataChange</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  changeData(index: number, data: T) {
+    if (index < 0 || index >= this.datas.length) {
+      return;
+    }
+    this.datas[index] = data;
+    this.notifyDataChange(index);
+  }
 
-  <span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  release() {
+    this.datas = [];
+    this.listeners = [];
+  }
+}
 ```
  
 DataLoader.ets：
  
 ```text
-export class <span style="color: rgb(0,0,255);">DataLoader </span><span style="color: rgb(181,106,1);">{</span>
-  static async <span style="color: rgb(0,0,255);">getByPage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">第</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">页</span><span style="color: rgb(132,63,161);">-</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    return <span style="color: rgb(255,255,255);">datas</span>
-  <span style="color: rgb(181,106,1);">}</span>
+export class DataLoader {
+  static async getByPage(page: number, pageSize: number) {
+    let datas: Array<string> = []
+    for (let i = 0; i < pageSize; i++) {
+      datas.push(`第${page}页-${i}`)
+    }
+    return datas
+  }
 
-  static async <span style="color: rgb(0,0,255);">getByKeyWord</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">-</span><span style="color: rgb(132,63,161);">第</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">页</span><span style="color: rgb(132,63,161);">-</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    return <span style="color: rgb(255,255,255);">datas</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  static async getByKeyWord(keyword: string, page: number, pageSize: number) {
+    let datas: Array<string> = []
+    for (let i = 0; i < pageSize; i++) {
+      datas.push(`${keyword}-第${page}页-${i}`)
+    }
+    return datas
+  }
 
-  static async <span style="color: rgb(0,0,255);">getByFirstLetter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">letter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">letter</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">-</span><span style="color: rgb(132,63,161);">第</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">页</span><span style="color: rgb(132,63,161);">-</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    return <span style="color: rgb(255,255,255);">datas</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  static async getByFirstLetter(letter: string, page: number, pageSize: number) {
+    let datas: Array<string> = []
+    for (let i = 0; i < pageSize; i++) {
+      datas.push(`${letter}-第${page}页-${i}`)
+    }
+    return datas
+  }
+}
 ```
  
 StringListModel.ets：
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BaseDataSource </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./BaseDataSource'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">DataLoader </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./DataLoader'</span><span style="color: rgb(181,106,1);">;</span>
+import { BaseDataSource } from './BaseDataSource';
+import { DataLoader } from './DataLoader';
 
-const <span style="color: rgb(255,255,255);">MIN_PAGE_SIZE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(181,106,1);">;</span>
+const MIN_PAGE_SIZE = 30;
 
-export class <span style="color: rgb(0,0,255);">StringListModel </span><span style="color: rgb(181,106,1);">{</span>
-  private static <span style="color: rgb(255,255,255);">sInstance</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">StringListModel </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BaseDataSource</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">BaseDataSource</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">MIN_PAGE_SIZE</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">hasMoreData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+export class StringListModel {
+  private static sInstance: StringListModel | null;
+  private stringDataSource: BaseDataSource<string> = new BaseDataSource();
+  private curPage: number = 0;
+  private pageSize: number = MIN_PAGE_SIZE;
+  private hasMoreData: boolean = true;
+  private keyword?: string;
+  private firstLetter?: string;
 
-  private constructor<span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private constructor() {
+  }
 
-  static <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">StringListModel</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    return <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  static instance() {
+    if (!StringListModel.sInstance) {
+      StringListModel.sInstance = new StringListModel();
+    }
+    return StringListModel.sInstance;
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置每页加载的数量。</span></em>
-  <span style="color: rgb(0,0,255);">setPageSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pageSize </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">MIN_PAGE_SIZE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+ <em> // 设置每页加载的数量。</em>
+  setPageSize(pageSize: number) {
+    if (pageSize >= MIN_PAGE_SIZE) {
+      this.pageSize = pageSize;
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">getDataSource</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  getDataSource() {
+    return this.stringDataSource;
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加载第一页成语数据。</span></em>
-  <span style="color: rgb(0,0,255);">load</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+<em>  // 加载第一页成语数据。</em>
+  load() {
+    this.keyword = undefined;
+    this.firstLetter = undefined;
+    this.curPage = 0;
+    this.hasMoreData = true;
+    this.loadData(true);
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过关键字来查找并加载第一页成语数据。</span></em>
-  <span style="color: rgb(0,0,255);">loadByKeyword</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">!== </span>undefined <span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> // 通过关键字来查找并加载第一页成语数据。</em>
+  loadByKeyword(keyword: string) {
+    if (this.keyword !== undefined && this.keyword === keyword) {
+      return;
+    }
+    this.keyword = keyword;
+    this.firstLetter = undefined;
+    this.curPage = 0;
+    this.hasMoreData = true;
+    this.loadData(true);
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过拼音首字母来查找并加载第一页成语数据。</span></em>
-  <span style="color: rgb(0,0,255);">loadByFirstLetter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">!== </span>undefined <span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> // 通过拼音首字母来查找并加载第一页成语数据。</em>
+  loadByFirstLetter(firstLetter: string) {
+    if (this.firstLetter !== undefined && this.firstLetter === firstLetter) {
+      return;
+    }
+    this.firstLetter = firstLetter;
+    this.keyword = undefined;
+    this.curPage = 0;
+    this.hasMoreData = true;
+    this.loadData(true);
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加载更多成语数据。</span></em>
-  <span style="color: rgb(0,0,255);">loadMore</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">++;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> // 加载更多成语数据。</em>
+  loadMore() {
+    if (!this.hasMoreData) {
+      return;
+    }
+    this.curPage++;
+    this.loadData(false);
+  }
 
-  private <span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isFirstPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">loadCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
+  private loadData(isFirstPage: boolean) {
+    let loadCallback = (datas: Array<string>) => {
+      if (!datas || datas.length === 0) {
+        this.hasMoreData = false;
+        return;
+      }
 
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isFirstPage </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalCount</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">;</span>
+      this.hasMoreData = datas.length === this.pageSize;
+      if (isFirstPage && this.stringDataSource.totalCount() > 0) {
+        this.stringDataSource.setDatas(datas);
+      } else {
+        this.stringDataSource.addDatas(datas);
+      }
+    };
 
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">DataLoader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getByKeyWord</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">loadCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">DataLoader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getByFirstLetter</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">loadCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">DataLoader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getByPage</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">loadCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+    if (this.keyword !== undefined) {
+      DataLoader.getByKeyWord(this.keyword, this.curPage, this.pageSize).then(loadCallback);
+    } else if (this.firstLetter !== undefined) {
+      DataLoader.getByFirstLetter(this.firstLetter, this.curPage, this.pageSize).then(loadCallback);
+    } else {
+      DataLoader.getByPage(this.curPage, this.pageSize).then(loadCallback);
+    }
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在页面销毁时调用。</span></em>
-  <span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>  // 在页面销毁时调用。</em>
+  release() {
+    this.stringDataSource.release();
+    StringListModel.sInstance = null;
+  }
+}
 ```
  
 问题效果预览：
@@ -349,241 +349,241 @@ export class <span style="color: rgb(0,0,255);">StringListModel </span><span sty
 
 - **方案一**：在自定义方法notifyDataReloaded中使用onDatasetChange方法代替onDataReloaded进行组件重新加载数据，onDatasetChange能够进行批量的数据处理，包括数据添加、重载所有数据等操作，可以避免复用原先的子组件。也可以对调用notifyDataReloaded方法的setDatas方法添加数据添加功能，修改后的BaseDataSource：
 ```text
-export class <span style="color: rgb(0,0,255);">BaseDataSource</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">></span> implements <span style="color: rgb(0,0,255);">IDataSource </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">DataChangeListener</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+export class BaseDataSource<T> implements IDataSource {
+  private datas: Array<T> = [];
+  private listeners: Array<DataChangeListener> = [];
 
-  <span style="color: rgb(0,0,255);">totalCount</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  totalCount(): number {
+    return this.datas.length;
+  }
 
-  <span style="color: rgb(0,0,255);">getData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">T </span><span style="color: rgb(181,106,1);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  getData(index: number): T {
+    return this.datas[index];
+  }
 
-  <span style="color: rgb(0,0,255);">registerDataChangeListener</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataChangeListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  registerDataChangeListener(listener: DataChangeListener): void {
+    let index = this.listeners.indexOf(listener);
+    if (index < 0) {
+      this.listeners.push(listener);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">unregisterDataChangeListener</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataChangeListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    let index = this.listeners.indexOf(listener);
+    if (index >= 0) {
+      this.listeners.splice(index, 1);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataReloaded</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">reloadOperation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataReloadOperation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DataOperationType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RELOAD</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDatasetChange</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">reloadOperation</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataReloaded() {
+    for (let listener of this.listeners) {
+      let reloadOperation: DataReloadOperation = {
+        type: DataOperationType.RELOAD
+      };
+      listener.onDatasetChange([reloadOperation]);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataAdd</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">addCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">addOperation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataAddOperation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DataOperationType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ADD</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">addCount</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDatasetChange</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">addOperation</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataAdd(index: number, addCount: number = 1) {
+    for (let listener of this.listeners) {
+      let addOperation: DataAddOperation = {
+        type: DataOperationType.ADD,
+        index,
+        count: addCount
+      };
+      listener.onDatasetChange([addOperation]);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataDelete</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">delOperation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DataDeleteOperation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DataOperationType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DELETE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">delCount</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDatasetChange</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">delOperation</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataDelete(index: number, delCount: number = 1) {
+    for (let listener of this.listeners) {
+      let delOperation: DataDeleteOperation = {
+        type: DataOperationType.DELETE,
+        index,
+        count: delCount
+      };
+      listener.onDatasetChange([delOperation]);
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">notifyDataChange</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">listener </span>of this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">listener</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDataChange</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private notifyDataChange(index: number) {
+    for (let listener of this.listeners) {
+      listener.onDataChange(index);
+    }
+  }
 
 
-  <span style="color: rgb(0,0,255);">setDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">insertIndex </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">addCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataAdd</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">insertIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">addCount</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  setDatas(datas: Array<T>) {
+    this.datas = datas;
+    let insertIndex = this.datas.length;
+    let addCount = datas.length;
+    this.datas.push(...datas);
+    this.notifyDataAdd(insertIndex, addCount);
+  }
 
-  <span style="color: rgb(0,0,255);">addData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addDatas</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  addData(data: T) {
+    this.addDatas([data]);
+  }
 
-  <span style="color: rgb(0,0,255);">addDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">insertIndex </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">addCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataAdd</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">insertIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">addCount</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  addDatas(datas: Array<T>) {
+    let insertIndex = this.datas.length;
+    let addCount = datas.length;
+    this.datas.push(...datas);
+    this.notifyDataAdd(insertIndex, addCount);
+  }
 
-  <span style="color: rgb(0,0,255);">delData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataDelete</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  delData(index: number) {
+    this.datas.splice(index, 1);
+    this.notifyDataDelete(index);
+  }
 
-  <span style="color: rgb(0,0,255);">delAllData</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">delCount </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataDelete</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delCount</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  delAllData() {
+    let delCount = this.datas.length;
+    this.datas = [];
+    this.notifyDataDelete(0, delCount);
+  }
 
-  <span style="color: rgb(0,0,255);">changeData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">T</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyDataChange</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  changeData(index: number, data: T) {
+    if (index < 0 || index >= this.datas.length) {
+      return;
+    }
+    this.datas[index] = data;
+    this.notifyDataChange(index);
+  }
 
-  <span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listeners </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  release() {
+    this.datas = [];
+    this.listeners = [];
+  }
+}
 ```
 
 - **方案二**：将setDatas方法替换为先删除后再添加的方法，修改后StringListModel：
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BaseDataSource </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./BaseDataSource'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">DataLoader </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./DataLoader'</span><span style="color: rgb(181,106,1);">;</span>
+import { BaseDataSource } from './BaseDataSource';
+import { DataLoader } from './DataLoader';
 
-const <span style="color: rgb(255,255,255);">MIN_PAGE_SIZE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(181,106,1);">;</span>
+const MIN_PAGE_SIZE = 30;
 
-export class <span style="color: rgb(0,0,255);">StringListModel </span><span style="color: rgb(181,106,1);">{</span>
-  private static <span style="color: rgb(255,255,255);">sInstance</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">StringListModel </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BaseDataSource</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">BaseDataSource</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">MIN_PAGE_SIZE</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">hasMoreData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+export class StringListModel {
+  private static sInstance: StringListModel | null;
+  private stringDataSource: BaseDataSource<string> = new BaseDataSource();
+  private curPage: number = 0;
+  private pageSize: number = MIN_PAGE_SIZE;
+  private hasMoreData: boolean = true;
+  private keyword?: string;
+  private firstLetter?: string;
 
-  private constructor<span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  private constructor() {
+  }
 
-  static <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">StringListModel</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    return <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  static instance() {
+    if (!StringListModel.sInstance) {
+      StringListModel.sInstance = new StringListModel();
+    }
+    return StringListModel.sInstance;
+  }
 
   <em>/**</em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">设置每页加载的数量</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param pageSize </span><span style="color: rgb(128,128,128);">每页加载数量不能小于最小加载数量</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(0,0,255);">setPageSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pageSize </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">MIN_PAGE_SIZE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+<em>   * 设置每页加载的数量</em>
+<em>   * @param pageSize 每页加载数量不能小于最小加载数量</em>
+<em>   */</em>
+  setPageSize(pageSize: number) {
+    if (pageSize >= MIN_PAGE_SIZE) {
+      this.pageSize = pageSize;
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">getDataSource</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  getDataSource() {
+    return this.stringDataSource;
+  }
 
- <em> <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">加载第一页成语数据</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(0,0,255);">load</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> /**</em>
+<em>   * 加载第一页成语数据</em>
+<em>   */</em>
+  load() {
+    this.keyword = undefined;
+    this.firstLetter = undefined;
+    this.curPage = 0;
+    this.hasMoreData = true;
+    this.loadData(true);
+  }
 
-<em>  <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">通过关键字来查找并加载第一页成语数据</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param keyword</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(0,0,255);">loadByKeyword</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">!== </span>undefined <span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+<em>  /**</em>
+<em>   * 通过关键字来查找并加载第一页成语数据</em>
+<em>   * @param keyword</em>
+<em>   */</em>
+  loadByKeyword(keyword: string) {
+    if (this.keyword !== undefined && this.keyword === keyword) {
+      return;
+    }
+    this.keyword = keyword;
+    this.firstLetter = undefined;
+    this.curPage = 0;
+    this.hasMoreData = true;
+    this.loadData(true);
+  }
 
- <em> <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">通过拼音首字母来查找并加载第一页成语数据</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param firstLetter</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(0,0,255);">loadByFirstLetter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">!== </span>undefined <span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> /**</em>
+<em>   * 通过拼音首字母来查找并加载第一页成语数据</em>
+<em>   * @param firstLetter</em>
+<em>   */</em>
+  loadByFirstLetter(firstLetter: string) {
+    if (this.firstLetter !== undefined && this.firstLetter === firstLetter) {
+      return;
+    }
+    this.firstLetter = firstLetter;
+    this.keyword = undefined;
+    this.curPage = 0;
+    this.hasMoreData = true;
+    this.loadData(true);
+  }
 
-  <em><span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">加载更多成语数据</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(0,0,255);">loadMore</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">++;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  <em>/**</em>
+<em>   * 加载更多成语数据</em>
+<em>   */</em>
+  loadMore() {
+    if (!this.hasMoreData) {
+      return;
+    }
+    this.curPage++;
+    this.loadData(false);
+  }
 
-  private <span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isFirstPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">loadCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">datas </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
+  private loadData(isFirstPage: boolean) {
+    let loadCallback = (datas: Array<string>) => {
+      if (!datas || datas.length === 0) {
+        this.hasMoreData = false;
+        return;
+      }
 
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">hasMoreData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(181,106,1);">;</span>
+      this.hasMoreData = datas.length === this.pageSize;
 
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isFirstPage </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalCount</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">delAllData</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addDatas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">datas</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
+      if (isFirstPage && this.stringDataSource.totalCount() > 0) {
+        this.stringDataSource.delAllData();
+        this.stringDataSource.addDatas(datas);
+      } else {
+        this.stringDataSource.addDatas(datas);
+      }
 
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">DataLoader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getByKeyWord</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">keyword</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">loadCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">DataLoader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getByFirstLetter</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstLetter</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">loadCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">DataLoader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getByPage</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">curPage</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageSize</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">loadCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+    };
+    if (this.keyword !== undefined) {
+      DataLoader.getByKeyWord(this.keyword, this.curPage, this.pageSize).then(loadCallback);
+    } else if (this.firstLetter !== undefined) {
+      DataLoader.getByFirstLetter(this.firstLetter, this.curPage, this.pageSize).then(loadCallback);
+    } else {
+      DataLoader.getByPage(this.curPage, this.pageSize).then(loadCallback);
+    }
+  }
 
- <em> <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">释放。可在页面销毁时调用，如</span><span style="color: rgb(128,128,128);">page</span><span style="color: rgb(128,128,128);">页中的</span><span style="color: rgb(128,128,128);">aboutToDisappear</span><span style="color: rgb(128,128,128);">方法中</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">stringDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">StringListModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sInstance </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+ <em> /**</em>
+<em>   * 释放。可在页面销毁时调用，如page页中的aboutToDisappear方法中</em>
+<em>   */</em>
+  release() {
+    this.stringDataSource.release();
+    StringListModel.sInstance = null;
+  }
+}
 ```
 
 

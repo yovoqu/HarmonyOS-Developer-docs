@@ -16,9 +16,9 @@
  
 ```json
 <em>// Module/src/test.json</em>
-{a: <span style="color: rgb(0,0,255);">1</span>, b: <span style="color: rgb(0,0,255);">2</span>}
+{a: 1, b: 2}
 <em>// use.js</em>
-let test = <span style="color: rgb(0,0,255);">require</span>(<span style="color: rgb(255,0,0);">"Module/src/test.json"</span>)
+let test = require("Module/src/test.json")
 ```
  
 **需修改为：**
@@ -38,10 +38,10 @@ let test = require("Module/src/test")
 ```json
 <em>// Module/package.json</em>
 ...
-main: <span style="color: rgb(221,17,68);">"./src"</span>
+main: "./src"
 ...
 <em>// use.js</em>
-let module = <span style="color: rgb(0,134,179);">require</span>(<span style="color: rgb(221,17,68);">"Module"</span>)
+let module = require("Module")
 ```
  
 **需修改为：**
@@ -81,7 +81,7 @@ plugins: [
 **场景4：**
  
 ```text
-import {Buffer} from <span style="color: rgb(221,17,68);">'buffer'</span>
+import {Buffer} from 'buffer'
 ```
  
 **需修改为：**

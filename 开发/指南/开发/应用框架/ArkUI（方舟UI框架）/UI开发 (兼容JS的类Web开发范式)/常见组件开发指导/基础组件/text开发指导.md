@@ -151,10 +151,10 @@ text{
     This is a passage
   </text>
   <text style="font-size: 45px;">
-    <span style="color: aqua;">This </span><span style="color: #F1F3F5;">      1
-    </span>   
-    <span style="color: blue;"> is a </span>    <span style="color: #F1F3F5;">      1    </span>    
-    <span style="color: red;">  passage </span>
+    This       1
+       
+     is a           1        
+      passage 
   </text>
 </div>
 ```
@@ -184,11 +184,11 @@ text组件通过数据绑定展示文本内容，span组件通过设置show属�
     <switch checked="true" onchange="test"></switch>
   </div>
   <text class="span-container" style="color: #ff00ff;">
-    <span show="{{isShow}}">  {{ content  }}  </span>
-    <span style="color: white;">
+      {{ content  }}  
+    
         1
-    </span>
-    <span style="color: #f76160">Hide clip </span>
+    
+    Hide clip 
   </text>
 </div>
 ```

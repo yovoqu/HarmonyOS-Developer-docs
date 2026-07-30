@@ -9,14 +9,14 @@
 - 使用OffscreenCanvas绘制一张超出屏幕尺寸的PixelMap，监听手势移动事件，跟随手势不间断地重绘，实际视觉呈现效果会出现明显的卡顿现象。
 - 问题代码如下：
 ```text
-<span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调整前</span><span style="color: rgb(128,128,128);"> isValidate</span><span style="color: rgb(128,128,128);">属性在</span><span style="color: rgb(128,128,128);">@watch</span><span style="color: rgb(128,128,128);">监听方法，第一次加载拖动时会存在卡顿</span>
-<span style="color: rgb(0,0,255);">redraw</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">t1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startRenderTestDrawImage</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">t2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">debug</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`canvas </span><span style="color: rgb(255,0,170);">绘制时间</span><span style="color: rgb(255,0,170);">=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">t2 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">t1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">ms`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 调整前 isValidate属性在@watch监听方法，第一次加载拖动时会存在卡顿
+redraw() {
+  this.renderContext.reset();
+  let t1 = Date.now();
+  this.startRenderTestDrawImage(this.renderContext);
+  let t2 = Date.now();
+  console.debug(`canvas 绘制时间=${(t2 - t1)}ms`);
+}
 ```
 
 
@@ -51,159 +51,159 @@
 - 针对图形裁剪与控制响应手势事件混合的场景，在响应事件绘制函数中添加延时判断，确保一定时间段内（比如：15ms）内只响应一次事件并重绘。
 - 按照修改建议调整后代码如下：
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">display </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">displaySync </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkGraphics2D'</span><span style="color: rgb(181,106,1);">;</span>
+import { display } from '@kit.ArkUI';
+import { displaySync } from '@kit.ArkGraphics2D';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">CanvasFix </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">panOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PanGestureOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PanGestureOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PanDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">All </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果需要复现问题请把代码修改为注释行代码</span>
-  <span style="color: rgb(128,128,128);">// @StorageLink('validateCanvas') @Watch('redraw')</span>
-  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'validateCanvas'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">@Watch</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'redrawWithStep'</span><span style="color: rgb(0,0,255);">)</span>
-  private <span style="color: rgb(0,0,255);">isValidate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">canvasHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Length </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">screenWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">screenHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">scrollX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">scrollY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">curTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+export struct CanvasFix {
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  private renderContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
+  private panOption: PanGestureOptions = new PanGestureOptions({ direction: PanDirection.All });
+  // 如果需要复现问题请把代码修改为注释行代码
+  // @StorageLink('validateCanvas') @Watch('redraw')
+  @StorageLink('validateCanvas') @Watch('redrawWithStep')
+  private isValidate: boolean = true;
+  canvasHeight: Length = '50%';
+  private screenWidth: number = 0;
+  private screenHeight: number = 0;
+  private scrollX = 0;
+  private scrollY = 0;
+  private curTime = 0;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isValidate </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">displayClass</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Display </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-    try <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">displayClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">screenHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">displayClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">screenHeight</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">screenWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">displayClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">exception</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Failed to obtain the default display object. Code: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">exception</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear() {
+    this.isValidate = true;
+    let displayClass: display.Display | null = null;
+    try {
+      displayClass = display.getDefaultDisplaySync();
+      this.screenHeight = this.getUIContext().px2vp(displayClass.height);
+      this.canvasHeight = this.screenHeight;
+      this.screenWidth = this.getUIContext().px2vp(displayClass.width);
+    } catch (exception) {
+      console.error('Failed to obtain the default display object. Code: ' + JSON.stringify(exception));
+    }
 
-    let <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ExpectedFrameRateRange </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建和配置帧率参数</span>
-      <span style="color: rgb(0,0,255);">expected</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置期望绘制帧率为</span><span style="color: rgb(128,128,128);">30hz</span>
-      <span style="color: rgb(0,0,255);">min</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">配置帧率范围</span>
-      <span style="color: rgb(0,0,255);">max</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">60 </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">配置帧率范围</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">backDisplaySyncSlow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">displaySync</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DisplaySync </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">displaySync</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">DisplaySync</span><span style="color: rgb(128,128,128);">实例</span>
-    <span style="color: rgb(0,0,255);">backDisplaySyncSlow</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setExpectedFrameRateRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置帧率</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">backDisplaySyncSlow</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">backDisplaySyncSlow</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+    let range: ExpectedFrameRateRange = {
+      // 创建和配置帧率参数
+      expected: 30, // 设置期望绘制帧率为30hz
+      min: 0, // 配置帧率范围
+      max: 60 // 配置帧率范围
+    };
+    let backDisplaySyncSlow: displaySync.DisplaySync = displaySync.create(); // 创建DisplaySync实例
+    backDisplaySyncSlow.setExpectedFrameRateRange(range); // 设置帧率
+    if (backDisplaySyncSlow) {
+      backDisplaySyncSlow.start();
+    }
+  }
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义组件析构销毁之前执行，不允许在</span><span style="color: rgb(128,128,128);">aboutToDisappear</span><span style="color: rgb(128,128,128);">函数中改变状态变量，特别是</span><span style="color: rgb(128,128,128);">@Link</span><span style="color: rgb(128,128,128);">变量的修改可能会导致应用程序行为不稳定</span>
-  <span style="color: rgb(0,0,255);">aboutToDisappear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">debug</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"CanvasView </span><span style="color: rgb(255,0,170);">销毁了</span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  // 自定义组件析构销毁之前执行，不允许在aboutToDisappear函数中改变状态变量，特别是@Link变量的修改可能会导致应用程序行为不稳定
+  aboutToDisappear(): void {
+    console.debug("CanvasView 销毁了");
+  }
 
-  <span style="color: rgb(0,0,255);">cacheBitmap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+  cacheBitmap: PixelMap | undefined = undefined;
 
-  <span style="color: rgb(0,0,255);">getPixelMap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">w</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PixelMap </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cacheBitmap</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cacheBitmap</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    let <span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">_settings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">offCanvas </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">OffscreenCanvas</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">w</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">offContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">offCanvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getContext</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"2d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">_settings</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  getPixelMap(w: number, h: number): PixelMap {
+    if (this.cacheBitmap) {
+      return this.cacheBitmap;
+    }
+    let offset = 0;
+    let _settings = new RenderingContextSettings(true);
+    let offCanvas = new OffscreenCanvas(w, h);
+    let offContext = offCanvas.getContext("2d", _settings);
 
-    let <span style="color: rgb(0,0,255);">grad </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createLinearGradient</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let grad = offContext.createLinearGradient(50, 0, 300, 100);
 
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">save</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, -</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"#ffa7a9a9"</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillRect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">w</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    offContext.save();
+    offContext.translate(-offset, -offset);
+    offContext.fillStyle = "#ffa7a9a9";
+    offContext.fillRect(offset, offset, w, h);
 
-    <span style="color: rgb(0,0,255);">grad</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addColorStop</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'rgba(250, 151, 215, 1.00)'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">grad</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addColorStop</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0.7</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'rgba(230, 197, 210, 1.00)'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">grad</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addColorStop</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0.8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'rgba(126, 202, 254, 1.00)'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">grad</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addColorStop</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1.0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'rgba(151, 209, 160, 1.00)'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">grad</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillRect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">w</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    grad.addColorStop(0.0, 'rgba(250, 151, 215, 1.00)');
+    grad.addColorStop(0.7, 'rgba(230, 197, 210, 1.00)');
+    grad.addColorStop(0.8, 'rgba(126, 202, 254, 1.00)');
+    grad.addColorStop(1.0, 'rgba(151, 209, 160, 1.00)');
+    offContext.fillStyle = grad;
+    offContext.fillRect(offset, offset, w, h);
 
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"#fffdd378"</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"24vp"</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">测试文本</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">220</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">375</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">restore</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cacheBitmap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPixelMap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">w</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cacheBitmap</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    offContext.fillStyle = "#fffdd378";
+    offContext.font = "24vp";
+    offContext.fillText('测试文本', offset + 220, offset + 375);
+    offContext.translate(offset, offset);
+    offContext.restore();
+    this.cacheBitmap = offContext.getPixelMap(0, 0, w, h);
+    return this.cacheBitmap;
+  }
 
-  <span style="color: rgb(0,0,255);">startRenderTestDrawImage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderer</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">canvasW </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ceil</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">canvasH </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ceil</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">screenHeight </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">screenHeight </span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  startRenderTestDrawImage(renderContext: CanvasRenderer) {
+    let canvasW = Math.ceil(this.renderContext.width);
+    let canvasH = Math.ceil(this.screenHeight > 0 ? this.screenHeight : this.renderContext.height);
 
-    let <span style="color: rgb(0,0,255);">cacheW </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">canvasW </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">1.5</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">cacheH </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">canvasH </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">1.5</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let cacheW = Math.round(canvasW * 1.5);
+    let cacheH = Math.round(canvasH * 1.5);
 
-    let <span style="color: rgb(0,0,255);">cacheXpos </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">cacheW </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">canvasW</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.5 </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollX</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">cacheYpos </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">cacheH </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">canvasH</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.5 </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let cacheXpos = Math.round((cacheW - canvasW) * 0.5 + this.scrollX);
+    let cacheYpos = Math.round((cacheH - canvasH) * 0.5 + this.scrollY);
 
-    <span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">save</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">cacheXpos</span><span style="color: rgb(181,106,1);">, -</span><span style="color: rgb(0,0,255);">cacheYpos</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawImage</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPixelMap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cacheW</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cacheH</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cacheXpos</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cacheYpos</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">restore</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调整前</span><span style="color: rgb(128,128,128);"> isValidate</span><span style="color: rgb(128,128,128);">属性在</span><span style="color: rgb(128,128,128);">@watch</span><span style="color: rgb(128,128,128);">监听方法，第一次加载拖动时会存在卡顿</span>
-  <span style="color: rgb(0,0,255);">redraw</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">t1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startRenderTestDrawImage</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">t2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">debug</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`canvas </span><span style="color: rgb(255,0,170);">绘制时间</span><span style="color: rgb(255,0,170);">=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">t2 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">t1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">ms`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调整后</span><span style="color: rgb(128,128,128);"> isValidate</span><span style="color: rgb(128,128,128);">属性在</span><span style="color: rgb(128,128,128);">@watch</span><span style="color: rgb(128,128,128);">监听方法，在</span><span style="color: rgb(128,128,128);">redraw</span><span style="color: rgb(128,128,128);">前添加了</span><span style="color: rgb(128,128,128);">15ms</span><span style="color: rgb(128,128,128);">延时</span>
-  <span style="color: rgb(0,0,255);">redrawWithStep</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curTime</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">15</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">redraw</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    renderContext.save();
+    renderContext.translate(-cacheXpos, -cacheYpos);
+    renderContext.drawImage(this.getPixelMap(cacheW, cacheH), 0, 0);
+    renderContext.translate(cacheXpos, cacheYpos);
+    renderContext.restore();
+  }
+  // 调整前 isValidate属性在@watch监听方法，第一次加载拖动时会存在卡顿
+  redraw() {
+    this.renderContext.reset();
+    let t1 = Date.now();
+    this.startRenderTestDrawImage(this.renderContext);
+    let t2 = Date.now();
+    console.debug(`canvas 绘制时间=${(t2 - t1)}ms`);
+  }
+  // 调整后 isValidate属性在@watch监听方法，在redraw前添加了15ms延时
+  redrawWithStep() {
+    if ((Date.now() - this.curTime) < 15) {
+      return;
+    }
+    this.curTime = Date.now();
+    this.redraw();
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceBetween </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renderContext</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">debug</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"Canvas onReady"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">redraw</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gesture</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">GestureGroup</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">GestureMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Exclusive</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">PanGesture</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">panOption</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionUpdate</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollX </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offsetX</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollY </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offsetY</span><span style="color: rgb(181,106,1);">;</span>
-                let <span style="color: rgb(0,0,255);">value </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'validateCanvas'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'validateCanvas'</span><span style="color: rgb(181,106,1);">, !</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">debug</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">偏移</span><span style="color: rgb(255,0,170);">x1=</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollX</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,y1=</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollY</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">debug</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">偏移</span><span style="color: rgb(255,0,170);">x2=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offsetX</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,y2=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offsetY</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">redraw</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">          ))</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clip</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">24</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column({ space: FlexAlign.SpaceBetween }) {
+      Row() {
+        Canvas(this.renderContext)
+          .width('100%')
+          .height('50%')
+          .backgroundColor(Color.White)
+          .onReady(() => {
+            console.debug("Canvas onReady");
+            this.redraw();
+          })
+          .gesture(GestureGroup(GestureMode.Exclusive,
+            PanGesture(this.panOption)
+              .onActionUpdate((event: GestureEvent) => {
+                this.scrollX = -event.offsetX;
+                this.scrollY = -event.offsetY;
+                let value = AppStorage.get<boolean>('validateCanvas');
+                AppStorage.setOrCreate<boolean>('validateCanvas', !value);
+                console.debug(`偏移x1=${this.scrollX},y1=${this.scrollY}`);
+              })
+              .onActionEnd((event: GestureEvent) => {
+                console.debug(`偏移x2=${event.offsetX},y2=${event.offsetY}`);
+                this.scrollX = 0;
+                this.scrollY = 0;
+                this.redraw();
+              })
+          ));
+      }
+      .margin(10)
+      .clip(true)
+      .border({
+        color: Color.Gray,
+        width: 1,
+        radius: 24
+      });
+    };
+  }
+}
 ```

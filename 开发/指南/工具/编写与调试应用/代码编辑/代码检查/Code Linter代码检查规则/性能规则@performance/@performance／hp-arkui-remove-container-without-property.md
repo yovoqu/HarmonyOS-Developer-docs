@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-remove-container-without-property"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
+  "rules": {
+    "@performance/hp-arkui-remove-container-without-property": "suggestion",
   }
 }
 ```
@@ -73,7 +73,7 @@ struct MyComponent{
   build() {
     Column() {
       Grid(this.scroller) {
-<span style="color: rgb(86,156,214);">        ForEach</span>(this.number, (item: number) => {
+        ForEach(this.number, (item: number) => {
           GridItem() {
             Flex() {
               Flex() {
@@ -89,12 +89,12 @@ struct MyComponent{
               }
             }
           }
-        }, (item:<span style="color: rgb(86,156,214);">string</span>) => item)
+        }, (item:string) => item)
       }
       .columnsTemplate('1fr 1fr 1fr 1fr 1fr')
       .columnsGap(0)
       .rowsGap(0)
-      .size({ width: <span style="color: rgb(206,145,120);">"100%"</span>, height: <span style="color: rgb(206,145,120);">"100%"</span> })
+      .size({ width: "100%", height: "100%" })
     }
   }
 }
@@ -105,7 +105,7 @@ struct MyComponent{
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
+plugin:@performance/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

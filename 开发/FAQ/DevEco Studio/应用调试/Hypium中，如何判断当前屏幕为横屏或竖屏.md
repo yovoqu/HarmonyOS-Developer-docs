@@ -29,34 +29,34 @@ Hypium中，执行视频类应用的全屏或者游戏类应用横屏时，应�
 
 ```text
 <em># -*- coding: utf-8 -*-</em>
-<span style="color: rgb(181,106,1);">from </span>devicetest.core.test_case <span style="color: rgb(181,106,1);">import </span>TestCase, Step
-<span style="color: rgb(181,106,1);">from </span>hypium <span style="color: rgb(181,106,1);">import </span>UiDriver
-<span style="color: rgb(181,106,1);">class </span>TC_001(TestCase):
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>, configs):
-        <span style="color: rgb(255,0,170);">self</span>.TAG = <span style="color: rgb(255,0,170);">self</span>.__class__.<span style="color: rgb(255,0,170);">__name__</span>
-        <span style="color: rgb(0,0,255);">super</span>().<span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>.TAG, configs)
-        <span style="color: rgb(255,0,170);">self</span>.driver = UiDriver(<span style="color: rgb(255,0,170);">self</span>.device1)
-        <span style="color: rgb(255,0,170);">self</span>.driver_width, <span style="color: rgb(255,0,170);">self</span>.driver_height = <span style="color: rgb(255,0,170);">self</span>.driver.get_display_size()
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">setup</span>(<span style="color: rgb(255,0,170);">self</span>):
-        Step(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">预制条件</span><span style="color: rgb(80,160,79);">"</span>)
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">process</span>(<span style="color: rgb(255,0,170);">self</span>):
-        Step(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">方法一：使用</span><span style="color: rgb(80,160,79);">driver.get_display_size()</span><span style="color: rgb(80,160,79);">方法获取当前屏幕的宽和高，当宽</span><span style="color: rgb(80,160,79);">></span><span style="color: rgb(80,160,79);">高时，即为横屏，反之为竖屏。</span><span style="color: rgb(80,160,79);">"</span>)
-     <em>   <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">获取当前屏幕尺寸</span></em>
-        display = <span style="color: rgb(255,0,170);">self</span>.driver.get_display_size()
-      <em>  <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">屏幕宽度（像素）</span></em>
-        width = display[<span style="color: rgb(0,0,255);">0</span>]
-     <em>   <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">屏幕高度（像素）</span></em>
-        height = display[<span style="color: rgb(0,0,255);">1</span>]
-     <em>   <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">当屏幕宽度</span><span style="color: rgb(128,128,128);">></span><span style="color: rgb(128,128,128);">屏幕高度，表示当前为横屏观看</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">否则为竖屏</span></em>
-        <span style="color: rgb(181,106,1);">if </span>width > height:
-            current_orientation = <span style="color: rgb(80,160,79);">"landscape"</span>
-        <span style="color: rgb(181,106,1);">else</span>:
-            current_orientation = <span style="color: rgb(80,160,79);">"portrait"</span>
-        <span style="color: rgb(0,0,255);">print</span>(<span style="color: rgb(80,160,79);">f"</span><span style="color: rgb(80,160,79);">当前屏幕方向</span><span style="color: rgb(80,160,79);">: </span><span style="color: rgb(181,106,1);">{</span>current_orientation<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(80,160,79);">"</span>)
-        Step(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">方法二：使用</span><span style="color: rgb(80,160,79);">driver.get_display_rotation()</span><span style="color: rgb(80,160,79);">方法获取当前手机方向</span><span style="color: rgb(80,160,79);">"</span>)
-       <em> <span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">获取当前屏幕方向，正常横屏值为：</span><span style="color: rgb(128,128,128);">DisplayRotation.ROTATION_270</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">DisplayRotation.ROTATION_90</span><span style="color: rgb(128,128,128);">，竖屏为：</span><span style="color: rgb(128,128,128);">DisplayRotation.ROTATION_0</span></em>
-        current_orientation = <span style="color: rgb(255,0,170);">self</span>.driver.get_display_rotation()
-        <span style="color: rgb(0,0,255);">print</span>(<span style="color: rgb(80,160,79);">f"</span><span style="color: rgb(80,160,79);">当前屏幕方向</span><span style="color: rgb(80,160,79);">: </span><span style="color: rgb(181,106,1);">{</span>current_orientation<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(80,160,79);">"</span>)
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">teardown</span>(<span style="color: rgb(255,0,170);">self</span>):
-        Step(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">收尾工作</span><span style="color: rgb(80,160,79);">xxxx"</span>)
+from devicetest.core.test_case import TestCase, Step
+from hypium import UiDriver
+class TC_001(TestCase):
+    def __init__(self, configs):
+        self.TAG = self.__class__.__name__
+        super().__init__(self.TAG, configs)
+        self.driver = UiDriver(self.device1)
+        self.driver_width, self.driver_height = self.driver.get_display_size()
+    def setup(self):
+        Step("预制条件")
+    def process(self):
+        Step("方法一：使用driver.get_display_size()方法获取当前屏幕的宽和高，当宽>高时，即为横屏，反之为竖屏。")
+     <em>   # 获取当前屏幕尺寸</em>
+        display = self.driver.get_display_size()
+      <em>  # 屏幕宽度（像素）</em>
+        width = display[0]
+     <em>   # 屏幕高度（像素）</em>
+        height = display[1]
+     <em>   # 当屏幕宽度>屏幕高度，表示当前为横屏观看,否则为竖屏</em>
+        if width > height:
+            current_orientation = "landscape"
+        else:
+            current_orientation = "portrait"
+        print(f"当前屏幕方向: {current_orientation}")
+        Step("方法二：使用driver.get_display_rotation()方法获取当前手机方向")
+       <em> # 获取当前屏幕方向，正常横屏值为：DisplayRotation.ROTATION_270、DisplayRotation.ROTATION_90，竖屏为：DisplayRotation.ROTATION_0</em>
+        current_orientation = self.driver.get_display_rotation()
+        print(f"当前屏幕方向: {current_orientation}")
+    def teardown(self):
+        Step("收尾工作xxxx")
 ```

@@ -12,8 +12,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@security/no-unsafe-rsa-encrypt"</span>: <span style="color: rgb(6,125,23);">"error"</span>
+  "rules": {
+    "@security/no-unsafe-rsa-encrypt": "error"
   }
 }
 ```

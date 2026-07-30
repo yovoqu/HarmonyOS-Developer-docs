@@ -34,196 +34,196 @@ BigInt类型当前不支持比较大小，不支持如下谓词：between、notB
 代码示例如下：
  
 ```text
-<span style="color: rgb(0,0,255);">async </span><span style="color: rgb(0,0,255);">changeDbDataType</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注意：</span><span style="color: rgb(128,128,128);">SQLite</span><span style="color: rgb(128,128,128);">不支持简单的</span><span style="color: rgb(128,128,128);">ALTER COLUMN</span><span style="color: rgb(128,128,128);">来改变类型，以下是一个常见的替代方案</span></em>
-  if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    try <span style="color: rgb(255,0,170);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// 1.</span><span style="color: rgb(128,128,128);">将旧表重命名</span></em>
-      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ALTER TABLE Student RENAME TO old_Student;'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">创建新表结构，使用</span><span style="color: rgb(128,128,128);">UNLIMITED INT</span><span style="color: rgb(128,128,128);">类型</span></em>
-      const <span style="color: rgb(0,0,255);">CREATE_TABLE_SQL </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'CREATE TABLE IF NOT EXISTS Student (' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'id INTEGER PRIMARY KEY AUTOINCREMENT, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'name TEXT NOT NULL, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'age INTEGER, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'identity UNLIMITED INT DEFAULT 1234567898888888, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'carId  UNLIMITED INT DEFAULT 123456789, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'salary REAL)'</span><span style="color: rgb(181,106,1);">;</span>
-      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">CREATE_TABLE_SQL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// 3.</span><span style="color: rgb(128,128,128);">将旧表数据迁移到新表，使用</span><span style="color: rgb(128,128,128);">CAST(</span><span style="color: rgb(128,128,128);">原列</span><span style="color: rgb(128,128,128);">AS UNLIMITED INT)</span><span style="color: rgb(128,128,128);">确保数据无损转换</span></em>
-      const <span style="color: rgb(0,0,255);">INSERT_SQL </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'INSERT INTO Student (id, name, age, identity, carId, salary) ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'SELECT id, name, age, identity, CAST(carId AS UNLIMITED INT), ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'salary FROM old_Student;'</span><span style="color: rgb(181,106,1);">;</span>
-      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">INSERT_SQL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-     <em> <span style="color: rgb(128,128,128);">// 4.</span><span style="color: rgb(128,128,128);">删除旧表</span></em>
-      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'DROP TABLE old_Student'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据库表结构升级完成，字段类型已改为</span><span style="color: rgb(255,0,170);">BigInt'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`changeDbDataType failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+async changeDbDataType() {
+ <em> // 注意：SQLite不支持简单的ALTER COLUMN来改变类型，以下是一个常见的替代方案</em>
+  if (this.rdbStore) {
+    try {
+    <em>  // 1.将旧表重命名</em>
+      await this.rdbStore.executeSql('ALTER TABLE Student RENAME TO old_Student;');
+    <em>  // 2.创建新表结构，使用UNLIMITED INT类型</em>
+      const CREATE_TABLE_SQL = 'CREATE TABLE IF NOT EXISTS Student (' +
+        'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
+        'name TEXT NOT NULL, ' +
+        'age INTEGER, ' +
+        'identity UNLIMITED INT DEFAULT 1234567898888888, ' +
+        'carId  UNLIMITED INT DEFAULT 123456789, ' +
+        'salary REAL)';
+      await this.rdbStore.executeSql(CREATE_TABLE_SQL);
+    <em>  // 3.将旧表数据迁移到新表，使用CAST(原列AS UNLIMITED INT)确保数据无损转换</em>
+      const INSERT_SQL = 'INSERT INTO Student (id, name, age, identity, carId, salary) ' +
+        'SELECT id, name, age, identity, CAST(carId AS UNLIMITED INT), ' +
+        'salary FROM old_Student;';
+      await this.rdbStore.executeSql(INSERT_SQL);
+     <em> // 4.删除旧表</em>
+      await this.rdbStore.executeSql('DROP TABLE old_Student');
+      console.info('数据库表结构升级完成，字段类型已改为BigInt');
+    } catch (err) {
+      console.error(`changeDbDataType failed, code is ${err.code},message is ${err.message}`);
+    }
+  }
+}
 ```
  
 完整代码示例如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">relationalStore </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkData'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos.base'</span><span style="color: rgb(181,106,1);">;</span>
+import { relationalStore } from '@kit.ArkData';
+import { common } from '@kit.AbilityKit';
+import { BusinessError } from '@ohos.base';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RdbStore </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  rdbStore: relationalStore.RdbStore | undefined = undefined;
+  context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
-  async <span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Context</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    const <span style="color: rgb(0,0,255);">CONFIG</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StoreConfig </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Student.db'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">securityLevel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SecurityLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">S1</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRdbStore</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">CONFIG</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RdbStore</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Get RdbStore failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Create Student.db successfully!`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建表，在创建表时，通过</span><span style="color: rgb(128,128,128);">DEFAULT</span><span style="color: rgb(128,128,128);">关键字为</span><span style="color: rgb(128,128,128);">bigint</span><span style="color: rgb(128,128,128);">列设置默认值</span></em>
-      const <span style="color: rgb(0,0,255);">CREATE_TABLE_SQL </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'CREATE TABLE IF NOT EXISTS Student (' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'id INTEGER PRIMARY KEY AUTOINCREMENT, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'name TEXT NOT NULL, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'age INTEGER, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'identity UNLIMITED INT DEFAULT 1234567898888888, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'carId INTEGER, ' </span><span style="color: rgb(181,106,1);">+</span>
-        <span style="color: rgb(255,0,170);">'salary REAL)'</span><span style="color: rgb(181,106,1);">;</span>
-      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">CREATE_TABLE_SQL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Create table test successfully!`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  async create(context: Context) {
+    const CONFIG: relationalStore.StoreConfig = {
+      name: 'Student.db',
+      securityLevel: relationalStore.SecurityLevel.S1,
+    };
+    relationalStore.getRdbStore(context, CONFIG, async (err: BusinessError, rdbStore: relationalStore.RdbStore) => {
+      this.rdbStore = rdbStore;
+      if (err) {
+        console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+        return;
+      }
+      console.info(`Create Student.db successfully!`);
+     <em> // 创建表，在创建表时，通过DEFAULT关键字为bigint列设置默认值</em>
+      const CREATE_TABLE_SQL = 'CREATE TABLE IF NOT EXISTS Student (' +
+        'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
+        'name TEXT NOT NULL, ' +
+        'age INTEGER, ' +
+        'identity UNLIMITED INT DEFAULT 1234567898888888, ' +
+        'carId INTEGER, ' +
+        'salary REAL)';
+      await this.rdbStore.executeSql(CREATE_TABLE_SQL);
+      console.info(`Create table test successfully!`);
+    });
+  }
 
-  async <span style="color: rgb(0,0,255);">insert</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">valueBucketArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ValuesBucket</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">数据插入</span></em>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">batchInsert</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Student'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">valueBucketArray</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`insert data successfully!`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+  async insert(valueBucketArray: Array<relationalStore.ValuesBucket>) {
+ <em>   // 数据插入</em>
+    if (this.rdbStore) {
+      await this.rdbStore.batchInsert('Student', valueBucketArray);
+      console.info(`insert data successfully!`);
+    }
+  }
 
-  async <span style="color: rgb(0,0,255);">query</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取结果集</span></em>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">predicates</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RdbPredicates </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RdbPredicates</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Student'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(0,0,255);">resultSet </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">query</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">predicates</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">查询所有数据</span></em>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Query data successfully! row count:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowCount</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">goToNextRow</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
-        const <span style="color: rgb(0,0,255);">id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLong</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'id'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'name'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">age </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLong</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'age'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">carId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'carId'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">identity </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'identity'</span><span style="color: rgb(0,0,255);">)) </span>as <span style="color: rgb(0,0,255);">bigint</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">salary </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDouble</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SALARY'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`id=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, name=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, age=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">age</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,carId=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">carId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, identity=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">identity</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, salary=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">salary</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">释放数据集的内存</span></em>
-      <span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+  async query() {
+  <em>  // 获取结果集</em>
+    if (this.rdbStore) {
+      let predicates: relationalStore.RdbPredicates = new relationalStore.RdbPredicates('Student');
+      let resultSet = await this.rdbStore.query(predicates); <em>// 查询所有数据</em>
+      console.info(`Query data successfully! row count:${resultSet.rowCount}`);
+      while (resultSet.goToNextRow()) {
+        const id = resultSet.getLong(resultSet.getColumnIndex('id'));
+        const name = resultSet.getString(resultSet.getColumnIndex('name'));
+        const age = resultSet.getLong(resultSet.getColumnIndex('age'));
+        const carId = resultSet.getValue(resultSet.getColumnIndex('carId'));
+        const identity = resultSet.getValue(resultSet.getColumnIndex('identity')) as bigint;
+        const salary = resultSet.getDouble(resultSet.getColumnIndex('SALARY'));
+        console.info(`id=${id}, name=${name}, age=${age},carId=${carId}, identity=${identity}, salary=${salary}`);
+      }
+     <em> // 释放数据集的内存</em>
+      resultSet.close();
+    }
+  }
 
-  async <span style="color: rgb(0,0,255);">changeDbDataType</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注意：</span><span style="color: rgb(128,128,128);">SQLite</span><span style="color: rgb(128,128,128);">不支持简单的</span><span style="color: rgb(128,128,128);">ALTER COLUMN</span><span style="color: rgb(128,128,128);">来改变类型，以下是一个常见的替代方案</span></em>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      try <span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// 1.</span><span style="color: rgb(128,128,128);">将旧表重命名</span></em>
-        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ALTER TABLE Student RENAME TO old_Student;'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">创建新表结构，使用</span><span style="color: rgb(128,128,128);">UNLIMITED INT</span><span style="color: rgb(128,128,128);">类型</span></em>
-        const <span style="color: rgb(0,0,255);">CREATE_TABLE_SQL </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'CREATE TABLE IF NOT EXISTS Student (' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'id INTEGER PRIMARY KEY AUTOINCREMENT, ' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'name TEXT NOT NULL, ' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'age INTEGER, ' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'identity UNLIMITED INT DEFAULT 1234567898888888, ' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'carId  UNLIMITED INT DEFAULT 123456789, ' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'salary REAL)'</span><span style="color: rgb(181,106,1);">;</span>
-        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">CREATE_TABLE_SQL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-     <em>   <span style="color: rgb(128,128,128);">// 3.</span><span style="color: rgb(128,128,128);">将旧表数据迁移到新表，使用</span><span style="color: rgb(128,128,128);">CAST(</span><span style="color: rgb(128,128,128);">原列</span><span style="color: rgb(128,128,128);">AS UNLIMITED INT)</span><span style="color: rgb(128,128,128);">确保数据无损转换</span></em>
-        const <span style="color: rgb(0,0,255);">INSERT_SQL </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'INSERT INTO Student (id, name, age, identity, carId, salary) ' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'SELECT id, name, age, identity, CAST(carId AS UNLIMITED INT), ' </span><span style="color: rgb(181,106,1);">+</span>
-          <span style="color: rgb(255,0,170);">'salary FROM old_Student;'</span><span style="color: rgb(181,106,1);">;</span>
-        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">INSERT_SQL</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-       <em> <span style="color: rgb(128,128,128);">// 4.</span><span style="color: rgb(128,128,128);">删除旧表</span></em>
-        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rdbStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'DROP TABLE old_Student'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据库表结构升级完成，字段类型已改为</span><span style="color: rgb(255,0,170);">BigInt'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`changeDbDataType failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-<span style="color: rgb(255,0,170);">  }</span>
+  async changeDbDataType() {
+   <em> // 注意：SQLite不支持简单的ALTER COLUMN来改变类型，以下是一个常见的替代方案</em>
+    if (this.rdbStore) {
+      try {
+       <em> // 1.将旧表重命名</em>
+        await this.rdbStore.executeSql('ALTER TABLE Student RENAME TO old_Student;');
+      <em>  // 2.创建新表结构，使用UNLIMITED INT类型</em>
+        const CREATE_TABLE_SQL = 'CREATE TABLE IF NOT EXISTS Student (' +
+          'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
+          'name TEXT NOT NULL, ' +
+          'age INTEGER, ' +
+          'identity UNLIMITED INT DEFAULT 1234567898888888, ' +
+          'carId  UNLIMITED INT DEFAULT 123456789, ' +
+          'salary REAL)';
+        await this.rdbStore.executeSql(CREATE_TABLE_SQL);
+     <em>   // 3.将旧表数据迁移到新表，使用CAST(原列AS UNLIMITED INT)确保数据无损转换</em>
+        const INSERT_SQL = 'INSERT INTO Student (id, name, age, identity, carId, salary) ' +
+          'SELECT id, name, age, identity, CAST(carId AS UNLIMITED INT), ' +
+          'salary FROM old_Student;';
+        await this.rdbStore.executeSql(INSERT_SQL);
+       <em> // 4.删除旧表</em>
+        await this.rdbStore.executeSql('DROP TABLE old_Student');
+        console.info('数据库表结构升级完成，字段类型已改为BigInt');
+      } catch (err) {
+        console.error(`changeDbDataType failed, code is ${err.code},message is ${err.message}`);
+      }
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear(): void {
+    this.create(this.context);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">插入数据</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟数据</span></em>
-            const <span style="color: rgb(0,0,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
-            const <span style="color: rgb(0,0,255);">timeCount </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">valueBucketArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ValuesBucket</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">count</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">count</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-           <em>   <span style="color: rgb(128,128,128);">// identity</span><span style="color: rgb(128,128,128);">不做设置，数据库显示默认值</span></em>
-              let <span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ValuesBucket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">timeCount </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'zhangsan' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">age</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">carId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">3000 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">salary</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5000 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">50 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">i</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">valueBucketArray</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insert</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">valueBucketArray</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">修改数据类型</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">changeDbDataType</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">插入新类型数据</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">;</span>
-            const <span style="color: rgb(0,0,255);">timeCount </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">valueBucketArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ValuesBucket</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">count</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">count</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ValuesBucket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">timeCount </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'lisi' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">age</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">15 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">carId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'666666666000000000' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">identity</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'123456789000000000' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">salary</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5000 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">50 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">i</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">valueBucketArray</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insert</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">valueBucketArray</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">查询数据</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">query</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceAround</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Button('插入数据')
+          .margin({ top: 10 })
+          .onClick(() => {
+           <em> // 模拟数据</em>
+            const count = 2;
+            const timeCount = new Date().getTime();
+            let valueBucketArray = new Array<relationalStore.ValuesBucket>(count);
+            for (let i = 0; i < count; i++) {
+           <em>   // identity不做设置，数据库显示默认值</em>
+              let v: relationalStore.ValuesBucket = {
+                id: timeCount + i,
+                name: 'zhangsan' + i,
+                age: 20 + i,
+                carId: 3000 + 30 * i,
+                salary: 5000 + 50 * i
+              };
+              valueBucketArray[i] = v;
+            }
+            this.insert(valueBucketArray);
+          })
+        Button('修改数据类型')
+          .margin({ top: 10 })
+          .onClick(() => {
+            this.changeDbDataType();
+          })
+        Button('插入新类型数据')
+          .margin({ top: 10 })
+          .onClick(() => {
+            let count = 3;
+            const timeCount = new Date().getTime();
+            let valueBucketArray = new Array<relationalStore.ValuesBucket>(count);
+            for (let i = 0; i < count; i++) {
+              let v: relationalStore.ValuesBucket = {
+                id: timeCount + i,
+                name: 'lisi' + i,
+                age: 15 + i,
+                carId: BigInt('666666666000000000' + i),
+                identity: BigInt('123456789000000000' + i),
+                salary: 5000 + 50 * i
+              };
+              valueBucketArray[i] = v;
+            }
+            this.insert(valueBucketArray);
+          })
+        Button('查询数据')
+          .margin({ top: 10 })
+          .onClick(() => {
+            this.query();
+          })
+      }
+      .width('100%')
+      .margin({ top: 10 })
+      .justifyContent(FlexAlign.SpaceAround)
+    }
+    .height('100%')
+    .width('100%')
+  }
+}
 ```
  
  
@@ -235,13 +235,13 @@ Q：在创建数据库时，如何指定BigInt默认值？
 A：在创建表时，通过DEFAULT关键字为BigInt列设置默认值。代码示例如下：
  
 ```text
-const <span style="color: rgb(0,0,255);">CREATE_TABLE_SQL </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'CREATE TABLE IF NOT EXISTS Student (' </span><span style="color: rgb(181,106,1);">+</span>
-  <span style="color: rgb(255,0,170);">'id INTEGER PRIMARY KEY AUTOINCREMENT, ' </span><span style="color: rgb(181,106,1);">+</span>
-  <span style="color: rgb(255,0,170);">'name TEXT NOT NULL, ' </span><span style="color: rgb(181,106,1);">+</span>
-  <span style="color: rgb(255,0,170);">'age INTEGER, ' </span><span style="color: rgb(181,106,1);">+</span>
-  <span style="color: rgb(255,0,170);">'identity UNLIMITED INT DEFAULT 1234567898888888, ' </span><span style="color: rgb(181,106,1);">+</span>
-  <span style="color: rgb(255,0,170);">'carId  UNLIMITED INT DEFAULT 123456789, ' </span><span style="color: rgb(181,106,1);">+</span>
-  <span style="color: rgb(255,0,170);">'salary REAL)'</span><span style="color: rgb(181,106,1);">;</span>
+const CREATE_TABLE_SQL = 'CREATE TABLE IF NOT EXISTS Student (' +
+  'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
+  'name TEXT NOT NULL, ' +
+  'age INTEGER, ' +
+  'identity UNLIMITED INT DEFAULT 1234567898888888, ' +
+  'carId  UNLIMITED INT DEFAULT 123456789, ' +
+  'salary REAL)';
 ```
  
 Q：如何读取数据库的BigInt数据？
@@ -249,6 +249,6 @@ Q：如何读取数据库的BigInt数据？
 A：可以使用getValue接口来获取。代码示例如下：
  
 ```text
-const <span style="color: rgb(0,0,255);">carId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'carId'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(0,0,255);">identity </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'identity'</span><span style="color: rgb(0,0,255);">)) </span>as <span style="color: rgb(0,0,255);">bigint</span><span style="color: rgb(181,106,1);">;</span>
+const carId = resultSet.getValue(resultSet.getColumnIndex('carId'));
+const identity = resultSet.getValue(resultSet.getColumnIndex('identity')) as bigint;
 ```

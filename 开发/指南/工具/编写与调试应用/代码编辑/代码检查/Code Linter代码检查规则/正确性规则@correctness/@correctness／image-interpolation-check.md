@@ -12,7 +12,7 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
+  "rules": {
     "@correctness/image-interpolation-check": "warn"
   }
 }
@@ -122,7 +122,7 @@ export struct AppIcon {
 #### 规则集
 
 ```text
-<span style="color: rgb(6,125,23);">plugin:@correctness/all</span>
+plugin:@correctness/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

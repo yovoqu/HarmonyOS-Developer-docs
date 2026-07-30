@@ -12,7 +12,7 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
+  "rules": {
     "@typescript-eslint/prefer-regexp-exec": "error"
   }
 }
@@ -29,13 +29,13 @@
 #### 正例
 
 ```text
-<span style="color: rgb(101,49,112);">/thing/</span><span style="color: rgb(133,152,1);">.</span><span style="color: rgb(0,169,158);">exec</span><span style="color: rgb(108,113,196);">(</span><span style="color: rgb(101,49,112);">'something'</span><span style="color: rgb(108,113,196);">)</span><span style="color: rgb(133,152,1);">;</span>
+/thing/.exec('something');
 
-<span style="color: rgb(101,49,112);">'some things are just things'</span><span style="color: rgb(133,152,1);">.</span><span style="color: rgb(0,169,158);">match</span><span style="color: rgb(108,113,196);">(</span><span style="color: rgb(101,49,112);">/thing/g</span><span style="color: rgb(108,113,196);">)</span><span style="color: rgb(133,152,1);">;</span>
+'some things are just things'.match(/thing/g);
 
-const <span style="color: rgb(17,64,142);">text </span><span style="color: rgb(133,152,1);">= </span><span style="color: rgb(101,49,112);">'something'</span><span style="color: rgb(133,152,1);">;</span>
-const <span style="color: rgb(17,64,142);">search </span><span style="color: rgb(133,152,1);">= </span><span style="color: rgb(101,49,112);">/thing/</span><span style="color: rgb(133,152,1);">;</span>
-<span style="color: rgb(17,64,142);">search</span><span style="color: rgb(133,152,1);">.</span><span style="color: rgb(0,169,158);">exec</span><span style="color: rgb(108,113,196);">(</span><span style="color: rgb(17,64,142);">text</span><span style="color: rgb(108,113,196);">)</span><span style="color: rgb(133,152,1);">;</span>
+const text = 'something';
+const search = /thing/;
+search.exec(text);
 ```
  
  
@@ -43,13 +43,13 @@ const <span style="color: rgb(17,64,142);">search </span><span style="color: rgb
 #### 反例
 
 ```text
-<span style="color: rgb(101,49,112);">'something'</span><span style="color: rgb(133,152,1);">.</span><span style="color: rgb(0,169,158);">match</span><span style="color: rgb(108,113,196);">(</span><span style="color: rgb(101,49,112);">/thing/</span><span style="color: rgb(108,113,196);">)</span><span style="color: rgb(133,152,1);">;</span>
+'something'.match(/thing/);
 
-<span style="color: rgb(101,49,112);">'some things are just things'</span><span style="color: rgb(133,152,1);">.</span><span style="color: rgb(0,169,158);">match</span><span style="color: rgb(108,113,196);">(</span><span style="color: rgb(101,49,112);">/thing/</span><span style="color: rgb(108,113,196);">)</span><span style="color: rgb(133,152,1);">;</span>
+'some things are just things'.match(/thing/);
 
-const <span style="color: rgb(17,64,142);">text </span><span style="color: rgb(133,152,1);">= </span><span style="color: rgb(101,49,112);">'something'</span><span style="color: rgb(133,152,1);">;</span>
-const <span style="color: rgb(17,64,142);">search </span><span style="color: rgb(133,152,1);">= </span><span style="color: rgb(101,49,112);">/thing/</span><span style="color: rgb(133,152,1);">;</span>
-<span style="color: rgb(17,64,142);">text</span><span style="color: rgb(133,152,1);">.</span><span style="color: rgb(0,169,158);">match</span><span style="color: rgb(108,113,196);">(</span><span style="color: rgb(17,64,142);">search</span><span style="color: rgb(108,113,196);">)</span><span style="color: rgb(133,152,1);">;</span>
+const text = 'something';
+const search = /thing/;
+text.match(search);
 ```
  
  
@@ -57,7 +57,7 @@ const <span style="color: rgb(17,64,142);">search </span><span style="color: rgb
 #### 规则集
 
 ```text
-<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
+plugin:@typescript-eslint/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

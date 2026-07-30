@@ -26,132 +26,132 @@ app
     └── type
 └── products
     └── name
-<span style="color: rgb(48,48,48);">    └── signingConfig</span>
-<span style="color: rgb(48,48,48);">    └── bundleName</span>
-<span style="color: rgb(48,48,48);">    └── buildOption</span>
-<span style="color: rgb(48,48,48);">        └── packOptions</span>
-<span style="color: rgb(48,48,48);">            └── buildAppSkipSignHap</span>
-<span style="color: rgb(48,48,48);">            └── </span>fastBuildApp
-<span style="color: rgb(48,48,48);">            └── </span>enableSourceCodeCheck
-<span style="color: rgb(48,48,48);">            └── </span>deduplicateHar
-<span style="color: rgb(48,48,48);">            └── </span>appWithSignedPkg
-<span style="color: rgb(48,48,48);">            └── </span>enableIncrementalSoCompress
-<span style="color: rgb(48,48,48);">        └── debuggable</span>
-        <span style="color: rgb(48,48,48);">└── </span>generateSharedTgz
-<span style="color: rgb(48,48,48);">        └── resOptions</span>
-<span style="color: rgb(48,48,48);">            └── </span>compression
-<span style="color: rgb(48,48,48);">                └── </span>media
-<span style="color: rgb(48,48,48);">                    └──</span> enable
-<span style="color: rgb(48,48,48);">                └── </span>filters
-<span style="color: rgb(48,48,48);">                    └──</span> method
-<span style="color: rgb(48,48,48);">                        └──</span> type
-<span style="color: rgb(48,48,48);">                        └──</span> blocks
-<span style="color: rgb(48,48,48);">                    └──</span> files
-<span style="color: rgb(48,48,48);">                        └──</span> path
-<span style="color: rgb(48,48,48);">                        └──</span> size
-<span style="color: rgb(48,48,48);">                        └──</span> resolution
-<span style="color: rgb(48,48,48);">                    └──</span> exclude
-<span style="color: rgb(48,48,48);">                        └──</span> path
-<span style="color: rgb(48,48,48);">                        └──</span> size
-<span style="color: rgb(48,48,48);">                        └──</span> resolution
-<span style="color: rgb(48,48,48);">            └── </span>resCompileThreads
-<span style="color: rgb(48,48,48);">            └── </span>copyCodeResource
-<span style="color: rgb(48,48,48);">                └── </span>enable
-<span style="color: rgb(48,48,48);">                └── </span>includes
-<span style="color: rgb(48,48,48);">                └── </span>excludes
-            <span style="color: rgb(48,48,48);">└── </span>ignoreResourcePattern
-            <span style="color: rgb(48,48,48);">└── </span>excludeHarRes
-            <span style="color: rgb(48,48,48);">└── </span>includeAppScopeRes
-            <span style="color: rgb(48,48,48);">└── </span>idDefinedFilePath
-<span style="color: rgb(48,48,48);">        └── externalNativeOptions</span>
-<span style="color: rgb(48,48,48);">            └── path</span>
-<span style="color: rgb(48,48,48);">            └── abiFilters</span>
-<span style="color: rgb(48,48,48);">            └── arguments</span>
-<span style="color: rgb(48,48,48);">            └── cppFlags</span>
-<span style="color: rgb(48,48,48);">        └── sourceOption</span>
-<span style="color: rgb(48,48,48);">            └── workers</span>
+    └── signingConfig
+    └── bundleName
+    └── buildOption
+        └── packOptions
+            └── buildAppSkipSignHap
+            └── fastBuildApp
+            └── enableSourceCodeCheck
+            └── deduplicateHar
+            └── appWithSignedPkg
+            └── enableIncrementalSoCompress
+        └── debuggable
+        └── generateSharedTgz
+        └── resOptions
+            └── compression
+                └── media
+                    └── enable
+                └── filters
+                    └── method
+                        └── type
+                        └── blocks
+                    └── files
+                        └── path
+                        └── size
+                        └── resolution
+                    └── exclude
+                        └── path
+                        └── size
+                        └── resolution
+            └── resCompileThreads
+            └── copyCodeResource
+                └── enable
+                └── includes
+                └── excludes
+            └── ignoreResourcePattern
+            └── excludeHarRes
+            └── includeAppScopeRes
+            └── idDefinedFilePath
+        └── externalNativeOptions
+            └── path
+            └── abiFilters
+            └── arguments
+            └── cppFlags
+        └── sourceOption
+            └── workers
         └── nativeLib
-<span style="color: rgb(48,48,48);">            └── </span>filter
-<span style="color: rgb(48,48,48);">                └── </span>excludes
-<span style="color: rgb(48,48,48);">                └── </span>pickFirsts
-<span style="color: rgb(48,48,48);">                └── </span>pickLasts
-<span style="color: rgb(48,48,48);">                └── </span>enableOverride
-<span style="color: rgb(48,48,48);">                └── </span>select
-<span style="color: rgb(48,48,48);">                    └──</span> package
-<span style="color: rgb(48,48,48);">                    └──</span> version
-<span style="color: rgb(48,48,48);">                    └──</span> includePattern
-<span style="color: rgb(48,48,48);">                    └──</span> excludePattern
-<span style="color: rgb(48,48,48);">                    └──</span> include
-<span style="color: rgb(48,48,48);">                    └──</span> exclude
-<span style="color: rgb(48,48,48);">            └── </span>debugSymbol
-<span style="color: rgb(48,48,48);">                └── </span>strip
-<span style="color: rgb(48,48,48);">                └── </span>exclude
-<span style="color: rgb(48,48,48);">            └── </span>headerPath
-<span style="color: rgb(48,48,48);">            └── </span>collectAllLibs
-<span style="color: rgb(48,48,48);">            └── </span>excludeFromHar
-<span style="color: rgb(48,48,48);">            └── </span>excludeSoFromInterfaceHar
-<span style="color: rgb(48,48,48);">            └── </span>excludeSoFromBinXO
-<span style="color: rgb(48,48,48);">        └── napiLibFilterOption</span>
-<span style="color: rgb(48,48,48);">            └── excludes</span>
-<span style="color: rgb(48,48,48);">            └── pickFirsts</span>
-<span style="color: rgb(48,48,48);">            └── pickLasts</span>
-<span style="color: rgb(48,48,48);">            └── enableOverride</span>
-<span style="color: rgb(48,48,48);">        └── arkOptions</span>
-<span style="color: rgb(48,48,48);">            └── </span>buildProfileFields
-<span style="color: rgb(48,48,48);">            └── types</span>
-<span style="color: rgb(48,48,48);">            └── </span>tscConfig
-<span style="color: rgb(48,48,48);">                └── </span>targetESVersion
-<span style="color: rgb(48,48,48);">                └── </span>maxFlowDepth
-<span style="color: rgb(48,48,48);">                └── </span>tsImportSoCheck
-<span style="color: rgb(48,48,48);">            └── </span>autoLazyImport
-<span style="color: rgb(48,48,48);">            └── </span>autoLazyFilter
-<span style="color: rgb(48,48,48);">                └── </span>include
-<span style="color: rgb(48,48,48);">                └── </span>exclude
-<span style="color: rgb(48,48,48);">            └── </span>reExportCheckMode
-<span style="color: rgb(48,48,48);">            └── </span>branchElimination
-<span style="color: rgb(48,48,48);">            └── </span>skipOhModulesLint
-<span style="color: rgb(48,48,48);">            └── </span>expandImportPath
-<span style="color: rgb(48,48,48);">                └── </span>enable
-<span style="color: rgb(48,48,48);">                └── </span>exclude
-<span style="color: rgb(48,48,48);">            └── apPath</span>
-<span style="color: rgb(48,48,48);">            └── hostPGO</span>
+            └── filter
+                └── excludes
+                └── pickFirsts
+                └── pickLasts
+                └── enableOverride
+                └── select
+                    └── package
+                    └── version
+                    └── includePattern
+                    └── excludePattern
+                    └── include
+                    └── exclude
+            └── debugSymbol
+                └── strip
+                └── exclude
+            └── headerPath
+            └── collectAllLibs
+            └── excludeFromHar
+            └── excludeSoFromInterfaceHar
+            └── excludeSoFromBinXO
+        └── napiLibFilterOption
+            └── excludes
+            └── pickFirsts
+            └── pickLasts
+            └── enableOverride
+        └── arkOptions
+            └── buildProfileFields
+            └── types
+            └── tscConfig
+                └── targetESVersion
+                └── maxFlowDepth
+                └── tsImportSoCheck
+            └── autoLazyImport
+            └── autoLazyFilter
+                └── include
+                └── exclude
+            └── reExportCheckMode
+            └── branchElimination
+            └── skipOhModulesLint
+            └── expandImportPath
+                └── enable
+                └── exclude
+            └── apPath
+            └── hostPGO
         └── strictMode
-<span style="color: rgb(48,48,48);">            └── </span>noExternalImportByPath
-<span style="color: rgb(48,48,48);">            └── </span>useNormalizedOHMUrl
-<span style="color: rgb(48,48,48);">            └── </span>caseSensitiveCheck
-<span style="color: rgb(48,48,48);">            └── </span>duplicateDependencyCheck
-<span style="color: rgb(48,48,48);">            └── </span>harLocalDependencyCheck
-<span style="color: rgb(48,48,48);">            └── </span>enableStrictCheckOHModule
-<span style="color: rgb(48,48,48);">            └── </span>disableStrictCheckPaths
-<span style="color: rgb(48,48,48);">            └── </span>disableSendableCheckRules
-<span style="color: rgb(48,48,48);">            └── </span>strictCheckerOnly
-<span style="color: rgb(48,48,48);">            └── </span>apiCompatibilityCheck
+            └── noExternalImportByPath
+            └── useNormalizedOHMUrl
+            └── caseSensitiveCheck
+            └── duplicateDependencyCheck
+            └── harLocalDependencyCheck
+            └── enableStrictCheckOHModule
+            └── disableStrictCheckPaths
+            └── disableSendableCheckRules
+            └── strictCheckerOnly
+            └── apiCompatibilityCheck
         └── nativeCompiler
         └── removePermissions
-<span style="color: rgb(48,48,48);">            └── </span>name
+            └── name
         └── preloadSystemSo
-<span style="color: rgb(48,48,48);">    └── runtimeOS</span>
+    └── runtimeOS
     └── arkTSVersion
-<span style="color: rgb(48,48,48);">    └── compileSdkVersion</span>
-<span style="color: rgb(48,48,48);">    └── compatibleSdkVersion</span>
-<span style="color: rgb(48,48,48);">    └── targetSdkVersion</span>
-<span style="color: rgb(48,48,48);">    └── </span>compatibleSdkVersionStage
-<span style="color: rgb(48,48,48);">    └── bundleType</span>
-<span style="color: rgb(48,48,48);">    └── label</span>
-<span style="color: rgb(48,48,48);">    └── icon</span>
-<span style="color: rgb(48,48,48);">    └── versionCode</span>
-<span style="color: rgb(48,48,48);">    └── versionName</span>
-<span style="color: rgb(48,48,48);">    └── </span>buildVersion
-<span style="color: rgb(48,48,48);">    └── resource</span>
+    └── compileSdkVersion
+    └── compatibleSdkVersion
+    └── targetSdkVersion
+    └── compatibleSdkVersionStage
+    └── bundleType
+    └── label
+    └── icon
+    └── versionCode
+    └── versionName
+    └── buildVersion
+    └── resource
         └── directories
     └── output
         └── artifactName
     └── vendor
 └── buildModeSet
     └── name
-<span style="color: rgb(48,48,48);">    └── buildOption</span>
-<span style="color: rgb(48,48,48);">└── multiProjects</span>
-<span style="color: rgb(48,48,48);">└── </span>capabilities
+    └── buildOption
+└── multiProjects
+└── capabilities
     └── bundleName
     └── config
         └── name
@@ -160,11 +160,11 @@ app
             └── name
             └── capability
 modules
-<span style="color: rgb(48,48,48);">└── name</span>
-<span style="color: rgb(48,48,48);">└── srcPath</span>
-<span style="color: rgb(48,48,48);">└── targets</span>
-<span style="color: rgb(48,48,48);">    └── </span><span style="color: rgb(48,48,48);">name</span>
-<span style="color: rgb(48,48,48);">    └── applyToProducts</span>
+└── name
+└── srcPath
+└── targets
+    └── name
+    └── applyToProducts
 ```
 
 

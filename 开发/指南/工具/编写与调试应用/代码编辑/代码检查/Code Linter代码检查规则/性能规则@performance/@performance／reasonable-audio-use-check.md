@@ -138,7 +138,7 @@ export default class EntryAbility extends UIAbility {
 #### 规则集
 
 ```text
-<span style="color: rgb(80,160,79);">plugin:@performance/all</span>
+plugin:@performance/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

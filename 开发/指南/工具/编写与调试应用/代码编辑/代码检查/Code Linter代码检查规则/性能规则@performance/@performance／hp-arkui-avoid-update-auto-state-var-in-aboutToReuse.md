@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-avoid-update-auto-state-var-in-aboutToReuse"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
+  "rules": {
+    "@performance/hp-arkui-avoid-update-auto-state-var-in-aboutToReuse": "suggestion",
   }
 }
 ```
@@ -167,7 +167,7 @@ struct MyComponent {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
+plugin:@performance/recommended
 plugin:@performance/all
 ```
  

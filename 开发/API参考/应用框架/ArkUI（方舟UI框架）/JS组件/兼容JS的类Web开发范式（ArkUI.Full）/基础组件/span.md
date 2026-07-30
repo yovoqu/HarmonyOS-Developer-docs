@@ -83,7 +83,7 @@
 <!-- xxx.hml -->
 <div class="container">
   <text class="title">
-    <span class="spanTxt">span</span>
+    span
   </text>
 </div>
 ```

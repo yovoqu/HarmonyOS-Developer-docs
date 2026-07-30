@@ -214,8 +214,8 @@ javaOptions字段示例：
 
 ```json
 {
-  <span style="color: rgb(135,16,148);">"javaOptions"</span>: {
-    <span style="color: rgb(135,16,148);">"Xmx"</span>: <span style="color: rgb(23,80,235);">512</span>
+  "javaOptions": {
+    "Xmx": 512
   }
 }
 ```

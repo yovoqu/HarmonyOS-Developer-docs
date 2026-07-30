@@ -26,168 +26,168 @@ HAR/HSP中需要监听系统环境变量变化，如何实现？
  
 - 方案一：[EnvironmentCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-environmentcallback)模块提供对系统环境变化监听回调的能力。1. HAR/HSP包中定义一个EnvironmentMonitor，参考代码如下：
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Configuration</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">EnvironmentCallback </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { AbilityConstant, common, Configuration, EnvironmentCallback } from '@kit.AbilityKit';
 
-export class <span style="color: rgb(0,0,255);">EnvironmentMonitor </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">callbackId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+export class EnvironmentMonitor {
+  private context: common.UIAbilityContext | null = null;
+  private callbackId: number | null = null;
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  constructor(context: common.UIAbilityContext) {
+    this.context = context;
+  }
 
-  <span style="color: rgb(0,0,255);">onEnvironmentMonitor</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    let <span style="color: rgb(0,0,255);">environmentCallback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">EnvironmentCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">onConfigurationUpdated</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Configuration</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">应用当前语言：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">language</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">应用深浅色模式</span><span style="color: rgb(255,0,170);">[-1:</span><span style="color: rgb(255,0,170);">未设置颜色</span><span style="color: rgb(255,0,170);">; 0:</span><span style="color: rgb(255,0,170);">深色</span><span style="color: rgb(255,0,170);">; 1:</span><span style="color: rgb(255,0,170);">浅色</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">colorMode</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">指针设备是否已连接（鼠标、触控板等）：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hasPointerDevice</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">应用字体的唯一</span><span style="color: rgb(255,0,170);">ID</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">字体大小缩放比例：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSizeScale</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">字体粗细缩放比例：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeightScale</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">移动设备国家代码：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mcc</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">区域设置：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">locale</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+  onEnvironmentMonitor() {
+    if (!this.context) {
+      return;
+    }
+    let environmentCallback: EnvironmentCallback = {
+      onConfigurationUpdated(config: Configuration) {
+        console.info(`应用当前语言：${config.language}`);
+        console.info(`应用深浅色模式[-1:未设置颜色; 0:深色; 1:浅色]：${config.colorMode}`);
+        console.info(`指针设备是否已连接（鼠标、触控板等）：${config.hasPointerDevice}`);
+        console.info(`应用字体的唯一ID：${config.fontId}`);
+        console.info(`字体大小缩放比例：${config.fontSizeScale}`);
+        console.info(`字体粗细缩放比例：${config.fontWeightScale}`);
+        console.info(`移动设备国家代码：${config.mcc}`);
+        console.info(`区域设置：${config.locale}`);
+      },
 
-      <span style="color: rgb(0,0,255);">onMemoryLevel</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">level</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">监听内存变化</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">level</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">level</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          case <span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MemoryLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MEMORY_LEVEL_MODERATE</span><span style="color: rgb(181,106,1);">:</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'MEMORY_LEVEL_MODERATE'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            break<span style="color: rgb(181,106,1);">;</span>
-          case <span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MemoryLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MEMORY_LEVEL_LOW</span><span style="color: rgb(181,106,1);">:</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'MEMORY_LEVEL_LOW'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            break<span style="color: rgb(181,106,1);">;</span>
-          case <span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MemoryLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MEMORY_LEVEL_CRITICAL</span><span style="color: rgb(181,106,1);">:</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'MEMORY_LEVEL_CRITICAL'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            break<span style="color: rgb(181,106,1);">;</span>
-          default<span style="color: rgb(181,106,1);">:</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`default`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callbackId </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getApplicationContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'environment'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">environmentCallback</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+      onMemoryLevel(level) {
+        console.info(`监听内存变化: ${JSON.stringify(level)}`);
+        switch (level) {
+          case AbilityConstant.MemoryLevel.MEMORY_LEVEL_MODERATE:
+            console.info('MEMORY_LEVEL_MODERATE');
+            break;
+          case AbilityConstant.MemoryLevel.MEMORY_LEVEL_LOW:
+            console.info('MEMORY_LEVEL_LOW');
+            break;
+          case AbilityConstant.MemoryLevel.MEMORY_LEVEL_CRITICAL:
+            console.info('MEMORY_LEVEL_CRITICAL');
+            break;
+          default:
+            console.info(`default`);
+        }
+      }
+    };
+    this.callbackId = this.context.getApplicationContext().on('environment', environmentCallback);
+  }
 
 
-  <span style="color: rgb(0,0,255);">offEnvironmentMonitor</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callbackId </span><span style="color: rgb(181,106,1);">|| !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getApplicationContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'environment'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callbackId</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  offEnvironmentMonitor() {
+    if (!this.callbackId || !this.context) {
+      return;
+    }
+    this.context.getApplicationContext().off('environment', this.callbackId);
+  }
+}
 ```
 
 
 2. 在HAR/HSP包入口文件index.ets导出定义的EnvironmentMonitor：
 ```text
-export <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">EnvironmentMonitor </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./src/main/ets/monitor/EnvironmentMonitor'</span><span style="color: rgb(181,106,1);">;</span>
+export { EnvironmentMonitor } from './src/main/ets/monitor/EnvironmentMonitor';
 ```
 
 
 3. 宿主HAP包中EntryAbility初始化并开启监听内存变化：
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">EnvironmentMonitor </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'hara'</span><span style="color: rgb(181,106,1);">;</span>
+import { UIAbility } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { window } from '@kit.ArkUI';
+import { EnvironmentMonitor } from 'hara';
 
-const <span style="color: rgb(0,0,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x0000</span><span style="color: rgb(181,106,1);">;</span>
+const DOMAIN = 0x0000;
 
-export default class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">monitor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">EnvironmentMonitor </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+export default class EntryAbility extends UIAbility {
+  private monitor: EnvironmentMonitor | null = null;
 
-  <span style="color: rgb(0,0,255);">onCreate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">monitor </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">EnvironmentMonitor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">monitor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onEnvironmentMonitor</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onCreate(): void {
+    this.monitor = new EnvironmentMonitor(this.context);
+    this.monitor.onEnvironmentMonitor();
+  }
 
-  <span style="color: rgb(0,0,255);">onDestroy</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">monitor</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">offEnvironmentMonitor</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onDestroy(): void {
+    this.monitor?.offEnvironmentMonitor();
+  }
 
-  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onWindowStageCreate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to load the content. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Succeeded in loading the content.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    windowStage.loadContent('pages/Index', (err) => {
+      if (err.code) {
+        hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
+        return;
+      }
+      hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
+    });
+  }
+}
 ```
 
 
  
 - 方案二：在HAR/HSP包中定义一个类CustomUIAbility，继承自UIAbility，其中实现onMemoryLevel、onConfigurationUpdated方法。并且宿主HAP包当中的EntryAbility不再直接继承UIAbility，而是继承自定义的CustomUIAbility。1. 在HAR/HSP包中定义一个类CustomUIAbility，继承自UIAbility，其中实现onMemoryLevel、onConfigurationUpdated方法，代码案例如下：
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Configuration</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { AbilityConstant, Configuration, UIAbility } from '@kit.AbilityKit';
 
-export class <span style="color: rgb(0,0,255);">CustomUIAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">onMemoryLevel</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">level</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MemoryLevel</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">level</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      case <span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MemoryLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MEMORY_LEVEL_MODERATE</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'MEMORY_LEVEL_MODERATE'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MemoryLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MEMORY_LEVEL_LOW</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'MEMORY_LEVEL_LOW'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MemoryLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MEMORY_LEVEL_CRITICAL</span><span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'MEMORY_LEVEL_CRITICAL'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      default<span style="color: rgb(181,106,1);">:</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`default`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+export class CustomUIAbility extends UIAbility {
+  onMemoryLevel(level: AbilityConstant.MemoryLevel): void {
+    switch (level) {
+      case AbilityConstant.MemoryLevel.MEMORY_LEVEL_MODERATE:
+        console.info('MEMORY_LEVEL_MODERATE');
+        break;
+      case AbilityConstant.MemoryLevel.MEMORY_LEVEL_LOW:
+        console.info('MEMORY_LEVEL_LOW');
+        break;
+      case AbilityConstant.MemoryLevel.MEMORY_LEVEL_CRITICAL:
+        console.info('MEMORY_LEVEL_CRITICAL');
+        break;
+      default:
+        console.info(`default`);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">onConfigurationUpdate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Configuration</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">应用当前语言：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">language</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">应用深浅色模式</span><span style="color: rgb(255,0,170);">[-1:</span><span style="color: rgb(255,0,170);">未设置颜色</span><span style="color: rgb(255,0,170);">; 0:</span><span style="color: rgb(255,0,170);">深色</span><span style="color: rgb(255,0,170);">; 1:</span><span style="color: rgb(255,0,170);">浅色</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">colorMode</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">屏幕方向</span><span style="color: rgb(255,0,170);">[-1:</span><span style="color: rgb(255,0,170);">未设置方向</span><span style="color: rgb(255,0,170);">; 0:</span><span style="color: rgb(255,0,170);">垂直</span><span style="color: rgb(255,0,170);">; 1:</span><span style="color: rgb(255,0,170);">水平</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">屏幕显示密度：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">screenDensity</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">应用所在的物理屏幕</span><span style="color: rgb(255,0,170);">ID</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">displayId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">指针设备是否已连接（鼠标、触控板等）：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hasPointerDevice</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">应用字体的唯一</span><span style="color: rgb(255,0,170);">ID</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">字体大小缩放比例：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSizeScale</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">字体粗细缩放比例：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeightScale</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">移动设备国家代码：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mcc</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">区域设置：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">newConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">locale</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  onConfigurationUpdate(newConfig: Configuration): void {
+    console.info(`应用当前语言：${newConfig.language}`);
+    console.info(`应用深浅色模式[-1:未设置颜色; 0:深色; 1:浅色]：${newConfig.colorMode}`);
+    console.info(`屏幕方向[-1:未设置方向; 0:垂直; 1:水平]：${newConfig.direction}`);
+    console.info(`屏幕显示密度：${newConfig.screenDensity}`);
+    console.info(`应用所在的物理屏幕ID：${newConfig.displayId}`);
+    console.info(`指针设备是否已连接（鼠标、触控板等）：${newConfig.hasPointerDevice}`);
+    console.info(`应用字体的唯一ID：${newConfig.fontId}`);
+    console.info(`字体大小缩放比例：${newConfig.fontSizeScale}`);
+    console.info(`字体粗细缩放比例：${newConfig.fontWeightScale}`);
+    console.info(`移动设备国家代码：${newConfig.mcc}`);
+    console.info(`区域设置：${newConfig.locale}`);
+  }
+}
 ```
 
 
 2. 在HAR/HSP包入口文件index.ets导出定义的CustomUIAbility：
 ```text
-export <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">CustomUIAbility </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./src/main/ets/ability/CustomUIAbility'</span><span style="color: rgb(181,106,1);">;</span>
+export { CustomUIAbility } from './src/main/ets/ability/CustomUIAbility';
 ```
 
 
 3. 宿主HAP中EntryAbility不再直接继承UIAbility，而是继承HAR包中定义的CustomUIAbility。
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">CustomUIAbility </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'hara'</span><span style="color: rgb(181,106,1);">;</span>
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { window } from '@kit.ArkUI';
+import { CustomUIAbility } from 'hara';
 
-const <span style="color: rgb(0,0,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x0000</span><span style="color: rgb(181,106,1);">;</span>
+const DOMAIN = 0x0000;
 
-export default class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">CustomUIAbility </span><span style="color: rgb(255,0,170);">{</span>
+export default class EntryAbility extends CustomUIAbility {
 
-  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to load the content. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Succeeded in loading the content.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    windowStage.loadContent('pages/Index', (err) => {
+      if (err.code) {
+        hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
+        return;
+      }
+      hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
+    });
+  }
 
-<span style="color: rgb(255,0,170);">}</span>
+}
 ```

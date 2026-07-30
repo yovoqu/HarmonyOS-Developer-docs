@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-use-local-var-to-replace-state-var"</span>: <span style="color: rgb(6,125,23);">"warn"</span>,
+  "rules": {
+    "@performance/hp-arkui-use-local-var-to-replace-state-var": "warn",
   }
 }
 ```
@@ -31,19 +31,19 @@
 #### 正例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
+@Entry
+@Component
 struct MyComponent {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> message: string = <span style="color: rgb(163,21,21);">''</span>;
+  @State message: string = '';
   appendMsg(newMsg: string) {
-      <span style="color: rgb(0,0,255);">let</span> message = <span style="color: rgb(0,0,255);">this</span>.message;
+      let message = this.message;
       message += newMsg;
-      message += <span style="color: rgb(163,21,21);">";"</span>;
-      message += <span style="color: rgb(163,21,21);">"</span><span style="color: rgb(163,21,21);"><</span><span style="color: rgb(163,21,21);">br/</span><span style="color: rgb(163,21,21);">></span><span style="color: rgb(163,21,21);">"</span>;
-      <span style="color: rgb(0,0,255);">this</span>.message = message;
+      message += ";";
+      message += "<br/>";
+      this.message = message;
   }
   build() {
-    <span style="color: rgb(0,128,0);">// 业务代码...</span>
+    // 业务代码...
   }
 }
 ```
@@ -53,17 +53,17 @@ struct MyComponent {
 #### 反例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
+@Entry
+@Component
 struct MyComponent {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> message: string = <span style="color: rgb(163,21,21);">''</span>;
+  @State message: string = '';
   appendMsg(newMsg: string) {
-      <span style="color: rgb(0,0,255);">this</span>.message += newMsg;
-      <span style="color: rgb(0,0,255);">this</span>.message += <span style="color: rgb(163,21,21);">";"</span>;
-      <span style="color: rgb(0,0,255);">this</span>.message += <span style="color: rgb(163,21,21);">"</span><span style="color: rgb(163,21,21);"><</span><span style="color: rgb(163,21,21);">br/</span><span style="color: rgb(163,21,21);">></span><span style="color: rgb(163,21,21);">"</span>;
+      this.message += newMsg;
+      this.message += ";";
+      this.message += "<br/>";
   }
   build() {
-    <span style="color: rgb(0,128,0);">// 业务代码...</span>
+    // 业务代码...
   }
 }
 ```
@@ -73,7 +73,7 @@ struct MyComponent {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
+plugin:@performance/recommended
 plugin:@performance/all
 ```
  

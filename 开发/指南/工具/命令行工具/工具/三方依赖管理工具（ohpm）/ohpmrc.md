@@ -464,9 +464,9 @@ ohpm从1.7.0版本开始，支持在.ohpmrc文件中配置enforce_dependency_key
 
 ```text
 {
-<span>  "name": "foo",</span>
-<span>  "version": "2.0.0",</span>
-<span>  "description": "Please describe the basic information.",</span>
+  "name": "foo",
+  "version": "2.0.0",
+  "description": "Please describe the basic information.",
  }
 ```
 
@@ -475,12 +475,12 @@ ohpm从1.7.0版本开始，支持在.ohpmrc文件中配置enforce_dependency_key
 
 ```text
 {
-<span>  "name": "bar",</span>
-<span>  "version": "1.0.0",</span>
-<span>  "description": "Please describe the basic information.",</span>
-<span>  "dependencies": {</span>
-<span>    "fee": "file:../foo"  </span>
-<span>  },</span>
+  "name": "bar",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "dependencies": {
+    "fee": "file:../foo"  
+  },
  }
 ```
 
@@ -509,9 +509,9 @@ ohpm WARN: local dependency "fee" found in "D:\DevecostudioProjects\MyApplicatio
 
 ```text
 {
-<span>  "name": "fee",</span>
-<span>  "version": "1.0.0",</span>  // 小于foo的版本号2.0.0
-<span>  "description": "Please describe the basic information.",</span>
+  "name": "fee",
+  "version": "1.0.0",  // 小于foo的版本号2.0.0
+  "description": "Please describe the basic information.",
  }
 ```
 
@@ -519,12 +519,12 @@ ohpm WARN: local dependency "fee" found in "D:\DevecostudioProjects\MyApplicatio
 
 ```text
 {
-<span>  "name": "entry",</span>
-<span>  "version": "1.0.0",</span>
-<span>  "dependencies": {</span>
-<span>    "fee": "file:../fee",</span>
-<span>    "bar": "file:../bar"  </span>
-<span>  },</span>
+  "name": "entry",
+  "version": "1.0.0",
+  "dependencies": {
+    "fee": "file:../fee",
+    "bar": "file:../bar"  
+  },
  }
 ```
 
@@ -789,10 +789,10 @@ ohpm客户端从5.3.1开始新增开关配置enable_lock_inner_pkg_version字段
   },
   "packages": {
     "library@library.har": {
-      "name": "<span style="color: rgb(80,160,79);">library</span>",
+      "name": "library",
       "version": "1.0.0",
      
-      "resolved": "<span style="color: rgb(80,160,79);">library.har",</span>
+      "resolved": "library.har",
       "registryType": "local",
       "dependencies": {
         "inner": "./libs/inner.har"
@@ -809,16 +809,16 @@ enable_lock_inner_pkg_version=true时，entry/oh-package-lock.json5结果如下�
   ......
   "specifiers": {
     "inner@../oh_modules/.ohpm/library@85ursk4cfzbgycewlyxweed+cyyeeixxig5mlazoo+g=/oh_modules/library/libs/inner.har": "
-<span style="color: rgb(80,160,79);">inner@../oh_modules/.ohpm/library@c0jkxsxl3amvdd7rr1enrkrejzharxwucdoyc29br+u=/oh_modules/library/libs/inner.har</span>",
+inner@../oh_modules/.ohpm/library@c0jkxsxl3amvdd7rr1enrkrejzharxwucdoyc29br+u=/oh_modules/library/libs/inner.har",
     "library@library.har": "library@library.har"
   },
   "packages": {
     "
-<span style="color: rgb(132,63,161);">inner@../oh_modules/.ohpm/library@c0jkxsxl3amvdd7rr1enrkrejzharxwucdoyc29br+u=/oh_modules/library/libs/inner.har</span>
+inner@../oh_modules/.ohpm/library@c0jkxsxl3amvdd7rr1enrkrejzharxwucdoyc29br+u=/oh_modules/library/libs/inner.har
 ": {
       "name": "inner",
       "version": "1.0.0",
-      "resolved": "<span style="color: rgb(132,63,161);">../oh_modules/.ohpm/library@c0jkxsxl3amvdd7rr1enrkrejzharxwucdoyc29br+u=/oh_modules/library/libs/inner.har</span>" 
+      "resolved": "../oh_modules/.ohpm/library@c0jkxsxl3amvdd7rr1enrkrejzharxwucdoyc29br+u=/oh_modules/library/libs/inner.har" 
       "registryType": "local"
     },
     "library@library.har": {

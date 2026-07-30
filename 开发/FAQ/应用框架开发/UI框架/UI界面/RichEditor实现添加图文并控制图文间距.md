@@ -35,39 +35,39 @@
 
   
 ```text
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSelectionChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needNewSpan </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据光标位置获取对应</span><span style="color: rgb(128,128,128);">Span</span><span style="color: rgb(128,128,128);">信息</span></em>
-  let <span style="color: rgb(255,255,255);">span </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSpans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">spanLocation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanIndex</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">res </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isCombinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">spanLocation</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">res</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断是否是多选</span></em>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">end</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断是否是第一次调整多选位置</span></em>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isSetSelection</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将组合全选</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isSetSelection </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanIndex </span><span style="color: rgb(181,106,1);">== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(255,0,170);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needUpdateCombinations</span><span style="color: rgb(255,0,170);">][</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-            let <span style="color: rgb(255,255,255);">spanText </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSpans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSelection</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">spanText</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSelection</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        } </span>else <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isSetSelection </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      } </span>else <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">移动光标至组合末尾</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCaretOffset</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needNewSpan </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+.onSelectionChange((data) => {
+  this.needNewSpan = false;
+ <em> // 根据光标位置获取对应Span信息</em>
+  let span = this.controller.getSpans(data);
+  if (span.length != 0) {
+    let spanLocation: number = span[0].spanPosition.spanIndex;
+    let res = this.isCombinations(spanLocation);
+    if (res) {
+   <em>   // 判断是否是多选</em>
+      if (data.start != data.end) {
+     <em>   // 判断是否是第一次调整多选位置</em>
+        if (!this.isSetSelection) {
+        <em>  // 将组合全选</em>
+          this.isSetSelection = true;
+          if (span[0].spanPosition.spanIndex == this.combinationsLocation[this.needUpdateCombinations][0]) {
+            let spanText = this.controller.getSpans({ start: span[0].spanPosition.spanRange[1] + 1 });
+            this.controller.setSelection(span[0].spanPosition.spanRange[0],
+              spanText[0].spanPosition.spanRange[1]);
+          } else {
+            this.controller.setSelection(span[0].spanPosition.spanRange[0] - 1,
+              span[0].spanPosition.spanRange[1]);
+          }
+        } else {
+          this.isSetSelection = false;
+        }
+      } else {
+     <em>   // 移动光标至组合末尾</em>
+        this.controller.setCaretOffset(span[0].spanPosition.spanRange[1]);
+        this.needNewSpan = true;
+      }
+    }
+  }
+})
 ```
 
 - 组合有外间距：1. 图片Span使用RichEditorLayoutStyle配置margin属性实现外边距。
@@ -76,128 +76,128 @@
 
   
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">写入</span><span style="color: rgb(128,128,128);">Span</span><span style="color: rgb(128,128,128);">组合</span></em>
-<span style="color: rgb(0,0,255);">combinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">ResourceStr</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addImageSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">imageStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">layoutStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">margin</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">} } } }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">' '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Blue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">18 </span><span style="color: rgb(181,106,1);">} }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// </em><em>写入Span组合</em>
+combinations(text: string, img: PixelMap | ResourceStr) {
+  this.controller.addImageSpan(img, { imageStyle: { size: [20, 20], layoutStyle: { margin: { left: 5 } } } });
+  this.controller.addTextSpan(text + ' ', { style: { fontColor: Color.Blue, fontSize: 18 } });
+}
 ```
 
 - 完整示例参考如下：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index4RichEditor </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">option</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要组合的</span><span style="color: rgb(128,128,128);">Span</span><span style="color: rgb(128,128,128);">记录</span></em>
-  <span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">7</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">9</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">11</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(255,0,170);">]]</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当输入的文字处于组合末尾时，需要新建</span><span style="color: rgb(128,128,128);">Span</span></em>
-  <span style="color: rgb(255,255,255);">needNewSpan</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否需要更新组合</span><span style="color: rgb(128,128,128);">Span</span><span style="color: rgb(128,128,128);">记录</span></em>
-  <span style="color: rgb(255,255,255);">needUpdateCombinations</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断是否已经更新过选中区域</span></em>
-  <span style="color: rgb(255,255,255);">isSetSelection</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index4RichEditor {
+  controller: RichEditorController = new RichEditorController();
+  option: RichEditorOptions = { controller: this.controller };
+  img: Resource = $r('app.media.startIcon');
+ <em> // 需要组合的Span记录</em>
+  combinationsLocation: Array<Array<number>> = [[0, 1], [3, 4], [6, 7], [8, 9], [11, 12]];
+ <em> // 当输入的文字处于组合末尾时，需要新建Span</em>
+  needNewSpan: boolean = false;
+ <em> // 是否需要更新组合Span记录</em>
+  needUpdateCombinations: number = 0;
+ <em> // 判断是否已经更新过选中区域</em>
+  isSetSelection: boolean = false;
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">写入</span><span style="color: rgb(128,128,128);">Span</span><span style="color: rgb(128,128,128);">组合</span></em>
-  <span style="color: rgb(0,0,255);">combinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">ResourceStr</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addImageSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">imageStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">layoutStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">margin</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">} } } }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">' '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Blue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">18 </span><span style="color: rgb(181,106,1);">} }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+<em>  // 写入Span组合</em>
+  combinations(text: string, img: PixelMap | ResourceStr) {
+    this.controller.addImageSpan(img, { imageStyle: { size: [20, 20], layoutStyle: { margin: { left: 5 } } } });
+    this.controller.addTextSpan(text + ' ', { style: { fontColor: Color.Blue, fontSize: 18 } });
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断位置是否处于组合内</span></em>
-  <span style="color: rgb(0,0,255);">isCombinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">spanLocation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">spanLocation </span><span style="color: rgb(181,106,1);">== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">][</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">spanLocation </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">][</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needUpdateCombinations </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-        return true<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">spanLocation </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">][</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-        return false<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-    return false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> // 判断位置是否处于组合内</em>
+  isCombinations(spanLocation: number): boolean {
+    for (let index = 0; index < this.combinationsLocation.length; index++) {
+      if (spanLocation == this.combinationsLocation[index][0] || spanLocation === this.combinationsLocation[index][1]) {
+        this.needUpdateCombinations = index;
+        return true;
+      } else if (spanLocation < this.combinationsLocation[index][1]) {
+        return false;
+      }
+    }
+    return false;
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">更新组合所处位置</span></em>
-  <span style="color: rgb(0,0,255);">updateCombinationsLocation</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needUpdateCombinations</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">][</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">][</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+<em>  // 更新组合所处位置</em>
+  updateCombinationsLocation() {
+    for (let index = this.needUpdateCombinations; index < this.combinationsLocation.length; index++) {
+      this.combinationsLocation[index][0] += 1;
+      this.combinationsLocation[index][1] += 1;
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">option</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">combinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'@PyLo'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">请来会议室领取礼品，清单如下</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">combinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">领取礼品清单</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">，请参考清单到指定会议室</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">combinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">身体健康</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">combinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">万事如意</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addImageSpan</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">imageStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">objectFit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Contain </span><span style="color: rgb(181,106,1);">} }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">combinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">体锻如武夫</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addImageSpan</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">imageStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">objectFit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Contain </span><span style="color: rgb(181,106,1);">} }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSelectionChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needNewSpan </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据光标位置获取对应</span><span style="color: rgb(128,128,128);">Span</span><span style="color: rgb(128,128,128);">信息</span></em>
-          let <span style="color: rgb(255,255,255);">span </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSpans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            let <span style="color: rgb(255,255,255);">spanLocation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanIndex</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(255,255,255);">res </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isCombinations</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">spanLocation</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">res</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断是否是多选</span></em>
-              if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">end</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断是否是第一次调整多选位置</span></em>
-                if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isSetSelection</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-           <em>       <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将组合全选</span></em>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isSetSelection </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-                  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanIndex </span><span style="color: rgb(181,106,1);">== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">combinationsLocation</span><span style="color: rgb(255,0,170);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needUpdateCombinations</span><span style="color: rgb(255,0,170);">][</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-                    let <span style="color: rgb(255,255,255);">spanText </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSpans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSelection</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">,</span>
-                      <span style="color: rgb(255,255,255);">spanText</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSelection</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-                      <span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">                } </span>else <span style="color: rgb(181,106,1);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isSetSelection </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">              } </span>else <span style="color: rgb(181,106,1);">{</span>
-            <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">移动光标至组合末尾</span></em>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCaretOffset</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">span</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanRange</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needNewSpan </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">            }</span>
-<span style="color: rgb(181,106,1);">          }</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">aboutToIMEInput</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorInsertValue</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needNewSpan</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理键入文字时光标位于组合末尾，防止与组合内文字</span><span style="color: rgb(128,128,128);">Span</span><span style="color: rgb(128,128,128);">拼接</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">insertValue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">insertOffset </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateCombinationsLocation</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-            return false<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">insertOffset </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理光标位于行首的特殊情况</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">needUpdateCombinations </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateCombinationsLocation</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-          return true<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#d8d8d9'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"100%"</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"30%"</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"100%"</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"70%"</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      RichEditor(this.option)
+        .onReady(() => {
+          this.combinations('@PyLo', this.img);
+          this.controller.addTextSpan('请来会议室领取礼品，清单如下');
+          this.combinations('领取礼品清单', this.img);
+          this.controller.addTextSpan('，请参考清单到指定会议室');
+          this.combinations('身体健康', this.img);
+          this.combinations('万事如意', this.img);
+          this.controller.addImageSpan(this.img, { imageStyle: { size: [20, 20], objectFit: ImageFit.Contain } });
+          this.combinations('体锻如武夫', this.img);
+          this.controller.addImageSpan(this.img, { imageStyle: { size: [20, 20], objectFit: ImageFit.Contain } });
+        })
+        .onSelectionChange((data) => {
+          this.needNewSpan = false;
+        <em>  // 根据光标位置获取对应Span信息</em>
+          let span = this.controller.getSpans(data);
+          if (span.length != 0) {
+            let spanLocation: number = span[0].spanPosition.spanIndex;
+            let res = this.isCombinations(spanLocation);
+            if (res) {
+           <em>   // 判断是否是多选</em>
+              if (data.start != data.end) {
+            <em>    // 判断是否是第一次调整多选位置</em>
+                if (!this.isSetSelection) {
+           <em>       // 将组合全选</em>
+                  this.isSetSelection = true;
+                  if (span[0].spanPosition.spanIndex == this.combinationsLocation[this.needUpdateCombinations][0]) {
+                    let spanText = this.controller.getSpans({ start: span[0].spanPosition.spanRange[1] + 1 });
+                    this.controller.setSelection(span[0].spanPosition.spanRange[0],
+                      spanText[0].spanPosition.spanRange[1]);
+                  } else {
+                    this.controller.setSelection(span[0].spanPosition.spanRange[0] - 1,
+                      span[0].spanPosition.spanRange[1]);
+                  }
+                } else {
+                  this.isSetSelection = false;
+                }
+              } else {
+            <em>    // 移动光标至组合末尾</em>
+                this.controller.setCaretOffset(span[0].spanPosition.spanRange[1]);
+                this.needNewSpan = true;
+              }
+            }
+          }
+        })
+        .aboutToIMEInput((value: RichEditorInsertValue) => {
+          if (this.needNewSpan) {
+        <em>    // 处理键入文字时光标位于组合末尾，防止与组合内文字Span拼接</em>
+            this.controller.addTextSpan(value.insertValue, { offset: value.insertOffset });
+            this.updateCombinationsLocation();
+            return false;
+          } else if (value.insertOffset === 0) {
+         <em>   // 处理光标位于行首的特殊情况</em>
+            this.needUpdateCombinations = 0;
+            this.updateCombinationsLocation();
+          }
+          return true;
+        })
+        .padding(6)
+        .borderRadius(6)
+        .backgroundColor('#d8d8d9')
+        .width("100%")
+        .height("30%");
+    }
+    .padding(6)
+    .width("100%")
+    .height("70%");
+  }
+}
 ```
 
 

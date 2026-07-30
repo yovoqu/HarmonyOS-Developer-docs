@@ -12,7 +12,7 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
+  "rules": {
     "@hw-stylistic/quotes": "error"
   }
 }
@@ -49,8 +49,8 @@ export const a = "hello";
 #### 规则集
 
 ```text
-<span style="color: rgb(6,125,23);">"plugin:@hw-stylistic/recommended"</span>
-<span style="color: rgb(6,125,23);">"plugin:@hw-stylistic/all"</span>
+"plugin:@hw-stylistic/recommended"
+"plugin:@hw-stylistic/all"
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

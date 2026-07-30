@@ -67,8 +67,8 @@ SIGABRT进程异常终止，通常为进程自身调用标准函数库的abort()
 
   
 ```cpp
-Reason:Signal:SIGABRT(SI_TKILL)@<span style="color: rgb(0,0,255);">0x01317bef00002b7b</span> from:<span style="color: rgb(0,0,255);">11131:20020207</span>
-LastFatalMessage:Assertion failed: pc != nullptr (.../entry/src/main/cpp/sigabort/sigabort.cpp: TriggerAssertAbort: <span style="color: rgb(0,0,255);">37</span>)
+Reason:Signal:SIGABRT(SI_TKILL)@0x01317bef00002b7b from:11131:20020207
+LastFatalMessage:Assertion failed: pc != nullptr (.../entry/src/main/cpp/sigabort/sigabort.cpp: TriggerAssertAbort: 37)
 ```
  说明1：LastFatalMessage是进程退出前的最后一条fatal级别日志，对于SIGABRT类崩溃问题其一般能提供程序主动异常终止的原因，对定位该类问题有很大帮助。
 2. 分析崩溃栈。ld-musl-aarch64.so.1中的栈帧，为触发abort的常见流程，可以跳过该部分到业务栈帧。
@@ -77,12 +77,12 @@ LastFatalMessage:Assertion failed: pc != nullptr (.../entry/src/main/cpp/sigabor
 
   
 ```text
-Fault thread <span style="color: rgb(80,160,79);">info:</span>
-Tid:<span style="color: rgb(0,0,255);">11131</span>, Name:ppcrashanalysis
-#<span style="color: rgb(0,0,255);">00</span> pc 00000000001d78dc /system/lib/ld-<span style="color: rgb(0,0,255);">musl-aarch64.so.1</span>(raise+<span style="color: rgb(0,0,255);">228</span>)(<span style="color: rgb(0,0,255);">5c1c07696048fe989cb4fc766531ce2e</span>)
-#<span style="color: rgb(0,0,255);">01</span> pc 000000000017f000 /system/lib/ld-<span style="color: rgb(0,0,255);">musl-aarch64.so.1</span>(abort+<span style="color: rgb(0,0,255);">20</span>)(<span style="color: rgb(0,0,255);">5c1c07696048fe989cb4fc766531ce2e</span>)
-#<span style="color: rgb(0,0,255);">02</span> pc 000000000017f258 /system/lib/ld-<span style="color: rgb(0,0,255);">musl-aarch64.so.1</span>(__assert_fail+<span style="color: rgb(0,0,255);">344</span>)(<span style="color: rgb(0,0,255);">5c1c07696048fe989cb4fc766531ce2e</span>)
-#<span style="color: rgb(0,0,255);">03</span> pc 0000000000021e58 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerAssertAbort(napi_env__*, napi_callback_info__*)+<span style="color: rgb(0,0,255);">108</span>)(<span style="color: rgb(0,0,255);">9292a79a3a85a8e682ac2c774db1d42ff07d1ac4</span>)
+Fault thread info:
+Tid:11131, Name:ppcrashanalysis
+#00 pc 00000000001d78dc /system/lib/ld-musl-aarch64.so.1(raise+228)(5c1c07696048fe989cb4fc766531ce2e)
+#01 pc 000000000017f000 /system/lib/ld-musl-aarch64.so.1(abort+20)(5c1c07696048fe989cb4fc766531ce2e)
+#02 pc 000000000017f258 /system/lib/ld-musl-aarch64.so.1(__assert_fail+344)(5c1c07696048fe989cb4fc766531ce2e)
+#03 pc 0000000000021e58 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerAssertAbort(napi_env__*, napi_callback_info__*)+108)(9292a79a3a85a8e682ac2c774db1d42ff07d1ac4)
 ```
  说明2：通常认为标准库、系统库较为稳定，因此优先分析崩溃栈帧中的业务部分调用栈。
 3. 使用[llvm-addr2line](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section1735713501344)工具定位行号并找到执行上下文。
@@ -147,7 +147,7 @@ Tid:52028, Name:ppcrashanalysis
 #04 pc 00000000000af9f8 /data/storage/el1/bundle/libs/arm64/libc++_shared.so(d2aeda5d2b106eca7953ec5f8909f164a1df0abb)
 #05 pc 00000000000b2aa8 /data/storage/el1/bundle/libs/arm64/libc++_shared.so(d2aeda5d2b106eca7953ec5f8909f164a1df0abb)
 #06 pc 00000000000b2a24 /data/storage/el1/bundle/libs/arm64/libc++_shared.so(__cxa_throw+124)(d2aeda5d2b106eca7953ec5f8909f164a1df0abb)
-<span style="color: rgb(255,0,0);">#07 pc 000000000001c30c /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerThreadNoMemoryAbort(napi_env__*, napi_callback_info__*)+148)(6f0c5bd0722b8e63a18fcd4150b89c84a85c927a)</span>
+#07 pc 000000000001c30c /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerThreadNoMemoryAbort(napi_env__*, napi_callback_info__*)+148)(6f0c5bd0722b8e63a18fcd4150b89c84a85c927a)
 #08 pc 00000000000695fc /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+284)(f28a6a2c8c07c7d146adaaac012d68e9)
 ```
 

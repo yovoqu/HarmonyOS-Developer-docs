@@ -23,116 +23,116 @@ TextReader：朗读控件使用AI能力将文本实时转化成语音并进行�
 可以通过设置参数MinibarParams中的bottom的值调整朗读控件离底部边缘的距离，从而达到修改控件在屏幕纵向的起始位置的效果，示例代码如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TextReaderIcon</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ReadStateCode </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.SpeechKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { TextReader, TextReaderIcon, ReadStateCode } from '@kit.SpeechKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-
-  <em>/**</em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">待加载的文章</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">readInfoList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReadInfo</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">selectedReadInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReadInfo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-
-<em>  <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">播放状态</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">readState</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ReadStateCode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ReadStateCode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WAITING</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
 
   <em>/**</em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">用于显示当前页的按钮状态</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  private <span style="color: rgb(0,0,255);">isInit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+<em>   * 待加载的文章</em>
+<em>   */</em>
+  @State readInfoList: TextReader.ReadInfo[] = [];
+  @State selectedReadInfo: TextReader.ReadInfo = this.readInfoList[0];
 
-  async <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <em><span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">     * </span><span style="color: rgb(128,128,128);">加载数据</span></em>
-<em><span style="color: rgb(128,128,128);">     */</span></em>
-    let <span style="color: rgb(0,0,255);">readInfoList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReadInfo</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'001'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">水调歌头</span><span style="color: rgb(255,0,170);">.</span><span style="color: rgb(255,0,170);">明月几时有</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">isClickable</span><span style="color: rgb(181,106,1);">:</span>true
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">author</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">宋</span><span style="color: rgb(255,0,170);">.</span><span style="color: rgb(255,0,170);">苏轼</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">isClickable</span><span style="color: rgb(181,106,1);">:</span>true
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">'2024/01/01'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">isClickable</span><span style="color: rgb(181,106,1);">:</span>false
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">bodyInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">明月几时有？把酒问青天。</span><span style="color: rgb(255,0,170);">'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readInfoList </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">readInfoList</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedReadInfo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+<em>  /**</em>
+<em>   * 播放状态</em>
+<em>   */</em>
+  @State readState: ReadStateCode = ReadStateCode.WAITING;
 
-  <em><span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">初始化</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
+  <em>/**</em>
+<em>   * 用于显示当前页的按钮状态</em>
+<em>   */</em>
+  private isInit: boolean = false;
+
+  async aboutToAppear() {
+    <em>/**</em>
+<em>     * 加载数据</em>
+<em>     */</em>
+    let readInfoList: TextReader.ReadInfo[] = [{
+      id: '001',
+      title: {
+        text:'水调歌头.明月几时有',
+        isClickable:true
+      },
+      author:{
+        text:'宋.苏轼',
+        isClickable:true
+      },
+      date: {
+        text:'2024/01/01',
+        isClickable:false
+      },
+      bodyInfo: '明月几时有？把酒问青天。'
+    }];
+    this.readInfoList = readInfoList;
+    this.selectedReadInfo = this.readInfoList[0];
+    this.init();
+  }
+
+  <em>/**</em>
+<em>   * 初始化</em>
+<em>   */</em>
 
 
-  async <span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    const <span style="color: rgb(0,0,255);">readerParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReaderParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">isVoiceBrandVisible</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">businessBrandInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">panelName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">小艺朗读</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">panelIcon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">minibarParams</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">defaultAlignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">70</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
-    try <span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Context </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        await <span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">readerParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isInit </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setActionListener</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    } </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`TextReader failed to init. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+  async init() {
+    const readerParam: TextReader.ReaderParam = {
+      isVoiceBrandVisible: true,
+      businessBrandInfo: {
+        panelName: '小艺朗读',
+        panelIcon: $r('app.media.startIcon')
+      },
+      minibarParams:{
+        defaultAlignment: 1,
+        bottom: 70
+      }
+    };
+    try {
+      let context: Context | undefined = this.getUIContext().getHostContext();
+      if (context) {
+        await TextReader.init(context, readerParam);
+        this.isInit = true;
+        this.setActionListener();
+      }
+    } catch (err) {
+      console.error(`TextReader failed to init. Code: ${err.code}, message: ${err.message}`);
+    }
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置操作监听</span></em>
-  <span style="color: rgb(0,0,255);">setActionListener</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'stateChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReadState</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onStateChanged</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>  // 设置操作监听</em>
+  setActionListener() {
+    TextReader.on('stateChange', (state: TextReader.ReadState) => {
+      this.onStateChanged(state);
+    });
 
-    <span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'requestMore'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadMore</span><span style="color: rgb(0,0,255);">([]</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    TextReader.on('requestMore', () => {
+      TextReader.loadMore([], true);
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">onStateChanged </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReadState</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedReadInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">id </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readState </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readState </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ReadStateCode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WAITING</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
+  onStateChanged = (state: TextReader.ReadState) => {
+    if (this.selectedReadInfo?.id === state.id) {
+      this.readState = state.state;
+    } else {
+      this.readState = ReadStateCode.WAITING;
+    }
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">TextReaderIcon</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">readState</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readState </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-            await <span style="color: rgb(0,0,255);">TextReader</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readInfoList</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedReadInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`TextReader failed to start. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      TextReaderIcon({ readState: this.readState })
+        .margin({ right: 20 })
+        .width(32)
+        .height(32)
+        .onClick(async () => {
+          try {
+            await TextReader.start(this.readInfoList, this.selectedReadInfo?.id);
+          } catch (err) {
+            console.error(`TextReader failed to start. Code: ${err.code}, message: ${err.message}`);
+          }
+        });
+    }
+    .height('100%')
+  }
+}
 ```

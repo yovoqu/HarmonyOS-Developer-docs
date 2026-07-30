@@ -1195,7 +1195,7 @@ struct StyledStringHtml {
 @Component
 struct HtmlSpanStringDemo {
   @State html: string =
-    "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s> <span style =   \"foreground-color:blue\"> <a href='https://www.example.com'>www.example</a> </span> <span   style=\"background-color: red;\">red span</span> <sup>superscript</sup> and <sub>subscript</sub></p>";
+    "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s>  <a href='https://www.example.com'>www.example</a>  red span <sup>superscript</sup> and <sub>subscript</sub></p>";
   @State spanString: StyledString | undefined = undefined;
   @State resultText: string = ''; // 保存结果文本的状态
   controller: TextController = new TextController;
@@ -1248,7 +1248,7 @@ struct HtmlSpanStringDemo {
       // 请将$r('app.string.Reset')替换为实际资源文件，在本示例中该资源文件的value值为"Reset"
       Button($r('app.string.Reset')).onClick(() => {
         this.html =
-          "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s> <span   style = \"foreground-color:blue\"> <a href='https://www.example.com'>www.example</a> </span> <span   style=\"background-color: red;\">red span</span> <sup>superscript</sup> and <sub>subscript</sub></p>";
+          "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s>  <a href='https://www.example.com'>www.example</a>  red span <sup>superscript</sup> and <sub>subscript</sub></p>";
         this.spanString = undefined;
         this.controller.setStyledString(new StyledString('')); // 使用空的StyledString实例
         this.resultText = 'Reset HTML and SpanString successfully.';

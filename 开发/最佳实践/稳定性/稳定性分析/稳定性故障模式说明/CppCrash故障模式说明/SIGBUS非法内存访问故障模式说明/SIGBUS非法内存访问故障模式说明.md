@@ -60,12 +60,12 @@ SIGBUS中BUS_ADRALN表示内存地址对齐错误，该错误发生在尝试访�
 
   
 ```text
-Reason:Signal:SIGBUS(BUS_ADRALN)@<span style="color: rgb(0,0,255);">0x0000007f5158a251</span> 
-Fault thread <span style="color: rgb(80,160,79);">info:</span>
-Tid:<span style="color: rgb(0,0,255);">7875</span>, Name:ppcrashanalysis
-#<span style="color: rgb(0,0,255);">00</span> pc <span style="color: rgb(0,0,255);">0000000000028950</span> /data/storage/el1/bundle/libs/arm64/libentry.so(TestSigBusADRALN001(napi_env__*, napi_callback_info__*)+<span style="color: rgb(0,0,255);">24</span>)(<span style="color: rgb(0,0,255);">9292a79a3a85a8e682ac2c774db1d42ff07d1ac4</span>)
-#<span style="color: rgb(0,0,255);">01</span> pc <span style="color: rgb(0,0,255);">0000000000062570</span> /system/lib64/platformsdk/libace_napi.<span style="color: rgb(0,0,255);">z.so</span>(panda::JSValueRef ArkNativeFunctionCallBack<<span style="color: rgb(0,0,255);">true</span>>(panda::JsiRuntimeCallInfo*)+<span style="color: rgb(0,0,255);">236</span>)(<span style="color: rgb(0,0,255);">f017508e01b34e04b48d6447935ffa37</span>)
-#<span style="color: rgb(0,0,255);">02</span> pc 0000000000e86b98 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+<span style="color: rgb(0,0,255);">40</span>)
+Reason:Signal:SIGBUS(BUS_ADRALN)@0x0000007f5158a251 
+Fault thread info:
+Tid:7875, Name:ppcrashanalysis
+#00 pc 0000000000028950 /data/storage/el1/bundle/libs/arm64/libentry.so(TestSigBusADRALN001(napi_env__*, napi_callback_info__*)+24)(9292a79a3a85a8e682ac2c774db1d42ff07d1ac4)
+#01 pc 0000000000062570 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+236)(f017508e01b34e04b48d6447935ffa37)
+#02 pc 0000000000e86b98 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
 ...
 ```
 
@@ -77,9 +77,9 @@ Tid:<span style="color: rgb(0,0,255);">7875</span>, Name:ppcrashanalysis
 
   
 ```text
-ault thread <span style="color: rgb(80,160,79);">info:</span>
-Tid:<span style="color: rgb(0,0,255);">7875</span>, Name:ppcrashanalysis
-#<span style="color: rgb(0,0,255);">00</span> pc <span style="color: rgb(0,0,255);">0000000000028950</span> /data/storage/el1/bundle/libs/arm64/libentry.so(TestSigBusADRALN001(napi_env__*, napi_callback_info__*)+<span style="color: rgb(0,0,255);">24</span>)(<span style="color: rgb(0,0,255);">9292a79a3a85a8e682ac2c774db1d42ff07d1ac4</span>)
+ault thread info:
+Tid:7875, Name:ppcrashanalysis
+#00 pc 0000000000028950 /data/storage/el1/bundle/libs/arm64/libentry.so(TestSigBusADRALN001(napi_env__*, napi_callback_info__*)+24)(9292a79a3a85a8e682ac2c774db1d42ff07d1ac4)
 ...
 ```
  说明2：在第#00行代码处触发了BUS_ADRALN异常。
@@ -129,13 +129,13 @@ Tid:<span style="color: rgb(0,0,255);">7875</span>, Name:ppcrashanalysis
 
   
 ```text
-Reason:Signal:SIGBUS(BUS_ADRALN)@<span style="color: rgb(0,0,255);">0x0000005ac3b0a96e</span> 
-Fault thread <span style="color: rgb(80,160,79);">info:</span>
-Tid:<span style="color: rgb(0,0,255);">8001</span>, Name:ppcrashanalysis
-#<span style="color: rgb(0,0,255);">00</span> pc 000000000000b96e /data/storage/el1/bundle/libs/arm64/libentry.so(<span style="color: rgb(0,0,255);">9292a79a3a85a8e682ac2c774db1d42ff07d1ac4</span>)
-#<span style="color: rgb(0,0,255);">01</span> pc 000000000002898c /data/storage/el1/bundle/libs/arm64/libentry.so(TestSigBusADRALN002(napi_env__*, napi_callback_info__*)+<span style="color: rgb(0,0,255);">32</span>)(<span style="color: rgb(0,0,255);">9292a79a3a85a8e682ac2c774db1d42ff07d1ac4</span>)
-#<span style="color: rgb(0,0,255);">02</span> pc <span style="color: rgb(0,0,255);">0000000000062570</span> /system/lib64/platformsdk/libace_napi.<span style="color: rgb(0,0,255);">z.so</span>(panda::JSValueRef ArkNativeFunctionCallBack<<span style="color: rgb(0,0,255);">true</span>>(panda::JsiRuntimeCallInfo*)+<span style="color: rgb(0,0,255);">236</span>)(<span style="color: rgb(0,0,255);">f017508e01b34e04b48d6447935ffa37</span>)
-#<span style="color: rgb(0,0,255);">03</span> pc 0000000000e86b98 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+<span style="color: rgb(0,0,255);">40</span>)
+Reason:Signal:SIGBUS(BUS_ADRALN)@0x0000005ac3b0a96e 
+Fault thread info:
+Tid:8001, Name:ppcrashanalysis
+#00 pc 000000000000b96e /data/storage/el1/bundle/libs/arm64/libentry.so(9292a79a3a85a8e682ac2c774db1d42ff07d1ac4)
+#01 pc 000000000002898c /data/storage/el1/bundle/libs/arm64/libentry.so(TestSigBusADRALN002(napi_env__*, napi_callback_info__*)+32)(9292a79a3a85a8e682ac2c774db1d42ff07d1ac4)
+#02 pc 0000000000062570 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+236)(f017508e01b34e04b48d6447935ffa37)
+#03 pc 0000000000e86b98 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
 ...
 ```
  说明1：Reason:Signal:SIGBUS(BUS_ADRALN)@0x0000005ac3b0a96e，可以看到地址未对齐。
@@ -168,12 +168,12 @@ char* GetName()
 
   
 ```text
-x0(<span style="color: rgb(128,128,128);">/</span>data<span style="color: rgb(128,128,128);">/</span>storage<span style="color: rgb(128,128,128);">/</span>el1<span style="color: rgb(128,128,128);">/</span>bundle<span style="color: rgb(128,128,128);">/</span>libs<span style="color: rgb(128,128,128);">/</span>arm64<span style="color: rgb(128,128,128);">/</span>libentry.so):
-    <em>0000005ac3b0a958</em> <span style="color: rgb(80,160,79);">3264003564007325</span>   <span style="color: rgb(0,0,255);">"</span><span style="color: rgb(255,0,0);">%s</span><span style="color: rgb(181,106,1);">\05</span><span style="color: rgb(0,0,255);">d</span><span style="color: rgb(181,106,1);">\0</span><span style="color: rgb(0,0,255);">d2"</span>
-    <em>0000005ac3b0a960</em> <em>696c003832640034</em>   <span style="color: rgb(0,0,255);">"4</span><span style="color: rgb(181,106,1);">\0</span><span style="color: rgb(0,0,255);">d28</span><span style="color: rgb(181,106,1);">\0</span><span style="color: rgb(0,0,255);">li"</span>
-    <em>0000005ac3b0a968</em> <em>6574006f732e4262</em>   <span style="color: rgb(0,0,255);">"bB.so</span><span style="color: rgb(181,106,1);">\0</span><span style="color: rgb(0,0,255);">te"</span>
-    <em>0000005ac3b0a970</em> <em>5400656d616e7473</em>   <span style="color: rgb(0,0,255);">"stname</span><span style="color: rgb(181,106,1);">\0</span><span style="color: rgb(0,0,255);">T"</span>
-    <em>0000005ac3b0a978</em> <span style="color: rgb(80,160,79);">7341726567676972</span>   <span style="color: rgb(0,0,255);">"riggerAs"</span>
+x0(/data/storage/el1/bundle/libs/arm64/libentry.so):
+    <em>0000005ac3b0a958</em> 3264003564007325   "%s\05d\0d2"
+    <em>0000005ac3b0a960</em> <em>696c003832640034</em>   "4\0d28\0li"
+    <em>0000005ac3b0a968</em> <em>6574006f732e4262</em>   "bB.so\0te"
+    <em>0000005ac3b0a970</em> <em>5400656d616e7473</em>   "stname\0T"
+    <em>0000005ac3b0a978</em> 7341726567676972   "riggerAs"
 ```
  说明3：由于0x0000005ac3b0a96e上是普通字符，无法被当时可执行代码，GetName调用方式异常，触发了异常。
  
@@ -268,7 +268,7 @@ Process name:com.example.dfx_test
 Process life time:18s
 Process Memory(kB): 200232(Rss)
 Device Memory(kB): Total 15834760, Free 3808892, Available 8742912
-<strong><span style="color: rgb(255,0,0);">Reason:Signal:SIGBUS(BUS_OBJERR)@0x0000005a42159400 </span></strong>
+<strong>Reason:Signal:SIGBUS(BUS_OBJERR)@0x0000005a42159400 </strong>
 Fault thread info:
 Tid:46522, Name:ppcrashanalysis
 #00 pc 00000000000f2f5c /data/storage/el1/bundle/libs/arm64/libentry.so(AccessMmapOverFlow()+408)(abb4b46e70f623a009bd903f7972ff26d4d14792)
@@ -303,7 +303,7 @@ pstate:0000000060001000 esr:0000000092000047
 ```ArkTS
 Fault thread info:
 Tid:46522, Name:ppcrashanalysis
-<span style="color: rgb(255,0,0);">#00 pc 00000000000f2f5c /data/storage/el1/bundle/libs/arm64/libentry.so(AccessMmapOverFlow()+408)(abb4b46e70f623a009bd903f7972ff26d4d14792) --</span><span style="color: rgb(255,0,0);">></span><span style="color: rgb(255,0,0);"> 业务栈帧，访问出错位置</span>
+#00 pc 00000000000f2f5c /data/storage/el1/bundle/libs/arm64/libentry.so(AccessMmapOverFlow()+408)(abb4b46e70f623a009bd903f7972ff26d4d14792) --> 业务栈帧，访问出错位置
 #01 pc 00000000000f2fe4 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerStackAlignObjerr(napi_env__*, napi_callback_info__*)+36)(abb4b46e70f623a009bd903f7972ff26d4d14792)
 #02 pc 0000000000067c90 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+288)(76bc1ed675edcc5f429a976d6c9b955d)
 #03 pc 0000000000e179f4 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
@@ -424,7 +424,7 @@ Process name:com.example.dfx_test
 Process life time:10s
 Process Memory(kB): 196825(Rss)
 Device Memory(kB): Total 15834760, Free 3105120, Available 8151040
-<strong><span style="color: rgb(255,0,0);">Reason:Signal:SIGBUS(BUS_OBJERR)@0x0000005a420d3400 </span></strong>
+<strong>Reason:Signal:SIGBUS(BUS_OBJERR)@0x0000005a420d3400 </strong>
 Fault thread info:
 Tid:13805, Name:ppcrashanalysis
 #00 pc 00000000001005f0 /data/storage/el1/bundle/libs/arm64/libentry.so(6d07e50b6b7cb781f587f7587a4b658b5fe2576d)
@@ -460,7 +460,7 @@ Tid:12877, Name:ppcrashanalysis
 ```text
 Fault thread info:
 Tid:13805, Name:ppcrashanalysis
-<span style="color: rgb(255,0,0);">#00 pc 00000000001005f0 /data/storage/el1/bundle/libs/arm64/libentry.so(6d07e50b6b7cb781f587f7587a4b658b5fe2576d) --</span><span style="color: rgb(255,0,0);">></span><span style="color: rgb(255,0,0);"> 业务栈帧，访问出错位置</span>
+#00 pc 00000000001005f0 /data/storage/el1/bundle/libs/arm64/libentry.so(6d07e50b6b7cb781f587f7587a4b658b5fe2576d) --> 业务栈帧，访问出错位置
 #01 pc 0000000000100548 /data/storage/el1/bundle/libs/arm64/libentry.so(6d07e50b6b7cb781f587f7587a4b658b5fe2576d)
 #02 pc 0000000000100524 /data/storage/el1/bundle/libs/arm64/libentry.so(6d07e50b6b7cb781f587f7587a4b658b5fe2576d)
 #03 pc 00000000001002fc /data/storage/el1/bundle/libs/arm64/libentry.so(6d07e50b6b7cb781f587f7587a4b658b5fe2576d)

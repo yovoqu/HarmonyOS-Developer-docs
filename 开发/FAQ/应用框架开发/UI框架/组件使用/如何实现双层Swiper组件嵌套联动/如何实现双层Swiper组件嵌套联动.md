@@ -31,163 +31,163 @@ Swiper组件嵌套Swiper，当子组件滑动到首页或尾页边界时，如�
 
 - **方案一**：通过获取Swiper子组件进行手势滑动时的velocityX（当前手势的x轴方向速度）和索引值，判断当滑动达到子组件Swiper的边界处时，触发回调返回屏蔽使父组件Swiper产生滑动手势。
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">NestedSwiperExample </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SwiperController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SwiperController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">外层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的数据</span></em>
-  private <span style="color: rgb(0,0,255);">outerSwiperData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'Page 1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Page 2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Page 3'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">内层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的数据</span></em>
-  private <span style="color: rgb(0,0,255);">innerSwiperData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'Image 1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Image 2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Image 3'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">外层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的索引</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">outerIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">内层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的索引</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">innerIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct NestedSwiperExample {
+  private swiperController: SwiperController = new SwiperController();
+ <em> // 外层Swiper的数据</em>
+  private outerSwiperData: string[] = ['Page 1', 'Page 2', 'Page 3'];
+ <em> // 内层Swiper的数据</em>
+  private innerSwiperData: string[] = ['Image 1', 'Image 2', 'Image 3'];
+ <em> // 外层Swiper的索引</em>
+  @State outerIndex: number = 0;
+  <em>// 内层Swiper的索引</em>
+  @State innerIndex: number = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">outerSwiperData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">outerItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">outerItem</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Swiper(this.swiperController) {
+      ForEach(this.outerSwiperData, (outerItem: string) => {
+        Column() {
+          Text(outerItem)
+            .fontSize(24)
+            .margin({ top: 20, bottom: 20 });
 
-          <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerSwiperData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">innerItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">innerItem</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#e0e0e0'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationStart</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onGestureRecognizerJudgeBegin</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BaseGestureEvent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureRecognizer</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">others</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">GestureRecognizer</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureJudgeResult </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在识别器即将要成功时，根据当前组件状态，设置识别器使能状态</span></em>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'others'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">others</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ets onGestureRecognizerJudgeBegin child'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">target </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEventTargetInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">target </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isBuiltIn</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getType</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">GestureControl</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GestureType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PAN_GESTURE</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ets onGestureRecognizerJudgeBegin child PAN_GESTURE'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                let <span style="color: rgb(0,0,255);">panEvent </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event </span>as <span style="color: rgb(0,0,255);">PanGestureEvent</span><span style="color: rgb(181,106,1);">;</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">panEvent </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">panEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">velocityX </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">内层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">滑动到尾页</span></em>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ets onGestureRecognizerJudgeBegin child reject end'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                  return <span style="color: rgb(0,0,255);">GestureJudgeResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">REJECT</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">panEvent </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">panEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">velocityX </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">内层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">滑动到首页</span></em>
-                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ets onGestureRecognizerJudgeBegin child reject begin'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-                  return <span style="color: rgb(0,0,255);">GestureJudgeResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">REJECT</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">              }</span>
-<span style="color: rgb(255,0,170);">            }</span>
-            return <span style="color: rgb(0,0,255);">GestureJudgeResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CONTINUE</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">outerIndex</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationStart</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TabsAnimationEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'event'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">outerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+          Swiper() {
+            ForEach(this.innerSwiperData, (innerItem: string) => {
+              Column() {
+                Text(innerItem)
+                  .fontSize(18);
+              }
+              .width('100%')
+              .height(200)
+              .backgroundColor('#e0e0e0')
+              .margin({ bottom: 10 })
+            });
+          }
+          .width('100%')
+          .height(200)
+          .autoPlay(false)
+          .loop(true)
+          .index(this.innerIndex)
+          .onAnimationStart((index: number, targetIndex: number) => {
+            console.info('index', index);
+            this.innerIndex = targetIndex;
+          })
+          .onGestureRecognizerJudgeBegin((event: BaseGestureEvent, current: GestureRecognizer,
+            others: Array<GestureRecognizer>): GestureJudgeResult => {<em> </em><em>// 在识别器即将要成功时，根据当前组件状态，设置识别器使能状态</em>
+            console.info('others', others);
+            console.info('ets onGestureRecognizerJudgeBegin child');
+            if (current) {
+              let target = current.getEventTargetInfo();
+              if (target && current.isBuiltIn() && current.getType() === GestureControl.GestureType.PAN_GESTURE) {
+                console.info('ets onGestureRecognizerJudgeBegin child PAN_GESTURE');
+                let panEvent = event as PanGestureEvent;
+                if (panEvent && panEvent.velocityX < 0 && this.innerIndex === 2) {<em> </em><em>// 内层Swiper滑动到尾页</em>
+                  this.innerIndex = 0;
+                  console.info('ets onGestureRecognizerJudgeBegin child reject end');
+                  return GestureJudgeResult.REJECT;
+                }
+                if (panEvent && panEvent.velocityX > 0 && this.innerIndex === 0) {<em> </em><em>// 内层Swiper滑动到首页</em>
+                  console.info('ets onGestureRecognizerJudgeBegin child reject begin');
+                  this.innerIndex = 0;
+                  return GestureJudgeResult.REJECT;
+                }
+              }
+            }
+            return GestureJudgeResult.CONTINUE;
+          }, true)
+        }
+        .width('100%')
+        .height('100%');
+      });
+    }
+    .width('100%')
+    .height('100%')
+    .autoPlay(false)
+    .loop(false)
+    .index(this.outerIndex)
+    .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
+      console.info('index', index);
+      console.info('event', event);
+      this.outerIndex = targetIndex;
+    })
+  }
+}
 ```
 
 - **方案二**：通过PanGesture手势获取滑动的速度和索引值，判断当滑动达到子组件Swiper的边界处时，调用父组件showNext()和showPrevious()方法，来控制父组件滑动到上一个和下一个页签。示例代码如下：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SwiperExample </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SwiperController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SwiperController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">外层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的数据</span></em>
-  private <span style="color: rgb(0,0,255);">outerSwiperData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'Page 1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Page 2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Page 3'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">内层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的数据</span></em>
-  private <span style="color: rgb(0,0,255);">innerSwiperData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'Image 1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Image 2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Image 3'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">外层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的索引</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">outerIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">内层</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">的索引</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">innerIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct SwiperExample {
+  private swiperController: SwiperController = new SwiperController();
+ <em> // 外层Swiper的数据</em>
+  private outerSwiperData: string[] = ['Page 1', 'Page 2', 'Page 3'];
+  <em>// 内层Swiper的数据</em>
+  private innerSwiperData: string[] = ['Image 1', 'Image 2', 'Image 3'];
+ <em> // 外层Swiper的索引</em>
+  @State outerIndex: number = 0;
+  <em>// 内层Swiper的索引</em>
+  @State innerIndex: number = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">outerSwiperData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">outerItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">outerItem</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Swiper(this.swiperController) {
+      ForEach(this.outerSwiperData, (outerItem: string) => {
+        Column() {
+          Text(outerItem)
+            .fontSize(24)
+            .margin({ top: 20, bottom: 20 });
 
-          <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerSwiperData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">innerItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">innerItem</span><span style="color: rgb(0,0,255);">)</span>
-                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#e0e0e0'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationStart</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parallelGesture</span><span style="color: rgb(0,0,255);">(</span>
-            <span style="color: rgb(0,0,255);">PanGesture</span><span style="color: rgb(0,0,255);">()</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                let <span style="color: rgb(0,0,255);">velocityX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">velocityX </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">手势结束，获取当前的速度</span></em>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">velocityX </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showNext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// x</span><span style="color: rgb(128,128,128);">轴方向速度小于</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">时，向左移动</span></em>
-                <span style="color: rgb(255,0,170);">}</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">velocityX </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">innerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">swiperController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showPrevious</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// x</span><span style="color: rgb(128,128,128);">轴方向速度大于</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">时，向右移动</span></em>
-                <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">          )</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">outerIndex</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationStart</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TabsAnimationEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">outerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'event'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+          Swiper() {
+            ForEach(this.innerSwiperData, (innerItem: string) => {
+              Column() {
+                Text(innerItem)
+                  .fontSize(18);
+              }
+              .width('100%')
+              .height(200)
+              .backgroundColor('#e0e0e0')
+              .margin({ bottom: 10 });
+            });
+          }
+          .width('100%')
+          .height(200)
+          .autoPlay(false)
+          .loop(false)
+          .index(this.innerIndex)
+          .onAnimationStart((index: number, targetIndex: number) => {
+            console.info('index', index);
+            this.innerIndex = targetIndex;
+          })
+          .parallelGesture(
+            PanGesture()
+              .onActionEnd((e) => {
+                let velocityX = e.velocityX || 0;<em> </em><em>// 手势结束，获取当前的速度</em>
+                if (velocityX < 0 && this.innerIndex === 2) {
+                  this.innerIndex = 0;
+                  this.swiperController.showNext();<em> </em><em>// x轴方向速度小于0时，向左移动</em>
+                }
+                if (velocityX > 0 && this.innerIndex === 0) {
+                  this.innerIndex = 0;
+                  this.swiperController.showPrevious();<em> </em><em>// x轴方向速度大于0时，向右移动</em>
+                }
+              })
+          )
+        }
+        .width('100%')
+        .height('100%');
+      });
+    }
+    .width('100%')
+    .height('100%')
+    .autoPlay(false)
+    .loop(false)
+    .index(this.outerIndex)
+    .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
+      this.outerIndex = targetIndex;
+      console.info('index', index);
+      console.info('event', event);
+    })
+  }
+}
 ```

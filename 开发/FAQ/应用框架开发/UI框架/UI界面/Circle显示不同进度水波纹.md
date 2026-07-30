@@ -30,10 +30,10 @@
 #### 解决方案
 1. 以Stack组件作为容器，分层次地绘制各个部分，首先使用Circle组件来绘制外部的圆环。
 ```text
-<span style="color: rgb(0,0,255);">Circle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BIG_DIAMETER</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BIG_DIAMETER </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">COLOR_TRANSPARENT</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#007DFF'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+Circle({ width: BIG_DIAMETER, height: BIG_DIAMETER })
+  .fill(COLOR_TRANSPARENT)
+  .stroke('#007DFF')
+  .strokeWidth(5);
 ```
 
 2. 在绘制中间进度的填充时，中间填充具有两个状态：
@@ -42,128 +42,128 @@
 进度百分比k和y的关系：y =（1 - k）*2r。（剩余进度百分比乘以圆形的直径）。
 4. 圆心点的坐标是（r， r），使用圆方程就可以计算出圆弧的起点和终点。
 ```text
-<span style="color: rgb(0,0,255);">calPathCommands</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">string </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">calY</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">100.0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">squareX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">calXSquare</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">squareX </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sqrt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">squareX</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">x1 </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">x2 </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">;</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">formatPathCommands</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  return <span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+calPathCommands(value: number): string {
+  let y = this.calY(value / 100.0);
+  let squareX = this.calXSquare(y);
+  if (squareX >= 0) {
+    let x = Math.sqrt(squareX);
+    let x1 = this.RADIUS_IN_PX - x;
+    let x2 = this.RADIUS_IN_PX + x;
+    return this.formatPathCommands(x1, x2, y, this.RADIUS_IN_PX);
+  }
+  return '';
+}
 ```
 
 5. 使用Path的[commands](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#commands)设置符合[SVG路径描述规范](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#svg路径描述规范)的命令字符串，单位为px。
 ```text
-<span style="color: rgb(0,0,255);">formatPathCommands</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  return <span style="color: rgb(132,63,161);">`M</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> A</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> 0 </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> 0  </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">} </span><span style="color: rgb(132,63,161);">` </span><span style="color: rgb(181,106,1);">+</span>
-    <span style="color: rgb(132,63,161);">`Q</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">3 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">12.5 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x2 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> T</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+formatPathCommands(x1: number, x2: number, y: number, radius: number) {
+  return `M${x1} ${y} A${radius} ${radius} 0 ${y > this.RADIUS_IN_PX ? 0 : 1} 0  ${x2} ${y} ` +
+    `Q${(x1 + 3 * x2) / 4} ${y + 12.5 * (x2 - x1) / radius}, ${(x1 + x2) / 2} ${y} T${x1} ${y}`;
+}
 ```
 
 6. 绘制最上层的百分比显示，可以直接采用Text控件来实现。
 ```text
-<span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">outSetValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toFixed</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">60</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+Text(this.outSetValue.toFixed(0) + '%')
+  .fontSize(60);
 ```
 
 7. 完整示例参考如下：
 ```text
-const <span style="color: rgb(255,255,255);">COLOR_TRANSPARENT </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'#00000000'</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(255,255,255);">COLOR_BACKGROUND_FILL </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'#007DFF'</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(255,255,255);">DIAMETER </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(255,255,255);">BIG_DIAMETER </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">220</span><span style="color: rgb(181,106,1);">;</span>
+const COLOR_TRANSPARENT = '#00000000';
+const COLOR_BACKGROUND_FILL = '#007DFF';
+const DIAMETER = 200;
+const BIG_DIAMETER = 220;
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WaterRipplePage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">outSetValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">pathCommands</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">backGroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'#00000000'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">RADIUS_IN_PX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DIAMETER </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2.0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WaterRipplePage {
+  @State outSetValue: number = 50;
+  @State pathCommands: string = '';
+  @State backGroundColor: string = '#00000000';
+  RADIUS_IN_PX: number = this.getUIContext().vp2px(DIAMETER / 2.0);
 
-  <span style="color: rgb(0,0,255);">onPageShow</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathCommands </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">calPathCommands</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">outSetValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onPageShow() {
+    this.pathCommands = this.calPathCommands(this.outSetValue);
+  }
 
-  <span style="color: rgb(0,0,255);">calXSquare</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">* </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  calXSquare(y: number) {
+    return this.RADIUS_IN_PX * this.RADIUS_IN_PX - (y - this.RADIUS_IN_PX) * (y - this.RADIUS_IN_PX);
+  }
 
-  <span style="color: rgb(0,0,255);">calY</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">k</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    return <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">k</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">formatPathCommands</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    return <span style="color: rgb(132,63,161);">`M</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> A</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> 0 </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> 0  </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">} </span><span style="color: rgb(132,63,161);">` </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(132,63,161);">`Q</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">3 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">12.5 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x2 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> T</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">calPathCommands</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">y </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">calY</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">100.0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">squareX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">calXSquare</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">squareX </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sqrt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">squareX</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">x1 </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">x2 </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">;</span>
-      return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">formatPathCommands</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">x1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">x2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RADIUS_IN_PX</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    return <span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">外框圆环</span></em>
-          <span style="color: rgb(0,0,255);">Circle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BIG_DIAMETER</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BIG_DIAMETER </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">COLOR_TRANSPARENT</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#007DFF'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度显示</span></em>
-          <span style="color: rgb(0,0,255);">Circle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DIAMETER</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DIAMETER </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backGroundColor</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">Path</span><span style="color: rgb(255,0,170);">()</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DIAMETER</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DIAMETER</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#007DFF'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">commands</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathCommands</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">COLOR_BACKGROUND_FILL</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度</span></em>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">outSetValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toFixed</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">60</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BIG_DIAMETER</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BIG_DIAMETER</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  calY(k: number) {
+    return (1 - k) * this.RADIUS_IN_PX * 2;
+  }
+  formatPathCommands(x1: number, x2: number, y: number, radius: number) {
+    return `M${x1} ${y} A${radius} ${radius} 0 ${y > this.RADIUS_IN_PX ? 0 : 1} 0  ${x2} ${y} ` +
+      `Q${(x1 + 3 * x2) / 4} ${y + 12.5 * (x2 - x1) / radius}, ${(x1 + x2) / 2} ${y} T${x1} ${y}`;
+  }
+  calPathCommands(value: number): string {
+    let y = this.calY(value / 100.0);
+    let squareX = this.calXSquare(y);
+    if (squareX >= 0) {
+      let x = Math.sqrt(squareX);
+      let x1 = this.RADIUS_IN_PX - x;
+      let x2 = this.RADIUS_IN_PX + x;
+      return this.formatPathCommands(x1, x2, y, this.RADIUS_IN_PX);
+    }
+    return '';
+  }
+  build() {
+    Column() {
+      Column() {
+        Stack() {
+       <em>   // 外框圆环</em>
+          Circle({ width: BIG_DIAMETER, height: BIG_DIAMETER })
+            .fill(COLOR_TRANSPARENT)
+            .stroke('#007DFF')
+            .strokeWidth(5);
+       <em>   // 进度显示</em>
+          Circle({ width: DIAMETER, height: DIAMETER })
+            .fill(this.backGroundColor);
+          Path()
+            .width(DIAMETER)
+            .height(DIAMETER)
+            .stroke('#007DFF')
+            .commands(this.pathCommands)
+            .fill(COLOR_BACKGROUND_FILL);
+        <em>  // 进度</em>
+          Text(this.outSetValue.toFixed(0) + '%')
+            .fontSize(60);
+        }.width(BIG_DIAMETER)
+        .height(BIG_DIAMETER);
 
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Slider</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">outSetValue</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">min</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">max</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">step</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">SliderStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OutSet</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">blockColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#FFFFFF'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">trackColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#05000000'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#007DFF'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showSteps</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showTips</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">outSetValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">;</span>
-              if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">outSetValue </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backGroundColor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">COLOR_BACKGROUND_FILL</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathCommands </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backGroundColor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">COLOR_TRANSPARENT</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathCommands </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">calPathCommands</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">outSetValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">            }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">50 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+        Row() {
+          Slider({
+            value: this.outSetValue,
+            min: 0,
+            max: 100,
+            step: 1,
+            style: SliderStyle.OutSet
+          })
+            .blockColor('#FFFFFF')
+            .trackColor('#05000000')
+            .selectedColor('#007DFF')
+            .showSteps(true)
+            .showTips(true)
+            .onChange((value: number) => {
+              this.outSetValue = value;
+              if (this.outSetValue === 100) {
+                this.backGroundColor = COLOR_BACKGROUND_FILL;
+                this.pathCommands = '';
+              } else {
+                this.backGroundColor = COLOR_TRANSPARENT;
+                this.pathCommands = this.calPathCommands(this.outSetValue);
+              }
+            });
+        }
+        .padding({ top: 50 })
+        .width('80%');
+      }.width('100%');
+    }
+    .height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```

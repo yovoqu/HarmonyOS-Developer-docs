@@ -29,8 +29,8 @@ codelinter [options] [dir]
     "filePath": "D:\\projects\\DemoApplication\\entry\\src\\main\\module.json5",
     "messages": [
       {
-        "line": <span style="color: rgb(0,0,255);">23</span>,
-        "column": <span style="color: rgb(0,0,255);">27</span>,
+        "line": 23,
+        "column": 27,
         "severity": "suggestion",
         "message": "For faster app startup, keep the startup icon size within 256 x 256 pixels.",
         "rule": "@performance/start-window-icon-check"
@@ -41,8 +41,8 @@ codelinter [options] [dir]
     "filePath": "D:\\projects\\DemoApplication\\entry\\src\\main\\ets\\pages\\StackDemo.ets",
     "messages": [
       {
-        "line": <span style="color: rgb(0,0,255);">75</span>,
-        "column": <span style="color: rgb(0,0,255);">13</span>,
+        "line": 75,
+        "column": 13,
         "severity": "warn",
         "message": "For performance purposes, set keyGenerator for ForEach.",
         "rule": "@performance/foreach-args-check"

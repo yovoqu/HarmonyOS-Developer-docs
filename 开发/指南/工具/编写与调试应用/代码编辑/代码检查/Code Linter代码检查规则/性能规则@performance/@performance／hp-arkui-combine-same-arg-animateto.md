@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-combine-same-arg-animateto"</span>: <span style="color: rgb(6,125,23);">"warn"</span>,
+  "rules": {
+    "@performance/hp-arkui-combine-same-arg-animateto": "warn",
   }
 }
 ```
@@ -31,32 +31,32 @@
 #### 正例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">MyComponent</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> textWidth: <span style="color: rgb(0,0,255);">number</span> = <span style="color: rgb(9,134,88);">200</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> color: <span style="color: rgb(0,128,128);">Color</span> = <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Red</span>;
+@Entry
+@Component
+struct MyComponent {
+  @State textWidth: number = 200;
+  @State color: Color = Color.Red;
   
   func() {
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span>({ curve: <span style="color: rgb(0,128,128);">Curve</span>.<span style="color: rgb(0,128,128);">Sharp</span>, duration: <span style="color: rgb(9,134,88);">1000</span> }, () => {
-      <span style="color: rgb(0,0,255);">this</span>.textWidth = (<span style="color: rgb(0,0,255);">this</span>.textWidth === <span style="color: rgb(9,134,88);">100</span> ? <span style="color: rgb(9,134,88);">200</span> : <span style="color: rgb(9,134,88);">100</span>);
-      <span style="color: rgb(0,0,255);">this</span>.color = (<span style="color: rgb(0,0,255);">this</span>.color === <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Yellow</span> ? <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Red</span> : <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Yellow</span>);
+    this.getUIContext().animateTo({ curve: Curve.Sharp, duration: 1000 }, () => {
+      this.textWidth = (this.textWidth === 100 ? 200 : 100);
+      this.color = (this.color === Color.Yellow ? Color.Red : Color.Yellow);
     });
   }
   
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Row</span>()
-        .width(<span style="color: rgb(0,0,255);">this</span>.textWidth)
-        .height(<span style="color: rgb(9,134,88);">10</span>)
-        .backgroundColor(<span style="color: rgb(0,0,255);">this</span>.color)
-      <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(163,21,21);">'click'</span>)
+    Column() {
+      Row()
+        .width(this.textWidth)
+        .height(10)
+        .backgroundColor(this.color)
+      Text('click')
         .onClick(() => {
-          <span style="color: rgb(0,0,255);">this</span>.func();
+          this.func();
         })
     }
-    .width(<span style="color: rgb(163,21,21);">'100%'</span>)
-    .height(<span style="color: rgb(163,21,21);">'100%'</span>)
+    .width('100%')
+    .height('100%')
   }
 }
 ```
@@ -66,38 +66,38 @@ struct <span style="color: rgb(0,128,128);">MyComponent</span> {
 #### 反例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">MyComponent</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> textWidth: <span style="color: rgb(0,0,255);">number</span> = <span style="color: rgb(9,134,88);">200</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> color: <span style="color: rgb(0,128,128);">Color</span> = <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Red</span>;
+@Entry
+@Component
+struct MyComponent {
+  @State textWidth: number = 200;
+  @State color: Color = Color.Red;
   
   func1() {
-    animateTo({ curve: <span style="color: rgb(0,128,128);">Curve</span>.<span style="color: rgb(0,128,128);">Sharp</span>, duration: <span style="color: rgb(9,134,88);">1000</span> }, () => {
-      <span style="color: rgb(0,0,255);">this</span>.textWidth = (<span style="color: rgb(0,0,255);">this</span>.textWidth === <span style="color: rgb(9,134,88);">100</span> ? <span style="color: rgb(9,134,88);">200</span> : <span style="color: rgb(9,134,88);">100</span>);
+    animateTo({ curve: Curve.Sharp, duration: 1000 }, () => {
+      this.textWidth = (this.textWidth === 100 ? 200 : 100);
     });
   }
   
   func2() {
-    animateTo({ curve: <span style="color: rgb(0,128,128);">Curve</span>.<span style="color: rgb(0,128,128);">Sharp</span>, duration: <span style="color: rgb(9,134,88);">1000</span> }, () => {
-      <span style="color: rgb(0,0,255);">this</span>.color = (<span style="color: rgb(0,0,255);">this</span>.color === <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Yellow</span> ? <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Red</span> : <span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Yellow</span>);
+    animateTo({ curve: Curve.Sharp, duration: 1000 }, () => {
+      this.color = (this.color === Color.Yellow ? Color.Red : Color.Yellow);
     });
   }
   
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Row</span>()
-        .width(<span style="color: rgb(0,0,255);">this</span>.textWidth)
-        .height(<span style="color: rgb(9,134,88);">10</span>)
-        .backgroundColor(<span style="color: rgb(0,0,255);">this</span>.color)
-      <span style="color: rgb(0,128,128);">Text</span>(<span style="color: rgb(163,21,21);">'click'</span>)
+    Column() {
+      Row()
+        .width(this.textWidth)
+        .height(10)
+        .backgroundColor(this.color)
+      Text('click')
         .onClick(() => {
-          <span style="color: rgb(0,0,255);">this</span>.func1();
-          <span style="color: rgb(0,0,255);">this</span>.func2();
+          this.func1();
+          this.func2();
         })
     }
-    .width(<span style="color: rgb(163,21,21);">'100%'</span>)
-    .height(<span style="color: rgb(163,21,21);">'100%'</span>)
+    .width('100%')
+    .height('100%')
   }
 }
 ```
@@ -107,7 +107,7 @@ struct <span style="color: rgb(0,128,128);">MyComponent</span> {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
+plugin:@performance/recommended
 plugin:@performance/all
 ```
  

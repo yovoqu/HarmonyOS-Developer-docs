@@ -38,87 +38,87 @@
  
 完整示例参考如下：
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">zlib </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import type <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import type <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { fileIo } from '@kit.CoreFileKit';
+import { zlib } from '@kit.BasicServicesKit';
+import type { common } from '@kit.AbilityKit';
+import type { BusinessError } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">RawfileToSandbox </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct RawfileToSandbox {
+  context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <em>// </em><em><span style="color: rgb(128,128,128);">方案一：</span><span style="color: rgb(128,128,128);">rawfile</span><span style="color: rgb(128,128,128);">目录下的文件夹直接复制到</span><span style="color: rgb(128,128,128);">resfile</span><span style="color: rgb(128,128,128);">目录下（</span><span style="color: rgb(128,128,128);">resfile/apps</span><span style="color: rgb(128,128,128);">），然后再复制到沙箱。</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">复制</span><span style="color: rgb(255,0,170);">resFile</span><span style="color: rgb(255,0,170);">目录下文件夹到沙箱目录</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">srcPath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/apps/'</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">destPath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/apps/'</span><span style="color: rgb(181,106,1);">;</span>
-            <em>// </em><em><span style="color: rgb(128,128,128);">判断文件夹是否存在</span></em>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">accessSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">destPath</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mkdirSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">destPath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyDirSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcPath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">destPath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`copy directory failed with error message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      <em>// </em><em>方案一：rawfile目录下的文件夹直接复制到resfile目录下（resfile/apps），然后再复制到沙箱。</em>
+      Button('复制resFile目录下文件夹到沙箱目录')
+        .height(100)
+        .width('50%')
+        .onClick(() => {
+          try {
+            let srcPath = this.context.resourceDir + '/apps/';
+            let destPath = this.context.filesDir + '/apps/';
+            <em>// </em><em>判断文件夹是否存在</em>
+            if (!fileIo.accessSync(destPath)) {
+              fileIo.mkdirSync(destPath);
+            }
+            fileIo.copyDirSync(srcPath, destPath, 0);
+          } catch (error) {
+            let err: BusinessError = error as BusinessError;
+            console.error(`copy directory failed with error message: ${JSON.stringify(err)}`);
+          }
+        });
 
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">方案二：把需要复制的目录压缩成</span><span style="color: rgb(128,128,128);">zip</span><span style="color: rgb(128,128,128);">，复制</span><span style="color: rgb(128,128,128);">zip</span><span style="color: rgb(128,128,128);">并解压到沙箱目录。</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">复制</span><span style="color: rgb(255,0,170);">zip</span><span style="color: rgb(255,0,170);">到沙箱，并解压</span><span style="color: rgb(255,0,170);">zip'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
- <em>         <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">fd</span><span style="color: rgb(128,128,128);">来进行拷贝，避免文件过大的内存占用问题</span></em>
-<em>          <span style="color: rgb(128,128,128);">// data.fd</span><span style="color: rgb(128,128,128);">是</span><span style="color: rgb(128,128,128);">hap</span><span style="color: rgb(128,128,128);">包的</span><span style="color: rgb(128,128,128);">fd</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">data.offset</span><span style="color: rgb(128,128,128);">表示目标文件在</span><span style="color: rgb(128,128,128);">hap</span><span style="color: rgb(128,128,128);">包中的偏移，</span><span style="color: rgb(128,128,128);">data.length</span><span style="color: rgb(128,128,128);">表示目标文件的长度</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFd</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'apps.zip'</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            try <span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">sandboxPath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">沙箱路径：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">sandboxPath</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tempDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/bfapps.zip'</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">压缩文件路径：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">dest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">4096</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">buf </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">bufsize</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">readLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+    <em>  // 方案二：把需要复制的目录压缩成zip，复制zip并解压到沙箱目录。</em>
+      Button('复制zip到沙箱，并解压zip')
+        .height(100)
+        .width('50%')
+        .onClick(async () => {
+ <em>         // 通过fd来进行拷贝，避免文件过大的内存占用问题</em>
+<em>          // data.fd是hap包的fd，data.offset表示目标文件在hap包中的偏移，data.length表示目标文件的长度</em>
+          this.context.resourceManager.getRawFd('apps.zip', async (err, data) => {
+            try {
+              let sandboxPath = this.context.filesDir;
+              console.info(`沙箱路径：${sandboxPath}`);
+              let filePath = this.context.tempDir + '/bfapps.zip';
+              console.info(`压缩文件路径：${filePath}`);
+              let dest = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
+              let bufsize = 4096;
+              let buf = new ArrayBuffer(bufsize);
+              let off = 0;
+              let readLen = 0;
 
-<em>              <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把</span><span style="color: rgb(128,128,128);">rawfile</span><span style="color: rgb(128,128,128);">压缩包文件内容复制到沙箱路径</span></em>
-              let <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dest</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">len </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(0,0,255);">readLen </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(181,106,1);">;</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">readLen </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  break<span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-                <span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(181,106,1);">;</span>
-                if <span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">readLen</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">bufsize</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">readLen</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-                <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dest</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>              // 把rawfile压缩包文件内容复制到沙箱路径</em>
+              let len = fileIo.readSync(data.fd, buf, { offset: data.offset + off, length: bufsize });
+              while (len) {
+                fileIo.writeSync(dest.fd, buf, { offset: off, length: len });
+                readLen += len;
+                if (readLen >= data.length) {
+                  break;
+                }
+                off += len;
+                if ((data.length - readLen) < bufsize) {
+                  bufsize = data.length - readLen;
+                }
+                len = fileIo.readSync(data.fd, buf, { offset: data.offset + off, length: bufsize });
+              }
+              fileIo.closeSync(dest.fd);
 
-             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">对沙箱路径下的压缩文件进行解压</span></em>
-              await <span style="color: rgb(0,0,255);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decompressFile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sandboxPath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeRawFd</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'apps.zip'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed, error = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+             <em> // 对沙箱路径下的压缩文件进行解压</em>
+              await zlib.decompressFile(filePath, sandboxPath);
+              this.context.resourceManager.closeRawFd('apps.zip');
+            } catch (e) {
+              console.error(`failed, error = ${JSON.stringify(e)}`);
+            }
+          });
+        });
 
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceAround</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+    }
+    .height(300)
+    .width('100%')
+    .justifyContent(FlexAlign.SpaceAround);
+  }
+}
 ```
  
  

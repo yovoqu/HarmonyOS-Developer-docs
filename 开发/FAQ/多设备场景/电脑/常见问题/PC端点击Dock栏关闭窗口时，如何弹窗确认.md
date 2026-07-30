@@ -25,153 +25,153 @@ HarmonyOS PC端应用最小化Dock栏后，可以通过监听onPrepareToTerminat
  
 - 在module.json5配置文件中声明[ohos.permission.PREPARE_APP_TERMINATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionprepare_app_terminate)权限。
 ```json
-<span style="color: rgb(80,160,79);">"requestPermissions"</span><span style="color: rgb(181,106,1);">:</span>[
+"requestPermissions":[
   {
-    <span style="color: rgb(80,160,79);">"name" </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"ohos.permission.PREPARE_APP_TERMINATE"</span>
+    "name" : "ohos.permission.PREPARE_APP_TERMINATE"
   }
-]<span style="color: rgb(181,106,1);">,</span>
+],
 ```
 
 - 在EntryAbility.ets文件中添加onPrepareToTerminate回调事件，在Dock栏关闭窗口时，进行弹窗提示。
 ```json
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">ConfigurationConstant</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">UIAbility </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">hilog </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">window </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { ConfigurationConstant, UIAbility } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { window } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 
-const <span style="color: rgb(255,255,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">0x0000</span><span style="color: rgb(181,106,1);">;</span>
+const DOMAIN = 0x0000;
 
 
-export default class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(181,106,1);">{</span>
- <em> <span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">当前</span><span style="color: rgb(128,128,128);">window</span><span style="color: rgb(128,128,128);">对象</span></em>
-  private <span style="color: rgb(255,255,255);">currentWindowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WindowStage </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+export default class EntryAbility extends UIAbility {
+ <em> //当前window对象</em>
+  private currentWindowStage: window.WindowStage | null = null;
 
-  <span style="color: rgb(0,0,255);">onCreate</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getApplicationContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setColorMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ConfigurationConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ColorMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">COLOR_MODE_NOT_SET</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  onCreate(): void {
+    this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
 
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onCreate'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
+  }
 
-  <span style="color: rgb(0,0,255);">onDestroy</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onDestroy'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onDestroy(): void {
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');
+  }
 
-  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WindowStage</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// Main window is created, set main page for this ability</span></em>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onWindowStageCreate'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+  <em>  // Main window is created, set main page for this ability</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage </span><span style="color: rgb(181,106,1);">=== </span>null<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">存储</span><span style="color: rgb(128,128,128);">windowStage</span></em>
-    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'windowStage'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">存储</span><span style="color: rgb(128,128,128);">windowStatus</span></em>
-      <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'windowStatus'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WindowStatusType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FULL_SCREEN</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMainWindow</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <em>  <span style="color: rgb(128,128,128);">// To do sth.</span></em>
-        <span style="color: rgb(181,106,1);">}</span>
-        let <span style="color: rgb(255,255,255);">windowClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'windowStatusChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">windowStatusType</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'windowStatus'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">windowStatusType</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Failed to load the content. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Succeeded in loading the content.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    if (this.currentWindowStage === null) {
+      this.currentWindowStage = windowStage;
+    }
+   <em> // 存储windowStage</em>
+    AppStorage.setOrCreate('windowStage', windowStage);
+    windowStage.loadContent('pages/Index', (err) => {
+    <em>  // 存储windowStatus</em>
+      AppStorage.setOrCreate('windowStatus', window.WindowStatusType.FULL_SCREEN);
+      windowStage.getMainWindow((err: BusinessError, data) => {
+        if (err) {
+        <em>  // To do sth.</em>
+        }
+        let windowClass = data;
+        windowClass.on('windowStatusChange', (windowStatusType) => {
+          AppStorage.setOrCreate('windowStatus', windowStatusType);
+        });
+      });
+      if (err.code) {
+        hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
+        return;
+      }
+      hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
+    });
 
-  <span style="color: rgb(181,106,1);">}</span>
+  }
 
-  <span style="color: rgb(0,0,255);">onWindowStageDestroy</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// Main window is destroyed, release UI related resources</span></em>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onWindowStageDestroy'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onWindowStageDestroy(): void {
+   <em> // Main window is destroyed, release UI related resources</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+  }
 
-  <span style="color: rgb(0,0,255);">onForeground</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// Ability has brought to foreground</span></em>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onForeground'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onForeground(): void {
+   <em> // Ability has brought to foreground</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
+  }
 
-  <span style="color: rgb(0,0,255);">onBackground</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// Ability has back to background</span></em>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onBackground'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onBackground(): void {
+  <em>  // Ability has back to background</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
+  }
 
-  <span style="color: rgb(0,0,255);">onPrepareToTerminate</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开发者定义预关闭动作</span></em>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Ability onPrepareToTerminate'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">例如关闭应用之前弹窗提示是否关闭</span><span style="color: rgb(128,128,128);">app</span></em>
-    let <span style="color: rgb(255,255,255);">windowStatus </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'windowStatus'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WindowStatusType</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">windowStatus </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,255,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WindowStatusType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MINIMIZE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">mainWindowClass </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">promise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">mainWindowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">restore</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Succeeded in restoring the window.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage </span><span style="color: rgb(181,106,1);">!== </span>null<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">提示</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确认是否关闭</span><span style="color: rgb(132,63,161);">APP</span><span style="color: rgb(132,63,161);">？</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">buttons</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span>
-              <span style="color: rgb(181,106,1);">{</span>
-                <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">取消</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#0091FF'</span>
-              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(181,106,1);">{</span>
-                <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确定</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#ff0000'</span>
-              <span style="color: rgb(181,106,1);">}</span>
-            <span style="color: rgb(255,0,170);">]</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-                <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">已取消</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2000</span>
-              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确认关闭</span></em>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">terminateSelf</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to restore the window. Cause code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">,</span>
-<span style="color: rgb(132,63,161);">                  message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return true<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage </span><span style="color: rgb(181,106,1);">!== </span>null<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">提示</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确认是否关闭</span><span style="color: rgb(132,63,161);">APP</span><span style="color: rgb(132,63,161);">？</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">buttons</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span>
-            <span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">取消</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#0091FF'</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确定</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#ff0000'</span>
-            <span style="color: rgb(181,106,1);">}</span>
-          <span style="color: rgb(255,0,170);">]</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentWindowStage</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">已取消</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2000</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确认关闭</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">terminateSelf</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-    return true<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  onPrepareToTerminate(): boolean {
+  <em>  // 开发者定义预关闭动作</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onPrepareToTerminate');
+  <em>  // 例如关闭应用之前弹窗提示是否关闭app</em>
+    let windowStatus = AppStorage.get('windowStatus') as window.WindowStatusType;
+    if (windowStatus == window.WindowStatusType.MINIMIZE) {
+      let mainWindowClass = this.currentWindowStage?.getMainWindowSync() as window.Window;
+      let promise = mainWindowClass.restore();
+      promise.then(() => {
+        console.info('Succeeded in restoring the window.');
+        if (this.currentWindowStage !== null) {
+          this.currentWindowStage?.getMainWindowSync().getUIContext().getPromptAction().showDialog({
+            title: '提示',
+            message: '确认是否关闭APP？',
+            buttons: [
+              {
+                text: '取消',
+                color: '#0091FF'
+              },
+              {
+                text: '确定',
+                color: '#ff0000'
+              }
+            ]
+          }).then(data => {
+            if (data.index === 0) {
+              this.currentWindowStage?.getMainWindowSync().getUIContext().getPromptAction().showToast({
+                message: '已取消',
+                duration: 2000
+              });
+            } else {
+           <em>   // 确认关闭</em>
+              this.context.terminateSelf();
+            }
+          });
+        }
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to restore the window. Cause code: ${err.code},
+                  message: ${err.message}`);
+      });
+      return true;
+    } else {
+      if (this.currentWindowStage !== null) {
+        this.currentWindowStage?.getMainWindowSync().getUIContext().getPromptAction().showDialog({
+          title: '提示',
+          message: '确认是否关闭APP？',
+          buttons: [
+            {
+              text: '取消',
+              color: '#0091FF'
+            },
+            {
+              text: '确定',
+              color: '#ff0000'
+            }
+          ]
+        }).then(data => {
+          if (data.index === 0) {
+            this.currentWindowStage?.getMainWindowSync().getUIContext().getPromptAction().showToast({
+              message: '已取消',
+              duration: 2000
+            });
+          } else {
+          <em>  // 确认关闭</em>
+            this.context.terminateSelf();
+          }
+        });
+      }
+    }
+    return true;
+  }
+};
 ```

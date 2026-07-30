@@ -34,122 +34,122 @@
 CardDemoPage.ets：
  
 ```json
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">CardRecognition</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">CardRecognitionResult</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">CardType</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">CardSide</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">ShootingMode </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.VisionKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">hilog </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { CardRecognition, CardRecognitionResult, CardType, CardSide, ShootingMode } from '@kit.VisionKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const <span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'CardRecognitionPage'</span><span style="color: rgb(181,106,1);">;</span>
+const TAG: string = 'CardRecognitionPage';
 
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">CardDemoPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">cardDataSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Consume</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pathStack'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+export struct CardDemoPage {
+  @State cardDataSource: Record<string, string>[] = [];
+  @Consume('pathStack') pathStack: NavPathStack;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Top </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cardDataShowBuilder</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
+  build() {
+    NavDestination() {
+      Stack({ alignContent: Alignment.Top }) {
+        Stack() {
+          this.cardDataShowBuilder();
+        }
+        .width('80%')
+        .height('80%')
 
-        <span style="color: rgb(0,0,255);">CardRecognition</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">supportType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">CardType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CARD_ID</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">cardSide</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">CardSide</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DEFAULT</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">cardRecognitionConfig</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">defaultShootingMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ShootingMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MANUAL</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">isPhotoSelectionSupported</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">setCardMargins</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">100</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">onResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CardRecognitionResult</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x0001</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`params code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-            <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x0001</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`params cardType: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardType</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">front </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">front</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
+        CardRecognition({
+          supportType: CardType.CARD_ID,
+          cardSide: CardSide.DEFAULT,
+          cardRecognitionConfig: {
+            defaultShootingMode: ShootingMode.MANUAL,
+            isPhotoSelectionSupported: false,
+            setCardMargins:100
+          },
+          onResult: ((params: CardRecognitionResult) => {
+            hilog.info(0x0001, TAG, `params code: ${params.code}`);
+            if (params.code !== 200) {
+              this.pathStack.pop();
+            }
+            hilog.info(0x0001, TAG, `params cardType: ${params.cardType}`);
+            if (params.cardInfo?.front !== undefined) {
+              this.cardDataSource.push(params.cardInfo?.front);
+            }
 
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">back </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">back</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
+            if (params.cardInfo?.back !== undefined) {
+              this.cardDataSource.push(params.cardInfo?.back);
+            }
 
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">main </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardDataSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">main</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-            <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x0001</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`params cardInfo front: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">front</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x0001</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`params cardInfo back: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">back</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+            if (params.cardInfo?.main !== undefined) {
+              this.cardDataSource.push(params.cardInfo?.main);
+            }
+            hilog.info(0x0001, TAG, `params cardInfo front: ${JSON.stringify(params.cardInfo?.front)}`);
+            hilog.info(0x0001, TAG, `params cardInfo back: ${JSON.stringify(params.cardInfo?.back)}`);
+          })
+        })
+      }
+      .width('100%')
+      .height('100%')
+    }
+    .width('100%')
+    .height('100%')
+    .hideTitleBar(true)
+  }
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">cardDataShowBuilder</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardDataSource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cardData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cardData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cardImageUri</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Contain</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+  @Builder
+  cardDataShowBuilder() {
+    List() {
+      ForEach(this.cardDataSource, (cardData: Record<string, string>) => {
+        ListItem() {
+          Column() {
+            Image(cardData.cardImageUri)
+              .objectFit(ImageFit.Contain)
+              .width(100)
+              .height(100)
 
-            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cardData</span><span style="color: rgb(255,0,170);">))</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listDirection</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Axis</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Vertical</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignListItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ListItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">50</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+            Text(JSON.stringify(cardData))
+              .width('100%')
+              .fontSize(12)
+          }
+        }
+      })
+    }
+    .listDirection(Axis.Vertical)
+    .alignListItem(ListItemAlign.Center)
+    .margin({
+      top: 50
+    })
+    .width('100%')
+    .height('100%')
+  }
+}
 ```
  
 Index.ets：
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">CardDemoPage </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./CardDemoPage'</span><span style="color: rgb(181,106,1);">;</span>
+import { CardDemoPage } from './CardDemoPage';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">MainPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pathStack'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct MainPage {
+  @Provide('pathStack') pathStack: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">PageMap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'cardRecognition'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">CardDemoPage</span><span style="color: rgb(255,0,170);">()</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  @Builder
+  PageMap(name: string) {
+    if (name === 'cardRecognition') {
+      CardDemoPage()
+    }
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">卡证识别入口按钮</span></em>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'CardRecognition'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'cardRecognition' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">卡证识别控件</span><span style="color: rgb(132,63,161);">demo'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PageMap</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">NavigationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Stack</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+ <em> // 卡证识别入口按钮</em>
+  build() {
+    Navigation(this.pathStack) {
+      Button('CardRecognition', { stateEffect: true, type: ButtonType.Capsule })
+        .width('50%')
+        .height(40)
+        .onClick(() => {
+          this.pathStack.pushPath({ name: 'cardRecognition' });
+        })
+    }
+    .title('卡证识别控件demo')
+    .navDestination(this.PageMap)
+    .mode(NavigationMode.Stack)
+  }
+}
 ```

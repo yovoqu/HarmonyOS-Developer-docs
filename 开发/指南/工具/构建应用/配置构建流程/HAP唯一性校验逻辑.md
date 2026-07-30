@@ -74,24 +74,24 @@ DevEco Studio会在编译构建时，对HAP进行上述唯一性校验，如果�
 //Ability1和Ability2虽然名称相同，但由于其所属Module的deviceType不相交，所以可以区分两个Ability，校验通过。
 //Ability1
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample1"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"tv"</span>, <span style="color: rgb(80,160,79);">"tablet"</span>],
-    <span style="color: rgb(255,0,170);">"abilities"</span>: [
+  "module": {
+    "name": "module_sample1",
+    "deviceType": ["tv", "tablet"],
+    "abilities": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"ability_sample"</span>
+        "name": "ability_sample"
       }
     ]
   }
 }
 //Ability2
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample2"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"car"</span>],
-    <span style="color: rgb(255,0,170);">"abilities"</span>: [
+  "module": {
+    "name": "module_sample2",
+    "deviceType": ["car"],
+    "abilities": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"ability_sample"</span>
+        "name": "ability_sample"
       }
     ]
   }
@@ -108,18 +108,18 @@ DevEco Studio会在编译构建时，对HAP进行上述唯一性校验，如果�
 //Ability1和Ability2的Name相同，而且其所属Module的deviceType相交，但其所属Module的distributionFilter不相交，所以可以区分两个Ability，校验通过。
 //Ability1
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"tv"</span>, <span style="color: rgb(80,160,79);">"tablet"</span>],
-    <span style="color: rgb(255,0,170);">"metadata"</span>: [
+  "module": {
+    "name": "module_sample",
+    "deviceType": ["tv", "tablet"],
+    "metadata": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"distributionFilter_config"</span>,
-        <span style="color: rgb(255,0,170);">"resource"</span>: <span style="color: rgb(80,160,79);">"$profile:distributionFilter_config_sample1"</span>
+        "name": "distributionFilter_config",
+        "resource": "$profile:distributionFilter_config_sample1"
       }
     ],
-    <span style="color: rgb(255,0,170);">"abilities"</span>: [
+    "abilities": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"ability_sample"</span>
+        "name": "ability_sample"
       }
     ]
   }
@@ -152,18 +152,18 @@ DevEco Studio会在编译构建时，对HAP进行上述唯一性校验，如果�
 
 //Ability2
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample2"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>:  [<span style="color: rgb(80,160,79);">"tv"</span>, <span style="color: rgb(80,160,79);">"tablet"</span>],
-    <span style="color: rgb(255,0,170);">"metadata"</span>: [
+  "module": {
+    "name": "module_sample2",
+    "deviceType":  ["tv", "tablet"],
+    "metadata": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"distributionFilter_config"</span>,
-        <span style="color: rgb(255,0,170);">"resource"</span>: <span style="color: rgb(80,160,79);">"$profile:distributionFilter_config_sample2"</span>
+        "name": "distributionFilter_config",
+        "resource": "$profile:distributionFilter_config_sample2"
       }
     ],
-    <span style="color: rgb(255,0,170);">"abilities"</span>: [
+    "abilities": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"ability_sample"</span>
+        "name": "ability_sample"
       }
     ]
   }
@@ -208,46 +208,46 @@ DevEco Studio会在编译构建时，对HAP进行上述唯一性校验，如果�
 
   
 ```json
-<span style="color: rgb(128,128,128);">//Entry</span><span style="color: rgb(128,128,128);">类型</span><span style="color: rgb(128,128,128);">Module1</span>
+//Entry类型Module1
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample1"</span>,
-    <span style="color: rgb(255,0,170);">"type"</span>: <span style="color: rgb(80,160,79);">"entry"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"tablet"</span>, <span style="color: rgb(80,160,79);">"wearable"</span>],
-    <span style="color: rgb(255,0,170);">"metadata"</span>: [
+  "module": {
+    "name": "module_sample1",
+    "type": "entry",
+    "deviceType": ["tablet", "wearable"],
+    "metadata": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"distributionFilter_config"</span>,
-        <span style="color: rgb(255,0,170);">"resource"</span>: <span style="color: rgb(80,160,79);">"$profile:distributionFilter_config1"</span>
+        "name": "distributionFilter_config",
+        "resource": "$profile:distributionFilter_config1"
       }
     ]
   }
 }
-<span style="color: rgb(128,128,128);">//Module1</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">distributionFilter</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">distributionFilter_config1.json</span>
+//Module1的distributionFilter，distributionFilter_config1.json
 {
-  <span style="color: rgb(255,0,170);">"screenShape"</span>:{
-    <span style="color: rgb(255,0,170);">"policy"</span>: <span style="color: rgb(80,160,79);">"include"</span>,
-    <span style="color: rgb(255,0,170);">"value"</span>: [<span style="color: rgb(80,160,79);">"circle"</span>, <span style="color: rgb(80,160,79);">"rect"</span>]
+  "screenShape":{
+    "policy": "include",
+    "value": ["circle", "rect"]
   }
 }
-<span style="color: rgb(128,128,128);">//Feature</span><span style="color: rgb(128,128,128);">类型</span><span style="color: rgb(128,128,128);">Module2</span>
+//Feature类型Module2
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample2"</span>,
-    <span style="color: rgb(255,0,170);">"type"</span>: <span style="color: rgb(80,160,79);">"feature"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"tablet"</span>, <span style="color: rgb(80,160,79);">"wearable"</span>],
-    <span style="color: rgb(255,0,170);">"metadata"</span>: [
+  "module": {
+    "name": "module_sample2",
+    "type": "feature",
+    "deviceType": ["tablet", "wearable"],
+    "metadata": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"distributionFilter_config"</span>,
-        <span style="color: rgb(255,0,170);">"resource"</span>: <span style="color: rgb(80,160,79);">"$profile:distributionFilter_config2"</span>
+        "name": "distributionFilter_config",
+        "resource": "$profile:distributionFilter_config2"
       }
     ]
   }
 }
-<span style="color: rgb(128,128,128);">//Module2</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">distributionFilter</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">distributionFilter_config2.json</span>
+//Module2的distributionFilter，distributionFilter_config2.json
 {
-  <span style="color: rgb(255,0,170);">"screenShape"</span>:{
-    <span style="color: rgb(255,0,170);">"policy"</span>: <span style="color: rgb(80,160,79);">"include"</span>,
-    <span style="color: rgb(255,0,170);">"value"</span>: [<span style="color: rgb(80,160,79);">"rect"</span>]
+  "screenShape":{
+    "policy": "include",
+    "value": ["rect"]
   }
 }
 ```
@@ -260,20 +260,20 @@ DevEco Studio会在编译构建时，对HAP进行上述唯一性校验，如果�
 
   
 ```json
-<span style="color: rgb(128,128,128);">//Entry</span><span style="color: rgb(128,128,128);">类型</span><span style="color: rgb(128,128,128);">Module1</span>
+//Entry类型Module1
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample1"</span>,
-    <span style="color: rgb(255,0,170);">"type"</span>: <span style="color: rgb(80,160,79);">"entry"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"tablet"</span>]
+  "module": {
+    "name": "module_sample1",
+    "type": "entry",
+    "deviceType": ["tablet"]
   }
 }
-<span style="color: rgb(128,128,128);">//Entry</span><span style="color: rgb(128,128,128);">类型</span><span style="color: rgb(128,128,128);">Module2</span>
+//Entry类型Module2
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample2"</span>,
-    <span style="color: rgb(255,0,170);">"type"</span>: <span style="color: rgb(80,160,79);">"entry"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"wearable"</span>]
+  "module": {
+    "name": "module_sample2",
+    "type": "entry",
+    "deviceType": ["wearable"]
   }
 }
 ```
@@ -283,49 +283,49 @@ DevEco Studio会在编译构建时，对HAP进行上述唯一性校验，如果�
 
   
 ```json
-<span style="color: rgb(128,128,128);">//Entry</span><span style="color: rgb(128,128,128);">类型</span><span style="color: rgb(128,128,128);">Module1</span>
+//Entry类型Module1
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample1"</span>,
-    <span style="color: rgb(255,0,170);">"type"</span>: <span style="color: rgb(80,160,79);">"entry"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"wearable"</span>],
-    <span style="color: rgb(255,0,170);">"metadata"</span>: [
+  "module": {
+    "name": "module_sample1",
+    "type": "entry",
+    "deviceType": ["wearable"],
+    "metadata": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>:<span style="color: rgb(80,160,79);">"distributionFilter_config"</span>,
-        <span style="color: rgb(255,0,170);">"resource"</span>: <span style="color: rgb(80,160,79);">"$profile:distributionFilter_sample1"</span>
+        "name":"distributionFilter_config",
+        "resource": "$profile:distributionFilter_sample1"
       }
     ]
   }
 }
-<span style="color: rgb(128,128,128);">//Module1</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">distributionFilter</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">distributionFilter_sample1.json</span>
+//Module1的distributionFilter，distributionFilter_sample1.json
 {
-  <span style="color: rgb(255,0,170);">"distributionFilter"</span>: {
-    <span style="color: rgb(255,0,170);">"screenShape"</span>:{
-      <span style="color: rgb(255,0,170);">"policy"</span>: <span style="color: rgb(80,160,79);">"include"</span>,
-      <span style="color: rgb(255,0,170);">"value"</span>: [<span style="color: rgb(80,160,79);">"rect"</span>]
+  "distributionFilter": {
+    "screenShape":{
+      "policy": "include",
+      "value": ["rect"]
     }
   }
 }
-<span style="color: rgb(128,128,128);">//Entry</span><span style="color: rgb(128,128,128);">类型</span><span style="color: rgb(128,128,128);">Module2</span>
+//Entry类型Module2
 {
-  <span style="color: rgb(255,0,170);">"module"</span>: {
-    <span style="color: rgb(255,0,170);">"name"</span>: <span style="color: rgb(80,160,79);">"module_sample2"</span>,
-    <span style="color: rgb(255,0,170);">"type"</span>: <span style="color: rgb(80,160,79);">"entry"</span>,
-    <span style="color: rgb(255,0,170);">"deviceType"</span>: [<span style="color: rgb(80,160,79);">"wearable"</span>],
-    <span style="color: rgb(255,0,170);">"metadata"</span>: [
+  "module": {
+    "name": "module_sample2",
+    "type": "entry",
+    "deviceType": ["wearable"],
+    "metadata": [
       {
-        <span style="color: rgb(255,0,170);">"name"</span>:<span style="color: rgb(80,160,79);">"distributionFilter_config"</span>,
-        <span style="color: rgb(255,0,170);">"resource"</span>: <span style="color: rgb(80,160,79);">"$profile:distributionFilter_sample2"</span>
+        "name":"distributionFilter_config",
+        "resource": "$profile:distributionFilter_sample2"
       }
     ]
   }
 }
-<span style="color: rgb(128,128,128);">//Module2</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">distributionFilter</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">distributionFilter_sample2.json</span>
+//Module2的distributionFilter，distributionFilter_sample2.json
 {
-  <span style="color: rgb(255,0,170);">"distributionFilter"</span>: {
-    <span style="color: rgb(255,0,170);">"screenShape"</span>:{
-      <span style="color: rgb(255,0,170);">"policy"</span>: <span style="color: rgb(80,160,79);">"include"</span>,
-      <span style="color: rgb(255,0,170);">"value"</span>: [<span style="color: rgb(80,160,79);">"circle"</span>]
+  "distributionFilter": {
+    "screenShape":{
+      "policy": "include",
+      "value": ["circle"]
     }
   }
 }

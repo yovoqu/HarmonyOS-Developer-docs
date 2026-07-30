@@ -30,10 +30,10 @@ UiTest API文档：[UI Test](https://developer.huawei.com/consumer/cn/doc/harmon
 如果不能通过类型或id找到，可以尝试通过text、描述、组件的位置关系等进行定位。
  
 ```text
-async function <span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  let <span style="color: rgb(0,0,255);">driver</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Driver </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Driver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">on</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">On </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'456'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isBefore</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'123'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">查找</span><span style="color: rgb(128,128,128);">text</span><span style="color: rgb(128,128,128);">为</span><span style="color: rgb(128,128,128);">123</span><span style="color: rgb(128,128,128);">之前的第一个</span><span style="color: rgb(128,128,128);">text</span><span style="color: rgb(128,128,128);">为</span><span style="color: rgb(128,128,128);">456</span><span style="color: rgb(128,128,128);">的组件</span></em>
-  let <span style="color: rgb(0,0,255);">button</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Component </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">driver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">findComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  await <span style="color: rgb(0,0,255);">button</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">click</span><span style="color: rgb(0,0,255);">()</span>
-<span style="color: rgb(255,0,170);">}</span>
+async function test() {
+  let driver: Driver = Driver.create();
+  let on: On = ON.text('456').isBefore(ON.text('123')); <em>// 查找text为123之前的第一个text为456的组件</em>
+  let button: Component = await driver.findComponent(on);
+  await button.click()
+}
 ```

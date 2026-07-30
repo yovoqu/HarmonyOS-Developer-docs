@@ -46,15 +46,15 @@
 首先看AppFreeze日志，找到关键字Total size of Immediate/High/Low events，此时发现下发的任务过多。
  
 ```text
-Total size of Immediate events : <span style="color: rgb(80,160,79);">14392</span>
- High priority <span style="color: rgb(0,0,255);">event</span> queue information:
- Total size of High events : <span style="color: rgb(80,160,79);">1</span>
- Low priority <span style="color: rgb(0,0,255);">event</span> queue information:
- Total size of Low events : <span style="color: rgb(80,160,79);">11</span>
- Idle priority <span style="color: rgb(0,0,255);">event</span> queue information:
- Total size of Idle events : <span style="color: rgb(80,160,79);">1</span>
- Total <span style="color: rgb(0,0,255);">event</span> size : <span style="color: rgb(80,160,79);">14470</span>
-Main handler dump end time: <span style="color: rgb(80,160,79);">2026</span>-<span style="color: rgb(80,160,79);">02</span>-<span style="color: rgb(80,160,79);">04</span> <span style="color: rgb(80,160,79);">11</span>:<span style="color: rgb(80,160,79);">29</span>:<span style="color: rgb(80,160,79);">31.124</span>
+Total size of Immediate events : 14392
+ High priority event queue information:
+ Total size of High events : 1
+ Low priority event queue information:
+ Total size of Low events : 11
+ Idle priority event queue information:
+ Total size of Idle events : 1
+ Total event size : 14470
+Main handler dump end time: 2026-02-04 11:29:31.124
 ```
  
 开启ffrt抓取trace（可参考[hitrace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitrace)抓取trace），从trace分析定位，搜索onSubmitUV找到相关的trace点，即可定位业务抛任务的任务名称。业务就可以根据任务名称排查任务过多的位置。

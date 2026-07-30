@@ -11,42 +11,42 @@
 问题示例如下：
  
 ```text
-const <span style="color: rgb(0,0,255);">FULL_CIRCLE_RADIAN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">2</span>
-const <span style="color: rgb(0,0,255);">CHECK_GREEN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'#00CC66'</span>
+const FULL_CIRCLE_RADIAN = Math.PI * 2
+const CHECK_GREEN = '#00CC66'
 
-<span style="color: rgb(181,106,1);">@Component</span>
-<span style="color: rgb(181,106,1);">@Entry</span>
-export struct <span style="color: rgb(0,0,255);">ReceiptIcon </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">radiusPx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span>
-  <span style="color: rgb(0,0,255);">percent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span>
-  <span style="color: rgb(181,106,1);">@State </span>private <span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span>
-  private <span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span>
+@Component
+@Entry
+export struct ReceiptIcon {
+  @State radiusPx: number = 0
+  percent: number = 0
+  @State private strokeWidth: number = 0
+  private settings: RenderingContextSettings = new RenderingContextSettings(true)
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSizeChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">oldValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SizeOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SizeOptions</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radiusPx </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.5</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radiusPx </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.125</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">CHECK_GREEN</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(0,0,255);">(</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">,</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radiusPx </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">          -</span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(181,106,1);">,</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">percent </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">FULL_CIRCLE_RADIAN</span>
-        <span style="color: rgb(0,0,255);">)</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">CHECK_GREEN</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(0,0,255);">()</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Canvas(this.context)
+      .onSizeChange((oldValue: SizeOptions, newValue: SizeOptions) => {
+        this.radiusPx = Math.min(Number(newValue.width ?? 0), Number(newValue.height ?? 0)) * 0.5
+        this.strokeWidth = this.radiusPx * 0.125
+      })
+      .onReady(() => {
+        this.context.beginPath()
+        this.context.strokeStyle = CHECK_GREEN
+        this.context.lineWidth = this.strokeWidth
+        this.context.arc(
+          this.context.width / 2,
+          this.context.height / 2,
+          (this.radiusPx - this.strokeWidth * 0.5),
+          -90,
+          this.percent * FULL_CIRCLE_RADIAN
+        )
+        this.context.stroke()
+        this.context.beginPath()
+        this.context.fillStyle = CHECK_GREEN
+        this.context.fill()
+      })
+  }
+}
 ```
  
  
@@ -78,40 +78,40 @@ export struct <span style="color: rgb(0,0,255);">ReceiptIcon </span><span style=
 将第四个参数-90改成-(π/2)，对应到代码中即为-(FULL_CIRCLE_RADIAN / 4)，代码修改如下所示：
  
 ```text
-const <span style="color: rgb(0,0,255);">FULL_CIRCLE_RADIAN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(0,0,255);">CHECK_GREEN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'#00CC66'</span><span style="color: rgb(181,106,1);">;</span>
+const FULL_CIRCLE_RADIAN = Math.PI * 2;
+const CHECK_GREEN = '#00CC66';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">ReceiptIcon </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">radiusPx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">percent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span>private <span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+export struct ReceiptIcon {
+  @State radiusPx: number = 0;
+  percent: number = 0;
+  @State private strokeWidth: number = 0;
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSizeChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">oldValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SizeOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SizeOptions</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radiusPx </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radiusPx </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.125</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">CHECK_GREEN</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(0,0,255);">(</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">,</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radiusPx </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">          -</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FULL_CIRCLE_RADIAN </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">percent </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">FULL_CIRCLE_RADIAN</span>
-        <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">CHECK_GREEN</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Canvas(this.context)
+      .onSizeChange((oldValue: SizeOptions, newValue: SizeOptions) => {
+        this.radiusPx = Math.min(Number(newValue.width ?? 0), Number(newValue.height ?? 0)) * 0.5;
+        this.strokeWidth = this.radiusPx * 0.125;
+      })
+      .onReady(() => {
+        this.context.beginPath();
+        this.context.strokeStyle = CHECK_GREEN;
+        this.context.lineWidth = this.strokeWidth;
+        this.context.arc(
+          this.context.width / 2,
+          this.context.height / 2,
+          (this.radiusPx - this.strokeWidth * 0.5),
+          -(FULL_CIRCLE_RADIAN / 4),
+          this.percent * FULL_CIRCLE_RADIAN
+        );
+        this.context.stroke();
+        this.context.beginPath();
+        this.context.fillStyle = CHECK_GREEN;
+        this.context.fill();
+      });
+  }
+}
 ```

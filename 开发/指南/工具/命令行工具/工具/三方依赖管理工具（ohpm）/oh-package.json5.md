@@ -211,8 +211,8 @@ ohpm init --yes
     // 本地源码引入，可引入本地其他模块的源码，示例直接引入本地的"module1"模块
     "local_source_code": "file:../module1"
 
-<span>    // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test</span>
-<span>    "foo_test": "@module:Foo"</span>
+    // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test
+    "foo_test": "@module:Foo"
   },
   "devDependencies": {
     // 支持依赖引入类型同dependencies
@@ -283,8 +283,8 @@ ohpm init --yes
 ```json
 {
    "overrides": {
-<span>      // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test</span>
-<span>      // "foo_test": "@module:Foo"</span>
+      // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test
+      // "foo_test": "@module:Foo"
       // 本地存在"foo"的源码目录，如项目根目录下的foo目录
       // "foo": "file:./foo" 
       // 本地存在"foo"的HAR文件，如项目根目录下的libs目录中的foo.har

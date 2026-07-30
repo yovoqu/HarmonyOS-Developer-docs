@@ -71,7 +71,7 @@ python -m pip install xdevice_devicetest-6.1.0.210-py3-none-any.whl
 python -m pip install xdevice_ohos-6.1.0.210-py3-none-any.whl
 python -m pip install hypium-6.1.0.210-py3-none-any.whl
 
-<span style="color: rgb(57,57,57);"># </span><span style="color: rgb(57,57,57);">此版本仅作为示例，实际请根据项目使用的版本选择</span>
+# 此版本仅作为示例，实际请根据项目使用的版本选择
 ```
  
 
@@ -338,25 +338,25 @@ b）通过PyCharm上的DevEcoTesting-Hypium插件进行创建。请参考本文�
  
 ```json
 HypiumProjectTemplate
-|     |----aw                                     <span style="color: rgb(127,127,127);">// 工程中自定义模块文件夹</span>
-|     |     |----Utils.py                         <span style="color: rgb(127,127,127);">  // 示例模块文件</span>
-|     |----config                                 <span style="color: rgb(127,127,127);">  // 测试工程配置文件夹</span>
-|     |     |----user_config.xml            <span style="color: rgb(127,127,127);">        // 测试工程配置文件</span>
-|     |----resource                              <span style="color: rgb(127,127,127);">// 测试资源文件夹，测试过程中用到的资源文件默认会优先从当前文件夹进行查找</span>。
-|     |----testcases                             <span style="color: rgb(127,127,127);">// 测试用例文件夹，测试过程中的测试用例文件优先会从当前文件夹进行查找</span>。
-|     |    |----Example.json                  <span style="color: rgb(127,127,127);">      // Example测试用例配置文件，配置用例所需设备等参数。</span>
-|     |    |----Example.py                     <span style="color: rgb(127,127,127);">     // Example测试用例文件，存储测试逻辑代码。注意该文件无法直接运行，要通过测试框架启动后加载执行，详情参见后文测试用例执行部分。</span>
-|     |----main.py                               <span style="color: rgb(127,127,127);">// 测试用例执行入口文件，用户可以通过运行该文件启动测试任务，执行测试用例。</span>
+|     |----aw                                     // 工程中自定义模块文件夹
+|     |     |----Utils.py                           // 示例模块文件
+|     |----config                                   // 测试工程配置文件夹
+|     |     |----user_config.xml                    // 测试工程配置文件
+|     |----resource                              // 测试资源文件夹，测试过程中用到的资源文件默认会优先从当前文件夹进行查找。
+|     |----testcases                             // 测试用例文件夹，测试过程中的测试用例文件优先会从当前文件夹进行查找。
+|     |    |----Example.json                        // Example测试用例配置文件，配置用例所需设备等参数。
+|     |    |----Example.py                          // Example测试用例文件，存储测试逻辑代码。注意该文件无法直接运行，要通过测试框架启动后加载执行，详情参见后文测试用例执行部分。
+|     |----main.py                               // 测试用例执行入口文件，用户可以通过运行该文件启动测试任务，执行测试用例。
 ```
  
 **Ⅱ.工程配置文件介绍**
  
 ```xml
-<?xml version=<span style="color: rgb(255,0,0);">"1.0"</span> encoding=<span style="color: rgb(255,0,0);">"UTF-8"</span>?>
+<?xml version="1.0" encoding="UTF-8"?>
 <user_config>
     <environment>
         <!-- type: 设备连接方式，仅支持设置为usb-hdc，表示使用hdc命令控制设备（默认)。 -->
-        <device type=<span style="color: rgb(255,0,0);">"usb-hdc"</span>>
+        <device type="usb-hdc">
             <!-- ip: 远端hdc server的ip地址，ip和port为空时使用本地设备，非空时使用远端设备。 -->
             <!-- port: 远端hdc server的端口号 -->
             <!-- sn：设备序列号，设为空时，表示所有设备均可用 -->
@@ -434,23 +434,23 @@ Hypium 测试用例由两部分组成：测试用例配置文件（JSON 格式�
 <strong>from</strong> devicetest.utils.file_util <strong>import</strong> get_resource_path
 <strong>from</strong> hypium <strong>import</strong> *
 <strong>from</strong> aw import Utils
-<strong>class <span style="color: rgb(79,129,189);">Example</span></strong>(TestCase):
-    def <strong><span style="color: rgb(192,0,0);">__init__</span></strong>(self, controllers):
+<strong>class Example</strong>(TestCase):
+    def <strong>__init__</strong>(self, controllers):
         self.TAG = self.__class__.__name__
         TestCase.__init__(self, self.TAG, controllers)
         self.driver = UiDriver(self.device1)
-    def <strong><span style="color: rgb(192,0,0);">setup</span></strong>(self):
-        Step(<span style="color: rgb(192,0,0);">'1.回到桌面'</span>)
+    def <strong>setup</strong>(self):
+        Step('1.回到桌面')
         self.driver.swipe_to_home()
-    def <strong><span style="color: rgb(192,0,0);">process</span></strong>(self):
-        Step(<span style="color: rgb(192,0,0);">'2.检查短信应用版本'</span>)
-        mms_version = Utils.get_app_version_code(self.driver, <span style="color: rgb(192,0,0);">'com.ohos.mms'</span>)
+    def <strong>process</strong>(self):
+        Step('2.检查短信应用版本')
+        mms_version = Utils.get_app_version_code(self.driver, 'com.ohos.mms')
         host.check_greater(mms_version, 0)
-        Step(<span style="color: rgb(192,0,0);">'3.点击桌面上的短信'</span>)
-        self.driver.touch(BY.text(<span style="color: rgb(192,0,0);">"信息"</span>))
-    def <strong><span style="color: rgb(192,0,0);">teardown</span></strong>(self):
-        Step(<span style="color: rgb(192,0,0);">"4. 停止短信应用"</span>)
-        self.driver.stop_app(<span style="color: rgb(192,0,0);">"com.ohos.mms"</span>)
+        Step('3.点击桌面上的短信')
+        self.driver.touch(BY.text("信息"))
+    def <strong>teardown</strong>(self):
+        Step("4. 停止短信应用")
+        self.driver.stop_app("com.ohos.mms")
 ```
  
 
@@ -466,23 +466,23 @@ Hypium 测试用例由两部分组成：测试用例配置文件（JSON 格式�
  
 ```json
 {
-    <span style="color: rgb(127,127,127);">// description属性为测试用例的功能描述。</span>
-    "description": <span style="color: rgb(192,0,0);">"Config for app test suites"</span>,
-    <span style="color: rgb(127,127,127);">// environment属性用于配置测试用例需要的设备类型和数量。</span>
+    // description属性为测试用例的功能描述。
+    "description": "Config for app test suites",
+    // environment属性用于配置测试用例需要的设备类型和数量。
     "environment": [
         {
-            "type": <span style="color: rgb(192,0,0);">"device"</span>,   <span style="color: rgb(127,127,127);">// 设备操作系统类型，device表示HarmonyOS设备</span>。
-            "label": <span style="color: rgb(192,0,0);">"phone"</span>   <span style="color: rgb(127,127,127);"> // 设备物理形态，phone为手机，tablet为平板，设置为空字符串或者移除该属性表示用例对设备类型无要求。用户可以通过执行hdc shell param get const.product.devicetype查看设备类型。</span>
+            "type": "device",   // 设备操作系统类型，device表示HarmonyOS设备。
+            "label": "phone"    // 设备物理形态，phone为手机，tablet为平板，设置为空字符串或者移除该属性表示用例对设备类型无要求。用户可以通过执行hdc shell param get const.product.devicetype查看设备类型。
         }，
         {
-            "type": <span style="color: rgb(192,0,0);">"device"</span>,   <span style="color: rgb(127,127,127);">// 测试用例需要多个设备时，在environment属性中添加多个设备配置项。</span>
-            "label": <span style="color: rgb(192,0,0);">"phone"</span>
+            "type": "device",   // 测试用例需要多个设备时，在environment属性中添加多个设备配置项。
+            "label": "phone"
         }
     ],
-    <span style="color: rgb(127,127,127);">// driver字段主要描述测试用例的测试驱动是什么，以及具体要执行的Python脚本文件在哪（填写与当前JSON文件的相对路径即可）</span>
-<span style="color: rgb(127,127,127);">    // 不填写则在当前JSON文件下寻找同名Python文件</span>
+    // driver字段主要描述测试用例的测试驱动是什么，以及具体要执行的Python脚本文件在哪（填写与当前JSON文件的相对路径即可）
+    // 不填写则在当前JSON文件下寻找同名Python文件
     "driver": {
-        "type": <span style="color: rgb(192,0,0);">"DeviceTest"</span>,
+        "type": "DeviceTest",
            }
 }
 ```
@@ -506,12 +506,12 @@ Hypium 测试用例由两部分组成：测试用例配置文件（JSON 格式�
 <strong>from</strong> devicetest.core.test_case <strong>import</strong> Step
 <strong>from</strong> devicetest.core.suite.test_suite <strong>import</strong> TestSuite
 <strong>class</strong> Testsuite1(TestSuite):
-    <span style="color: rgb(127,127,127);"># 测试套的前置步骤将在所有测试用例执行前运行。当多个测试用例具有相同的初始化操作时，可将共用的前置逻辑定义在此。</span>
-   <strong> def</strong> <strong><span style="color: rgb(192,0,0);">setup</span></strong>(self):
-        Step(<span style="color: rgb(192,0,0);">"TestSuite: setup"</span>)
-    <span style="color: rgb(127,127,127);"># 测试套的清理步骤会在所有测试用例执行完成后运行。</span>
-   <strong> def </strong><strong><span style="color: rgb(192,0,0);">teardown</span></strong>(self):
-        Step(<span style="color: rgb(192,0,0);">"TestSuite: teardown"</span>)
+    # 测试套的前置步骤将在所有测试用例执行前运行。当多个测试用例具有相同的初始化操作时，可将共用的前置逻辑定义在此。
+   <strong> def</strong> <strong>setup</strong>(self):
+        Step("TestSuite: setup")
+    # 测试套的清理步骤会在所有测试用例执行完成后运行。
+   <strong> def </strong><strong>teardown</strong>(self):
+        Step("TestSuite: teardown")
 ```
  
 - **测试套配置文件**
@@ -525,28 +525,28 @@ Hypium 测试用例由两部分组成：测试用例配置文件（JSON 格式�
  
 ```json
 {
-    "description": "<span style="color: rgb(192,0,0);">Config for app test suites</span>",
-<span style="color: rgb(128,128,128);">    // environment属性用于配置测试用例需要的设备类型和数量。</span>
+    "description": "Config for app test suites",
+    // environment属性用于配置测试用例需要的设备类型和数量。
     "environment": [
         {
-            "type": "<span style="color: rgb(192,0,0);">device</span>",     <span style="color: rgb(128,128,128);">// 配置设备操作系统类型，device表示HarmonyOS设备</span>。
-            "label": "<span style="color: rgb(192,0,0);">phone</span>"      <span style="color: rgb(127,127,127);">// 设备物理形态，phone为手机，tablet为平板，设置为空字符串或者移除该属性表示用例对设备类型无要求。用户可以通过执行hdc shell param get const.product.devicetype查看设备类型。</span>
+            "type": "device",     // 配置设备操作系统类型，device表示HarmonyOS设备。
+            "label": "phone"      // 设备物理形态，phone为手机，tablet为平板，设置为空字符串或者移除该属性表示用例对设备类型无要求。用户可以通过执行hdc shell param get const.product.devicetype查看设备类型。
         }
     ],
-    <span style="color: rgb(127,127,127);">// driver 属性用于定义测试用例的驱动类型及待执行脚本的路径，脚本路径需为相对于当前 JSON 文件的路径</span>。
+    // driver 属性用于定义测试用例的驱动类型及待执行脚本的路径，脚本路径需为相对于当前 JSON 文件的路径。
     "driver": {
-        "type": "<span style="color: rgb(192,0,0);">DeviceTestSuite</span>",
-<span style="color: rgb(127,127,127);">        // 指定测试套配置（JSON）文件对应的测试套脚本（Python）文件路径（可省略 .py 后缀），支持相对路径或绝对路径。若使用相对路径，需相对于测试工程根目录；若未指定，则默认查找与当前 JSON 文件同目录下同名的 Python文件。</span>
-        "testsuite": "<span style="color: rgb(192,0,0);">TS_001/TS_001</span>",
-<span style="color: rgb(127,127,127);">        // 指定测试套中的测试用例脚本(Python)文件列表，指定方式有两种。</span>
-<span style="color: rgb(127,127,127);">        // 方式一：定义 suitecases 字段，并在其中指定测试用例脚本文件的路径。路径可使用相对路径或绝对路径；若使用相对路径，其根目录为当前测试套目录。</span>
+        "type": "DeviceTestSuite",
+        // 指定测试套配置（JSON）文件对应的测试套脚本（Python）文件路径（可省略 .py 后缀），支持相对路径或绝对路径。若使用相对路径，需相对于测试工程根目录；若未指定，则默认查找与当前 JSON 文件同目录下同名的 Python文件。
+        "testsuite": "TS_001/TS_001",
+        // 指定测试套中的测试用例脚本(Python)文件列表，指定方式有两种。
+        // 方式一：定义 suitecases 字段，并在其中指定测试用例脚本文件的路径。路径可使用相对路径或绝对路径；若使用相对路径，其根目录为当前测试套目录。
         "suitecases": [
-            <span style="color: rgb(192,0,0);">"TestCase1.py",         </span><span style="color: rgb(127,127,127);">// 相对路径</span>
-<span style="color: rgb(192,0,0);">            "/path/to/TestCase2.py"</span> <span style="color: rgb(127,127,127);">// 绝对路径</span>
+            "TestCase1.py",         // 相对路径
+            "/path/to/TestCase2.py" // 绝对路径
         ]
-        <span style="color: rgb(127,127,127);">// 方式二：将测试用例脚本（Python）文件保存到测试套目录中，并且设置文件名前缀为"TC_"，框架即可自动扫描当前测试套对应的所有测试用例脚本文件。</span>
+        // 方式二：将测试用例脚本（Python）文件保存到测试套目录中，并且设置文件名前缀为"TC_"，框架即可自动扫描当前测试套对应的所有测试用例脚本文件。
     },
-<span style="color: rgb(127,127,127);">    // kits字段主要描述测试用例需要的测试公共kit，如pushkit、shellkit等</span>
+    // kits字段主要描述测试用例需要的测试公共kit，如pushkit、shellkit等
     "kits": []
 }
 ```
@@ -654,7 +654,7 @@ usage: run [-l TESTLIST [TESTLIST ...] | -tf TESTFILE
 Specify tests to run.
   positional arguments:
   action                Specify action
-  task                    Specify task name,such as <span style="color: rgb(192,0,0);">"ssts"</span>, <span style="color: rgb(192,0,0);">"acts"</span>, <span style="color: rgb(192,0,0);">"hits"</span>
+  task                    Specify task name,such as "ssts", "acts", "hits"
 ```
  
 run常用指令基本使用方式如下：
@@ -717,26 +717,26 @@ Hypium测试框架提供了两大类API来支持用例的编写：设备相关AP
 **示例代码**
  
 ```text
-<span style="color: rgb(128,128,128);"># -*- coding: utf-8 -*-</span>
-<span style="color: rgb(181,106,1);">from </span>devicetest.core.test_case <span style="color: rgb(181,106,1);">import </span>TestCase, Step, CheckPoint
-<span style="color: rgb(181,106,1);">from </span>hypium <span style="color: rgb(181,106,1);">import </span>*
-<span style="color: rgb(181,106,1);">from </span>hypium.model <span style="color: rgb(181,106,1);">import </span>WindowFilter
-<span style="color: rgb(181,106,1);">class </span>DemoCase(TestCase):
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>, configs):
-        <span style="color: rgb(255,0,170);">self</span>.TAG = <span style="color: rgb(255,0,170);">self</span>.__class__.<span style="color: rgb(255,0,170);">__name__</span>
-        TestCase.<span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>, <span style="color: rgb(255,0,170);">self</span>.TAG, configs)
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">setup</span>(<span style="color: rgb(255,0,170);">self</span>):
-        <span style="color: rgb(181,106,1);">pass</span>
+# -*- coding: utf-8 -*-
+from devicetest.core.test_case import TestCase, Step, CheckPoint
+from hypium import *
+from hypium.model import WindowFilter
+class DemoCase(TestCase):
+    def __init__(self, configs):
+        self.TAG = self.__class__.__name__
+        TestCase.__init__(self, self.TAG, configs)
+    def setup(self):
+        pass
 
-<span style="color: rgb(181,106,1);">    def </span><span style="color: rgb(0,0,255);">process</span>(<span style="color: rgb(255,0,170);">self</span>):
-        <em># </em><em><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">driver</span><span style="color: rgb(128,128,128);">对象（</span><span style="color: rgb(128,128,128);">self.device1</span></em><em>对象在测试用例类中提供）</em>
-        driver = UiDriver(<span style="color: rgb(255,0,170);">self</span>.device1)
+    def process(self):
+        <em># </em><em>创建driver对象（self.device1</em><em>对象在测试用例类中提供）</em>
+        driver = UiDriver(self.device1)
         <em># </em><em>查找控件</em>
-        <span style="color: rgb(128,128,128);">component </span>= driver.find_component(BY.text(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">蓝牙</span><span style="color: rgb(80,160,79);">"</span>))
-        <em># </em><em><span style="color: rgb(128,128,128);">查找窗口</span></em>
-        <span style="color: rgb(128,128,128);">window </span>= driver.find_window(WindowFilter().bundle_name(<span style="color: rgb(80,160,79);">"com.huawei.hmos.settings"</span>))
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">teardown</span>(<span style="color: rgb(255,0,170);">self</span>):
-        <span style="color: rgb(181,106,1);">pas</span><span style="color: rgb(181,106,1);">s</span>
+        component = driver.find_component(BY.text("蓝牙"))
+        <em># </em><em>查找窗口</em>
+        window = driver.find_window(WindowFilter().bundle_name("com.huawei.hmos.settings"))
+    def teardown(self):
+        pass
 ```
  
 设备无关的API当前主要包括两个基础API类： **host** 和**CV**。
@@ -751,9 +751,9 @@ Hypium测试框架提供了两大类API来支持用例的编写：设备相关AP
 <strong>from</strong> hypium <strong>import</strong> host, CV
 
 <em># 执行PC端命令</em>
-echo = host.shell(<span style="color: rgb(192,0,0);">"a.bat"</span>)
+echo = host.shell("a.bat")
 <em># 调用图像接口</em>
-brightness = CV.calculate_brightness(<span style="color: rgb(192,0,0);">"/path/to/image.jpeg"</span>)
+brightness = CV.calculate_brightness("/path/to/image.jpeg")
 ```
  
 此外Hypium还包含一些常量类型，例如**KeyCode，UiParam，MatchPattern**等，以及数据类型**Point，Rect**等。
@@ -813,11 +813,11 @@ Hypium 支持三种主要的控件定位方式：控件属性定位、图片匹�
  
 ```text
 <em># 查找text属性为"控件文本"的控件。</em>
-component = driver.find_component(BY.text(<span style="color: rgb(192,0,0);">"蓝牙"</span>))
+component = driver.find_component(BY.text("蓝牙"))
 <em># 读取控件的的边框位置</em>。
 bounds = component.getBounds()
 <em># 直接点击控件</em>。
-component = driver.touch(BY.text(<span style="color: rgb(192,0,0);">"蓝牙"</span>))
+component = driver.touch(BY.text("蓝牙"))
 ```
  
 
@@ -841,7 +841,7 @@ component = driver.touch(BY.text(<span style="color: rgb(192,0,0);">"蓝牙"</sp
  
 ```text
 <em># 点击text属性值前缀为“今天星期”的控件</em>。
-driver.touch(BY.text(<span style="color: rgb(192,0,0);">"今天星期"</span>, MatchPattern.STARTS_WITH))
+driver.touch(BY.text("今天星期", MatchPattern.STARTS_WITH))
 ```
  
 BY选择器支持的所有属性如下表所示：
@@ -868,10 +868,10 @@ BY选择器支持链式调用，允许用户指定多个控件属性进行联合
  
 ```text
 <em># 点击文本为"蓝牙", 类型为"Button", 并且key为"bluetooth_switch"的按钮</em>。
-driver.touch(BY.text(<span style="color: rgb(192,0,0);">"蓝牙"</span>).<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Button"</span>).key(<span style="color: rgb(192,0,0);">"bluetooth_switch"</span>))
+driver.touch(BY.text("蓝牙").type("Button").key("bluetooth_switch"))
 
 <em># </em><em>查找</em><em>文本为"蓝牙", 类型为"Button", 并且key为"bluetooth_switch"的按钮</em>。
-component = driver.find_component(BY.text(<span style="color: rgb(192,0,0);">"蓝牙"</span>).<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Button"</span>).key(<span style="color: rgb(192,0,0);">"bluetooth_switch"</span>))
+component = driver.find_component(BY.text("蓝牙").type("Button").key("bluetooth_switch"))
 ```
  
 
@@ -905,22 +905,22 @@ component = driver.find_component(BY.text(<span style="color: rgb(192,0,0);">"�
  
 ```text
 <em># 查找在text属性为"显示通知图标"的控件之后的type属性为"Button"的控件</em>。
-component = driver.find_component(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Button"</span>).isAfter(BY.text(<span style="color: rgb(192,0,0);">"显示通知图标"</span>)))
+component = driver.find_component(BY.type("Button").isAfter(BY.text("显示通知图标")))
 ```
  
 ```text
 <em># 查找在text属性为"账号"的控件之前的type属性为"Image"的控件</em>。
-component = driver.find_component(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Image"</span>).isBefore(BY.text(<span style="color: rgb(192,0,0);">"账号"</span>)))
+component = driver.find_component(BY.type("Image").isBefore(BY.text("账号")))
 ```
  
 ```text
 <em># 查找在key为"nav_container"内部的类型为"Image"的控件</em>。
-component = driver.find_component(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Image"</span>).within(BY.key(<span style="color: rgb(192,0,0);">"nav_container"</span>)))
+component = driver.find_component(BY.type("Image").within(BY.key("nav_container")))
 ```
  
 ```text
 <em># 查找包名为"com.huawei.hmos.settings"的应用内部的text属性为"蓝牙"的控件</em>。
-component = driver.find_component(BY.<span style="color: rgb(79,129,189);">text</span>(<span style="color: rgb(192,0,0);">"蓝牙"</span>).inWindow(<span style="color: rgb(192,0,0);">"com.huawei.hmos.settings"</span>))
+component = driver.find_component(BY.text("蓝牙").inWindow("com.huawei.hmos.settings"))
 ```
  
 
@@ -956,8 +956,8 @@ XPath不能和其他属性匹配一起使用，通过XPath查找控件相比单�
 **示例代码**
  
 ```text
-<em><span style="color: rgb(127,127,127);"># 查找上图中红框所示的图标，并点击</span></em>。
-comp = driver.find_component(BY.xpath(<span style="color: rgb(192,0,0);">"//*[@text='可用 WLAN']/ancestor::List/ListItemGroup/ListItem[1]</span><span style="color: rgb(192,0,0);">//Text/following::Image"</span>))
+<em># 查找上图中红框所示的图标，并点击</em>。
+comp = driver.find_component(BY.xpath("//*[@text='可用 WLAN']/ancestor::List/ListItemGroup/ListItem[1]//Text/following::Image"))
 comp.click()
 ```
  
@@ -965,11 +965,11 @@ comp.click()
  
 ```text
 <em># 查找text属性为WLAN的控件</em>。
-driver.find_component(BY.xpath(<span style="color: rgb(192,0,0);">"//*[@text='WLAN']"</span>))
-driver.find_all_components(BY.xpath(<span style="color: rgb(192,0,0);">"//*[@text='WLAN']"</span>))
-driver.wait_for_component(BY.xpath(<span style="color: rgb(192,0,0);">"//*[@text='WLAN']"</span>))
+driver.find_component(BY.xpath("//*[@text='WLAN']"))
+driver.find_all_components(BY.xpath("//*[@text='WLAN']"))
+driver.wait_for_component(BY.xpath("//*[@text='WLAN']"))
 <em># 点击text属性为WLAN的控件</em>。
-driver.touch(BY.xpath(<span style="color: rgb(192,0,0);">"//*[@text='WLAN']"</span>))
+driver.touch(BY.xpath("//*[@text='WLAN']"))
 ```
  
 
@@ -988,7 +988,7 @@ driver.touch(BY.xpath(<span style="color: rgb(192,0,0);">"//*[@text='WLAN']"</sp
  
 ```text
 <em># 查找所有type属性为"Button"的控件, 如果有匹配的结果，components为列表，包含多个满足条件的IUiComponent对象</em>。
-components = driver.find_all_components(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Button"</span>))
+components = driver.find_all_components(BY.type("Button"))
 <em># 点击所有的控件</em>。
 for component in components:
     driver.touch(component)
@@ -1024,11 +1024,11 @@ python -m pip install opencv-python
  
 ```text
 <em># 点击屏幕上和模板图片template.jpeg匹配的位置</em>。
-driver.touch_image(<span style="color: rgb(192,0,0);">"/path/to/template.jpeg"</span>)
+driver.touch_image("/path/to/template.jpeg")
 
 <em># 查找屏幕上和模板图片template.jpeg匹配的位置, bounds为Rect类型，记录了控件上下左右边框的位置</em>。
-bounds = driver.find_image(<span style="color: rgb(192,0,0);">"template.jpeg"</span>)
-<span style="color: rgb(79,129,189);">print</span>(bounds.top, bounds.left, bounds.bottom, bounds.right)
+bounds = driver.find_image("template.jpeg")
+print(bounds.top, bounds.left, bounds.bottom, bounds.right)
 ```
  
 
@@ -1065,7 +1065,7 @@ bounds = driver.find_image(<span style="color: rgb(192,0,0);">"template.jpeg"</s
  
 ```text
 <em># 点击屏幕上(0.52 * 屏幕宽度, 0.98 * 屏幕高度)的位置</em>。
-driver.touch((<span style="color: rgb(79,129,189);">0.52, 0.98</span>))
+driver.touch((0.52, 0.98))
 ```
  
 
@@ -1076,7 +1076,7 @@ driver.touch((<span style="color: rgb(79,129,189);">0.52, 0.98</span>))
 **查找窗口**
  
 ```text
-def <span style="color: rgb(192,0,0);">find_window</span>(<span style="color: rgb(79,129,189);">filter</span>: WindowFilter) -> UiWindow
+def find_window(filter: WindowFilter) -> UiWindow
 ```
  
 **接口说明**
@@ -1100,13 +1100,13 @@ def <span style="color: rgb(192,0,0);">find_window</span>(<span style="color: rg
  
 ```text
 <em># 查找标题为日历的窗口</em>。
-window = driver.find_window(WindowFilter().title(<span style="color: rgb(192,0,0);">"日历"</span>))
+window = driver.find_window(WindowFilter().title("日历"))
 <em># 查找包名为com.huawei.hmos.calendar，并且处于活动状态的窗口</em>。
-window = driver.find_window(WindowFilter().bundle_name(<span style="color: rgb(192,0,0);">"com.huawei.hmos.calendar"</span>).actived(<span style="color: rgb(79,129,189);">True</span>))
+window = driver.find_window(WindowFilter().bundle_name("com.huawei.hmos.calendar").actived(True))
 <em># 查找处于活动状态的窗口</em>。
-window = driver.find_window(WindowFilter().actived(<span style="color: rgb(79,129,189);">True</span>))
+window = driver.find_window(WindowFilter().actived(True))
 <em># 查找聚焦状态的窗口</em>。
-window = driver.find_window(WindowFilter().focused(<span style="color: rgb(79,129,189);">True</span>))
+window = driver.find_window(WindowFilter().focused(True))
 ```
  
 - **界面操作**
@@ -1117,7 +1117,7 @@ window = driver.find_window(WindowFilter().focused(<span style="color: rgb(79,12
 **点击**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">touch</span></strong>(target: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent, <span style="color: rgb(79,129,189);">tuple</span>], mode: <span style="color: rgb(79,129,189);">str</span> = UiParam.NORMAL, scroll_target: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] = <span style="color: rgb(75,172,198);">None</span>, wait_time: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">0.1</span>)
+<strong>def touch</strong>(target: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent, tuple], mode: str = UiParam.NORMAL, scroll_target: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] = None, wait_time: float = 0.1)
 ```
  
 **接口说明**
@@ -1138,17 +1138,17 @@ window = driver.find_window(WindowFilter().focused(<span style="color: rgb(79,12
  
 ```text
 <em># 点击文本为"hello"的控件</em>。
-driver.touch(BY.text(<span style="color: rgb(192,0,0);">"hello"</span>))
+driver.touch(BY.text("hello"))
 <em># 点击(100, 200)的位置</em>。
-driver.touch((<span style="color: rgb(75,172,198);">100, 200</span>))
+driver.touch((100, 200))
 <em># 点击比例坐标为(0.8, 0.9)的位置</em>。
-driver.touch((<span style="color: rgb(75,172,198);">0.8, 0.9</span>))
+driver.touch((0.8, 0.9))
 <em># 双击确认按钮(控件文本为"确认", 类型为"Button")</em>。
-driver.touch(BY.text(<span style="color: rgb(192,0,0);">"确认"</span>).<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Button"</span>), mode=UiParam.DOUBLE)
+driver.touch(BY.text("确认").type("Button"), mode=UiParam.DOUBLE)
 <em># 在类型为Scroll的控件上滑动查找文本为"退出"的控件并点击</em>。
-driver.touch(BY.text(<span style="color: rgb(192,0,0);">"退出"</span>), scroll_target=BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Scroll"</span>))
+driver.touch(BY.text("退出"), scroll_target=BY.type("Scroll"))
 <em># 长按比例坐标为(0.8, 0.9)的位置</em>。
-driver.touch((<span style="color: rgb(0,128,128);">0.8</span>, <span style="color: rgb(0,128,128);">0.9</span>), mode=<span style="color: rgb(221,17,68);">"long"</span>)
+driver.touch((0.8, 0.9), mode="long")
 ```
  
 
@@ -1156,7 +1156,7 @@ driver.touch((<span style="color: rgb(0,128,128);">0.8</span>, <span style="colo
 **长按**
  
 ```text
-<span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">long_click</span>(<span style="color: rgb(255,0,170);">self</span>, target: Union[ISelector, IUiComponent, <span style="color: rgb(0,0,255);">tuple</span>], press_time: <span style="color: rgb(0,0,255);">float </span>= <span style="color: rgb(0,0,255);">2</span>, offset=<span style="color: rgb(181,106,1);">None</span>):
+def long_click(self, target: Union[ISelector, IUiComponent, tuple], press_time: float = 2, offset=None):
 ```
  
 **接口说明**
@@ -1177,12 +1177,12 @@ driver.touch((<span style="color: rgb(0,128,128);">0.8</span>, <span style="colo
 **使用示例**
  
 ```text
-<em># </em><em><span style="color: rgb(128,128,128);">长按文本为</span><span style="color: rgb(128,128,128);">"</span><span style="color: rgb(128,128,128);">按钮</span><span style="color: rgb(128,128,128);">"</span><span style="color: rgb(128,128,128);">的控件</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">秒</span></em>
-driver.long_click(BY.text(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">按钮</span><span style="color: rgb(80,160,79);">"</span>), <span style="color: rgb(181,106,1);">press_time</span>=<span style="color: rgb(0,0,255);">5</span>)
-<em># </em><em><span style="color: rgb(128,128,128);">长按</span><span style="color: rgb(128,128,128);">(100, 200)</span><span style="color: rgb(128,128,128);">的位置</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">秒</span></em>
-driver.long_click((<span style="color: rgb(0,0,255);">100</span>, <span style="color: rgb(0,0,255);">200</span>), <span style="color: rgb(181,106,1);">press_time</span>=<span style="color: rgb(0,0,255);">5</span>)
-<em># </em><em><span style="color: rgb(128,128,128);">长按文本为</span><span style="color: rgb(128,128,128);">"</span><span style="color: rgb(128,128,128);">设置</span><span style="color: rgb(128,128,128);">"</span><span style="color: rgb(128,128,128);">的控件左上角</span><span style="color: rgb(128,128,128);">(</span><span style="color: rgb(128,128,128);">偏移</span><span style="color: rgb(128,128,128);">0, 0)</span></em>
-driver.long_click(BY.text(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">设置</span><span style="color: rgb(80,160,79);">"</span>), <span style="color: rgb(181,106,1);">offset</span>=(<span style="color: rgb(0,0,255);">0</span>, <span style="color: rgb(0,0,255);">0</span>))
+<em># </em><em>长按文本为"按钮"的控件5秒</em>
+driver.long_click(BY.text("按钮"), press_time=5)
+<em># </em><em>长按(100, 200)的位置5秒</em>
+driver.long_click((100, 200), press_time=5)
+<em># </em><em>长按文本为"设置"的控件左上角(偏移0, 0)</em>
+driver.long_click(BY.text("设置"), offset=(0, 0))
 ```
  
 
@@ -1190,7 +1190,7 @@ driver.long_click(BY.text(<span style="color: rgb(80,160,79);">"</span><span sty
 **多指点击**
  
 ```text
-def <strong style="color: rgb(192,0,0);">multi_finger_touch</strong>(points: <strong><span style="color: rgb(79,129,189);">List</span></strong>[<span style="color: rgb(66,163,189);">tuple</span>], duration: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">0.1</span>, area<span style="color: rgb(153,153,153);">:</span> Rect <span style="color: rgb(154,110,58);">=</span> <span style="color: rgb(153,0,85);">None</span>)
+def <strong style="color: rgb(192,0,0);">multi_finger_touch</strong>(points: <strong>List</strong>[tuple], duration: float = 0.1, area: Rect = None)
 ```
  
 **接口说明**
@@ -1226,7 +1226,7 @@ driver.multi_finger_touch([(0.5, 0.5), (0.6, 0.6)], area=comp.getBounds())
 **执行指定方向的滑动操作**
  
 ```text
-<strong>def swipe</strong>(direction: <span style="color: rgb(79,129,189);">str</span>, distance: <span style="color: rgb(79,129,189);">int</span> = 60, area: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] = <span style="color: rgb(75,172,198);">None</span>, side: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(75,172,198);">None</span>, start_point: <span style="color: rgb(79,129,189);">tuple</span> = <span style="color: rgb(75,172,198);">None</span>, swipe_time: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">0.3</span>)
+<strong>def swipe</strong>(direction: str, distance: int = 60, area: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] = None, side: str = None, start_point: tuple = None, swipe_time: float = 0.3)
 ```
  
 **接口说明**
@@ -1249,17 +1249,17 @@ driver.multi_finger_touch([(0.5, 0.5), (0.6, 0.6)], area=comp.getBounds())
  
 ```text
 <em># 在屏幕上向上滑动, 距离40</em>。
-driver.swipe(UiParam.UP, distance=<span style="color: rgb(75,172,198);">40</span>)
+driver.swipe(UiParam.UP, distance=40)
 <em># 在屏幕上向右滑动, 滑动时间为0.1秒</em>。
-driver.swipe(UiParam.RIGHT, swipe_time=<span style="color: rgb(75,172,198);">0.1</span>)
+driver.swipe(UiParam.RIGHT, swipe_time=0.1)
 <em># 在屏幕起始点为比例坐标为(0.8, 0.8)的位置向上滑动，距离30</em>。
-driver.swipe(UiParam.UP, <span style="color: rgb(75,172,198);">30</span>, start_point=(<span style="color: rgb(75,172,198);">0.8, 0.8</span>))
+driver.swipe(UiParam.UP, 30, start_point=(0.8, 0.8))
 <em># 在屏幕左边区域向下滑动， 距离3</em>0。
-driver.swipe(UiParam.DOWN, <span style="color: rgb(75,172,198);">30</span>, side=UiParam.LEFT)
+driver.swipe(UiParam.DOWN, 30, side=UiParam.LEFT)
 <em># 在屏幕右侧区域向上滑动，距离30</em>。
 driver.swipe(UiParam.UP, side=UiParam.RIGHT)
 <em># 在类型为Scroll的控件中向上滑动</em>。
-driver.swipe(UiParam.UP, area=BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"</span><span style="color: rgb(192,0,0);">Scroll</span><span style="color: rgb(192,0,0);">"</span>))
+driver.swipe(UiParam.UP, area=BY.type("Scroll"))
 ```
  
 
@@ -1267,7 +1267,7 @@ driver.swipe(UiParam.UP, area=BY.<span style="color: rgb(79,129,189);">type</spa
 **执行指定起始结束位置的精确滑动操作**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">slide</span></strong>(start: <strong>U</strong><strong>nion</strong>[ISelector, tuple], end: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, <span style="color: rgb(75,172,198);">t</span><span style="color: rgb(75,172,198);">uple</span>], area: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] = <span style="color: rgb(75,172,198);">None</span>, slide_time: <span style="color: rgb(75,172,198);">float</span> = 0.3)
+<strong>def slide</strong>(start: <strong>U</strong><strong>nion</strong>[ISelector, tuple], end: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, tuple], area: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] = None, slide_time: float = 0.3)
 ```
  
 **接口说明**
@@ -1288,13 +1288,13 @@ driver.swipe(UiParam.UP, area=BY.<span style="color: rgb(79,129,189);">type</spa
  
 ```text
 <em># 从类型为Slider的控件滑动到文本为最大的控件</em>
-driver.slide(BY.type(<span style="color: rgb(192,0,0);">"Slider"</span>), BY.text(<span style="color: rgb(192,0,0);">"最大"</span>))
+driver.slide(BY.type("Slider"), BY.text("最大"))
 <em># 从坐标100, 200滑动到300，400</em>
-driver.slide((<span style="color: rgb(75,172,198);">100, 200</span>), (<span style="color: rgb(75,172,198);">300, 400</span>))
+driver.slide((100, 200), (300, 400))
 <em># 从坐标100, 200滑动到300，400, 滑动时间为3秒</em>
-driver.slide((<span style="color: rgb(75,172,198);">100, 200</span>), (<span style="color: rgb(75,172,198);">300, 400</span>), slide_time=3)
+driver.slide((100, 200), (300, 400), slide_time=3)
 #<em> 在类型为Slider的控件上从(0, 0)滑动到(100, 0)</em>
-driver.slide((<span style="color: rgb(75,172,198);">0, 0</span>), (<span style="color: rgb(75,172,198);">100, 0</span>), area = BY.type(<span style="color: rgb(192,0,0);">"Slider</span><span style="color: rgb(192,0,0);">"</span>))
+driver.slide((0, 0), (100, 0), area = BY.type("Slider"))
 ```
  
 
@@ -1302,7 +1302,7 @@ driver.slide((<span style="color: rgb(75,172,198);">0, 0</span>), (<span style="
 **拖拽**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">drag</span></strong>(start: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[ISelector, <span style="color: rgb(75,172,198);">tuple</span>, IUiComponent], end: <span style="color: rgb(79,129,189);">Union</span>[ISelector, <span style="color: rgb(75,172,198);">tuple</span>, IUiComponent], area: <span style="color: rgb(79,129,189);">Union</span>[ISelector, IUiComponent] = <span style="color: rgb(75,172,198);">None</span>, press_time: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">1</span>, drag_time: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">1</span>)
+<strong>def drag</strong>(start: <strong>Union</strong>[ISelector, tuple, IUiComponent], end: Union[ISelector, tuple, IUiComponent], area: Union[ISelector, IUiComponent] = None, press_time: float = 1, drag_time: float = 1)
 ```
  
 **接口说明**
@@ -1323,17 +1323,17 @@ driver.slide((<span style="color: rgb(75,172,198);">0, 0</span>), (<span style="
 **使用示例**
  
 ```text
-<em># </em><em><span style="color: rgb(128,128,128);">拖拽文本为</span><span style="color: rgb(128,128,128);">"</span><span style="color: rgb(128,128,128);">文件</span><span style="color: rgb(128,128,128);">.txt"</span><span style="color: rgb(128,128,128);">的控件到文本为</span><span style="color: rgb(128,128,128);">"</span><span style="color: rgb(128,128,128);">上传文件</span><span style="color: rgb(128,128,128);">"</span><span style="color: rgb(128,128,128);">的控件</span></em>。
-driver.drag(BY.text(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">文件</span><span style="color: rgb(80,160,79);">.txt"</span>), BY.text(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">上传文件</span><span style="color: rgb(80,160,79);">"</span>))
-<em># </em><em><span style="color: rgb(128,128,128);">拖拽</span><span style="color: rgb(128,128,128);">id</span><span style="color: rgb(128,128,128);">为</span><span style="color: rgb(128,128,128);">"start_bar"</span><span style="color: rgb(128,128,128);">的控件到坐标</span><span style="color: rgb(128,128,128);">(100, 200)</span><span style="color: rgb(128,128,128);">的位置</span><span style="color: rgb(128,128,128);">, </span><span style="color: rgb(128,128,128);">拖拽时间为</span><span style="color: rgb(128,128,128);">2</span><span style="color: rgb(128,128,128);">秒</span></em>。
-driver.drag(BY.key(<span style="color: rgb(80,160,79);">"start_bar"</span>), (<span style="color: rgb(0,0,255);">100</span>, <span style="color: rgb(0,0,255);">200</span>), <span style="color: rgb(181,106,1);">drag_time</span>=<span style="color: rgb(0,0,255);">2</span>)
-<em># </em><em><span style="color: rgb(128,128,128);">在</span><span style="color: rgb(128,128,128);">id</span><span style="color: rgb(128,128,128);">为</span><span style="color: rgb(128,128,128);">"Canvas"</span><span style="color: rgb(128,128,128);">的控件上执行拖拽操作，从</span><span style="color: rgb(128,128,128);">"Canvas"</span><span style="color: rgb(128,128,128);">控件中</span><span style="color: rgb(128,128,128);">(0.1, </span><span style="color: rgb(128,128,128);">0.5)</span><span style="color: rgb(128,128,128);">的位置拖拽到</span><span style="color: rgb(128,128,128);">(0.9, 0.5)</span><span style="color: rgb(128,128,128);">位置。</span></em>
-<em><span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">假如</span><span style="color: rgb(128,128,128);">"Canvas"</span><span style="color: rgb(128,128,128);">控件左上角坐标</span><span style="color: rgb(128,128,128);">(100, 100), </span><span style="color: rgb(128,128,128);">宽度为</span><span style="color: rgb(128,128,128);">200</span><span style="color: rgb(128,128,128);">，高度为</span><span style="color: rgb(128,128,128);">50</span><span style="color: rgb(128,128,128);">，此操作等价于</span></em>
-<em><span style="color: rgb(128,128,128);"># driver.drag((100 + 0.1 * 200, 100 + 0.5 * 50), (100 + 0.9 * 200, 100 + 0.5 * 50))</span></em>。
-driver.drag((<span style="color: rgb(0,0,255);">0.1</span>, <span style="color: rgb(0,0,255);">0.5</span>), (<span style="color: rgb(0,0,255);">0.9</span>, <span style="color: rgb(0,0,255);">0.5</span>), <span style="color: rgb(181,106,1);">area</span>=BY.id(<span style="color: rgb(80,160,79);">"Canvas"</span>))
-<em># </em><em><span style="color: rgb(128,128,128);">在滑动条上执行拖拽操作</span><span style="color: rgb(128,128,128);">, </span><span style="color: rgb(128,128,128);">以滑动条组件左上角为原点</span><span style="color: rgb(128,128,128);">, </span><span style="color: rgb(128,128,128);">从滑动条区域中的</span><span style="color: rgb(128,128,128);">(10, 10)</span><span style="color: rgb(128,128,128);">拖拽到</span><span style="color: rgb(128,128,128);">(10, 200)</span><span style="color: rgb(128,128,128);">。</span></em>
-<em><span style="color: rgb(128,128,128);"># </span><span style="color: rgb(128,128,128);">假设滑动条左上角坐标为</span><span style="color: rgb(128,128,128);">(500, 500), </span><span style="color: rgb(128,128,128);">此操作等价于</span><span style="color: rgb(128,128,128);">driver.drag((500 + 10, 500 + 10), (500 + 10, 500 + 200))</span>。</em>
-driver.drag((<span style="color: rgb(0,0,255);">10</span>, <span style="color: rgb(0,0,255);">10</span>), (<span style="color: rgb(0,0,255);">10</span>, <span style="color: rgb(0,0,255);">200</span>), <span style="color: rgb(181,106,1);">area</span>=BY.type(<span style="color: rgb(80,160,79);">"Slider"</span>))
+<em># </em><em>拖拽文本为"文件.txt"的控件到文本为"上传文件"的控件</em>。
+driver.drag(BY.text("文件.txt"), BY.text("上传文件"))
+<em># </em><em>拖拽id为"start_bar"的控件到坐标(100, 200)的位置, 拖拽时间为2秒</em>。
+driver.drag(BY.key("start_bar"), (100, 200), drag_time=2)
+<em># </em><em>在id为"Canvas"的控件上执行拖拽操作，从"Canvas"控件中(0.1, 0.5)的位置拖拽到(0.9, 0.5)位置。</em>
+<em># 假如"Canvas"控件左上角坐标(100, 100), 宽度为200，高度为50，此操作等价于</em>
+<em># driver.drag((100 + 0.1 * 200, 100 + 0.5 * 50), (100 + 0.9 * 200, 100 + 0.5 * 50))</em>。
+driver.drag((0.1, 0.5), (0.9, 0.5), area=BY.id("Canvas"))
+<em># </em><em>在滑动条上执行拖拽操作, 以滑动条组件左上角为原点, 从滑动条区域中的(10, 10)拖拽到(10, 200)。</em>
+<em># 假设滑动条左上角坐标为(500, 500), 此操作等价于driver.drag((500 + 10, 500 + 10), (500 + 10, 500 + 200))。</em>
+driver.drag((10, 10), (10, 200), area=BY.type("Slider"))
 ```
  
 
@@ -1341,7 +1341,7 @@ driver.drag((<span style="color: rgb(0,0,255);">10</span>, <span style="color: r
 **捏合缩小**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">pinch_in</span></strong>(area: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[ISelector, IUiComponent, Rect], scale: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">0.4</span>, direction: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(192,0,0);">"diagonal"</span>, **kwargs)
+<strong>def pinch_in</strong>(area: <strong>Union</strong>[ISelector, IUiComponent, Rect], scale: float = 0.4, direction: str = "diagonal", **kwargs)
 ```
  
 **接口说明**
@@ -1362,9 +1362,9 @@ driver.drag((<span style="color: rgb(0,0,255);">10</span>, <span style="color: r
  
 ```text
 <em># 在类型为Image的控件上进行双指捏合缩小操作</em>。
-driver.pinch_in(BY.type(<span style="color: rgb(192,0,0);">"Image"</span>))
+driver.pinch_in(BY.type("Image"))
 <em># 在类型为Image的控件上进行双指捏合缩小操作, 设置水平方向捏合</em>。
-driver.pinch_in(BY.type(<span style="color: rgb(192,0,0);">"Image"</span>), direction=<span style="color: rgb(192,0,0);">"horizontal"</span>)
+driver.pinch_in(BY.type("Image"), direction="horizontal")
 ```
  
 
@@ -1372,7 +1372,7 @@ driver.pinch_in(BY.type(<span style="color: rgb(192,0,0);">"Image"</span>), dire
 **双指放大**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">pinch_out</span></strong>(area: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent, Rect], scale: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">1.6</span>, direction:<span style="color: rgb(79,129,189);"> str</span> = <span style="color: rgb(192,0,0);">"diagonal"</span>, **kwargs)
+<strong>def pinch_out</strong>(area: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent, Rect], scale: float = 1.6, direction: str = "diagonal", **kwargs)
 ```
  
 **接口说明**
@@ -1393,9 +1393,9 @@ driver.pinch_in(BY.type(<span style="color: rgb(192,0,0);">"Image"</span>), dire
  
 ```text
 <em># 在类型为Image的控件上进行双指放大操作</em>。
-driver.pinch_out(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Image"</span>))
+driver.pinch_out(BY.type("Image"))
 <em># 在类型为Image的控件上进行双指捏合缩小操作, 设置水平方向捏合</em>。
-driver.pinch_out(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Image"</span>), direction=<span style="color: rgb(192,0,0);">"horizontal"</span>)
+driver.pinch_out(BY.type("Image"), direction="horizontal")
 ```
  
 
@@ -1403,7 +1403,7 @@ driver.pinch_out(BY.<span style="color: rgb(79,129,189);">type</span>(<span styl
 **双指滑动**
  
 ```text
-def <span style="color: rgb(192,0,0);">two_finger_swipe</span>(start1: <span style="color: rgb(79,129,189);">tuple</span>, end1: <span style="color: rgb(79,129,189);">tuple</span>, start2: <span style="color: rgb(79,129,189);">tuple</span>, end2: <span style="color: rgb(79,129,189);">tuple</span>, duration: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">0.5</span>, area: Rect = <span style="color: rgb(75,172,198);">None</span>)
+def two_finger_swipe(start1: tuple, end1: tuple, start2: tuple, end2: tuple, duration: float = 0.5, area: Rect = None)
 ```
  
 **接口说明**
@@ -1426,13 +1426,13 @@ def <span style="color: rgb(192,0,0);">two_finger_swipe</span>(start1: <span sty
  
 ```text
 <em># 执行双指滑动操作, 手指1从(0.4, 0.4)滑动到(0.2, 0.2), 手指2从(0.6, 0.6)滑动到(0.8, 0.8)。</em>
-driver.two_finger_swipe((<span style="color: rgb(75,172,198);">0.4</span>, <span style="color: rgb(75,172,198);">0.4</span>), (<span style="color: rgb(75,172,198);">0.2</span>, <span style="color: rgb(75,172,198);">0.2</span>), (<span style="color: rgb(75,172,198);">0.6, 0.6</span>), (<span style="color: rgb(75,172,198);">0.8, 0.8</span>))
+driver.two_finger_swipe((0.4, 0.4), (0.2, 0.2), (0.6, 0.6), (0.8, 0.8))
 <em># 执行双指滑动操作, 手指1从(0.4, 0.4)滑动到(0.2, 0.2), 手指2从(0.6, 0.6)滑动到(0.8, 0.8), 持续时间3秒。</em>
-driver.two_finger_swipe((<span style="color: rgb(75,172,198);">0.4, 0.4</span>), (<span style="color: rgb(75,172,198);">0.2, 0.2</span>), (<span style="color: rgb(75,172,198);">0.6, 0.6</span>), (<span style="color: rgb(75,172,198);">0.8, 0.8</span>), duration=<span style="color: rgb(79,129,189);">3</span>)
+driver.two_finger_swipe((0.4, 0.4), (0.2, 0.2), (0.6, 0.6), (0.8, 0.8), duration=3)
 <em># 查找Image类型控件。</em>
-comp = driver.find_component(BY.<span style="color: rgb(75,172,198);">type</span>(<span style="color: rgb(192,0,0);">"Image"</span>))
+comp = driver.find_component(BY.type("Image"))
 <em># 在指定的控件区域内执行双指滑动(滑动起始/停止坐标为控件区域内的比例坐标)。</em>
-driver.two_finger_swipe((<span style="color: rgb(75,172,198);">0.4, 0.4</span>), (<span style="color: rgb(75,172,198);">0.1, 0.1</span>), (<span style="color: rgb(75,172,198);">0.6, 0.6</span>), (<span style="color: rgb(75,172,198);">0.9, 0.9</span>), area=comp.getBounds())
+driver.two_finger_swipe((0.4, 0.4), (0.1, 0.1), (0.6, 0.6), (0.9, 0.9), area=comp.getBounds())
 ```
  
 
@@ -1440,7 +1440,7 @@ driver.two_finger_swipe((<span style="color: rgb(75,172,198);">0.4, 0.4</span>),
 **自定路径滑动手势（单指）**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">inject_gesture</span></strong>(gesture: Gesture, speed: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">2000</span>)
+<strong>def inject_gesture</strong>(gesture: Gesture, speed: int = 2000)
 ```
  
 **接口说明**
@@ -1463,19 +1463,19 @@ from hypium.uidriver import Gesture
 <em># 创建一个gesture对象</em>。
 gesture = Gesture()
 <em># 获取控件计算器的位置</em>。
-pos = driver.findComponent(BY.text(<span style="color: rgb(192,0,0);">"计算器"</span>)).getBoundsCenter()
+pos = driver.findComponent(BY.text("计算器")).getBoundsCenter()
 # 获取屏幕尺寸。
 size = driver.getDisplaySize()
 <em># 起始位置, 长按2秒</em>。
-gesture.start(pos.to_tuple(), <span style="color: rgb(75,172,198);">2</span>)
+gesture.start(pos.to_tuple(), 2)
 <em># 移动到屏幕边缘</em>。
-gesture.move_to(Point(size.X - <span style="color: rgb(75,172,198);">20</span>, <span style="color: rgb(79,129,189);">int</span>(size.Y /<span style="color: rgb(75,172,198);"> 2</span>)).to_tuple())
+gesture.move_to(Point(size.X - 20, int(size.Y / 2)).to_tuple())
 <em># 停留2秒</em>。
-gesture.pause(<span style="color: rgb(75,172,198);">2</span>)
+gesture.pause(2)
 <em># 移动到(360, 500)的位置</em>。
-gesture.move_to(Point(<span style="color: rgb(75,172,198);">360, 500</span>).to_tuple())
+gesture.move_to(Point(360, 500).to_tuple())
 <em># 停留2秒结束</em>。
-gesture.pause(<span style="color: rgb(75,172,198);">2</span>)
+gesture.pause(2)
 <em># 执行gesture对象描述的操作</em>。
 driver.inject_gesture(gesture)
 ```
@@ -1485,7 +1485,7 @@ driver.inject_gesture(gesture)
 **自定路径滑动手势(多指)**
  
 ```text
-def <span style="color: rgb(192,0,0);">inject_multi_finger_gesture</span>(gestures: <span style="color: rgb(79,129,189);">List</span>[Gesture], speed: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">6000</span>)
+def inject_multi_finger_gesture(gestures: List[Gesture], speed: int = 6000)
 ```
  
 **接口说明**
@@ -1505,9 +1505,9 @@ def <span style="color: rgb(192,0,0);">inject_multi_finger_gesture</span>(gestur
 ```text
 from hypium.uidriver import Gesture
 <em># 创建手指1的手势, 从(0.4, 0.4)的位置移动到(0.2, 0.2)的位置。</em>
-gesture1 = Gesture().start((<span style="color: rgb(75,172,198);">0.4, 0.4</span>)).move_to((<span style="color: rgb(75,172,198);">0.2, 0.2</span>), interval=<span style="color: rgb(75,172,198);">1</span>)
+gesture1 = Gesture().start((0.4, 0.4)).move_to((0.2, 0.2), interval=1)
 <em># 创建手指2的手势, 从(0.6, 0.6)的位置移动到(0.8, 0.8)的位置。</em>
-gesture2 = Gesture().start((<span style="color: rgb(75,172,198);">0.6, 0.6</span>)).move_to((<span style="color: rgb(75,172,198);">0.8, 0.8</span>), interval=<span style="color: rgb(75,172,198);">1</span>)
+gesture2 = Gesture().start((0.6, 0.6)).move_to((0.8, 0.8), interval=1)
 <em># 注入多指操作。</em>
 driver.inject_multi_finger_gesture((gesture1, gesture2))
 ```
@@ -1519,7 +1519,7 @@ driver.inject_multi_finger_gesture((gesture1, gesture2))
 **鼠标点击**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">mouse_click</span></strong>(pos: <strong style="color: rgb(79,129,189);">Union</strong>[<span style="color: rgb(75,172,198);">tuple</span>, IUiComponent, ISelector], button_id: MouseButton = MouseButton.MOUSE_BUTTON_LEFT, key1: Union[KeyCode, <span style="color: rgb(79,129,189);">int</span>] = <span style="color: rgb(75,172,198);">None</span>, key2: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[KeyCode, <span style="color: rgb(79,129,189);">int</span>] = <span style="color: rgb(75,172,198);">None</span>)
+<strong>def mouse_click</strong>(pos: <strong style="color: rgb(79,129,189);">Union</strong>[tuple, IUiComponent, ISelector], button_id: MouseButton = MouseButton.MOUSE_BUTTON_LEFT, key1: Union[KeyCode, int] = None, key2: <strong>Union</strong>[KeyCode, int] = None)
 ```
  
 **接口说明**
@@ -1540,11 +1540,11 @@ driver.inject_multi_finger_gesture((gesture1, gesture2))
  
 ```text
 <em># 使用鼠标左键点击(100, 200)的位置</em>。
-driver.mouse_click((<span style="color: rgb(75,172,198);">100</span>,<span style="color: rgb(75,172,198);"> 200</span>), MouseButton.MOUSE_BUTTON_LEFT)
+driver.mouse_click((100, 200), MouseButton.MOUSE_BUTTON_LEFT)
 <em># 使用鼠标右键点击文本为"确认"的控件</em>。
-driver.mouse_click(BY.text(<span style="color: rgb(192,0,0);">"确认"</span>), MouseButton.MOUSE_BUTTON_RIGHT)
+driver.mouse_click(BY.text("确认"), MouseButton.MOUSE_BUTTON_RIGHT)
 <em># 使用鼠标右键点击比例坐标(0.8, 0.5)的位置</em>。
-driver.mouse_click((<span style="color: rgb(75,172,198);">0.8, 0.5</span>), MouseButton.MOUSE_BUTTON_RIGHT)
+driver.mouse_click((0.8, 0.5), MouseButton.MOUSE_BUTTON_RIGHT)
 ```
  
 
@@ -1552,7 +1552,7 @@ driver.mouse_click((<span style="color: rgb(75,172,198);">0.8, 0.5</span>), Mous
 **鼠标拖拽**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">mouse_drag</span></strong>(start: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[<span style="color: rgb(79,129,189);">tuple</span>, IUiComponent, ISelector], end: <strong>Union</strong>[<span style="color: rgb(79,129,189);">tuple</span>, IUiComponent, ISelector], speed: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">3000</span>)
+<strong>def mouse_drag</strong>(start: <strong>Union</strong>[tuple, IUiComponent, ISelector], end: <strong>Union</strong>[tuple, IUiComponent, ISelector], speed: int = 3000)
 ```
  
 **接口说明**
@@ -1572,7 +1572,7 @@ driver.mouse_click((<span style="color: rgb(75,172,198);">0.8, 0.5</span>), Mous
  
 ```text
 <em># 鼠标从控件1拖拽到控件2</em>。
-driver.mouse_drag(BY.text(<span style="color: rgb(192,0,0);">"控件1"</span>), BY.text(<span style="color: rgb(192,0,0);">"控件2"</span>))
+driver.mouse_drag(BY.text("控件1"), BY.text("控件2"))
 ```
  
 
@@ -1580,7 +1580,7 @@ driver.mouse_drag(BY.text(<span style="color: rgb(192,0,0);">"控件1"</span>), 
 **鼠标移动**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">mouse_move</span></strong>(start: <strong style="color: rgb(79,129,189);">Union</strong>[<span style="color: rgb(75,172,198);">tuple</span>, IUiComponent, ISelector], end: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[<span style="color: rgb(75,172,198);">tuple</span>, IUiComponent, ISelector], speed: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">3000</span>)
+<strong>def mouse_move</strong>(start: <strong style="color: rgb(79,129,189);">Union</strong>[tuple, IUiComponent, ISelector], end: <strong>Union</strong>[tuple, IUiComponent, ISelector], speed: int = 3000)
 ```
  
 **接口说明**
@@ -1600,7 +1600,7 @@ driver.mouse_drag(BY.text(<span style="color: rgb(192,0,0);">"控件1"</span>), 
  
 ```text
 <em># 鼠标从控件1移动到控件2</em>。
-driver.mouse_move(BY.text(<span style="color: rgb(192,0,0);">"控件1"</span>), BY.text(<span style="color: rgb(192,0,0);">"控件2"</span>))
+driver.mouse_move(BY.text("控件1"), BY.text("控件2"))
 ```
  
 
@@ -1608,7 +1608,7 @@ driver.mouse_move(BY.text(<span style="color: rgb(192,0,0);">"控件1"</span>), 
 **按键**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">press_key</span></strong>(key_code: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[KeyCode, <span style="color: rgb(79,129,189);">int</span>], key_code2: <strong style="color: rgb(79,129,189);">Union</strong>[KeyCode, <span style="color: rgb(79,129,189);">int</span>] = <span style="color: rgb(75,172,198);">None</span>, mode=<span style="color: rgb(192,0,0);">"normal"</span>)
+<strong>def press_key</strong>(key_code: <strong>Union</strong>[KeyCode, int], key_code2: <strong style="color: rgb(79,129,189);">Union</strong>[KeyCode, int] = None, mode="normal")
 ```
  
 **接口说明**
@@ -1640,7 +1640,7 @@ driver.press_key(KeyCode.VOLUME_DOWN)
 **按组合键**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">press_combination_key</span></strong>(key1: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[KeyCode,<span style="color: rgb(79,129,189);"> int</span>], key2: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[KeyCode, <span style="color: rgb(79,129,189);">int]</span>, key3: <strong style="color: rgb(79,129,189);">Union</strong>[KeyCode,<span style="color: rgb(79,129,189);"> int</span>] = <span style="color: rgb(75,172,198);">None</span>)
+<strong>def press_combination_key</strong>(key1: <strong>Union</strong>[KeyCode, int], key2: <strong>Union</strong>[KeyCode, int], key3: <strong style="color: rgb(79,129,189);">Union</strong>[KeyCode, int] = None)
 ```
  
 **接口说明**
@@ -1673,7 +1673,7 @@ driver.press_combination_key(KeyCode.CTRL_LEFT, KeyCode.SHIFT_LEFT, KeyCode.F)
 **hdc命令执行**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">hdc</span></strong>(cmd, timeout: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">60</span>) -> <span style="color: rgb(79,129,189);">str</span>
+<strong>def hdc</strong>(cmd, timeout: float = 60) -> str
 ```
  
 **接口说明**
@@ -1696,9 +1696,9 @@ driver.press_combination_key(KeyCode.CTRL_LEFT, KeyCode.SHIFT_LEFT, KeyCode.F)
  
 ```text
 <em># 执行hdc命令list targets</em>。
-echo = driver.hdc(<span style="color: rgb(192,0,0);">"list targets"</span>)
+echo = driver.hdc("list targets")
 <em># 执行hdc命令hilog, 设置30秒超时</em>。
-echo = driver.hdc(<span style="color: rgb(192,0,0);">"hilog"</span>, timeout = <span style="color: rgb(75,172,198);">30</span>)
+echo = driver.hdc("hilog", timeout = 30)
 ```
  
 
@@ -1706,7 +1706,7 @@ echo = driver.hdc(<span style="color: rgb(192,0,0);">"hilog"</span>, timeout = <
 **设备侧shell命令执行**
  
 ```bash
-<strong>def <span style="color: rgb(192,0,0);">shell</span></strong>(cmd: <span style="color: rgb(79,129,189);">str</span>, timeout: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">60</span>) -> <span style="color: rgb(79,129,189);">str</span>
+<strong>def shell</strong>(cmd: str, timeout: float = 60) -> str
 ```
  
 **接口说明**
@@ -1729,9 +1729,9 @@ echo = driver.hdc(<span style="color: rgb(192,0,0);">"hilog"</span>, timeout = <
  
 ```bash
 <em># 在设备shell中执行命令ls -l。</em>
-echo = driver.shell(<span style="color: rgb(192,0,0);">"ls -l"</span>)
+echo = driver.shell("ls -l")
 <em># 在设备shell中执行命令top, 设置10秒超时时间。</em>
-echo = driver.shell(<span style="color: rgb(192,0,0);">"top"</span>, timeout=<span style="color: rgb(75,172,198);">10</span>)
+echo = driver.shell("top", timeout=10)
 ```
  
 
@@ -1739,7 +1739,7 @@ echo = driver.shell(<span style="color: rgb(192,0,0);">"top"</span>, timeout=<sp
 **PC侧shell命令执行**
  
 ```bash
-<strong>def <span style="color: rgb(192,0,0);">shell</span></strong>(cmd: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[<span style="color: rgb(79,129,189);">str</span>, <span style="color: rgb(79,129,189);">list</span>], timeout: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">300</span>) -> <span style="color: rgb(79,129,189);">str</span>
+<strong>def shell</strong>(cmd: <strong>Union</strong>[str, list], timeout: float = 300) -> str
 ```
  
 **接口说明**
@@ -1758,9 +1758,9 @@ echo = driver.shell(<span style="color: rgb(192,0,0);">"top"</span>, timeout=<sp
  
 ```bash
 <em># 在PC端执行dir命令</em>。
-echo = host.shell(<span style="color: rgb(192,0,0);">"dir"</span>)
+echo = host.shell("dir")
 <em># 在PC端执行netstat命令读取回显结果, 设置超时时间为10秒</em>。
-echo = host.shell(<span style="color: rgb(192,0,0);">"netstat"</span>, timeout=<span style="color: rgb(75,172,198);">10</span>)
+echo = host.shell("netstat", timeout=10)
 ```
  
 
@@ -1771,7 +1771,7 @@ echo = host.shell(<span style="color: rgb(192,0,0);">"netstat"</span>, timeout=<
 **安装应用**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">install_app</span></strong>(package_path: <span style="color: rgb(79,129,189);">str</span>, options: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(192,0,0);">""</span>, **kwargs)
+<strong>def install_app</strong>(package_path: str, options: str = "", **kwargs)
 ```
  
 **接口说明**
@@ -1790,9 +1790,9 @@ echo = host.shell(<span style="color: rgb(192,0,0);">"netstat"</span>, timeout=<
  
 ```text
 <em># 安装路径为test.hap的安装包到手机</em>。
-driver.install_app(<span style="color: rgb(192,0,0);">r"test.hap"</span>)
+driver.install_app(r"test.hap")
 <em># 替换安装路径为test.hap的安装包到手机(增加-r参数指定替换安装)</em>。
-driver.install_app(<span style="color: rgb(192,0,0);">r"test.hap"</span>, <span style="color: rgb(192,0,0);">"-r"</span>)
+driver.install_app(r"test.hap", "-r")
 ```
  
 
@@ -1800,7 +1800,7 @@ driver.install_app(<span style="color: rgb(192,0,0);">r"test.hap"</span>, <span 
 **卸载应用**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">uninstall_app</span></strong>(package_name: <span style="color: rgb(79,129,189);">str</span>, **kwargs)
+<strong>def uninstall_app</strong>(package_name: str, **kwargs)
 ```
  
 **接口说明**
@@ -1818,7 +1818,7 @@ driver.install_app(<span style="color: rgb(192,0,0);">r"test.hap"</span>, <span 
  
 ```text
 <em># 卸载包名为com.test.myapp的应用</em>。
-<strong>driver.<span style="color: rgb(192,0,0);">uninstall_app</span></strong>(<span style="color: rgb(192,0,0);">"com.test.myapp"</span>)
+<strong>driver.uninstall_app</strong>("com.test.myapp")
 ```
  
 
@@ -1826,7 +1826,7 @@ driver.install_app(<span style="color: rgb(192,0,0);">r"test.hap"</span>, <span 
 **清除应用缓存数据**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">clear_app_data</span></strong>(package_name: <span style="color: rgb(79,129,189);">str</span>)
+<strong>def clear_app_data</strong>(package_name: str)
 ```
  
 **接口说明**
@@ -1844,7 +1844,7 @@ driver.install_app(<span style="color: rgb(192,0,0);">r"test.hap"</span>, <span 
  
 ```text
 <em># 清除包名为com.test.myapp的应用的缓存数据</em>。
-driver.clear_app_data(<span style="color: rgb(192,0,0);">"com.test.myapp"</span>)
+driver.clear_app_data("com.test.myapp")
 ```
  
 
@@ -1852,7 +1852,7 @@ driver.clear_app_data(<span style="color: rgb(192,0,0);">"com.test.myapp"</span>
 **启动应用**
  
 ```text
-def <strong><span style="color: rgb(192,0,0);">start_app</span></strong>(package_name: <span style="color: rgb(79,129,189);">str</span>, page_name: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(75,172,198);">None</span>, params: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(192,0,0);">""</span>, wait_time: float = 1)
+def <strong>start_app</strong>(package_name: str, page_name: str = None, params: str = "", wait_time: float = 1)
 ```
  
 **接口说明**
@@ -1873,7 +1873,7 @@ def <strong><span style="color: rgb(192,0,0);">start_app</span></strong>(package
  
 ```text
 <em># 启动浏览器</em>。
-driver.start_app(<span style="color: rgb(192,0,0);">"com.huawei.hmos.browser"</span>, <span style="color: rgb(192,0,0);">"MainAbility"</span>)
+driver.start_app("com.huawei.hmos.browser", "MainAbility")
 ```
  
 
@@ -1881,7 +1881,7 @@ driver.start_app(<span style="color: rgb(192,0,0);">"com.huawei.hmos.browser"</s
 **停止应用**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">stop_app</span></strong>(package_name:<span style="color: rgb(79,129,189);"> str</span>, wait_time:<span style="color: rgb(79,129,189);"> float</span> = <span style="color: rgb(75,172,198);">0.5</span>)
+<strong>def stop_app</strong>(package_name: str, wait_time: float = 0.5)
 ```
  
 **接口说明**
@@ -1900,7 +1900,7 @@ driver.start_app(<span style="color: rgb(192,0,0);">"com.huawei.hmos.browser"</s
  
 ```text
 <em># 停止包名为com.huawei.hmos.settings</em>的应用。
-driver.stop_app(<span style="color: rgb(192,0,0);">"com.huawei.hmos.settings"</span>)
+driver.stop_app("com.huawei.hmos.settings")
 ```
  
 
@@ -1911,7 +1911,7 @@ driver.stop_app(<span style="color: rgb(192,0,0);">"com.huawei.hmos.settings"</s
 **拉取文件**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">pull_file</span></strong>(device_path: <span style="color: rgb(79,129,189);">str</span>, local_path:<span style="color: rgb(79,129,189);"> str</span> = <span style="color: rgb(75,172,198);">None</span>, timeout: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">60</span>)
+<strong>def pull_file</strong>(device_path: str, local_path: str = None, timeout: int = 60)
 ```
  
 **接口说明**
@@ -1931,7 +1931,7 @@ driver.stop_app(<span style="color: rgb(192,0,0);">"com.huawei.hmos.settings"</s
  
 ```text
 <em># 从设备中拉取文件"/data/local/tmp/test.log"保存到PC端的test.log</em>。
-driver.pull_file(<span style="color: rgb(192,0,0);">"/data/local/tmp/test.log"</span>, <span style="color: rgb(192,0,0);">"test.log"</span>)
+driver.pull_file("/data/local/tmp/test.log", "test.log")
 ```
  
 
@@ -1939,7 +1939,7 @@ driver.pull_file(<span style="color: rgb(192,0,0);">"/data/local/tmp/test.log"</
 **推送文件**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">push_file</span></strong>(local_path: <span style="color: rgb(79,129,189);">str</span>, device_path: <span style="color: rgb(79,129,189);">str</span>, timeout: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">60</span>)
+<strong>def push_file</strong>(local_path: str, device_path: str, timeout: int = 60)
 ```
  
 **接口说明**
@@ -1959,7 +1959,7 @@ driver.pull_file(<span style="color: rgb(192,0,0);">"/data/local/tmp/test.log"</
  
 ```text
 <em># 从PC端推送文件test.hap保存到设备端的"/data/local/tmp/test.hap"</em>。
-driver.push_file(<span style="color: rgb(192,0,0);">"test.hap"</span>,<span style="color: rgb(192,0,0);"> "/data/local/tmp/test.hap"</span>)
+driver.push_file("test.hap", "/data/local/tmp/test.hap")
 ```
  
 
@@ -1967,7 +1967,7 @@ driver.push_file(<span style="color: rgb(192,0,0);">"test.hap"</span>,<span styl
 **查询文件是否存在**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">has_file</span></strong>(file_path: <span style="color: rgb(79,129,189);">str</span>) -><span style="color: rgb(79,129,189);"> bool</span>
+<strong>def has_file</strong>(file_path: str) -> bool
 ```
  
 **接口说明**
@@ -1985,7 +1985,7 @@ driver.push_file(<span style="color: rgb(192,0,0);">"test.hap"</span>,<span styl
  
 ```text
 <em># 查询设备端是否存在文件/data/local/tmp/test_file.txt</em>。
-driver.has_file(<span style="color: rgb(192,0,0);">"/data/local/tmp/test_file.txt"</span>)
+driver.has_file("/data/local/tmp/test_file.txt")
 ```
  
 
@@ -1996,7 +1996,7 @@ driver.has_file(<span style="color: rgb(192,0,0);">"/data/local/tmp/test_file.tx
 **输入文本**
  
 ```text
-<span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">input_text</span>(component: Union[ISelector, IUiComponent, <span style="color: rgb(0,0,255);">tuple</span>], text: <span style="color: rgb(0,0,255);">str</span>, mode: InputTextMode = <span style="color: rgb(181,106,1);">None</span>):
+def input_text(component: Union[ISelector, IUiComponent, tuple], text: str, mode: InputTextMode = None):
 ```
  
 **接口说明**
@@ -2015,14 +2015,14 @@ driver.has_file(<span style="color: rgb(192,0,0);">"/data/local/tmp/test_file.tx
 使用示例
  
 ```text
-<span style="color: rgb(181,106,1);">from </span>hypium <span style="color: rgb(181,106,1);">import </span>BY
-<span style="color: rgb(181,106,1);">from </span>hypium.model <span style="color: rgb(181,106,1);">import </span>InputTextMode
-<em># </em><em><span style="color: rgb(128,128,128);">在类型为</span><span style="color: rgb(128,128,128);">"TextInput"</span><span style="color: rgb(128,128,128);">的控件中输入文本</span><span style="color: rgb(128,128,128);">"hello world"</span>。</em>
-driver.input_text(BY.type(<span style="color: rgb(80,160,79);">"TextInput"</span>), <span style="color: rgb(80,160,79);">"hello world"</span>)
-<em># </em><em><span style="color: rgb(128,128,128);">在类型为</span><span style="color: rgb(128,128,128);">"TextInput"</span><span style="color: rgb(128,128,128);">的控件中使用剪切板一次性输入文本</span><span style="color: rgb(128,128,128);">"hello world"</span>。</em>
-driver.input_text(BY.type(<span style="color: rgb(80,160,79);">"TextInput"</span>), <span style="color: rgb(80,160,79);">"hello world"</span>, <span style="color: rgb(181,106,1);">mode</span>=InputTextMode().paste(<span style="color: rgb(181,106,1);">True</span>))
-<em># </em><em><span style="color: rgb(128,128,128);">在类型为</span><span style="color: rgb(128,128,128);">"TextInput"</span><span style="color: rgb(128,128,128);">的控件中使用剪切板一次性并追加输入文本</span><span style="color: rgb(128,128,128);">"hello world"</span>。</em>
-driver.input_text(BY.type(<span style="color: rgb(80,160,79);">"TextInput"</span>), <span style="color: rgb(80,160,79);">"hello world"</span>, <span style="color: rgb(181,106,1);">mode</span>=InputTextMode().paste(<span style="color: rgb(181,106,1);">True</span>).addition(<span style="color: rgb(181,106,1);">True</span>))
+from hypium import BY
+from hypium.model import InputTextMode
+<em># </em><em>在类型为"TextInput"的控件中输入文本"hello world"。</em>
+driver.input_text(BY.type("TextInput"), "hello world")
+<em># </em><em>在类型为"TextInput"的控件中使用剪切板一次性输入文本"hello world"。</em>
+driver.input_text(BY.type("TextInput"), "hello world", mode=InputTextMode().paste(True))
+<em># </em><em>在类型为"TextInput"的控件中使用剪切板一次性并追加输入文本"hello world"。</em>
+driver.input_text(BY.type("TextInput"), "hello world", mode=InputTextMode().paste(True).addition(True))
 ```
  
 
@@ -2030,7 +2030,7 @@ driver.input_text(BY.type(<span style="color: rgb(80,160,79);">"TextInput"</span
 **清除文本**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">clear_text</span></strong>(component: [ISelector, IUiComponent])
+<strong>def clear_text</strong>(component: [ISelector, IUiComponent])
 ```
  
 **接口说明**
@@ -2048,7 +2048,7 @@ driver.input_text(BY.type(<span style="color: rgb(80,160,79);">"TextInput"</span
  
 ```text
 <em># 清除类型为"InputText"的控件中的内容</em>。
-driver.clear_text(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"InputText"</span>))
+driver.clear_text(BY.type("InputText"))
 ```
  
 
@@ -2061,7 +2061,7 @@ driver.clear_text(BY.<span style="color: rgb(79,129,189);">type</span>(<span sty
 **检查是否相等**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">check_equal</span></strong>(value: <strong style="color: rgb(79,129,189);">Any</strong>, expect: <strong style="color: rgb(79,129,189);">Any</strong> = <span style="color: rgb(75,172,198);">True</span>, fail_msg: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(75,172,198);">None</span>, expect_equal=<span style="color: rgb(75,172,198);">True</span>)
+<strong>def check_equal</strong>(value: <strong style="color: rgb(79,129,189);">Any</strong>, expect: <strong style="color: rgb(79,129,189);">Any</strong> = True, fail_msg: str = None, expect_equal=True)
 ```
  
 **接口说明**
@@ -2089,7 +2089,7 @@ host.check_equal(a, b, "a != b")
 **检查是否超过预期值**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">check_greater</span></strong>(value: <strong style="color: rgb(79,129,189);">Any</strong>, expect: <strong><span style="color: rgb(79,129,189);">Any</span></strong>, fail_msg: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(75,172,198);">None</span>)
+<strong>def check_greater</strong>(value: <strong style="color: rgb(79,129,189);">Any</strong>, expect: <strong>Any</strong>, fail_msg: str = None)
 ```
  
 **接口说明**
@@ -2119,7 +2119,7 @@ host.check_greater(a, b)
 **检查控件是否存在**
  
 ```text
-<strong>d</strong><strong>ef <span style="color: rgb(192,0,0);">check_component_exist</span></strong>(component: ISelector, expect_exist: <span style="color: rgb(79,129,189);">bool</span> = <span style="color: rgb(75,172,198);">True</span>, wait_time: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">0</span>, scroll_target: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] =<span style="color: rgb(75,172,198);"> None</span>)
+<strong>d</strong><strong>ef check_component_exist</strong>(component: ISelector, expect_exist: bool = True, wait_time: int = 0, scroll_target: <strong style="color: rgb(79,129,189);">Union</strong>[ISelector, IUiComponent] = None)
 ```
  
 **接口说明**
@@ -2140,13 +2140,13 @@ host.check_greater(a, b)
  
 ```text
 <em># 检查类型为Button的控件存在</em>。
-driver.check_component_exist(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Button"</span>))
+driver.check_component_exist(BY.type("Button"))
 <em># 检查类型为Button的控件存在，如果不存在等待最多5秒</em>。
-driver.check_component_exist(BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Button"</span>), wait_time=<span style="color: rgb(75,172,198);">5</span>)
+driver.check_component_exist(BY.type("Button"), wait_time=5)
 <em># 在类型为Scroll的控件上滚动检查文本为"hello"的控件存在</em>。
-driver.check_component_exist(BY.text(<span style="color: rgb(192,0,0);">"hello"</span>), scroll_target=BY.<span style="color: rgb(79,129,189);">type</span>(<span style="color: rgb(192,0,0);">"Scroll"</span>))
+driver.check_component_exist(BY.text("hello"), scroll_target=BY.type("Scroll"))
 <em># 检查文本为确认的控件不存在</em>。
-driver.check_component_exist(BY.text(<span style="color: rgb(192,0,0);">"确认"</span>), expect_exist=<span style="color: rgb(75,172,198);">False</span>)
+driver.check_component_exist(BY.text("确认"), expect_exist=False)
 ```
  
 
@@ -2154,7 +2154,7 @@ driver.check_component_exist(BY.text(<span style="color: rgb(192,0,0);">"确认"
 **检查控件属性**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">check_component</span></strong>(component: <strong><span style="color: rgb(79,129,189);">Union</span></strong>[ISelector, IUiComponent], expected_equal: <span style="color: rgb(79,129,189);">bool</span> = <span style="color: rgb(75,172,198);">True</span>, **kwargs)
+<strong>def check_component</strong>(component: <strong>Union</strong>[ISelector, IUiComponent], expected_equal: bool = True, **kwargs)
 ```
  
 **接口说明**
@@ -2174,13 +2174,13 @@ driver.check_component_exist(BY.text(<span style="color: rgb(192,0,0);">"确认"
  
 ```text
 <em># 检查id为xxx的控件的checked属性为True</em>。
-driver.check_component(BY.key(<span style="color: rgb(192,0,0);">"xxx"</span>), checked=<span style="color: rgb(75,172,198);">True</span>)
+driver.check_component(BY.key("xxx"), checked=True)
 <em># 检查id为check_button的按钮enabled属性为True</em>。
-driver.check_component(BY.key(<span style="color: rgb(192,0,0);">"checked_button"</span>), enabled=<span style="color: rgb(75,172,198);">True</span>)
+driver.check_component(BY.key("checked_button"), enabled=True)
 <em># 检查id为container的控件文本内容为“正在检查</em>”。
-driver.check_component(BY.key(<span style="color: rgb(192,0,0);">"container"</span>), text=<span style="color: rgb(192,0,0);">"正在检查"</span>)
+driver.check_component(BY.key("container"), text="正在检查")
 <em># 检查id为container的控件文本内容不为空</em>。
-driver.check_component(BY.key(<span style="color: rgb(192,0,0);">"container"</span>), text=<span style="color: rgb(192,0,0);">""</span>, expect_equal=<span style="color: rgb(75,172,198);">False</span>)
+driver.check_component(BY.key("container"), text="", expect_equal=False)
 ```
  
 
@@ -2188,7 +2188,7 @@ driver.check_component(BY.key(<span style="color: rgb(192,0,0);">"container"</sp
 **检查图片是否存在**
  
 ```text
-def <span style="color: rgb(192,0,0);">check_image_exist</span>(image_path_pc: <span style="color: rgb(79,129,189);">str</span>, expect_exist: <span style="color: rgb(79,129,189);">bool</span> = <span style="color: rgb(75,172,198);">True</span>, similarity: <span style="color: rgb(79,129,189);">float</span> = <span style="color: rgb(75,172,198);">0.95</span>, timeout: <span style="color: rgb(79,129,189);">int</span> = <span style="color: rgb(75,172,198);">3</span>, mode="<span style="color: rgb(192,80,77);">template</span>", **kwargs)
+def check_image_exist(image_path_pc: str, expect_exist: bool = True, similarity: float = 0.95, timeout: int = 3, mode="template", **kwargs)
 ```
  
 **接口说明**
@@ -2211,15 +2211,15 @@ def <span style="color: rgb(192,0,0);">check_image_exist</span>(image_path_pc: <
  
 ```text
 <em># 检查图片存在。</em>
-driver.check_image_exist(<span style="color: rgb(192,0,0);">"test.jpeg"</span>)
+driver.check_image_exist("test.jpeg")
 <em># 检查图片不存在。</em>
-driver.check_image_exist(<span style="color: rgb(192,0,0);">"test.jpeg"</span>, expect_exist=<span style="color: rgb(75,172,198);">False</span>)
+driver.check_image_exist("test.jpeg", expect_exist=False)
 <em># 检查图片存在, 图片相似度要求95%, 重复检查时间5秒。</em>
-driver.check_image_exist(<span style="color: rgb(192,0,0);">"test.jpeg"</span>, timeout=<span style="color: rgb(75,172,198);">5</span>, similarity=<span style="color: rgb(75,172,198);">0.95</span>)
+driver.check_image_exist("test.jpeg", timeout=5, similarity=0.95)
 <em># 检查图片不存在, 重复检查时间5秒。</em>
-driver.check_image_exist(<span style="color: rgb(192,0,0);">"test.jpeg"</span>, timeout=<span style="color: rgb(75,172,198);">5</span>, expect_exist=<span style="color: rgb(75,172,198);">False</span>)
+driver.check_image_exist("test.jpeg", timeout=5, expect_exist=False)
 <em># 使用sift算法检查图片存在, 设置最少匹配特征点数量为16。</em>
-driver.check_image_exist(<span style="color: rgb(192,0,0);">"test.jpeg"</span>, mode="<span style="color: rgb(192,0,0);">sift"</span>, min_match_point=<span style="color: rgb(75,172,198);">16</span>)
+driver.check_image_exist("test.jpeg", mode="sift", min_match_point=16)
 ```
  
 
@@ -2229,7 +2229,7 @@ driver.check_image_exist(<span style="color: rgb(192,0,0);">"test.jpeg"</span>, 
 **检查窗口**
  
 ```text
-<strong>def <span style="color: rgb(192,0,0);">check_window</span></strong>(window: WindowFilter, title: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(75,172,198);">None</span>, bundle_name: <span style="color: rgb(79,129,189);">str</span> = <span style="color: rgb(75,172,198);">None</span>)
+<strong>def check_window</strong>(window: WindowFilter, title: str = None, bundle_name: str = None)
 ```
  
 **接口说明**
@@ -2248,7 +2248,7 @@ driver.check_image_exist(<span style="color: rgb(192,0,0);">"test.jpeg"</span>, 
  
 ```text
 <em># 检查当前焦点窗口的包名为com.huawei.hmos.settings</em>。
-driver.check_window(WindowFilter().focused(<span style="color: rgb(75,172,198);">True</span>), bundle_name=<span style="color: rgb(192,0,0);">"com.huawei.hmos.settings"</span>)
+driver.check_window(WindowFilter().focused(True), bundle_name="com.huawei.hmos.settings")
 ```
  
 
@@ -2261,18 +2261,18 @@ driver.check_window(WindowFilter().focused(<span style="color: rgb(75,172,198);"
 ```text
 <strong>from </strong>devicetest.core.test_case <strong>import</strong> Step, CheckPoint, MESSAGE
 
-Step(<span style="color: rgb(192,0,0);">"点击按钮"</span>)
-CheckPoint(<span style="color: rgb(192,0,0);">"检查联系人存在"</span>)
-MESSAGE(<span style="color: rgb(192,0,0);">"打印一条提示消息"</span>)
+Step("点击按钮")
+CheckPoint("检查联系人存在")
+MESSAGE("打印一条提示消息")
 ```
  
 在自定义实现的接口中，可以调用driver对象中的log模块打印日志消息，对应日志也会记录到测试报告中。
  
 ```text
-driver.log.debug(<span style="color: rgb(192,0,0);">"debug级别的日志"</span>)
-driver.log.info(<span style="color: rgb(192,0,0);">"info级别的日志"</span>)
-driver.log.warning(<span style="color: rgb(192,0,0);">"warning级别的日志"</span>)
-driver.log.error(<span style="color: rgb(192,0,0);">"error级别的日志"</span>)
+driver.log.debug("debug级别的日志")
+driver.log.info("info级别的日志")
+driver.log.warning("warning级别的日志")
+driver.log.error("error级别的日志")
 ```
  
 
@@ -2284,13 +2284,13 @@ driver.log.error(<span style="color: rgb(192,0,0);">"error级别的日志"</span
  
 ```text
 <strong>from</strong> devicetest.utils <strong>import</strong> file_util
-file_path = file_util.get_resource_path(<span style="color: rgb(192,0,0);">"filename"</span>)
+file_path = file_util.get_resource_path("filename")
 ```
  
 该接口默认搜索文件，开发者可以设置isdir=True来搜索目录路径。
  
 ```text
-dir_path = file_util.get_resource_path(<span style="color: rgb(192,0,0);">"dirname"</span>, isdir=<span style="color: rgb(75,172,198);">True</span>)
+dir_path = file_util.get_resource_path("dirname", isdir=True)
 ```
  
 

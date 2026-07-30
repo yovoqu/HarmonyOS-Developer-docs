@@ -35,39 +35,39 @@ ImageAttachment需要通过setStyle()方法来设置style，并添加点击事�
 
 通过setStyle()方法来设置style并绑定点击事件。
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">StyledStringExample </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TextController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TextController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ImageAttachment </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ImageAttachment</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">resourceValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">50 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">spanStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SpanStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">styledKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">StyledStringKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">GESTURE</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">styledValue</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">GestureStyle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">onClick</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'clickGestureAttr object trigger click event'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">arrayList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">StyleOptions</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanStyle</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">mutableStyledString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">MutableStyledString </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MutableStyledString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct StyledStringExample {
+  controller: TextController = new TextController();
+  image: ImageAttachment = new ImageAttachment({
+    resourceValue: $r('app.media.startIcon'),
+    size: { width: 50, height: 50 },
+  });
+  spanStyle: SpanStyle = {
+    start: 0,
+    length: 1,
+    styledKey: StyledStringKey.GESTURE,
+    styledValue: new GestureStyle({
+      onClick: () => {
+        console.info('clickGestureAttr object trigger click event');
+      }
+    })
+  };
+  arrayList: Array<StyleOptions> = [this.spanStyle];
+  mutableStyledString: MutableStyledString = new MutableStyledString(this.image);
 
-  <span style="color: rgb(0,0,255);">onPageShow</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">setStyle</span><span style="color: rgb(128,128,128);">方法，给图片添加样式</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mutableStyledString</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setStyle</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">spanStyle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setStyledString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mutableStyledString</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onPageShow(): void {
+  <em>  // 通过setStyle方法，给图片添加样式</em>
+    this.mutableStyledString.setStyle(this.spanStyle);
+    this.controller.setStyledString(this.mutableStyledString);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">点击图片出现弹窗</span></em>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+    <em>  // 点击图片出现弹窗</em>
+      Text(undefined, { controller: this.controller })
+        .borderWidth(1)
+    }.padding(50)
+  }
+}
 ```

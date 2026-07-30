@@ -31,5 +31,5 @@ Push提交和Push提交到远程仓库的过程相似。如需切换远程仓库
  
 可以使用以下命令进行切换。
 ```text
-<span style="color: rgb(73,73,73);">git branch hmos_dev_20230907 --set-upstream-to=codehub_origin/hmos_dev_20230907</span>
+git branch hmos_dev_20230907 --set-upstream-to=codehub_origin/hmos_dev_20230907
 ```

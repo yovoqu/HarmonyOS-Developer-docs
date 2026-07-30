@@ -102,7 +102,7 @@ export default {
     <switch showtext="true" texton="on" textoff="off" checked="true" @change="switchChange"></switch>
   </div>
   <div class="content">
-    <text class="address"><span>Shipping address:</span><span class="textSpan">{{address}}</span></text>
+    <text class="address">Shipping address:{{address}}</text>
   </div>
   <div class="myAddress" style="display: {{addressDisplay}};">
     <text style="font-size: 30px;margin-bottom: 50px;">Choose an address:</text>

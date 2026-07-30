@@ -41,43 +41,43 @@
 由于TextPicker组件没有横向滑动的能力，因此可以采用List滑动组件，实现横向滚动的时间选择器，采用[scrollSnapAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#scrollsnapalign10)属性使List中间项对齐，同时将中间的Item差异化处理来进行突出显示。
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ListCustomTimePicker </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'5'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'10'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'15'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'20'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'25'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'30'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'35'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'40'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'45'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'50'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'55'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'60'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">centerIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct ListCustomTimePicker {
+  private arr: string[] = ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60'];
+  @State centerIndex: number = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span>
-              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断语句</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">当索引位置在显示的中间时，对该时间放大处理</span></em>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">centerIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">centerIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(0,0,255);">)</span>
-                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'20%'</span><span style="color: rgb(0,0,255);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">单行显示</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">个</span><span style="color: rgb(128,128,128);">item</span></em>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollSnapAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ScrollSnapAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CENTER</span><span style="color: rgb(0,0,255);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">中间项对齐</span></em>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listDirection</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Axis</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Horizontal</span><span style="color: rgb(0,0,255);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// List</span><span style="color: rgb(128,128,128);">组件设置横向滚动</span></em>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onScrollIndex</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">firstIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">lastIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">centerIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取屏幕中间</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的索引值</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">centerIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">centerIndex</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`firstIndex</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">firstIndex</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,lastIndex</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">lastIndex</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0xDCDCDC)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      List() {
+        ForEach(this.arr, (item: number, index: number) => {
+          ListItem() {
+            Row() {
+              Text('' + item)
+              <em>  // 判断语句,当索引位置在显示的中间时，对该时间放大处理</em>
+                .fontSize(index === this.centerIndex ? 30 : 18)
+                .fontColor(index === this.centerIndex ? Color.Black : Color.Gray)
+                .textAlign(TextAlign.Center);
+            }
+            .width('20%') <em>// 单行显示5个item</em>
+            .height(50)
+            .justifyContent(FlexAlign.Center);
+          };
+        }, (item: string) => item);
+      }
+      .scrollSnapAlign(ScrollSnapAlign.CENTER)<em> </em><em>// 中间项对齐</em>
+      .listDirection(Axis.Horizontal)<em> </em><em>// List组件设置横向滚动</em>
+      .scrollBar(BarState.Off)
+      .onScrollIndex((firstIndex: number, lastIndex: number, centerIndex: number) => {
+        <em>// 获取屏幕中间item的索引值</em>
+        this.centerIndex = centerIndex;
+        console.info(`firstIndex：${firstIndex},lastIndex：${lastIndex}`);
+      })
+      .width('100%');
+    }
+    .width('100%')
+    .height(50)
+    .backgroundColor(0xDCDCDC);
+  }
+}
 ```

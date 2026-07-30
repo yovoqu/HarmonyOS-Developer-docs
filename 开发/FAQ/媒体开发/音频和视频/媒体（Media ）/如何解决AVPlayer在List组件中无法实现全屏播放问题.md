@@ -26,17 +26,17 @@ AVPlayer只是把Surface画布绑定到AVPlayer上，不提供旋转、全屏接
 在点击全屏按钮时，隐藏其它ListItem，仅显示选中项；点击横屏按钮时，设置窗口方向，并设置XComponent组件宽高铺满屏幕，实现全屏播放效果。
  1. 初始化视频列表数据源，示例代码如下：
 ```text
-<span style="color: rgb(0,0,255);">private </span><span style="color: rgb(181,106,1);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">myVideoSourceDate </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">myVideoSourceDate</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span>void <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">let list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VideoSource</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span>
-    new <span style="color: rgb(0,0,255);">VideoSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'videoTest1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'videoTest1.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-    new <span style="color: rgb(0,0,255);">VideoSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'videoTest2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'videoTest2.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-    new <span style="color: rgb(0,0,255);">VideoSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'videoTest3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'videoTest3.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-    new <span style="color: rgb(0,0,255);">VideoSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'videoTest4'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'videoTest4.mp4'</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">  ]</span><span style="color: rgb(181,106,1);">;</span>
+private data: myVideoSourceDate = new myVideoSourceDate([]);
+aboutToAppear(): void {
+  let list: VideoSource[] = [
+    new VideoSource('videoTest1', 'videoTest1.mp4'),
+    new VideoSource('videoTest2', 'videoTest2.mp4'),
+    new VideoSource('videoTest3', 'videoTest3.mp4'),
+    new VideoSource('videoTest4', 'videoTest4.mp4')
+  ];
 
-  <span style="color: rgb(0,0,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">myVideoSourceDate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  this.data = new myVideoSourceDate(list);
+}
 ```
 
 2. List + LazyForEach组件渲染视频列表，以及添加全屏、退出全屏、横屏等按钮，示例代码如下：

@@ -28,10 +28,10 @@ UI进程阻塞在WaitforGetOffsetInrange函数，该函数用于从UI进程向GP
  1. 参考[栈顶在方舟运行时的应用冻屏问题定位实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-freeze-ark-runtime)，分析AppFreeze日志，3S和6S的堆栈一致，且栈帧如下：
 ```text
 Tid:xxx, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc xxx /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+xx)
-<span style="color: rgb(0,0,255);">#01</span> pc xxx /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__pthread_cond_timedwait+xx)
+#00 pc xxx /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+xx)
+#01 pc xxx /system/lib/ld-musl-aarch64.so.1(__pthread_cond_timedwait+xx)
 ...
-<span style="color: rgb(0,0,255);">#xx</span> pc xxx /data/.../libarkweb_engine.so
+#xx pc xxx /data/.../libarkweb_engine.so
 gpu::CommandBufferProxyImpl::WaitForGetOffsetInRange(...)
 ```
 
@@ -56,43 +56,43 @@ gpu::CommandBufferProxyImpl::WaitForGetOffsetInRange(...)
  
 分析AppFreeze日志，3S和6S的堆栈一致，堆栈如下：
 ```text
-Tid:<span style="color: rgb(80,160,79);">59546</span>, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b9438 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>bb58c /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">0000000004</span>f9b1cc /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-base::ConditionVariable::Wait() at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../base/synchronization\condition_variable_posix.cc:<span style="color: rgb(80,160,79);">79</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">0000000004</span>fbed40 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-base::WaitableEvent::TimedWaitImpl(base::TimeDelta) at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../base/synchronization\waitable_event_posix.cc:<span style="color: rgb(80,160,79);">193</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">0000000004</span>f4f754 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-base::WaitableEvent::TimedWait(base::TimeDelta) at /devcloud/ws/suJWu/workspace/j_HLS1VBOR/src/out/musl_64\../../base/synchronization\waitable_event.cc:<span style="color: rgb(80,160,79);">39</span>
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">0000000004</span>f4f6e4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-base::WaitableEvent::Wait() at /devcloud/ws/suJWu/workspace/j_HLS1VBOR/src/out/musl_64\../../base/synchronization\waitable_event.cc:<span style="color: rgb(80,160,79);">23</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
-<span style="color: rgb(0,0,255);">#06</span> pc <span style="color: rgb(80,160,79);">0000000005205390</span> /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-mojo::(anonymous <span style="color: rgb(0,0,255);">namespace</span>)::ThreadSafeInterfaceEndpointClientProxy::SendMessageWithResponder(mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver> >) (<span style="color: rgb(80,160,79);">.64</span>c5c9a486ae75b6fffaf6ed09e7ff33) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../mojo/<span style="color: rgb(0,0,255);">public</span>/cpp/bindings/lib\interface_endpoint_client.cc:<span style="color: rgb(80,160,79);">431</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
-<span style="color: rgb(0,0,255);">#07</span> pc <span style="color: rgb(80,160,79);">000000000520</span>d680 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-mojo::<span style="color: rgb(0,0,255);">internal</span>::ThreadSafeForwarderBase::AcceptWithResponder(mojo::Message*, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver> >) at /devcloud/ws/syGBE/workspace/j_PCKU3CLG/src/out/musl_64\../../mojo/<span style="color: rgb(0,0,255);">public</span>/cpp/bindings/lib\thread_safe_forwarder_base.cc:<span style="color: rgb(80,160,79);">32</span> (discriminator <span style="color: rgb(80,160,79);">4</span>)
-<span style="color: rgb(0,0,255);">#08</span> pc <span style="color: rgb(80,160,79);">0000000005213040</span> /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-mojo::<span style="color: rgb(0,0,255);">internal</span>::SendMojoMessage(mojo::MessageReceiverWithResponder&, mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver> >) at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../mojo/<span style="color: rgb(0,0,255);">public</span>/cpp/bindings/lib\send_message_helper.cc:<span style="color: rgb(80,160,79);">42</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
-<span style="color: rgb(0,0,255);">#09</span> pc <span style="color: rgb(80,160,79);">0000000002</span>f7ffe4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-gpu::mojom::GpuChannelProxy::WaitForGetOffsetInRange(<span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>, gpu::CommandBuffer::State*) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\gen/gpu/ipc/common\gpu_channel.mojom.cc:<span style="color: rgb(80,160,79);">3251</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
-<span style="color: rgb(0,0,255);">#10</span> pc <span style="color: rgb(80,160,79);">0000000003073</span>c10 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-gpu::CommandBufferProxyImpl::WaitForGetOffsetInRange(<span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../gpu/ipc/client\command_buffer_proxy_impl.cc:<span style="color: rgb(80,160,79);">317</span> (discriminator <span style="color: rgb(80,160,79);">4</span>)
+Tid:59546, Name:xxx
+#00 pc 00000000001b9438 /system/lib/ld-musl-aarch64.so.1
+#01 pc 00000000001bb58c /system/lib/ld-musl-aarch64.so.1
+#02 pc 0000000004f9b1cc /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+base::ConditionVariable::Wait() at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../base/synchronization\condition_variable_posix.cc:79 (discriminator 2)
+#03 pc 0000000004fbed40 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+base::WaitableEvent::TimedWaitImpl(base::TimeDelta) at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../base/synchronization\waitable_event_posix.cc:193 (discriminator 2)
+#04 pc 0000000004f4f754 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+base::WaitableEvent::TimedWait(base::TimeDelta) at /devcloud/ws/suJWu/workspace/j_HLS1VBOR/src/out/musl_64\../../base/synchronization\waitable_event.cc:39
+#05 pc 0000000004f4f6e4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+base::WaitableEvent::Wait() at /devcloud/ws/suJWu/workspace/j_HLS1VBOR/src/out/musl_64\../../base/synchronization\waitable_event.cc:23 (discriminator 2)
+#06 pc 0000000005205390 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+mojo::(anonymous namespace)::ThreadSafeInterfaceEndpointClientProxy::SendMessageWithResponder(mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver> >) (.64c5c9a486ae75b6fffaf6ed09e7ff33) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../mojo/public/cpp/bindings/lib\interface_endpoint_client.cc:431 (discriminator 2)
+#07 pc 000000000520d680 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+mojo::internal::ThreadSafeForwarderBase::AcceptWithResponder(mojo::Message*, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver> >) at /devcloud/ws/syGBE/workspace/j_PCKU3CLG/src/out/musl_64\../../mojo/public/cpp/bindings/lib\thread_safe_forwarder_base.cc:32 (discriminator 4)
+#08 pc 0000000005213040 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+mojo::internal::SendMojoMessage(mojo::MessageReceiverWithResponder&, mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver> >) at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../mojo/public/cpp/bindings/lib\send_message_helper.cc:42 (discriminator 2)
+#09 pc 0000000002f7ffe4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+gpu::mojom::GpuChannelProxy::WaitForGetOffsetInRange(int, unsigned int, int, int, gpu::CommandBuffer::State*) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\gen/gpu/ipc/common\gpu_channel.mojom.cc:3251 (discriminator 2)
+#10 pc 0000000003073c10 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+gpu::CommandBufferProxyImpl::WaitForGetOffsetInRange(unsigned int, int, int) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../gpu/ipc/client\command_buffer_proxy_impl.cc:317 (discriminator 4)
 ```
  
  
 分析上述堆栈，发现卡在WaitForGetOffsetInRange函数，表明此时可能有I/O阻塞的情况，需要全局查找线程Chrome_IOThread。此时发现#19帧为Web提供的网络拦截接口，且最上层的#02栈是业务libxxx.so。分析可知，业务侧对Web进行网络拦截时，执行了超过6秒的逻辑，导致阻塞I/O线程超过6秒，此时UI线程转发mojo消息无法成功导致的卡死。
 ```text
-Tid:<span style="color: rgb(80,160,79);">59729</span>, Name:Chrome_IOThread
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b9438 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>bf5b4 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">0000000000010</span>a58 /data/storage/el1/bundle/libs/arm64/libxxx.so
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">0000000000019848</span> /data/storage/el1/bundle/libs/arm64/libxxx.so
+Tid:59729, Name:Chrome_IOThread
+#00 pc 00000000001b9438 /system/lib/ld-musl-aarch64.so.1
+#01 pc 00000000001bf5b4 /system/lib/ld-musl-aarch64.so.1
+#02 pc 0000000000010a58 /data/storage/el1/bundle/libs/arm64/libxxx.so
+#03 pc 0000000000019848 /data/storage/el1/bundle/libs/arm64/libxxx.so
 ...
-<span style="color: rgb(0,0,255);">#19</span> pc <span style="color: rgb(80,160,79);">0000000004e75</span>bd8 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-OHOS::NWeb::NWebSchemeHandlerFactory::Create(scoped_refptr<CefBrowser>, scoped_refptr<CefFrame>, CefStringBase<CefStringTraitsUTF16> <span style="color: rgb(0,0,255);">const</span>&, scoped_refptr<CefRequest>) at /devcloud/ws/s9dho/workspace/j_Y9KURQTS/HwHarmonyEngine/src/out/musl_64\../../ohos_nweb/src/cef_delegate\nweb_scheme_handler_factory.cc:<span style="color: rgb(80,160,79);">150</span>
-<span style="color: rgb(0,0,255);">#20</span> pc <span style="color: rgb(80,160,79);">00000000027</span>f8824 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
-net_service::(anonymous <span style="color: rgb(0,0,255);">namespace</span>)::InterceptedRequestHandlerWrapper::GetOhosResourceHandlerResult(<span style="color: rgb(0,0,255);">int</span>, network::ResourceRequest*, scoped_refptr<CefResourceHandler>, base::OnceCallback<<span style="color: rgb(0,0,255);">void</span> (std::__h::unique_ptr<net_service::ResourceResponse, std::__h::default_delete<net_service::ResourceResponse> >)>) at /devcloud/ws/s9dho/workspace/j_Y9KURQTS/HwHarmonyEngine/src/out/musl_64\../../cef/libcef/browser/net_service\resource_request_handler_wrapper.cc:<span style="color: rgb(80,160,79);">974</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
- (inlined by) net_service::(anonymous <span style="color: rgb(0,0,255);">namespace</span>)::InterceptedRequestHandlerWrapper::GetOhosResourceHandlerResultInIO(<span style="color: rgb(0,0,255);">int</span>, network::ResourceRequest*, base::OnceCallback<<span style="color: rgb(0,0,255);">void</span> (std::__h::unique_ptr<net_service::ResourceResponse, std::__h::default_delete<net_service::ResourceResponse> >)>, scoped_refptr<CefResourceHandler>) (.df3920d6276824318412197eb3d7bb61) at /devcloud/ws/s9dho/workspace/j_Y9KURQTS/HwHarmonyEngine/src/out/musl_64\../../cef/libcef/browser/net_service\resource_request_handler_wrapper.cc:<span style="color: rgb(80,160,79);">1073</span> (discriminator <span style="color: rgb(80,160,79);">4</span>)
+#19 pc 0000000004e75bd8 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+OHOS::NWeb::NWebSchemeHandlerFactory::Create(scoped_refptr<CefBrowser>, scoped_refptr<CefFrame>, CefStringBase<CefStringTraitsUTF16> const&, scoped_refptr<CefRequest>) at /devcloud/ws/s9dho/workspace/j_Y9KURQTS/HwHarmonyEngine/src/out/musl_64\../../ohos_nweb/src/cef_delegate\nweb_scheme_handler_factory.cc:150
+#20 pc 00000000027f8824 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so
+net_service::(anonymous namespace)::InterceptedRequestHandlerWrapper::GetOhosResourceHandlerResult(int, network::ResourceRequest*, scoped_refptr<CefResourceHandler>, base::OnceCallback<void (std::__h::unique_ptr<net_service::ResourceResponse, std::__h::default_delete<net_service::ResourceResponse> >)>) at /devcloud/ws/s9dho/workspace/j_Y9KURQTS/HwHarmonyEngine/src/out/musl_64\../../cef/libcef/browser/net_service\resource_request_handler_wrapper.cc:974 (discriminator 2)
+ (inlined by) net_service::(anonymous namespace)::InterceptedRequestHandlerWrapper::GetOhosResourceHandlerResultInIO(int, network::ResourceRequest*, base::OnceCallback<void (std::__h::unique_ptr<net_service::ResourceResponse, std::__h::default_delete<net_service::ResourceResponse> >)>, scoped_refptr<CefResourceHandler>) (.df3920d6276824318412197eb3d7bb61) at /devcloud/ws/s9dho/workspace/j_Y9KURQTS/HwHarmonyEngine/src/out/musl_64\../../cef/libcef/browser/net_service\resource_request_handler_wrapper.cc:1073 (discriminator 4)
 ```
  
  
@@ -121,20 +121,20 @@ net_service::(anonymous <span style="color: rgb(0,0,255);">namespace</span>)::In
  
 ```text
 Tid:xxx, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc xxx /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+xx)
-<span style="color: rgb(0,0,255);">#01</span> pc xxx /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(pthread_cond_timedwait+xx)
+#00 pc xxx /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+xx)
+#01 pc xxx /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+xx)
 ...
-<span style="color: rgb(0,0,255);">#xx</span> pc xxx /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(viz::mojom::PAC_FrameSinkManagerProxy::DestroyCompositorFrameSink(viz::PAC_FrameSinkId <span style="color: rgb(0,0,255);">const</span>&)+xx)
+#xx pc xxx /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(viz::mojom::PAC_FrameSinkManagerProxy::DestroyCompositorFrameSink(viz::PAC_FrameSinkId const&)+xx)
 ```
  
 被阻塞线程堆栈一般如下：
  
 ```text
 Tid:xxx, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc xxx /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+xx)
-<span style="color: rgb(0,0,255);">#01</span> pc xxx /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(pthread_cond_timedwait+xx)
-<span style="color: rgb(0,0,255);">#02</span> pc xxx /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::condition_variable::wait(std::__n1::unique_lock<std::__n1::mutex>&)+xx)
-<span style="color: rgb(0,0,255);">#03</span> pc xxx /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::__shared_mutex_base::lock_shared()+xx)
+#00 pc xxx /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+xx)
+#01 pc xxx /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+xx)
+#02 pc xxx /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::condition_variable::wait(std::__n1::unique_lock<std::__n1::mutex>&)+xx)
+#03 pc xxx /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::__shared_mutex_base::lock_shared()+xx)
 ...
 ```
  
@@ -161,58 +161,58 @@ Tid:xxx, Name:xxx
 3S和6S的堆栈一致，堆栈如下：
  
 ```text
-Timestamp:<span style="color: rgb(80,160,79);">2025</span>-<span style="color: rgb(80,160,79);">06</span>-<span style="color: rgb(80,160,79);">24</span> <span style="color: rgb(80,160,79);">11</span>:<span style="color: rgb(80,160,79);">22</span>:<span style="color: rgb(80,160,79);">11</span>:<span style="color: rgb(80,160,79);">814</span>
-Tid:<span style="color: rgb(80,160,79);">8360</span>, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b67f8 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+<span style="color: rgb(80,160,79);">192</span>)(<span style="color: rgb(80,160,79);">35064</span>c759de623f1ea3ec0b012a28c3c)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b87fc /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__pthread_cond_timedwait+<span style="color: rgb(80,160,79);">188</span>)(<span style="color: rgb(80,160,79);">35064</span>c759de623f1ea3ec0b012a28c3c)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">0000000004</span>f32180 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
-base::ConditionVariable::Wait() at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../base/synchronization\condition_variable_posix.cc:<span style="color: rgb(80,160,79);">79</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
+Timestamp:2025-06-24 11:22:11:814
+Tid:8360, Name:xxx
+#00 pc 00000000001b67f8 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+192)(35064c759de623f1ea3ec0b012a28c3c)
+#01 pc 00000000001b87fc /system/lib/ld-musl-aarch64.so.1(__pthread_cond_timedwait+188)(35064c759de623f1ea3ec0b012a28c3c)
+#02 pc 0000000004f32180 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
+base::ConditionVariable::Wait() at /devcloud/ws/s0XHz/workspace/j_BPK0KULN/HwHarmonyEngine/src/out/musl_64\../../base/synchronization\condition_variable_posix.cc:79 (discriminator 2)
 ...
-<span style="color: rgb(0,0,255);">#13</span> pc <span style="color: rgb(80,160,79);">0000000003</span>bfed38 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
-viz::mojom::FrameSinkManagerProxy::DestroyCompositorFrameSink(viz::FrameSinkId <span style="color: rgb(0,0,255);">const</span>&) at /devcloud/ws/s1qK3/workspace/j_SNQMFI5M/HwHarmonyEngine/src/out/musl_64\gen/services/viz/privileged/mojom/compositing\frame_sink_manager.mojom.cc:<span style="color: rgb(80,160,79);">1387</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
+#13 pc 0000000003bfed38 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
+viz::mojom::FrameSinkManagerProxy::DestroyCompositorFrameSink(viz::FrameSinkId const&) at /devcloud/ws/s1qK3/workspace/j_SNQMFI5M/HwHarmonyEngine/src/out/musl_64\gen/services/viz/privileged/mojom/compositing\frame_sink_manager.mojom.cc:1387 (discriminator 2)
 ```
  
 根据栈顶分析，阻塞发生在mojo的接口中，分析调用栈发现是viz业务DestroyCompositorFrameSink触发的等待，因此优先检查Chrome_InProcGp线程堆栈是否存在阻塞。此时发现阻塞在EglWrapper调用中，#02帧显示正在等待recursive_mutex。
  
 ```text
-Tid:<span style="color: rgb(80,160,79);">8599</span>, Name:Chrome_InProcGp
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b67f8 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+<span style="color: rgb(80,160,79);">192</span>)(<span style="color: rgb(80,160,79);">35064</span>c759de623f1ea3ec0b012a28c3c)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>bc810 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__pthread_mutex_timedlock_inner+<span style="color: rgb(80,160,79);">592</span>)(<span style="color: rgb(80,160,79);">35064</span>c759de623f1ea3ec0b012a28c3c)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">00000000000</span>c4014 /system/lib64/libc++.so(std::__h::recursive_mutex::lock()+<span style="color: rgb(80,160,79);">8</span>)(a2d45389edece3475c17a1d7fc9a76ec2b697825)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">000000000003</span>a788 /system/lib64/libEGL.so(OHOS::EglWrapperDisplay::MakeCurrent(<span style="color: rgb(0,0,255);">void</span>*, <span style="color: rgb(0,0,255);">void</span>*, <span style="color: rgb(0,0,255);">void</span>*)+<span style="color: rgb(80,160,79);">44</span>)(<span style="color: rgb(80,160,79);">12088e3</span>ba5a7595b85687e148a8d8bd2)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">000000000002e</span>e60 /system/lib64/libEGL.so(eglMakeCurrent+<span style="color: rgb(80,160,79);">288</span>)(<span style="color: rgb(80,160,79);">12088e3</span>ba5a7595b85687e148a8d8bd2)
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">0000000005</span>c87530 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
-gl::GLContextEGL::MakeCurrentImpl(gl::GLSurface*) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../ui/gl\gl_context_egl.cc:<span style="color: rgb(80,160,79);">486</span> (discriminator <span style="color: rgb(80,160,79);">6</span>)
-<span style="color: rgb(0,0,255);">#06</span> pc <span style="color: rgb(80,160,79);">00000000062500</span>dc /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
-gpu::SharedContextState::MakeCurrent(gl::GLSurface*, <span style="color: rgb(0,0,255);">bool</span>) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../gpu/command_buffer/service\shared_context_state.cc:<span style="color: rgb(80,160,79);">596</span> (discriminator <span style="color: rgb(80,160,79);">2</span>)
-<span style="color: rgb(0,0,255);">#07</span> pc <span style="color: rgb(80,160,79);">000000000622</span>d278 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
-gpu::raster::GrCacheController::PurgeGrCache(<span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">long</span>) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../gpu/command_buffer/service\gr_cache_controller.cc:<span style="color: rgb(80,160,79);">62</span>
-<span style="color: rgb(0,0,255);">#08</span> pc <span style="color: rgb(80,160,79);">00000000030</span>cd728 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
-base::RepeatingCallback<<span style="color: rgb(0,0,255);">void</span> ()>::Run() && at /devcloud/ws/sP0jU/workspace/j_HLCVDUC4/HwHarmonyEngine/src/out/musl_64\../../base/functional\callback.h:<span style="color: rgb(80,160,79);">152</span> (discriminator <span style="color: rgb(80,160,79);">4</span>)
+Tid:8599, Name:Chrome_InProcGp
+#00 pc 00000000001b67f8 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+192)(35064c759de623f1ea3ec0b012a28c3c)
+#01 pc 00000000001bc810 /system/lib/ld-musl-aarch64.so.1(__pthread_mutex_timedlock_inner+592)(35064c759de623f1ea3ec0b012a28c3c)
+#02 pc 00000000000c4014 /system/lib64/libc++.so(std::__h::recursive_mutex::lock()+8)(a2d45389edece3475c17a1d7fc9a76ec2b697825)
+#03 pc 000000000003a788 /system/lib64/libEGL.so(OHOS::EglWrapperDisplay::MakeCurrent(void*, void*, void*)+44)(12088e3ba5a7595b85687e148a8d8bd2)
+#04 pc 000000000002ee60 /system/lib64/libEGL.so(eglMakeCurrent+288)(12088e3ba5a7595b85687e148a8d8bd2)
+#05 pc 0000000005c87530 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
+gl::GLContextEGL::MakeCurrentImpl(gl::GLSurface*) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../ui/gl\gl_context_egl.cc:486 (discriminator 6)
+#06 pc 00000000062500dc /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
+gpu::SharedContextState::MakeCurrent(gl::GLSurface*, bool) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../gpu/command_buffer/service\shared_context_state.cc:596 (discriminator 2)
+#07 pc 000000000622d278 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
+gpu::raster::GrCacheController::PurgeGrCache(unsigned long) at /devcloud/ws/sSt7w/workspace/j_YFEIN8EW/HwHarmonyEngine/src/out/musl_64\../../gpu/command_buffer/service\gr_cache_controller.cc:62
+#08 pc 00000000030cd728 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(b5f6591c9544815807de591f10430486a42ced64)
+base::RepeatingCallback<void ()>::Run() && at /devcloud/ws/sP0jU/workspace/j_HLCVDUC4/HwHarmonyEngine/src/out/musl_64\../../base/functional\callback.h:152 (discriminator 4)
 ```
  
 因单进程中仅允许一个线程持有EGL锁，故搜索EglWrapperDisplay，查看其他线程调用。
  
 ```text
-Tid:<span style="color: rgb(80,160,79);">10052</span>, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b67f8 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+<span style="color: rgb(80,160,79);">192</span>)(<span style="color: rgb(80,160,79);">35064</span>c759de623f1ea3ec0b012a28c3c)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b87fc /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__pthread_cond_timedwait+<span style="color: rgb(80,160,79);">188</span>)(<span style="color: rgb(80,160,79);">35064</span>c759de623f1ea3ec0b012a28c3c)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">00000000000</span>c11c0 /system/lib64/libc++.so(std::__h::condition_variable::__do_timed_wait(std::__h::unique_lock<std::__h::mutex>&, std::__h::chrono::time_point<std::__h::chrono::system_clock, std::__h::chrono::duration<<span style="color: rgb(0,0,255);">long</span> <span style="color: rgb(0,0,255);">long</span>, std::__h::ratio<<span style="color: rgb(80,160,79);">1l</span>, <span style="color: rgb(80,160,79);">1000000000l</span>>>>)+<span style="color: rgb(80,160,79);">108</span>)(a2d45389edece3475c17a1d7fc9a76ec2b697825)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">0000000000056</span>d10 /system/lib64/chipset-pub-sdk/libsurface.z.so(<span style="color: rgb(80,160,79);">38e</span>cd06f7a8774e8edf4b5cc278015ea)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">0000000000048</span>b98 /system/lib64/chipset-pub-sdk/libsurface.z.so(OHOS::BufferQueue::RequestBufferLocked(OHOS::BufferRequestConfig <span style="color: rgb(0,0,255);">const</span>&, OHOS::sptr<OHOS::BufferExtraData>&, OHOS::IBufferProducer::RequestBufferReturnValue&, std::__h::unique_lock<std::__h::mutex>&)+<span style="color: rgb(80,160,79);">840</span>)(<span style="color: rgb(80,160,79);">38e</span>cd06f7a8774e8edf4b5cc278015ea)
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">0000000000049</span>b1c /system/lib64/chipset-pub-sdk/libsurface.z.so(OHOS::BufferQueue::RequestBuffer(OHOS::BufferRequestConfig <span style="color: rgb(0,0,255);">const</span>&, OHOS::sptr<OHOS::BufferExtraData>&, OHOS::IBufferProducer::RequestBufferReturnValue&)+<span style="color: rgb(80,160,79);">272</span>)(<span style="color: rgb(80,160,79);">38e</span>cd06f7a8774e8edf4b5cc278015ea)
-<span style="color: rgb(0,0,255);">#06</span> pc <span style="color: rgb(80,160,79);">0000000000073</span>a1c /system/lib64/chipset-pub-sdk/libsurface.z.so(OHOS::ProducerSurface::RequestBuffer(OHOS::sptr<OHOS::SurfaceBuffer>&, OHOS::sptr<OHOS::SyncFence>&, OHOS::BufferRequestConfig&)+<span style="color: rgb(80,160,79);">204</span>)(<span style="color: rgb(80,160,79);">38e</span>cd06f7a8774e8edf4b5cc278015ea)
-<span style="color: rgb(0,0,255);">#07</span> pc <span style="color: rgb(80,160,79);">000000000006</span>d170 /system/lib64/chipset-pub-sdk/libsurface.z.so(OH_NativeWindow_NativeWindowRequestBuffer+<span style="color: rgb(80,160,79);">404</span>)(<span style="color: rgb(80,160,79);">38e</span>cd06f7a8774e8edf4b5cc278015ea)
-<span style="color: rgb(0,0,255);">#08</span> pc <span style="color: rgb(80,160,79);">0000000000416</span>cf8 /vendor/lib64/chipsetsdk/libhvgr_v200.so
-<span style="color: rgb(0,0,255);">#09</span> pc <span style="color: rgb(80,160,79);">000000000037</span>c314 /vendor/lib64/chipsetsdk/libhvgr_v200.so
-<span style="color: rgb(0,0,255);">#10</span> pc <span style="color: rgb(80,160,79);">000000000037</span>d138 /vendor/lib64/chipsetsdk/libhvgr_v200.so
-<span style="color: rgb(0,0,255);">#11</span> pc <span style="color: rgb(80,160,79);">000000000037</span>ce80 /vendor/lib64/chipsetsdk/libhvgr_v200.so(eglSwapBuffers+<span style="color: rgb(80,160,79);">44</span>)
-<span style="color: rgb(0,0,255);">#12</span> pc <span style="color: rgb(80,160,79);">000000000003</span>bcd8 /system/lib64/libEGL.so(OHOS::EglWrapperDisplay::SwapBuffers(<span style="color: rgb(0,0,255);">void</span>*)+<span style="color: rgb(80,160,79);">100</span>)(<span style="color: rgb(80,160,79);">12088e3</span>ba5a7595b85687e148a8d8bd2)
-<span style="color: rgb(0,0,255);">#13</span> pc <span style="color: rgb(80,160,79);">000000000002</span>f2d0 /system/lib64/libEGL.so(eglSwapBuffers+<span style="color: rgb(80,160,79);">264</span>)(<span style="color: rgb(80,160,79);">12088e3</span>ba5a7595b85687e148a8d8bd2)
-<span style="color: rgb(0,0,255);">#14</span> pc <span style="color: rgb(80,160,79);">00000000001</span>f6370 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
-<span style="color: rgb(0,0,255);">#15</span> pc <span style="color: rgb(80,160,79);">00000000001</span>f50bc /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
-<span style="color: rgb(0,0,255);">#16</span> pc <span style="color: rgb(80,160,79);">000000000022</span>c1d8 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
-<span style="color: rgb(0,0,255);">#17</span> pc <span style="color: rgb(80,160,79);">0000000000229e</span>d4 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+Tid:10052, Name:xxx
+#00 pc 00000000001b67f8 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+192)(35064c759de623f1ea3ec0b012a28c3c)
+#01 pc 00000000001b87fc /system/lib/ld-musl-aarch64.so.1(__pthread_cond_timedwait+188)(35064c759de623f1ea3ec0b012a28c3c)
+#02 pc 00000000000c11c0 /system/lib64/libc++.so(std::__h::condition_variable::__do_timed_wait(std::__h::unique_lock<std::__h::mutex>&, std::__h::chrono::time_point<std::__h::chrono::system_clock, std::__h::chrono::duration<long long, std::__h::ratio<1l, 1000000000l>>>)+108)(a2d45389edece3475c17a1d7fc9a76ec2b697825)
+#03 pc 0000000000056d10 /system/lib64/chipset-pub-sdk/libsurface.z.so(38ecd06f7a8774e8edf4b5cc278015ea)
+#04 pc 0000000000048b98 /system/lib64/chipset-pub-sdk/libsurface.z.so(OHOS::BufferQueue::RequestBufferLocked(OHOS::BufferRequestConfig const&, OHOS::sptr<OHOS::BufferExtraData>&, OHOS::IBufferProducer::RequestBufferReturnValue&, std::__h::unique_lock<std::__h::mutex>&)+840)(38ecd06f7a8774e8edf4b5cc278015ea)
+#05 pc 0000000000049b1c /system/lib64/chipset-pub-sdk/libsurface.z.so(OHOS::BufferQueue::RequestBuffer(OHOS::BufferRequestConfig const&, OHOS::sptr<OHOS::BufferExtraData>&, OHOS::IBufferProducer::RequestBufferReturnValue&)+272)(38ecd06f7a8774e8edf4b5cc278015ea)
+#06 pc 0000000000073a1c /system/lib64/chipset-pub-sdk/libsurface.z.so(OHOS::ProducerSurface::RequestBuffer(OHOS::sptr<OHOS::SurfaceBuffer>&, OHOS::sptr<OHOS::SyncFence>&, OHOS::BufferRequestConfig&)+204)(38ecd06f7a8774e8edf4b5cc278015ea)
+#07 pc 000000000006d170 /system/lib64/chipset-pub-sdk/libsurface.z.so(OH_NativeWindow_NativeWindowRequestBuffer+404)(38ecd06f7a8774e8edf4b5cc278015ea)
+#08 pc 0000000000416cf8 /vendor/lib64/chipsetsdk/libhvgr_v200.so
+#09 pc 000000000037c314 /vendor/lib64/chipsetsdk/libhvgr_v200.so
+#10 pc 000000000037d138 /vendor/lib64/chipsetsdk/libhvgr_v200.so
+#11 pc 000000000037ce80 /vendor/lib64/chipsetsdk/libhvgr_v200.so(eglSwapBuffers+44)
+#12 pc 000000000003bcd8 /system/lib64/libEGL.so(OHOS::EglWrapperDisplay::SwapBuffers(void*)+100)(12088e3ba5a7595b85687e148a8d8bd2)
+#13 pc 000000000002f2d0 /system/lib64/libEGL.so(eglSwapBuffers+264)(12088e3ba5a7595b85687e148a8d8bd2)
+#14 pc 00000000001f6370 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+#15 pc 00000000001f50bc /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+#16 pc 000000000022c1d8 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+#17 pc 0000000000229ed4 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
 ```
  
 此时发现10052线程调用EGL函数卡住，对应业务需进一步分析，可通过调用栈排查具体业务so的持锁情况。
@@ -232,32 +232,32 @@ Tid:<span style="color: rgb(80,160,79);">10052</span>, Name:xxx
 3S和6S的堆栈如下：
  
 ```text
-Tid:<span style="color: rgb(80,160,79);">50027</span>, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b64c8 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+<span style="color: rgb(80,160,79);">148</span>)(<span style="color: rgb(80,160,79);">16e71</span>a67bfa83c977534a6b3e5f80cee)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b8518 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__pthread_cond_timedwait+<span style="color: rgb(80,160,79);">168</span>)(<span style="color: rgb(80,160,79);">16e71</span>a67bfa83c977534a6b3e5f80cee)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">0000000005003</span>aa0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::ConditionVariable::Wait()+<span style="color: rgb(80,160,79);">104</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">0000000005027368</span> /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::WaitableEvent::TimedWaitImpl(base::TimeDelta)+<span style="color: rgb(80,160,79);">784</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">0000000004</span>fb8960 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::WaitableEvent::TimedWait(base::TimeDelta)+<span style="color: rgb(80,160,79);">96</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">0000000004</span>fb88f0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::WaitableEvent::Wait()+<span style="color: rgb(80,160,79);">16</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#06</span> pc <span style="color: rgb(80,160,79);">000000000526e3</span>d4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::(anonymous <span style="color: rgb(0,0,255);">namespace</span>)::ThreadSafeInterfaceEndpointClientProxy::SendMessageWithResponder(mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver>>)+<span style="color: rgb(80,160,79);">1336</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#07</span> pc <span style="color: rgb(80,160,79);">00000000052766</span>c4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::<span style="color: rgb(0,0,255);">internal</span>::ThreadSafeForwarderBase::AcceptWithResponder(mojo::Message*, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver>>)+<span style="color: rgb(80,160,79);">44</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#08</span> pc <span style="color: rgb(80,160,79);">000000000527</span>c084 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::<span style="color: rgb(0,0,255);">internal</span>::SendMojoMessage(mojo::MessageReceiverWithResponder&, mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver>>)+<span style="color: rgb(80,160,79);">144</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#09</span> pc <span style="color: rgb(80,160,79);">0000000002</span>fb59a0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(gpu::mojom::GpuChannelProxy::WaitForGetOffsetInRange(<span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>, gpu::CommandBuffer::State*)+<span style="color: rgb(80,160,79);">360</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
-<span style="color: rgb(0,0,255);">#10</span> pc <span style="color: rgb(80,160,79);">00000000030</span>b9ad4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(gpu::CommandBufferProxyImpl::WaitForGetOffsetInRange(<span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">int</span>)+<span style="color: rgb(80,160,79);">612</span>)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+Tid:50027, Name:xxx
+#00 pc 00000000001b64c8 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+148)(16e71a67bfa83c977534a6b3e5f80cee)
+#01 pc 00000000001b8518 /system/lib/ld-musl-aarch64.so.1(__pthread_cond_timedwait+168)(16e71a67bfa83c977534a6b3e5f80cee)
+#02 pc 0000000005003aa0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::ConditionVariable::Wait()+104)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#03 pc 0000000005027368 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::WaitableEvent::TimedWaitImpl(base::TimeDelta)+784)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#04 pc 0000000004fb8960 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::WaitableEvent::TimedWait(base::TimeDelta)+96)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#05 pc 0000000004fb88f0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::WaitableEvent::Wait()+16)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#06 pc 000000000526e3d4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::(anonymous namespace)::ThreadSafeInterfaceEndpointClientProxy::SendMessageWithResponder(mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver>>)+1336)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#07 pc 00000000052766c4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::internal::ThreadSafeForwarderBase::AcceptWithResponder(mojo::Message*, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver>>)+44)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#08 pc 000000000527c084 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::internal::SendMojoMessage(mojo::MessageReceiverWithResponder&, mojo::Message&, std::__h::unique_ptr<mojo::MessageReceiver, std::__h::default_delete<mojo::MessageReceiver>>)+144)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#09 pc 0000000002fb59a0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(gpu::mojom::GpuChannelProxy::WaitForGetOffsetInRange(int, unsigned int, int, int, gpu::CommandBuffer::State*)+360)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
+#10 pc 00000000030b9ad4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(gpu::CommandBufferProxyImpl::WaitForGetOffsetInRange(unsigned int, int, int)+612)(c2910157af51b9971be1eddcf1d98f0a5dff4dd8)
 ```
  
 观察到有关键字WaitForGetOffsetInRange，在堆栈日志中全局搜索Chrome_IOThread，找到该线程的堆栈。
  
 ```text
-Tid:<span style="color: rgb(80,160,79);">50276</span>, Name:Chrome_IOThread
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b64c8 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+<span style="color: rgb(80,160,79);">148</span>)(<span style="color: rgb(80,160,79);">16e71</span>a67bfa83c977534a6b3e5f80cee)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>b8518 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__pthread_cond_timedwait+<span style="color: rgb(80,160,79);">168</span>)(<span style="color: rgb(80,160,79);">16e71</span>a67bfa83c977534a6b3e5f80cee)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">00000000000</span>c439c /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::condition_variable::wait(std::__n1::unique_lock<std::__n1::mutex>&)+<span style="color: rgb(80,160,79);">20</span>)(<span style="color: rgb(80,160,79);">1204</span>f957e9c8ca1e5b2539b1755de7e26e4f8e8d)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">00000000000</span>ca004 /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::__shared_mutex_base::lock_shared()+<span style="color: rgb(80,160,79);">84</span>)(<span style="color: rgb(80,160,79);">1204</span>f957e9c8ca1e5b2539b1755de7e26e4f8e8d)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">00000000000840</span>cc /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">0000000000089444</span> /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
-<span style="color: rgb(0,0,255);">#06</span> pc <span style="color: rgb(80,160,79);">0000000000088908</span> /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
-<span style="color: rgb(0,0,255);">#07</span> pc <span style="color: rgb(80,160,79);">000000000008</span>d00c /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+Tid:50276, Name:Chrome_IOThread
+#00 pc 00000000001b64c8 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+148)(16e71a67bfa83c977534a6b3e5f80cee)
+#01 pc 00000000001b8518 /system/lib/ld-musl-aarch64.so.1(__pthread_cond_timedwait+168)(16e71a67bfa83c977534a6b3e5f80cee)
+#02 pc 00000000000c439c /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::condition_variable::wait(std::__n1::unique_lock<std::__n1::mutex>&)+20)(1204f957e9c8ca1e5b2539b1755de7e26e4f8e8d)
+#03 pc 00000000000ca004 /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::__shared_mutex_base::lock_shared()+84)(1204f957e9c8ca1e5b2539b1755de7e26e4f8e8d)
+#04 pc 00000000000840cc /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+#05 pc 0000000000089444 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+#06 pc 0000000000088908 /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
+#07 pc 000000000008d00c /data/storage/el1/bundle/libs/arm64/libxxx.so(...)
 ```
  
 这类问题的根本原因在于Chromium原生逻辑：需要在UI线程上抛出同步任务到GPU相关线程，等待任务执行完成后返回，才能析构Web组件，保证生命周期。在这里mojo同步接口需通过Chrome_IOThread线程转发消息，通过调用栈可以看到，由于业务so持锁未释放，阻塞了Chrome_IOThread线程消息转发，导致UI线程阻塞。
@@ -277,55 +277,55 @@ Tid:<span style="color: rgb(80,160,79);">50276</span>, Name:Chrome_IOThread
 3S和6S的堆栈一致，堆栈如下：
  
 ```text
-Tid:<span style="color: rgb(80,160,79);">1558</span>, Name:xxx
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>cc2fc /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+<span style="color: rgb(80,160,79);">156</span>)(<span style="color: rgb(80,160,79);">4</span>dcf1315ac91d1611e703e23ab16e8c7)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>ce3cc /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(pthread_cond_timedwait+<span style="color: rgb(80,160,79);">172</span>)(<span style="color: rgb(80,160,79);">4</span>dcf1315ac91d1611e703e23ab16e8c7)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">00000000047</span>dce28 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_ConditionVariable::Wait()+<span style="color: rgb(80,160,79);">148</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">0000000004818</span>d08 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_WaitableEvent::TimedWaitImpl(base::PAC_TimeDelta)+<span style="color: rgb(80,160,79);">544</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">0000000004782970</span> /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_WaitableEvent::TimedWait(base::PAC_TimeDelta)+<span style="color: rgb(80,160,79);">160</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">00000000047828</span>c0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_WaitableEvent::Wait()+<span style="color: rgb(80,160,79);">16</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#06</span> pc <span style="color: rgb(80,160,79);">0000000004</span>bfceec /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::Wait(mojo::PAC_Handle, <span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, PAC_MojoHandleSignalsState*)+<span style="color: rgb(80,160,79);">268</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#07</span> pc <span style="color: rgb(80,160,79);">00000000038</span>c43c4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::Wait(mojo::PAC_Handle, <span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, PAC_MojoHandleSignalsState*)+<span style="color: rgb(80,160,79);">36</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#08</span> pc <span style="color: rgb(80,160,79);">0000000004</span>be1274 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::PAC_Connector::WaitForIncomingMessage()+<span style="color: rgb(80,160,79);">60</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#09</span> pc <span style="color: rgb(80,160,79);">0000000004</span>beb3e0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::<span style="color: rgb(0,0,255);">internal</span>::PAC_MultiplexRouter::PAC_InterfaceEndpoint::SyncWatchExclusive(<span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">long</span>)+<span style="color: rgb(80,160,79);">112</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#10</span> pc <span style="color: rgb(80,160,79);">0000000004</span>be4f18 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::PAC_InterfaceEndpointClient::SendMessageWithResponder(mojo::PAC_Message*, <span style="color: rgb(0,0,255);">bool</span>, mojo::PAC_InterfaceEndpointClient::SyncSendMode, std::__Cr::unique_ptr<mojo::PAC_MessageReceiver, std::__Cr::default_delete<mojo::PAC_MessageReceiver>>)+<span style="color: rgb(80,160,79);">628</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#11</span> pc <span style="color: rgb(80,160,79);">0000000004</span>be5134 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::PAC_InterfaceEndpointClient::AcceptWithResponder(mojo::PAC_Message*, std::__Cr::unique_ptr<mojo::PAC_MessageReceiver, std::__Cr::default_delete<mojo::PAC_MessageReceiver>>)+<span style="color: rgb(80,160,79);">32</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#12</span> pc <span style="color: rgb(80,160,79);">0000000004</span>bf84b8 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::<span style="color: rgb(0,0,255);">internal</span>::SendMojoMessage(mojo::PAC_MessageReceiverWithResponder&, mojo::PAC_Message&, std::__Cr::unique_ptr<mojo::PAC_MessageReceiver, std::__Cr::default_delete<mojo::PAC_MessageReceiver>>)+<span style="color: rgb(80,160,79);">108</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
-<span style="color: rgb(0,0,255);">#13</span> pc <span style="color: rgb(80,160,79);">0000000001e</span>d1b7c /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(viz::mojom::PAC_FrameSinkManagerProxy::DestroyCompositorFrameSink(viz::PAC_FrameSinkId <span style="color: rgb(0,0,255);">const</span>&)+<span style="color: rgb(80,160,79);">340</span>)(<span style="color: rgb(80,160,79);">36</span>d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+Tid:1558, Name:xxx
+#00 pc 00000000001cc2fc /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(4dcf1315ac91d1611e703e23ab16e8c7)
+#01 pc 00000000001ce3cc /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(4dcf1315ac91d1611e703e23ab16e8c7)
+#02 pc 00000000047dce28 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_ConditionVariable::Wait()+148)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#03 pc 0000000004818d08 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_WaitableEvent::TimedWaitImpl(base::PAC_TimeDelta)+544)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#04 pc 0000000004782970 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_WaitableEvent::TimedWait(base::PAC_TimeDelta)+160)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#05 pc 00000000047828c0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(base::PAC_WaitableEvent::Wait()+16)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#06 pc 0000000004bfceec /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::Wait(mojo::PAC_Handle, unsigned int, unsigned int, PAC_MojoHandleSignalsState*)+268)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#07 pc 00000000038c43c4 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::Wait(mojo::PAC_Handle, unsigned int, PAC_MojoHandleSignalsState*)+36)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#08 pc 0000000004be1274 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::PAC_Connector::WaitForIncomingMessage()+60)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#09 pc 0000000004beb3e0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::internal::PAC_MultiplexRouter::PAC_InterfaceEndpoint::SyncWatchExclusive(unsigned long)+112)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#10 pc 0000000004be4f18 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::PAC_InterfaceEndpointClient::SendMessageWithResponder(mojo::PAC_Message*, bool, mojo::PAC_InterfaceEndpointClient::SyncSendMode, std::__Cr::unique_ptr<mojo::PAC_MessageReceiver, std::__Cr::default_delete<mojo::PAC_MessageReceiver>>)+628)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#11 pc 0000000004be5134 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::PAC_InterfaceEndpointClient::AcceptWithResponder(mojo::PAC_Message*, std::__Cr::unique_ptr<mojo::PAC_MessageReceiver, std::__Cr::default_delete<mojo::PAC_MessageReceiver>>)+32)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#12 pc 0000000004bf84b8 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(mojo::internal::SendMojoMessage(mojo::PAC_MessageReceiverWithResponder&, mojo::PAC_Message&, std::__Cr::unique_ptr<mojo::PAC_MessageReceiver, std::__Cr::default_delete<mojo::PAC_MessageReceiver>>)+108)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
+#13 pc 0000000001ed1b7c /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(viz::mojom::PAC_FrameSinkManagerProxy::DestroyCompositorFrameSink(viz::PAC_FrameSinkId const&)+340)(36d1a5650b9ab413653e7fb36581fd2f0610b9aa)
 ```
  
 根据堆栈分析，找到VizCompositorTh线程，进一步看到阻塞在了IPC通信中，需要找到对端的线程号，因此全局搜索2178；
  
 ```text
-Tid:<span style="color: rgb(80,160,79);">2178</span>, Name:VizCompositorTh
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">000000000018</span>a648 /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(ioctl+<span style="color: rgb(80,160,79);">164</span>)(<span style="color: rgb(80,160,79);">4</span>dcf1315ac91d1611e703e23ab16e8c7)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">000000000000e</span>cd0 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(<span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">long</span>, <span style="color: rgb(0,0,255);">void</span>*)+<span style="color: rgb(80,160,79);">124</span>)(<span style="color: rgb(80,160,79);">1</span>c998eec085cdb89fa5895a5080a0839)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">0000000000072e</span>e4 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(<span style="color: rgb(0,0,255);">bool</span>)+<span style="color: rgb(80,160,79);">284</span>)(<span style="color: rgb(80,160,79);">64</span>a17fcbe779a6da9fa26574ccce2f1e)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">000000000007187</span>c /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::WaitForCompletion(OHOS::MessageParcel*)+<span style="color: rgb(80,160,79);">124</span>)(<span style="color: rgb(80,160,79);">64</span>a17fcbe779a6da9fa26574ccce2f1e)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">0000000000070</span>cf0 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::SendRequest(<span style="color: rgb(0,0,255);">int</span>, <span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, OHOS::MessageParcel&, OHOS::MessageParcel&, OHOS::MessageOption&)+<span style="color: rgb(80,160,79);">620</span>)(<span style="color: rgb(80,160,79);">64</span>a17fcbe779a6da9fa26574ccce2f1e)
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">0000000000049</span>b3c /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCObjectProxy::SendRequestInner(<span style="color: rgb(0,0,255);">bool</span>, <span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, OHOS::MessageParcel&, OHOS::MessageParcel&, OHOS::MessageOption&)+<span style="color: rgb(80,160,79);">272</span>)(<span style="color: rgb(80,160,79);">64</span>a17fcbe779a6da9fa26574ccce2f1e)
-<span style="color: rgb(0,0,255);">#06</span> pc <span style="color: rgb(80,160,79);">000000000004</span>a588 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCObjectProxy::SendRequest(<span style="color: rgb(0,0,255);">unsigned</span> <span style="color: rgb(0,0,255);">int</span>, OHOS::MessageParcel&, OHOS::MessageParcel&, OHOS::MessageOption&)+<span style="color: rgb(80,160,79);">216</span>)(<span style="color: rgb(80,160,79);">64</span>a17fcbe779a6da9fa26574ccce2f1e)
+Tid:2178, Name:VizCompositorTh
+#00 pc 000000000018a648 /system/lib/ld-musl-aarch64.so.1(ioctl+164)(4dcf1315ac91d1611e703e23ab16e8c7)
+#01 pc 000000000000ecd0 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+124)(1c998eec085cdb89fa5895a5080a0839)
+#02 pc 0000000000072ee4 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(64a17fcbe779a6da9fa26574ccce2f1e)
+#03 pc 000000000007187c /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::WaitForCompletion(OHOS::MessageParcel*)+124)(64a17fcbe779a6da9fa26574ccce2f1e)
+#04 pc 0000000000070cf0 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::SendRequest(int, unsigned int, OHOS::MessageParcel&, OHOS::MessageParcel&, OHOS::MessageOption&)+620)(64a17fcbe779a6da9fa26574ccce2f1e)
+#05 pc 0000000000049b3c /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCObjectProxy::SendRequestInner(bool, unsigned int, OHOS::MessageParcel&, OHOS::MessageParcel&, OHOS::MessageOption&)+272)(64a17fcbe779a6da9fa26574ccce2f1e)
+#06 pc 000000000004a588 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCObjectProxy::SendRequest(unsigned int, OHOS::MessageParcel&, OHOS::MessageParcel&, OHOS::MessageOption&)+216)(64a17fcbe779a6da9fa26574ccce2f1e)
 ```
  
 找到线程2178的对端线程为2150，因此全局搜索2150；
  
 ```text
 BinderCatcher --
-    <span style="color: rgb(80,160,79);">1558</span>:<span style="color: rgb(80,160,79);">2178</span> to <span style="color: rgb(80,160,79);">1790</span>:<span style="color: rgb(80,160,79);">2150</span> code <span style="color: rgb(80,160,79);">5004</span> wait:<span style="color: rgb(80,160,79);">15.672447500</span> s frz_state:<span style="color: rgb(80,160,79);">3</span>,  ns:-<span style="color: rgb(80,160,79);">1</span>:-<span style="color: rgb(80,160,79);">1</span> to -<span style="color: rgb(80,160,79);">1</span>:-<span style="color: rgb(80,160,79);">1</span>, debug:<span style="color: rgb(80,160,79);">1558</span>:<span style="color: rgb(80,160,79);">2178</span> to <span style="color: rgb(80,160,79);">1790</span>:<span style="color: rgb(80,160,79);">2150</span>, active_code:<span style="color: rgb(80,160,79);">0</span>, active_thread=<span style="color: rgb(80,160,79);">0</span>, pending_async_proc=<span style="color: rgb(80,160,79);">0</span>
-async   <span style="color: rgb(80,160,79);">5921</span>:<span style="color: rgb(80,160,79);">6512</span> to <span style="color: rgb(80,160,79);">1558</span>:<span style="color: rgb(80,160,79);">0</span> code <span style="color: rgb(80,160,79);">13</span> wait:<span style="color: rgb(80,160,79);">3.205905625</span> s frz_state:<span style="color: rgb(80,160,79);">3</span>,  ns:-<span style="color: rgb(80,160,79);">1</span>:-<span style="color: rgb(80,160,79);">1</span> to -<span style="color: rgb(80,160,79);">1</span>:-<span style="color: rgb(80,160,79);">1</span>, debug:<span style="color: rgb(80,160,79);">5921</span>:<span style="color: rgb(80,160,79);">6512</span> to <span style="color: rgb(80,160,79);">1558</span>:<span style="color: rgb(80,160,79);">0</span>, active_code:<span style="color: rgb(80,160,79);">2</span>, active_thread=<span style="color: rgb(80,160,79);">2037</span>, pending_async_proc=<span style="color: rgb(80,160,79);">5921</span>
-async   <span style="color: rgb(80,160,79);">5921</span>:<span style="color: rgb(80,160,79);">6512</span> to <span style="color: rgb(80,160,79);">1558</span>:<span style="color: rgb(80,160,79);">0</span> code <span style="color: rgb(80,160,79);">2</span>f wait:<span style="color: rgb(80,160,79);">3.30637187</span> s frz_state:<span style="color: rgb(80,160,79);">3</span>,  ns:-<span style="color: rgb(80,160,79);">1</span>:-<span style="color: rgb(80,160,79);">1</span> to -<span style="color: rgb(80,160,79);">1</span>:-<span style="color: rgb(80,160,79);">1</span>, debug:<span style="color: rgb(80,160,79);">5921</span>:<span style="color: rgb(80,160,79);">6512</span> to <span style="color: rgb(80,160,79);">1558</span>:<span style="color: rgb(80,160,79);">0</span>, active_code:<span style="color: rgb(80,160,79);">2</span>, active_thread=<span style="color: rgb(80,160,79);">2037</span>, pending_async_proc=<span style="color: rgb(80,160,79);">5921</span>
+    1558:2178 to 1790:2150 code 5004 wait:15.672447500 s frz_state:3,  ns:-1:-1 to -1:-1, debug:1558:2178 to 1790:2150, active_code:0, active_thread=0, pending_async_proc=0
+async   5921:6512 to 1558:0 code 13 wait:3.205905625 s frz_state:3,  ns:-1:-1 to -1:-1, debug:5921:6512 to 1558:0, active_code:2, active_thread=2037, pending_async_proc=5921
+async   5921:6512 to 1558:0 code 2f wait:3.30637187 s frz_state:3,  ns:-1:-1 to -1:-1, debug:5921:6512 to 1558:0, active_code:2, active_thread=2037, pending_async_proc=5921
 ```
  
 根据2150线程的堆栈，需要排查下面的业务so的持锁情况。
  
 ```text
-Tid:<span style="color: rgb(80,160,79);">2150</span>, Name:OS_IPC_0_2150
-<span style="color: rgb(0,0,255);">#00</span> pc <span style="color: rgb(80,160,79);">00000000001</span>cc2fc /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(__timedwait_cp+<span style="color: rgb(80,160,79);">156</span>)(<span style="color: rgb(80,160,79);">4</span>dcf1315ac91d1611e703e23ab16e8c7)
-<span style="color: rgb(0,0,255);">#01</span> pc <span style="color: rgb(80,160,79);">00000000001</span>ce3cc /system/lib/ld-musl-aarch64.so<span style="color: rgb(80,160,79);">.1</span>(pthread_cond_timedwait+<span style="color: rgb(80,160,79);">172</span>)(<span style="color: rgb(80,160,79);">4</span>dcf1315ac91d1611e703e23ab16e8c7)
-<span style="color: rgb(0,0,255);">#02</span> pc <span style="color: rgb(80,160,79);">00000000000</span>c4984 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::condition_variable::wait(std::__h::unique_lock<std::__h::mutex>&)+<span style="color: rgb(80,160,79);">32</span>)(<span style="color: rgb(80,160,79);">4</span>c257fafd66f57a4f1f873163a520100e191a256)
-<span style="color: rgb(0,0,255);">#03</span> pc <span style="color: rgb(80,160,79);">00000000000</span>c55b0 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::__assoc_sub_state::wait()+<span style="color: rgb(80,160,79);">72</span>)(<span style="color: rgb(80,160,79);">4</span>c257fafd66f57a4f1f873163a520100e191a256)
-<span style="color: rgb(0,0,255);">#04</span> pc <span style="color: rgb(80,160,79);">0000000000214</span>a2c /system/lib64/libxxx.so(...)
-<span style="color: rgb(0,0,255);">#05</span> pc <span style="color: rgb(80,160,79);">0000000000496770</span> /system/lib64/libxxx.so(...)
+Tid:2150, Name:OS_IPC_0_2150
+#00 pc 00000000001cc2fc /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(4dcf1315ac91d1611e703e23ab16e8c7)
+#01 pc 00000000001ce3cc /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(4dcf1315ac91d1611e703e23ab16e8c7)
+#02 pc 00000000000c4984 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::condition_variable::wait(std::__h::unique_lock<std::__h::mutex>&)+32)(4c257fafd66f57a4f1f873163a520100e191a256)
+#03 pc 00000000000c55b0 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::__assoc_sub_state::wait()+72)(4c257fafd66f57a4f1f873163a520100e191a256)
+#04 pc 0000000000214a2c /system/lib64/libxxx.so(...)
+#05 pc 0000000000496770 /system/lib64/libxxx.so(...)
 ```
  
 **排查建议**

@@ -41,16 +41,16 @@ import { HvigorPlugin, HvigorNode } from '@ohos/hvigor';
 
   
 ```text
-<span style="color: rgb(128,128,128);">// 工程级</span>hvigorfile.ts
-function <span style="color: rgb(0,0,255);">customPlugin</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorPlugin </span><span style="color: rgb(255,0,170);">{</span>
-  return <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">pluginId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'customPlugin'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">apply</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">node</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorNode</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">插件主体</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'hello customPlugin!'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 工程级hvigorfile.ts
+function customPlugin(): HvigorPlugin {
+  return {
+    pluginId: 'customPlugin',
+    apply(node: HvigorNode) {
+      // 插件主体
+      console.log('hello customPlugin!');
+    }
+  }
+}
 ```
 
 3. 在导出声明中使用插件。
@@ -58,12 +58,12 @@ function <span style="color: rgb(0,0,255);">customPlugin</span><span style="colo
   
 ```text
 // 工程级hvigorfile.ts
-export default <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">system</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">appTasks</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">plugins</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">[</span>
-    <span style="color: rgb(0,0,255);">customPlugin</span><span style="color: rgb(0,0,255);">()  </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用自定义</span><span style="color: rgb(128,128,128);">Plugin</span>
-  <span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default {
+  system: appTasks,
+  plugins:[
+    customPlugin()  // 应用自定义Plugin
+  ]
+}
 ```
 
 4. 执行Hvigor命令。
@@ -159,16 +159,16 @@ npm install
 
   
 ```text
-import type <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">HvigorNode</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">HvigorPlugin </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hvigor'</span><span style="color: rgb(181,106,1);">;</span>
+import type { HvigorNode, HvigorPlugin } from '@ohos/hvigor';
 
-export function <span style="color: rgb(0,0,255);">customPlugin</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorPlugin </span><span style="color: rgb(255,0,170);">{</span>
-  return <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">pluginId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'customPlugin'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">apply</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">node</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorNode</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'hello customPlugin!'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+export function customPlugin(): HvigorPlugin {
+  return {
+    pluginId: 'customPlugin',
+    apply(node: HvigorNode) {
+      console.log('hello customPlugin!');
+    }
+  }
+}
 ```
 
 5. 导出插件。
@@ -238,9 +238,9 @@ npm publish
 
   
 ```json
-<span style="color: rgb(255,0,170);">"dependencies"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(255,0,170);">"custom-plugin"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"1.0.0"   </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加自定义插件依赖</span>
-<span style="color: rgb(255,0,170);">}</span>
+"dependencies": {
+  "custom-plugin": "1.0.0"   // 添加自定义插件依赖
+}
 ```
 
 2. 安装依赖。
@@ -267,10 +267,10 @@ import { customPlugin } from 'custom-plugin';
 
   
 ```text
-export default <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">system</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">appTasks</span><span style="color: rgb(181,106,1);">,</span>  // 以工程级hvigorfile.ts为例
-  <span style="color: rgb(0,0,255);">plugins</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">[</span>
-    <span style="color: rgb(0,0,255);">customPlugin</span><span style="color: rgb(0,0,255);">()  </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用自定义插件</span>
-  <span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default {
+  system: appTasks,  // 以工程级hvigorfile.ts为例
+  plugins:[
+    customPlugin()  // 应用自定义插件
+  ]
+}
 ```

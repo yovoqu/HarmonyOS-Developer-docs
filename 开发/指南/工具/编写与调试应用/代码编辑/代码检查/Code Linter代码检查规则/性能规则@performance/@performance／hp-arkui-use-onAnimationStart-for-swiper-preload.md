@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-use-onAnimationStart-for-swiper-preload"</span>: <span style="color: rgb(6,125,23);">"warn"</span>,
+  "rules": {
+    "@performance/hp-arkui-use-onAnimationStart-for-swiper-preload": "warn",
   }
 }
 ```
@@ -124,7 +124,7 @@ struct MyComponent {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
+plugin:@performance/recommended
 plugin:@performance/all
 ```
  

@@ -67,29 +67,29 @@ testability目录 > TestAbility.ets文件
   
 ```ArkTS
 {
-  <span style="color: rgb(135,16,148);">"module"</span>: {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"entry_test"</span>,
-    <span style="color: rgb(135,16,148);">"type"</span>: <span style="color: rgb(6,125,23);">"feature"</span>,
-<span style="color: rgb(135,16,148);">    "description"</span>: <span style="color: rgb(6,125,23);">"$string:module_test_desc"</span>,
-    <span style="color: rgb(135,16,148);">"mainElement"</span>: <span style="color: rgb(6,125,23);">"TestAbility"</span>,                                   // 对应下方abilities中的ability name。
-    <span style="color: rgb(135,16,148);">"deviceTypes"</span>: [
-      <span style="color: rgb(6,125,23);">"phone"</span>,
-      <span style="color: rgb(6,125,23);">"tablet"</span>,
-      <span style="color: rgb(6,125,23);">"2in1"</span>
+  "module": {
+    "name": "entry_test",
+    "type": "feature",
+    "description": "$string:module_test_desc",
+    "mainElement": "TestAbility",                                   // 对应下方abilities中的ability name。
+    "deviceTypes": [
+      "phone",
+      "tablet",
+      "2in1"
     ],
-    <span style="color: rgb(135,16,148);">"deliveryWithInstall"</span>: <span style="color: rgb(0,51,179);">true</span>,
-    <span style="color: rgb(135,16,148);">"installationFree"</span>: <span style="color: rgb(0,51,179);">false</span>,
-    <span style="color: rgb(135,16,148);">"pages"</span>: <span style="color: rgb(6,125,23);">"$profile:test_pages"</span>,                                 // 对应resources目录 > base目录 > profile目录 > test_pages.json文件。
-    <span style="color: rgb(135,16,148);">"abilities"</span>: [                                                  // 添加的ability的配置信息。
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:test_pages",                                 // 对应resources目录 > base目录 > profile目录 > test_pages.json文件。
+    "abilities": [                                                  // 添加的ability的配置信息。
       {
-        <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"TestAbility"</span>,
-        <span style="color: rgb(135,16,148);">"srcEntry"</span>: <span style="color: rgb(6,125,23);">"./ets/testability/TestAbility.ets"</span>,
-        <span style="color: rgb(135,16,148);">"description"</span>: <span style="color: rgb(6,125,23);">"$string:TestAbility_desc"</span>,
-        <span style="color: rgb(135,16,148);">"icon"</span>: <span style="color: rgb(6,125,23);">"$media:icon"</span>,    // 确保引用的资源都存在
-        <span style="color: rgb(135,16,148);">"label"</span>: <span style="color: rgb(6,125,23);">"$string:TestAbility_label"</span>,
-        <span style="color: rgb(135,16,148);">"exported"</span>: <span style="color: rgb(0,51,179);">true</span>,
-        <span style="color: rgb(135,16,148);">"startWindowIcon"</span>: <span style="color: rgb(6,125,23);">"$media:icon"</span>,
-        <span style="color: rgb(135,16,148);">"startWindowBackground"</span>: <span style="color: rgb(6,125,23);">"$color:start_window_background"</span>
+        "name": "TestAbility",
+        "srcEntry": "./ets/testability/TestAbility.ets",
+        "description": "$string:TestAbility_desc",
+        "icon": "$media:icon",    // 确保引用的资源都存在
+        "label": "$string:TestAbility_label",
+        "exported": true,
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background"
       }
     ]
   }
@@ -389,17 +389,17 @@ endif()
 
   
 ```text
-<span style="color: rgb(0,0,255);">extern</span> <span style="color: rgb(255,0,0);">"C"</span> {
-    <span style="color: rgb(0,0,255);">void</span> __llvm_profile_set_filename(<span style="color: rgb(0,0,255);">char</span> *);
-    <span style="color: rgb(0,0,255);">int</span> __llvm_profile_write_file(<span style="color: rgb(0,0,255);">void</span>);
+extern "C" {
+    void __llvm_profile_set_filename(char *);
+    int __llvm_profile_write_file(void);
 }
 
-<span style="color: rgb(0,0,255);">static</span> napi_value RunNativeTest(napi_env env, napi_callback_info info)
+static napi_value RunNativeTest(napi_env env, napi_callback_info info)
 {
-    <span style="color: rgb(0,0,255);">char</span> filename[<span style="color: rgb(80,160,79);">256</span>];
-    snprintf(filename, <span style="color: rgb(0,0,255);">sizeof</span>(filename), <span style="color: rgb(255,0,0);">"/data/storage/el2/base/c++_coverage.profraw"</span>); // 覆盖率报告文件路径和文件名，不可修改
+    char filename[256];
+    snprintf(filename, sizeof(filename), "/data/storage/el2/base/c++_coverage.profraw"); // 覆盖率报告文件路径和文件名，不可修改
     __llvm_profile_set_filename(filename);
-    <span style="color: rgb(80,160,79);">// 开启测试</span>
+    // 开启测试
     ...
     // 结束测试，保存数据
      __llvm_profile_write_file();

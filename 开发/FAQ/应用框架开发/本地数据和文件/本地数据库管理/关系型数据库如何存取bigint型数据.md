@@ -30,109 +30,109 @@
 完整示例参考如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">relationalStore </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">"@kit.ArkData"</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">"@kit.AbilityKit"</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">systemDateTime </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">"@kit.BasicServicesKit"</span><span style="color: rgb(181,106,1);">;</span>
+import { relationalStore } from "@kit.ArkData";
+import { common } from "@kit.AbilityKit";
+import { BusinessError, systemDateTime } from "@kit.BasicServicesKit";
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">BigintRdbDemo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">promptAction </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">storeConfig</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StoreConfig </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"BigintRdbDemo.db"</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">securityLevel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SecurityLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">S1</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">store</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RdbStore </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct BigintRdbDemo {
+  @State message: string | undefined = undefined;
+  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+  private promptAction = this.getUIContext().getPromptAction();
+  private storeConfig: relationalStore.StoreConfig = {
+    name: "BigintRdbDemo.db",
+    securityLevel: relationalStore.SecurityLevel.S1,
+  };
+  store: relationalStore.RdbStore | undefined = undefined;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  build() {
+    Column({ space: 20 }) {
 
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">'Hello World!'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      Text(this.message || 'Hello World!');
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始化数据库表</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">150</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ROUNDED_RECTANGLE</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#0a59f7'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRdbStore</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">storeConfig</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">store</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to get RdbStore. Code:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始化数据库失败</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              return<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in getting RdbStore.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">store </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">store</span><span style="color: rgb(181,106,1);">;</span>
+      Button('初始化数据库表')
+        .width(150)
+        .type(ButtonType.ROUNDED_RECTANGLE)
+        .backgroundColor('#0a59f7')
+        .onClick(() => {
+          relationalStore.getRdbStore(this.context, this.storeConfig, (err, store) => {
+            if (err) {
+              console.error(`Failed to get RdbStore. Code:${err.code}, message:${err.message}`);
+              this.promptAction.showToast({ message: '初始化数据库失败' });
+              return;
+            }
+            console.info('Succeeded in getting RdbStore.');
+            this.store = store;
 
-          <em>  <span style="color: rgb(128,128,128);">// step1</span><span style="color: rgb(128,128,128);">：建表时声明</span><span style="color: rgb(128,128,128);">BigInt</span><span style="color: rgb(128,128,128);">数据类型为：</span><span style="color: rgb(128,128,128);">UNLIMITED INT</span></em>
-            const <span style="color: rgb(0,0,255);">sqlCreateTable </span><span style="color: rgb(181,106,1);">=</span>
-              <span style="color: rgb(255,0,170);">'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDENTITY UNLIMITED INT)'</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">store</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">executeSql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sqlCreateTable</span><span style="color: rgb(0,0,255);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建数据表，以便后续调用</span><span style="color: rgb(128,128,128);">insert</span><span style="color: rgb(128,128,128);">接口插入数据</span></em>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始化数据库表成功</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始化数据库表失败</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to executeSql. Code:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <em>  // step1：建表时声明BigInt数据类型为：UNLIMITED INT</em>
+            const sqlCreateTable =
+              'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDENTITY UNLIMITED INT)';
+            store.executeSql(sqlCreateTable)<em> </em><em>// 创建数据表，以便后续调用insert接口插入数据</em>
+              .then(() => {
+                this.promptAction.showToast({ message: '初始化数据库表成功' });
+              })
+              .catch((err: BusinessError) => {
+                this.promptAction.showToast({ message: '初始化数据库表失败' });
+                console.error(`Failed to executeSql. Code:${err.code}, message:${err.message}`);
+              });
+          });
+        });
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">插入</span><span style="color: rgb(255,0,170);">bigInt</span><span style="color: rgb(255,0,170);">类型数据</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">150</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ROUNDED_RECTANGLE</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#0a59f7'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          let <span style="color: rgb(0,0,255);">time </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">systemDateTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">dataList </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ValuesBucket</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ValuesBucket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-          <em>    <span style="color: rgb(128,128,128);">// step2</span><span style="color: rgb(128,128,128);">：构造数据插入表中，使用</span><span style="color: rgb(128,128,128);">BigInt()</span><span style="color: rgb(128,128,128);">生成</span><span style="color: rgb(128,128,128);">bigInt</span><span style="color: rgb(128,128,128);">类型数据</span></em>
-              <span style="color: rgb(255,0,170);">"IDENTITY"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">time </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">10000 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">dataList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">store</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">batchInsert</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"EMPLOYEE"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dataList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据插入失败</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`insertData() failed, err.message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, err.code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              return<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据插入成功</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`insertData() finished: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      Button('插入bigInt类型数据')
+        .width(150)
+        .type(ButtonType.ROUNDED_RECTANGLE)
+        .backgroundColor('#0a59f7')
+        .onClick(() => {
+          let time = systemDateTime.getTime(true);
+          let dataList = new Array<relationalStore.ValuesBucket>();
+          for (let index = 0; index < 10; index++) {
+            let data: relationalStore.ValuesBucket = {
+          <em>    // step2：构造数据插入表中，使用BigInt()生成bigInt类型数据</em>
+              "IDENTITY": BigInt(time * 10000 + index)
+            };
+            dataList.push(data);
+          }
+          this.store?.batchInsert("EMPLOYEE", dataList, (err, ret) => {
+            if (err) {
+              this.promptAction.showToast({ message: '数据插入失败' });
+              console.error(`insertData() failed, err.message: ${err.message}, err.code: ${err.code}`);
+              return;
+            }
+            this.promptAction.showToast({ message: '数据插入成功' });
+            console.info(`insertData() finished: ${ret}`);
+          });
+        });
 
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">查询</span><span style="color: rgb(255,0,170);">bigInt</span><span style="color: rgb(255,0,170);">类型数据</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">150</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ROUNDED_RECTANGLE</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#0a59f7'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">store</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">querySql</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"select * from EMPLOYEE limit 1"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据查询失败</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Query failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              return<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-         <em>   <span style="color: rgb(128,128,128);">// resultSet</span><span style="color: rgb(128,128,128);">是一个数据集合的游标，默认指向第</span><span style="color: rgb(128,128,128);">-1</span><span style="color: rgb(128,128,128);">个记录，有效的数据从</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">开始。</span></em>
-            while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">goToNextRow</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
-              const <span style="color: rgb(0,0,255);">id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLong</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"ID"</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-           <em>   <span style="color: rgb(128,128,128);">// step3</span><span style="color: rgb(128,128,128);">：查询数据库，使用</span><span style="color: rgb(128,128,128);">resultSet.getValue()</span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">BigInt</span><span style="color: rgb(128,128,128);">型数据。</span></em>
-              const <span style="color: rgb(0,0,255);">identity </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getColumnIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"IDENTITY"</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">identity</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`id=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, identity=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">identity</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据查询成功</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">释放数据集的内存</span></em>
-            <span style="color: rgb(0,0,255);">resultSet</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Button('查询bigInt类型数据')
+        .width(150)
+        .type(ButtonType.ROUNDED_RECTANGLE)
+        .backgroundColor('#0a59f7')
+        .onClick(() => {
+          this.store?.querySql("select * from EMPLOYEE limit 1", (err, resultSet) => {
+            if (err) {
+              this.promptAction.showToast({ message: '数据查询失败' });
+              console.error(`Query failed, code is ${err.code},message is ${err.message}`);
+              return;
+            }
+         <em>   // resultSet是一个数据集合的游标，默认指向第-1个记录，有效的数据从0开始。</em>
+            while (resultSet.goToNextRow()) {
+              const id = resultSet.getLong(resultSet.getColumnIndex("ID"));
+           <em>   // step3：查询数据库，使用resultSet.getValue()获取BigInt型数据。</em>
+              const identity = resultSet.getValue(resultSet.getColumnIndex("IDENTITY"));
+              this.message = identity?.toString();
+              console.info(`id=${id}, identity=${identity}`);
+            }
+            this.promptAction.showToast({ message: '数据查询成功' });
+          <em>  // 释放数据集的内存</em>
+            resultSet.close();
+          });
+        });
+    }
+    .justifyContent(FlexAlign.Center)
+    .height('100%')
+    .width('100%');
+  }
+}
 ```

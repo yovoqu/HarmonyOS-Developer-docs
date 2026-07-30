@@ -11,13 +11,13 @@ Native工程导入库以及编译的时候，遇到找不到库文件或者引�
 报错日志参考如下：
  
 ```text
-<span style="color: rgb(181,106,1);">Cause</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Can</span>'t <span style="color: rgb(0,0,255);">find any </span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so file </span>in <span style="color: rgb(0,0,255);">the xxx</span>
+Cause: Can't find any .so file in the xxx
 ```
  
 ```text
-<span style="color: rgb(0,0,255);">CMake Error at CMakeLists</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">txt</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">XXX </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">find_package</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">:</span>
-<span style="color: rgb(0,0,255);">find a package configuration file provided by XXX</span>
-<span style="color: rgb(0,0,255);">but it set XX_FLAG to </span>false <span style="color: rgb(0,0,255);">so package is considered to be NOT FOUND</span>
+CMake Error at CMakeLists.txt:XXX (find_package):
+find a package configuration file provided by XXX
+but it set XX_FLAG to false so package is considered to be NOT FOUND
 ```
  
  
@@ -49,17 +49,17 @@ HarmonyOS上[使用DevEco Studio模板构建NDK工程](https://developer.huawei.
 
   
 ```text
-<span style="color: rgb(0,0,255);">$ llvm</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">readelf </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">d xxx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span>
+$ llvm-readelf -d xxx.so
 
-<span style="color: rgb(0,0,255);">Dynamic section at offset </span><span style="color: rgb(0,0,255);">0xad00a0 </span><span style="color: rgb(0,0,255);">contains </span><span style="color: rgb(255,0,0);">31 </span><span style="color: rgb(181,106,1);">entries</span><span style="color: rgb(181,106,1);">:</span>
-  <span style="color: rgb(0,0,255);">Tag        Type                         Name</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">Value</span>
-<span style="color: rgb(0,0,255);">0x000000000000001d (</span><span style="color: rgb(0,0,255);">RUNPATH</span><span style="color: rgb(0,0,255);">)            </span><span style="color: rgb(0,0,255);">Library </span><span style="color: rgb(181,106,1);">runpath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">$ORIGIN</span><span style="color: rgb(181,106,1);">/..</span><span style="color: rgb(255,0,170);">/../</span><span style="color: rgb(181,106,1);">..</span><span style="color: rgb(255,0,170);">/mapi/s</span><span style="color: rgb(0,0,255);">hared</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">glapi</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">/xxx/</span><span style="color: rgb(0,0,255);">ohos</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">sdk</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">thirdparty</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">libxxx</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">/xxx/</span><span style="color: rgb(0,0,255);">ohos</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">sdk</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">hiviewdfx</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(0,0,255);">0x0000000000000001 (</span><span style="color: rgb(0,0,255);">NEEDED</span><span style="color: rgb(0,0,255);">)             </span><span style="color: rgb(0,0,255);">Shared </span><span style="color: rgb(181,106,1);">library</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">libglapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(255,0,0);">.0</span><span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(0,0,255);">0x0000000000000001 (</span><span style="color: rgb(0,0,255);">NEEDED</span><span style="color: rgb(0,0,255);">)             </span><span style="color: rgb(0,0,255);">Shared </span><span style="color: rgb(181,106,1);">library</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">libz</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(0,0,255);">0x0000000000000001 (</span><span style="color: rgb(0,0,255);">NEEDED</span><span style="color: rgb(0,0,255);">)             </span><span style="color: rgb(0,0,255);">Shared </span><span style="color: rgb(181,106,1);">library</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">libhilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(0,0,255);">0x0000000000000001 (</span><span style="color: rgb(0,0,255);">NEEDED</span><span style="color: rgb(0,0,255);">)             </span><span style="color: rgb(0,0,255);">Shared </span><span style="color: rgb(181,106,1);">library</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">libc</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">_shared</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(0,0,255);">0x0000000000000001 (</span><span style="color: rgb(0,0,255);">NEEDED</span><span style="color: rgb(0,0,255);">)             </span><span style="color: rgb(0,0,255);">Shared </span><span style="color: rgb(181,106,1);">library</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">libc</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(0,0,255);">]</span>
-<span style="color: rgb(0,0,255);">0x000000000000000e (</span><span style="color: rgb(0,0,255);">SONAME</span><span style="color: rgb(0,0,255);">)             </span><span style="color: rgb(0,0,255);">Library </span><span style="color: rgb(181,106,1);">soname</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">libaaa</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">so</span><span style="color: rgb(0,0,255);">]</span>
+Dynamic section at offset 0xad00a0 contains 31 entries:
+  Tag        Type                         Name/Value
+0x000000000000001d (RUNPATH)            Library runpath: [$ORIGIN/../../../mapi/shared-glapi:/xxx/ohos-sdk/thirdparty/libxxx:/xxx/ohos-sdk/hiviewdfx/hilog]
+0x0000000000000001 (NEEDED)             Shared library: [libglapi.so.0]
+0x0000000000000001 (NEEDED)             Shared library: [libz.so]
+0x0000000000000001 (NEEDED)             Shared library: [libhilog.so]
+0x0000000000000001 (NEEDED)             Shared library: [libc++_shared.so]
+0x0000000000000001 (NEEDED)             Shared library: [libc.so]
+0x000000000000000e (SONAME)             Library soname: [libaaa.so]
 ```
 
 1. 使用上述命令查看依赖的SO（NEEDED）。需要把依赖的SO添加到工程中并在CMakeLists.txt链接。

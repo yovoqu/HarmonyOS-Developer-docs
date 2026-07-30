@@ -28,110 +28,110 @@
 
  
 ```json
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">photoAccessHelper </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.MediaLibraryKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fileIo </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">pdfService </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.PDFKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">hilog </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">promptAction </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { photoAccessHelper } from '@kit.MediaLibraryKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { fileIo } from '@kit.CoreFileKit';
+import { pdfService } from '@kit.PDFKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { promptAction } from '@kit.ArkUI';
+import { common } from '@kit.AbilityKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PhotoPickerComponentDemo </span><span style="color: rgb(181,106,1);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓存选择的图片</span><span style="color: rgb(128,128,128);">uri</span></em>
-  <span style="color: rgb(255,255,255);">uri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">pdfDocument</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PdfDocument </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">Context</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct PhotoPickerComponentDemo {
+ <em> // 缓存选择的图片uri</em>
+  uri: Array<string> = [];
+  private pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
+  private context = this.getUIContext().getHostContext() as Context;
 
-  async <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">确保</span><span style="color: rgb(128,128,128);">rawfile</span><span style="color: rgb(128,128,128);">目录下有</span><span style="color: rgb(128,128,128);">pdf</span><span style="color: rgb(128,128,128);">文件</span></em>
-      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyRawFileToSdcard</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'input.pdf'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">全部拷贝完成</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文件拷贝失败</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  async aboutToAppear(): Promise<void> {
+    try {
+    <em>  //确保rawfile目录下有pdf文件</em>
+      await this.copyRawFileToSdcard(this.context, 'input.pdf');
+      promptAction.openToast({ message: '全部拷贝完成' });
+    } catch (error) {
+      promptAction.openToast({ message: '文件拷贝失败' });
+    }
+  }
 
-  private <span style="color: rgb(0,0,255);">copyRawFileToSdcard</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pdfName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    return new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">resolve</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">destRoot </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
- <em>     <span style="color: rgb(128,128,128);">// rawfile</span><span style="color: rgb(128,128,128);">下的文件名</span></em>
-      let <span style="color: rgb(255,255,255);">srcFileName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pdfName</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">destFilePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">destRoot</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">/</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">srcFileName</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFileName</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">拷贝失败</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`error.code is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">,error.message is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">,`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          return<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        let <span style="color: rgb(255,255,255);">fileStream </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createStreamSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">destFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'w+'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">fileStream</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">fileStream</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">拷贝成功</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise<void> {
+    return new Promise((resolve) => {
+      let destRoot = context.filesDir;
+ <em>     // rawfile下的文件名</em>
+      let srcFileName = pdfName;
+      let destFilePath = `${destRoot}/${srcFileName}`;
+      context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {
+        if (error) {
+          promptAction.openToast({ message: '拷贝失败' });
+          console.error(`error.code is ${error.code},error.message is ${error.message},`);
+          return;
+        }
+        let fileStream = fileIo.createStreamSync(destFilePath, 'w+');
+        fileStream.writeSync(data.buffer);
+        fileStream.close();
+        promptAction.openToast({ message: '拷贝成功' });
+        resolve();
+      });
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">selectPhoto</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">photoSelectOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoSelectOptions</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIMEType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoViewMIMETypes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IMAGE_TYPE</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">photoPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewPicker</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">photoPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">select</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">PhotoSelectResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoSelectResult</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// select</span><span style="color: rgb(128,128,128);">方法：在选择图片点击完成之后，</span><span style="color: rgb(128,128,128);">PhotoSelectResult.photoUris</span><span style="color: rgb(128,128,128);">返回选中的</span><span style="color: rgb(128,128,128);">uri</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">PhotoSelectResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">photoUris</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`PhotoViewPicker.select successfully, PhotoSelectResult uri: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">PhotoSelectResult</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`PhotoViewPicker.select failed with err: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">error </span>as <span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`PhotoViewPicker failed with err: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  selectPhoto() {
+    try {
+      let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
+      photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+      photoSelectOptions.maxSelectNumber = 5;
+      let photoPicker = new photoAccessHelper.PhotoViewPicker();
+      photoPicker.select(photoSelectOptions).then((PhotoSelectResult: photoAccessHelper.PhotoSelectResult) => {
+     <em>   // select方法：在选择图片点击完成之后，PhotoSelectResult.photoUris返回选中的uri</em>
+        this.uri = PhotoSelectResult.photoUris;
+        console.info(`PhotoViewPicker.select successfully, PhotoSelectResult uri: ${JSON.stringify(PhotoSelectResult)}`);
+      }).catch((err: BusinessError) => {
+        console.error(`PhotoViewPicker.select failed with err: ${err.code}, ${err.message}`);
+      });
+    } catch (error) {
+      let err: BusinessError = error as BusinessError;
+      console.error(`PhotoViewPicker failed with err: ${err.code}, ${err.message}`);
+    }
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">fs.openSync</span><span style="color: rgb(128,128,128);">接口，通过</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">打开这个文件得到</span><span style="color: rgb(128,128,128);">fd</span><span style="color: rgb(128,128,128);">，拷贝到新路径</span></em>
-  <span style="color: rgb(0,0,255);">getFilePath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uri</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">dateStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">临时文件目录</span></em>
-    let <span style="color: rgb(255,255,255);">newPath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">`/</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">dateStr </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">转化路径</span></em>
-    <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFileSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">newPath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">沙箱路径</span></em>
-    let <span style="color: rgb(255,255,255);">realUri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">newPath</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`newPath is : </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">realUri</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">realUri</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+<em>  // 使用fs.openSync接口，通过uri打开这个文件得到fd，拷贝到新路径</em>
+  getFilePath(uri: string): string {
+    let file = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY);
+    const dateStr = (new Date().getTime()).toString();
+  <em>  // 临时文件目录</em>
+    let newPath = this.context.filesDir + `/${dateStr + file.name}`;
+   <em> // 转化路径</em>
+    fileIo.copyFileSync(file.fd, newPath);
+  <em>  // 沙箱路径</em>
+    let realUri = newPath;
+    console.info(`newPath is : ${realUri}`);
+    return realUri;
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'select'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectPhoto</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加图片</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'addImage'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保沙箱目录有</span><span style="color: rgb(128,128,128);">input.pdf</span><span style="color: rgb(128,128,128);">文档</span></em>
-        let <span style="color: rgb(255,255,255);">filePath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/input.pdf'</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">loadResult </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ParseResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PARSE_SUCCESS </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">loadResult</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PdfPage </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`click info</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`file path info</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">></span> <span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getFilePath</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uri</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">插入图片，沙箱目录已有选择后的图片</span></em>
-          <span style="color: rgb(255,255,255);">page</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addImageObject</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getFilePath</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uri</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">120</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">outPdfPath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/testAddImage.pdf'</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`outPdfPath info</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">outPdfPath</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">result </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">saveDocument</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">outPdfPath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'PdfPage'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'addImage %{public}s!'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">result </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'success' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'fail'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Button('select').onClick(() => {
+        this.selectPhoto();
+      })
+   <em>   // 添加图片</em>
+      Button('addImage').onClick(async () => {
+     <em>   // 确保沙箱目录有input.pdf文档</em>
+        let filePath = this.context.filesDir + '/input.pdf';
+        let loadResult = this.pdfDocument.loadDocument(filePath, '');
+        if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
+          let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
+          console.info(`click info>>`);
+          console.info(`file path info>> ${this.getFilePath(this.uri[0])}`);
+        <em>  // 插入图片，沙箱目录已有选择后的图片</em>
+          page.addImageObject(this.getFilePath(this.uri[0]), 100, 100, 100, 120);
+          let outPdfPath = this.context.filesDir + '/testAddImage.pdf';
+          console.info(`outPdfPath info>>${outPdfPath}`);
+          let result = this.pdfDocument.saveDocument(outPdfPath);
+          hilog.info(0x0000, 'PdfPage', 'addImage %{public}s!', result ? 'success' : 'fail');
+        }
+      })
+    }
 
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+  }
+}
 ```

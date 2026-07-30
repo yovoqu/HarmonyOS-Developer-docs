@@ -27,7 +27,7 @@ Windows平台配置文件：C:\Windows\System32\drivers\etc\hosts。
 
 1. 停止winnat。
 ```text
-<span style="color: rgb(36,39,40);">net stop winnat</span>
+net stop winnat
 ```
 
 

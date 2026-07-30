@@ -25,71 +25,71 @@
 1. 通过getParagraphs方法可以获取指定范围的段落，再根据段落里面的样式信息，拿到对应的组件与边缘之间的距离。
 2. 根据获取到的缩进值对不同的段落进行[updateParagraphStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#updateparagraphstyle11)。
 ```json
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">LineBreakStrategyExample </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">spanParagraphs</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorParagraphResult</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">testStr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'0123456789,0123456789,0123456789,0123456789,0123456789.'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct LineBreakStrategyExample {
+  controller: RichEditorController = new RichEditorController();
+  private spanParagraphs: RichEditorParagraphResult[] = [];
+  testStr: string = '0123456789,0123456789,0123456789,0123456789,0123456789.';
+  @State left: number = 0;
+  @State right: number = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">testStr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'32'</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">paragraphStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">lineBreakStrategy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LineBreakStrategy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GREEDY</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">leadingMargin</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span>undefined<span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(0,0,255);">]</span>
-              <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">            }</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">400</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">draggable</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      RichEditor({ controller: this.controller })
+        .onReady(() => {
+          this.controller.addTextSpan(this.testStr, {
+            style: {
+              fontColor: Color.Black,
+              fontSize: '32'
+            },
+            paragraphStyle: {
+              textAlign: TextAlign.Start,
+              lineBreakStrategy: LineBreakStrategy.GREEDY,
+              leadingMargin: {
+                pixelMap: undefined,
+                size: [16, 6]
+              }
+            }
+          });
+        })
+        .width(400)
+        .height(300)
+        .margin({ bottom: 20 })
+        .draggable(false);
 
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">获取距离</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">spanParagraphs </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getParagraphs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">end</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">spanParagraphs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LeadingMarginPlaceholder </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Dimension </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">spanParagraphs</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">style</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">leadingMargin</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">jsonObj</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Object </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">jsonObj</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">commObj </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">jsonObj </span>as <span style="color: rgb(0,0,255);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Object</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">commRecord </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">commObj</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'size'</span><span style="color: rgb(0,0,255);">] </span>as <span style="color: rgb(0,0,255);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Object</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">arrayJson </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">commRecord</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-           <em>   <span style="color: rgb(128,128,128);">// sArray</span><span style="color: rgb(128,128,128);">即为缩进的值</span></em>
-              let <span style="color: rgb(0,0,255);">sArray </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">arrayJson</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">left </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sArray</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'.'</span><span style="color: rgb(0,0,255);">)[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">right </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sArray</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'.'</span><span style="color: rgb(0,0,255);">)[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">段落对齐</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateParagraphStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-       <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">以字符串为单位选择要更新的段落。</span></em>
-            <span style="color: rgb(0,0,255);">start</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">end</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-             <em> <span style="color: rgb(128,128,128);">// leadingMargin</span><span style="color: rgb(128,128,128);">的值根据上面获取到的值，进行计算后赋予新值。</span></em>
-              <span style="color: rgb(0,0,255);">leadingMargin</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span>null<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">left </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">right </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">            }</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Column({ space: 10 }) {
+        Button('获取距离').onClick(() => {
+          this.spanParagraphs = this.controller.getParagraphs({ start: 1, end: 30 });
+          for (let i = 0; i < this.spanParagraphs.length; i++) {
+            let margin: LeadingMarginPlaceholder | Dimension | undefined = this.spanParagraphs[i].style.leadingMargin;
+            let str = JSON.stringify(margin);
+            let jsonObj: Object | null = JSON.parse(str);
+            if (jsonObj) {
+              let commObj = (jsonObj as Record<string, Object>);
+              let commRecord = (commObj['size'] as Record<string, Object>);
+              let arrayJson = JSON.stringify(commRecord);
+           <em>   // sArray即为缩进的值</em>
+              let sArray = JSON.parse(arrayJson) as Array<string>;
+              this.left = Number(sArray[0].split('.')[0]);
+              this.right = Number(sArray[1].split('.')[0]);
+            }
+          }
+        });
+        Button('段落对齐').onClick(() => {
+          this.controller.updateParagraphStyle({
+       <em>     // 以字符串为单位选择要更新的段落。</em>
+            start: -1, end: -1,
+            style: {
+             <em> // leadingMargin的值根据上面获取到的值，进行计算后赋予新值。</em>
+              leadingMargin: { pixelMap: null, size: [this.left + 10, this.right + 20] }
+            }
+          });
+        });
+      };
+    };
+  }
+}
 ```
 
  

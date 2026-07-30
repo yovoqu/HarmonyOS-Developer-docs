@@ -23,46 +23,46 @@ Swiper里嵌套不同的视频，滑动Swiper时（比如从第一个Item滑动�
 Swiper滑动时触发onChange事件，在onChange方法里调用VideoController的pause方法即可实现滑动过程控制视频暂停播放。
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">demoExample </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">controllerList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">VideoController</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">=</span>
-    <span style="color: rgb(255,0,170);">[</span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">, </span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">, </span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">, </span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(255,0,170);">()]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">swiperIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct demoExample {
+  private controllerList: VideoController[] =
+    [new VideoController(), new VideoController(), new VideoController(), new VideoController()];
+  @State swiperIndex: number = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">第 </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">item </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">} </span><span style="color: rgb(132,63,161);">个组件页</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">Video</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处</span><span style="color: rgb(128,128,128);">'www.xxx.com/yyy.mp4'</span><span style="color: rgb(128,128,128);">仅作为示例</span></em>
-            <span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'www.xxx.com/yyy.mp4'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controllerList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">]</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Contain</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controls</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      const <span style="color: rgb(255,255,255);">preIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">;</span>
-      const <span style="color: rgb(255,255,255);">nextIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">3 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controllerList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">preIndex</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pause</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controllerList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">nextIndex</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pause</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">swiperIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Swiper() {
+      ForEach([0, 1, 2, 3], (item: number) => {
+        Column() {
+          Text(`第 ${item + 1} 个组件页`)
+            .width('100%')
+            .backgroundColor(Color.White)
+            .textAlign(TextAlign.Center)
+            .fontSize(20);
+          Video({
+          <em>  // 此处'www.xxx.com/yyy.mp4'仅作为示例</em>
+            src: 'www.xxx.com/yyy.mp4',
+            controller: this.controllerList[item]
+          })
+            .objectFit(ImageFit.Contain)
+            .controls(true)
+            .autoPlay(false)
+            .loop(true)
+            .height(200);
+        };
+      });
+    }
+    .loop(true)
+    .backgroundColor(Color.Black)
+    .onChange((index: number) => {
+      const preIndex = index > 0 ? index - 1 : 3;
+      const nextIndex = index < 3 ? index + 1 : 0;
+      this.controllerList[preIndex].pause();
+      this.controllerList[nextIndex].pause();
+      this.swiperIndex = index;
+    });
+  }
+}
 ```
  
  

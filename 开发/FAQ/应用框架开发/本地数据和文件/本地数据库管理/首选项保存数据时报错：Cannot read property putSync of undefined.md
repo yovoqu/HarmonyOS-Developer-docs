@@ -9,14 +9,14 @@
 运行问题代码后闪退，日志如下：
  
 ```text
-<span style="color: rgb(255,255,255);">Pid</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">8619</span>
-<span style="color: rgb(255,255,255);">Uid</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">20020045</span>
-<span style="color: rgb(255,255,255);">Reason</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">TypeError</span>
-<span style="color: rgb(255,255,255);">Error name</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">TypeError</span>
-<span style="color: rgb(255,255,255);">Error message</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">Cannot read property putSync of </span>undefined
-<span style="color: rgb(255,255,255);">Stacktrace</span><span style="color: rgb(181,106,1);">:</span>
-  <span style="color: rgb(255,255,255);">at </span><span style="color: rgb(0,0,255);">saveData </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">entry</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">main</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">ets</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">pages</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">Index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ets</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">71</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span>
-<span style="color: rgb(255,255,255);">  at </span><span style="color: rgb(0,0,255);">anonymous </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">entry</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">main</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">ets</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">pages</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,255,255);">Index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ets</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">41</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">11</span><span style="color: rgb(255,0,170);">)</span>
+Pid:8619
+Uid:20020045
+Reason:TypeError
+Error name:TypeError
+Error message:Cannot read property putSync of undefined
+Stacktrace:
+  at saveData (entry/src/main/ets/pages/Index.ets:71:5)
+  at anonymous (entry/src/main/ets/pages/Index.ets:41:11)
 ```
  
  
@@ -25,84 +25,84 @@
 ```ArkTS
 <em>// index.ets</em>
 
-import <span style="color: rgb(0,0,255);">Prompt </span>from <span style="color: rgb(255,0,170);">'@system.prompt'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">preferences </span>from <span style="color: rgb(255,0,170);">'@ohos.data.preferences'</span><span style="color: rgb(181,106,1);">;</span>
+import Prompt from '@system.prompt';
+import { UIAbility } from '@kit.AbilityKit';
+import { util } from '@kit.ArkTS';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { window } from '@kit.ArkUI';
+import preferences from '@ohos.data.preferences';
 
 
-let <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Preferences</span>
-class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility</span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Options </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'myStore' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">dataPreferences </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPreferencesSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">inputText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">savedText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">这里将显示保存的内容</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+let dataPreferences:preferences.Preferences
+class EntryAbility extends UIAbility{
+  onWindowStageCreate(windowStage: window.WindowStage) {
+    let options: preferences.Options = { name: 'myStore' };
+    dataPreferences = preferences.getPreferencesSync(this.context, options);
+  }
+}
+@Entry
+@Component
+struct Index {
+  @State inputText: string = '';
+  @State savedText: string = '这里将显示保存的内容';
 
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">输入框</span></em>
-      <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入要保存的内容</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  build() {
+    Column() {
+     <em> // 输入框</em>
+      TextInput({ placeholder: '请输入要保存的内容' })
+        .width('90%')
+        .height(60)
+        .onChange((value: string) => {
+          this.inputText = value;
+        })
 
-      <em>// </em><em><span style="color: rgb(128,128,128);">保存按钮</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">保存数据</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">saveData</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <em>// </em><em>保存按钮</em>
+      Button('保存数据')
+        .width('90%')
+        .height(60)
+        .margin({ top: 20 })
+        .onClick(() => {
+          this.saveData();
+        })
 
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">显示保存内容的按钮</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">显示保存内容</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+   <em>   // 显示保存内容的按钮</em>
+      Button('显示保存内容')
+        .width('90%')
+        .height(60)
+        .margin({ top: 20 })
+        .onClick(() => {
+          this.loadData();
+        })
 
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">显示保存内容的文本区域</span></em>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">savedText</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
+   <em>   // 显示保存内容的文本区域</em>
+      Text(this.savedText)
+        .width('90%')
+        .margin({ top: 20 })
+        .fontSize(20)
+        .textAlign(TextAlign.Center)
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+  }
 
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保存数据到</span><span style="color: rgb(128,128,128);">Preferences</span></em>
-  private <span style="color: rgb(0,0,255);">saveData</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    if<span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputText </span><span style="color: rgb(181,106,1);">== </span>null<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Prompt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">内容为空请重试</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <em>// 保存数据到Preferences</em>
+  private saveData() {
+    if(this.inputText == null){
+      Prompt.showToast({message: '内容为空请重试'})
       return
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">putSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'my'</span><span style="color: rgb(181,106,1);">,</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flush</span><span style="color: rgb(0,0,255);">()</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    }
+    dataPreferences.putSync('my',this.inputText);
+    dataPreferences.flush()
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">从</span><span style="color: rgb(128,128,128);">Preferences</span><span style="color: rgb(128,128,128);">加载数据</span></em>
-  private <span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">get_text </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'my'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">'6666'</span><span style="color: rgb(0,0,255);">)</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">savedText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">get_text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+<em>  // 从Preferences加载数据</em>
+  private loadData() {
+    let get_text = dataPreferences.getSync('my','6666')
+    this.savedText = get_text.toString()
+  }
+}
 ```
  
 
@@ -131,79 +131,79 @@ dataPreferences未实例化导致报错。
 在主程序中添加异步方法aboutToAppear()方法，并在里面进行Preferences实例化：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">promptAction </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">preferences </span>from <span style="color: rgb(255,0,170);">'@ohos.data.preferences'</span><span style="color: rgb(181,106,1);">;</span>
+import { promptAction } from '@kit.ArkUI';
+import preferences from '@ohos.data.preferences';
 
-let <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Preferences</span><span style="color: rgb(181,106,1);">;</span>
+let dataPreferences:preferences.Preferences;
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">inputText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">savedText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">这里将显示保存的内容</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State inputText: string = '';
+  @State savedText: string = '这里将显示保存的内容';
 
-  async <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">Context</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Options </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'myStore' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">dataPreferences </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPreferencesSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  async aboutToAppear() {
+    let context = this.getUIContext().getHostContext() as Context;
+    let options: preferences.Options = { name: 'myStore' };
+    dataPreferences = preferences.getPreferencesSync(context, options);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">输入框</span></em>
-      <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入要保存的内容</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  build() {
+    Column() {
+     <em> // 输入框</em>
+      TextInput({ placeholder: '请输入要保存的内容' })
+        .width('90%')
+        .height(60)
+        .onChange((value: string) => {
+          this.inputText = value;
+        })
 
- <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保存按钮</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">保存数据</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">saveData</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+ <em>     // 保存按钮</em>
+      Button('保存数据')
+        .width('90%')
+        .height(60)
+        .margin({ top: 20 })
+        .onClick(() => {
+          this.saveData();
+        })
 
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">显示保存内容的按钮</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">显示保存内容</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+     <em> // 显示保存内容的按钮</em>
+      Button('显示保存内容')
+        .width('90%')
+        .height(60)
+        .margin({ top: 20 })
+        .onClick(() => {
+          this.loadData();
+        })
 
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">显示保存内容的文本区域</span></em>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">savedText</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    <em>  // 显示保存内容的文本区域</em>
+      Text(this.savedText)
+        .width('90%')
+        .margin({ top: 20 })
+        .fontSize(20)
+        .textAlign(TextAlign.Center)
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保存数据到</span><span style="color: rgb(128,128,128);">Preferences</span></em>
-  private <span style="color: rgb(0,0,255);">saveData</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputText </span><span style="color: rgb(181,106,1);">== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">内容为空请重试</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">putSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'my'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flush</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+<em>  // 保存数据到Preferences</em>
+  private saveData() {
+    if (this.inputText == null) {
+      promptAction.openToast({ message: '内容为空请重试' });
+      return;
+    }
+    dataPreferences.putSync('my', this.inputText);
+    dataPreferences.flush();
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">从</span><span style="color: rgb(128,128,128);">Preferences</span><span style="color: rgb(128,128,128);">加载数据</span></em>
-  private <span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">get_text </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'my'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'6666'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">savedText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">get_text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+ <em> // 从Preferences加载数据</em>
+  private loadData() {
+    let get_text = dataPreferences.getSync('my', '6666');
+    this.savedText = get_text.toString();
+  }
+}
 ```
  
  

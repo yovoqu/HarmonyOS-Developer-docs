@@ -14,7 +14,7 @@ void指要被忽略的函数返回，如果将void类型的表达式作为值使
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
+  "rules": {
     "@typescript-eslint/no-confusing-void-expression": "error"
   }
 }
@@ -53,7 +53,7 @@ console.info(func());
 #### 规则集
 
 ```text
-<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
+plugin:@typescript-eslint/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

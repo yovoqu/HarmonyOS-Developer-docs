@@ -31,51 +31,51 @@
 具体处理如下：
  1. 监听routerPageUpdate事件，即调用[uiObserver.on('routerPageUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer#uiobserveronrouterpageupdate11)，根页面初始化以及应用触发前后台切换时，实际会触发routerPageUpdate事件，为保证能够监听根页面初次访问时的状态变化，以及应用前后台切换时的状态变化，需要额外监听routerPageUpdate事件：
 ```text
-this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'routerPageUpdate'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">非当前</span><span style="color: rgb(128,128,128);">Navigation</span><span style="color: rgb(128,128,128);">页面过滤，避免干扰</span></em>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ABOUT_TO_APPEAR</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根页初次加载时会触发该状态，可在此记录首页访问次数等数据</span></em>
-    let <span style="color: rgb(0,0,255);">accessCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootCount'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">accessCount</span><span style="color: rgb(181,106,1);">++;</span>
-    <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootCount'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">accessCount</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ABOUT_TO_DISAPPEAR</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面销毁时触发，可在此重置状态</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理页面前后台切换，这里需要注意当应用前后台切换时，无论当前展示的页面是否为根页，首页都会触发一次</span><span style="color: rgb(128,128,128);">routerPageUpdate</span><span style="color: rgb(128,128,128);">事件</span></em>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ON_PAGE_SHOW </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用从后台切换至前台时，首页触发一次该状态，此时需要根据根页是否为最上层展示页面来做进一步处理，这里通过</span><span style="color: rgb(128,128,128);">isTop</span><span style="color: rgb(128,128,128);">变量记录首页是否在最上层</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ON_PAGE_HIDE </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用从前台切换至后台时，首页触发一次该状态，此时同样需要根据根页是否为最上层展示页面来做进一步处理</span></em>
-    let <span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootTime'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+this.uiObserver.on('routerPageUpdate', (info: uiObserver.RouterPageInfo) => {
+ <em> // 非当前Navigation页面过滤，避免干扰</em>
+  if (info.name !== 'pages/Index') {
+    return;
+  }
+  if (info.state === uiObserver.RouterPageState.ABOUT_TO_APPEAR) {
+   <em> // 根页初次加载时会触发该状态，可在此记录首页访问次数等数据</em>
+    let accessCount = AppStorage.get<number>('rootCount') ?? 0;
+    accessCount++;
+    AppStorage.setOrCreate('rootCount', accessCount);
+  }
+  if (info.state === uiObserver.RouterPageState.ABOUT_TO_DISAPPEAR) {
+   <em> // 页面销毁时触发，可在此重置状态</em>
+    this.startTime = 0;
+  }
+ <em> // 处理页面前后台切换，这里需要注意当应用前后台切换时，无论当前展示的页面是否为根页，首页都会触发一次routerPageUpdate事件</em>
+  if (info.state === uiObserver.RouterPageState.ON_PAGE_SHOW && this.isTop) {
+   <em> // 应用从后台切换至前台时，首页触发一次该状态，此时需要根据根页是否为最上层展示页面来做进一步处理，这里通过isTop变量记录首页是否在最上层</em>
+    this.startTime = Date.now();
+  }
+  if (info.state === uiObserver.RouterPageState.ON_PAGE_HIDE && this.isTop) {
+   <em> // 应用从前台切换至后台时，首页触发一次该状态，此时同样需要根据根页是否为最上层展示页面来做进一步处理</em>
+    let duration = Date.now() - this.startTime;
+    AppStorage.setOrCreate('rootTime', Math.round((duration + this.preTime)/1000));
+    this.preTime += duration;
+  }
+});
 ```
 
 1. 注册页面切换事件监听，即调用[uiObserver.on('navDestinationSwitch')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer#uiobserveronnavdestinationswitch12)，监听navDestinationSwitch事件是为了正常处理根页面与其他页面间的跳转，当根页面跳转至其他子页面或者其他子页面返回到根页面时并不会触发routerPageUpdate事件，只能依靠navDestinationSwitch页面切换事件进行处理：
 ```text
-this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'navDestinationSwitch'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NavDestinationSwitchInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'navBar'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">这里代表从根页面跳转至其他页面，根页面将被隐藏，可以在此处标记根页面是否被隐藏，方便后续处理</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootTime'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">to </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'navBar'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">回到根页面，根页面将重新展示</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+this.uiObserver.on('navDestinationSwitch', (info: uiObserver.NavDestinationSwitchInfo) => {
+  if (info.from === 'navBar') {
+   <em> // 这里代表从根页面跳转至其他页面，根页面将被隐藏，可以在此处标记根页面是否被隐藏，方便后续处理</em>
+    this.isTop = false;
+    let duration = this.startTime === 0 ? 0 : Date.now() - this.startTime;
+    AppStorage.setOrCreate('rootTime', Math.round((duration + this.preTime) / 1000));
+    this.preTime += duration;
+  }
+  if (info.to === 'navBar') {
+ <em>   // 回到根页面，根页面将重新展示</em>
+    this.isTop = true;
+    this.startTime = Date.now();
+  }
+});
 ```
 
 2. 对于事件监听注册的位置，由于需要在根页面加载前注册，建议放在EntryAbility-onWindowStageCreate回调中注册，在windowStage.loadContent的回调中可获取到主窗口对象及其对应的UIContext，然后通过UIContext获取UIObserver对象即可；注销事件监听时，在监听事件不再使用时及时注销，释放系统资源即可，在不考虑Navigation嵌套的情况下，可以在onWindowStageDestroy回调中注销事件监听，具体位置可根据实际情况调整。
@@ -83,204 +83,204 @@ this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255
 完整代码：
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ConfigurationConstant</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">UIAbility</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Want </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">UIObserver</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { uiObserver, UIObserver, window } from '@kit.ArkUI';
 
-const <span style="color: rgb(0,0,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x0000</span><span style="color: rgb(181,106,1);">;</span>
+const DOMAIN = 0x0000;
 
-export default class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">UIObserver</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">startTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">preTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">isTop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+export default class EntryAbility extends UIAbility {
+  uiObserver?: UIObserver;
+  startTime: number = 0;
+  preTime: number = 0;
+  isTop: boolean = true;
 
-  <span style="color: rgb(0,0,255);">onCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Want</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">launchParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">AbilityConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LaunchParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    try <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getApplicationContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setColorMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ConfigurationConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ColorMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">COLOR_MODE_NOT_SET</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to set colorMode. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`Ability onCreate </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abilityName</span><span style="color: rgb(255,0,170);">} ${</span><span style="color: rgb(0,0,255);">launchParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">launchReasonMessage</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    try {
+      this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
+    } catch (err) {
+      hilog.error(DOMAIN, 'testTag', 'Failed to set colorMode. Cause: %{public}s', JSON.stringify(err));
+    }
+    hilog.info(DOMAIN, 'testTag', '%{public}s', `Ability onCreate ${want.abilityName} ${launchParam.launchReasonMessage}`);
+  }
 
-  <span style="color: rgb(0,0,255);">onDestroy</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onDestroy'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onDestroy(): void {
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');
+  }
 
-  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// Main window is created, set main page for this ability</span></em>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onWindowStageCreate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+  <em>  // Main window is created, set main page for this ability</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    <span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to load the content. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Succeeded in loading the content.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(0,0,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">这里保存</span><span style="color: rgb(128,128,128);">uiObserver</span><span style="color: rgb(128,128,128);">对象，方便后续注销订阅时使用</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiObserver </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIObserver</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'navDestinationSwitch'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NavDestinationSwitchInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'navBar'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">这里代表从根页面跳转至其他页面，根页面将被隐藏，可以在此处标记根页面是否被隐藏，方便后续处理</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootTime'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">to </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'navBar'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">回到根页面，根页面将重新展示</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'routerPageUpdate'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">非当前</span><span style="color: rgb(128,128,128);">Navigation</span><span style="color: rgb(128,128,128);">页面过滤，避免干扰</span></em>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          return<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ABOUT_TO_APPEAR</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根页初次加载时会触发该状态，可在此记录首页访问次数等数据</span></em>
-          let <span style="color: rgb(0,0,255);">accessCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootCount'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">accessCount</span><span style="color: rgb(181,106,1);">++;</span>
-          <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootCount'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">accessCount</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ABOUT_TO_DISAPPEAR</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面销毁时触发，可在此重置状态</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理页面前后台切换，这里需要注意当应用前后台切换时，无论当前展示的页面是否为根页，首页都会触发一次</span><span style="color: rgb(128,128,128);">routerPageUpdate</span><span style="color: rgb(128,128,128);">事件</span></em>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ON_PAGE_SHOW </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用从后台切换至前台时，首页触发一次该状态，此时需要根据根页是否为最上层展示页面来做进一步处理，这里通过</span><span style="color: rgb(128,128,128);">isTop</span><span style="color: rgb(128,128,128);">变量记录首页是否在最上层</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RouterPageState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ON_PAGE_HIDE </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isTop</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用从前台切换至后台时，首页触发一次该状态，此时同样需要根据根页是否为最上层展示页面来做进一步处理</span></em>
-          let <span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startTime</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootTime'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">duration </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preTime </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    windowStage.loadContent('pages/Index', (err) => {
+      if (err.code) {
+        hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
+        return;
+      }
+      hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
+      let uiContext = windowStage.getMainWindowSync().getUIContext();
+      <em>// 这里保存uiObserver对象，方便后续注销订阅时使用</em>
+      this.uiObserver = uiContext.getUIObserver();
+      this.uiObserver.on('navDestinationSwitch', (info: uiObserver.NavDestinationSwitchInfo) => {
+        if (info.from === 'navBar') {
+        <em>  // 这里代表从根页面跳转至其他页面，根页面将被隐藏，可以在此处标记根页面是否被隐藏，方便后续处理</em>
+          this.isTop = false;
+          let duration = this.startTime === 0 ? 0 : Date.now() - this.startTime;
+          AppStorage.setOrCreate('rootTime', Math.round((duration + this.preTime) / 1000));
+          this.preTime += duration;
+        }
+        if (info.to === 'navBar') {
+          <em>// 回到根页面，根页面将重新展示</em>
+          this.isTop = true;
+          this.startTime = Date.now();
+        }
+      });
+      this.uiObserver.on('routerPageUpdate', (info: uiObserver.RouterPageInfo) => {
+       <em> // 非当前Navigation页面过滤，避免干扰</em>
+        if (info.name !== 'pages/Index') {
+          return;
+        }
+        if (info.state === uiObserver.RouterPageState.ABOUT_TO_APPEAR) {
+         <em> // 根页初次加载时会触发该状态，可在此记录首页访问次数等数据</em>
+          let accessCount = AppStorage.get<number>('rootCount') ?? 0;
+          accessCount++;
+          AppStorage.setOrCreate('rootCount', accessCount);
+        }
+        if (info.state === uiObserver.RouterPageState.ABOUT_TO_DISAPPEAR) {
+         <em> // 页面销毁时触发，可在此重置状态</em>
+          this.startTime = 0;
+        }
+      <em>  // 处理页面前后台切换，这里需要注意当应用前后台切换时，无论当前展示的页面是否为根页，首页都会触发一次routerPageUpdate事件</em>
+        if (info.state === uiObserver.RouterPageState.ON_PAGE_SHOW && this.isTop) {
+         <em> // 应用从后台切换至前台时，首页触发一次该状态，此时需要根据根页是否为最上层展示页面来做进一步处理，这里通过isTop变量记录首页是否在最上层</em>
+          this.startTime = Date.now();
+        }
+        if (info.state === uiObserver.RouterPageState.ON_PAGE_HIDE && this.isTop) {
+         <em> // 应用从前台切换至后台时，首页触发一次该状态，此时同样需要根据根页是否为最上层展示页面来做进一步处理</em>
+          let duration = Date.now() - this.startTime;
+          AppStorage.setOrCreate('rootTime', Math.round((duration + this.preTime)/1000));
+          this.preTime += duration;
+        }
+      });
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">onWindowStageDestroy</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// Main window is destroyed, release UI related resources</span></em>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onWindowStageDestroy'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'navDestinationSwitch'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiObserver</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'routerPageUpdate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onWindowStageDestroy(): void {
+   <em> // Main window is destroyed, release UI related resources</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    this.uiObserver?.off('navDestinationSwitch');
+    this.uiObserver?.off('routerPageUpdate');
+  }
 
-  <span style="color: rgb(0,0,255);">onForeground</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// Ability has brought to foreground</span></em>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onForeground'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onForeground(): void {
+   <em> // Ability has brought to foreground</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
+  }
 
-  <span style="color: rgb(0,0,255);">onBackground</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// Ability has back to background</span></em>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onBackground'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  onBackground(): void {
+   <em> // Ability has back to background</em>
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
+  }
+}
 ```
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pathStack'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">timeText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'00 : 00 : 00'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@StorageProp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootTime'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">rootTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@StorageProp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rootCount'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">rootCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">hours</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">minutes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">seconds</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">timeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @Provide('pathStack') pathStack: NavPathStack = new NavPathStack();
+  @State timeText: string = '00 : 00 : 00';
+  @StorageProp('rootTime') rootTime: number = 0;
+  @StorageProp('rootCount') rootCount: number = 0;
+  hours: number = 0;
+  minutes: number = 0;
+  seconds: number = 0;
+  timeId: number = -1;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">timeId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">setInterval</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">countTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear() {
+    this.timeId = setInterval(() => {
+      this.countTime();
+    }, 1000);
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToDisappear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">clearInterval</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">timeId</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToDisappear(): void {
+    clearInterval(this.timeId);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">timeText</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">第一页</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Capsule </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'PageOne' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">第二页</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Capsule </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'PageTwo' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">第三页</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Capsule </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'PageThree' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  build() {
+    Navigation(this.pathStack) {
+      Column({space: 20}) {
+        Text(this.timeText)
+          .fontSize(20)
+          .fontWeight(FontWeight.Bold)
+        Column({ space: 16 }) {
+          Button('第一页', { type: ButtonType.Capsule })
+            .width('50%')
+            .height(40)
+            .onClick(() => {
+              this.pathStack.pushPath({ name: 'PageOne' });
+            })
+          Button('第二页', { type: ButtonType.Capsule })
+            .width('50%')
+            .height(40)
+            .onClick(() => {
+              this.pathStack.pushPath({ name: 'PageTwo' });
+            })
+          Button('第三页', { type: ButtonType.Capsule })
+            .width('50%')
+            .height(40)
+            .onClick(() => {
+              this.pathStack.pushPath({ name: 'PageThree' });
+            })
+        }.width('100%')
 
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">首页访问次数：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rootCount</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">次</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">首页访问时长：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rootTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">' s'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceEvenly</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideToolBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'IndexNavigation'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
+        Column({ space: 10 }) {
+          Text() {
+            Span('首页访问次数：')
+            Span(this.rootCount.toString())
+            Span('次')
+          }.fontSize(18)
+          Text() {
+            Span('首页访问时长：')
+            Span(this.rootTime.toString())
+            Span(' s')
+          }.fontSize(18)
+        }.width('100%')
+      }.width('100%')
+      .height('100%')
+      .justifyContent(FlexAlign.SpaceEvenly)
+    }.hideToolBar(true)
+    .id('IndexNavigation')
+  }
 
-<em>  <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">计算时间</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  <span style="color: rgb(0,0,255);">countTime</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">seconds</span><span style="color: rgb(181,106,1);">++;</span>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">seconds </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">minutes</span><span style="color: rgb(181,106,1);">++;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">seconds </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">minutes </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hours</span><span style="color: rgb(181,106,1);">++;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">minutes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">timeText </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">formatTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+<em>  /**</em>
+<em>   * 计算时间</em>
+<em>   */</em>
+  countTime() {
+    this.seconds++;
+    if (this.seconds >= 60) {
+      this.minutes++;
+      this.seconds = 0;
+    }
+    if (this.minutes >= 60) {
+      this.hours++;
+      this.minutes = 0;
+    }
+    this.timeText = this.formatTime();
+  }
 
-  <span style="color: rgb(0,0,255);">formatTime</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTwoMoreDigitStyle</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hours</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> : </span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTwoMoreDigitStyle</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">minutes</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> : </span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTwoMoreDigitStyle</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">seconds</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  formatTime() {
+    return `${this.getTwoMoreDigitStyle(this.hours)} : ${this.getTwoMoreDigitStyle(this.minutes)} : ${this.getTwoMoreDigitStyle(this.seconds)}`;
+  }
 
-  <span style="color: rgb(0,0,255);">getTwoMoreDigitStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">num</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">num </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return <span style="color: rgb(255,0,170);">`0</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">num</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-      return <span style="color: rgb(0,0,255);">num</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+  getTwoMoreDigitStyle(num: number) {
+    if (num < 10) {
+      return `0${num}`;
+    } else {
+      return num.toString();
+    }
+  }
+}
 ```
  
  

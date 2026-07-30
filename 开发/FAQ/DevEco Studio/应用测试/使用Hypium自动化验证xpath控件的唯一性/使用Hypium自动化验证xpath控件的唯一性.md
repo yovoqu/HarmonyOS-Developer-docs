@@ -29,25 +29,25 @@ Hypium自动化在定位器中，通过XPath语法写的XPath路径，在定位�
 
 - 通过API方法实现XPath语法验证控件是否唯一。
 ```text
-<span style="color: rgb(181,106,1);">from </span>devicetest.core.test_case <span style="color: rgb(181,106,1);">import </span>TestCase, Step, MESSAGE
-<span style="color: rgb(181,106,1);">from </span>hypium <span style="color: rgb(181,106,1);">import </span>UiDriver, BY
-<span style="color: rgb(181,106,1);">class </span>TC_001(TestCase):
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>, configs):
-        <span style="color: rgb(255,0,170);">self</span>.TAG = <span style="color: rgb(255,0,170);">self</span>.__class__.<span style="color: rgb(255,0,170);">__name__</span>
-        <span style="color: rgb(0,0,255);">super</span>().<span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>.TAG, configs)
-        <span style="color: rgb(255,0,170);">self</span>.driver = UiDriver(<span style="color: rgb(255,0,170);">self</span>.device1)
-        <span style="color: rgb(255,0,170);">self</span>.driver_width, <span style="color: rgb(255,0,170);">self</span>.driver_height = <span style="color: rgb(255,0,170);">self</span>.driver.get_display_size()
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">setup</span>(<span style="color: rgb(255,0,170);">self</span>):
-        Step(<span style="color: rgb(80,160,79);">'1.</span><span style="color: rgb(80,160,79);">回到桌面</span><span style="color: rgb(80,160,79);">'</span>)
-        <span style="color: rgb(255,0,170);">self</span>.driver.swipe_to_home()
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">process</span>(<span style="color: rgb(255,0,170);">self</span>):
-        Step(<span style="color: rgb(80,160,79);">'2.</span><span style="color: rgb(80,160,79);">启动设置应用</span><span style="color: rgb(80,160,79);">'</span>)
-        <span style="color: rgb(255,0,170);">self</span>.driver.start_app(<span style="color: rgb(80,160,79);">"com.huawei.hmos.settings"</span>)
-        Step(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">步骤</span><span style="color: rgb(80,160,79);">1:</span><span style="color: rgb(80,160,79);">验证控件是否存在且唯一</span><span style="color: rgb(80,160,79);">"</span>)
-        comp = <span style="color: rgb(255,0,170);">self</span>.driver.find_all_components(BY.xpath(<span style="color: rgb(80,160,79);">"//*[@text='WLAN']"</span>))
-        MESSAGE(<span style="color: rgb(80,160,79);">'component is ' </span>+ <span style="color: rgb(0,0,255);">str</span>(comp))
-    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">teardown</span>(<span style="color: rgb(255,0,170);">self</span>):
-        <span style="color: rgb(181,106,1);">pass</span>
+from devicetest.core.test_case import TestCase, Step, MESSAGE
+from hypium import UiDriver, BY
+class TC_001(TestCase):
+    def __init__(self, configs):
+        self.TAG = self.__class__.__name__
+        super().__init__(self.TAG, configs)
+        self.driver = UiDriver(self.device1)
+        self.driver_width, self.driver_height = self.driver.get_display_size()
+    def setup(self):
+        Step('1.回到桌面')
+        self.driver.swipe_to_home()
+    def process(self):
+        Step('2.启动设置应用')
+        self.driver.start_app("com.huawei.hmos.settings")
+        Step("步骤1:验证控件是否存在且唯一")
+        comp = self.driver.find_all_components(BY.xpath("//*[@text='WLAN']"))
+        MESSAGE('component is ' + str(comp))
+    def teardown(self):
+        pass
 ```
 
 

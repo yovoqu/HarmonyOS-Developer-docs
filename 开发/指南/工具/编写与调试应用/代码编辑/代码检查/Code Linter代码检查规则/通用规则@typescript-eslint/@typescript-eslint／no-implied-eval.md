@@ -9,7 +9,7 @@
 setTimeout()、setInterval()、setImmediate()或者execScript()这些函数可以接受一个字符串作为其第一个参数，比如
  
 ```text
-<span style="color: rgb(0,98,122);">setTimeout</span>(<span style="color: rgb(6,125,23);">'alert(`Hi!`);'</span>, <span style="color: rgb(23,80,235);">100</span>);
+setTimeout('alert(`Hi!`);', 100);
 ```
  
 这种行为被认为是隐式“eval()”，不推荐使用。
@@ -20,7 +20,7 @@ setTimeout()、setInterval()、setImmediate()或者execScript()这些函数可�
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
+  "rules": {
     "@typescript-eslint/no-implied-eval": "error"
   }
 }
@@ -95,7 +95,7 @@ export const fn3 = new Function('a', 'b', 'return a + b');
 #### 规则集
 
 ```text
-<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
+plugin:@typescript-eslint/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

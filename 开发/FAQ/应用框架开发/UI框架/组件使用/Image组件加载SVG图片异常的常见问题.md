@@ -35,46 +35,46 @@ HarmonyOS从API version 10开始支持SVG标签，使用的为SVG1.1规范的部
 示例代码如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">预期图片</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">本地资源，需自行替换</span></em>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'notdisplayed.svg'</span><span style="color: rgb(0,0,255);">))</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注意：由于</span><span style="color: rgb(128,128,128);">SVG</span><span style="color: rgb(128,128,128);">标签内未设置</span><span style="color: rgb(128,128,128);">width</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">height,</span><span style="color: rgb(128,128,128);">此时需要给</span><span style="color: rgb(128,128,128);">Image</span><span style="color: rgb(128,128,128);">组件设置宽高尺寸。</span></em>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  build() {
+    Column({ space: 30 }) {
+      Text('预期图片');
+      Column() {
+        <em>// 本地资源，需自行替换</em>
+        Image($rawfile('notdisplayed.svg'))
+        <em>  // 注意：由于SVG标签内未设置width、height,此时需要给Image组件设置宽高尺寸。</em>
+          .width('200')
+          .height('200');
+      }
+      .width('250')
+      .height('250')
+      .border({ width: 1 });
 
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">加载失败图片</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">本地资源，需自行替换</span></em>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'notdisplayed.svg'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Text('加载失败图片');
+      Column() {
+      <em>  // 本地资源，需自行替换</em>
+        Image($rawfile('notdisplayed.svg'));
+      }
+      .width('250')
+      .height('250')
+      .border({ width: 1 });
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```
  
 使用下方SVG图片需要新建xxx.svg文件并粘贴代码保存至resources/rawfile目录下。SVG代码如下：
  
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-   <em> <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">中心圆形 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+   <em> <!-- 中心圆形 --></em>
     <circle cx="100" cy="100" r="40" fill="#0a59f7" opacity="0.9"/>
-  <em>  <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">装饰三角形 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+  <em>  <!-- 装饰三角形 --></em>
     <polygon points="100,20 120,60 80,60" fill="rgba(255, 117, 218, 1)" opacity="0.7"/>
 </svg>
 ```
@@ -92,51 +92,51 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 示例代码如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Page </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">预期图片</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">本地资源，需自行替换</span></em>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.picture'</span><span style="color: rgb(0,0,255);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'150'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'150'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Page {
+  build() {
+    Column({ space: 30 }) {
+      Text('预期图片');
+      Column() {
+     <em>   // 本地资源，需自行替换</em>
+        Image($r('app.media.picture'))
+          .width('150')
+          .height('150');
+      }
+      .width('250')
+      .height('250')
+      .border({ width: 1 });
 
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">加载失败图片</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">本地资源，需自行替换</span></em>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'iconText.svg'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'250'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Text('加载失败图片');
+      Column() {
+       <em> // 本地资源，需自行替换</em>
+        Image($rawfile('iconText.svg'));
+      }
+      .width('250')
+      .height('250')
+      .border({ width: 1 });
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```
  
 使用下方SVG图片需要新建xxx.svg文件并粘贴代码保存至resources/rawfile目录下。SVG代码如下：
  
 ```xml
 <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg" style="background:#f0f0f0">
- <em>   <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">渐变背景 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+ <em>   <!-- 渐变背景 --></em>
     <defs>
         <radialGradient id="radial-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
             <stop offset="0%" stop-color="#0a59f7"/>
         </radialGradient>
     </defs>
-  <em>  <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">中心圆形 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+  <em>  <!-- 中心圆形 --></em>
     <circle cx="400" cy="300" r="180" fill="url(#radial-gradient)"/>
-  <em>  <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">添加在圆形中心的文字 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+  <em>  <!-- 添加在圆形中心的文字 --></em>
     <text x="400" y="300"
           text-anchor="middle"
           dominant-baseline="middle"
@@ -146,7 +146,7 @@ struct <span style="color: rgb(0,0,255);">Page </span><span style="color: rgb(25
           fill="white">
         这是带文字的SVG
     </text>
- <em>   <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">装饰元素 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+ <em>   <!-- 装饰元素 --></em>
     <polygon points="350,150 450,150 400,80" fill="rgba(255, 117, 218, 1)" opacity="0.8"/>
 </svg>
 ```
@@ -164,48 +164,48 @@ SVG图片最终显示效果受Image组件的objectFit参数值影响，为了确
 示例代码如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PageOne </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">预期图片</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">本地资源，需自行替换</span></em>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'display.svg'</span><span style="color: rgb(0,0,255);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct PageOne {
+  build() {
+    Column({ space: 30 }) {
+      Text('预期图片');
+      Column() {
+      <em>  // 本地资源，需自行替换</em>
+        Image($rawfile('display.svg'))
+          .width('100')
+          .height('200');
+      }
+      .width('200')
+      .height('200')
+      .border({ width: 1 });
 
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">受到</span><span style="color: rgb(255,0,170);">objectFit</span><span style="color: rgb(255,0,170);">影响的图片</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">本地资源，需自行替换</span></em>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'display.svg'</span><span style="color: rgb(0,0,255);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Fill</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'200'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Text('受到objectFit影响的图片');
+      Column() {
+      <em>  // 本地资源，需自行替换</em>
+        Image($rawfile('display.svg'))
+          .width('100')
+          .height('200')
+          .objectFit(ImageFit.Fill);
+      }
+      .width('200')
+      .height('200')
+      .border({ width: 1 });
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```
  
 使用下方SVG图片需要新建xxx.svg文件并粘贴代码保存至resources/rawfile目录下。SVG代码如下：
  
 ```xml
 <svg width="150" height="150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-   <em> <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">中心圆形 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+   <em> <!-- 中心圆形 --></em>
     <circle cx="100" cy="100" r="40" fill="#0a59f7" opacity="0.9"/>
-   <em> <span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">!-- </span><span style="color: rgb(128,128,128);">装饰三角形 </span><span style="color: rgb(128,128,128);">--</span><span style="color: rgb(128,128,128);">></span></em>
+   <em> <!-- 装饰三角形 --></em>
     <polygon points="100,20 120,60 80,60" fill="rgba(255, 117, 218, 1)" opacity="0.7"/>
 </svg>
 ```

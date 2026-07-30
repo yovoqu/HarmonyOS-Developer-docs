@@ -22,13 +22,13 @@ Webview中h5侧如何使用自定义字体？
  1. 将字体文件放在resources/rawfile/font文件夹里。
 2. h5侧直接通过font-face引用字体。
 ```text
-<span style="color: rgb(181,106,1);">@</span><span style="color: rgb(0,0,255);">font</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">face </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">font</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">family</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'HarmonyOS Sans'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'./font/HarmonyOS_Sans_SC_Regular.ttf'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">harmonyos</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">sans </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">font</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">family</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'HarmonyOS Sans'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sans</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">serif</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  src: url('./font/HarmonyOS_Sans_SC_Regular.ttf');
+}
+.harmonyos-sans {
+  font-family: 'HarmonyOS Sans', sans-serif;
+}
 ```
 
  
@@ -36,26 +36,26 @@ Webview中h5侧如何使用自定义字体？
  
 - src/main/ets/pages/webPage页面。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WebComponent </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WebComponent {
+  controller: webview.WebviewController = new webview.WebviewController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Index.html'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onlineImageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Web({
+        src: $rawfile('Index.html'), controller: this.controller
+      })
+        .fileAccess(true)
+        .javaScriptAccess(true)
+        .domStorageAccess(true)
+        .onlineImageAccess(true)
+        .geolocationAccess(false)
+    }
+  }
+}
 ```
 
 - resources/rawfile/Index.html页面。

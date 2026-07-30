@@ -44,7 +44,7 @@ import web_webview from '@ohos.web.webview';
 @Component
 struct RichTextExample {
   value: string =
-    '<html><body style="font-size:48px;padding:16px"><big><span>RichText用于解析并显示HTML格式文本。</span></big><br>适用于不需要对显示效果进行较多自定义的应用场景，并且仅支持有限的通用属性和事件。</body></html>';
+    '<html><body style="font-size:48px;padding:16px"><big>RichText用于解析并显示HTML格式文本。</big><br>适用于不需要对显示效果进行较多自定义的应用场景，并且仅支持有限的通用属性和事件。</body></html>';
   richStrHead: string = '<head><meta name="viewport" content="width=device-width, initial-scale=0.5"></head>';
   webviewController: web_webview.WebviewController = new web_webview.WebviewController();
 

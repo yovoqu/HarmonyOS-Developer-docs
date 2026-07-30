@@ -35,169 +35,169 @@
 以将context.filesDir目录下图片添加到PDF为例。
  1. 引入相关kit。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo </span>as <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ListFileOptions </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">PdfView</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">pdfViewManager </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PDFKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">image </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ImageKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">ArrayList </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">systemDateTime </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { common } from '@kit.AbilityKit';
+import { fileIo as fs, ListFileOptions } from '@kit.CoreFileKit';
+import { pdfService, PdfView, pdfViewManager } from '@kit.PDFKit';
+import { image } from '@kit.ImageKit';
+import { ArrayList } from '@kit.ArkTS';
+import { systemDateTime } from '@kit.BasicServicesKit';
 ```
 
 2. 声明全局变量。
 ```text
-<span style="color: rgb(0,0,255);">private </span><span style="color: rgb(181,106,1);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(0,0,255);">private context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+private controller: pdfViewManager.PdfController = new pdfViewManager.PdfController();
+private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 ```
 
 3. 使用PdfView组件展示PDF文件。
 ```text
-<span style="color: rgb(0,0,255);">PdfView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">pageFit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FIT_PAGE</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">showScroll</span><span style="color: rgb(181,106,1);">: </span>false
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pdfview_app_view'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+PdfView({
+  controller: this.controller,
+  pageFit: pdfService.PageFit.FIT_PAGE,
+  showScroll: false
+})
+  .height('90%')
+  .width('90%')
+  .id('pdfview_app_view')
+  .borderWidth(0)
+  .layoutWeight(1);
 ```
 
 4. 构造ImgInfo类。
 ```text
-export class <span style="color: rgb(0,0,255);">ImgInfo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export class ImgInfo {
+  path: string = '';
+  width: number = 0;
+  height: number = 0;
+}
 ```
 
 5. 创建PDF文件。
 以所有图片中的最大宽高创建PDF文件。
 ```text
-<span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">根据所有图片中的最大宽高值创建</span><span style="color: rgb(255,0,170);">PDF</span><span style="color: rgb(255,0,170);">文件</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取目录下所有图片中的最大宽高值，并记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）</span>
-  let <span style="color: rgb(0,0,255);">dir</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">listFileOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ListFileOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">recursion</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">listNum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">filter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">suffix</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'.png'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'.jpg'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'.jpeg'</span><span style="color: rgb(0,0,255);">]</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayList</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ImgInfo</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">ArrayList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">maxImgWidthNum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">maxImgHeightNum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">filenames </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listFileSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">listFileOption</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'no file be found'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">遍历出目录下的图片文件</span>
-  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'filename: %s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">imageInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getImageInfoSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">记录图片路径、宽高信息</span>
-    let <span style="color: rgb(0,0,255);">img </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ImgInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">img</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">path </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">img</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">img</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">add</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">img</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">更新宽高最大值</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">maxImgHeightNum</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">maxImgHeightNum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">maxImgWidthNum</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">maxImgWidthNum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+Button('根据所有图片中的最大宽高值创建PDF文件').onClick(async () => {
+  // 获取目录下所有图片中的最大宽高值，并记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）
+  let dir: string = this.context.filesDir;
+  let listFileOption: ListFileOptions = {
+    recursion: false,
+    listNum: 0,
+    filter: {
+      suffix: ['.png', '.jpg', '.jpeg']
+    }
+  };
+  let imgInfoList: ArrayList<ImgInfo> = new ArrayList();
+  let maxImgWidthNum: number = 0;
+  let maxImgHeightNum: number = 0;
+  let filenames = fs.listFileSync(dir, listFileOption);
+  if (filenames.length <= 0) {
+    console.info('no file be found');
+    return;
+  }
+  // 遍历出目录下的图片文件
+  for (let i = 0; i < filenames.length; i++) {
+    console.info('filename: %s', filenames[i]);
+    let imageSource = image.createImageSource(dir + '/' + filenames[i]);
+    let imageInfo = imageSource.getImageInfoSync(0);
+    // 记录图片路径、宽高信息
+    let img = new ImgInfo();
+    img.path = dir + '/' + filenames[i];
+    img.width = imageInfo.size.width;
+    img.height = imageInfo.size.height;
+    imgInfoList.add(img);
+    // 更新宽高最大值
+    if (imageInfo.size.height > maxImgHeightNum) {
+      maxImgHeightNum = imageInfo.size.height;
+    }
+    if (imageInfo.size.width > maxImgWidthNum) {
+      maxImgWidthNum = imageInfo.size.width;
+    }
+  }
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件时以获取到的图片最大宽高值作为</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件的宽高，根据记录下来的图片信息调用</span><span style="color: rgb(128,128,128);">addImageObject</span><span style="color: rgb(128,128,128);">将图片添加到</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">中，并保存</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件</span>
-  let <span style="color: rgb(0,0,255);">pdfDocument </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件，宽高为获取到的图片最大宽高值</span>
-  <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">maxImgWidthNum</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">maxImgHeightNum</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">pdfPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfPage </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">插入空白页</span>
-      <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertBlankPage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">maxImgWidthNum</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">maxImgHeightNum</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">pdfPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将图片添加到</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">中</span>
-    <span style="color: rgb(0,0,255);">pdfPage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addImageObject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  let <span style="color: rgb(0,0,255);">pdfFileName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">systemDateTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">pdfFilePath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tempDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">`/</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">pdfFileName</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.pdf`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保存</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件</span>
-  <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">saveDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfFilePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">releaseDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件加载到</span><span style="color: rgb(128,128,128);">PdfView</span><span style="color: rgb(128,128,128);">组件中</span>
-  let <span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARSE_SUCCESS </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPageZoom</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1.5</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  // 创建PDF文件时以获取到的图片最大宽高值作为PDF文件的宽高，根据记录下来的图片信息调用addImageObject将图片添加到PDF中，并保存PDF文件
+  let pdfDocument = new pdfService.PdfDocument();
+  // 创建PDF文件，宽高为获取到的图片最大宽高值
+  pdfDocument.createDocument(maxImgWidthNum, maxImgHeightNum);
+  for (let index = 0; index < imgInfoList.length; index++) {
+    let pdfPage: pdfService.PdfPage | undefined;
+    if (index > 0) {
+      // 插入空白页
+      pdfDocument.insertBlankPage(index, maxImgWidthNum, maxImgHeightNum);
+    }
+    pdfPage = pdfDocument.getPage(index);
+    // 将图片添加到PDF中
+    pdfPage.addImageObject(imgInfoList[index].path, 0, 0, imgInfoList[index].width,
+      imgInfoList[index].height);
+  }
+  let pdfFileName = systemDateTime.getTime().toString();
+  let pdfFilePath = this.context.tempDir + `/${pdfFileName}.pdf`;
+  // 保存PDF文件
+  pdfDocument.saveDocument(pdfFilePath);
+  this.controller.releaseDocument();
+  // 将PDF文件加载到PdfView组件中
+  let loadResult: pdfService.ParseResult = await this.controller.loadDocument(pdfFilePath, '');
+  if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
+    this.controller.setPageZoom(1.5);
+  }
+});
 ```
 
 6. 创建PDF文件每页PDF的宽高跟随图片宽高。
 ```text
-<span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">创建</span><span style="color: rgb(255,0,170);">PDF</span><span style="color: rgb(255,0,170);">文件每页</span><span style="color: rgb(255,0,170);">PDF</span><span style="color: rgb(255,0,170);">的宽高跟随图片宽高</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）</span>
-  let <span style="color: rgb(0,0,255);">dir</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">listFileOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ListFileOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">recursion</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">listNum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">filter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">suffix</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'.png'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'.jpg'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'.jpeg'</span><span style="color: rgb(0,0,255);">]</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayList</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ImgInfo</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">ArrayList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">filenames </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listFileSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">listFileOption</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'no file be found'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">遍历出目录下的图片文件</span>
-  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'filename: %s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">imageInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getImageInfoSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">记录图片路径、宽高信息</span>
-    let <span style="color: rgb(0,0,255);">img </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ImgInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">img</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">path </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">img</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">img</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">add</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">img</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+Button('创建PDF文件每页PDF的宽高跟随图片宽高').onClick(async () => {
+  // 记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）
+  let dir: string = this.context.filesDir;
+  let listFileOption: ListFileOptions = {
+    recursion: false,
+    listNum: 0,
+    filter: {
+      suffix: ['.png', '.jpg', '.jpeg']
+    }
+  };
+  let imgInfoList: ArrayList<ImgInfo> = new ArrayList();
+  let filenames = fs.listFileSync(dir, listFileOption);
+  if (filenames.length <= 0) {
+    console.info('no file be found');
+    return;
+  }
+  // 遍历出目录下的图片文件
+  for (let i = 0; i < filenames.length; i++) {
+    console.info('filename: %s', filenames[i]);
+    let imageSource = image.createImageSource(dir + '/' + filenames[i]);
+    let imageInfo = imageSource.getImageInfoSync(0);
+    // 记录图片路径、宽高信息
+    let img = new ImgInfo();
+    img.path = dir + '/' + filenames[i];
+    img.width = imageInfo.size.width;
+    img.height = imageInfo.size.height;
+    imgInfoList.add(img);
+  }
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件时每一页宽高跟随添加到该页的图片的宽高，根据记录下来的图片信息调用</span><span style="color: rgb(128,128,128);">addImageObject</span><span style="color: rgb(128,128,128);">将图片添加到</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">中，并保存</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件</span>
-  let <span style="color: rgb(0,0,255);">pdfDocument </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件，第一页宽高跟随第一张图片宽高。</span>
-  <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">pdfPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfPage </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">插入空白页，每一页宽高跟随图片宽高。</span>
-      <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertBlankPage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(0,0,255);">pdfPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将图片添加到</span><span style="color: rgb(128,128,128);">pdf</span><span style="color: rgb(128,128,128);">中</span>
-    <span style="color: rgb(0,0,255);">pdfPage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addImageObject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">imgInfoList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  let <span style="color: rgb(0,0,255);">pdfFileName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">systemDateTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">pdfFilePath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tempDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">`/</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">pdfFileName</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.pdf`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保存</span><span style="color: rgb(128,128,128);">pdf</span><span style="color: rgb(128,128,128);">文件</span>
-  <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">saveDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfFilePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">releaseDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件加载到</span><span style="color: rgb(128,128,128);">PdfView</span><span style="color: rgb(128,128,128);">组件中</span>
-  let <span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARSE_SUCCESS </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPageZoom</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1.5</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  // 创建PDF文件时每一页宽高跟随添加到该页的图片的宽高，根据记录下来的图片信息调用addImageObject将图片添加到PDF中，并保存PDF文件
+  let pdfDocument = new pdfService.PdfDocument();
+  // 创建PDF文件，第一页宽高跟随第一张图片宽高。
+  pdfDocument.createDocument(imgInfoList[0].width, imgInfoList[0].height);
+  for (let index = 0; index < imgInfoList.length; index++) {
+    let pdfPage: pdfService.PdfPage | undefined;
+    if (index > 0) {
+      // 插入空白页，每一页宽高跟随图片宽高。
+      pdfDocument.insertBlankPage(index, imgInfoList[index].width, imgInfoList[index].height);
+    }
+    pdfPage = pdfDocument.getPage(index);
+    // 将图片添加到pdf中
+    pdfPage.addImageObject(imgInfoList[index].path, 0, 0, imgInfoList[index].width,
+      imgInfoList[index].height);
+  }
+  let pdfFileName = systemDateTime.getTime().toString();
+  let pdfFilePath = this.context.tempDir + `/${pdfFileName}.pdf`;
+  // 保存pdf文件
+  pdfDocument.saveDocument(pdfFilePath);
+  this.controller.releaseDocument();
+  // 将PDF文件加载到PdfView组件中
+  let loadResult: pdfService.ParseResult = await this.controller.loadDocument(pdfFilePath, '');
+  if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
+    this.controller.setPageZoom(1.5);
+  }
+});
 ```
 
  

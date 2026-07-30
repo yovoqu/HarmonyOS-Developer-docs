@@ -31,124 +31,124 @@ Video组件实现视频横竖屏切换与全屏播放，主要有两种实现思
 方案一：使用默认控制栏实现全屏播放。该方案利用Video组件的默认控制栏实现全屏播放功能。当用户点击默认控制栏中的全屏按钮时，视频会进入全屏模式，并切换窗口方向为横屏。退出全屏时，窗口方向恢复为竖屏。这种方式实现简单，适合不需要自定义播放控制界面的场景。示例代码如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { window } from '@kit.ArkUI';
+import { common } from '@kit.AbilityKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">VideoDemo1 </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VideoController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">windowClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct VideoDemo1 {
+  private controller: VideoController = new VideoController();
+  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+  private windowClass = (this.context as common.UIAbilityContext).windowStage.getMainWindowSync();
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">窗口方向切换（横竖屏切换）</span></em>
-  private <span style="color: rgb(0,0,255);">setOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">orientation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">orientation</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'setWindowOrientation: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">orientation </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">' Succeeded.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'setWindowOrientation: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">orientation </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">' Failed. Cause: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+ <em> // 窗口方向切换（横竖屏切换）</em>
+  private setOrientation(orientation: Orientation) {
+    this.windowClass.setPreferredOrientation(orientation).then(() => {
+      console.info('setWindowOrientation: ' + orientation + ' Succeeded.');
+    }).catch((err: BusinessError<void>) => {
+      console.info('setWindowOrientation: ' + orientation + ' Failed. Cause: ' + err.message);
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Video</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'video1.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">替换为您的本地视频文件路径</span></em>
-        <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controls</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">使用默认控制栏</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Contain</span><span style="color: rgb(0,0,255);">)</span>
-          <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">全屏状态变化时自动切换横竖屏</span></em>
-<em>          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当视频切换到全屏播放时，若没有将窗口切换到横屏，将会是一个竖屏全屏播放效果</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onFullscreenChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fullscreen</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LANDSCAPE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">横屏</span></em>
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PORTRAIT</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">竖屏</span></em>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Video({
+        src: $rawfile('video1.mp4'), <em>// 替换为您的本地视频文件路径</em>
+        controller: this.controller
+      })
+        .width('100%')
+        .height(300)
+        .controls(true) <em>// </em><em>使用默认控制栏</em>
+        .objectFit(ImageFit.Contain)
+          <em>// 全屏状态变化时自动切换横竖屏</em>
+<em>          // 当视频切换到全屏播放时，若没有将窗口切换到横屏，将会是一个竖屏全屏播放效果</em>
+        .onFullscreenChange((event) => {
+          if (event.fullscreen) {
+            this.setOrientation(window.Orientation.LANDSCAPE); <em>// 横屏</em>
+          } else {
+            this.setOrientation(window.Orientation.PORTRAIT); <em>// </em><em>竖屏</em>
+          }
+        });
+    }
+    .width('100%')
+    .height('100%');
+  }
+}
 ```
  
 方案二：通过窗口沉浸式布局实现全屏播放。该方案适用于需要自定义控制栏的场景。通过窗口沉浸式布局，同时调整窗口方向为横屏，隐藏状态栏和导航栏，以实现沉浸式的全屏播放效果。退出全屏时，窗口方向恢复为竖屏，状态栏和导航栏恢复显示。示例代码如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { window } from '@kit.ArkUI';
+import { common } from '@kit.AbilityKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">VideoDemo2 </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">windowClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">记录当前是否全屏状态</span></em>
-  <span style="color: rgb(181,106,1);">@State </span>private <span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct VideoDemo2 {
+  private controller = new VideoController();
+  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+  private windowClass = (this.context as common.UIAbilityContext).windowStage.getMainWindowSync();
+<em>  // 记录当前是否全屏状态</em>
+  @State private isFullScreen: boolean = false;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Video</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'video1.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">替换为您的本地视频文件路径</span></em>
-        <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFullScreen </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'100%' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Contain</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controls</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义的控制器，全屏切换</span></em>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFullScreen </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">退出全屏</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">进入全屏</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">15 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFullScreen </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toggleWindowOrientationAndFullscreen</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Stack() {
+      Video({
+        src: $rawfile('video1.mp4'), <em>// 替换为您的本地视频文件路径</em>
+        controller: this.controller
+      })
+        .width('100%')
+        .height(this.isFullScreen ? '100%' : 300)
+        .objectFit(ImageFit.Contain)
+        .autoPlay(true)
+        .loop(true)
+        .controls(false);
+     <em> // 自定义的控制器，全屏切换</em>
+      Row() {
+        Text(this.isFullScreen ? '退出全屏' : '进入全屏')
+          .fontColor(Color.White);
+      }
+      .border({ color: Color.White, width: 1 })
+      .margin({ bottom: 15 })
+      .zIndex(1)
+      .onClick(() => {
+        this.isFullScreen = !this.isFullScreen;
+        this.toggleWindowOrientationAndFullscreen(this.isFullScreen);
+      });
+    }
+    .alignContent(Alignment.Bottom)
+    .width('100%');
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">切换窗口方向、设置窗口全屏布局、控制避让区显隐</span></em>
-  private <span style="color: rgb(0,0,255);">toggleWindowOrientationAndFullscreen</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// 1. </span><span style="color: rgb(128,128,128);">窗口方向切换（横竖屏切换）</span></em>
-    let <span style="color: rgb(0,0,255);">orientation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">isFullScreen </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LANDSCAPE </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PORTRAIT</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">orientation</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'setWindowOrientation: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">orientation </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">' Succeeded.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'setWindowOrientation: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">orientation </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">' Failed. Cause: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// 2. </span><span style="color: rgb(128,128,128);">设置窗口全屏布局</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setWindowLayoutFullScreen</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in setting the window layout to full-screen mode.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to set the window layout to full-screen mode. Code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <em><span style="color: rgb(128,128,128);">// 3. </span><span style="color: rgb(128,128,128);">设置状态栏显隐</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSpecificSystemBarEnabled</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'status'</span><span style="color: rgb(181,106,1);">, !</span><span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in setting the status bar to be invisible.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to set the status bar to be invisible. Code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// 4. </span><span style="color: rgb(128,128,128);">设置导航区域显隐</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSpecificSystemBarEnabled</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'navigationIndicator'</span><span style="color: rgb(181,106,1);">, !</span><span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in setting the navigation indicator to be invisible.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to set the navigation indicator to be invisible. Code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+ <em> // 切换窗口方向、设置窗口全屏布局、控制避让区显隐</em>
+  private toggleWindowOrientationAndFullscreen(isFullScreen: boolean) {
+   <em> // 1. 窗口方向切换（横竖屏切换）</em>
+    let orientation = isFullScreen ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT;
+    this.windowClass.setPreferredOrientation(orientation).then(() => {
+      console.info('setWindowOrientation: ' + orientation + ' Succeeded.');
+    }).catch((err: BusinessError<void>) => {
+      console.info('setWindowOrientation: ' + orientation + ' Failed. Cause: ' + err.message);
+    });
+   <em> // 2. 设置窗口全屏布局</em>
+    this.windowClass.setWindowLayoutFullScreen(isFullScreen).then(() => {
+      console.info('Succeeded in setting the window layout to full-screen mode.');
+    }).catch((err: BusinessError<void>) => {
+      console.error(`Failed to set the window layout to full-screen mode. Code is ${err.code}, message is ${err.message}`);
+    });
+    <em>// 3. 设置状态栏显隐</em>
+    this.windowClass.setSpecificSystemBarEnabled('status', !isFullScreen).then(() => {
+      console.info('Succeeded in setting the status bar to be invisible.');
+    }).catch((err: BusinessError<void>) => {
+      console.error(`Failed to set the status bar to be invisible. Code is ${err.code}, message is ${err.message}`);
+    });
+   <em> // 4. 设置导航区域显隐</em>
+    this.windowClass.setSpecificSystemBarEnabled('navigationIndicator', !isFullScreen).then(() => {
+      console.info('Succeeded in setting the navigation indicator to be invisible.');
+    }).catch((err: BusinessError<void>) => {
+      console.error(`Failed to set the navigation indicator to be invisible. Code is ${err.code}, message is ${err.message}`);
+    });
+  }
+}
 ```
  
  
@@ -166,18 +166,18 @@ Q：当Tabs栏中的视频切换为横屏全屏播放时，如何隐藏Tabs栏�
 A：在TabContent中进行视频播放时，若切换至横屏全屏，Tabs栏会随之旋转并仍保留在页面上。要解决此问题，可以在进入全屏时隐藏Tabs栏，退出全屏时再将其显示出来。
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">TabsView </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">isFullScreen</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct TabsView {
+  @State isFullScreen: boolean = false;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span>todo</em>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFullScreen </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Visible</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">需要使用</span><span style="color: rgb(128,128,128);">None</span><span style="color: rgb(128,128,128);">，隐藏但不参与布局，不进行占位。</span></em>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Tabs() {
+    <em>  // todo</em>
+    }
+    .visibility(this.isFullScreen ? Visibility.None : Visibility.Visible); <em>// </em><em>需要使用None，隐藏但不参与布局，不进行占位。</em>
+  }
+}
 ```
  
 Q：应用采取[组件安全区布局方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects#section202081847174413)实现全屏时，Video组件配置expandSafeArea属性有什么限制？

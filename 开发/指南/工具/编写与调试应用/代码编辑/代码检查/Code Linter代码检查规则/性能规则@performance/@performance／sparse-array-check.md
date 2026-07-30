@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/sparse-array-check"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
+  "rules": {
+    "@performance/sparse-array-check": "suggestion",
   }
 }
 ```
@@ -31,9 +31,9 @@
 #### 正例
 
 ```text
-<span style="color: rgb(0,0,255);">let</span> index = <span style="color: rgb(9,134,88);">3</span>;
-<span style="color: rgb(0,0,255);">let</span> result: <span style="color: rgb(0,0,255);">number</span>[] = [];
-result[index] = <span style="color: rgb(9,134,88);">0</span>;
+let index = 3;
+let result: number[] = [];
+result[index] = 0;
 ```
  
  
@@ -52,7 +52,7 @@ arr2[9999] = 0;
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
+plugin:@performance/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -9,19 +9,19 @@
 在router.pushUrl的回调中执行router.clear会崩溃。
  
 ```text
-<span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"login/UserNameLoginPage"</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clear</span><span style="color: rgb(0,0,255);">()</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+router.pushUrl({
+  url: "login/UserNameLoginPage"
+}, () => {
+  router.clear()
+})
 ```
  
 报错Log信息如下：
  
 ```text
-<span style="color: rgb(0,0,255);">Error </span><span style="color: rgb(181,106,1);">name</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">Error</span>
-<span style="color: rgb(0,0,255);">Error </span><span style="color: rgb(181,106,1);">message</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">Internal error</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">UI execution context not found</span><span style="color: rgb(181,106,1);">.</span>
-<span style="color: rgb(0,0,255);">Error </span><span style="color: rgb(181,106,1);">code</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">100001</span>
+Error name:Error
+Error message:Internal error. UI execution context not found.
+Error code:100001
 ```
  
  
@@ -51,35 +51,35 @@
 
   如果在非UI页面类中调用router时，由于无法直接获取UIContext实例，需在页面初始化后将UIContext存入AppStorage，后续通过AppStorage获取该实例并调用其getRouter()方法获取router对象。如下示例：
 ```ArkTS
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">RouterDemo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">UIContext</span><span style="color: rgb(128,128,128);">，保存在</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">中</span></em>
-<em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">也可以在</span><span style="color: rgb(128,128,128);">EntryAbility.ets</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">onWindowStageCreate</span><span style="color: rgb(128,128,128);">方法中保存</span><span style="color: rgb(128,128,128);">UIContext</span></em>
-    <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'UIContext'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+@Entry
+@Component
+struct RouterDemo {
+  aboutToAppear(): void {
+    <em>// </em><em>获取UIContext，保存在AppStorage中</em>
+<em>    // 也可以在EntryAbility.ets的onWindowStageCreate方法中保存UIContext</em>
+    AppStorage.setOrCreate('UIContext', this.getUIContext());
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">跳转页面</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Auth</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gotoLoginPage</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Button('跳转页面')
+        .onClick(() => {
+          Auth.gotoLoginPage();
+        });
+    }.height('100%').width('100%');
+  }
+}
 
-class <span style="color: rgb(0,0,255);">Auth </span><span style="color: rgb(255,0,170);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">跳转到登录页</span></em>
-  static <span style="color: rgb(0,0,255);">gotoLoginPage</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">UIContext</span></em>
-    const <span style="color: rgb(0,0,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'UIContext'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'pages/Index' </span><em>// </em><em><span style="color: rgb(128,128,128);">需自行创建一个</span><span style="color: rgb(128,128,128);">Index</span><span style="color: rgb(128,128,128);">页面</span></em>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+class Auth {
+ <em> // 跳转到登录页</em>
+  static gotoLoginPage() {
+    <em>// 通过AppStorage获取UIContext</em>
+    const uiContext = AppStorage.get<UIContext>('UIContext');
+    if (uiContext) {
+      uiContext.getRouter().pushUrl({
+        url: 'pages/Index' <em>// </em><em>需自行创建一个Index页面</em>
+      });
+    }
+  }
+}
 ```

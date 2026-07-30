@@ -9,7 +9,7 @@
 使用分词功能，中文是正常分词的，英文分词异常，英文分词是简单按照空格分词：
  
 ```text
-let <span style="color: rgb(255,255,255);">result </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">textProcessing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getWordSegment</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Storage specifications refer to capacity before formatting. Actual formatted capacity will be less.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+let result = await textProcessing.getWordSegment('Storage specifications refer to capacity before formatting. Actual formatted capacity will be less.');
 ```
  
 返回结果：

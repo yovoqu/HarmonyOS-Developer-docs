@@ -36,102 +36,102 @@
 
 可以通过计算得出Text父组件在Row容器下的最大宽高，以此来设置属性constraintSize约束Text组件的最大尺寸，实现Text组件在设定范围内的宽高自适应。具体实现如下：1. 将constraintSize属性设置在Text组件下，约束Text组件的尺寸，并且通过计算，得出最大尺寸的具体值，Text的constraintSize属性的最大宽度是由：父组件的宽度maxWidth减去左边固定宽高组件的宽度stableWidth，再减去父组件左内边距margin.left，再减去父组件右内边距margin.right之后即可得到。在aboutToAppear生命周期方法中进行计算：
 ```text
-<span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span>void <span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">try </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">let screenW </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取屏幕宽度，并转换为</span><span style="color: rgb(128,128,128);">vp</span></em>
-    <span style="color: rgb(255,255,255);">let stableW </span><span style="color: rgb(181,106,1);">=</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getNumber</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.float.page_text_font_size'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取页面字体大小，并转换为</span><span style="color: rgb(128,128,128);">vp</span></em>
-    <span style="color: rgb(255,255,255);">let marginR </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">removeCharacter</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">marginRight </span>as <span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">let marginL </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">marginLeft </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">左边距直接转换为数字</span></em>
-    <span style="color: rgb(255,255,255);">let marginT </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getNumber</span><span style="color: rgb(255,0,170);">((</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">marginTop </span>as <span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">顶部边距直接转换为</span><span style="color: rgb(128,128,128);">vp</span></em>
-    <span style="color: rgb(255,255,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">screenW </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">stableW </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">marginR </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">marginL </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">marginT</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算最大宽度</span></em>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`this.maxWidth: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">打印最大宽度</span></em>
-  <span style="color: rgb(181,106,1);">} </span><span style="color: rgb(255,255,255);">catch </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+aboutToAppear(): void {
+  try {
+    let screenW = this.getUIContext().px2vp(display.getDefaultDisplaySync().width);
+   <em> // 获取屏幕宽度，并转换为vp</em>
+    let stableW =
+    this.getUIContext()
+      .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber($r('app.float.page_text_font_size').id));
+ <em>   // 获取页面字体大小，并转换为vp</em>
+    let marginR = Number(this.removeCharacter(this.marginRight as string));
+    let marginL = this.marginLeft as number;
+ <em>   // 左边距直接转换为数字</em>
+    let marginT = this.getUIContext()
+      .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber((this.marginTop as Resource).id));
+   <em> // 顶部边距直接转换为vp</em>
+    this.maxWidth = screenW - stableW - marginR - marginL - marginT;<em> </em><em>// 计算最大宽度</em>
+    console.info(`this.maxWidth: ${this.maxWidth}`); <em>// 打印最大宽度</em>
+  } catch (error) {
+  }
+}
 ```
 
 2. 得出Text的在Row组件中的最大尺寸，并将其传入constraintSize属性，即可动态指定Text组件的尺寸，防止文字超出文本框。
 ```text
-<span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constraintSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">maxWidth</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+Row() {
+  Text(this.str).constraintSize({ maxWidth: this.maxWidth })
+    .onClick(() => {
+      this.str = this.str + '';
+    });
+}
 ```
 
  
  
 完整示例参考如下：
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">display </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { display } from '@kit.ArkUI';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'123'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">maxWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">marginRight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Length </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'16vp'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">marginLeft</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Length </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">marginTop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Length </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.float.page_text_font_size'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State str: string = '123';
+  uiContext = this.getUIContext();
+  @State maxWidth: number = 0;
+  marginRight: Length = '16vp';
+  marginLeft: Length = 16;
+  marginTop: Length = $r('app.float.page_text_font_size');
 
-  <span style="color: rgb(0,0,255);">removeCharacter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">result </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">/[a-zA-Z]/g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  removeCharacter(str: string) {
+    let result = str.replace(/[a-zA-Z]/g, '');
+    return result;
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">screenW </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取屏幕宽度，并转换为</span><span style="color: rgb(128,128,128);">vp</span></em>
-      let <span style="color: rgb(255,255,255);">stableW </span><span style="color: rgb(181,106,1);">=</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getNumber</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.float.page_text_font_size'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取页面字体大小，并转换为</span><span style="color: rgb(128,128,128);">vp</span></em>
-      let <span style="color: rgb(255,255,255);">marginR </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">removeCharacter</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">marginRight </span>as <span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">marginL </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">marginLeft </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">左边距直接转换为数字</span></em>
-      let <span style="color: rgb(255,255,255);">marginT </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getNumber</span><span style="color: rgb(255,0,170);">((</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">marginTop </span>as <span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-  <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">顶部边距直接转换为</span><span style="color: rgb(128,128,128);">vp</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">screenW </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">stableW </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">marginR </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">marginL </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">marginT</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">计算最大宽度</span></em>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`this.maxWidth: </span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">打印最大宽度</span></em>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">    }</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  aboutToAppear(): void {
+    try {
+      let screenW = this.getUIContext().px2vp(display.getDefaultDisplaySync().width);
+   <em>   // 获取屏幕宽度，并转换为vp</em>
+      let stableW =
+        this.getUIContext()
+          .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber($r('app.float.page_text_font_size').id));
+    <em>  // 获取页面字体大小，并转换为vp</em>
+      let marginR = Number(this.removeCharacter(this.marginRight as string));
+      let marginL = this.marginLeft as number;
+   <em>   // 左边距直接转换为数字</em>
+      let marginT = this.getUIContext()
+        .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber((this.marginTop as Resource).id));
+  <em>    // 顶部边距直接转换为vp</em>
+      this.maxWidth = screenW - stableW - marginR - marginL - marginT; <em>// </em><em>计算最大宽度</em>
+      console.info(`this.maxWidth: ${this.maxWidth}`); <em>// </em><em>打印最大宽度</em>
+    } catch (error) {
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">$$this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#ff18a2d0'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      TextInput({ text: $$this.str });
+      Row() {
+        Row() {
+          Row().width(50).height(50).backgroundColor('#ff18a2d0');
+        };
 
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constraintSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">maxWidth</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#fff2f5f5'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#ffeeeaea'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+        Row() {
+          Text(this.str).constraintSize({ maxWidth: this.maxWidth })
+            .onClick(() => {
+              this.str = this.str + '';
+            });
+        }
+        .margin({ left: 10, right: 10 });
+      }
+      .backgroundColor('#fff2f5f5');
+    }
+    .width('100%')
+    .height('100%')
+    .backgroundColor('#ffeeeaea')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```
  
  

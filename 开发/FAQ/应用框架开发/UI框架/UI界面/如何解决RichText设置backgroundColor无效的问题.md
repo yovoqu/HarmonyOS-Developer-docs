@@ -36,8 +36,8 @@ struct ToggleExample {
     '<style>*{ background-color: blue;width:100%;padding:0;font-size:50px}</style>';
   <em>// 文字内容</em>
   richContent: string =
-    '<p style="background-color: blue"><span></span><span style="white-space: pre-wrap;">温馨提示：<br/>' +
-      '这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字，仅供参考。</span></p>';
+    '<p style="background-color: blue">温馨提示：<br/>' +
+      '这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字，仅供参考。</p>';
 
   build() {
     Column() {

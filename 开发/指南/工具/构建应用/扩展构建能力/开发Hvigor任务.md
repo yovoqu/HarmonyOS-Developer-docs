@@ -44,23 +44,23 @@ Finished
   
 ```text
 // 导入模块
-import <span style="color: rgb(250,162,61);">{ </span><span style="color: rgb(255,255,255);">getNode, HvigorNode, HvigorTask </span><span style="color: rgb(250,162,61);">} </span>from <span style="color: rgb(170,125,252);">'@ohos/hvigor'</span><span style="color: rgb(226,218,144);">;</span>
+import { getNode, HvigorNode, HvigorTask } from '@ohos/hvigor';
 ```
 
 2. 编写任务代码。
 
   
 ```text
-<span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取当前</span><span style="color: rgb(128,128,128);">hvigorNode</span><span style="color: rgb(128,128,128);">节点对象</span>
-const <span style="color: rgb(0,0,255);">node</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorNode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">getNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">__filename</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 获取当前hvigorNode节点对象
+const node: HvigorNode = getNode(__filename);
 
-<span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注册</span><span style="color: rgb(128,128,128);">Task</span>
-<span style="color: rgb(0,0,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerTask</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'customTask'</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">run</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'this is Task'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 注册Task
+node.registerTask({
+  name: 'customTask',
+  run() {
+    console.log('this is Task');
+  }
+});
 ```
 
 3. 执行任务。

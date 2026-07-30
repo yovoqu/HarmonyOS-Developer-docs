@@ -72,11 +72,11 @@ export default function mock_system_api() {
 
 4. 如果测试文件是手动创建的，需要将用例类mock_system_api添加到List.test.ets文件中。
 ```text
-import mock_system_api from <span style="color: rgb(255,0,170);">'./bluetoothManager.test'</span><span style="color: rgb(181,106,1);">;</span>
+import mock_system_api from './bluetoothManager.test';
 
-export default function <span style="color: rgb(0,0,255);">testsuite</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  mock_system_api<span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default function testsuite() {
+  mock_system_api();
+}
 ```
 
 5. 执行测试，用例通过。
@@ -134,11 +134,11 @@ export default function afterReturnTest() {
 
 3. 如果测试文件是手动创建的，需要将用例类afterReturnTest添加到List.test.ets文件中。
 ```text
-import afterReturnTest from <span style="color: rgb(255,0,170);">'./afterReturnTest.test'</span><span style="color: rgb(181,106,1);">;</span>
+import afterReturnTest from './afterReturnTest.test';
 
-export default function <span style="color: rgb(0,0,255);">testsuite</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  afterReturnTest<span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default function testsuite() {
+  afterReturnTest();
+}
 ```
 
 4. 执行测试，用例通过。
@@ -151,51 +151,51 @@ export default function <span style="color: rgb(0,0,255);">testsuite</span><span
  1. 在src/mock目录下新建一个common目录并创建一个ArkTS文件，例如calc.mock.ets，在这个文件内定义目标模块的Mock实现。
 ```ArkTS
 // src/mock/common/calc.mock.ets
-export function <span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  return <span style="color: rgb(132,63,161);">"this is mock sum"</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+export function sum() {
+  return "this is mock sum";
+}
 ```
  calc.ets的原始实现如下：
 
   
 ```ArkTS
 // src/main/ets/common/calc.ets
-export function <span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  return <span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+export function sum() {
+  return 1;
+}
 ```
 
 2. 在Mock配置文件src/mock/mock-config.json5中定义目标模块与Mock实现的映射关系。
 ```ArkTS
 {
-<span style="color: rgb(132,63,161);">  "common/calc.ets"</span><span style="color: rgb(181,106,1);">: </span>{ // 本地模块只支持ets/xxx的相对路径，并需明确文件后缀
-    <span style="color: rgb(132,63,161);">"source"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"src/mock/common/calc.mock.ets"</span>  // Mock代码的路径，相对于模块根目录
-  }<span style="color: rgb(181,106,1);">,</span>
+  "common/calc.ets": { // 本地模块只支持ets/xxx的相对路径，并需明确文件后缀
+    "source": "src/mock/common/calc.mock.ets"  // Mock代码的路径，相对于模块根目录
+  },
 }
 ```
 
 3. 在测试文件中编写如下代码。
 ```ArkTS
-// <span style="color: rgb(0,0,255);">test_mock_local_method</span>.test.ets
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">it</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">expect </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hypium'</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">sum </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'../../../main/ets/common/calc'</span><span style="color: rgb(181,106,1);">;</span>
+// test_mock_local_method.test.ets
+import { describe, it, expect } from '@ohos/hypium'
+import { sum } from '../../../main/ets/common/calc';
 
-export default function <span style="color: rgb(0,0,255);">test_mock_local_method</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'test_mock_local_method'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">it</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"test_mock_local_method"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">expect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sum</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">assertEqual</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"this is mock sum"</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default function test_mock_local_method() {
+  describe('test_mock_local_method', () => {
+    it("test_mock_local_method", 0, () => {
+      expect(sum()).assertEqual("this is mock sum")
+    })
+  })
+}
 ```
 
 4. 如果测试文件是手动创建的，需要将用例类test_mock_local_method添加到List.test.ets文件中。
 ```text
-import <span style="color: rgb(0,0,255);">test_mock_local_method</span> from <span style="color: rgb(255,0,170);">'./test_mock_local_method.test'</span><span style="color: rgb(181,106,1);">;</span>
+import test_mock_local_method from './test_mock_local_method.test';
 
-export default function <span style="color: rgb(0,0,255);">testsuite</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">test_mock_local_method</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default function testsuite() {
+  test_mock_local_method();
+}
 ```
 
 5. 执行测试，用例通过。

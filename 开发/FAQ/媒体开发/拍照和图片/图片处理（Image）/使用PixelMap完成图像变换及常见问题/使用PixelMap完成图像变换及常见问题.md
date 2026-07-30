@@ -23,64 +23,64 @@
 2. 获取图片信息：在进行变换之前，若需要获取图片的一些基本信息如宽度和高度，可以通过调用异步方法[getImageInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage#getimageinfo)或同步方法[getImageInfoSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage#getimageinfosync)来进行获取。
 3. 执行图像变换：包括裁剪、缩放、旋转、翻转、透明度修改等操作，以图片缩放的具体示例代码如下：
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">image </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ImageKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { image } from '@kit.ImageKit';
+import { common } from '@kit.AbilityKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">imagePixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">scaleCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State imagePixelMap: PixelMap | undefined = undefined;
+  @State scaleCount: number = 1;
 
-  async <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">pixelMap </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPixelMap</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imagePixelMap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  async aboutToAppear() {
+    let pixelMap = this.getPixelMap();
+    this.imagePixelMap = pixelMap;
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">pixelMap</span></em>
-  <span style="color: rgb(0,0,255);">getPixelMap</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">resourceManager</span><span style="color: rgb(128,128,128);">资源管理</span></em>
-    const <span style="color: rgb(255,255,255);">resourceManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取图片数据</span></em>
-    const <span style="color: rgb(255,255,255);">fileData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMediaContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// startIcon</em><em><span style="color: rgb(128,128,128);">为测试图片，开发者需要替换为实际图片</span></em>
-    const <span style="color: rgb(255,255,255);">buffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">pixelMap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMapSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">editable</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">desiredDynamicRange</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DecodingDynamicRange</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AUTO</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> // 获取pixelMap</em>
+  getPixelMap() {
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// 获取resourceManager资源管理</em>
+    const resourceManager = context.resourceManager; <em>// 获取图片数据</em>
+    const fileData = resourceManager.getMediaContentSync($r('app.media.startIcon').id); <em>// startIcon</em><em>为测试图片，开发者需要替换为实际图片</em>
+    const buffer = fileData.buffer;
+    const imageSource = image.createImageSource(buffer);
+    const pixelMap = imageSource.createPixelMapSync({
+      editable: true,
+      desiredDynamicRange: image.DecodingDynamicRange.AUTO
+    });
+    return pixelMap;
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">对</span><span style="color: rgb(128,128,128);">pixelMap</span><span style="color: rgb(128,128,128);">进行缩放</span></em>
-  <span style="color: rgb(0,0,255);">scalePixelMap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">PixelMap</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">scaleCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">scaleCount</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">scaleCount</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+ <em> // 对pixelMap进行缩放</em>
+  scalePixelMap(pixelMap: PixelMap, scaleCount: number) {
+    pixelMap.scaleSync(scaleCount, scaleCount);
+    return pixelMap;
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imagePixelMap </span><span style="color: rgb(181,106,1);">? </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imagePixelMap </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'60%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">None</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">缩小</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imagePixelMap</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleCount </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleCount </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">0.1</span><span style="color: rgb(181,106,1);">;</span>
-           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取图片基本信息，如果宽高大于</span><span style="color: rgb(128,128,128);">300</span><span style="color: rgb(128,128,128);">，继续缩小</span></em>
-              let <span style="color: rgb(255,255,255);">imageInfo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imagePixelMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getImageInfoSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-              if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">300</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imagePixelMap </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scalePixelMap</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imagePixelMap</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleCount</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">            }</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"100%"</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"100%"</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Image(this.imagePixelMap ? this.imagePixelMap : '')
+        .width('80%')
+        .height('60%')
+        .objectFit(ImageFit.None)
+      Row() {
+        Button('缩小')
+          .onClick(() => {
+            if (this.imagePixelMap) {
+              this.scaleCount = this.scaleCount - 0.1;
+           <em>   // 获取图片基本信息，如果宽高大于300，继续缩小</em>
+              let imageInfo = this.imagePixelMap.getImageInfoSync();
+              if (imageInfo.size.width > 300 || imageInfo.size.width > 300) {
+                this.imagePixelMap = this.scalePixelMap(this.imagePixelMap, this.scaleCount);
+              }
+            }
+          })
+      }
+    }
+    .width("100%")
+    .height("100%")
+  }
+}
 ```
 
  

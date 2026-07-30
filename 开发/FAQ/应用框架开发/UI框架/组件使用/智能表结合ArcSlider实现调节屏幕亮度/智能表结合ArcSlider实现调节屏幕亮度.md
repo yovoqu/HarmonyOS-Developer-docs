@@ -25,101 +25,101 @@
 完整示例参考如下：
  
 ```text
-import <span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">ArcSlider</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderValueOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderLayoutOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderStyleOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderValueOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderLayoutOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderStyleOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">ArcSliderOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">window</span>
-<span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import {
+  ArcSlider,
+  ArcSliderOptions,
+  ArcSliderValueOptions,
+  ArcSliderLayoutOptions,
+  ArcSliderStyleOptions,
+  ArcSliderValueOptionsConstructorOptions,
+  ArcSliderLayoutOptionsConstructorOptions,
+  ArcSliderStyleOptionsConstructorOptions,
+  ArcSliderOptionsConstructorOptions,
+  window
+} from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@ComponentV2</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">window</span><span style="color: rgb(128,128,128);">实例提供的</span><span style="color: rgb(128,128,128);">setWindowBrightness()</span><span style="color: rgb(128,128,128);">方法，即可设置屏幕亮度。</span></em>
-  <span style="color: rgb(0,0,255);">changeBrightness</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brightness</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">promise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLastWindow</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">windowClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setWindowBrightness</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brightness</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          const <span style="color: rgb(255,255,255);">errCode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">errCode</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to set the Brightness value. Cause code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            return<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">exception</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to set the Brightness value. Cause code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">exception</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">exception</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+@Entry
+@ComponentV2
+struct Index {
+<em>  // 通过window实例提供的setWindowBrightness()方法，即可设置屏幕亮度。</em>
+  changeBrightness(brightness: number) {
+    try {
+      let windowClass: window.Window | undefined = undefined;
+      let promise = window.getLastWindow(this.getUIContext().getHostContext());
+      promise.then((data) => {
+        windowClass = data;
+        windowClass.setWindowBrightness(brightness, (err: BusinessError) => {
+          const errCode: number = err.code;
+          if (errCode) {
+            console.error(`Failed to set the Brightness value. Cause code: ${err.code}, message: ${err.message}`);
+            return;
+          }
+        });
+      });
+    } catch (exception) {
+      console.error(`Failed to set the Brightness value. Cause code: ${exception.code}, message: ${exception.message}`);
+    }
+  }
 
- <em> <span style="color: rgb(128,128,128);">// ArcSliderValueOptions</span><span style="color: rgb(128,128,128);">的构造信息，设置当前进度值、最小值和最大值</span></em>
-  <span style="color: rgb(255,255,255);">valueOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderValueOptionsConstructorOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">progress</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">min</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">max</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// ArcSliderLayoutValueOptions</span><span style="color: rgb(128,128,128);">的构造信息，设置弧形</span><span style="color: rgb(128,128,128);">Slider</span><span style="color: rgb(128,128,128);">从下往上滑动</span></em>
-  <span style="color: rgb(255,255,255);">layoutOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderLayoutOptionsConstructorOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">reverse</span><span style="color: rgb(181,106,1);">: </span>true
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// ArcSliderStyleOptions</span><span style="color: rgb(128,128,128);">的构造信息，设置弧形</span><span style="color: rgb(128,128,128);">Slider</span><span style="color: rgb(128,128,128);">的描边粗细、描边背景色、描边高亮色、描边背景模糊值</span></em>
-  <span style="color: rgb(255,255,255);">styleOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderStyleOptionsConstructorOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">trackThickness</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">activeTrackThickness</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">24</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">trackColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#ffd5d5d5'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">selectedColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#ff2787d9'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">trackBlur</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">valueOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderValueOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcSliderValueOptions</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">valueOptionsConstructorOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">layoutOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderLayoutOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcSliderLayoutOptions</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">layoutOptionsConstructorOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">styleOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderStyleOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcSliderStyleOptions</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">styleOptionsConstructorOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">arcSliderOptionsConstructorOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderOptionsConstructorOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">valueOptions</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">valueOptions</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">layoutOptions</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">layoutOptions</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">styleOptions</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">styleOptions</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">digitalCrownSensitivity</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">CrownSensitivity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">HIGH</span><span style="color: rgb(181,106,1);">,</span>
-<em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弧形</span><span style="color: rgb(128,128,128);">Slider</span><span style="color: rgb(128,128,128);">的进度值发生变化时触发</span></em>
-    <span style="color: rgb(255,255,255);">onChange</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">progress</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">changeBrightness</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">progress</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> // ArcSliderValueOptions的构造信息，设置当前进度值、最小值和最大值</em>
+  valueOptionsConstructorOptions: ArcSliderValueOptionsConstructorOptions = {
+    progress: 1,
+    min: 0,
+    max: 1
+  };
+ <em> // ArcSliderLayoutValueOptions的构造信息，设置弧形Slider从下往上滑动</em>
+  layoutOptionsConstructorOptions: ArcSliderLayoutOptionsConstructorOptions = {
+    reverse: true
+  };
+ <em> // ArcSliderStyleOptions的构造信息，设置弧形Slider的描边粗细、描边背景色、描边高亮色、描边背景模糊值</em>
+  styleOptionsConstructorOptions: ArcSliderStyleOptionsConstructorOptions = {
+    trackThickness: 16,
+    activeTrackThickness: 24,
+    trackColor: '#ffd5d5d5',
+    selectedColor: '#ff2787d9',
+    trackBlur: 20
+  };
+  valueOptions: ArcSliderValueOptions = new ArcSliderValueOptions(this.valueOptionsConstructorOptions);
+  layoutOptions: ArcSliderLayoutOptions = new ArcSliderLayoutOptions(this.layoutOptionsConstructorOptions);
+  styleOptions: ArcSliderStyleOptions = new ArcSliderStyleOptions(this.styleOptionsConstructorOptions);
+  arcSliderOptionsConstructorOptions: ArcSliderOptionsConstructorOptions = {
+    valueOptions: this.valueOptions,
+    layoutOptions: this.layoutOptions,
+    styleOptions: this.styleOptions,
+    digitalCrownSensitivity: CrownSensitivity.HIGH,
+<em>    // 弧形Slider的进度值发生变化时触发</em>
+    onChange: (progress: number) => {
+      this.changeBrightness(progress);
 
-      let <span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Window </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">promise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLastWindow</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">windowClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-        try <span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">properties </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getWindowProperties</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">bright </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">properties</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">brightness </span><span style="color: rgb(181,106,1);">?? -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">屏幕亮度值</span><span style="color: rgb(132,63,161);">: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">bright</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2000</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Failed to open Toast.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to get the Window Properties. Cause code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">arcSliderOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArcSliderOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcSliderOptions</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arcSliderOptionsConstructorOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let windowClass: window.Window | undefined = undefined;
+      let promise = window.getLastWindow(this.getUIContext().getHostContext());
+      promise.then((data) => {
+        windowClass = data;
+        try {
+          let properties = windowClass.getWindowProperties();
+          let bright = properties?.brightness ?? -1;
+          this.getUIContext().getPromptAction().openToast({
+            message: '屏幕亮度值: ' + bright,
+            duration: 2000
+          }).catch(() => {
+            console.error('Failed to open Toast.');
+          });
+        } catch (error) {
+          console.error(`Failed to get the Window Properties. Cause code: ${error.code}, message: ${error.message}`);
+        }
+      });
+    }
+  };
+  arcSliderOptions: ArcSliderOptions = new ArcSliderOptions(this.arcSliderOptionsConstructorOptions);
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">canIUse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'SystemCapability.ArkUI.ArkUI.Circle'</span><span style="color: rgb(255,0,170);">)) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">ArcSlider</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arcSliderOptions </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      if (canIUse('SystemCapability.ArkUI.ArkUI.Circle')) {
+        ArcSlider({ options: this.arcSliderOptions });
+      }
+    }
+    .width('100%');
+  }
+}
 ```

@@ -24,34 +24,34 @@
 Text中的ImageSpan支持onAreaChange事件，可通过在Span前添加一个宽高均为0的ImageSpan，在ImageSpan的onAreaChange获取到ImageSpan的位置，即为Span的位置。
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SpanPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">span2x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">span2y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct SpanPage {
+  @State span2x: number = 0;
+  @State span2y: number = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Span1'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">ImageSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAreaChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">oldValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">span2x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">globalPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">span2y </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">globalPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">y </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Span2</span><span style="color: rgb(132,63,161);">相对页面左上角的</span><span style="color: rgb(132,63,161);">x</span><span style="color: rgb(132,63,161);">坐标为</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">globalPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">,y</span><span style="color: rgb(132,63,161);">坐标为</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">globalPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Span2'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      Text() {
+        Span('Span1')
+          .fontSize(18);
+        ImageSpan($r('app.media.startIcon'))
+          .width(0)
+          .height(0)
+          .border({ width: 1 })
+          .onAreaChange((oldValue: Area, newValue: Area) => {
+            this.span2x = newValue.globalPosition.x as number;
+            this.span2y = newValue.globalPosition.y as number;
+            console.info(`Span2相对页面左上角的x坐标为${newValue.globalPosition.x},y坐标为${newValue.globalPosition.y}`);
+          });
+        Span('Span2')
+          .fontSize(18);
+      };
 
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Span2</span><span style="color: rgb(132,63,161);">相对页面左上角的</span><span style="color: rgb(132,63,161);">x</span><span style="color: rgb(132,63,161);">坐标为</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">span2x</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">,y</span><span style="color: rgb(132,63,161);">坐标为</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">span2y</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+      Text(`Span2相对页面左上角的x坐标为${this.span2x},y坐标为${this.span2y}`);
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
 ```

@@ -25,241 +25,241 @@
 
 - **方案一**：由于每个Web组件需要对应一个WebviewController，可以考虑把List中每条item抽出来作为子组件，把Web组件放到这个子组件中，这样就能做到每个Web组件对应一个WebviewController了，然后就可以通过WebviewController单独加载每条富文本数据。
 ```text
-import <span style="color: rgb(0,0,255);">web_webview </span>from <span style="color: rgb(255,0,170);">'@ohos.web.webview'</span><span style="color: rgb(181,106,1);">;</span>
+import web_webview from '@ohos.web.webview';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">子组件</span></em>
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">RichTextItem </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">web_webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">web_webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em>子组件</em>
+@Component
+export struct RichTextItem {
+  private src: string = '';
+  controller: web_webview.WebviewController = new web_webview.WebviewController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mixedMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MixedMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cacheMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">CacheMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onlineImageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">WebLayoutMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FIT_CONTENT</span><span style="color: rgb(0,0,255);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使得</span><span style="color: rgb(128,128,128);">web</span><span style="color: rgb(128,128,128);">高度自适应</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onControllerAttached</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'text/html'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">' '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">' '</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSslErrorEvent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handler</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleConfirm</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Web({ src: '', controller: this.controller })
+        .width('100%')
+        .javaScriptAccess(true)
+        .domStorageAccess(true)
+        .geolocationAccess(false)
+        .mixedMode(MixedMode.None)
+        .fileAccess(true)
+        .imageAccess(true)
+        .cacheMode(CacheMode.None)
+        .onlineImageAccess(true)
+        .layoutMode(WebLayoutMode.FIT_CONTENT) <em>// 使得web高度自适应</em>
+        .onControllerAttached(() => {
+          this.controller.loadData(this.src, 'text/html', 'utf-8', ' ', ' ');
+        })
+        .onSslErrorEvent(event => {
+          event.handler.handleConfirm();
+        })
+    }
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ListWebViewSolutionOne </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">richTextList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
-    <span style="color: rgb(255,0,170);">`</span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="font-size:12.5px;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="font-size:12.5px;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">【超级</span><span style="color: rgb(255,0,170);">0</span><span style="color: rgb(255,0,170);">卡糖</span><span style="color: rgb(255,0,170);">*·</span><span style="color: rgb(255,0,170);">低负担</span><span style="color: rgb(255,0,170);">·0</span><span style="color: rgb(255,0,170);">咖啡】</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#0A59F7;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">不含咖啡的友好小铁</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#0A59F7;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">陪伴午后的闲暇时光</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#999;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">「超级</span><span style="color: rgb(255,0,170);">0</span><span style="color: rgb(255,0,170);">卡糖</span><span style="color: rgb(255,0,170);">*</span><span style="color: rgb(255,0,170);">」原创定制</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">果味清爽沁甜</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#444;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">感受青提风味在奶香和椰香中游走</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#555;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">轻盈地，过夏天</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#777;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">*</span><span style="color: rgb(255,0,170);">本品使用</span><span style="color: rgb(255,0,170);">0</span><span style="color: rgb(255,0,170);">卡青提风味饮料浓浆（含赤藓糖醇）</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">div</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);"> P1</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span1</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span2</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);"> P2</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span3</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span4</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/div</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">div</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="gray"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">15.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/div</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">div</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="blue"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">30.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/div</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="gray"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="blue"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">60.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="blue"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">125.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style=\"color:#999999;\"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">手机的实名人需与我的信息为</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span> <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style=\"color:#0A59F7;\"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">同一人</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span> <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style=\"color:#999999;\"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">，否则请更换账户或手机号码</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style='text-align:center;'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">您好</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">现在会员促销期间</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">全场商品打</span><span style="color: rgb(255,0,170);">6</span><span style="color: rgb(255,0,170);">折</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哟</span><span style="color: rgb(255,0,170);">~</span><span style="color: rgb(255,0,170);">错过时间会</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">恢复原价</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哈</span><span style="color: rgb(255,0,170);">!</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">不爱吃饭</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">别怕！有它轻松拿捏挑食</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">！我家</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">不知是随</span><span style="color: rgb(255,0,170);">...#</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">营养补充</span><span style="color: rgb(255,0,170);">#`</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style='text-align:center;'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">您好</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">现在会员促销期间</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">打</span><span style="color: rgb(255,0,170);">6</span><span style="color: rgb(255,0,170);">折</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哟</span><span style="color: rgb(255,0,170);">~</span><span style="color: rgb(255,0,170);">错过时间</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">恢复原价</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哈</span><span style="color: rgb(255,0,170);">!</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">欢迎来到松山湖华为溪流背坡村</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">table</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">tbody</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">tr class="firstRow"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0404.jpg?w=500" style="width:100%;"/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" ' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0406.jpg?w=500" style="width:100%;"/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/tr</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">tr</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/tr</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/tbody</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/table</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2017/headquarter-dr-center.jpg?w=1000"/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">web_webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">web_webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct ListWebViewSolutionOne {
+  @State richTextList: Array<string> = [
+    `
+      <span style="font-size:12.5px;"><span style="color:#666666;line-height:1.5;"><span style="font-size:12.5px;"><span style="color:#666666;"></span></span></span><span style="color:#666666;line-height:1.5;">【超级0卡糖*·低负担·0咖啡】</span><br />
+      <br />
+      <span style="color:#0A59F7;line-height:1.5;">不含咖啡的友好小铁</span><br />
+      <span style="color:#0A59F7;line-height:1.5;">陪伴午后的闲暇时光</span><br />
+      <br />
+      <span style="color:#999;line-height:1.5;">「超级0卡糖*」原创定制</span><br />
+      <span style="color:#666666;line-height:1.5;">果味清爽沁甜</span><br />
+      <br />
+      <span style="color:#444;line-height:1.5;">感受青提风味在奶香和椰香中游走</span><br />
+      <span style="color:#555;line-height:1.5;">轻盈地，过夏天</span><br />
+      <br />
+      <span style="color:#777;line-height:1.5;">*本品使用0卡青提风味饮料浓浆（含赤藓糖醇）</span><br />
+      </span>
+    `,
+    `
+    <div>
+      <p>我是 P1</p>
+      <span><font color="#0A59F7">我是span1</font></span>
+      <span>我是span2</span>
+      <p>我是 P2</p>
+      <span><font color="#0A59F7">我是span3</font></span>
+      <span>我是span4</span>
+    </div>
+    `,
+    `
+    <div><font color="gray">兑换说明</font><br>赠送15.0%；<br></div>
+    <div><font color="#0A59F7">兑换说明</font><br><font color="blue">赠送30.0%；</font><br></div>
+    <font color="gray">兑换说明</font><br><font color="blue">赠送60.0%；</font><br>
+    <font color="#0A59F7">兑换说明</font><font color="blue">赠送125.0%；</font><br>
+    `,
+    `
+    <span style=\"color:#999999;\">手机的实名人需与我的信息为</span> <span style=\"color:#0A59F7;\">同一人</span> <span style=\"color:#999999;\">，否则请更换账户或手机号码</span>
+    `,
+    `
+    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>全场商品打6折</font>哟~错过时间会<font color='#0A59F7'>恢复原价</font>哈!</span>
+    `,
+    `<font color='#0A59F7'>宝宝</font><font color='#0A59F7'>不爱吃饭</font>别怕！有它轻松拿捏挑食<font color='#0A59F7'>宝宝</font>！我家<font color='#0A59F7'>宝宝</font>不知是随...#<font color='#0A59F7'>宝宝</font>营养补充#`,
+    `
+    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>打6折</font>哟~错过时间<font color='#0A59F7'>恢复原价</font>哈!</span>
+    `,
+    '<p>欢迎来到松山湖华为溪流背坡村</p><table><tbody><tr class="firstRow"><td width="204" valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0404.jpg?w=500" style="width:100%;"/></td><td width="204" ' +
+      'valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0406.jpg?w=500" style="width:100%;"/></td></tr><tr><td width="204" valign="top"><br/></td><td width="204" valign="top"><br/></td></tr></tbody></table><p><br/></p>',
+    '<p><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2017/headquarter-dr-center.jpg?w=1000"/></p>',
+  ];
+  controller: web_webview.WebviewController = new web_webview.WebviewController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">richTextList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">RichTextItem</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHtmlText</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      List({ space: 8 }) {
+        ForEach(this.richTextList, (item: string) => {
+          ListItem() {
+            RichTextItem({ src: this.getHtmlText(item) })
+          }
+          .borderRadius(8)
+          .backgroundColor(Color.White)
+          .padding({
+            top: 8,
+            right: 12,
+            bottom: 8,
+            left: 12
+          })
+        }, (item: string) => item)
+      }
+      .scrollBar(BarState.Off)
+    }
+    .backgroundColor(Color.Gray)
+    .padding(8)
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用完整的</span><span style="color: rgb(128,128,128);">html</span><span style="color: rgb(128,128,128);">片段加载</span></em>
-  <span style="color: rgb(0,0,255);">getHtmlText</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">!DOCTYPE html</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">html</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">head</span><span style="color: rgb(255,0,170);">></span>
-          <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta charset="utf-8"</span><span style="color: rgb(255,0,170);">></span>
-          <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/head</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">body</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/body</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/html</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+ <em> // 使用完整的html片段加载</em>
+  getHtmlText(src: string) {
+    let msg = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+      </head>
+      <body>
+      ${src}
+      </body>
+      </html>`;
+    return msg;
+  }
+}
 ```
 
 - **方案二**：除了单独创建一个子组件实现外，还可以通过在合适的时机加载富文本进行展示，可以做到用一个WebviewController控制多个Web组件展示富文本。
 在Web的[onControllerAttached](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontrollerattached10)事件中去进行WebviewController.loadData(...)加载动作，也可以展示富文本数据，单个controller会依次绑定到每个Web组件上然后加载富文本数据。
 - 但这种方式和官方建议的“同一页面的多个Web组件，必须绑定不同的WebviewController”相悖，可能会导致其他功能有异常，建议仅在纯显示不涉及编辑的场景中使用。
 ```text
-import <span style="color: rgb(0,0,255);">web_webview </span>from <span style="color: rgb(255,0,170);">'@ohos.web.webview'</span><span style="color: rgb(181,106,1);">;</span>
+import web_webview from '@ohos.web.webview';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ListWebViewSolutionTwo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">richTextList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
-    <span style="color: rgb(255,0,170);">`</span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="font-size:12.5px;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="font-size:12.5px;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">【超级</span><span style="color: rgb(255,0,170);">0</span><span style="color: rgb(255,0,170);">卡糖</span><span style="color: rgb(255,0,170);">*·</span><span style="color: rgb(255,0,170);">低负担</span><span style="color: rgb(255,0,170);">·0</span><span style="color: rgb(255,0,170);">咖啡】</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#0A59F7;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">不含咖啡的友好小铁</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#0A59F7;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">陪伴午后的闲暇时光</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#999;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">「超级</span><span style="color: rgb(255,0,170);">0</span><span style="color: rgb(255,0,170);">卡糖</span><span style="color: rgb(255,0,170);">*</span><span style="color: rgb(255,0,170);">」原创定制</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#666666;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">果味清爽沁甜</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#444;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">感受青提风味在奶香和椰香中游走</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#555;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">轻盈地，过夏天</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style="color:#777;line-height:1.5;"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">*</span><span style="color: rgb(255,0,170);">本品使用</span><span style="color: rgb(255,0,170);">0</span><span style="color: rgb(255,0,170);">卡青提风味饮料浓浆（含赤藓糖醇）</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br /</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">div</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);"> P1</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span1</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span2</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);"> P2</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span3</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">我是</span><span style="color: rgb(255,0,170);">span4</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/div</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">div</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="gray"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">15.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/div</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">div</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="blue"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">30.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/div</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="gray"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="blue"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">60.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="#0A59F7"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">兑换说明</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color="blue"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">赠送</span><span style="color: rgb(255,0,170);">125.0%</span><span style="color: rgb(255,0,170);">；</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style=\"color:#999999;\"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">手机的实名人需与我的信息为</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span> <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style=\"color:#0A59F7;\"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">同一人</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span> <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style=\"color:#999999;\"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">，否则请更换账户或手机号码</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style='text-align:center;'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">您好</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">现在会员促销期间</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">全场商品打</span><span style="color: rgb(255,0,170);">6</span><span style="color: rgb(255,0,170);">折</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哟</span><span style="color: rgb(255,0,170);">~</span><span style="color: rgb(255,0,170);">错过时间会</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">恢复原价</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哈</span><span style="color: rgb(255,0,170);">!</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">不爱吃饭</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">别怕！有它轻松拿捏挑食</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">！我家</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">不知是随</span><span style="color: rgb(255,0,170);">...#</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">宝宝</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">营养补充</span><span style="color: rgb(255,0,170);">#`</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">`</span>
-    <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">span style='text-align:center;'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">您好</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">现在会员促销期间</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">打</span><span style="color: rgb(255,0,170);">6</span><span style="color: rgb(255,0,170);">折</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哟</span><span style="color: rgb(255,0,170);">~</span><span style="color: rgb(255,0,170);">错过时间</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">font color='#0A59F7'</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">恢复原价</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/font</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">哈</span><span style="color: rgb(255,0,170);">!</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/span</span><span style="color: rgb(255,0,170);">></span>
-<span style="color: rgb(255,0,170);">    `</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">欢迎来到松山湖华为溪流背坡村</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">table</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">tbody</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">tr class="firstRow"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0404.jpg?w=500" style="width:100%;"/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" ' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0406.jpg?w=500" style="width:100%;"/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/tr</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">tr</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">td width="204" valign="top"</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/td</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/tr</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/tbody</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/table</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">br/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2017/headquarter-dr-center.jpg?w=1000"/</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/p</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">web_webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">web_webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct ListWebViewSolutionTwo {
+  @State richTextList: Array<string> = [
+    `
+      <span style="font-size:12.5px;"><span style="color:#666666;line-height:1.5;"><span style="font-size:12.5px;"><span style="color:#666666;"></span></span></span><span style="color:#666666;line-height:1.5;">【超级0卡糖*·低负担·0咖啡】</span><br />
+      <br />
+      <span style="color:#0A59F7;line-height:1.5;">不含咖啡的友好小铁</span><br />
+      <span style="color:#0A59F7;line-height:1.5;">陪伴午后的闲暇时光</span><br />
+      <br />
+      <span style="color:#999;line-height:1.5;">「超级0卡糖*」原创定制</span><br />
+      <span style="color:#666666;line-height:1.5;">果味清爽沁甜</span><br />
+      <br />
+      <span style="color:#444;line-height:1.5;">感受青提风味在奶香和椰香中游走</span><br />
+      <span style="color:#555;line-height:1.5;">轻盈地，过夏天</span><br />
+      <br />
+      <span style="color:#777;line-height:1.5;">*本品使用0卡青提风味饮料浓浆（含赤藓糖醇）</span><br />
+      </span>
+    `,
+    `
+    <div>
+      <p>我是 P1</p>
+      <span><font color="#0A59F7">我是span1</font></span>
+      <span>我是span2</span>
+      <p>我是 P2</p>
+      <span><font color="#0A59F7">我是span3</font></span>
+      <span>我是span4</span>
+    </div>
+    `,
+    `
+    <div><font color="gray">兑换说明</font><br>赠送15.0%；<br></div>
+    <div><font color="#0A59F7">兑换说明</font><br><font color="blue">赠送30.0%；</font><br></div>
+    <font color="gray">兑换说明</font><br><font color="blue">赠送60.0%；</font><br>
+    <font color="#0A59F7">兑换说明</font><font color="blue">赠送125.0%；</font><br>
+    `,
+    `
+    <span style=\"color:#999999;\">手机的实名人需与我的信息为</span> <span style=\"color:#0A59F7;\">同一人</span> <span style=\"color:#999999;\">，否则请更换账户或手机号码</span>
+    `,
+    `
+    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>全场商品打6折</font>哟~错过时间会<font color='#0A59F7'>恢复原价</font>哈!</span>
+    `,
+    `<font color='#0A59F7'>宝宝</font><font color='#0A59F7'>不爱吃饭</font>别怕！有它轻松拿捏挑食<font color='#0A59F7'>宝宝</font>！我家<font color='#0A59F7'>宝宝</font>不知是随...#<font color='#0A59F7'>宝宝</font>营养补充#`,
+    `
+    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>打6折</font>哟~错过时间<font color='#0A59F7'>恢复原价</font>哈!</span>
+    `,
+    '<p>欢迎来到松山湖华为溪流背坡村</p><table><tbody><tr class="firstRow"><td width="204" valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0404.jpg?w=500" style="width:100%;"/></td><td width="204" ' +
+      'valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0406.jpg?w=500" style="width:100%;"/></td></tr><tr><td width="204" valign="top"><br/></td><td width="204" valign="top"><br/></td></tr></tbody></table><p><br/></p>',
+    '<p><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2017/headquarter-dr-center.jpg?w=1000"/></p>',
+  ];
+  controller: web_webview.WebviewController = new web_webview.WebviewController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">richTextList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mixedMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MixedMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cacheMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">CacheMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onlineImageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">WebLayoutMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FIT_CONTENT</span><span style="color: rgb(0,0,255);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使得</span><span style="color: rgb(128,128,128);">web</span><span style="color: rgb(128,128,128);">高度自适应</span></em>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onControllerAttached</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadData</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHtmlText</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'text/html'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">' '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">' '</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSslErrorEvent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handler</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleConfirm</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      List({ space: 8 }) {
+        ForEach(this.richTextList, (item: string) => {
+          ListItem() {
+            Web({ src: '', controller: this.controller })
+              .width('100%')
+              .javaScriptAccess(true)
+              .domStorageAccess(true)
+              .mixedMode(MixedMode.None)
+              .geolocationAccess(false)
+              .fileAccess(true)
+              .imageAccess(true)
+              .cacheMode(CacheMode.None)
+              .onlineImageAccess(true)
+              .layoutMode(WebLayoutMode.FIT_CONTENT) <em>// 使得web高度自适应</em>
+              .onControllerAttached(() => {
+                this.controller.loadData(this.getHtmlText(item), 'text/html', 'utf-8', ' ', ' ');
+              })
+              .onSslErrorEvent(event => {
+                event.handler.handleConfirm();
+              })
+          }
+          .borderRadius(8)
+          .backgroundColor(Color.White)
+          .padding({
+            top: 8,
+            right: 12,
+            bottom: 8,
+            left: 12
+          })
+        }, (item: string) => item)
+      }
+      .scrollBar(BarState.Off)
+    }
+    .backgroundColor(Color.Gray)
+    .padding(8)
+  }
 
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用完整的</span><span style="color: rgb(128,128,128);">html</span><span style="color: rgb(128,128,128);">片段加载</span></em>
-  <span style="color: rgb(0,0,255);">getHtmlText</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">!DOCTYPE html</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">html</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">head</span><span style="color: rgb(255,0,170);">></span>
-          <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta charset="utf-8"</span><span style="color: rgb(255,0,170);">></span>
-          <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/head</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">body</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/body</span><span style="color: rgb(255,0,170);">></span>
-      <span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">/html</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  <em>// 使用完整的html片段加载</em>
+  getHtmlText(src: string) {
+    let msg = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+      </head>
+      <body>
+      ${src}
+      </body>
+      </html>`;
+    return msg;
+  }
+}
 ```
  执行以上代码需要获取使用Internet网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)。
 

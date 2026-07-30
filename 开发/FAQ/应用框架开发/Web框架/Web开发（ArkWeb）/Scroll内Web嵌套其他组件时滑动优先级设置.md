@@ -23,80 +23,80 @@ Scroll内Web组件头尾存在其他组件时，头部组件只有在Web内容�
 通过给头尾组件设置onVisibleAreaChange可见区域变化回调：当头部组件或尾部组件可见时，设置Web的滑动优先级为父组件先滚动；当头部组件或尾部组件不可见时，设置Web的滑动优先级为自身先滚动。
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ScrollerDemo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">scroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">scrollMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NestedScrollMode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">NestedScrollMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARENT_FIRST</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct ScrollerDemo {
+  scroller: Scroller = new Scroller();
+  controller: webview.WebviewController = new webview.WebviewController();
+  @State scrollMode: NestedScrollMode = NestedScrollMode.PARENT_FIRST;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scroller</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">标题</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">600</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineHeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">23</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">24 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断可见区域变化</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onVisibleAreaChange</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1.0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isExpanding</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">currentRatio</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isExpanding </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">currentRatio </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">可见时，设置</span><span style="color: rgb(128,128,128);">Web</span><span style="color: rgb(128,128,128);">的滑动优先级为父组件先滚动</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollMode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">NestedScrollMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARENT_FIRST</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Scroll(this.scroller) {
+      Column() {
+        Column() {
+          Text('标题')
+            .fontSize(16)
+            .fontWeight(600)
+            .lineHeight(23)
+            .textAlign(TextAlign.Start)
+            .width('90%')
+        }
+        .width('100%').alignItems(HorizontalAlign.Start).margin({ top: 20, bottom: 24 })
+     <em>   // 判断可见区域变化</em>
+        .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
+          if (isExpanding && currentRatio > 0.0) {
+          <em>  // 可见时，设置Web的滑动优先级为父组件先滚动</em>
+            this.scrollMode = NestedScrollMode.PARENT_FIRST;
+          }
 
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">isExpanding </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">currentRatio </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">不可见时，设置</span><span style="color: rgb(128,128,128);">Web</span><span style="color: rgb(128,128,128);">的滑动优先级为自身先滚动</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollMode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">NestedScrollMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SELF_FIRST</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+          if (!isExpanding && currentRatio <= 0.0) {
+           <em> // 不可见时，设置Web的滑动优先级为自身先滚动</em>
+            this.scrollMode = NestedScrollMode.SELF_FIRST;
+          }
+        })
 
-        <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-      <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处</span><span style="color: rgb(128,128,128);">'www.example.com'</span><span style="color: rgb(128,128,128);">仅作示例。</span></em>
-          <span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'www.example.com'</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zoomAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nestedScroll</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">scrollForward</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollMode</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">scrollBackward</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollMode</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        Web({
+      <em>    // 此处'www.example.com'仅作示例。</em>
+          src: 'www.example.com',
+          controller: this.controller
+        })
+          .fileAccess(false)
+          .geolocationAccess(false)
+          .domStorageAccess(true)
+          .javaScriptAccess(true)
+          .zoomAccess(false)
+          .height('100%')
+          .nestedScroll({
+            scrollForward: this.scrollMode,
+            scrollBackward: this.scrollMode
+          })
 
-        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">阅读量：</span><span style="color: rgb(255,0,170);">  12345`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">End</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-        <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断可见区域变化</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onVisibleAreaChange</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1.0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isExpanding</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">currentRatio</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isExpanding </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">currentRatio </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-       <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">可见时，设置</span><span style="color: rgb(128,128,128);">Web</span><span style="color: rgb(128,128,128);">的滑动优先级为父组件先滚动</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollMode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">NestedScrollMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARENT_FIRST</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
+        Row() {
+          Text(`阅读量：  12345`).textAlign(TextAlign.End)
+        }.height(40).alignItems(VerticalAlign.Center)
+        <em>// 判断可见区域变化</em>
+        .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
+          if (isExpanding && currentRatio > 0.0) {
+       <em>     // 可见时，设置Web的滑动优先级为父组件先滚动</em>
+            this.scrollMode = NestedScrollMode.PARENT_FIRST;
+          }
 
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">isExpanding </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">currentRatio </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">不可见时，设置</span><span style="color: rgb(128,128,128);">Web</span><span style="color: rgb(128,128,128);">的滑动优先级为自身先滚动</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollMode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">NestedScrollMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SELF_FIRST</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">14</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+          if (!isExpanding && currentRatio <= 0.0) {
+         <em>   // 不可见时，设置Web的滑动优先级为自身先滚动</em>
+            this.scrollMode = NestedScrollMode.SELF_FIRST;
+          }
+        })
+      }
+    }
+    .width('100%')
+    .layoutWeight(1)
+    .padding({
+      left: 14,
+      right: 14
+    })
+    .scrollBar(BarState.Off)
+  }
+}
 ```

@@ -21,7 +21,7 @@ cd ~/Library/Application\ Support/Huawei/DevEcoStudio6.0/options
 
  
 ```xml
-<span style="color: rgb(0,128,128);">vi</span> other.xml
+vi other.xml
 ```
  
 输入： /python，定位到location.python.path这一行, 修改后面的python路径为/Library/Frameworks/Python.framework/Versions/3.11/bin

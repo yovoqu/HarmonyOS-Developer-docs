@@ -24,135 +24,135 @@ Tabs的子组件是否可以实现预加载，具体实现方式是什么？
  
 方案二：Swiper组件支持通过cachedCount属性设置预加载子组件。可以基于Swiper组件来构建自定义的Tabs。
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@ComponentV2</span>
-struct <span style="color: rgb(0,0,255);">TabsPreLoadDemo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">tabNames</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">飞机</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">铁路</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">自驾</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">地铁</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">公交</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">骑行</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">selectedTabIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前选中标签页的索引值</span></em>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">indicatorLeftOffset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指示器左侧偏移量</span></em>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">indicatorOffset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指示器整体偏移量</span></em>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">firstWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">选中标签宽度</span></em>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">otherWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">其他标签宽度</span></em>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">swiperController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SwiperController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SwiperController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">swiperWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@ComponentV2
+struct TabsPreLoadDemo {
+  @Local tabNames: string[] = ['飞机', '铁路', '自驾', '地铁', '公交', '骑行'];
+  @Local selectedTabIndex: number = 0; <em>// 当前选中标签页的索引值</em>
+  @Local indicatorLeftOffset: number = 0;<em> </em><em>// 指示器左侧偏移量</em>
+  @Local indicatorOffset: number = 0; <em>// 指示器整体偏移量</em>
+  @Local firstWidth: number = -1; <em>// 选中标签宽度</em>
+  @Local otherWidth: number = -1; <em>// 其他标签宽度</em>
+  @Local swiperController: SwiperController = new SwiperController();
+  @Local swiperWidth: number = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Rect</span><span style="color: rgb(255,0,170);">()</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstWidth</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#bff9f2'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LinearOutSlowIn </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorLeftOffset </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorOffset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'TabBar'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    RelativeContainer() {
+      Stack() {
+        Rect()
+          .height(30)
+          .stroke(Color.Black)
+          .radius(10)
+          .width(this.firstWidth)
+          .fill('#bff9f2')
+          .animation({ duration: 300, curve: Curve.LinearOutSlowIn })
+          .position({ left: this.indicatorLeftOffset + this.indicatorOffset, bottom: 0 });
+      }
+      .width('100%')
+      .alignRules({
+        center: { anchor: 'TabBar', align: VerticalAlign.Center }
+      });
 
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义标签栏</span></em>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabNames</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">selectedTabIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">))</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">selectedTabIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">None</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">selectedTabIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">1.5 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">点击标签栏切换</span><span style="color: rgb(128,128,128);">swiper</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">selectedTabIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">swiperController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">changeIndex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">500</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LinearOutSlowIn </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorLeftOffset </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">otherWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'TabBar'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAreaChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">_</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-   <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置被选中标签宽度和其它标签宽度</span></em>
-        let <span style="color: rgb(255,255,255);">tabBarWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">firstWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1.5 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">tabBarWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabNames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">otherWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">tabBarWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabNames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+     <em> // 自定义标签栏</em>
+      Row() {
+        ForEach(this.tabNames, (name: string, index: number) => {
+          Row() {
+            Text(name)
+              .fontSize(16)
+              .fontWeight(this.selectedTabIndex === index ? FontWeight.Bold : FontWeight.Normal)
+              .textAlign(TextAlign.Center)
+              .animation({ duration: 300 });
+            Image($r('app.media.startIcon'))
+              .width(14)
+              .height(14)
+              .margin({ left: 2 })
+              .visibility(this.selectedTabIndex === index ? Visibility.Visible : Visibility.None)
+              .animation({ duration: 300 });
+          }
+          .justifyContent(FlexAlign.Center)
+          .layoutWeight(this.selectedTabIndex === index ? 1.5 : 1)
+          .animation({ duration: 300 })
+          .onClick(() => {
+          <em>  // 点击标签栏切换swiper</em>
+            this.selectedTabIndex = index;
+            this.swiperController.changeIndex(index, false);
+            this.getUIContext().animateTo({ duration: 500, curve: Curve.LinearOutSlowIn }, () => {
+              this.indicatorLeftOffset = this.otherWidth * index;
+            });
+          });
+        });
+      }
+      .width('100%')
+      .height(30)
+      .id('TabBar')
+      .onAreaChange((_: Area, newValue: Area) => {
+   <em>     // 设置被选中标签宽度和其它标签宽度</em>
+        let tabBarWidth = newValue.width.valueOf() as number;
+        this.firstWidth = 1.5 * tabBarWidth / (this.tabNames.length + 0.5);
+        this.otherWidth = tabBarWidth / (this.tabNames.length + 0.5);
+      });
 
-      <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">swiperController</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabNames</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> - </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">24</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置预加载，即当前页面前后各</span><span style="color: rgb(128,128,128);">3</span><span style="color: rgb(128,128,128);">个组件均会被加载</span></em>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationStart</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制指示器同步效果</span></em>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorLeftOffset </span><span style="color: rgb(181,106,1);">+= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">otherWidth</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorLeftOffset </span><span style="color: rgb(181,106,1);">-= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">otherWidth</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorOffset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">selectedTabIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationEnd</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorOffset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onGestureSwipe</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">_</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">extraInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SwiperAnimationEvent</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制边界项的滑动</span></em>
-        let <span style="color: rgb(255,255,255);">move</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getOffset</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">extraInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentOffset</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(255,0,170);">((</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">selectedTabIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">extraInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentOffset </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">||</span>
-          <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">selectedTabIndex </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabNames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">extraInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentOffset </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)) </span><span style="color: rgb(181,106,1);">{</span>
-          return<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">indicatorOffset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">extraInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentOffset </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">move </span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,255,255);">move</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAreaChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">_</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        let <span style="color: rgb(255,255,255);">width </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">swiperWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LinearOutSlowIn</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'MainContext'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'Tabs'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bottom </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bottom </span><span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+      Swiper(this.swiperController) {
+        ForEach(this.tabNames, (name: string, index: number) => {
+          Column() {
+            Text(`${name} - ${index}`)
+              .fontSize(24);
+          }
+          .alignItems(HorizontalAlign.Center)
+          .justifyContent(FlexAlign.Center)
+          .height('100%')
+          .width('100%');
+        });
+      }
+      .cachedCount(3)<em> </em><em>// 设置预加载，即当前页面前后各3个组件均会被加载</em>
+      .onAnimationStart((index: number, targetIndex: number) => {
+     <em>   // 控制指示器同步效果</em>
+        if (targetIndex > index) {
+          this.indicatorLeftOffset += this.otherWidth;
+        } else if (targetIndex < index) {
+          this.indicatorLeftOffset -= this.otherWidth;
+        }
+        this.indicatorOffset = 0;
+        this.selectedTabIndex = targetIndex;
+      })
+      .onAnimationEnd(() => {
+        this.indicatorOffset = 0;
+      })
+      .onGestureSwipe((_: number, extraInfo: SwiperAnimationEvent) => {
+     <em>   // 控制边界项的滑动</em>
+        let move: number = this.getOffset(extraInfo.currentOffset);
+        if ((this.selectedTabIndex === 0 && extraInfo.currentOffset > 0) ||
+          (this.selectedTabIndex === this.tabNames.length - 1 && extraInfo.currentOffset < 0)) {
+          return;
+        }
+        this.indicatorOffset = extraInfo.currentOffset < 0 ? move : -move;
+      })
+      .onAreaChange((_: Area, newValue: Area) => {
+        let width = newValue.width.valueOf() as number;
+        this.swiperWidth = width;
+      })
+      .curve(Curve.LinearOutSlowIn)
+      .loop(false)
+      .indicator(false)
+      .width('100%')
+      .id('MainContext')
+      .alignRules({
+        top: { anchor: 'Tabs', align: VerticalAlign.Bottom },
+        bottom: { anchor: '__container__', align: VerticalAlign.Bottom }
+      });
+    }
+    .height('100%')
+    .width('100%')
+    .padding(10);
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算偏移量的方法（根据</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">滑动偏移量计算标签指示器位置）</span></em>
-  <span style="color: rgb(0,0,255);">getOffset</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">swiperOffset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">swiperMoveRatio</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">swiperOffset </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">swiperWidth</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">tabMoveValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">swiperMoveRatio </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">? </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">otherWidth </span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">otherWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">swiperMoveRatio</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">tabMoveValue</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>  // 计算偏移量的方法（根据Swiper滑动偏移量计算标签指示器位置）</em>
+  getOffset(swiperOffset: number): number {
+    let swiperMoveRatio: number = Math.abs(swiperOffset / this.swiperWidth);
+    let tabMoveValue: number = swiperMoveRatio >= 1 ? this.otherWidth : this.otherWidth * swiperMoveRatio;
+    return tabMoveValue;
+  }
+}
 ```
  
  

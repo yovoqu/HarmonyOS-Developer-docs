@@ -9,9 +9,9 @@
 支持以下三种三斜杠引用方式的检查。
  
 ```text
-<span style="color: rgb(128,128,128);">/// </span><span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">reference lib="..." /</span><span style="color: rgb(128,128,128);">></span>
-<span style="color: rgb(128,128,128);">/// </span><span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">reference path="..." /</span><span style="color: rgb(128,128,128);">></span> 
-<span style="color: rgb(128,128,128);">/// </span><span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">reference types="..." /</span><span style="color: rgb(128,128,128);">></span>
+/// <reference lib="..." />
+/// <reference path="..." /> 
+/// <reference types="..." />
 ```
  
 
@@ -20,7 +20,7 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
+  "rules": {
     "@typescript-eslint/triple-slash-reference": "error"
   }
 }
@@ -56,7 +56,7 @@ globalThis.value;
 #### 规则集
 
 ```text
-<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
+plugin:@typescript-eslint/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

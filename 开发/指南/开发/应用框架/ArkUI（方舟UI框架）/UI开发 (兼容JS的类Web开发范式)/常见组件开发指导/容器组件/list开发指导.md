@@ -220,7 +220,7 @@ export default {
 <!-- xxx.hml -->
 <div class="doc-page"> 
   <text style="font-size: 35px; font-weight: 500; text-align: center; margin-top: 20px; margin-bottom: 20px;"> 
-      <span>Contacts</span> 
+      Contacts 
   </text> 
   <list class="list" indexer="true"> 
     <list-item class="item" for="{{namelist}}" type="{{$item.section}}" section="{{$item.section}}"> 

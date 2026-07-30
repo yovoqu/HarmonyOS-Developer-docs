@@ -20,16 +20,16 @@ SVG图片在DevEco Studio和浏览器中打开显示为黄色，但是在测试�
 
   
 ```xml
-<<span style="color: rgb(0,0,255);">svg </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(80,160,79);">='vector' </span><span style="color: rgb(0,0,255);">xmlns</span><span style="color: rgb(80,160,79);">='http://www.w3.org/2000/svg' </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(80,160,79);">='28' </span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(80,160,79);">='28' </span><span style="color: rgb(0,0,255);">viewBox</span><span style="color: rgb(80,160,79);">='0 0 28 28'</span>>
-  <<span style="color: rgb(0,0,255);">defs</span>>
-    <<span style="color: rgb(0,0,255);">linearGradient </span><span style="color: rgb(0,0,255);">gradientUnits</span><span style="color: rgb(80,160,79);">='userSpaceOnUse' </span><span style="color: rgb(0,0,255);">x1</span><span style="color: rgb(80,160,79);">='6.935' </span><span style="color: rgb(0,0,255);">y1</span><span style="color: rgb(80,160,79);">='3.252' </span><span style="color: rgb(0,0,255);">x2</span><span style="color: rgb(80,160,79);">='6.909' </span><span style="color: rgb(0,0,255);">y2</span><span style="color: rgb(80,160,79);">='10.552' </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(80,160,79);">='gradient_0'</span>>
-      <<span style="color: rgb(0,0,255);">stop </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(80,160,79);">='0' </span><span style="color: rgb(0,0,255);">stop-color</span><span style="color: rgb(80,160,79);">='#FFFE4144'</span>/>
-      <<span style="color: rgb(0,0,255);">stop </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(80,160,79);">='1' </span><span style="color: rgb(0,0,255);">stop-color</span><span style="color: rgb(80,160,79);">='#FFFF6D67'</span>/>
-    </<span style="color: rgb(0,0,255);">linearGradient</span>>
-  </<span style="color: rgb(0,0,255);">defs</span>>
-  <<span style="color: rgb(0,0,255);">path </span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(80,160,79);">='url(#gradient_0)' </span><span style="color: rgb(0,0,255);">d</span><span style="color: rgb(80,160,79);">='M10.983,3.951C10.983,3.313 10.461,2.79 9.823,2.79C5.983,2.79 2.862,5.913 2.862,9.755C2.862,10.393 3.384,10.915 4.022,10.915C4.66,10.915 5.182,10.393 5.182,9.755C5.182,7.189 7.259,5.112 9.823,5.112C10.461,5.112 10.983,4.589 10.983,3.951Z' </span><span style="color: rgb(0,0,255);">stroke-width</span><span style="color: rgb(80,160,79);">='1'</span>
-        <span style="color: rgb(0,0,255);">fill-rule</span><span style="color: rgb(80,160,79);">='evenodd' </span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(80,160,79);">='#00000000' </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(80,160,79);">='path_6' </span>/>
-</<span style="color: rgb(0,0,255);">svg</span>>
+<svg id='vector' xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'>
+  <defs>
+    <linearGradient gradientUnits='userSpaceOnUse' x1='6.935' y1='3.252' x2='6.909' y2='10.552' id='gradient_0'>
+      <stop offset='0' stop-color='#FFFE4144'/>
+      <stop offset='1' stop-color='#FFFF6D67'/>
+    </linearGradient>
+  </defs>
+  <path fill='url(#gradient_0)' d='M10.983,3.951C10.983,3.313 10.461,2.79 9.823,2.79C5.983,2.79 2.862,5.913 2.862,9.755C2.862,10.393 3.384,10.915 4.022,10.915C4.66,10.915 5.182,10.393 5.182,9.755C5.182,7.189 7.259,5.112 9.823,5.112C10.461,5.112 10.983,4.589 10.983,3.951Z' stroke-width='1'
+        fill-rule='evenodd' stroke='#00000000' id='path_6' />
+</svg>
 ```
 
 
@@ -54,14 +54,14 @@ DevEco Studio和浏览器仅支持解析颜色值为RGBA格式的SVG图片，不
 颜色的十六进制格式改为RGBA格式可自行搜索相关资料。
  
 ```xml
-<<span style="color: rgb(0,0,255);">svg </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(80,160,79);">='vector' </span><span style="color: rgb(0,0,255);">xmlns</span><span style="color: rgb(80,160,79);">='http://www.w3.org/2000/svg' </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(80,160,79);">='28' </span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(80,160,79);">='28' </span><span style="color: rgb(0,0,255);">viewBox</span><span style="color: rgb(80,160,79);">='0 0 28 28'</span>>
-  <<span style="color: rgb(0,0,255);">defs</span>>
-    <<span style="color: rgb(0,0,255);">linearGradient </span><span style="color: rgb(0,0,255);">gradientUnits</span><span style="color: rgb(80,160,79);">='userSpaceOnUse' </span><span style="color: rgb(0,0,255);">x1</span><span style="color: rgb(80,160,79);">='6.935' </span><span style="color: rgb(0,0,255);">y1</span><span style="color: rgb(80,160,79);">='3.252' </span><span style="color: rgb(0,0,255);">x2</span><span style="color: rgb(80,160,79);">='6.909' </span><span style="color: rgb(0,0,255);">y2</span><span style="color: rgb(80,160,79);">='10.552' </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(80,160,79);">='gradient_0'</span>>
-      <<span style="color: rgb(0,0,255);">stop </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(80,160,79);">='0' </span><span style="color: rgb(0,0,255);">stop-color</span><span style="color: rgb(80,160,79);">='rgba(254,65,68,1)'</span>/> <em>// 修改颜色为RGBA格式</em>
-      <<span style="color: rgb(0,0,255);">stop </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(80,160,79);">='1' </span><span style="color: rgb(0,0,255);">stop-color</span><span style="color: rgb(80,160,79);">='rgba(255,109,103,1)'</span>/> <em>// 修改颜色为RGBA格式</em>
-    </<span style="color: rgb(0,0,255);">linearGradient</span>>
-  </<span style="color: rgb(0,0,255);">defs</span>>
- <<span style="color: rgb(0,0,255);">path </span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(80,160,79);">='url(#gradient_0)' </span><span style="color: rgb(0,0,255);">d</span><span style="color: rgb(80,160,79);">='M10.983,3.951C10.983,3.313 10.461,2.79 9.823,2.79C5.983,2.79 2.862,5.913 2.862,9.755C2.862,10.393 3.384,10.915 4.022,10.915C4.66,10.915 5.182,10.393 5.182,9.755C5.182,7.189 7.259,5.112 9.823,5.112C10.461,5.112 10.983,4.589 10.983,3.951Z' </span><span style="color: rgb(0,0,255);">stroke-width</span><span style="color: rgb(80,160,79);">='1'</span>
-       <span style="color: rgb(0,0,255);">fill-rule</span><span style="color: rgb(80,160,79);">='evenodd' </span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(80,160,79);">='#00000000' </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(80,160,79);">='path_6' </span>/>
-</<span style="color: rgb(0,0,255);">svg</span>>
+<svg id='vector' xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'>
+  <defs>
+    <linearGradient gradientUnits='userSpaceOnUse' x1='6.935' y1='3.252' x2='6.909' y2='10.552' id='gradient_0'>
+      <stop offset='0' stop-color='rgba(254,65,68,1)'/> <em>// 修改颜色为RGBA格式</em>
+      <stop offset='1' stop-color='rgba(255,109,103,1)'/> <em>// 修改颜色为RGBA格式</em>
+    </linearGradient>
+  </defs>
+ <path fill='url(#gradient_0)' d='M10.983,3.951C10.983,3.313 10.461,2.79 9.823,2.79C5.983,2.79 2.862,5.913 2.862,9.755C2.862,10.393 3.384,10.915 4.022,10.915C4.66,10.915 5.182,10.393 5.182,9.755C5.182,7.189 7.259,5.112 9.823,5.112C10.461,5.112 10.983,4.589 10.983,3.951Z' stroke-width='1'
+       fill-rule='evenodd' stroke='#00000000' id='path_6' />
+</svg>
 ```

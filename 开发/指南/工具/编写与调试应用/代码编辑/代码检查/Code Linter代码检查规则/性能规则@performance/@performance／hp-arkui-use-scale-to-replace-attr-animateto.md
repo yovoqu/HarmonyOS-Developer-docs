@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-use-scale-to-replace-attr-animateto"</span>: <span style="color: rgb(6,125,23);">"warn"</span>,
+  "rules": {
+    "@performance/hp-arkui-use-scale-to-replace-attr-animateto": "warn",
   }
 }
 ```
@@ -31,32 +31,32 @@
 #### 正例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">MyComponent</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> textScaleX: number = <span style="color: rgb(9,134,88);">1</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> textScaleY: number = <span style="color: rgb(9,134,88);">1</span>;
+@Entry
+@Component
+struct MyComponent {
+  @State textScaleX: number = 1;
+  @State textScaleY: number = 1;
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Text</span>()
-        .backgroundColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Blue</span>)
-        .fontColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">White</span>)
-        .fontSize(<span style="color: rgb(9,134,88);">20</span>)
-        .width(<span style="color: rgb(9,134,88);">10</span>)
-        .height(<span style="color: rgb(9,134,88);">10</span>)
-        .scale({ x: <span style="color: rgb(0,0,255);">this</span>.textScaleX, y: <span style="color: rgb(0,0,255);">this</span>.textScaleY })
-        .margin({ top: <span style="color: rgb(9,134,88);">100</span> })
-      <span style="color: rgb(0,128,128);">Button</span>(<span style="color: rgb(163,21,21);">'图形变换属性'</span>)
-        .backgroundColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Blue</span>)
-        .fontColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">White</span>)
-        .fontSize(<span style="color: rgb(9,134,88);">20</span>)
-        .margin({ top: <span style="color: rgb(9,134,88);">60</span> })
-        .borderRadius(<span style="color: rgb(9,134,88);">30</span>)
-        .padding(<span style="color: rgb(9,134,88);">10</span>)
+    Column() {
+      Text()
+        .backgroundColor(Color.Blue)
+        .fontColor(Color.White)
+        .fontSize(20)
+        .width(10)
+        .height(10)
+        .scale({ x: this.textScaleX, y: this.textScaleY })
+        .margin({ top: 100 })
+      Button('图形变换属性')
+        .backgroundColor(Color.Blue)
+        .fontColor(Color.White)
+        .fontSize(20)
+        .margin({ top: 60 })
+        .borderRadius(30)
+        .padding(10)
         .onClick(() => {
-          animateTo({ duration: <span style="color: rgb(9,134,88);">1000</span> }, () => {
-            <span style="color: rgb(0,0,255);">this</span>.textScaleX = <span style="color: rgb(9,134,88);">10</span>;
-            <span style="color: rgb(0,0,255);">this</span>.textScaleY = <span style="color: rgb(9,134,88);">10</span>;
+          animateTo({ duration: 1000 }, () => {
+            this.textScaleX = 10;
+            this.textScaleY = 10;
           })
         })
     }
@@ -69,30 +69,30 @@ struct <span style="color: rgb(0,128,128);">MyComponent</span> {
 #### 反例
 
 ```text
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Entry</span>
-<span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">Component</span>
-struct <span style="color: rgb(0,128,128);">MyComponent</span> {
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> textWidth: number = <span style="color: rgb(9,134,88);">10</span>;
-  <span style="color: rgb(205,49,49);">@</span><span style="color: rgb(0,128,128);">State</span> textHeight: number = <span style="color: rgb(9,134,88);">10</span>;
+@Entry
+@Component
+struct MyComponent {
+  @State textWidth: number = 10;
+  @State textHeight: number = 10;
   build() {
-    <span style="color: rgb(0,128,128);">Column</span>() {
-      <span style="color: rgb(0,128,128);">Text</span>()
-        .backgroundColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Blue</span>)
-        .fontColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">White</span>)
-        .fontSize(<span style="color: rgb(9,134,88);">20</span>)
-        .width(<span style="color: rgb(0,0,255);">this</span>.textWidth)
-        .height(<span style="color: rgb(0,0,255);">this</span>.textHeight)
-      <span style="color: rgb(0,128,128);">Button</span>(<span style="color: rgb(163,21,21);">'布局属性'</span>)
-        .backgroundColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">Blue</span>)
-        .fontColor(<span style="color: rgb(0,128,128);">Color</span>.<span style="color: rgb(0,128,128);">White</span>)
-        .fontSize(<span style="color: rgb(9,134,88);">20</span>)
-        .margin({ top: <span style="color: rgb(9,134,88);">30</span> })
-        .borderRadius(<span style="color: rgb(9,134,88);">30</span>)
-        .padding(<span style="color: rgb(9,134,88);">10</span>)
+    Column() {
+      Text()
+        .backgroundColor(Color.Blue)
+        .fontColor(Color.White)
+        .fontSize(20)
+        .width(this.textWidth)
+        .height(this.textHeight)
+      Button('布局属性')
+        .backgroundColor(Color.Blue)
+        .fontColor(Color.White)
+        .fontSize(20)
+        .margin({ top: 30 })
+        .borderRadius(30)
+        .padding(10)
         .onClick(() => {
-          animateTo({ duration: <span style="color: rgb(9,134,88);">1000</span> }, () => {
-            <span style="color: rgb(0,0,255);">this</span>.textWidth = <span style="color: rgb(9,134,88);">100</span>;
-            <span style="color: rgb(0,0,255);">this</span>.textHeight = <span style="color: rgb(9,134,88);">100</span>;
+          animateTo({ duration: 1000 }, () => {
+            this.textWidth = 100;
+            this.textHeight = 100;
           })
         })
     }
@@ -105,7 +105,7 @@ struct <span style="color: rgb(0,128,128);">MyComponent</span> {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
+plugin:@performance/recommended
 plugin:@performance/all
 ```
  

@@ -25,24 +25,24 @@ HarmonyOS目前采用“多段式注释”策略来记录ArkTS API的变更历�
 以@ohos.inputMethodEngine.d.ts里inputMethodEngine.InputClient.getAttachOptions这个API为例：
  
 ```text
-<span style="color: rgb(0,0,255);">declare</span> <span style="color: rgb(0,0,255);">namespace</span> inputMethodEngine {
-    <span style="color: rgb(0,0,255);">interface</span> <span style="color: rgb(0,0,255);">InputClient</span> {
-<em>        <span style="color: rgb(80,160,79);">/**</span></em>
-<em><span style="color: rgb(80,160,79);">         * Get input attachOptions.</span></em>
-<em><span style="color: rgb(80,160,79);">         *</span></em>
-<em><span style="color: rgb(80,160,79);">         * @returns { AttachOptions } return attach options.</span></em>
-<em><span style="color: rgb(80,160,79);">         * @throws { BusinessError } 801 - Capability not supported.</span></em>
-<em><span style="color: rgb(80,160,79);">         * @syscap SystemCapability.MiscServices.InputMethodFramework</span></em>
-<em><span style="color: rgb(80,160,79);">         * @since 19</span></em>
-<em><span style="color: rgb(80,160,79);">         */</span></em>
-<em>        <span style="color: rgb(80,160,79);">/**</span></em>
-<em><span style="color: rgb(80,160,79);">         * Get input attachOptions.</span></em>
-<em><span style="color: rgb(80,160,79);">         *</span></em>
-<em><span style="color: rgb(80,160,79);">         * @returns { AttachOptions } return attach options.</span></em>
-<em><span style="color: rgb(80,160,79);">         * @syscap SystemCapability.MiscServices.InputMethodFramework</span></em>
-<em><span style="color: rgb(80,160,79);">         * @since 20</span></em>
-<em><span style="color: rgb(80,160,79);">         */</span></em>
-        getAttachOptions(): <span style="color: rgb(0,0,255);">AttachOptions</span>;
+declare namespace inputMethodEngine {
+    interface InputClient {
+<em>        /**</em>
+<em>         * Get input attachOptions.</em>
+<em>         *</em>
+<em>         * @returns { AttachOptions } return attach options.</em>
+<em>         * @throws { BusinessError } 801 - Capability not supported.</em>
+<em>         * @syscap SystemCapability.MiscServices.InputMethodFramework</em>
+<em>         * @since 19</em>
+<em>         */</em>
+<em>        /**</em>
+<em>         * Get input attachOptions.</em>
+<em>         *</em>
+<em>         * @returns { AttachOptions } return attach options.</em>
+<em>         * @syscap SystemCapability.MiscServices.InputMethodFramework</em>
+<em>         * @since 20</em>
+<em>         */</em>
+        getAttachOptions(): AttachOptions;
     }
 }
 ```

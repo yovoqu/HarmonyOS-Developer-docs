@@ -123,7 +123,7 @@ export default {
 <!-- xxx.hml -->
 <div class="content">
     <text style="margin-left: -7px;">
-        <span>Enter text and then touch and hold what you've entered</span>
+        Enter text and then touch and hold what you've entered
     </text>
     <input class="input" type="text" ontranslate="translate" placeholder="translate"> </input>
 </div>

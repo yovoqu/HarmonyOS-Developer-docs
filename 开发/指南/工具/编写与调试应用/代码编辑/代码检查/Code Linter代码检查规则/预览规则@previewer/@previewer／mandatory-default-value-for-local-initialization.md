@@ -11,11 +11,11 @@
 
 ```json
 // code-linter.json5
-<span style="color: rgb(65,97,0);">{</span>
-<span style="color: rgb(65,97,0);">  "rules": {</span>
-<span style="color: rgb(65,97,0);">    "@previewer/mandatory-default-value-for-local-initialization": "warn"</span>
-<span style="color: rgb(65,97,0);">  }</span>
-<span style="color: rgb(65,97,0);">}</span>
+{
+  "rules": {
+    "@previewer/mandatory-default-value-for-local-initialization": "warn"
+  }
+}
 ```
  
  
@@ -82,8 +82,8 @@ struct Index {
 #### 规则集
 
 ```text
-<span style="color: rgb(106,135,89);">plugin:@previewer/recommended</span>
-<span style="color: rgb(106,135,89);">plugin:@previewer/all</span>
+plugin:@previewer/recommended
+plugin:@previewer/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -11,13 +11,13 @@
 通过Image组件的colorFilter，只需单份原始图片配合颜色矩阵，即可实现运行时动态变色：
  
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">注入颜色变换矩阵</span></em>
-<span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.icon_toast_warning'</span><span style="color: rgb(0,0,255);">))</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">colorFilter</span><span style="color: rgb(0,0,255);">(</span>
-<span style="color: rgb(0,0,255);">    [</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span>
+<em>// </em><em>注入颜色变换矩阵</em>
+Image($r('app.media.icon_toast_warning'))
+  .colorFilter(
+    [1, 1, 0, 0, 0,
+      0, 1, 0, 0, 0,
+      0, 0, 1, 0, 0,
+      0, 0, 0, 1, 0])
 ```
  
 但该方案面临一个问题：如何将人类可读的十六进制颜色（如#4f0f48db）转换为colorFilter所需的4×5颜色矩阵？
@@ -58,13 +58,13 @@
 矩阵结构计算：
  
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">R</span><span style="color: rgb(128,128,128);">通道的计算公式</span></em>
-<span style="color: rgb(0,0,255);">R</span>' <span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">m00</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">R </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m01</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">G </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m02</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">B </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m03</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">A </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m04</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">G</span><span style="color: rgb(128,128,128);">通道的计算公式</span></em>
-<span style="color: rgb(0,0,255);">G</span>' <span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">m10</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">R </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m11</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">G </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m12</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">B </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m13</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">A </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m14</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">B</span><span style="color: rgb(128,128,128);">通道同理</span></em>
-<em><span style="color: rgb(128,128,128);">// Alpha</span><span style="color: rgb(128,128,128);">通道独立处理</span></em>
-<span style="color: rgb(0,0,255);">A</span>' <span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">m30</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">R </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m31</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">G </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m32</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">B </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m33</span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">A </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">m34</span>
+<em>// </em><em>输出R通道的计算公式</em>
+R' = m00*R + m01*G + m02*B + m03*A + m04
+<em>// </em><em>输出G通道的计算公式</em>
+G' = m10*R + m11*G + m12*B + m13*A + m14
+<em>// </em><em>输出B通道同理</em>
+<em>// Alpha通道独立处理</em>
+A' = m30*R + m31*G + m32*B + m33*A + m34
 ```
  
 **纯色替换矩阵**：将图像转换为目标色（如#2196F3）需满足：
@@ -76,12 +76,12 @@
 对应矩阵：
  
 ```text
-<span style="color: rgb(0,0,255);">[</span>
-  <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TargetR</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TargetG</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TargetB</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span>
-<span style="color: rgb(0,0,255);">]</span>
+[
+  0, 0, 0, 0, TargetR,
+  0, 0, 0, 0, TargetG,
+  0, 0, 0, 0, TargetB,
+  0, 0, 0, 1, 0
+]
 ```
  
 关键问题在于如何将目标色的十六进制值转换为TargetR、TargetG、TargetB。得到颜色矩阵后，即可通过[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件的[colorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#colorfilter9)属性实现颜色滤镜效果。
@@ -97,68 +97,68 @@
 4. 矩阵构建：RGB通道前四列的系数设为0（忽略原始颜色值），第五列设为目标颜色值，而Alpha通道需要混合透明度计算。
  
 ```text
-class <span style="color: rgb(0,0,255);">ColorUtils </span><span style="color: rgb(255,0,170);">{</span>
+class ColorUtils {
   <em>/**</em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">将十六进制颜色值转换为</span><span style="color: rgb(128,128,128);">4x5</span><span style="color: rgb(128,128,128);">颜色矩阵</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param hexColor </span><span style="color: rgb(128,128,128);">十六进制颜色字符串，支持格式：</span><span style="color: rgb(128,128,128);">#RRGGBB, #AARRGGBB</span></em>
-<em><span style="color: rgb(128,128,128);">   * @returns 4x5</span><span style="color: rgb(128,128,128);">颜色矩阵数组</span><span style="color: rgb(128,128,128);"> (20</span><span style="color: rgb(128,128,128);">个元素的</span><span style="color: rgb(128,128,128);">number</span><span style="color: rgb(128,128,128);">数组</span><span style="color: rgb(128,128,128);">)</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  static <span style="color: rgb(0,0,255);">hexToColorMatrix</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">hexColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">验证输入格式</span></em>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,0,170);">/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]</span><span style="color: rgb(255,0,170);">{8})$/</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">hexColor</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-      throw new <span style="color: rgb(0,0,255);">Error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Invalid hex color format. Expected #RRGGBB or #AARRGGBB'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
+<em>   * 将十六进制颜色值转换为4x5颜色矩阵</em>
+<em>   * @param hexColor 十六进制颜色字符串，支持格式：#RRGGBB, #AARRGGBB</em>
+<em>   * @returns 4x5颜色矩阵数组 (20个元素的number数组)</em>
+<em>   */</em>
+  static hexToColorMatrix(hexColor: string): number[] {
+   <em> // 验证输入格式</em>
+    if (!/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$/.test(hexColor)) {
+      throw new Error('Invalid hex color format. Expected #RRGGBB or #AARRGGBB');
+    }
 
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">提取颜色通道值</span></em>
-    let <span style="color: rgb(0,0,255);">rgba </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">hexColor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rgba</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">rgba </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'FF' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">rgba</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加默认</span><span style="color: rgb(128,128,128);">Alpha</span><span style="color: rgb(128,128,128);">通道</span></em>
-    <span style="color: rgb(255,0,170);">}</span>
+   <em> // 提取颜色通道值</em>
+    let rgba = hexColor.substring(1);
+    if (rgba.length === 6) {
+      rgba = 'FF' + rgba; <em>// 添加默认Alpha通道</em>
+    }
 
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">解析</span><span style="color: rgb(128,128,128);">ARGB</span><span style="color: rgb(128,128,128);">通道值</span><span style="color: rgb(128,128,128);">(</span><span style="color: rgb(128,128,128);">含归一化处理</span><span style="color: rgb(128,128,128);">)</span></em>
-    const <span style="color: rgb(0,0,255);">alpha </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rgba</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">red </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rgba</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">green </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rgba</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">blue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rgba</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(181,106,1);">;</span>
+   <em> // 解析ARGB通道值(含归一化处理)</em>
+    const alpha = parseInt(rgba.substring(0, 2), 16) / 255;
+    const red = parseInt(rgba.substring(2, 4), 16) / 255;
+    const green = parseInt(rgba.substring(4, 6), 16) / 255;
+    const blue = parseInt(rgba.substring(6, 8), 16) / 255;
 
-  <em>  <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">     * </span><span style="color: rgb(128,128,128);">构造纯色替换矩阵：</span></em>
-<em><span style="color: rgb(128,128,128);">     * [0, 0, 0, 0, red,    → </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">R</span><span style="color: rgb(128,128,128);">通道</span><span style="color: rgb(128,128,128);"> = 0*R + 0*G + 0*B + 0*A + </span><span style="color: rgb(128,128,128);">目标</span><span style="color: rgb(128,128,128);">R</span></em>
-<em><span style="color: rgb(128,128,128);">     *  0, 0, 0, 0, green,  → </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">G</span><span style="color: rgb(128,128,128);">通道</span><span style="color: rgb(128,128,128);"> = 0*R + 0*G + 0*B + 0*A + </span><span style="color: rgb(128,128,128);">目标</span><span style="color: rgb(128,128,128);">G</span></em>
-<em><span style="color: rgb(128,128,128);">     *  0, 0, 0, 0, blue,   → </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">B</span><span style="color: rgb(128,128,128);">通道</span><span style="color: rgb(128,128,128);"> = 0*R + 0*G + 0*B + 0*A + </span><span style="color: rgb(128,128,128);">目标</span><span style="color: rgb(128,128,128);">B</span></em>
-<em><span style="color: rgb(128,128,128);">     *  0, 0, 0, alpha, 0]  → </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">A</span><span style="color: rgb(128,128,128);">通道</span><span style="color: rgb(128,128,128);"> = 0*R + 0*G + 0*B + alpha*A + 0</span></em>
-<em><span style="color: rgb(128,128,128);">     */</span></em>
-    return <span style="color: rgb(0,0,255);">[</span>
-      <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">red</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">green</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">blue</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alpha</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span>
-    <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  <em>  /**</em>
+<em>     * 构造纯色替换矩阵：</em>
+<em>     * [0, 0, 0, 0, red,    → 输出R通道 = 0*R + 0*G + 0*B + 0*A + 目标R</em>
+<em>     *  0, 0, 0, 0, green,  → 输出G通道 = 0*R + 0*G + 0*B + 0*A + 目标G</em>
+<em>     *  0, 0, 0, 0, blue,   → 输出B通道 = 0*R + 0*G + 0*B + 0*A + 目标B</em>
+<em>     *  0, 0, 0, alpha, 0]  → 输出A通道 = 0*R + 0*G + 0*B + alpha*A + 0</em>
+<em>     */</em>
+    return [
+      0, 0, 0, 0, red,
+      0, 0, 0, 0, green,
+      0, 0, 0, 0, blue,
+      0, 0, 0, alpha, 0
+    ];
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Example </span><span style="color: rgb(255,0,170);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span></em>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">imageRes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.ic_pause'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">运行时需替换为实际的图片资源</span></em>
+@Entry
+@Component
+struct Example {
+ <em> // 图片资源</em>
+  @State imageRes: Resource = $r('app.media.ic_pause'); <em>// 运行时需替换为实际的图片资源</em>
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">未使用</span></em>
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageRes</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+     <em> // 未使用</em>
+      Image(this.imageRes)
+        .width(200)
+        .height(200)
+        .margin(16);
 
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">colorFilter</span><span style="color: rgb(128,128,128);">添加滤镜</span></em>
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageRes</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">colorFilter</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ColorUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hexToColorMatrix</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#66666666'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+    <em>  // 使用colorFilter添加滤镜</em>
+      Image(this.imageRes)
+        .width(200)
+        .height(200)
+        .colorFilter(ColorUtils.hexToColorMatrix('#66666666'));
+    }.justifyContent(FlexAlign.Center).width('100%').height('100%')
+  }
+}
 ```
  
  
@@ -170,8 +170,8 @@ Q：如何改变一个颜色的亮度？
 A：通过矩阵，将三个颜色通道统一做颜色偏移，实现亮度调节。矩阵如下，其中N是用来调整三通道的亮度。
  
 ```text
-<span style="color: rgb(0,0,255);">[ </span><span style="color: rgb(255,0,0);">1  0  0  0  </span><span style="color: rgb(0,0,255);">N</span>
-<span style="color: rgb(255,0,0);">  0  1  0  0  </span><span style="color: rgb(0,0,255);">N</span>
-<span style="color: rgb(255,0,0);">  0  0  1  0  </span><span style="color: rgb(0,0,255);">N</span>
-<span style="color: rgb(255,0,0);">  0  0  0  1  0 </span><span style="color: rgb(0,0,255);">]</span>
+[ 1  0  0  0  N
+  0  1  0  0  N
+  0  0  1  0  N
+  0  0  0  1  0 ]
 ```

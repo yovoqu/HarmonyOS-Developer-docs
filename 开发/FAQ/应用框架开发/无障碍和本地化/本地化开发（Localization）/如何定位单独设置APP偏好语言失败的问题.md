@@ -15,25 +15,25 @@
 问题代码示例参考如下：
  
 ```text
-import <span style="color: rgb(255,255,255);">I18n </span>from <span style="color: rgb(132,63,161);">'@ohos.i18n'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import I18n from '@ohos.i18n';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-try <span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">I18n</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">System</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setAppPreferredLanguage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'en-Latn-US'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置应用当前的偏好语言为</span><span style="color: rgb(128,128,128);">'US'</span></em>
-<span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">error </span>as <span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`call System.setAppPreferredLanguage failed, error code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">.`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+try {
+  I18n.System.setAppPreferredLanguage('en-Latn-US'); <em>// 设置应用当前的偏好语言为'US'</em>
+} catch (error) {
+  let err: BusinessError = error as BusinessError;
+  console.error(`call System.setAppPreferredLanguage failed, error code: ${err.code}, message: ${err.message}.`);
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-<span style="color: rgb(181,106,1);">@Entry</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.string.module_desc'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Component
+@Entry
+struct Index {
+  build() {
+    Column() {
+      Text($r('app.string.module_desc'));
+    };
+  }
+}
 ```
  
  
@@ -74,22 +74,22 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(1
 base目录中的string.json如下：
 ```json
 {
-  <span style="color: rgb(132,63,161);">"string"</span><span style="color: rgb(181,106,1);">: </span>[
+  "string": [
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module_desc"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">模块描述</span><span style="color: rgb(80,160,79);">"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "module_desc",
+      "value": "模块描述"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"language_button"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">改变语言</span><span style="color: rgb(80,160,79);">"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "language_button",
+      "value": "改变语言"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"EntryAbility_desc"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"description"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"EntryAbility_label"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"label"</span>
+      "name": "EntryAbility_label",
+      "value": "label"
     }
   ]
 }
@@ -98,14 +98,14 @@ base目录中的string.json如下：
 2. en_US目录中的string.json如下：
 ```json
 {
-  <span style="color: rgb(132,63,161);">"string"</span><span style="color: rgb(181,106,1);">: </span>[
+  "string": [
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module_desc"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module description"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "module_desc",
+      "value": "module description"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"language_button"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"Change Language"</span>
+      "name": "language_button",
+      "value": "Change Language"
     }
   ]
 }
@@ -114,14 +114,14 @@ base目录中的string.json如下：
 3. zh_CN目录中的string.json如下：
 ```json
 {
-  <span style="color: rgb(132,63,161);">"string"</span><span style="color: rgb(181,106,1);">: </span>[
+  "string": [
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module_desc"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">模块描述</span><span style="color: rgb(80,160,79);">"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "module_desc",
+      "value": "模块描述"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"language_button"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">改变语言</span><span style="color: rgb(80,160,79);">"</span>
+      "name": "language_button",
+      "value": "改变语言"
     }
   ]
 }

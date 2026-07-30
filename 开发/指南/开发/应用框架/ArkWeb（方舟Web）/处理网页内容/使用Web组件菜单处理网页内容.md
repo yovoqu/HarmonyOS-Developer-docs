@@ -100,7 +100,7 @@ struct WebComponent {
   </head>
   <body>
     <h1>editMenuOptions Demo</h1>
-    <span>edit menu options</span>
+    edit menu options
   </body>
 </html>
 ```
@@ -883,7 +883,7 @@ struct WebComponent {
   </head>
   <body>
     <h1>editMenuOptions Demo</h1>
-    <span>edit menu options</span>
+    edit menu options
   </body>
 </html>
 ```
@@ -1017,7 +1017,7 @@ struct WebComponent {
 <body>
 <div class="container">
     <div class="context">
-        <span>在这个数字时代，文本复制功能变得日益重要。无论是引用名言、保存重要信息，还是分享有趣的内容，复制文本都是我们日常操作的  一部分。</span>
+        在这个数字时代，文本复制功能变得日益重要。无论是引用名言、保存重要信息，还是分享有趣的内容，复制文本都是我们日常操作的  一部分。
     </div>
 </div>
 

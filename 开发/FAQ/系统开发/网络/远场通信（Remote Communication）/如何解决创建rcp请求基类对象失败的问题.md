@@ -9,22 +9,22 @@
 创建rcp请求对象时失败，导致所有网络请求失败。错误码：1007900994，报错信息：Sessions number reached limit。相关代码如下：
  
 ```text
-class <span style="color: rgb(0,0,255);">RcpClass </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">cache</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">ResponseCache </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ResponseCache</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">session </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSession</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">interceptors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>new <span style="color: rgb(0,0,255);">ResponseCachingInterceptor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cache</span><span style="color: rgb(0,0,255);">)]</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RequestContent</span><span style="color: rgb(181,106,1);">;</span>
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RequestContent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  async <span style="color: rgb(0,0,255);">post</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">{</span>
-    return await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">post</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">,</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">继续封装其他方法</span><span style="color: rgb(128,128,128);">get</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">fetch</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">put</span><span style="color: rgb(128,128,128);">等</span></em>
-<span style="color: rgb(255,0,170);">}</span>
+class RcpClass {
+  cache:ResponseCache = new ResponseCache();
+  session = rcp.createSession({
+    interceptors: [new ResponseCachingInterceptor(this.cache)]
+  });
+  url?: string;
+  content?: rcp.RequestContent;
+  constructor(url:string,content: rcp.RequestContent) {
+    this.url = url;
+    this.content = content;
+  }
+  async post(){
+    return await this.session.post(this.url,this.content);
+  }
+<em>  // 继续封装其他方法get、fetch、put等</em>
+}
 ```
  
  
@@ -59,57 +59,57 @@ class <span style="color: rgb(0,0,255);">RcpClass </span><span style="color: rgb
 方案一：使用全局session对象，实现同一session实例的复用性。参考代码如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">rcp </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">"@kit.RemoteCommunicationKit"</span><span style="color: rgb(181,106,1);">;</span>
+import { rcp } from "@kit.RemoteCommunicationKit";
 
 
-<em>// </em><em><span style="color: rgb(128,128,128);">单例模式实现全局</span><span style="color: rgb(128,128,128);">session</span></em>
-export class <span style="color: rgb(0,0,255);">SessionManager </span><span style="color: rgb(255,0,170);">{</span>
-  static <span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Session</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em>单例模式实现全局session</em>
+export class SessionManager {
+  static session: rcp.Session;
 
-  static <span style="color: rgb(0,0,255);">creatSession</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Session </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">SessionManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">session</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">SessionManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">session </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSession</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    return <span style="color: rgb(0,0,255);">SessionManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  static creatSession(): rcp.Session {
+    if (!SessionManager.session) {
+      SessionManager.session = rcp.createSession();
+    }
+    return SessionManager.session;
+  }
+}
 
-async function <span style="color: rgb(0,0,255);">testInterceptor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  const <span style="color: rgb(0,0,255);">session </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">SessionManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">creatSession</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Response url is: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, Session id: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Response is: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">单例模式实现全局</span><span style="color: rgb(128,128,128);">session</span></em>
+async function testInterceptor(url: string) {
+  const session = SessionManager.creatSession();
+  console.error(`Response url is: ${url}, Session id: ${session.id}.`);
+  session.get(url).then((response) => {
+    console.error(`Response is: ${response}`);
+  });
+}
+<em>// </em><em>单例模式实现全局session</em>
 
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'url1.xxx'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'url2.xxx'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">; </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">请根据实际业务情况传</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">。</span></em>
-  private <span style="color: rgb(0,0,255);">urlIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  private message: string = 'Hello World';
+  private url: string[] = ['url1.xxx', 'url2.xxx']; <em> </em><em>// 请根据实际业务情况传url。</em>
+  private urlIndex = 0;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Test Session'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.float.page_text_font_size'</span><span style="color: rgb(0,0,255);">))</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">testInterceptor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">urlIndex</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">urlIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">urlIndex</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    RelativeContainer() {
+      Text(this.message)
+        .id('Test Session')
+        .fontSize($r('app.float.page_text_font_size'))
+        .fontWeight(FontWeight.Bold)
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+        .onClick(() => {
+          testInterceptor(this.url[this.urlIndex]);
+          this.urlIndex = 1 - this.urlIndex;
+        });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
 ```
  
 方案二：使用session.close()方法及时关闭使用完的session。

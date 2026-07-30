@@ -1381,7 +1381,7 @@ pstate:0000000080001000 esr:000000009200004f
 ```text
 Fault thread info:
 Tid:8180, Name:ppcrashanalysis
-#00 pc 0000000000012c34 /data/storage/el1/bundle/libs/arm64/libentry.so(AccessString(napi_env__*, napi_callback_info__*)+56)(bd43f4c571612e25c0819eb45ff336341094211d)<span style="color: rgb(255,0,0);">  --</span><span style="color: rgb(255,0,0);">></span><span style="color: rgb(255,0,0);"> 业务栈帧，访问出错位置</span>
+#00 pc 0000000000012c34 /data/storage/el1/bundle/libs/arm64/libentry.so(AccessString(napi_env__*, napi_callback_info__*)+56)(bd43f4c571612e25c0819eb45ff336341094211d)  --> 业务栈帧，访问出错位置
 #01 pc 0000000000060430 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+240)(b4e45f188949f6fb66e496b653c33e6c)
 #02 pc 0000000000e179f4 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
 #03 pc 0000000000582bf0 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleCallthis0withnameImm8Id16V8StwCopy+396)
@@ -1513,7 +1513,7 @@ pstate:0000000000001000 esr:0000000092000047
 ```text
 Fault thread info:
 Tid:16461, Name:ppcrashanalysis
-#00 pc 0000000000012fd8 /data/storage/el1/bundle/libs/arm64/libentry.so(WriteReadableMem(napi_env__*, napi_callback_info__*)+164)(84331389b629ef559552827ec6e4be2ede74e6b7)<span style="color: rgb(255,0,0);">  --</span><span style="color: rgb(255,0,0);">></span><span style="color: rgb(255,0,0);"> 业务栈帧，访问出错位置</span>
+#00 pc 0000000000012fd8 /data/storage/el1/bundle/libs/arm64/libentry.so(WriteReadableMem(napi_env__*, napi_callback_info__*)+164)(84331389b629ef559552827ec6e4be2ede74e6b7)  --> 业务栈帧，访问出错位置
 #01 pc 0000000000060430 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+240)(b4e45f188949f6fb66e496b653c33e6c)
 #02 pc 0000000000e179f4 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
 #03 pc 0000000000582bf0 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleCallthis0withnameImm8Id16V8StwCopy+396)
@@ -1664,8 +1664,8 @@ pstate:0000000060001800 esr:000000008200000f
 ```text
 Fault thread info:
 Tid:28938, Name:ppcrashanalysis
-#00 pc 0000000002900000 [anon:native_heap:jemalloc]<span style="color: rgb(255,0,0);">    --</span><span style="color: rgb(255,0,0);">></span><span style="color: rgb(255,0,0);"> pc执行跑到了堆上</span>
-#01 pc 00000000000132ec /data/storage/el1/bundle/libs/arm64/libentry.so(RunWithJIT(napi_env__*, napi_callback_info__*)+96)(d10b3e3abc53f4af305eb776f0172e7876cc4aab)<span style="color: rgb(255,0,0);">   --</span><span style="color: rgb(255,0,0);">></span><span style="color: rgb(255,0,0);"> 业务栈帧，访问出错位置</span>
+#00 pc 0000000002900000 [anon:native_heap:jemalloc]    --> pc执行跑到了堆上
+#01 pc 00000000000132ec /data/storage/el1/bundle/libs/arm64/libentry.so(RunWithJIT(napi_env__*, napi_callback_info__*)+96)(d10b3e3abc53f4af305eb776f0172e7876cc4aab)   --> 业务栈帧，访问出错位置
 #02 pc 0000000000060430 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+240)(b4e45f188949f6fb66e496b653c33e6c)
 #03 pc 0000000000e179f4 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
 #04 pc 0000000000582bf0 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleCallthis0withnameImm8Id16V8StwCopy+396)
@@ -1798,7 +1798,7 @@ pstate:0000000000001000 esr:0000000092000047
 ```text
 Fault thread info:
 Tid:35302, Name:ppcrashanalysis
-#00 pc 00000000000134bc /data/storage/el1/bundle/libs/arm64/libentry.so(AccessProtectedPage(napi_env__*, napi_callback_info__*)+96)(9428eb29b7186a058870d949e1dc991ef96f4d75)<span style="color: rgb(255,0,0);">  --</span><span style="color: rgb(255,0,0);">></span><span style="color: rgb(255,0,0);"> 业务栈帧，访问出错位置</span>
+#00 pc 00000000000134bc /data/storage/el1/bundle/libs/arm64/libentry.so(AccessProtectedPage(napi_env__*, napi_callback_info__*)+96)(9428eb29b7186a058870d949e1dc991ef96f4d75)  --> 业务栈帧，访问出错位置
 #01 pc 0000000000060430 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+240)(b4e45f188949f6fb66e496b653c33e6c)
 #02 pc 0000000000e179f4 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
 #03 pc 0000000000582bf0 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleCallthis0withnameImm8Id16V8StwCopy+396)

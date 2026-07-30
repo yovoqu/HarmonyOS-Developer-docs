@@ -90,9 +90,9 @@ hstack -c "at anonymous (entry|entry|1.0.0|src/main/ets/pages/Index.ts:401:1)" -
 
   
 ```json
-<span style="color: rgb(152,118,170);">"buildOption"</span><span style="color: rgb(204,120,50);">: </span>{
-  <span style="color: rgb(152,118,170);">"externalNativeOptions"</span><span style="color: rgb(204,120,50);">: </span>{
-    <span style="color: rgb(152,118,170);">"arguments"</span><span style="color: rgb(204,120,50);">: </span><span style="color: rgb(106,135,89);">"-DCMAKE_BUILD_TYPE=RelWithDebInfo"</span>
+"buildOption": {
+  "externalNativeOptions": {
+    "arguments": "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
   }
 }
 ```

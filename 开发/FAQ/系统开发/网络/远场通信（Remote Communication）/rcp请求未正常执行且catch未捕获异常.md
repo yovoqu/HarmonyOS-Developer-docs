@@ -11,41 +11,41 @@
 问题代码示例参考如下：
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">rcp </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.RemoteCommunicationKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { rcp } from '@kit.RemoteCommunicationKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-<em>// 1.</em><em><span style="color: rgb(128,128,128);">定义请求地址</span></em>
-const <span style="color: rgb(0,0,255);">getAccessTokenUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'https</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">123123123123'</span><span style="color: rgb(181,106,1);">;</span>
+<em>// 1.</em><em>定义请求地址</em>
+const getAccessTokenUrl = 'https：123123123123';
 
-<em>// 2.</em><em><span style="color: rgb(128,128,128);">创建会话</span></em>
-const <span style="color: rgb(0,0,255);">session </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSession</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<em>// 2.</em><em>创建会话</em>
+const session = rcp.createSession();
 
-<em>// 3.</em><em><span style="color: rgb(128,128,128);">构建请求参数对象</span></em>
-interface <span style="color: rgb(0,0,255);">GeneratedObjectLiteralInterface_1 </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">clientID</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">clientSecret</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+<em>// 3.</em><em>构建请求参数对象</em>
+interface GeneratedObjectLiteralInterface_1 {
+  clientID: string;
+  clientSecret: string;
+}
 
-const <span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GeneratedObjectLiteralInterface_1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">clientID</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'123456789'</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">clientSecret</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'123456789'</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+const request: GeneratedObjectLiteralInterface_1 = {
+  clientID: '123456789',
+  clientSecret: '123456789'
+};
 
-<em>// 4.</em><em><span style="color: rgb(128,128,128);">发起</span><span style="color: rgb(128,128,128);">POST</span><span style="color: rgb(128,128,128);">请求获取</span><span style="color: rgb(128,128,128);">Access Token</span></em>
-<span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">post</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">getAccessTokenUrl</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(0,0,255);">))</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">请求成功，响应内容</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">可选：解析</span><span style="color: rgb(128,128,128);">JSON</span><span style="color: rgb(128,128,128);">响应</span></em>
-    try <span style="color: rgb(255,0,170);">{</span>
-      const <span style="color: rgb(0,0,255);">data </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">解析后的</span><span style="color: rgb(255,0,170);"> Token </span><span style="color: rgb(255,0,170);">数据</span><span style="color: rgb(255,0,170);">:`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">warn</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">响应内容无法解析为</span><span style="color: rgb(255,0,170);"> JSON`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">请求失败，错误码</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">消息</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>// 4.</em><em>发起POST请求获取Access Token</em>
+session.post(getAccessTokenUrl, JSON.stringify(request))
+  .then((response) => {
+    console.info(`请求成功，响应内容: ${response}`);
+    <em>// 可选：解析JSON响应</em>
+    try {
+      const data = JSON.stringify(response);
+      console.info(`解析后的 Token 数据:`, data);
+    } catch (e) {
+      console.warn(`响应内容无法解析为 JSON`);
+    }
+  })
+  .catch((error: BusinessError) => {
+    console.error(`请求失败，错误码: ${error.code}, 消息: ${error.message}`);
+  });
 ```
  
  
@@ -75,39 +75,39 @@ const <span style="color: rgb(0,0,255);">request</span><span style="color: rgb(1
 使用try-catch捕获post异常，并根据错误码处理。
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">rcp </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.RemoteCommunicationKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { rcp } from '@kit.RemoteCommunicationKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Transform </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'POST</span><span style="color: rgb(255,0,170);">请求</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">定义请求地址，使用时请变更为所需地址</span></em>
-            const <span style="color: rgb(0,0,255);">getAccessTokenUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'https</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">123123123123'</span><span style="color: rgb(181,106,1);">;</span>
-        <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建会话</span></em>
-            const <span style="color: rgb(0,0,255);">session </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSession</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">发起</span><span style="color: rgb(128,128,128);">POST</span><span style="color: rgb(128,128,128);">请求获取</span><span style="color: rgb(128,128,128);">Access Token</span></em>
-            <span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">post</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">getAccessTokenUrl</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in getting the response </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed in getting the response, error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, error message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed in coding, error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, error data:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, error message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Entry
+@Component
+struct Transform {
+  build() {
+    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
+      Button('POST请求')
+        .onClick(() => {
+          try {
+           <em> // 定义请求地址，使用时请变更为所需地址</em>
+            const getAccessTokenUrl = 'https：123123123123';
+        <em>    // 创建会话</em>
+            const session = rcp.createSession();
+           <em> // 发起POST请求获取Access Token</em>
+            session.post(getAccessTokenUrl)
+              .then((response) => {
+                console.info(`Succeeded in getting the response ${response}`);
+              })
+              .catch((error: BusinessError) => {
+                console.error(`Failed in getting the response, error code: ${error.code}, error message: ${error.message}`);
+              });
+          } catch (error) {
+            console.error(`Failed in coding, error code: ${error.code}, error data:${error.data}, error message: ${error.message}`);
+          }
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
 ```
  
 常见错误码及处理方式如下：

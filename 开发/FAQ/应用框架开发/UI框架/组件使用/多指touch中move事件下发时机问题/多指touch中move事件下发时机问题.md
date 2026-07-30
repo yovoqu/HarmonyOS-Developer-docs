@@ -11,39 +11,39 @@
 问题代码示例参考如下：
  
 ```json
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">TouchExample </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">eventType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span>
+@Entry
+@Component
+struct TouchExample {
+  @State text: string = ''
+  @State eventType: string = ''
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Touch'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onTouch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">TouchEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">info </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touches</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touches</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">)</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Down</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">eventType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Down'</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Up</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">eventType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Up'</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">TouchType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Move</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">eventType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Move'</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">text </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'TouchType:' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">eventType </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">Distance between touch point and touch element:</span>\n<span style="color: rgb(255,0,170);">x: '</span>
-              <span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touches</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">x </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'y: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touches</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">y </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">Component globalPos:('</span>
-              <span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">area</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">globalPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">x </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">',' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">area</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">globalPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">y </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">')</span>\n<span style="color: rgb(255,0,170);">width:'</span>
-              <span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">area</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">height:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">area</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">touches' </span><span style="color: rgb(181,106,1);">+</span>
-            <span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">touches</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Button('Touch').height(50).width(200).margin(20)
+        .onTouch((event?: TouchEvent) => {
+          if (event) {
+            let info = JSON.stringify(event.touches)
+            console.info(`${event.touches.length}`, info)
+            if (event.type === TouchType.Down) {
+              this.eventType = 'Down'
+            }
+            if (event.type === TouchType.Up) {
+              this.eventType = 'Up'
+            }
+            if (event.type === TouchType.Move) {
+              this.eventType = 'Move'
+            }
+            this.text = 'TouchType:' + this.eventType + '\nDistance between touch point and touch element:\nx: '
+              + event.touches[0].x + '\n' + 'y: ' + event.touches[0].y + '\nComponent globalPos:('
+              + event.target.area.globalPosition.x + ',' + event.target.area.globalPosition.y + ')\nwidth:'
+              + event.target.area.width + '\nheight:' + event.target.area.height + '\ntouches' +
+            JSON.stringify(event.touches)
+          }
+        })
+      Text(this.text)
+    }.width('100%').padding(30)
+  }
+}
 ```
  
  

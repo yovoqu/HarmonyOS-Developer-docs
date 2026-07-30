@@ -14,8 +14,8 @@
 ```json
 // code-linter.json5
 {
-  <span style="color: rgb(135,16,148);">"rules"</span>: {
-    <span style="color: rgb(135,16,148);">"@cross-device-app-dev/touch-target-size"</span>: <span style="color: rgb(6,125,23);">"warn"</span>
+  "rules": {
+    "@cross-device-app-dev/touch-target-size": "warn"
   }
 }
 ```
@@ -63,8 +63,8 @@ struct Index {
 #### 规则集
 
 ```text
-<span style="color: rgb(6,125,23);">plugin:@cross-device-app-dev/recommended</span>
-<span style="color: rgb(6,125,23);">plugin:@cross-device-app-dev/all</span>
+plugin:@cross-device-app-dev/recommended
+plugin:@cross-device-app-dev/all
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

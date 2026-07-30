@@ -20,32 +20,32 @@
 
 - 实现px与1mm之间转换，需要通过display中getDefaultDisplaySync方法获取屏幕DPI及每英寸上的像素点数，再通过一英寸等于25.4毫米进行计算得出。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">display </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { display } from '@kit.ArkUI';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">px2mm</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State px2mm: number = 0;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">displayClass</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Display </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取屏幕高度（以像素为单位）</span></em>
-    let <span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">displayClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">;</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">获取屏幕的垂直方向的</span><span style="color: rgb(128,128,128);">DPI</span><span style="color: rgb(128,128,128);">（每英寸点数）</span></em>
-    let <span style="color: rgb(0,0,255);">dpi </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">displayClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">yDPI</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">屏幕</span><span style="color: rgb(255,0,170);">Y</span><span style="color: rgb(255,0,170);">方向对应的</span><span style="color: rgb(255,0,170);">DPI:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">dpi</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">屏幕宽度的物理长度（</span><span style="color: rgb(255,0,170);">mm</span><span style="color: rgb(255,0,170);">）</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">dpi </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">25.4</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">屏幕宽度一毫米有多少</span><span style="color: rgb(255,0,170);">px:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">dpi </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">25.4</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2mm </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dpi </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">25.4</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear(): void {
+    let displayClass: display.Display = display.getDefaultDisplaySync();
+   <em> // 获取屏幕高度（以像素为单位）</em>
+    let height = displayClass.height;
+    <em>// </em><em>获取屏幕的垂直方向的DPI（每英寸点数）</em>
+    let dpi = displayClass.yDPI;
+    console.info(`屏幕Y方向对应的DPI:${dpi}`);
+    console.info(`屏幕宽度的物理长度（mm）:${height / dpi * 25.4}`);
+    console.info(`屏幕宽度一毫米有多少px:${dpi / 25.4}`);
+    this.px2mm = dpi / 25.4;
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">屏幕宽度一</span><span style="color: rgb(255,0,170);">mm</span><span style="color: rgb(255,0,170);">有</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2mm</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">px`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Text(`屏幕宽度一mm有:${this.px2mm}px`);
+    }
+    .margin({ top: 100 });
+  }
+}
 ```
 
 - 实现px与尺寸单位vp之间的转换，需在明确目标设备的屏幕DPI后，通过转换公式px=vp*(DPI/160)计算即可。

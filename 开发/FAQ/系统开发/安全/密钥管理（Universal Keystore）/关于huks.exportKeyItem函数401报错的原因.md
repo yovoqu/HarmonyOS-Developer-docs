@@ -10,119 +10,119 @@ huks.exportKeyItem导出密钥时，总是报401，Invalid parameters.部分代�
  
 - 方法generateKey。
 ```text
-export async function <span style="color: rgb(0,0,255);">generateKey</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  let <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">getGenerateProperties</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据所选模式进行切换算法</span></em>
-  let <span style="color: rgb(0,0,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">properties</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  const <span style="color: rgb(0,0,255);">exportOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">inData</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([])</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确认</span><span style="color: rgb(128,128,128);">Key</span><span style="color: rgb(128,128,128);">是否存在</span></em>
-  <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isKeyItemExist</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyAlias</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      try <span style="color: rgb(255,0,170);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">导出密钥</span></em>
-        <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">exportKeyItem</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyAlias</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">HuksPropertiesConstants</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">EMPTY_OPTION</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">isInit </span><span style="color: rgb(181,106,1);">= </span>false
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">isInit </span><span style="color: rgb(181,106,1);">= </span>true
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">isInit </span><span style="color: rgb(181,106,1);">= </span>false
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    } </span>else <span style="color: rgb(255,0,170);">{</span>
-      await <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyItem</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyAlias</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(0,0,255);">)</span>
-      await <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">importKeyItem</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyAlias</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export async function generateKey(mode: number) {
+  let properties: Array<huks.HuksParam> = getGenerateProperties(mode);<em> </em><em>// 根据所选模式进行切换算法</em>
+  let options: huks.HuksOptions = {
+    properties: properties
+  };
+  const exportOptions: huks.HuksOptions = {
+    properties: properties,
+    inData: new Uint8Array([])
+  }
+<em>  // 确认Key是否存在</em>
+  huks.isKeyItemExist(keyAlias, options, async (error, data) => {
+    if (data) {
+      try {
+     <em>   // 导出密钥</em>
+        huks.exportKeyItem(keyAlias, HuksPropertiesConstants.EMPTY_OPTION, (error, data) => {
+          if (error) {
+            isInit = false
+          } else {
+            isInit = true
+          }
+        });
+      } catch (error) {
+        isInit = false
+      }
+    } else {
+      await huks.generateKeyItem(keyAlias, options)
+      await huks.importKeyItem(keyAlias, options);
+    }
+  });
+}
 ```
 
 
  
 - 方法encryptData。
 ```text
-export async function <span style="color: rgb(0,0,255);">encryptData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">isInit</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">generateKey</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
- <em> // <span style="color: rgb(181,106,1);">...</span></em>
-  await <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initSession</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyAlias</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">handle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handle</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+export async function encryptData(plainText: string, mode: number): Promise<string> {
+  if (!isInit) {
+    generateKey(mode)
+  }
+ <em> // ...</em>
+  await huks.initSession(keyAlias, options).then((data) => {
+    handle = data.handle;
+  }).catch((error: BusinessError) => {
+  });
 
-  await <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finishSession</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">handle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.string.encrypt_success'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CommonConstants</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TOAST_DURATION</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">encryptResult </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToStringSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">outData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  return <span style="color: rgb(0,0,255);">encryptResult</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  await huks.finishSession(handle, options).then((data) => {
+    showToast({
+      message: $r('app.string.encrypt_success'),
+      duration: CommonConstants.TOAST_DURATION
+    });
+    encryptResult = new util.Base64Helper().encodeToStringSync(data.outData);
+  })
+  return encryptResult;
+}
 ```
 
 - 方法getGenerateProperties。
 ```text
-export function <span style="color: rgb(0,0,255);">getGenerateProperties</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em>// </em><em><span style="color: rgb(128,128,128);">根据模式不同选择相应的算法参数：</span><span style="color: rgb(128,128,128);">AES</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">RSA</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">SM4</span></em>
-  let <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    case <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">:</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_ALGORITHM</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyAlg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_ALG_AES</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_KEY_SIZE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeySize</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_AES_KEY_SIZE_256</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_PURPOSE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyPurpose</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_KEY_PURPOSE_ENCRYPT </span><span style="color: rgb(181,106,1);">|</span>
-        <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyPurpose</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_KEY_PURPOSE_DECRYPT</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      break<span style="color: rgb(181,106,1);">;</span>
-    case <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">:</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_ALGORITHM</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyAlg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_ALG_RSA</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_KEY_SIZE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeySize</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_RSA_KEY_SIZE_2048</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_PURPOSE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyPurpose</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_KEY_PURPOSE_ENCRYPT </span><span style="color: rgb(181,106,1);">|</span>
-        <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyPurpose</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_KEY_PURPOSE_DECRYPT</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      break<span style="color: rgb(181,106,1);">;</span>
-    case <span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">:</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_ALGORITHM</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyAlg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_ALG_SM4</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_KEY_SIZE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeySize</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_SM4_KEY_SIZE_128</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksTag</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_TAG_PURPOSE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyPurpose</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_KEY_PURPOSE_ENCRYPT </span><span style="color: rgb(181,106,1);">|</span>
-        <span style="color: rgb(0,0,255);">huks</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HuksKeyPurpose</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HUKS_KEY_PURPOSE_DECRYPT</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      break<span style="color: rgb(181,106,1);">;</span>
-    default<span style="color: rgb(181,106,1);">:</span>
-      break<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  return <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export function getGenerateProperties(mode: number) { <em>// </em><em>根据模式不同选择相应的算法参数：AES，RSA，SM4</em>
+  let properties: Array<huks.HuksParam> = new Array();
+  let index: number = 0;
+  switch (mode) {
+    case 0:
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+        value: huks.HuksKeyAlg.HUKS_ALG_AES
+      };
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+        value: huks.HuksKeySize.HUKS_AES_KEY_SIZE_256
+      };
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+        value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_ENCRYPT |
+        huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_DECRYPT
+      };
+      break;
+    case 1:
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+        value: huks.HuksKeyAlg.HUKS_ALG_RSA
+      };
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+        value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048
+      };
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+        value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_ENCRYPT |
+        huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_DECRYPT
+      };
+      break;
+    case 2:
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+        value: huks.HuksKeyAlg.HUKS_ALG_SM4
+      };
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+        value: huks.HuksKeySize.HUKS_SM4_KEY_SIZE_128
+      };
+      properties[index++] = {
+        tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+        value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_ENCRYPT |
+        huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_DECRYPT
+      };
+      break;
+    default:
+      break;
+  }
+  return properties;
+}
 ```
  使用SM4和AES的报错截图：
 

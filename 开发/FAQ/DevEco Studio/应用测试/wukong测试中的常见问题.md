@@ -7,7 +7,7 @@
 #### 问题现象
 1. 执行命令：
 ```text
-<span style="color: rgb(255,255,255);">wukong exec </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">s </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(80,160,79);">1000 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">a </span><span style="color: rgb(80,160,79);">0.28 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">t </span><span style="color: rgb(80,160,79);">0.72 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">c </span><span style="color: rgb(80,160,79);">100</span>
+wukong exec -s 10 -i 1000 -a 0.28 -t 0.72 -c 100
 ```
  报错信息：
 
@@ -30,17 +30,17 @@
 
   
 ```bash
-<span style="color: rgb(255,255,255);">hdc shell</span>
-<span style="color: rgb(255,255,255);">ps </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">ef </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">grep uitest</span>
-<span style="color: rgb(255,255,255);">kill </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">9 </span><span style="color: rgb(255,255,255);">uitest</span><span style="color: rgb(255,255,255);">的进程号</span>
+hdc shell
+ps -ef | grep uitest
+kill -9 uitest的进程号
 ```
  如果要终止对应的DevEco Testing进程，可以按下面步骤执行：
 
   
 ```bash
-<span style="color: rgb(255,255,255);">hdc shell</span>
-<span style="color: rgb(255,255,255);">ps </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">ef </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">grep uitest</span>
-<span style="color: rgb(255,255,255);">kill </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">9 </span><span style="color: rgb(255,255,255);">uitest start</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">daemon singleness</span><span style="color: rgb(255,255,255);">的进程号</span>
+hdc shell
+ps -ef | grep uitest
+kill -9 uitest start-daemon singleness的进程号
 ```
 
  

@@ -25,7 +25,7 @@
 
   
 ```bash
-git config --global http.proxy http://<span style="color: rgb(0,0,255);">proxyUsername:proxyPassword@proxy.server.com:port</span>
+git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
 ```
 
 3. 执行完成后，请重新尝试导入Sample。

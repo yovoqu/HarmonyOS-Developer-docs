@@ -9,17 +9,17 @@ Cmakelists.txt中通过CACHE FORCE设置的参数。
 2. Cmakelists.txt中缓存的变量。
 3. CmakeLists.txt中环境变量配置的缓存。
 ```text
-<span style="color: rgb(128,128,128);">#1</span><span style="color: rgb(128,128,128);">、采用</span><span style="color: rgb(128,128,128);">CACHE FORCE</span>
-<span style="color: rgb(181,106,1);">set</span>(<span style="color: rgb(181,106,1);">CMAKE_BUILD_TYPE </span>debug <span style="color: rgb(181,106,1);">CACHE STRING </span><span style="color: rgb(80,160,79);">"Build type" </span>FORCE)
-<span style="color: rgb(181,106,1);">message</span>(${<span style="color: rgb(181,106,1);">CMAKE_BUILD_TYPE</span>} <span style="color: rgb(80,160,79);">"CMAKE_BUILD_TYPE_FORCE"</span>)
+#1、采用CACHE FORCE
+set(CMAKE_BUILD_TYPE debug CACHE STRING "Build type" FORCE)
+message(${CMAKE_BUILD_TYPE} "CMAKE_BUILD_TYPE_FORCE")
 
-<span style="color: rgb(128,128,128);">#2</span><span style="color: rgb(128,128,128);">、缓存变量</span>
-<span style="color: rgb(181,106,1);">set</span>(<span style="color: rgb(181,106,1);">CMAKE_BUILD_TYPE </span>debug <span style="color: rgb(181,106,1);">CACHE STRING </span><span style="color: rgb(80,160,79);">"Build type"</span>)
-<span style="color: rgb(181,106,1);">message</span>(${<span style="color: rgb(181,106,1);">CMAKE_BUILD_TYPE</span>} <span style="color: rgb(80,160,79);">"CMAKE_BUILD_TYPE"</span>)
+#2、缓存变量
+set(CMAKE_BUILD_TYPE debug CACHE STRING "Build type")
+message(${CMAKE_BUILD_TYPE} "CMAKE_BUILD_TYPE")
 
-<span style="color: rgb(128,128,128);">#3</span><span style="color: rgb(128,128,128);">、缓存环境变量</span>
-<span style="color: rgb(181,106,1);">set</span>(<span style="color: rgb(181,106,1);">CMAKE_BUILD_TYPE </span>$ENV{<span style="color: rgb(181,106,1);">CMAKE_BUILD_TYPE</span>} <span style="color: rgb(181,106,1);">CACHE STRING </span><span style="color: rgb(80,160,79);">"Build type"</span>)
-<span style="color: rgb(181,106,1);">message</span>($ENV{<span style="color: rgb(181,106,1);">CMAKE_BUILD_TYPE</span>} <span style="color: rgb(80,160,79);">"ENV_CMAKE_BUILD_TYPE"</span>)
+#3、缓存环境变量
+set(CMAKE_BUILD_TYPE $ENV{CMAKE_BUILD_TYPE} CACHE STRING "Build type")
+message($ENV{CMAKE_BUILD_TYPE} "ENV_CMAKE_BUILD_TYPE")
 ```
 
 4. CmakePresets.json或CMakeUsersPersets.json中配置的参数。
@@ -42,24 +42,24 @@ Cmakelists.txt中通过CACHE FORCE设置的参数。
 5. DevEco Studio自定义Cmake编译选项如下：
 模块级build-profile.json5中"externalNativeOptions"->"arguments"显式配置的参数。
 ```text
-<span style="color: rgb(132,63,161);">"externalNativeOptions"</span><span style="color: rgb(181,106,1);">: </span>{
-      <span style="color: rgb(132,63,161);">"path"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"./src/main/cpp/CMakeLists.txt"</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(128,128,128);">      "arguments": "-DCMAKE_BUILD_TYPE=debug",</span>
-      <span style="color: rgb(132,63,161);">"cppFlags"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">""</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"cFlags"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">""</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"abiFilters"</span><span style="color: rgb(181,106,1);">: </span>[
-        <span style="color: rgb(80,160,79);">"arm64-v8a"</span><span style="color: rgb(181,106,1);">,</span>      
-<span style="color: rgb(80,160,79);">        "x86_64"</span>
+"externalNativeOptions": {
+      "path": "./src/main/cpp/CMakeLists.txt",
+      "arguments": "-DCMAKE_BUILD_TYPE=debug",
+      "cppFlags": "",
+      "cFlags": "",
+      "abiFilters": [
+        "arm64-v8a",      
+        "x86_64"
       ]
     }
 ```
 
 6. hvigor默认配置的-DCMAKE_BUILD_TYPE参数。
 ```text
-<em>//</em><em><span style="color: rgb(132,63,161);"> "debuggable"</span>缺省或为true，或者buildMode为debug</em>
-<span style="color: rgb(128,128,128);">-DCMAKE_BUILD_TYPE=debug</span>
-<em>// </em><em><span style="color: rgb(132,63,161);">"debuggable"为false</span>，或者buildMode为release</em>
-<span style="color: rgb(128,128,128);">-DCMAKE_BUILD_TYPE=release</span>
+<em>//</em><em> "debuggable"缺省或为true，或者buildMode为debug</em>
+-DCMAKE_BUILD_TYPE=debug
+<em>// </em><em>"debuggable"为false，或者buildMode为release</em>
+-DCMAKE_BUILD_TYPE=release
 ```
 
  

@@ -31,42 +31,42 @@ SegmentButton如何设置点击回调事件来监听当前点击的Tab？
 使用@Watch装饰器设置onSegmentButtonChange回调函数，用于监听当前点击的Tab。
  
 ```text
-import <span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">ItemRestriction</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">SegmentButton</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">SegmentButtonOptions</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">SegmentButtonTextItem</span>
-<span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@ohos.arkui.advanced.SegmentButton'</span><span style="color: rgb(181,106,1);">;</span>
+import {
+  ItemRestriction,
+  SegmentButton,
+  SegmentButtonOptions,
+  SegmentButtonTextItem
+} from '@ohos.arkui.advanced.SegmentButton';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SegmentButtonClickCallback </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">tabOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SegmentButtonOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">SegmentButtonOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tab</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">buttons</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">页签按钮</span><span style="color: rgb(132,63,161);">1' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">页签按钮</span><span style="color: rgb(132,63,161);">2' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">页签按钮</span><span style="color: rgb(132,63,161);">3'</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">] </span>as <span style="color: rgb(181,106,1);">ItemRestriction</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">SegmentButtonTextItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BACKGROUND_THICK</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">tf</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State @Watch</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'onSegmentButtonChange'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">tabSelectedIndexes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct SegmentButtonClickCallback {
+  @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
+    buttons: [{ text: '页签按钮1' }, { text: '页签按钮2' }, {
+      text: '页签按钮3'
+    }] as ItemRestriction<SegmentButtonTextItem>,
+    backgroundBlurStyle: BlurStyle.BACKGROUND_THICK
+  });
+  @State tf: boolean = true;
+  @State @Watch('onSegmentButtonChange') tabSelectedIndexes: number[] = [0];
 
-  <span style="color: rgb(0,0,255);">onSegmentButtonChange</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tf </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tf</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">选中按钮索引</span><span style="color: rgb(132,63,161);"> -- </span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabSelectedIndexes</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onSegmentButtonChange() {
+    this.tf = !this.tf;
+    console.info(`选中按钮索引 -- ${this.tabSelectedIndexes}`);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">25 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">SegmentButton</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabOptions</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">selectedIndexes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">$tabSelectedIndexes</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabSelectedIndexes</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">` </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">enabled</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tf</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'90%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Column({ space: 25 }) {
+          SegmentButton({
+            options: this.tabOptions,
+            selectedIndexes: $tabSelectedIndexes
+          });
+          TextInput({ text: `${this.tabSelectedIndexes}` }).enabled(this.tf);
+        }.width('90%');
+      }.width('100%');
+    }.height('100%');
+  }
+}
 ```

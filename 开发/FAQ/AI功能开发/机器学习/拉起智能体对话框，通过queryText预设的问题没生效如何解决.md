@@ -26,7 +26,7 @@
 日志信息如下：
  
 ```text
-<span style="color: rgb(0,0,255);">relatedApps </span><span style="color: rgb(181,106,1);">= </span>undefined
+relatedApps = undefined
 ```
  
 说明智能体与应用未成功关联。

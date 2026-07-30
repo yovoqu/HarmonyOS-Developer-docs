@@ -19,14 +19,14 @@
 **报错现象：**
  
 ```text
-> hvigor ERROR: <span style="color: rgb(80,160,79);">00308019</span> Operation Error
+> hvigor ERROR: 00308019 Operation Error
 Error Message: C:\Users\xxx\.hvigor\wrapper\tools\node_modules\.bin\pnpm.cmd install execute failed. More details:
- ERR_PNPM_FETCH_404  <span style="color: rgb(0,0,255);">GET</span> https://xxx/npm-central-repo/testX:  - <span style="color: rgb(80,160,79);">404</span>
-This error happened <span style="color: rgb(0,0,255);">while</span> installing a direct dependency of C:\Users\xxx\.hvigor\project_caches\<span style="color: rgb(80,160,79);">4</span>cfxxx4f5\workspace
-testX is not <span style="color: rgb(0,0,255);">in</span> the <span style="color: rgb(0,0,255);">npm</span> registry, or you have no permission to fetch it.
-No authorization header was <span style="color: rgb(0,0,255);">set</span> <span style="color: rgb(0,0,255);">for</span> the request.
+ ERR_PNPM_FETCH_404  GET https://xxx/npm-central-repo/testX:  - 404
+This error happened while installing a direct dependency of C:\Users\xxx\.hvigor\project_caches\4cfxxx4f5\workspace
+testX is not in the npm registry, or you have no permission to fetch it.
+No authorization header was set for the request.
 * Try the following: 
-  > Check whether the failed package exists <span style="color: rgb(0,0,255);">in</span> the <span style="color: rgb(0,0,255);">npm</span> repository.
+  > Check whether the failed package exists in the npm repository.
   > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-195
 ```
  
@@ -47,14 +47,14 @@ hvigor-config.json5中dependencies字段中配置了形如 testX: '3.3.10'的包
 **报错现象：**
  
 ```text
-> hvigor ERROR: <span style="color: rgb(80,160,79);">00308020</span> Operation Error
+> hvigor ERROR: 00308020 Operation Error
 Error Message: C:\Users\xxx\.hvigor\wrapper\tools\node_modules\.bin\pnpm.cmd install execute failed. More details:
- ERR_PNPM_NO_MATCHING_VERSION  No matching version found <span style="color: rgb(0,0,255);">for</span> test@<span style="color: rgb(80,160,79);">3.3</span>.<span style="color: rgb(80,160,79);">10</span> <span style="color: rgb(0,0,255);">while</span> fetching it from https://xxx/npm-central-repo/
-This error happened <span style="color: rgb(0,0,255);">while</span> installing a direct dependency of C:\Users\xxx\.hvigor\project_caches\<span style="color: rgb(80,160,79);">4</span>cf***<span style="color: rgb(80,160,79);">4</span>f5\workspace
-The latest release of test is <span style="color: rgb(255,0,0);">"3.3.0"</span>. Published at <span style="color: rgb(80,160,79);">2023</span>/<span style="color: rgb(80,160,79);">12</span>/<span style="color: rgb(80,160,79);">8</span>
-<span style="color: rgb(0,0,255);">If</span> you need the full list of all <span style="color: rgb(80,160,79);">3</span> published versions run <span style="color: rgb(255,0,0);">"$ pnpm view test versions"</span>.
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for test@3.3.10 while fetching it from https://xxx/npm-central-repo/
+This error happened while installing a direct dependency of C:\Users\xxx\.hvigor\project_caches\4cf***4f5\workspace
+The latest release of test is "3.3.0". Published at 2023/12/8
+If you need the full list of all 3 published versions run "$ pnpm view test versions".
 * Try the following: 
-  > Check whether the version of the failed package exists <span style="color: rgb(0,0,255);">in</span> the <span style="color: rgb(0,0,255);">npm</span> repository.
+  > Check whether the version of the failed package exists in the npm repository.
   > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-195
 ```
  
@@ -75,15 +75,15 @@ hvigor-config.json5中dependencies字段中配置了 test: '3.3.10'的包，hvig
 **报错现象：**
  
 ```text
-> hvigor ERROR: <span style="color: rgb(80,160,79);">00308021</span> Operation Error
+> hvigor ERROR: 00308021 Operation Error
 Error Message: C:\Users\xxx\.hvigor\wrapper\tools\node_modules\.bin\pnpm.cmd install execute failed. More details:
-WARN  <span style="color: rgb(0,0,255);">GET</span> https://xxx/test error (ETIMEDOUT). Will retry <span style="color: rgb(0,0,255);">in</span> <span style="color: rgb(80,160,79);">10</span> seconds. <span style="color: rgb(80,160,79);">2</span> retries left.
-WARN  <span style="color: rgb(0,0,255);">GET</span> https://xxx/test error (ETIMEDOUT). Will retry <span style="color: rgb(0,0,255);">in</span> <span style="color: rgb(80,160,79);">1</span> minute. <span style="color: rgb(80,160,79);">1</span> retries left.
-ERR_PNPM_META_FETCH_FAIL  <span style="color: rgb(0,0,255);">GET</span> https://xxx/test: request to https://xxx/test failed, reason: connect ETIMEDOUT xxx.xxx.xxx.xxx:<span style="color: rgb(80,160,79);">443</span>.
-This error happened <span style="color: rgb(0,0,255);">while</span> installing a direct dependency of xxx.
+WARN  GET https://xxx/test error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+WARN  GET https://xxx/test error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ERR_PNPM_META_FETCH_FAIL  GET https://xxx/test: request to https://xxx/test failed, reason: connect ETIMEDOUT xxx.xxx.xxx.xxx:443.
+This error happened while installing a direct dependency of xxx.
 * Try the following: 
-  > Ensure that the <span style="color: rgb(0,0,255);">npm</span> repository address is accessible.
-  > Contact the repository provider or replace the <span style="color: rgb(0,0,255);">npm</span> repository address.
+  > Ensure that the npm repository address is accessible.
+  > Contact the repository provider or replace the npm repository address.
   > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-195
 ```
  
@@ -106,13 +106,13 @@ hvigor-config.json5中dependencies字段中配置了test包，hvigor初始化时
 **报错现象：**
  
 ```text
-> hvigor ERROR: <span style="color: rgb(80,160,79);">00308022</span> Operation Error
+> hvigor ERROR: 00308022 Operation Error
 Error Message: C:\Users\xxx\.hvigor\wrapper\tools\node_modules\.bin\pnpm.cmd install execute failed. More details:
-ERR_PNPM_NO_OFFLINE_META Failed to resolve test@<span style="color: rgb(80,160,79);">1.2</span>.<span style="color: rgb(80,160,79);">3</span> <span style="color: rgb(0,0,255);">in</span> package mirror xxx.
-This error happened <span style="color: rgb(0,0,255);">while</span> installing a direct dependency of xxx.
+ERR_PNPM_NO_OFFLINE_META Failed to resolve test@1.2.3 in package mirror xxx.
+This error happened while installing a direct dependency of xxx.
 * Try the following: 
   > Check whether the offline package has been completely downloaded before the migration.
-  > Refer to <span style="color: rgb(255,0,0);">'Setting Up the Development Environment Offline'</span>: https://developer.huawei.com/consumer/en/doc/harmonyos-guides/ide-no-network
+  > Refer to 'Setting Up the Development Environment Offline': https://developer.huawei.com/consumer/en/doc/harmonyos-guides/ide-no-network
   > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-195
 ```
  
@@ -133,14 +133,14 @@ hvigor-config.json5中dependencies字段中配置了test包，且使用离线安
 **报错现象：**
  
 ```text
-> hvigor ERROR: <span style="color: rgb(80,160,79);">00308023</span> Operation Error
+> hvigor ERROR: 00308023 Operation Error
 Error Message: C:\Users\xxx\.hvigor\wrapper\tools\node_modules\.bin\pnpm.cmd install execute failed. More details:
-<span style="color: rgb(0,0,255);">npm</span> ERR! code CERT_HAS_EXPIRED
-<span style="color: rgb(0,0,255);">npm</span> ERR! errno CERT_HAS_EXPIRED
-<span style="color: rgb(0,0,255);">npm</span> ERR! request to https://xxx failed, reason: certificate has expired
-<span style="color: rgb(0,0,255);">npm</span> ERR! A complete log of this run can be found <span style="color: rgb(0,0,255);">in</span>: xxx
+npm ERR! code CERT_HAS_EXPIRED
+npm ERR! errno CERT_HAS_EXPIRED
+npm ERR! request to https://xxx failed, reason: certificate has expired
+npm ERR! A complete log of this run can be found in: xxx
 * Try the following: 
-  > Contact the <span style="color: rgb(0,0,255);">npm</span> repository provider to ensure that the certificate of the repository server is valid, or replace the repository address with a new one.
+  > Contact the npm repository provider to ensure that the certificate of the repository server is valid, or replace the repository address with a new one.
   > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-195
 ```
  
@@ -159,15 +159,15 @@ hvigor-config.json5中dependencies字段中配置了test包，但是hvigor初始
 **报错现象：**
  
 ```text
-> hvigor ERROR: <span style="color: rgb(80,160,79);">00308024</span> Operation Error
+> hvigor ERROR: 00308024 Operation Error
 Error Message: C:\Users\xxx\.hvigor\wrapper\tools\node_modules\.bin\pnpm.cmd install execute failed. More details:
-<span style="color: rgb(0,0,255);">npm</span> ERR! code ETIMEDOUT
-<span style="color: rgb(0,0,255);">npm</span> ERR! errno ETIMEDOUT
-<span style="color: rgb(0,0,255);">npm</span> ERR! request to https://xxx failed, reason: connect ETIMEDOUT xxx.xxx.xxx.xxx:<span style="color: rgb(80,160,79);">443</span>
-This error happened <span style="color: rgb(0,0,255);">while</span> installing a direct dependency of xxx.
+npm ERR! code ETIMEDOUT
+npm ERR! errno ETIMEDOUT
+npm ERR! request to https://xxx failed, reason: connect ETIMEDOUT xxx.xxx.xxx.xxx:443
+This error happened while installing a direct dependency of xxx.
 * Try the following: 
-  > Ensure that the <span style="color: rgb(0,0,255);">npm</span> repository address is accessible.
-  > Contact the repository provider or replace the <span style="color: rgb(0,0,255);">npm</span> repository address.
+  > Ensure that the npm repository address is accessible.
+  > Contact the repository provider or replace the npm repository address.
   > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-195
 ```
  

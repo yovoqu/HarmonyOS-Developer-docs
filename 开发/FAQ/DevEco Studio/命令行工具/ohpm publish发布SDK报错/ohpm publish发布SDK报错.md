@@ -13,7 +13,7 @@
 ```text
 Error Message: The "Publish" request to url "https://ohpm.openharmony.cn/ohpm/@lynx%2fprimjs" has failed
 ╰→ Caused by:
-Original Error: HttpCode <span style="color: rgb(0,0,255);">400 </span>Invalid OHPM package repository.
+Original Error: HttpCode 400 Invalid OHPM package repository.
 ```
  
 **场景二：**ohpm publish发布时报错HttpCode 413 Request Entity Too Large。
@@ -21,7 +21,7 @@ Original Error: HttpCode <span style="color: rgb(0,0,255);">400 </span>Invalid O
 报错信息如下：
  
 ```text
-ohpm ERROR: HttpCode <span style="color: rgb(0,0,255);">413 </span>Request Entity Too Large.
+ohpm ERROR: HttpCode 413 Request Entity Too Large.
 ohpm ERROR: Publish failed, detail: The "Publish" request to url "xxxxx" has failed.
 ```
  

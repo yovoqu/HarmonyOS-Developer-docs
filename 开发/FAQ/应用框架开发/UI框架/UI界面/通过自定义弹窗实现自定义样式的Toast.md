@@ -35,289 +35,289 @@ HarmonyOS的Toast接口，不支持设定圆角样式。如何实现类似其他
 主要实现思路为，借助Text组件自定义类似其他平台Toast的UI样式，并封装为@Builder构建函数，将该函数传入ComponentContent创建弹窗对象，通过getUIContext开启该弹窗对象，开启后执行setTimeout，等待指定的时间后，执行关闭弹窗对象。详细步骤如下：
  1. 配置ToastContent组件属性并封装为@Builder构建函数。
 ```text
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ToastContent </span><span style="color: rgb(181,106,1);">{</span>
-  public <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  public <span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  public <span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+struct ToastContent {
+  public text: string = '';
+  public clickText: string = '';
+  public clickListener = () => {
+  };
+  private textList: string[] = [];
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  aboutToAppear(): void {
+    if (this.clickText.length > 0) {
+      this.textList = this.text.split(this.clickText);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toastText</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Yellow</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toastText</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceBetween</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'5%'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'5%' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      if (this.clickText === '') {
+        Text(this.text).toastText();
+      } else {
+        Text() {
+          ForEach(this.textList, (item: string, num: number) => {
+            Span(item);
+            if (num < this.textList.length - 1) {
+              Span(this.clickText).fontColor(Color.Yellow);
+            }
+          });
+        }.onClick(this.clickListener).toastText();
+      }
+    }
+    .borderRadius(5)
+    .backgroundColor(Color.Black)
+    .padding(10)
+    .justifyContent(FlexAlign.SpaceBetween)
+    .margin({ left: '5%', right: '5%' });
+  }
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">封装</span><span style="color: rgb(128,128,128);">Toast</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">@Builder</span><span style="color: rgb(128,128,128);">方法</span></em>
-<span style="color: rgb(181,106,1);">@Builder</span>
-function <span style="color: rgb(0,0,255);">buildText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Params</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">ToastContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// </em><em>封装Toast的@Builder方法</em>
+@Builder
+function buildText(params: Params) {
+  ToastContent({ text: params.text, clickText: params.clickText, clickListener: params.clickListener });
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">封装公共样式</span></em>
-<span style="color: rgb(181,106,1);">@Extend</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">)</span>
-function <span style="color: rgb(0,0,255);">toastText</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// </em><em>封装公共样式</em>
+@Extend(Text)
+function toastText() {
+  .fontSize(20)
+  .fontColor(Color.White);
+}
 ```
 
 2. 创建Toast类，并创建构造方法与Toast实例方法。
 ```text
 <em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">封装全局蓝色浮动提示，支持点击</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-export class <span style="color: rgb(0,0,255);">Toast </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Params</span><span style="color: rgb(181,106,1);">;</span>
+<em> * 封装全局蓝色浮动提示，支持点击</em>
+<em> */</em>
+export class Toast {
+  private toastParams: Params;
 
-  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Params</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  constructor(text: string, time: number = 2000) {
+    this.toastParams = new Params(text, time);
+  }
 
-  <span style="color: rgb(0,0,255);">setClick</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Toast </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setClick</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return this<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  setClick(clickText: string, clickListener: () => void): Toast {
+    this.toastParams.setClick(clickText, clickListener);
+    return this;
+  };
 
-  async <span style="color: rgb(0,0,255);">show</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'currentUIContext'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">click </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">contentNode </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buildText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'' </span><span style="color: rgb(181,106,1);">? </span>false <span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">isModal</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">dx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">dy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'10%' </span><span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">click</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+  async show() {
+    let uiContext = AppStorage.get('currentUIContext') as UIContext;
+    let click = this.toastParams.clickListener;
+    let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), this.toastParams);
+    uiContext.getPromptAction().openCustomDialog(contentNode, {
+      showInSubWindow: this.toastParams.clickText === '' ? false : true,
+      isModal: false,
+      offset: { dx: 0, dy: '10%' }
+    }).then(() => {
+      setTimeout(() => {
+        uiContext.getPromptAction().closeCustomDialog(contentNode);
+      }, this.toastParams.time);
+    });
+    this.toastParams.clickListener = () => {
+      click();
+      uiContext.getPromptAction().closeCustomDialog(contentNode);
+    };
+  };
+}
 ```
 
 3. 创建并弹出Toast，并且可以在Toast的setClick回调方法内实现点击Toast后的逻辑，如页面跳转。
 ```text
-new <span style="color: rgb(0,0,255);">Toast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">点击</span><span style="color: rgb(132,63,161);">Toast</span><span style="color: rgb(132,63,161);">后屏幕将退出横屏，进入到竖屏状态</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setClick</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">关闭自动添加</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PORTRAIT</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'DetailPage'</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">show</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+new Toast('点击Toast后屏幕将退出横屏，进入到竖屏状态', 3000).setClick('关闭自动添加', () => {
+  this.windowClass.setPreferredOrientation(window.Orientation.PORTRAIT);
+  this.pathStack.pushPathByName('DetailPage', null);
+}).show();
 ```
 
  
 完整示例参考如下：
  1. Index.ets。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">Toast </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./ToastContent'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">window </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { common } from '@kit.AbilityKit';
+import { Toast } from './ToastContent';
+import { window } from '@kit.ArkUI';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">windowClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMainWindowSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  pathStack: NavPathStack = new NavPathStack();
+  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+  private windowClass = (this.context as common.UIAbilityContext).windowStage.getMainWindowSync();
 
-  <span style="color: rgb(0,0,255);">setOrientation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">orientation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">orientation</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  setOrientation(orientation: number) {
+    this.windowClass.setPreferredOrientation(orientation).then(() => {
+    }).catch(() => {
+    });
+  }
 
-  async <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LANDSCAPE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'currentUIContext'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  async aboutToAppear(): Promise<void> {
+    await this.windowClass.setPreferredOrientation(window.Orientation.LANDSCAPE);
+    AppStorage.setOrCreate('currentUIContext', this.getUIContext());
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">我的记录</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">保存</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              new <span style="color: rgb(0,0,255);">Toast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">点击</span><span style="color: rgb(132,63,161);">Toast</span><span style="color: rgb(132,63,161);">后屏幕将退出横屏，进入到竖屏状态</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setClick</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">关闭自动添加</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PORTRAIT</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'DetailPage'</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">show</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Blue</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">NavigationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Stack</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Navigation(this.pathStack) {
+      RelativeContainer() {
+        Column() {
+          Text('我的记录')
+            .fontSize(50)
+            .width('100%')
+            .textAlign(TextAlign.Center)
+            .fontWeight(FontWeight.Bold)
+          Button('保存')
+            .onClick(() => {
+              new Toast('点击Toast后屏幕将退出横屏，进入到竖屏状态', 3000).setClick('关闭自动添加', () => {
+                this.windowClass.setPreferredOrientation(window.Orientation.PORTRAIT);
+                this.pathStack.pushPathByName('DetailPage', null);
+              }).show();
+            })
+            .backgroundColor(Color.Blue)
+            .fontColor(Color.White)
+        }
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+      }
+      .width('100%')
+    }
+    .mode(NavigationMode.Stack)
+    .height('100%')
+    .width('100%')
+    .height('100%')
+    .hideTitleBar(true)
+  }
+}
 ```
 
 2. ToastContent.ets。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">ComponentContent </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { ComponentContent } from '@kit.ArkUI';
 <em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">封装全局蓝色浮动提示，支持点击</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-export class <span style="color: rgb(0,0,255);">Toast </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Params</span><span style="color: rgb(181,106,1);">;</span>
+<em> * 封装全局蓝色浮动提示，支持点击</em>
+<em> */</em>
+export class Toast {
+  private toastParams: Params;
 
-  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Params</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  constructor(text: string, time: number = 2000) {
+    this.toastParams = new Params(text, time);
+  }
 
-  <span style="color: rgb(0,0,255);">setClick</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Toast </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setClick</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return this<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  setClick(clickText: string, clickListener: () => void): Toast {
+    this.toastParams.setClick(clickText, clickListener);
+    return this;
+  };
 
-  async <span style="color: rgb(0,0,255);">show</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'currentUIContext'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">click </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">contentNode </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buildText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'' </span><span style="color: rgb(181,106,1);">? </span>false <span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">isModal</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">dx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">dy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'10%' </span><span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toastParams</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">click</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">参数</span></em>
-class <span style="color: rgb(0,0,255);">Params </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">time</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
+  async show() {
+    let uiContext = AppStorage.get('currentUIContext') as UIContext;
+    let click = this.toastParams.clickListener;
+    let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), this.toastParams);
+    uiContext.getPromptAction().openCustomDialog(contentNode, {
+      showInSubWindow: this.toastParams.clickText === '' ? false : true,
+      isModal: false,
+      offset: { dx: 0, dy: '10%' }
+    }).then(() => {
+      setTimeout(() => {
+        uiContext.getPromptAction().closeCustomDialog(contentNode);
+      }, this.toastParams.time);
+    });
+    this.toastParams.clickListener = () => {
+      click();
+      uiContext.getPromptAction().closeCustomDialog(contentNode);
+    };
+  };
+}
+<em>// </em><em>参数</em>
+class Params {
+  text: string = '';
+  time: number = 2000;
+  clickText: string = '';
+  clickListener = () => {
+  };
 
-  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">time </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">time</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  constructor(text: string, time: number = 2000) {
+    this.text = text;
+    this.time = time;
+  }
 
-  <span style="color: rgb(0,0,255);">setClick</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ToastContent </span><span style="color: rgb(181,106,1);">{</span>
-  public <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  public <span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  public <span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  setClick(clickText: string, clickListener: () => void) {
+    this.clickText = clickText;
+    this.clickListener = clickListener;
+  };
+}
+@Component
+struct ToastContent {
+  public text: string = '';
+  public clickText: string = '';
+  public clickListener = () => {
+  };
+  private textList: string[] = [];
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  aboutToAppear(): void {
+    if (this.clickText.length > 0) {
+      this.textList = this.text.split(this.clickText);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toastText</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Yellow</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toastText</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceBetween</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'5%'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'5%' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      if (this.clickText === '') {
+        Text(this.text).toastText();
+      } else {
+        Text() {
+          ForEach(this.textList, (item: string, num: number) => {
+            Span(item);
+            if (num < this.textList.length - 1) {
+              Span(this.clickText).fontColor(Color.Yellow);
+            }
+          });
+        }.onClick(this.clickListener).toastText();
+      }
+    }
+    .borderRadius(5)
+    .backgroundColor(Color.Black)
+    .padding(10)
+    .justifyContent(FlexAlign.SpaceBetween)
+    .margin({ left: '5%', right: '5%' });
+  }
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">封装</span><span style="color: rgb(128,128,128);">Toast</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">@Builder</span><span style="color: rgb(128,128,128);">方法</span></em>
-<span style="color: rgb(181,106,1);">@Builder</span>
-function <span style="color: rgb(0,0,255);">buildText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Params</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">ToastContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clickListener</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clickListener </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// </em><em>封装Toast的@Builder方法</em>
+@Builder
+function buildText(params: Params) {
+  ToastContent({ text: params.text, clickText: params.clickText, clickListener: params.clickListener });
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">封装公共样式</span></em>
-<span style="color: rgb(181,106,1);">@Extend</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">)</span>
-function <span style="color: rgb(0,0,255);">toastText</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// </em><em>封装公共样式</em>
+@Extend(Text)
+function toastText() {
+  .fontSize(20)
+  .fontColor(Color.White);
+}
 ```
 
 3. DetailPage.ets
 ```text
-<span style="color: rgb(181,106,1);">@Builder</span>
-export function <span style="color: rgb(0,0,255);">DetailPageBuilder</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">DetailPage</span><span style="color: rgb(255,0,170);">()</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Builder
+export function DetailPageBuilder() {
+  DetailPage()
+}
 
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">DetailPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+export struct DetailPage {
+  pageInfos: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'DetailPage'</span><span style="color: rgb(255,0,170);">)</span>
+  build() {
+    NavDestination() {
+      Column() {
+      }.width('100%').height('100%')
+    }.title('DetailPage')
 
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  }
+}
 ```
 
  

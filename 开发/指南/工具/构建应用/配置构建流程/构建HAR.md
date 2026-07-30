@@ -55,7 +55,7 @@ library  // HAR根目录
 ```ArkTS
 {
   ...
-  <span style="color: rgb(102,14,122);">"main"</span>: <span style="color: rgb(0,128,0);">"./src/main/ets/components/MainPage.ets"</span>,
+  "main": "./src/main/ets/components/MainPage.ets",
   ...
 }
 ```
@@ -123,7 +123,7 @@ library  // HAR根目录
   
 ```json
 {
-  <span style="color: rgb(102,14,122);">"app"</span>: {
+  "app": {
     "products": [
       {
          "buildOption": {
@@ -142,7 +142,7 @@ library  // HAR根目录
   
 ```json
 {
-  <span style="color: rgb(102,14,122);">"buildOption"</span>: {
+  "buildOption": {
     "arkOptions": {
       "byteCodeHar": true
     }
@@ -162,34 +162,34 @@ library  // HAR根目录
   
 ```json
 {
-  <span style="color: rgb(135,16,148);">"apiType"</span>: <span style="color: rgb(6,125,23);">"stageMode"</span>,
-  <span style="color: rgb(135,16,148);">"buildOption"</span>: {
+  "apiType": "stageMode",
+  "buildOption": {
   },
-  <span style="color: rgb(135,16,148);">"buildOptionSet"</span>: [
+  "buildOptionSet": [
     {
-      <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"release"</span>,
-      <span style="color: rgb(135,16,148);">"arkOptions"</span>: {
+      "name": "release",
+      "arkOptions": {
         // 混淆相关参数
-        <span style="color: rgb(135,16,148);">"obfuscation"</span>: {
-          <span style="color: rgb(135,16,148);">"ruleOptions"</span>: {
+        "obfuscation": {
+          "ruleOptions": {
             // true表示进行混淆，false表示不进行混淆。5.0.3.600及以上版本默认为false
-            <span style="color: rgb(135,16,148);">"enable"</span>: <span style="color: rgb(0,51,179);">true</span>,
+            "enable": true,
             // 混淆规则文件
-            <span style="color: rgb(135,16,148);">"files"</span>: [
-              <span style="color: rgb(6,125,23);">"./obfuscation-rules.txt"</span>
+            "files": [
+              "./obfuscation-rules.txt"
             ]
           },
           // consumerFiles中指定的混淆配置文件会在构建依赖这个library的工程或library时被应用
-          <span style="color: rgb(135,16,148);">"consumerFiles"</span>: [
-            <span style="color: rgb(6,125,23);">"./consumer-rules.txt"</span>
+          "consumerFiles": [
+            "./consumer-rules.txt"
           ]
         }
       },
     },
   ],
-  <span style="color: rgb(135,16,148);">"targets"</span>: [
+  "targets": [
     {
-      <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>
+      "name": "default"
     }
   ]
 }
@@ -199,11 +199,11 @@ library  // HAR根目录
 
   
 ```json
-<span style="color: rgb(135,16,148);">"buildOption"</span>: {
-  <span style="color: rgb(135,16,148);">"packingOptions"</span>: {
-    <span style="color: rgb(135,16,148);">"asset"</span>: {
-      <span style="color: rgb(135,16,148);">"include"</span>: [<span style="color: rgb(6,125,23);">"./src/router.json5"</span>,<span style="color: rgb(6,125,23);">"router.json5"</span>],    // 配置打包到HAR产物中的文件
-      <span style="color: rgb(135,16,148);">"exclude"</span>: [<span style="color: rgb(6,125,23);">"./config/*"</span>]     // 配置不打包到HAR产物中的文件
+"buildOption": {
+  "packingOptions": {
+    "asset": {
+      "include": ["./src/router.json5","router.json5"],    // 配置打包到HAR产物中的文件
+      "exclude": ["./config/*"]     // 配置不打包到HAR产物中的文件
     }
   }
 }
@@ -253,7 +253,7 @@ library  // HAR根目录
   
 ```json
 {
-  <span style="color: rgb(102,14,122);">"buildOption"</span>: {
+  "buildOption": {
     "arkOptions": {
       "byteCodeHar": false
     }
@@ -280,11 +280,11 @@ library  // HAR根目录
 
   
 ```json
-<span style="color: rgb(135,16,148);">"buildOption"</span>: {
-  <span style="color: rgb(135,16,148);">"packingOptions"</span>: {
-    <span style="color: rgb(135,16,148);">"asset"</span>: {
-      <span style="color: rgb(135,16,148);">"include"</span>: [<span style="color: rgb(6,125,23);">"./src/router.json5"</span>,<span style="color: rgb(6,125,23);">"router.json5"</span>],    // 配置打包到HAR产物中的文件
-      <span style="color: rgb(135,16,148);">"exclude"</span>: [<span style="color: rgb(6,125,23);">"./config/*"</span>]     // 配置不打包到HAR产物中的文件
+"buildOption": {
+  "packingOptions": {
+    "asset": {
+      "include": ["./src/router.json5","router.json5"],    // 配置打包到HAR产物中的文件
+      "exclude": ["./config/*"]     // 配置不打包到HAR产物中的文件
     }
   }
 }
@@ -328,7 +328,7 @@ library  // HAR根目录
   
 ```json
 {
-  <span style="color: rgb(102,14,122);">"buildOption"</span>: {
+  "buildOption": {
     "arkOptions": {
       "byteCodeHar": false
     }
@@ -351,34 +351,34 @@ library  // HAR根目录
   
 ```json
 {
-  <span style="color: rgb(135,16,148);">"apiType"</span>: <span style="color: rgb(6,125,23);">"stageMode"</span>,
-  <span style="color: rgb(135,16,148);">"buildOption"</span>: {
+  "apiType": "stageMode",
+  "buildOption": {
   },
-  <span style="color: rgb(135,16,148);">"buildOptionSet"</span>: [
+  "buildOptionSet": [
     {
-      <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"release"</span>,
-      <span style="color: rgb(135,16,148);">"arkOptions"</span>: {
+      "name": "release",
+      "arkOptions": {
         // 混淆相关参数
-        <span style="color: rgb(135,16,148);">"obfuscation"</span>: {
-          <span style="color: rgb(135,16,148);">"ruleOptions"</span>: {
+        "obfuscation": {
+          "ruleOptions": {
             // true表示进行混淆，false表示不进行混淆。5.0.3.600及以上版本默认为false
-            <span style="color: rgb(135,16,148);">"enable"</span>: <span style="color: rgb(0,51,179);">true</span>,
+            "enable": true,
             // 混淆规则文件
-            <span style="color: rgb(135,16,148);">"files"</span>: [
-              <span style="color: rgb(6,125,23);">"./obfuscation-rules.txt"</span>
+            "files": [
+              "./obfuscation-rules.txt"
             ]
           },
           // consumerFiles中指定的混淆配置文件会在构建依赖这个library的工程或library时被应用
-          <span style="color: rgb(135,16,148);">"consumerFiles"</span>: [
-            <span style="color: rgb(6,125,23);">"./consumer-rules.txt"</span>
+          "consumerFiles": [
+            "./consumer-rules.txt"
           ]
         }
       },
     },
   ],
-  <span style="color: rgb(135,16,148);">"targets"</span>: [
+  "targets": [
     {
-      <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>
+      "name": "default"
     }
   ]
 }
@@ -388,11 +388,11 @@ library  // HAR根目录
 
   
 ```json
-<span style="color: rgb(135,16,148);">"buildOption"</span>: {
-  <span style="color: rgb(135,16,148);">"packingOptions"</span>: {
-    <span style="color: rgb(135,16,148);">"asset"</span>: {
-      <span style="color: rgb(135,16,148);">"include"</span>: [<span style="color: rgb(6,125,23);">"./src/router.json5"</span>,<span style="color: rgb(6,125,23);">"router.json5"</span>],    // 配置打包到HAR产物中的文件
-      <span style="color: rgb(135,16,148);">"exclude"</span>: [<span style="color: rgb(6,125,23);">"./config/*"</span>]     // 配置不打包到HAR产物中的文件
+"buildOption": {
+  "packingOptions": {
+    "asset": {
+      "include": ["./src/router.json5","router.json5"],    // 配置打包到HAR产物中的文件
+      "exclude": ["./config/*"]     // 配置不打包到HAR产物中的文件
     }
   }
 }
@@ -438,7 +438,7 @@ DevEco Studio在构建HAR流程的基础上，支持对HAR进行签名。签名�
   
 ```text
 {
-  <span style="color: rgb(102,14,122);">"properties"</span>: {
+  "properties": {
     "ohos.sign.har": true
   }
 }

@@ -20,13 +20,13 @@
  
 - UserAgent结构：
 ```text
-<span style="color: rgb(0,0,255);">Mozilla</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">5.0 </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">DeviceType</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">OSName</span><span style="color: rgb(255,0,170);">} {</span><span style="color: rgb(0,0,255);">OSVersion</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">AppleWebKit</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">537.36 </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">KHTML</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">like Gecko</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">Chrome</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">ChromeCompatibleVersion</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,0);">.0.0.0 </span><span style="color: rgb(0,0,255);">Safari</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">537.36  </span><span style="color: rgb(0,0,255);">ArkWeb</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">ArkWeb VersionCode</span><span style="color: rgb(255,0,170);">} {</span><span style="color: rgb(0,0,255);">DeviceCompat</span><span style="color: rgb(255,0,170);">} {</span><span style="color: rgb(0,0,255);">扩展区</span><span style="color: rgb(255,0,170);">}</span>
+Mozilla/5.0 ({DeviceType}; {OSName} {OSVersion}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{ChromeCompatibleVersion}.0.0.0 Safari/537.36  ArkWeb/{ArkWeb VersionCode} {DeviceCompat} {扩展区}
 ```
  举例说明：
 
   
 ```text
-<span style="color: rgb(0,0,255);">Mozilla</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">5.0 </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Phone</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">OpenHarmony </span><span style="color: rgb(255,0,0);">5.0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">AppleWebKit</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">537.36 </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">KHTML</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">like Gecko</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">Chrome</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">114.0.0.0 </span><span style="color: rgb(0,0,255);">Safari</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">537.36  </span><span style="color: rgb(0,0,255);">ArkWeb</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(255,0,0);">4.1.6.1 </span><span style="color: rgb(0,0,255);">Mobile</span>
+Mozilla/5.0 (Phone; OpenHarmony 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36  ArkWeb/4.1.6.1 Mobile
 ```
 
 - 字段说明：
@@ -60,13 +60,13 @@
  
 - 通过User-Agent中的{OSName}字段识别HarmonyOS系统。当{OSName}字段值为OpenHarmony表明当前操作系统为HarmonyOS。
 ```text
-const <span style="color: rgb(0,0,255);">isHarmonyOS </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">/OpenHarmony/i</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navigator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userAgent</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+const isHarmonyOS = () => /OpenHarmony/i.test(navigator.userAgent);
 ```
 
 - 通过User-Agent中的{OSName}和{OSVersion}字段识别HarmonyOS系统及系统版本。格式为：OpenHarmony+版本号。
 ```text
-const <span style="color: rgb(0,0,255);">matches </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">navigator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userAgent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">match</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">/OpenHarmony (\d+\.?\d*)/</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(0,0,255);">isHarmonyOS5Plus </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">matches</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">matches</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]) </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">;</span>
+const matches = navigator.userAgent.match(/OpenHarmony (\d+\.?\d*)/);
+const isHarmonyOS5Plus = matches?.length && Number(matches[1]) >= 5;
 ```
 
 
@@ -77,17 +77,17 @@ const <span style="color: rgb(0,0,255);">isHarmonyOS5Plus </span><span style="co
  
 - 检测是否为手机设备：
 ```text
-const <span style="color: rgb(0,0,255);">isPhone </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">/Phone/i</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navigator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userAgent</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+const isPhone = () => /Phone/i.test(navigator.userAgent);
 ```
 
 - 检测是否为平板设备：
 ```text
-const <span style="color: rgb(0,0,255);">isTablet </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">/Tablet/i</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navigator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userAgent</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+const isTablet = () => /Tablet/i.test(navigator.userAgent);
 ```
 
 - 检测是否为PC设备：
 ```text
-const <span style="color: rgb(0,0,255);">is2in1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">/PC/i</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navigator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userAgent</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+const is2in1 = () => /PC/i.test(navigator.userAgent);
 ```
 
 
@@ -95,30 +95,30 @@ const <span style="color: rgb(0,0,255);">is2in1 </span><span style="color: rgb(1
 完整实现代码如下：在[onControllerAttached](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontrollerattached10)通过[setCustomUserAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setcustomuseragent10)设置User-Agent。
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">userAgent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  controller: webview.WebviewController = new webview.WebviewController();
+  private userAgent: string = '';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'judgeUA.html'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onControllerAttached</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userAgent </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUserAgent</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">' test'</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCustomUserAgent</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userAgent</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Web({ src: $rawfile('judgeUA.html'), controller: this.controller })
+        .onControllerAttached(() => {
+          this.userAgent = this.controller.getUserAgent() + ' test';
+          this.controller.setCustomUserAgent(this.userAgent);
+        })
+        .geolocationAccess(false)
+        .fileAccess(false)
+        .domStorageAccess(true)
+        .width('100%');
+    }
+    .width('100%')
+    .height('100%');
+  }
+}
 ```
  
 HTML示例代码如下：

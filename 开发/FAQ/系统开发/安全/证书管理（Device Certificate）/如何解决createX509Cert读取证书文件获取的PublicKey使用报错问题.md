@@ -9,11 +9,11 @@
 使用certFramework的createX509Cert读取证书文件，使用getPublicKey方法可以成功获取到公钥，但使用此公钥进行初始化报错。
  
 ```text
-let <span style="color: rgb(0,0,255);">publicKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">x509Cert</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPublicKey</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">创建实例化对象</span></em>
-let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'RSA1024|PKCS1'</span><span style="color: rgb(0,0,255);">)</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">初始化加解密对象</span></em>
-<span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">publicKey</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(0,0,255);">)</span>
+let publicKey = x509Cert.getPublicKey().getEncoded()
+<em>// </em><em>创建实例化对象</em>
+let cipher = cryptoFramework.createCipher('RSA1024|PKCS1')
+<em>// </em><em>初始化加解密对象</em>
+cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, publicKey, null)
 ```
  
  
@@ -45,98 +45,98 @@ let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181
 将读取证书获取的公钥数据，通过convertKey方法生成RSA公钥，然后再使用此公钥进行初始化、加密数据等操作。
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">certFramework </span>from <span style="color: rgb(255,0,170);">'@ohos.security.cert'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cert </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.DeviceCertificateKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+import certFramework from '@ohos.security.cert';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { cert } from '@kit.DeviceCertificateKit';
+import { buffer } from '@kit.ArkTS';
 
-function <span style="color: rgb(0,0,255);">stringToUint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(255,0,170);">{</span>
-  let <span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">j </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">j</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">charCodeAt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+function stringToUint8Array(str: string): Uint8Array {
+  let arr: Array<number> = [];
+  for (let i = 0, j = str.length; i < j; i++) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
 
-function <span style="color: rgb(0,0,255);">create509</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encodingBlob</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">certFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">EncodingBlob</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cb</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">s</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">errorCB</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">certFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createX509Cert</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encodingBlob</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">x509Cert </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">publicKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">x509Cert</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPublicKey</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'createX509Cert success: publicKey = ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">publicKey</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进行密钥转换</span></em>
-    let <span style="color: rgb(0,0,255);">rsaGenerator </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAsyKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'RSA1024'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">keyPair </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rsaGenerator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKeySync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">x509Cert</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPublicKey</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建实例化对象</span></em>
-    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'RSA1024|PKCS1'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化加解密对象</span></em>
-    await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">keyPair</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+function create509(encodingBlob: certFramework.EncodingBlob, cb: (s: string) => void,
+  errorCB: (error: BusinessError) => void) {
+  certFramework.createX509Cert(encodingBlob).then(async x509Cert => {
+    let publicKey = x509Cert.getPublicKey().getEncoded().data.toString();
+    console.info('createX509Cert success: publicKey = ' + publicKey);
+  <em>  // 进行密钥转换</em>
+    let rsaGenerator = cryptoFramework.createAsyKeyGenerator('RSA1024');
+    let keyPair = rsaGenerator.convertKeySync(x509Cert.getPublicKey().getEncoded(), null);
+  <em>  // 创建实例化对象</em>
+    let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
+   <em> // 初始化加解密对象</em>
+    await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyPair.pubKey, null);
 
-    let <span style="color: rgb(0,0,255);">sha1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'32**************d7'</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sha1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let sha1 = '32**************d7';
+    let plainText: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(sha1, 'utf-8').buffer) };
 
-    <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'encryptData: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">cb</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ok'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'error'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">errorCB</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'createX509Cert failed, errCode: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">', errMsg: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">errorCB</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+    cipher.doFinal(plainText).then((data) => {
+      console.info('encryptData: ' + data.data);
+      cb('ok');
+    }).catch((e: BusinessError) => {
+      console.error('error', e);
+      errorCB(e);
+    });
+  }).catch((error: BusinessError) => {
+    console.error('createX509Cert failed, errCode: ' + error.code + ', errMsg: ' + error.message);
+    errorCB(error);
+  });
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">CreateX509Cert </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State</span>
-  <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct CreateX509Cert {
+  @State
+  message: string = '';
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">证书二进制数据，需业务自行赋值。</span></em>
-    let <span style="color: rgb(0,0,255);">certData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'-----BEGIN CERTIFICATE-----</span>\r\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'MIIDTjCCAjagAwIBAgIBBDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'IENBMB4XDTI0MDMxOTAyMDQwMVoXDTM0MDMxNzAyMDQwMVowEjEQMA4GA1UEAwwH</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'ZGV2aWNlMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMIXL3e7UE/c</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'Z1dPVgRZ5L8gsQ/azuYVBvoFf7o8ksYrL7G1+qZIJjVRqZkuTirLW4GicbkIkPNW</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'eix5cDhkjkC+q5SBCOrSSTTlvX3xcOY1gMlA5MgeBfGixFusq4d5VPF2KceZ20/a</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'ygwGD0Uv0X81OERyPom/dYdJUvfaD9ifPFJ1fKIj/cPFG3yJK/ojpEfndZNdESQL</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'TkoDekilg2UGOLtY6fb9Ns37ncuIj33gCS/R9m1tgtmqCTcgOQ4hwKhjVF3InmPO</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'2BbWKvD1RUX+rHC2a2HHDQILOOtDTy8dHvE+qZlK0efrpRgoFEERJAGPi1GDGWiA</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'7UX1c4MCxIECAwEAAaOBrjCBqzAJBgNVHRMEAjAAMB0GA1UdDgQWBBQbkAcMT7ND</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'fGp3VPFzYHppZ1zxLTAfBgNVHSMEGDAWgBR0W/koCbvDtFGHUQZLM3j6HKsW2DAd</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwCwYDVR0PBAQDAgeAMDIGCCsG</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'AQUFBwEBBCYwJDAiBggrBgEFBQcwAYYWaHR0cHM6Ly8xMjcuMC4wLjE6OTk5OTAN</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'BgkqhkiG9w0BAQsFAAOCAQEAF1OTzTmbklFOdZCxrF3zg9owUPJR5RB+PbuBlUfI</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'8tkGXkMltQ8PN1dv6Cq+d8BluiJdWEzqVoJa/e5SHHJyYQSOhlurRG0GBXllVQ1I</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'n1PFaI40+9X2X6wrEcdC5nbzogR1jSiksCiTcARMddj0Xrp5FMrFaaGY8M/xqzdW</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'LTDl4nfbuxtA71cIjnE4kOcaemly9/S2wYWdPktsPxQPY1nPUOeJFI7o0sH3rK0c</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'JSqtgAG8vnjK+jbx9RpkgqCsXgUbIahL573VTgxrNrsRjCuVal7XVxl/xOKXr6Er</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'Gpc+OCrXbHNZkUQE5fZH3yL2tXd7EASEb6J3aEWHfF8YBA==</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+</span>
-      <span style="color: rgb(255,0,170);">'-----END CERTIFICATE-----'</span><span style="color: rgb(181,106,1);">;</span>
+  aboutToAppear(): void {
+    <em>// </em><em>证书二进制数据，需业务自行赋值。</em>
+    let certData = '-----BEGIN CERTIFICATE-----\r\n' +
+      'MIIDTjCCAjagAwIBAgIBBDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290\n' +
+      'IENBMB4XDTI0MDMxOTAyMDQwMVoXDTM0MDMxNzAyMDQwMVowEjEQMA4GA1UEAwwH\n' +
+      'ZGV2aWNlMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMIXL3e7UE/c\n' +
+      'Z1dPVgRZ5L8gsQ/azuYVBvoFf7o8ksYrL7G1+qZIJjVRqZkuTirLW4GicbkIkPNW\n' +
+      'eix5cDhkjkC+q5SBCOrSSTTlvX3xcOY1gMlA5MgeBfGixFusq4d5VPF2KceZ20/a\n' +
+      'ygwGD0Uv0X81OERyPom/dYdJUvfaD9ifPFJ1fKIj/cPFG3yJK/ojpEfndZNdESQL\n' +
+      'TkoDekilg2UGOLtY6fb9Ns37ncuIj33gCS/R9m1tgtmqCTcgOQ4hwKhjVF3InmPO\n' +
+      '2BbWKvD1RUX+rHC2a2HHDQILOOtDTy8dHvE+qZlK0efrpRgoFEERJAGPi1GDGWiA\n' +
+      '7UX1c4MCxIECAwEAAaOBrjCBqzAJBgNVHRMEAjAAMB0GA1UdDgQWBBQbkAcMT7ND\n' +
+      'fGp3VPFzYHppZ1zxLTAfBgNVHSMEGDAWgBR0W/koCbvDtFGHUQZLM3j6HKsW2DAd\n' +
+      'BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwCwYDVR0PBAQDAgeAMDIGCCsG\n' +
+      'AQUFBwEBBCYwJDAiBggrBgEFBQcwAYYWaHR0cHM6Ly8xMjcuMC4wLjE6OTk5OTAN\n' +
+      'BgkqhkiG9w0BAQsFAAOCAQEAF1OTzTmbklFOdZCxrF3zg9owUPJR5RB+PbuBlUfI\n' +
+      '8tkGXkMltQ8PN1dv6Cq+d8BluiJdWEzqVoJa/e5SHHJyYQSOhlurRG0GBXllVQ1I\n' +
+      'n1PFaI40+9X2X6wrEcdC5nbzogR1jSiksCiTcARMddj0Xrp5FMrFaaGY8M/xqzdW\n' +
+      'LTDl4nfbuxtA71cIjnE4kOcaemly9/S2wYWdPktsPxQPY1nPUOeJFI7o0sH3rK0c\n' +
+      'JSqtgAG8vnjK+jbx9RpkgqCsXgUbIahL573VTgxrNrsRjCuVal7XVxl/xOKXr6Er\n' +
+      'Gpc+OCrXbHNZkUQE5fZH3yL2tXd7EASEb6J3aEWHfF8YBA==\n' +
+      '-----END CERTIFICATE-----';
 
-    let <span style="color: rgb(0,0,255);">encodingBlob</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cert</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">EncodingBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">stringToUint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">certData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">encodingData</span><span style="color: rgb(128,128,128);">的格式进行赋值，支持</span><span style="color: rgb(128,128,128);">FORMAT_PEM</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">FORMAT_DER</span><span style="color: rgb(128,128,128);">。</span></em>
-      <span style="color: rgb(0,0,255);">encodingFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cert</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">EncodingFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FORMAT_PEM</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">create509</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encodingBlob</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'ok'</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'error:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    let encodingBlob: cert.EncodingBlob = {
+      data: stringToUint8Array(certData),
+     <em> // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER。</em>
+      encodingFormat: cert.EncodingFormat.FORMAT_PEM
+    };
+    create509(encodingBlob, () => {
+      this.message = 'ok';
+    }, (e) => {
+      this.message = 'error:' + e.message;
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Text(this.message);
+      }.justifyContent(FlexAlign.Center);
+    }.width('100%').height('100%').justifyContent(FlexAlign.Center);
+  }
+}
 ```
  
  

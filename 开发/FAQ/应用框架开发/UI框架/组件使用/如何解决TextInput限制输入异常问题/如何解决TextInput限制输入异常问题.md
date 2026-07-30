@@ -13,34 +13,34 @@
 问题代码示例参考如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">TextInputPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">inputValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct TextInputPage {
+  @State inputValue: string = '';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">加上双向绑定符号</span><span style="color: rgb(128,128,128);">$$</span><span style="color: rgb(128,128,128);">之后就无法再输入小数点</span></em>
-        <span style="color: rgb(255,255,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">请输入</span><span style="color: rgb(132,63,161);">-50~150</span><span style="color: rgb(132,63,161);">之间的数字</span><span style="color: rgb(132,63,161);">'</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">InputType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NUMBER_DECIMAL</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">转换为数字进行范围判断</span></em>
-          let <span style="color: rgb(255,255,255);">numValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseFloat</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">numValue </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'numValue</span><span style="color: rgb(132,63,161);">小于</span><span style="color: rgb(132,63,161);">50'</span><span style="color: rgb(255,0,170);">)</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'-50'</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">numValue </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">150</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'numValue</span><span style="color: rgb(132,63,161);">大于</span><span style="color: rgb(132,63,161);">150'</span><span style="color: rgb(255,0,170);">)</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'150'</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>else <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">numValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">()</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      TextInput({
+        text: this.inputValue, <em>// </em><em>加上双向绑定符号$$之后就无法再输入小数点</em>
+        placeholder: '请输入-50~150之间的数字'
+      })
+        .type(InputType.NUMBER_DECIMAL)
+        .onChange((value: string) => {
+        <em>  // 转换为数字进行范围判断</em>
+          let numValue = parseFloat(value) ;
+          if (numValue <= -50) {
+            console.info('numValue小于50')
+            this.inputValue = '-50';
+          }else if (numValue >= 150) {
+            console.info('numValue大于150')
+            this.inputValue = '150';
+          }else {
+            this.inputValue = numValue.toString()
+          }
+        })
+    }
+  }
+}
 ```
  
 问题效果预览：
@@ -87,35 +87,35 @@ struct <span style="color: rgb(0,0,255);">TextInputPage </span><span style="colo
 完整示例参考如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">TextInputPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">inputValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct TextInputPage {
+  @State inputValue: string = '';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">$$this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">请输入</span><span style="color: rgb(132,63,161);">-50~150</span><span style="color: rgb(132,63,161);">之间的数字</span><span style="color: rgb(132,63,161);">'</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">转换为数字进行范围判断</span></em>
-          let <span style="color: rgb(255,255,255);">numValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseFloat</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">numValue </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'numValue</span><span style="color: rgb(132,63,161);">小于</span><span style="color: rgb(132,63,161);">50'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'-50'</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">numValue </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">150</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'numValue</span><span style="color: rgb(132,63,161);">大于</span><span style="color: rgb(132,63,161);">150'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'150'</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">inputFilter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'^-?</span>\\<span style="color: rgb(132,63,161);">d*</span>\\<span style="color: rgb(132,63,161);">.?</span>\\<span style="color: rgb(132,63,161);">d{0,2}$'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">val</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用正则表达式对输入内容进行限制</span></em>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">限制输入两位小数 ： </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">val</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          return <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      TextInput({
+        text: $$this.inputValue,
+        placeholder: '请输入-50~150之间的数字'
+      })
+        .onChange((value: string) => {
+       <em>   // 转换为数字进行范围判断</em>
+          let numValue = parseFloat(value);
+          if (numValue <= -50) {
+            console.info('numValue小于50');
+            this.inputValue = '-50';
+          } else if (numValue >= 150) {
+            console.info('numValue大于150');
+            this.inputValue = '150';
+          } else {
+            this.inputValue = value;
+          }
+        })
+        .inputFilter('^-?\\d*\\.?\\d{0,2}$', (val) => {<em> </em><em>// 使用正则表达式对输入内容进行限制</em>
+          console.info(`限制输入两位小数 ： ${val}`);
+          return 0;
+        })
+    }
+  }
+}
 ```

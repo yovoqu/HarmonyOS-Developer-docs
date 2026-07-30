@@ -12,77 +12,77 @@
 模块级build-profile.json5文件整体的结构如下。
 
 ```json
-<span style="color: rgb(48,48,48);">apiType</span>
-<span style="color: rgb(48,48,48);">targets</span>
+apiType
+targets
 └── name
-<span style="color: rgb(48,48,48);">└── runtimeOS</span>
+└── runtimeOS
 └── config
-    └── <span style="color: rgb(48,48,48);">distroFilter</span> / distributionFilter
-<span style="color: rgb(48,48,48);">        └── apiVersion</span>
-<span style="color: rgb(48,48,48);">            └── policy</span>
-<span style="color: rgb(48,48,48);">            └── value</span>
-<span style="color: rgb(48,48,48);">        └── screenShape</span>
-<span style="color: rgb(48,48,48);">            └── policy</span>
-<span style="color: rgb(48,48,48);">            └── value</span>
-<span style="color: rgb(48,48,48);">        └── screenWindow</span>
-<span style="color: rgb(48,48,48);">            └── policy</span>
-<span style="color: rgb(48,48,48);">            └── value</span>
-<span style="color: rgb(48,48,48);">        └── screenDensity</span>
-<span style="color: rgb(48,48,48);">            └── policy</span>
-<span style="color: rgb(48,48,48);">            └── value</span>
-<span style="color: rgb(48,48,48);">        └── countryCode</span>
-<span style="color: rgb(48,48,48);">            └── policy</span>
-<span style="color: rgb(48,48,48);">            └── value</span>
-<span style="color: rgb(48,48,48);">    └── deviceType</span>
-<span style="color: rgb(48,48,48);">    └── buildOption</span>
-<span style="color: rgb(48,48,48);">    └── atomicService</span>
-<span style="color: rgb(48,48,48);">        └── </span>preloads
-<span style="color: rgb(48,48,48);">            └── </span>moduleName
-<span style="color: rgb(48,48,48);">└── source</span>
-<span style="color: rgb(48,48,48);">    └── abilities</span>
-<span style="color: rgb(48,48,48);">        └── </span>name
-<span style="color: rgb(48,48,48);">        └── </span>pages
-<span style="color: rgb(48,48,48);">        └── </span>res
-<span style="color: rgb(48,48,48);">        └── </span>icon
-<span style="color: rgb(48,48,48);">        └── </span>label
-<span style="color: rgb(48,48,48);">        └── </span>launchType
-<span style="color: rgb(48,48,48);">    └── pages</span>
-<span style="color: rgb(48,48,48);">    └── </span>sourceRoots
-<span style="color: rgb(48,48,48);">└── resource</span>
-<span style="color: rgb(48,48,48);">    └── directories</span>
+    └── distroFilter / distributionFilter
+        └── apiVersion
+            └── policy
+            └── value
+        └── screenShape
+            └── policy
+            └── value
+        └── screenWindow
+            └── policy
+            └── value
+        └── screenDensity
+            └── policy
+            └── value
+        └── countryCode
+            └── policy
+            └── value
+    └── deviceType
+    └── buildOption
+    └── atomicService
+        └── preloads
+            └── moduleName
+└── source
+    └── abilities
+        └── name
+        └── pages
+        └── res
+        └── icon
+        └── label
+        └── launchType
+    └── pages
+    └── sourceRoots
+└── resource
+    └── directories
 └── output
-<span style="color: rgb(48,48,48);">    └── </span>artifactName
-<span style="color: rgb(48,48,48);">showInServiceCenter</span>
-<span style="color: rgb(48,48,48);">buildOption</span>
-<span style="color: rgb(48,48,48);">buildOptionSet</span>
-<span style="color: rgb(48,48,48);">└── name</span>
-<span style="color: rgb(48,48,48);">└── debuggable</span>
-<span style="color: rgb(48,48,48);">└── </span>generateSharedTgz
-<span style="color: rgb(48,48,48);">└── copyFrom</span>
-<span style="color: rgb(48,48,48);">└── resOptions</span>
-<span style="color: rgb(48,48,48);">    └── </span>compression
-<span style="color: rgb(48,48,48);">        └── </span>media
-<span style="color: rgb(48,48,48);">            └── </span>enable
-<span style="color: rgb(48,48,48);">        └── </span>filters
-<span style="color: rgb(48,48,48);">            └── </span>method
-<span style="color: rgb(48,48,48);">                └── </span>type
-<span style="color: rgb(48,48,48);">                └── </span>blocks
-<span style="color: rgb(48,48,48);">            └── </span>files
-<span style="color: rgb(48,48,48);">                └── </span>path
-<span style="color: rgb(48,48,48);">                └── </span>size
-<span style="color: rgb(48,48,48);">                └── </span>resolution
-<span style="color: rgb(48,48,48);">            └── </span>exclude
-<span style="color: rgb(48,48,48);">                └── </span>path
-<span style="color: rgb(48,48,48);">                └── </span>size
-<span style="color: rgb(48,48,48);">                └── </span>resolution
-<span style="color: rgb(48,48,48);">    └──</span> resCompileThreads
-<span style="color: rgb(48,48,48);">    └──</span> copyCodeResource
-<span style="color: rgb(48,48,48);">        └── </span>enable
-<span style="color: rgb(48,48,48);">        └── </span>includes
-<span style="color: rgb(48,48,48);">        └── </span>excludes
-<span style="color: rgb(48,48,48);">    └── </span>ignoreResourcePattern
-<span style="color: rgb(48,48,48);">    └── </span>excludeHarRes
-<span style="color: rgb(48,48,48);">    └── </span>includeAppScopeRes
+    └── artifactName
+showInServiceCenter
+buildOption
+buildOptionSet
+└── name
+└── debuggable
+└── generateSharedTgz
+└── copyFrom
+└── resOptions
+    └── compression
+        └── media
+            └── enable
+        └── filters
+            └── method
+                └── type
+                └── blocks
+            └── files
+                └── path
+                └── size
+                └── resolution
+            └── exclude
+                └── path
+                └── size
+                └── resolution
+    └── resCompileThreads
+    └── copyCodeResource
+        └── enable
+        └── includes
+        └── excludes
+    └── ignoreResourcePattern
+    └── excludeHarRes
+    └── includeAppScopeRes
     └── qualifiersConfig
         └── Mcc&Mnc
         └── Locale
@@ -90,90 +90,90 @@
         └── Device
         └── ColorMode
         └── Density
-<span style="color: rgb(48,48,48);">└── externalNativeOptions</span>
-<span style="color: rgb(48,48,48);">    └── path</span>
-<span style="color: rgb(48,48,48);">    └── abiFilters</span>
-<span style="color: rgb(48,48,48);">    └── arguments</span>
-<span style="color: rgb(48,48,48);">    └── cppFlags</span>
-<span style="color: rgb(48,48,48);">    └──</span> cFlags
-<span style="color: rgb(48,48,48);">    └── targets</span>
-<span style="color: rgb(48,48,48);">└── sourceOption</span>
-<span style="color: rgb(48,48,48);">    └── workers</span>
-<span style="color: rgb(48,48,48);">└── </span>nativeLib
-<span style="color: rgb(48,48,48);">    └── </span>filter
-<span style="color: rgb(48,48,48);">        └── </span>excludes
-<span style="color: rgb(48,48,48);">        └── </span>pickFirsts
-<span style="color: rgb(48,48,48);">        └── </span>pickLasts
-<span style="color: rgb(48,48,48);">        └── </span>enableOverride
-<span style="color: rgb(48,48,48);">        └── </span>select
-<span style="color: rgb(48,48,48);">            └──</span> package
-<span style="color: rgb(48,48,48);">            └──</span> version
-<span style="color: rgb(48,48,48);">            └──</span> includePattern
-<span style="color: rgb(48,48,48);">            └──</span> excludePattern
-<span style="color: rgb(48,48,48);">            └──</span> include
-<span style="color: rgb(48,48,48);">            └──</span> exclude
-<span style="color: rgb(48,48,48);">    └── </span>debugSymbol
-<span style="color: rgb(48,48,48);">        └── </span>strip
-<span style="color: rgb(48,48,48);">        └── </span>exclude
-<span style="color: rgb(48,48,48);">    └── </span>headerPath
-<span style="color: rgb(48,48,48);">    └── </span>collectAllLibs
-<span style="color: rgb(48,48,48);">    └── </span>excludeFromHar
-<span style="color: rgb(48,48,48);">    └── </span>excludeSoFromInterfaceHar
-<span style="color: rgb(48,48,48);">    └── </span>excludeSoFromBinXO
-<span style="color: rgb(48,48,48);">    └── </span>librariesInfo
-<span style="color: rgb(48,48,48);">        └── </span>name
-<span style="color: rgb(48,48,48);">        └── </span>linkLibraries
-<span style="color: rgb(48,48,48);">    └── </span>enableSoDirCollection
-<span style="color: rgb(48,48,48);">└── napiLibFilterOption</span>
-<span style="color: rgb(48,48,48);">    └── excludes</span>
-<span style="color: rgb(48,48,48);">    └── pickFirsts</span>
-<span style="color: rgb(48,48,48);">    └── pickLasts</span>
-<span style="color: rgb(48,48,48);">    └── enableOverride</span>
-<span style="color: rgb(48,48,48);">└── arkOptions</span>
+└── externalNativeOptions
+    └── path
+    └── abiFilters
+    └── arguments
+    └── cppFlags
+    └── cFlags
+    └── targets
+└── sourceOption
+    └── workers
+└── nativeLib
+    └── filter
+        └── excludes
+        └── pickFirsts
+        └── pickLasts
+        └── enableOverride
+        └── select
+            └── package
+            └── version
+            └── includePattern
+            └── excludePattern
+            └── include
+            └── exclude
+    └── debugSymbol
+        └── strip
+        └── exclude
+    └── headerPath
+    └── collectAllLibs
+    └── excludeFromHar
+    └── excludeSoFromInterfaceHar
+    └── excludeSoFromBinXO
+    └── librariesInfo
+        └── name
+        └── linkLibraries
+    └── enableSoDirCollection
+└── napiLibFilterOption
+    └── excludes
+    └── pickFirsts
+    └── pickLasts
+    └── enableOverride
+└── arkOptions
     └── runtimeOnly
         └── sources
         └── packages
         └── excludePackages
-    └── <span style="color: rgb(48,48,48);">types</span>  
-    └── <span style="color: rgb(48,48,48);">obfuscation</span>
+    └── types  
+    └── obfuscation
         └── ruleOptions
             └── enable
             └── files
         └── consumerFiles
-<span style="color: rgb(48,48,48);">    └── </span>buildProfileFields
-<span style="color: rgb(48,48,48);">    └── </span>integratedHsp
-<span style="color: rgb(48,48,48);">    └── </span>transformLib
-<span style="color: rgb(48,48,48);">    └── </span>branchElimination
-<span style="color: rgb(48,48,48);">    └── </span>byteCodeHar
-<span style="color: rgb(48,48,48);">    └── </span>bundledDependencies
-<span style="color: rgb(48,48,48);">    └── </span>packSourceMap
-<span style="color: rgb(48,48,48);">    └── </span>autoLazyImport
-<span style="color: rgb(48,48,48);">    └── </span>autoLazyFilter
-<span style="color: rgb(48,48,48);">        └── </span>include
-<span style="color: rgb(48,48,48);">        └── </span>exclude
-<span style="color: rgb(48,48,48);">    └── </span>reExportCheckMode
-<span style="color: rgb(48,48,48);">    └── </span>skipOhModulesLint
-<span style="color: rgb(48,48,48);">    └── </span>expandImportPath
-<span style="color: rgb(48,48,48);">        └── </span>enable
-<span style="color: rgb(48,48,48);">        └── </span>exclude
-<span style="color: rgb(128,128,128);">    └── </span>widget
-<span style="color: rgb(128,128,128);">        └── </span>transitiveDeps
-<span style="color: rgb(48,48,48);">    └── apPath</span>
-<span style="color: rgb(48,48,48);">    └── hostPGO</span>
-<span style="color: rgb(48,48,48);">└── </span>packingOptions
-<span style="color: rgb(48,48,48);">    └── </span>asset
-<span style="color: rgb(48,48,48);">        └──</span> include
-<span style="color: rgb(48,48,48);">        └──</span> exclude
-<span style="color: rgb(48,48,48);">    └── </span>customizedOptions
-<span style="color: rgb(48,48,48);">        └──</span> basePackage
-<span style="color: rgb(48,48,48);">└── </span>removePermissions
-<span style="color: rgb(48,48,48);">    └── </span>name
-<span style="color: rgb(48,48,48);">buildModeBinder</span>
-<span style="color: rgb(48,48,48);">└── buildModeName</span>
-<span style="color: rgb(48,48,48);">└── </span><span style="color: rgb(48,48,48);">mappings</span>
-<span style="color: rgb(48,48,48);">    └── targetName</span>
-<span style="color: rgb(48,48,48);">    └── buildOptionName</span>
-<span style="color: rgb(48,48,48);">entryModules</span>
+    └── buildProfileFields
+    └── integratedHsp
+    └── transformLib
+    └── branchElimination
+    └── byteCodeHar
+    └── bundledDependencies
+    └── packSourceMap
+    └── autoLazyImport
+    └── autoLazyFilter
+        └── include
+        └── exclude
+    └── reExportCheckMode
+    └── skipOhModulesLint
+    └── expandImportPath
+        └── enable
+        └── exclude
+    └── widget
+        └── transitiveDeps
+    └── apPath
+    └── hostPGO
+└── packingOptions
+    └── asset
+        └── include
+        └── exclude
+    └── customizedOptions
+        └── basePackage
+└── removePermissions
+    └── name
+buildModeBinder
+└── buildModeName
+└── mappings
+    └── targetName
+    └── buildOptionName
+entryModules
 ```
 
 
@@ -222,14 +222,14 @@ targets用于给模块配置[多目标产物](https://developer.huawei.com/consu
 targets字段示例：
 
 ```json
-<span style="color: rgb(135,16,148);">"targets"</span>: [
+"targets": [
   {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
-    <span style="color: rgb(135,16,148);">"resource"</span>: {
-      <span style="color: rgb(135,16,148);">"directories"</span>: [<span style="color: rgb(6,125,23);">"./src/main/resources"</span>]
+    "name": "default",
+    "resource": {
+      "directories": ["./src/main/resources"]
     },
-    <span style="color: rgb(135,16,148);">"output"</span>: {
-      <span style="color: rgb(135,16,148);">"artifactName"</span>: <span style="color: rgb(6,125,23);">"customizedTargetOutputName-1.0.0"</span>
+    "output": {
+      "artifactName": "customizedTargetOutputName-1.0.0"
     }
   }
 ]
@@ -266,23 +266,23 @@ source用于指定target的源码范围。
 source字段示例：
 
 ```text
-<span style="color: rgb(135,16,148);">"targets"</span>: [
+"targets": [
   {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
-    <span style="color: rgb(135,16,148);">"source"</span>: {
-       <span style="color: rgb(135,16,148);">"pages"</span>: [         <span style="color: rgb(140,140,140);">// Stage</span><span style="color: rgb(140,140,140);">模型</span>
-        <span style="color: rgb(6,125,23);">"pages/Index"</span>
+    "name": "default",
+    "source": {
+       "pages": [         // Stage模型
+        "pages/Index"
       ],
-      <span style="color: rgb(135,16,148);">"abilities"</span>: [     <span style="color: rgb(140,140,140);">// FA</span><span style="color: rgb(140,140,140);">模型</span>
+      "abilities": [     // FA模型
         {
-          <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">".MainAbility"</span>,
-          <span style="color: rgb(135,16,148);">"pages"</span>: [
-            <span style="color: rgb(6,125,23);">"pages/index"</span>
+          "name": ".MainAbility",
+          "pages": [
+            "pages/index"
           ]
         }
       ],
-      <span style="color: rgb(135,16,148);">"sourceRoots"</span>: [
-        <span style="color: rgb(6,125,23);">"./src/default"</span>
+      "sourceRoots": [
+        "./src/default"
       ]
     }
   }
@@ -357,40 +357,40 @@ distroFilter/distributionFilter用于指定应用市场分发规则，distroFilt
 distroFilter/distributionFilter字段示例：
 
 ```json
-<span style="color: rgb(135,16,148);">"targets"</span>: [
+"targets": [
   {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
-    <span style="color: rgb(135,16,148);">"config"</span>: {
-      <span style="color: rgb(135,16,148);">"distributionFilter"</span>: {
-        <span style="color: rgb(135,16,148);">"apiVersion"</span>: {
-          <span style="color: rgb(135,16,148);">"policy"</span>: <span style="color: rgb(6,125,23);">"include"</span>,
-          <span style="color: rgb(135,16,148);">"value"</span>: [<span style="color: rgb(23,80,235);">12</span>]
+    "name": "default",
+    "config": {
+      "distributionFilter": {
+        "apiVersion": {
+          "policy": "include",
+          "value": [12]
         },
-        <span style="color: rgb(135,16,148);">"screenShape"</span>: {
-          <span style="color: rgb(135,16,148);">"policy"</span>: <span style="color: rgb(6,125,23);">"include"</span>,
-          <span style="color: rgb(135,16,148);">"value"</span>: [
-            <span style="color: rgb(6,125,23);">"circle"</span>,
-            <span style="color: rgb(6,125,23);">"rect"</span>
+        "screenShape": {
+          "policy": "include",
+          "value": [
+            "circle",
+            "rect"
           ]
         },
-        <span style="color: rgb(135,16,148);">"screenWindow"</span>: {
-          <span style="color: rgb(135,16,148);">"policy"</span>: <span style="color: rgb(6,125,23);">"include"</span>,
-          <span style="color: rgb(135,16,148);">"value"</span>: [
-            <span style="color: rgb(6,125,23);">"454*454"</span>,
-            <span style="color: rgb(6,125,23);">"466*466"</span>
+        "screenWindow": {
+          "policy": "include",
+          "value": [
+            "454*454",
+            "466*466"
           ]
         },
-        <span style="color: rgb(135,16,148);">"screenDensity"</span>: {
-          <span style="color: rgb(135,16,148);">"policy"</span>: <span style="color: rgb(6,125,23);">"exclude"</span>,
-          <span style="color: rgb(135,16,148);">"value"</span>: [
-            <span style="color: rgb(6,125,23);">"ldpi"</span>,
-            <span style="color: rgb(6,125,23);">"xldpi"</span>
+        "screenDensity": {
+          "policy": "exclude",
+          "value": [
+            "ldpi",
+            "xldpi"
           ]
         },
-        <span style="color: rgb(135,16,148);">"countryCode"</span>: {
-          <span style="color: rgb(135,16,148);">"policy"</span>: <span style="color: rgb(6,125,23);">"include"</span>,
-          <span style="color: rgb(135,16,148);">"value"</span>: [
-            <span style="color: rgb(6,125,23);">"CN"</span>
+        "countryCode": {
+          "policy": "include",
+          "value": [
+            "CN"
           ]
         }
       }
@@ -416,14 +416,14 @@ distroFilter/distributionFilter字段示例：
 atomicService字段示例：
 
 ```json
-<span style="color: rgb(135,16,148);">"targets"</span>: [
+"targets": [
   {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
-    <span style="color: rgb(135,16,148);">"config"</span>: {
-      <span style="color: rgb(135,16,148);">"atomicService"</span>: {
-        <span style="color: rgb(135,16,148);">"preloads"</span>: [
+    "name": "default",
+    "config": {
+      "atomicService": {
+        "preloads": [
           {
-            <span style="color: rgb(135,16,148);">"moduleName"</span>: <span style="color: rgb(6,125,23);">"preloadSharedLibrary"</span>
+            "moduleName": "preloadSharedLibrary"
           }
         ]
       }
@@ -451,16 +451,16 @@ abilities用于自定义target的能力范围。
 abilities字段示例：
 
 ```json
-<span style="color: rgb(135,16,148);">"targets"</span>: [
+"targets": [
   {
-    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
-    <span style="color: rgb(135,16,148);">"source"</span>: {
-      <span style="color: rgb(135,16,148);">"abilities"</span>: [
+    "name": "default",
+    "source": {
+      "abilities": [
         {
-          <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"EntryAbility"</span>,
-          <span style="color: rgb(135,16,148);">"icon"</span>: <span style="color: rgb(6,125,23);">"$media:layered_image"</span>,
-          <span style="color: rgb(135,16,148);">"label"</span>: <span style="color: rgb(6,125,23);">"$string:EntryAbility_label"</span>,
-          <span style="color: rgb(135,16,148);">"launchType"</span>: <span style="color: rgb(6,125,23);">"singleton"</span>
+          "name": "EntryAbility",
+          "icon": "$media:layered_image",
+          "label": "$string:EntryAbility_label",
+          "launchType": "singleton"
         }
       ]
     }

@@ -58,16 +58,16 @@ void OHOSVDecoder::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuf
     std::shared_ptr<Frame> frame;
     {
         std::unique_lock<std::mutex> auto_lock(_frame_mutex);
-        if (_input_frames.size() > <span style="color: rgb(0,0,255);">0</span>) {
+        if (_input_frames.size() > 0) {
             frame = _input_frames.front();
             _input_frames.pop_front();
         }
     }
     if (frame == nullptr) {
         OH_AVCodecBufferAttr info;
-        info.pts = <span style="color: rgb(0,0,255);">0</span>;
-        info.size = <span style="color: rgb(0,0,255);">0</span>;
-        info.offset = <span style="color: rgb(0,0,255);">0</span>;
+        info.pts = 0;
+        info.size = 0;
+        info.offset = 0;
         info.flags = AVCODEC_BUFFER_FLAGS_DISCARD;
         OH_AVBuffer_SetBufferAttr(buffer, &info);
         OH_VideoDecoder_PushInputBuffer(codec, index);
@@ -77,7 +77,7 @@ void OHOSVDecoder::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuf
     OH_AVCodecBufferAttr info;
     info.pts = video_frame->pts();
     info.size = frame->Size();
-    info.offset = <span style="color: rgb(0,0,255);">0</span>;
+    info.offset = 0;
     info.flags = AVCODEC_BUFFER_FLAGS_NONE;
     int32_t ret = OH_AVBuffer_SetBufferAttr(buffer, &info);
     if (ret != AV_ERR_OK) {

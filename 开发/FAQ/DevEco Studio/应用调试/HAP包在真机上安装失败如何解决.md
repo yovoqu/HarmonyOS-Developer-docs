@@ -24,9 +24,9 @@
 
   先安装老包，修改build-profile.json5中的API版本后，再安装新包，报错如下:
 ```text
-<span style="color: rgb(0,0,255);">Install </span><span style="color: rgb(181,106,1);">Failed</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">failed to install bundle</span><span style="color: rgb(181,106,1);">.</span>
-<span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">9568283</span>
-<span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">install releaseType compatible not same</span><span style="color: rgb(181,106,1);">.</span>
+Install Failed: error: failed to install bundle.
+code:9568283
+error: install releaseType compatible not same.
 ```
 
 
