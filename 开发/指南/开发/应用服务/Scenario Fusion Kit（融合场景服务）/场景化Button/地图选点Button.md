@@ -1,6 +1,6 @@
 # 地图选点Button
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-selecting-point
 
@@ -61,7 +61,7 @@ struct Index {
               hoverStayTime: 0,
               styleConfig: new functionalButtonComponentManager.ButtonConfig()
                 .fontSize(20)
-            },
+            }
           },
           // 当OpenType设置为CHOOSE_LOCATION时，回调必须为onChooseLocation。
           controller: new functionalButtonComponentManager.FunctionalButtonController()

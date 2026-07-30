@@ -1,6 +1,6 @@
-# @ohos.app.ability.AgentUIExtensionAbility (带界面的智能体拓展组件)
+# @ohos.app.ability.AgentUIExtensionAbility (带界面的智能体扩展组件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-agent-agentuiextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

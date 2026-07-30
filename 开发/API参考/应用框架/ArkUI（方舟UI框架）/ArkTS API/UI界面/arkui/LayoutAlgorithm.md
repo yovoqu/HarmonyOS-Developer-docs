@@ -1,11 +1,13 @@
 # LayoutAlgorithm
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [DynamicLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout)组件支持的布局算法详细信息。
+
+LayoutAlgorithm是动态布局容器的布局算法基础类型，提供了多种布局算法实现，包括线性布局、堆叠布局和网格布局。开发者可以根据实际场景选择合适的布局算法，也可以继承CustomLayoutAlgorithm实现自定义布局。
 
 > [!NOTE]
 > 本模块首批接口从API version 24开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
@@ -46,7 +48,7 @@ import { LayoutAlgorithm, CustomLayoutAlgorithm, RowLayoutAlgorithm, ColumnLayou
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-自定义布局算法类。
+自定义布局算法类，允许开发者实现自定义的测量和布局逻辑。适用于需要精细控制子组件尺寸和位置的复杂布局场景，如瀑布流布局、不规则网格布局、动态流式布局等。通过重写onMeasure和onLayout方法，开发者可以实现内置布局算法无法覆盖的布局策略。
 
 **装饰器类型：** [@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)
 
@@ -65,7 +67,7 @@ onMeasure(self: FrameNode, constraint: LayoutConstraint): void
 通过重写此函数，开发者可以自定义测量子组件的大小。ArkUI框架会在动态布局组件确定尺寸时，将该组件对应的FrameNode和布局约束通过onMeasure传递给开发者。不允许在onMeasure函数中改变状态变量。
 
 > [!NOTE]
-> 在此函数中，开发者可以调用 FrameNode 的 getChild() 方法获取子组件FrameNode，调用 FrameNode 的 measure() 方法测量子组件大小，参考DynamicLayout组件 示例1（自定义布局算法实现瀑布流布局） 。
+> onMeasure和 onLayout 通常需要配合使用，共同完成完整的自定义布局流程。框架先调用onMeasure测量子组件大小，再调用onLayout设置子组件位置。 在此函数中，开发者可以调用 FrameNode 的 getChild() 方法获取子组件FrameNode，调用 FrameNode 的 measure() 方法测量子组件大小，参考DynamicLayout组件 示例1（自定义布局算法实现瀑布流布局） 。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -80,7 +82,7 @@ onMeasure(self: FrameNode, constraint: LayoutConstraint): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| self | FrameNode | 是 | 动态布局组件在组件树上的实体节点。 |
+| self | FrameNode | 是 | 动态布局组件在组件树上的实体节点，用于获取子组件FrameNode并测量子组件大小。 |
 | constraint | LayoutConstraint | 是 | 动态布局组件进行测量时使用的布局约束。 |
 
 
@@ -95,7 +97,7 @@ onLayout(self: FrameNode, position: Position): void
 通过重写此函数，开发者可以自定义排列子组件的位置。ArkUI框架会在动态布局组件确定位置时，将该组件对应的FrameNode和布局位置通过onLayout传递给开发者。不允许在onLayout函数中改变状态变量。
 
 > [!NOTE]
-> 在此函数中，开发者可以调用 FrameNode 的 getChild() 方法获取子组件FrameNode，调用 FrameNode 的 layout() 方法设置子组件位置，参考DynamicLayout组件 示例1（自定义布局算法实现瀑布流布局） 。
+> onLayout和 onMeasure 通常需要配合使用，共同完成完整的自定义布局流程。框架先调用onMeasure测量子组件大小，再调用onLayout设置子组件位置。 在此函数中，开发者可以调用 FrameNode 的 getChild() 方法获取子组件FrameNode，调用 FrameNode 的 layout() 方法设置子组件位置，参考DynamicLayout组件 示例1（自定义布局算法实现瀑布流布局） 。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -110,7 +112,7 @@ onLayout(self: FrameNode, position: Position): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| self | FrameNode | 是 | 动态布局组件在组件树上的实体节点。 |
+| self | FrameNode | 是 | 动态布局组件在组件树上的实体节点，用于获取子组件FrameNode并设置子组件位置。 |
 | position | Position | 是 | 动态布局组件进行布局时使用的位置信息。 |
 
 
@@ -124,7 +126,7 @@ onLayout(self: FrameNode, position: Position): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-水平方向线性布局算法类。
+水平方向线性布局算法类，用于实现子组件的水平线性排列。适用于需要水平排列子组件的场景，如横向列表、工具栏、标签栏、操作按钮组等。支持设置子组件间距、垂直对齐方式、水平对齐方式和排列方向，提供类似Row组件的布局能力。
 
 **装饰器类型：** [@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)
 
@@ -148,10 +150,10 @@ onLayout(self: FrameNode, position: Position): void
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| space | LengthMetrics | 否 | 是 | 横向布局元素水平方向间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
+| space | LengthMetrics | 否 | 是 | 子组件水平方向间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
 | alignItems | VerticalAlign | 否 | 是 | 所有子组件在垂直方向上的对齐格式。 默认值：VerticalAlign.Center 非法值：按默认值处理。 装饰器类型：@Trace |
 | justifyContent | FlexAlign | 否 | 是 | 所有子组件在水平方向上的对齐格式。 默认值：FlexAlign.Start 非法值：按默认值处理。 装饰器类型：@Trace |
-| isReverse | boolean | 否 | 是 | 子组件在水平方向上的排列是否反转。取值为true表示子组件在水平方向上反转排列，由于水平方向受通用属性direction影响，如果direction属性生效，再做一次反转。取值为false表示子组件在水平方向上正序排列。 默认值：false 非法值：按默认值处理。 装饰器类型：@Trace |
+| isReverse | boolean | 否 | 是 | 子组件在水平方向上的排列是否反转。取值为true表示子组件在水平方向上反转排列。水平方向受通用属性direction影响，当direction属性设置后，子组件会先根据direction排列，再根据isReverse进行反转。取值为false表示子组件在水平方向上正序排列。 默认值：false 非法值：按默认值处理。 装饰器类型：@Trace |
 
 
 
@@ -176,7 +178,7 @@ constructor(option?: RowLayoutAlgorithmOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | RowLayoutAlgorithmOptions | 否 | 水平方向线性布局算法的构造入参，设置布局算法的间距、主轴对齐方式、交叉轴对齐方式及主轴排列方向。 |
+| option | RowLayoutAlgorithmOptions | 否 | 水平方向线性布局算法的构造入参，设置布局算法的间距、主轴对齐方式、交叉轴对齐方式及主轴排列方向。不传入时使用各属性的默认值。 |
 
 
 **示例：**
@@ -201,10 +203,10 @@ constructor(option?: RowLayoutAlgorithmOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| space | LengthMetrics | 否 | 是 | 横向布局元素水平方向间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |
+| space | LengthMetrics | 否 | 是 | 子组件水平方向间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |
 | alignItems | VerticalAlign | 否 | 是 | 所有子组件在垂直方向上的对齐格式。 默认值：VerticalAlign.Center 非法值：按默认值处理。 |
 | justifyContent | FlexAlign | 否 | 是 | 所有子组件在水平方向上的对齐格式。 默认值：FlexAlign.Start 非法值：按默认值处理。 |
-| isReverse | boolean | 否 | 是 | 子组件在水平方向上的排列是否反转。取值为true表示子组件在水平方向上反转排列，由于水平方向受通用属性direction影响，如果direction属性生效，再做一次反转。取值为false表示子组件在水平方向上正序排列。 默认值：false 非法值：按默认值处理。 |
+| isReverse | boolean | 否 | 是 | 子组件在水平方向上的排列是否反转。取值为true表示子组件在水平方向上反转排列。水平方向受通用属性direction影响，当direction属性设置后，子组件会先根据direction排列，再根据isReverse进行反转。取值为false表示子组件在水平方向上正序排列。 默认值：false 非法值：按默认值处理。 |
 
 
 
@@ -213,7 +215,7 @@ constructor(option?: RowLayoutAlgorithmOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-垂直方向线性布局算法类。
+垂直方向线性布局算法类，用于实现子组件的垂直线性排列。适用于需要垂直排列子组件的场景，如纵向列表、垂直堆叠的表单项、垂直菜单等。支持设置子组件间距、水平对齐方式、垂直对齐方式和排列方向，提供类似Column组件的布局能力。
 
 **装饰器类型：** [@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)
 
@@ -237,10 +239,10 @@ constructor(option?: RowLayoutAlgorithmOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| space | LengthMetrics | 否 | 是 | 纵向布局元素垂直方向间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
+| space | LengthMetrics | 否 | 是 | 子组件垂直方向间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
 | alignItems | HorizontalAlign | 否 | 是 | 所有子组件在水平方向上的对齐格式。 默认值：HorizontalAlign.Center 非法值：按默认值处理。 装饰器类型：@Trace |
 | justifyContent | FlexAlign | 否 | 是 | 所有子组件在垂直方向上的对齐格式。 默认值：FlexAlign.Start 非法值：按默认值处理。 装饰器类型：@Trace |
-| isReverse | boolean | 否 | 是 | 子组件在垂直方向上的排列是否反转。取值为true表示子组件在垂直方向上反转排列。取值为false表示子组件在垂直方向上正序排列。 默认值：false 非法值：按默认值处理。 装饰器类型：@Trace |
+| isReverse | boolean | 否 | 是 | 子组件在垂直方向上的排列是否反转。取值为true表示子组件在垂直方向上反转排列。垂直方向不受通用属性direction影响。取值为false表示子组件在垂直方向上正序排列。 默认值：false 非法值：按默认值处理。 装饰器类型：@Trace |
 
 
 
@@ -265,7 +267,7 @@ constructor(option?: ColumnLayoutAlgorithmOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | ColumnLayoutAlgorithmOptions | 否 | 垂直方向线性布局算法的构造入参，设置布局算法的间距、主轴对齐方式、交叉轴对齐方式及主轴排列方向。 |
+| option | ColumnLayoutAlgorithmOptions | 否 | 垂直方向线性布局算法的构造入参，设置布局算法的间距、主轴对齐方式、交叉轴对齐方式及主轴排列方向。不传入时使用各属性的默认值。 |
 
 
 **示例：**
@@ -290,10 +292,10 @@ constructor(option?: ColumnLayoutAlgorithmOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| space | LengthMetrics | 否 | 是 | 纵向布局元素垂直方向间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |
+| space | LengthMetrics | 否 | 是 | 子组件垂直方向间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |
 | alignItems | HorizontalAlign | 否 | 是 | 所有子组件在水平方向上的对齐格式。 默认值：HorizontalAlign.Center 非法值：按默认值处理。 |
 | justifyContent | FlexAlign | 否 | 是 | 所有子组件在垂直方向上的对齐格式。 默认值：FlexAlign.Start 非法值：按默认值处理。 |
-| isReverse | boolean | 否 | 是 | 子组件在垂直方向上的排列是否反转。取值为true表示子组件在垂直方向上反转排列。取值为false表示子组件在垂直方向上正序排列。 默认值：false 非法值：按默认值处理。 |
+| isReverse | boolean | 否 | 是 | 子组件在垂直方向上的排列是否反转。取值为true表示子组件在垂直方向上反转排列。垂直方向不受通用属性direction影响。取值为false表示子组件在垂直方向上正序排列。 默认值：false 非法值：按默认值处理。 |
 
 
 
@@ -302,7 +304,7 @@ constructor(option?: ColumnLayoutAlgorithmOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-堆叠布局算法类。
+堆叠布局算法类，用于实现子组件的堆叠排列。适用于需要子组件重叠显示的场景，如图层叠加、悬浮按钮、带背景的内容区域、卡片叠加效果等。支持设置子组件在堆叠容器中的对齐方式，提供类似Stack组件的布局能力。
 
 **装饰器类型：** [@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)
 
@@ -351,7 +353,7 @@ constructor(option?: StackLayoutAlgorithmOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | StackLayoutAlgorithmOptions | 否 | 堆叠布局算法的构造入参，设置九宫格对齐格式。 |
+| option | StackLayoutAlgorithmOptions | 否 | 堆叠布局算法的构造入参，设置九宫格对齐格式。不传入时使用各属性的默认值。 |
 
 
 **示例：**
@@ -385,7 +387,7 @@ constructor(option?: StackLayoutAlgorithmOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-网格布局算法类。
+网格布局算法类，用于实现子组件的网格排列。适用于需要将子组件按网格形式排列的场景，如宫格菜单、相册网格、应用列表、商品展示等。支持设置列数模板、列间距和行间距，提供类似Grid组件的布局能力。
 
 **装饰器类型：** [@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)
 
@@ -407,9 +409,9 @@ constructor(option?: StackLayoutAlgorithmOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| columnsTemplate | string \| ItemFillPolicy | 否 | 是 | 设置当前网格布局的列数。 默认值：'1fr' 非法值：按默认值处理。 装饰器类型：@Trace |
-| columnsGap | LengthMetrics | 否 | 是 | 列与列之间的间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
-| rowsGap | LengthMetrics | 否 | 是 | 行与行之间的间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
+| columnsTemplate | string \| ItemFillPolicy | 否 | 是 | 设置当前网格布局的列模板，定义列的宽度和数量。string类型需符合模板格式，例如'1fr'表示单列布局，'1fr 1fr 1fr'表示三列等宽布局，'1fr 2fr'表示两列且第二列宽度是第一列的两倍。使用ItemFillPolicy时可实现自适应列数。 默认值：'1fr' 非法值：按默认值处理。 装饰器类型：@Trace |
+| columnsGap | LengthMetrics | 否 | 是 | 列与列之间的间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
+| rowsGap | LengthMetrics | 否 | 是 | 行与行之间的间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 装饰器类型：@Trace |
 
 
 
@@ -432,7 +434,7 @@ constructor(option?: GridLayoutAlgorithmOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | GridLayoutAlgorithmOptions | 否 | 网格布局算法的构造入参，设置网格布局的列数、列间距、行间距。 |
+| option | GridLayoutAlgorithmOptions | 否 | 网格布局算法的构造入参，设置网格布局的列数、列间距、行间距。不传入时使用各属性的默认值。 |
 
 
 **示例：**
@@ -455,6 +457,6 @@ constructor(option?: GridLayoutAlgorithmOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| columnsTemplate | string \| ItemFillPolicy | 否 | 是 | 设置当前网格布局的列数。 默认值：'1fr' 非法值：按默认值处理。 |
-| columnsGap | LengthMetrics | 否 | 是 | 列与列之间的间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |
-| rowsGap | LengthMetrics | 否 | 是 | 行与行之间的间距。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |
+| columnsTemplate | string \| ItemFillPolicy | 否 | 是 | 设置当前网格布局的列模板，定义列的宽度和数量。string类型需符合模板格式，例如'1fr'表示单列布局，'1fr 1fr 1fr'表示三列等宽布局，'1fr 2fr'表示两列且第二列宽度是第一列的两倍。使用ItemFillPolicy时可实现自适应列数。 默认值：'1fr' 非法值：按默认值处理。 |
+| columnsGap | LengthMetrics | 否 | 是 | 列与列之间的间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |
+| rowsGap | LengthMetrics | 否 | 是 | 行与行之间的间距。取值范围：非负数。 默认值：LengthMetrics.vp(0) 非法值：按默认值处理。 |

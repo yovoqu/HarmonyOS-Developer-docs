@@ -45,7 +45,7 @@ function <span style="color: rgb(0,0,255);">copyRawFileToSdcard</span><span styl
 原始文件与拷贝后文件对比如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/KDR9wT8ESTuca_yLDGxbVg/zh-cn_image_0000002659138375.png?HW-CC-KV=V1&HW-CC-Date=20260723T013311Z&HW-CC-Expire=86400&HW-CC-Sign=8EA78623E2168DD744392B641F282D2C341494B3DFC4BA70AF08AEB5A1083A1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/KDR9wT8ESTuca_yLDGxbVg/zh-cn_image_0000002659138375.png?HW-CC-KV=V1&HW-CC-Date=20260730T072525Z&HW-CC-Expire=86400&HW-CC-Sign=B15FA313DBB62DB7571236C919857D367C4257C2DD478DAD0150AB4A87C14E6B)
 
  
 

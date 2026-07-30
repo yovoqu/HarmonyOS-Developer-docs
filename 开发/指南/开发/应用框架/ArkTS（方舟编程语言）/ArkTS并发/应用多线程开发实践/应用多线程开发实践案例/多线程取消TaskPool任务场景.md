@@ -1,6 +1,6 @@
 # 多线程取消TaskPool任务场景
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-cancel-task
 
@@ -67,9 +67,10 @@ struct TaskpoolCancel {
               // taskpool execute error, message is: taskpool:: task has been canceled.
             });
             let send = new SendableTest(task.taskId);
-            taskpool.execute(cancel, send);
-            this.returnMessage = 'Taskpool canceled!';
-            this.promptAction.showToast({ message: this.returnMessage });
+            taskpool.execute(cancel, send).then(() => {
+              this.returnMessage = 'Taskpool canceled!';
+              this.promptAction.showToast({ message: this.returnMessage });
+            });
           })
         // ...
       }

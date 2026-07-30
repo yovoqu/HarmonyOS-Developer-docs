@@ -1,6 +1,6 @@
 # utd.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-utd-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -264,7 +264,7 @@ const char** OH_Utd_GetBelongingToTypes(OH_Utd* pThis, unsigned int* count)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Utd* pThis | 表示一个指向统一数据类型OH_Utd对象的指针。 |
-| unsigned int* count | 该参数是输出参数，结果集中的类型数量会写入该变量。 |
+| unsigned int* count | 输出参数，结果集中的类型数量会写入该变量。 |
  
  
 **返回：**

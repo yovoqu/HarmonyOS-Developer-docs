@@ -13,7 +13,7 @@ HarmonyOS如何隐藏图案锁PatternLock控件的解锁轨迹。
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/TX29rzy2T8m2aREsnR-1Vg/zh-cn_image_0000002628599896.png?HW-CC-KV=V1&HW-CC-Date=20260723T013053Z&HW-CC-Expire=86400&HW-CC-Sign=E40F1B9B755D07CDBEF9111DB6B998E7EA963242D2D8678B0AF6D1A02FA618DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/TX29rzy2T8m2aREsnR-1Vg/zh-cn_image_0000002628599896.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=49C9CA0CB62BCC920B509784D216029D656F6BEFBF0BC2349EC1223897418A7C)
 
  
  
@@ -41,7 +41,7 @@ PatternLock()
 解锁效果如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/MMzjGOCVTGWINR-yAbnavA/zh-cn_image_0000002628759800.png?HW-CC-KV=V1&HW-CC-Date=20260723T013053Z&HW-CC-Expire=86400&HW-CC-Sign=FC141EABB14452C7413448DDC628827D99687ADCA78F0E9671F3A0C9947FF582)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/MMzjGOCVTGWINR-yAbnavA/zh-cn_image_0000002628759800.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=49EA1850DC7E2261C6E7DA7E1A227364D69B59DC278C6E333843375A2981D22E)
 
  
  
@@ -100,7 +100,7 @@ struct HiddenPatternLock {
 在日志中会打印出选择的数字，截图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/LTCZu-XSSvyvC_-dMCGNvA/zh-cn_image_0000002658959115.png?HW-CC-KV=V1&HW-CC-Date=20260723T013053Z&HW-CC-Expire=86400&HW-CC-Sign=A5992DE3FD68DA4EC3F5DD0A91C5C51A6CD2A45A487F192A5F3D1289A2CE3CE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/LTCZu-XSSvyvC_-dMCGNvA/zh-cn_image_0000002658959115.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=435415F047E4929237559F546D84EE8096B4685279AE6C05999D8DCA37DE694F)
 
  
  
@@ -153,4 +153,4 @@ struct SelectedPatternLock {
 运行效果如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/yniu02UkQy-WNByieTE0TA/zh-cn_image_0000002658839165.png?HW-CC-KV=V1&HW-CC-Date=20260723T013053Z&HW-CC-Expire=86400&HW-CC-Sign=5AC02247AD2F4AEBE6A15CA2620EC44E9E19189B7B327645F6A1262B24A55DE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/yniu02UkQy-WNByieTE0TA/zh-cn_image_0000002658839165.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=46CAF9AC617DB6092151667D2766BEDB65E742894C5A2BC515322A08A112092A)

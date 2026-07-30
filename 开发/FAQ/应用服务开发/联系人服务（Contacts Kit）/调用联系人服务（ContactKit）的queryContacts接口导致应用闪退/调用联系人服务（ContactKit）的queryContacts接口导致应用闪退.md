@@ -1,6 +1,6 @@
 # 调用联系人服务（ContactKit）的queryContacts接口导致应用闪退
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-4
 
@@ -20,7 +20,7 @@
 
 #### 问题定位
 
-应用运行报出AppFreeze应用无响应，通过日志找到卡死原因是[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s-应用主线程卡死超时)，分析可知是联系人数据量过大导致主线程卡死超时。
+应用运行报出AppFreeze应用无响应，通过日志找到卡死原因是[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)，分析可知是联系人数据量过大导致主线程卡死超时。
  
  
 

@@ -1,6 +1,6 @@
 # 设置KIA文件水印图片
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-set-kia-watermark
 
@@ -26,20 +26,28 @@
 
   
 ```text
-import { fileGuard } from '@kit.EnterpriseDataGuardKit';
-import { fileIo } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { fileIo } from '@kit.CoreFileKit';
+import { fileGuard } from '@kit.EnterpriseDataGuardKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
 2. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[setKiaWatermarkImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#setkiawatermarkimage)，设置KIA文件水印图片。
 
   
 ```text
+const TAG: string = 'FileGuard_KIAWatermarkImage';
+const DOMAIN: number = 0x0000;
+
+/**
+ * 设置KIA文件水印图片。使用Promise异步回调。
+ */
 async function testSetKiaWaterMarkImage() {
+  let fd: number = -1;
   try {
     let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
-    let imagePath: string = '/data/service/el2/{account_id}/hmdfs/account/files/Docs/Documents/1.png';
-    let fd: number = await guard.openFile(imagePath);
+    let imagePath: string = `/data/service/el2/test_water.png`;
+    fd = await guard.openFile(imagePath);
     let stat: fileIo.Stat = fileIo.statSync(fd);
     let buffer: ArrayBuffer = new ArrayBuffer(stat.size);
     fileIo.readSync(fd, buffer);
@@ -47,12 +55,17 @@ async function testSetKiaWaterMarkImage() {
     let image: Uint8Array = new Uint8Array(buffer);
     let info: string = new Date().toLocaleString();
     guard.setKiaWatermarkImage(image, info).then(() => {
-      console.info(`Succeeded in setting the watermark image for Kia file.`);
+      hilog.info(DOMAIN, TAG, `Succeeded in setting the watermark image for Kia file.`);
     }).catch((err: BusinessError) => {
-      console.error(`Failed to set the watermark image for Kia file. Code: ${err.code}, message: ${err.message}.`);
+      hilog.error(DOMAIN, TAG,
+        `Failed to set the watermark image for Kia file. Code: ${err.code}, message: ${err.message}.`);
     })
   } catch (e) {
-    console.error(`[scanFileGuard] testSetKiaWaterMarkImage Exception, Code: ${e.code}, message: ${e.message}`);
+    hilog.error(DOMAIN, TAG, `testSetKiaWaterMarkImage Exception, Code: ${e.code}, message: ${e.message}`);
+  } finally {
+    if (fd !== -1) {
+      fileIo.close(fd);
+    }
   }
 }
 ```

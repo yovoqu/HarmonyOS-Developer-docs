@@ -46,7 +46,7 @@ Native内存泄漏是指在C/C++层（通过NDK或系统底层）分配的内存
   使用Native Heap分析整体流程图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/QDdOFNMGSmC53WLj551xlg/zh-cn_image_0000002675100569.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=C6D94C2E1BAB13F4EA32227205E6B47C533FEAEA0FF61B11668ADEE8361D7630)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/aeXpwHEkRiSaGUSlGvO5YA/zh-cn_image_0000002675100569.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=504CE45AF16B0EA4F636889CA370A68765D495076B45F732C6BDA09C3CB39932)
 
 
   
@@ -64,11 +64,11 @@ Native内存泄漏是指在C/C++层（通过NDK或系统底层）分配的内存
   **初步判断**：使用Allocation统计模式录制内存上涨过程，观察Memory泳道中的Native Heap曲线，呈现出典型的“阶梯式增长”，确认存在Native内存泄漏。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/zcrZj2zgQ7SfF6M-uKYllg/zh-cn_image_0000002645100770.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=EE962547CA062A589BB32BE82F296497A69F951957192AE0B7DE84705544DB27)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/r1g8deueRnOY5XY4_S-_Lw/zh-cn_image_0000002645100770.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=C387E0A0F29C3E1EBBA253FFBB1FC15D6E0273F4FF76362FD447319225BBF3FE)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/2wCQmlJvQBe9WO1h28ROvA/zh-cn_image_0000002644940868.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=5DAD2CE39908DC97CC3EA10E130E4381B798759527FD6E120A60FE2F9823FD3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/qdRBAOg1SuezRbouDZstEw/zh-cn_image_0000002644940868.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=4AC2829E82FC4171991FBB938FD242C228A6CAFD579C05DC96307E82857B8676)
 
 
   **分析流程**
@@ -78,19 +78,19 @@ Native内存泄漏是指在C/C++层（通过NDK或系统底层）分配的内存
 1. 基于DevEco Studio Profiler插件的Allocation模板分析堆内存分配、释放的信息，memory mapping信息，调用栈信息。这些信息中包括已释放内存和未释放内存。操作步骤如下：启动应用进程，选择Profiler工具 → 选择设备与应用进程 → 选择Allocation模板 → 创建Session → 配置录制选项。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/PYPL8wRaTpSuoyLN4SxmZQ/zh-cn_image_0000002675100575.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=1734957258C4F4AC0FE2EF502BECDFEEF641B45757CA01760E084035F89B09D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/FHHvSrhETSu0yFaYXtKJ0w/zh-cn_image_0000002675100575.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=2C5A068F8B6F44C8F033A10F310DF9BFA6F88A7B48170CC163A4AD324AB3CEB5)
 
 
 2. 开启统计模式，同时开启录制异步栈（方便追溯到业务代码）。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/Q80fZ3z1TmigG1-L000n8w/zh-cn_image_0000002675020723.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=C72AB430F05941E93BF216CFFF881E9D0263940A0DD6FD8B9C7402FEC9021785)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/vdAshJkWRbyMsHqZ4EGYkQ/zh-cn_image_0000002675020723.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=78A96751C08F2DCB858774E715DAFE100A988E0F76AE294179033E4286513509)
 
 
 3. 点击按钮启动录制并复现问题场景。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/4MpuIf3YSJCGpgaksDXhNQ/zh-cn_image_0000002645100772.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=C9FBF2D1B3152A2F54CC8222484EA739C11E21B61F90EC33950DCB1E808A01C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/hV3DqaWsSkS9AqhATf4Wpw/zh-cn_image_0000002645100772.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=0BDB2A7DE4D456C9D04B481D52866BB2A3721E06E1E097A49A9D279A6EB0338B)
 
 
   **步骤2：查看内存分配栈**
@@ -105,13 +105,13 @@ All Allocations：框选的时间段的所有分配内存信息。
 4. Created & Released：在框选范围的起点之后分配的，且在框选范围的终点之前已经释放的内存数据。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/zPrwG79FQwGxtSuSUs69XA/zh-cn_image_0000002644940870.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=16DEF354730CB7615946F448CF51E1BC2E4C9E7BE86C0BC6603C3BD6B850AC1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/-AuVm6vwQaOJWvsPt0ZDsQ/zh-cn_image_0000002644940870.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=4E08678FCE6B9E776835C67AEC3D91231645AC4F0F509A5946190695F1916723)
 
 
 3. 切换到“Call Trees”页签，该部分数据展示了详细的内存分配栈信息。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/Izegt6ECRFeKQIpo_B_6NQ/zh-cn_image_0000002675100577.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=BCDA9FBA4BCC418FA8C04E5D43E67514928EBFD4B1C395C4B7E3620F9178AD5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/uFzTSjPhQxSyrnJTkFTfeQ/zh-cn_image_0000002675100577.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=92FCA026ADC88CD997438CFF0CB3057C4FDEB62E062F558F0BA324CC99C92863)
 
 
   **步骤3：分析内存分配栈**
@@ -123,7 +123,7 @@ Category中亮色代表开发者调用栈，其中绿色代表ArkTS栈帧，橙�
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/oXGq-YK1RIiitv2EKLWQ0w/zh-cn_image_0000002675020725.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=87CCF59BEF16D8AFD0244CDE4C0FC9418E3E260F9F410D40629C27074DDA91E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/CU6PY5h8Rd66G-FDuXv8iQ/zh-cn_image_0000002675020725.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=F57A4AE28B96CD16CD5D983D059B3591869EEF5427B74D592D8299A11FFEC086)
 
  
  

@@ -1,6 +1,6 @@
 # 打开资源/关闭资源(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-arkts
 
@@ -9,12 +9,12 @@
 
 #### 打开资源
 
-应用在密钥操作之前（密钥操作、通用操作、PIN码认证等），需要先调用[openResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoopenresource)打开资源。打开资源需要获取resourceId，resourceId可通过[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
+应用在密钥操作之前（密钥操作、通用操作、PIN码认证等），需要先调用[openResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoopenresource)打开资源。打开资源需要获取resourceId，resourceId可通过[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
 
 
 
 #### 开发步骤
-1. 通过[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取keyUri作为resourceId，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
+1. 通过[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取keyUri作为resourceId，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
 2. 调用[openResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoopenresource)打开资源。
 
 
@@ -59,7 +59,7 @@ async function openResource(): Promise<void> {
 
 
 #### 开发步骤
-1. 通过[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取resourceId，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
+1. 通过[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取resourceId，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
 2. 调用[closeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptocloseresource)关闭资源。
 
 

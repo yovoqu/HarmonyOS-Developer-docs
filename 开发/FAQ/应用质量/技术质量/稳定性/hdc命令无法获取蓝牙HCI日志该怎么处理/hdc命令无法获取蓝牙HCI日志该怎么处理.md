@@ -30,7 +30,7 @@
   开启并授权后，HarmonyOS设备才能连接到计算机进行调试，可用于在计算机和设备之间复制数据、在设备上安装或卸载调试应用、以及读取日志数据等。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/-VwM2XKXR-SXgyPkzyaOww/zh-cn_image_0000002628394988.png?HW-CC-KV=V1&HW-CC-Date=20260723T012358Z&HW-CC-Expire=86400&HW-CC-Sign=F7F9A85DCEB148A20B07B68A6C0991DA7E8CDCA7C8ED780D254F79D6FE42E5F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/-VwM2XKXR-SXgyPkzyaOww/zh-cn_image_0000002628394988.png?HW-CC-KV=V1&HW-CC-Date=20260730T072250Z&HW-CC-Expire=86400&HW-CC-Sign=D2F912A660A8839CEBF7D33420AAAAB73C58F6878C3370ED9A1722775BC9B945)
 
 3. 根据背景知识中的hdc命令工具链接，检查hdc命令是否正确。
 4. 查看是否存在报错返回，根据报错信息分析，可借助背景知识中的hdc命令工具中hdc错误码进行初步解决。

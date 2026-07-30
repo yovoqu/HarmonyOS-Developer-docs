@@ -1,15 +1,21 @@
 # Flex布局
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-可以灵活排列、对齐和分配容器内的子组件空间，使元素根据可用空间扩展或收缩，以满足不同屏幕尺寸下的响应式布局。
+Flex布局提供灵活的组件排列和对齐能力，可以动态分配容器内的子组件空间，使元素根据可用空间自动扩展或收缩。适用于响应式UI布局、动态内容布局、复杂布局实现等场景，能解决传统布局在多设备适配困难、内容变化导致布局错位、复杂对齐需求难以实现等问题。
  
 > [!NOTE]
-> 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 仅 Flex 、 Column 、 Row 和 DynamicLayout 支持下述四种属性， GridRow 仅支持设置 alignSelf 。
+> 从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 仅 Flex 、 Column 、 Row 和 DynamicLayout 支持下述四种属性， GridRow 仅支持设置 alignSelf 。
 
+ 
+> [!NOTE]
+> flexBasis ：设置组件的基准尺寸，作为布局的初始参考值，优先级高于width/height。 flexGrow ：定义组件在父容器有剩余空间时的扩展比例，剩余空间按各组件flexGrow比例分配。 flexShrink ：定义组件在父容器空间不足时的压缩比例，超出的尺寸按各组件flexShrink比例分摊。
+
+ 
+flexBasis设定基准尺寸，flexGrow控制扩展行为，flexShrink控制压缩行为，三者可单独使用或组合使用。
   
 
 #### flexBasis
@@ -18,7 +24,7 @@
 
 flexBasis(value: number | string): T
  
-设置组件的基准尺寸。
+设置组件的基准尺寸。仅Flex、Column、Row和DynamicLayout容器支持此属性。设置后组件会以该基准尺寸作为初始尺寸参与布局计算。当父容器为Column、Row时，需设置主轴方向的尺寸。Column和Row在未设置主轴尺寸（width/height/size）时仍遵守默认布局行为，在主轴上自适应子组件尺寸，此时可能影响flexBasis的效果。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -30,14 +36,14 @@ flexBasis(value: number | string): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 设置组件在父容器主轴方向上的基准尺寸。 默认值：'auto'（表示组件在主轴方向上的基准尺寸为组件原本的大小）。 string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'）或'auto'，不允许设置百分比字符串。 number：取值范围(0,+∞)，单位为vp。 异常值：默认为'auto'。 |
+| value | number \| string | 是 | 设置组件在父容器主轴方向上的基准尺寸。 默认值：'auto'（表示组件在主轴方向上的基准尺寸为组件原本的大小）。 string类型：不允许设置百分比字符串。可选值：可以转化为数字的字符串（如'10'）、带长度单位的字符串（如'10px'）或'auto'。传入不符合要求的字符串时，按默认值'auto'处理。 number：取值范围(0,+∞)，单位为vp（virtual pixel，虚拟像素）。 设置异常值时，该属性按默认值'auto'处理。 constraintSize限制组件的尺寸范围，当flexBasis设置的基准尺寸超出constraintSize的限制范围时，会被constraintSize约束。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前组件。 |
+| T | 返回当前组件，用于链式调用。 |
  
  
   
@@ -48,7 +54,7 @@ flexBasis(value: number | string): T
 
 flexGrow(value: number): T
  
-设置组件在父容器的剩余空间所占比例。
+设置组件在父容器的剩余空间所占比例。仅Flex、Column、Row和DynamicLayout容器支持此属性。设置后组件会根据比例扩展占据剩余空间。当父容器为Column、Row时，需设置主轴方向的尺寸。Column和Row在未设置主轴尺寸（width/height/size）时仍遵守默认布局行为，在主轴上自适应子组件尺寸，此时可能影响flexGrow的剩余空间分配效果。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -60,14 +66,14 @@ flexGrow(value: number): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 设置父容器在主轴方向上的剩余空间分配给此属性所在组件的比例。 取值范围：[0, +∞) 默认值：0 设置异常值时，该属性为默认值。 |
+| value | number | 是 | 设置父容器在主轴方向（行布局为水平方向，列布局为垂直方向）上的剩余空间分配给此属性所在组件的比例。值为0表示不参与剩余空间分配，保持原有尺寸；值大于0时，按照比例分配父容器的剩余空间，值越大分配的空间越多。 取值范围：[0, +∞) 默认值：0 父容器为Column、Row时，需设置主轴方向的尺寸（width/height/size），否则可能影响flexGrow的剩余空间分配效果。 constraintSize限制组件的尺寸范围，当flexGrow扩展后的组件尺寸超出constraintSize的最大限制时，会被constraintSize约束。 设置异常值时，该属性为默认值。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前组件。 |
+| T | 返回当前组件，用于链式调用。 |
  
  
   
@@ -78,10 +84,10 @@ flexGrow(value: number): T
 
 flexShrink(value: number): T
  
-设置父容器压缩尺寸分配给此属性所在组件的比例。当父容器为Column、Row时，需设置主轴方向的尺寸。
+设置父容器空间不足时，压缩尺寸分配给此属性所在组件的比例。仅Flex、Column、Row和DynamicLayout容器支持此属性。当父容器为Column、Row时，父容器需设置主轴方向的尺寸（即width/height/size），此时flexShrink才生效。Column和Row在未设置主轴尺寸（width/height/size）时仍遵守默认布局行为，在主轴上自适应子组件尺寸，此时flexShrink不生效。
  
 > [!NOTE]
-> 使用 getInspectorByKey 获取flexShrink属性时，如果该节点未设置flexShrink属性，默认返回1。
+> 使用 getInspectorByKey 获取flexShrink属性时，如果该节点未设置flexShrink属性，默认返回1（与Flex容器的默认值一致，与Column、Row容器的默认值0不同）。
 
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -94,14 +100,14 @@ flexShrink(value: number): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 设置父容器压缩尺寸分配给此属性所在组件的比例。 父容器为Column、Row时，默认值：0，取值范围[0,+∞)。 父容器为Flex时，默认值：1 constraintSize限制组件的尺寸范围。Column和Row即使设置了constraintSize，在未设置主轴尺寸（width/height/size）时仍遵守默认布局行为，在主轴上自适应子组件尺寸，此时flexShrink不生效。 设置异常值时，该属性为默认值。 |
+| value | number | 是 | 设置父容器空间不足时，压缩尺寸分配给此属性所在组件的比例。值为0表示该组件不参与压缩；值大于0时，按照比例压缩，值越大压缩量越大。 父容器为Column、Row时，默认值：0，取值范围：[0, +∞)。 父容器为Flex时，默认值：1，取值范围：[0, +∞)。 constraintSize限制组件的尺寸范围。Column和Row即使设置了constraintSize，在父容器未设置主轴尺寸（width/height/size）时仍遵守默认布局行为，在主轴上自适应子组件尺寸，此时flexShrink不生效。 设置异常值时，该属性为默认值。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前组件。 |
+| T | 返回当前组件，用于链式调用。 |
  
  
   
@@ -112,7 +118,7 @@ flexShrink(value: number): T
 
 alignSelf(value: ItemAlign): T
  
-子组件在父容器交叉轴的对齐格式。
+子组件在父容器交叉轴（与主轴垂直的方向）的对齐格式，设置后会覆盖父容器的alignItems设置。仅Flex、Column、Row、DynamicLayout和GridRow容器支持此属性。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -124,14 +130,14 @@ alignSelf(value: ItemAlign): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ItemAlign | 是 | 子组件在父容器交叉轴的对齐格式，会覆盖Flex、Column、Row、GridRow布局容器中的alignItems设置。 GridCol可以绑定alignSelf属性来改变它自身在交叉轴方向上的布局。 默认值：ItemAlign.Auto |
+| value | ItemAlign | 是 | 子组件在父容器交叉轴的对齐格式，会覆盖Flex、Column、Row、DynamicLayout、GridRow布局容器中的alignItems设置。当子组件需要与父容器中其他子组件不同的对齐方式时使用（典型场景：父容器中大部分子组件居中对齐，但某个子组件需要顶部或底部对齐；或需要为单个子组件指定特殊的对齐方式）。 GridCol可以绑定alignSelf属性来改变它自身在交叉轴方向上的布局。 默认值：ItemAlign.Auto（表示继承父容器的对齐设置） |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前组件。 |
+| T | 返回当前组件，用于链式调用。 |
  
  
   
@@ -230,4 +236,4 @@ struct FlexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/HG0GCkUUQ4a5pUeTlyPuYQ/zh-cn_image_0000002628702346.png?HW-CC-KV=V1&HW-CC-Date=20260701T014325Z&HW-CC-Expire=86400&HW-CC-Sign=3712B4A669330AE8BF32C87CA4BAA46D76D793C1744C2228E95E2B72CFD7054A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/AXnqDSSRR9KmZ-fC9NLGZg/zh-cn_image_0000002686087783.png?HW-CC-KV=V1&HW-CC-Date=20260730T071453Z&HW-CC-Expire=86400&HW-CC-Sign=FA5A850A97F71190623CCFDE898822F39F5E196CC226370889FBDF0E7DFDE264)

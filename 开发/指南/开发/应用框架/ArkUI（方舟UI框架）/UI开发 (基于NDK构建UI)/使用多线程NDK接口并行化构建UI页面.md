@@ -1,6 +1,6 @@
 # 使用多线程NDK接口并行化构建UI页面
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-on-multi-thread
 
@@ -66,7 +66,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 使用多线程[createNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#createnode)接口创建的UI组件初始为Free状态，且可以在Free和Attached两种状态间进行转换，使用其他方式创建的UI组件初始为Attached状态且状态不可转换。
 
 > [!NOTE]
-> 开发者可以在任意线程使用多线程NDK接口操作处于Free状态的组件，为保证应用功能正常和线程安全，需遵守如下使用约束： 禁止多线程同时操作同一个处于Free状态的组件或组件树，处于Free状态的组件内部是无锁的，多线程同时访问会出现稳定性问题。 禁止使用 多线程NDK接口集合 外的其他NDK接口操作处于Free状态的组件，需先将组件转换为Attach状态后才可以在UI线程使用其他NDK接口，否则接口功能会出现异常。 为兼顾性能，上述约束框架侧无运行时校验，需要开发者自行保证。 为保证接口多线程安全，处于Free状态的组件的一部分属性通过 setAttribute 设置后，无法立即通过 getAttribute 接口读取到，需要将组件转换为Attached状态后才能读取到正确的属性值。
+> 开发者可以在任意线程使用多线程NDK接口操作处于Free状态的组件，为保证应用功能正常和线程安全，需遵守如下使用约束： 禁止多线程同时操作同一个处于Free状态的组件或组件树，处于Free状态的组件内部是无锁的，多线程同时访问会出现稳定性问题。 禁止使用 多线程NDK接口集合 外的其他NDK接口操作处于Free状态的组件，需先将组件转换为Attached状态后才可以在UI线程使用其他NDK接口，否则接口功能会出现异常。 为兼顾性能，上述约束框架侧无运行时校验，需要开发者自行保证。 为保证接口多线程安全，处于Free状态的组件的一部分属性通过 setAttribute 设置后，无法立即通过 getAttribute 接口读取到，需要将组件转换为Attached状态后才能读取到正确的属性值。
 
 
 当开发者进行如下操作后，UI组件状态从Free转换为Attached：
@@ -87,7 +87,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 #### 多线程NDK接口的错误与异常
 
-多线程NDK接口调用规范请参考[多线程NDK接口集合规格](#多线程ndk接口集合规格)。调用多线程NDK接口时必须检查接口返回值，如下两种情况接口会返回错误码[ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode)。
+多线程NDK接口调用规范请参考[多线程NDK接口集合规格](#多线程ndk接口集合规格)。调用多线程NDK接口时必须检查接口返回值，如下两种情况接口会返回错误码[ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)。
 
  - 在非UI线程中调用集合中不支持多线程的接口。
  - 在非UI线程调用多线程NDK接口操作处于Attached状态的组件。
@@ -153,7 +153,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 | int32_t(* insertChildBefore )(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, ArkUI_NodeHandle sibling) | 将child节点挂载到parent节点的子节点列表中，挂载位置在sibling节点之前。 | 支持 | 在非UI线程调用函数操作Attached节点时，接口返回错误码ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD。 |
 | int32_t(* insertChildAt )(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, int32_t position) | 将child节点挂载到parent节点的子节点列表中，挂载位置由position指定。 | 支持 | 在非UI线程调用函数操作Attached节点时，接口返回错误码ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD。 |
 | ArkUI_NodeHandle(* getParent )(ArkUI_NodeHandle node) | 获取node节点的父节点。 | 支持 | 在非UI线程调用函数操作Attached节点时，接口返回错误码ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD。 |
-| int32_t(* removeAllChildren )(ArkUI_NodeHandle parent) | 移除node节点的所有子节点。 | 支持 | 在非UI线程调用函数操作Attached节点节点时，接口返回错误码ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD。 |
+| int32_t(* removeAllChildren )(ArkUI_NodeHandle parent) | 移除parent节点的所有子节点。 | 支持 | 在非UI线程调用函数操作Attached节点时，接口返回错误码ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD。 |
 | uint32_t(* getTotalChildCount )(ArkUI_NodeHandle node) | 获取node节点的子节点个数。 | 支持 | 在非UI线程调用函数操作Attached节点时，接口返回0。 |
 | ArkUI_NodeHandle(* getChildAt )(ArkUI_NodeHandle node, int32_t position) | 获取node节点的子节点指针，位置由position指定。 | 支持 | 在非UI线程调用函数操作Attached节点时，接口返回空指针。 |
 | ArkUI_NodeHandle(* getFirstChild )(ArkUI_NodeHandle node) | 获取node节点的第一个子节点指针。 | 支持 | 在非UI线程调用函数操作Attached节点时，接口返回空指针。 |
@@ -208,7 +208,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 点击CreateNodeTree按钮触发在多个非UI线程并行创建Button组件，之后在UI线程将创建完成的Button组件挂载到UI主树上，使组件显示在页面上。点击DisposeNodeTree按钮将已创建的组件从UI主树上卸载并销毁，清空页面。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/9x89YaQ0TKGVAZst71cuSQ/zh-cn_image_0000002656467969.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020802Z&HW-CC-Expire=86400&HW-CC-Sign=00E839930F77E964292F9791B6C8DFDE69298DD1FB027AC6CA190C3A923D2056)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/5J1H0SuSRaKLSq5Q6hw8oA/zh-cn_image_0000002655846652.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071855Z&HW-CC-Expire=86400&HW-CC-Sign=AA82334DCBD3BE14A64F60ED6E8F0B5DBBE06B051EC8089D458A30F73B44E50D)
 
 
 示例主要展示了如何获取和使用多线程NDK接口，并使用[OH_ArkUI_PostAsyncUITask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_postasyncuitask)、[OH_ArkUI_PostUITask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_postuitask)和[OH_ArkUI_PostUITaskAndWait](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_postuitaskandwait)等接口将组件创建和属性设置等任务分发到多线程并行执行。
@@ -404,7 +404,6 @@ namespace NativeModule {
 #define FRAMEWORK_NODE_TREE_NUMBER 4 // 在框架线程创建组件树的数量。
 #define USER_NODE_TREE_NUMBER 3 // 在开发者线程创建组件树的数量。
 struct AsyncData {
-    napi_env env;
     std::shared_ptr<ArkUINode> parent = nullptr;
     std::shared_ptr<ArkUINode> child = nullptr;
     std::string label = "";
@@ -453,7 +452,7 @@ void CreateNodeTree(void *asyncUITaskData) {
     ArkUI_NumberValue value2[] = {{.f32 = 5}, {.f32 = 5}, {.f32 = 5}, {.f32 = 5}};
     ArkUI_AttributeItem item2 = {value2, 4};
     // 设置button组件的margin属性。
-    result = buttonNode1->SetMargin(item2);
+    result = buttonNode2->SetMargin(item2);
     if (result != ARKUI_ERROR_CODE_NO_ERROR) {
         OH_LOG_ERROR(LOG_APP, "Button SetMargin Failed %{public}d", result);
     }

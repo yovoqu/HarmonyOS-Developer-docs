@@ -9,7 +9,7 @@
 应用运行过程中可能会出现JS crash异常，当出现未被捕获的JS crash异常时应用崩溃。如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/ffwUgXORSvq8dHys1LWCgQ/zh-cn_image_0000002658907825.png?HW-CC-KV=V1&HW-CC-Date=20260723T012523Z&HW-CC-Expire=86400&HW-CC-Sign=AB0CD129B9B85CEC391CF6D8E7A887D9C3B6C57ABA5F8B3F15F4C0299127D56C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/ffwUgXORSvq8dHys1LWCgQ/zh-cn_image_0000002658907825.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=507EF58765AB3F5205595CC3E0CBC7DA6F4B9E3F2025BC0B9315993BC285BD46)
 
  
  
@@ -156,4 +156,4 @@ export default class <span style="color: rgb(0,0,255);">EntryAbility </span>exte
   运行效果：出现JS Crash问题时应用无闪退并在日志中记录堆栈。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/SbyJSD4BShCbe6ZGro3mBg/zh-cn_image_0000002658787889.png?HW-CC-KV=V1&HW-CC-Date=20260723T012523Z&HW-CC-Expire=86400&HW-CC-Sign=42135063F4A1D146F9F191A860CC084DB727A3A38BFDA72EED05FEE976E93C72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/SbyJSD4BShCbe6ZGro3mBg/zh-cn_image_0000002658787889.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=B8D4FD848488AE84A9E5B85F3F09AD1E155A84DF85313758A5DCF86A03012E6C)

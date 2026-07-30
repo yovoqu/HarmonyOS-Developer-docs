@@ -1,6 +1,6 @@
 # 设置浮层（OverlayManager）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-overlaymanager
 
@@ -27,7 +27,7 @@
 
 #### 设置浮层
 
-在OverlayManager上[新增指定节点（addComponentContent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#addcomponentcontent12)、[删除指定节点（removeComponentContent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#removecomponentcontent12)、[显示所有节点（showAllComponentContents）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#showallcomponentcontents12)和[隐藏所有节点（hideAllComponentContents）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#hideallcomponentcontents12)。
+在OverlayManager上新增指定节点（[addComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#addcomponentcontent12)）、删除指定节点（[removeComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#removecomponentcontent12)）、显示所有节点（[showAllComponentContents](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#showallcomponentcontents12)）和隐藏所有节点（[hideAllComponentContents](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#hideallcomponentcontents12)）。
 
 ```ArkTS
 import { ComponentContent, OverlayManager } from '@kit.ArkUI';
@@ -190,8 +190,7 @@ function builderOverlay(params: Params) {
 export struct OverlayManagerAlertDialog {
   private uiContext: UIContext = this.getUIContext();
   private overlayNode: OverlayManager = this.uiContext.getOverlayManager();
-  private overlayContent:ComponentContent<Params>[] = [];
-  controller: TextInputController = new TextInputController();
+  private overlayContent: ComponentContent<Params>[] = [];
 
   aboutToAppear(): void {
     let uiContext = this.getUIContext();
@@ -224,7 +223,7 @@ export struct OverlayManagerAlertDialog {
 ![](assets/设置浮层（OverlayManager）/file-20260514130647869-2.gif)
 
 
-从API version 18开始，可以通过调用UIContext中getOverlayManager方法获取OverlayManager对象，并利用该对象在指定层级上新增指定节点（[addComponentContentWithOrder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#addcomponentcontentwithorder18)），层次高的浮层会覆盖在层级低的浮层之上。
+从API version 18开始，可以利用OverlayManager对象在指定层级上新增指定节点（[addComponentContentWithOrder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#addcomponentcontentwithorder18)），层次高的浮层会覆盖在层级低的浮层之上。
 
 ```ArkTS
 import { ComponentContent, LevelOrder, OverlayManager } from '@kit.ArkUI';

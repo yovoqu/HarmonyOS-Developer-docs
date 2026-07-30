@@ -1,6 +1,6 @@
 # 省市区选择器Input
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-input-zone-selectors
 
@@ -54,7 +54,7 @@ struct Index {
             inputType: functionalInputComponentManager.InputType.SELECT_DISTRICT,
             textInputValue: {
               text: this.inputContent,
-              placeholder: '省、市、区、街道地址',
+              placeholder: '省、市、区、街道地址'
             },
             // 调整TextInput样式。
             inputAttributeModifier: new TextInputModifier()
@@ -71,7 +71,7 @@ struct Index {
               .onClick(() => {
                 this.inputContent = '';
               })
-              .fontSize(32),
+              .fontSize(32)
           },
           // 当InputType为SELECT_DISTRICT时，回调必须为onSelectDistrict。
           controller: new functionalInputComponentManager.FunctionalInputController().onSelectDistrict((err,

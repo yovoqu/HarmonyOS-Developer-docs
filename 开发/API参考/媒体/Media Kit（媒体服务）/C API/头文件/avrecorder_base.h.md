@@ -1,6 +1,6 @@
 # avrecorder_base.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,12 +36,12 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_AVRecorder_Profile | OH_AVRecorder_Profile | 定义音视频录制的详细参数。 |
-| OH_AVRecorder | OH_AVRecorder | 初始化AVRecorder。 |
+| OH_AVRecorder | OH_AVRecorder | OH_AVRecorder是音视频录制的结构体类型，用于表示AVRecorder实例，支持音视频数据的采集与录制，适用于需要将音视频内容录制保存为文件的场景。 |
 | OH_AVRecorder_Location | OH_AVRecorder_Location | 提供媒体资源的地理位置信息。 |
 | OH_AVRecorder_MetadataTemplate | OH_AVRecorder_MetadataTemplate | 定义元数据的基本模板。 |
 | OH_AVRecorder_Metadata | OH_AVRecorder_Metadata | 元数据信息数据结构。 |
 | OH_AVRecorder_Config | OH_AVRecorder_Config | 提供媒体AVRecorder的配置定义。 |
-| OH_AVRecorder_Range | OH_AVRecorder_Range | 表示类型的范围。 |
+| OH_AVRecorder_Range | OH_AVRecorder_Range | 表示参数的取值范围，包含最小值和最大值。 |
 | OH_AVRecorder_EncoderInfo | OH_AVRecorder_EncoderInfo | 提供编码器信息。 |
  
  
@@ -59,7 +59,7 @@
 | OH_AVRecorder_ContainerFormatType | OH_AVRecorder_ContainerFormatType | 容器格式类型（容器格式类型的缩写是 CFT）。 |
 | OH_AVRecorder_State | OH_AVRecorder_State | AVRecorder状态。 |
 | OH_AVRecorder_StateChangeReason | OH_AVRecorder_StateChangeReason | AVRecorder状态变化的原因。 |
-| OH_AVRecorder_FileGenerationMode | OH_AVRecorder_FileGenerationMode | 创建录制文件的模式。 |
+| OH_AVRecorder_FileGenerationMode | OH_AVRecorder_FileGenerationMode | 录制文件的生成模式。 |
  
  
   
@@ -129,8 +129,8 @@ AVRecorder的视频源类型。
   
 | 枚举项 | 描述 |
 | --- | --- |
-| AVRECORDER_SURFACE_YUV = 0 | 原始数据Surface。 |
-| AVRECORDER_SURFACE_ES = 1 | ES数据Surface。 |
+| AVRECORDER_SURFACE_YUV = 0 | 原始数据Surface。适用于需要对原始视频帧数据进行编码处理的场景。 |
+| AVRECORDER_SURFACE_ES = 1 | ES数据Surface。适用于已有编码数据（如硬编码输出）无需再次编码的场景。 |
  
  
   
@@ -159,8 +159,8 @@ enum OH_AVRecorder_CodecMimeType
 | AVRECORDER_AUDIO_G711MU = 5 | G711-mulaw 编码器MIME类型。 |
 | AVRECORDER_VIDEO_MPEG4 = 6 | MPEG4 编码器MIME类型。 |
 | AVRECORDER_VIDEO_HEVC = 8 | H.265 编码器MIME类型。 |
-| AVRECORDER_AUDIO_AMR_NB = 9 | AMR_NB 编解码器MIME类型。 |
-| AVRECORDER_AUDIO_AMR_WB = 10 | AMR_WB 编解码器MIME类型。 |
+| AVRECORDER_AUDIO_AMR_NB = 9 | AMR_NB 编码器MIME类型。 |
+| AVRECORDER_AUDIO_AMR_WB = 10 | AMR_WB 编码器MIME类型。 |
  
  
   
@@ -211,13 +211,13 @@ AVRecorder状态。
   
 | 枚举项 | 描述 |
 | --- | --- |
-| AVRECORDER_IDLE = 0 | 空闲状态。此时可以调用OH_AVRecorder_Prepare方法设置录制参数，进入AVRECORDER_PREPARED状态。 |
-| AVRECORDER_PREPARED = 1 | 准备状态。参数设置完成，此时可以调用OH_AVRecorder_Start方法开始录制，进入AVRECORDER_STARTED状态。 |
-| AVRECORDER_STARTED = 2 | 启动状态。正在录制，此时可以调用OH_AVRecorder_Pause方法暂停录制，进入AVRECORDER_PAUSED状态。 也可以调用OH_AVRecorder_Stop方法结束录制，进入AVRECORDER_STOPPED状态。 |
-| AVRECORDER_PAUSED = 3 | 暂停状态。此时可以调用OH_AVRecorder_Resume方法继续录制，进入AVRECORDER_STARTED状态。 也可以调用OH_AVRecorder_Stop方法结束录制，进入AVRECORDER_STOPPED状态。 |
-| AVRECORDER_STOPPED = 4 | 停止状态。此时可以调用OH_AVRecorder_Prepare方法设置录制参数，重新进入AVRECORDER_PREPARED状态。 |
-| AVRECORDER_RELEASED = 5 | 释放状态。录制资源释放，此时不能再进行任何操作。在任何其他状态下，均可以通过调用OH_AVRecorder_Release方法进入AVRECORDER_RELEASED状态。 |
-| AVRECORDER_ERROR = 6 | 错误状态。当AVRecorder实例发生不可逆错误，会转换至当前状态。 切换至AVRECORDER_ERROR状态时会伴随OH_AVRecorder_OnError事件，该事件会上报详细错误原因。 在AVRECORDER_ERROR状态时，用户需要调用OH_AVRecorder_Reset方法重置AVRecorder实例，或者调用OH_AVRecorder_Release方法释放资源。 |
+| AVRECORDER_IDLE = 0 | 空闲状态。此时可以调用OH_AVRecorder_Prepare接口设置录制参数，进入AVRECORDER_PREPARED状态。 |
+| AVRECORDER_PREPARED = 1 | 准备状态。参数设置完成，此时可以调用OH_AVRecorder_Start接口开始录制，进入AVRECORDER_STARTED状态。 |
+| AVRECORDER_STARTED = 2 | 启动状态。正在录制，此时可以调用OH_AVRecorder_Pause接口暂停录制，进入AVRECORDER_PAUSED状态。 也可以调用OH_AVRecorder_Stop接口结束录制，进入AVRECORDER_STOPPED状态。 |
+| AVRECORDER_PAUSED = 3 | 暂停状态。此时可以调用OH_AVRecorder_Resume接口继续录制，进入AVRECORDER_STARTED状态。 也可以调用OH_AVRecorder_Stop接口结束录制，进入AVRECORDER_STOPPED状态。 |
+| AVRECORDER_STOPPED = 4 | 停止状态。此时可以调用OH_AVRecorder_Prepare接口设置录制参数，重新进入AVRECORDER_PREPARED状态。 |
+| AVRECORDER_RELEASED = 5 | 释放状态。录制资源释放，此时不能再进行任何操作。在任何其他状态下，均可以通过调用OH_AVRecorder_Release接口进入AVRECORDER_RELEASED状态。 |
+| AVRECORDER_ERROR = 6 | 错误状态。当AVRecorder实例发生不可逆错误，会转换至当前状态。 切换至AVRECORDER_ERROR状态时会伴随OH_AVRecorder_OnError事件，该事件会上报详细错误原因。 在AVRECORDER_ERROR状态时，不能再进行录制相关操作，用户需要调用OH_AVRecorder_Reset接口重置AVRecorder实例，或者调用OH_AVRecorder_Release接口释放资源。 |
  
  
   
@@ -240,8 +240,8 @@ AVRecorder状态变化的原因。
   
 | 枚举项 | 描述 |
 | --- | --- |
-| AVRECORDER_USER = 0 | 用户操作导致的状态变化。 |
-| AVRECORDER_BACKGROUND = 1 | 后台操作导致的状态变化。 |
+| AVRECORDER_USER = 0 | 用户操作导致的状态变化。例如用户主动调用Start、Pause、Resume、Stop等接口时触发。 |
+| AVRECORDER_BACKGROUND = 1 | 后台操作导致的状态变化。例如因音频打断、录制超时等原因自动改变录制状态时触发。 |
  
  
   
@@ -256,7 +256,7 @@ enum OH_AVRecorder_FileGenerationMode
  
 **描述**
  
-创建录制文件的模式。
+录制文件的生成模式。
  
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
  
@@ -265,7 +265,7 @@ enum OH_AVRecorder_FileGenerationMode
 | 枚举项 | 描述 |
 | --- | --- |
 | AVRECORDER_APP_CREATE = 0 | 由应用自行在沙箱中创建媒体文件。 |
-| AVRECORDER_AUTO_CREATE_CAMERA_SCENE = 1 | 由系统创建媒体文件，当前仅在相机录制场景下生效。 |
+| AVRECORDER_AUTO_CREATE_CAMERA_SCENE = 1 | 由系统创建媒体文件。仅在应用使用相机进行录制时生效。 |
  
  
   
@@ -281,7 +281,7 @@ enum OH_AVRecorder_FileGenerationMode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef void (*OH_AVRecorder_OnStateChange)(OH_AVRecorder *recorder,OH_AVRecorder_State state, OH_AVRecorder_StateChangeReason reason, void *userData)
+typedef void (*OH_AVRecorder_OnStateChange)(OH_AVRecorder *recorder, OH_AVRecorder_State state, OH_AVRecorder_StateChangeReason reason, void *userData)
 ```
  
 **描述**
@@ -309,7 +309,7 @@ typedef void (*OH_AVRecorder_OnStateChange)(OH_AVRecorder *recorder,OH_AVRecorde
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef void (*OH_AVRecorder_OnError)(OH_AVRecorder *recorder, int32_t errorCode, const char *errorMsg,void *userData)
+typedef void (*OH_AVRecorder_OnError)(OH_AVRecorder *recorder, int32_t errorCode, const char *errorMsg, void *userData)
 ```
  
 **描述**
@@ -342,7 +342,7 @@ typedef void (*OH_AVRecorder_OnUri)(OH_AVRecorder *recorder, OH_MediaAsset *asse
  
 **描述**
  
-当录制在[OH_AVRecorder_FileGenerationMode](#oh_avrecorder_filegenerationmode).AVRECORDER_AUTO_CREATE_CAMERA_SCENE模式下时调用。
+当录制在[OH_AVRecorder_FileGenerationMode](#oh_avrecorder_filegenerationmode).AVRECORDER_AUTO_CREATE_CAMERA_SCENE模式时调用。
  
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
  
@@ -353,5 +353,5 @@ typedef void (*OH_AVRecorder_OnUri)(OH_AVRecorder *recorder, OH_MediaAsset *asse
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AVRecorder *recorder | OH_AVRecorder实例的指针。 |
-| OH_MediaAsset *asset | OH_MediaAsset实例的指针。 |
+| OH_MediaAsset *asset | OH_MediaAsset实例的指针，用于返回系统自动创建的媒体资源对象，应用可通过该对象访问录制生成的媒体文件。 |
 | void *userData | 用户特定数据的指针。 |

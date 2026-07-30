@@ -1,6 +1,6 @@
 # Interface (AVSessionController)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsessioncontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -47,7 +47,7 @@ import { avSession } from '@kit.AVSessionKit';
 struct Index {
   private tag: string = "createNewSession";
   private sessionId: string = "";
-  private AVSessionController?: avSession.AVSessionController;
+  private avsessionController?: avSession.AVSessionController;
   private currentAVSession?: avSession.AVSession;
   context = this.getUIContext();
 
@@ -1991,7 +1991,7 @@ on(type: 'metadataChange', filter: Array<keyof AVMetadata> | 'all', callback: (d
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'metadataChange'：当元数据需要更新时，触发该事件。 需要更新表示对应属性值被重新设置过，不论新值与旧值是否相同。 |
-| filter | Array<keyof AVMetadata>\|'all' | 是 | 'all'表示关注通话状态所有字段变化；Array<keyof AVMetadata>表示关注Array中的字段变化。 |
+| filter | Array<keyof AVMetadata>\|'all' | 是 | 'all'表示关注元数据所有字段变化；Array<keyof AVMetadata>表示关注Array中的字段变化。 |
 | callback | (data: AVMetadata) => void | 是 | 回调函数，参数data是需要更新的元数据。只包含需要更新的元数据属性，不代表当前全量的元数据。 |
 
 
@@ -3465,4 +3465,397 @@ getValidCommandsSync(): Array&lt;AVControlCommandType&gt;
 
 ```text
 let validCommands: Array<avSession.AVControlCommandType> = avcontroller.getValidCommandsSync();
+```
+
+
+
+#### getSupportedPlaySpeeds
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getSupportedPlaySpeeds(): Promise<Array&lt;number&gt;>
+
+获取应用支持的播放倍速列表。使用Promise异步回调。
+
+该列表通过[setSupportedPlaySpeeds](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setsupportedplayspeeds)接口设置。如果应用未设置或者设置为空列表，则返回空列表。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;number&gt;> | Promise对象。返回支持的播放倍速列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.getSupportedPlaySpeeds().then((speeds: number[]) => {
+  console.info(`Succeeded in getting supported play speeds, size: ${speeds.length}`);
+});
+```
+
+
+
+#### getSupportedLoopModes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getSupportedLoopModes(): Promise<Array&lt;LoopMode&gt;>
+
+获取应用支持的循环模式列表。使用Promise异步回调。
+
+该列表通过[setSupportedLoopModes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setsupportedloopmodes)接口设置。如果应用未设置或者设置为空列表，则返回空列表。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;LoopMode&gt;> | Promise对象。返回支持的循环模式列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.getSupportedLoopModes().then((loopModes: avSession.LoopMode[]) => {
+  console.info(`Succeeded in getting supported loop modes, size: ${loopModes.length}`);
+});
+```
+
+
+
+#### getMediaCenterControlType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getMediaCenterControlType(): Promise<Array&lt;AVMediaCenterControlType&gt;>
+
+获取应用通过[setMediaCenterControlType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setmediacentercontroltype)接口设置优先显示的控制类型列表。使用Promise异步回调。
+
+如果应用未设置或者设置为空列表，则返回空列表。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;AVMediaCenterControlType&gt;> | Promise对象。返回应用希望优先显示的控制类型列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.getMediaCenterControlType().then((types: avSession.AVMediaCenterControlType[]) => {
+  console.info(`Succeeded in getting media center control types, size: ${types.length}`);
+});
+```
+
+
+
+#### onMediaCenterControlTypeChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onMediaCenterControlTypeChanged(callback: Callback<Array&lt;AVMediaCenterControlType&gt;>): void
+
+注册控制类型列表变化的监听事件。使用callback异步回调。
+
+其中控制类型列表由应用通过[setMediaCenterControlType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setmediacentercontroltype)接口设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<Array&lt;AVMediaCenterControlType&gt;> | 是 | 回调函数。返回变化后的控制类型列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.onMediaCenterControlTypeChanged((types: avSession.AVMediaCenterControlType[]) => {
+  console.info(`Media center control types changed, size: ${types.length}`);
+});
+```
+
+
+
+#### offMediaCenterControlTypeChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offMediaCenterControlTypeChanged(callback?: Callback<Array&lt;AVMediaCenterControlType&gt;>): void
+
+取消控制类型列表变化的监听事件。
+
+取消后将不再对该事件进行监听。其中控制类型列表由应用通过[setMediaCenterControlType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setmediacentercontroltype)接口设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<Array&lt;AVMediaCenterControlType&gt;> | 否 | 回调函数。该参数为可选参数，若不填写该参数，则认为对所有控制类型列表变化事件取消监听。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.offMediaCenterControlTypeChanged();
+```
+
+
+
+#### onSupportedPlaySpeedsChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onSupportedPlaySpeedsChange(callback: Callback<Array&lt;number&gt;>): void
+
+注册支持的播放倍速列表变化的监听事件。使用callback异步回调。
+
+其中播放倍速列表由应用通过[setSupportedPlaySpeeds](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setsupportedplayspeeds)接口设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<Array&lt;number&gt;> | 是 | 回调函数。返回变化后支持的播放倍速列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.onSupportedPlaySpeedsChange((speeds: number[]) => {
+  console.info(`Supported play speeds changed, size: ${speeds.length}`);
+});
+```
+
+
+
+#### offSupportedPlaySpeedsChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offSupportedPlaySpeedsChange(callback?: Callback<Array&lt;number&gt;>): void
+
+取消支持的播放倍速列表变化事件监听。
+
+取消后将不再对该事件进行监听。其中播放倍速列表由应用通过[setSupportedPlaySpeeds](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setsupportedplayspeeds)接口设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<Array&lt;number&gt;> | 否 | 回调函数。该参数为可选参数，若不填写该参数，则认为对所有支持的播放倍速列表变化事件取消监听。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.offSupportedPlaySpeedsChange();
+```
+
+
+
+#### onSupportedLoopModesChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onSupportedLoopModesChange(callback: Callback<Array&lt;LoopMode&gt;>): void
+
+注册支持的循环模式列表变化的监听事件。使用callback异步回调。
+
+其中循环模式列表由应用通过[setSupportedLoopModes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setsupportedloopmodes)接口设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<Array&lt;LoopMode&gt;> | 是 | 回调函数。返回变化后支持的循环模式列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.onSupportedLoopModesChange((loopModes: avSession.LoopMode[]) => {
+  console.info(`Supported loop modes changed, size: ${loopModes.length}`);
+});
+```
+
+
+
+#### offSupportedLoopModesChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offSupportedLoopModesChange(callback?: Callback<Array&lt;LoopMode&gt;>): void
+
+取消支持的循环模式列表变化事件监听。
+
+取消后将不再对该事件进行监听。其中循环模式列表由应用通过[setSupportedLoopModes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setsupportedloopmodes)接口设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<Array&lt;LoopMode&gt;> | 否 | 回调函数。该参数为可选参数，若不填写该参数，则认为对所有支持的循环模式列表变化事件取消监听。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6600101 | Session service exception. |
+| 6600103 | The session controller does not exist. |
+
+
+**示例：**
+
+```text
+avcontroller.offSupportedLoopModesChange();
 ```

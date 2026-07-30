@@ -50,4 +50,4 @@ Q：上架时报错：当前软件包存在有调试信息，不允许上架发�
 A：通过DevEco Studio界面配置Build Mode选项，点击右上角运行/调试配置旁的圆点图标选择构建模式，检查Build Mode是否设置为release模式，若非release模式请尝试选择release模式后重新编译生成app包。因为Build Mode默认情况下为&lt;Default&gt;选项，选择此项，构建APP包使用release构建模式；构建HAP/HSP/HAR包使用debug构建模式，当应用中存在HAR模块依赖时会导致出现此问题现象。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/kw225O-eQsCeaebndC-bfw/zh-cn_image_0000002628408060.png?HW-CC-KV=V1&HW-CC-Date=20260723T013911Z&HW-CC-Expire=86400&HW-CC-Sign=140EE5797B152AD458C0BC8C156C69CDBA341E4C1E720C7AC580B654EE61374D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/kw225O-eQsCeaebndC-bfw/zh-cn_image_0000002628408060.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=672768F42D1F42989AD6B65CE53AFE9A7B0EDA8AC1700ED29FF9D816E6E3F7AB)

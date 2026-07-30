@@ -1,14 +1,14 @@
 # DatePicker
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-滑动选择日期的组件。
+DatePicker是滑动选择日期的组件，支持公历和农历切换，可配置日期范围、选择模式和文本样式。用于需要用户选择日期的应用场景，提供统一的日期选择交互体验，能够提升用户体验，减少开发工作量。
 
 > [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件不建议开发者在动效过程中修改属性数据。 最大显示行数在横、竖屏模式下存在差异。竖屏时默认为5行，横屏时依赖系统配置，未配置时默认显示为3行。可通过如下参数查看具体配置值\$r('sys.float.ohos_id_picker_show_count_landscape')。
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件不建议开发者在动效过程中修改属性数据。 最大显示行数在横、竖屏模式下存在差异。竖屏时默认为5行，横屏时依赖系统配置，未配置时默认显示为3行。可通过\$r('sys.float.ohos_id_picker_show_count_landscape')查看横屏时的具体配置值。
 
 
 
@@ -26,7 +26,7 @@
 
 DatePicker(options?: DatePickerOptions)
 
-根据指定日期范围创建日期选择器。
+根据指定日期范围创建日期选择器。使用场景包括：生日选择、会议预订、行程安排等需要用户选择日期的应用功能。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -36,7 +36,7 @@ DatePicker(options?: DatePickerOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | DatePickerOptions | 否 | 配置日期选择器组件的参数。 |
+| options | DatePickerOptions | 否 | 配置日期选择器组件的参数。不传该参数时使用默认配置（start默认为Date('1970-01-01')，end默认为Date('2100-12-31')，selected默认为当前系统日期）。 |
 
 
 
@@ -51,14 +51,14 @@ DatePicker(options?: DatePickerOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| start | Date | 否 | 是 | 指定选择器的起始日期。 该组件的列显示效果与设备ROM版本相关。如果设置了有效的起始日期，HarmonyOS 7.0.0.17之前，不影响列循环效果。HarmonyOS 7.0.0.17及之后版本，设置该属性后列不可循环滚动，canLoop属性不生效，边界日期外的日期不显示。 默认值：Date('1970-1-1') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| end | Date | 否 | 是 | 指定选择器的结束日期。 该组件的列显示效果与设备ROM版本相关。如果设置了有效的结束日期，HarmonyOS 7.0.0.17之前，不影响列循环效果。HarmonyOS 7.0.0.17及之后版本，设置该属性后列不可循环滚动，canLoop属性不生效，边界日期外的日期不显示。 默认值：Date('2100-12-31') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| selected | Date | 否 | 是 | 设置选中项的日期。 默认值：当前系统日期。 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 从API version 10开始，该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| mode18+ | DatePickerMode | 否 | 是 | 设置日期展示模式。 默认值：DatePickerMode.DATE，显示年、月、日三列。 在DatePickerDialog中，当DatePickerDialogOptions的showTime设置为true时，此参数不生效，默认显示年、月、日三列。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| start | Date | 否 | 是 | 指定选择器的起始日期。适用于需要限制可选日期下限的场景，如仅允许选择某一日期之后的日期。 该组件的列显示效果与设备ROM版本相关。如果设置了有效的起始日期，HarmonyOS 7.0.0.17之前，不影响列循环效果。HarmonyOS 7.0.0.17及之后版本，设置该属性后列不可循环滚动，canLoop属性不生效，边界日期外的日期不显示。 默认值：Date('1970-01-01') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 说明： 设置了start或end且为非默认值的场景下，canLoop不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| end | Date | 否 | 是 | 指定选择器的结束日期。适用于需要限制可选日期上限的场景，如设置有效期截止日。 该组件的列显示效果与设备ROM版本相关。如果设置了有效的结束日期，HarmonyOS 7.0.0.17之前，不影响列循环效果。HarmonyOS 7.0.0.17及之后版本，设置该属性后列不可循环滚动，canLoop属性不生效，边界日期外的日期不显示。 默认值：Date('2100-12-31') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 说明： 设置了start或end且为非默认值的场景下，canLoop不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| selected | Date | 否 | 是 | 设置选中项的日期。适用于需要预设初始选中日期（如编辑已有记录、默认显示指定日期）的场景。 默认值：当前系统日期（受start和end参数影响，详见下方异常情形说明）。 Date对象可配置的日期范围：[Date('1900-01-31'), Date('2100-12-31')]，selected参数的有效取值范围：必须在start和end参数设置的日期范围内。 从API version 10开始，该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| mode18+ | DatePickerMode | 否 | 是 | 设置日期展示模式。适用于需要自定义日期展示列的场景，如仅需选择年月或月日。不传入时默认为DatePickerMode.DATE，显示年、月、日三列。 在DatePickerDialog中，当DatePickerDialogOptions的showTime设置为true时，此参数不生效，默认显示年、月、日三列。这是为保证布局合理性，当showTime为true时会额外显示时间列。 说明： 上述DatePickerDialog相关限制仅适用于DatePickerDialog组件。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 > [!TIP]
-> Date的使用请参考 TimePickerOptions 。 在DatePicker组件滑动过程中修改DatePickerOptions中的属性，会导致这些属性无法生效。
+> Date的使用请参考 TimePickerOptions 。 在DatePicker组件滑动过程中修改DatePickerOptions中的属性，会导致这些属性无法生效。 如果需要设置的起止日期范围在[Date('1900-01-31'), Date('2100-12-31')]之外，推荐使用 DatePickerComponent 。
 
 
 **起始日期、结束日期和选中日期的异常情形说明：**
@@ -102,7 +102,7 @@ DatePicker(options?: DatePickerOptions)
 | --- | --- | --- |
 | DATE | 0 | 显示年、月、日三列。 |
 | YEAR_AND_MONTH | 1 | 显示年、月二列。 |
-| MONTH_AND_DAY | 2 | 显示月、日二列。 在此模式下，年份始终保持不变。 |
+| MONTH_AND_DAY | 2 | 显示月、日二列。 在此模式下，年份始终保持不变，取值为selected参数指定的年份。若selected未指定则取当前系统年份。当月份滚动导致日期超出有效范围时，日期会自动调整至该月最后一天。 |
 
 
 
@@ -347,7 +347,7 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 ```json
 "requestPermissions": [
    {
-      "name": "ohos.permission.VIBRATE",
+      "name": "ohos.permission.VIBRATE"
    }
 ]
 ```
@@ -399,7 +399,7 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isLoop | Optional&lt;boolean&gt; | 是 | 是否可循环滚动。 - true：可循环滚动，年份随着月份的循环滚动进行联动加减，月份随着日的循环滚动进行联动加减。 - false：不可循环滚动，年、月、日到达本列的顶部或底部时，无法再进行滚动，年、月、日之间也无法再联动加减。 默认值：true 当isLoop的值为undefined时，使用默认值。 |
+| isLoop | Optional&lt;boolean&gt; | 是 | 是否可循环滚动。 - true：可循环滚动，年份随着月份的循环滚动进行联动加减，月份随着日的循环滚动进行联动加减。 - false：非循环滚动，年、月、日到达本列的顶部或底部时停止滚动，年、月、日之间保持独立，不进行联动加减。 默认值：true 当isLoop的值为undefined时，使用默认值。 说明： 设置了start或end且为非默认值的场景下，canLoop不生效。这是因为设置了日期范围限制后，循环滚动可能导致日期超出有效范围，为确保日期选择的准确性，强制使用非循环模式。 |
 
 
 
@@ -428,7 +428,7 @@ onChange(callback: (value: DatePickerResult) => void)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | (value: DatePickerResult) => void | 是 | 返回选中的日期。 |
+| callback | (value: DatePickerResult) => void | 是 | 返回选中的时间，包含年、月、日字段。 |
 
 
 
@@ -439,7 +439,7 @@ onChange(callback: (value: DatePickerResult) => void)
 
 onDateChange(callback: Callback&lt;Date&gt;)
 
-滑动DatePicker文本内容后，选项完全归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。
+滑动DatePicker文本内容后，选项完全归位至选中项位置时，触发该回调。归位是指滚动动画结束、选项稳定停靠在选中位置。不能通过双向绑定的状态变量触发，可以响应用户的滑动操作。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -451,7 +451,7 @@ onDateChange(callback: Callback&lt;Date&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;Date&gt; | 是 | 返回选中的时间，年、月、日为选中的日期，时、分取决于当前系统时间的时、分，秒恒为00。 |
+| callback | Callback&lt;Date&gt; | 是 | 返回选中的时间，年、月、日为选中的日期，时、分取决于当前系统时间的时、分，秒恒为00。适用于需要在用户确认日期选择后获取选中日期、更新界面或执行业务逻辑的场景。 |
 
 
 
@@ -478,7 +478,7 @@ onDateChange(callback: Optional<Callback&lt;Date&gt;>)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Optional<Callback&lt;Date&gt;> | 是 | 返回选中的时间，年、月、日为选中的日期，时、分取决于当前系统时间的时、分，秒恒为00。 当callback的值为undefined时，不使用回调函数。 |
+| callback | Optional<Callback&lt;Date&gt;> | 是 | 返回选中的时间，年、月、日为选中的日期，时、分取决于当前系统时间的时、分，秒恒为00。适用于需要在用户确认日期选择后获取选中日期、更新界面或执行业务逻辑的场景。 当callback的值为undefined时，不使用回调函数。 |
 
 
 
@@ -544,7 +544,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/7ZO6pXolTn6N2MWoA5KI-Q/zh-cn_image_0000002677667767.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=BAC0699EE6B74EFDF35BDEA08A4570A8DFCF6AA51FB3EED9E0F142B2AF8D4864)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/wkqmdLqUTK-04n7DVWzMsw/zh-cn_image_0000002685928187.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=CDEDDE444F114EC4994C26F2ACE1E2FA84DACC18E0482AFA842C54EBDF29631C)
 
 
 
@@ -581,7 +581,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/FqqBNK4BRgW5GmBZsd8uTQ/zh-cn_image_0000002647747886.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=6DD54E146C5C04BC060B23B00526B9FBCEB12F3C5A5C1AFDECA8AD32800DD560)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/rajKPogSQZGu4uES9CzYCA/zh-cn_image_0000002656008510.png?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=54CF11612674E6C22C17A4DF9147DB239BE208455FCC0F938BCC598012592BB1)
 
 
 
@@ -617,7 +617,7 @@ struct DatePickerExample {
         start: new Date('1970-1-1'),
         end: new Date('2100-1-1'),
         selected: this.selectedDate,
-        mode:this.datePickerModeList[this.datePickerModeIndex]
+        mode: this.datePickerModeList[this.datePickerModeIndex]
       })
         .lunar(this.isLunar)
         .onDateChange((value: Date) => {
@@ -628,7 +628,7 @@ struct DatePickerExample {
       Button('mode :' + this.datePickerModeIndex).margin({ top: 20 })
         .onClick(() => {
           this.datePickerModeIndex++;
-          if(this.datePickerModeIndex >= this.datePickerModeList.length){
+          if (this.datePickerModeIndex >= this.datePickerModeList.length) {
             this.datePickerModeIndex = 0;
           }
         })
@@ -638,7 +638,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/pTSaUBO2Q2erDWaRI77-EA/zh-cn_image_0000002647587976.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=4F73C5A5618BB14EDCF2E95925DDCD69CDECB84353223CE03A865CC96748752A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/vbr93HKcQd-Gfiiy2PWxHQ/zh-cn_image_0000002655848590.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=3AF74B3AB540A3343F3A7DA810D83A8C089EE40C69411AECB87BF4E08CDB784A)
 
 
 
@@ -669,7 +669,7 @@ struct DatePickerExample {
 
       Row() {
         Text('循环滚动').fontSize(20)
-        Toggle({ type: ToggleType.Switch, isOn: true })
+        Toggle({ type: ToggleType.Switch, isOn: this.isLoop })
           .onChange((isOn: boolean) => {
             this.isLoop = isOn;
           })
@@ -680,4 +680,4 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/tWsUiyKfTR-uIQCx065Iiw/zh-cn_image_0000002677827617.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=F4426319A58A1B87C4FDA6C91306BAB38E3A21F2DA6BAB20936E66B609222F6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/XyA5lkWuS5edTtncWqH-4w/zh-cn_image_0000002686088017.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=88B55E2113C9B2744C267B5E060DBC0E8E5873D9F8B94368F89F2859BFF07D84)

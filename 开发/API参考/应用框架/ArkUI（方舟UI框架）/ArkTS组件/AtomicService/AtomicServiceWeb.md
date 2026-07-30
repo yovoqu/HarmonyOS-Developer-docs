@@ -1,6 +1,6 @@
 # AtomicServiceWeb
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicserviceweb
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -43,6 +43,14 @@ import { AtomicServiceWeb } from '@kit.ArkUI';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
+
+
+
+#### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
 
@@ -89,7 +97,7 @@ AtomicServiceWeb({
 | nestedScroll15+ | NestedScrollOptions \| NestedScrollOptionsExt | 否 | @Prop | 设置嵌套滚动选项。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
 | onMessage | Callback&lt;OnMessageEvent&gt; | 否 | - | H5页面通过JS SDK的postMessage()发送消息后，Web组件对应的页面返回或销毁时，触发该回调。 |
 | onErrorReceive | Callback&lt;OnErrorReceiveEvent&gt; | 否 | - | 网页加载遇到错误时触发该回调。出于性能考虑，建议此回调中尽量执行简单逻辑。在无网络的情况下，触发此回调。 |
-| onHttpErrorReceive | Callback&lt;OnHttpErrorReceiveEvent&gt; | 否 | - | 网页加载资源遇到的HTTP错误（响应码>=400)时触发该回调。 |
+| onHttpErrorReceive | Callback&lt;OnHttpErrorReceiveEvent&gt; | 否 | - | 网页加载资源遇到的HTTP错误（响应码>=400）时触发该回调。 |
 | onPageBegin | Callback&lt;OnPageBeginEvent&gt; | 否 | - | 网页开始加载时触发该回调，且只在主frame触发，iframe或者frameset的内容加载时不会触发此回调。 |
 | onPageEnd | Callback&lt;OnPageEndEvent&gt; | 否 | - | 网页加载完成时触发该回调，且只在主frame触发。 |
 | onControllerAttached | Callback&lt;void&gt; | 否 | - | 当Controller成功绑定到Web组件时触发该回调，此回调中不能使用操作网页的相关接口。 |
@@ -575,14 +583,6 @@ type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 | --- | --- |
 | boolean | 返回资源是否被拦截，true表示被拦截。 |
 
-
-
-
-#### 事件
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
 

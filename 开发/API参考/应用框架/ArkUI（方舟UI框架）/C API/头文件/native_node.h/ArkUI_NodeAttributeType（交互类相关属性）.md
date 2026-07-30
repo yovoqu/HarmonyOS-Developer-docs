@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（交互类相关属性）
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-interaction
 
@@ -123,7 +123,7 @@ NODE_RESPONSE_REGION = 41
 NODE_OVERLAY = 42
 ```
  
-定义遮罩属性，支持属性设置，属性重置和属性获取。开发者可以通过如下.string或.object设置浮层内容，.string有更高的优先级。
+定义浮层属性，支持属性设置，属性重置和属性获取。开发者可以通过如下.string或.object设置浮层内容，.string有更高的优先级。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -133,7 +133,7 @@ NODE_OVERLAY = 42
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 遮罩文本。 |
+| .string | 浮层文本。 |
 | .value[0]?.i32 | 可选值，浮层相对于组件的位置，参数类型ArkUI_Alignment，默认值为ARKUI_ALIGNMENT_TOP_START。 |
 | .value[1]?.f32 | 可选值，浮层基于自身左上角的偏移量X，单位为vp，默认值为0vp。 |
 | .value[2]?.f32 | 可选值，浮层基于自身左上角的偏移量Y，单位为vp，默认值为0vp。 |
@@ -145,7 +145,7 @@ NODE_OVERLAY = 42
   
 | 类型 | 说明 |
 | --- | --- |
-| .string | 遮罩文本。 |
+| .string | 浮层文本。 |
 | .value[0].i32 | 浮层相对于组件的位置，参数类型ArkUI_Alignment，默认值为ARKUI_ALIGNMENT_TOP_START。 |
 | .value[1].f32 | 浮层基于自身左上角的偏移量X，单位为vp。 |
 | .value[2].f32 | 浮层基于自身左上角的偏移量Y，单位为vp。 |

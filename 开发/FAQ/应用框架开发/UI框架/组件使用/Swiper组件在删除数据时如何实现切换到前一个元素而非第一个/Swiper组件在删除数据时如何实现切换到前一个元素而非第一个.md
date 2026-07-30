@@ -83,7 +83,7 @@ struct <span style="color: rgb(0,0,255);">SwiperDeletesDataToPreviousElementOne 
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/dpIP7reyRCeTRh4bqJ-upg/zh-cn_image_0000002658791415.png?HW-CC-KV=V1&HW-CC-Date=20260723T012532Z&HW-CC-Expire=86400&HW-CC-Sign=E86C7850F374D8B0B178F416440C19300A6243EFE4083B9CE3261F8D4C6914F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/dpIP7reyRCeTRh4bqJ-upg/zh-cn_image_0000002658791415.png?HW-CC-KV=V1&HW-CC-Date=20260730T072318Z&HW-CC-Expire=86400&HW-CC-Sign=2F9B937A3C427C3E685532D4F91EE9FB136EE47DEC2E535FF250B41757E5E4FC)
 
 - 场景二：实现Swiper组件在删除数据时切换到前一个元素而非第一个，有切换动画。
 
@@ -147,4 +147,4 @@ struct <span style="color: rgb(0,0,255);">SwiperDeletesDataToPreviousElementTwo 
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/PWQxazXqRliPgMb-IVucRA/zh-cn_image_0000002628552030.png?HW-CC-KV=V1&HW-CC-Date=20260723T012532Z&HW-CC-Expire=86400&HW-CC-Sign=BE6D72D7489E89CDFA36F4FF655C5E4B34151D7D4C9C34DF23729B1411912369)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/PWQxazXqRliPgMb-IVucRA/zh-cn_image_0000002628552030.png?HW-CC-KV=V1&HW-CC-Date=20260730T072318Z&HW-CC-Expire=86400&HW-CC-Sign=F9574BCB7E900275D760A8D241537EFA1844CCD2ABE1879CB9D5D5D6AFFAD506)

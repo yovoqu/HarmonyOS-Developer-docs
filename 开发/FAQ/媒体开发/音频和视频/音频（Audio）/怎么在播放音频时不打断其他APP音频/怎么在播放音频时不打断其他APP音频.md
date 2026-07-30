@@ -1,6 +1,6 @@
 # 怎么在播放音频时不打断其他APP音频
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-65
 
@@ -22,8 +22,8 @@
 
 - **方案一**：应用可通过配置合适的音频流类型[StreamUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage)，根据系统默认的音频焦点策略，达到降低音量或同时播放的效果。
 
-  例如先播放STREAM_USAGE_MUSIC音乐音频，后播STREAM_USAGE_NAVIGATION导航音频可实现降低先播音频音量效果，详情可参考[系统默认焦点策略表](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-focus-management#section17923135513547)。
-- **方案二**：当系统默认焦点策略不满足应用焦点需求时，可通过[音频会话（AudioSession）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency#音频会话audiosession)自定义本应用的焦点策略。
+  例如先播放STREAM_USAGE_MUSIC音乐音频，后播STREAM_USAGE_NAVIGATION导航音频可实现降低先播音频音量效果，详情可参考[系统默认焦点策略表](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-focus-management#section2888185819153)。
+- **方案二**：当系统默认焦点策略不满足应用焦点需求时，可通过[音频会话（AudioSession）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency#音频焦点策略)自定义本应用的焦点策略。
 
   系统预设四种并发模式可按需选择：
 

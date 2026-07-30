@@ -1,10 +1,10 @@
 # @BuilderParam装饰器：引用@Builder函数
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam
 
-当开发者创建[自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)并需要为其添加特定功能（例如[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)功能）时，如果直接在组件内嵌入事件方法，会导致所有该自定义组件的实例都增加此功能。为了解决此问题，ArkUI引入了@BuilderParam装饰器。@BuilderParam用于装饰指向@Builder方法的变量，开发者可以在初始化自定义组件时，使用不同的方式（如参数修改、尾随闭包、借用箭头函数等）对@BuilderParam装饰的自定义构建函数进行传参赋值。在自定义组件内部，通过调用@BuilderParam为组件增加特定功能。
+当开发者创建[自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)并需要为其添加特定功能（例如[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)功能）时，如果直接在组件内嵌入事件方法，会导致所有该自定义组件的实例都增加此功能。为了解决此问题，ArkUI引入了[@BuilderParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-builderparam-dynamic#builderparam)装饰器。@BuilderParam用于装饰指向@Builder方法的变量，开发者可以在初始化自定义组件时，使用不同的方式（如参数修改、尾随闭包、借用箭头函数等）对@BuilderParam装饰的自定义构建函数进行传参赋值。在自定义组件内部，通过调用@BuilderParam为组件增加特定功能。
 
 在阅读本文档前，建议提前阅读：[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)。
 
@@ -532,7 +532,7 @@ struct HelloWorldPage {
 示例效果图
 
 
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260708103930e253b4fd.gif)
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260708103930f75c75e8.png)
 
 
 
@@ -622,7 +622,7 @@ struct ParentPage {
 示例效果图
 
 
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260708103930f75c75e8.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/kJvz1MBMRLGvJ07YRbGN1Q/zh-cn_image_0000002656005826.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=B94E7175252C5C6D0D993D109531C1135EAC36E89CD807780302C96CFEA70B53)
 
 
 
@@ -712,7 +712,7 @@ struct ParentPage {
 示例效果图
 
 
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260708103930f75c75e8.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/dZhbFSdRQPem_PBXnUs9Pg/zh-cn_image_0000002655845906.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=73ACB4D0DA991DD85366042FE2A378E0DBE338EB0C284FFE01C852A34A795783)
 
 
 
@@ -847,7 +847,7 @@ function globalBuilder() {
 struct CustomBuilderDemo {
   build() {
     Column() {
-      // 由于未对@Require装饰的变量ChildBuilder进行赋值，此处无论是编译还是编辑，均会报错。
+      // 由于未对@Require装饰的变量ChildBuilder进行赋值，会出现编译和编辑报错。
       ChildPage()
     }
   }

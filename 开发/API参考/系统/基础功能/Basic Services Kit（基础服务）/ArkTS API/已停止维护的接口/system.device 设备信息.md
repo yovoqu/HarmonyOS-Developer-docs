@@ -1,6 +1,6 @@
 # @system.device (设备信息)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-device
 **支持设备：** Wearable | lite_wearable
@@ -8,7 +8,7 @@
 本模块提供当前设备的信息，通过读取系统配置获取设备品牌、型号、生产商、屏幕参数等基础信息，供开发者进行设备适配和功能判断。
  
 > [!NOTE]
-> 模块维护策略 - 对于Lite Wearable设备类型，该模块长期维护，正常使用。 - 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，推荐使用新接口 @ohos.deviceInfo 进行设备信息查询。 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 模块维护策略 - 对于Lite Wearable设备类型，该模块长期维护，正常使用。 - 对于支持该模块的其他设备类型，该模块从API version 6开始不再维护，推荐使用新接口 @ohos.deviceInfo （从API version 6开始支持）进行设备信息查询。 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 

@@ -1,6 +1,6 @@
 # 使用画布绘制自定义图形 (Canvas)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas
 
@@ -49,7 +49,7 @@ struct CanvasExample1 {
 
 1. 通过[transferToImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#transfertoimagebitmap)方法将离屏画布最近渲染的图像创建为一个[ImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap)对象。
 
-2. 通过[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象的[transferFromImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#transferfromimagebitmap)方法显示给定的ImageBitmap对象。
+2. 通过[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象的[transferFromImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#transferfromimagebitmap)方法显示给定的ImageBitmap对象。
 
   具体使用参考[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象。
 
@@ -106,7 +106,7 @@ import lottie from '@ohos/lottie'
 
 #### 初始化画布组件
 
-onReady(event: () => void)是Canvas组件初始化完成时的事件回调，调用该事件后，可获取Canvas组件的确定宽度[width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#width)和高度[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#height)，进一步使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象调用相关API进行图形绘制。
+onReady(event: () => void)是Canvas组件初始化完成时的事件回调，调用该事件后，可获取Canvas组件的确定宽度[width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#属性)和高度[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#属性)，进一步使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象调用相关API进行图形绘制。
 
 ```ArkTS
 Canvas(this.context)
@@ -149,7 +149,7 @@ Canvas(this.context)
 ![](assets/使用画布绘制自定义图形%20(Canvas)/file-20260514130718664-12.gif)
 
 
- - 先单独定义path2D对象构造理想的路径，再通过调用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象的[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#stroke-1)接口或者[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#fill-1)接口进行绘制，具体使用可以参考[Path2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-path2d)对象。
+ - 先单独定义path2D对象构造理想的路径，再通过调用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象的[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#stroke-1)接口或者[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#fill-1)接口进行绘制，具体使用可以参考[Path2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-path2d)对象。
 
 
 ```ArkTS
@@ -172,11 +172,11 @@ Canvas(this.context2)
 
 #### 画布组件常用方法
 
-OffscreenCanvasRenderingContext2D对象和CanvasRenderingContext2D对象提供了大量的属性和方法，可以用来绘制文本、图形，处理像素等，是Canvas组件的核心。常用接口有[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fill)（对封闭路径进行填充）、[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#clip)（设置当前路径为剪切路径）、[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stroke)（进行边框绘制操作）等等，同时提供了[fillStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fillstyle)（指定绘制的填充色）、[globalAlpha](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalalpha)（设置透明度）与[strokeStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#strokestyle)（设置描边的颜色）等属性修改绘制内容的样式。将通过以下几个方面简单介绍画布组件常见使用方法：
+OffscreenCanvasRenderingContext2D对象和CanvasRenderingContext2D对象提供了大量的属性和方法，可以用来绘制文本、图形，处理像素等，是Canvas组件的核心。常用接口有[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#fill)（对封闭路径进行填充）、[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#clip)（设置当前路径为剪切路径）、[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#stroke)（进行边框绘制操作）等等，同时提供了[fillStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#fillstyle)（指定绘制的填充色）、[globalAlpha](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#globalalpha)（设置透明度）与[strokeStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#strokestyle)（设置描边的颜色）等属性修改绘制内容的样式。将通过以下几个方面简单介绍画布组件常见使用方法：
 
  - 绘制基础形状。
 
-  可以通过[arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#arc)（绘制弧线路径）、 [ellipse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#ellipse)（绘制一个椭圆）、[rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#rect)（创建矩形路径）等接口绘制基础形状。
+  可以通过[arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#arc)（绘制弧线路径）、 [ellipse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#ellipse)（绘制一个椭圆）、[rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#rect)（创建矩形路径）等接口绘制基础形状。
 
 
 ```text
@@ -206,7 +206,7 @@ Canvas(this.context)
 
  - 绘制文本。
 
-  可以通过[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)（文本填充）、[strokeText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stroketext)（文本描边）等接口进行文本绘制，示例中设置了font为50像素高加粗的"sans-serif"字体，然后调用fillText方法在(50, 100)处绘制文本"Hello World!"，设置strokeStyle为红色，lineWidth为2，font为50像素高加粗的"sans-serif"字体，然后调用strokeText方法在(50, 150)处绘制文本"Hello World!"的轮廓。
+  可以通过[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#filltext)（文本填充）、[strokeText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#stroketext)（文本描边）等接口进行文本绘制，示例中设置了font为50像素高加粗的"sans-serif"字体，然后调用fillText方法在(50, 100)处绘制文本"Hello World!"，设置strokeStyle为红色，lineWidth为2，font为50像素高加粗的"sans-serif"字体，然后调用strokeText方法在(50, 150)处绘制文本"Hello World!"的轮廓。
 
 
 ```ArkTS
@@ -232,7 +232,7 @@ Canvas(this.context)
 
  - 绘制文本边框。
 
-  可以通过[measureText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#measuretext)（文本测量）计算绘制文本的宽度和高度，使用测量的宽度和高度作为边框的尺寸。在示例中，设置textBaseline为'top'，font为30像素的"monospace"字体，通过measureText测量出文本的宽度和高度，然后调用fillText方法在(20, 100)处绘制文本"Hello World!"，并调用strokeRect方法在同一位置使用测量的宽度和高度绘制相应尺寸的边框。接着，设置font为60像素的粗体"sans-serif"字体，再次通过measureText测量文本的宽度和高度，接着调用fillText方法在(20, 150)处绘制文本"Hello World"，并调用strokeRect方法在同一位置使用测量的宽度和高度绘制对应尺寸的边框。
+  可以通过[measureText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#measuretext)（文本测量）计算绘制文本的宽度和高度，使用测量的宽度和高度作为边框的尺寸。在示例中，设置textBaseline为'top'，font为30像素的"monospace"字体，通过measureText测量出文本的宽度和高度，然后调用fillText方法在(20, 100)处绘制文本"Hello World"，并调用strokeRect方法在同一位置使用测量的宽度和高度绘制相应尺寸的边框。接着，设置font为60像素的粗体"sans-serif"字体，再次通过measureText测量文本的宽度和高度，接着调用fillText方法在(20, 150)处绘制文本"Hello World"，并调用strokeRect方法在同一位置使用测量的宽度和高度绘制对应尺寸的边框。
 
 
 ```ArkTS
@@ -279,7 +279,7 @@ struct CanvasComponentTextBorder {
 
  - 使用自定义字体绘制文本。
 
-  从API version 20开始，可以通过[getGlobalInstance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getglobalinstance)获取应用全局字体管理器的实例，然后使用[loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)接口从设置的路径中加载自定义字体并通过[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)（设置文本绘制中的字体样式）接口设置文本绘制中的字体样式，接着通过[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)（绘制填充类文本）、[strokeText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stroketext)（绘制描边类文本）等接口进行文本绘制。
+  从API version 20开始，可以通过[getGlobalInstance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getglobalinstance)获取应用全局字体管理器的实例，然后使用[loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)接口从设置的路径中加载自定义字体并通过[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#font)（设置文本绘制中的字体样式）接口设置文本绘制中的字体样式，接着通过[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#filltext)（绘制填充类文本）、[strokeText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#stroketext)（绘制描边类文本）等接口进行文本绘制。
 
 
 ```ArkTS
@@ -318,7 +318,7 @@ struct CustomFont {
 
  - 绘制图片和图像像素信息处理。
 
-  可以通过[drawImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#drawimage)（图像绘制）、[putImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#putimagedata)（使用[ImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagedata)数据填充新的矩形区域）等接口绘制图片，通过[createImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createimagedata)（创建新的ImageData 对象）、[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)（以当前canvas指定区域内的像素创建[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象）、[getImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getimagedata)（以当前canvas指定区域内的像素创建ImageData对象）等接口进行图像像素信息处理。
+  可以通过[drawImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#drawimage)（图像绘制）、[putImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#putimagedata)（使用[ImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagedata)数据填充新的矩形区域）等接口绘制图片，通过[createImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#createimagedata)（创建新的ImageData 对象）、[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)（以当前canvas指定区域内的像素创建[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象）、[getImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getimagedata)（以当前canvas指定区域内的像素创建ImageData对象）等接口进行图像像素信息处理。
 
 
 ```ArkTS
@@ -362,7 +362,7 @@ struct CanvasComponentDrawingPictureAndImagePixel {
 
  - 其他方法。
 
-  Canvas中还提供其他类型的方法。渐变（[CanvasGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvasgradient)对象）相关的方法：[createLinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createlineargradient)（创建一个线性渐变色）、[createRadialGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createradialgradient)（创建一个径向渐变色）等。
+  Canvas中还提供其他类型的方法。渐变（[CanvasGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvasgradient)对象）相关的方法：[createLinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#createlineargradient)（创建一个线性渐变色）、[createRadialGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#createradialgradient)（创建一个径向渐变色）等。
 
 
 ```ArkTS
@@ -660,7 +660,7 @@ struct Path2d {
 
  - 绘制可拖动的光标。
 
-  可以通过[beginPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#beginpath)、[moveTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#moveto)、[lineTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#lineto)和[arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#arc)方法设置光标的位置，使用[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stroke)和[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fill)方法绘制光标，将是否按下和位置变化通过@Watch监听，并绑定自定义的drawCursor()方法。当拖动光标时，@Watch绑定的方法会执行绘制逻辑，计算并更新光标的颜色和位置。
+  可以通过[beginPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#beginpath)、[moveTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#moveto)、[lineTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#lineto)和[arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#arc)方法设置光标的位置，使用[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#stroke)和[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#fill)方法绘制光标，将是否按下和位置变化通过@Watch监听，并绑定自定义的drawCursor()方法。当拖动光标时，@Watch绑定的方法会执行绘制逻辑，计算并更新光标的颜色和位置。
 
 
 ```ArkTS

@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行错误处理开发
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-error
 
@@ -59,9 +59,9 @@ JSVM-API接口开发流程可参考[使用JSVM-API实现JS与C/C++语言交互�
 cpp部分代码：
  
 ```cpp
-// hello.cpp
-// 捕获清除并打印错误，该函数作为公共函数，在本文档后续样例中不再声明和定义
-static void GetLastErrorAndClean(JSVM_Env env) {
+// 捕获清除并打印错误,该函数作为公共函数，在本文档后续样例中不再声明和定义
+static void GetLastErrorAndClean(JSVM_Env env)
+{
     // 调用OH_JSVM_GetAndClearLastException接口获取并清除最后一个未处理的异常。即使存在挂起的JavaScript异常，也可以调用此API
     JSVM_Value result = nullptr;
     JSVM_Status status = OH_JSVM_GetAndClearLastException(env, &result);
@@ -70,15 +70,18 @@ static void GetLastErrorAndClean(JSVM_Env env) {
     JSVM_Value errorCode = nullptr;
     OH_JSVM_GetNamedProperty((env), result, "message", &message);
     OH_JSVM_GetNamedProperty((env), result, "code", &errorCode);
-    char messageStr[256];
-    char codeStr[256];
-    OH_JSVM_GetValueStringUtf8(env, message, messageStr, 256, nullptr);
-    OH_JSVM_GetValueStringUtf8(env, errorCode, codeStr, 256, nullptr);
+    const int maxMessageLength = 256;
+    const int maxCodeLength = 256;
+    char messageStr[maxMessageLength];
+    char codeStr[maxCodeLength];
+    OH_JSVM_GetValueStringUtf8(env, message, messageStr, maxMessageLength, nullptr);
+    OH_JSVM_GetValueStringUtf8(env, errorCode, codeStr, maxCodeLength, nullptr);
     OH_LOG_INFO(LOG_APP, "JSVM error message: %{public}s, error code: %{public}s", messageStr, codeStr);
 }
 
 // OH_JSVM_CreateError的样例方法
-static JSVM_Value JsVmCreateThrowError(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmCreateThrowError(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 在JSVM环境中创建一个字符串，并将其存储在errorCode变量中
     JSVM_Value errorCode = nullptr;
     OH_JSVM_CreateStringUtf8(env, "-1", JSVM_AUTO_LENGTH, &errorCode);
@@ -94,7 +97,7 @@ static JSVM_Value JsVmCreateThrowError(JSVM_Env env, JSVM_CallbackInfo info) {
     return nullptr;
 }
 
-// JsVmThrow注册回调
+// JsVmCreateThrowError注册回调
 static JSVM_CallbackStruct param[] = {
     {.data = nullptr, .callback = JsVmCreateThrowError},
 };
@@ -104,7 +107,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmCreateThrowError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmCreateThrowError();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmCreateThrowError();)JS";
 ```
  
 预期输出结果
@@ -122,7 +125,6 @@ JSVM error message: HasError, error code: -1
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_ThrowError的样例方法
 static JSVM_Value JsVmThrowError(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -156,7 +158,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmThrowError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmThrowError();jsVmThrowError("self defined error message");)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmThrowError();jsVmThrowError("self defined error message");)JS";
 ```
  
 预期输出结果：
@@ -175,9 +177,9 @@ JSVM error message: self defined error message, error code: self defined error c
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_ThrowTypeError的样例方法
-static JSVM_Value JsVmThrowTypeError(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmThrowTypeError(JSVM_Env env, JSVM_CallbackInfo info)
+{
     size_t argc = 1;
     JSVM_Value argv[1] = {nullptr};
     OH_JSVM_GetCbInfo(env, info, &argc, argv, nullptr, nullptr);
@@ -186,7 +188,7 @@ static JSVM_Value JsVmThrowTypeError(JSVM_Env env, JSVM_CallbackInfo info) {
         OH_JSVM_ThrowTypeError(env, "-1", "throwing type error");
     } else if (argc == 1) {
         size_t length = 0;
-        // 通过入参获取到javaScript侧传入的字符串长度
+        // 通过入参获取到JavaScript侧传入的字符串长度
         OH_JSVM_GetValueStringUtf8(env, argv[0], nullptr, 0, &length);
         char *buffer = new char[length + 1];
         // 获取入参的字符串内容
@@ -208,7 +210,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmThrowTypeError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmThrowTypeError();jsVmThrowTypeError("self defined error message");)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmThrowTypeError();jsVmThrowTypeError("self defined error message");)JS";
 ```
  
 预期输出结果：
@@ -227,7 +229,6 @@ JSVM error message: self defined error message, error code: self defined error c
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_ThrowRangeError的样例方法
 static JSVM_Value JsVmThrowRangeError(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -256,7 +257,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmThrowRangeError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmThrowRangeError(1);)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmThrowRangeError(1);)JS";
 ```
  
 预期输出结果：
@@ -274,9 +275,9 @@ JSVM error message: Expected two numbers as arguments, error code: OH_JSVM_Throw
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_ThrowSyntaxError的样例方法
-static JSVM_Value JsVmThrowSyntaxError(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmThrowSyntaxError(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // JS侧传入运行的JS代码
     size_t argc = 1;
     JSVM_Value argv[1] = {nullptr};
@@ -307,7 +308,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmThrowSyntaxError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmThrowSyntaxError();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmThrowSyntaxError();)JS";
 ```
  
 预期输出结果：
@@ -325,9 +326,9 @@ JSVM error message: throw syntax error, error code: JsVmThrowSyntaxError
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_IsError的样例方法
-static JSVM_Value JsVmIsError(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmIsError(JSVM_Env env, JSVM_CallbackInfo info)
+{
     size_t argc = 1;
     JSVM_Value args[1] = {nullptr};
     OH_JSVM_GetCbInfo(env, info, &argc, args, nullptr, nullptr);
@@ -337,7 +338,7 @@ static JSVM_Value JsVmIsError(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_Status status = OH_JSVM_IsError(env, args[0], &result);
     if (status == JSVM_OK) {
         OH_LOG_INFO(LOG_APP, "JSVM API call OH_JSVM_IsError success, result is %{public}d", result);
-    }else {
+    } else {
         OH_LOG_INFO(LOG_APP, "JSVM API call OH_JSVM_IsError failed");
     }
     // 取出result通过OH_JSVM_GetBoolean接口将取出的bool值转换为JSVM_Value类型的值返回出去
@@ -355,7 +356,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmIsError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmIsError(Error()))JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmIsError(Error()))JS";
 ```
  
 预期输出结果：
@@ -373,9 +374,9 @@ JSVM API call OH_JSVM_IsError success, result is 1
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_CreateTypeError的样例方法
-static JSVM_Value JsVmCreateTypeError(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmCreateTypeError(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 在JSVM环境中创建一个字符串，并将其存储在errorCode变量中
     JSVM_Value errorCode = nullptr;
     OH_JSVM_CreateStringUtf8(env, "-1", JSVM_AUTO_LENGTH, &errorCode);
@@ -401,7 +402,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmCreateTypeError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmCreateTypeError();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmCreateTypeError();)JS";
 ```
  
 预期输出结果：
@@ -419,9 +420,9 @@ JSVM API Create TypeError SUCCESS
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_CreateRangeError的样例方法
-static JSVM_Value JsVmCreateRangeError(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmCreateRangeError(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 在JSVM环境中创建一个字符串，并将其存储在errorCode变量中
     JSVM_Value errorCode = nullptr;
     OH_JSVM_CreateStringUtf8(env, "-1", JSVM_AUTO_LENGTH, &errorCode);
@@ -447,7 +448,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmCreateRangeError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmCreateRangeError();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmCreateRangeError();)JS";
 ```
  
 预期输出结果：
@@ -465,9 +466,9 @@ JSVM API CreateRangeError SUCCESS
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_CreateSyntaxError的样例方法
-static JSVM_Value JsVmCreateSyntaxError(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmCreateSyntaxError(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 在JSVM环境中创建一个字符串，并将其存储在errorCode变量中
     JSVM_Value errorCode = nullptr;
     OH_JSVM_CreateStringUtf8(env, "-1", JSVM_AUTO_LENGTH, &errorCode);
@@ -493,7 +494,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmCreateSyntaxError", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmCreateSyntaxError();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmCreateSyntaxError();)JS";
 ```
  
 预期输出结果：
@@ -511,9 +512,9 @@ JSVM API CreateSyntaxError SUCCESS
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_GetAndClearLastException的样例方法
-static JSVM_Value JsVmGetAndClearLastException(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmGetAndClearLastException(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 抛出异常，创造异常情况
     OH_JSVM_ThrowError(env, "OH_JSVM_ThrowError errorCode", "OH_JSVM_ThrowError errorMessage");
     // 调用OH_JSVM_GetAndClearLastException接口获取并清除最后一个未处理的异常。即使存在挂起的JavaScript异常，也可以调用此API
@@ -536,7 +537,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmGetAndClearLastException", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmGetAndClearLastException();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmGetAndClearLastException();)JS";
 ```
  
 预期输出结果：
@@ -554,9 +555,9 @@ JSVM API OH_JSVM_GetAndClearLastException SUCCESS
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_IsExceptionPending的样例方法
-static JSVM_Value JsVmIsExceptionPending(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmIsExceptionPending(JSVM_Env env, JSVM_CallbackInfo info)
+{
     JSVM_Status status;
     bool isExceptionPending = false;
     // 在执行一些可能引发异常的操作后
@@ -591,7 +592,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmIsExceptionPending", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmIsExceptionPending();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmIsExceptionPending();)JS";
 ```
  
 预期输出结果：
@@ -606,14 +607,14 @@ JSVM API OH_JSVM_IsExceptionPending: SUCCESS
 
 用于获取调用JSVM接口最后一次发生的错误信息（接口返回值不为JSVM_OK），包括错误码、错误消息以及错误堆栈信息，即使存在挂起的JavaScript异常，也可以调用此API。
  
-注意: 通过OH_JSVM_ThrowError等接口主动触发的Error不会被该接口获取，除非调用接口时返回值不为JSVM_OK。
+注意：通过OH_JSVM_ThrowError等接口主动触发的Error不会被该接口获取，除非调用接口时返回值不为JSVM_OK。
  
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 // OH_JSVM_GetLastErrorInfo的样例方法
-static JSVM_Value JsVmGetLastErrorInfo(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value JsVmGetLastErrorInfo(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 获取输入参数（这里以字符串message作为参数传入）
     size_t argc = 1;
     JSVM_Value args[1] = {nullptr};
@@ -646,7 +647,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"jsVmGetLastErrorInfo", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(jsVmGetLastErrorInfo();)JS";
+const char *SRC_CALL_NATIVE = R"JS(jsVmGetLastErrorInfo();)JS";
 ```
  
 预期输出结果：

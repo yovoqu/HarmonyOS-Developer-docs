@@ -1,6 +1,6 @@
 # OHAudioSuite
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -24,4 +24,4 @@
 | 名称 | 描述 |
 | --- | --- |
 | native_audio_suite_base.h | 声明音频编创相关底层数据结构。 |
-| native_audio_suite_engine.h | 声明与音频编创相关的接口。（包括引擎、管线、节点）。 |
+| native_audio_suite_engine.h | 声明与音频编创相关接口（包括引擎、管线、节点）。 |

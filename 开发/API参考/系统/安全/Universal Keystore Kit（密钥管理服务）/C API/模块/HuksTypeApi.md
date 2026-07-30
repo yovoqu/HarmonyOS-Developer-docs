@@ -1,6 +1,6 @@
 # HuksTypeApi
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义HUKS类型的头文件，声明各种宏、枚举、数据结构、错误码等。
+定义通用密钥库（HUKS）类型的头文件，声明各种宏、枚举、数据结构、错误码等。
  
 **起始版本：** 9
  
@@ -21,4 +21,4 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| native_huks_type.h | 提供huks中的枚举变量、结构体定义与宏定义。 |
+| native_huks_type.h | 提供HUKS中的枚举变量、结构体定义、宏定义与错误码。 |

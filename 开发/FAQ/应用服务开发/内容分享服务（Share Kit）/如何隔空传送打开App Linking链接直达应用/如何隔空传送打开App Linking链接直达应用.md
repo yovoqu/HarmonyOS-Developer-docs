@@ -1,6 +1,6 @@
 # 如何隔空传送打开App Linking链接直达应用
 
-更新时间：2026-07-09 10:22:31
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-10
 
@@ -12,16 +12,16 @@
 
 #### 背景知识
 
-- [App Linking Kit（应用链接服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/applinking-introduction)：通过App Linking应用链接拉起指定应用，实现应用间跳转。当应用已安装时，优先通过应用展示内容；若应用未安装，则通过系统浏览器展示网页版内容。
-- [隔空传送](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gestures-share-overview)：用户通过“一抓一放”手势实现跨设备文件分享（图片、视频、文档等）以及跨设备链接分享。
-
+[App Linking Kit（应用链接服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/applinking-introduction)：通过App Linking应用链接拉起指定应用，实现应用间跳转。当应用已安装时，优先通过应用展示内容；若应用未安装，则通过系统浏览器展示网页版内容。
+ 
+[隔空传送](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gestures-share-overview)：用户通过“一抓一放”手势实现跨设备文件分享（图片、视频、文档等）以及跨设备链接分享。
  
  
 
 #### 解决方案
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/j8to7OJKRSW34eT2-8UMxA/zh-cn_image_0000002664282537.png?HW-CC-KV=V1&HW-CC-Date=20260723T013753Z&HW-CC-Expire=86400&HW-CC-Sign=E4A42E766B88E1514CCA7517551A3DF582AFDF0C2A04E664AE0F79F28D3B205D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/uGX2mijpRj2Bc-xgV29E8w/zh-cn_image_0000002643336236.png?HW-CC-KV=V1&HW-CC-Date=20260730T072649Z&HW-CC-Expire=86400&HW-CC-Sign=0F923A0E1B294584F1D4DB4308595872A61D0CE9929B4DCC059AB235B22B60B5)
 
  
 实现跨设备链接隔空传送分享流程如上，其中A设备应用为宿主应用，B设备应用为目标应用。需要分别实现目标方和宿主方应用配置。
@@ -32,32 +32,32 @@
 ```json
 {
   "entities": [
-<em>    // entities必须包含"entity.system.browsable"</em>
+  <em>  // entities必须包含"entity.system.browsable"</em>
     "entity.system.browsable"
   ],
   "actions": [
-   <em> // actions必须包含"ohos.want.action.viewData"</em>
+  <em>  // actions必须包含"ohos.want.action.viewData"</em>
     "ohos.want.action.viewData"
   ],
   "uris": [
     {
    <em>   // scheme须配置为https</em>
       "scheme": "https",
-<em>      // host须配置为关联的网址域名，实际运行时替换为真实的App Linking链接域名</em>
+      <em>// host须配置为关联的网址域名，实际运行时替换为真实的App Linking链接域名</em>
       "host": "www.example.com",
-  <em>    // path可选，表示域名服务器上的目录或文件路径，例如www.example.com/path1中的path1</em>
+      <em>// path可选，表示域名服务器上的目录或文件路径，例如www.example.com/path1中的path1</em>
 <em>      // 如果应用只能处理部分特定的path，则此处应该配置应用所支持的path，避免出现应用不能处理的path链接也被引流到应用中的问题</em>
       "path": "path1"
     }
   ],
-<em>  // domainVerify须设置为true</em>
+ <em> // domainVerify须设置为true</em>
   "domainVerify": true
 }
 ```
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/s5vVLjlwSkOYeeHboF0XOw/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T013753Z&HW-CC-Expire=86400&HW-CC-Sign=BB5E93226D361F45191D122DE66FE379D03CDF55A5B6597C8C4A817996DD4BBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/y7pDcY7vSqWadze4cRCMrw/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072649Z&HW-CC-Expire=86400&HW-CC-Sign=29C86D541F7F7230AFF955D71C8524478D6EAAB909AC71D7225D47141E4099AE)
  
 
   
@@ -98,7 +98,7 @@ onNewWant(want: Want): void {
   
 ```text
 @StorageLink('GesturesShare_isShareLink') isShareLink: boolean = false;
-@StorageLink('GesturesShare_shareIndex') shareResult: string = '隔空投送分享AppLinking';
+@StorageLink('GesturesShare_shareIndex') shareResult: string = '隔空传送分享AppLinking';
 
 build() {
   RelativeContainer() {
@@ -117,13 +117,13 @@ build() {
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/NWzlyCHQTzuIJMgwN_cjgg/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T013753Z&HW-CC-Expire=86400&HW-CC-Sign=B1A6D18F4C63F2AE1750A3D7B2CDB09265CC18C0F057F6D3EE30277E75ED7C0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/BKdlOkl6T8egdTsKGM_Bxg/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072649Z&HW-CC-Expire=86400&HW-CC-Sign=19EF9310F3DC4C6F6FABAD6329A03439E63DA3F09987E81A56B6F2CC4CC7C5BD)
  
 
   不能使用DevEco Studio的自动签名功能，必须使用[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)，否则无法拉起应用。
  
 **宿主应用配置：**
- 1. 构造华为分享事件触发后的回调[SharableTarget](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-harmony-share#section9147845115614)。设置utd类型为utd.UniformDataType.HYPERLINK,表示分享内容为链接。分享链接通过目标方应用关联的网址域名和自定义参数拼接而成。代码如下：
+ 1. 构造华为分享事件触发后的回调[SharableTarget](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-harmony-share#sharabletarget)。设置utd类型为utd.UniformDataType.HYPERLINK,表示分享内容为链接。分享链接通过目标方应用关联的网址域名和自定义参数拼接而成。代码如下：
 ```text
 private immersiveCallback = (sharableTarget: harmonyShare.SharableTarget) => {
   let filePath = this.context.filesDir + '/gestures_immersive.png'; <em>// 仅为示例 请替换正确的文件路径</em>
@@ -219,7 +219,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    <em>// Main window is destroyed, release UI related resources</em>
+  <em>  // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
@@ -229,7 +229,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onBackground(): void {
-   <em> // Ability has back to background</em>
+<em>    // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }
@@ -251,7 +251,7 @@ struct Index {
 
   aboutToAppear(): void {
     try {
-      let filePath = this.context.filesDir + '/gestures_immersive.png'; /<em>/ 仅为示例 请替换正确的文件路径</em>
+      let filePath = this.context.filesDir + '/gestures_immersive.png';<em> // 仅为示例 请替换正确的文件路径</em>
       let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
       let writeLen = fs.writeSync(file.fd,
         (this.context.resourceManager.getMediaContentSync($r('app.media.gestures_immersive').id) as Uint8Array).buffer);
@@ -292,7 +292,7 @@ struct Index {
   }
 
   @StorageLink('GesturesShare_isShareLink') isShareLink: boolean = false;
-  @StorageLink('GesturesShare_shareIndex') shareResult: string = '隔空投送分享AppLinking';
+  @StorageLink('GesturesShare_shareIndex') shareResult: string = '隔空传送分享AppLinking';
 
   build() {
     RelativeContainer() {

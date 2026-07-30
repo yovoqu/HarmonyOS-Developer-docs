@@ -1,6 +1,6 @@
 # ohpm uninstall错误码
 
-更新时间：2026-03-11 08:49:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-uninstall-errorcode
 
@@ -20,7 +20,7 @@ uninstall时未配置包名称。
  
 **处理步骤**
  
-根据oh-package.json5文件中配置的依赖进行卸载，确认卸载的依赖包在文件中已配置。
+根据oh-package.json5文件中配置的依赖进行卸载，确认依赖包在文件中已配置。
  
  
 

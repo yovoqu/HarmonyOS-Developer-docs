@@ -1,6 +1,6 @@
 # Rdb_KeyInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-rdb-keyinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,5 +37,5 @@ typedef struct {...} Rdb_KeyInfo
 | 名称 | 描述 |
 | --- | --- |
 | int count | 表示发生变化的主键或者行号的数量。 |
-| int type | 表示主键的类型OH_ColumnType。 |
-| Rdb_KeyData* data | 存放变化的具体数据 |
+| int type | 表示主键或行号的数据类型OH_ColumnType。 |
+| Rdb_KeyData* data | 存放发生变化的具体数据。 |

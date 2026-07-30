@@ -187,7 +187,7 @@ struct CustomSliderPage1 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/_AbsFYa8QHuuoLVp92MIsA/zh-cn_image_0000002658952787.png?HW-CC-KV=V1&HW-CC-Date=20260723T012713Z&HW-CC-Expire=86400&HW-CC-Sign=2DD12CDFBE764613DA2795C9B2FD0F44EBAC894B16822C52336810688612A289)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/_AbsFYa8QHuuoLVp92MIsA/zh-cn_image_0000002658952787.png?HW-CC-KV=V1&HW-CC-Date=20260730T072345Z&HW-CC-Expire=86400&HW-CC-Sign=4D7FF58BF15B98975DF6FD7288C8F58576F5A046742F6C837133F4A73B2655DD)
 
 - **场景二**：滑块移动时的动态UI展示。此场景在场景一的基础上，增强了内容刷新的功能：
 
@@ -302,7 +302,7 @@ struct CustomSliderPage2 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/oU_7N39fQzO0Az50x8nI1w/zh-cn_image_0000002658832825.png?HW-CC-KV=V1&HW-CC-Date=20260723T012713Z&HW-CC-Expire=86400&HW-CC-Sign=FFF2615DA0B59EC1FB19237F69AF1DA0C28DEA42662DEA96C2480C72AA8A3995)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/oU_7N39fQzO0Az50x8nI1w/zh-cn_image_0000002658832825.png?HW-CC-KV=V1&HW-CC-Date=20260730T072345Z&HW-CC-Expire=86400&HW-CC-Sign=8D8F60DE91F8E149B7FEAA5FC12F6BEE06D79E4EF698DFF355C0223FC4C17B56)
 
 - **场景三**：气泡内容长文本展示。此场景在场景二的基础上，聚焦长文本样式的增强：
 
@@ -419,4 +419,4 @@ struct CustomSliderPage3 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/kNAHI96hS72IfsdIMT81dQ/zh-cn_image_0000002628593584.png?HW-CC-KV=V1&HW-CC-Date=20260723T012713Z&HW-CC-Expire=86400&HW-CC-Sign=E94DCB523824DAFF3B0E731F000BE7255C664AE52840506A1C34521021AE0C9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/kNAHI96hS72IfsdIMT81dQ/zh-cn_image_0000002628593584.png?HW-CC-KV=V1&HW-CC-Date=20260730T072345Z&HW-CC-Expire=86400&HW-CC-Sign=088604560201569FEDDC575DA53D7A0E80A08D6067C5F98301BFE47331916E00)

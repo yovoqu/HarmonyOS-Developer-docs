@@ -162,7 +162,7 @@ struct FadePage {
 效果图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/15kv_gfBTROrVG8GByiNAA/zh-cn_image_0000002658926707.png?HW-CC-KV=V1&HW-CC-Date=20260723T013244Z&HW-CC-Expire=86400&HW-CC-Sign=7975034F3853DC762ABE71337AE4622F1C6CCBBB84D722B7494A4E96B285E638)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/15kv_gfBTROrVG8GByiNAA/zh-cn_image_0000002658926707.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=A66326845CC4CB077622190189949054D1863E0F047AAC18F948DA562EABF829)
 
  
  
@@ -298,7 +298,7 @@ struct PageContent {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/PnLivEn6Tmi3i7fX59UOgA/zh-cn_image_0000002658806749.png?HW-CC-KV=V1&HW-CC-Date=20260723T013244Z&HW-CC-Expire=86400&HW-CC-Sign=4E91759A670D2FE821357BC73054AA3A756E57048B6BF59659665873FFF4FA62)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/PnLivEn6Tmi3i7fX59UOgA/zh-cn_image_0000002658806749.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=5430D21AECBBE336707F7F6214921D72A044D2D16FD4630EFEBC1830002ED639)
 
 
  

@@ -56,7 +56,7 @@
 根据对日志进行分析，侧滑时onBackPressed函数未被调用，若注册了onWillDismiss函数，则onWillDismiss函数会被触发。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/07IpLXXjTkyEBuCns1eyqA/zh-cn_image_0000002628765706.png?HW-CC-KV=V1&HW-CC-Date=20260723T013131Z&HW-CC-Expire=86400&HW-CC-Sign=AF7766F89BB7BACACFA5CDAF0388392A2E0456361087A88FF39E6523E21D7086)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/07IpLXXjTkyEBuCns1eyqA/zh-cn_image_0000002628765706.png?HW-CC-KV=V1&HW-CC-Date=20260730T072458Z&HW-CC-Expire=86400&HW-CC-Sign=986F3DD32917CFCC803CEE7C0B2C3AA0C281FB434C58AE39654C24895DD691A0)
 
  
  

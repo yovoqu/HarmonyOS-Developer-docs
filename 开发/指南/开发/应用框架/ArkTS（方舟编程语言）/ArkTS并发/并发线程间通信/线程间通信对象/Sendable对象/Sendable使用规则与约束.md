@@ -1,6 +1,6 @@
 # Sendable使用规则与约束
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-constraints
 
@@ -108,15 +108,6 @@ interface I {
 class B implements I {
   a: string = 'hello world';
 };
-
-// 反例：
-// import { lang } from '@kit.ArkTS';
-
-// type ISendable = lang.ISendable;
-
-// interface I extends ISendable {};
-
-// class B implements I {};
 ```
 
 **反例：**
@@ -151,13 +142,6 @@ class A {
   }
   a: number = 0;
 }
-
-// 反例：
-// @Sendable
-// class A {
-//   constructor() {}
-//   b: Array<number> = [1, 2, 3] // 需使用collections.Array
-// }
 ```
 
 **反例：**
@@ -187,13 +171,6 @@ class A {
   }
   a: number = 0;
 }
-
-// 反例：
-// @Sendable
-// class A {
-//   constructor() {}
-//   a!: number;
-// }
 ```
 
 **反例：**
@@ -232,11 +209,11 @@ class A {
 
 ```text
 enum B {
-    b1 = "bbb"
+    b1 = 'bbb'
 }
 @Sendable
 class A {
-    ["aaa"]: number = 1; // 编译报错，不支持["aaa"]
+    ['aaa']: number = 1; // 编译报错，不支持['aaa']
     [B.b1]: number = 2; // 编译报错，不支持[B.b1]
 }
 ```
@@ -281,9 +258,9 @@ class B {
 
 
 
-#### 泛型类中的Sendable类、SendableLruCache、collections.Array、collections.Map和collections.Set的模板类型必须是Sendable类型
+#### 泛型类中的Sendable类、SendableLruCache、collections.Array、collections.ConcatArray、collections.Map和collections.Set的模板类型必须是Sendable类型
 
-Sendable数据不能持有非Sendable数据，因此泛型类中的Sendable数据的模版类型必须是Sendable类型。
+Sendable数据不能持有非Sendable数据，因此泛型类中的Sendable数据的模板类型必须是Sendable类型。
 
 **正例：**
 
@@ -382,7 +359,7 @@ let b = new B();
 
   @Sendable
   class C {
-    u: I = bar(); // bar不是sendable class对象，编译报错
+    u: I = bar(); // bar不是sendable function对象，编译报错
     v: I = new A(); // A不是定义在top level中，编译报错
 
     foo() {
@@ -408,16 +385,6 @@ let b = new B();
 // 正例：
 @Sendable
 type SendableFuncType = () => void;
-
-// 反例：
-// @Sendable
-// type A = number; // 编译报错
-
-// @Sendable
-// class C {}
-
-// @Sendable
-// type D = C; // 编译报错
 ```
 
 **反例：**
@@ -425,6 +392,9 @@ type SendableFuncType = () => void;
 ```text
 @Sendable
 type A = number; // 编译报错
+
+@Sendable
+class C {}
 
 @Sendable
 type D = C; // 编译报错
@@ -444,13 +414,6 @@ type D = C; // 编译报错
 class A {
   num: number = 1;
 }
-
-// 反例：
-// @Sendable
-// @Observed
-// class C {
-//   num: number = 1;
-// }
 ```
 
 **反例：**
@@ -504,13 +467,6 @@ class C {
 import { collections } from '@kit.ArkTS';
 
 let arr1: collections.Array<number> = new collections.Array<number>(1, 2, 3); // 是Sendable类型
-
-// 反例：
-// import { collections } from '@kit.ArkTS';
-
-// let arr2: collections.Array<number> = [1, 2, 3]; // 不是Sendable类型，编译报错
-// let arr3: number[] = [1, 2, 3]; // 不是Sendable类型，正例，不报错
-// let arr4: number[] = new collections.Array<number>(1, 2, 3); // 编译报错
 ```
 
 **反例：**
@@ -547,18 +503,6 @@ class SendableA {
 }
 
 let a1: A = new SendableA() as A;
-
-// 反例：
-// class A {
-//   state: number = 0;
-// }
-
-// @Sendable
-// class SendableA {
-//   state: number = 0;
-// }
-
-// let a2: SendableA = new A() as SendableA;
 ```
 
 **反例：**
@@ -583,42 +527,6 @@ let a2: SendableA = new A() as SendableA; // 编译报错
 
 
 #### 箭头函数不可标记为Sendable
-
-箭头函数不支持@Sendable装饰器，因此它是非Sendable函数，不支持共享。
-
-**正例：**
-
-```ArkTS
-// 正例：
-@Sendable
-type SendableFuncType = () => void;
-
-@Sendable
-function sendableFunc() {
-  console.info('Sendable func');
-}
-
-@Sendable
-class SendableClass {
-  constructor(f: SendableFuncType) {
-    this.func = f;
-  }
-
-  func: SendableFuncType;
-}
-
-let sendableClass = new SendableClass(sendableFunc);
-
-// 反例：
-// @Sendable
-// type SendableFuncType = () => void;
-// let func: SendableFuncType = () => {}; // 编译报错
-
-// @Sendable
-// class SendableClass {
-//   func: SendableFuncType = () => {}; // 编译报错
-// }
-```
 
 **反例：**
 

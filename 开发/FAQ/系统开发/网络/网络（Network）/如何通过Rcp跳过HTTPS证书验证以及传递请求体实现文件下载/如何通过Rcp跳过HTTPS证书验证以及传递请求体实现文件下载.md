@@ -1,6 +1,6 @@
 # 如何通过Rcp跳过HTTPS证书验证以及传递请求体实现文件下载
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-127
 
@@ -16,7 +16,7 @@
 
 [Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-kit-guide)提供请求网络数据的功能，当前包含以下能力：
  
-- HTTP请求能力。Remote Communication Kit构建了一种场景化HTTP通信能力。和Network Kit提供的标准HTTP能力不同的是，Remote Communication Kit构建了场景化API，强调易用性，详见[支持的HTTP网络请求场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-introduction#section123516402589)。开发者可根据需要选择合适的Kit。
+- HTTP请求能力。Remote Communication Kit构建了一种场景化HTTP通信能力。和Network Kit提供的标准HTTP能力不同的是，Remote Communication Kit构建了场景化API，强调易用性，详见[支持的HTTP网络请求场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-introduction#支持的http网络请求场景)。开发者可根据需要选择合适的Kit。
 - URPC（Unified Remote Procedure Call）高性能RPC通信库。可实现远程函数调用能力，且具有抗弱网传输、多径传输（蜂窝网络和Wi-Fi）等特性。开发者可通过URPC完成简单方便的远程过程调用。
 
  

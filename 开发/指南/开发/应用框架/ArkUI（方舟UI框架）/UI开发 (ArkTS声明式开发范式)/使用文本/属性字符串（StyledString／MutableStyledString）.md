@@ -1,6 +1,6 @@
 # 属性字符串（StyledString/MutableStyledString）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-styled-string
 
@@ -1019,7 +1019,7 @@ class MyCustomSpan extends CustomSpan {
 
 @Entry
 @Component
-export struct StyledStringGestureStyle {
+struct StyledStringGestureStyle {
   customSpan3: MyCustomSpan = new MyCustomSpan('99VIP88%off', 200, 40, 30);
   customSpanStyledString: MutableStyledString = new MutableStyledString(this.customSpan3);
   textController: TextController = new TextController();
@@ -1258,7 +1258,7 @@ struct HtmlSpanStringDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/sjWJLLmRSDSG10r809ZO5w/zh-cn_image_0000002647585898.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=0303E6C5FE56574CB551A28370FCE4C5F1F98F8147BD5EFD039CBEC7BFCE7D0E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/bi81YEYhSQ2ZvobhFe64tA/zh-cn_image_0000002685925929.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=50167891EB9294202C2C9A358143F62D9E1191B2AF1728BA00480219D25615CD)
 
 
 
@@ -1432,4 +1432,4 @@ struct StyledStringSceneExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/cPNHjmhWRJeYkdw-kpfgbg/zh-cn_image_0000002677825539.png?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=A0ECC2A2514181586F41D4B01FB0FB2B8E6D9E4D3EB293E25F8D90C4E8A181D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/jl2aA2aaSk-3lxpccWJM_g/zh-cn_image_0000002656006250.png?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=08EAFE909B71F8CF8747FBE18C3BCA4F2CAE8FB1C691A52333D23398C999F268)

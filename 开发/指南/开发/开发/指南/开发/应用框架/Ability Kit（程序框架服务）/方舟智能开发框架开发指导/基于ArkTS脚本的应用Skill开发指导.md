@@ -1,6 +1,6 @@
 # 基于ArkTS脚本的应用Skill开发指导
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-skill-development-guide
 
@@ -76,7 +76,8 @@ Application/
         "abilityName": "EntryAbility", // 与该Skill关联的组件名称
         "srcEntries": [  // 实现Skill的代码文件路径列表
           "../../skills/music-assistant/scripts/MusicSkill.ets"
-        ]
+        ],
+        "version": "1.0.0"
       }
     ],
 
@@ -105,7 +106,7 @@ import { MusicPlayer, Track, PlayResult } from '../../../src/main/ets/service/Mu
 ```
 3.2 定义入口类骨架。
 
-  入口脚本以export default方式导出一个类，类中每个方法**均可直接被Agent访问**，需对应SKILL.md声明的一项能力，上述能力需满足以下约定：
+  入口脚本以export default方式导出一个类，类内每个public async方法对应SKILL.md声明的一项能力，须满足以下约定：
 
   
 **方法名约定**：必须与SKILL.md中的functionName严格一致（本例为playMusicByName、controlPlayback）。

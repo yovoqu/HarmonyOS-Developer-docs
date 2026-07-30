@@ -1,6 +1,6 @@
 # 如何判断APP是用户通过点击通知栏推送而唤起的？
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-6
 
@@ -12,4 +12,4 @@
 
 #### 解决方案
 
-应用服务端调用Push Kit服务端的REST API推送通知消息时，可携带data字段，当用户点击消息时将传递数据至客户端应用。通过获取传递参数确认是否是通过点击通知栏推送唤起的应用。参考文档：[数据传递](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#section108252081117)。
+应用服务端调用Push Kit服务端的REST API推送通知消息时，可携带data字段，当用户点击消息时将传递数据至客户端应用。通过获取传递参数确认是否是通过点击通知栏推送唤起的应用。参考文档：[数据传递](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#数据传递)。

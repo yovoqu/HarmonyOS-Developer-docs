@@ -1,6 +1,6 @@
 # 页面路由 (@ohos.router)(不推荐)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing
 
@@ -445,7 +445,7 @@ router自定义转场可以通过[pageTransition](https://developer.huawei.com/c
 **图3** 页面返回前增加一个询问框
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/zYbpLZBQTiGHMi6vzjrl-w/zh-cn_image_0000002677825355.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012132Z&HW-CC-Expire=86400&HW-CC-Sign=11FC024EAF95D775B7E36DD59378C44D5B95F14DF5168D0451BBE3035EE003FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/UOc3vKPwTMCBaAro34UQYA/zh-cn_image_0000002685925727.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071844Z&HW-CC-Expire=86400&HW-CC-Sign=AD113A75370C1354A59C4462BC362392631550DCFE9C539BE3C1806ECF6DE8AE)
 
 
 
@@ -559,10 +559,10 @@ onBackClick() {
 **图4** 命名路由跳转
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/_fQxbq-EQeewFOzKbenKhA/zh-cn_image_0000002677665507.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012132Z&HW-CC-Expire=86400&HW-CC-Sign=74F19247560EA3F2A6F7D50AA127157D10E8CE71F168AEF2402609FCB2B4B385)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/t4EqgZ9xQgGiwoP1su-9Jw/zh-cn_image_0000002656006048.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071844Z&HW-CC-Expire=86400&HW-CC-Sign=6D8E7FF6BF5E654165CA69306DA39C728C14AAD82612C81C0392F247F7A7FECC)
 
 
-在想要跳转到的共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)页面里，给[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)修饰的自定义组件EntryOptions命名：
+在想要跳转到的共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)页面里，给[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)装饰的自定义组件EntryOptions命名：
 
 ```ArkTS
 // library/src/main/ets/pages/Index.ets

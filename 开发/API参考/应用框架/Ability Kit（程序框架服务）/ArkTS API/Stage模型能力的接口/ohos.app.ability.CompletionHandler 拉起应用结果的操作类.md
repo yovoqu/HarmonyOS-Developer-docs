@@ -1,6 +1,6 @@
 # @ohos.app.ability.CompletionHandler (拉起应用结果的操作类)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-completionhandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -39,7 +39,7 @@ import { CompletionHandler } from '@kit.AbilityKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-CompletionHandler提供了[onRequestSuccess](#onrequestsuccess)和[onRequestFailure](#onrequestfailure)两个回调函数，分别用来处理拉起应用成功和失败时的结果。
+CompletionHandler提供了[onRequestSuccess](#onrequestsuccess)和[onRequestFailure](#onrequestfailure)两个回调函数，分别处理拉起应用成功和失败时的结果。
  
   
 
@@ -49,7 +49,7 @@ CompletionHandler提供了[onRequestSuccess](#onrequestsuccess)和[onRequestFail
 
 onRequestSuccess(elementName: ElementName, message: string): void
  
-拉起应用成功时的回调函数。
+拉起应用成功时的回调函数，用于接收并处理拉起应用成功后的结果信息。
  
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
  
@@ -75,7 +75,7 @@ onRequestSuccess(elementName: ElementName, message: string): void
 
 onRequestFailure(elementName: ElementName, message: string): void
  
-拉起应用失败时的回调函数。
+拉起应用失败时的回调函数，用于接收并处理拉起应用失败后的错误信息。
  
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
  

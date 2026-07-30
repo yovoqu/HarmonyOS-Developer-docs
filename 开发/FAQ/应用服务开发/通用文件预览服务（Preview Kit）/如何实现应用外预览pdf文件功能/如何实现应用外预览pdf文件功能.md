@@ -1,6 +1,6 @@
 # 如何实现应用外预览pdf文件功能
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-7
 

@@ -1,6 +1,6 @@
 # NativeBuffer开发指导 (C/C++)
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-buffer-guidelines
 
@@ -8,7 +8,7 @@
 
 NativeBuffer模块提供**共享内存**功能，支持内存的申请、使用、查询和释放等操作。
 
-NativeBuffer的常见开发场景：通过Native API申请OH_NativeBuffer实例，获取内存属性，将ION内存映射到进程空间。
+NativeBuffer的常见应用场景包括：图像数据处理、视频编解码、跨进程内存共享等。开发流程通常包括：申请OH_NativeBuffer实例、获取内存属性和将ION内存映射到进程空间。
 
 
 

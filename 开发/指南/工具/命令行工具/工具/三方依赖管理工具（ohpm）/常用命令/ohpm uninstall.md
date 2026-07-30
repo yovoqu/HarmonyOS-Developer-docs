@@ -1,6 +1,6 @@
 # ohpm uninstall
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-uninstall
 
@@ -34,7 +34,7 @@ alias: un
 
 #### install_all
 
-- 默认值：false
+- 默认值：true
 - 类型：Boolean
 - 别名：all
 
@@ -45,7 +45,7 @@ alias: un
 
 #### no-save
 
-- 默认值：false
+- 默认值：true
 - 类型：Boolean
 
  
@@ -156,7 +156,7 @@ alias: un
 
 #### resolve_conflict
 
-- 默认值：false
+- 默认值：true
 - 类型：Boolean
 
  

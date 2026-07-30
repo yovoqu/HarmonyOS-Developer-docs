@@ -1,6 +1,6 @@
 # AudioRenderer怎么判断音频播放结束
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-56
 
@@ -21,7 +21,7 @@ AudioRenderer组件在播放PCM音频时如何监听到音频文件播放结束�
 #### 解决方案
 
 AudioRenderer通过回调[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)方法不停的写入音频数据播放，未提供播放结束的API。开发者可通过如下方式判断音频播放是否结束：
- 1. 定义一个定时器[setInterval](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-timer#section1242317318140)，每隔250ms调用getAudioTimestampInfo获取播放的音频流时间戳，并记录时间戳值preTimestamp。
+ 1. 定义一个定时器[setInterval](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-timer#setinterval)，每隔250ms调用getAudioTimestampInfo获取播放的音频流时间戳，并记录时间戳值preTimestamp。
 2. 当最新的时间戳值和上次获取的时间戳值preTimestamp相等，表示音频渲染结束，否则继续定时轮询。
  
 示例代码如下：

@@ -21,11 +21,11 @@
 应用上架时，需根据软件包中声明的设备（即module.json5配置文件中“[deviceTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#devicetypes标签)”标签的枚举值）勾选对应的支持设备，确保软件包中声明的设备范围大于等于AppGallery Connect上勾选的支持设备范围。提交审核时会进行校验，如果AppGallery Connect上勾选的支持设备范围大于软件包内声明时，会提示上传的软件包与声明支持设备不一致，将无法提交审核。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Ehv8_3eVT5-qchxjCVeVLA/zh-cn_image_0000002658913803.png?HW-CC-KV=V1&HW-CC-Date=20260723T013828Z&HW-CC-Expire=86400&HW-CC-Sign=54E13CA90B67EE6F4429A799C3850965C2E7C1AD2AA97532FCD62DC98A47B495)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/gFiJPu_LT_Kh9KKF0XON0Q/zh-cn_image_0000002658913803.png?HW-CC-KV=V1&HW-CC-Date=20260730T072658Z&HW-CC-Expire=86400&HW-CC-Sign=5F3DF83661AEE9347EC2682881151C1FE388C879A809D975B6F32B4A05A6319E)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/bwztXZdmRlmSbUZ2-zfDtw/zh-cn_image_0000002658793861.png?HW-CC-KV=V1&HW-CC-Date=20260723T013828Z&HW-CC-Expire=86400&HW-CC-Sign=F457CD33565CE5194CE3F31142A3F6B3253B3B9C5B39B2083BD15A16BEFD4802)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/3TGHVg_3Tc2sVz9QUrS0pg/zh-cn_image_0000002658793861.png?HW-CC-KV=V1&HW-CC-Date=20260730T072658Z&HW-CC-Expire=86400&HW-CC-Sign=3E60B4C8F6AA9D76C8A3DC4F80BE63211318878D32D6C0138E8479178950BB4B)
 
  
 

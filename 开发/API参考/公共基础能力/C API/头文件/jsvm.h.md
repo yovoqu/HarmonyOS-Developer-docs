@@ -1,6 +1,6 @@
 # jsvm.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -864,7 +864,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileScriptWithOptions(JSVM_Env env,JSVM_Value
 
 | 类型 | 说明 |
 | --- | --- |
-| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_INVALID_ARG 表示传入的 data 是空指针。 JSVM_STRING_EXPECTED 表示传入的参数不是string类型。 JSVM_GENERIC_FAILURE 表示有未知的原因导致执行失败。 JSVM_PENDING_EXCEPTION 表示执行的过程中产生了JS异常。 |
+| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_INVALID_ARG 表示传入参数无效。 JSVM_STRING_EXPECTED 表示传入的参数不是string类型。 JSVM_GENERIC_FAILURE 表示有未知的原因导致执行失败。 JSVM_PENDING_EXCEPTION 表示执行的过程中产生了JS异常。 |
 
 
 
@@ -1937,7 +1937,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateArrayBufferFromExternalMemory(JSVM_Env env
 **描述**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/d8wIet45Q0Sm8NBoQQ66Fw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020404Z&HW-CC-Expire=86400&HW-CC-Sign=E631CFAABFC5D9A52E746B73AEF2164705E7183F421DAA092C9405A4FE1708D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/AP20L0OPS7eOuWvKvx2gdA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=FA716EA1D7AF13B6BC9F243AF89E581B97B0A9B3BD9DFD4637CE8834DA45D945)
 
 
 此接口是实验性接口，需定义JSVM_EXPERIMENTAL宏后方可使用。
@@ -2818,7 +2818,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintInt64(JSVM_Env env,JSVM_Value valu
 
 | 类型 | 说明 |
 | --- | --- |
-| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 表示传入的参数不是BitInt类型。 |
+| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 表示传入的参数不是BigInt类型。 |
 
 
 
@@ -2851,7 +2851,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintUint64(JSVM_Env env,JSVM_Value val
 
 | 类型 | 说明 |
 | --- | --- |
-| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 表示传入的参数不是BitInt类型。 |
+| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 表示传入的参数不是BigInt类型。 |
 
 
 
@@ -2885,7 +2885,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintWords(JSVM_Env env,JSVM_Value valu
 
 | 类型 | 说明 |
 | --- | --- |
-| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 表示传入的参数不是BitInt类型。 |
+| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 表示传入的参数不是BigInt类型。 |
 
 
 
@@ -3690,7 +3690,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DetachArraybuffer(JSVM_Env env,JSVM_Value arrayb
 
 | 类型 | 说明 |
 | --- | --- |
-| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 如果JSVM_OK 表示执行成功。 JSVM_DETACHABLE_ARRAYBUFFER_EXPECTED 表示传入的参数不是可分析的ArrayBuffer。 |
+| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 如果JSVM_OK 表示执行成功。 JSVM_DETACHABLE_ARRAYBUFFER_EXPECTED 表示传入的参数不是可分离的ArrayBuffer。 |
 
 
 
@@ -4833,7 +4833,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreatePromise(JSVM_Env env,JSVM_Deferred* deferr
 | 参数项 | 描述 |
 | --- | --- |
 | JSVM_Env env | 调用JSVM-API的环境。 |
-| JSVM_Deferred* deferred | 一个新创建的延迟对象，后续可以传递给OH_JSVM_ResolveDeferred()或OH_JSVM_RejectDeferred()以解析resp。或拒绝相关的Promise。 |
+| JSVM_Deferred* deferred | 一个新创建的延迟对象，后续可以传递给OH_JSVM_ResolveDeferred()或OH_JSVM_RejectDeferred()以解析或拒绝相关的Promise。 |
 | JSVM_Value* promise | 与延迟对象关联的JavaScript Promise。 |
 
 
@@ -6123,7 +6123,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToBigInt(JSVM_Env env,JSVM_Value value,JSV
 
 | 类型 | 说明 |
 | --- | --- |
-| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 如果传入的JavaScript值无法转换成BitInt。 |
+| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_BIGINT_EXPECTED 如果传入的JavaScript值无法转换成BigInt。 |
 
 
 
@@ -7102,14 +7102,14 @@ JSVM_EXTERN JSVM_Status OH_JSVM_TraceStop(JSVM_OutputStream stream, void* stream
 | 参数项 | 描述 |
 | --- | --- |
 | JSVM_OutputStream stream | 输出流回调函数，实现接收 Trace 数据功能。 |
-| void* streamData | 的输出流指针，用于辅助输出流回调函数进行数据输出。 |
+| void* streamData | 输出流指针，用于辅助输出流回调函数进行数据输出。 |
 
 
 **返回：**
 
 | 类型 | 说明 |
 | --- | --- |
-| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 。 JSVM_OK 表示执行成功。 JSVM_INVALID_ARG stream 或者 streamData 为空。 |
+| JSVM_EXTERN JSVM_Status | 返回执行状态码 JSVM_Status。 JSVM_OK 表示执行成功。 JSVM_INVALID_ARG stream 或者 streamData 为空。 |
 
 
 
@@ -7327,7 +7327,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DefineClassWithOptions(JSVM_Env env,const char* 
 | JSVM_Env env | 调用JSVM-API的环境。 |
 | const char* utf8name | JavaScript构造函数的名称，建议在包装C++类时使用C++类名。 |
 | size_t length | utf8name的长度（以字节为单位）或JSVM_AUTO_LENGTH（如果以 null 结尾）。 |
-| JSVM_Callback constructor | 用于创建类的构造函数的回调函数。包装C++类时，此方法必须是符合JSVM_Callback。callback签名的静态成员。不能使用C++类构造函数。详情请参考JSVM_Callback。 |
+| JSVM_Callback constructor | 用于创建类的构造函数的回调函数。包装C++类时，此方法必须是符合JSVM_Callback签名的静态成员。不能使用C++类构造函数。详情请参考JSVM_Callback。 |
 | size_t propertyCount | properties数组参数中的项目数量。 |
 | const JSVM_PropertyDescriptor* properties | 类的属性描述符，用于定义类的属性和方法。 |
 | JSVM_Value parentClass | 当前所定义的class的父类class。 |
@@ -7662,7 +7662,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseDeserializeResult(JSVM_DeserializeResult 
 
 | 参数项 | 描述 |
 | --- | --- |
-| JSVM_DeserializeResult* result | 需要进行释放的后台反序列化结果。 |
+| JSVM_DeserializeResult result | 需要进行释放的后台反序列化结果。 |
 
 
 **返回：**

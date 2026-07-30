@@ -1,12 +1,12 @@
 # OH_AudioRendererStruct
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef struct OH_AudioRendererStruct OH_AudioRenderer
+typedef struct OH_AudioRendererStruct OH_AudioRenderer;
 ```
   
 
@@ -14,7 +14,7 @@ typedef struct OH_AudioRendererStruct OH_AudioRenderer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明输出音频流。输出音频流的实例被用来播放音频数据。
+声明输出音频渲染器。输出音频渲染器的实例被用来播放音频数据。
  
 **起始版本：** 10
  

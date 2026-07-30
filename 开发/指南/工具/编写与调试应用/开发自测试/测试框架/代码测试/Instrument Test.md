@@ -1,6 +1,6 @@
 # Instrument Test
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test
 
@@ -171,7 +171,7 @@ testability目录 > TestAbility.ets文件
 
 在Instrument Test运行的基础上支持代码覆盖率统计。
  
-开发者可以自定义需要参与覆盖率测试的文件，具体配置方法请参考[配置覆盖率过滤文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ui-test#section13756446154)。
+开发者可以自定义参与覆盖率测试的本地文件或远程源码har包，具体配置方法请参考[配置覆盖率过滤文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ui-test#section13756446154)。
  
 可以采用运行工程目录（test）、测试文件（如Ability.test.ets）、测试套件（describe）、测试方法（it）的方式来启动代码覆盖率的统计。
  
@@ -317,7 +317,7 @@ testability目录 > TestAbility.ets文件
 4. 当程序出现内存错误时，弹出ASan log信息，点击信息中的链接即可跳转至引起内存错误的代码处。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/0Vk8TU_yQ2eBMcrJWWk7nQ/zh-cn_image_0000002594634950.png?HW-CC-KV=V1&HW-CC-Date=20260723T012121Z&HW-CC-Expire=86400&HW-CC-Sign=168298125040FA8D18A50044EC5F0E9F1A274F769106A35E9DD2DEEDEF762DFD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/HxSu9E9DS3mu7a7F1wfGdw/zh-cn_image_0000002678157083.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=4F002A24A972143613A0057E900EAB9363076BAEB98CCE696DA93A89AA4CCCD4)
 
 
   
@@ -362,7 +362,7 @@ export default function abilityTest() {
 
 
 7. 运行testNative测试用例，查看测试结果。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/15RiZpPzR_Gvhw1sVX6C6Q/zh-cn_image_0000002625074509.png?HW-CC-KV=V1&HW-CC-Date=20260723T012121Z&HW-CC-Expire=86400&HW-CC-Sign=BA59CCA76D3254A53898EAFF2E238EE2A7E1AA1E3763CDFE84AB5783932C445A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/Oks0vKjHS_q9f6xW9E-WtQ/zh-cn_image_0000002677997219.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=B610D1FA0333B59B9497E88621407CC4BFE2BF35855C3167B47EEBCC9FACC152)
 
 
   
@@ -409,19 +409,19 @@ endif()
 
 
 3. 运行覆盖率测试，选中ArkTS测试文件，单击**右键 >**** Run '测试文件名称' with Coverage**，执行测试。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/XlvT8X4WS3iCbexyxQwNuQ/zh-cn_image_0000002624994375.png?HW-CC-KV=V1&HW-CC-Date=20260723T012121Z&HW-CC-Expire=86400&HW-CC-Sign=03DC57C2A17D73AF51CB34E50738CDE7BD5AC7A106E22EB5819B27F5A6FA843B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/IrIbfqrMTNi7844KfwpZ9g/zh-cn_image_0000002678157073.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=AA08E397A11DCBAE481EFF5FE4D9B59DF95F99D5D652B5683A50A7003A9DAC05)
 
 
   启动测试后，进行编译构建，底部将出现Cover窗口，构建结束后自动拉起Cover窗口，测试任务结束后，窗口中会打印测试报告的路径。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/0D8nOpwgSzuZf7S5Pk7l2w/zh-cn_image_0000002594634916.png?HW-CC-KV=V1&HW-CC-Date=20260723T012121Z&HW-CC-Expire=86400&HW-CC-Sign=3E4EE5621B5B07B8182395FC92226786B9D07363858CF5432049F8027A52EDBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/ITrJtlOUQgygNwXYuqyO7g/zh-cn_image_0000002677997213.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=34090A1706577393C8EFC29AD94329BD56398168C13AA8D1A6D5390F8B8B2408)
 
 
   点击链接可打开报告，查看C++代码覆盖率详情。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/svw8mEXWQq26Heznm-0H9w/zh-cn_image_0000002625074499.png?HW-CC-KV=V1&HW-CC-Date=20260723T012121Z&HW-CC-Expire=86400&HW-CC-Sign=68A51481AFF6D4613556C578FFD329557BB56A75A07F4E97F930D51197E53FC7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Rf42XqchQvWNtGte3McIIg/zh-cn_image_0000002677997215.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=2CC1DB6B5ADB19F3F8803956756B95CE74F47BB4617F3E346C28C371698957CB)
 
 
   

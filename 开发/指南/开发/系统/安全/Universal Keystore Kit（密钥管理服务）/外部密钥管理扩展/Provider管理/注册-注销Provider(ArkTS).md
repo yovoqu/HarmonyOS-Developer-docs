@@ -1,6 +1,6 @@
 # 注册/注销Provider(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-extension-registration-and-unregistration-arkts
 
@@ -45,12 +45,12 @@ async function registerProvider(): Promise<void> {
     /* 2.调用registerProvider */
     await huksExternalCrypto.registerProvider(providerName, extProperties)
       .then(() => {
-        console.info(`promise: registerProvider success`);
+        console.info('promise: registerProvider success.');
       }).catch((error: BusinessError) => {
         console.error(`promise: registerProvider failed, errCode : ${error.code}, errMsg : ${error.message}`);
       });
   } catch (error) {
-    console.error(`promise: registerProvider input arg invalid`);
+    console.error('promise: registerProvider input arg invalid.');
   }
 }
 
@@ -104,12 +104,12 @@ async function registerProvider(): Promise<void> {
     /* 3.调用registerProvider */
     await huksExternalCrypto.registerProvider(providerName, extProperties)
       .then(() => {
-        console.info(`promise: registerProvider success`);
+        console.info('promise: registerProvider success.');
       }).catch((error: BusinessError) => {
         console.error(`promise: registerProvider failed, errCode : ${error.code}, errMsg : ${error.message}`);
       });
   } catch (error) {
-    console.error(`promise: registerProvider input arg invalid`);
+    console.error('promise: registerProvider input arg invalid.');
   }
 }
 
@@ -156,12 +156,12 @@ async function unregisterProvider(): Promise<void> {
     /* 2.调用unregisterProvider */
     await huksExternalCrypto.unregisterProvider(providerName, extProperties)
       .then(() => {
-        console.info(`promise: unregisterProvider success`);
+        console.info('promise: unregisterProvider success.');
       }).catch((error: BusinessError) => {
         console.error(`promise: unregisterProvider failed, errCode : ${error.code}, errMsg : ${error.message}`);
       });
   } catch (error) {
-    console.error(`promise: unregisterProvider input arg invalid`);
+    console.error('promise: unregisterProvider input arg invalid.');
   }
 }
 
@@ -185,12 +185,12 @@ async function unregisterProvider(): Promise<void> {
     /* 2.调用unregisterProvider */
     await huksExternalCrypto.unregisterProvider(providerName, extProperties)
       .then(() => {
-        console.info(`promise: unregisterProvider success`);
+        console.info('promise: unregisterProvider success.');
       }).catch((error: BusinessError) => {
         console.error(`promise: unregisterProvider failed, errCode : ${error.code}, errMsg : ${error.message}`);
       });
   } catch (error) {
-    console.error(`promise: unregisterProvider input arg invalid`);
+    console.error('promise: unregisterProvider input arg invalid.');
   }
 }
 

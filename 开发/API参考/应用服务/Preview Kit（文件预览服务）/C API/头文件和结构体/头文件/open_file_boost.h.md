@@ -1,13 +1,13 @@
 # open_file_boost.h
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/openfileboost-open__file__boost_8h
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 #### 概述
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 声明文件打开加速的API集合。
  
@@ -25,13 +25,13 @@
 
 #### 汇总
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
   
 
 #### 宏定义
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,7 +42,7 @@
 
 #### 类型定义
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -60,7 +60,7 @@
 
 #### 枚举
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -76,7 +76,7 @@
 
 #### 函数
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -102,6 +102,7 @@
 | OpenFileBoost_ErrCode HMS_Preview_OpenFileBoost_OptionsAddSupportFile (OpenFileBoost_Options *options, const OpenFileBoost_SupportFile *supportFile) | 向OpenFileBoost_Options添加支持预加载的文件类型。 |
 | OpenFileBoost_ErrCode HMS_Preview_OpenFileBoost_OptionsDestroy (OpenFileBoost_Options *options) | 销毁OpenFileBoost_Options。 |
 | OpenFileBoost_ErrCode HMS_Preview_OpenFileBoost_RegisterFilePreloadWithOption (HMS_OpenFileBoost_QueryAppState queryAppState, HMS_OpenFileBoost_OnFilePreload filePreload, HMS_OpenFileBoost_OnFilePreload cancelFilePreload, OpenFileBoost_Options *options) | 注册预加载回调，允许应用传入支持预加载的文件信息。 |
+| bool HMS_Preview_FileBoost_IsSupported (void) | 查询当前设备是否支持文件打开加速功能。建议开发者在使用文件打开加速功能之前，先调用本接口检查当前设备是否支持文件打开加速功能。确认支持后再使用其他文件打开加速接口如HMS_OpenFileBoost_RegisterFilePreload、HMS_Preview_FileScanBoost_RegisterFileScan等。 |
 | bool HMS_Preview_OpenFileBoost_IsEnabled (void) | 查询应用加速特性是否使能。 |
 | OpenFileBoost_ErrCode HMS_Preview_OpenFileBoost_FileOperationInfoCreate (const char *path, uint32_t pathLen, const char *operation, uint32_t operationLen, OpenFileBoost_FileOperationInfo **outFileOperationInfo) | 创建OpenFileBoost_FileOperationInfo。 |
 | OpenFileBoost_ErrCode HMS_Preview_OpenFileBoost_FileOperationInfoDestroy (OpenFileBoost_FileOperationInfo *fileOperationInfo) | 销毁OpenFileBoost_FileOperationInfo。 |

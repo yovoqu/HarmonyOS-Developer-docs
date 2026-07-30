@@ -1,6 +1,6 @@
 # native_audio_stream_manager.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-stream-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -149,7 +149,7 @@ OH_AudioCommon_Result OH_AudioStreamManager_IsAcousticEchoCancelerSupported(OH_A
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AudioStreamManager *streamManager | 音频流管理器句柄。通过 OH_AudioManager_GetAudioStreamManager获取句柄。 |
-| OH_AudioStream_SourceType sourceType | 指向OH_AudioStream_SourceType，用于设置音频输入流的使用场景。 |
+| OH_AudioStream_SourceType sourceType | 指定音频输入流的使用场景。 |
 | bool *supported | 查询指定的source type是否支持回声消除的结果。true表示支持回声消除，false表示不支持回声消除。 |
  
  

@@ -1,6 +1,6 @@
 # Interface (ClusterOverlay)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-clusteroverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -19,7 +19,7 @@ import { map, mapCommon } from '@kit.MapKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-聚合图层类。
+聚合图层类。ClusterOverlay用于在地图上展示聚合后的标记点，以优化大量标记点显示时的性能和用户体验。它将地理位置相近的多个标记点合并为一个聚合点，并支持点击聚合点展开查看具体标记点。适用于展示大量POI数据、避免地图过于拥挤的情况。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  

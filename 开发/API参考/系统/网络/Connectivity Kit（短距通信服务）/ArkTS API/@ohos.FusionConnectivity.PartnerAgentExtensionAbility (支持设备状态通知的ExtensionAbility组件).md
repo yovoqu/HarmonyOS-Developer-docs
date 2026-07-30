@@ -1,6 +1,6 @@
 # @ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -9,6 +9,14 @@ PartnerAgentExtensionAbility是外设互通扩展能力的基础类，提供设�
 
 > [!NOTE]
 > 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
+
+
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+为保障系统安全性和稳定性，防止PartnerAgentExtensionAbility滥用系统资源，系统对其能力进行管控，不支持部分模块的引用，详情请参考[附录](#附录)。
 
 
 
@@ -142,3 +150,30 @@ export default class PartnerAgentExtAbility extends PartnerAgentExtensionAbility
   }
 }
 ```
+
+
+
+#### 附录
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+PartnerAgentExtensionAbility不支持以下模块的引用。
+
+| Kit | 模块 |
+| --- | --- |
+| Ability Kit | @ohos.backgroundTaskManager (后台任务管理) |
+| Ability Kit | @ohos.resourceschedule.backgroundTaskManager (后台任务管理) |
+| Camera Kit | @ohos.multimedia.cameraPicker (相机选择器) |
+| Connectivity Kit | @ohos.connectedTag (有源标签) |
+| Connectivity Kit | @ohos.nfc.cardEmulation (标准NFC-cardEmulation) |
+| Connectivity Kit | @ohos.nfc.controller (标准NFC) |
+| Connectivity Kit | @ohos.nfc.tag (标准NFC-Tag) |
+| Connectivity Kit | tagSession (标准NFC-Tag TagSession) |
+| Connectivity Kit | @ohos.wifiext (WLAN扩展接口) |
+| Connectivity Kit | @ohos.wifiManager (WLAN) |
+| Connectivity Kit | @ohos.wifiManagerExt (WLAN扩展接口) |
+| Location Kit | @ohos.geolocation (位置服务) |
+| Location Kit | @ohos.geoLocationManager (位置服务) |
+| Media Library Kit | @ohos.multimedia.movingphotoview (动态照片) |
+| Telephony Kit | @ohos.telephony.sim (SIM卡管理) |
+| Telephony Kit | @ohos.telephony.sms (短信服务) |

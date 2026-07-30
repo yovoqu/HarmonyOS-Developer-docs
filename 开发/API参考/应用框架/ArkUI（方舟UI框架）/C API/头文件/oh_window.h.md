@@ -1,6 +1,6 @@
 # oh_window.h
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -167,7 +167,9 @@ int32_t OH_WindowManager_SetWindowNavigationBarEnabled(int32_t windowId, bool en
 
 **描述**
 
-设置主窗口是否显示导航栏。HarmonyOS各设备不支持此能力。
+设置主窗口是否显示导航栏。
+
+此接口调用是否生效由设备厂商定义。在HarmonyOS设备上，底部导航表现为导航条，用户也可在设置中开启三键导航，此时导航条或三键导航的显隐可通过[setSpecificSystemBarEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setspecificsystembarenabled11)接口设置。
 
 **起始版本：** 15
 
@@ -986,7 +988,7 @@ int32_t OH_WindowManager_RegisterFrameMetricsMeasuredCallback(int32_t windowId, 
 
 应用注册帧率指标变更监听后，仅当客户端UI内容发生重绘（例如页面切换、响应式组件交互、设置背景色和透明度等）时才会触发已注册回调。
 
-如需取消订阅，请使用[OH_WindowManager_UnregisterFrameMetricsMeasuredCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_unregisterframemetricsmeasuredcallback)接口。
+如需取消订阅，请使用[OH_WindowManager_UnregisterFrameMetricsMeasuredCallback](#oh_windowmanager_unregisterframemetricsmeasuredcallback)接口。
 
 **起始版本：** 26.0.0
 
@@ -1021,7 +1023,7 @@ int32_t OH_WindowManager_UnregisterFrameMetricsMeasuredCallback(int32_t windowId
 
 该接口依赖窗口页面内容加载，即需要在ArkTS侧loadContent()接口或setUIContent()接口生效后调用。
 
-如需订阅，请使用[OH_WindowManager_RegisterFrameMetricsMeasuredCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_registerframemetricsmeasuredcallback)接口。
+如需订阅，请使用[OH_WindowManager_RegisterFrameMetricsMeasuredCallback](#oh_windowmanager_registerframemetricsmeasuredcallback)接口。
 
 **起始版本：** 26.0.0
 
@@ -1185,7 +1187,7 @@ int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId, OH_
 
 当窗口所在屏幕的系统显示大小缩放系数、系统默认显示大小的缩放系数或自定义显示大小的缩放系数任一项发生变化时，会触发该回调函数。
 
-如需取消监听窗口缩放系数相关信息的变化，请调用[OH_WindowManager_UnregisterDensityInfoChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_unregisterdensityinfochangecallback)。
+如需取消监听窗口缩放系数相关信息的变化，请调用[OH_WindowManager_UnregisterDensityInfoChangeCallback](#oh_windowmanager_unregisterdensityinfochangecallback)。
 
 **起始版本：** 24
 

@@ -1,6 +1,6 @@
 # 如何合并多个PDF以及给PDF添加页码
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-13
 
@@ -12,7 +12,7 @@ HarmonyOS Next有没有提供将多个pdf合并成一个pdf以及给pdf添加页
 
 #### 背景知识
 
-[insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section7656515132015)接口提供能力，将其他Document的Page添加到当前Document，Page中的批注不支持插入到当前Document。
+[insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#insertpagefromdocument)接口提供能力，将其他Document的Page添加到当前Document，Page中的批注不支持插入到当前Document。
  
 参数说明：
   
@@ -24,7 +24,7 @@ HarmonyOS Next有没有提供将多个pdf合并成一个pdf以及给pdf添加页
 | index | number | 是 | 从当前文档第几页开始添加，大于等于0，小于总页数，0为起始页。 |
  
  
-[addHeaderFooter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section4211341401)接口提供能力，插入pdf文档页眉页脚。该方法属于耗时业务，需要遍历每一页去添加页眉页脚，添加页面较多时建议放到线程里去处理。
+[addHeaderFooter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#addheaderfooter)接口提供能力，插入pdf文档页眉页脚。该方法属于耗时业务，需要遍历每一页去添加页眉页脚，添加页面较多时建议放到线程里去处理。
  
 参数说明：
   
@@ -41,7 +41,7 @@ HarmonyOS Next有没有提供将多个pdf合并成一个pdf以及给pdf添加页
 
 #### 解决方案
 1. aboutToAppear回调中，确保rawfile目录下有pdf文件，拷贝到沙箱内。
-2. 使用[insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section7656515132015)接口将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档。
+2. 使用[insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#insertpagefromdocument)接口将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档。
 3. 给生成的testInsertPageFromDocument.pdf文档添加页码。
  
 完整示例代码如下：

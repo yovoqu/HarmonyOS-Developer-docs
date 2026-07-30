@@ -1,6 +1,6 @@
-# 使用MindSpore Lite实现图像分类（C/C++）
+# 使用MindSpore Lite实现图像分类 (C/C++)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-native
 
@@ -350,7 +350,7 @@ export const runDemo: (a: number[], b:Object) => Array<number>;
 
 #### 实现图像输入和预处理，并执行推理
 1. 此处以获取相册图片为例，调用[@ohos.file.picker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker) 实现相册图片文件的选择。
-2. 根据模型的输入尺寸，调用[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image) （实现图片处理）、[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs) （实现基础文件操作） API对选择图片进行裁剪、获取图片buffer数据，并进行标准化处理。
+2. 根据模型的输入尺寸，调用[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image)（实现图片处理）、[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)（实现基础文件操作）API对选择图片进行裁剪、获取图片buffer数据，并进行标准化处理。
 3. 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。
 
 ```ArkTS
@@ -549,7 +549,7 @@ struct Index {
 
 
 #### 调测验证
-1. 在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
+1. 在DevEco Studio中连接设备，点击Run entry，编译HAP，有如下显示：
 
   
 ```bash

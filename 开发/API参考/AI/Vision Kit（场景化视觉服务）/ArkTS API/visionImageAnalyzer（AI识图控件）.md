@@ -1,11 +1,11 @@
 # visionImageAnalyzer（AI识图控件）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-image-analyzer
 **支持设备：** Phone | PC/2in1 | Tablet
 
-AI识图是通过聚合OCR（Optical Character Recognition）、主体分割、实体识别、多目标识别等AI能力，提供场景化的文本识别、主体分割、识图搜索功能。
+AI识图是通过聚合OCR（Optical Character Recognition，光学字符识别，指通过图像处理和模式识别技术将图像中的文字转换为机器编码的技术）、主体分割、实体识别、多目标识别等AI能力，提供场景化的文本识别、主体分割、识图搜索功能。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -310,6 +310,12 @@ struct ImageDemo {
 }
 ```
  
+示例图如下，AIButton离底部300vp
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/dh4sXkldTAqk4rPWmLp9Lg/zh-cn_image_0000002685929433.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=3ED165BAEDF0BAC83B213EEBAFE14E6B865D256541E57ECC8917F19FBD3032B7)
+
+ 
   
 
 #### setAIButtonVisibility
@@ -361,6 +367,12 @@ struct ImageDemo {
   }
 }
 ```
+ 
+AIButton可见时如下图所示
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/vTTG4ihFQXK4bKH61g5Lpg/zh-cn_image_0000002656009758.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=E51E366BD694B48D45C25622E097E53C0633E901C85D1BCA6505D4C619C4EB75)
+
  
   
 
@@ -421,6 +433,12 @@ struct ImageDemo {
   }
 }
 ```
+ 
+示例如下图所示，菜单右侧增加自定义菜单项。
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/3Y-Bu2DSR7GhEoQ_9f8HYA/zh-cn_image_0000002655849836.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=26CDD5BA9C3E20C921B37171A258489B272276F70A64F9E84E3686B649B6FF27)
+
  
   
 
@@ -736,6 +754,7 @@ getSubjectsImage(subjectIds: number[]): Promise<PixelMap | null>
  
 ```json
 import { visionImageAnalyzer } from '@kit.VisionKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
@@ -748,9 +767,9 @@ struct ImageDemo {
       if (subjects.length > 0) {
         let ids: number[] = [subjects[0].id];
         this.visionImageAnalyzerController.getSubjectsImage(ids).then((image: PixelMap | null) => {
-          console.info('Image data obtained successfully: ', image);
-        }).catch((error: Error) => {
-          console.error('Failed to obtain image data: ', error);
+          console.info('DEMO_TAG', 'Image data obtained successfully');
+        }).catch((error: BusinessError) => {
+          console.error('DEMO_TAG', `Failed to obtain image data. Code: ${error.code}, message: ${error.message}`);
         })
       }
     });
@@ -798,6 +817,7 @@ getImageAnalyzerUIStatus(): Promise&lt;ImageAnalyzerUIStatus&gt;
  
 ```text
 import { visionImageAnalyzer } from '@kit.VisionKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
@@ -809,8 +829,8 @@ struct ImageDemo {
     this.visionImageAnalyzerController.on('objectSearchPanelVisibilityChange', (objectSearchPanelVisibility: visionImageAnalyzer.ObjectSearchPanelVisibility) => {
       this.visionImageAnalyzerController.getImageAnalyzerUIStatus().then((status: visionImageAnalyzer.ImageAnalyzerUIStatus) => {
         console.info('Image data obtained successfully: ', status);
-      }).catch((error: Error) => {
-        console.error('Failed to obtain image data: ', error);
+      }).catch((error: BusinessError) => {
+        console.error('DEMO_TAG', `Failed to obtain image data. Code: ${error.code}, message: ${error.message}`);
       })
     });
   }
@@ -831,10 +851,10 @@ struct ImageDemo {
         .onClick(() => {
           this.visionImageAnalyzerController.getImageAnalyzerUIStatus()
             .then((status: visionImageAnalyzer.ImageAnalyzerUIStatus) => {
-              console.info('Image data obtained successfully: ', status);
+              console.info('DEMO_TAG', 'Image data obtained successfully: ', status);
             })
-            .catch((error: Error) => {
-              console.error('Failed to obtain image data: ', error);
+            .catch((error: BusinessError) => {
+              console.error('DEMO_TAG', `Failed to obtain image data. Code: ${error.code}, message: ${error.message}`);
             })
         })
         .id('getImageAnalyzerUIStatus')
@@ -879,8 +899,10 @@ import { visionImageAnalyzer } from '@kit.VisionKit';
 struct ImageDemo {
   private visionImageAnalyzerController: visionImageAnalyzer.VisionImageAnalyzerController =
     new visionImageAnalyzer.VisionImageAnalyzerController();
-  startObjectSearch() {
-    this.visionImageAnalyzerController.startObjectSearch();
+  async startObjectSearch() {
+    // 开启视觉搜索后会拉起搜索界面
+    let result: boolean = await this.visionImageAnalyzerController.startObjectSearch();
+    console.info('DEMO_TAG', `startObjectSearch result: ${result}`);
   }
   build() {
     Stack() {
@@ -2054,7 +2076,7 @@ on(type: 'analyzerFailed', callback: ErrorCallback): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2064,7 +2086,7 @@ on(type: 'analyzerFailed', callback: ErrorCallback): void
  
 **示例：**
  
-```json
+```text
 import { visionImageAnalyzer } from '@kit.VisionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2075,7 +2097,7 @@ struct ImageDemo {
     new visionImageAnalyzer.VisionImageAnalyzerController();
   aboutToAppear(): void {
     this.visionImageAnalyzerController.on('analyzerFailed', (error: BusinessError) => {
-      console.error('DEMO_TAG', `analyzerFailed result: ${JSON.stringify(error)}`);
+      console.error('DEMO_TAG', `Failed to analyzer image. Code: ${error.code}, message: ${error.message}`);
     });
   }
   aboutToDisappear(): void {
@@ -2123,7 +2145,7 @@ off(type: 'analyzerFailed', callback?: ErrorCallback): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2133,7 +2155,7 @@ off(type: 'analyzerFailed', callback?: ErrorCallback): void
  
 **示例：**
  
-```json
+```text
 import { visionImageAnalyzer } from '@kit.VisionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2144,7 +2166,7 @@ struct ImageDemo {
     new visionImageAnalyzer.VisionImageAnalyzerController();
   aboutToAppear(): void {
     this.visionImageAnalyzerController.on('analyzerFailed', (error: BusinessError) => {
-      console.error('DEMO_TAG', `analyzerFailed result: ${JSON.stringify(error)}`);
+      console.error('DEMO_TAG', `Failed to analyzer image. Code: ${error.code}, message: ${error.message}`);
     });
   }
   aboutToDisappear(): void {

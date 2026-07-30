@@ -1,6 +1,6 @@
 # @ohos.util.List (线性容器List)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-list
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@ List底层通过单向链表实现，每个节点有一个指向后一个元素�
 List和[LinkedList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-linkedlist)相比，LinkedList是双向链表，可以快速地在头尾进行增删，而List是单向链表，不支持双向操作。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/AZVXQI34S7Wr1XpsdxWB9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014308Z&HW-CC-Expire=86400&HW-CC-Sign=CDA046C2901AFD6FC71573BB6E639D27EB6A106C8249DBC3AE76D664F2CAF2B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/DkJelpsSTvyfn3RzXo4dQw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071440Z&HW-CC-Expire=86400&HW-CC-Sign=D46311C09F2873E0FD4930F4AA6709AF0607550E6F02A93E40E798AB9C941548)
  
  
 在List中使用[index]的方式获取元素可能导致未定义结果，推荐使用get()方法。
@@ -19,9 +19,9 @@ List和[LinkedList](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
  
 **推荐使用场景：** 当需要频繁的插入删除元素且需要使用单向链表时，推荐使用List。
  
-文档使用了泛型，涉及以下泛型标记符：
+文档使用了泛型，涉及以下泛型类型参数：
  
-- T：Type，类
+- T：Type，泛型类型参数，可以是任意类型
 
  
 > [!NOTE]
@@ -105,7 +105,7 @@ add(element: T): boolean
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| element | T | 是 | 添加进去的元素。 |
+| element | T | 是 | 待添加的元素。 |
  
  
 **返回值：**
@@ -127,19 +127,24 @@ add(element: T): boolean
 **示例：**
  
 ```text
+// 创建支持多种类型元素的List实例
 let list = new List<string | number | boolean | object>();
 let result1 = list.add("a");
+console.info("result = ", result1); // result =  true
 let result2 = list.add(1);
-let b = [1, 2, 3];
-let result3 = list.add(b);
-class C {
-  name: string = ''
-  age: string = ''
+console.info("result = ", result2); // result =  true
+let numArray = [1, 2, 3];
+let result3 = list.add(numArray);
+console.info("result = ", result3); // result =  true
+class PersonInfo {
+  name: string = "";
+  age: string = "";
 }
-let c: C = {name : "Dylan", age : "13"};
-let result4 = list.add(c);
+let personInfo: PersonInfo = {name : "Dylan", age : "13"};
+let result4 = list.add(personInfo);
+console.info("result = ", result4); // result =  true
 let result5 = list.add(false);
-console.info("result = ", result5) // result =  true
+console.info("result = ", result5); // result =  true
 ```
  
   
@@ -160,8 +165,8 @@ insert(element: T, index: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| element | T | 是 | 插入元素。 |
-| index | number | 是 | 插入的位置索引。需要小于等于int32_max即2147483647。 |
+| element | T | 是 | 待插入元素。 |
+| index | number | 是 | 插入的位置索引，可插入位置区间为[0, List.length]，需要小于等于int32_max即2147483647。 |
  
  
 **错误码：**
@@ -270,7 +275,7 @@ get(index: number): T
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -322,7 +327,7 @@ getLastIndexOf(element: T): number
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -374,7 +379,7 @@ getIndexOf(element: T): number
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -426,7 +431,7 @@ equal(obj: Object): boolean
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -456,7 +461,7 @@ removeByIndex(index: number): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 指定元素的下标值。需要小于等于int32_max即2147483647。 |
+| index | number | 是 | 指定元素的下标值，取值范围[0, List.length-1]，需要小于等于int32_max即2147483647。 |
  
  
 **返回值：**
@@ -479,7 +484,7 @@ removeByIndex(index: number): T
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -529,7 +534,7 @@ remove(element: T): boolean
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -581,13 +586,13 @@ callbackFn的参数说明：
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
 list.add(4);
 list.replaceAllElements((value: number) => {
-  // 用户操作逻辑根据实际场景进行添加。
+  // 用户操作逻辑根据实际场景进行添加
   if (value === 5) {
     return value * 2;
   }
@@ -640,11 +645,12 @@ callbackFn的参数说明：
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
 list.add(4);
+// 遍历List中的每个元素并打印值和下标
 list.forEach((value: number, index: number) => {
   console.info("value:" + value, "index:" + index);
 });
@@ -672,7 +678,7 @@ sort(comparator: ListComparatorFn&lt;T&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| comparator | ListComparatorFn&lt;T&gt; | 是 | 回调函数。 API version23开始发生兼容性变更，在API version22及之前的版本其类型为：(firstValue: T, secondValue: T) => number。 |
+| comparator | ListComparatorFn&lt;T&gt; | 是 | 回调函数。 API version 23开始发生兼容性变更，在API version 22及之前的版本其类型为：(firstValue: T, secondValue: T) => number。 |
  
  
 **错误码：**
@@ -687,7 +693,7 @@ sort(comparator: ListComparatorFn&lt;T&gt;): void
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(1);
 list.add(3);
@@ -741,7 +747,7 @@ getSubList(fromIndex: number, toIndex: number): List&lt;T&gt;
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(6);
@@ -776,7 +782,7 @@ clear(): void
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -804,7 +810,7 @@ set(index: number, element: T): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 查找的下标值。需要小于等于int32_max即2147483647。 |
+| index | number | 是 | 查找的下标值。取值范围[0, List.length-1]，需要小于等于int32_max即2147483647。 |
 | element | T | 是 | 用来替换的元素。 |
  
  
@@ -870,7 +876,7 @@ convertToArray(): Array&lt;T&gt;
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -912,7 +918,7 @@ isEmpty(): boolean
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -954,7 +960,7 @@ getFirst(): T
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -996,7 +1002,7 @@ getLast(): T
 **示例：**
  
 ```text
-let list = new List<number>()
+let list = new List<number>();
 list.add(2);
 list.add(4);
 list.add(5);
@@ -1013,7 +1019,7 @@ console.info("result:", result);  // result: 4
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
  
-返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
+返回一个迭代器，用于遍历List中的元素。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  

@@ -13,7 +13,7 @@ RichEditor是支持图文混排和文本交互式编辑的组件。在RichEditor
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/WoOL9OsZRzmbhdDVU0vaRQ/zh-cn_image_0000002658913727.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012548Z&HW-CC-Expire=86400&HW-CC-Sign=BE32C45C1A7F009C835FB4529732B378DB75722C1C1E153F685D5E409BE6FD00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/WoOL9OsZRzmbhdDVU0vaRQ/zh-cn_image_0000002658913727.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=4CAE143B8AF6084A7EB0BD851544C6BA9975FEF4214CD443E53E280866273083)
 
  
  

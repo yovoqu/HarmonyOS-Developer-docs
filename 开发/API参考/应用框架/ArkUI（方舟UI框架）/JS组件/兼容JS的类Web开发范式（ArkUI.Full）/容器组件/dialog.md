@@ -1,6 +1,6 @@
 # dialog
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 > 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
  
-自定义弹窗容器。
+自定义对话框容器。
   
 
 #### 权限列表
@@ -61,7 +61,7 @@
   
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
-| cancel | - | 用户点击非dialog区域触发取消弹窗时触发的事件。 |
+| cancel | - | 用户点击非对话框区域触发取消对话框时触发的事件。 |
 | show7+ | - | 对话框弹出时触发该事件。 |
 | close7+ | - | 对话框关闭时触发该事件。 |
  
@@ -192,4 +192,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/9vqLHc0FSd22N08WJ3vPAQ/zh-cn_image_0000002659102281.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014359Z&HW-CC-Expire=86400&HW-CC-Sign=5B42028268637CE712352AFE018667CDB7199A6F20A5BDA01A190FA9F266960B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/syEwRvJeQJKhkN2HXC5kUg/zh-cn_image_0000002655849086.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071523Z&HW-CC-Expire=86400&HW-CC-Sign=68A7CB39387192B05412DDBD22824FBB980EB481F5F4BDC788A599A0FF8900BC)

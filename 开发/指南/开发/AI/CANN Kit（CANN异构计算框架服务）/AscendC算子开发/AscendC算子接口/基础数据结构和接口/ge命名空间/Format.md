@@ -1,6 +1,6 @@
 # Format
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-format
 
@@ -60,7 +60,7 @@ enum Format {
   FORMAT_END,
   // FORMAT_MAX定义了Format的最大值
   // 任何Format都不应超过FORMAT_MAX的值
-  // 注意：FORMAT_MAX表示enum Format的规格，在代码中几乎不应使用
+  // 注意：FORMAT_MAX表示enum Format的规格，通常不应在代码中直接使用
   // 如果需要判断Format的范围，可以使用FORMAT_END
   FORMAT_MAX = 0xff
 };

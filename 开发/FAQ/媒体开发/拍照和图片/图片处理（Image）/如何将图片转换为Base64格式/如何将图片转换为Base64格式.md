@@ -344,4 +344,4 @@ Q：对于不同路径获取到的ArrayBuffer数据，如何判断是否为空�
 A：可以将文件存入沙箱中，将文件拖进notepad中，查看其二进制数据，除去头尾之外，如果大部分均为0数据，说明该ArrayBuffer为一个空Buffer。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/jO93CfQ3RL6BT35ERtruIw/zh-cn_image_0000002628552488.png?HW-CC-KV=V1&HW-CC-Date=20260723T013552Z&HW-CC-Expire=86400&HW-CC-Sign=8298028D11B76589F459CA7E384CC175BB6493091B1F85FEC8DED97B331E3B7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/jO93CfQ3RL6BT35ERtruIw/zh-cn_image_0000002628552488.png?HW-CC-KV=V1&HW-CC-Date=20260730T072615Z&HW-CC-Expire=86400&HW-CC-Sign=8823AA65222429EC0297475393F3904F7B464EE912FBE84CA949FA49290619FB)

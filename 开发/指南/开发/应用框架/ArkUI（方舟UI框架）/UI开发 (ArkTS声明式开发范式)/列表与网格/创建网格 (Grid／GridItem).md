@@ -1,6 +1,6 @@
 # 创建网格 (Grid/GridItem)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-grid
 
@@ -248,7 +248,7 @@ export struct DataInGrid {
 **图8** 网格的行列间距
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/1pS4FKaQQ3OgP2eGvjblPg/zh-cn_image_0000002656347681.png?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=5BA9E495350ED90CFDC1B700DA7C59AAE2A2218114918784877463FA0C63159B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/DYuE0EGhSfOVhLwteIqTag/zh-cn_image_0000002686085673.png?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=C0FC32518DE1F7994518BC3F8FD0C7F24595D69D83AC6AFC5FF30617490A1A64)
 
 
 通过Grid的[rowsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#rowsgap)和[columnsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#columnsgap)可以设置网格布局的行列间距。在图5所示的计算器中，行间距为15vp，列间距为10vp。
@@ -270,7 +270,7 @@ Grid() {
 **图9** 横向可滚动网格布局
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/hZbHWAn-SpOJ9z4UuhZizw/zh-cn_image_0000002626228266.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=9B408F2BA7BA75491B2FBD725996DBE241E6618282FA0E00EFB108916D887A5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/gmWzHzIzRD2hwAXXn3Dpmg/zh-cn_image_0000002685925845.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=5B74609C4B04E51DCB6BC2E1946498FB1765A955D875606466CAB3DA3BB20691)
 
 
 如果设置的是columnsTemplate，Grid的滚动方向为垂直方向；如果设置的是rowsTemplate，Grid的滚动方向为水平方向。
@@ -323,7 +323,7 @@ export struct ScrollableGrid {
 **图10** 日历翻页
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/irPjsabsTyqbUnxwOUVO3Q/zh-cn_image_0000002626068358.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=B9B4A1EED5997E57E5E00A81D9344DCD04BC14DE809AD7325D07709D62510CA1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/fAuaAQdES3a33c7KkoiJQA/zh-cn_image_0000002656006166.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=275B54F02AAC1FFC2FF85DA20E9AD348B71832FED9DB9EE9C49675C9A282B410)
 
 
 Grid组件初始化时，可以绑定一个[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)对象，用于进行滚动控制，例如通过Scroller对象的[scrollPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollpage9)方法进行翻页。
@@ -394,11 +394,63 @@ ScrollBar({ scroller: this.gridScroller })
 **图11** 网格的外置滚动条
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/MfF6KUuaS3yFNlMXegwohA/zh-cn_image_0000002656467635.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=625C21BD87CAC2C84F057044977A6EF1793C3E5D245380BC848BE179C31F4A45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/CB5fbhbJT5ekYGiFtyu55A/zh-cn_image_0000002655846246.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=DE28E3F767AF3DC31BEB057E85F27BE0E6B085B27C57413ED9F7E42EBB96C236)
 
 
 > [!NOTE]
 > 滚动条组件 ScrollBar ，还可配合其他可滚动组件使用，如 ArcList 、 List 、 Scroll 、 WaterFlow 。 在圆形屏幕设备上， Grid 可以与弧形滚动条组件 ArcScrollBar 配合使用为网格添加弧形外置滚动条，使用方式可参考 创建弧形列表 (ArcList) 的 添加外置滚动条ArcScrollBar 章节。
+
+
+
+
+#### 手指滑动多选
+
+从API版本26.0.0开始，[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)支持在编辑模式下实现手指滑动多选能力。进入编辑模式后，用户可以通过手指滑动经过多个[GridItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem)，批量选择或取消选择网格项。应用可以在GridItem上设置是否允许被选择，并根据回调记录已选择的网格项。该能力适用于相册、文件管理、视频列表等需要连续批量选择网格项的场景。
+
+**Grid手指滑动多选示例效果图**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/C2zK6VaDSbGoEzBEukJ2VQ/zh-cn_image_0000002686085675.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=4F69D43E7D4E110DA74717560650FF5E633A4ED1A7FF581FE18CF106A18A1255)
+
+
+
+
+#### 设置编辑模式
+
+通过[enableEditMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#enableeditmode)设置是否进入编辑模式。设置为true，Grid进入编辑模式，用户可以单指滑动经过多个GridItem进行批量选择或取消选择；设置为false，Grid退出编辑模式。通过[onEditModeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#oneditmodechange)监听编辑模式变化，将系统返回、侧滑返回或双指滑动触发的编辑模式变化同步到业务状态。
+
+通过[editModeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#editmodeoptions23)配置编辑模式下的多选行为。editModeOptions中有两个滑动多选相关参数，分别是useDefaultMultiSelectStyle和enableTwoFingerMultiSelect，默认值均为true。前者控制是否显示GridItem右下角的系统复选框，后者控制是否允许用户通过双指滑动自动进入编辑模式并进行多选。开发者需要自定义样式时，可将useDefaultMultiSelectStyle设置为false。开发者需要关闭双指滑动自动进入编辑模式时，可将enableTwoFingerMultiSelect设置为false。
+
+```text
+Grid() {
+  // ...
+}
+.enableEditMode(this.enableEditMode)
+.onEditModeChange((enabled: boolean) => {
+  this.setEditMode(enabled);
+})
+.editModeOptions({ useDefaultMultiSelectStyle: true, enableTwoFingerMultiSelect: true })
+```
+
+
+
+#### 记录网格项选择结果
+
+在GridItem上配置[selectable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem#selectable8)、[selected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem#selected10)和[onSelect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem#onselect8)。selectable用于设置网格项是否允许被选择，selected用于设置网格项当前是否被选中。滑动多选过程中，组件会触发onSelect回调，应用可以在回调中记录每个网格项的最新选择结果。
+
+```text
+GridItem() {
+  this.GridCard(item, index)
+}
+.selectable(true)
+.selected(this.isSelected(item.id))
+.onSelect((selected: boolean) => {
+  this.updateSelected(item.id, selected);
+})
+```
+
+> [!NOTE]
+> 建议使用网格项数据中不会随位置变化的唯一标识（例如文件ID）记录选择结果，不建议仅使用当前下标，避免动态增删数据后选中项错位。 当业务需要在退出编辑模式后保留选择结果时，可在 onEditModeChange 回调中保存选择结果。 使用 LazyForEach 时，数据源发生变化后应通过 DataChangeListener 通知组件刷新，确保滑动多选过程中网格项状态与数据源一致。
 
 
 

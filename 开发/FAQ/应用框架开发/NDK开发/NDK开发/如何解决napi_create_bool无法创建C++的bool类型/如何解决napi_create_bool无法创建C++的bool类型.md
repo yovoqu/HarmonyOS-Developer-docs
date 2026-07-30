@@ -9,7 +9,7 @@
 Node-API提供了一批接口帮助把标准数据类型转为napi_value，比如napi_create_double、napi_create_int32等等，但是napi_create_bool无法创建bool类型并转换为napi_value。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/rRZf_4i7Rci9hIXCD5VqiA/zh-cn_image_0000002628899078.png?HW-CC-KV=V1&HW-CC-Date=20260723T012515Z&HW-CC-Expire=86400&HW-CC-Sign=0F21D49B25F9625076E37FC2929B7BFC7F732E7FB5ECBC13D41A7A86FF7717A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/rRZf_4i7Rci9hIXCD5VqiA/zh-cn_image_0000002628899078.png?HW-CC-KV=V1&HW-CC-Date=20260730T072313Z&HW-CC-Expire=86400&HW-CC-Sign=B34D01AB76D8F88D8A1A18BE0109CE3188114637554CA11D574A04D1C27107E2)
 
  
  

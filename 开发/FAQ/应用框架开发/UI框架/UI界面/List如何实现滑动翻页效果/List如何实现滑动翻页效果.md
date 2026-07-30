@@ -71,7 +71,7 @@ struct ScrollSolution {
  效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/A9WV98ENTuK_FUzNlmC2tA/zh-cn_image_0000002628569770.png?HW-CC-KV=V1&HW-CC-Date=20260723T013121Z&HW-CC-Expire=86400&HW-CC-Sign=C14F4A084B49273808326CB5EED51151ECBCA84DBF681749BC845330B2795336)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/A9WV98ENTuK_FUzNlmC2tA/zh-cn_image_0000002628569770.png?HW-CC-KV=V1&HW-CC-Date=20260730T072456Z&HW-CC-Expire=86400&HW-CC-Sign=1888F6BCD2F4C4B3DABF45E6484C80861CF5C9881EAB2F36B5D584AB33AFE3BE)
 
 - **方案二**：自定义实现List翻页效果。通过onAreaChange获取List的高度，在onTouch回调中实现滑动翻页逻辑，手指按下时，获取当前List的滚动偏移量，手指抬起时，根据手指滑动方向决定向前或向后滚动一个List高度的距离。示例代码如下：翻页判定条件为手指滑动List的距离超过List高度的三分之一。
 ```json
@@ -145,4 +145,4 @@ struct ListSolution {
  效果如下：实现整页滑动以及点击Item自动移动至屏幕中间：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/4dnMsawLQ4uMuGoLTIDynw/zh-cn_image_0000002628409866.png?HW-CC-KV=V1&HW-CC-Date=20260723T013121Z&HW-CC-Expire=86400&HW-CC-Sign=C5EAE0E1783C04CC4C02766ED41282D00E58DCD69AFC69921A8FBC0EBC0D895A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/4dnMsawLQ4uMuGoLTIDynw/zh-cn_image_0000002628409866.png?HW-CC-KV=V1&HW-CC-Date=20260730T072456Z&HW-CC-Expire=86400&HW-CC-Sign=67427814A5F7C1F07EAF6B2CAFA3F66D4889DD100321D7E1C89CE38E8F509382)

@@ -1,6 +1,6 @@
 # TextReaderIcon（朗读听筒图标）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreadericon
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -40,7 +40,7 @@ import { TextReaderIcon } from '@kit.SpeechKit';
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| readState | ReadStateCode | 是 | @Link | 播报状态。 说明： ReadState使用@Link装饰器：父子双向同步。 |
+| readState | ReadStateCode | 是 | @Link | 播报状态。 说明： readState使用@Link装饰器：父子双向同步。 |
  
  
   
@@ -168,3 +168,16 @@ struct Index {
   }
 }
 ```
+ 
+组件如下图：
+ 
+静止状态
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/kGKApjezSV6OTpFSNVQT6A/zh-cn_image_0000002656009756.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=7BC29366C180DAC06F81D8A3A22F66A2C2EB5E1A26D334918E371DDF6600F5FF)
+
+ 
+播放状态
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/F6iVHTgfSt2UyFpdF0KArA/zh-cn_image_0000002655849834.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=2BCD037F6A0B28EF35D751B016862FE3BFF4AF9E31B56C05AD5CCED0E46AB6BF)

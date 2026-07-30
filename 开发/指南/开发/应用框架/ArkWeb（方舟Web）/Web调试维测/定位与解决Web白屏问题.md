@@ -1,6 +1,6 @@
 # 定位与解决Web白屏问题
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-white-screen
 
@@ -374,7 +374,7 @@ Web组件提供了自适应页面布局的能力，详情见[ Web组件大小自
  - 关闭滚动效果：webSetting({overScrollMode: OverScrollMode.NEVER})。
  - 此模式下不支持动态调整组件高度，确保页面高度固定。
  - 避免在FIT_CONTENT模式下启用键盘避让属性RESIZE_CONTENT，以免导致布局失效。
- - CSS样式height: &lt;number&gt; vh和Web组件大小自适应页面布局存在计算冲突，请检查height: &lt;number&gt; vh是否是由body节点以内的第一个高度CSS样式。如以下结构，id为2的DOM节点高度将为0，导致白屏。
+ - css样式height: &lt;number&gt; vh和Web组件大小自适应页面布局存在计算冲突，请检查height: &lt;number&gt; vh是否是由body节点以内的第一个高度css样式。如以下结构，id为2的dom节点高度将为0，导致白屏。
 
   
 ```text

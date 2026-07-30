@@ -1,6 +1,6 @@
 # log.h
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-log-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -87,7 +87,7 @@ HiLog模块日志接口定义，通过这些接口实现日志打印相关功能
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/Y9saLrMsRaiw3XdcG9DNQg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=155F2E1F6427BCC88E2FC629F780A87038373A57F521F32B57C9848D3E6FDC44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/pfh5LQkPRQqkQZ9kxQG_WA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071647Z&HW-CC-Expire=86400&HW-CC-Sign=DF6101551C22983F650EBC595DF93CF0B76D8DB85D4B1DA183FB743271C7D915)
 
 
 如果设置的日志级别低于[全局日志级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#查看和设置日志级别)，OH_LOG_SetMinLogLevel()设置不生效。
@@ -186,6 +186,8 @@ enum PreferStrategy
 #### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+各接口具体使用说明可查阅：[使用HiLog打印日志（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog-guidelines-ndk)。
 
 
 

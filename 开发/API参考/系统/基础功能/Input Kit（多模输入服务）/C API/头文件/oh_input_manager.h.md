@@ -1,6 +1,6 @@
 # oh_input_manager.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1750,7 +1750,7 @@ void OH_Input_SetMouseEventAxisValue(struct Input_MouseEvent* mouseEvent, float 
 | 参数项 | 描述 |
 | --- | --- |
 | struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
-| float axisValue | 轴事件的值，正数向前滚动（例如，1.0表示向前滚动一个单位），负数向后滚动（例如，-1.0表示向后滚动一个单位）,零表示没有滚动。 |
+| float axisValue | 轴事件的值，正数向前滚动（例如，1.0表示向前滚动一个单位），负数向后滚动（例如，-1.0表示向后滚动一个单位），零表示没有滚动。 |
 
 
 
@@ -2782,7 +2782,7 @@ Input_Result OH_Input_GetAxisEventAxisValue(const Input_AxisEvent* axisEvent,Inp
 | --- | --- |
 | const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | InputEvent_AxisType axisType | 轴类型，具体请参考InputEvent_AxisType。 |
-| double* axisValue | 出参，返回轴事件的值，正数向前滚动（例如，1.0表示向前滚动一个单位），负数向后滚动（例如，-1.0表示向后滚动一个单位）,零表示没有滚动。 |
+| double* axisValue | 出参，返回轴事件的值，正数向前滚动（例如，1.0表示向前滚动一个单位），负数向后滚动（例如，-1.0表示向后滚动一个单位），零表示没有滚动。 |
 
 
 **返回：**
@@ -3520,7 +3520,7 @@ Input_Result OH_Input_AddKeyEventInterceptor(Input_KeyEventCallback callback, In
 
 | 类型 | 说明 |
 | --- | --- |
-| Input_Result | 若添加按键事件的拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若重复添加拦截器，则返回INPUT_REPEAT_INTERCEPTOR； 若服务异常；则返回INPUT_SERVICE_EXCEPTION。 |
+| Input_Result | 若添加按键事件的拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若重复添加拦截器，则返回INPUT_REPEAT_INTERCEPTOR； 若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
 
@@ -3557,7 +3557,7 @@ Input_Result OH_Input_AddInputEventInterceptor(Input_InterceptorEventCallback *c
 
 | 类型 | 说明 |
 | --- | --- |
-| Input_Result | 若添加输入事件的拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若重复添加拦截器，则返回INPUT_REPEAT_INTERCEPTOR； 若服务异常；则返回INPUT_SERVICE_EXCEPTION。 |
+| Input_Result | 若添加输入事件的拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若重复添加拦截器，则返回INPUT_REPEAT_INTERCEPTOR； 若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
 
@@ -4567,6 +4567,8 @@ int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent)
 
 从API版本26.0.0开始，持有ohos.permission.CONTROL_DEVICE权限的调用方也可以直接使用本接口。
 
+**系统能力：** SystemCapability.MultimodalInput.Input.Core
+
 **设备行为差异**：该接口在PC/2in1设备中可正常调用，在其他设备上调用无效果。
 
 **需要权限：** ohos.permission.CONTROL_DEVICE
@@ -5334,7 +5336,7 @@ Input_Result OH_Input_GetPointerStyle(int32_t windowId, int32_t *pointerStyle)
 
 **描述**
 
-获取指定窗口的鼠标光标样式。
+获取指定窗口的鼠标光标样式。此接口仅支持获取本应用进程内窗口的鼠标光标样式。
 
 **设备行为差异**：该接口在Wearable设备上调用无效果，在其他设备上可正常调用。
 
@@ -5367,7 +5369,7 @@ Input_Result OH_Input_SetPointerStyle(int32_t windowId, int32_t pointerStyle)
 
 **描述**
 
-设置指定窗口的鼠标光标样式。
+设置指定窗口的鼠标光标样式。此接口仅支持设置本应用进程内窗口的鼠标光标样式。
 
 **设备行为差异**：该接口在Wearable设备上调用无效果，在其他设备上可正常调用。
 
@@ -5526,7 +5528,7 @@ Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem)
 
 | 参数项 | 描述 |
 | --- | --- |
-| bool followSystem | 是否根据系统设置调整鼠标光标大小。false表示使用自定义鼠标光标样式大小，true表示根据系统设置调整鼠标光标大小，可调整范围为：[光标资源图大小，256×256]，单位为像素（px）。 |
+| bool followSystem | 是否根据系统设置调整鼠标光标大小。false表示使用自定义鼠标光标样式大小，true表示根据系统设置调整鼠标光标大小，可调整范围为：[光标资源图大小, 256×256]，单位为像素（px）。 |
 
 
 **返回：**
@@ -5604,7 +5606,7 @@ Input_Result OH_Input_SetCustomCursor(int32_t windowId, Input_CustomCursor* cust
 
 设置自定义鼠标光标样式。
 
-应用窗口布局改变、热区切换、页面跳转、光标移出再回到窗口、光标在窗口不同区域移动，以上场景可能导致光标切换回系统样式，需要开发者重新设置光标样式。
+应用窗口布局改变、热区切换、页面跳转、光标移出再回到窗口、光标在窗口不同区域移动，以上场景可能导致光标切换回系统样式，需要开发者重新设置光标样式。此接口仅支持设置本应用进程内窗口的自定义鼠标光标样式。
 
 **起始版本：** 22
 
@@ -5870,7 +5872,7 @@ Input_Result OH_Input_SetTouchEventPressure(struct Input_TouchEvent* touchEvent,
 
 **描述**
 
-设置触屏输入事件的压力。如果未设置压力值，或者不在合法范围内，默认值是0.0。
+设置触屏输入事件的压力。如果未设置压力值，或设置的值不在[0.0, 1.0]范围内，默认值是0.0。
 
 **起始版本：** 24
 
@@ -6174,4 +6176,4 @@ Input_Result OH_Input_BindInputDeviceToDisplay(int32_t inputDeviceId, int32_t di
 
 | 类型 | 说明 |
 | --- | --- |
-| Input_Result | OH_Input_BindInputDeviceToDisplay函数返回值： INPUT_SUCCESS表示操作成功。 INPUT_PERMISSION_DENIED表示权限校验失败。 INPUT_PARAMETER_ERROR表示参数检查失败。 INPUT_SERVICE_EXCEPTION表示服务异常，请重试。 |
+| Input_Result | OH_Input_BindInputDeviceToDisplay函数返回值： INPUT_SUCCESS表示操作成功。 INPUT_PERMISSION_DENIED表示权限校验失败。 INPUT_PARAMETER_ERROR表示参数检查失败（输入设备不存在，显示屏设备不存在，或者输入设备不是手写笔设备）。 INPUT_SERVICE_EXCEPTION表示服务异常，请重试。 |

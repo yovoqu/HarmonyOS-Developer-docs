@@ -1,6 +1,6 @@
 # 主动获取HiCar的连接状态
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/car-check-application-start
 
@@ -72,6 +72,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
   
 ```text
 export default class EntryAbility extends UIAbility {
+  // ...
   isAppOnHiCar(): boolean {
     try {
       // 应用所在的屏幕id
@@ -81,7 +82,7 @@ export default class EntryAbility extends UIAbility {
       // 获取当前智慧出行连接状态
       let info: smartMobilityCommon.SmartMobilityInfo =
         awareness.getSmartMobilityStatus(smartMobilityCommon.SmartMobilityType.HICAR);
-      const deviceDisplayId = Number(info.data["DISPLAY_ID"]);
+      const deviceDisplayId = Number(info.data['DISPLAY_ID']);
       if (currentDisplayId === deviceDisplayId) {
         // 表示应用在对应的设备屏幕上
         hilog.info(0x0000, 'testTag', 'app in on device screen');
@@ -93,5 +94,6 @@ export default class EntryAbility extends UIAbility {
     }
     return false;
   }
+  // ...
 }
 ```

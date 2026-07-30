@@ -1,6 +1,6 @@
 # MapComponent（地图组件）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -48,9 +48,8 @@ MapComponent提供map组件，通过回调获取MapComponentController对象。
 **示例：**
  
 ```text
-import { map, mapCommon, MapComponent } from '@kit.MapKit';
+import { map, mapCommon, MapComponent, customInfoWindowCallback } from '@kit.MapKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
-import { customInfoWindowCallback } from '@hms.core.map.MapComponent';
 
 @Entry
 @Component

@@ -1,6 +1,6 @@
 # lowpower_video_sink.h
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-video-sink-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -550,7 +550,7 @@ OH_AVErrCode OH_LowPowerVideoSink_SetSyncAudioSink(OH_LowPowerVideoSink* videoSi
  
 **描述**
  
-LowPowerVideoSink设置用于音画同步的OH_LowPowerAudioSink。
+LowPowerVideoSink设置用于音画同步的OH_LowPowerAudioSink。需要在OH_LowPowerVideoSink_Prepare前完成。
  
 **起始版本：** 20
  

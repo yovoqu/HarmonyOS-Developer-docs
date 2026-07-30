@@ -20,7 +20,7 @@ function deepLinkApp() {
 问题现象如图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/3FrjaiK6R3SIqUT5UKJRgw/zh-cn_image_0000002628789250.png?HW-CC-KV=V1&HW-CC-Date=20260723T012454Z&HW-CC-Expire=86400&HW-CC-Sign=B8A454DD4A5F88CE1FBE0E2C6741A902F2FECC833512F41019F0E785DDDF7CEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/3FrjaiK6R3SIqUT5UKJRgw/zh-cn_image_0000002628789250.png?HW-CC-KV=V1&HW-CC-Date=20260730T072309Z&HW-CC-Expire=86400&HW-CC-Sign=85621C4617C17EC2B4F4B40AECDEDA10F0784D14F3C63FF1EF6FEA2EF3295EE7)
 
  
  

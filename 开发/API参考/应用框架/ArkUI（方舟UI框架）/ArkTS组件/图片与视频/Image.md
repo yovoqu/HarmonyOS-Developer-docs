@@ -1,6 +1,6 @@
 # Image
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -62,7 +62,7 @@ Image加载成功且组件不设置宽高时，其显示大小自适应父组件
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | PixelMap \| ResourceStr\| DrawableDescriptor | 是 | 图片的数据源，支持本地图片和网络图片，引用方式请参考加载图片资源。 1. PixelMap格式为像素图，常用于图片编辑的场景。 2. ResourceStr包含Resource和string格式。 string格式可用于加载网络图片和本地图片，常用于加载网络图片。当使用相对路径显示图片时，不支持跨包/跨模块调用该Image组件，建议使用Resource格式来管理需全局使用的图片资源。 从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resource目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable 设置为true，详见resOptions中相关介绍。 - 支持Base64字符串。 - 传入的字符串为https网络图片地址时，建议参考示例2（下载与显示静态网络图片）。 - 支持file://路径前缀的字符串，应用沙箱URI：file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。应用沙箱路径URI构造可参考constructor。沙箱路径需要使用fileUri.getUriFromPath(path)方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包路径下的文件有可读权限。 Resource格式可以跨包/跨模块访问资源文件，是访问本地图片的推荐方式，具体示例参考访问跨HAP/HSP包资源。 3. 当传入资源id或name为普通图片时，生成DrawableDescriptor对象。传入AnimatedDrawableDescriptor类型可播放PixelMap数组动画。 说明： - ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。 - ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。 |
+| src | PixelMap \| ResourceStr\| DrawableDescriptor | 是 | 图片的数据源，支持本地图片和网络图片，引用方式请参考加载图片资源。 1. PixelMap格式为像素图，常用于图片编辑的场景。 2. ResourceStr包含Resource和string格式。 string格式可用于加载网络图片和本地图片。当使用相对路径显示图片时，不支持跨包/跨模块调用该Image组件，建议使用Resource格式来管理需全局使用的图片资源。 从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resource目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable 设置为true，详见resOptions中相关介绍。 - 支持Base64字符串。 - 传入的字符串为https网络图片地址时，建议参考示例2（下载与显示静态网络图片）。 - 支持file://路径前缀的字符串，应用沙箱URI：file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。应用沙箱路径URI构造可参考constructor。沙箱路径需要使用fileUri.getUriFromPath(path)方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包路径下的文件有可读权限。 Resource格式可以跨包/跨模块访问资源文件，是访问本地图片的推荐方式，具体示例参考访问跨HAP/HSP包资源。 3. 当传入资源id或name为普通图片时，生成DrawableDescriptor对象。传入AnimatedDrawableDescriptor类型可播放PixelMap数组动画。 说明： - ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。 - ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。 |
 
 
 
@@ -112,6 +112,61 @@ Image新增[ImageAIOptions](https://developer.huawei.com/consumer/cn/doc/harmony
 | --- | --- | --- | --- |
 | src | PixelMap \| ResourceStr\| DrawableDescriptor | 是 | 图片的数据源，支持本地图片和网络图片，引用方式请参考加载图片资源。 PixelMap、ResourceStr和DrawableDescriptor的使用请参考Image的src参数说明。 说明： - ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。 - ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。 |
 | imageAIOptions | ImageAIOptions | 是 | 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。 |
+
+
+
+
+#### Image
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+Image(src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent, reloadKey?: string)
+
+获取图片，支持通过reloadKey参数触发图片重新加载。当reloadKey的值发生变化时，将不使用缓存重新加载图片。
+
+**起始版本：** 26.0.0
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| src | PixelMap \| ResourceStr\| DrawableDescriptor\| ImageContent | 是 | 图片的数据源，支持本地图片和网络图片，引用方式请参考加载图片资源。 PixelMap、ResourceStr和DrawableDescriptor的使用请参考Image的src参数说明。 传入ImageContent类型，指定图像内容。 说明： - ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。 - ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。 |
+| reloadKey | string | 否 | 图片重新加载的标识。当reloadKey的值发生变化时，将不使用缓存重新加载图片。适用于图片源地址不变但图片内容已更新的场景（例如本地图片内容被重写）。 默认值：空字符串。 |
+
+
+
+
+#### Image
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+Image(src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions?: ImageAIOptions, reloadKey?: string)
+
+获取图片，支持通过[ImageAIOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#imageaioptions12)参数设置AI分析选项。当reloadKey的值发生变化时，将不使用缓存重新加载图片。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| src | PixelMap \| ResourceStr\| DrawableDescriptor | 是 | 图片的数据源，支持本地图片和网络图片，引用方式请参考加载图片资源。 PixelMap、ResourceStr和DrawableDescriptor的使用请参考Image的src参数说明。 说明： - ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。 - ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。 |
+| imageAIOptions | ImageAIOptions | 否 | 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。 |
+| reloadKey | string | 否 | 图片重新加载的标识。当reloadKey的值发生变化时，将不使用缓存重新加载图片。适用于图片源地址不变但图片内容已更新的场景（例如本地图片内容被重写）。 默认值：空字符串。 |
 
 
 
@@ -597,6 +652,37 @@ colorFilter(value: ColorFilter | DrawingColorFilter)
 
 
 
+#### colorFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+colorFilter(value: ColorFilter | DrawingColorFilter | ResourceColor)
+
+为图像设置颜色滤镜效果。
+
+设置该属性时，[renderMode](#rendermode)属性设置不生效。
+
+当值为[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)类型时，它将被转换为带有混合模式的[DrawingColorFilter](#drawingcolorfilter12)。
+
+**起始版本：** 26.0.0
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ColorFilter \| DrawingColorFilter \| ResourceColor | 是 | 图像颜色的滤镜值。 ColorFilter、DrawingColorFilter类型及SVG图源的相关说明，请参考colorFilter的接口说明。ResourceColor类型的输入颜色值，默认按照DrawingColorFilter.createBlendModeColorFilter的SRC_ATOP模式进行绘制（该模式表示滤镜颜色与目标图像叠加，滤镜覆盖在目标上方）。 |
+
+
+
+
 #### draggable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -667,7 +753,7 @@ resizable(value: ResizableOptions)
 
 当设置 top +bottom 大于原图的高或者 left + right 大于原图的宽时 [ResizableOptions](#resizableoptions11) 属性设置不生效。
 
-当组件的参数类型为[AnimatedDrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor#animateddrawabledescriptor12)和SVG时设置该属性不生效。
+当组件的参数类型为动图、[AnimatedDrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor#animateddrawabledescriptor12)和SVG时设置该属性不生效。
 
 > [!NOTE]
 > 从API version 20开始，该接口支持在 attributeModifier 中调用。
@@ -1048,8 +1134,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width7+ | number | 否 | 否 | 图片解码尺寸宽度。 单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| height7+ | number | 否 | 否 | 图片解码尺寸高度。 单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| width7+ | number | 否 | 否 | 图片解码尺寸宽度。 单位：vp 取值范围： (0, +∞)；当取值小于等于0时，该参数不生效，按图片原始尺寸解码。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| height7+ | number | 否 | 否 | 图片解码尺寸高度。 单位：vp 取值范围： (0, +∞)；当取值小于等于0时，该参数不生效，按图片原始尺寸解码。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -1462,7 +1548,7 @@ struct ImageExample2 {
           'size': { height: 100, width: 100 }
         }
         imgSource.createPixelMap(options).then((pixelMap: PixelMap) => {
-          console.error('image createPixelMap success');
+          console.info('image createPixelMap success');
           this.pixelMapImg = pixelMap;
           imgSource.release();
         }).catch(() => {
@@ -1816,11 +1902,11 @@ struct ImageExample {
   private async getPixmapFromMedia(resource: Resource) {
     let unit8Array = await this.getUIContext().getHostContext()?.resourceManager?.getMediaContent(resource.id);
     let imageSource = image.createImageSource(unit8Array?.buffer.slice(0, unit8Array.buffer.byteLength));
-    let createPixelMap: image.PixelMap = await imageSource.createPixelMap({
+    let pixelMap: image.PixelMap = await imageSource.createPixelMap({
       desiredPixelFormat: image.PixelMapFormat.RGBA_8888
     });
     await imageSource.release();
-    return createPixelMap;
+    return pixelMap;
   }
 
   private async getPixelMaps() {
@@ -2201,13 +2287,12 @@ struct Test {
 
 #### 示例15（通过sourceSize设置图片解码尺寸）
 
-该示例通过[sourceSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#sourcesize)接口自定义图片的解码尺寸。
+该示例通过[sourceSize](#sourcesize)接口自定义图片的解码尺寸。
 
 ```text
 @Entry
 @Component
 struct Index {
-  @State borderRadiusValue: number = 10;
   build() {
     Column() {
       // $r('app.media.sky')需要替换为开发者所需的图像资源文件。
@@ -2239,13 +2324,12 @@ struct Index {
 
 #### 示例16（通过renderMode设置图片的渲染模式）
 
-该示例通过[renderMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#rendermode)接口设置图片渲染模式为黑白模式。
+该示例通过[renderMode](#rendermode)接口设置图片渲染模式为黑白模式。
 
 ```text
 @Entry
 @Component
 struct Index {
-  @State borderRadiusValue: number = 10;
   build() {
     Column() {
       // $r('app.media.sky')需要替换为开发者所需的图像资源文件。
@@ -2270,13 +2354,12 @@ struct Index {
 
 #### 示例17（通过objectRepeat设置图片的重复样式）
 
-该示例通过[objectRepeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#objectrepeat)接口在竖直轴上重复绘制图片。
+该示例通过[objectRepeat](#objectrepeat)接口在竖直轴上重复绘制图片。
 
 ```text
 @Entry
 @Component
 struct Index {
-  @State borderRadiusValue: number = 10;
   build() {
     Column() {
       // $r('app.media.sky')需要替换为开发者所需的图像资源文件。
@@ -2384,6 +2467,7 @@ struct Index {
         // 成功获取到图片信息，打印HDR状态
         console.info(TAG, 'imageInfo.isHdr:' + imageInfo.isHdr);
       }
+      imageSource.release();
     } else {
       console.error(TAG, 'Failed to obtain the image buffer.');
     }
@@ -2878,9 +2962,9 @@ struct ImageExample {
 
 
 
-#### 示例28（使用alt属性实现设置加载过程中图片和加载失败时图片）
+#### 示例28（使用alt属性设置加载过程中和加载失败时的占位图）
 
-该示例演示了在图片加载过程中和加载失败时，通过设置[alt](#alt22)属性实现图片加载过程中和图片加载失败时显示指定图片。
+该示例演示了在图片加载过程中和加载失败时，通过设置[alt](#alt22)属性实现图片加载过程中和图片加载失败时显示指定图片
 
 ```text
 @Entry
@@ -2937,7 +3021,7 @@ struct Index {
         .height(100)
         .width(100)
         .onError((e)=>{
-          console.info("DownloadErrorInfo : " + JSON.stringify(e?.downloadInfo))
+          console.error(`DownloadErrorInfo: ${JSON.stringify(e?.downloadInfo)}`)
         })
     }
     .height('100%')

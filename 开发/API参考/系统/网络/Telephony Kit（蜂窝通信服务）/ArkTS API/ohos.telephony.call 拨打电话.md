@@ -1,9 +1,9 @@
 # @ohos.telephony.call (拨打电话)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-call
-**支持设备：** Phone | Tablet | Wearable | PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 该模块提供呼叫管理功能，包括拨打电话、跳转到拨号界面、获取通话状态、格式化电话号码等。
 
@@ -16,7 +16,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | Tablet | Wearable | PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 ```text
 import { call } from '@kit.TelephonyKit';
@@ -26,7 +26,7 @@ import { call } from '@kit.TelephonyKit';
 
 #### call.dial(deprecated)
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 dial(phoneNumber: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -62,7 +62,7 @@ call.dial("138xxxxxxxx", (err: BusinessError, data: boolean) => {
 
 #### call.dial(deprecated)
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -102,7 +102,7 @@ call.dial("138xxxxxxxx", dialOptions, (err: BusinessError, data: boolean) => {
 
 #### call.dial(deprecated)
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 dial(phoneNumber: string, options?: DialOptions): Promise&lt;boolean&gt;
 
@@ -366,9 +366,74 @@ call.makeCall(context, "138xxxxxxxx").then(() => {
 
 
 
+#### call.makeCallWithToken
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+makeCallWithToken(phoneNumber: string, options?: MakeCallOptions): Promise&lt;string&gt;
+
+跳转到拨号界面，并显示待拨出的号码。使用Promise异步回调。
+
+> [!NOTE]
+> 该接口返回校验token，应用可以利用phoneNumber和token实现特定能力，比如蜂窝下行流的录制。
+
+
+**起始版本**: 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Applications.Contacts
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| phoneNumber | string | 是 | 电话号码。 |
+| options | MakeCallOptions | 否 | 通话参数。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;string&gt; | Promise对象，返回鉴权校验token。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 8300001 | Invalid parameter value. |
+| 8300002 | Operation failed. Cannot connect to service. |
+| 8300003 | System internal error. |
+| 8300999 | Unknown error code. |
+
+
+**示例：**
+
+```json
+import { call } from '@kit.TelephonyKit';
+
+// 设置通话结束后是否返回当前App与应用是否开启自定义无障碍功能
+let makeOptions: call.MakeCallOptions = {
+  isHideDialScreen: true,
+  isCustomAccessibility : true
+}
+
+call.makeCallWithToken("138xxxxxxxx", makeOptions).then(() => {
+    console.info(`makeCallWithToken success`);
+}).catch((err: BusinessError) => {
+    console.error(`makeCallWithToken fail, promise: err->${JSON.stringify(err)}`);
+});
+```
+
+
+
 #### call.hasCall
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 hasCall(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -401,7 +466,7 @@ call.hasCall((err: BusinessError, data: boolean) => {
 
 #### call.hasCall
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 hasCall(): Promise&lt;boolean&gt;
 
@@ -432,7 +497,7 @@ call.hasCall().then(() => {
 
 #### call.hasCallSync10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 hasCallSync(): boolean
 
@@ -458,7 +523,7 @@ console.info(`hasCallSync success, has call is ` + hasCall);
 
 #### call.getCallState
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 getCallState(callback: AsyncCallback&lt;CallState&gt;): void
 
@@ -491,7 +556,7 @@ call.getCallState((err: BusinessError, data: call.CallState) => {
 
 #### call.getCallState
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 getCallState(): Promise&lt;CallState&gt;
 
@@ -522,7 +587,7 @@ call.getCallState().then((data: call.CallState) => {
 
 #### call.getCallStateSync10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 getCallStateSync(): CallState
 
@@ -548,7 +613,7 @@ console.info(`the call state is:` + callState);
 
 #### call.hasVoiceCapability7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 hasVoiceCapability(): boolean
 
@@ -572,7 +637,7 @@ console.info(`hasVoiceCapability: ${JSON.stringify(result)}`);
 
 #### call.isEmergencyPhoneNumber7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -619,7 +684,7 @@ call.isEmergencyPhoneNumber("138xxxxxxxx", (err: BusinessError, data: boolean) =
 
 #### call.isEmergencyPhoneNumber7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 isEmergencyPhoneNumber(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -668,7 +733,7 @@ call.isEmergencyPhoneNumber("112", options, (err: BusinessError, data: boolean) 
 
 #### call.isEmergencyPhoneNumber7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise&lt;boolean&gt;
 
@@ -721,7 +786,7 @@ call.isEmergencyPhoneNumber("138xxxxxxxx", options).then((data: boolean) => {
 
 #### call.formatPhoneNumber7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 formatPhoneNumber(phoneNumber: string, callback: AsyncCallback&lt;string&gt;): void
 
@@ -770,7 +835,7 @@ call.formatPhoneNumber("138xxxxxxxx", (err: BusinessError, data: string) => {
 
 #### call.formatPhoneNumber7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 formatPhoneNumber(phoneNumber: string, options: NumberFormatOptions, callback: AsyncCallback&lt;string&gt;): void
 
@@ -823,7 +888,7 @@ call.formatPhoneNumber("138xxxxxxxx", options, (err: BusinessError, data: string
 
 #### call.formatPhoneNumber7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 formatPhoneNumber(phoneNumber: string, options?: NumberFormatOptions): Promise&lt;string&gt;
 
@@ -880,7 +945,7 @@ call.formatPhoneNumber("138xxxxxxxx", options).then((data: string) => {
 
 #### call.formatPhoneNumberToE1647+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 formatPhoneNumberToE164(phoneNumber: string, countryCode: string, callback: AsyncCallback&lt;string&gt;): void
 
@@ -930,7 +995,7 @@ call.formatPhoneNumberToE164("138xxxxxxxx", "CN", (err: BusinessError, data: str
 
 #### call.formatPhoneNumberToE1647+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise&lt;string&gt;
 
@@ -986,7 +1051,7 @@ call.formatPhoneNumberToE164("138xxxxxxxx", "CN").then((data: string) => {
 
 #### call.answerCall23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 answerCall(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1038,7 +1103,7 @@ call.answerCall((err: BusinessError) => {
 
 #### call.hangUpCall23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 hangUpCall(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1090,7 +1155,7 @@ call.hangUpCall((err: BusinessError) => {
 
 #### call.rejectCall23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 rejectCall(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1140,9 +1205,73 @@ call.rejectCall((err: BusinessError) => {
 
 
 
+#### call.getCallTransferInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+getCallTransferInfo(type: CallTransferType, number: string): Promise&lt;CallTransferResult&gt;
+
+获取电话号码的呼叫转移状态。使用Promise异步回调。
+
+**起始版本**: 26.0.0
+
+**需要权限**：ohos.permission.GET_CALL_TRANSFER_INFO
+
+**系统能力**：SystemCapability.Telephony.CallManager
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| type | CallTransferType | 是 | 指示要获取哪种类型的呼叫转移。 |
+| number | string | 是 | 指示用于获取呼叫转移状态的号码。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;CallTransferResult&gt; | Promise对象，返回呼叫转移结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 801 | Capability not supported. |
+| 8300001 | Invalid parameter value. |
+| 8300002 | Operation failed. Cannot connect to service. |
+| 8300003 | System internal error. |
+| 8401002 | Invalid input call number. |
+| 8401003 | Operation too frequent. |
+
+
+**示例：**
+
+```json
+import { call } from '@kit.TelephonyKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let type: call.CallTransferType = call.CallTransferType.TRANSFER_TYPE_UNCONDITIONAL;
+let number: string = "138xxxxxxxx";
+
+call.getCallTransferInfo(type, number)
+    .then((data: call.CallTransferResult) => {
+        console.info(`getCallTransferInfo success, data->${JSON.stringify(data)}`);
+    })
+    .catch((err:BusinessError) => {
+        console.error(`getCallTransferInfo fail, err->${JSON.stringify(err)}`);
+    });
+```
+
+
+
 #### DialOptions
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 拨打电话的可选参数。
 
@@ -1157,7 +1286,7 @@ call.rejectCall((err: BusinessError) => {
 
 #### CallState
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 通话状态码。
 
@@ -1187,13 +1316,14 @@ call.rejectCall((err: BusinessError) => {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isHideDialScreen | boolean | 否 | 是 | 是否隐藏拨号界面，true表示隐藏，false表示不隐藏。 |
+| isCustomAccessibility | boolean | 否 | 是 | 应用是否支持自定义无障碍能力，默认为false。true表示支持，false表示不支持。 起始版本: 26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
 
 #### TelCallState21+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 通话状态码。
 
@@ -1213,7 +1343,7 @@ call.rejectCall((err: BusinessError) => {
 
 #### CCallState23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 运营商通话状态码。
 
@@ -1238,7 +1368,7 @@ call.rejectCall((err: BusinessError) => {
 
 #### EmergencyNumberOptions7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 判断是否是紧急电话号码的可选参数。
 
@@ -1253,7 +1383,7 @@ call.rejectCall((err: BusinessError) => {
 
 #### NumberFormatOptions7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 格式化号码的可选参数。
 
@@ -1262,3 +1392,62 @@ call.rejectCall((err: BusinessError) => {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | countryCode | string | 否 | 是 | 国家码，支持所有国家的国家码，如：CN（中国）。默认为：CN。 |
+
+
+
+
+#### TransferStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+转移状态。
+
+**起始版本**: 26.0.0
+
+**系统能力**：SystemCapability.Telephony.CallManager
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| TRANSFER_DISABLE | 0 | 禁用转移。 |
+| TRANSFER_ENABLE | 1 | 启用转移。 |
+
+
+
+
+#### CallTransferType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+呼叫转移类型。
+
+**起始版本**: 26.0.0
+
+**系统能力**：SystemCapability.Telephony.CallManager
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| TRANSFER_TYPE_UNCONDITIONAL | 0 | 无条件转移。 |
+| TRANSFER_TYPE_BUSY | 1 | 忙线转移。 |
+| TRANSFER_TYPE_NO_REPLY | 2 | 无回复转移。 |
+| TRANSFER_TYPE_NOT_REACHABLE | 3 | 无法访问转移。 |
+
+
+
+
+#### CallTransferResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+呼叫转移结果。
+
+**起始版本**: 26.0.0
+
+**系统能力**：SystemCapability.Telephony.CallManager
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| status | TransferStatus | 否 | 否 | 转移状态。 |
+| startHour | number | 否 | 否 | 开始时间的小时数。 |
+| startMinute | number | 否 | 否 | 开始时间的分钟数。 |
+| endHour | number | 否 | 否 | 结束时间的小时数。 |
+| endMinute | number | 否 | 否 | 结束时间的分钟数。 |

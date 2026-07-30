@@ -1,6 +1,6 @@
 # Map Kit地图如何不显示各省份名称
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-43
 
@@ -15,7 +15,7 @@
 - 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
 - Map Kit提供两种方法设置自定义地图样式：
 设置样式ID：使用[Petal Maps Studio](https://developer.petalmaps.com/console/studio/)管理地图样式，并使用样式ID将它们链接到您的地图上。您可以在[Petal Maps Studio](https://developer.petalmaps.com/console/studio/)上创建新样式，或导入现有样式定义。样式一旦发布，使用此样式的应用都会自动应用新样式。
-- 设置样式内容：通过传入自定义JSON更改地图样式，JSON的定义参见[样式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#section156991344101012)。
+- 设置样式内容：通过传入自定义JSON更改地图样式，JSON的定义参见[样式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#样式参考)。
 
  
  
@@ -43,7 +43,7 @@ struct Index {
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-   <em> // 地图初始化参数</em>
+    <em>// 地图初始化参数</em>
     this.mapOptions = {
       position: {
         target: {
@@ -56,7 +56,7 @@ struct Index {
     this.callback = async (err, mapController) => {
       if (!err) {
         this.mapController = mapController;
-     <em>   // 自定义样式参数</em>
+        <em>// 自定义样式参数</em>
         let param: mapCommon.CustomMapStyleOptions = {
           styleContent: `[
                             {
@@ -66,7 +66,7 @@ struct Index {
                             }
                         ]`
         };
-      <em>  // 设置自定义样式</em>
+        <em>// 设置自定义样式</em>
         await this.mapController.setCustomMapStyle(param);
       }
     };
@@ -87,4 +87,4 @@ struct Index {
 实现效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/-7vbPji6QAixG26rF3zIvQ/zh-cn_image_0000002628394390.png?HW-CC-KV=V1&HW-CC-Date=20260723T013726Z&HW-CC-Expire=86400&HW-CC-Sign=B32E5BD2A924535BB285AE36EF5BEFF2085FFF01CAE759B3867F6B47168845E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/Is19QoMnT5uwEen40-YBGw/zh-cn_image_0000002656002802.png?HW-CC-KV=V1&HW-CC-Date=20260730T072643Z&HW-CC-Expire=86400&HW-CC-Sign=F99FD6AAC77C1DD42085D3867EECAFD6C1BE40D23A7818FD813B4020D9717C81)

@@ -1,6 +1,6 @@
 # Router切换Navigation
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation
 
@@ -556,7 +556,7 @@ struct Index {
 
 
 Navigation作为路由组件，默认支持跨包跳转。
-1. 从HSP（HAR）中完成自定义组件（需要跳转的目标页面）开发，将自定义组件申明为export。
+1. 从HSP（HAR）中完成自定义组件（需要跳转的目标页面）开发，将自定义组件声明为export。
 
   
 ```ArkTS
@@ -574,7 +574,7 @@ export struct PageInHSP {
 
   
 ```ArkTS
-export { PageInHSP } from './src/main/ets/pages/PageInHSP'
+export { PageInHSP } from './src/main/ets/pages/PageInHSP';
 ```
 
 3. 使用跨包路由方式跳转时，需要在当前应用包的oh-package.json5文件中配置依赖。例如：
@@ -648,7 +648,7 @@ struct mainPage {
 基本实现跟上述Router动态路由类似。
 1. 开发者自定义路由管理模块，各个提供路由页面的模块均依赖此模块；
 2. 构建Navigation组件时，将NavPathStack注入路由管理模块，路由管理模块对NavPathStack进行封装，对外提供路由能力；
-3. 各个路由页面不再提供组件，转为提供[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)封装的构建函数，并再通过[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-wrapbuilder#wrappedbuilder)封装后，实现全局封装；
+3. 各个路由页面不再提供组件，转为提供[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-builder-dynamic#builder)封装的构建函数，并再通过[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-wrapbuilder#wrappedbuilder)封装后，实现全局封装；
 4. 各个路由页面将模块名称、路由名称、WrappedBuilder封装后构建函数注册到路由模块；
 5. 当路由需要跳转到指定路由时，路由模块完成对指定路由模块的动态导入，并完成路由跳转。
 
@@ -714,8 +714,8 @@ export default class EntryAbility extends UIAbility {
           // NavDestination组件显示时操作
           hilog.info(DOMAIN, TAG, 'page ON_SHOWN:' + info.name.toString());
         }
-      })
-    })
+      });
+    });
   }
 }
 ```
@@ -783,7 +783,7 @@ export struct NavDestinationExample {
 
 @Component
 struct MyComponent {
-  navDesInfo: uiObserver.NavDestinationInfo | undefined
+  navDesInfo: uiObserver.NavDestinationInfo | undefined;
 
   aboutToAppear() {
     this.navDesInfo = this.queryNavDestinationInfo();

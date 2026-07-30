@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.infraredEmitter (红外管理)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-infraredemitter
 **支持设备：** Phone | TV
@@ -66,10 +66,10 @@ struct Index {
       Text()
         .onClick(() => {
           try {
-            // 设置红外载波频率及红外电平信号模式
+            // 设置红外频率及红外电平信号模式
             infraredEmitter.transmitInfrared(38000, [100, 200, 300, 400]);
           } catch (error) {
-            console.error(`Failed to set infrared frequencies, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
+            console.error(`Failed to transmit infrared signal, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -85,7 +85,7 @@ struct Index {
 
 getInfraredFrequencies(): Array&lt;InfraredFrequency&gt;
 
-查询设备支持的红外信号的频率范围。
+查询设备支持的红外信号的频率范围。建议先使用[hasIrEmitter](#infraredemitterhasiremitter23)接口查询设备是否支持红外发射器。
 
 **需要权限**：ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
 
@@ -197,8 +197,8 @@ struct Index {
             // 查询是否有红外发射器
             infraredEmitter.hasIrEmitter().then((result: boolean) => {
               console.info(`Succeeded in querying infrared emitter: ${JSON.stringify(result)}.`);
-            }).catch((error: BusinessError)=> {
-              console.error(`Failed to query infrared emitter, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);})
+            }).catch((error: BusinessError) => {
+              console.error(`Failed to query infrared emitter, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`)})
         })
     }
   }

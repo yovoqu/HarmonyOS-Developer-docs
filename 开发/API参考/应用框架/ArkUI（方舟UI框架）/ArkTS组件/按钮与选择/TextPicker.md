@@ -1,14 +1,14 @@
 # TextPicker
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-滑动选择文本、图片或图文混排内容的组件，用户可以按需创建单列数据选择器、多列非联动数据选择器和多列联动数据选择器。
+滑动选择文本、图片或图文混排内容的组件，用户可以按需创建单列数据选择器、多列非联动数据选择器和多列联动数据选择器，适用于需要用户从预设选项中选择数据的场景，如日期选择、地区选择、配置项设置等。组件支持循环滚动、自定义文本样式、分割线样式、渐隐效果、选择项高度调整、触控反馈、表冠灵敏度设置等特性，提供流畅的滑动交互体验和灵活的数据展示方式。
 
 > [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件不建议开发者在动效过程中修改属性数据。 最大显示行数在横、竖屏模式下存在差异。竖屏时默认为5行，横屏时依赖系统配置，未配置时默认显示为3行。可通过如下参数查看具体配置值\$r('sys.float.ohos_id_picker_show_count_landscape')。 多列非联动数据选择器和多列联动数据选择器在下文中统称为多列数据选择器。
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件不建议开发者在动效过程中修改属性数据。 最大显示行数在横、竖屏模式下存在差异。竖屏时默认为5行，横屏时依赖系统配置，未配置时默认显示为3行。可通过如下参数查看具体配置值\$r('sys.float.ohos_id_picker_show_count_landscape')。 多列非联动数据选择器和多列联动数据选择器在下文中统称为多列数据选择器。
 
 
 
@@ -36,7 +36,7 @@ TextPicker(options?: TextPickerOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | TextPickerOptions | 否 | 配置文本选择器的参数。参数缺省时组件无法显示。 |
+| options | TextPickerOptions | 否 | 配置文本选择器的参数。当需要自定义选择器的数据源、选中项、列宽等配置时传入此参数。参数缺省时组件无法显示。 |
 
 
 
@@ -52,9 +52,9 @@ TextPicker(options?: TextPickerOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | range | string[] \| string[][]10+ \| Resource \| TextPickerRangeContent[]10+ \| TextCascadePickerRangeContent[]10+ | 否 | 否 | 选择器的数据选择列表。不可设置为空数组，若设置为空数组，则不显示；若动态变化为空数组，则保持当前正常值显示。 说明： 1. 单列数据选择器使用string[]，Resource，TextPickerRangeContent[]类型。 2. 多列非联动数据选择器使用string[][]类型。 3. 多列联动数据选择器使用TextCascadePickerRangeContent[]类型。 4. Resource类型只支持strarray.json。 5. range的类型及列数不可以动态修改。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| selected | number \| number[]10+ | 否 | 是 | 设置选中项在数据选择列表中的索引值，索引从0开始。 默认值：0 说明： 1. 单列数据选择器使用number类型。 2. 多列数据选择器使用number[]类型。 3. 从API version 10开始，该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| value | ResourceStr \| ResourceStr[] | 否 | 是 | 设置选中项的值，优先级低于selected。 默认值：数据选择列表中第一个元素的值。 说明： 1. 从API version 10开始，该参数支持$$双向绑定变量。 2. 从API version 20开始，支持Resource类型。 3. 只有显示文本列表时该值有效。显示图片或图文混排的列表时，该值无效。 4. 单列数据选择器使用ResourceStr类型。 5. 多列数据选择器使用ResourceStr[]类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| columnWidths18+ | LengthMetrics[] | 否 | 是 | 设置每一列的列宽。 默认值：每一列的列宽相等，为组件宽度除以列数。 说明： 1. 当文本长度大于列宽时，文本被截断。 2. 当设置为异常值时，使用默认值。 3. 支持设置为Undefined和Null，不支持Undefined[]和Null[]。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| selected | number \| number[]10+ | 否 | 是 | 设置选中项在数据选择列表中的索引值，索引从0开始。 默认值：0 说明： 1. 单列数据选择器使用number类型。 2. 多列非联动数据选择器使用number[]类型，数组长度与列数一致。 3. 多列联动数据选择器使用number[]类型，数组长度与层级数一致。 4. 从API version 10开始，该参数支持$$双向绑定变量。 5. 未设置该属性或设置的值无效时，使用默认值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| value | ResourceStr \| ResourceStr[] | 否 | 是 | 设置选中项的值，优先级低于selected。 默认值：数据选择列表中第一个元素的值。 说明： 1. 从API version 10开始，该参数支持$$双向绑定变量。 2. 从API version 20开始，支持Resource类型。 3. 只有显示文本列表时该值有效。显示图片或图文混排的列表时，该值无效。 4. 单列数据选择器使用ResourceStr类型。 5. 多列非联动数据选择器使用ResourceStr[]类型，数组长度与列数一致。 6. 多列联动数据选择器使用ResourceStr[]类型，数组长度与层级数一致。 7. 当selected和value均未设置，或selected值无效时，使用默认值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| columnWidths18+ | LengthMetrics[] | 否 | 是 | 设置每一列的列宽。 默认值：每一列的列宽相等，为组件宽度除以列数。 说明： 1. 当文本长度大于列宽时，文本被截断。 2. 当设置为异常值时，使用默认值。 3. 支持设置为Undefined和Null，不支持Undefined[]和Null[]。 4. 当columnWidths数组长度与实际列数不匹配时，超出列数的列宽值将被忽略；未指定列宽的列将均分组件剩余可用宽度（组件宽度减去已指定列宽之和）。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
 
@@ -73,8 +73,8 @@ TextPicker(options?: TextPickerOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | string \| Resource | 否 | 否 | 图片资源。 icon是string类型时，表示图片存放的路径，例如"/common/hello.png"。 |
-| text | string \| Resource | 否 | 是 | 文本信息。 默认值：空字符串 说明：当文本长度大于列宽时，文本被截断。 |
+| icon | string \| Resource | 否 | 否 | 图片资源。当icon为string类型时，表示图片存放的路径，例如"/common/hello.png"；当icon为Resource类型时，表示资源引用。 |
+| text | string \| Resource | 否 | 是 | 文本信息。 默认值：空字符串 说明： 1. 未设置该属性时，使用默认值。 2. 当文本长度大于列宽时，文本被截断。 |
 
 
 
@@ -94,7 +94,7 @@ TextPicker(options?: TextPickerOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | text | string \| Resource | 否 | 否 | 文本信息。 说明：当文本长度大于列宽时，文本被截断。 |
-| children | TextCascadePickerRangeContent[] | 否 | 是 | 联动数据。 |
+| children | TextCascadePickerRangeContent[] | 否 | 是 | 联动数据。表示当前数据项的子选项数组，用于构建多列联动数据选择器的层级结构。数组的每个元素为TextCascadePickerRangeContent类型，包含text和children属性，支持多级嵌套。当选择器支持多级联动时传入此参数；不传入时表示该选项没有子级数据。 |
 
 
 
@@ -113,9 +113,9 @@ TextPicker(options?: TextPickerOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| strokeWidth | Dimension | 否 | 是 | 分割线的线宽。 默认值：2.0px 单位：默认为vp，也可指定单位为px。 取值范围：strokeWidth小于0取默认值，最大不得超过列高的一半。不支持“百分比”类型。 |
-| startMargin | Dimension | 否 | 是 | 分割线与TextPicker侧边起始端的距离。 默认值：0 单位：默认为vp，也可指定单位为px。 取值范围：startMargin小于0时无效，最大值不得超过TextPicker列宽。不支持“百分比”类型。 |
-| endMargin | Dimension | 否 | 是 | 分割线与TextPicker侧边结束端的距离。 默认值：0 单位：默认为vp，也可指定单位为px。 取值范围：endMargin小于0时无效，最大值不得超过TextPicker列宽。不支持“百分比”类型。 |
+| strokeWidth | Dimension | 否 | 是 | 分割线的线宽。 默认值：2.0px 单位：默认为vp，也可指定单位为px。 取值范围：[0, +∞)，strokeWidth小于0取默认值，最大不得超过列高的一半。不支持“百分比”类型。 |
+| startMargin | Dimension | 否 | 是 | 分割线与TextPicker侧边起始端的距离。 默认值：0 单位：默认为vp，也可指定单位为px。 取值范围：[0, +∞)，startMargin小于0时无效，最大值不得超过TextPicker列宽。不支持“百分比”类型。 **说明：**当startMargin + endMargin超过组件宽度时，会被置0。 |
+| endMargin | Dimension | 否 | 是 | 分割线与TextPicker侧边结束端的距离。 默认值：0 单位：默认为vp，也可指定单位为px。 取值范围：[0, +∞)，endMargin小于0时无效，最大值不得超过TextPicker列宽。不支持“百分比”类型。 **说明：**当startMargin + endMargin超过组件宽度时，会被置0。 |
 | color | ResourceColor | 否 | 是 | 分割线的颜色。 默认值：'#33000000' |
 
 
@@ -145,7 +145,7 @@ defaultPickerItemHeight(value: number | string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 选择项的高度。 取值范围： number类型：[0, +∞)，单位为vp。 string类型：仅支持number类型取值的字符串形式，例如"56"。 默认值：选中项56vp，非选中项36vp。 说明： 设置该参数后，选中项与非选中项的高度均为所设置的值。 |
+| value | number \| string | 是 | 选择项的高度。 取值范围： number类型：[0, +∞)，单位为vp。 string类型：仅支持number类型取值的字符串形式，例如"56"。 默认值：选中项56vp，非选中项36vp。 说明： 设置该参数后，选中项与非选中项的高度均为所设置的值。 当value的值为负数时，使用默认值。 |
 
 
 
@@ -191,7 +191,7 @@ disappearTextStyle(value: PickerTextStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | PickerTextStyle | 是 | 边缘项的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } } |
+| value | PickerTextStyle | 是 | 边缘项的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } } 说明：未调用该方法设置样式时，使用默认值。 |
 
 
 > [!NOTE]
@@ -233,7 +233,7 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 disappearTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
-设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[disappearTextStyle](#disappeartextstyle18)18+相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
+设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[disappearTextStyle18+](#disappeartextstyle18)相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -272,7 +272,7 @@ textStyle(value: PickerTextStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | PickerTextStyle | 是 | 待选项的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular } } |
+| value | PickerTextStyle | 是 | 待选项的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular } } 说明：未调用该方法设置样式时，使用默认值。 |
 
 
 > [!NOTE]
@@ -314,7 +314,7 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 textStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
-设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[textStyle](#textstyle18)18+相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
+设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[textStyle18+](#textstyle18)相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -349,13 +349,11 @@ selectedTextStyle(value: PickerTextStyle)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**设备行为差异：** 该属性在Wearable设备上使用无效果，在其他设备中可正常生效。
-
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | PickerTextStyle | 是 | 选中项的文本颜色、字号、字体粗细。 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } } |
+| value | PickerTextStyle | 是 | 选中项的文本颜色、字号、字体粗细。 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } } 说明：未调用该方法设置样式时，使用默认值。 |
 
 
 
@@ -374,8 +372,6 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**设备行为差异：** 该属性在Wearable设备上使用无效果，在其他设备中可正常生效。
-
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -391,15 +387,13 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 selectedTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
-设置选中项的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[selectedTextStyle](#selectedtextstyle18)18+相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
+设置选中项的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[selectedTextStyle18+](#selectedtextstyle18)相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**设备行为差异：** 该属性在Wearable设备上使用无效果，在其他设备中可正常生效。
 
 **参数：**
 
@@ -522,7 +516,7 @@ divider(value: DividerOptions | null)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | DividerOptions \| null | 是 | 默认值： { strokeWidth: '2px', startMargin: 0, endMargin: 0, color: '#33000000' } 1. 当value设置为有效的DividerOptions时，按设置的样式显示分割线。 2. 当value设置为null时，不显示分割线。 |
+| value | DividerOptions \| null | 是 | 分割线样式。当需要自定义分割线的线宽、边距、颜色时传入DividerOptions对象；当需要隐藏分割线时传入null；不传入时使用默认样式。 默认值： { strokeWidth: '2px', startMargin: 0, endMargin: 0, color: '#33000000' } 1. 当value设置为有效的DividerOptions时，按设置的样式显示分割线。 2. 当value设置为null时，不显示分割线。 |
 
 
 
@@ -616,7 +610,7 @@ disableTextStyleAnimation(disabled: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| disabled | boolean | 是 | 是否关闭滑动过程中文本样式变化的动效。 - true：关闭文本样式变化动效。 - false：不关闭文本样式变化动效。 默认值：false 说明： 设置为true时，滑动过程中无字号、字重、字体颜色等变化动效，且文本均显示为defaultTextStyle属性设置的样式。如未设置defaultTextStyle，则显示为Text组件默认样式。 |
+| disabled | boolean | 是 | 是否关闭滑动过程中文本样式变化的动效。 - true：关闭文本样式变化动效。 - false：不关闭文本样式变化动效。 默认值：false 说明： 设置为true时，滑动过程中无字号、字重、字体颜色等变化动效，且文本均显示为defaultTextStyle属性设置的样式。如未设置defaultTextStyle，则显示为Text组件默认样式。设置为false时，使用系统默认的滑动文本样式变化动效。 |
 
 
 
@@ -642,16 +636,6 @@ defaultTextStyle(style: TextPickerTextStyle)
 | style | TextPickerTextStyle | 是 | 设置关闭滑动过程中文本样式变化的动效时，各个选项的文本样式。 默认值：与Text组件默认值相同。 |
 
 
-开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
-
-```json
-"requestPermissions": [
-   {
-      "name": "ohos.permission.VIBRATE",
-   }
-]
-```
-
 
 
 #### enableHapticFeedback18+
@@ -672,7 +656,7 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | Optional&lt;boolean&gt; | 是 | 设置是否开启触控反馈。 - true：开启触控反馈。 - false：不开启触控反馈。 默认值：true 设置为true后，其生效情况取决于系统的硬件是否支持。 |
+| enable | Optional&lt;boolean&gt; | 是 | 设置是否开启触控反馈。 - true：开启触控反馈。 - false：不开启触控反馈。 默认值：true 设置为true后，其生效情况取决于系统的硬件是否支持。若硬件不支持触控反馈功能，开启该功能不会产生触控反馈效果，也不会抛出异常。 |
 
 
 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
@@ -680,7 +664,7 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 ```json
 "requestPermissions": [
    {
-      "name": "ohos.permission.VIBRATE",
+      "name": "ohos.permission.VIBRATE"
    }
 ]
 ```
@@ -705,7 +689,7 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sensitivity | Optional&lt;CrownSensitivity&gt; | 是 | 表冠响应灵敏度。 默认值：CrownSensitivity.MEDIUM，响应速度适中。 |
+| sensitivity | Optional&lt;CrownSensitivity&gt; | 是 | 表冠响应灵敏度。 默认值：CrownSensitivity.MEDIUM，响应速度适中。不同灵敏度值影响表冠滚动速度与选择项切换速度的对应关系，具体各枚举值的效果请参考CrownSensitivity。 |
 
 
 > [!NOTE]
@@ -751,7 +735,7 @@ selectedBackgroundStyle(style: Optional&lt;PickerBackgroundStyle&gt;)
 
 onChange(callback: (value: string | string[], index: number | number[]) => void)
 
-滑动TextPicker文本内容后，选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。当显示文本或图片加文本列表时，value值为选中项中的文本值，当显示图片列表时，value值为空。
+滑动TextPicker文本内容后，选项归位至选中项位置时，触发该回调。当用户滑动选择器导致选中项变化时触发，不能通过修改双向绑定的状态变量（如selected）来触发。当显示文本或图片加文本列表时，value值为选中项中的文本值，当显示图片列表时，value值为空。
 
 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，建议使用[onEnterSelectedArea](#onenterselectedarea18)接口。
 
@@ -763,7 +747,7 @@ onChange(callback: (value: string | string[], index: number | number[]) => void)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string \| string[]10+ | 是 | 当前选中项的文本。多列数据选择器的value为数组类型。 |
+| value | string \| string[]10+ | 是 | 当前选中项的文本。多列数据选择器的value为数组类型。 说明： 当显示文本或图片加文本列表时，value值为选中项中的文本值；当显示图片列表时，value值为空。 |
 | index | number \| number[]10+ | 是 | 当前选中项的索引值，索引从0开始。多列数据选择器的index为数组类型。 |
 
 
@@ -775,7 +759,7 @@ onChange(callback: (value: string | string[], index: number | number[]) => void)
 
 onChange(callback: Optional&lt;OnTextPickerChangeCallback&gt;)
 
-滑动TextPicker文本内容后，选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。当显示文本或图片加文本列表时，value值为选中项中的文本值，当显示图片列表时，value值为空。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
+滑动TextPicker文本内容后，选项归位至选中项位置时，触发该回调。当用户滑动选择器导致选中项变化时触发，不能通过修改双向绑定的状态变量（如selected）来触发。当显示文本或图片加文本列表时，value值为选中项中的文本值，当显示图片列表时，value值为空。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
 
 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，建议使用[onEnterSelectedArea](#onenterselectedarea18)接口。
 
@@ -805,7 +789,7 @@ onScrollStop(callback: TextPickerScrollStopCallback)
 手指拖动选项列触发的滑动，手指离开屏幕且滑动停止时会触发该事件。
 
 > [!NOTE]
-> 从API version 20开始，该接口支持在 attributeModifier 中调用。
+> 与 onEnterSelectedArea 事件的差别在于，onScrollStop关注的是滚动行为完全停止，onEnterSelectedArea关注的是选项进入选中区域的逻辑状态。onEnterSelectedArea能更早响应索引变化，适合实时反馈场景，建议使用 onEnterSelectedArea ；若需确认滚动行为完全停止，则使用onScrollStop。 从API version 20开始，该接口支持在 attributeModifier 中调用。
 
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -834,7 +818,7 @@ onScrollStop(callback: Optional&lt;TextPickerScrollStopCallback&gt;)
 手指拖动选项列触发的滑动，手指离开屏幕且滑动停止时会触发该事件。
 
 > [!NOTE]
-> 从API version 20开始，该接口支持在 attributeModifier 中调用。
+> 与 onEnterSelectedArea 事件的差别在于，onScrollStop关注的是滚动行为完全停止，onEnterSelectedArea关注的是选项进入选中区域的逻辑状态。onEnterSelectedArea能更早响应索引变化，适合实时反馈场景，建议使用 onEnterSelectedArea ；若需确认滚动行为完全停止，则使用onScrollStop。 从API version 20开始，该接口支持在 attributeModifier 中调用。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -861,7 +845,7 @@ onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback)
 滑动TextPicker过程中，选项进入分割线区域内（当前列的滑动距离超过选中项高度的一半）时，触发该回调。
 
 > [!NOTE]
-> 与 onChange 事件的差别在于，该事件的触发时机早于 onChange 事件。 在多列联动场景中，不建议使用该回调，由于该回调标识的是滑动过程中选项进入分割线区域内的节点，而跟随变化的选项并不涉及滑动，因此，回调的返回值中，仅当前滑动列的值会正常变化，其余未滑动列的值保持不变。 该接口不支持在 attributeModifier 中调用。
+> 与 onChange 事件的差别在于，该事件的触发时机早于 onChange 事件。onEnterSelectedArea在滑动过程中选项进入选中区域时触发，适合实时获取索引值变化，适用于需要快速响应用户滑动的场景；onChange在滑动结束且选中项归位后触发，适合获取最终确认的选中值，适用于需要获取用户最终选择的场景。 与 onScrollStop 事件的差别在于，onEnterSelectedArea关注的是选项进入选中区域的逻辑状态，onScrollStop关注的是滚动行为完全停止。需要更早响应索引变化时使用onEnterSelectedArea，需要确认滚动完全停止时使用 onScrollStop 。 在多列联动场景中，不建议使用该回调。该回调标识的是滑动过程中选项进入分割线区域内的节点；跟随变化的选项并不涉及滑动，因此回调返回值中仅当前滑动列的值会正常变化，其余未滑动列的值保持不变。 该接口不支持在 attributeModifier 中调用。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -887,7 +871,9 @@ onAccept(callback: (value: string, index: number) => void)
 
 点击弹窗中的“确定”按钮时触发该回调。该事件仅在[文本滑动选择器弹窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-textpicker-dialog)中生效。
 
-从API version 8开始支持，从API version 10开始废弃，无替代接口。
+> [!NOTE]
+> 从API version 8开始支持，从API version 10开始废弃。此接口已完全移除，无替代接口。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -909,7 +895,9 @@ onCancel(callback: () => void)
 
 点击弹窗中的“取消”按钮时触发该回调。该事件仅在[文本滑动选择器弹窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-textpicker-dialog)中生效。
 
-从API version 8开始支持，从API version 10开始废弃，无替代接口。
+> [!NOTE]
+> 从API version 8开始支持，从API version 10开始废弃。此接口已完全移除，无替代接口。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -936,8 +924,8 @@ onCancel(callback: () => void)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| minFontSize | number \| string \| Resource | 否 | 是 | 文本最小显示字号，与maxFontSize配合使用。当设置minFontSize和maxFontSize时，font中的size将不生效。默认最大行数为1，自适应高度方式为MIN_FONT_SIZE_FIRST。详细规则请参考Text组件的minFontSize属性。 |
-| maxFontSize | number \| string \| Resource | 否 | 是 | 文本最大显示字号。详细规则请参考Text组件的maxFontSize属性。 |
+| minFontSize | number \| string \| Resource | 否 | 是 | 设置文本最小显示字号，与maxFontSize配合使用。当需要限制文本的最小显示尺寸以避免文本过小或需要实现字号自适应时传入此参数。 说明：当设置minFontSize和maxFontSize时，font中的size将不生效。默认最大行数为1，自适应高度方式为MIN_FONT_SIZE_FIRST。详细规则请参考Text组件的minFontSize属性。 |
+| maxFontSize | number \| string \| Resource | 否 | 是 | 设置文本最大显示字号，与minFontSize配合使用。当需要限制文本的最大显示尺寸以避免文本过大或需要实现字号自适应时传入此参数。 说明：当设置minFontSize和maxFontSize时，font中的size将不生效。详细规则请参考Text组件的maxFontSize属性。 |
 | overflow | TextOverflow | 否 | 是 | 文本截断方式。当设置为MARQUEE时，该属性不生效。详细规则请参考Text组件的textOverflow属性。 |
 
 
@@ -1029,8 +1017,8 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| color | ResourceColor | 否 | 是 | 选中项的背景颜色。 默认值： 'sys.color.comp_background_tertiary' |
-| borderRadius | LengthMetrics \| BorderRadiuses \| LocalizedBorderRadiuses | 否 | 是 | 选中项的边框圆角半径。 默认值：{ value:24, unit:LengthUnit.VP }，即四个圆角半径均为24VP。 说明： 1. LengthMetrics类型的value参数同时作用于四个圆角半径大小，unit参数用于设置单位。 2. BorderRadiuses类型可以设置四个不同值的圆角半径，所有单位固定为VP。 3. LocalizedBorderRadiuses类型可以设置四个不同值的圆角半径，并且可以单独设置每个圆角的单位。 |
+| color | ResourceColor | 否 | 是 | 选中项的背景颜色。 默认值： 'sys.color.comp_background_tertiary' 说明：未设置该属性时，使用默认值。 |
+| borderRadius | LengthMetrics \| BorderRadiuses \| LocalizedBorderRadiuses | 否 | 是 | 选中项的边框圆角半径。 默认值：{ value:24, unit:LengthUnit.VP }，即四个圆角半径均为24vp。 单位：默认为vp，可通过LengthMetrics或LocalizedBorderRadiuses类型指定单位。 说明： 1. LengthMetrics类型的value参数同时作用于四个圆角半径大小，unit参数用于设置单位。 2. BorderRadiuses类型可以设置四个不同值的圆角半径，所有单位固定为vp。 3. LocalizedBorderRadiuses类型可以设置四个不同值的圆角半径，并且可以单独设置每个圆角的单位。 |
 
 
 
@@ -1051,11 +1039,6 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 // xxx.ets
 import { LengthMetrics } from '@kit.ArkUI';
 
-class Bottom {
-  bottom: number = 50;
-}
-
-let bott: Bottom = new Bottom();
 @Entry
 @Component
 struct TextPickerExample {
@@ -1105,7 +1088,7 @@ struct TextPickerExample {
         })
         .onScrollStop((value: string | string[], index: number | number[]) => {
           console.info('Picker scroll stopped, value: ' + value + ', index: ' + index);
-        }).margin(bott)
+        }).margin({ bottom: 50 })
         .onEnterSelectedArea((value: string | string[], index: number | number[]) => {
           console.info('Picker item enter selected area, value: ' + value + ', index: ' + index);
         })
@@ -1116,7 +1099,7 @@ struct TextPickerExample {
         })
         .onScrollStop((value: string | string[], index: number | number[]) => {
           console.info('TextPicker 多列:onScrollStop ' + JSON.stringify(value) + ', ' + 'index: ' + JSON.stringify(index));
-        }).margin(bott)
+        }).margin({ bottom: 50 })
         .onEnterSelectedArea((value: string | string[], index: number | number[]) => {
           console.info('TextPicker 多列:onEnterSelectedArea ' + JSON.stringify(value) + ', ' + 'index: ' + JSON.stringify(index));
         })
@@ -1137,7 +1120,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/QT0c7cYjT9ubYlr4JeGz3Q/zh-cn_image_0000002677667769.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=10BDE81464ED46384412CE7A1A66D0C3A930BF151A34F1867666A7FF86C0E262)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/-HB9qdRRSZaA02n8xWeodg/zh-cn_image_0000002685928189.png?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=A0856AF405F72F2ADB87D99FFD8B0E17FF5B8839A1A30C029A9B198280F6E62C)
 
 
 
@@ -1179,7 +1162,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/Y8RUeJsjRcaDItBt_susGQ/zh-cn_image_0000002647747888.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=6F85D47FDC1D99B8AD76605DB2D07FE2AE02889203468DE6890BC53C8D0527C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/C-wR7yIXTXWgJk5eQwI_7A/zh-cn_image_0000002656008512.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=C94E34ED2C2538B57089D971B2E8E557E1E41FFBEE02FB255ED8243156439B30)
 
 
 
@@ -1205,9 +1188,9 @@ struct TextPickerExample {
         .onScrollStop((value: string | string[], index: number | number[]) => {
           console.info('Picker scroll stopped, value: ' + value + ', index: ' + index);
         })
-        .disappearTextStyle({color: Color.Red, font: {size: 15, weight: FontWeight.Lighter}})
-        .textStyle({color: Color.Black, font: {size: 20, weight: FontWeight.Normal}})
-        .selectedTextStyle({color: Color.Blue, font: {size: 30, weight: FontWeight.Bolder}})
+        .disappearTextStyle({ color: Color.Red, font: { size: 15, weight: FontWeight.Lighter } })
+        .textStyle({ color: Color.Black, font: { size: 20, weight: FontWeight.Normal } })
+        .selectedTextStyle({ color: Color.Blue, font: { size: 30, weight: FontWeight.Bolder } })
         .divider(null)
     }.width('100%').height('100%')
   }
@@ -1215,7 +1198,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/DU4Q--I_TPa0Y1AV-3yjQA/zh-cn_image_0000002647587978.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=EA037E91F7E924CBC64ED7D39CD421BC59A72720369457313280B129CD2E3452)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/-dSjxxNoTjSI7If7RI7vBQ/zh-cn_image_0000002655848592.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=BDC542FD71A6BBE1D9D6312227B074EA878A6CD1DC8D8571C625A247A15DDB99)
 
 
 
@@ -1241,9 +1224,9 @@ struct TextPickerExample {
         .onScrollStop((value: string | string[], index: number | number[]) => {
           console.info('Picker scroll stopped, value: ' + value + ', index: ' + index);
         })
-        .disappearTextStyle({color: Color.Red, font: {size: 15, weight: FontWeight.Lighter}})
-        .textStyle({color: Color.Black, font: {size: 20, weight: FontWeight.Normal}})
-        .selectedTextStyle({color: Color.Blue, font: {size: 30, weight: FontWeight.Bolder}})
+        .disappearTextStyle({ color: Color.Red, font: { size: 15, weight: FontWeight.Lighter } })
+        .textStyle({ color: Color.Black, font: { size: 20, weight: FontWeight.Normal } })
+        .selectedTextStyle({ color: Color.Blue, font: { size: 30, weight: FontWeight.Bolder } })
         .divider({
           strokeWidth: 10,
           color: Color.Red,
@@ -1256,7 +1239,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/cxEXzx5CTNy7NcydK3DAnQ/zh-cn_image_0000002677827619.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=941F05BBBFA901C8692D387030E17AA3D392F773EAC8DAA5F18BDBB4E14755FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/utED-Q4DRKyi8VGWolJNZg/zh-cn_image_0000002686088019.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=9A68E9F0B6D62D0B74C4F7C174BD5D6900238F334B3E39DBD829AF8FDDBEC3D4)
 
 
 
@@ -1282,9 +1265,9 @@ struct TextPickerExample {
         .onScrollStop((value: string | string[], index: number | number[]) => {
           console.info('Picker scroll stopped, value: ' + value + ', index: ' + index);
         })
-        .disappearTextStyle({color: Color.Red, font: {size: 15, weight: FontWeight.Lighter}})
-        .textStyle({color: Color.Black, font: {size: 20, weight: FontWeight.Normal}})
-        .selectedTextStyle({color: Color.Blue, font: {size: 30, weight: FontWeight.Bolder}})
+        .disappearTextStyle({ color: Color.Red, font: { size: 15, weight: FontWeight.Lighter } })
+        .textStyle({ color: Color.Black, font: { size: 20, weight: FontWeight.Normal } })
+        .selectedTextStyle({ color: Color.Blue, font: { size: 30, weight: FontWeight.Bolder } })
         .gradientHeight(100)
     }.width('100%').height('100%')
   }
@@ -1292,7 +1275,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/zhrB0DS-SfSqgZW7G4YRXQ/zh-cn_image_0000002677667771.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=F1E199566E242D9EFFD0DBF8C866008C22AB3A3626D20ED2E68477569022CEA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/xXJaCeFBTrGlOgmm-5PE0Q/zh-cn_image_0000002685928191.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=DE9827C2FFB57085C085BC72F93E4AF3C0F6B9F56EF20BAD9312CF64F10EFF08)
 
 
 
@@ -1325,7 +1308,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Om3M-FQlQxOmp33wqCv4qQ/zh-cn_image_0000002647747890.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=F28A91D6543EDC4E5A6E152D5E275E97FFA4CBD720A6D826799106F26BAE61D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/9RqVqcABQOeY16auL_K3Zg/zh-cn_image_0000002656008514.png?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=5474DD1192B9402293D16D712D1893D226F6B15F9C345F070B8E8875E97173CB)
 
 
 
@@ -1369,7 +1352,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/Cp-yL6-qQJuEknGXoRXWhg/zh-cn_image_0000002647587980.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=AF1A00CEFEF0ADD882A259BE45C9394EDBF26580857112D9B267BB9469CE93A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/i4wYywvCSOyKXPCRdweriA/zh-cn_image_0000002655848594.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=8C3857ACF8FA53AFCD9BD948BA54031D17FDC3ECA6698BFB80A2C248E875CC04)
 
 
 
@@ -1401,7 +1384,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/q9HwGrKfQmKCs_LLFXgX2Q/zh-cn_image_0000002677827621.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=285B616439410D166D31FC02A29B58DF537C0212D3E855DD3EDCF5A8F2D7DE0D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/GfP3Hr_xQd-nFD78G_cSig/zh-cn_image_0000002686088021.png?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=02CD3A89C11329D33DDBAEEE2AA13B1E3093F69846DD5E0DEB8FB636893F23D4)
 
 
 
@@ -1442,7 +1425,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/aJJGLwk1TJediJNk8JtE9w/zh-cn_image_0000002677667773.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=76462A625C7186F2CB185405C2592E9B9635B6B5D5980362EF58A3C8D7CB5163)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/bMf0VlrMTn-tKCJ9B1ihDQ/zh-cn_image_0000002685928193.jpeg?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=7424AE03052473B7FB93A1B614F901B50CE543107879E2FB8632A47905E1F574)
 
 
 
@@ -1483,7 +1466,7 @@ struct TextPickerExample {
               topStart: { value: 5, unit: LengthUnit.VP },
               topEnd: { value: 10, unit: LengthUnit.VP },
               bottomStart: { value: 15, unit: LengthUnit.VP },
-              bottomEnd: { value: 20, unit: LengthUnit.VP },
+              bottomEnd: { value: 20, unit: LengthUnit.VP }
             }
           })
       }
@@ -1508,7 +1491,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/qhZeLAOURr2Uw1pcCQGS7g/zh-cn_image_0000002647747892.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=9C42A22BEF1475D29AC18AFC5E154A26C1338B5CA36390118F99EE3B9FDC48EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/f5yCLbS3SrOiBBqsCnht3g/zh-cn_image_0000002656008516.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=BAB7081C34998BDA1A7BB51912FC50B1E1D6821BA5A374E827C236C189838F72)
 
 
 
@@ -1560,4 +1543,4 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/WKfhFA-BS8G7amzQ7LIQTQ/zh-cn_image_0000002647587982.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=D7F0361FBE97C5B81EE033E9DE85F63B68263B5CE6DCF2089B5ECDE6DA18E011)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/9wLkHsHWQFqJEDMEJkoeXw/zh-cn_image_0000002655848596.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=D0E89571BC928FF773F1E346CE856E6B8CC5CD714B4DBEEE4E90C8BBC0970E1E)

@@ -1,6 +1,6 @@
 # PDF Kit提供的PDF转图片的多个API有什么区别
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-9
 
@@ -13,7 +13,7 @@ PDF Kit中的pdfService和pdfViewManager都提供了PDF转图片的API，它们�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/UKySx82uTYa5UeuPwm8QUA/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013703Z&HW-CC-Expire=86400&HW-CC-Sign=C92D49410E29167455AEA3982529F59303DD7AB50EFE9B61654DE11C94B7BC6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/noHt5g-uRc-k4ksCWwL3qg/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=2917EB890B472DB7C702A15EFF4DA87C6EB5CE3E5F0AE6051BEB4056C80ABC64)
 
  
  
@@ -21,13 +21,13 @@ PDF Kit中的pdfService和pdfViewManager都提供了PDF转图片的API，它们�
 #### 背景知识
 
 - pdfService（PDF服务）提供PDF转图片的API如下：
-[convertToImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section1029783924311)：转换PDF文档为图片。
-- [getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section894811388610)：获取当前页的图片。
-- [getCustomPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section146346515368)：获取指定PdfPage区间的图片内容。
-- [getAreaPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section76461612123920)：获取指定PdfPage区间的图片内容，并指定图片的宽和高。
+[convertToImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#converttoimage)：转换PDF文档为图片。
+- [getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取当前页的图片。
+- [getCustomPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getcustompagepixelmap)：获取指定PdfPage区间的图片内容。
+- [getAreaPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getareapixelmap)：获取指定PdfPage区间的图片内容，并指定图片的宽和高。
 - [getAreaPixelMapWithOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section5838210143810)：获取指定PdfPage区域的图片内容，并指定图片的宽和高等参数。
 
- - pdfViewManager（PDF预览）提供PDF转图片的API如下：[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#section858145014542)：获取对应PDF页面的缩略图，使用Promise异步回调。
+ - pdfViewManager（PDF预览）提供PDF转图片的API如下：[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取对应PDF页面的缩略图，使用Promise异步回调。
 
  
  
@@ -277,10 +277,10 @@ struct Index {
 效果预览图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/C3ap7lbWSUmOoTSa4Js9Iw/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260723T013703Z&HW-CC-Expire=86400&HW-CC-Sign=90CD635C954F26B7558E5793D8693AE8687A8298A550F153A39E46BEFF385183)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/yvxLuU3EQoi4jPRZRK3UlQ/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=956AC4B945A2FDD8A4DE4C621D37D137913C7BA2BD7435FB1006A14F289025E2)
 
  
 参考Device File Browser[操作步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer#section165192211111)查看生成的图片：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/-UDndPQdRPO6uIakQ-VUEw/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260723T013703Z&HW-CC-Expire=86400&HW-CC-Sign=F023564805D281674DE4A107D51B6C8FEDE8EF26C3EAA94F554A1348593B5652)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Nujw_TUsS1G-hAHbdrEJHQ/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=99A57C6505C767D0713B9A562ED88D140AE7845A7340703074AB6500511F042B)

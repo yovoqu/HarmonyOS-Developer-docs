@@ -1,6 +1,6 @@
 # ohpm update
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-update
 
@@ -32,7 +32,7 @@ alias: up
 
 #### install_all
 
-- 默认值：false
+- 默认值：true
 - 类型：Boolean
 - 别名：all
 
@@ -117,7 +117,7 @@ alias: up
 
 #### all-modules
 
-- 默认值：""
+- 默认值：false
 - 类型：Boolean
 
  
@@ -197,7 +197,7 @@ alias: up
 
 #### resolve_conflict
 
-- 默认值：false
+- 默认值：true
 - 类型：Boolean
 
  

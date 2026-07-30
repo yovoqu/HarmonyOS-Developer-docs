@@ -1,6 +1,6 @@
 # FIDO2_CapabilityArray
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___capability_array
 
@@ -10,7 +10,9 @@
  
 **起始版本：** 6.0.0(20)
  
-**相关模块：** [FIDO2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+**相关模块：** [FIDO2（通行密钥服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+ 
+**所在头文件：** [fido2_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication_capi_header_fido2)
  
   
 
@@ -22,7 +24,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| uint32_t number | 能力的数量。 |
+| uint32_t number | 能力数组长度。 |
 | FIDO2_Capability * capability | 能力的数组。 |
  
  

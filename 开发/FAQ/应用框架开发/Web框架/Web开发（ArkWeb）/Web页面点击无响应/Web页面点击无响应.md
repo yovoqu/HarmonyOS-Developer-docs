@@ -17,7 +17,7 @@
 - 建立应用侧与Web侧的交互通道有两种方式，一种在Web组件初始化调用，使用[javaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)接口。另外一种在Web组件初始化完成后调用，使用[registerJavaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#registerjavascriptproxy)接口。两种方式都需要和[deleteJavaScriptRegister](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#deletejavascriptregister)接口配合使用，防止内存泄漏。
 - [Devtools](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-debugging-with-devtools)：可以用来在电脑上调试手机、平板等移动设备前端页面，查看页面加载的信息、页面样式等。
 - 不同类型的智能设备，用户可能有不同的交互方式，如通过触摸屏、鼠标、触控板等。如果针对不同的交互方式单独做适配，会增加开发工作量同时产生大量重复代码。为解决这一问题，系统统一了各种交互方式的API，即实现了交互归一。常见的基础输入方式及其在各输入设备上的表现如[下图](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-interaction#section182814229423)所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/sJRhDfCXTK2TLG-O9V4Exw/zh-cn_image_0000002628899124.png?HW-CC-KV=V1&HW-CC-Date=20260723T013328Z&HW-CC-Expire=86400&HW-CC-Sign=6CF43255E3A583A39C046E39866AB37E121BEB4A687A6761A38D97C66EEF0B1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/sJRhDfCXTK2TLG-O9V4Exw/zh-cn_image_0000002628899124.png?HW-CC-KV=V1&HW-CC-Date=20260730T072529Z&HW-CC-Expire=86400&HW-CC-Sign=7C3C7D3D32AE254C9F6DF3DFA75813A2CB762CE73393FF7F821E570868C23E9B)
 
 
  

@@ -1,6 +1,6 @@
 # panel
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-panel
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,7 +69,7 @@
 | background | <linear-gradient> | - | 否 | 仅支持设置渐变样式，与background-color、background-image不兼容。 |
 | background-color | &lt;color&gt; | - | 否 | 设置背景颜色。 |
 | background-image | string | - | 否 | 设置背景图片。与background-color、background不兼容；支持本地图片资源地址。 |
-| background-size | - string - &lt;length&gt; &lt;length&gt; - &lt;percentage&gt; &lt;percentage&gt; | auto | 否 | 设置背景图片的大小。 - string可选值： - contain：把图像扩展至最大尺寸，以使其高度和宽度完全适用内容区域。 - cover：把背景图像扩展至足够大，以使背景图像完全覆盖背景区域；背景图像的某些部分也许无法显示在背景定位区域中。 - auto：保持原图的比例不变。 - length值参数方式： 设置背景图像的高度和宽度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 "auto"。 - 百分比参数方式： 以父元素的百分比来设置背景图像的宽度和高度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 "auto"。 |
+| background-size | - string - &lt;length&gt; &lt;length&gt; - &lt;percentage&gt; &lt;percentage&gt; | auto | 否 | 设置背景图片的大小。 - string可选值： - contain：把图像扩展至最大尺寸，以使其高度和宽度完全适应内容区域。 - cover：把背景图像扩展至足够大，以使背景图像完全覆盖背景区域；背景图像的某些部分也许无法显示在背景定位区域中。 - auto：保持原图的比例不变。 - length值参数方式： 设置背景图像的高度和宽度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 "auto"。 - 百分比参数方式： 以父元素的百分比来设置背景图像的宽度和高度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 "auto"。 |
 | background-repeat | string | repeat | 否 | 针对重复背景图像样式进行设置，背景图像默认在水平和垂直方向上重复。 - repeat：在水平轴和竖直轴上同时重复绘制图片。 - repeat-x：只在水平轴上重复绘制图片。 - repeat-y：只在竖直轴上重复绘制图片。 - no-repeat：不会重复绘制图片。 |
 | background-position | - string string - &lt;length&gt; &lt;length&gt; - &lt;percentage&gt; &lt;percentage&gt; | 0px 0px | 否 | - 关键词方式：如果仅规定了一个关键词，那么第二个值为"center"。两个值分别定义水平方向位置和竖直方向位置。 - left：水平方向上最左侧。 - right：水平方向上最右侧。 - top：竖直方向上最顶部。 - bottom：竖直方向上最底部。 - center：水平方向或竖直方向上中间位置。 - length值参数方式：第一个值是水平位置，第二个值是垂直位置。 左上角是 0 0。单位是像素 (0px 0px) 。如果仅规定了一个值，另外一个值将是50%。 - 百分比参数方式：第一个值是水平位置，第二个值是垂直位置。左上角是 0% 0%。右下角是 100% 100%。如果仅规定了一个值，另外一个值为50%。 - 可以混合使用&lt;percentage&gt;和&lt;length&gt; |
 | opacity | number | 1 | 否 | 元素的透明度，取值范围为0到1，1表示为不透明，0表示为完全透明。 |
@@ -190,4 +190,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/1vYzyL1PR_uezfL7ooqlgw/zh-cn_image_0000002659222251.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=7D86EA3BC6F31AE4E19DDC4D45835739B3DF9533971C41A678A0C62AC35262D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/tGW3LtbdQcWi9B5V2yEYDw/zh-cn_image_0000002685928691.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071523Z&HW-CC-Expire=86400&HW-CC-Sign=E14C7D91A1F8F35D57198B808EBF04885C572A27D7D75096752332F61EB57D69)

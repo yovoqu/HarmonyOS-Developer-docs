@@ -1,6 +1,6 @@
 # ohpm-repo check_storage
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-check_storage
 
@@ -25,7 +25,7 @@ ohpm-repo check_storage <target> [options]
 
 #### 功能描述
 
-命令根据元数据检查sftp存储的包是否存在且完整。该命令要求数据存储db模块必须使用mysql，文件存储store模块必须使用sftp。
+命令根据元数据检查sftp存储的包是否存在且完整。
  
  
 
@@ -74,4 +74,4 @@ ohpm-repo check_storage @ohos/basic-ftp
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/KyOz6XgKRySxs9v63iA_Ew/zh-cn_image_0000002602185005.png?HW-CC-KV=V1&HW-CC-Date=20260528T030648Z&HW-CC-Expire=86400&HW-CC-Sign=7B5719724EA43F7B6F6F31926803B233847A8568D59568CCAA46606B1E7D4C2D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/UhcAvMbuRQWWz-OPFR2AWA/zh-cn_image_0000002647915014.png?HW-CC-KV=V1&HW-CC-Date=20260730T071811Z&HW-CC-Expire=86400&HW-CC-Sign=7C91D9C57F5C0E2545C8F2A4CD69D86A9C97A94534E9C3062A7C0FDBE4851D76)

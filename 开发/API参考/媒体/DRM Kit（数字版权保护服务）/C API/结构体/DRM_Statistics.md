@@ -1,6 +1,6 @@
 # DRM_Statistics
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-statistics
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct DRM_Statistics {...} DRM_Statistics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-MediaKeySystem的度量信息。
+MediaKeySystem（媒体密钥系统）的度量信息。
  
 **起始版本：** 11
  

@@ -1,6 +1,6 @@
 # arViewController（AR场景管理能力）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller
 **支持设备：** Phone | Tablet | TV
@@ -677,7 +677,7 @@ onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine
 
 transformPose(position: Vec3, rotation: Quaternion): arEngine.ARPose | null
 
-将位姿信息从AR坐标系转换为AGP渲染引擎坐标系。
+将位姿信息从AR坐标系转换为AGP渲染引擎坐标系，返回转换后的位姿信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

@@ -1,6 +1,6 @@
 # 图标小符号 (SymbolGlyph/SymbolSpan)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-symbol
 
@@ -248,7 +248,7 @@ Row() {
 
 关于effectStrategy属性与symbolEffect属性的多种动态属性使用及生效原则，详情请参阅[SymbolGlyph.symbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symboleffect12-1)属性的说明。
 
- - 通过设置SymbolEffect属性，可以同时配置SymbolGlyph的动效策略和播放状态。
+ - 通过设置symbolEffect属性，可以同时配置SymbolGlyph的动效策略和播放状态。
 
   
 ```ArkTS
@@ -272,7 +272,7 @@ Column() {
 
 ![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-2.png)
 
- - 通过设置SymbolEffect属性，可以同时指定SymbolGlyph的动画效果策略及其播放触发条件。
+ - 通过设置symbolEffect属性，可以同时指定SymbolGlyph的动画效果策略及其播放触发条件。
 
   
 ```ArkTS
@@ -296,7 +296,7 @@ Column() {
 
 ![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-3.png)
 
- - 从API version 20开始，支持通过设置SymbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.SLASH_OVERLAY，可以指定SymbolGlyph的禁用动画效果及其播放触发条件。
+ - 从API version 20开始，支持通过设置symbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.SLASH_OVERLAY，可以指定SymbolGlyph的禁用动画效果及其播放触发条件。
 
   
 ```ArkTS
@@ -323,7 +323,7 @@ Column() {
 
 ![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-4.png)
 
- - 从API version 20开始，支持通过设置SymbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.CROSS_FADE，可以指定SymbolGlyph的快速替换动画效果及其播放触发条件。
+ - 从API version 20开始，支持通过设置symbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.CROSS_FADE，可以指定SymbolGlyph的快速替换动画效果及其播放触发条件。
 
   
 ```ArkTS
@@ -354,7 +354,7 @@ Column() {
 
 #### 设置阴影和渐变色
 
- - 从API version 20开始，支持通过[symbolShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symbolshadow20)接口实现了symbolGlyph组件显示阴影效果。
+ - 从API version 20开始，支持通过[symbolShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symbolshadow20)接口实现了SymbolGlyph组件显示阴影效果。
 
   
 ```ArkTS
@@ -386,7 +386,7 @@ Column() {
 
 ![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-6.gif)
 
- - 从API version 20开始，支持通过[shaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#shaderstyle20)接口实现了symbolGlyph组件显示渐变色效果。
+ - 从API version 20开始，支持通过[shaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#shaderstyle20)接口实现了SymbolGlyph组件显示渐变色效果。
 
   
 ```ArkTS

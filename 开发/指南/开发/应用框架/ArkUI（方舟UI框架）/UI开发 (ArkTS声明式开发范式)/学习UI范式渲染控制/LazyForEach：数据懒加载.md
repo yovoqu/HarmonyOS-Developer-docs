@@ -1,6 +1,6 @@
 # LazyForEach：数据懒加载
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach
 
@@ -1542,7 +1542,7 @@ struct ImageFlickeringDuringRerenders {
 
 @Component
 struct ImageFlickeringChildComponent {
-  // 用状态变量来驱动UI刷新，而不是通过Lazyforeach的api来驱动UI刷新
+  // 用状态变量来驱动UI刷新，而不是通过LazyForEach的api来驱动UI刷新
   @ObjectLink data: ImageFliceringStringData;
 
   build() {
@@ -2088,7 +2088,7 @@ LazyForEach(this.data, (item: string) => {
 **定义键值生成函数后，点击按钮更新数据，组件刷新**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/viNmPb6yQj2ze4e-VIrQVQ/zh-cn_image_0000002626228126.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=557A1EED05504E62664675AFCE57D0CEB7BF950058A9053F4C7976C2E7E4AABC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/xeZxDqeSTDmmJxV_12VZWQ/zh-cn_image_0000002686085517.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071843Z&HW-CC-Expire=86400&HW-CC-Sign=6530E2B1462B07A4E95624FB964EF05F875EFF51E375F601AE73C989A446AA78)
 
 
 

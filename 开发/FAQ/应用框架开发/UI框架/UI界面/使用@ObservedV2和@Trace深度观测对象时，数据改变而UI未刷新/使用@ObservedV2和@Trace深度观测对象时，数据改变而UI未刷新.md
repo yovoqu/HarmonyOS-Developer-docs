@@ -192,7 +192,7 @@ struct Index1 {
   运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/T5Ow_1JxQI2FFBl4kAiMIw/zh-cn_image_0000002628564680.png?HW-CC-KV=V1&HW-CC-Date=20260723T013202Z&HW-CC-Expire=86400&HW-CC-Sign=BC40602935D395769A0EC95240A3B7527D988D36C15EFE36A7F8A366631350E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/T5Ow_1JxQI2FFBl4kAiMIw/zh-cn_image_0000002628564680.png?HW-CC-KV=V1&HW-CC-Date=20260730T072508Z&HW-CC-Expire=86400&HW-CC-Sign=1EA286D89C3EE01BCC20EF76E30480869747D77A2F87D75CEAC24E5879A170E5)
 
 2. **场景二**：@ObservedV2装饰的对象中使用了三方包中的类，三方包中类的实例数据变化了，对应的UI未刷新。由于PhoneInfo类是一个三方包中的类，无法被@ObservedV2装饰，即便Person类中phoneInfo属性使用@Trace装饰，也不能进行深度观测。所以可以使用makeObserved接口将不可观察的数据变为可观察。
 
@@ -259,6 +259,6 @@ struct Index2 {
  运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/MCUiruAlQCiNVpWrgsyF4w/zh-cn_image_0000002658923995.png?HW-CC-KV=V1&HW-CC-Date=20260723T013202Z&HW-CC-Expire=86400&HW-CC-Sign=3D8ED894C3CB7DC5C448D095934275BD821F27B88BBF42D718488A159E68AEF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/MCUiruAlQCiNVpWrgsyF4w/zh-cn_image_0000002658923995.png?HW-CC-KV=V1&HW-CC-Date=20260730T072508Z&HW-CC-Expire=86400&HW-CC-Sign=DE9951C3F4F6D898EB54E02F00E0DE3749D122A1F6182C8C7A5C2186FD54B3CB)
 
 3. **场景三**：@ObservedV2装饰的对象经过序列化和反序列化之后，失去观察能力。@ObservedV2装饰的对象序列化后会为@Trace装饰的属性添加__ob_前缀，将@ObservedV2装饰的对象通过JSON.stringify序列化后，再通过JSON.parse反序列化，将失去观察能力。涉及到@ObservedV2装饰对象的序列化与反序列化，解决方案可以参考官网指南中的[@ObservedV2装饰对象的序列化与反序列化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#observedv2装饰对象的序列化与反序列化)。

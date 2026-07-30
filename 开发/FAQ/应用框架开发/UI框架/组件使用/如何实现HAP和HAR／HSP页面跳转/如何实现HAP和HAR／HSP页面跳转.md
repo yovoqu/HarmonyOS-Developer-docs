@@ -1,6 +1,6 @@
 # 如何实现HAP和HAR/HSP页面跳转
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1077
 
@@ -264,7 +264,7 @@ export struct HarPage {
 
 Q：HAR模块中能否支持Page页面？
  
-A：HAR模块支持Page页面，但不支持在配置文件module.json5中声明pages页面，通过[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation#跨包路由)的方式跳转，详见[HAR和HSP支持page](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-15)和[HAP/HAR/HSP使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-19)。
+A：HAR模块支持Page页面，但不支持在配置文件module.json5中声明pages页面，通过[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation#跨包路由)的方式跳转，详见[HAR和HSP支持page](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-15)和[HAP/HAR/HSP使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-73)。
  
  
 

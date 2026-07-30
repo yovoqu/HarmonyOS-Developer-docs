@@ -1,6 +1,6 @@
 # ArkUI_Node
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-node-descriptor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ struct ArkUI_Node
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义ArkUI native组件实例对象。
+定义ArkUI Native组件实例对象，供ArkUI_NodeHandle指针在Native接口中标识和传递组件实例。
  
 **起始版本：** 22
  

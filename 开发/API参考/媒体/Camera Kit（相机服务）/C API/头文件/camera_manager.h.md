@@ -1,6 +1,6 @@
 # camera_manager.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -81,7 +81,7 @@
 | Camera_ErrorCode OH_CameraManager_IsTorchSupportedByTorchMode(Camera_Manager* cameraManager, Camera_TorchMode torchMode, bool* isTorchSupported) | - | 检查设备是否支持指定的手电筒模式。 |
 | Camera_ErrorCode OH_CameraManager_SetTorchMode(Camera_Manager* cameraManager, Camera_TorchMode torchMode) | - | 设置相机手电筒模式。 |
 | Camera_ErrorCode OH_CameraManager_IsTorchLevelControlSupported(const Camera_Manager* cameraManager, bool* isTorchLevelControlSupported) | - | 检查设备是否支持手电筒亮度控制。 |
-| Camera_ErrorCode OH_CameraManager_SetTorchModeOnWithLevel(const Camera_Manager* cameraManager, double torchLevel) | - | 将手电筒模式设置为打开，并设置亮度值。 |
+| Camera_ErrorCode OH_CameraManager_SetTorchModeOnWithLevel(Camera_Manager* cameraManager, double torchLevel) | - | 将手电筒模式设置为打开，并设置亮度值。 |
 | Camera_ErrorCode OH_CameraManager_GetCameraDevice(Camera_Manager* cameraManager, Camera_Position position, Camera_Type type, Camera_Device* camera) | - | 根据相机位置和相机类型查询指定的相机。 |
 | Camera_ErrorCode OH_CameraManager_GetCameraDevices(Camera_Manager* cameraManager, Camera_DeviceQueryInfo* deviceQueryInfo, uint32_t* cameraSize, Camera_Device** cameras) | - | 根据相机位置、相机类型数组和连接类型查询符合条件的相机列表。 |
 | Camera_ErrorCode OH_CameraManager_DeleteCameraDevices(Camera_Manager* cameraManager, Camera_Device* cameras) | - | 删除指定相机设备。 |
@@ -1195,7 +1195,7 @@ Camera_ErrorCode OH_CameraManager_IsTorchLevelControlSupported(const Camera_Mana
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-Camera_ErrorCode OH_CameraManager_SetTorchModeOnWithLevel(const Camera_Manager* cameraManager, double torchLevel)
+Camera_ErrorCode OH_CameraManager_SetTorchModeOnWithLevel(Camera_Manager* cameraManager, double torchLevel)
 ```
  
 **描述**

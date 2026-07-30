@@ -1,9 +1,9 @@
 # @ohos.advertising (广告服务框架)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供广告操作能力，包括请求广告、展示广告。
 
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { advertising } from '@kit.AdsKit';
@@ -24,7 +24,7 @@ import { advertising } from '@kit.AdsKit';
 
 #### advertising.showAd
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 showAd(ad: Advertisement, options: AdDisplayOptions, context?: common.UIAbilityContext): void
 
@@ -36,7 +36,7 @@ showAd(ad: Advertisement, options: AdDisplayOptions, context?: common.UIAbilityC
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | ad | Advertisement | 是 | 广告对象。 |
 | options | AdDisplayOptions | 是 | 广告展示参数。 |
@@ -78,7 +78,7 @@ function showAd(ad: advertising.Advertisement, context?: common.UIAbilityContext
 
 #### advertising.getAdRequestBody12+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise&lt;string&gt;
 
@@ -88,7 +88,7 @@ getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise&lt;
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adParams | AdRequestParams[] | 是 | 广告请求参数。 说明： 该接口体的adId参数可以为空。 |
 | adOptions | AdOptions | 是 | 广告配置参数。 |
@@ -134,7 +134,7 @@ async function getAdRequestBody(adRequestParamsArray: advertising.AdRequestParam
 
 #### advertising.parseAdResponse12+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context: common.UIAbilityContext): void
 
@@ -144,7 +144,7 @@ parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context:
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adResponse | string | 是 | 广告响应体。 |
 | listener | MultiSlotsAdLoadListener | 是 | 请求广告回调监听。 |
@@ -194,7 +194,7 @@ function parseAdResponse(adResponse: string, context: common.UIAbilityContext): 
 
 #### advertising.registerWebAdInterface12+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext): void
 
@@ -206,7 +206,7 @@ registerWebAdInterface(controller: web_webview.WebviewController, context: commo
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | controller | web_webview.WebviewController | 是 | Web组件控制器。 |
 | context | common.UIAbilityContext | 是 | UIAbility的上下文环境。 |
@@ -255,7 +255,7 @@ struct Index {
 
 #### advertising.registerWebAdInterface16+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, needRefresh: boolean): void
 
@@ -267,7 +267,7 @@ registerWebAdInterface(controller: web_webview.WebviewController, context: commo
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | controller | web_webview.WebviewController | 是 | Web组件控制器。 |
 | context | common.UIAbilityContext | 是 | UIAbility的上下文环境。 |
@@ -317,7 +317,7 @@ struct Index {
 
 #### advertising.deleteWebAdInterface16+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 deleteWebAdInterface(controller: web_webview.WebviewController, needRefresh: boolean): void
 
@@ -329,7 +329,7 @@ deleteWebAdInterface(controller: web_webview.WebviewController, needRefresh: boo
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | controller | web_webview.WebviewController | 是 | Web组件控制器。 |
 | needRefresh | boolean | 是 | 是否需要刷新页面（true: 需要；false: 不需要）。 |
@@ -375,7 +375,7 @@ struct Index {
 
 #### AdLoader
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 提供加载广告的功能。
 
@@ -387,7 +387,7 @@ struct Index {
 
 #### constructor
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 constructor(context: common.Context)
 
@@ -399,7 +399,7 @@ constructor(context: common.Context)
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.Context | 是 | ability或application的上下文环境。 |
 
@@ -422,7 +422,7 @@ function createAdLoader(context: common.Context): void {
 
 #### loadAd
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 loadAd(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener): void
 
@@ -434,7 +434,7 @@ loadAd(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener)
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adParam | AdRequestParams | 是 | 广告请求参数。 |
 | adOptions | AdOptions | 是 | 广告配置参数。 |
@@ -488,7 +488,7 @@ function loadAd(context: common.Context, adRequestParams: advertising.AdRequestP
 
 #### loadAdWithMultiSlots
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 loadAdWithMultiSlots(adParams: AdRequestParams[], adOptions: AdOptions, listener: MultiSlotsAdLoadListener): void
 
@@ -500,7 +500,7 @@ loadAdWithMultiSlots(adParams: AdRequestParams[], adOptions: AdOptions, listener
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adParams | AdRequestParams[] | 是 | 广告请求参数。 |
 | adOptions | AdOptions | 是 | 广告配置参数。 |
@@ -555,7 +555,7 @@ function loadAdWithMultiSlots(context: common.Context, adRequestParamsArray: adv
 
 #### AdLoadListener
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 单广告位广告请求回调。
 
@@ -567,7 +567,7 @@ function loadAdWithMultiSlots(context: common.Context, adRequestParamsArray: adv
 
 #### onAdLoadFailure
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAdLoadFailure(errorCode: number, errorMsg: string): void
 
@@ -579,7 +579,7 @@ onAdLoadFailure(errorCode: number, errorMsg: string): void
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | errorCode | number | 是 | 广告请求失败的错误码。 |
 | errorMsg | string | 是 | 广告请求失败的错误信息。 |
@@ -605,7 +605,7 @@ const adLoaderListener: advertising.AdLoadListener = {
 
 #### onAdLoadSuccess
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAdLoadSuccess(ads: Array&lt;Advertisement&gt;): void
 
@@ -617,7 +617,7 @@ onAdLoadSuccess(ads: Array&lt;Advertisement&gt;): void
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | ads | Array&lt;Advertisement&gt; | 是 | 广告数据。 |
 
@@ -642,7 +642,7 @@ const adLoaderListener: advertising.AdLoadListener = {
 
 #### MultiSlotsAdLoadListener
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 多广告位广告请求回调。
 
@@ -654,7 +654,7 @@ const adLoaderListener: advertising.AdLoadListener = {
 
 #### onAdLoadFailure
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAdLoadFailure(errorCode: number, errorMsg: string): void
 
@@ -666,7 +666,7 @@ onAdLoadFailure(errorCode: number, errorMsg: string): void
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | errorCode | number | 是 | 广告请求失败的错误码。 |
 | errorMsg | string | 是 | 广告请求失败的错误信息。 |
@@ -692,7 +692,7 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
 
 #### onAdLoadSuccess
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAdLoadSuccess(adsMap: Map<string, Array&lt;Advertisement&gt;>): void
 
@@ -704,7 +704,7 @@ onAdLoadSuccess(adsMap: Map<string, Array&lt;Advertisement&gt;>): void
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adsMap | Map<string, Array&lt;Advertisement&gt;> | 是 | 广告数据，是以广告位ID为键，存储请求到的广告内容的映射集合。 |
 
@@ -729,7 +729,7 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
 
 #### AdInteractionListener
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 广告状态变化回调。
 
@@ -741,7 +741,7 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
 
 #### onStatusChanged
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onStatusChanged(status: string, ad: Advertisement, data: string)
 
@@ -753,7 +753,7 @@ onStatusChanged(status: string, ad: Advertisement, data: string)
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | status | string | 是 | 广告展示状态。 - onAdLoad：广告加载成功。 - onAdFail：广告加载失败。 - onAdOpen：打开广告。 - onAdClick：点击广告。 - onAdClose：关闭广告。 - onMediaProgress：广告播放进度。 - onMediaStart：广告开始播放。 - onMediaPause：广告暂停播放。 - onMediaStop：广告停止播放。 - onMediaComplete：广告播放完成。 - onMediaCountDown：广告倒计时。 - onMediaError：广告播放失败。 - onLandscape：竖屏状态下点击全屏按钮。 - onPortrait：全屏状态下点击返回按钮。 - onBackClicked：点击返回按钮。 |
 | ad | Advertisement | 是 | 发生状态变化的广告内容。 |
@@ -829,7 +829,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
 
 #### AdOptions
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 广告配置参数。
 
@@ -851,7 +851,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
 
 #### AdRequestParams
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 广告请求参数。
 
@@ -876,7 +876,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
 
 #### AdDisplayOptions
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 广告展示参数。
 

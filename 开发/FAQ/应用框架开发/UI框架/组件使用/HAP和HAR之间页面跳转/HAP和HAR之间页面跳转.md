@@ -1,6 +1,6 @@
 # HAP和HAR之间页面跳转
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1290
 
@@ -22,14 +22,14 @@ HAP如何跳转到HAR模块页面？HAR模块内页面如何跳至HAP模块页�
 #### 解决方案
 
 > [!WARNING]
-> 跨包跳转场景，以下是关键注意事项： 模块类型限制：仅适用于HAR（静态库）或HSP（动态库）模块。 HAP跳转到其他HAP的页面，必须使用UIAbility的startAbility方法拉起目标HAP的Ability。参考 跨HAP包页面跳转方案 。
+> 跨包跳转场景，以下是 关键注意事项 ： 模块类型限制：仅适用于HAR（静态库）或HSP（动态库）模块。 HAP跳转到其他HAP的页面，必须使用UIAbility的startAbility方法拉起目标HAP的Ability。参考 跨HAP包页面跳转方案 。
 
  
-HAP和HAR之间页面跳转的两种实现方案：Navigation路由和Router路由。
+HAP和HAR之间页面跳转的两种实现方案：**Navigation路由**和**Router路由**。
  
 跳转示例：HAP包入口页面->HAR包CustomPage页面->HAP包Page页面。如下所示：
  
-- **方案一**：Navigation路由配置**。**1. 在HAR模块内配置HAR页面的路由表：配置CustomPage的页面路由。即配置HAR中的module.json5文件和route_map.json文件，详细可参考官网跨包路由的[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)实现。
+- **方案一**：Navigation路由配置**。**1. 在HAR模块内配置HAR页面的路由表：配置CustomPage的页面路由。即配置HAR中的module.json5文件和route_map.json文件，详细可参考官网跨包路由的[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)实现。
 
 2. 在HAP模块配置Page页面路由，和第1步在HAR模块配置CustomPage页面路由类似。
 ```text
@@ -69,8 +69,8 @@ struct Page {
 3. 在HAP模块的oh-package.json5文件中引用HAR模块。
 ```json
 "dependencies": {
-  "testhar": "file:../testHar"
-},
+    "testhar": "file:../testHar"
+  },
 ```
 
 
@@ -89,7 +89,7 @@ struct NavigationSolution {
           .height(40)
           .margin(20)
           .onClick(() => {
-          <em>  // 跳转至目标testHar模块所在页面</em>
+            <em>// 跳转至目标testHar模块所在页面</em>
             this.pathStack.pushPathByName('CustomPage', null, false);
           });
       }.width('100%').height('100%')
@@ -144,7 +144,7 @@ export struct CustomPage {
 }
 ```
 
-- **方案二**：Router路由配置。1. 在HAR模块内“src/main/ets/components”目录下创建CustomPage.ets文件，作为跳转目的页面，并给@Entry修饰的自定义组件[EntryOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)命名，内容如下：
+- **方案二**：Router路由配置。1. 在HAR模块内src/main/ets/components目录下创建CustomPage.ets文件，作为跳转目的页面，并给@Entry修饰的自定义组件[EntryOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)命名，内容如下：
 ```text
 @Entry({ routeName: 'CustomPage' })
 @Component
@@ -180,7 +180,7 @@ struct RouterSolution {
       Button('ToHarPage', { stateEffect: true, type: ButtonType.Capsule })
         .width('80%')
         .onClick(() => {
-         <em> // 跳转至目标testHar模块所在页面</em>
+          <em>// 跳转至目标testHar模块所在页面</em>
           this.getUIContext().getRouter().pushNamedRoute({
             name: 'CustomPage'
           });
@@ -198,3 +198,22 @@ struct RouterSolution {
 #### 总结
 
 组件导航（Navigation）和页面路由（@ohos.router）均支持应用内的页面跳转，但组件导航支持在组件内部进行跳转，使用更灵活。组件导航具备更强的一次开发多端部署能力，可以进行更加灵活的页面栈操作，同时支持更丰富的动效和生命周期。因此，推荐使用组件导航（Navigation）来实现页面跳转以及组件内的跳转，以获得更佳的使用体验。
+ 
+ 
+
+#### 常见FAQ
+
+Q：使用pushNamedRoute跳转HAR页面时报100004错误（Named route error. The named route does not exist.）怎么办？
+ 
+A：该错误通常是因为未正确引入HAR中命名路由页面导致。请检查以下两点：
+ 1. 确认当前应用包的oh-package.json5文件中已正确配置HAR模块依赖：
+```json
+"dependencies": {
+    "library": "file:../library"
+}
+```
+
+2. 确认执行跳转的页面中已import引入HAR中命名路由页面：
+```text
+import 'library/Index';
+```

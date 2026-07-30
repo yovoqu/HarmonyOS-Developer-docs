@@ -1,6 +1,6 @@
 # 判断PDF文档是否加密及删除加密
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-isencrypt-removesecurity
 
@@ -24,27 +24,63 @@ PDF Kit支持判断PDF文档是否加密及删除PDF加密锁。
 ```text
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
+// ...
 
 @Entry
 @Component
-struct PdfPage {
-  private pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
+struct SecurityPage {
   private context = this.getUIContext().getHostContext() as Context;
+  private loadResult: pdfService.ParseResult = pdfService.ParseResult.PARSE_ERROR_FORMAT;
+  private password: string = '123456';
+
+  aboutToAppear(): void {
+    let filePath = this.context.resourceDir + '/input.pdf';
+    (async () => {
+      let doc = new pdfService.PdfDocument();
+      this.loadResult = await doc.loadDocument(filePath);
+      doc.releaseDocument();
+    })()
+  }
 
   build() {
-    Column() {
-      // 判断文档是否加密，并删除加密
-      Button('isEncryptedAndRemoveSecurity').onClick(async () => {
-        // 确保在工程目录src/main/resources/resfile里有input.pdf文档
-        let filePath = this.context.resourceDir + '/input.pdf';
-        let isEncrypt = this.pdfDocument.isEncrypted(filePath);
-        if (isEncrypt) {
-          let hasRemoveEncrypt = this.pdfDocument.removeSecurity();
-          hilog.info(0x0000, 'PdfPage', 'isEncryptedAndRemoveSecurity %{public}s!',
-            hasRemoveEncrypt ? 'success' : 'fail');
+    Stack({ alignContent: Alignment.TopStart }) {
+      Column({ space: 10 }) {
+        // ...
+        Row({ space: 10 }) {
+          Button('isEncryptedAndRemoveSecurity')
+            .onClick(() => {
+              if (this.loadResult === pdfService.ParseResult.PARSE_SUCCESS) {
+                let inputPath = this.context.resourceDir + '/input.pdf';
+                let tmpPath = this.context.filesDir + '/tmp.pdf';
+                let tmp1Path = this.context.filesDir + '/tmp1.pdf';
+                let doc = new pdfService.PdfDocument();
+                // 加载原始PDF文档
+                doc.loadDocument(inputPath);
+                // 设置密码，对文档进行加密
+                doc.setPdfPassword(this.password);
+                // 保存加密后的文档到tmp.pdf
+                doc.saveDocument(tmpPath);
+                // 检查tmp.pdf是否加密
+                let isTmpEncrypted = doc.isEncrypted(tmpPath);
+                hilog.info(0x0000, 'testTag', 'isTmpEncrypted: %{public}s', isTmpEncrypted.toString());
+                doc.releaseDocument();
+                // 加载加密的tmp.pdf
+                doc.loadDocument(tmpPath, this.password);
+                // 移除密码
+                doc.removeSecurity();
+                // 保存无密码的文档到tmp1.pdf
+                doc.saveDocument(tmp1Path);
+                // 检查tmp1.pdf是否已移除密码
+                let isTmp1Encrypted = doc.isEncrypted(tmp1Path);
+                hilog.info(0x0000, 'testTag', 'isTmp1Encrypted: %{public}s', isTmp1Encrypted.toString());
+              }
+            })
         }
-      })
+      }
+      .alignItems(HorizontalAlign.Start)
+      .padding(10)
     }
+    .width('100%').height('100%')
   }
 }
 ```

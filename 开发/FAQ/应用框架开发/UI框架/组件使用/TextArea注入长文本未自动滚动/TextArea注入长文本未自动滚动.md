@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/paSjsFAJSyOpYG6FYOx70A/zh-cn_image_0000002628603740.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012748Z&HW-CC-Expire=86400&HW-CC-Sign=8668849135D892D0186FA8FC330E4C56C30E501FE081AF985483BAFECBF34602)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/paSjsFAJSyOpYG6FYOx70A/zh-cn_image_0000002628603740.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=3B748480356598B0A5832ADFFF39E2865991EBE86E24C333F1782B672DAB15AA)
 
  
  
@@ -74,7 +74,7 @@ struct <span style="color: rgb(0,0,255);">TextAreaExample </span><span style="co
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/_tXJuZdBQwO9HWsgCfruDw/zh-cn_image_0000002658843007.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012748Z&HW-CC-Expire=86400&HW-CC-Sign=399550A6106ABA459352E697482EFC2A048B24E405646A597AEF6CDB402255FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/_tXJuZdBQwO9HWsgCfruDw/zh-cn_image_0000002658843007.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=0AE86AC267AD122D7419A398DD21046113CA184AD489F6EF193B7FADBD759BA3)
 
 - **方案二**：在TextArea组件外面再套一层Scroll组件，通过Scroller控制器滚动到容器边缘，从而实现自动滚动。
 ```text
@@ -116,4 +116,4 @@ struct <span style="color: rgb(0,0,255);">TextAreaPage </span><span style="color
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/GyYExA28RWeM8_tlZR-h_Q/zh-cn_image_0000002628763642.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012748Z&HW-CC-Expire=86400&HW-CC-Sign=DA18C771AD89A62E115B27F782271A785B672F1FB3ED65902CD99F29783F2B44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/GyYExA28RWeM8_tlZR-h_Q/zh-cn_image_0000002628763642.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=C53443D04D2F1FA9A72277FCFF5D79F5B387F90E0538BC37ECAE192875CF2087)

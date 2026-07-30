@@ -1,14 +1,14 @@
 # ArcScrollBar
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-arcscrollbar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-弧形滚动条组件ArcScrollBar，用于配合可滚动组件使用，如[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)、[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)。
+弧形滚动条组件ArcScrollBar，适用于圆形屏幕等需要弧形滚动条的场景，用于配合可滚动组件使用，如[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)、[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)。
  
 > [!NOTE]
-> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 ArcScrollBar不设置宽高时，采用父组件 LayoutConstraint 中的maxSize作为宽高。如果ArcScrollBar的父组件存在可滚动组件，如 ArcList 、 List 、 Grid 、 Scroll 、 WaterFlow ，建议设置ArcScrollBar宽高，否则ArcScrollBar的宽高可能为无穷大。 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 未设置宽高时，ArcScrollBar采用父组件 LayoutConstraint 中的maxSize作为尺寸。若父组件存在可滚动组件，如 ArcList 、 List 、 Grid 、 Scroll 、 WaterFlow ，建议设置ArcScrollBar宽高，否则尺寸可能为无穷大。 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
 
   
 
@@ -36,7 +36,7 @@ ArcScrollBar的构造函数。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ArcScrollBarOptions | 是 | 滚动条组件参数。 |
+| options | ArcScrollBarOptions | 是 | ArcScrollBar的配置参数，用于指定绑定的可滚动组件控制器和滚动条状态。 |
  
  
   
@@ -53,8 +53,8 @@ ArcScrollBar的构造函数参数。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scroller | Scroller | 否 | 否 | 可滚动组件的控制器，用于与可滚动组件进行绑定。 |
-| state | BarState | 否 | 是 | 滚动条状态。 默认值：BarState.Auto |
+| scroller | Scroller | 否 | 否 | 可滚动组件的控制器，用于与可滚动组件进行绑定。设置前需先创建Scroller对象，并传入对应可滚动组件。 |
+| state | BarState | 否 | 是 | 滚动条状态，取值包括BarState.Off（0，不显示）、BarState.Auto（1，按需显示，触摸时显示，2s后消失）、BarState.On（2，常驻显示）。 默认值：BarState.Auto |
  
  
 > [!NOTE]
@@ -108,4 +108,4 @@ struct ArcScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/GH8pVXxGTHi6cpVe6bTj1A/zh-cn_image_0000002628862394.png?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=992915F72CF63B453D7316FC1F2E81F4B2E9F90225D32D123308E45AAA4AB2BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/dA9YSOp4RA6zu-L45RCU7w/zh-cn_image_0000002686087963.png?HW-CC-KV=V1&HW-CC-Date=20260730T071502Z&HW-CC-Expire=86400&HW-CC-Sign=6496EF6FB354E707C68E00DFF9B72179C7FC6BBF8DF1D97A1348C5A5BA391E40)

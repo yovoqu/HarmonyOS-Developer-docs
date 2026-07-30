@@ -1,6 +1,6 @@
 # @ohos.bluetooth.ble (蓝牙ble模块)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -34,6 +34,8 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | constant.ProfileConnectionState | 蓝牙设备的profile连接状态。 |
@@ -51,9 +53,34 @@ type BluetoothAddress = common.BluetoothAddress
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | common.BluetoothAddress | 蓝牙设备的地址信息。 |
+
+
+
+
+#### BluetoothTransport
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type BluetoothTransport = connection.BluetoothTransport
+
+表示远端设备的传输类型。
+
+**起始版本**：26.0.0
+
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| connection.BluetoothTransport | 远程设备的传输类型。 |
 
 
 
@@ -73,14 +100,16 @@ createGattServer(): GattServer
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
 | GattServer | 返回一个Gatt服务的实例。 |
 
 
-**示例：**
+**示例**：
 
 ```text
 let gattServer: ble.GattServer = ble.createGattServer();
@@ -97,6 +126,7 @@ createGattClientDevice(deviceId: string): GattClientDevice
 
 创建[GattClientDevice](#gattclientdevice)实例，表示GATT连接中的client端。
 
+ - 该接口仅支持BLE传输类型，若需自定义传输类型[BluetoothTransport](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#bluetoothtransport)，可使用[createGattClientDevice](#blecreategattclientdevice-1)。
  - 通过该实例可以操作client端行为，如调用[connect](#connect)向对端设备发起连接，调用[getServices](#getservices)获取对端设备支持的所有服务能力。
  - 创建该实例所需要的设备地址表示server端设备。可以通过[ble.startBLEScan](#blestartblescan)或[BleScanner](#blescanner15)的[startScan](#startscan15)接口获取server端设备地址，且需保证server端设备的BLE广播是可连接的。
 
@@ -105,14 +135,16 @@ createGattClientDevice(deviceId: string): GattClientDevice
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 对端设备地址， 例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -129,11 +161,72 @@ createGattClientDevice(deviceId: string): GattClientDevice
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 try {
     let device: ble.GattClientDevice = ble.createGattClientDevice('XX:XX:XX:XX:XX:XX');
+} catch (err) {
+    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);
+}
+```
+
+
+
+#### ble.createGattClientDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createGattClientDevice(deviceId: string, setting: GattSetting): GattClientDevice
+
+创建[GattClientDevice](#gattclientdevice)实例，表示GATT连接中的client端，可通过[GattSetting](#gattsetting)设置GATT连接参数。
+
+ - 通过该实例可以操作client端行为，如调用[connect](#connect)向对端设备发起连接，调用[getServices](#getservices)获取对端设备支持的所有服务能力。
+ - 创建该实例所需要的设备地址表示server端设备。可以通过[ble.startBLEScan](#blestartblescan)或[BleScanner](#blescanner15)的[startScan](#startscan15)接口获取server端设备地址，且需保证server端设备的BLE广播是可连接的。
+
+
+**起始版本**：26.0.0
+
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| deviceId | string | 是 | 对端设备的MAC地址，例如："XX:XX:XX:XX:XX:XX"。 |
+| setting | GattSetting | 是 | GATT连接设置。 |
+
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| GattClientDevice | GATT客户端类，使用client端方法之前需要创建该类的实例进行操作。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. Failed to call the API because the short-range chip is not inserted on the 2in1 device. |
+
+
+**示例**：
+
+```text
+import { connection } from '@kit.ConnectivityKit';
+try {
+    let setting: ble.GattSetting = {
+        autoConnect: true,
+        transport: connection.BluetoothTransport.TRANSPORT_LE
+    };
+    let device: ble.GattClientDevice = ble.createGattClientDevice('XX:XX:XX:XX:XX:XX', setting);
 } catch (err) {
     console.error(`errCode: ${err.code}, errMessage: ${err.message}`);
 }
@@ -152,11 +245,17 @@ getConnectedBLEDevices(): Array&lt;string&gt;
  - 建议给server端使用，client端使用返回的设备地址集合为空。
 
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -176,7 +275,7 @@ getConnectedBLEDevices(): Array&lt;string&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 try {
@@ -201,18 +300,24 @@ getConnectedBLEDevices(profile: BleProfile): Array&lt;string&gt;
  - 若指定本机设备同时作为client端和server端，则返回与本机设备连接的所有client端和server端设备地址集合。
 
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本21-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | profile | BleProfile | 是 | 当前设备的Profile协议类型，表明该设备在GATT链路中的通信角色。 - GATT_CLIENT表示指定本机设备为client端角色，与其建立GATT连接的所有对端设备为server端角色。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -232,7 +337,7 @@ getConnectedBLEDevices(profile: BleProfile): Array&lt;string&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 try {
@@ -263,7 +368,9 @@ startBLEScan(filters: Array&lt;ScanFilter&gt;, options?: ScanOptions): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -285,7 +392,7 @@ startBLEScan(filters: Array&lt;ScanFilter&gt;, options?: ScanOptions): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { common } from '@kit.ConnectivityKit';
@@ -337,6 +444,8 @@ stopBLEScan(): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -350,7 +459,7 @@ stopBLEScan(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 try {
@@ -374,8 +483,10 @@ startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?
  - 同步接口，不要和API version 11的[ble.stopAdvertising](#blestopadvertising11)搭配使用。
 
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+**需要权限**：
 
+ - API版本23+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+ - API版本10-22：ohos.permission.ACCESS_BLUETOOTH
  - 当应用使用[AdvertiseData](#advertisedata)中的advertiseName字段时，需要申请[ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_bluetooth_advertiser_name)。
 
 
@@ -383,7 +494,9 @@ startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -403,12 +516,12 @@ startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
-| 2900010 | The number of advertising resources reaches the upper limit. |
+| 2900010 | The number of advertising resources reaches the upper limit. 适用版本：20+ |
 | 2900099 | Operation failed. |
-| 2902054 | The length of the advertising data exceeds the upper limit. |
+| 2902054 | The length of the advertising data exceeds the upper limit. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -428,7 +541,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -477,6 +591,8 @@ stopAdvertising(): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -490,7 +606,7 @@ stopAdvertising(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 try {
@@ -516,14 +632,18 @@ startAdvertising(advertisingParams: AdvertisingParams, callback: AsyncCallback&l
  - 当应用不再需要该广播时，需调用API version 11开始支持的[ble.stopAdvertising](#blestopadvertising11)完全停止该广播，不要与API version 10开始支持的[ble.stopAdvertising](#blestopadvertising)混用。
 
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+**需要权限**：
 
+ - API版本23+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+ - API版本11-22：ohos.permission.ACCESS_BLUETOOTH
  - 当使用[AdvertiseData](#advertisedata)中的advertiseName字段时，需要同步申请[ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_bluetooth_advertiser_name)。
 
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -542,12 +662,12 @@ startAdvertising(advertisingParams: AdvertisingParams, callback: AsyncCallback&l
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
-| 2900010 | The number of advertising resources reaches the upper limit. |
+| 2900010 | The number of advertising resources reaches the upper limit. 适用版本：20+ |
 | 2900099 | Operation failed. |
-| 2902054 | The length of the advertising data exceeds the upper limit. |
+| 2902054 | The length of the advertising data exceeds the upper limit. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -568,6 +688,7 @@ try {
         interval:150,
         txPower:0,
         connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -625,21 +746,25 @@ startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
  - 当应用不再需要该广播时，需调用API version 11开始支持的[ble.stopAdvertising](#blestopadvertising11-1)完全停止该广播，不要与API version 10开始支持的[ble.stopAdvertising](#blestopadvertising)混用。
 
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+**需要权限**：
 
+ - API版本23+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+ - API版本11-22：ohos.permission.ACCESS_BLUETOOTH
  - 当使用[AdvertiseData](#advertisedata)中的advertiseName字段时，需要同步申请[ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_bluetooth_advertiser_name)。
 
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | advertisingParams | AdvertisingParams | 是 | 启动BLE广播的相关参数。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -657,12 +782,12 @@ startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
-| 2900010 | The number of advertising resources reaches the upper limit. |
+| 2900010 | The number of advertising resources reaches the upper limit. 适用版本：20+ |
 | 2900099 | Operation failed. |
-| 2902054 | The length of the advertising data exceeds the upper limit. |
+| 2902054 | The length of the advertising data exceeds the upper limit. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -682,7 +807,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -740,7 +866,9 @@ enableAdvertising(advertisingEnableParams: AdvertisingEnableParams, callback: As
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -760,10 +888,10 @@ enableAdvertising(advertisingEnableParams: AdvertisingEnableParams, callback: As
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
 | 2900099 | Operation failed. |
-| 2902055 | Invalid advertising id. |
+| 2902055 | Invalid advertising id. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -783,7 +911,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -855,14 +984,16 @@ enableAdvertising(advertisingEnableParams: AdvertisingEnableParams): Promise&lt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | advertisingEnableParams | AdvertisingEnableParams | 是 | 临时启动BLE广播的相关参数。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -881,10 +1012,10 @@ enableAdvertising(advertisingEnableParams: AdvertisingEnableParams): Promise&lt;
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
 | 2900099 | Operation failed. |
-| 2902055 | Invalid advertising id. |
+| 2902055 | Invalid advertising id. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -904,7 +1035,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -974,7 +1106,9 @@ disableAdvertising(advertisingDisableParams: AdvertisingDisableParams, callback:
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -994,10 +1128,10 @@ disableAdvertising(advertisingDisableParams: AdvertisingDisableParams, callback:
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
 | 2900099 | Operation failed. |
-| 2902055 | Invalid advertising id. |
+| 2902055 | Invalid advertising id. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -1017,7 +1151,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -1085,14 +1220,16 @@ disableAdvertising(advertisingDisableParams: AdvertisingDisableParams): Promise&
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | advertisingDisableParams | AdvertisingDisableParams | 是 | 临时关闭BLE广播的相关参数。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1111,10 +1248,10 @@ disableAdvertising(advertisingDisableParams: AdvertisingDisableParams): Promise&
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
 | 2900099 | Operation failed. |
-| 2902055 | Invalid advertising id. |
+| 2902055 | Invalid advertising id. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -1134,7 +1271,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -1202,7 +1340,9 @@ stopAdvertising(advertisingId: number, callback: AsyncCallback&lt;void&gt;): voi
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1222,10 +1362,10 @@ stopAdvertising(advertisingId: number, callback: AsyncCallback&lt;void&gt;): voi
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
 | 2900099 | Operation failed. |
-| 2902055 | Invalid advertising id. |
+| 2902055 | Invalid advertising id. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -1245,7 +1385,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -1311,14 +1452,16 @@ stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | advertisingId | number | 是 | 需要停止的广播ID标识。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1337,10 +1480,10 @@ stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
 | 2900099 | Operation failed. |
-| 2902055 | Invalid advertising id. |
+| 2902055 | Invalid advertising id. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 let manufactureValueBuffer = new Uint8Array(4);
@@ -1360,7 +1503,8 @@ try {
     let setting: ble.AdvertiseSetting = {
         interval:150,
         txPower:0,
-        connectable:true
+        connectable:true,
+        isExtended:false
     };
     let manufactureDataUnit: ble.ManufactureData = {
         manufactureId:4567,
@@ -1419,7 +1563,9 @@ on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeI
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1439,7 +1585,7 @@ on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeI
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -1467,7 +1613,9 @@ off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChang
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1487,7 +1635,7 @@ off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChang
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -1512,13 +1660,19 @@ on(type: 'BLEDeviceFind', callback: Callback<Array&lt;ScanResult&gt;>): void
 
 订阅BLE设备扫描结果上报事件。使用Callback异步回调。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1533,12 +1687,12 @@ on(type: 'BLEDeviceFind', callback: Callback<Array&lt;ScanResult&gt;>): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -1571,7 +1725,9 @@ off(type: 'BLEDeviceFind', callback?: Callback<Array&lt;ScanResult&gt;>): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1591,7 +1747,7 @@ off(type: 'BLEDeviceFind', callback?: Callback<Array&lt;ScanResult&gt;>): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -1635,7 +1791,9 @@ server端添加服务。该操作会在蓝牙子系统中注册该服务，表�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1656,7 +1814,7 @@ server端添加服务。该操作会在蓝牙子系统中注册该服务，表�
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -1709,7 +1867,9 @@ removeService(serviceUuid: string): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1731,7 +1891,7 @@ removeService(serviceUuid: string): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -1753,17 +1913,17 @@ removeAllServices(): void
 
 删除Server端所有服务。
 
-**起始版本：** 26.0.0
+**起始版本**：26.0.0
 
-**需要权限：** ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
 
-**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Communication.Bluetooth.Core
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**错误码：**
+**错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
 
@@ -1776,7 +1936,7 @@ removeAllServices(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 let server: ble.GattServer = ble.createGattServer();
@@ -1805,14 +1965,16 @@ getService(serviceUuid: string): GattService
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | serviceUuid | string | 是 | 需要获取的服务的UUID。例如：00001810-0000-1000-8000-00805F9B34FB。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1833,7 +1995,7 @@ getService(serviceUuid: string): GattService
 | 2901008 | Gatt service is not found. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1867,7 +2029,9 @@ server端获取本端已添加的服务能力。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1887,7 +2051,7 @@ server端获取本端已添加的服务能力。
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1919,6 +2083,8 @@ close(): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -1932,7 +2098,7 @@ close(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -1941,6 +2107,119 @@ try {
     server.close();
 } catch (err) {
     console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+}
+```
+
+
+
+#### connect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+connect(deviceId: string, autoConnect?: boolean): void
+
+调用方充当GATT客户端，发起和远端BLE设备连接，通过参数autoConnect设置是否直接连接到远端设备或者在远端设备可用时自动重连。
+
+ - 若要实现在远端设备可用时自动重连（即[autoConnect](#gattsetting)为true），需保证client端[createGattClientDevice](#blecreategattclientdevice-1)发起连接，并设置[autoConnect](#gattsetting)为true。
+ - server端可通过订阅[on('BLEConnectionStateChange')](#onbleconnectionstatechange)事件感知连接状态。
+ - 当server端想要断开连接时，可主动调用[disconnect](#disconnect)。
+
+
+**起始版本**：26.0.0
+
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| deviceId | string | 是 | 对端设备的MAC地址，例如："XX:XX:XX:XX:XX:XX"。 |
+| autoConnect | boolean | 否 | 是否直接连接到远端设备或者在远端设备可用时自动连接。true表示在远端设备可用时自动连接，false表示直接连接到远端设备。默认值为false。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 801 | Capability not supported. Failed to call the API because the short-range chip is not inserted on the 2in1 device. |
+| 2900001 | Service stopped. |
+| 2900003 | Bluetooth disabled. |
+| 2900099 | Operation failed. |
+
+
+**示例**：
+
+```text
+try {
+    let gattServer: ble.GattServer = ble.createGattServer();
+    let deviceId: string = 'XX:XX:XX:XX:XX:XX';
+    let autoConnect: boolean = true;
+    gattServer.connect(deviceId, autoConnect);
+} catch (err) {
+    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);
+}
+```
+
+
+
+#### disconnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+disconnect(deviceId: string): void
+
+调用方充当GATT客户端，主动发起与远端设备断连，或停止正在进行的连接。
+
+可通过订阅[on('BLEConnectionStateChange')](#onbleconnectionstatechange)事件来感知连接状态。
+
+**起始版本**：26.0.0
+
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| deviceId | string | 是 | 对端设备的MAC地址，例如："XX:XX:XX:XX:XX:XX"。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 801 | Capability not supported. Failed to call the API because the short-range chip is not inserted on the 2in1 device. |
+| 2900001 | Service stopped. |
+| 2900003 | Bluetooth disabled. |
+| 2900099 | Operation failed. |
+
+
+**示例**：
+
+```text
+try {
+    let gattServer: ble.GattServer = ble.createGattServer();
+    let deviceId: string = 'XX:XX:XX:XX:XX:XX';
+    gattServer.disconnect(deviceId);
+} catch (err) {
+    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);
 }
 ```
 
@@ -1966,7 +2245,9 @@ server端发送特征值变化通知或者指示给client端。使用Callback异
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1989,7 +2270,7 @@ server端发送特征值变化通知或者指示给client端。使用Callback异
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2035,7 +2316,9 @@ server端发送特征值变化通知或者指示给对端设备。使用Promise�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2043,7 +2326,7 @@ server端发送特征值变化通知或者指示给对端设备。使用Promise�
 | notifyCharacteristic | NotifyCharacteristic | 是 | 通知给client的特征值数据对象。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2064,7 +2347,7 @@ server端发送特征值变化通知或者指示给对端设备。使用Promise�
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2109,7 +2392,9 @@ client请求是指通过下述接口订阅回调收到的请求消息：
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2130,7 +2415,7 @@ client请求是指通过下述接口订阅回调收到的请求消息：
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2163,13 +2448,19 @@ on(type: 'characteristicRead', callback: Callback&lt;CharacteristicReadRequest&g
 
 server端订阅client的特征值读请求事件，server端收到该事件后需要调用[sendResponse](#sendresponse)接口回复client。使用Callback异步回调。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2184,11 +2475,11 @@ server端订阅client的特征值读请求事件，server端收到该事件后�
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2229,7 +2520,9 @@ server端取消订阅client的特征值读请求事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2248,7 +2541,7 @@ server端取消订阅client的特征值读请求事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2270,13 +2563,19 @@ on(type: 'characteristicWrite', callback: Callback&lt;CharacteristicWriteRequest
 
 server端订阅client的特征值写请求事件，server端收到该事件后需要根据[CharacteristicWriteRequest](#characteristicwriterequest)中的needRsp决定是否调用[sendResponse](#sendresponse)接口回复client。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2291,11 +2590,11 @@ server端订阅client的特征值写请求事件，server端收到该事件后�
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2339,7 +2638,9 @@ server端取消订阅client的特征值写请求事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2358,7 +2659,7 @@ server端取消订阅client的特征值写请求事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2380,13 +2681,19 @@ on(type: 'descriptorRead', callback: Callback&lt;DescriptorReadRequest&gt;): voi
 
 server端订阅client的描述符读请求事件，server端收到该事件后需要调用[sendResponse](#sendresponse)接口回复client。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2401,11 +2708,11 @@ server端订阅client的描述符读请求事件，server端收到该事件后�
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2446,7 +2753,9 @@ server端取消订阅client的描述符读请求事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2465,7 +2774,7 @@ server端取消订阅client的描述符读请求事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2487,13 +2796,19 @@ on(type: 'descriptorWrite', callback: Callback&lt;DescriptorWriteRequest&gt;): v
 
 server端订阅client的描述符写请求事件，server端收到该事件后需要根据[DescriptorWriteRequest](#descriptorwriterequest)里的needRsp决定是否调用[sendResponse](#sendresponse)接口回复client。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2508,11 +2823,11 @@ server端订阅client的描述符写请求事件，server端收到该事件后�
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2556,7 +2871,9 @@ server端取消订阅client的描述符写请求事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2575,7 +2892,7 @@ server端取消订阅client的描述符写请求事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2597,13 +2914,19 @@ on(type: 'connectionStateChange', callback: Callback&lt;BLEConnectionChangeState
 
 server端订阅GATT profile协议的连接状态变化事件。使用Callback异步回调。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2618,11 +2941,11 @@ server端订阅GATT profile协议的连接状态变化事件。使用Callback异
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { constant } from '@kit.ConnectivityKit';
@@ -2655,7 +2978,9 @@ server端取消订阅GATT profile协议的连接状态变化事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2674,7 +2999,7 @@ server端取消订阅GATT profile协议的连接状态变化事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2700,7 +3025,9 @@ server端订阅MTU（最大传输单元）大小变更事件。使用Callback异
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2719,7 +3046,7 @@ server端订阅MTU（最大传输单元）大小变更事件。使用Callback异
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2747,7 +3074,9 @@ server端取消订阅MTU（最大传输单元）大小变更事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2766,7 +3095,7 @@ server端取消订阅MTU（最大传输单元）大小变更事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -2792,14 +3121,16 @@ getConnectedState(deviceId: string): ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 要查询连接状态的对端蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2819,7 +3150,7 @@ getConnectedState(deviceId: string): ProfileConnectionState
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2852,14 +3183,14 @@ readPhy(deviceId: string): Promise&lt;PhyValue&gt;
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 需要传输数据的client端蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2879,7 +3210,7 @@ readPhy(deviceId: string): Promise&lt;PhyValue&gt;
 | 2901003 | The connection is not established. |
 
 
-**示例：**
+**示例**：
 
 ```text
 let gattServer: ble.GattServer = ble.createGattServer();
@@ -2913,7 +3244,7 @@ server端设置和指定设备连接链路的物理通道类型。使用Promise�
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2921,7 +3252,7 @@ server端设置和指定设备连接链路的物理通道类型。使用Promise�
 | phyValue | PhyValue | 是 | 连接链路的物理通道类型配置参数。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2941,7 +3272,7 @@ server端设置和指定设备连接链路的物理通道类型。使用Promise�
 | 2901003 | The connection is not established. |
 
 
-**示例：**
+**示例**：
 
 ```text
 let gattServer: ble.GattServer = ble.createGattServer();
@@ -2973,7 +3304,7 @@ onBlePhyUpdate(callback: Callback&lt;PhyValue&gt;): void
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2990,7 +3321,7 @@ onBlePhyUpdate(callback: Callback&lt;PhyValue&gt;): void
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 function BlePhyCallback(data:ble.PhyValue) {
@@ -3020,7 +3351,7 @@ offBlePhyUpdate(callback?: Callback&lt;PhyValue&gt;): void
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3037,7 +3368,7 @@ offBlePhyUpdate(callback?: Callback&lt;PhyValue&gt;): void
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 function BlePhyCallback(data:ble.PhyValue) {
@@ -3083,6 +3414,8 @@ client端主动发起和server蓝牙设备的GATT协议连接。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -3096,7 +3429,7 @@ client端主动发起和server蓝牙设备的GATT协议连接。
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3127,6 +3460,8 @@ client断开与远端蓝牙低功耗设备的连接。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -3140,7 +3475,7 @@ client断开与远端蓝牙低功耗设备的连接。
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3168,6 +3503,8 @@ close(): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -3181,7 +3518,7 @@ close(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3209,7 +3546,9 @@ client获取server端设备名称。使用Callback异步回调。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3229,7 +3568,7 @@ client获取server端设备名称。使用Callback异步回调。
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { ble, constant } from '@kit.ConnectivityKit';
@@ -3269,7 +3608,9 @@ client获取远端蓝牙低功耗设备的名称。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3289,7 +3630,7 @@ client获取远端蓝牙低功耗设备的名称。使用Promise异步回调。
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { ble, constant } from '@kit.ConnectivityKit';
@@ -3339,7 +3680,9 @@ client获取server端支持的所有服务能力，即服务发现流程。使�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3359,7 +3702,7 @@ client获取server端支持的所有服务能力，即服务发现流程。使�
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { ble, constant } from '@kit.ConnectivityKit';
@@ -3408,7 +3751,9 @@ client端获取蓝牙低功耗设备的所有服务，即服务发现。使用Pr
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3428,7 +3773,7 @@ client端获取蓝牙低功耗设备的所有服务，即服务发现。使用Pr
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { ble, constant } from '@kit.ConnectivityKit';
@@ -3472,9 +3817,9 @@ client端从指定的server端特征值读取数据。使用Callback异步回调
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3492,17 +3837,17 @@ client端从指定的server端特征值读取数据。使用Callback异步回调
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901000 | Read forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3560,14 +3905,14 @@ client端从指定的server端特征值读取数据。使用Promise异步回调�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | characteristic | BLECharacteristic | 是 | 需要读取的特征值。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3584,17 +3929,17 @@ client端从指定的server端特征值读取数据。使用Promise异步回调�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901000 | Read forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3643,7 +3988,7 @@ client端从指定的server端描述符读取数据。使用Callback异步回调
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3661,17 +4006,17 @@ client端从指定的server端描述符读取数据。使用Callback异步回调
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901000 | Read forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3722,14 +4067,14 @@ client端从指定的server端描述符读取数据。使用Promise异步回调�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | descriptor | BLEDescriptor | 是 | 需要读取的描述符。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3746,17 +4091,17 @@ client端从指定的server端描述符读取数据。使用Promise异步回调�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901000 | Read forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3798,7 +4143,9 @@ client端向指定的server端特征值写入数据。使用Callback异步回调
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3817,17 +4164,17 @@ client端向指定的server端特征值写入数据。使用Callback异步回调
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901001 | Write forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3881,7 +4228,9 @@ client端向指定的server端特征值写入数据。使用Promise异步回调�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3889,7 +4238,7 @@ client端向指定的server端特征值写入数据。使用Promise异步回调�
 | writeType | GattWriteType | 是 | 写入特征值的方式。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3906,17 +4255,17 @@ client端向指定的server端特征值写入数据。使用Promise异步回调�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901001 | Write forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -3965,7 +4314,9 @@ client端向指定的server端描述符写入数据。使用Callback异步回调
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3983,17 +4334,17 @@ client端向指定的server端描述符写入数据。使用Callback异步回调
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901001 | Write forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4042,14 +4393,16 @@ client端向指定的server端描述符写入数据。使用Promise异步回调�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | descriptor | BLEDescriptor | 是 | 需要写入的描述符，包含写入的数据内容。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4066,17 +4419,17 @@ client端向指定的server端描述符写入数据。使用Promise异步回调�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
 | 2901001 | Write forbidden. |
-| 2901003 | The connection is not established. |
-| 2901004 | The connection is congested. |
-| 2901005 | The connection is not encrypted. |
-| 2901006 | The connection is not authenticated. |
-| 2901007 | The connection is not authorized. |
+| 2901003 | The connection is not established. 适用版本：20+ |
+| 2901004 | The connection is congested. 适用版本：20+ |
+| 2901005 | The connection is not encrypted. 适用版本：20+ |
+| 2901006 | The connection is not authenticated. 适用版本：20+ |
+| 2901007 | The connection is not authorized. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4118,7 +4471,9 @@ client端获取GATT连接链路信号强度 (Received Signal Strength Indication
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4134,11 +4489,12 @@ client端获取GATT连接链路信号强度 (Received Signal Strength Indication
 | 201 | Permission denied. |
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20-21 |
 | 2900099 | Operation failed. |
-| 2901003 | The connection is not established. |
+| 2901003 | The connection is not established. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4174,7 +4530,9 @@ client端获取GATT连接链路信号强度 (Received Signal Strength Indication
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4190,11 +4548,12 @@ client端获取GATT连接链路信号强度 (Received Signal Strength Indication
 | 201 | Permission denied. |
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20-21 |
 | 2900099 | Operation failed. |
-| 2901003 | The connection is not established. |
+| 2901003 | The connection is not established. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4230,7 +4589,9 @@ client端同server端协商[MTU](https://developer.huawei.com/consumer/cn/doc/ha
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4250,7 +4611,7 @@ client端同server端协商[MTU](https://developer.huawei.com/consumer/cn/doc/ha
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4259,6 +4620,71 @@ try {
     device.setBLEMtuSize(128);
 } catch (err) {
     console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+}
+```
+
+
+
+#### setBLEMtu
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setBLEMtu(mtu: number): Promise&lt;number&gt;
+
+client端同server端协商[MTU](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#mtu)（最大传输单元）大小。
+
+ - 需先调用[connect](#connect-1)方法，等GATT profile连接成功后才能使用。
+ - 需保证入参符合取值范围，不在取值范围内会直接返回异常。
+ - 如果未协商，MTU大小默认为23字节。
+
+
+**起始版本**：26.0.0
+
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| mtu | number | 是 | 需要协商的mtu大小，取值范围：[23, 517]，单位：Byte。 |
+
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;number&gt; | Promise对象，返回实际协商成功的Mtu结果，单位：Byte。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 801 | Capability not supported. |
+| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900099 | Operation failed. |
+| 2901003 | The connection is not established. |
+
+
+**示例**：
+
+```text
+try {
+    let device: ble.GattClientDevice = ble.createGattClientDevice('XX:XX:XX:XX:XX:XX');
+    device.setBLEMtu(128).then(outMtuSize => {
+        console.info('实际设置的mtu：' + outMtuSize);
+    });
+} catch (err) {
+    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);
 }
 ```
 
@@ -4287,7 +4713,9 @@ client端启用或者禁用接收server端特征值内容变更通知的能力�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4306,12 +4734,12 @@ client端启用或者禁用接收server端特征值内容变更通知的能力�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
-| 2901003 | The connection is not established. |
+| 2901003 | The connection is not established. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4366,7 +4794,9 @@ client端启用或者禁用接收server端特征值内容变更通知的能力�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4374,7 +4804,7 @@ client端启用或者禁用接收server端特征值内容变更通知的能力�
 | enable | boolean | 是 | 是否启用接收server端特征值通知的能力。 true表示启用，false表示禁用。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4391,12 +4821,12 @@ client端启用或者禁用接收server端特征值内容变更通知的能力�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
-| 2901003 | The connection is not established. |
+| 2901003 | The connection is not established. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4445,7 +4875,9 @@ client端启用或者禁用接收server端特征值内容变更指示的能力�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4464,12 +4896,12 @@ client端启用或者禁用接收server端特征值内容变更指示的能力�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
-| 2901003 | The connection is not established. |
+| 2901003 | The connection is not established. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4524,7 +4956,9 @@ client端启用或者禁用接收server端特征值内容变更指示的能力�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4532,7 +4966,7 @@ client端启用或者禁用接收server端特征值内容变更指示的能力�
 | enable | boolean | 是 | 是否启用接收server端特征值指示的能力。 true表示启用，false表示禁用。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4549,12 +4983,12 @@ client端启用或者禁用接收server端特征值内容变更指示的能力�
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
-| 2900011 | The operation is busy. The last operation is not complete. |
+| 2900011 | The operation is busy. The last operation is not complete. 适用版本：20+ |
 | 2900099 | Operation failed. |
-| 2901003 | The connection is not established. |
+| 2901003 | The connection is not established. 适用版本：20+ |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4597,7 +5031,9 @@ client端订阅server端特征值变化事件。使用Callback异步回调。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4616,7 +5052,7 @@ client端订阅server端特征值变化事件。使用Callback异步回调。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4649,7 +5085,9 @@ client端取消订阅server端特征值变化事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4668,7 +5106,7 @@ client端取消订阅server端特征值变化事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4696,7 +5134,9 @@ client端订阅GATT profile协议的连接状态变化事件。使用Callback异
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4715,7 +5155,7 @@ client端订阅GATT profile协议的连接状态变化事件。使用Callback异
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4747,7 +5187,9 @@ client端取消订阅GATT profile协议的连接状态变化事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4766,7 +5208,7 @@ client端取消订阅GATT profile协议的连接状态变化事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4794,7 +5236,9 @@ client端订阅MTU（最大传输单元）大小变更事件。使用Callback异
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4813,7 +5257,7 @@ client端订阅MTU（最大传输单元）大小变更事件。使用Callback异
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4843,7 +5287,9 @@ client端取消订阅MTU（最大传输单元）大小变更事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4862,7 +5308,7 @@ client端取消订阅MTU（最大传输单元）大小变更事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -4892,7 +5338,9 @@ client端设备订阅server端设备服务变化的通知事件，使用Callback
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4910,7 +5358,7 @@ client端设备订阅server端设备服务变化的通知事件，使用Callback
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -4944,7 +5392,9 @@ client端设备取消订阅server端设备服务变化的通知事件。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4962,7 +5412,7 @@ client端设备取消订阅server端设备服务变化的通知事件。
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -4993,7 +5443,9 @@ getConnectedState(): ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -5013,7 +5465,7 @@ getConnectedState(): ProfileConnectionState
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -5043,14 +5495,16 @@ updateConnectionParam(param: ConnectionParam): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | param | ConnectionParam | 是 | 连接参数类型。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -5071,7 +5525,7 @@ updateConnectionParam(param: ConnectionParam): Promise&lt;void&gt;
 | 2901003 | The connection is not established. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -5102,7 +5556,7 @@ readPhy(): Promise&lt;PhyValue&gt;
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -5122,7 +5576,7 @@ readPhy(): Promise&lt;PhyValue&gt;
 | 2901003 | The connection is not established. |
 
 
-**示例：**
+**示例**：
 
 ```text
 let gattClient: ble.GattClientDevice = ble.createGattClientDevice('XX:XX:XX:XX:XX:XX');
@@ -5155,14 +5609,14 @@ client端设置连接链路的物理通道类型。使用Promise异步回调。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | phyValue | PhyValue | 是 | 连接链路的物理通道类型配置参数。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -5182,7 +5636,7 @@ client端设置连接链路的物理通道类型。使用Promise异步回调。
 | 2901003 | The connection is not established. |
 
 
-**示例：**
+**示例**：
 
 ```text
 let gattClient: ble.GattClientDevice = ble.createGattClientDevice('XX:XX:XX:XX:XX:XX');
@@ -5213,7 +5667,7 @@ onBlePhyUpdate(callback: Callback&lt;PhyValue&gt;): void
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5230,7 +5684,7 @@ onBlePhyUpdate(callback: Callback&lt;PhyValue&gt;): void
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 function BlePhyCallback(data:ble.PhyValue) {
@@ -5260,7 +5714,7 @@ offBlePhyUpdate(callback?: Callback&lt;PhyValue&gt;): void
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5277,7 +5731,7 @@ offBlePhyUpdate(callback?: Callback&lt;PhyValue&gt;): void
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```text
 function BlePhyCallback(data:ble.PhyValue) {
@@ -5305,14 +5759,16 @@ createBleScanner(): BleScanner
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
 | BleScanner | 返回一个BleScanner的实例。 |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -5354,7 +5810,9 @@ startScan(filters: Array&lt;ScanFilter&gt;, options?: ScanOptions): Promise&lt;v
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5362,7 +5820,7 @@ startScan(filters: Array&lt;ScanFilter&gt;, options?: ScanOptions): Promise&lt;v
 | options | ScanOptions | 否 | 扫描的配置参数。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -5385,7 +5843,7 @@ startScan(filters: Array&lt;ScanFilter&gt;, options?: ScanOptions): Promise&lt;v
 | 2902050 | Failed to start scan as Ble scan is already started by the app. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -5434,7 +5892,9 @@ stopScan(): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -5454,7 +5914,7 @@ stopScan(): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -5478,13 +5938,19 @@ on(type: 'BLEDeviceFind', callback: Callback&lt;ScanReport&gt;): void
 
 订阅BLE设备扫描结果上报事件。使用Callback异步回调。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本15-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 15开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5499,12 +5965,12 @@ on(type: 'BLEDeviceFind', callback: Callback&lt;ScanReport&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：15-24 |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -5539,7 +6005,9 @@ off(type: 'BLEDeviceFind', callback?: Callback&lt;ScanReport&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5559,7 +6027,7 @@ off(type: 'BLEDeviceFind', callback?: Callback&lt;ScanReport&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
@@ -5588,6 +6056,8 @@ GATT服务结构定义，可包含多个特征值[BLECharacteristic](#blecharact
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | serviceUuid | string | 否 | 否 | 服务UUID，标识一个GATT服务。例如：00001888-0000-1000-8000-00805f9b34fb。 |
@@ -5605,6 +6075,8 @@ GATT服务结构定义，可包含多个特征值[BLECharacteristic](#blecharact
 GATT特征值结构定义，是服务[GattService](#gattservice)的核心数据单元。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5626,6 +6098,8 @@ GATT特征值结构定义，是服务[GattService](#gattservice)的核心数据�
 GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)的数据单元，用于描述特征值的附加信息和属性。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5649,6 +6123,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | serviceUuid | string | 否 | 否 | 特征值所属的服务UUID。例如：00001888-0000-1000-8000-00805f9b34fb。 |
@@ -5668,6 +6144,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5689,6 +6167,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5714,6 +6194,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | client端蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。 |
@@ -5735,6 +6217,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5761,6 +6245,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | client端蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。 |
@@ -5780,11 +6266,14 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 对端蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | state | ProfileConnectionState | 否 | 否 | GATT profile连接状态。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | reason20+ | GattDisconnectReason | 否 | 是 | GATT链路断连原因，仅在连接状态为 STATE_DISCONNECTED 时提供，其他连接状态下断连原因默认为undefined。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
+| reasonMessage | string | 否 | 是 | GATT链路断连原因，仅在连接状态为 STATE_DISCONNECTED 时提供，其他连接状态下断连原因默认为undefined。例如：本端主动断开连接时，返回：0X16_LOCAL_HOST。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -5796,6 +6285,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 扫描到符合过滤条件的广播报文后，上报的扫描数据。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5823,12 +6314,14 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | interval | number | 否 | 是 | 广播发送间隔。 取值范围：[32, 16777215]，单位：slot（时间槽），一个slot代表0.625毫秒，默认值为1600。 其中传统广播的最大值是16384。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | txPower | number | 否 | 是 | 广播发送功率。取值范围：[-127, 1]，单位：dBm，默认值为-7。 考虑到发送广播的性能和功耗，建议高档取值为1，中档取为-7，低档取值为-15。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | connectable | boolean | 否 | 是 | 是否是可连接广播。true表示发送可连接广播，false表示发送不可连接广播，默认值为true。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
-| isExtended | boolean | 否 | 是 | 是否使用扩展广播。false表示使用传统广播，报文最大长度为31个字节；true表示使用扩展广播，报文最大长度由蓝牙芯片能力决定。默认值为false。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| isExtended | boolean | 否 | 是 | 是否使用扩展广播。false表示使用传统广播，报文最大长度为31个字节；true表示使用扩展广播，报文最大长度由蓝牙芯片能力决定。默认值为false。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
 
 
 
@@ -5843,6 +6336,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5862,7 +6357,11 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 首次启动BLE广播时设置的参数。
 
+蓝牙协议规定，在扩展广播模式下（即广播发送参数[isExtended](#advertisesetting)为true时），广播发送参数[connectable](#advertisesetting)和扫描回复广播报文[advResponse](#blestartadvertising)不能共存（即[connectable](#advertisesetting)为true，[advResponse](#blestartadvertising)需为空；[connectable](#advertisesetting)为false，[advResponse](#blestartadvertising)不能为空）。
+
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5882,6 +6381,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | advertisingId | number | 否 | 否 | 需要启动的广播标识。 |
@@ -5898,6 +6399,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | advertisingId | number | 否 | 否 | 需要停止的广播标识。 |
@@ -5912,6 +6415,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 描述BLE广播启动、停止的状态信息。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5931,6 +6436,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | manufactureId | number | 否 | 否 | 制造商的标识，由蓝牙技术联盟分配。 |
@@ -5949,6 +6456,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | serviceUuid | string | 否 | 否 | 服务UUID。 |
@@ -5964,6 +6473,8 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 扫描BLE广播的过滤条件，只有符合该条件的广播报文才会上报。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5992,6 +6503,8 @@ BLE扫描的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | interval | number | 否 | 是 | 扫描结果上报的延迟时间，单位：ms，默认值为0。搭配ScanReportMode使用。 - 在常规或围栏扫描上报模式下，该值不生效，扫描到符合过滤条件的广播报文后立即上报。 - 在批量扫描上报模式下，该值生效，扫描到符合过滤条件的广播报文后，会存入缓存队列，延迟上报。若不设置该值或设置在[0, 5000)范围内，蓝牙子系统会默认设置延迟时间为5000ms。延迟时间内，若符合过滤条件的广播报文数量超过硬件缓存能力，蓝牙子系统会提前上报扫描结果。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
@@ -5999,7 +6512,7 @@ BLE扫描的配置参数。
 | matchMode | MatchMode | 否 | 是 | 硬件的过滤匹配模式，默认值为MATCH_MODE_AGGRESSIVE。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | phyType12+ | PhyType | 否 | 是 | 扫描中使用的物理通道类型，默认值为PHY_LE_1M。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | reportMode15+ | ScanReportMode | 否 | 是 | 扫描结果数据上报模式，默认值为NORMAL。 元服务API：从API version 15开始，该接口支持在元服务中使用。 |
-| isExtended | boolean | 否 | 是 | 是否使用扩展扫描。false表示使用传统扫描；true表示使用扩展扫描。默认值为false。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| isExtended | boolean | 否 | 是 | 是否使用扩展扫描。false表示使用传统扫描；true表示使用扩展扫描。默认值为false。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
 
 
 
@@ -6011,6 +6524,8 @@ BLE扫描的配置参数。
 描述GATT特征值支持的属性。决定了特征值内容和描述符如何被使用和访问。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -6035,6 +6550,8 @@ BLE扫描的配置参数。
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -6063,7 +6580,7 @@ BLE扫描的配置参数。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | txPhy | BlePhy | 否 | 否 | 发送端物理通道类型。 |
-| rxPhy | BlePhy | 否 | 否 | 接受端物理通道类型。 |
+| rxPhy | BlePhy | 否 | 否 | 接收端物理通道类型。 |
 | phyMode | CodedPhyMode | 否 | 是 | 用于指定物理通道类型为BLE_PHY_CODED的编码方式。 默认值为0，表示不指定明确的编码方式，由蓝牙子系统决定。 |
 
 
@@ -6078,6 +6595,8 @@ BLE扫描的配置参数。
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -6096,6 +6615,8 @@ BLE扫描的配置参数。
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -6116,6 +6637,8 @@ BLE扫描的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | MATCH_MODE_AGGRESSIVE | 1 | 当广播报文信号强度较低或者短时间内广播报文的发送次数较少时，可以更快地上报。 |
@@ -6131,6 +6654,8 @@ BLE扫描的配置参数。
 枚举，不同操作对应的BLE广播状态。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -6152,6 +6677,8 @@ BLE扫描的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | PHY_LE_1M12+ | 1 | 使用1M PHY类型扫描。 |
@@ -6170,6 +6697,8 @@ BLE扫描的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | reportType | ScanReportType | 否 | 否 | 扫描结果上报类型。 |
@@ -6185,6 +6714,8 @@ BLE扫描的配置参数。
 枚举，扫描结果上报类型。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -6205,6 +6736,8 @@ BLE扫描的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CONN_TIMEOUT | 1 | 连接超时。 |
@@ -6223,6 +6756,8 @@ BLE扫描的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | GATT | 1 | 当前设备在GATT链路中同时作为client端和server端。 |
@@ -6240,12 +6775,14 @@ BLE扫描的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL | 1 | 常规扫描上报模式，扫描到符合过滤条件的BLE广播报文后就会立刻上报。 元服务API：从API version 15开始，该接口支持在元服务中使用。 |
-| BATCH19+ | 2 | 批量扫描上报模式。 - 该模式需要使用BleScanner类下的接口发起扫描。 - 该模式可通过降低蓝牙芯片上报扫描结果频率，使系统更长时间地保持在休眠状态，从而降低整机功耗。 - 该模式下，扫描到符合过滤条件的BLE广播报文后不会立刻上报，需要缓存一段时间（ScanOptions中的interval字段）后上报。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| FENCE_SENSITIVITY_LOW18+ | 10 | 低灵敏度围栏上报模式。 - 围栏模式表示只在广播进入或离开围栏时上报。 - 扫描到的广播信号强度高且广播数量多时，可进入低灵敏度围栏。 - 首次扫描到广播即进入围栏，触发一次上报。 - 一段时间内扫描不到广播即离开围栏，触发一次上报。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| FENCE_SENSITIVITY_HIGH18+ | 11 | 高灵敏度围栏上报模式。 - 围栏模式表示只在广播进入或离开围栏时上报。 - 扫描到的广播信号强度低且广播数量少时，可进入高灵敏度围栏。 - 首次扫描到广播即进入围栏，触发一次上报。 - 一段时间内扫描不到广播即离开围栏，触发一次上报。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| BATCH19+ | 2 | 批量扫描上报模式。 - 该模式可通过降低蓝牙芯片上报扫描结果频率，使系统更长时间地保持在休眠状态，从而降低整机功耗。 - 该模式下，扫描到符合过滤条件的BLE广播报文后不会立刻上报，需要缓存一段时间（ScanOptions中的interval字段）后上报。 元服务API：从API version 19开始，该接口支持在元服务中使用。 |
+| FENCE_SENSITIVITY_LOW18+ | 10 | 低灵敏度围栏上报模式。 - 围栏模式表示只在广播进入或离开围栏时上报。 - 扫描到的广播信号强度高且广播数量多时，可进入低灵敏度围栏。 - 首次扫描到广播即进入围栏，触发一次上报。 - 一段时间内扫描不到广播即离开围栏，触发一次上报。 元服务API：从API version 18开始，该接口支持在元服务中使用。 |
+| FENCE_SENSITIVITY_HIGH18+ | 11 | 高灵敏度围栏上报模式。 - 围栏模式表示只在广播进入或离开围栏时上报。 - 扫描到的广播信号强度低且广播数量少时，可进入高灵敏度围栏。 - 首次扫描到广播即进入围栏，触发一次上报。 - 一段时间内扫描不到广播即离开围栏，触发一次上报。 元服务API：从API version 18开始，该接口支持在元服务中使用。 |
 
 
 
@@ -6257,6 +6794,8 @@ BLE扫描的配置参数。
 枚举，连接参数类型。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -6300,3 +6839,25 @@ BLE扫描的配置参数。
 | --- | --- | --- |
 | BLE_PHY_CODED_S2 | 1 | 每发送1位有效数据，会添加1位冗余信息。传输速度较快，抗干扰较强，适合中等距离（10 - 100m），理论数据速率为500Kbit/s。 |
 | BLE_PHY_CODED_S8 | 2 | 每发送1位有效数据，会添加7位冗余信息。传输速度较慢，抗干扰更强，适合远距离（100 - 300m），理论数据速率为125Kbit/s。 |
+
+
+
+
+#### GattSetting
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述GATT连接的参数。
+
+**起始版本**：26.0.0
+
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| autoConnect | boolean | 否 | 是 | 是否直接连接到远端设备或者在远端设备可用时自动连接。true表示在远端设备可用时自动连接，false表示直接连接到远端设备。默认值为false。 |
+| transport | BluetoothTransport | 否 | 是 | 连接的传输类型，默认值为TRANSPORT_LE。 |

@@ -12,7 +12,7 @@
  报错信息：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/ZeYiGpJlRmWjzc0Slb9C9A/zh-cn_image_0000002628569520.png?HW-CC-KV=V1&HW-CC-Date=20260723T014004Z&HW-CC-Expire=86400&HW-CC-Sign=A3895BF57430D104D86EAA311C97B8EB24F5ACB1F52582045F0C110533B914E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/ZeYiGpJlRmWjzc0Slb9C9A/zh-cn_image_0000002628569520.png?HW-CC-KV=V1&HW-CC-Date=20260730T072723Z&HW-CC-Expire=86400&HW-CC-Sign=AA5B06417C6AC41A1BAC351CD48E3CE8E83FC5FBAB98B25A84D23932E5B06220)
 
 2. 运行单元测试时报错"Error in testUiExample, Can not connect to AAMS"。
  

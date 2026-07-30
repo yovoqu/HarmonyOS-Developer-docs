@@ -1,6 +1,6 @@
 # ArkGraphics 3D场景搭建以及管理
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-scene
 
@@ -234,7 +234,7 @@ scene.then(async (result: Scene) => {
 
 3. 创建灯光并配置灯光参数。
 
-  调用 SceneResourceFactory.createLight()创建灯光，并配置灯光的类型、位置、颜色等参数。灯光类型决定了光线的方向，位置决定了光线的位置，颜色决定了光线的颜色。
+  调用SceneResourceFactory.createLight()创建灯光，并配置灯光的类型、位置、颜色等参数。
 
   
 ```ArkTS

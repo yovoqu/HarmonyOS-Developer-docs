@@ -1,12 +1,12 @@
 # OH_AudioResourceManager
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audioresourcemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef struct OH_AudioResourceManager OH_AudioResourceManager
+typedef struct OH_AudioResourceManager OH_AudioResourceManager;
 ```
   
 
@@ -14,7 +14,7 @@ typedef struct OH_AudioResourceManager OH_AudioResourceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明音频资源管理器。用于管理音频资源相关功能。
+声明音频资源管理器。用于管理音频资源。
  
 **起始版本：** 20
  

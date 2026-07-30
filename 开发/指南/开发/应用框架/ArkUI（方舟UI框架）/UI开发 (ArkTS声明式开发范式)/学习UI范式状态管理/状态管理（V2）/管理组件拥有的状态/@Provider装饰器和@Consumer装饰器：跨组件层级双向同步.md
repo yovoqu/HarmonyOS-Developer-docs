@@ -1,10 +1,10 @@
 # @Provider装饰器和@Consumer装饰器：跨组件层级双向同步
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer
 
-@Provider和@Consumer用于跨组件层级数据双向同步，可以使得开发者不用拘泥于组件层级。
+[@Provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-provider#provider)和[@Consumer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-consumer#consumer)用于跨组件层级数据双向同步，可以使得开发者不用拘泥于组件层级。
 
 @Provider和@Consumer属于状态管理V2装饰器，所以只能在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)中才能使用，在[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)中使用会编译报错。
 
@@ -188,11 +188,14 @@ struct Parent {
   build() {
     Column() {
       Button(this.str)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.str += '0';
         })
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -204,14 +207,21 @@ struct Child {
   build() {
     Column() {
       Button(this.str)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.str += '0';
         })
     }
+    .width('100%')
   }
 }
 ```
-**未建立双向绑定**
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/lCR3FARHTo6MMYCiPtV4RA/zh-cn_image_0000002685925585.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4B061FF84C1A0637694FD94EDE932DCBAEBA81C45B430AB561E4257CA17F6318)
+
+
+  **未建立双向绑定**
 
   下面的例子中，@Provider和@Consumer由于aliasName值不同，无法建立双向同步关系。
 
@@ -236,11 +246,14 @@ struct Parent {
   build() {
     Column() {
       Button(this.str1)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.str1 += '0';
         })
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -252,13 +265,18 @@ struct Child {
   build() {
     Column() {
       Button(this.str)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.str += '0';
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/V8UWT1_VRv2YVYGplKZQXw/zh-cn_image_0000002656005906.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4831609F93836393CBAEACD844A4E570EFD9831FB23AE0B3F9F23B940E48EEC7)
 
 
   
@@ -278,19 +296,30 @@ struct Parent {
     Row() {
       Column() {
         ForEach(this.count, (item: number) => {
-          Text(`parent: ${item}`).fontSize(30)
+          Text(`parent: ${item}`)
+            .fontSize(30)
+            .margin(10)
           Divider()
         })
         // count被@Provider装饰，可以被观察到Array整体的赋值以及调用Array接口带来的变化
-        Button('push').onClick(() => {
-          this.count.push(111);
-        })
-        Button('reverse').onClick(() => {
-          this.count.reverse();
-        })
-        Button('fill').onClick(() => {
-          this.count.fill(6);
-        })
+        Button('push')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.count.push(111);
+          })
+        Button('reverse')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.count.reverse();
+          })
+        Button('fill')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.count.fill(6);
+          })
         Child()
       }
       .width('100%')
@@ -306,24 +335,37 @@ struct Child {
   build() {
     Column() {
       ForEach(this.count, (item: number) => {
-        Text(`child: ${item}`).fontSize(30)
+        Text(`child: ${item}`)
+          .fontSize(30)
+          .margin(10)
         Divider()
       })
       // count被@Consumer装饰，可以被观察到Array整体的赋值以及调用Array接口带来的变化
-      Button('push').onClick(() => {
-        this.count.push(222);
-      })
-      Button('reverse').onClick(() => {
-        this.count.reverse();
-      })
-      Button('fill').onClick(() => {
-        this.count.fill(8);
-      })
+      Button('push')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.count.push(222);
+        })
+      Button('reverse')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.count.reverse();
+        })
+      Button('fill')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.count.fill(8);
+        })
     }
     .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/tFysLHheSySIb3yjaPhgcA/zh-cn_image_0000002655845986.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=A8231880EB12512453398CB8D992D4DB02DFDA8D295B670304B779EB35B7FA2A)
 
 
   
@@ -342,25 +384,36 @@ struct Parent {
   build() {
     Column() {
       Text(`parent: ${this.selectedDate}`)
+        .fontSize(20)
+        .margin(10)
       // selectedDate被@Provider装饰，可以被观察到Date整体的赋值以及调用Date接口带来的变化
       Button('update the new date')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate = new Date('2023-07-07');
         })
       Button('increase the year by 1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate.setFullYear(this.selectedDate.getFullYear() + 1);
         })
       Button('increase the month by 1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate.setMonth(this.selectedDate.getMonth() + 1);
         })
       Button('increase the day by 1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate.setDate(this.selectedDate.getDate() + 1);
         })
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -371,27 +424,40 @@ struct Child {
   build() {
     Column() {
       Text(`child: ${this.selectedDate}`)
+        .fontSize(20)
+        .margin(10)
       // selectedDate被@Consumer装饰，可以被观察到Date整体的赋值以及调用Date接口带来的变化
       Button('update the new date')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate = new Date('2025-01-01');
         })
       Button('increase the year by 1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate.setFullYear(this.selectedDate.getFullYear() + 1);
         })
       Button('increase the month by 1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate.setMonth(this.selectedDate.getMonth() + 1);
         })
       Button('increase the day by 1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate.setDate(this.selectedDate.getDate() + 1);
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/C0FTf4SVRSmgcItFzMjUAg/zh-cn_image_0000002686085415.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=B6FE8160FA60E6B540F6A6F354ED1DCE6446C97F30A98A60FC4577EB9F718B35)
 
 
   
@@ -409,30 +475,50 @@ struct Parent {
 
   build() {
     Column() {
-      Text('Parent').fontSize(30)
+      Text('Parent')
+        .fontSize(20)
+        .margin(5)
       ForEach(Array.from(this.message.entries()), (item: [number, string]) => {
-        Text(`${item[0]}`).fontSize(30)
-        Text(`${item[1]}`).fontSize(30)
+        Text(`${item[0]}`)
+          .fontSize(20)
+        Text(`${item[1]}`)
+          .fontSize(20)
         Divider()
       })
       // message被@Provider装饰，可以被观察到Map整体的赋值以及调用Map接口带来的变化
-      Button('init map').onClick(() => {
-        this.message = new Map([[0, 'aa'], [1, 'bb'], [3, 'cc']]);
-      })
-      Button('set new one').onClick(() => {
-        this.message.set(4, 'd');
-      })
-      Button('clear').onClick(() => {
-        this.message.clear();
-      })
-      Button('replace the first one').onClick(() => {
-        this.message.set(0, 'a~');
-      })
-      Button('delete the first one').onClick(() => {
-        this.message.delete(0);
-      })
+      Button('init map')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message = new Map([[0, 'aa'], [1, 'bb'], [3, 'cc']]);
+        })
+      Button('set new one')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.set(4, 'd');
+        })
+      Button('clear')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.clear();
+        })
+      Button('replace the first one')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.set(0, 'a~');
+        })
+      Button('delete the first one')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.delete(0);
+        })
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -442,32 +528,54 @@ struct Child {
 
   build() {
     Column() {
-      Text('Child').fontSize(30)
+      Text('Child')
+        .fontSize(20)
+        .margin(5)
       ForEach(Array.from(this.message.entries()), (item: [number, string]) => {
-        Text(`${item[0]}`).fontSize(30)
-        Text(`${item[1]}`).fontSize(30)
+        Text(`${item[0]}`)
+          .fontSize(20)
+        Text(`${item[1]}`)
+          .fontSize(20)
         Divider()
       })
       // message被@Consumer装饰，可以被观察到Map整体的赋值以及调用Map接口带来的变化
-      Button('init map').onClick(() => {
-        this.message = new Map([[0, 'dd'], [1, 'ee'], [3, 'ff']]);
-      })
-      Button('set new one').onClick(() => {
-        this.message.set(4, 'g');
-      })
-      Button('clear').onClick(() => {
-        this.message.clear();
-      })
-      Button('replace the first one').onClick(() => {
-        this.message.set(0, 'a*');
-      })
-      Button('delete the first one').onClick(() => {
-        this.message.delete(0);
-      })
+      Button('init map')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message = new Map([[0, 'dd'], [1, 'ee'], [3, 'ff']]);
+        })
+      Button('set new one')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.set(4, 'g');
+        })
+      Button('clear')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.clear();
+        })
+      Button('replace the first one')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.set(0, 'a*');
+        })
+      Button('delete the first one')
+        .width(300)
+        .margin(5)
+        .onClick(() => {
+          this.message.delete(0);
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/BF0FjFMeQFiLRk7QP4wtXg/zh-cn_image_0000002685925587.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=354FD5BEDBA6D33B78D4C782DEA3A94E75F1C348B25B7DE69BED1E014E47D8D2)
 
 
   
@@ -485,26 +593,43 @@ struct Parent {
 
   build() {
     Column() {
-      Text('Parent').fontSize(30)
+      Text('Parent')
+        .fontSize(30)
+        .margin(10)
       ForEach(Array.from(this.message.entries()), (item: [number, number]) => {
-        Text(`${item[0]}`).fontSize(30)
+        Text(`${item[0]}`)
+          .fontSize(30)
+          .margin(10)
         Divider()
       })
       // message被@Provider装饰，可以被观察到Set整体的赋值以及调用Set接口带来的变化
-      Button('init set').onClick(() => {
-        this.message = new Set([1, 2, 3, 4]);
-      })
-      Button('set new one').onClick(() => {
-        this.message.add(5);
-      })
-      Button('clear').onClick(() => {
-        this.message.clear();
-      })
-      Button('delete the first one').onClick(() => {
-        this.message.delete(1);
-      })
+      Button('init set')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message = new Set([1, 2, 3, 4]);
+        })
+      Button('set new one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.add(5);
+        })
+      Button('clear')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.clear();
+        })
+      Button('delete the first one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.delete(1);
+        })
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -514,28 +639,47 @@ struct Child {
 
   build() {
     Column() {
-      Text('Child').fontSize(30)
+      Text('Child')
+        .fontSize(30)
+        .margin(10)
       ForEach(Array.from(this.message.entries()), (item: [number, number]) => {
-        Text(`${item[0]}`).fontSize(30)
+        Text(`${item[0]}`)
+          .fontSize(30)
+          .margin(10)
         Divider()
       })
       // message被@Consumer装饰，可以被观察到Set整体的赋值以及调用Set接口带来的变化
-      Button('init set').onClick(() => {
-        this.message = new Set([1, 2, 3, 4, 5, 6]);
-      })
-      Button('set new one').onClick(() => {
-        this.message.add(7);
-      })
-      Button('clear').onClick(() => {
-        this.message.clear();
-      })
-      Button('delete the first one').onClick(() => {
-        this.message.delete(1);
-      })
+      Button('init set')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message = new Set([1, 2, 3, 4, 5, 6]);
+        })
+      Button('set new one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.add(7);
+        })
+      Button('clear')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.clear();
+        })
+      Button('delete the first one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.delete(1);
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/GDJ1aGPkRZqvUcclLUNV6w/zh-cn_image_0000002656005908.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=A68C544E55F0EBDB16208EF9D7B532ECAD1F45EF1DD85F5D4A3BAC5475369FA7)
 
 
   
@@ -562,8 +706,11 @@ struct Parent {
   build() {
     Column() {
       Text(`child position x: ${this.childX}, y: ${this.childY}`)
+        .fontSize(20)
+        .margin(10)
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -573,6 +720,8 @@ struct Child {
 
   build() {
     Button('changed')
+      .width(300)
+      .margin(10)
       .draggable(true)
       .onDragStart((event: DragEvent) => {
         // 当前预览器上不支持通用拖拽事件
@@ -581,6 +730,8 @@ struct Child {
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/bnZVJGnkRUWfriw5D-jvig/zh-cn_image_0000002655845988.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=916D53312AD2ED6F3C61C45FF20B7EBD669F5F12B86FD3D46E467A5638ADD409)
 
 
   
@@ -614,18 +765,25 @@ struct Parent {
     Column() {
       Child()
       Button('add new user')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.users.push(new User('Molly', 18));
         })
       Button('age++')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.users[0].age++;
         })
       Button('change name')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.users[0].name = 'Shelly';
         })
     }
+    .width('100%')
   }
 }
 
@@ -637,15 +795,23 @@ struct Child {
     Column() {
       ForEach(this.users, (item: User) => {
         Column() {
-          Text(`name: ${item.name}`).fontSize(30)
-          Text(`age: ${item.age}`).fontSize(30)
+          Text(`name: ${item.name}`)
+            .fontSize(30)
+            .margin(10)
+          Text(`age: ${item.age}`)
+            .fontSize(30)
+            .margin(10)
           Divider()
         }
+        .width('100%')
       })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/7Pfyz0wdSeK_wF6NQzSQVg/zh-cn_image_0000002686085417.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=6E538FCD27C7C332CB16BFBC34715EDFBBE8431CE331262AEF9A5F0FFE4DD3AB)
 
 
   
@@ -665,6 +831,7 @@ struct Index {
     Column() {
       Parent()
     }
+    .width('100%')
   }
 }
 
@@ -676,8 +843,11 @@ struct Parent {
   build() {
     Column() {
       Text(`${this.val2}`)
+        .fontSize(20)
+        .margin(10)
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -688,11 +858,18 @@ struct Child {
   build() {
     Column() {
       Text(`${this.val}`)
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
-上面的例子中：
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/o9PbkpejRx-YMwCUCBkhtA/zh-cn_image_0000002685925589.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=8794199AF15EF183FB153156C9EE529D558F7725F4BB9510C9E15BC32033B531)
+
+
+  上面的例子中：
 
   
 Parent中的@Consumer向上查找，查找到Index中定义的@Provider() val: number = 10，初始化为10。
@@ -713,10 +890,13 @@ struct Index {
 
   build() {
     Column() {
-      Text(`Index @Provider val: ${this.val}`).fontSize(30)
+      Text(`Index @Provider val: ${this.val}`)
+        .fontSize(30)
+        .margin(10)
       // @Provider装饰的变量val可以初始化@Param装饰的变量val2
       Parent({ val2: this.val })
     }
+    .width('100%')
   }
 }
 
@@ -727,14 +907,24 @@ struct Parent {
 
   build() {
     Column() {
-      Text(`Parent @Consumer val: ${this.val}`).fontSize(30)
-      Button('change val').onClick(() => {
-        this.val++;
-      })
-      Text(`Parent @Param val2: ${this.val2}`).fontSize(30)
+      Text(`Parent @Consumer val: ${this.val}`)
+        .fontSize(30)
+        .margin(10)
+      Button('change val')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.val++;
+        })
+      Text(`Parent @Param val2: ${this.val2}`)
+        .fontSize(30)
+        .margin(10)
       // @Consumer装饰的变量val可以初始化@Param装饰的变量val
       Child({ val: this.val })
-    }.border({ width: 2, color: Color.Green })
+    }
+    .width('95%')
+    .border({ width: 2, color: Color.Green })
+    .height('45%')
   }
 }
 
@@ -744,11 +934,19 @@ struct Child {
 
   build() {
     Column() {
-      Text(`Child @Param val ${this.val}`).fontSize(30)
-    }.border({ width: 2, color: Color.Pink })
+      Text(`Child @Param val ${this.val}`)
+        .fontSize(30)
+        .margin(10)
+    }
+    .width('95%')
+    .border({ width: 2, color: Color.Pink })
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/94dbH13ZTYicrodoC3X3AQ/zh-cn_image_0000002656005910.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=A85CC5EF3D93A19831F08CDE4CE50BFC3735A489C2C66A1D6F59EB87B891BFBD)
+
 
 上面的例子中：
 
@@ -834,27 +1032,37 @@ struct RemoChildDisconnectProvider {
   build() {
     Column({ space: 8 }) {
       Text(`Provider: ${this.content}`)
+        .fontSize(20)
+        .margin(10)
 
       // 添加BuilderNode，@Consumer与@Provider建立双向同步
       Button('add child')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.controllerIndex.addBuilderNode();
         })
 
       // 移除BuilderNode，@Consumer与@Provider断开连接，恢复默认值
       Button('remove child')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.controllerIndex.removeBuilderNode();
         })
 
       // 释放BuilderNode的子节点TestRemove，随后该子节点销毁，触发子节点的aboutToDisappear回调
       Button('dispose child')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.controllerIndex.disposeNode();
         })
 
       // @Provider/@Consumer双向同步更新
       Button('change Provider')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.content += 'Pro';
         })
@@ -880,16 +1088,25 @@ struct TestRemove {
   build() {
     Column() {
       Text('Consumer ' + this.content)
+        .fontSize(20)
+        .margin(10)
 
       // @Provider和@Consumer绑定的Text组件刷新，并回调@Provider和@Consumer的@Monitor方法
       Button('change cc')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.content += 'cc';
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/CiKwww2lT923uYHQhMeh1g/zh-cn_image_0000002655845990.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=54D9FB1D55B267E42B7ABDF0E0B546876F803A0F1D87965716CD891D6FFC32C1)
+
 
 上面的例子中：
 

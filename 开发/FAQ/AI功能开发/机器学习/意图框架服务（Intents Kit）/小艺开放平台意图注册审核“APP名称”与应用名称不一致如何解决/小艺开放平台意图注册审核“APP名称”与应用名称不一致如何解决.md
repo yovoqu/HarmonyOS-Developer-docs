@@ -9,7 +9,7 @@
 开发者在小艺开放平台进行意图注册配置并提交审核，被告知意图注册审核后台识别的“APP名称”与该应用的实际名称不一致，如何修改？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/sVcFcy81TSmUm7U12ayDRA/zh-cn_image_0000002658914055.png?HW-CC-KV=V1&HW-CC-Date=20260723T014043Z&HW-CC-Expire=86400&HW-CC-Sign=62C8342DC89BE413173273CF782614C9669422C75000C298B85320E8E7E729E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/sVcFcy81TSmUm7U12ayDRA/zh-cn_image_0000002658914055.png?HW-CC-KV=V1&HW-CC-Date=20260730T072732Z&HW-CC-Expire=86400&HW-CC-Sign=D4A0F41423E525EAFEDD259E867D6B8259EF9171DDE057A8713D0B172D39815D)
 
  
  
@@ -26,11 +26,11 @@
 1. 检查代码工程：检查代码工程“AppScope/app.json5”文件中“app”内“label”字段对应的值（默认引用的为“AppScope/Resources/base/element/string.json”中name为“app_name”的value值），是否与应用名称一致，见下图字段。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/nD0aeG8aSvKZbTzdRt6tyg/zh-cn_image_0000002658794103.png?HW-CC-KV=V1&HW-CC-Date=20260723T014043Z&HW-CC-Expire=86400&HW-CC-Sign=3D53D4C24B90AE3687B3E3FC81816B6251B52246938518FE340EE74AC767825B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/nD0aeG8aSvKZbTzdRt6tyg/zh-cn_image_0000002658794103.png?HW-CC-KV=V1&HW-CC-Date=20260730T072732Z&HW-CC-Expire=86400&HW-CC-Sign=3B32C43B54F5B43E558A20C47F4C00FF4B91A132D04125E9C8D54E7A6D820A4B)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/1QslmqjVTxuL40FIS6OZ3w/zh-cn_image_0000002628394840.png?HW-CC-KV=V1&HW-CC-Date=20260723T014043Z&HW-CC-Expire=86400&HW-CC-Sign=1B63B20B191A1AF61CCA8FDD26A566A1FDB85BDC589A5C40BEC3F514C8F3D72F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/1QslmqjVTxuL40FIS6OZ3w/zh-cn_image_0000002628394840.png?HW-CC-KV=V1&HW-CC-Date=20260730T072732Z&HW-CC-Expire=86400&HW-CC-Sign=9DAE41DFB04FDAED73B8913A48FF16CC262AD79E4AA6E2AD84FC9FAB3CAECCC3)
 
 
   若不一致，则参考修改建议的步骤一和步骤二进行修改；若一致，执行下一步检查。

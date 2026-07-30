@@ -1,10 +1,14 @@
 # LoginPanel (华为账号Panel登录组件)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-loginpanel
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
+本模块提供LoginPanel组件，应用通过集成该组件完成华为账号登录功能。
+ 
+LoginPanel需要配合[loginComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager)一起使用，用于实现华为账号登录功能。LoginPanel内的按钮文本默认支持多语言。
+ 
 **起始版本：** 4.1.0(11)
   
 

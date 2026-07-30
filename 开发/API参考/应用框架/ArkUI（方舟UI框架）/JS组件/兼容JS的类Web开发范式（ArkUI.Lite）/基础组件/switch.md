@@ -1,6 +1,6 @@
 # switch
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-switch
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -59,7 +59,7 @@
 | height | &lt;length&gt; \| &lt;percentage&gt;5+ | - | 否 | 设置组件自身的高度。 未设置时组件高度默认为0。 |
 | padding | &lt;length&gt; | 0 | 否 | 使用简写属性设置所有的内边距属性。 该属性可以有1到4个值： - 指定一个值时，该值指定四个边的内边距。 - 指定两个值时，第一个值指定上下两边的内边距，第二个指定左右两边的内边距。 - 指定三个值时，第一个指定上边的内边距，第二个指定左右两边的内边距，第三个指定下边的内边距。 - 指定四个值时分别为上、右、下、左边的内边距（顺时针顺序）。 |
 | padding-[left\|top\|right\|bottom] | &lt;length&gt; | 0 | 否 | 设置左、上、右、下内边距属性。 |
-| margin | &lt;length&gt; \| &lt;percentage&gt;5+ | 0 | 否 | 使用简写属性设置所有的外边距属性，该属性可以有1到4个值。 - 只有一个值时，这个值会被指定给全部的四个边。 - 两个值时，第一个值被匹配给上和下，第二个值被匹配给左和右。 - 三个值时，第一个值被匹配给上, 第二个值被匹配给左和右，第三个值被匹配给下。 - 四个值时，会依次按上、右、下、左的顺序匹配 (即顺时针顺序)。 |
+| margin | &lt;length&gt; \| &lt;percentage&gt;5+ | 0 | 否 | 使用简写属性设置所有的外边距属性，该属性可以有1到4个值。 - 只有一个值时，这个值会被指定给全部的四个边。 - 两个值时，第一个值被匹配给上和下，第二个值被匹配给左和右。 - 三个值时，第一个值被匹配给上，第二个值被匹配给左和右，第三个值被匹配给下。 - 四个值时，会依次按上、右、下、左的顺序匹配 (即顺时针顺序)。 |
 | margin-[left\|top\|right\|bottom] | &lt;length&gt; \| &lt;percentage&gt;5+ | 0 | 否 | 设置左、上、右、下外边距属性。 |
 | border-width | &lt;length&gt; | 0 | 否 | 使用简写属性设置元素的所有边框宽度。 |
 | border-color | &lt;color&gt; | black | 否 | 使用简写属性设置元素的所有边框颜色。 |
@@ -120,4 +120,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/ZN3sk1w7QbGsaNwJ7kI_DQ/zh-cn_image_0000002626231112.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015947Z&HW-CC-Expire=86400&HW-CC-Sign=F345C1C415F6B774EEB6A16680D22E45D9B698F677C126AB608E4859186A38FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/54eMz0ARTbCYfNqMd0Q01w/zh-cn_image_0000002686088753.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071526Z&HW-CC-Expire=86400&HW-CC-Sign=E2CFE6F3EDCF6A5B86F2B88CD2BFA74A9603ABE60DF8272D006866A54EAC29C2)

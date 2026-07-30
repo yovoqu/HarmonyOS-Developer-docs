@@ -1,6 +1,6 @@
-# 自定义界面扫码如何连续扫码（customScan.rescan）
+# 自定义界面扫码如何连续扫码
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-faq-10
 
@@ -10,20 +10,18 @@
 
 **解决措施**
 
-customScan.[rescan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#customscanrescan)可以重新触发一次扫码，必须在customScan.[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#customscanstart-1)(viewControl, callback)方法Callback接口回调中有效，Promise方式无效。
+[rescan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#rescan)可以重新触发一次扫码，必须在[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#start-1)(viewControl, callback)方法Callback接口回调中有效，Promise方式无效。
 
 示例：
 
 ```json
-import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { customScan, scanBarcode } from '@kit.ScanKit';
 
-@Entry
-@Component
-struct Index {
-  private callback: AsyncCallback<Array<scanBarcode.ScanResult>> =
-    (err: BusinessError, data: Array<scanBarcode.ScanResult>) => {
+export function startCustomScan(viewControl: customScan.ViewControl) {
+  try {
+    customScan.start(viewControl, (err: BusinessError, data: Array<scanBarcode.ScanResult>) => {
       if (err) {
         hilog.error(0x0001, '[Scan Sample]',
           `Failed to get ScanResult by callback. Code: ${err.code}, message: ${err.message}`);
@@ -31,17 +29,17 @@ struct Index {
       }
       hilog.info(0x0001, '[Scan Sample]',
         `Succeeded in getting ScanResult by callback, result is ${JSON.stringify(data)}`);
+      // 从data获取扫码结果并进行业务处理
+      // ...
       try {
-        // 重新触发扫码：不需要重启相机并重新触发一次扫码，可以在start接口的Callback异步回调中，调用rescan接口。
+        // 根据需要触发一次重新扫码。调用后，会重新检测预览画面中的码图，识别成功后会触发start接口传入的callback回调返回新的扫码结果。
         customScan.rescan();
       } catch (err) {
         hilog.error(0x0001, '[Scan Sample]', `Failed to rescan. Code: ${err.code}, message: ${err.message}`);
       }
-    };
-
-  build() {
-    // 定义组件的UI结构
-    // ...
+    });
+  } catch (err) {
+    hilog.error(0x0001, '[Scan Sample]', `Failed to start customScan. Code: ${err.code}, message: ${err.message}`);
   }
 }
 ```

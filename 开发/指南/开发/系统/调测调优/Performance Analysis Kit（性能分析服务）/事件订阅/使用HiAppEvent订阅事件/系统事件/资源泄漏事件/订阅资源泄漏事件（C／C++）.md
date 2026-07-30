@@ -1,6 +1,6 @@
 # 订阅资源泄漏事件（C/C++）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events-ndk
 
@@ -133,7 +133,7 @@ static napi_value RegisterWatcher(napi_env env, napi_callback_info info) {
     const char *names[] = {EVENT_RESOURCE_OVERLIMIT};
     // 开发者订阅感兴趣的事件，此处订阅了系统事件。
     OH_HiAppEvent_SetAppEventFilter(systemEventWatcher, DOMAIN_OS, 0, names, 1);
-    // 开发者设置已实现的回调函数，观察者接收到事件回立即触发OnReceive回调。
+    // 开发者设置已实现的回调函数，观察者接收到事件后会立即触发OnReceive回调。
     OH_HiAppEvent_SetWatcherOnReceive(systemEventWatcher, OnReceive);
     // 使观察者开始监听订阅的事件。
     OH_HiAppEvent_AddWatcher(systemEventWatcher);

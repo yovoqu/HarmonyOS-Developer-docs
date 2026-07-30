@@ -1,9 +1,9 @@
 # assetDownloadManager（资源包下载管理）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供资源包下载管理能力。
 
@@ -12,7 +12,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
@@ -22,7 +22,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### DownloadFault
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源包下载失败原因的枚举。
 
@@ -50,7 +50,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### State
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源包下载任务状态的枚举。
 
@@ -74,7 +74,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### AssetDownloadConfig
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源包下载任务的配置信息。
 
@@ -100,7 +100,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### AssetDownloadTask
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源包下载任务的信息。
 
@@ -121,7 +121,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### DownloadProgressInfo
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源包下载任务的进度信息。
 
@@ -142,7 +142,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### DownloadCompletedInfo
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源包下载任务的完成信息。
 
@@ -162,7 +162,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### DownloadFailedInfo
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源包下载任务的失败信息。
 
@@ -182,7 +182,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 #### assetDownloadManager.on('progress')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'progress', callback: Callback<DownloadProgressInfo[]>): void
 
@@ -230,7 +230,7 @@ assetDownloadManager.on('progress', onProgressCallback);
 
 #### assetDownloadManager.off('progress')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'progress', callback?: Callback<DownloadProgressInfo[]>): void
 
@@ -278,7 +278,7 @@ assetDownloadManager.off('progress', onProgressCallback);
 
 #### assetDownloadManager.on('pause')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'pause', callback: Callback&lt;AssetDownloadTask&gt;): void
 
@@ -326,7 +326,7 @@ assetDownloadManager.on('pause', onPauseCallback);
 
 #### assetDownloadManager.off('pause')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'pause', callback?: Callback&lt;AssetDownloadTask&gt;): void
 
@@ -374,7 +374,7 @@ assetDownloadManager.off('pause', onPauseCallback);
 
 #### assetDownloadManager.on('complete')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'complete', callback: Callback&lt;DownloadCompletedInfo&gt;): void
 
@@ -422,7 +422,7 @@ assetDownloadManager.on('complete', onCompleteCallback);
 
 #### assetDownloadManager.off('complete')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'complete', callback?: Callback&lt;DownloadCompletedInfo&gt;): void
 
@@ -470,7 +470,7 @@ assetDownloadManager.off('complete', onCompleteCallback);
 
 #### assetDownloadManager.on('fail')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'fail', callback: Callback&lt;DownloadFailedInfo&gt;): void
 
@@ -518,7 +518,7 @@ assetDownloadManager.on('fail', onFailedCallback);
 
 #### assetDownloadManager.off('fail')
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'fail', callback?: Callback&lt;DownloadFailedInfo&gt;): void
 
@@ -566,7 +566,7 @@ assetDownloadManager.off('fail', onFailedCallback);
 
 #### assetDownloadManager.fetchManifestUrl
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 fetchManifestUrl(): Promise&lt;string&gt;
 
@@ -618,7 +618,7 @@ async fetchManifestUrl() {
 
 #### assetDownloadManager.addAssetDownloadTask
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadConfig): Promise&lt;string&gt;
 
@@ -691,7 +691,7 @@ async addAssetDownloadTask() {
 
 #### assetDownloadManager.pauseAssetDownloadTask
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 pauseAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
@@ -773,7 +773,7 @@ async pauseAssetDownloadTask() {
 
 #### assetDownloadManager.resumeAssetDownloadTask
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 resumeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
@@ -863,7 +863,7 @@ async resumeAssetDownloadTask() {
 
 #### assetDownloadManager.removeAssetDownloadTask
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 removeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
@@ -940,7 +940,7 @@ async removeAssetDownloadTask() {
 
 #### assetDownloadManager.fetchAllAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 fetchAllAssetDownloadTasks(): Promise<AssetDownloadTask[]>
 
@@ -1009,7 +1009,7 @@ async fetchAllAssetDownloadTasks() {
 
 #### assetDownloadManager.pauseAllAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 pauseAllAssetDownloadTasks(): Promise&lt;void&gt;
 
@@ -1081,7 +1081,7 @@ async pauseAllAssetDownloadTasks() {
 
 #### assetDownloadManager.resumeAllAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 resumeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
@@ -1161,7 +1161,7 @@ async resumeAllAssetDownloadTasks() {
 
 #### assetDownloadManager.removeAllAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 removeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
@@ -1229,7 +1229,7 @@ async removeAllAssetDownloadTasks() {
 
 #### assetDownloadManager.fetchGroupAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 fetchGroupAssetDownloadTasks(groupId: string): Promise<AssetDownloadTask[]>
 
@@ -1308,7 +1308,7 @@ async fetchGroupAssetDownloadTasks() {
 
 #### assetDownloadManager.pauseGroupAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 pauseGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
@@ -1390,7 +1390,7 @@ async pauseGroupAssetDownloadTasks() {
 
 #### assetDownloadManager.resumeGroupAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 resumeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
@@ -1480,7 +1480,7 @@ async resumeGroupAssetDownloadTasks() {
 
 #### assetDownloadManager.removeGroupAssetDownloadTasks
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 removeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
@@ -1558,7 +1558,7 @@ async removeGroupAssetDownloadTasks() {
 
 #### NetSpeedLevel
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 网络限速等级的枚举。
 
@@ -1579,7 +1579,7 @@ async removeGroupAssetDownloadTasks() {
 
 #### assetDownloadManager.limitDownloadTaskSpeed
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise&lt;void&gt;
 
@@ -1660,7 +1660,7 @@ async limitDownloadTaskSpeed() {
 
 #### AppDownloadStatus
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 应用自身下载器中资源包下载状态的枚举。
 
@@ -1680,7 +1680,7 @@ async limitDownloadTaskSpeed() {
 
 #### ResourceType
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源类型，影响下载完成通知的内容样式。
 
@@ -1692,15 +1692,15 @@ async limitDownloadTaskSpeed() {
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| RELEASED | 0 | 已发布的资源，即已公开发布过的资源。 完成下载后，通知栏展示“xxx 游戏资源包已更新”。 |
-| PRE_RELEASE | 1 | 预发布的资源，即未公开发布过的资源。 完成下载后，通知栏展示“xxx 游戏资源包预下载已完成” |
+| RELEASED | 0 | 已发布的资源，即已公开发布过的资源。 完成下载后，通知栏展示“{应用包名} 资源包通过WLAN下载完成 {资源大小}”。 |
+| PRE_RELEASE | 1 | 预发布的资源，即未公开发布过的资源。 完成下载后，通知栏展示“{应用包名} 资源包通过WLAN预下载已完成”。 |
 
 
 
 
 #### AppDownloadProgress
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 应用自身下载器中资源包的下载进度信息。
 
@@ -1726,7 +1726,7 @@ async limitDownloadTaskSpeed() {
 
 #### assetDownloadManager.reportDownloadProgress
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 reportDownloadProgress(progressInfo: AppDownloadProgress): void
 
@@ -1783,11 +1783,11 @@ try {
 
 
 
-#### assetDownloadManager.isSupportAssetDownload
+#### assetDownloadManager.isAssetDownloadSupported
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
-isSupportAssetDownload(): Promise&lt;number&gt;
+isAssetDownloadSupported(): Promise&lt;boolean&gt;
 
 查询用户的当前设备类型是否支持资源包下载能力。使用Promise异步回调。
 
@@ -1801,7 +1801,7 @@ isSupportAssetDownload(): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。返回是否支持资源包下载能力的结果信息。 0：不支持。 1：支持。 |
+| Promise&lt;boolean&gt; | Promise对象。返回是否支持资源包下载能力的结果信息。 返回false：不支持。 返回true：支持。 |
 
 
 **错误码**：
@@ -1819,13 +1819,13 @@ isSupportAssetDownload(): Promise&lt;number&gt;
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { deviceInfo } from '@kit.BasicServicesKit';
 
-async IsSupportAssetDownload() {
+async IsAssetDownloadSupported() {
   // 判断当前HarmonyOS SDK版本是否为26.0.0及以上版本。
   if (deviceInfo.sdkApiVersion >= 26) {
     try {
-      const supportResult = await assetDownloadManager.isSupportAssetDownload();
-      console.info('AssetAccelDemo', 'Succeeded in testing IsSupportAssetDownload');
-      if (supportResult == 1) {
+      const supportResult: boolean = await assetDownloadManager.isAssetDownloadSupported();
+      console.info('AssetAccelDemo', 'Succeeded in testing isAssetDownloadSupported');
+      if (supportResult) {
         // 用户当前设备类型支持资源包下载能力。
         console.info('AssetAccelDemo', 'The device supports assetDownload');
       } else {
@@ -1833,7 +1833,7 @@ async IsSupportAssetDownload() {
         console.info('AssetAccelDemo', 'The device does not support assetDownload');
       }
     } catch (error) {
-      console.error('AssetAccelDemo', `Failed to test isSupportAssetDownload, errCode:${error.code}, errMessage:${error.message}`);
+      console.error('AssetAccelDemo', `Failed to test isAssetDownloadSupported, errCode:${error.code}, errMessage:${error.message}`);
     }
   }
 }

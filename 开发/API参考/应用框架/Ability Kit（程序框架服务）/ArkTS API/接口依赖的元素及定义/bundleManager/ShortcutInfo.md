@@ -1,6 +1,6 @@
 # ShortcutInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-shortcutinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 应用[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#shortcuts标签)中定义的快捷方式信息，可以通过[getAllShortcutInfoForSelf接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-shortcutmanager#shortcutmanagergetallshortcutinfoforself)获取。
 
 > [!NOTE]
-> 本模块首批接口从API version 20 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 
@@ -53,7 +53,7 @@ import { shortcutManager } from '@kit.AbilityKit';
 | id | string | 否 | 否 | 快捷方式的ID。 |
 | bundleName | string | 否 | 否 | 快捷方式所属应用的包名。 |
 | moduleName | string | 否 | 是 | 快捷方式的模块名。 |
-| hostAbility | string | 否 | 是 | 快捷方式的宿主组件名, 即承载此快捷方式的组件名。 |
+| hostAbility | string | 否 | 是 | 快捷方式的宿主组件名，即承载此快捷方式的组件名。 |
 | icon | string | 否 | 是 | 快捷方式的图标，取值为资源文件的索引。 |
 | iconId | number | 否 | 是 | 快捷方式图标的资源ID。 |
 | label | string | 否 | 是 | 快捷方式的标签信息，即快捷方式对外显示的文字描述信息。可以是描述性内容，也可以是标识label的资源索引。 |

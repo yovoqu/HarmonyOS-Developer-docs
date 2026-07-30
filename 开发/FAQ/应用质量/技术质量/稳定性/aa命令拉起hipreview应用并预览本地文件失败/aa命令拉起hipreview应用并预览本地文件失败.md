@@ -15,13 +15,13 @@
 其中文件路径是通过Device File Browser获取的文件真实路径，也叫物理路径。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/I_S71TkHQ0GLpub-q71g_A/zh-cn_image_0000002628554892.png?HW-CC-KV=V1&HW-CC-Date=20260723T012359Z&HW-CC-Expire=86400&HW-CC-Sign=BB6E265CAFA8FCCB20DAA7C1CA3F6939481F3EA4531BA081060398DDB3CAA1A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/I_S71TkHQ0GLpub-q71g_A/zh-cn_image_0000002628554892.png?HW-CC-KV=V1&HW-CC-Date=20260730T072250Z&HW-CC-Expire=86400&HW-CC-Sign=6967ED8F7F062952A19386B8DE1581FD910C6143C459306F43EC58E5356F5B36)
 
  
 命令行执行效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/TAU76V0kQgCceIh8MxxvBA/zh-cn_image_0000002628394990.png?HW-CC-KV=V1&HW-CC-Date=20260723T012359Z&HW-CC-Expire=86400&HW-CC-Sign=4F9A1AF544D8FCEBD1181DC6B2F6F25006D7320DB08AB6FAA7BCF2BEA880152C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/TAU76V0kQgCceIh8MxxvBA/zh-cn_image_0000002628394990.png?HW-CC-KV=V1&HW-CC-Date=20260730T072250Z&HW-CC-Expire=86400&HW-CC-Sign=DF16094623C863C6AD83AACE9B5F21F4D4D4662E2FF87DDF2EB847B498FD2B16)
 
  
  
@@ -43,7 +43,7 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/kM0DXnVkSs6YXlWQK5dNKA/zh-cn_image_0000002658914209.png?HW-CC-KV=V1&HW-CC-Date=20260723T012359Z&HW-CC-Expire=86400&HW-CC-Sign=9FB77F74562F8B3B68B00E3D3BE3602E745377AA5C488D9C5A59F03EAC699F0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/kM0DXnVkSs6YXlWQK5dNKA/zh-cn_image_0000002658914209.png?HW-CC-KV=V1&HW-CC-Date=20260730T072250Z&HW-CC-Expire=86400&HW-CC-Sign=D0A2DF6E30CA16D9468A713621D752D0AF7FDCA53BA6E25DEAB9CA7652E56390)
 
  
  

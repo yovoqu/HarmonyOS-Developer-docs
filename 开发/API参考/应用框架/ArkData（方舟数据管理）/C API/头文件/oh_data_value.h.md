@@ -1,6 +1,6 @@
 # oh_data_value.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-value-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -59,7 +59,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| OH_Data_Value *OH_Value_Create(void) | 创建OH_Data_Value实例，用于储存单条键值对数据。 |
+| OH_Data_Value *OH_Value_Create(void) | 创建OH_Data_Value实例，用于存储单条键值对数据。 |
 | int OH_Value_Destroy(OH_Data_Value *value) | 销毁OH_Data_Value对象。 |
 | int OH_Value_PutNull(OH_Data_Value *value) | 添加空数据。 |
 | int OH_Value_PutInt(OH_Data_Value *value, int64_t val) | 添加整型数据。 |
@@ -138,7 +138,7 @@ OH_Data_Value *OH_Value_Create(void)
  
 **描述**
  
-创建[OH_Data_Value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-value)实例，用于储存单条键值对数据。
+创建[OH_Data_Value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-value)实例，用于存储单条键值对数据。
  
 **起始版本：** 18
  
@@ -419,7 +419,7 @@ int OH_Value_PutFloatVector(OH_Data_Value *value, const float *val, size_t lengt
 | --- | --- |
 | OH_Data_Value *value | 表示指向OH_Data_Value实例的指针。 |
 | const float *val | 表示指向float数组对象的指针。 |
-| size_t length | 该参数是输入参数，表示开发者传入的表示float数组的大小。 |
+| size_t length | 该参数是输入参数，表示开发者传入的float数组的大小。 |
  
  
 **返回：**
@@ -452,7 +452,7 @@ int OH_Value_PutUnlimitedInt(OH_Data_Value *value, int sign, const uint64_t *tru
 | OH_Data_Value *value | 表示指向OH_Data_Value实例的指针。 |
 | int sign | 表示正负数，0表示正整数，1表示负整数。 |
 | const uint64_t *trueForm | 表示指向整型数组的指针。 |
-| size_t length | 该参数是输入参数，表示开发者传入的表示整型数组的大小。 |
+| size_t length | 该参数是输入参数，表示开发者传入的整型数组的大小。 |
  
  
 **返回：**

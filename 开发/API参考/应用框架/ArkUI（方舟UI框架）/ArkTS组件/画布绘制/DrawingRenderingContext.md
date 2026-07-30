@@ -1,20 +1,14 @@
 # DrawingRenderingContext
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawingrenderingcontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-DrawingRenderingContext对象与Canvas组件绑定后，可在Canvas组件上进行绘制，绘制对象可以是形状、文本、图片等。
+DrawingRenderingContext对象与Canvas组件绑定后，可在Canvas组件上进行绘制，绘制对象可以是形状、文本、图片等。绑定方式：通过Canvas组件构造函数传入DrawingRenderingContext对象建立绑定关系。绘制流程：通过canvas属性获取DrawingCanvas对象，调用drawing模块接口执行绘制操作，最后调用invalidate()方法触发重新渲染。适用于需要高性能图形绘制、自定义图表、图像编辑等场景，相比CanvasRenderingContext2D提供了更灵活的绘制接口。
 
 > [!NOTE]
-> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
-
-
-
-#### 接口
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 
@@ -24,7 +18,7 @@ DrawingRenderingContext对象与Canvas组件绑定后，可在Canvas组件上进
 
 constructor(unit?: LengthMetricsUnit)
 
-构造使用drawing接口进行绘制的Canvas画布对象，支持配置DrawingRenderingContext对象的单位模式。
+构造使用drawing接口进行绘制的Canvas画布对象，支持配置DrawingRenderingContext对象的单位模式。构造成功后，可通过DrawingRenderingContext对象的canvas属性获取画布对象进行绘制操作。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -36,7 +30,7 @@ constructor(unit?: LengthMetricsUnit)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| unit | LengthMetricsUnit | 否 | 用来配置DrawingRenderingContext对象的单位模式，配置后无法更改，配置方法同CanvasRenderingContext2D。 异常值undefined、NaN和Infinity按默认值处理。 默认值：DEFAULT |
+| unit | LengthMetricsUnit | 否 | 用来配置DrawingRenderingContext对象的单位模式，配置后无法更改，配置方法同CanvasRenderingContext2D。 可选值：DEFAULT（默认vp单位）、PX（px像素单位）。 异常值undefined、NaN和Infinity按默认值处理。 默认值：DEFAULT |
 
 
 
@@ -47,7 +41,7 @@ constructor(unit?: LengthMetricsUnit)
 
 get size(): Size
 
-获取DrawingRenderingContext的大小。
+获取DrawingRenderingContext的大小。需要在Canvas组件上绑定DrawingRenderingContext对象后使用。返回的Size对象包含画布的宽度和高度信息，可用于计算绘制区域或调整绘制参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -70,7 +64,7 @@ get size(): Size
 
 get canvas(): DrawingCanvas
 
-获取绘制内容的画布对象。
+获取绘制内容的画布对象。需要在Canvas组件上绑定DrawingRenderingContext对象后使用。获取到的Canvas对象可用于绑定Brush、Pen等绘图工具，进行形状、文本、图片等绘制操作。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -93,7 +87,7 @@ get canvas(): DrawingCanvas
 
 invalidate(): void
 
-使组件无效，触发组件的重新渲染。
+标记组件状态已变更，触发组件的重新渲染。需在Canvas组件绑定DrawingRenderingContext对象后，完成drawing绘制操作时调用，以将绘制内容渲染到屏幕上显示。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -103,7 +97,7 @@ invalidate(): void
 
 
 
-#### DrawingCanvas12+对象说明
+#### DrawingCanvas对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +113,7 @@ type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas
 
 | 类型 | 说明 |
 | --- | --- |
-| import('../api/@ohos.graphics.drawing').default.Canvas | 返回一个Canvas对象。 |
+| import('../api/@ohos.graphics.drawing').default.Canvas | 返回一个Canvas对象，可用于在DrawingRenderingContext绑定的Canvas组件上绘制形状、文本、图片等内容。 |
 
 
 
@@ -138,8 +132,8 @@ DrawingRenderingContext的尺寸信息。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width | number | 否 | 否 | 获取DrawingRenderingContext的宽度，其值为关联的Canvas组件的宽度。 支持单位：vp、px。 默认单位为vp。 |
-| height | number | 否 | 否 | 获取DrawingRenderingContext的高度，其值为关联的Canvas组件的高度。 支持单位：vp、px。 默认单位为vp。 |
+| width | number | 否 | 否 | 获取DrawingRenderingContext的宽度，其值为关联的Canvas组件的宽度。单位由constructor的unit参数配置决定，支持单位：vp、px。默认单位为vp。 |
+| height | number | 否 | 否 | 获取DrawingRenderingContext的高度，其值为关联的Canvas组件的高度。单位由constructor的unit参数配置决定，支持单位：vp、px。默认单位为vp。 |
 
 
 
@@ -238,13 +232,16 @@ struct CanvasExample {
         .height('50%')
         .backgroundColor('#D5D5D5')
         .onReady(() => {
+          // 创建字体对象并设置字体大小为50
           let font = new drawing.Font();
           font.setSize(50);
           // 加载rawfile目录下的自定义字体文件HarmonyOS_Sans_Bold.ttf
           const myTypeFace = drawing.Typeface.makeFromRawFile($rawfile('HarmonyOS_Sans_Bold.ttf'));
           font.setTypeface(myTypeFace);
+          // 创建文本Blob对象，参数依次为：文本内容、字体对象、文本编码格式
           const textBlob =
             drawing.TextBlob.makeFromString("Hello World", font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
+          // 在坐标(60, 100)处绘制文本Blob
           this.context.canvas.drawTextBlob(textBlob, 60, 100);
           this.context.invalidate();
         })

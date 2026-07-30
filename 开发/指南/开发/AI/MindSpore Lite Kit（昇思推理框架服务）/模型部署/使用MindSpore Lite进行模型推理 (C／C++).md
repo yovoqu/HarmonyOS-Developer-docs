@@ -1,6 +1,6 @@
 # 使用MindSpore Lite进行模型推理 (C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-guidelines
 
@@ -85,7 +85,7 @@ MindSpore Lite是一款AI引擎，它提供了面向不同硬件设备AI模型�
 #include <unistd.h>
 #include "mindspore/model.h"
 
-//生成随机的输入
+// 生成随机的输入
 int GenerateInputDataWithRandom(OH_AI_TensorHandleArray inputs) {
   for (size_t i = 0; i < inputs.handle_num; ++i) {
     float *input_data = (float *)OH_AI_TensorGetMutableData(inputs.handle_list[i]);
@@ -212,7 +212,7 @@ if (ret != OH_AI_STATUS_SUCCESS) {
 // 获得输入张量
 OH_AI_TensorHandleArray inputs = OH_AI_ModelGetInputs(model);
 if (inputs.handle_list == NULL) {
-  printf("OH_AI_ModelGetInputs failed, ret: %d.\n", ret);
+  printf("OH_AI_ModelGetInputs failed.\n");
   OH_AI_ModelDestroy(&model);
   OH_AI_ContextDestroy(&context);
   return ret;

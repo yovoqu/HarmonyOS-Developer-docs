@@ -1,8 +1,9 @@
 # @system.cipher (加密算法)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-cipher
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9开始废弃，建议使用 @ohos.security.cryptoFramework的Cipher 替代。
@@ -11,6 +12,8 @@
 
 #### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import cipher from '@system.cipher';
 ```
@@ -18,6 +21,8 @@ import cipher from '@system.cipher';
   
 
 #### CipherResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 调用cipher接口后，返回的内容。
  
@@ -31,6 +36,8 @@ import cipher from '@system.cipher';
   
 
 #### CipherRsaOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 调用cipher rsa方法时，传入的参数。
  
@@ -50,6 +57,8 @@ import cipher from '@system.cipher';
   
 
 #### CipherAesOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 调用cipher aes方法时，传入的参数。
  
@@ -72,6 +81,8 @@ import cipher from '@system.cipher';
   
 
 #### cipher.rsa
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rsa(options: CipherRsaOptions): void
  
@@ -152,6 +163,8 @@ export default {
   
 
 #### cipher.aes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 aes(options: CipherAesOptions): void
  

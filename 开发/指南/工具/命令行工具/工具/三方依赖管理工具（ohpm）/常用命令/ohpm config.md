@@ -1,6 +1,6 @@
 # ohpm config
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-config
 
@@ -28,7 +28,7 @@ ohpm config encrypt [options]
 ohpm 从命令行和 .ohpmrc 文件中获取其配置设置。有关更多 .ohpmrc 文件信息和可用配置选项，请参阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc) 章节。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/yTwdORBuROO12E_lQVNosQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012116Z&HW-CC-Expire=86400&HW-CC-Sign=C05DBC6BCAF8E40149FE9F856D212A833AFDDF1132EB9BBD7D932B7999CFA9BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/dJ7ExKfRTnmepfTbHcQokg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071813Z&HW-CC-Expire=86400&HW-CC-Sign=D6D6E1FE35F8D338123CA3C96F6565C419C2BF2F497B5069C27C2008789D6D6A)
  
 
 ohpm config 仅支持配置项字段（默认项字段请查阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#zh-cn_topic_0000001792216397_默认配置项) 章节），且仅支持修改**用户级目录**下的 .ohpmrc 文件。
@@ -204,7 +204,7 @@ ohpm config encrypt --crypto_path D:\path\to\empty_dir
 
 2. 成功执行后，在指定路径生成新的加密组件，并对用户输入内容进行加密，其中用户输入内容不可见。
 ```text
-ohpm INFO: Attempted to create an crypto component at the "D:\path\to\empty_dir" path...
+ohpm INFO: Attempted to create a crypto component at the "D:\path\to\empty_dir" path...
 ohpm INFO: The crypto component has been created successfully.
 Please enter the password to be encrypted:
 ohpm INFO: encrypted result:

@@ -1,6 +1,6 @@
 # oh_data_values.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-values-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -46,7 +46,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| OH_Data_Values *OH_Values_Create(void) | 创建OH_Data_Values实例，用于储存多条键值对数据。 |
+| OH_Data_Values *OH_Values_Create(void) | 创建OH_Data_Values实例，用于存储多个数据值。 |
 | int OH_Values_Destroy(OH_Data_Values *values) | 销毁OH_Data_Values对象。 |
 | int OH_Values_Put(OH_Data_Values *values, const OH_Data_Value *val) | 添加OH_Data_Value类型数据给OH_Data_Values对象。 |
 | int OH_Values_PutNull(OH_Data_Values *values) | 添加空数据给OH_Data_Values对象。 |
@@ -93,7 +93,7 @@ OH_Data_Values *OH_Values_Create(void)
  
 **描述**
  
-创建[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例，用于储存多条键值对数据。
+创建[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例，用于存储多个数据值。
  
 **起始版本：** 18
  

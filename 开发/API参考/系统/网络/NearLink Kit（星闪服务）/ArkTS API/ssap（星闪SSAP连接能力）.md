@@ -1,15 +1,11 @@
 # ssap（星闪SSAP连接能力）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了SSAP（SparkLink Service Access Protocol）连接功能。
-
-**模型约束：** 此接口仅可在Stage模型下使用。
-
-**系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
@@ -84,7 +80,7 @@ createClient(address: string): Client
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -137,7 +133,7 @@ createServer(): Server
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -205,7 +201,7 @@ connect(): Promise&lt;void&gt;
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -262,7 +258,7 @@ disconnect(): Promise&lt;void&gt;
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -317,7 +313,7 @@ close(): void
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -370,7 +366,7 @@ getServices(): Promise<Array&lt;Service&gt;>
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -443,7 +439,7 @@ readProperty(property: Property): Promise&lt;Property&gt;
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -526,7 +522,7 @@ writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -610,7 +606,7 @@ setPropertyNotification(property: Property, enable: boolean): Promise&lt;void&gt
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -631,7 +627,6 @@ try {
   });
   // 创建property,实际开发时需要通过getServices接口从服务端获取
   let arrayBufferC = new ArrayBuffer(8);
-  // 期望写入的property值
   let properV = new Uint8Array(arrayBufferC);
   properV[0] = 1;
   let property: ssap.Property = {
@@ -674,7 +669,7 @@ requestMtuSize(mtu: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mtu | number | 是 | MTU参数，取值范围[22, 512]。默认值为256字节 |
+| mtu | number | 是 | MTU参数，取值范围[22, 512]，单位：字节。默认值256。 |
 
 
 **返回值：**
@@ -693,7 +688,7 @@ requestMtuSize(mtu: number): Promise&lt;void&gt;
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -1109,7 +1104,7 @@ addService(service: Service): void
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -1201,7 +1196,7 @@ removeService(serviceUuid: string): void
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -1248,7 +1243,7 @@ close(): void
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -1309,7 +1304,7 @@ notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt;
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -1391,7 +1386,7 @@ sendResponse(response: ServerResponse): void
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 

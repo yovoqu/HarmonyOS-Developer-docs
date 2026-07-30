@@ -1,6 +1,6 @@
 # @ohos.net.connection (网络连接管理)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -43,7 +43,7 @@ createNetConnection(netSpecifier?: NetSpecifier, timeout?: number): NetConnectio
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | netSpecifier | NetSpecifier | 否 | 需要监听网络的网络特征，缺省则表示监听默认网络。 |
-| timeout | number | 否 | 获取netSpecifier指定网络时的超时时间，传入值需为uint32_t范围内的整数，仅netSpecifier存在时生效，默认值为0。 说明：当监听网络不存在时，会尝试激活此网络。若超过设置的超时时间，且注册了网络状态监听，则会触发netUnavailable事件。 |
+| timeout | number | 否 | 获取netSpecifier指定网络时的超时时间（单位：ms），传入值需为uint32_t范围内的整数，仅netSpecifier存在时生效，默认值为0。 说明：当监听网络不存在时，会尝试激活此网络。若超过设置的超时时间，且注册了网络状态监听，则会触发netUnavailable事件。 |
 
 
 **返回值：**
@@ -2213,7 +2213,7 @@ setPacFileUrl(pacFileUrl: string): void
 设置PAC脚本（Proxy Auto-Configuration Script，代理自动配置脚本）的URL地址，并启动PAC代理能力，比如：[http://127.0.0.1:21998/PacProxyScript.pac](http://127.0.0.1:21998/PacProxyScript.pac) 。可通过调用[findProxyForUrl](#connectionfindproxyforurl20)解析URL地址来获取代理信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/BNpwL-8uQLu3rOq4v7o89Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014425Z&HW-CC-Expire=86400&HW-CC-Sign=25025609C3B56D6542AF093FD92CB6782DCA16F3302026CE278968B32165EFA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/hOEkPTccQVeShKtoSnowKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071624Z&HW-CC-Expire=86400&HW-CC-Sign=A3C58873FA956C629AE2DE7852776582DCD520A046F71A84562E5440482CCACB)
 
 
 1、本接口当前在PC/2in120+、Phone23+、Tablet23+、TV23+设备上支持解析脚本并启用PAC代理能力，Wearable设备类型上只保存脚本地址，不会启用PAC代理能力。
@@ -3122,6 +3122,59 @@ connection.queryProbeResult(dest, duration).then((data: connection.ProbeResultIn
 
 
 
+#### connection.refreshGlobalHttpProxy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+refreshGlobalHttpProxy(): Promise&lt;HttpProxy&gt;
+
+通知系统重新认证全局代理。
+
+> [!NOTE]
+> 若当前未配置全局代理或代理配置信息有误（例如未正确配置username和password），则会抛出2100003错误码。可通过 getDefaultHttpProxy 接口查询当前代理配置信息。
+
+
+**起始版本**：26.0.0
+
+**需要权限**：ohos.permission.INTERNET
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Communication.NetManager.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;HttpProxy&gt; | Promise对象，返回全局代理配置信息。其中username和password字段固定为空字符串，不返回有效信息。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[网络连接管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-connection)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 2100002 | Failed to connect to the service. |
+| 2100003 | System internal error. |
+
+
+**示例：**
+
+```json
+import { connection } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+connection.refreshGlobalHttpProxy().then((data: connection.HttpProxy) => {
+  console.info(`Succeeded to refresh global http proxy: ${JSON.stringify(data)}`);
+}).catch((error: BusinessError) => {
+  console.error(`Failed to refresh global http proxy. Code:${error.code}, message:${error.message}`);
+});
+```
+
+
+
 #### NetConnection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3143,7 +3196,7 @@ register(callback: AsyncCallback&lt;void&gt;): void
 订阅指定网络状态变化的通知。如需监听特定事件，确保调用on监听事件后再调用register进行注册。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/10j__7M9RleOyy6TgBR0Mg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014425Z&HW-CC-Expire=86400&HW-CC-Sign=62E2B3B8C2E55917F5E1949E596C573B6D0A4D013A0599AB9DB8575367240F7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/IysWtmymQ8W6IfSQCP_OOw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071624Z&HW-CC-Expire=86400&HW-CC-Sign=426E38B01EA7AD0BDE0B70D33742B379B02B1769027F1BE29840E90CD8DAB8F8)
 
 
 使用完register接口后需要及时调用unregister取消注册。
@@ -4263,8 +4316,8 @@ wifiManager.addCandidateConfig(config,(error,networkId) => {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| linkUpBandwidthKbps | number | 否 | 是 | 上行（设备到网络）带宽，单位(kb/s)。0表示无法评估当前网络带宽。 |
-| linkDownBandwidthKbps | number | 否 | 是 | 下行（网络到设备）带宽，单位(kb/s)。0表示无法评估当前网络带宽。 |
+| linkUpBandwidthKbps | number | 否 | 是 | 上行（设备到网络）带宽，单位(Kbps，千比特每秒)。0表示无法评估当前网络带宽。 |
+| linkDownBandwidthKbps | number | 否 | 是 | 下行（网络到设备）带宽，单位(Kbps，千比特每秒)。0表示无法评估当前网络带宽。 |
 | networkCap | Array&lt;NetCap&gt; | 否 | 是 | 网络具体能力。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | bearerTypes | Array&lt;NetBearType&gt; | 否 | 否 | 网络类型。数组里面只包含了一种网络类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
@@ -4318,7 +4371,7 @@ wifiManager.addCandidateConfig(config,(error,networkId) => {
 网络连接信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/wdeX9itfTsqyf-mbUoGXrA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014425Z&HW-CC-Expire=86400&HW-CC-Sign=5EF4285EE8B48A67C2CD5C30BA143B30C6EB8FBCB93A1A0D8EE0AEC461C487F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/T1oIqGlfTzS9TrsL_nbw6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071624Z&HW-CC-Expire=86400&HW-CC-Sign=EE72E74DD5BC6CC08E916EF912CDEBFBC645B33084EC1826D2F5A70834C8E372)
 
 
 linkAddresses、routes和dnses可能为空，需要做好空值保护，建议使用前先判断对象是否存在。

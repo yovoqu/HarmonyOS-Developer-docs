@@ -1,6 +1,6 @@
 # SharedArrayBuffer对象
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/shared-arraybuffer-object
 
@@ -28,7 +28,7 @@ function transferAtomics(arg1: Int32Array) {
 
 @Entry
 @Component
-struct sharedArrayBuffer {
+struct CSharedArrayBuffer {
   @State message: string = 'Hello World';
 
   build() {
@@ -47,12 +47,15 @@ struct sharedArrayBuffer {
           let int32 = new Int32Array(sab);
           let task: taskpool.Task = new taskpool.Task(transferAtomics, int32);
           taskpool.execute(task).then((res) => {
-            console.info('this res is: ' + res);
+            this.message = 'success';
+            console.info(`this res is: ${res}`);
+          }).catch((e: BusinessError) => {
+              this.message = 'fail';
+              console.error(`taskpool: execute task: code: ${e.code}, message: ${e.message}`);
           });
           setTimeout(() => {
             Atomics.notify(int32, 0, 1);
           }, 1000);
-          this.message = 'success';
         })
     }
     .height('100%')

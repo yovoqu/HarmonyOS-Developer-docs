@@ -1,6 +1,6 @@
 # 使用AVPlayer播放流媒体(C/C++)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avplayer-for-streaming
 
@@ -88,15 +88,15 @@ OH_AVPlayer *player = OH_AVPlayer_Create();
   
 ```cpp
 // 设置回调，监听信息。
-LOG("call OH_AVPlayer_SetPlayerOnInfoCallback");
+LOG("call OH_AVPlayer_SetOnInfoCallback");
 int32_t ret = OH_AVPlayer_SetOnInfoCallback(player, OHAVPlayerOnInfoCallback, nullptr);
-LOG("OH_AVPlayer_SetPlayerOnInfoCallback ret:%{public}d", ret);
+LOG("OH_AVPlayer_SetOnInfoCallback ret:%{public}d", ret);
 ```
 
 ```cpp
-LOG("call OH_AVPlayer_SetPlayerOnErrorCallback");
+LOG("call OH_AVPlayer_SetOnErrorCallback");
 ret = OH_AVPlayer_SetOnErrorCallback(player, OHAVPlayerOnErrorCallback, nullptr);
-LOG("OH_AVPlayer_SetPlayerOnErrorCallback ret:%{public}d", ret);
+LOG("OH_AVPlayer_SetOnErrorCallback ret:%{public}d", ret);
 ```
 
 3. 设置资源：调用[OH_AVPlayer_SetURLSource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_seturlsource)，设置属性URL（支持点播和直播源），AVPlayer进入[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate).AV_INITIALIZED（初始化）状态。
@@ -104,9 +104,9 @@ LOG("OH_AVPlayer_SetPlayerOnErrorCallback ret:%{public}d", ret);
   
 ```cpp
 LOG("player %{public}s >> URL source", url);
-LOG("call %{public}s", "OH_AVPlayer_SetUrlSource");
+LOG("call %{public}s", "OH_AVPlayer_SetURLSource");
 ret = OH_AVPlayer_SetURLSource(player, url);
-LOG("OH_AVPlayer_SetUrlSource ret:%{public}d", ret);
+LOG("OH_AVPlayer_SetURLSource ret:%{public}d", ret);
 ```
 
 4. （可选）设置智能追帧：直播场景下调用[OH_AVPlayer_SetPlaybackStrategy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setplaybackstrategy)，设置AVPlayer启用智能追帧。

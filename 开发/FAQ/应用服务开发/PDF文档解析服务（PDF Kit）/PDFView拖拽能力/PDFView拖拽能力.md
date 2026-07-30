@@ -1,6 +1,6 @@
 # PDFView拖拽能力
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-14
 
@@ -12,7 +12,7 @@ PC项目中需要通过PDFView预览PDF文件时，用鼠标拖拽不生效，�
 
 #### 背景知识
 
-[enablePageDrag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#section1587210185315)支持设置页面是否支持拖拽。
+[enablePageDrag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#enablepagedrag)支持设置页面是否支持拖拽。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |

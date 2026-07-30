@@ -1,14 +1,14 @@
 # ColumnSplit
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-columnsplit
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-将子组件纵向布局，并在每个子组件之间插入横向分割线。
+将子组件纵向布局，并在每个子组件之间插入横向分割线。适用于需要垂直方向上多区域布局且支持动态调整区域大小的场景，如仪表盘界面、可调节高度的上下分区布局等。通过可拖拽的分割线，用户可以灵活调整各区域高度，提升界面交互性和用户体验。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -18,9 +18,9 @@
 
 可以包含子组件。
  
-ColumnSplit通过分割线限制子组件的高度。初始化时，分割线位置根据子组件的高度来计算。初始化后，动态修改子组件的高度不生效，分割线位置保持不变，可通过拖动相邻分割线改变子组件高度。
+ColumnSplit通过分割线限制子组件的高度。初始化时，分割线位置根据子组件的高度来计算。初始化后，动态修改子组件的高度不生效，分割线位置保持不变。设置resizeable(true)后，可通过拖动相邻分割线改变子组件高度。
  
-初始化后，动态修改[margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)、[border](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#border)、[padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#padding)通用属性导致子组件尺寸大于相邻分割线间距的异常情况下，不支持拖动分割线改变子组件的高度。
+初始化后，当动态修改[margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)、[border](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#border)、[padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#padding)通用属性导致子组件尺寸大于相邻分割线间距时，不支持拖动分割线改变子组件的高度。
  
   
 
@@ -56,7 +56,11 @@ ColumnSplit()
 
 resizeable(value: boolean)
  
-设置分割线是否可拖动。
+设置分割线是否可拖拽。设置为true时，用户可拖动分割线调整相邻子组件高度；设置为false时，分割线不可拖动，子组件高度固定。
+ 
+> [!NOTE]
+> 初始化后，当动态修改 margin 、 border 、 padding 通用属性导致子组件尺寸大于相邻分割线间距时，不支持拖动分割线改变子组件的高度。
+
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -66,7 +70,7 @@ resizeable(value: boolean)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 分割线是否可拖动。设置为true时表示分割线可拖动，设置为false时表示分割线不可拖动。 默认值：false 非法值：按默认值处理。 |
+| value | boolean | 是 | 分割线是否可拖动。设置为true时表示分割线可拖动，设置为false时表示分割线不可拖动。子组件的高度调整范围受其最大最小高度限制；当子组件尺寸大于相邻分割线间距时，不支持拖动分割线。初始化后，当动态修改margin、border、padding通用属性导致子组件尺寸大于相邻分割线间距时，不支持拖动分割线改变子组件的高度。 默认值：false 非法值：按默认值处理。 |
  
  
   
@@ -77,7 +81,7 @@ resizeable(value: boolean)
 
 divider(value: ColumnSplitDividerStyle | null)
  
-设置分割线的margin。
+设置分割线与子组件之间的距离。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -89,7 +93,7 @@ divider(value: ColumnSplitDividerStyle | null)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ColumnSplitDividerStyle \| null | 是 | 分割线的margin，即设置分割线与子组件的距离。 默认值：null。当设置为null时，分割线与子组件的距离为0vp。 非法值：按默认值处理。 |
+| value | ColumnSplitDividerStyle \| null | 是 | 分割线的margin，即设置分割线与子组件的距离。对象属性包括：startMargin（子组件与上方分割线的距离）和endMargin（子组件与下方分割线的距离）。 默认值：null。当设置为null时，分割线与子组件的距离为0vp。 非法值：按默认值处理。 |
  
  
   
@@ -108,8 +112,8 @@ divider(value: ColumnSplitDividerStyle | null)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| startMargin | Dimension | 否 | 是 | 子组件与其上方分割线的距离。 默认值：0vp 非法值：按默认值处理，此时getInspectorByKey()接口获取到的属性值为undefined。 |
-| endMargin | Dimension | 否 | 是 | 子组件与其下方分割线的距离。 默认值：0vp 非法值：按默认值处理，此时getInspectorByKey()接口获取到的属性值为undefined。 |
+| startMargin | Dimension | 否 | 是 | 子组件与其上方分割线的距离。可调整间距（如避免内容与分割线重叠、美化布局等场景）。 默认值：0vp 取值范围：不支持负值。 非法值：按默认值处理，此时getInspectorByKey()接口获取到的属性值为undefined。 |
+| endMargin | Dimension | 否 | 是 | 子组件与其下方分割线的距离。可调整间距（如避免内容与分割线重叠、美化布局等场景）。 默认值：0vp 取值范围：不支持负值。 非法值：按默认值处理，此时getInspectorByKey()接口获取到的属性值为undefined。 |
  
  
 > [!NOTE]
@@ -152,7 +156,7 @@ struct ColumnSplitExample {
         Text('5').width('100%').height(50).backgroundColor(0xF5DEB3).textAlign(TextAlign.Center)
       }
       .borderWidth(1)
-      .resizeable(true) // 可拖动
+      .resizeable(true) // 设置分割线可拖拽
       .width('90%').height('60%')
     }.width('100%')
   }
@@ -160,7 +164,7 @@ struct ColumnSplitExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/oayclQEUTvO-Q2F4mYpFAQ/zh-cn_image_0000002659101687.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=5A8A3818F083B71A02DF7061D522487AD8790DB10B881F1B69A7CB15F5509298)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/bzI7gR_0TCCmsu9uL7sUAA/zh-cn_image_0000002686087901.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=FE62EC92A1DE86878780C6DB2B038546C9FB6DB15950720D441E72E41B1375FA)
 
  
   
@@ -185,7 +189,7 @@ struct ColumnSplitDividerExample {
         Text('5').width('100%').height(50).backgroundColor(0xF5DEB3).textAlign(TextAlign.Center)
       }
       .borderWidth(1)
-      .divider({ startMargin: 5, endMargin: 5 }) // 设置间隔
+      .divider({ startMargin: 5, endMargin: 5 }) // 设置分割线与子组件的距离
       .width('90%')
       .height('60%')
     }.width('100%')
@@ -194,4 +198,4 @@ struct ColumnSplitDividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/VpppzU83ShWzMqybJ5hPOA/zh-cn_image_0000002628862338.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=B9AA068B8AE1B99E9F75E00085D166C91DA5ED90DF121B1FF5E8E5CEF0BF5137)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/zMgFb8oLRaySdrC8mhyX2w/zh-cn_image_0000002685928073.png?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=66577B6A73C5158B7EDAF1D9C8B3DE47A4BC6A183767FB70EDBA4B3B13A4B0D1)

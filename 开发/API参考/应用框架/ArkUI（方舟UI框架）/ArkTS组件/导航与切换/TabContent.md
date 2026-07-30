@@ -1,6 +1,6 @@
 # TabContent
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -79,9 +79,9 @@ tabBar(options: string | Resource | CustomBuilder | TabBarOptions)
 
 tabBar(value: SubTabBarStyle | BottomTabBarStyle)
 
-设置TabBar上显示内容。底部样式没有下划线效果。icon异常时显示灰色图块。
+设置TabBar上显示内容。底部样式没有下划线效果。当图标资源加载失败或不存在时，显示灰色图块。
 
-如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
+如果icon采用svg格式图源，需删除其内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
 
 设置的内容超出TabBar页签时进行裁切。
 
@@ -97,7 +97,7 @@ tabBar(value: SubTabBarStyle | BottomTabBarStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SubTabBarStyle \| BottomTabBarStyle | 是 | TabBar上显示内容。 SubTabBarStyle： 子页签样式。 BottomTabBarStyle： 底部页签和侧边页签样式，底部样式没有下划线效果。 |
+| value | SubTabBarStyle \| BottomTabBarStyle | 是 | TabBar上显示的内容，支持子页签样式或底部页签样式。 SubTabBarStyle： 子页签样式。 BottomTabBarStyle： 底部页签和侧边页签样式，底部样式没有下划线效果。 |
 
 
 
@@ -110,7 +110,7 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 设置TabBar上显示内容。
 
-使用BottomTabBarStyle或TabBarOptions类型作为入参并设置icon，icon异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
+使用BottomTabBarStyle或TabBarOptions类型作为入参并设置icon，当图标资源加载失败或不存在时，显示灰色图块。如果icon采用svg格式图源，需删除其内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
 
 设置的内容超出TabBar页签时进行裁切。
 
@@ -128,7 +128,7 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 
 > [!NOTE]
-> TabContent组件不支持设置通用宽度属性，其宽度默认撑满Tabs父组件。 TabContent组件不支持设置通用高度属性，其高度由Tabs父组件高度与TabBar组件高度决定。 vertical属性为false时，上述2个限制交换。 TabContent组件不支持内容过长时页面的滑动，如需页面滑动，可嵌套List使用。 建议对Tabs组件的所有TabContent子组件的tabBar属性，采用统一的参数类型。 若TabContent内部有可获焦组件，Tabs组件内TabContent组件和TabBar组件之间的走焦，仅支持通过键盘的方向键控制。 TabBar的属性动态修改后，会重新进行渲染，更新相关属性并重置所有页签位置。
+> TabContent组件不支持设置通用宽度属性，其宽度默认为Tabs父组件的宽度。 TabContent组件不支持设置通用高度属性，其高度由Tabs父组件高度与TabBar组件高度决定。 vertical属性为false时，上述2个限制交换。 TabContent组件不支持内容过长时页面的滑动，如需页面滑动，可嵌套List使用。 建议对Tabs组件的所有TabContent子组件的tabBar属性，采用统一的参数类型。 若TabContent内部有可获焦组件，Tabs组件内TabContent组件和TabBar组件之间的走焦，仅支持通过键盘的方向键控制。 TabBar的属性动态修改后，会重新进行渲染，更新相关属性并重置所有页签位置。
 
 
 
@@ -151,7 +151,7 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon7+ | string \| Resource | 否 | 是 | 页签内的图片内容。未设置时不显示图片。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon7+ | string \| Resource | 否 | 是 | 页签内的图片内容。未设置时不显示图片。如果icon采用svg格式图源，需删除其内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | text7+ | string \| Resource | 否 | 是 | 页签内的文字内容。未设置时不显示文字。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
@@ -287,7 +287,7 @@ indicator(value: IndicatorStyle): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | IndicatorStyle | 是 | 选中子页签的下划线风格对象。 |
+| value | IndicatorStyle | 是 | 选中子页签的下划线风格对象，用于设置下划线的颜色、高度、宽度、圆角半径等样式。 |
 
 
 **返回值：**
@@ -381,7 +381,7 @@ board(value: BoardStyle): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | BoardStyle | 是 | 选中子页签的背板风格对象。 |
+| value | BoardStyle | 是 | 选中子页签的背板风格对象，用于设置背板的圆角半径等样式。 |
 
 
 **返回值：**
@@ -411,7 +411,7 @@ labelStyle(value: LabelStyle): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | LabelStyle | 是 | 子页签的label文本和字体的样式对象。 |
+| value | LabelStyle | 是 | 子页签的label文本和字体的样式对象，用于设置文字的颜色、大小、字体、行数等属性。 |
 
 
 **返回值：**
@@ -441,7 +441,7 @@ padding(value: Padding | Dimension): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Padding \| Dimension | 是 | 子页签的内边距属性（不支持百分比设置）。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{left:8.0vp,right:8.0vp,top:17.0vp,bottom:18.0vp} 说明： 从API version 12开始，参数支持LocalizedPadding类型，支持镜像能力。 |
+| value | Padding \| Dimension | 是 | 子页签的内边距属性（不支持百分比设置），用于调整页签内容与边界的距离。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{left:8.0vp,right:8.0vp,top:17.0vp,bottom:18.0vp} 说明： 从API version 12开始，新增padding12+方法支持LocalizedPadding类型，支持镜像能力。 |
 
 
 **返回值：**
@@ -471,7 +471,7 @@ padding(padding: LocalizedPadding): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| padding | LocalizedPadding | 是 | 子页签的内边距属性。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{start:LengthMetrics.vp(8),end:LengthMetrics.vp(8), top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)} |
+| padding | LocalizedPadding | 是 | 子页签的内边距属性（不支持百分比设置），用于调整页签内容与边界的距离，支持镜像能力。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{start:LengthMetrics.vp(8),end:LengthMetrics.vp(8), top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)} |
 
 
 **返回值：**
@@ -489,7 +489,7 @@ padding(padding: LocalizedPadding): SubTabBarStyle
 
 id(value: string): SubTabBarStyle
 
-设置子页签的id。
+设置子页签的id。可用于通过TabsController查找或控制指定页签，以及在状态管理和事件处理中标识不同的页签。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -501,7 +501,7 @@ id(value: string): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string | 是 | 子页签的id。 |
+| value | string | 是 | 子页签的id，用于标识和区分不同的页签。当需要通过代码控制特定页签的显示、隐藏或进行其他操作时，可设置此参数。id值需在同一Tabs组件内保持唯一。 |
 
 
 **返回值：**
@@ -667,7 +667,7 @@ BottomTabBarStyle的构造函数。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 |
+| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。当图标资源加载失败或不存在时，显示灰色图块。如果icon采用svg格式图源，需删除其内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 |
 | text | ResourceStr | 是 | 页签内的文字内容。 |
 
 
@@ -691,7 +691,7 @@ BottomTabBarStyle的静态构造函数。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 |
+| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。当图标资源加载失败或不存在时，显示灰色图块。如果icon采用svg格式图源，需删除其内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 |
 | text | ResourceStr | 是 | 页签内的文字内容。 |
 
 
@@ -699,7 +699,7 @@ BottomTabBarStyle的静态构造函数。
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回创建的BottomTabBarStyle对象。 |
+| BottomTabBarStyle | 返回创建的BottomTabBarStyle对象，用于设置底部页签和侧边页签样式。 |
 
 
 
@@ -729,7 +729,7 @@ padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回BottomTabBarStyle对象本身。 |
+| BottomTabBarStyle | 返回BottomTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -759,7 +759,7 @@ verticalAlign(value: VerticalAlign): BottomTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回BottomTabBarStyle对象本身。 |
+| BottomTabBarStyle | 返回BottomTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -789,7 +789,7 @@ layoutMode(value: LayoutMode): BottomTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回BottomTabBarStyle对象本身。 |
+| BottomTabBarStyle | 返回BottomTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -819,7 +819,7 @@ symmetricExtensible(value: boolean): BottomTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回BottomTabBarStyle对象本身。 |
+| BottomTabBarStyle | 返回BottomTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -842,14 +842,14 @@ labelStyle(value: LabelStyle): BottomTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | LabelStyle | 是 | 底部页签的label文本和字体的样式。 |
+| value | LabelStyle | 是 | 底部页签的label文本和字体的样式，用于设置文字的颜色、大小、字体、行数等属性。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回BottomTabBarStyle对象本身。 |
+| BottomTabBarStyle | 返回BottomTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -860,7 +860,7 @@ labelStyle(value: LabelStyle): BottomTabBarStyle
 
 id(value: string): BottomTabBarStyle
 
-设置底部页签的id。
+底部页签的id。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -872,14 +872,14 @@ id(value: string): BottomTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string | 是 | 设置底部页签的id。 |
+| value | string | 是 | 底部页签的id。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回BottomTabBarStyle对象本身。 |
+| BottomTabBarStyle | 返回BottomTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -902,14 +902,14 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | TabBarIconStyle | 是 | 底部页签图标的样式。 |
+| style | TabBarIconStyle | 是 | 底部页签图标的样式，用于设置图标的选中态和未选中态颜色。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| BottomTabBarStyle | 返回BottomTabBarStyle对象本身。 |
+| BottomTabBarStyle | 返回BottomTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -948,9 +948,9 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| AUTO | 0 | 若页签宽度大于104vp，页签内容为左右排布，否则页签内容为上下排布。仅TabBar为垂直模式或Fixed水平模式时有效。 |
-| VERTICAL | 1 | 页签内容上下排布。适用于页签宽度有限、需要节省空间的场景。 |
-| HORIZONTAL | 2 | 页签内容左右排布。适用于页签宽度充足、需要展示更多内容的场景。 |
+| AUTO | 0 | 若页签宽度大于104vp，页签内容为左右排布（图标在左，文字在右），否则页签内容为上下排布（图标在上，文字在下）。仅TabBar为垂直模式或Fixed水平模式时有效。 |
+| VERTICAL | 1 | 页签内容上下排布，图标在上，文字在下。适用于页签宽度有限、需要节省空间的场景。 |
+| HORIZONTAL | 2 | 页签内容左右排布，图标在左，文字在右。适用于页签宽度充足、需要展示更多内容的场景。 |
 
 
 
@@ -1191,8 +1191,10 @@ struct TabContentExample {
   @State selectedFontColor: string = '#007DFF';
   @State currentIndex: number = 0;
   @State selectedIndex: number = 0;
+  // 创建Tabs控制器，用于控制TabContent切换
   private controller: TabsController = new TabsController();
 
+  // 自定义TabBar构建器，根据选中状态切换图标和文字颜色
   @Builder tabBuilder(index: number) {
     Column() {
       // common目录与pages同级
@@ -1248,7 +1250,7 @@ struct TabContentExample {
 ```
 
 
-![](assets/TabContent/file-20260708103217798b6eee.gif)
+![](assets/TabContent/file-20260708103217dba8c2c7.png)
 
 
 
@@ -1429,7 +1431,7 @@ struct TabBarStyleExample {
 ```
 
 
-![](assets/TabContent/file-20260708103217f5d0519d.jpeg)
+![](assets/TabContent/file-20260708103217ef0e342f.gif)
 
 
 
@@ -1671,7 +1673,7 @@ struct TabsAttr {
 ```
 
 
-![](assets/TabContent/file-20260708103217ef0e342f.gif)
+![](assets/TabContent/file-20260708103217f5d0519d.jpeg)
 
 
 
@@ -1763,7 +1765,7 @@ struct TabsTextOverflow {
 ```
 
 
-![](assets/TabContent/file-20260708103217dba8c2c7.png)
+![](assets/TabContent/file-2026070810321837cf8b3e.gif)
 
 
 
@@ -1919,7 +1921,7 @@ struct TabContentExample6 {
 ```
 
 
-![](assets/TabContent/file-20260708103218fb881923.gif)
+![](assets/TabContent/file-20260708103218cbe0bd43.gif)
 
 
 
@@ -2023,7 +2025,7 @@ struct TabBarStyleExample {
 ```
 
 
-![](assets/TabContent/file-20260708103218de9ad27c.gif)
+![](assets/TabContent/file-20260708103218fb881923.gif)
 
 
 
@@ -2111,7 +2113,7 @@ struct Index {
 ```
 
 
-![](assets/TabContent/file-2026070810321837cf8b3e.gif)
+![](assets/TabContent/file-202607081032191ef79b4e.gif)
 
 
 
@@ -2221,7 +2223,7 @@ struct Index {
 ```
 
 
-![](assets/TabContent/file-20260708103218cbe0bd43.gif)
+![](assets/TabContent/file-20260708103219932b2d39.png)
 
 
 
@@ -2401,7 +2403,7 @@ struct MyComponent {
 ```
 
 
-![](assets/TabContent/file-202607081032191ef79b4e.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/m5p6z4l2TQeZ8byY8uhmXQ/zh-cn_image_0000002686087997.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=0E5F1BBA02A4B73471911F531BEFA82A0EAAC3F1E2D6ADA830BEB8AB21A21DD8)
 
 
 
@@ -2471,4 +2473,4 @@ struct TabsIndicatorExample {
 ```
 
 
-![](assets/TabContent/file-20260708103219932b2d39.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/8ZbwQwYtSK-fK7xGg7sZFg/zh-cn_image_0000002685928169.png?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=FCAB2A58976B508D3E590716A8C326B95F8776A9D4D1E81B2AD9C88DA0015CA1)

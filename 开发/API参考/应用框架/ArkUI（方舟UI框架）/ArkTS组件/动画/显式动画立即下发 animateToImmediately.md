@@ -1,6 +1,6 @@
 # 显式动画立即下发 (animateToImmediately)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animatetoimmediately
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ animateToImmediately接口用来提供[显式动画](https://developer.huawei.co
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-animateToImmediately(value: AnimateParam , event: () => void): void
+animateToImmediately(value: AnimateParam, event: () => void): void
  
 提供显式动画立即下发功能。
  
@@ -40,8 +40,8 @@ animateToImmediately(value: AnimateParam , event: () => void): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | AnimateParam | 是 | 设置动画效果相关参数。 |
-| event | () => void | 是 | 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。 |
+| value | AnimateParam | 是 | 设置动画效果相关参数，动画参数将作用于event闭包函数中状态变化产生的过渡动效。各属性的取值范围及含义详见AnimateParam对象说明。 |
+| event | () => void | 是 | 指定显式动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画，动画效果由value参数控制。务必确保调用时状态完整，否则前几帧可能出现渲染异常。 |
  
  
   
@@ -109,4 +109,4 @@ struct AnimateToImmediatelyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/n9pjGw7eQieI6AYP8Ci-wg/zh-cn_image_0000002659222097.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=5A42F99AE36AF178A487C0AA743C8B0527724D0C695D5231A10F4981989BBD03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/vCDcb8nHT42ZQ9RC_4ndGA/zh-cn_image_0000002656008838.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=4DB2F1FAD22EA609AD6518F83FD6EAFFE405CDCDD3441D32DCE6F2A2489B2C06)

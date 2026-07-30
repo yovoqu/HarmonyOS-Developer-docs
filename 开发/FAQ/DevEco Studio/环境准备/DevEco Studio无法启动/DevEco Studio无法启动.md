@@ -10,17 +10,17 @@
 3. DevEco Studio软件安装后无法进入，弹出错误弹窗。Windows系统报错如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/9RfIwasgQyeR-2NNdMFSsA/zh-cn_image_0000002658924303.png?HW-CC-KV=V1&HW-CC-Date=20260723T013905Z&HW-CC-Expire=86400&HW-CC-Sign=30CDAA38F5960D5D8FBB71432C315691CD13D774E24DF4911157977EA4E967FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/9RfIwasgQyeR-2NNdMFSsA/zh-cn_image_0000002658924303.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=974245988854AD72DBADBAE18CF7329AF963A2F83A2FA5B76AA70B6B2087CA47)
 
 
   macOS系统报错如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/yydHXuZpRbO1qrlJTDvlKQ/zh-cn_image_0000002658804359.png?HW-CC-KV=V1&HW-CC-Date=20260723T013905Z&HW-CC-Expire=86400&HW-CC-Sign=E5A438C21424E28082808B7AE96436FBFD9C0D5B9ECA4549892792A458907ED2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/yydHXuZpRbO1qrlJTDvlKQ/zh-cn_image_0000002658804359.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=E63F108C1EF8C8595873EC982C7891F6ED027345DE73E158F6E81703B6D8F98A)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/SJVoIg1-T_mXe_ojQq2Ihg/zh-cn_image_0000002628564994.png?HW-CC-KV=V1&HW-CC-Date=20260723T013905Z&HW-CC-Expire=86400&HW-CC-Sign=B5035FD875AB018A7A5379FE086C00754BAADA0E05F4E4A4607FB41F7E837F17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/SJVoIg1-T_mXe_ojQq2Ihg/zh-cn_image_0000002628564994.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=02AFD90BD5FEF5EF2E01AE4E3A24E5D7E0238AF8950429B0577FF9AFB9C3636F)
 
 4. 无法启动，报错信息如下：
 ```text
@@ -154,7 +154,7 @@ Caused by: com.intellij.util.io.CorruptedException: file[6658].child[14][#48385]
  DevEco Studio突然无法打开，弹框报错信息如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/1XSfrhdcSHCVNvslPjzCDA/zh-cn_image_0000002628405090.png?HW-CC-KV=V1&HW-CC-Date=20260723T013905Z&HW-CC-Expire=86400&HW-CC-Sign=E9275982D0EC14C6B2ED3C1193E06CFD9D52A2BB0905DCCF60BC66D8F0632BB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/1XSfrhdcSHCVNvslPjzCDA/zh-cn_image_0000002628405090.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=AEF8853C9B0EF8B0433D928379D228A50C1B64AF661F0FC991511768D39A7400)
 
 4. DevEco Studio无法正常打开项目。
  

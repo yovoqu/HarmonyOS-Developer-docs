@@ -27,7 +27,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/oU_rCNXpSzW8x2xKaaAK5w/zh-cn_image_0000002628601520.png?HW-CC-KV=V1&HW-CC-Date=20260723T012738Z&HW-CC-Expire=86400&HW-CC-Sign=F16D3FAE0BEF280180CE5DE6117FAD2E3B81F0622D3550F82C74EE2642D9F5EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/oU_rCNXpSzW8x2xKaaAK5w/zh-cn_image_0000002628601520.png?HW-CC-KV=V1&HW-CC-Date=20260730T072355Z&HW-CC-Expire=86400&HW-CC-Sign=85DBE72D058D22D34C8687684A87E95498C277789D3949427AE255AA346FC2E2)
 
  
  
@@ -37,13 +37,13 @@
 在计算机图形学中，每个像素由四个维度的数据构成，可表示为四维向量：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/h9Gm8FTNSaOrUu-LcjdDeg/zh-cn_image_0000002658840793.png?HW-CC-KV=V1&HW-CC-Date=20260723T012738Z&HW-CC-Expire=86400&HW-CC-Sign=D58E726A4B9658D29E68CE7D42EE3FC9C1AB3B925E24C9ADA8DF230323DFD3B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/h9Gm8FTNSaOrUu-LcjdDeg/zh-cn_image_0000002658840793.png?HW-CC-KV=V1&HW-CC-Date=20260730T072355Z&HW-CC-Expire=86400&HW-CC-Sign=5516FE1CE8020AA9ACE832AFA90F65377FD8EA2DB30CBFAA3DD52717EF2F83F5)
 
  
 颜色矩阵本质是执行以下运算的线性变换器：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/gqvkhXqWS_aazTo7rh2JNw/zh-cn_image_0000002628761416.png?HW-CC-KV=V1&HW-CC-Date=20260723T012738Z&HW-CC-Expire=86400&HW-CC-Sign=1A8C108D78432FF65429EF3AB847891317A9174F947D656C7D2F671D176FF9EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/gqvkhXqWS_aazTo7rh2JNw/zh-cn_image_0000002628761416.png?HW-CC-KV=V1&HW-CC-Date=20260730T072355Z&HW-CC-Expire=86400&HW-CC-Sign=8665BBA47FD06B9CDE1C395D7A0C603061D3FEC762DFB349DCDF13E385B578FA)
 
  
 颜色矩阵M的参数语义：
@@ -70,7 +70,7 @@
 **纯色替换矩阵**：将图像转换为目标色（如#2196F3）需满足：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/b8Kod9l-Q0GgBUa40WD54A/zh-cn_image_0000002658960741.png?HW-CC-KV=V1&HW-CC-Date=20260723T012738Z&HW-CC-Expire=86400&HW-CC-Sign=B08C32AA33429E16E395F9931D688EBF2FFC22C8EEBEDE04B91EC6B7DA2AD8A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/b8Kod9l-Q0GgBUa40WD54A/zh-cn_image_0000002658960741.png?HW-CC-KV=V1&HW-CC-Date=20260730T072355Z&HW-CC-Expire=86400&HW-CC-Sign=C78C91D23813CCFFE256BBDC8B9B93F58C2524421610CA60A138737E6F6691ED)
 
  
 对应矩阵：

@@ -1,6 +1,6 @@
 # chart
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-chart
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -59,8 +59,8 @@
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| min | number | 0 | 否 | 轴的最小值。 不支持负数。仅线形图支持。 |
-| max | number | 100 | 否 | 轴的最大值。 不支持负数。仅线形图支持。 |
+| min | number | 0 | 否 | 轴的最小值。 不支持负数。 |
+| max | number | 100 | 否 | 轴的最大值。 不支持负数。 |
 | axisTick | number | 10 | 否 | 轴显示的刻度数量。 说明： 仅支持1~20，且具体显示的效果与如下计算值有关（图的宽度所占的像素/（max-min））。 由于轻量级智能穿戴设备采用整数运算，在除法运算无法整除时会产生误差，具体表现为x轴末尾可能出现空白区域。 在柱状图中，每组数据显示的柱子数量与刻度数量一致，且柱子显示在刻度处。 |
 | display | boolean | false | 否 | 是否显示轴。 默认值：false，表示不显示轴。 |
 | color | &lt;color&gt; | #c0c0c0 | 否 | 轴颜色。 |
@@ -301,4 +301,4 @@ export default {
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/5T2nc1-xSOid53-TkP0ShA/zh-cn_image_0000002626071196.png?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=6AD85136718141D522150D7DB592D00E86F33982FAE0609A24EC1B09D37DEDAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/OF4KAiYQSxWyDzyE0_IwWg/zh-cn_image_0000002685928915.png?HW-CC-KV=V1&HW-CC-Date=20260730T071526Z&HW-CC-Expire=86400&HW-CC-Sign=F1E63F48F9AD7E8D56E5CEC75ED06D6CA69608D4D00BDAFE2CCA8AD1C430D86F)

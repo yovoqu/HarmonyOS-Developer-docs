@@ -1,6 +1,6 @@
 # px2vp单位转换方法及常见问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-753
 
@@ -52,7 +52,6 @@ struct Example {
             .fontSize('12vp');
         }.margin(5);
 
-
         Column() {
           Text('width(\'220px\')')
             .width('220px')
@@ -61,7 +60,6 @@ struct Example {
             .textAlign(TextAlign.Center)
             .fontColor(Color.Black);
         }.margin(5);
-
 
         Column() {
           Text('width(\'220vp\')')
@@ -73,7 +71,6 @@ struct Example {
             .fontSize('12vp');
         }.margin(5);
 
-
         Column() {
           Text('width(vp2px(220)')
             .width(this.getUIContext().px2vp(220) + 'px')
@@ -83,7 +80,6 @@ struct Example {
             .fontColor(Color.Black)
             .fontSize('7vp')
         }.margin(5);
-
 
         Column() {
           Text('width(px2vp(220))')
@@ -104,7 +100,7 @@ struct Example {
 运行结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/TpQVK61dQYGGRO3tIVA7mA/zh-cn_image_0000002628555366.png?HW-CC-KV=V1&HW-CC-Date=20260723T012609Z&HW-CC-Expire=86400&HW-CC-Sign=8FD1FEF92F76B3368C3FFA16B1016EF2F819B8FA813DD9964A0D7D29EF70FCF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/uPT0QkY-Sa6HeOI9iTjbGw/zh-cn_image_0000002684241043.png?HW-CC-KV=V1&HW-CC-Date=20260730T072328Z&HW-CC-Expire=86400&HW-CC-Sign=32353DF216F0438F27B451D9128B073BF39BF17E8F73C6D60C81E7A16E476996)
 
  
  
@@ -130,3 +126,7 @@ A：可参考[vp2px](https://developer.huawei.com/consumer/cn/doc/harmonyos-refe
 Q：为什么px2lpx会在折叠屏折叠状态和非折叠状态返回值不一致？
  
 A：在折叠设备中，屏幕的物理宽度和分辨率会随着设备的折叠状态（折叠态或非折叠态）而改变。由于lpx的计算基于实际屏幕宽度与逻辑宽度的比值，因此当屏幕宽度变化时，px和lpx之间的转换比例也会随之改变。
+ 
+Q：windowSizeChange回调返回的size单位是px，如何转换为vp单位？
+ 
+A：推荐在[windowSizeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)回调中直接使用UIContext的[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)接口将px值转换为vp值。通过getUIContext()获取UIContext实例后调用px2vp，该接口会绑定当前屏幕上下文，确保转换结果正确且实时，无需手动获取densityPixels或单独监听像素密度变化。不建议使用全局的px2vp/vp2px（已标记废弃），也不建议手动用densityPixels做除法，因为densityPixels可能受系统缩放影响，且需要额外监听display.on('change')，增加复杂度。

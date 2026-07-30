@@ -105,7 +105,7 @@ struct NavPageOne {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/0qV2LWHOSlybAAWXDbJz_w/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260723T013038Z&HW-CC-Expire=86400&HW-CC-Sign=73F82651921F1C0AB618FE19AA661DB86A482DE9E9866EE8D223EAF0B6596357)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/0qV2LWHOSlybAAWXDbJz_w/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=90FD8AE7FF371134A286A78DAAE5D023656D785F95D20A5CCD12DFF30CF3C2B8)
 
 - **场景二：跳转不同页面采用不同的模式设置。**在推送子页时修改 Navigation 模式，需要单栏显示的页面设置为 false，需要分栏显示的页面设置为 true。参考场景一，修改代码如下：
 

@@ -1,6 +1,6 @@
 # OH_AVTranscoder_Config
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-oh-avtranscoder-config
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -14,7 +14,7 @@ typedef struct OH_AVTranscoder_Config OH_AVTranscoder_Config
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-初始化AVTranscoder_Config。
+初始化OH_AVTranscoder_Config。
  
 **起始版本：** 20
  

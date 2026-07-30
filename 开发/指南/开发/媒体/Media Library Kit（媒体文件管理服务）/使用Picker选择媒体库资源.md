@@ -1,6 +1,6 @@
 # 使用Picker选择媒体库资源
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker
 
@@ -30,14 +30,16 @@ const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
 
 3. 配置可选的媒体文件类型和媒体文件的最大数目。
 
-以下示例以图片选择为例，媒体文件类型请参见[PhotoViewMIMETypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#photoviewmimetypes)。
+  以下示例以图片选择为例，媒体文件类型请参见[PhotoViewMIMETypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#photoviewmimetypes)。
 
+  
 ```ArkTS
 photoSelectOptions.maxSelectNumber = 5;
 photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE;
 photoSelectOptions.isPhotoTakingSupported = true;
 ```
-1. 创建图库选择器实例，调用[PhotoViewPicker.select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker#select)接口拉起图库界面进行文件选择。文件选择成功后，返回[PhotoSelectResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#photoselectresult)结果集。
+
+4. 创建图库选择器实例，调用[PhotoViewPicker.select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker#select)接口拉起图库界面进行文件选择。文件选择成功后，返回[PhotoSelectResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#photoselectresult)结果集。
 
   
 ```ArkTS
@@ -62,7 +64,7 @@ select返回的uri权限是只读权限，可以根据结果集中uri进行读�
 
   也可以通过返回的uri[获取图片或视频资源](#指定uri获取图片或视频资源)。
 
-  如有获取元数据需求，可以通过[文件管理接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)和[文件URI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)根据uri获取部分文件属性信息，比如文件大小、访问时间、修改时间、文件名、文件路径等。
+  如有获取元数据需求，可以通过[@ohos.file.fs (文件管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)和[文件URI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)根据URI获取部分文件属性信息，比如文件大小、访问时间、修改时间、文件名、文件路径等。
 
 
 #### 指定URI读取文件数据
@@ -113,12 +115,12 @@ export class MediaAssetDataHandler implements photoAccessHelper.MediaAssetDataHa
   }
 
   // 使用箭头函数确保this引用不会丢失
-  onDataPrepared = (data: ArrayBuffer) => {
+  onDataPrepared = (data: ArrayBuffer, map?: Map<string, string>) => {
     if (data === undefined) {
       console.error('Error occurred when preparing data');
       return;
     }
-    console.info('on image data prepared');
+    console.info('on image data prepared, photo quality is ' + map?.get('quality'));
     // 现在this始终指向MediaAssetDataHandler实例
     if (this.callback) {
       this.callback(data);
@@ -130,7 +132,7 @@ export class MediaAssetDataHandler implements photoAccessHelper.MediaAssetDataHa
 2. 使用[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets-1)接口获取要访问的资产，并通过[requestImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetmanager#requestimagedata11)获取对应资源。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/NnQQE2imSgWjdiIzPawvDw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020910Z&HW-CC-Expire=86400&HW-CC-Sign=D58374CF13F842F87B6E150F2C321E425B13EC3CCF59A5770D8CF57D2D3B7443)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/ab2XwXu0TwW8bqvsKA1oEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071945Z&HW-CC-Expire=86400&HW-CC-Sign=BE3D027AB59ADA879CEC5FBC6509711F7380A42A1EC30B86F4A10ECF2848FE0C)
  
 
   出于对用户隐私安全的保护，对媒体资源EXIF中的地理位置和拍摄参数信息做了去隐私化处理。如果需要获取被去隐私化的EXIF信息，需要[申请相册管理模块权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-preparation#申请相册管理模块功能相关权限)'ohos.permission.MEDIA_LOCATION'。
@@ -139,6 +141,7 @@ export class MediaAssetDataHandler implements photoAccessHelper.MediaAssetDataHa
 ```ArkTS
 static async getMediaResourceByUri(uri: string, context: common.Context, callback?: MediaDataHandlerCallback)
 : Promise<void> {
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> | null = null;
   try {
     // 创建PhotoAccessHelper实例
     const phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
@@ -154,8 +157,7 @@ static async getMediaResourceByUri(uri: string, context: common.Context, callbac
     };
 
     // 查询资产
-    const fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-      await phAccessHelper.getAssets(fetchOptions);
+    fetchResult = await phAccessHelper.getAssets(fetchOptions);
       
     const photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
     if (photoAsset) {
@@ -177,10 +179,13 @@ static async getMediaResourceByUri(uri: string, context: common.Context, callbac
       console.error('No asset found for URI: ' + uri);
     }
       
-    // 关闭查询结果
-    fetchResult.close();
   } catch (err) {
     console.error('getMediaResourceByUri failed with err: ' + err);
+  } finally {
+     // 关闭查询结果。
+     if (fetchResult !== null) {
+       fetchResult.close();
+     }
   }
 }
 ```

@@ -23,7 +23,7 @@ HarmonyOS应用签名需要使用p12文件、cer文件和p7b文件。p7b文件�
 - **场景1：p12文件存在，Alias和Password存在，csr文件丢失；**如果仅仅丢失csr文件，可以通过IDE工具使用p12文件重新生成csr文件：
 
 1. 在主菜单栏单击Build > Generate Key and CSR，单击Choose Existing选择已有的p12文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/PG1TB8ntRXW_EbqXCmcf-w/zh-cn_image_0000002628554588.png?HW-CC-KV=V1&HW-CC-Date=20260723T013846Z&HW-CC-Expire=86400&HW-CC-Sign=404D36B3B55A06E46AFB7A75672DB6EE9098EFDE296B88B20D5823171F03AEDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/nRd-X3HJQ6iJExd2K_iMDA/zh-cn_image_0000002628554588.png?HW-CC-KV=V1&HW-CC-Date=20260730T072704Z&HW-CC-Expire=86400&HW-CC-Sign=2A026C6B2A7AAC727EC1B024EAED8B546D1B779D24DCA1FB69E4BFC663C41D6B)
 
 
 2. 输入Key store Password和Alias后，即可重新生成csr文件。

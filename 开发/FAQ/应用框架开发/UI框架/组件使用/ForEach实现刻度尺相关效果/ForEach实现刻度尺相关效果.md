@@ -7,10 +7,10 @@
 #### 问题现象
 
 - 场景一：如何使用ForEach循环渲染实现刻度尺的效果，如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/AvEKezoOQy-s-OUzqQM7gg/zh-cn_image_0000002628617570.png?HW-CC-KV=V1&HW-CC-Date=20260723T012818Z&HW-CC-Expire=86400&HW-CC-Sign=5F335FE497A42D31BACD463E5DAA99F474053CF7E63C188CCE0A4E5DC7DE1A44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/AvEKezoOQy-s-OUzqQM7gg/zh-cn_image_0000002628617570.png?HW-CC-KV=V1&HW-CC-Date=20260730T072414Z&HW-CC-Expire=86400&HW-CC-Sign=EBC9A1AA812A1670D9E45F6B10630BC5A30A50BC6D9BF6D0C233E5EAEC144A34)
 
 - 场景二：如何实现一个横向的刻度选择器，支持横向滑动的效果？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/WZuz6gj6RECfc_7vgFZqaQ/zh-cn_image_0000002628777466.png?HW-CC-KV=V1&HW-CC-Date=20260723T012818Z&HW-CC-Expire=86400&HW-CC-Sign=C92EBEBEC08E07939A1ED33F3D70BD1DFBDB77DF725C2893F6CE0CBD48718775)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/WZuz6gj6RECfc_7vgFZqaQ/zh-cn_image_0000002628777466.png?HW-CC-KV=V1&HW-CC-Date=20260730T072414Z&HW-CC-Expire=86400&HW-CC-Sign=963E6CACFA3B5C240A0D6EF3F03E03D77BDE30D29675DCD30C821A2032A5A59D)
 
 
  

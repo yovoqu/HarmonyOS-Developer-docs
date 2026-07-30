@@ -1,10 +1,10 @@
 # ArkGuard混淆开启指南
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide
 
-本指南旨在帮助开发者了解和使用ArkGuard源码混淆功能，保护应用代码安全。通过启用源码混淆，开发者可以对ArkTS代码中的变量名、属性名、文件名等进行混淆处理，增加代码逆向难度，提升应用的安全性。文章将详细介绍如何在DevEco Studio中开启混淆、配置混淆规则、适配不同混淆场景，以及如何查看混淆效果和还原混淆后的报错栈。
+本指南旨在帮助开发者了解和使用ArkGuard源码混淆功能，保护应用代码安全。通过启用源码混淆，开发者可以对ArkTS代码中的变量名、属性名、文件名等进行混淆处理，增加代码逆向难度，提升应用的安全性。文章将详细介绍如何在DevEco Studio中开启混淆、配置混淆规则、适配不同混淆场景，以及如何查看混淆效果和还原混淆后的报错堆栈。
   
 
 #### 开启源码混淆步骤
@@ -201,7 +201,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
   
 
-![](assets/ArkGuard混淆开启指南/file-2026070810400993b2557c.png)
+![](assets/ArkGuard混淆开启指南/file-202607081040104d96352c.png)
 
   
  
@@ -218,4 +218,4 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 源代码映射信息文件：sourceMaps.map，该文件记录了压缩/转换后的代码到原始源代码之间的映射关系。
  
 
-![](assets/ArkGuard混淆开启指南/file-202607081040104d96352c.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/tPvcJDOURwKmBQGCz8pR6A/zh-cn_image_0000002656005760.png?HW-CC-KV=V1&HW-CC-Date=20260730T071833Z&HW-CC-Expire=86400&HW-CC-Sign=29EECA7D3F7971C3CB522AEE61EE11379EB8049078E5FF62B5A8A09AADD6EA26)

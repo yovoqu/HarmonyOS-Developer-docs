@@ -15,7 +15,7 @@ List组件可以下拉上滑，期望实现以下效果：
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/BtsvA1X8Q5WPi6urwhpGnQ/zh-cn_image_0000002628764160.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013128Z&HW-CC-Expire=86400&HW-CC-Sign=9DF2E54651DA7FE312BAF5D89503DFA7CB76A92FFF10327F25B236054D958FF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/BtsvA1X8Q5WPi6urwhpGnQ/zh-cn_image_0000002628764160.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072457Z&HW-CC-Expire=86400&HW-CC-Sign=95C0F450D80E3437B600F4A630656BF3D25E6F9B4F4AE2B21305EF7D245A672D)
 
  
  

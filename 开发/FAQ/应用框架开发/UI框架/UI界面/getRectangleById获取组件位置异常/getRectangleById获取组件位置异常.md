@@ -64,7 +64,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/tyqtJjUdTROPuFAzjCKS6w/zh-cn_image_0000002658955331.png?HW-CC-KV=V1&HW-CC-Date=20260723T013030Z&HW-CC-Expire=86400&HW-CC-Sign=FD02ACDA51DC210B8C5CAF4AE0F51C481AB62E767A311813C043EB4371B38E22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/tyqtJjUdTROPuFAzjCKS6w/zh-cn_image_0000002658955331.png?HW-CC-KV=V1&HW-CC-Date=20260730T072446Z&HW-CC-Expire=86400&HW-CC-Sign=998E17D30EEBA515D69B93EFCF96D132D56DAA1DD18B768B5C41D29CF7EA361C)
 
  
 日志信息如下：
@@ -156,7 +156,7 @@ struct <span style="color: rgb(0,0,255);">CoordinateDisplay </span><span style="
 返回信息如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/wbu3OJZ0T32a3vcZjS1Ktg/zh-cn_image_0000002628596114.png?HW-CC-KV=V1&HW-CC-Date=20260723T013030Z&HW-CC-Expire=86400&HW-CC-Sign=3C45B9EDE36A1126C9130AAF2437EF9F5B7DCBA97D9F3E1F5CFD0E1AD26E49C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/wbu3OJZ0T32a3vcZjS1Ktg/zh-cn_image_0000002628596114.png?HW-CC-KV=V1&HW-CC-Date=20260730T072446Z&HW-CC-Expire=86400&HW-CC-Sign=FCE2CFFE2F10C71713546AEC2CD74564187AA78F294D7E600D5641C8FB14FB26)
 
  
 可以看到，组件1和组件2的screenOffset不再相同。

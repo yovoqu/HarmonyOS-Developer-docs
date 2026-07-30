@@ -15,7 +15,7 @@
 #### 背景知识
 
 - 当存在连接复用\自定义DNS规则\本地DNS缓存时，请求按如下顺序依次执行：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/biNUqo4ySwuNHuo1A5IOWQ/zh-cn_image_0000002663721703.png?HW-CC-KV=V1&HW-CC-Date=20260723T013438Z&HW-CC-Expire=86400&HW-CC-Sign=98579C095F90947E7A2E0EDB4CFA9B689F1A58908EDCF4BA838BA277E1718444)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/biNUqo4ySwuNHuo1A5IOWQ/zh-cn_image_0000002663721703.png?HW-CC-KV=V1&HW-CC-Date=20260730T072552Z&HW-CC-Expire=86400&HW-CC-Sign=3CAC17ED8B477425F9BE0EBF42169BE7EDD8A9339823BB32774569BF09299744)
 
 - [wireshark](https://github.com/wireshark/wireshark)：一款强大的网络协议分析工具，用于捕获和分析网络数据包，帮助用户深入理解和调试网络通信问题。
 - [WebNetErrorList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist#webneterrorlist)：ArkWeb的网络协议栈错误列表，其中ERR_NAME_NOT_RESOLVED表示域名无法解析。
@@ -64,17 +64,17 @@ getErrorCode:-105
 
 - **查看网络数据包**，判断DNS解析请求数据包是否发出，使用dns.qry.name contains [域名]过滤pcap日志。
 正常情况下，同时存在DNS请求及响应数据包：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/8YEh5D9BSJGUKBeOwvCUzQ/zh-cn_image_0000002663802523.png?HW-CC-KV=V1&HW-CC-Date=20260723T013438Z&HW-CC-Expire=86400&HW-CC-Sign=7B9BE12B0404F526D60AD85845E889CD7FC5E9516E36F13CAA3C17828A0EE8F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/8YEh5D9BSJGUKBeOwvCUzQ/zh-cn_image_0000002663802523.png?HW-CC-KV=V1&HW-CC-Date=20260730T072552Z&HW-CC-Expire=86400&HW-CC-Sign=9D3C71BF34ED70B6AAC5B60705C6A4BF421E234C31060B935E67D3EFE833368C)
 
 - 若请求时间点存在DNS query数据包，没有query response响应包，ICMP返回Destination unreachable，需要检查DNS服务器是否可达。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/5lVYdd2_QUm3SJIWjpBVAQ/zh-cn_image_0000002663722461.png?HW-CC-KV=V1&HW-CC-Date=20260723T013438Z&HW-CC-Expire=86400&HW-CC-Sign=3B9F6106BC387BCAD735B1573159104FB0F2DAEA306D6CADBE1B75396AC1ADCD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/5lVYdd2_QUm3SJIWjpBVAQ/zh-cn_image_0000002663722461.png?HW-CC-KV=V1&HW-CC-Date=20260730T072552Z&HW-CC-Expire=86400&HW-CC-Sign=E13CAEEE9CE0C8DD6181916E1570468A4FD2F3E467F51400994C2DF71F157047)
 
 - 若请求时间点存在DNS query数据包，响应返回No such name [域名]，需要检查域名是否拼写正确，或更换DNS服务器。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/tXQHbI0-SAiusp8PHoqHdA/zh-cn_image_0000002633443396.png?HW-CC-KV=V1&HW-CC-Date=20260723T013438Z&HW-CC-Expire=86400&HW-CC-Sign=E738C0B9447D492A0F0BE56CDFE7F09CDBAB4D753F3239F38A2E5C946BAD67F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/tXQHbI0-SAiusp8PHoqHdA/zh-cn_image_0000002633443396.png?HW-CC-KV=V1&HW-CC-Date=20260730T072552Z&HW-CC-Expire=86400&HW-CC-Sign=A528B65223F8DC483C95646EE90004CCE1AA760866166AE95EC65FEC787977AE)
 
 
  - **检查是否存在连接复用**：对于HTTP/2版本，强制启用连接复用；HTTP/1.1版本中，header的Connection: keep-alive代表启用连接复用，默认开启，客户端可通过设置Connection: close显示关闭连接复用。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/MYhcRTpsQmyL5QG7ODRUPw/zh-cn_image_0000002633603292.png?HW-CC-KV=V1&HW-CC-Date=20260723T013438Z&HW-CC-Expire=86400&HW-CC-Sign=0A310A7609A1CB554D1D07F4E715F31C6B85AA46FDF43C852F8FC01F86CA3688)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/MYhcRTpsQmyL5QG7ODRUPw/zh-cn_image_0000002633603292.png?HW-CC-KV=V1&HW-CC-Date=20260730T072552Z&HW-CC-Expire=86400&HW-CC-Sign=E9DB534B31F1C4ED084DD7F8BBCF01E0973AD282B3E2E3C1F913DA7FB0B33A92)
 
 
  

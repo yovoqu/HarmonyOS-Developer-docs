@@ -1,6 +1,6 @@
 # wrapBuilder：封装全局@Builder
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder
 
@@ -79,6 +79,7 @@ let builderArr: WrappedBuilder<[string, number]>[] = [wrapBuilder(MyBuilder)]; /
 function myBuilder(value: string, size: number) {
   Text(value)
     .fontSize(size)
+    .margin(10)
 }
 
 // 使用wrapBuilder封装myBuilder，并赋值给globalBuilder变量
@@ -102,6 +103,10 @@ struct TestIndex {
 ```
 
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/kHSKNGMhT1G3vaCGOZL6NQ/zh-cn_image_0000002686085335.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=D638FBEBD04DD04B4032BAD9EF8B195B22FDF4CB867DBCE94F69CE1C72136328)
+
+
+
 
 #### @Builder方法赋值给变量在UI语法中使用
 
@@ -113,6 +118,7 @@ function myBuilder0(value: string, size: number) {
   Text(value)
     .fontSize(size)
     .fontColor(Color.Blue)
+    .margin(10)
 }
 
 @Builder
@@ -120,6 +126,7 @@ function yourBuilder(value: string, size: number) {
   Text(value)
     .fontSize(size)
     .fontColor(Color.Pink)
+    .margin(10)
 }
 
 const builderArr: WrappedBuilder<[string, number]>[] = [wrapBuilder(myBuilder0), wrapBuilder(yourBuilder)];
@@ -148,6 +155,10 @@ struct IndexItem {
 ```
 
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/BmDQCNDpSqSfCWUY9YTihQ/zh-cn_image_0000002685925507.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=0992B4A3BFE563A31ED43EBCC1793DCFCD4AE0C1E5B639AACB04A67D6BADE713)
+
+
+
 
 #### @Builder方法赋值给类或者接口的属性
 
@@ -158,6 +169,7 @@ struct IndexItem {
 function MyBuilder(value: string, size: number) {
   Text(value)
     .fontSize(size)
+    .margin(10)
 }
 
 interface ChildOptions {
@@ -192,6 +204,10 @@ struct Child {
 ```
 
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/nBL_kXv2S4qWiZgXvnA7CA/zh-cn_image_0000002656005828.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=41A72659103D9CF6D69AAA67F58DF072389AB32BC2234531DB1AD1A1686C009C)
+
+
+
 
 #### 引用传递
 
@@ -206,7 +222,10 @@ class Tmp {
 function overBuilder(param: Tmp) {
   Column() {
     Text(`wrapBuildervalue:${param.paramA2}`)
+      .fontSize(20)
+      .margin(10)
   }
+  .width('100%')
 }
 
 const wBuilder: WrappedBuilder<[Tmp]> = wrapBuilder(overBuilder);
@@ -220,13 +239,21 @@ struct Parent {
     Column() {
       // 引用传递参数，label.paramA2的改变会引起overBuilder内的UI刷新
       wBuilder.builder({ paramA2: this.label.paramA2 });
-      Button('Click me').onClick(() => {
-        this.label.paramA2 = 'ArkUI';
-      })
+      Button('Click me')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.label.paramA2 = 'ArkUI';
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ir9pf92FSYyaoDOoXesdeg/zh-cn_image_0000002655845908.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=FA5A082F2F88DA80BB626CCCE8D08240F83DBFC57F239E5D83900587F51E5985)
+
 
 
 
@@ -243,12 +270,14 @@ struct Parent {
 function myBuilderFirst(value: string, size: number) {
   Text('MyBuilderFirst：' + value)
     .fontSize(size)
+    .margin(10)
 }
 
 @Builder
 function myBuilderSecond(value: string, size: number) {
   Text('MyBuilderSecond：' + value)
     .fontSize(size)
+    .margin(10)
 }
 
 interface BuilderModel {
@@ -271,7 +300,7 @@ struct TestBuilderIndex {
   build() {
     Row() {
       Column() {
-        this.builderObj.globalBuilder.builder(this.message, 20)
+        this.builderObj.globalBuilder.builder(this.message, 20);
       }
       .width('100%')
     }
@@ -279,3 +308,6 @@ struct TestBuilderIndex {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/HTzR_QjWQKireUNosQ7uHg/zh-cn_image_0000002686085337.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=C1DF333F55EA888EEA4EEB175CCC9ADEDC10CA59443A789A5C98235CAA1781EF)

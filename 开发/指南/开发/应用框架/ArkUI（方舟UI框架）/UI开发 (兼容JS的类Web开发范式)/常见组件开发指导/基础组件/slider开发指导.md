@@ -1,6 +1,6 @@
 # slider开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-slider
 
@@ -38,7 +38,7 @@ slider为滑动条组件，用来快速调节音量、亮度等。具体用法�
 
 #### 设置样式和属性
 
-slider组件通过color、selected-color、block-color样式分别为滑动条设置背景颜色、已选择颜色和滑块颜色。
+slider组件通过color、scrollbar-color、background-color样式分别为滑动条设置背景颜色、滚动条颜色和背景颜色。
 
 ```text
 <!-- xxx.hml -->
@@ -163,7 +163,7 @@ export default {
 <!-- xxx.hml -->
 <div class="container">
   <image src="common/landscape3.jpg" style=" width: {{WidthVal}}px;height:{{HeightVal}}px;margin-top: -150px;"></image>
-  <div class="txt">
+  <div class="text">
     <slider min="0" max="100" value="{{value}}" onchange="setValue"></slider>
     <text>The width of this picture is {{WidthVal}}</text>
     <text>The height of this picture is {{HeightVal}}</text>
@@ -203,10 +203,10 @@ export default{
   },
   setValue(e) {
     this.WidthVal = 200 + e.value;
-    this.HeightVal = 200 + e.value
+    this.HeightVal = 200 + e.value;
   }
 }
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/V7Uv9Wa_QB-5NbYbFzYDmA/zh-cn_image_0000002611834013.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=626F36FDAEA67DCA64653427F6A2523A0FF51C0B87144D0A999B44CC1BCBF972)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/5RALQoI_SLuQ3Y_m_Fgu4Q/zh-cn_image_0000002655846694.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071857Z&HW-CC-Expire=86400&HW-CC-Sign=1686D9AA95B76721635A38C507D740A739B5A5B3ECFE7501EC6C8EAA0478EA29)

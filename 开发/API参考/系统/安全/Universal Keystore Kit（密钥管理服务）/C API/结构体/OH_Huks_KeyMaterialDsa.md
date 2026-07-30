@@ -1,6 +1,6 @@
 # OH_Huks_KeyMaterialDsa
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-keymaterialdsa
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,9 +37,9 @@ struct OH_Huks_KeyMaterialDsa {...}
 | 名称 | 描述 |
 | --- | --- |
 | enum OH_Huks_KeyAlg keyAlg | 密钥的算法类型。 |
-| uint32_t keySize | 密钥的长度。 |
-| uint32_t xSize | x值的长度。 |
-| uint32_t ySize | y值的长度。 |
-| uint32_t pSize | p值的长度。 |
-| uint32_t qSize | q值的长度。 |
-| uint32_t gSize | g值的长度。 |
+| uint32_t keySize | 密钥的长度，单位：Bit。 |
+| uint32_t xSize | x值的长度，单位：Byte。 |
+| uint32_t ySize | y值的长度，单位：Byte。 |
+| uint32_t pSize | p值的长度，单位：Byte。 |
+| uint32_t qSize | q值的长度，单位：Byte。 |
+| uint32_t gSize | g值的长度，单位：Byte。 |

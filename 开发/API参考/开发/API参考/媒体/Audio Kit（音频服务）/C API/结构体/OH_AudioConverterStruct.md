@@ -1,6 +1,6 @@
 # OH_AudioConverterStruct
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audioconverter-oh-audioconverterstruct
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -16,7 +16,7 @@ typedef struct OH_AudioConverterStruct OH_AudioConverter
 
 声明音频格式转换器。
  
- 音频转换器的句柄用于执行与音频转换器相关的功能。
+ 音频格式转换器句柄用于执行音频格式转换相关功能。
  
 **起始版本：** 26.0.0
  

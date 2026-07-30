@@ -1,6 +1,6 @@
 # 权限设置Button
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-permissiononsetting
 
@@ -14,7 +14,7 @@
 
 #### 约束与限制
 
-权限设置Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备，从API版本26.0.0开始，新增支持Car设备。
+权限设置Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
 
 > [!NOTE]
 > 仅支持UIAbility/UIExtensionAbility。 在调用此接口前，应用需要先调用 requestPermissionsFromUser ，如果用户在首次权限设置弹框时已授权，调用当前接口将无法拉起二次授权页面。
@@ -70,7 +70,7 @@ struct Index {
                     hilog.info(0x0000, 'testTag', 'data authResults: %{public}s', data.authResults?.join(','));
                     hilog.info(0x0000, 'testTag', 'data dialogShownResults: %{public}s', data.dialogShownResults?.join(','));
                   }
-                })
+                });
             } catch (err) {
               hilog.error(0x0000, 'testTag', 'error: %{public}d %{public}s', err.code, err.message);
             }
@@ -87,7 +87,7 @@ struct Index {
             styleOption: {
               styleConfig: new functionalButtonComponentManager.ButtonConfig()
                 .fontSize(20)
-            },
+            }
           },
           // 当OpenType设置为PERMISSION_SETTING时，回调必须为onPermissionSetting。
           controller: new functionalButtonComponentManager.FunctionalButtonController().onPermissionSetting((err,
@@ -102,7 +102,7 @@ struct Index {
             let result = data.permissionResult;
             result.forEach(res => {
               hilog.info(0x0000, 'testTag', 'data: %{public}s', String(res));
-            })
+            });
           })
         })
       }

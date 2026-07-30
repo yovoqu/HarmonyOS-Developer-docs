@@ -1,6 +1,6 @@
 # IPC与RPC通信开发指导(C/C++)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ipc-capi-development-guideline
 
@@ -112,7 +112,7 @@ OHIPCRemoteStub *NativeChildProcess_OnConnect()
     return g_ipcStubObj.GetRemoteStub();
 }
 
-void NativeChildProcessMainProc()
+void NativeChildProcess_MainProc()
 {
     // 相当于子进程的Main函数，实现子进程的业务逻辑
     // ...
@@ -129,6 +129,8 @@ void NativeChildProcessMainProc()
 ```cpp
 #include <IPCKit/ipc_kit.h>
 #include <AbilityKit/native_child_process.h>
+// ...
+int32_t g_result = -1;
 // ...
 static void OnNativeChildProcessStarted(int errCode, OHIPCRemoteProxy *remoteProxy)
 {

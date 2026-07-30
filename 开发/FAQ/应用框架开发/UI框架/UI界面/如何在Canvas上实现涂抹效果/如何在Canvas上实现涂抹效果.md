@@ -125,7 +125,7 @@ struct CanvasPanGesture {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/1ZVYwS3VSRqmwaKrt3eYHQ/zh-cn_image_0000002658926415.png?HW-CC-KV=V1&HW-CC-Date=20260723T013227Z&HW-CC-Expire=86400&HW-CC-Sign=DAF5B76E1C5772B2E9B3ED2687FF7CD706349577F4533DA219CE1F4A6AC708C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/1ZVYwS3VSRqmwaKrt3eYHQ/zh-cn_image_0000002658926415.png?HW-CC-KV=V1&HW-CC-Date=20260730T072516Z&HW-CC-Expire=86400&HW-CC-Sign=1C90DF10FF9EC99BB23B7EDADB21F351C5586E1A8B5CC821BBD37E2DAB18D419)
 
 
  - 场景二：撤销绘制的路径。在一些签名场景，如果用户绘制错误需要重新绘制，直接使用clearRect方法清空画布体验不够友好，需要仅撤销最新的绘制路径，这时可以使用数组来存储绘制过程中的路径，然后点击撤销时移除最新路径，最后重绘剩余路径，这样即可实现撤销绘制功能。示例代码参考如下：
@@ -226,7 +226,7 @@ struct CanvasCancelDraw {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/kVQLFwoCRM2cvByE4spNeA/zh-cn_image_0000002628407212.png?HW-CC-KV=V1&HW-CC-Date=20260723T013227Z&HW-CC-Expire=86400&HW-CC-Sign=A8B0B99C6A1C1D243500E96ACB362A9B044D08FA6AFFCBEFF1E70283A328CF37)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/kVQLFwoCRM2cvByE4spNeA/zh-cn_image_0000002628407212.png?HW-CC-KV=V1&HW-CC-Date=20260730T072516Z&HW-CC-Expire=86400&HW-CC-Sign=48698B5E265E837259A3EA50BFEC71AC0BA58C33B3AC6B0B8FBF1E619878B63C)
 
 - 场景三：擦除部分绘制内容。在一些绘图场景，可能需要在原有的线条基础上进行擦除而不是撤销，这时就需要globalCompositeOperation实现。Canvas是增量绘制，在原有的基础上进行擦除，可以通过设置globalCompositeOperation属性为destination-out来实现，示例代码参考如下：
 
@@ -295,7 +295,7 @@ struct CanvasEraseDraw {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/H90Iu-kDQxSd_taClv0bAg/zh-cn_image_0000002658806469.png?HW-CC-KV=V1&HW-CC-Date=20260723T013227Z&HW-CC-Expire=86400&HW-CC-Sign=C829EB91BA1AF4674CED8F9D8FA51B764FCC47680679EB5F95A4D9A06BB1A3EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/H90Iu-kDQxSd_taClv0bAg/zh-cn_image_0000002658806469.png?HW-CC-KV=V1&HW-CC-Date=20260730T072516Z&HW-CC-Expire=86400&HW-CC-Sign=77DFCD08AFC10843FA48730E519E9F8D52F9BAF28A4D6C6CB6DBAD49BD89624C)
 
 
  

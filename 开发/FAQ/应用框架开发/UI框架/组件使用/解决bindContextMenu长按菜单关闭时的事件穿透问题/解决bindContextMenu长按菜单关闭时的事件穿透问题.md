@@ -1,6 +1,6 @@
 # 解决bindContextMenu长按菜单关闭时的事件穿透问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-950
 
@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/64GOSi7-QFqqq4wwrIXGFg/zh-cn_image_0000002658920459.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012637Z&HW-CC-Expire=86400&HW-CC-Sign=5FA102F19489025A08FD3B98CAF7BB5300C2893BEEAD5EEA0092BDDCFA6BBA5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/-jhsaGTyTmuYw73k-LYlfw/zh-cn_image_0000002658920459.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072335Z&HW-CC-Expire=86400&HW-CC-Sign=267EFF11271DE79B4EA9F0717923EE3FB483369558637F4154D842411FB6CBA7)
 
  
  
@@ -21,7 +21,7 @@
 #### 背景知识
 
 - [bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)用于为组件绑定自定义菜单。菜单的显示和隐藏通过控制绑定的isShown属性实现：当isShown为true时，菜单弹出；为false时，菜单隐藏。
-- [hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-multi-level-gesture#hittestbehavior对手势和事件的控制)属性可以实现在复杂的多层级场景下，一些组件能够响应手势和事件，而一些组件不能响应手势和事件。HitTestMode.Block自身会响应触摸测试，阻塞子节点和兄弟节点的触摸测试，从而导致子节点和兄弟节点的onTouch事件和手势均无法触发。
+- [hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior#hittestbehavior)属性可以实现在复杂的多层级场景下，一些组件能够响应手势和事件，而一些组件不能响应手势和事件。HitTestMode.Block自身会响应触摸测试，阻塞子节点和兄弟节点的触摸测试，从而导致子节点和兄弟节点的onTouch事件和手势均无法触发。
 
  
  

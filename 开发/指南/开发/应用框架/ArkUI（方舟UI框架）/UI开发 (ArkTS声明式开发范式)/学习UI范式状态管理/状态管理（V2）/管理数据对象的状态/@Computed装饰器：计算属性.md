@@ -1,51 +1,51 @@
 # @Computed装饰器：计算属性
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed
 
-当开发者使用相同的计算逻辑重复绑定在UI上时，为了防止重复计算，可以使用@Computed计算属性。计算属性中依赖的状态变量变化时，只会计算一次。这解决了UI多次重用该属性导致的重复计算和性能问题。如下面例子。
- 
+当开发者使用相同的计算逻辑重复绑定在UI上时，为了防止重复计算，可以使用[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-computed#computed)计算属性。计算属性中依赖的状态变量变化时，只会计算一次。这解决了UI多次重用该属性导致的重复计算和性能问题。如下面例子。
+
 ```ArkTS
 @Computed
 get sum() {
   return this.count1 + this.count2 + this.count3;
 }
 ```
- 
+
 ```ArkTS
 Text(`${this.count1 + this.count2 + this.count3}`) // 计算this.count1 + this.count2 + this.count3
 Text(`${this.count1 + this.count2 + this.count3}`) // 重复计算this.count1 + this.count2 + this.count3
 Text(`${this.sum}`) // 读取@Computed sum的缓存值，节省上述重复计算
 Text(`${this.sum}`) // 读取@Computed sum的缓存值，节省上述重复计算
 ```
- 
+
 在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)，[@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)，[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)。
- 
+
 > [!NOTE]
 > @Computed装饰器从API version 12开始支持。 从API version 12开始，该装饰器支持在元服务中使用。 从API version 23开始，该装饰器支持在ArkTS卡片中使用。
 
-  
+
 
 #### 概述
 
 @Computed为方法装饰器，装饰getter方法。@Computed会检测被计算的属性变化，当被计算的属性变化时，@Computed只会被求解一次。不建议在@Computed中修改变量，错误的使用会导致数据无法被追踪或appfreeze等问题，详情见[使用限制](#使用限制)。
- 
+
 但需要注意，对于简单计算，不建议使用计算属性，因为计算属性本身也有开销。对于复杂的计算，@Computed能带来性能收益。
- 
-  
+
+
 
 #### 装饰器说明
 
 @Computed语法：
- 
+
 ```text
 @Computed
 get varName(): T {
     return value;
 }
 ```
-  
+
 | @Computed方法装饰器 | 说明 |
 | --- | --- |
 | 支持类型 | getter访问器。 |
@@ -53,13 +53,13 @@ get varName(): T {
 | 可初始化子组件 | @Param。 |
 | 被执行的时机 | @ComponentV2中的@Computed会在自定义组件创建的时候初始化，触发@Computed计算。 @ObservedV2装饰的类中的@Computed，会在@ObservedV2装饰的类实例创建后，异步初始化，触发@Computed计算。 在@Computed中计算的状态变量被改变时，计算属性会重新计算。 |
 | 是否允许赋值 | @Computed装饰的属性是只读的，不允许赋值，详情见使用限制。 |
- 
- 
-  
+
+
+
 
 #### 使用限制
 
-- @Computed为方法装饰器，仅能装饰getter方法。
+ - @Computed为方法装饰器，仅能装饰getter方法。
 
   
 ```text
@@ -73,7 +73,7 @@ func() { // 错误用法，编译时报错
 }
 ```
 
-- @Computed装饰的方法只有在初始化，或者其被计算的状态变量改变时，才会发生重新计算。不建议开发者在@Computed装饰的getter方法中做除获取数据外其余的逻辑操作，如下面例子。
+ - @Computed装饰的方法只有在初始化，或者其被计算的状态变量改变时，才会发生重新计算。不建议开发者在@Computed装饰的getter方法中做除获取数据外其余的逻辑操作，如下面例子。
 
   
 ```text
@@ -97,19 +97,31 @@ struct Page {
   build() {
     Column() {
       Text(`${this.fullName}`) // 获取一次fullName
+        .fontSize(20)
+        .margin(10)
       Text(`${this.fullName}`) // 获取一次fullName，累计获取两次fullName，但是fullName不会重新计算，读取缓存值
+        .fontSize(20)
+        .margin(10)
 
       // 点击Button，获取fullNameRequestCount次数
       Text(`count ${this.showFullNameRequestCount}`)
-      Button('get fullName').onClick(() => {
-        this.showFullNameRequestCount = this.fullNameRequestCount;
-      })
+        .fontSize(20)
+        .margin(10)
+      Button('get fullName')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.showFullNameRequestCount = this.fullNameRequestCount;
+        })
     }
+    .width('100%')
   }
 }
 ```
 
-- 在@Computed装饰的getter方法中，不能改变参与计算的属性，以防止重复执行计算属性导致的appfreeze。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/e2NCHC38QhGsU1xtEr2zIA/zh-cn_image_0000002656005934.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=7EC41480894E8A41805D4DA2AF04A0A6DF83D47AEAC96F1264F84085331ECDBA)
+
+ - 在@Computed装饰的getter方法中，不能改变参与计算的属性，以防止重复执行计算属性导致的appfreeze。
 
   在下面例子中，计算fullName1时触发了this.lastName的改变，this.lastName的改变，触发fullName2的计算，在fullName2的计算中，改变了this.firstName，再次触发fullName1的重新计算，从而导致循环计算，最终引起appfreeze。
 
@@ -138,13 +150,18 @@ struct Page {
   build() {
     Column() {
       Text(`${this.fullName1}`)
+        .fontSize(20)
+        .margin(10)
       Text(`${this.fullName2}`)
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
 
-- @Computed不能和[双向绑定!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#概述)连用，@Computed装饰的是getter访问器，不会被子组件同步，也不能被赋值。开发者自己实现的计算属性的setter不生效，且产生编译时报错。
+ - @Computed不能和[双向绑定!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#概述)连用，@Computed装饰的是getter访问器，不会被子组件同步，也不能被赋值。开发者自己实现的计算属性的setter不生效，且产生编译时报错。
 
   
 ```text
@@ -155,6 +172,8 @@ struct Child {
 
   build() {
     Button('ChildChange')
+      .width(300)
+      .margin(10)
       .onClick(() => {
         this.$double(200);
       })
@@ -188,8 +207,8 @@ struct Index {
 }
 ```
 
-- @Computed为状态管理V2提供的能力，只能在@ComponentV2和@ObservedV2中使用。
-- 多个@Computed一起使用时，警惕循环求解，以防止计算过程中的死循环。
+ - @Computed为状态管理V2提供的能力，只能在@ComponentV2和@ObservedV2中使用。
+ - 多个@Computed一起使用时，警惕循环求解，以防止计算过程中的死循环。
 
   
 ```text
@@ -205,18 +224,18 @@ get c() {
 ```
 
 
- 
-  
+
+
 
 #### 使用场景
 
-  
+
 
 #### 当被计算的属性变化时，@Computed装饰的getter访问器只会被求解一次
 1. 在自定义组件中使用计算属性。
 
   
-- 点击第一个Button改变lastName，触发@Computed fullName重新计算。
+ - 点击第一个Button改变lastName，触发@Computed fullName重新计算。
 
 2. this.fullName被绑定在两个Text组件上，观察fullName日志，可以发现，计算只发生了一次。
 
@@ -264,15 +283,25 @@ struct ObservedV2ClassUser {
   build() {
     Column() {
       Text(this.name1.fullName)
+        .fontSize(20)
+        .margin(10)
       Text(this.name1.fullName)
+        .fontSize(20)
+        .margin(10)
       // 点击Button改变lastName，触发fullName重新计算，且只被计算一次
-      Button('changed lastName').onClick(() => {
-        this.name1.lastName += 'a';
-      })
+      Button('changed lastName')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.name1.lastName += 'a';
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/-s3WIFZEQ2GSFn9Naet7bw/zh-cn_image_0000002686085443.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=04D2609397B8749C24CAEB02BA4374F264C1385B21B142FAAEF771D9A131083D)
 
 
   
@@ -283,7 +312,7 @@ struct ObservedV2ClassUser {
 
   
 点击“-”，celsius-- -> fahrenheit -> kelvin --> kelvin变化时调用onKelvinMonitor。
-- 点击“+”，celsius++ -> fahrenheit -> kelvin --> kelvin变化时调用onKelvinMonitor。
+ - 点击“+”，celsius++ -> fahrenheit -> kelvin --> kelvin变化时调用onKelvinMonitor。
 
   
 ```ArkTS
@@ -329,25 +358,31 @@ struct ComputedPropertyResolution {
           })
       }
 
-      Text(`Fahrenheit ${this.fahrenheit.toFixed(2)}`).fontSize(40)
-      Text(`Kelvin ${this.kelvin.toFixed(2)}`).fontSize(40)
+      Text(`Fahrenheit ${this.fahrenheit.toFixed(2)}`)
+        .fontSize(40)
+        .margin(10)
+      Text(`Kelvin ${this.kelvin.toFixed(2)}`)
+        .fontSize(40)
+        .margin(10)
     }
     .width('100%')
   }
 }
 ```
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/J1PQ8147TP2KC27BGoQyDw/zh-cn_image_0000002685925615.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=266B8D08298490160973329E6B4BA40D51B952F5F760FDE96042BE8D43E51CC0)
 
- 
-  
+
+
+
 
 #### @Computed装饰的属性可以初始化@Param
 
 下面的例子使用@Computed初始化@Param。
- 
-- 点击Button('-')和Button('+')改变商品数量，quantity是被@Trace装饰的，其改变时可以被观察到的。
-- quantity的改变会触发total和qualifiesForDiscount重新计算，计算商品总价和是否可以享有优惠。
-- total和qualifiesForDiscount的改变会触发子组件Child对应Text组件刷新。
+
+ - 点击Button('-')和Button('+')改变商品数量，quantity是被@Trace装饰的，其改变时可以被观察到的。
+ - quantity的改变会触发total和qualifiesForDiscount重新计算，计算商品总价和是否可以享有优惠。
+ - total和qualifiesForDiscount的改变会触发子组件Child对应Text组件刷新。
 
   
 ```ArkTS
@@ -381,9 +416,12 @@ struct ComputingInitParam {
     Column() {
       Text(`Shopping List: `)
         .fontSize(30)
+        .margin(10)
       ForEach(this.shoppingBasket, (item: Article) => {
         Row() {
           Text(`unitPrice: ${item.unitPrice}`)
+            .fontSize(20)
+            .margin(10)
           // 点击Button减少quantity，触发total和qualifiesForDiscount重新计算
           Button('-')
             .onClick(() => {
@@ -392,17 +430,21 @@ struct ComputingInitParam {
               }
             })
           Text(`quantity: ${item.quantity}`)
+            .fontSize(20)
+            .margin(10)
           // 点击Button增加quantity，触发total和qualifiesForDiscount重新计算
           Button('+')
             .onClick(() => {
               item.quantity++;
             })
         }
+        .width('100%')
 
         Divider()
       })
       Child({ total: this.total, qualifiesForDiscount: this.qualifiesForDiscount })
-    }.alignItems(HorizontalAlign.Start)
+    }
+    .alignItems(HorizontalAlign.Start)
   }
 }
 
@@ -415,9 +457,13 @@ struct Child {
     Row() {
       Text(`Total: ${this.total} `)
         .fontSize(30)
+        .margin(10)
       Text(`Discount: ${this.qualifiesForDiscount} `)
         .fontSize(30)
+        .margin(10)
     }
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/3I52cpX4SaSb1RHjTRKdOw/zh-cn_image_0000002656005936.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=731E44243AFCF9C0BA645D4DDF2825D9DED08C8F126625B03D6F2D2897F74366)

@@ -1,6 +1,6 @@
 # @ohos.application.formInfo (formInfo)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-forminfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,12 +44,12 @@ import { formInfo } from '@kit.FormKit';
 | updateEnabled | boolean | 否 | 否 | 表示卡片是否使能更新。 - true：表示支持周期性刷新。 - false：表示不支持周期性刷新。 |
 | formVisibleNotify | boolean | 否 | 否 | 表示卡片是否使能可见通知。 - true：通知卡片提供方可见状态变化。 - false：不通知卡片提供方可见状态变化。 |
 | relatedBundleName | string | 否 | 否 | 表示卡片所属的相关联Bundle名称。 |
-| scheduledUpdateTime | string | 否 | 否 | 表示卡片更新时间。 |
+| scheduledUpdateTime | string | 否 | 否 | 表示卡片定时更新时间。 |
 | formConfigAbility | string | 否 | 否 | 表示卡片配置ability。 |
 | updateDuration | number | 否 | 否 | 表示卡片更新周期。 |
-| defaultDimension | number | 否 | 否 | 表示卡片规格。 |
-| supportDimensions | Array&lt;number&gt; | 否 | 否 | 表示卡片支持的规格。 |
-| customizeData | {[key: string]: [value: string]} | 否 | 否 | 表示卡片用户数据。 |
+| defaultDimension | number | 否 | 否 | 表示卡片默认尺寸。 |
+| supportDimensions | Array&lt;number&gt; | 否 | 否 | 表示卡片支持的尺寸。 |
+| customizeData | {[key: string]: [value: string]} | 否 | 否 | 表示卡片自定义数据。 |
  
  
   
@@ -97,7 +97,7 @@ import { formInfo } from '@kit.FormKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | formState | FormState | 否 | 否 | 表示卡片状态。 |
-| want | Want | 否 | 否 | Want文本内容。 |
+| want | Want | 否 | 否 | 卡片的Want信息。 |
  
  
   

@@ -1,6 +1,6 @@
 # wearEngine（穿戴设备能力开放）
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -951,7 +951,7 @@ try {
     let device: wearEngine.Device = devices[0];
 
     let callback = (monitorEventData: wearEngine.MonitorEventData) => {
-      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
+      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`);
     }
     monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
       .then(() => {
@@ -1039,25 +1039,25 @@ try {
 
     // 解注册时回调函数需要保证和注册时为同一个对象
     let callback = (monitorEventData: wearEngine.MonitorEventData) => {
-      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
+      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`);
     }
 
     // 创建待删除的订阅任务
     monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
       .then(() => {
         console.info(`Succeeded in subscribing wear status`);
+
+        // 删除之前创建的订阅任务
+        monitorClient.unsubscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
+          .then(() => {
+            console.info(`Succeeded in unsubscribing wear status`);
+          })
+          .catch((error: BusinessError) => {
+            console.error(`Failed to unsubscribe wear status. Code is ${error.code}, message is ${error.message}.`);
+          })
       })
       .catch((error: BusinessError) => {
         console.error(`Failed to subscribe wear status. Code is ${error.code}, message is ${error.message}.`);
-      })
-
-    // 删除之前创建的订阅任务
-    monitorClient.unsubscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
-      .then(() => {
-        console.info(`Succeeded in unsubscribing wear status`);
-      })
-      .catch((error: BusinessError) => {
-        console.error(`Failed to unsubscribe wear status. Code is ${error.code}, message is ${error.message}.`);
       })
   }
 } catch (error) {
@@ -2023,7 +2023,7 @@ try {
         }
         // 设置需要发送的消息
         let callback = (p2pMessage: wearEngine.P2pMessage) => {
-          console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`)
+          console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`);
         }
 
         p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
@@ -2128,11 +2128,11 @@ try {
         }
         // 设置需要发送的文件信息
         let callback = (p2pMessage: wearEngine.P2pFile) => {
-          console.info(`Succeeded in receiving file.`)
+          console.info(`Succeeded in receiving file.`);
         }
 
         p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
-          console.info(`Succeeded in registering file receiver.`)
+          console.info(`Succeeded in registering file receiver.`);
         }).catch((error: BusinessError) => {
           console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
         })
@@ -2164,6 +2164,8 @@ registerFileReceiverWithProgress(deviceRandomId: string, appParam: P2pAppParam, 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
+
+**设备行为差异：** 对于6.1.1(24)及之前版本，本接口实际支持的设备类型范围(Phone、Tablet）小于其所属系统能力支持的设备类型范围（Phone、Tablet、Wearable)。因硬件能力限制，该接口在Wearable设备中无法使用该能力。 对于26.0.0及之后版本，本接口实际支持的设备类型范围与其所属系统能力支持的设备类型范围一致（Phone、Tablet、Wearable)。
 
 **起始版本：** 6.1.1(24)
 
@@ -2233,14 +2235,14 @@ try {
         // 设置需要发送的文件信息和传输进度
         let callback = (p2pMessage: wearEngine.P2pFile) => {
           if (!p2pMessage.file) {
-            console.info(`progress is ${p2pMessage.progress}`)
+            console.info(`progress is ${p2pMessage.progress}`);
           } else {
-            console.info(`Succeeded in receiving file.`)
+            console.info(`Succeeded in receiving file.`);
           }
         }
 
         p2pClient.registerFileReceiverWithProgress(device.randomId, appParam, callback).then(() => {
-          console.info(`Succeeded in registering file receiver.`)
+          console.info(`Succeeded in registering file receiver.`);
         }).catch((error: BusinessError) => {
           console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
         })
@@ -2345,14 +2347,14 @@ try {
 
         p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
           console.info(`Succeeded in registering message receiver.`);
+
+          p2pClient.unregisterMessageReceiver(device.randomId, appParam, callback).then(() => {
+            console.info(`Succeeded in unregistering message receiver.`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to unregister message receiver. Code is ${error.code}, message is ${error.message}.`);
+          })
         }).catch((error: BusinessError) => {
           console.error(`Failed to register message receiver. Code is ${error.code}, message is ${error.message}.`);
-        })
-
-        p2pClient.unregisterMessageReceiver(device.randomId, appParam, callback).then(() => {
-          console.info(`Succeeded in unregistering message receiver.`);
-        }).catch((error: BusinessError) => {
-          console.error(`Failed to unregister message receiver. Code is ${error.code}, message is ${error.message}.`);
         })
       }
     } catch (error) {
@@ -2455,14 +2457,14 @@ try {
 
         p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
           console.info(`Succeeded in registering file receiver.`);
+
+          p2pClient.unregisterFileReceiver(device.randomId, appParam, callback).then(() => {
+            console.info(`Succeeded in unregistering file receiver.`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to unregister file receiver. Code is ${error.code}, message is ${error.message}.`);
+          })
         }).catch((error: BusinessError) => {
           console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
-        })
-
-        p2pClient.unregisterFileReceiver(device.randomId, appParam, callback).then(() => {
-          console.info(`Succeeded in unregistering file receiver.`);
-        }).catch((error: BusinessError) => {
-          console.error(`Failed to unregister file receiver. Code is ${error.code}, message is ${error.message}.`);
         })
       }
     } catch (error) {
@@ -3319,17 +3321,22 @@ try {
             console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
           }
           // 订阅加速度传感器数据上报
-          sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-            console.info(`Succeeded in subscribing sensor data.`);
-          }).catch((error: BusinessError) => {
-            console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-          })
-          // 取消加速度传感器数据上报，注意传入的回调函数需与订阅时为同一对象
-          sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-            console.info(`Succeeded in unsubscribing sensor data.`);
-          }).catch((error: BusinessError) => {
-            console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-          })
+          sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback)
+            .then(() => {
+              console.info(`Succeeded in subscribing sensor data.`);
+
+              // 取消加速度传感器数据上报，注意传入的回调函数需与订阅时为同一对象
+              sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback)
+                .then(() => {
+                  console.info(`Succeeded in unsubscribing sensor data.`);
+                })
+                .catch((error: BusinessError) => {
+                  console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+                })
+            })
+            .catch((error: BusinessError) => {
+              console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+            })
         }
       })
     } catch (error) {

@@ -1,6 +1,6 @@
 # 使用Image_NativeModule完成多图对象解码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-source-picture-c
 
@@ -245,9 +245,13 @@ napi_value CreatePictureByImageSource(napi_env env, napi_callback_info info)
         return GetJsResult(env, IMAGE_BAD_PARAMETER);
     }
     
-    char filePath[MAX_SIZE];
-    size_t pathSize;
-    napi_get_value_string_utf8(env, args[0], filePath, MAX_SIZE, &pathSize);
+    char filePath[MAX_SIZE] = {0};
+    size_t pathSize = 0;
+    if (napi_get_value_string_utf8(env, args[0], filePath, sizeof(filePath), &pathSize) != napi_ok) {
+        OH_LOG_ERROR(LOG_APP, "CreatePictureByImageSource napi_get_value_string_utf8 failed !");
+        return GetJsResult(env, IMAGE_BAD_PARAMETER);
+    }
+    filePath[MAX_SIZE - 1] = '\0';
 
     g_thisPicture->errorCode = OH_ImageSourceNative_CreateFromUri(filePath, pathSize, &g_thisPicture->source);
     if (g_thisPicture->errorCode != IMAGE_SUCCESS) {

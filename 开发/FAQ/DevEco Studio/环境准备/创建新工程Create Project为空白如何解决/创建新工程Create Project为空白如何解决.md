@@ -6,14 +6,14 @@
 
 #### 问题现象
 1. 创建新工程时，Create Project为空白。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/v4knCHoQSSu7KQIFv005nA/zh-cn_image_0000002628405062.png?HW-CC-KV=V1&HW-CC-Date=20260723T013903Z&HW-CC-Expire=86400&HW-CC-Sign=7AEB7178F3529117CECF83DD50B1B8D01F5A59C1EF708BA746357B3555EDDEF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/v4knCHoQSSu7KQIFv005nA/zh-cn_image_0000002628405062.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=83D7C0DA3BF85483BF82CBAF0C3D5D0A0300E96AB0FDA361DC93CBE00BBE79DA)
 
 2. 环境变量JAVA_HOME没有指向有效的jvm。
 ```bash
 The environment variable JAVA_HOME with the value of does not point to a valid JVM installation。
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/Q90qiVJ_RY6mKu4r9dmllg/zh-cn_image_0000002658924283.png?HW-CC-KV=V1&HW-CC-Date=20260723T013903Z&HW-CC-Expire=86400&HW-CC-Sign=B17FF7643468AD575F13F6EA4193E50AE5013ADE1D362ABE7D035E43CB30066C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/Q90qiVJ_RY6mKu4r9dmllg/zh-cn_image_0000002658924283.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=93CA66025577CFA36D15315449B4424A767AE78018B5003CA0CCFA51C3854C0E)
 
  
  
@@ -28,18 +28,18 @@ The environment variable JAVA_HOME with the value of does not point to a valid J
 
 解决问题的核心思路就是jcef有没有打开，按照如下步骤进行排查：
  1. 检查DevEco Studio是否存在报错：Too many restarts of GPU-process (jcef)。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/7K2H1yeiTJmzIOg8ecHGkQ/zh-cn_image_0000002658804333.png?HW-CC-KV=V1&HW-CC-Date=20260723T013903Z&HW-CC-Expire=86400&HW-CC-Sign=AA552DE5A4E1E166880CAA5710B6F866E94B1A251AA0B4A952A8247D6D2B260B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/7K2H1yeiTJmzIOg8ecHGkQ/zh-cn_image_0000002658804333.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=BE90453127E214001A952890F1AACEC32FC0AB784CBEAA779D18D8891F957413)
 
 2. 查看DevEco Studio依赖的jbr路径下，jvm.dll与chrome_elf.dll是否存在，如果不存在很可能是被杀毒软件误删除了。jvm.dll路径：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/hefRYuveRmmt1ZAP3OFVJg/zh-cn_image_0000002628564972.png?HW-CC-KV=V1&HW-CC-Date=20260723T013903Z&HW-CC-Expire=86400&HW-CC-Sign=6E9D9BD340072B9C1BA4D63EF0C30ABD5FD91629A9C9EBC5F7B6EAFA3F98C208)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/hefRYuveRmmt1ZAP3OFVJg/zh-cn_image_0000002628564972.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=8CC7276A989D92BEEC9FC0E8D336DD2F6E608522184319B4DFD93E04B1582B7C)
 
 
   chrome_elf.dll路径：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/anfkXI7WSvWrbaevRSqerg/zh-cn_image_0000002628405072.png?HW-CC-KV=V1&HW-CC-Date=20260723T013903Z&HW-CC-Expire=86400&HW-CC-Sign=4C5A752EB2C87CB48E0B689BC2D96C9D1BDB4F6C89B82A6C8AF44880C393171E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/anfkXI7WSvWrbaevRSqerg/zh-cn_image_0000002628405072.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=1DD05036657F2313C025EFB1900831E8A4FDF3627ACEA75A9B61D2BE2662A8A1)
 
 3. 开发者的环境可能和沙箱环境是否冲突，检查ide.browser.jcef.sandbox.enable=false是否勾选。
  
@@ -59,7 +59,7 @@ The environment variable JAVA_HOME with the value of does not point to a valid J
 根据如下建议修改，查看是否能解决问题（不是所有选项都要改掉）：
  
 - 按照图示开启jcef.gpu.disable：help->find action，输入registry，点击生成registry界面；registry界面中勾选jcef.gpu.disable选项。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/LBZIX0sCQSO9fDmFVlT4UA/zh-cn_image_0000002658924287.png?HW-CC-KV=V1&HW-CC-Date=20260723T013903Z&HW-CC-Expire=86400&HW-CC-Sign=16806326BE28C5728930EE11017E5EE27D448A531694BA51F691BB787878523E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/LBZIX0sCQSO9fDmFVlT4UA/zh-cn_image_0000002658924287.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=1823A13AA30A63BE629CA50E11C014EB259ACDE587412A8FCD04A4E924C82FA6)
 
 - 找杀毒软件，将文件添加到白名单并恢复文件。或者重新安装应用，在杀毒软件提示拦截的时候放行。
 - 直接添加ide.browser.jcef.sandbox.enable=false，通过Help -> Edit Custom Properties...打开对应的配置页面，在后面添加ide.browser.jcef.sandbox.enable=false即可。

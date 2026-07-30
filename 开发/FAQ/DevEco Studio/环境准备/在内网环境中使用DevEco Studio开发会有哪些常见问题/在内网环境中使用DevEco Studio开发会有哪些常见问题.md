@@ -22,7 +22,7 @@
  
  
 - **场景一：内网环境，项目构建失败：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/zUw2eQ2lRNqXPvXxvhMrFg/zh-cn_image_0000002628405108.png?HW-CC-KV=V1&HW-CC-Date=20260723T013907Z&HW-CC-Expire=86400&HW-CC-Sign=D54BCB7E1BC943A37220B5AB4FFE54C07606D64E717F8B0778815830FF883506)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/zUw2eQ2lRNqXPvXxvhMrFg/zh-cn_image_0000002628405108.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=7F919B20A158BEF847DE1E57A1FBE8669F42BFF97E68F273827878A806566DF1)
 
 - **场景二：内网开发中模拟器不能下载：**在内网开发发现模拟器不能下载，需要提供模拟器下载使用相关的域名。
 - **场景三：内网开发无法使用signing configs自动签名：**signing configs自动签名中，点击sign in登录的时候会跳转到授权登录页面，HUAWEI DevEco Studio想要访问您的华为帐号，点击允许会跳转到一个回调页面，跳到这个页面无法访问此网站，因为是内网开发需要针对访问的IP地址申请防火墙通过才允许访问。

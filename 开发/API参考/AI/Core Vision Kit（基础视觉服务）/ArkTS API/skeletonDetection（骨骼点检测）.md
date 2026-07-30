@@ -1,6 +1,6 @@
 # skeletonDetection（骨骼点检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-skeleton-detection-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -122,10 +122,10 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 定义骨骼点检测的接口和基本结构。继承自[visionBase.Analyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#analyzer)类。它有以下功能函数：
 
- - private constructor()：这是一个私有构造函数，意味着不能直接通过 new 关键字实例化SkeletonDetector。必须通过 create() 静态方法来创建实例。
- - static create(): Promise&lt;SkeletonDetector&gt;：这是一个静态方法，用于创建SkeletonDetector的实例。使用Promise异步回调。
- - process(request: visionBase.Request): Promise&lt;SkeletonDetectionResponse&gt;：这是一个实例方法，用于处理骨骼点检测请求。使用Promise异步回调。
- - destroy(): Promise&lt;void&gt;：这是一个实例方法，用于销毁骨骼点检测的进程，使用Promise异步回调。
+ - constructor()：私有构造函数，不能直接通过new关键字实例化SkeletonDetector，必须通过create()静态方法来创建实例。
+ - create(): Promise&lt;SkeletonDetector&gt;：静态方法，用于创建SkeletonDetector的实例。使用Promise异步回调。
+ - process(request: visionBase.Request): Promise&lt;SkeletonDetectionResponse&gt;：实例方法，用于处理骨骼点检测请求。使用Promise异步回调。
+ - destroy(): Promise&lt;void&gt;：实例方法，用于销毁骨骼点检测进程，使用Promise异步回调。
 
 
 **系统能力：** SystemCapability.AI.Vision.SkeletonDetection
@@ -133,14 +133,6 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
-
-| 名称 | 说明 |
-| --- | --- |
-| constructor | 强制开发者必须使用static create()方法来创建SkeletonDetector的实例。 |
-| create | 初始化骨骼点检测接口。 |
-| process | 骨骼点检测的实际执行接口。 |
-| destroy | 骨骼点检测的销毁接口。 |
-
 
 
 
@@ -162,7 +154,7 @@ static create(): Promise&lt;SkeletonDetector&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;SkeletonDetector&gt; | Promise对象，返回SkeletonDetector实例。 |
+| Promise&lt;SkeletonDetector&gt; | Promise对象，返回SkeletonDetector实例，用于执行骨骼点检测。 |
 
 
 **错误码：**
@@ -182,22 +174,26 @@ import { skeletonDetection } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 async function createAndDestroyDetector() {
-  const detector = await skeletonDetection.SkeletonDetector.create();
-  if (detector) {
-    hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector created successfully');
-  } else {
-    hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to create Skeleton detector');
-    return;
-  }
-  // 使用 detector 进行一些操作
-  // ...
+  try {
+    const detector = await skeletonDetection.SkeletonDetector.create();
+    if (detector) {
+      hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector created successfully');
+    } else {
+      hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to create Skeleton detector');
+      return;
+    }
+    // 使用 detector 进行一些操作
+    // ...
 
-  // 完成后销毁 detector
-  if (detector) {
-    await detector.destroy();
-    hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector destroyed successfully');
-  } else {
-    hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to destroy Skeleton detector');
+    // 完成后销毁 detector
+    if (detector) {
+      await detector.destroy();
+      hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector destroyed successfully');
+    } else {
+      hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to destroy Skeleton detector');
+    }
+  } catch (err) {
+    hilog.error(0x0000, 'skeletonDetectionSample', `Skeleton detector error: ${err}`);
   }
 }
 
@@ -245,22 +241,26 @@ import { skeletonDetection } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 async function createAndDestroyDetector() {
-  const detector = await skeletonDetection.SkeletonDetector.create();
-  if (detector) {
-    hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector created successfully');
-  } else {
-    hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to create Skeleton detector');
-    return;
-  }
-  // 使用 detector 进行一些操作
-  // ...
+  try {
+    const detector = await skeletonDetection.SkeletonDetector.create();
+    if (detector) {
+      hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector created successfully');
+    } else {
+      hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to create Skeleton detector');
+      return;
+    }
+    // 使用 detector 进行一些操作
+    // ...
 
-  // 完成后销毁 detector
-  if (detector) {
-    await detector.destroy();
-    hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector destroyed successfully');
-  } else {
-    hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to destroy Skeleton detector');
+    // 完成后销毁 detector
+    if (detector) {
+      await detector.destroy();
+      hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector destroyed successfully');
+    } else {
+      hilog.error(0x0000, 'skeletonDetectionSample', 'Failed to destroy Skeleton detector');
+    }
+  } catch (err) {
+    hilog.error(0x0000, 'skeletonDetectionSample', `Skeleton detector error: ${err}`);
   }
 }
 
@@ -298,7 +298,7 @@ process(request: visionBase.Request): Promise&lt;SkeletonDetectionResponse&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | visionBase.Request | 是 | 图片实例。骨骼点检测接口仅支持传入一张图片，不支持传入多张图片。 具体规格请参考约束与限制。 |
+| request | visionBase.Request | 是 | 图片实例。骨骼点检测接口仅支持传入一张图片，不支持传入多张图片。 详细内容请参考约束与限制。 |
 
 
 **返回值：**
@@ -330,65 +330,69 @@ import { fileIo } from '@kit.CoreFileKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 async function skeletonDetectTest() {
-  let imageSource: image.ImageSource | undefined = undefined;
-  let chooseImage: image.PixelMap | undefined = undefined;
+  try {
+    let imageSource: image.ImageSource | undefined = undefined;
+    let chooseImage: image.PixelMap | undefined = undefined;
 
-  // 通过图库选择一张图片
-  let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
-  photoSelectOptions.maxSelectNumber = 1;
-  let photoPicker: photoAccessHelper.PhotoViewPicker = new photoAccessHelper.PhotoViewPicker();
-  let photoSelectResult = await photoPicker.select(photoSelectOptions);
-  let uri = photoSelectResult.photoUris[0];
-  if (uri === undefined) {
-    hilog.info(0x0000, 'skeletonDetectionSample', 'uri is undefined');
-    return;
-  }
+    // 通过图库选择一张图片
+    let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
+    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+    photoSelectOptions.maxSelectNumber = 1;
+    let photoPicker: photoAccessHelper.PhotoViewPicker = new photoAccessHelper.PhotoViewPicker();
+    let photoSelectResult = await photoPicker.select(photoSelectOptions);
+    let uri = photoSelectResult.photoUris[0];
+    if (uri === undefined) {
+      hilog.info(0x0000, 'skeletonDetectionSample', 'uri is undefined');
+      return;
+    }
 
-  // 将图片转换为PixelMap
-  let file = await fileIo.open(uri, fileIo.OpenMode.READ_ONLY);
-  imageSource = image.createImageSource(file.fd);
-  chooseImage = await imageSource.createPixelMap();
-  hilog.info(0x0000, 'skeletonDetectionSample', 'chooseImage:', chooseImage);
-  if (!chooseImage) {
-    return;
-  }
+    // 将图片转换为PixelMap
+    let file = await fileIo.open(uri, fileIo.OpenMode.READ_ONLY);
+    imageSource = image.createImageSource(file.fd);
+    chooseImage = await imageSource.createPixelMap();
+    hilog.info(0x0000, 'skeletonDetectionSample', 'chooseImage:', chooseImage);
+    if (!chooseImage) {
+      return;
+    }
 
-  // 创建检测器
-  let detector = await skeletonDetection.SkeletonDetector.create();
-  hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector created successfully');
+    // 创建检测器
+    let detector = await skeletonDetection.SkeletonDetector.create();
+    hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector created successfully');
 
-  // 调用骨骼检测接口
-  let request: visionBase.Request = {
-    inputData: { pixelMap: chooseImage },
-    scene: visionBase.SceneMode.FOREGROUND
-  };
-  let response: skeletonDetection.SkeletonDetectionResponse = await detector.process(request);
+    // 调用骨骼检测接口
+    let request: visionBase.Request = {
+      inputData: { pixelMap: chooseImage },
+      scene: visionBase.SceneMode.FOREGROUND
+    };
+    let response: skeletonDetection.SkeletonDetectionResponse = await detector.process(request);
 
-  if (response.skeletons.length === 0) {
-    hilog.info(0x0000, 'skeletonDetectionSample', 'No skeletons detected in the image.');
-  } else {
-    hilog.info(0x0000, 'skeletonDetectionSample', `Detected ${response.skeletons.length} skeletons.`);
-    response.skeletons.forEach((skeleton, index) => {
-      hilog.info(0x0000, 'skeletonDetectionSample', `  Score: ${skeleton.score}`);
-      hilog.info(0x0000, 'skeletonDetectionSample', `  Number of points: ${skeleton.points.length}`);
-      skeleton.points.forEach(point => {
-        hilog.info(0x0000, 'skeletonDetectionSample', `    ${skeletonDetection.SkeletonPointType[point.type]}: (${point.point.x}, ${point.point.y}), Score: ${point.score}`);
+    if (response.skeletons.length === 0) {
+      hilog.info(0x0000, 'skeletonDetectionSample', 'No skeletons detected in the image.');
+    } else {
+      hilog.info(0x0000, 'skeletonDetectionSample', `Detected ${response.skeletons.length} skeletons.`);
+      response.skeletons.forEach((skeleton, index) => {
+        hilog.info(0x0000, 'skeletonDetectionSample', `  Score: ${skeleton.score}`);
+        hilog.info(0x0000, 'skeletonDetectionSample', `  Number of points: ${skeleton.points.length}`);
+        skeleton.points.forEach(point => {
+          hilog.info(0x0000, 'skeletonDetectionSample', `    ${skeletonDetection.SkeletonPointType[point.type]}: (${point.point.x}, ${point.point.y}), Score: ${point.score}`);
+        });
       });
-    });
-  }
+    }
 
-  // 清理资源
-  if (chooseImage && imageSource) {
-    void chooseImage.release();
-    void imageSource.release();
-  }
-  if (file) {
-    await fileIo.close(file);
-  }
-  if (detector) {
-    await detector.destroy();
-    hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector destroyed successfully');
+    // 清理资源
+    if (chooseImage && imageSource) {
+      void chooseImage.release();
+      void imageSource.release();
+    }
+    if (file) {
+      await fileIo.close(file);
+    }
+    if (detector) {
+      await detector.destroy();
+      hilog.info(0x0000, 'skeletonDetectionSample', 'Skeleton detector destroyed successfully');
+    }
+  } catch (err) {
+    hilog.error(0x0000, 'skeletonDetectionSample', `Skeleton detection error: ${err}`);
   }
 }
 

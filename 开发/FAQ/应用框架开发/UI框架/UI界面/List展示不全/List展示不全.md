@@ -47,7 +47,7 @@ struct <span style="color: rgb(0,0,255);">ListDisplay </span><span style="color:
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/uXIjtzoLTS-2SCHvBmBNdQ/zh-cn_image_0000002658928729.png?HW-CC-KV=V1&HW-CC-Date=20260723T013002Z&HW-CC-Expire=86400&HW-CC-Sign=BF096A295D930976A5593E0217C349A3BD8169968B1DDC9CE2FD351933784548)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/uXIjtzoLTS-2SCHvBmBNdQ/zh-cn_image_0000002658928729.png?HW-CC-KV=V1&HW-CC-Date=20260730T072438Z&HW-CC-Expire=86400&HW-CC-Sign=15F46BD7CA99BE646457B401E1869276F7DFE8C94B24CFD4166205622C9DA6F5)
 
  
  
@@ -55,7 +55,7 @@ struct <span style="color: rgb(0,0,255);">ListDisplay </span><span style="color:
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/ysl098hRRIiDxwr4HdWPfA/zh-cn_image_0000002658808783.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013002Z&HW-CC-Expire=86400&HW-CC-Sign=A61A6ADEF4E76FCC94D7422C2F1780D68BBEB281054F6DFFA41B2F99340727AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/ysl098hRRIiDxwr4HdWPfA/zh-cn_image_0000002658808783.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072438Z&HW-CC-Expire=86400&HW-CC-Sign=69207E5CBDB04CEFDA418F6969461EE7DD0115EF20D3EEBE5C84454CF552CF57)
 
  
  
@@ -75,11 +75,11 @@ struct <span style="color: rgb(0,0,255);">ListDisplay </span><span style="color:
 #### 问题定位
 1. 首先观察到List组件未设置高度，根据height属性说明：**height缺省时使用元素自身内容需要的高度**。所以List组件高度为子组件之和200vp*7。
 2. 之后根据官网List指南的[约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-list#约束)得知，当子组件主轴方向总尺寸超过List父组件尺寸时，List主轴方向尺寸适应List的父组件尺寸，而200vp*7>父组件高度100%，所以List组件高度为屏幕高度，示意图如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/mT81xWBhRWSuDC6FCbRkXw/zh-cn_image_0000002628569420.png?HW-CC-KV=V1&HW-CC-Date=20260723T013002Z&HW-CC-Expire=86400&HW-CC-Sign=9CC292573DE749660340CDECF333935E1B8D8E062293F61A95398DE685C6ACA6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/mT81xWBhRWSuDC6FCbRkXw/zh-cn_image_0000002628569420.png?HW-CC-KV=V1&HW-CC-Date=20260730T072438Z&HW-CC-Expire=86400&HW-CC-Sign=04A12231DC55BBE9BD3A648D56A67E3990DF57DEF29FC96BB9C43373C069C212)
 
 3. 再然后根据layoutWeight布局说明：**不设置layoutWeight属性或者layoutWeight属性生效值为0的元素优先占位**。所以List组件会在剩余空间内占位，导致List组件被下压，下压后List组件就有部分区域会超过当前屏幕高度，所以造成List展示不全现象。
 4. 最后可以利用ArkUI Inspector可以看到List组件超出屏幕范围，超出的距离刚好是上面Text组件占据高度200vp：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/qmjwqXOMRjSuEg3dyrqABQ/zh-cn_image_0000002628409516.png?HW-CC-KV=V1&HW-CC-Date=20260723T013002Z&HW-CC-Expire=86400&HW-CC-Sign=9807E0A82AD1A14A8E87C374304BFCA206D97F8F3E5E7B704E854282D3732463)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/qmjwqXOMRjSuEg3dyrqABQ/zh-cn_image_0000002628409516.png?HW-CC-KV=V1&HW-CC-Date=20260730T072438Z&HW-CC-Expire=86400&HW-CC-Sign=79B5643FB9F8A7F9D0DD58B36338D318F0D6440650110641DA3F8BCCEFC4E9BC)
 
  
  
@@ -331,7 +331,7 @@ struct <span style="color: rgb(0,0,255);">ListDisplaySix </span><span style="col
 以上方案均可修复List展示不全问题，修正效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/aID8jA6uRD6fOnrUA9J_8w/zh-cn_image_0000002658928733.png?HW-CC-KV=V1&HW-CC-Date=20260723T013002Z&HW-CC-Expire=86400&HW-CC-Sign=CF9C76E1D3A884A9685BF9DE9AB4972007AF828D6B737405551CD11AA98762E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/aID8jA6uRD6fOnrUA9J_8w/zh-cn_image_0000002658928733.png?HW-CC-KV=V1&HW-CC-Date=20260730T072438Z&HW-CC-Expire=86400&HW-CC-Sign=12E9CF7F97CCB9E40CB59257B6179602707044DB4E36C02EAFB66EBD9AE96B96)
 
  
  

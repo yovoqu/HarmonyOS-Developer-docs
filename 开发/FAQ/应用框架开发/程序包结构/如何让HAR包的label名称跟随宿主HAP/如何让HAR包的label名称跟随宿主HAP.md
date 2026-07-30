@@ -11,7 +11,7 @@ HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显�
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/5ZPnBM23TZ26WOT2mceuLg/zh-cn_image_0000002658987445.png?HW-CC-KV=V1&HW-CC-Date=20260723T012427Z&HW-CC-Expire=86400&HW-CC-Sign=40314C995A940AEF5AE28FB43D6BDBB58F22D3EFFE34100F4B1AFCC0DEE02669)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/5ZPnBM23TZ26WOT2mceuLg/zh-cn_image_0000002658987445.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=6BC1217E774057353D0EBB36DF3DE5EDB5D48A34A8334A579E2D1C7DAB99030F)
 
  
  
@@ -21,7 +21,7 @@ HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显�
 配置后可以看到HAR包的label名称跟随了HAP包：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CKjDzxxPQya7gkBuM2C-QA/zh-cn_image_0000002628628224.png?HW-CC-KV=V1&HW-CC-Date=20260723T012427Z&HW-CC-Expire=86400&HW-CC-Sign=A82899B46735969BE712B388FE381EC49A77E50B73397D051129210606455949)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CKjDzxxPQya7gkBuM2C-QA/zh-cn_image_0000002628628224.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=B63B2D5EA6367D84FF42A2A7EEBB1991AB38BF3EBDE7303A518E09E7F75108AA)
 
  
  

@@ -1,6 +1,6 @@
 # 发送网络请求（ArkTS）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netsend-arkts
 
@@ -40,6 +40,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 ```text
+// 请求的网址是示例网址，请根据实际需求更改
 const kHttpServerAddress = 'https://www.example.com/fetch';
 const request = new rcp.Request(kHttpServerAddress, 'GET');
 ```
@@ -57,6 +58,7 @@ const session = rcp.createSession();
 ```text
 session.fetch(request).then((rep: rcp.Response) => {
   console.info(`Response succeeded: ${rep}`);
+  // ...
 }).catch((err: BusinessError) => {
   // 错误处理，通过catch块，捕获error，并对error进行处理，本示例中会将错误信息展现到打印台上。
   console.error(`Response error code is ${err.code}, error data is ${err.data}`);
@@ -105,6 +107,7 @@ const session = rcp.createSession();
 // 3、使用session.get发起请求，以getURL为入参，使用Promise进行异步回调。
 session.get(getURL).then((response) => {
   console.info(`Response succeeded: ${response}`);
+  // ...
 }).catch((err: BusinessError) => {
   // 4、错误处理，通过catch块，捕获error，并对error进行处理，本示例中会将错误信息展现到打印台上。
   console.error(`Response error code is ${err.code}, error data is ${err.data}`);
@@ -162,6 +165,7 @@ session.post(postURL, postContent)
     console.info(`Response succeeded: ${JSON.stringify(response.headers)}`);
     console.info(`Response succeeded: ${JSON.stringify(response.statusCode)}`);
     console.info(`Response succeeded: ${JSON.stringify(postContent)}`);
+    // ...
   })
   .catch((err: BusinessError) => {
     console.error(`Response error code is ${err.code}, error data is ${err.data}`);
@@ -213,10 +217,11 @@ const postContent: rcp.RequestContent = {
   }
 }
 
-// 会话发起PUT请求，'http://www.example.com'请根据实际情况替换为需要请求的URL地址。
+// 会话发起PUT请求，"http://www.example.com/put"请根据实际情况替换为想要请求的URL地址。
 session.put('http://www.example.com/put', postContent).then((response) => {
   // 对响应的处理，此处为示例，只做打印处理
   console.info(`Response succeeded: ${response}`);
+  // ...
 }).catch((err: BusinessError) => {
   // 请求错误处理
   console.error(`Response error code is ${err.code}, error data is ${err.data}`);
@@ -259,10 +264,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 1、创建会话
 const session = rcp.createSession();
 
-// 2、会话发起HEAD请求，'http://www.example.com'请根据实际情况替换为需要请求的URL地址。
+// 2、会话发起HEAD请求，"http://www.example.com/head"请根据实际情况替换为想要请求的URL地址。
 session.head('http://www.example.com/head').then((response) => {
   // 3、对响应的处理，此处为示例，只做打印处理
   console.info(`Response succeeded: ${response}`);
+  // ...
 }).catch((err: BusinessError) => {
   // 4、请求错误处理
   console.error(`Response error code is ${err.code}, error data is ${err.data}`);
@@ -298,13 +304,12 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-2. 创建会话，会话发起delete请求。'http://www.example.com'请根据实际情况替换为需要请求的URL地址。
-
-  
 ```text
 const session = rcp.createSession();
+// 请求的网址是示例网址，请根据实际需求更改
 session.delete('http://www.example.com/delete').then((response) => {
   console.info(`Response succeeded: ${response}`);
+  // ...
 }).catch((err: BusinessError) => {
   console.error(`Response error code is ${err.code}, error data is ${err.data}`);
 });
@@ -342,7 +347,7 @@ const simpleForm = new rcp.Form({
 // 指定表单中key的发送顺序。指定后，将按照keys列表中的顺序发送（不在列表中的key将不被发送）；若不指定，则默认按各个key的hash顺序发送。
 simpleForm.keys = ['key2', 'key1'];
 // 创建request请求。请将URL地址替换为实际访问的地址。
-let req = new rcp.Request('http://example.com');
+let req = new rcp.Request('https://example.com');
 req.content = simpleForm;
 ```
 
@@ -355,7 +360,8 @@ try {
   const session = rcp.createSession();
   // 会话发起请求。
   session.fetch(req).then((resp: rcp.Response) => {
-    console.info(`Response succeeded: ${JSON.stringify(resp)}`);
+    console.info(`Response succeeded: ${JSON.stringify(resp.statusCode)}`);
+    // ...
     session.close();
   }).catch((err: BusinessError) => {
     // 请求错误处理。
@@ -401,7 +407,7 @@ const multiForm = new rcp.MultipartForm({
 // 定义多部分表单中的键的顺序。指定后，将按keys列表中的顺序发送（不在列表中的key不会被发送）；如果不指定，则默认按照各个key的hash顺序发送。
 multiForm.keys = ['key3', 'key1', 'key2'];
 // 创建request请求。请将URL地址替换为实际访问的地址。
-let req = new rcp.Request('http://example.com');
+let req = new rcp.Request('https://example.com');
 req.content = multiForm;
 ```
 
@@ -414,7 +420,8 @@ try {
   const session = rcp.createSession();
   // 会话发起请求。
   session.fetch(req).then((resp: rcp.Response) => {
-    console.info(`Response succeeded: ${JSON.stringify(resp)}`);
+    console.info(`Response succeeded: ${JSON.stringify(resp.statusCode)}`);
+    this.textArea = JSON.stringify(resp.statusCode, null, 2);
     session.close();
   }).catch((err: BusinessError) => {
     // 请求错误处理。

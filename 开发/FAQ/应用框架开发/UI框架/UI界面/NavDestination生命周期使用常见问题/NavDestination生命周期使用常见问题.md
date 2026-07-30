@@ -165,7 +165,7 @@ struct DialogNav {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/NBtX6De-QWCrTo1MpmYo4Q/zh-cn_image_0000002658806747.png?HW-CC-KV=V1&HW-CC-Date=20260723T013243Z&HW-CC-Expire=86400&HW-CC-Sign=EB6046E4EFEF22CB3018667CE60865AF8AA0445C46CCEFBB35F9A3B04D945429)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/NBtX6De-QWCrTo1MpmYo4Q/zh-cn_image_0000002658806747.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=ABCB2C98073122A24FCF0BCBCA0C296AEBDBD3B967FE8024ACD99D8966BDBE91)
 
  - **场景三**：申请权限弹窗触发onHidden和onShown。权限弹窗属于全局模态组件，会强制覆盖当前页面。当弹窗显示时，当前NavDestination页面会触发onHidden（页面被遮挡）和onInactive（失去焦点）。弹窗关闭后，页面重新可见并激活，触发onShown和onActive回调。
 
@@ -352,13 +352,13 @@ struct Page {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/F5EeRKi-SBmG4EokPZZE-w/zh-cn_image_0000002628407494.png?HW-CC-KV=V1&HW-CC-Date=20260723T013243Z&HW-CC-Expire=86400&HW-CC-Sign=DF09EA98A3B60332CDA3E8AFAE0570E234D68931E79A275102C8841374E22973)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/F5EeRKi-SBmG4EokPZZE-w/zh-cn_image_0000002628407494.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=F598BED0306D06B60900485E5AEA32D22FCC32BDDED4281A02AE23C1E69B0133)
 
 
   日志如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/2Xg3cYd1Q7q25XU-e9yzxA/zh-cn_image_0000002628567390.png?HW-CC-KV=V1&HW-CC-Date=20260723T013243Z&HW-CC-Expire=86400&HW-CC-Sign=4F3049FFA6DF8F584F18766B4DF35F45512C09A5C74E17AD024F52ED4B3B26D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/2Xg3cYd1Q7q25XU-e9yzxA/zh-cn_image_0000002628567390.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=0884F9EB809FFCF1BA0F38A3D0E7D2E62A613C143A9251CC42588AAED2BAD581)
 
 
  

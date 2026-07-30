@@ -1,6 +1,6 @@
 # @ohos.bluetooth.baseProfile (蓝牙baseProfile模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-baseprofile
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,6 +40,8 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | constant.ProfileConnectionState | 本端和对端蓝牙设备间的Profile连接状态。 |
@@ -55,11 +57,14 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 对端设备地址，例如："XX:XX:XX:XX:XX:XX"。 |
 | state | ProfileConnectionState | 否 | 否 | Profile连接状态。 |
 | cause12+ | DisconnectCause | 否 | 否 | Profile断开连接的原因。 |
+| role | PanRole | 否 | 是 | 当前对端设备对应的PAN角色。 起始版本：26.0.0 |
 
 
 
@@ -71,6 +76,8 @@ type ProfileConnectionState = constant.ProfileConnectionState
 枚举，Profile断开连接的原因。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -84,6 +91,26 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 
 
+#### PanRole
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+枚举，PAN的不同角色。
+
+**起始版本**：26.0.0
+
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| ROLE_PANNAP | 0 | NAP角色。 |
+| ROLE_PANU | 1 | PANU角色。 |
+
+
+
+
 #### BaseProfile.getConnectedDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -92,11 +119,17 @@ getConnectedDevices(): Array&lt;string&gt;
 
 获取和本端设备间已连接Profile的对端设备列表。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -117,7 +150,7 @@ getConnectedDevices(): Array&lt;string&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -148,14 +181,16 @@ getConnectionState(deviceId: string): ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 对端设备地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -177,7 +212,7 @@ getConnectionState(deviceId: string): ProfileConnectionState
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -201,11 +236,17 @@ on(type: 'connectionStateChange', callback: Callback&lt;StateChangeParam&gt;): v
 
 订阅Profile的连接状态变化事件。使用Callback异步回调。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -220,11 +261,11 @@ on(type: 'connectionStateChange', callback: Callback&lt;StateChangeParam&gt;): v
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -255,7 +296,9 @@ off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#state
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -274,7 +317,7 @@ off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#state
 | 801 | Capability not supported. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';

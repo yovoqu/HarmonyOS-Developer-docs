@@ -1,6 +1,6 @@
 # @ohos.bundle (Bundle模块)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -518,7 +518,7 @@ bundle.getBundleInfo(bundleName, bundleFlags, options, (err, data) => {
 
 getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array&lt;ApplicationInfo&gt;>
 
-获取指定用户下所有已安装的应用信息，使用promise异步回调。
+获取指定用户下所有已安装的应用信息，使用Promise异步回调。
 
 **需要权限：**
 

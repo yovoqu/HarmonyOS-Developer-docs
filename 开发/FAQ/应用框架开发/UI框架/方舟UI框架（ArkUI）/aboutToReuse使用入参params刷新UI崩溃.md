@@ -1,6 +1,6 @@
 # aboutToReuse使用入参params刷新UI崩溃
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-476
 
@@ -26,4 +26,4 @@ aboutToReuse(params: Record<string, Object>): void {
  
 **解决措施**
  
-如果在aboutToReuse中，对@Link、@StorageLink、@ObjectLink、@Consume、@Prop装饰的变量，进行刷新，可能导致未定义的行为。并且可能导致性能劣化。这些变量会由ArkUI框架自动刷新。可参考：[避免对@Link/@ObjectLink/@Prop等自动更新的状态变量，在aboutToReuse()中重复赋值](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-component-reuse#section7441712174414)。
+如果在aboutToReuse中，对@Link、@StorageLink、@ObjectLink、@Consume、@Prop装饰的变量，进行刷新，可能导致未定义的行为。并且可能导致性能劣化。这些变量会由ArkUI框架自动刷新。可参考：[避免对@Link/@ObjectLink/@Prop等自动更新的状态变量，在aboutToReuse()中重复赋值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-component_reuse#避免对linkobjectlinkprop等自动更新的状态变量在abouttoreuse中重复赋值)。

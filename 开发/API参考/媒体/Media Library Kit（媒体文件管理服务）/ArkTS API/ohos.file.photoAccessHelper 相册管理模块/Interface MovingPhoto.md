@@ -1,6 +1,6 @@
 # Interface (MovingPhoto)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-movingphoto
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -138,7 +138,7 @@ requestContent(imageFileUri: string, videoFileUri: string): Promise&lt;void&gt;
 | --- | --- |
 | 201 | Permission denied |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 14000011 | System inner fail. |
+| 14000011 | System inner fail. Possible causes: 1. The database is corrupted; 2. The file system is abnormal; 3. The IPC request timed out. |
 
 
 **示例：**
@@ -240,7 +240,7 @@ requestContent(resourceType: ResourceType, fileUri: string): Promise&lt;void&gt;
 | --- | --- |
 | 201 | Permission denied |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 14000011 | System inner fail. |
+| 14000011 | System inner fail. Possible causes: 1. The database is corrupted; 2. The file system is abnormal; 3. The IPC request timed out. |
 
 
 **示例：**
@@ -336,7 +336,7 @@ requestContent(resourceType: ResourceType): Promise&lt;ArrayBuffer&gt;
 | --- | --- |
 | 201 | Permission denied |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 14000011 | System inner fail. |
+| 14000011 | System inner fail. Possible causes: 1. The database is corrupted; 2. The file system is abnormal; 3. The IPC request timed out. |
 
 
 **示例：**

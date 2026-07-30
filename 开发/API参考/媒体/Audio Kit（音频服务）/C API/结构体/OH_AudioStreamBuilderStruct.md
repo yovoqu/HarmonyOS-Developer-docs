@@ -1,12 +1,12 @@
 # OH_AudioStreamBuilderStruct
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiostreambuilderstruct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef struct OH_AudioStreamBuilderStruct OH_AudioStreamBuilder
+typedef struct OH_AudioStreamBuilderStruct OH_AudioStreamBuilder;
 ```
   
 
@@ -14,7 +14,7 @@ typedef struct OH_AudioStreamBuilderStruct OH_AudioStreamBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明音频流的构造器。构造器实例通常被用来设置音频流属性和创建音频流。
+声明音频流的构造器。构造器实例用于设置音频流属性和创建音频流。
  
 **起始版本：** 10
  

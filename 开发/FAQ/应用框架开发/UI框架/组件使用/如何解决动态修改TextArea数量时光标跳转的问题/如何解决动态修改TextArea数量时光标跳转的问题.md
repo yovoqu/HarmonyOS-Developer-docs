@@ -67,7 +67,7 @@ class AcquireModel {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/yqjjzJQzQdW7H0fQbIg2jQ/zh-cn_image_0000002658917111.png?HW-CC-KV=V1&HW-CC-Date=20260723T012616Z&HW-CC-Expire=86400&HW-CC-Sign=390F3DE6D7D9797A49B70EB4E6B85FACA6CDA63AF8B63506ECBE50FFE5D38D80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/yqjjzJQzQdW7H0fQbIg2jQ/zh-cn_image_0000002658917111.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=33E8287D30475911D94FDDD5C24ED3531242412EBF7D80B1D8FD4643A346967C)
 
  
  
@@ -75,7 +75,7 @@ class AcquireModel {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/F_FbmY4OSs2kJKc2w2fidw/zh-cn_image_0000002628397890.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012616Z&HW-CC-Expire=86400&HW-CC-Sign=FE885C119DF2D08E4DFA558560784B32ACD90DDB2D72325511FCD36C7D04F791)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/F_FbmY4OSs2kJKc2w2fidw/zh-cn_image_0000002628397890.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=2FAB0A109923D670199FF046A5F69B31E4481512772F542B7E0DC0A998471559)
 
  
  

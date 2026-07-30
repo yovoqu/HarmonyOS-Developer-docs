@@ -1,6 +1,6 @@
 # EnterpriseAdminExtensionAbility开发指南
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-admin
 
@@ -12,7 +12,7 @@
 
 #### 接口说明
 
-以下为本次开发示例所使用的接口，更多接口及使用方式请见[企业设备管理扩展能力接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability)。
+以下为本次开发示例所使用的接口，更多接口及使用方式请见企业设备管理扩展能力接口文档[EnterpriseAdminExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability)。
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -44,21 +44,21 @@
 
 ```ArkTS
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
-// ···
+// ...
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
-// ···
+  // ...
 
   // 设备管理器应用激活回调方法，应用可在此回调函数中进行初始化策略设置。
   onAdminEnabled() {
     console.info('onAdminEnabled');
-    // ···
+    // ...
   }
 
   // 设备管理器应用去激活回调方法，应用可在此回调函数中通知企业管理员设备已脱管。
   onAdminDisabled() {
     console.info('onAdminDisabled');
-    // ···
+    // ...
   }
 
   // 应用安装回调方法，应用可在此回调函数中进行事件上报，通知企业管理员。
@@ -71,14 +71,14 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
     console.info('EnterpriseAdminAbility onBundleRemoved bundleName' + bundleName);
   }
 
-  // 普通设备管理应用激活回调方法，应用可在此回调函数中进行初始化策略设置
+  // 普通设备管理应用激活回调方法，应用可在此回调函数中进行初始化策略设置。
   onDeviceAdminEnabled(bundleName: string) {
-    console.info("EnterpriseAdminAbility onDeviceAdminEnabled bundleName:" + bundleName);
+    console.info('EnterpriseAdminAbility onDeviceAdminEnabled bundleName:' + bundleName);
   }
 
-  // 普通设备管理应用解除激活回调方法，应用可在此回调函数中通知企业管理员设备已脱管
+  // 普通设备管理应用解除激活回调方法，应用可在此回调函数中通知企业管理员设备已脱管。
   onDeviceAdminDisabled(bundleName: string) {
-    console.info("EnterpriseAdminAbility onDeviceAdminDisabled bundleName" + bundleName);
+    console.info('EnterpriseAdminAbility onDeviceAdminDisabled bundleName' + bundleName);
   }
 };
 ```

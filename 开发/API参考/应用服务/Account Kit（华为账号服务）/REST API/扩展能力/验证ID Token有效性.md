@@ -1,10 +1,10 @@
 # 验证ID Token有效性
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-verify-id-token
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/tYJn7HVSQza-VihxIzB5Ig/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012044Z&HW-CC-Expire=86400&HW-CC-Sign=29D6E6503B2EB5325001B4F6F73CD798E1CC0E10294A41E4AE815F80042DB23D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/cB2ALetWQ1SOHN7U5dQCSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071727Z&HW-CC-Expire=86400&HW-CC-Sign=BAB9E6675C866246D9DAB98714DADA592A24B0664866182F758BD8FFB20C962B)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -292,12 +292,11 @@ public class IDTokenAPIDemo {
 
 | 业务响应主错误码 | 业务响应子错误码 | 描述 | 解决方法 |
 | --- | --- | --- | --- |
-| 1203 | 100305 | id_token的header析成功后的内容不是JSON格式。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
+| 1203 | 100305 | id_token的header解析成功后的内容不是JSON格式。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
 | 1203 | 100306 | id_token的payload解析成功后的内容不是JSON格式。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
 | 1203 | 150021 | id_token的header解析失败。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
 | 1203 | 150022 | id_token的payload解析失败。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
 | 1203 | 150023 | id_token的signature解析失败。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
-| 1203 | 500 | 系统内部错误。 | 系统内部处理错误，建议业务打印错误码信息，并请通过在线提单提交问题。 |
 | 1400 | 14004 | 无法通过其kid找到对应的JWT公钥相关信息。 | 请通过在线提单提交问题。 |
 | 1500 | 15003 | 无效的id_token。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
 | 1500 | 15004 | id_token验证失败。 | id_token格式错误或者伪造的id_token，请检查id_token参数值是否为华为账号返回的原始值。 |
@@ -305,3 +304,5 @@ public class IDTokenAPIDemo {
 | 1500 | 15006 | id_token已过期。 | 请重新获取新的id_token。 |
 | 1500 | 15007 | id_token为空。 | 请按照接口参数的要求，传入正确的id_token参数。 |
 | 1500 | 15008 | id_token格式不正确。 | 检查id_token的格式是否满足正则：^[0-9a-zA-Z_\-\.]+$。 |
+| 1203 | 500 | 系统内部错误。 | 系统内部处理错误，建议打印错误码信息，并请通过在线提单提交问题。 |
+| 1203 | 1203 | 系统未知异常。 | 系统未知异常，建议打印错误码信息，并请通过在线提单提交问题。 |

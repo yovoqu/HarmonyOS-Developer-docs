@@ -1,12 +1,10 @@
 # @typescript-eslint/prefer-string-starts-ends-with
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-string-starts-ends-with
 
 强制使用“String#startsWith”和“String#endsWith”而不是其他检查子字符串的等效方法。
- 
-
  
 
 #### 规则配置

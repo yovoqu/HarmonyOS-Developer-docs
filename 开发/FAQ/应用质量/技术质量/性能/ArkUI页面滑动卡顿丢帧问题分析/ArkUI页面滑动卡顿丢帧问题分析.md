@@ -1,6 +1,6 @@
 # ArkUI页面滑动卡顿丢帧问题分析
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-53
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [渲染流程](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-optimization-overview#section1625893416218)：在HarmonyOS中，图形系统采用统一渲染模式，遵循典型流水线模式。下图为90Hz刷新率的渲染流程，Vsync信号周期为90Hz为11.1ms，每个Vsync信号到来时，应用侧会处理消费者的屏幕点击等输入事件，生成界面描述数据结构，提交给Render Service，Render Service协调GPU等资源处理，最终将图像送到屏幕上显示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/_TnoKmybQLmzaCfK3KMYTA/zh-cn_image_0000002658794573.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=66FE6C7325F6B8E062B63ABFFFE41469EDCBDD912E83010F55E89A9C0D230FC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/gaA79a9qRqWr20IQ9NQBOQ/zh-cn_image_0000002658794573.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=54E0036408FF33DDF157883A6F567A463F151A5B8958F5FB85A5174DDA288ED1)
 
 
   在上述渲染流程中，如果本次Vsync信号到来时，应用侧或者Render Service侧相关流程的执行时间超过11.1ms，未在下一次Vsync信号到来时执行完本次的渲染流程，会造成两次Vsync信号到来时仅执行一次渲染流程，出现丢帧。如果存在多次丢帧的情况，用户会感知到卡顿的现象。
@@ -70,14 +70,14 @@
 ArkUI页面滑动卡顿丢帧问题的定位思路如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/FG-sZJ2URz2qkMHpLocgzQ/zh-cn_image_0000002628555206.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=B1AC440CE2E1F361939702EDDBD19F423B9D2E264B9921B07909E14C1F0BD226)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/fMqTsOXFSWCkq8wZQA-z9w/zh-cn_image_0000002628555206.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=2E0C7B02BF6BC524AB21C5A1768FA406C78B91561B3D7B59FE8867F84FF4CE93)
 
  
-使用DevEco Profiler Frame工具录制滑动卡顿丢帧过程，相关步骤可以参考[创建深度分析任务并进行录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording#section208158569)。如果已有待分析的Trace文件，可以参考[会话区](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-session)中数据导入的步骤，将文件导入DevEco Profiler中查看分析。
+使用DevEco Profiler Frame工具录制滑动卡顿丢帧过程，相关步骤可以参考[创建深度分析任务并进行录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)。如果已有待分析的Trace文件，可以参考[会话区](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-session)中数据导入的步骤，将文件导入DevEco Profiler中查看分析。
  1. 识别滑动过程：在DevEco Profiler上方的搜索框中输入H:APP_LIST_FLING搜索。如下图为搜索Trace关键字H:APP_LIST_FLING的示例，其中H:APP_LIST_FLING为示例应用（包名为com.example.myapplication，Trace中简写为e.myapplication）的滑动泳道，泳道中有颜色部分（图中为紫色）为页面滑动过程。点击H:APP_LIST_FLING泳道右侧星型按钮将泳道置顶，方便问题分析。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/7oM74Ym8RYyyjy3faLyWRQ/zh-cn_image_0000002658914527.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=DAE1EEA4420757246716556797A096CEA286C446C958EB01979FC0C001321628)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/SxhR5mfYTZqg0OR-jkA6lQ/zh-cn_image_0000002658914527.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=5A7A574113EBA7A441CE198B6109E6A3FBB4CD1AAA201A1C279626F6B579E58F)
 
 2. 识别卡顿丢帧位置。找到Frame泳道后点击左侧箭头展开，查看子泳道是否存在数据。
 
@@ -85,7 +85,7 @@ ArkUI页面滑动卡顿丢帧问题的定位思路如下：
 - Frame泳道中的子泳道存在数据：根据H:APP_LIST_FLING泳道中的Trace点框选滑动过程的数据，点击Display泳道确认滑动过程的屏幕刷新率，如下图中可看到屏幕刷新率为120Hz左右（Avg Hz为119），则Vsync信号周期为8.3ms，如果应用侧或Render Service侧未在8.3ms内执行完渲染流程，会引起丢帧。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/_KniDe2TRhyXebEYDAV0YQ/zh-cn_image_0000002628395302.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=CF8DBDE5DB76FC4A2F0DBDCB210AD0C21F7AADE50CD12457EA1F7899150D298F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/oGPfiRCkQSeWjM21xC7Gaw/zh-cn_image_0000002628395302.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=68397899BA9578FA91C97D1A6E25D3D052FF4FBF4E3C0772C1154FB986BA967B)
 
 
   通过App Frame(如e.myapplication的下方)和RS Frame（render_service下方）标签的泳道中可分别确认应用、Render Service卡顿丢帧的位置，出现卡顿丢帧（未在8.3ms执行完渲染流程）的地方显示为红色，正常完成渲染（在8.3ms内执行完渲染流程）的帧显示为绿色。
@@ -93,17 +93,17 @@ ArkUI页面滑动卡顿丢帧问题的定位思路如下：
   如下图可看到应用（e.myapplication）存在几处卡顿丢帧，点击红色部分，然后点击"Details"区域"Corresponding Slice"下方左侧的箭头跳转到应用主线程泳道，结合App Frame卡顿丢帧处（红色部分）以及应用主线程的Trace信息，可以分析应用卡顿丢帧的原因。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/aY4QYxcrS1ewDnfExFuCUg/zh-cn_image_0000002658794577.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=C5ED2663C6FCC735AC76B9E44939486249E5FBC2E66CB37D7EC81CF19A3180E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/hhcQOrflSsqNQErUClGPPw/zh-cn_image_0000002658794577.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=B0FD4064662B9DCC1E7FC50BAF21C357184AF084B07C420F5544B9ADF0206F19)
 
 
 3. Frame泳道中的子泳道无数据（比如打开.sys文件时会出现）时，可以找到render_service泳道展开，通过其子泳道H:PreferredFrameRate确认屏幕刷新率，框选滑动过程Present Fence（图形上屏信号）泳道来确认滑动帧率，如下图可看到屏幕刷新率为120Hz，滑动过程FPS为88.9，远少于120，存在滑动卡顿丢帧的现象。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/P1xhAhRwTjGtwL_aIA5RfA/zh-cn_image_0000002628555210.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=2AC3307D22A6DE4CBD3224F535D21A9C8F11941B41D1913757C8B173C4FEFB22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/x8RJEQtWRDKPuY2vhAgx2g/zh-cn_image_0000002628555210.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=7C789D2085A979637FCDFDAB38007C682D0DA500476070D5D0F5974D06EE87D0)
 
 
   在滑动范围中，Present Fence泳道上缺少Trace点H:Waiting for Present Fence的部分（下图方框中空白的部分），很可能是存在丢帧问题，需要结合应用侧、Render Service侧主线程的Trace信息确认。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/q2-IDGQTQZylSB7GVusagg/zh-cn_image_0000002658914531.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=2DA2E3152CE6CFB48C39C9C56E44F14D5EF709105DC9FAF8B2A95DB144B219A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/BbX5lqkCRmCexmcXd7ag8g/zh-cn_image_0000002658914531.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=BDFB11450E4C9EF64D5C5C7E89B4FF9B5D1FB4B2ABCBB438D9D546FCDCA98A4C)
 
 
 4. 确认卡顿丢帧模块。
@@ -111,24 +111,24 @@ Frame泳道中的子泳道存在数据：可根据滑动范围框选Frame泳道�
 应用进程卡顿丢帧：如下图为应用侧卡顿丢帧的示例（屏幕刷新率为120Hz），可看到应用泳道（e.myapplication）存在卡顿帧（红色），而render_service泳道无卡顿帧（绿色）。应用泳道的FPS值为87.6，远少于120，应用侧存在卡顿丢帧，而render_service泳道的FPS值少于120是应用侧发生丢帧，提交绘制相关数据较晚导致。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/coVSJU8pTHONZA2U_cslCA/zh-cn_image_0000002628395306.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=762349F1DDFD1847D870E0C2693C3A7BF8B147CBFA7608880CA7CC1D6CD555AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/QKGp4zbgSQ6QkyoDv5FOnw/zh-cn_image_0000002628395306.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=02230A706093F8A6C25A4C3BC0B6F06995674D6B2954349E5A76B357F08DE2F1)
 
 
 5. Render Service进程卡顿丢帧：如下图为Render Service卡顿丢帧的示例（屏幕刷新率为120Hz），可看到应用泳道无卡顿帧（绿色），而render_service泳道存在卡顿帧（红色）。应用泳道的FPS值为122.0，而render_service泳道的FPS值为11.9，远少于120，Render Service进程存在卡顿丢帧。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/IP_fWXRGShiqo-0OZE4Rcw/zh-cn_image_0000002658794581.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=ED5B70A203E3646655809C7B13E795BE828E0CB665368FFEFE633B454CD9C9EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/dRvzbjw6TZmRjVBrDIdLng/zh-cn_image_0000002658794581.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=0FF893A6B3133551DB2D3E9C80676C6AC2E6330408B951DC6C42A94DDFF29521)
 
 
 6. Frame泳道中的子泳道无数据：可根据应用主线程和render_service线程的Trace信息的宽度、密集特征来大致判断发生卡顿丢帧的模块。
 应用进程卡顿丢帧：如下图为应用侧卡顿丢帧的示例，可看到应用泳道中卡顿丢帧区域（方框部分）的Trace信息较宽且相连到一块，而右侧未丢帧处的Trace点较短且均匀分布。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/ZH-nzvxWQjaeYOcYL_rRLg/zh-cn_image_0000002628555214.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=BFB688F5551E2E9DACB72B693C2B064578706D936AE94D88919EF35ABD28C4EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/qauEpue4QaudAcCTfPxlSw/zh-cn_image_0000002628555214.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=289D7C19CE1F41F1425BA877AA48B7DF2A4889D2A0E4C2CBA566B84AE5D1C78A)
 
 
 7. Render Service进程卡顿丢帧：如下图为Render Service卡顿丢帧的示例，可看到应用泳道中的Trace信息较短且均匀分布，而render_service泳道的Trace信息较宽且相连到一块。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/zgc1Z9uHQMq_2qashkqUlg/zh-cn_image_0000002658914535.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=BEED9CE17D6E1C999328FC4D8E99B60F4DF80EAC45F3EF8028BD41760FBD921D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/nzXcuGCrS9uo1RaELUoY4w/zh-cn_image_0000002658914535.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=2388E252FF470ED097A42E9069FCD99FEEEF4EC6262D8C5ECC659D88D2C91583)
 
 
 8. 分析卡顿丢帧原因。
@@ -149,12 +149,12 @@ Frame泳道中的子泳道存在数据：可根据滑动范围框选Frame泳道�
 
   屏幕刷新率为120Hz下，如果应用在8.3ms内未执行完渲染流程，会引起卡顿丢帧。未执行完渲染流程的情况有：
 单帧耗时长：Vsync信号到来时，应用处理输入事件、执行渲染流程耗时多。下图为单帧耗时长的示例（屏幕刷新率为120Hz），可看到H:ReceiveVsync（接收Vsync信号处理的Trace点）整体耗时为13.4ms，超过了8.3ms。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/yutsO-ogRFGBVWxjcL4z6g/zh-cn_image_0000002628395310.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=8E4B8F00C99E24CB6D2127AA323F66BE17792F0607092D10922679D63E14FCCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/ZEvu57OZQbapssaPsjvuqQ/zh-cn_image_0000002628395310.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=0CABE01DE4AFEBFDE1574E068CC4B959B6CA1AC9AB01EDA3F6A049D594B87C78)
 
 
   接收Vsync信号处理耗时主要包含渲染流程（Trace点为H:OnVsyncEvent）耗时以及预加载（Trace点为H:OnIdle）耗时，因此针对单帧耗时长问题，含有如下情况：
 渲染流程（Trace点为H:OnVsyncEvent）耗时多。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/eIMO4ryKTXeIv3oqmoee4w/zh-cn_image_0000002658794585.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=6A5E8CC4C6E47DD50CB883DD2A7584A34868C3BEFA009A9C4A0FF31E618BA2EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/l2EOSJIYQSCQsN-maFq3Pw/zh-cn_image_0000002658794585.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=AD2D1273550C00265F367284738D2E2096108F5A9D68990BAADE677331D3A9D3)
 
 
   渲染流程耗时多，可分析H:OnVsyncEvent下方哪部分Trace点较宽来确认问题原因，可能的情况如下表所示：
@@ -175,7 +175,7 @@ Frame泳道中的子泳道存在数据：可根据滑动范围框选Frame泳道�
 
 | H:HandleVisibleAreaChangeEvent | 执行OnVisibleChange回调函数 | 回调函数中执行耗时业务逻辑 |
 - 预加载（Trace点为H:OnIdle）耗时多。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/ghLouDWITZSTuND0nqhjxg/zh-cn_image_0000002628555218.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=EC061FF26E8F71098E89B97ADCDD3AAD8B68E4A66E905A4C4B04BFF99CAB0579)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/nqGBrFurT8eehYnx6S6Zqw/zh-cn_image_0000002628555218.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=364D10785972745903F335565EF9C7C1403E9CD02A9EB7863DDEA571C1100F9A)
 
 
   预加载耗时多，可分析H:OnIdle下方哪部分Trace点较宽来确认问题原因，可能的情况如下表所示：
@@ -192,7 +192,7 @@ Frame泳道中的子泳道存在数据：可根据滑动范围框选Frame泳道�
 
  
  - 帧间耗时长：应用执行业务逻辑或调用系统接口等耗时多，导致无法在Vsync信号到来时处理输入事件、执行渲染流程。下图帧间耗时长的示例（屏幕刷新率为120Hz），可看到在两个H:ReceiveVsync（接收Vsync信号处理的Trace点）之间存在耗时为25.1ms的Trace点（H:ExecuteJS），超过8.3ms，应用执行业务代码耗时较多，导致丢帧。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/XvB91TyJS0yAKjMzCHzy6w/zh-cn_image_0000002658914539.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=731CFEBEA1382FD5009FB19F896057FDC5EEB75060EFE42FD567E9E3957A770C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/LWvy3lr8TiOZJedo65qNag/zh-cn_image_0000002658914539.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=A4D27F6A146C7EA5893D481879E87AD24510764B9BC5AA43B46F16D98046F051)
 
 
   除了业务代码耗时多，可能的情况还有执行同步binder调用（Trace点为binder transaction）耗时多、Napi接口函数的回调函数执行耗时多（Trace点为H:Napi complete）等，可以查看ArkTS Callstack和Callstack泳道的调用栈来确认相关代码，定位耗时函数。
@@ -204,7 +204,7 @@ Frame泳道中的子泳道存在数据：可根据滑动范围框选Frame泳道�
   如下图可看到RSUniRenderThread泳道存在单帧耗时长（201.3ms）的情况，同时存在Trace点H:onCreateTexture，在绘制时创建8191*7176大小的纹理。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/x8wlRI49Qj6PQ1ajG1OjkA/zh-cn_image_0000002628395314.png?HW-CC-KV=V1&HW-CC-Date=20260723T012423Z&HW-CC-Expire=86400&HW-CC-Sign=89BCB208130E9F64C2E5E22BF6665AAF947E1ED54C8459AF973DB1F985263606)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/sD3Nqh3rQre_tNuP7w8XHA/zh-cn_image_0000002628395314.png?HW-CC-KV=V1&HW-CC-Date=20260730T072259Z&HW-CC-Expire=86400&HW-CC-Sign=79ECC18328B67BF8531750DB9FC262D58EB433E154BE6CEA58762DFB0EED6F96)
 
 
   在hilog日志中搜索CreatePixelMapExtended查看应用是否有创建像素图，如下日志示例中可以看到创建10800*7176的高分辨率图片，memoryType值为2表示采用共享内存，而不是DMA内存，导致Render Service渲染进程卡顿丢帧。

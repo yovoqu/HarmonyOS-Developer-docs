@@ -1,16 +1,16 @@
 # ToolBarV2
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-toolbarv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-工具栏用于展示针对当前界面内容的操作选项，在界面底部显示。底部最多显示5个入口，超过则收纳入“更多”子项中，在最右侧显示。
+工具栏用于展示针对当前界面内容的操作选项，在界面底部显示，适用于需要为用户提供快速操作入口的场景。底部最多显示5个入口，超过则收纳入“更多”子项中，在最右侧显示。适用于需要对当前页面内容进行快捷操作的场景，可帮助用户快速访问常用功能，提升操作效率。
 
 该组件基于[状态管理（V2）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview#状态管理v2)实现，相较于[状态管理（V1）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组件层级。借助状态管理（V2），开发者可以通过该组件更灵活地控制工具栏的数据和状态，实现更高效的用户界面刷新。
 
 > [!NOTE]
-> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果ToolBarV2设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到ToolBarV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议ToolBarV2设置通用属性和通用事件。 系统切换深浅色模式，工具栏背景色不支持自动切换。
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果ToolBarV2设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到ToolBarV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议ToolBarV2设置通用属性和通用事件。 当系统切换深浅色模式时，工具栏背景色不会自动跟随切换。
 
 
 
@@ -50,10 +50,10 @@ ToolBarV2({toolBarList: ToolBarV2Item[], activatedIndex?: number, dividerModifie
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| toolBarList | ToolBarV2Item[] | 是 | @Param @Require | 工具栏列表。 |
-| activatedIndex | number | 否 | @Param | 激活态的子项。 默认值：-1，即无工具栏子项为激活态。 取值范围：[-1,4]。 |
-| dividerModifier | DividerModifier | 否 | @Param | 工具栏头部分割线属性，可设置分割线高度、颜色等。 默认不生效。 |
-| toolBarModifier | ToolBarV2Modifier | 否 | @Param | 工具栏属性，可设置工具栏高度、背景色、内边距（仅在工具栏子项数量小于5时生效）、是否显示按压态。 默认不生效。 |
+| toolBarList | ToolBarV2Item[] | 是 | @Param @Require | 工具栏子项列表，最多显示5个子项，超过则收纳至"更多"子项中。 |
+| activatedIndex | number | 否 | @Param | 被激活的子项索引。 默认值：-1，即无工具栏子项为激活态。 取值范围：[-1,4]。 |
+| dividerModifier | DividerModifier | 否 | @Param | 工具栏头部分割线属性，可设置分割线高度、颜色等。设置后在工具栏顶部显示指定样式的分割线。 默认不生效。 |
+| toolBarModifier | ToolBarV2Modifier | 否 | @Param | 工具栏属性，可设置工具栏高度、背景色、内边距（仅在工具栏子项数量小于5时生效）、是否显示按压态。设置后工具栏将按指定样式自定义外观。 默认不生效。 |
 
 
 
@@ -81,10 +81,10 @@ ToolBarV2({toolBarList: ToolBarV2Item[], activatedIndex?: number, dividerModifie
 | content | ToolBarV2ItemText | 否 | 否 | 工具栏子项的文本。 装饰器类型：@Trace |
 | action | ToolBarV2ItemAction | 否 | 是 | 工具栏子项点击事件。 默认无点击事件。 装饰器类型：@Trace |
 | icon | ToolBarV2ItemIconType | 否 | 是 | 工具栏子项的图标。 默认不显示图标。 装饰器类型：@Trace |
-| state | ToolBarV2ItemState | 否 | 是 | 工具栏子项的状态。 默认为ToolBarV2ItemState.ENABLE。 装饰器类型：@Trace |
+| state | ToolBarV2ItemState | 否 | 是 | 工具栏子项的状态。 默认值：ToolBarV2ItemState.ENABLE。 装饰器类型：@Trace |
 | accessibilityText | ResourceStr | 否 | 是 | 工具栏子项的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值为当前项content属性内容。 装饰器类型：@Trace |
 | accessibilityDescription | ResourceStr | 否 | 是 | 工具栏子项的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值：“单指双击即可执行”。 装饰器类型：@Trace |
-| accessibilityLevel | string | 否 | 是 | 工具栏子项无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。 支持的值为： "auto"：当前组件会转换"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto" 装饰器类型：@Trace |
+| accessibilityLevel | string | 否 | 是 | 工具栏子项无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。 支持的值为： "auto"：当前值转换为"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto" 装饰器类型：@Trace |
 
 
 
@@ -132,7 +132,7 @@ ToolBarV2Item的构造函数。
 | state | ToolBarV2ItemState | 否 | 是 | 工具栏子项的状态。 默认为ToolBarV2ItemState.ENABLE。 |
 | accessibilityText | ResourceStr | 否 | 是 | 工具栏子项的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值为当前项content属性内容。 |
 | accessibilityDescription | ResourceStr | 否 | 是 | 工具栏子项的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值为“单指双击即可执行”。 |
-| accessibilityLevel | string | 否 | 是 | 工具栏子项无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。 支持的值为： "auto"：当前组件会转换"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto" |
+| accessibilityLevel | string | 否 | 是 | 工具栏子项无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。 支持的值为： "auto"：当前值转换为"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto" |
 
 
 
@@ -155,7 +155,7 @@ type ToolBarV2ItemAction = (index: number) => void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 工具栏子项点击事件的回调。 -index: 表示触发事件的工具栏子项索引。 |
+| index | number | 是 | 触发点击事件的工具栏子项索引。 |
 
 
 
@@ -328,7 +328,7 @@ type ToolBarV2ItemIconType = ToolBarV2ItemImage | ToolBarV2SymbolGlyph
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-ToolBarV2Modifier提供设置工具栏高度(height)、背景色(backgroundColor)、左右内边距（padding，仅在item小于5个时生效）、是否显示按压态（stateEffect）的方法。
+ToolBarV2Modifier提供设置工具栏高度(height)、背景色(backgroundColor)、左右内边距（padding，仅在子项数量小于5个时生效）、是否显示按压态（stateEffect）的方法。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -344,7 +344,7 @@ ToolBarV2Modifier提供设置工具栏高度(height)、背景色(backgroundColor
 
 backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier
 
-自定义绘制工具栏背景色的接口，若重载该方法则可进行工具栏背景色的自定义绘制。
+设置工具栏背景色的接口，调用该方法可自定义绘制。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -363,7 +363,7 @@ backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier
 
 | 类型 | 说明 |
 | --- | --- |
-| ToolBarV2Modifier | 设置backgroundColor后的ToolBarV2Modifier对象。 |
+| ToolBarV2Modifier | 设置背景色后的ToolBarV2Modifier对象，可用于链式调用其他方法进一步自定义工具栏样式。 |
 
 
 
@@ -374,7 +374,7 @@ backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier
 
 padding(padding: LengthMetrics): ToolBarV2Modifier
 
-自定义绘制工具栏左右内边距的接口，若重载该方法则可进行工具栏左右内边距的自定义绘制。
+设置工具栏左右内边距的接口，调用该方法可自定义绘制。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -386,14 +386,14 @@ padding(padding: LengthMetrics): ToolBarV2Modifier
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| padding | LengthMetrics | 是 | 工具栏左右内边距，仅在子项数量小于5个时生效。 当子项数量少于5个时，工具栏默认左右内边距为24vp；当子项数量达到或超过5个时，工具栏默认左右内边距为0。 |
+| padding | LengthMetrics | 是 | 工具栏左右内边距，仅在子项数量小于5个时生效，超过则设置值无效。 当子项数量少于5个时，工具栏默认左右内边距为24vp；当子项数量达到或超过5个时，工具栏默认左右内边距为0vp。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| ToolBarV2Modifier | 设置padding后的ToolBarV2Modifier对象。 |
+| ToolBarV2Modifier | 设置内边距后的ToolBarV2Modifier对象，可用于链式调用其他方法进一步自定义工具栏样式。 |
 
 
 
@@ -404,7 +404,7 @@ padding(padding: LengthMetrics): ToolBarV2Modifier
 
 height(height: LengthMetrics): ToolBarV2Modifier
 
-自定义绘制工具栏高度的接口，若重载该方法则可进行工具栏高度的自定义绘制，此高度不包含分割线高度。
+设置工具栏高度的接口，调用该方法可自定义绘制，此高度不包含分割线高度。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -423,7 +423,7 @@ height(height: LengthMetrics): ToolBarV2Modifier
 
 | 类型 | 说明 |
 | --- | --- |
-| ToolBarV2Modifier | 设置height后的ToolBarV2Modifier对象。 |
+| ToolBarV2Modifier | 设置高度后的ToolBarV2Modifier对象，可用于链式调用其他方法进一步自定义工具栏样式。 |
 
 
 
@@ -453,7 +453,7 @@ stateEffect(stateEffect: boolean): ToolBarV2Modifier
 
 | 类型 | 说明 |
 | --- | --- |
-| ToolBarV2Modifier | 设置stateEffect后的ToolBarV2Modifier对象。 |
+| ToolBarV2Modifier | 设置按压态效果后的ToolBarV2Modifier对象，可用于链式调用其他方法进一步自定义工具栏样式。 |
 
 
 
@@ -532,7 +532,7 @@ ToolBarV2SymbolGlyph的构造函数。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-ToolBarV2SymbolGlyphOptions定义图标的属性。
+ToolBarV2SymbolGlyphOptions定义Symbol图标的属性。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -936,4 +936,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/dVs28SbqSm2JKV0iCHbZ6w/zh-cn_image_0000002628703014.png?HW-CC-KV=V1&HW-CC-Date=20260701T014355Z&HW-CC-Expire=86400&HW-CC-Sign=3A903ED44E4FF9D2D97B9738FDEE683DF13A9C699E0F29E7988C875052CFACB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/nJxyDQuUSRSvUjCUPmprvg/zh-cn_image_0000002656008962.png?HW-CC-KV=V1&HW-CC-Date=20260730T071520Z&HW-CC-Expire=86400&HW-CC-Sign=FF9A36AF257ADF0B16C97CF441F9BE428D137B34ABFF2E52548DA9E4F7A882BE)

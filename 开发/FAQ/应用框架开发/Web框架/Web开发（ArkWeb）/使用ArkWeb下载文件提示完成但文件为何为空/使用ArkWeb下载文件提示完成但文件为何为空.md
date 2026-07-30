@@ -64,13 +64,13 @@ struct WebComponent {
 日志打印下载完成：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/kJbZyg25QASBHQFyRLwZ_A/zh-cn_image_0000002659138403.png?HW-CC-KV=V1&HW-CC-Date=20260723T013338Z&HW-CC-Expire=86400&HW-CC-Sign=B80D58D10501F60CBD468A82A1964E68B29DAF114748E60DF7894D5C12A32A1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/kJbZyg25QASBHQFyRLwZ_A/zh-cn_image_0000002659138403.png?HW-CC-KV=V1&HW-CC-Date=20260730T072532Z&HW-CC-Expire=86400&HW-CC-Sign=B4DC2009DE234CD0B120414CC01B07F32B4241A67B8D5E0F48ACA0919748742B)
 
  
 实际下载文件为空：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/w9S2x46ITpOqFYW700zT7Q/zh-cn_image_0000002629059052.png?HW-CC-KV=V1&HW-CC-Date=20260723T013338Z&HW-CC-Expire=86400&HW-CC-Sign=A04D52D8E060C107030FE7D61D1C367C9E37560CA1EF736AB4D3726D967DF694)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/w9S2x46ITpOqFYW700zT7Q/zh-cn_image_0000002629059052.png?HW-CC-KV=V1&HW-CC-Date=20260730T072532Z&HW-CC-Expire=86400&HW-CC-Sign=5D5E848A98CC024A6308680773CCCB9549050B56313812EE8F84510C41C04E10)
 
  
  
@@ -87,14 +87,14 @@ struct WebComponent {
 #### 问题定位
 
 - 确认文件是否由webDownloadItem.start下载生成：1. 在picker选择器后打断点执行，发现在webDownloadItem.start执行之前，手机中已经生成文件。由此判断，此时文件并非由webDownloadItem.start下载，而是picker选择器创建的空文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/hwD9uWrdQdSHKpmp9IR63A/zh-cn_image_0000002659258355.png?HW-CC-KV=V1&HW-CC-Date=20260723T013338Z&HW-CC-Expire=86400&HW-CC-Sign=298227D698ABB1DB06E243F1346571AA67F8D5D724943D9CA6AA79618F2286D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/hwD9uWrdQdSHKpmp9IR63A/zh-cn_image_0000002659258355.png?HW-CC-KV=V1&HW-CC-Date=20260730T072532Z&HW-CC-Expire=86400&HW-CC-Sign=C869CE2172E7C322EB1C0403F43AA254F9E373D5D156471E0819A72232EADC9B)
 
 
 2. 添加URI转换const uri = new fileUri.FileUri\(uris\[0\]\);，文件下载成功。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DMFHFeJuSzmvKGr_tHT4Dw/zh-cn_image_0000002628899136.png?HW-CC-KV=V1&HW-CC-Date=20260723T013338Z&HW-CC-Expire=86400&HW-CC-Sign=7F5564A1C23DCFB36EECA72A9E119EDA6044BDBDE0BA98E03D9D5DB2A487D6A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DMFHFeJuSzmvKGr_tHT4Dw/zh-cn_image_0000002628899136.png?HW-CC-KV=V1&HW-CC-Date=20260730T072532Z&HW-CC-Expire=86400&HW-CC-Sign=93A8B935885E6F8896583BA8E34EE7DACE068F9D4C78E813B01FDE0778C79320)
 
 - 验证非当前HAP包名的文件夹是否可以作为文件下载路径：选择非当前HAP包名的文件夹进行下载，此时文件无法下载。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/BKVgcbAHSP-sqm_PDLxH3g/zh-cn_image_0000002659138405.png?HW-CC-KV=V1&HW-CC-Date=20260723T013338Z&HW-CC-Expire=86400&HW-CC-Sign=03A78C20E21CBE2722D7BE2387EA3707758E82645AE100EF310840938265A521)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/BKVgcbAHSP-sqm_PDLxH3g/zh-cn_image_0000002659138405.png?HW-CC-KV=V1&HW-CC-Date=20260730T072532Z&HW-CC-Expire=86400&HW-CC-Sign=0FE5ACB7CA544DBA48DF7BA1A09E0C0D60E65B38C0996B6102992FCCEFE70B04)
 
 
  

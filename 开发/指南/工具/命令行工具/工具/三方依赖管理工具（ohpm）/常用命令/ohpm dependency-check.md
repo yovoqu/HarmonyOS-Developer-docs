@@ -1,6 +1,6 @@
 # ohpm dependency-check
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-dependency-check
 
@@ -84,7 +84,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 
 #### all-modules
 
-- 默认值：true
+- 默认值：false
 - 类型：Boolean
 - 别名：all
 
@@ -106,7 +106,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 
 #### project
 
-- 默认值：true
+- 默认值：false
 - 类型：Boolean
 - 别名：p
 
@@ -117,7 +117,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 
 #### dev
 
-- 默认值：true
+- 默认值：false
 - 类型：Boolean
 - 别名：d
 
@@ -128,7 +128,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 
 #### json
 
-- 默认值：true
+- 默认值：false
 - 类型：Boolean
 - 别名：j
 
@@ -139,7 +139,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 
 #### long
 
-- 默认值：true
+- 默认值：false
 - 类型：Boolean
 - 别名：l
 
@@ -150,7 +150,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 
 #### console
 
-- 默认值：true
+- 默认值：false
 - 类型：Boolean
 - 别名：c
 

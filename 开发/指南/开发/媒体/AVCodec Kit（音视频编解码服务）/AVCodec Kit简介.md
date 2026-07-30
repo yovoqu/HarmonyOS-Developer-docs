@@ -1,24 +1,24 @@
 # AVCodec Kit简介
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-kit-intro
 
-AVCodec Kit（Audio & Video Codec Kit，音视频编解码，封装解析）是媒体系统中的音视频的编解码、媒体文件的解析、封装、媒体数据输入等原子能力。
+AVCodec Kit（Audio & Video Codec Kit，音视频编解码，封装，解封装）是媒体系统中的音视频的编解码、媒体文件的封装、解封装、媒体数据输入等原子能力。
 
 基于性能考虑，AVCodec Kit仅提供C接口。
 
 
 #### 能力范围
 
- - 媒体数据输入：媒体应用可以传入文件fd、或者流媒体url，进行后续的媒体信息解析等处理。
+ - 媒体数据输入：媒体应用可以传入文件fd、或者流媒体url，进行后续的媒体信息解封装等处理。
  - 媒体基础能力（Media Foundation）：提供媒体数据处理的公共基础类型，包括[AVBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avbuffer-h)、[AVFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avformat-h)等。
  - 音频编码：音频类应用（比如音频通话、音频录制等）可以将未压缩的音频数据送到音频编码器进行编码，应用可以设置编码要用到的编码格式、码率、采样率等参数，控制编码的输出，达到压缩音频文件的目的。
  - 视频编码：视频类应用（比如视频通话、视频录制等）可以将未压缩的视频数据送到视频编码器进行编码，应用可以设置编码要用到的编码格式、码率、帧率等参数，控制编码的输出，达到压缩视频文件的目的。
  - 音频解码：音频类应用（比如音频通话、音频播放器等）将音频码流通过音频解码器解码，解码后的数据可以送到音频设备播放。
  - 视频解码：视频类应用（比如视频通话、视频播放器等）将视频码流通过视频解码器解码，解码后的图像数据可以送到视频显示设备显示。
- - 媒体文件解析：在媒体应用（音视频播放器等），将本地或者网络接收到的媒体文件解析，获得音视频的码流、音视频的呈现时间、编码格式、文件的一些基本属性信息等。
  - 媒体文件封装：在媒体应用（音视频录制等），将音视频编码器编码后的码流数据封装成媒体文件（mp4、m4a），将音视频的码流、音视频的呈现时间、编码格式、文件的一些基本属性信息等按照文件格式写入应用指定的文件中。
+ - 媒体文件解封装：在媒体应用（音视频播放器等），将本地或者网络接收到的媒体文件解封装，获得音视频的码流、音视频的呈现时间、编码格式、文件的一些基本属性信息等。
 
 
 
@@ -78,19 +78,19 @@ AVCodec Kit（Audio & Video Codec Kit，音视频编解码，封装解析）是�
 
 
   具体开发指导请参考[音频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-decoding)、[音频编码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-encoding)。
- - 文件解析封装
+ - 文件封装与解封装
 
   在文件封装环节，应用将AVBuffer送入Codec对应的接口，执行数据封装，AVBuffer可以是由上述编码输出的AVBuffer，也可以是应用创建的AVBuffer，AVBuffer中要携带有效的码流数据和相关的时间描述等信息。
 
-  在文件解析环节，应用从Codec对应的接口获得携带有码流数据的AVBuffer，该AVBuffer可以送入上述视频和音频编解码对应接口。
+  在文件解封装环节，应用从Codec对应的接口获得携带有码流数据的AVBuffer，该AVBuffer可以送入上述视频和音频编解码对应接口。
 
-  文件封装解封装逻辑如图所示。
+  文件封装、解封装逻辑如图所示。
 
   
 ![](assets/AVCodec%20Kit简介/file-20260514131452727-2.png)
 
 
-  具体开发指导请参考[媒体数据解析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-demuxer)、[媒体数据封装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-muxer)。
+  具体开发指导请参考[媒体数据封装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-muxer)和[媒体数据解封装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-demuxer)。
 
 
 
@@ -100,7 +100,7 @@ AVCodec Kit（Audio & Video Codec Kit，音视频编解码，封装解析）是�
 本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下。
 
  - 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section1227613205203)。
- - 媒体数据解析支持模拟器，具体规格参考[解封装格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#媒体数据解析)。
- - 媒体数据封装支持模拟器，具体规格参考[封装格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#媒体数据封装)。
- - 视频编解码仅软件解码支持模拟器（h265格式除外），具体规格参考[视频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#视频解码)。
  - 音频编解码支持模拟器，具体规格参考[音频编解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#音频解码)。
+ - 视频编解码仅软件解码支持模拟器（h265格式除外），具体规格参考[视频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#视频解码)。
+ - 媒体数据封装支持模拟器，具体规格参考[媒体数据封装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#媒体数据封装)。
+ - 媒体数据解封装支持模拟器，具体规格参考[媒体数据解封装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#媒体数据解封装)。

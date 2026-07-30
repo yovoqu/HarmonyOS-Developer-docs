@@ -1,6 +1,6 @@
 # PhotoPicker的常见使用问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-27
 
@@ -220,7 +220,7 @@ A：[MimeTypeFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-refe
  
 Q：通过PhotoViewPicker.select从相册选取图片，获取到选取图片的uri数组，使用dataSharePredicates查询时，如何查询多个项目？
  
-A：使用[PhotoAccessHelper.PhotoKeys.URI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#photokeys)做查询条件时，仅支持使用[DataSharePredicates.equalTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates#equalto10)的方式，[DataSharePredicates.in](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates#in10)不支持，可以通过for循环的方式去获取多个图片信息。
+A：使用[PhotoAccessHelper.PhotoKeys.URI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#photokeys)做查询条件时，仅支持使用[DataSharePredicates.equalTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates#equalto)的方式，[DataSharePredicates.in](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates#in)不支持，可以通过for循环的方式去获取多个图片信息。
  
 Q：使用PhotoPicker选择图片并编辑，图片的uri不变。
  

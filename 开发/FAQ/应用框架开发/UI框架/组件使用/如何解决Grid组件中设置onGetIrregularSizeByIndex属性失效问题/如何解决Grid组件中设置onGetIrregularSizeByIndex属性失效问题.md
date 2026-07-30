@@ -1,73 +1,63 @@
 # 如何解决Grid组件中设置onGetIrregularSizeByIndex属性失效问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-633
 
 #### 问题现象
 
-在Grid组件中，通过设置onGetIrregularSizeByIndex属性实现第一个元素占据两行一列空间的效果，但是得到的结果却是只占据了一行一列。
+在Grid组件中，通过设置onGetIrregularSizeByIndex属性实现第一个元素占据两行两列空间的效果，但是得到的结果却是只占据了一行两列，问题图如下：
  
-问题代码示例参考如下：
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/Zox5_9c6S26Qr7Ikx69_kg/zh-cn_image_0000002685942295.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=0EBA002CCB92B6D2AE523522DD646C1FD9D6D0272396116F3B85883FA8D09F4F)
+
+ 
+问题代码如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">numbers</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">scroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">layoutOptions2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GridLayoutOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">regularSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">irregularIndexes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">onGetIrregularSizeByIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-        return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State numbers: String[] = ['0', '1', '2'];
+  scroller: Scroller = new Scroller();
+  layoutOptions2: GridLayoutOptions = {
+    regularSize: [1, 1],
+    irregularIndexes: [0, 1, 2],
+    onGetIrregularSizeByIndex: (index: number) => {
+      if (index === 0) {
+        return [2, 2];
+      } else {
+        return [1, 2]
+      }
+    }
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Grid</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scroller</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutOptions2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">numbers</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">GridItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#ACC6F6'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">80</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">15</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsTemplate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1fr 1fr 1fr 1fr'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'95%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">170</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column({ space: 5 }) {
+      Grid(this.scroller, this.layoutOptions2) {
+        ForEach(this.numbers, (item: string) => {
+          GridItem() {
+            Text(item)
+              .fontSize(16)
+              .backgroundColor('#ACC6F6')
+              .width('100%')
+              .height(80)
+              .borderRadius(15)
+              .textAlign(TextAlign.Center)
+          }
+        }, (item: string) => item)
+      }
+      .columnsTemplate('1fr 1fr 1fr 1fr')
+      .columnsGap(10)
+      .rowsGap(10)
+      .scrollBar(BarState.Off)
+      .width('95%')
+      .height(170)
+    }
+    .width('100%')
+  }
+}
 ```
- 
-问题效果预览：
- 
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/E-qPNkWeQCS0IMSQU4D35g/zh-cn_image_0000002658793545.png?HW-CC-KV=V1&HW-CC-Date=20260723T012547Z&HW-CC-Expire=86400&HW-CC-Sign=84595A137C04DC12CF3A078A1A3A0116DD2971485D930B9B066F549886971E8F)
-
- 
- 
-
-#### 效果预览
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/y4Bo_6xwQOitCRJsbYQrXQ/zh-cn_image_0000002628554178.png?HW-CC-KV=V1&HW-CC-Date=20260723T012547Z&HW-CC-Expire=86400&HW-CC-Sign=3F22CF65E1D495407DE8826DAEDB10C644CC04C8858F6B62C54EBC854464D506)
-
  
  
 
@@ -87,55 +77,60 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 
 #### 分析结论
 
-分析问题代码可知，onGetIrregularSizeByIndex设置方法没有问题。问题是由于GridItem中的Text组件的高度写成了固定的一行高度，所以展示的效果是一行一列。
+分析问题代码可知，onGetIrregularSizeByIndex设置方法没有问题。问题是由于GridItem中的Text组件的高度写成了固定的一行高度，所以展示的效果是一行两列。
  
  
 
 #### 修改建议
 
-可以通过三元运算符来设置Text组件的高度，当通过索引判断出是第一个元素时，将高度设置为100%，除此之外的元素高度不变，例如：height(index === 0 ? '100%' : 80)。
+可以通过三元运算符来设置Text组件的高度，当通过索引判断出是第一个元素时，将高度设置为100%，除此之外的元素高度不变，例如：height(index === 0 ? '100%' : 80)，修改代码如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">GridHeight </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">numbers</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">scroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">layoutOptions2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GridLayoutOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">regularSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">irregularIndexes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">onGetIrregularSizeByIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-        return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct GridHeight {
+  @State numbers: String[] = ['0', '1', '2'];
+  scroller: Scroller = new Scroller();
+  layoutOptions2: GridLayoutOptions = {
+    regularSize: [1, 1],
+    irregularIndexes: [0, 1, 2],
+    onGetIrregularSizeByIndex: (index: number) => {
+      if (index === 0) {
+        return [2, 2];
+      } else {
+        return [1, 2];
+      }
+    }
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Grid</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scroller</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutOptions2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">numbers</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">GridItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#ACC6F6'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">15</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'100%' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">80</span><span style="color: rgb(0,0,255);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">给第一个元素设置高度为</span><span style="color: rgb(128,128,128);">100%</span><span style="color: rgb(128,128,128);">，即两列的高度</span></em>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsTemplate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1fr 1fr 1fr 1fr'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'95%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">170</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column({ space: 0 }) {
+      Grid(this.scroller, this.layoutOptions2) {
+        ForEach(this.numbers, (item: string, index: number) => {
+          GridItem() {
+            Text(item)
+              .fontSize(16)
+              .backgroundColor('#ACC6F6')
+              .width('100%')
+              .borderRadius(15)
+              .height(index === 0 ? '100%' : 80) <em>// 给第一个元素设置高度为100%，即两列的高度</em>
+              .textAlign(TextAlign.Center);
+          };
+        }, (item: string) => item);
+      }
+      .columnsTemplate('1fr 1fr 1fr 1fr')
+      .columnsGap(10)
+      .rowsGap(10)
+      .scrollBar(BarState.Off)
+      .width('95%')
+      .height(170);
+    }
+    .width('100%');
+  }
+}
 ```
+ 
+修改后效果图如下：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/NcKxk5ChSGaRUGbW4qOfRQ/zh-cn_image_0000002686102381.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=9F68BD70F1EC6A3BF8A280404611C3E50FE98526049CA17E27C20359AFCAD92D)

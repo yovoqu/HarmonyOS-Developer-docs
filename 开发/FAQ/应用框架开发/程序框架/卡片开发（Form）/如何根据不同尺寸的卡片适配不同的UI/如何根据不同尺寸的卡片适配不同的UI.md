@@ -164,7 +164,7 @@ Q：元服务添加到桌面的卡片大小是否可以更改？
 A：加桌之后的元服务卡片的大小是固定尺寸，当前开发者在没有适配其他大小尺寸的卡片前提下，无法改变桌面卡片的大小。所以建议在创建卡片的时候，就规划多个尺寸的卡片，以支持创建多种不同大小的卡片。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/X_nyuNyQR4Cfn32cuoG46g/zh-cn_image_0000002628791562.png?HW-CC-KV=V1&HW-CC-Date=20260723T012512Z&HW-CC-Expire=86400&HW-CC-Sign=F0D6A3D82C46703A5A4DEF78E9D9C0648903D7F7C160BAA522B84E9F2169E513)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/X_nyuNyQR4Cfn32cuoG46g/zh-cn_image_0000002628791562.png?HW-CC-KV=V1&HW-CC-Date=20260730T072313Z&HW-CC-Expire=86400&HW-CC-Sign=6E03103F9F72C02C596A7F93BFA81166E926A2BA7621AC32444733D6B1F4D50C)
 
  
 Q：如何解决小尺寸卡片中图片显示不完全？

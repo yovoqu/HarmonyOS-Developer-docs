@@ -106,7 +106,7 @@ interface <span style="color: rgb(0,0,255);">codeOne </span><span style="color: 
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/CLNh8UFrTu-v22gwLwLEfw/zh-cn_image_0000002658843005.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012747Z&HW-CC-Expire=86400&HW-CC-Sign=F91D96CE2EAEB503CFCF0AE59D19BB4C08579AF6DD48BDB4EC66443A7EF00318)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/CLNh8UFrTu-v22gwLwLEfw/zh-cn_image_0000002658843005.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=B3EF79A6D1361B9957F19BBDE2D34765FF2DAD636FAD0736168C61509E6ED92A)
 
 - **方案二**：使用onWillDelete和onDidDelete回调，监听键盘的删除操作。
 ```text
@@ -168,11 +168,11 @@ struct <span style="color: rgb(0,0,255);">Page </span><span style="color: rgb(25
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/0-MctUqJSJye0dyYdqk7ng/zh-cn_image_0000002628763640.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012747Z&HW-CC-Expire=86400&HW-CC-Sign=645A47C1E9E08B6C4910148F839CF1CC06B7E5297FB292EF4B09373C57E89078)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/0-MctUqJSJye0dyYdqk7ng/zh-cn_image_0000002628763640.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=F642B329E5EF59E4FEFC980F39E57477FF32C8214F664679CADC668D03829EE8)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/5K9WBvpMQ6GcjrvZmv9A6w/zh-cn_image_0000002658962955.png?HW-CC-KV=V1&HW-CC-Date=20260723T012747Z&HW-CC-Expire=86400&HW-CC-Sign=461C986001A5525E7756F0F7D7A1D548326E26511CB15DC83724324B2359EC20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/5K9WBvpMQ6GcjrvZmv9A6w/zh-cn_image_0000002658962955.png?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=5E4764FB38AE548EE598DB7986519786DD2CD0C58DDE92DDCC608303108E28A3)
 
 
  

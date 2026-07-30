@@ -1,6 +1,6 @@
 # PersistentStorage：持久化存储UI状态
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage
 
@@ -103,17 +103,25 @@ struct TestPageOne {
     Row() {
       Column() {
         Text(this.message)
+          .fontSize(20)
+          .margin(10)
         // 应用退出时会保存当前结果。重新启动后，会显示上一次的保存结果
         // 未修改时默认值为47
         Text(`${this.aProp}`)
+          .fontSize(20)
+          .margin(10)
           .onClick(() => {
             this.aProp += 1;
           })
       }
+      .width('100%')
     }
+    .height('100%')
   }
 }
 ```
+
+![](assets/PersistentStorage：持久化存储UI状态/file-20260514130521926-0.png)
 
 
  - 新应用安装后首次启动运行：
@@ -131,7 +139,7 @@ struct TestPageOne {
   **图1** PersistProp初始化流程
 
   
-![](assets/PersistentStorage：持久化存储UI状态/file-20260514130521926-0.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/eZNeNVp7RVirJXcJMpVdGg/zh-cn_image_0000002655845970.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=69684C04B8281D5DF59465577F7C0196653FE7C0D00FD240E6D0BEE94C13ED97)
 
  - 触发点击事件后：
 
@@ -213,15 +221,25 @@ struct TestCase6 {
         Text(this.p + '')
           .fontSize(FONT_SIZE_LARGE)
           .fontWeight(FontWeight.Bold)
-        Button('changeToNumber').onClick(() => {
-          this.p = DEFAULT_NUMBER;
-        })
-        Button('changeTo undefined').onClick(() => {
-          this.p = undefined;
-        })
-        Button('changeTo null').onClick(() => {
-          this.p = null;
-        })
+          .margin(10)
+        Button('changeToNumber')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.p = DEFAULT_NUMBER;
+          })
+        Button('changeTo undefined')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.p = undefined;
+          })
+        Button('changeTo null')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.p = null;
+          })
       }
       .width('100%')
     }
@@ -229,6 +247,10 @@ struct TestCase6 {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/Nvu_FTuhTKOYRiDY07Qk5A/zh-cn_image_0000002686085399.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=8533830458D5BFD9A5FCC438A86B78B9FC1000283C374D1D2C79A9CB85081DA3)
+
 
 
 
@@ -253,18 +275,23 @@ struct PersistedDate {
       ListItem() {
         Column() {
           Text(`Persisted Date is ${this.persistedDate.toString()}`)
+            .fontSize(20)
             .margin(20)
 
           Text(`Persisted Date year is ${this.persistedDate.getFullYear()}`)
+            .fontSize(20)
             .margin(20)
 
           Text(`Persisted Date hours is ${this.persistedDate.getHours()}`)
+            .fontSize(20)
             .margin(20)
 
           Text(`Persisted Date minutes is ${this.persistedDate.getMinutes()}`)
+            .fontSize(20)
             .margin(20)
 
           Text(`Persisted Date time is ${this.persistedDate.toLocaleTimeString()}`)
+            .fontSize(20)
             .margin(20)
 
           Button() {
@@ -284,13 +311,17 @@ struct PersistedDate {
             // 改变persistedDate的值，视图会随之刷新
             this.updateDate();
           })
-
-        }.width('100%')
+        }
+        .width('100%')
       }
     }
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/NphjqUjUTpa7Us4hsnqlQQ/zh-cn_image_0000002685925571.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=980FA528BC859033BE7886D03A580F90EE895AF118C08EBDC26384BD709FE6E1)
+
 
 
 
@@ -315,9 +346,12 @@ struct PersistedMap {
       ListItem() {
         Column() {
           Text(`Persisted Map String is `)
+            .fontSize(20)
             .margin(20)
           ForEach(Array.from(this.persistedMapString.entries()), (item: [number, string]) => {
             Text(`${item[0]} ${item[1]}`)
+              .fontSize(20)
+              .margin(10)
           })
 
           Button() {
@@ -337,13 +371,17 @@ struct PersistedMap {
             // 点击Button改变persistedMapString的值，视图会随之刷新
             this.persistMapString();
           })
-
-        }.width('100%')
+        }
+        .width('100%')
       }
     }
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/pOzUqKSTR-GgrvFObNCdXg/zh-cn_image_0000002656005892.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3BA13E9E1E881BF8D5E1553E7C45D31D36F8FAA2942DD0F8C7CE2A703A105F8F)
+
 
 
 
@@ -372,9 +410,12 @@ struct PersistedSet {
       ListItem() {
         Column() {
           Text(`Persisted Set is `)
+            .fontSize(20)
             .margin(20)
           ForEach(Array.from(this.persistedSet.entries()), (item: [number, number]) => {
             Text(`${item[1]}`)
+              .fontSize(20)
+              .margin(10)
           })
 
           Button() {
@@ -411,7 +452,6 @@ struct PersistedSet {
             // 点击Button改变persistedSet的值，视图会随之刷新
             this.clearSet();
           })
-
         }
         .width('100%')
       }
@@ -419,3 +459,6 @@ struct PersistedSet {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/ZtzI-w4OSzeZaIfj74YA-A/zh-cn_image_0000002655845972.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3D0BA8BA2023A20C2A2E24EE0EF0F8BEFB7671F5BFCC85EADA4DA0D7BB79245C)

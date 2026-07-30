@@ -88,7 +88,7 @@ struct PageOne {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LhxJ-6l-TKCduwZ4m13Nsg/zh-cn_image_0000002669866387.png?HW-CC-KV=V1&HW-CC-Date=20260723T012601Z&HW-CC-Expire=86400&HW-CC-Sign=4442EA64572ED1B43B93A92CEC3AACDB076EA83FD1EE47116D970282ECC192A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LhxJ-6l-TKCduwZ4m13Nsg/zh-cn_image_0000002669866387.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=093A4366E059C21230006DB8052B844A238E15B0E0255CD6ABC087D6DEF78FB7)
 
 - 场景2：首页跳转至其他页面之后，经过其他页面多次跳转，再立马返回首页。由于需要立马返回首页，无法一步步将路由栈中页面逐个出栈，所以无法通过出栈时的onPop回调，拿到上一个页面出栈时携带的参数。且首页无法推入路由栈，不能使用push类方法跳转，也没有onReady生命周期，所以也无法在onReady接收其他子页的传参。
 
@@ -208,7 +208,7 @@ struct PageTwo {
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/d06TsV_ITdCLnVxFjHuR9g/zh-cn_image_0000002669990323.png?HW-CC-KV=V1&HW-CC-Date=20260723T012601Z&HW-CC-Expire=86400&HW-CC-Sign=D184A667040AF2F11D129AAA00F926BCD0F8594E5FCED0B77C6730B187961884)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/d06TsV_ITdCLnVxFjHuR9g/zh-cn_image_0000002669990323.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=F26432E5062319C6C52F42A19F0A9D8B96655890D0CA1A4E1B6C84865EA7D886)
 
 - 方案2：在首页的aboutToAppear订阅事件，在clear清除路由栈时通过订阅的事件将参数传递回首页。
 ```json
@@ -296,7 +296,7 @@ struct PageTwo {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qTF6H_buTmykzChGBfUAQA/zh-cn_image_0000002639837140.png?HW-CC-KV=V1&HW-CC-Date=20260723T012601Z&HW-CC-Expire=86400&HW-CC-Sign=9F7229B0FCC4B440E00EDC5DF1DE0480C8CF9131F77EB8D7B85642CDCA0FBB1C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qTF6H_buTmykzChGBfUAQA/zh-cn_image_0000002639837140.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=271A7253C493B69AA796052D6633D59C2BA2DC237B05079F7963855DEB2D68F9)
 
 
  

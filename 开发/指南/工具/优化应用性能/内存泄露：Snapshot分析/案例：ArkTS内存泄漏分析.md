@@ -1,6 +1,6 @@
 # 案例：ArkTS内存泄漏分析
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arkts-memory-leak-analysis
 
@@ -119,15 +119,15 @@
  
 **TaggedDict**
  
-位于(array)标签中，一般为虚拟机内部创建的字典，ArkTS代码层面不可见。
+位于（array）标签中，一般为虚拟机内部创建的字典，ArkTS代码层面不可见。
  
 **TaggedArray**
  
-位于(array)标签中，一般为虚拟机内部创建的数组，ArkTS代码层面不可见。
+位于（array）标签中，一般为虚拟机内部创建的数组，ArkTS代码层面不可见。
  
 **COWArray**
  
-位于(array)标签中，一般为虚拟机内部创建的数组，ArkTS代码层面不可见。
+位于（array）标签中，一般为虚拟机内部创建的数组，ArkTS代码层面不可见。
  
 **JSObject**
  
@@ -140,40 +140,40 @@ JSObject展开后为内部的各个属性如下：
 以下通过具体代码来介绍下实例化对象、声明对象、构造函数间的关系：
  
 ```ArkTS
-// <span style="color: rgb(0,0,255);">HelloWorldPage</span>.ets
-class <span style="color: rgb(0,0,255);">People </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">old</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span>
-  <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span>
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">old</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">old </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">old</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">printOld</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"old = "</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">old</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">printName</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"name = "</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+// HelloWorldPage.ets
+class People {
+  old: number
+  name: string
+  constructor(old: number, name: string) {
+    this.old = old;
+    this.name = name;
+  }
+  printOld() {
+    console.log("old = ", this.old);
+  }
+  printName() {
+    console.log("name = ", this.name);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">HelloWorldPage </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">people</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">People </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">People</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"Tom"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct HelloWorldPage {
+  @State message: string = 'Hello World';
+  private people: People = new People(20, "Tom");
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Text(this.message)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
 ```
  
 采集到的snapshot数据如下：
@@ -188,7 +188,7 @@ struct <span style="color: rgb(0,0,255);">HelloWorldPage </span><span style="col
  
 **JSFunction**
  
-目前所有JSFunction都在(closure)标签中，展开即可看到所有JSFunction：
+目前所有JSFunction都在（closure）标签中，展开即可看到所有JSFunction：
  
 
 ![](assets/案例：ArkTS内存泄漏分析/file-20260514133144336-4.png)
@@ -210,7 +210,7 @@ struct <span style="color: rgb(0,0,255);">HelloWorldPage </span><span style="col
  
 **ArkInternalConstantPool**
  
-虚拟机创建的常量池，ArkTS代码层面不可见，涉及到的字符串常量会在(array)标签中展示：
+虚拟机创建的常量池，ArkTS代码层面不可见，涉及到的字符串常量会在（array）标签中展示：
  
 
 ![](assets/案例：ArkTS内存泄漏分析/file-20260514133144336-7.png)
@@ -232,7 +232,7 @@ struct <span style="color: rgb(0,0,255);">HelloWorldPage </span><span style="col
  
 **LocalHandleRoot**
  
-DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，用于管理JS对象生命周期的引用句柄（napi_value）。
+DevEco Studio 6.1.0 Release版本新增，位于（handle）标签中，用于管理JS对象生命周期的引用句柄（napi_value）。
  
 
 ![](assets/案例：ArkTS内存泄漏分析/file-20260514133144336-9.png)
@@ -240,15 +240,29 @@ DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，用于管理
  
 **GlobalHandleRoot**
  
-DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，允许用户管理ArkTS/JS值的生命周期的引用句柄（napi_ref）。
+DevEco Studio 6.1.0 Release版本新增，位于（handle）标签中，允许用户管理ArkTS/JS值的生命周期的引用句柄（napi_ref），默认情况下不记录napi_ref地址。
+ 
+**GlobalHandleObject**
+ 
+26.0.0 Beta2版本新增，位于（handle）标签中，用于记录napi_ref地址，并建立napi_ref和ArkTS对象的引用关系。该功能需要先调用[@util.ArkTSVM.setTrackGlobalRef](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#settrackglobalref)接口使能 ，使能后会在快照导出过程中记录napi_ref地址和引用关系。开发者可根据快照中napi_ref相关信息，分析跨语言导致的内存泄漏。
+ 
+如下图，ReferenceAddress:0x5b0b560160是napi_ref地址，子节点是napi_ref关联的ArkTS对象。
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/VJncoYgKRZGiteK4bxB5IQ/zh-cn_image_0000002647917098.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=A3AF7AAE4CEF9C3195900E7240C9854B940D1C2C9EE6757845EFE01C09F718D2)
+
+ 
+> [!NOTE]
+> GlobalHandleObject中记录了存在napi_ref的ArkTS对象，对象是GlobalHandleRoot对象子集。
+
  
 **VMRoot**
  
-26.0.0 Beta1版本新增，位于(handle)标签中，表示虚拟机层面的根节点。
+26.0.0 Beta1版本新增，位于（handle）标签中，表示虚拟机层面的根节点。
  
 **FrameRoot**
  
-26.0.0 Beta1版本新增，位于(handle)标签中，表示函数调用栈帧在GC遍历过程中的根节点。
+26.0.0 Beta1版本新增，位于（handle）标签中，表示函数调用栈帧在GC遍历过程中的根节点。
  
 **SourceTextModule**
  
@@ -293,13 +307,13 @@ SourceTextModule为虚拟机创建的对象，当应用使用export暴露对象�
 对于声明对象，可以通过constructor属性来确定对象名称。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/7tiP9LNnTGGq5jgetwlJOg/zh-cn_image_0000002594474914.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=FC053DBC4359626A394472E0EE7580D099A421953FB12DE9B69C65061D448A60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/InYVPUKfTdGoq8qduzdzdA/zh-cn_image_0000002648077008.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=082997D4D85DE959B8FF9F4D333030CEF890F2E3BF332C3C0F0B5B1B69F800B7)
 
  
 对于实例化对象，一般没有constructor，则需要展开__proto__属性后查找constructor；
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/ZGUVbeKuTAKioZgs78I6Og/zh-cn_image_0000002594474916.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=76B989D90ACFE921D1C1F66E9604AF4F0D204CABE1B92647A1CF9830DB0109C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/DKio9fChSZu6_yRFf6eKQw/zh-cn_image_0000002678156731.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=D6B90F1A41FFC5F81288000B447EDEE806AC327B2C7C0DCB7B59FCBF0EA633A1)
 
  
 若对象里有一些标志性属性，可以通过在代码里搜索属性名称来找到具体是哪个对象。
@@ -307,7 +321,7 @@ SourceTextModule为虚拟机创建的对象，当应用使用export暴露对象�
 如果对象间有继承关系，则可以继续展开__proto__：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/NjBTdA04SQ6nsBx0rU_Yug/zh-cn_image_0000002594634836.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=C169482CA8263E625A0EF1696EBAA0634A16D3F97F1128C4D237BF2E0B0A6806)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/I8kxWlo8ROyg9V43D9dRnQ/zh-cn_image_0000002648077014.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=F39D23166B0228A8A9F62B0B8BC97F823D76DEE3CF91E2E97589FD2706EEB1C7)
 
  
 如上图则表明Man对象继承自People对象。

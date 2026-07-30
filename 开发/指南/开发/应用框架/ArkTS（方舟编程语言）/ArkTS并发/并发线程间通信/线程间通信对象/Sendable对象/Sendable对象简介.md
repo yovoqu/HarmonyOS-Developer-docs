@@ -1,6 +1,6 @@
 # Sendable对象简介
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable
 
@@ -35,7 +35,7 @@ Sendable协议定义了ArkTS的可共享对象体系及其规格约束。符合S
 
 #### ISendable
 
-在ArkTS语言基础库[@arkts.lang](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkts-lang)中引入了interface ISendable，没有任何方法或属性。ISendable是所有Sendable类型（除了null和undefined）的父类型。ISendable主要用于开发者自定义Sendable数据结构的场景中。类装饰器[@Sendable装饰器](#sendable装饰器)是implement ISendable的语法糖。
+在ArkTS语言基础库[@arkts.lang](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkts-lang)中引入了interface ISendable，没有任何方法或属性。ISendable是所有Sendable类型（除了null和undefined）的父类型。ISendable主要用于开发者自定义Sendable数据结构的场景中。类装饰器[@Sendable装饰器](#sendable装饰器)是implements ISendable的语法糖。
 
 
 
@@ -54,7 +54,7 @@ Sendable class需同时满足以下两个规则：
 #### Sendable function
 
 > [!TIP]
-> 从API version 12开始，支持使用@Sendable装饰器校验Sendable function。 针对API version 12的工程，开发者使用@Sendable装饰器校验Sendable function时，需在工程中配置"compatibleSdkVersionStage": "beta3"，否则其Sendable特性将不生效。参考 build-profile.json5配置文件说明 。 针对API version大于12的工程，可直接使用@Sendable装饰器校验Sendable function，无需再进行其他配置。
+> 针对API version 12的工程，开发者使用@Sendable装饰器校验Sendable function时，需在工程中配置"compatibleSdkVersionStage": "beta3"，否则其Sendable特性将不生效。参考 build-profile.json5配置文件说明 。 针对API version大于12的工程，可直接使用@Sendable装饰器校验Sendable function，无需再进行其他配置。
 
 
 Sendable function需同时满足以下两个规则：
@@ -172,7 +172,7 @@ struct enumusage {
 **SharedHeap与LocalHeap关系图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/-wh75rk8QYWYl2oxquB-tw/zh-cn_image_0000002677825167.png?HW-CC-KV=V1&HW-CC-Date=20260723T012129Z&HW-CC-Expire=86400&HW-CC-Sign=6F47B04DD42D71931AFD147A73B2F71D09906E9292B0DB3CF71D90ADD246382E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/SWPxD5QkR6SQ5SJnfQTuVg/zh-cn_image_0000002655845822.png?HW-CC-KV=V1&HW-CC-Date=20260730T071832Z&HW-CC-Expire=86400&HW-CC-Sign=4D9927B69C5BA5685A39C60DD31C3F885274D9AB9BC266E82895C3AA38467367)
 
 
 各个并发实例的LocalHeap是隔离的。SharedHeap是进程级别的堆，可以被所有并发实例共享，但SharedHeap不能引用LocalHeap中的对象。
@@ -198,21 +198,19 @@ struct enumusage {
 **装饰器修饰Class使用示例：**
 
 ```ArkTS
-export { MainPage } from './src/main/ets/components/MainPage';
-
 @Sendable
 class SendableTestClass {
   desc: string = 'sendable: this is SendableTestClass ';
   num: number = 5;
   printName() {
-    console.info('sendable: SendableTestClass desc is: ' + this.desc);
+    console.info(`sendable: SendableTestClass desc is: ${this.desc}`);
   }
   get getNum(): number {
     return this.num;
   }
 }
 
-let object = new SendableTestClass;
+let object = new SendableTestClass();
 export { object }
 ```
 

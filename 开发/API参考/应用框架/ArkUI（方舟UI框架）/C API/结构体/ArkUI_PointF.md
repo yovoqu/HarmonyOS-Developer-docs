@@ -1,6 +1,6 @@
 # ArkUI_PointF
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pointf
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_PointF
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义一个二维坐标点结构体，坐标以浮点类型存储。
+定义一个二维坐标点结构体，用于描述组件位置或偏移等坐标信息，坐标以浮点类型存储。
  
 **起始版本：** 24
  
@@ -36,5 +36,5 @@ typedef struct {...} ArkUI_PointF
  
 | 名称 | 描述 |
 | --- | --- |
-| float x | x轴坐标。取值范围：(-∞, +∞)。 |
-| float y | y轴坐标。取值范围：(-∞, +∞)。 |
+| float x | x轴坐标，单位为px。取值范围：(-∞, +∞)。 |
+| float y | y轴坐标，单位为px。取值范围：(-∞, +∞)。 |

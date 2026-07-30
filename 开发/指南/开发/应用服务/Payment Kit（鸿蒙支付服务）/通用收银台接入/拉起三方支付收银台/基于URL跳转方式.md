@@ -1,6 +1,6 @@
 # 基于URL跳转方式
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-launch-third-party-payment-url
 
@@ -17,34 +17,34 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct Index {
-  context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  requestPaymentPromise() {
-    // 请使用开发者自己的订单信息（orderStr），跳转三方支付方式。
-    const orderStr = '{"nextAction":"L","linkUrl":"","scheme":"","clientToken":"***"}';
-    paymentService.requestPayment(this.context, orderStr, "AP")
-      .then((payResult: paymentService.PayResult) => {
-        // 支付成功
-        console.info('succeeded in paying, pay result: ', payResult);
-      })
-      .catch((error: BusinessError) => {
-        // 支付失败
-        console.error(`failed to pay, error.code: ${error.code}, error.message: ${error.message}`);
-      });
-  }
+ context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
+ requestPaymentPromise() {
+   // 请使用开发者自己的订单信息（orderStr），跳转三方支付方式。
+   const orderStr = '{"nextAction":"L","linkUrl":"","scheme":"","clientToken":"***"}';
+   paymentService.requestPayment(this.context, orderStr, 'AP')
+     .then((payResult: paymentService.PayResult) => {
+       // 支付成功
+       console.info('succeeded in paying, pay result: ', payResult);
+     })
+     .catch((error: BusinessError) => {
+       // 支付失败
+       console.error(`failed to pay, error.code: ${error.code}, error.message: ${error.message}`);
+     });
+ }
 
-  build() {
-    Column() {
-      Button('requestPaymentPromise')
-        .type(ButtonType.Capsule)
-        .width('50%')
-        .margin(20)
-        .onClick(() => {
-          this.requestPaymentPromise();
-        })
-      }
-    .width('100%')
-    .height('100%')
-  }
+ build() {
+   Column() {
+     Button('requestPaymentPromise')
+       .type(ButtonType.Capsule)
+       .width('50%')
+       .margin(20)
+       .onClick(() => {
+         this.requestPaymentPromise();
+       })
+     }
+   .width('100%')
+   .height('100%')
+ }
 }
 ```
 

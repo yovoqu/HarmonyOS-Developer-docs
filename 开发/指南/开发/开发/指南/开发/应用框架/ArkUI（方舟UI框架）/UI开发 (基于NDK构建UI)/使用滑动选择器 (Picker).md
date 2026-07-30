@@ -1,12 +1,12 @@
 # 使用滑动选择器 (Picker)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-picker
 
 #### 概述
 
-从API version 23开始，ArkUI开发框架在NDK接口提供了Picker容器组件。Picker容器组件用于实现用户自定义选项的选择操作，支持滚动选择、触感反馈、循环滚动等功能。Picker组件通过设置选择指示器样式，可以自定义选中项的显示效果，适用于日期选择、时间选择、文本选择等场景。
+从API version 23开始，ArkUI开发框架在NDK接口提供了Picker容器组件。Picker容器组件用于实现用户自定义选项的选择操作，支持滚动选择、触感反馈、循环滚动等功能。Picker组件通过设置选择指示器样式，可以自定义选中项的显示效果，适用于日期选择、时间选择、文本选择等场景。从API版本26.0.0开始，可通过NODE_PICKER_DISPLAYED_ITEM_COUNT、NODE_PICKER_ITEM_HEIGHT配置可见选项行数与每行行高，语义与ArkTS侧[UIPickerComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component)的[displayedItemCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component#displayeditemcount)、[itemHeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component#itemheight)一致；详细参数格式见[信息选择类组件相关属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-informationselection)。
 
 [创建Picker](#创建picker)后，可以[设置Picker属性](#设置picker属性)，并[监听Picker事件](#监听picker事件)。
 
@@ -226,7 +226,7 @@ picker->SetHapticFeedback(K_HAPTIC_FEEDBACK);
 通过设置NODE_PICKER_CAN_LOOP属性，可以控制Picker组件是否支持循环滚动。设置为true时，选择器可以无限循环滚动；设置为false时，滚动到首尾时会停止。
 
 > [!NOTE]
-> 如果子组件的个数小于8个，无论设置为true还是false，都不会循环滚动。
+> 当子组件个数小于或等于可见选项行数（由NODE_PICKER_DISPLAYED_ITEM_COUNT设置，默认为7）时，无论设置为true还是false，都不会循环滚动。
 
 
 使用[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)时可直接调用setAttribute。
@@ -245,11 +245,31 @@ picker->SetCanLoop(K_CAN_LOOP);
 
 
 
+#### 设置可见选项数量与选项行高
+
+从API版本26.0.0开始，可通过[NODE_PICKER_DISPLAYED_ITEM_COUNT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-informationselection#node_picker_displayed_item_count)设置可见选项行数，通过[NODE_PICKER_ITEM_HEIGHT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-informationselection#node_picker_item_height)设置每一行的高度（vp）。未设置时，默认分别为7行与40vp；取值范围、偶数行数规范及越界行为与[UIPickerComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component)的[displayedItemCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component#displayeditemcount)、[itemHeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component#itemheight)一致。立体滚轮样式下可视高度会受旋转影响，若增大行数或行高，请相应增大Picker容器高度。
+
+使用[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)时可直接调用setAttribute。
+
+```text
+ArkUI_NumberValue itemCountValue = {.i32 = count};
+ArkUI_AttributeItem itemCountItem = {&itemCountValue, sizeof(itemCountValue) / sizeof(ArkUI_NumberValue)};
+g_state->api->setAttribute(g_state->pickerNode, NODE_PICKER_DISPLAYED_ITEM_COUNT, &itemCountItem);
+```
+
+```text
+ArkUI_NumberValue itemHeightValue = {.f32 = heightVp};
+ArkUI_AttributeItem itemHeightItem = {&itemHeightValue, sizeof(itemHeightValue) / sizeof(ArkUI_NumberValue)};
+g_state->api->setAttribute(g_state->pickerNode, NODE_PICKER_ITEM_HEIGHT, &itemHeightItem);
+```
+
+
+
 #### 设置选择指示器样式
 
 通过设置NODE_PICKER_SELECTION_INDICATOR属性，可以自定义Picker组件的选择指示器样式。选择指示器包括背景样式和分割线样式两部分。
 
-背景样式指示器通过[ArkUI_PickerIndicatorBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatorbackground)结构体设置，包括背景颜色和圆角半径。
+选择指示器的背景样式通过[ArkUI_PickerIndicatorBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatorbackground)结构体设置，包括背景颜色和圆角半径。
 
 ```cpp
 void SetSelectionIndicatorBackground(uint32_t backgroundColor, float cornerRadius = 10.0f)
@@ -273,7 +293,7 @@ void SetSelectionIndicatorBackground(uint32_t backgroundColor, float cornerRadiu
 }
 ```
 
-分割线样式指示器通过[ArkUI_PickerIndicatorDivider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatordivider)结构体设置，包括线宽、颜色和边距。
+选择指示器的分割线样式通过[ArkUI_PickerIndicatorDivider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatordivider)结构体设置，包括线宽、颜色和边距。
 
 ```cpp
 void SetSelectionIndicatorDivider(uint32_t dividerColor, float strokeWidth = 2.0f, float startMargin = 20.0f,
@@ -299,7 +319,7 @@ void SetSelectionIndicatorDivider(uint32_t dividerColor, float strokeWidth = 2.0
 
 将背景样式或分割线样式组合到[ArkUI_PickerIndicatorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatorstyle)结构体中，并设置给Picker组件。
 
-若使用上文封装的ContainerPickerMonthMaker，可调用已封装的接口。
+若使用上文封装的ContainerPickerCanLoopMaker，可调用已封装的接口。
 
 ```cpp
 picker->SetSelectionIndicatorDivider(0xFF0000FF, 2.0f, 20.0f, 20.0f);

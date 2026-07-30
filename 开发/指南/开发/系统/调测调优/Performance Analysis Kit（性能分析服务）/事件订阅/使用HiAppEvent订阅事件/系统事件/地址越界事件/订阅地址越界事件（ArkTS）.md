@@ -1,6 +1,6 @@
 # 订阅地址越界事件（ArkTS）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-address-sanitizer-events-arkts
 
@@ -203,4 +203,5 @@ HiAppEvent eventInfo.uid=20020140
 HiAppEvent eventInfo.type=stack-buffer-overflow
 HiAppEvent eventInfo.external_log=["/data/storage/el2/log/hiappevent/ADDRESS_SANITIZER_1713161197960_12889.log"]
 HiAppEvent eventInfo.log_over_limit=false
+HiAppEvent eventInfo.params.page_switch_log=" ["/data/storage/el2/log/page_switch/snapshot/page_switch-com.example.myapplication-1-1-20260627152631822.log"]"
 ```

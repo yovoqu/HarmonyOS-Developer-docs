@@ -1,6 +1,6 @@
 # 配置ArkTS卡片的配置文件
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration
 
@@ -57,7 +57,7 @@
     "type": "shared",
     "description": "$string:shared_desc",
     "deviceTypes": [
-      "default"
+      "phone"
     ],
     "deliveryWithInstall": true,
     // 只在独立卡片包形态中会使用，用来关联应用包模块。
@@ -167,7 +167,7 @@
 | abilityName | 字符串 | 否 | 趣味交互场景LiveFormExtensionAbility名称，默认为空。 |
 | targetBundleName | 字符串 | 是 | 趣味交互场景主包包名。 |
 | subBundleName | 字符串 | 否 | 趣味交互场景独立分包名，默认为空。 |
-| keepStateDuration | 数值 | 否 | 趣味交互场景无交互时，激活态保持时长。默认值为10000，单位ms。取值为[0,60000]的整数，超过取值范围则取最大值60000。 说明： 在API版本26.0.0之前该字段为[0,10000]的整数，超过取值范围则取默认值10000。 |
+| keepStateDuration | 数值 | 否 | 趣味交互场景无交互时，激活态保持时长。默认值为10000，单位ms。取值为(0,60000]的整数，超过取值范围则取最大值60000。 说明： 在API版本26.0.0之前该字段为(0,10000]的整数，超过取值范围则取默认值10000。 |
 
 
 ```json
@@ -194,7 +194,7 @@
 | --- | --- | --- | --- |
 | abilityName | 字符串 | 是 | 场景动效LiveFormExtensionAbility名称。 |
 | disabledDesktopBehaviors | 字符串数组 | 否 | 支持的取值包括SWIPE_DESKTOP（滑动桌面）、PULL_DOWN_SEARCH（下拉全搜）、LONG_CLICK（长按）、DRAG（拖动）。可以取值一个或多个，缺省表示不禁用任何行为。 说明： 从API version 20开始支持该字段配置，功能仅对系统应用生效。 |
-| triggerTypes | 字符串数组 | 否 | 场景动效触发类型，支持的取值包括shake（摇一摇）。 说明： 从API version 26.0.0开始，支持该字段。 |
+| triggerTypes | 字符串数组 | 否 | 场景动效触发类型，支持的取值包括shake（摇一摇）。 说明： 从API版本26.0.0开始，支持该字段。 |
 
 
 ```json

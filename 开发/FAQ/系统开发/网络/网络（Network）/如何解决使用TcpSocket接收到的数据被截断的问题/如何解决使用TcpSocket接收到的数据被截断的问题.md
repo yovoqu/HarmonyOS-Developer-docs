@@ -16,21 +16,21 @@ TCP是面向字节流的协议，是无边界的。由于没有边界，当发�
  
  
 - 正常传输数据包：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/sxlU0n25T0y5NR9nFQgATg/zh-cn_image_0000002628770212.png?HW-CC-KV=V1&HW-CC-Date=20260723T013422Z&HW-CC-Expire=86400&HW-CC-Sign=C51EF5D47A21F96612811A36F484F0439E46AB0DFEAFB8BDF452E0C70387093F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/sxlU0n25T0y5NR9nFQgATg/zh-cn_image_0000002628770212.png?HW-CC-KV=V1&HW-CC-Date=20260730T072546Z&HW-CC-Expire=86400&HW-CC-Sign=7DE6D1976A1501C331D1E4C06A47D91CDC43983999B4FF5B79D85FC906C0CA12)
 
 - TCP粘包：是指发送方发送的若干数据，在接收方的缓冲区里被组合到一起后读取，后面数据包的头部“粘着”前面数据包的尾部，当单个包比较小时，多个包可能会被合并成一个数据包，所以称为粘包。
 
   粘包示意图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/kqk42HNPStOpq7nugkV3lg/zh-cn_image_0000002658969537.png?HW-CC-KV=V1&HW-CC-Date=20260723T013422Z&HW-CC-Expire=86400&HW-CC-Sign=9D22F91C33364B6C1A8666051919926D6002798FD52BA226961EEAFCA6AE3F66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/kqk42HNPStOpq7nugkV3lg/zh-cn_image_0000002658969537.png?HW-CC-KV=V1&HW-CC-Date=20260730T072546Z&HW-CC-Expire=86400&HW-CC-Sign=24CBF4A584642F5313DA7F550C938913A40F73080286B362A670D674FCACB4CC)
 
 - TCP拆包：是指一个比较大的数据包，在接收方缓冲区被拆分成多个数据包来读取，这些多个数据包组合起来才是正确的数据包。
 
   拆包和粘包示意图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/7H1pJfL1RTa1DZFnxjqVbQ/zh-cn_image_0000002628610326.png?HW-CC-KV=V1&HW-CC-Date=20260723T013422Z&HW-CC-Expire=86400&HW-CC-Sign=C31E4A6E4E7EC2194F07325BA1F1E0F1D43012492D94E2DC7A6914F2D8691F96)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/7H1pJfL1RTa1DZFnxjqVbQ/zh-cn_image_0000002628610326.png?HW-CC-KV=V1&HW-CC-Date=20260730T072546Z&HW-CC-Expire=86400&HW-CC-Sign=08BB0BB64BFDCF8B976C8E3D7728D542BFF904A17D966956F51EE899FD8DD596)
 
 
  

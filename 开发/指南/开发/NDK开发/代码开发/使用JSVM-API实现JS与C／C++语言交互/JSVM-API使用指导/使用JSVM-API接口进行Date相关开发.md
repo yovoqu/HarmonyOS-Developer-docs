@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行Date相关开发
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-date
 
@@ -44,11 +44,16 @@ JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
 cpp部分代码：
  
 ```cpp
-#include <time.h>
+#include "napi/native_api.h"
+#include "hilog/log.h"
+#include "ark_runtime/jsvm.h"
+#include <ctime>
+// ...
 // OH_JSVM_CreateDate的样例方法
-static JSVM_Value CreateDate(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value CreateDate(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 通过c接口获取Unix纪元以来经过的秒数，并转化为毫秒数为单位
-    double value = static_cast<double>(static_cast<uint64_t>(time(NULL)) * 1000ULL);
+    double value = static_cast<double>(time(nullptr) * 1000);
     // 调用OH_JSVM_CreateDate接口将double值转换成表示日期时间的JavaScript值返回出去
     JSVM_Value returnValue = nullptr;
 
@@ -81,7 +86,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"createDate", nullptr, method, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(createDate())JS";
+const char *SRC_CALL_NATIVE = R"JS(createDate())JS";
 ```
  
 预期结果：
@@ -100,20 +105,22 @@ cpp部分代码：
  
 ```cpp
 #include <ctime>
+// ...
 // OH_JSVM_GetDateValue的样例方法
-static JSVM_Value GetDateValue(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value GetDateValue(JSVM_Env env, JSVM_CallbackInfo info)
+{
     size_t argc = 1;
     JSVM_Value args[1] = {nullptr};
     JSVM_CALL(OH_JSVM_GetCbInfo(env, info, &argc, args, nullptr, nullptr));
     // 获取传入的Unix Time Stamp时间
     double value = 0;
     JSVM_CALL(OH_JSVM_GetDateValue(env, args[0], &value));
-   
+
     // 将获取到的Unix Time Stamp时间转化为日期字符串打印
     uint64_t time = static_cast<uint64_t>(value) / 1000;
     char *date = ctime(reinterpret_cast<time_t *>(&time));
     OH_LOG_INFO(LOG_APP, "JSVM GetDateValue success:%{public}s", date);
-   
+
     JSVM_Value returnValue = nullptr;
     JSVM_CALL(OH_JSVM_CreateDouble(env, value, &returnValue));
     return returnValue;
@@ -129,7 +136,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"getDateValue", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(getDateValue(new Date(Date.now())))JS";
+const char *SRC_CALL_NATIVE = R"JS(getDateValue(new Date(Date.now())))JS";
 ```
  
 预期结果：
@@ -148,14 +155,15 @@ cpp部分代码：
  
 ```cpp
 // OH_JSVM_IsDate的样例方法
-static JSVM_Value IsDate(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value IsDate(JSVM_Env env, JSVM_CallbackInfo info)
+{
     size_t argc = 1;
     JSVM_Value args[1] = {nullptr};
     JSVM_CALL(OH_JSVM_GetCbInfo(env, info, &argc, args, nullptr, nullptr));
     bool isDate = false;
     JSVM_CALL(OH_JSVM_IsDate(env, args[0], &isDate));
     OH_LOG_INFO(LOG_APP, "JSVM IsDate success:%{public}d", isDate);
-    
+
     JSVM_Value result = nullptr;
     JSVM_CALL(OH_JSVM_GetBoolean(env, isDate, &result));
     return result;
@@ -170,7 +178,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"isDate", nullptr, method, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char *srcCallNative = R"JS(isDate(new Date(Date.now())))JS";
+const char *SRC_CALL_NATIVE = R"JS(isDate(new Date(Date.now())))JS";
 ```
  
 预期结果：

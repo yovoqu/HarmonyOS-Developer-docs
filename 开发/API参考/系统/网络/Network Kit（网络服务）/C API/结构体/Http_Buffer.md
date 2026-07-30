@@ -1,6 +1,6 @@
 # Http_Buffer
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-buffer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,5 +36,5 @@ HTTP缓存结构体。
  
 | 名称 | 描述 |
 | --- | --- |
-| const char *buffer | 缓存区数据。 |
-| uint32_t length | 缓存区长度。 |
+| const char *buffer | 缓冲区数据。 |
+| uint32_t length | 缓冲区长度。单位：Byte。 |

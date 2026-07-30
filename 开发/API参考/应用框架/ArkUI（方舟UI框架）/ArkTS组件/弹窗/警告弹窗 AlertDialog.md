@@ -1,6 +1,6 @@
 # 警告弹窗 (AlertDialog)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -22,33 +22,33 @@
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| title | ResourceStr | 否 | 是 | 弹窗标题。 API version 20之前，弹窗标题的对齐方式为左对齐。 API version 20及之后，弹窗标题的对齐方式为居中对齐。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| subtitle10+ | ResourceStr | 否 | 是 | 弹窗副标题。 API version 20之前，弹窗副标题的对齐方式为左对齐。 API version 20及之后，弹窗副标题的对齐方式为居中对齐。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| title | ResourceStr | 否 | 是 | 弹窗标题。 默认值：未设置时不显示标题。 API version 20之前，弹窗标题的对齐方式为左对齐。 API version 20及之后，弹窗标题的对齐方式为居中对齐。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| subtitle10+ | ResourceStr | 否 | 是 | 弹窗副标题。 默认值：未设置时不显示副标题。 API version 20之前，弹窗副标题的对齐方式为左对齐。 API version 20及之后，弹窗副标题的对齐方式为居中对齐。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | message | ResourceStr | 否 | 否 | 弹窗内容。 API version 20之前，弹窗内容的对齐方式为左对齐。 API version 20及之后，弹窗内容的对齐方式为居中对齐。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| autoCancel | boolean | 否 | 是 | 点击遮障层时，是否关闭弹窗，true表示关闭弹窗。false表示不关闭弹窗。 默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| autoCancel | boolean | 否 | 是 | 点击遮障层时，是否关闭弹窗。值为true表示关闭弹窗，值为false表示不关闭弹窗。 默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | cancel | VoidCallback | 否 | 是 | 点击遮障层关闭dialog时的回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | alignment | DialogAlignment | 否 | 是 | 弹窗在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 元服务API： 从API version 11开始，该接口支持在元服务中使用。 说明： 若在UIExtension中设置showInSubWindow为true，弹窗将基于UIExtension的宿主窗口对齐。 |
-| offset | Offset | 否 | 是 | 弹窗相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| gridCount | number | 否 | 是 | 弹窗容器宽度所占用栅格数。 默认值：4 取值范围：大于等于0的整数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| offset | Offset | 否 | 是 | 弹窗相对alignment所在位置的偏移量。dx表示水平方向偏移，正值为向右偏移，负值为向左偏移；dy表示垂直方向偏移，正值为向下偏移，负值为向上偏移。 默认值：{ dx: 0 , dy: 0 } 单位：vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| gridCount | number | 否 | 是 | 弹窗容器宽度所占用栅格数。栅格数为弹窗宽度的相对单位，值越大弹窗越宽。 默认值：4 取值范围：大于等于0的整数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | maskRect10+ | Rectangle | 否 | 是 | 弹窗遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 说明： showInSubWindow为true时，maskRect不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | showInSubWindow11+ | boolean | 否 | 是 | 某弹窗需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。 默认值：false，弹窗显示在应用内，而非独立子窗口。 说明：showInSubWindow为true的弹窗无法触发显示另一个showInSubWindow为true的弹窗。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| isModal11+ | boolean | 否 | 是 | 弹窗是否为模态窗口，模态窗口有蒙层，非模态窗口无蒙层。值为false时，弹窗为非模态窗口，无蒙层。 默认值：true，此时弹窗有蒙层。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。默认值请参考BackgroundBlurStyleOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| onWillDismiss12+ | Callback&lt;DismissDialogAction&gt; | 否 | 是 | 交互式关闭回调函数。 说明： 1.当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。当前组件返回的reason中，暂不支持CLOSE_BUTTON的枚举值。 2.在onWillDismiss回调中，不能再做onWillDismiss拦截。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| isModal11+ | boolean | 否 | 是 | 弹窗是否为模态窗口，模态窗口有蒙层，非模态窗口无蒙层。值为true时，弹窗为模态窗口，有蒙层。值为false时，弹窗为非模态窗口，无蒙层。 默认值：true，此时弹窗有蒙层。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。当设置系统材质systemMaterial时，backgroundColor不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。当设置系统材质systemMaterial时，backgroundBlurStyle不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 弹窗背板模糊效果。默认值请参考BackgroundBlurStyleOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 弹窗背板效果参数。当设置系统材质systemMaterial时，backgroundEffect不生效。默认值请参考BackgroundEffectOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onWillDismiss12+ | Callback&lt;DismissDialogAction&gt; | 否 | 是 | 交互式关闭回调函数。当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。 说明： 1.在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。典型场景如弹窗中存在未保存的表单数据时，拦截关闭并提示用户保存。当前组件返回的reason中，暂不支持CLOSE_BUTTON的枚举值。 2.在onWillDismiss回调中，不能再做onWillDismiss拦截。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | cornerRadius12+ | Dimension \| BorderRadiuses \| LocalizedBorderRadiuses | 否 | 是 | 设置背板的圆角半径。 可分别设置4个圆角的半径。 默认值：{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' } 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，若值为负，则按照默认值处理。 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。 说明： 当cornerRadius属性类型为LocalizedBorderRadiuses时，支持随语言习惯改变布局顺序。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | transition12+ | TransitionEffect | 否 | 是 | 设置弹窗显示和退出的过渡效果。 说明： 1.如果不设置，则使用默认的显示/退出动效。 2.显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。 3.退出动效中按back键，不会打断退出动效，退出动效继续执行，继续按back键退出应用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | width12+ | Dimension | 否 | 是 | 设置弹窗背板的宽度。 说明： - 弹窗宽度默认最大值：400vp。 - 百分比参数方式：弹窗参考宽度为所在窗口的宽度，在此基础上调小或调大。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | height12+ | Dimension | 否 | 是 | 设置弹窗背板的高度。 说明： - 弹窗高度默认最大值：0.9 *（窗口高度 - 安全区域）。 - 百分比参数方式：弹窗参考高度为（窗口高度 - 安全区域），在此基础上调小或调大。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| borderWidth12+ | Dimension \| EdgeWidths \| LocalizedEdgeWidths | 否 | 是 | 可分别设置4个边框宽度。 默认值：0 百分比参数方式：以父元素弹窗宽的百分比来设置弹窗的边框宽度。 当弹窗左边框和右边框大于弹窗宽度，弹窗上边框和下边框大于弹窗高度，显示可能不符合预期。 说明： 当borderWidth属性类型为LocalizedEdgeWidths时，支持随语言习惯改变布局顺序。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| borderColor12+ | ResourceColor \| EdgeColors \| LocalizedEdgeColors | 否 | 是 | 设置弹窗背板的边框颜色。 默认值：Color.Black 如果使用borderColor属性，需要和borderWidth属性一起使用。 说明： 当borderColor属性类型为LocalizedEdgeColors时，支持随语言习惯改变布局顺序。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderWidth12+ | Dimension \| EdgeWidths \| LocalizedEdgeWidths | 否 | 是 | 可分别设置4个边框宽度。当设置系统材质systemMaterial时，borderWidth不生效。 默认值：0 百分比参数方式：以弹窗背板自身宽度的百分比来设置弹窗的边框宽度。 当弹窗左边框和右边框大于弹窗宽度，弹窗上边框和下边框大于弹窗高度，显示可能不符合预期。 说明： 当borderWidth属性类型为LocalizedEdgeWidths时，支持随语言习惯改变布局顺序。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderColor12+ | ResourceColor \| EdgeColors \| LocalizedEdgeColors | 否 | 是 | 设置弹窗背板的边框颜色。当设置系统材质systemMaterial时，borderColor不生效。 默认值：Color.Black 如果使用borderColor属性，需要和borderWidth属性一起使用。 说明： 当borderColor属性类型为LocalizedEdgeColors时，支持随语言习惯改变布局顺序。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | borderStyle12+ | BorderStyle \| EdgeStyles | 否 | 是 | 设置弹窗背板的边框样式。 默认值：BorderStyle.Solid 如果使用borderStyle属性，需要和borderWidth属性一起使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | textStyle12+ | TextStyle | 否 | 是 | 设置弹窗message内容的文本样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 说明： PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通过设置hoverModeArea参数显示在上半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 悬停态下弹窗默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态，值为false时，不响应悬停态。 默认值：false，默认不响应。 说明： PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通过设置hoverModeArea参数显示在上半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 悬停态下弹窗默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN。 说明： 此参数仅在enableHoverMode设置为true时生效。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | onWillAppear19+ | Callback&lt;void&gt; | 否 | 是 | 弹窗显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | onDidAppear19+ | Callback&lt;void&gt; | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，关闭弹窗时，onWillDisappear在onDidAppear前生效。 4.弹窗入场动效未完成时彻底关闭弹窗，动效打断，onDidAppear不会触发。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | onWillDisappear19+ | Callback&lt;void&gt; | 否 | 是 | 弹窗退出动效前的事件回调。 说明： 正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
@@ -95,7 +95,7 @@ type LevelOrder = import('../api/@ohos.promptAction').LevelOrder
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| confirm | AlertDialogButtonBaseOptions | 否 | 是 | 确认Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键。多重弹窗情况下，可自动获焦并连续响应。默认响应Enter键能力在defaultFocus为true时不生效。 |
+| confirm | AlertDialogButtonBaseOptions | 否 | 是 | 确认按钮的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键。多重弹窗情况下，可自动获焦并连续响应。默认响应Enter键能力在defaultFocus为true时不生效。 |
 
 
 confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
@@ -131,8 +131,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| primaryButton | AlertDialogButtonBaseOptions | 否 | 否 | 主要Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键，且多重弹窗可自动获焦连续响应。默认响应Enter键能力在defaultFocus为true时不生效。 具体使用方式请参考示例7 。 |
-| secondaryButton | AlertDialogButtonBaseOptions | 否 | 否 | 次要Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。 |
+| primaryButton | AlertDialogButtonBaseOptions | 否 | 否 | 主要按钮的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键，且多重弹窗可自动获焦连续响应。默认响应Enter键能力在defaultFocus为true时不生效。具体使用方式请参考示例7。 |
+| secondaryButton | AlertDialogButtonBaseOptions | 否 | 否 | 次要按钮的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。 |
 
 
 
@@ -152,7 +152,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | buttons | Array&lt;AlertDialogButtonOptions&gt; | 否 | 否 | 弹窗容器中的多个按钮。 |
-| buttonDirection | DialogButtonDirection | 否 | 是 | 按钮排布方向默认为DialogButtonDirection.AUTO。建议3个以上按钮使用Auto模式（两个以上按钮会切换为纵向模式，通常能显示更多按钮）。非Auto模式下，3个以上按钮可能会显示不全，超出显示范围的按钮会被截断。 |
+| buttonDirection | DialogButtonDirection | 否 | 是 | 按钮排布方向默认为DialogButtonDirection.AUTO。建议3个以上按钮使用Auto模式，Auto模式下两个以上按钮会切换为纵向排布，通常能显示更多按钮。非Auto模式下，3个以上按钮可能会显示不全，超出显示范围的按钮会被截断。 |
 
 
 
@@ -169,7 +169,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| primary12+ | boolean | 否 | 是 | 在弹窗获焦且未进行tab键走焦时，按钮是否默认响应Enter键。多个Button时，只允许一个Button的该字段配置为true，否则所有Button均不响应。多重弹窗可自动获焦连续响应。在defaultFocus为true时不生效。值为true表示按钮默认响应Enter键，值为false时，按钮不默认响应Enter键。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| primary12+ | boolean | 否 | 是 | 在弹窗获焦且未进行tab键走焦时，按钮是否默认响应Enter键。多个按钮时，只允许一个按钮的该字段配置为true，否则所有按钮均不响应。多重弹窗可自动获焦连续响应。在defaultFocus为true时不生效。值为true表示按钮默认响应Enter键，值为false时，按钮不默认响应Enter键。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
 
@@ -192,13 +192,13 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| enabled10+ | boolean | 否 | 是 | 点击Button是否响应，默认值true。 值为true时，Button可以响应。值为false时，Button不可以响应。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| defaultFocus10+ | boolean | 否 | 是 | 设置Button是否是默认焦点，默认值false。值为true表示Button为默认焦点，值为false表示Button不为默认焦点。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| style10+ | DialogButtonStyle | 否 | 是 | 设置Button的风格样式，默认值DialogButtonStyle.DEFAULT。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| value10+ | ResourceStr | 否 | 否 | Button的文本内容，若值为null，则该按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fontColor10+ | ResourceColor | 否 | 是 | Button的文本颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| backgroundColor10+ | ResourceColor | 否 | 是 | Button背景颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| action10+ | VoidCallback | 否 | 否 | Button选中时的回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| enabled10+ | boolean | 否 | 是 | 点击按钮是否响应，默认值true。 值为true时，按钮可以响应。值为false时，按钮不可以响应。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| defaultFocus10+ | boolean | 否 | 是 | 设置按钮是否是默认焦点，默认值false。值为true表示按钮为默认焦点，值为false表示按钮不为默认焦点。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| style10+ | DialogButtonStyle | 否 | 是 | 设置按钮的风格样式，默认值DialogButtonStyle.DEFAULT。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| value10+ | ResourceStr | 否 | 否 | 按钮的文本内容，若值为null，则该按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fontColor10+ | ResourceColor | 否 | 是 | 按钮的文本颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| backgroundColor10+ | ResourceColor | 否 | 是 | 按钮背景颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| action10+ | VoidCallback | 否 | 否 | 按钮选中时的回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -207,7 +207,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-警告弹窗中按钮的对齐方式。
+警告弹窗中按钮的排布方向。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -294,8 +294,8 @@ Dialog关闭的信息。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| dismiss | Callback&lt;void&gt; | 否 | 否 | Dialog关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。 |
-| reason | DismissReason | 否 | 否 | Dialog无法关闭原因。根据开发者需要选择不同操作下，Dialog是否需要关闭。 |
+| dismiss | Callback&lt;void&gt; | 否 | 否 | 弹窗关闭回调函数。调用此方法将允许弹窗关闭；不调用此方法将阻拦弹窗关闭。开发者可根据reason判断后，如需关闭则调用dismiss()，如需拦截则不调用。 |
+| reason | DismissReason | 否 | 否 | 触发本次拦截弹窗关闭的操作类型。开发者可根据reason的值判断是否调用dismiss()来允许关闭弹窗。 |
 
 
 
@@ -304,7 +304,7 @@ Dialog关闭的信息。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-弹窗中message的截断方式。
+弹窗中message的文本样式，包含文本截断方式等。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -345,7 +345,7 @@ static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | A
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | AlertDialogParamWithConfirm \| AlertDialogParamWithButtons \| AlertDialogParamWithOptions10+ | 是 | 定义并显示AlertDialog组件。 |
+| value | AlertDialogParamWithConfirm \| AlertDialogParamWithButtons \| AlertDialogParamWithOptions10+ | 是 | 定义并显示AlertDialog组件。AlertDialogParamWithConfirm用于只有一个确认按钮的弹窗；AlertDialogParamWithButtons用于有两个按钮（主要按钮和次要按钮）的弹窗；AlertDialogParamWithOptions用于有多个自定义按钮的弹窗。 |
 
 
 
@@ -635,7 +635,7 @@ struct AlertDialogExample {
 
 #### 示例4（设置弹窗的样式）
 
-示例定义了AlertDialog的样式，包括宽度、高度、背景色、阴影等。
+本示例展示了如何设置AlertDialog的样式，包括宽度、高度、背景色、阴影等。
 
 ```ArkTS
 // xxx.ets
@@ -697,7 +697,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/yvdJBIBBSXeJQEVQU_AiXA/zh-cn_image_0000002659222099.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=689E8994DC271496472434B8F54500146D6FD2E5937689E6F2B1998CBAD54E10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/3pCjm9yjR9mXOmY5rW7oqA/zh-cn_image_0000002656008840.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=B73827ADF8AF58884A2A5582C503FC3B16659574916E9113349B9B6AC6646A29)
 
 
 
@@ -753,7 +753,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/MIR0ofRSR3CH_VPntXglEQ/zh-cn_image_0000002628702908.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=46BD239E6FC6D3A9D53F6E8D6BF7180B1549AB462ABBB094A4BF74A29AC3D454)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/l5Ucz_evTaysAnOwyHiP0w/zh-cn_image_0000002655848920.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=AB5A08AF3BFABB82DC900055C0F89E69E0C0FC8236D83C347EF025691EB02122)
 
 
 
@@ -766,7 +766,7 @@ struct AlertDialogExample {
 // xxx.ets
 @Entry
 @Component
-struct Example2 {
+struct AlertDialogLifecycleExample {
   @State log: string = 'Log information:';
 
   build() {
@@ -813,7 +813,7 @@ struct Example2 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/m8GmENnUSTmWkT3ve1rB-Q/zh-cn_image_0000002659102135.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=09B13AFC0AB846287AC15A05BB1DD3A7E6D77AA29C3CBB20120502124ABCE3BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/3V4SjDBhTBCTitwsfOOjeA/zh-cn_image_0000002686088351.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=0B132A083204A9EB5C9B363A996333EC5F2C4A9B3DD95257280D3FC1B2DABF52)
 
 
 
@@ -868,7 +868,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/jApEv59kT5ixpQNRuyWyHw/zh-cn_image_0000002628862788.png?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=CD982A241BDCA2E23B65EEA3608D1F562B26261043ECF445FE41C2ADE1E1BBD6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/ce_8Ior3Qme9jH3F9T6OYw/zh-cn_image_0000002685928519.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=0ACF2D6029B520B7731C7B3D3FB1081DCEFA2E36F240B47B0F87EBAAF5C23D61)
 
 
 
@@ -924,7 +924,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/Pt6UWSlWS3GROdrI-JPWvQ/zh-cn_image_0000002659222101.png?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=A7C4C6E8DA8698C129F640BDECA604FD9EF2B955E2303023A57C8C64F14DA7A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/UKjRIXVGTeC3QFk_g9-7Lg/zh-cn_image_0000002656008842.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=6168AAB0AFFA0E5B69B6672C1194DE002F6E5EF81A479C4A79443B641F0CD46F)
 
 
 
@@ -975,4 +975,4 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/qAtTOn4jTICkgYblcKtAvg/zh-cn_image_0000002628702910.png?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=368F665DD80293AAB6806DC8B274A9CA6A44949F103AE4D9D735C65621D986C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/1X5myEX2Q12UIzMxQ0_pBw/zh-cn_image_0000002655848922.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=A00FE55291CDFF51A6A251CD7B3259A7F863BA5715FB3BCFC038692022E3546F)

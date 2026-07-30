@@ -1,6 +1,6 @@
 # 地图组件如何添加多个Marker并自定义样式
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-5
 
@@ -159,4 +159,4 @@ A：不可以，icon参数目前只支持三种类型，分别为string、[image
  
 Q：地图组件怎么删除Marker？
  
-A：可以使用[remove](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay#section39155506439)方法从地图移除覆盖物，实现删除单个Marker。或者可以使用[clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section121439349711)方法删除地图上所有标记。
+A：可以使用[remove](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay#section39155506439)方法从地图移除覆盖物，实现删除单个Marker。或者可以使用[clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#clear)方法删除地图上所有标记。

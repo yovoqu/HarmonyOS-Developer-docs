@@ -65,7 +65,7 @@ struct <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(
 当首次点击Button时，Button中文本“初始值”变更为“变更值”，UI刷新成功，但弹窗showToast和输出日志的“from Child callback Prop”的值仍为“初始值”，只有再次点击后，弹窗showToast和输出日志的“from Child callback Prop”的值才会变更为“变更值”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/pqouZ4BeSUeBCwd8aTIqkw/zh-cn_image_0000002628777478.png?HW-CC-KV=V1&HW-CC-Date=20260723T013006Z&HW-CC-Expire=86400&HW-CC-Sign=3478257432B16EC6DFFEFBFB0875581741C2B29043E3BEFFD49772655EE6A4A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/pqouZ4BeSUeBCwd8aTIqkw/zh-cn_image_0000002628777478.png?HW-CC-KV=V1&HW-CC-Date=20260730T072439Z&HW-CC-Expire=86400&HW-CC-Sign=CA78730616C1C6E90171C474B2E4D28B454C47240DF188D37FC308FA44430BA3)
 
  
 ```text
@@ -166,7 +166,7 @@ struct <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(
 第一次点击Button后，弹窗显示内容为“变更值”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/MoUpH1h8QOuZ1S_BLYdPQw/zh-cn_image_0000002658976793.png?HW-CC-KV=V1&HW-CC-Date=20260723T013006Z&HW-CC-Expire=86400&HW-CC-Sign=64774AB1E5284F005DF2D98C8A376E4A2D69410C930DAD7B0925470BE1D99E79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/MoUpH1h8QOuZ1S_BLYdPQw/zh-cn_image_0000002658976793.png?HW-CC-KV=V1&HW-CC-Date=20260730T072439Z&HW-CC-Expire=86400&HW-CC-Sign=ED106E7150DAC002F48F93E07F9D0CBA24216EAECA396D16A681F000D77FB37E)
 
  
 打印日志如下：
@@ -258,7 +258,7 @@ struct <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(
 点击Button时，弹窗显示“变更值”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/bT8PNFCIQN2n5H54XT4kSg/zh-cn_image_0000002658856853.png?HW-CC-KV=V1&HW-CC-Date=20260723T013006Z&HW-CC-Expire=86400&HW-CC-Sign=EBC1D64A1247B0A56B6DC727AD0255DBBA8F0EFBD7C2EEB77FEF455F3AB5251A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/bT8PNFCIQN2n5H54XT4kSg/zh-cn_image_0000002658856853.png?HW-CC-KV=V1&HW-CC-Date=20260730T072439Z&HW-CC-Expire=86400&HW-CC-Sign=4B278188B14408826F8B70AEF8A2D55DFA1753028FBAE70BFCA2BA7193DED644)
 
  
 日志输出如下：

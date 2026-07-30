@@ -1,6 +1,6 @@
 # @ohos.app.ability.InsightIntentExecutor (意图执行基类)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentexecutor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -70,7 +70,7 @@ onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, 
 | --- | --- | --- | --- |
 | name | string | 是 | 意图名称。 |
 | param | Record<string, Object> | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
-| pageLoader | window.WindowStage | 是 | 表示windowStage实例对象，和onWindowStageCreate接口的windowStage实例是同一个，可用于加载意图执行的页面。 |
+| pageLoader | window.WindowStage | 是 | 表示windowStage实例对象，和onWindowStageCreate接口的windowStage实例是同一个，通过调用其loadContent方法加载意图执行的页面，参数为页面路径字符串。 |
 
 
 **返回值：**
@@ -84,7 +84,7 @@ onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, 
 
 同步返回意图执行结果的示例如下：
 
-```json
+```text
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -108,7 +108,7 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
     // 若开发者需要加载意图内容，pages/IntentPage即为意图页面
     pageLoader.loadContent('pages/IntentPage', (err, data) => {
       if (err.code) {
-        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
+        hilog.error(0x0000, 'testTag', `Failed to load the content. Code: ${err.code}, message: ${err.message}`);
       } else {
         hilog.info(0x0000, 'testTag', '%{public}s', 'Succeeded in loading the content');
       }
@@ -241,7 +241,18 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
   // 实现异步接口需要使用async/await语法糖，通过async声明该接口是一个异步函数
   async onExecuteInUIAbilityBackgroundMode(name: string,
     param: Record<string, Object>): Promise<insightIntent.ExecuteResult> {
-    let result: insightIntent.ExecuteResult = await executeInsightIntent(param);
+    let result: insightIntent.ExecuteResult;
+    if (name !== 'SupportedInsightIntentName') {
+      hilog.warn(0x0000, 'testTag', 'Unsupported insight intent %{public}s', name);
+      result = {
+        code: 404,
+        result: {
+          message: 'Unsupported insight intent.',
+        }
+      };
+      return result;
+    }
+    result = await executeInsightIntent(param);
     return result;
   }
 }
@@ -436,7 +447,7 @@ async function executeInsightIntent(param: Record<string, Object>): Promise<insi
       }
     };
     resolve(result);
-  });
+  })
 }
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {

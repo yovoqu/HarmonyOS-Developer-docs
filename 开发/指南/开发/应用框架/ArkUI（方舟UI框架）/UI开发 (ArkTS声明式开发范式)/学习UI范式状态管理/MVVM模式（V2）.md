@@ -1,6 +1,6 @@
 # MVVM模式（V2）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-mvvm-v2
 
@@ -1206,7 +1206,7 @@ export default struct TitleView {
       Text('To do')
         .fontSize(40)
         .margin(10)
-      Text(`Unfinished task:${this.tasksUnfinished}`)
+      Text(`Unfinished task：${this.tasksUnfinished}`)
         .margin({ left: 10, bottom: 10 })
     }
   }
@@ -1398,20 +1398,22 @@ struct SettingPage {
   @Local setting: Setting = AppStorageV2.connect(Setting, 'Setting', () => new Setting())!;
   private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
-  build(){
-    Column(){
+  build() {
+    Column() {
       Text('Setting')
         .fontSize(40)
         .margin({ bottom: 10 })
       Row() {
         Text('Show completed tasks')
-        Toggle({ type: ToggleType.Switch, isOn:this.setting.showCompletedTask })
+        Toggle({ type: ToggleType.Switch, isOn: this.setting.showCompletedTask })
           .onChange((isOn) => {
             this.setting.showCompletedTask = isOn;
           })
       }
       Button('Back to To do')
-        .onClick(()=>this.context.terminateSelf())
+        .onClick(() => {
+          this.context.terminateSelf();
+        })
         .margin({ top: 10 })
     }
     .alignItems(HorizontalAlign.Start)

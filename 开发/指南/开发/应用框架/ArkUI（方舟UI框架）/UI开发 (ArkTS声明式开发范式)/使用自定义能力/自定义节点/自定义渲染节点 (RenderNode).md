@@ -1,6 +1,6 @@
 # 自定义渲染节点 (RenderNode)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-rendernode
 
@@ -23,7 +23,7 @@ RenderNode提供了节点创建和删除的能力。可以通过RenderNode的构
 RenderNode提供了节点的增、删、查、改的能力，能够修改节点的子树结构；可以对所有RenderNode的节点的父子节点做出查询操作，并返回查询结果。
 
 > [!NOTE]
-> RenderNode中获取的子树结构由开发通过RenderNode的 appendChild 接口传入的参数构建。 RenderNode如果要与系统直接结合显示，需通过FrameNode中获取的RenderNode进行挂载上树。
+> RenderNode中获取的子树结构由开发者通过RenderNode的 appendChild 接口传入的参数构建。 RenderNode如果要与系统直接结合显示，需通过FrameNode中获取的RenderNode进行挂载上树。
 
 
 ```ArkTS
@@ -40,7 +40,7 @@ renderNode.frame = {
   width: 200,
   height: 350
 };
-renderNode.backgroundColor = 0xffff0000;
+renderNode.backgroundColor = 0xfff5f5f5;
 for (let i = 0; i < 5; i++) {
   const node = new RenderNode();
   // 设置node节点的Frame大小
@@ -51,7 +51,7 @@ for (let i = 0; i < 5; i++) {
     height: 50
   };
   // 设置node节点的背景颜色
-  node.backgroundColor = 0xff00ff00;
+  node.backgroundColor = 0xff00bfff;
   // 将新增节点挂载在renderNode上
   renderNode.appendChild(node);
 }
@@ -86,16 +86,21 @@ export struct OperationNodeTree {
         Button('getNextSibling')
           .onClick(() => {
             const child = renderNode.getChild(1);
-            const nextSibling = child!.getNextSibling()
-            if (child === null || nextSibling === null) {
-              hilog.info(DOMAIN, TEST_TAG, ' the child or nextChild is null');
-              this.myLog = 'the child or nextChild is null';
-            } else {
-              // 获取子节点的位置信息
-              hilog.info(DOMAIN, TEST_TAG, `the position of child is x: ${child.position.x}, y: ${child.position.y}, ` +
-                `the position of nextSibling is x: ${nextSibling.position.x}, y: ${nextSibling.position.y}`);
-              this.myLog = `the position of child is x: ${child.position.x}, y: ${child.position.y}, ` +
-                `the position of nextSibling is x: ${nextSibling.position.x}, y: ${nextSibling.position.y}`;
+            if (child === null) {
+              hilog.info(DOMAIN, TEST_TAG, ' the child is null');
+              this.myLog = 'the child is null';
+            } else{
+              const nextSibling = child!.getNextSibling()
+              if (nextSibling === null) {
+                hilog.info(DOMAIN, TEST_TAG, ' the nextSibling is null');
+                this.myLog = 'the nextSibling is null';
+              } else {
+                // 获取子节点的位置信息
+                hilog.info(DOMAIN, TEST_TAG, `the position of child is x: ${child.position.x}, y: ${child.position.y}, ` +
+                  `the position of nextSibling is x: ${nextSibling.position.x}, y: ${nextSibling.position.y}`);
+                this.myLog = `the position of child is x: ${child.position.x}, y: ${child.position.y}, ` +
+                  `the position of nextSibling is x: ${nextSibling.position.x}, y: ${nextSibling.position.y}`;
+              }
             }
           });
       }.width(300).margin({ left: 20 });
@@ -363,7 +368,7 @@ class MyRenderNode extends RenderNode {
       blue: 180
     });
     canvas.attachBrush(brush);
-    // 绘制矩阵
+    // 绘制矩形
     canvas.drawRect({
       left: 0,
       right: this.width,
@@ -589,7 +594,7 @@ export struct CustomDrawCanvas {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/SshQBkV4Qw2LnQUh9HUkjw/zh-cn_image_0000002647586086.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=22A4AC4FE6EC6624CC7226973B332F6F120EF276B09616D13B23E789A0C097E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/f2teDHb4QbCcH8F-Y_UE_w/zh-cn_image_0000002656006496.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=1E2ACEB15928F7F1711B17F9CDF32C58CA1D546587421D3A256D832F5077C828)
 
 
 **Node-API调用示例：**
@@ -652,6 +657,9 @@ static napi_value OnDraw(napi_env env, napi_callback_info info)
     OH_Drawing_CanvasAttachPen(canvas, pen);
 
     OH_Drawing_CanvasDrawPath(canvas, path);
+    OH_Drawing_CanvasDetachPen(canvas);
+    OH_Drawing_PenDestroy(pen);
+    OH_Drawing_PathDestroy(path);
 
     return nullptr;
 }
@@ -762,7 +770,7 @@ export struct CustomDrawCanvasNative {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/3lsCN1leTq-kjHPG18PWow/zh-cn_image_0000002677825727.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=5D05BB1A40DA6D854E6F425A2B294601CCC2759D634466EB3F35D59636B4432A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/XM6xbhwDTbavkPEjqDK00Q/zh-cn_image_0000002655846576.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=ED73B2F05D5F7D61B763889650064F893C402D409237B679E17D548D6757EA68)
 
 
 
@@ -821,7 +829,7 @@ export struct SetLabel {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/k8LDZNONQhC_aIjUOczciA/zh-cn_image_0000002677665879.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=2DF353FEB3B5D30BBF3CD317F3788CCDCA50FAA954A4511EF06304807711CD06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/hciIljkbTPiZRR8QBZldNQ/zh-cn_image_0000002686086005.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=DE3218DE93445DB38B6E9312F4811C56657E418A8BC93810FE0954658502106F)
 
 
 
@@ -903,4 +911,4 @@ export struct CheckRenderNodeDisposed {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/AvsrcDviT3GhHRuamUaIqA/zh-cn_image_0000002647745998.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=5665E34296A6BA2A1A3AE5736CABA520A91BA4715CE7F60A1C23FE261B06AF35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/RB01rbDMS_K1gGnskBIEUw/zh-cn_image_0000002685926177.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=349C465197BC5125385F426C9CF8A3071612369D3BEA78290544AB0EE618FEBE)

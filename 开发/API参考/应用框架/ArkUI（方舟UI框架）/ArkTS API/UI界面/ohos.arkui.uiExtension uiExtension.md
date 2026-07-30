@@ -1,6 +1,6 @@
 # @ohos.arkui.uiExtension (uiExtension)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 用于[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/embeddeduiextensionability)（或[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#uiextensionability)）中获取宿主应用的窗口信息或对应的[EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)组件的信息。
 
 > [!NOTE]
-> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 
@@ -26,7 +26,7 @@ import { uiExtension } from '@kit.ArkUI';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-UIExtension宿主窗代理。
+UIExtension宿主窗口代理。
 
 
 
@@ -37,6 +37,8 @@ UIExtension宿主窗代理。
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -56,6 +58,8 @@ getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea
 **系统能力**：SystemCapability.ArkUI.ArkUI.Full
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -448,7 +452,7 @@ createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptio
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
-| 1300002 | This window state is abnormal. Possible causes: 1. The window is not created or destroyed. 2. Internal task error. |
+| 1300002 | This window state is abnormal. Possible causes: 1. The window is not created or destroyed. 2. Internal task error. 3. The subWindow has been created and can not be created again. 4. It is not allowed to create non-secure window when secure extension exists. |
 | 1300035 | Creating a subwindow is not allowed in the current context. Possible cause: 1. An AgentUIExtensionAbility cannot create a subwindow. |
 
 
@@ -471,22 +475,22 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
     extensionWindow.createSubWindowWithOptions('subWindowForHost', subWindowOpts)
       .then((subWindow: window.Window) => {
         subWindow.setUIContent('pages/Index', (err, data) => {
-          if (err && err.code != 0) {
+          if (err && err.code) {
             return;
           }
           subWindow?.resize(300, 300, (err, data) => {
-            if (err && err.code != 0) {
+            if (err && err.code) {
               return;
             }
             subWindow?.moveWindowTo(100, 100, (err, data) => {
-              if (err && err.code != 0) {
+              if (err && err.code) {
                 return;
               }
               subWindow?.showWindow((err, data) => {
-                if (err && err.code == 0) {
-                  console.info(`The subwindow has been shown!`);
+                if (err && err.code) {
+                  console.error(`Failed to show the subwindow. Code: ${err.code}, message: ${err.message}`);
                 } else {
-                  console.error(`Failed to show the subwindow!`);
+                  console.info(`The subwindow has been shown!`);
                 }
               });
             });
@@ -538,7 +542,7 @@ createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOption
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
-| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Internal task error. |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed. 2. Internal task error. 3. The subWindow has been created and can not be created again. 4. It is not allowed to create non-secure window when secure extension exists. |
 | 1300035 | Creating a subwindow is not allowed in the current context. Possible cause: 1. An AgentUIExtensionAbility cannot create a subwindow. |
 
 
@@ -561,22 +565,22 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
     extensionWindow.createSubWindowWithOptions('subWindowForHost', subWindowConfig, true)
       .then((subWindow: window.Window) => {
         subWindow.setUIContent('pages/Index', (err, data) => {
-          if (err && err.code != 0) {
+          if (err && err.code) {
             return;
           }
           subWindow?.resize(300, 300, (err, data) => {
-            if (err && err.code != 0) {
+            if (err && err.code) {
               return;
             }
             subWindow?.moveWindowTo(100, 100, (err, data) => {
-              if (err && err.code != 0) {
+              if (err && err.code) {
                 return;
               }
               subWindow?.showWindow((err, data) => {
-                if (err && err.code == 0) {
-                  console.info(`The subwindow has been shown!`);
+                if (err && err.code) {
+                  console.error(`Failed to show the subwindow. Code: ${err.code}, message: ${err.message}`);
                 } else {
-                  console.error(`Failed to show the subwindow!`);
+                  console.info(`The subwindow has been shown!`);
                 }
               });
             });
@@ -602,6 +606,8 @@ occupyEvents(eventFlags: number): Promise&lt;void&gt;
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -669,6 +675,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | EVENT_NONE | 0x00000000 | 无事件。 |
@@ -692,6 +700,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | window.AvoidAreaType | 否 | 否 | 窗口避让区类型。 |
@@ -710,6 +720,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | uiExtensionHostWindowProxyRect | window.Rect | 否 | 否 | 组件（EmbeddedComponent或UIExtensionComponent）的位置和宽高。 |
@@ -727,6 +739,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | HOST_WINDOW_RECT_CHANGE | 0x0001 | 组件所在的宿主窗口矩形变化。 |
@@ -743,6 +757,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -770,8 +786,8 @@ import { Want } from '@kit.AbilityKit';
 struct Index {
   @State message: string = 'Message: ';
   private want: Want = {
-    bundleName: "com.example.embeddeddemo",
-    abilityName: "ExampleEmbeddedAbility",
+    bundleName: 'com.example.embeddeddemo',
+    abilityName: 'ExampleEmbeddedAbility',
   }
 
   build() {
@@ -890,22 +906,22 @@ struct Extension {
           .then((subWindow: window.Window) => {
             this.subWindow = subWindow;
             this.subWindow.loadContent('pages/Index', this.storage, (err, data) => {
-              if (err && err.code != 0) {
+              if (err && err.code) {
                 return;
               }
               this.subWindow?.resize(300, 300, (err, data) => {
-                if (err && err.code != 0) {
+                if (err && err.code) {
                   return;
                 }
                 this.subWindow?.moveWindowTo(100, 100, (err, data) => {
-                  if (err && err.code != 0) {
+                  if (err && err.code) {
                     return;
                   }
                   this.subWindow?.showWindow((err, data) => {
-                    if (err && err.code == 0) {
-                      console.info(`The subwindow has been shown!`);
+                    if (err && err.code) {
+                      console.error(`Failed to show the subwindow. Code: ${err.code}, message: ${err.message}`);
                     } else {
-                      console.error(`Failed to show the subwindow!`);
+                      console.info(`The subwindow has been shown!`);
                     }
                   });
                 });

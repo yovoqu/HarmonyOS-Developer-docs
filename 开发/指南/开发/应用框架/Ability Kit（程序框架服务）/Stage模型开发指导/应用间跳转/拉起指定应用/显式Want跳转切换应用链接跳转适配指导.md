@@ -1,6 +1,6 @@
 # 显式Want跳转切换应用链接跳转适配指导
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-startup-adjust
 

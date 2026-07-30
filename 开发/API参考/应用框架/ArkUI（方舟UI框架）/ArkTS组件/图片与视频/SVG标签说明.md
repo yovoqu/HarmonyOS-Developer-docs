@@ -1,6 +1,6 @@
 # SVG标签说明
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-svg
 
@@ -19,7 +19,7 @@ SVG（Scalable Vector Graphics）是可缩放矢量图形，它是一种基于XM
 | --- | --- | --- |
 | &lt;rect&gt; | 矩形 | x：矩形左上角的x轴坐标； y：矩形左上角的y轴坐标； width：宽度； height：高度； rx：圆角x轴半径； ry：圆角y轴半径。 |
 | &lt;circle&gt; | 圆形 | cx：圆心x轴坐标； cy：圆心y轴坐标； r：圆形半径。 |
-| &lt;ellipse&gt; | 椭圆 | cx：x轴坐标； cy：y轴坐标； rx：x轴半径； ry：y轴半径。 |
+| &lt;ellipse&gt; | 椭圆 | cx：椭圆中心的x轴坐标； cy：椭圆中心的y轴坐标； rx：x轴半径； ry：y轴半径。 |
 | &lt;line&gt; | 线 | x1：起点x轴坐标； y1：起点y轴坐标； x2：终点x轴坐标； y2：终点y轴坐标。 |
 | &lt;polyline&gt; | 折线 | points：顶点坐标。 |
 | &lt;polygon&gt; | 多边形 | points：顶点坐标。 |
@@ -120,7 +120,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/6-gvDwb9Tz6RirO2UJIyDg/zh-cn_image_0000002647748036.png?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=98E928532332AA9BF6320FAF7528D5EA482CBE8B5B822C3BC5614B69BA0911CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uyRoFr7BQJioRjvibJunxA/zh-cn_image_0000002655848748.png?HW-CC-KV=V1&HW-CC-Date=20260730T071507Z&HW-CC-Expire=86400&HW-CC-Sign=C27679DB92C075BB9A469BA822DFF68916B667E0B93454EC266CDBEF1F4F443A)
 
  
   
@@ -136,9 +136,9 @@ struct Index {
 | 元素 | 说明 | 特有属性 |
 | --- | --- | --- |
 | &lt;filter&gt; | 定义滤镜 | x：滤镜区域x轴偏移分量，默认值为0； y：滤镜区域y轴偏移分量，默认值为0； width：滤镜区域宽； height：滤镜区域高。 说明：从API version 21开始，当Image组件的supportSvg2属性设置为true时，默认值参考filter参数异常时默认效果变更。 |
-| &lt;feOffset&gt; | 定义沿x、y方向偏移距离 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）; result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入，dx和dy。 |
-| &lt;feGaussianBlur&gt; | 定义高斯模糊效果 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）; result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入，edgemode和stddeviation。 |
-| &lt;feBlend&gt; | 定义两张输入图像混合模式 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）; result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入； in2：第二图源（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result），mode。 |
+| &lt;feOffset&gt; | 定义沿x、y方向偏移距离 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入； dx：x轴方向偏移距离； dy：y轴方向偏移距离。 |
+| &lt;feGaussianBlur&gt; | 定义高斯模糊效果 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入； edgemode：边缘模式； stddeviation：标准偏差，控制模糊程度，取值范围：大于等于0。 |
+| &lt;feBlend&gt; | 定义两张输入图像混合模式 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入； in2：第二图源（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； mode：混合模式，指定两张图像的混合方式（normal、multiply、screen、darken、lighten）。 |
 | &lt;feComposite&gt; | 定义两张输入图像合成方式。当operator为arithmetic时，合成算法为：result = k1 * in * in2 + k2 * in + k3 * in2 + k4；当operator为其他值时，使用对应的BlendMode合成方式。 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； in2：第二图源（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； operator( over \| in \| out \| atop \| xor \| lighter \| arithmetic )：定义两张输入图像的合成方式，非arithmetic值对应BlendMode； k1：arithmetic合成算法中in与in2乘积的系数； k2：arithmetic合成算法中in的系数； k3：arithmetic合成算法中in2的系数； k4：arithmetic合成算法中的常量偏移。 |
 | &lt;feColorMatrix&gt; | 基于转换矩阵对颜色进行变换 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入； type ( matrix \| saturate \| hueRotate)、 values。 |
 | &lt;feFlood&gt; | 定义填充颜色和透明度 | in：滤镜原始输入（仅支持SourceGraphic、SourceAlpha、其它滤镜效果的result）； result：经过滤镜处理之后的输出，可以作为下一个滤镜的输入；flood-color和flood-opacity。 |
@@ -174,7 +174,7 @@ struct Index {
   
 | 元素 | 说明 | 特有属性 |
 | --- | --- | --- |
-| &lt;pattern&gt; | 定义填充图案 | x：填充区域x轴偏移分量； y：填充区域y轴偏移分量； width：填充区域宽； height：填充区域高。 |
+| &lt;pattern&gt; | 定义填充图案 | x：填充区域x轴偏移分量，默认值为0； y：填充区域y轴偏移分量，默认值为0； width：填充区域宽，默认值为0； height：填充区域高，默认值为0。 |
  
  
   
@@ -198,7 +198,7 @@ struct Index {
   
 | 元素 | 说明 | 特有属性 |
 | --- | --- | --- |
-| &lt;image&gt; | 用于图像显示 | x：图像x轴偏移； y：图像y轴偏移； width：图像宽； height：图像高； href：目标图片(支持：jpg、jpeg、png、bmp、webp、heic、base64，不支持svg)。 |
+| &lt;image&gt; | 用于图像显示 | x：图像x轴偏移； y：图像y轴偏移； width：图像宽； height：图像高； href：目标图片（支持：jpg、jpeg、png、bmp、webp、heic、base64，不支持svg）。 |
  
  
   
@@ -213,8 +213,8 @@ struct Index {
   
 | 元素 | 说明 | 特有属性 |
 | --- | --- | --- |
-| &lt;animate&gt; | 定义元素属性动画 | attributeName：定义动画属性，取值：( cx \| cy \| r \| fill \| stroke \| fill-opacity \| stroke-opacity \| stroke-miterlimit )； begin：定义动画起始时间； dur：定义动画持续时间； from：定义起始值； to：定义结束值； fill：定义动画结尾状态； calcMode：定义插值； keyTimes：设置关键帧动画的开始时间，值为0~1之间的数值用分号隔开，比如0;0.3;0.8;1。keyTimes、keySplines、values组合设置关键帧动画。keyTimes和values的个数保持一致。keySplines个数为keyTimes个数减一。 values：设置一组动画的变化值。格式为value1;value2;value3。 keySplines：与keyTimes相关联的一组贝塞尔控制点。定义每个关键帧的贝塞尔曲线，曲线之间用分号隔开。曲线内的两个控制点格式为x1 y1 x2 y2。比如0.5 0 0.5 1; 0.5 0 0.5 1;0.5 0 0.5 1 |
-| &lt;animateTransform&gt; | 定义元素变形动画 | attributeName：定义动画属性，取值：transform； type：属性定义转换类型取值：( translate \| scale \| rotate \| skewX \| skewY )； begin：定义动画起始时间； dur：定义动画持续时间； from：定义起始值； to：定义结束值； fill：定义动画结尾状态； calcMode：定义插值； keyTimes：设置关键帧动画的开始时间，值为0~1之间的数值用分号隔开，比如0;0.3;0.8;1。keyTimes、keySplines、values组合设置关键帧动画。keyTimes和values的个数保持一致。keySplines个数为keyTimes个数减一。 values：设置一组动画的变化值。格式为value1;value2;value3。 keySplines：与keyTimes相关联的一组贝塞尔控制点。定义每个关键帧的贝塞尔曲线，曲线之间用分号隔开。曲线内的两个控制点格式为x1 y1 x2 y2。比如0.5 0 0.5 1; 0.5 0 0.5 1;0.5 0 0.5 1 |
+| &lt;animate&gt; | 定义元素属性动画 | attributeName：定义动画属性，当前已验证支持的属性包括（不限于）：cx、cy、r、fill、stroke、fill-opacity、stroke-opacity、stroke-miterlimit，具体可动画属性取决于目标元素（如rect支持width/height/x/y/rx/ry，line支持x1/y1/x2/y2等）； begin：定义动画起始时间； dur：定义动画持续时间； from：定义起始值； to：定义结束值； fill：定义动画结尾状态，默认值为remove（取值：freeze \| remove）； calcMode：定义插值，默认值为linear； keyTimes：设置关键帧动画的开始时间，值为0~1之间的数值用分号隔开，比如0;0.3;0.8;1。keyTimes、keySplines、values组合设置关键帧动画。keyTimes和values的个数保持一致。keySplines个数为keyTimes个数减一。 values：设置一组动画的变化值。格式为value1;value2;value3。 keySplines：与keyTimes相关联的一组贝塞尔控制点。定义每个关键帧的贝塞尔曲线，曲线之间用分号隔开。每条贝塞尔曲线的两个控制点格式为x1 y1 x2 y2（坐标之间用空格分隔）。比如0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1。 |
+| &lt;animateTransform&gt; | 定义元素变形动画 | attributeName：定义动画属性，取值：transform； type：属性定义转换类型取值：( translate \| scale \| rotate \| skewX \| skewY )； begin：定义动画起始时间； dur：定义动画持续时间； from：定义起始值； to：定义结束值； fill：定义动画结尾状态，默认值为remove（取值：freeze \| remove）； calcMode：定义插值，默认值为linear； keyTimes：设置关键帧动画的开始时间，值为0~1之间的数值用分号隔开，比如0;0.3;0.8;1。keyTimes、keySplines、values组合设置关键帧动画。keyTimes和values的个数保持一致。keySplines个数为keyTimes个数减一。 values：设置一组动画的变化值。格式为value1;value2;value3。 keySplines：与keyTimes相关联的一组贝塞尔控制点。定义每个关键帧的贝塞尔曲线，曲线之间用分号隔开。每条贝塞尔曲线的两个控制点格式为x1 y1 x2 y2（坐标之间用空格分隔）。比如0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1。 |
  
  
   

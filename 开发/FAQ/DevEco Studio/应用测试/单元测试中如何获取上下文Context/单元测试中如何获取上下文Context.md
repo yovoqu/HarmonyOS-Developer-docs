@@ -83,4 +83,4 @@ Q：Instrument Test测试文件的超时时间如何设置？
 A：在工具栏主菜单单击Run > Edit Configurations进入Run/Debug Configurations界面，选择左边下拉菜单Instrument Test里的测试文件（如Ability.test.ets），在Parameters中设置Time Out参数，并点击OK即可。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DwK2eHdBQ1KAVe68_X00mg/zh-cn_image_0000002628569458.png?HW-CC-KV=V1&HW-CC-Date=20260723T014002Z&HW-CC-Expire=86400&HW-CC-Sign=AF42D8F7539B0D3B6BA67EA5CB8F6EE88B92489DDFD7C234C275D1625CB86C9B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DwK2eHdBQ1KAVe68_X00mg/zh-cn_image_0000002628569458.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=CA12B095C68FC672646DACD9BFE3398171C14B88383B817FAF8EE884584A533D)

@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（基础属性）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-base
 
@@ -27,7 +27,7 @@ enum ArkUI_NodeAttributeType
 NODE_BACKGROUND_COLOR = 2
 ```
 
-背景色属性，支持属性设置，属性重置和属性获取接口。
+背景色属性，支持属性设置、属性重置和属性获取接口。
 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
 
@@ -37,7 +37,7 @@ NODE_BACKGROUND_COLOR = 2
 
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].u32 | 背景色数值，0xargb格式，形如 0xFFFF0000 表示红色。 |
+| .value[0].u32 | 背景色数值，0xargb格式，取值范围0x00000000~0xFFFFFFFF，形如 0xFFFF0000 表示红色。 |
 
 
 **返回：**
@@ -55,7 +55,7 @@ NODE_BACKGROUND_COLOR = 2
 NODE_BACKGROUND_IMAGE = 3
 ```
 
-背景色图片属性，支持属性设置，属性重置和属性获取接口。
+背景图片属性，支持属性设置，属性重置和属性获取接口。
 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
 
@@ -155,7 +155,7 @@ NODE_BACKGROUND_IMAGE_SIZE_WITH_STYLE = 31
 
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 背景图片的宽高样式，取ArkUI_ImageSize枚举值。 |
+| .value[0].i32 | 背景图片的宽高样式，取ArkUI_ImageSize枚举值。不同枚举值决定了背景图片的缩放和裁剪方式，如按原图大小显示、保持宽高比覆盖组件区域、保持宽高比完整显示等。 |
 
 
 **返回：**
@@ -207,7 +207,7 @@ NODE_BACKGROUND_IMAGE_POSITION = 56
 NODE_RENDER_GROUP = 80
 ```
 
-设置当前组件和子组件是否先整体离屏渲染绘制后再与父控件融合绘制，支持属性设置，属性重置和属性获取。
+设置当前组件和子组件是否先整体离屏渲染绘制后再与父组件融合绘制，支持属性设置，属性重置和属性获取接口。
 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
 
@@ -217,14 +217,14 @@ NODE_RENDER_GROUP = 80
 
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型为1表示当前组件与子组件需要先整体离屏渲染绘制后再与父控件融合绘制，参数类型为0表示不需要整体离屏渲染绘制后再与父控件融合绘制。默认值为0。 |
+| .value[0].i32 | 参数值为1表示当前组件与子组件需要先整体离屏渲染绘制后再与父控件融合绘制，参数值为0表示不需要整体离屏渲染绘制后再与父控件融合绘制。默认值为0。 |
 
 
 **返回：**
 
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型为1表示当前组件与子组件完成整体离屏渲染绘制，参数类型为0表示当前组件与子组件未完成整体离屏渲染绘制。 |
+| .value[0].i32 | 参数值为1表示当前组件与子组件完成整体离屏渲染绘制，参数值为0表示当前组件与子组件未完成整体离屏渲染绘制。 |
 
 
 
@@ -262,3 +262,31 @@ NODE_CLICK_DISTANCE = 97
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 | 表示识别点击手势时允许手指在该范围内移动，单位为vp。 |
+
+
+
+
+#### NODE_INSPECTOR_LABEL
+
+```text
+NODE_INSPECTOR_LABEL = 126
+```
+
+设置调测标签，帮助开发者分辨同类节点，提高开发和分析调试的效率。支持属性设置，属性重置和属性获取接口。
+
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| .string | 表示调测标签的内容。当传入空指针时本地调用无效，支持传入空字符串。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| .string | 表示调测标签的内容。 |

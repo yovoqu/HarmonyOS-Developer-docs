@@ -1,6 +1,6 @@
 # HiCollie错误码
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hicollie
 
@@ -13,15 +13,15 @@
 
 **错误信息**
 
-Wrong thread context.The function can not be called from main thread.
+Wrong thread context. The function cannot be called from main thread.
 
 **错误描述**
 
-调用接口线程错误。
+在错误的线程中调用接口。
 
 **可能原因**
 
-无法从主线程调用该接口服务。
+该接口服务无法从主线程调用。
 
 **处理步骤**
 
@@ -117,7 +117,7 @@ Wrong timer id output param.
 
 **错误描述**
 
-错误的任务id值参数。
+错误的timer id值参数。
 
 **可能原因**
 
@@ -128,4 +128,4 @@ Wrong timer id output param.
 **处理步骤**
 
  - 检查传入的id参数，确保其为非空整型指针；
- - 重试或减少该进程中hicollie检测机制的在其他地方的调用。
+ - 如果达到最大值限制，请减少该进程中hicollie检测机制的在其他地方的调用后重试。

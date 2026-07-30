@@ -1,6 +1,6 @@
 # ModuleInstall
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -52,7 +52,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| ModuleInstall_ErrCode { E_NO_ERROR = 0, E_PARAMS = 401, E_QUERY_MODULE = 1006500001, E_REPEATED_CALL = 1006500002, E_CONNECT_SA = 1006500004, E_OFF_WITHOUT_ON = 1006500006, E_CONNECT_SERVICE_EXTENSION = 1006500007, E_WRITE_PARAM = 1006500008, E_REQUEST_SERVER = 1006500009, E_RESPONSE_INVALID = 1006500010, E_INNER_ERROR = 1006500011 } | 枚举错误码。 |
+| ModuleInstall_ErrCode { E_NO_ERROR = 0, E_PARAMS = 401, E_QUERY_MODULE = 1006500001, E_REPEATED_CALL = 1006500002, E_CONNECT_SA = 1006500004, E_OFF_WITHOUT_ON = 1006500006, E_CONNECT_SERVICE_EXTENSION = 1006500007, E_WRITE_PARAM = 1006500008, E_REQUEST_SERVER = 1006500009, E_RESPONSE_INVALID = 1006500010, E_INNER_ERROR = 1006500011, E_INTERNAL_COMMUNICATION = 1006500012, E_INVALID_TASK_ID = 1006500013 } | 枚举错误码。 |
 | ModuleInstall_InstallStatus { INSTALLED = 0, NOT_INSTALLED = 1 } | 枚举安装状态。 |
 | ModuleInstall_RequestCode { MODULE_ALREADY_EXISTS = -8, MODULE_UNAVAILABLE = -7, INVALID_REQUEST = -6, NETWORK_ERROR = -5, INVOKER_VERIFICATION_FAILED = -4, FOREGROUND_REQUIRED = -3, ACTIVE_SESSION_LIMIT_EXCEEDED = -2, FAILURE = -1, SUCCESS = 0, DOWNLOAD_WAIT_WIFI = 1 } | 枚举请求码。 |
 | ModuleInstall_TaskStatus { CREATE_TASK_FAILED = -4, HIGHER_VERSION_INSTALLED = -3, TASK_ALREADY_EXISTS = -2, TASK_UNFOUND = -1, TASK_CREATED = 0, DOWNLOADING = 1, DOWNLOAD_PAUSED = 2, DOWNLOAD_WAITING = 3, DOWNLOAD_SUCCESSFUL = 4, DOWNLOAD_FAILED = 5, DOWNLOAD_WAIT_FOR_WIFI = 6, INSTALL_WAITING = 20, INSTALLING = 21, INSTALL_SUCCESSFUL = 22, INSTALL_FAILED = 23 } | 枚举任务状态。 |
@@ -79,6 +79,7 @@
 | int HMS_ModuleInstall_GetFetchModulesTotalSize(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载总大小。 |
 | int HMS_ModuleInstall_GetFetchModulesDownloadedSize(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载已下载大小。 |
 | ModuleInstall_ErrCode HMS_ModuleInstall_CancelTask(const char *taskId, unsigned int length, unsigned int cancelResult) | 取消下载任务。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_PauseTask(const char *taskId) | 暂停下载任务。 |
 | ModuleInstall_ErrCode HMS_ModuleInstall_ShowCellularDataConfirmation(const char *taskId, unsigned int length, unsigned int showResult) | 展示流量弹窗。 |
 | ModuleInstall_StatusCallback *HMS_ModuleInstall_CreateStatusCallback(ModuleInstall_OnStatusCallback *onStatusCallback) | 创建下载进度监听回调。 |
 | ModuleInstall_ErrCode HMS_ModuleInstall_On(const char *bundleName, unsigned int length, unsigned int appIndex, unsigned int period, ModuleInstall_StatusCallback **callback) | 下载进度监听。 |
@@ -191,6 +192,8 @@ enum ModuleInstall_ErrCode
 | E_REQUEST_SERVER = 1006500009 | 请求服务异常。 |
 | E_RESPONSE_INVALID = 1006500010 | 响应参数无法解析。 |
 | E_INNER_ERROR = 1006500011 | 内部错误。 |
+| E_INTERNAL_COMMUNICATION = 1006500012 | 内部通信异常。 起始版本： 26.0.0 |
+| E_INVALID_TASK_ID = 1006500013 | 无效的任务ID。 起始版本： 26.0.0 |
  
  
   
@@ -665,12 +668,41 @@ ModuleInstall_ErrCode HMS_ModuleInstall_CancelTask(const char *taskId, unsigned 
 | --- | --- |
 | char *taskId | 任务id。 |
 | int length | 任务id长度，最大长度512。 |
-| int cancelResult | 取消下载结果。 |
+| int cancelResult | 取消下载结果。 0：成功。 1：失败。 |
  
  
 **返回：**
  
-返回E_NO_ERROR表示成功；返回E_PARAMS表示输入参数错误；返回E_CONNECT_SERVICE_EXTENSION表示服务连接失败；返回E_WRITE_PARAM表示参数写入异常；返回E_REQUEST_SERVER表示请求服务异常；返回E_RESPONSE_INVALID表示响应参数无法解析；
+返回E_NO_ERROR表示成功；返回E_PARAMS表示输入参数错误；返回E_CONNECT_SERVICE_EXTENSION表示服务连接失败；返回E_WRITE_PARAM表示参数写入异常；返回E_REQUEST_SERVER表示请求服务异常；返回E_RESPONSE_INVALID表示响应参数无法解析。
+ 
+  
+
+#### HMS_ModuleInstall_PauseTask
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+ModuleInstall_ErrCode HMS_ModuleInstall_PauseTask(const char *taskId)
+```
+ 
+**描述**
+ 
+暂停下载任务。
+ 
+**系统能力：** SystemCapability.AppGalleryService.Distribution.OnDemandInstall
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| char *taskId | 任务id。 |
+ 
+ 
+**返回：**
+ 
+返回E_NO_ERROR表示成功；返回E_INVALID_TASK_ID表示无效的任务ID；返回E_INTERNAL_COMMUNICATION表示内部通信异常。
  
   
 
@@ -696,7 +728,7 @@ ModuleInstall_ErrCode HMS_ModuleInstall_ShowCellularDataConfirmation(const char 
 | --- | --- |
 | char *taskId | 任务id。 |
 | int length | 任务id长度，最大长度512。 |
-| int showResult | 展示流量弹窗结果。 |
+| int showResult | 展示流量弹窗结果。 0：成功。 1：失败。 |
  
  
 **返回：**

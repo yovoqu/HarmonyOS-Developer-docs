@@ -1,6 +1,6 @@
 # ArkUI_AccessibleAction
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibleaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_AccessibleAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-无障碍操作内容结构。
+无障碍操作内容结构。该结构体用于描述无障碍节点支持的操作类型及其描述信息。支持无障碍服务向用户呈现节点可执行的操作（如点击、长按、滚动等），并提供操作的文字说明，以帮助用户理解操作含义。
  
 **起始版本：** 13
  

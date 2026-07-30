@@ -1,6 +1,6 @@
 # ffrt_deps_t
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ffrt-ffrt-deps-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ffrt_deps_t
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-依赖结构定义。
+依赖结构体，用于保存任务的依赖列表。
  
 **起始版本：** 10
  
@@ -36,5 +36,5 @@ typedef struct {...} ffrt_deps_t
  
 | 名称 | 描述 |
 | --- | --- |
-| uint32_t len | 依赖数量 |
-| const ffrt_dependence_t* items | 依赖数据 |
+| uint32_t len | 依赖数量。 |
+| const ffrt_dependence_t* items | 依赖数据数组。 |

@@ -1,6 +1,6 @@
 # 图像跟踪（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-image-track
 
@@ -57,10 +57,10 @@
 
 首先创建一个起始UI页面“ARImage.ets”，设置两个按钮，用于实现“添加本地图片”和“读取本地数据库”两个功能，分别命名“ARImageByAdd.ets”和“ARImageByDatabase.ets”。配置路由进行页面间跳转，页面路由配置详细可查看[组件导航(Navigation) (推荐)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)。
 
-```ArkTS
-// 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARImage.ets。
-import { photoAccessHelper } from '@kit.MediaLibraryKit';
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
+import { photoAccessHelper } from '@kit.MediaLibraryKit';
+import { logger } from '../utils/Logger';
 
 @Builder
 export function ARImageBuilder() {
@@ -69,13 +69,13 @@ export function ARImageBuilder() {
 
 @Component
 struct ARImage {
-  pageInfo: NavPathStack = new NavPathStack();
+  pageInfos: NavPathStack = new NavPathStack();
   private imagePathArray: string[] = [];
 
   build(): void {
     NavDestination() {
       Column() {
-        Button('选择本地图片', { type: ButtonType.Normal, stateEffect: true })
+        Button($r('app.string.choose_local_image'), { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .width('50%')
           .height('5%')
@@ -91,24 +91,23 @@ struct ARImage {
               let photoResult: photoAccessHelper.PhotoSelectResult = await photoPicker.select(photoOption);
               if (photoResult.photoUris.length > 0 && photoResult.photoUris[0].length > 0) {
                 this.imagePathArray = photoResult.photoUris;
-                this.pageInfo.pushDestinationByName('ARImageByAdd', this.imagePathArray).catch((error: BusinessError) => {
-                  console.error(`[pushDestinationByName]failed. Code: ${error.code}.`);
-                });
+                this.pageInfos.pushDestinationByName('ARImageByAdd', this.imagePathArray);
               }
             } catch (error) {
               const err: BusinessError = error as BusinessError;
-              console.error(`Failed to select by photoPicker. Code: ${err.code}, message is ${err.message}.`);
+              logger.error(`Failed to select by photoPicker. Code: ${err.code}, message is ${err.message}.`);
             }
           })
 
-        Button('加载本地数据库', { type: ButtonType.Normal, stateEffect: true })
+        Button($r('app.string.load_local_database'), { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .width('50%')
           .height('5%')
           .onClick(() => {
-            this.pageInfo.pushDestinationByName('ARImageByDatabase', null).catch((error: BusinessError) => {
-              console.error(`[pushDestinationByName]failed. Code: ${error.code}.`);
-            });
+            this.pageInfos.pushDestinationByName('ARImageByDatabase', null).catch((err: BusinessError) => {
+              logger.error(
+                `ARImageByDatabase Failed to pushDestinationByName. Code is ${err.code}, message is ${err.message}.`);
+            })
           })
       }
       .justifyContent(FlexAlign.SpaceEvenly)
@@ -116,7 +115,7 @@ struct ARImage {
       .height('100%')
     }
     .onReady((context: NavDestinationContext) => {
-      this.pageInfo = context.pathStack;
+      this.pageInfos = context.pathStack;
     })
     .hideTitleBar(true)
     .hideBackButton(true)
@@ -127,14 +126,15 @@ struct ARImage {
 
 创建一个ARImageByAdd.ets，用于选择图片，使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件加载相机预览画面，并定时触发每一帧绘制。
 
-```ArkTS
-// 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARImageByAdd.ets。
+```text
 import { taskpool } from '@kit.ArkTS';
-import { BusinessError, deviceInfo, emitter } from '@kit.BasicServicesKit';
+import { display } from '@kit.ArkUI';
+import { BusinessError, emitter, systemDateTime } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 import { image } from '@kit.ImageKit';
 import { resourceManager } from '@kit.LocalizationKit';
 import arEngineDemo from 'libentry.so';
+import { logger } from '../utils/Logger';
 
 @Builder
 export function ARImageByAddBuilder() {
@@ -143,26 +143,27 @@ export function ARImageByAddBuilder() {
 
 @Component
 struct ARImageByAdd {
-  pageInfo: NavPathStack = new NavPathStack();
+  pageInfos: NavPathStack = new NavPathStack();
+  @State addImageLog: string = '';
+  @State context: Context = this.getUIContext().getHostContext() as Context;
+  @State imageTotalNumbers: number = 0;
+  @State rotation: number = 0;
+  @State showPage: boolean = true;
   private imageAddFailedNumbers: number = 0;
   private imageAddNumbers: number = 0;
   private imagePathList: string[] = [];
   private isSurfaceDestroy: boolean = false;
   private interval: number = -1;
   private isUpdate: boolean = false;
-  private xComponentId = 'ARImage';
-  @State addImageLog: string = '';
-  @State context: Context = this.getUIContext().getHostContext() as Context;
+  private xComponentId: string = 'ARImage';
   private resMgr: resourceManager.ResourceManager = this.context.resourceManager;
-  @State imageTotalNumbers: number = 0;
   @State private isImageAddComplete: boolean = false;
-  @State rotation: number = deviceInfo.deviceType === 'tablet' ? 3 : 0;
-  @State showPage: boolean = true;
-
+  private idStr: string = systemDateTime.getTime(false).toString() + this.xComponentId;
+  // ...
   build(): void {
     NavDestination() {
       RelativeContainer() {
-        XComponent({ id: this.xComponentId, type: XComponentType.SURFACE, libraryname: 'entry' })
+        XComponent({ id: this.idStr, type: XComponentType.SURFACE, libraryname: 'entry' })
           .width('100%')
           .height('100%')
           .visibility(this.showPage ? Visibility.Visible : Visibility.None)
@@ -171,26 +172,26 @@ struct ARImageByAdd {
             middle: { anchor: '__container__', align: HorizontalAlign.Center }
           })
           .onLoad(() => {
-            console.info(`XComponent onLoad ${this.xComponentId}.`);
+            logger.info(`XComponent onLoad ${this.idStr}.`);
             this.interval = setInterval(() => {
               if (!this.isUpdate || !this.isImageAddComplete || this.imageAddNumbers === 0) {
                 return;
               }
-              arEngineDemo.update(this.xComponentId);
-            }, 33) // 将帧率设置为30fps（每33ms 刷新一次帧）。
+              arEngineDemo.update(this.idStr);
+            }, 33) // Set the frame rate to 30 fps (with the frame refreshed every 33 ms).
           })
           .onDestroy(() => {
-            console.info(`XComponent onDestroy ${this.xComponentId}.`);
+            logger.info(`XComponent onDestroy ${this.idStr}.`);
             this.isSurfaceDestroy = true;
             clearInterval(this.interval);
           })
 
-        Text('添加图片进度：' +
-        this.imageTotalNumbers.toString() + '/' + this.imagePathList.length.toString() + '\n ' +
-        '添加成功数量：' +
-        this.imageAddNumbers + ' \n' +
-        '添加失败数量：' +
-        this.imageAddFailedNumbers + '\n' + this.addImageLog)
+        Text(this.context.resourceManager.getStringByNameSync('add_image_msg_count') +
+          this.imageTotalNumbers.toString() + '/' + this.imagePathList.length.toString() + '\n ' +
+          this.context.resourceManager.getStringByNameSync('add_image_msg_success') +
+          this.imageAddNumbers + ' \n' +
+          this.context.resourceManager.getStringByNameSync('add_image_msg_fail') +
+          this.imageAddFailedNumbers + '\n' + this.addImageLog)
           .width(300)
           .textAlign(TextAlign.Center)
           .fontColor(Color.Red)
@@ -202,190 +203,75 @@ struct ARImageByAdd {
       }
     }
     .onBackPressed(() => {
-      console.error('Failed to onBackPressed.');
+      logger.error('Failed to onBackPressed.');
       return false;
     })
     .onAppear(() => {
       arEngineDemo.init(this.resMgr);
       let config: Int32Array = new Int32Array([1, this.rotation]);
-      arEngineDemo.start(this.xComponentId, config);
+      arEngineDemo.start(this.idStr, config);
 
       try {
-        console.info(`Image path length: ${this.imagePathList.length}.`);
+        logger.info(`Image path length: ${this.imagePathList.length}.`);
         this.RegisterAddImageCallback();
-        taskpool.execute(addImage, this.xComponentId, this.imagePathList, errcode).then(() => {
-          console.info('Add image task complete.');
+        taskpool.execute(addImage, this.idStr, this.imagePathList, errcode).then(() => {
+          logger.info('Add image task complete.');
           emitter.emit('checkAddImageResult');
+        }).catch((err: BusinessError) => {
+          logger.error(`Failed to execute taskpool. Code: ${err.code}, message is ${err.message}.`);
         })
       } catch (error) {
         const err: BusinessError = error as BusinessError;
-        console.error(`Failed to promise options error. Code: ${err.code}, message is ${err.message}.`);
+        logger.error(`Failed to promise options error. Code: ${err.code}, message is ${err.message}.`);
       }
     })
     .onWillDisappear(() => {
       if (this.imageAddNumbers > 0) {
-        arEngineDemo.saveImageDataBaseToLocal(this.xComponentId, this.context.filesDir);
+        arEngineDemo.saveImageDataBaseToLocal(this.idStr, this.context.filesDir);
       }
-      arEngineDemo.stop(this.xComponentId);
+      arEngineDemo.stop(this.idStr);
     })
     .onShown(() => {
       this.isUpdate = true;
-      arEngineDemo.show(this.xComponentId);
+      arEngineDemo.show(this.idStr);
     })
     .onHidden(() => {
       this.isUpdate = false;
       if (!this.isSurfaceDestroy) {
-        arEngineDemo.hide(this.xComponentId);
+        arEngineDemo.hide(this.idStr);
       }
     })
     .onReady((context: NavDestinationContext) => {
-      this.pageInfo = context.pathStack;
+      this.pageInfos = context.pathStack;
       this.imagePathList = context.pathInfo.param as string[];
     })
     .hideTitleBar(true)
     .hideBackButton(false)
     .hideToolBar(true)
   }
-
-  private showDialog(msg: string): void {
-    this.getUIContext().showAlertDialog({
-      title: '警告',
-      message: msg,
-      autoCancel: true,
-      alignment: DialogAlignment.Center,
-      offset: { dx: 0, dy: -20 },
-      gridCount: 3,
-      transition: TransitionEffect
-        .asymmetric(TransitionEffect.OPACITY
-          .animation({ duration: 1000, curve: Curve.Sharp })
-          .combine(TransitionEffect
-            .scale({ x: 1.5, y: 1.5 })
-            .animation({ duration: 1000, curve: Curve.Sharp })
-          ),
-          TransitionEffect.OPACITY
-            .animation({ duration: 100, curve: Curve.Smooth })
-            .combine(TransitionEffect.scale({ x: 0.5, y: 0.5 })
-              .animation({ duration: 100, curve: Curve.Smooth })
-            )
-        ),
-      buttons: [{
-        enabled: true,
-        defaultFocus: true,
-        style: DialogButtonStyle.HIGHLIGHT,
-        value: '退出',
-        action: () => {
-          console.info('Callback when the second button is clicked')
-          this.pageInfo.pop();
-        }
-      }]
-    })
-  }
-
-  private RegisterAddImageCallback(): void {
-    emitter.on('addImage', (data: emitter.EventData) => {
-      if (data.data?.addImageReason === 0) {
-        this.imageAddNumbers++;
-        console.info(`Succeeded in adding image, image numbers: ${this.imageAddNumbers}.`);
-      } else {
-        this.imageAddFailedNumbers++;
-        this.addImageLog += '失败图片名：' +
-          data.data?.imageName + '\n' +
-          '失败原因：' +
-          errcode.get(data.data?.addImageReason) + '\n';
-        console.error(`Failed to add image, image numbers: ${this.imageAddFailedNumbers}.`);
-      }
-      this.imageTotalNumbers++;
-    })
-
-    emitter.on('checkAddImageResult', () => {
-      if (this.imageAddNumbers === 0 && this.isUpdate) {
-        this.showPage = false;
-        this.showDialog('请添加有效图片');
-      }
-      emitter.off('addImage');
-      this.isImageAddComplete = true;
-      emitter.off('checkAddImageResult');
-    })
-  }
+  // ...
 }
 
 let errcode: Map<number, string> = new Map<number, string>([[0, 'success'], [1, 'size not match'],
   [2, 'too bright or too dark'], [3, 'image color is relatively single'], [4, 'other error']]);
 
-// 异步执行添加图片任务。
+// Asynchronously execute the task of adding pictures
 @Concurrent
 async function addImage(componentId: string, imagePathList: string[],
   errcode: Map<number, string>): Promise<void> {
-  for (let index = 0; index < imagePathList.length; index++) {
-    const imagePath: string = imagePathList[index];
-    let file: fileIo.File;
-    try {
-      file = fileIo.openSync(imagePath, fileIo.OpenMode.READ_ONLY);
-    } catch (error) {
-      const err: BusinessError = error as BusinessError;
-      console.error(`Failed to open image. Code is ${err.code}, message is ${err.message}`);
-      this.addFailedImageCounts += 1;
-      continue
-    }
-    let imageName: string = file.name;
-    const imageSourceApi: image.ImageSource = image.createImageSource(file.fd);
-    try {
-      fileIo.closeSync(file);
-    } catch (error) {
-      const err: BusinessError = error as BusinessError;
-      console.error(`Failed to closeSync. Code is ${err.code}, message is ${err.message}.`);
-      imageSourceApi.release();
-      continue;
-    }
-    const imageInfo: image.ImageInfo = imageSourceApi.getImageInfoSync();
-    if (!imageInfo) {
-      console.error(`Failed to obtain the image pixel map information.`);
-      imageSourceApi.release();
-      continue;
-    }
-    const opts: image.DecodingOptions = {
-      editable: true,
-      desiredPixelFormat: image.PixelMapFormat.RGBA_8888,
-      desiredSize: { width: imageInfo.size.width, height: imageInfo.size.height }
-    }
-    const pixelMap: image.PixelMap = imageSourceApi.createPixelMapSync(opts);
-    if (!pixelMap) {
-      console.error('Failed to create pixelMap.');
-      imageSourceApi.release();
-      continue;
-    }
-    const readBuffer: ArrayBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
-    await pixelMap.readPixelsToBuffer(readBuffer);
-    await pixelMap.release();
-
-    let result: number = arEngineDemo.initImage(componentId, imageInfo.size.width, imageInfo.size.height, readBuffer);
-    if (errcode.has(result) === false) {
-      console.error('Failed to add image, break.');
-      imageSourceApi.release();
-      break;
-    }
-    if (result !== 0) {
-      console.error(`Failed to Add image, reason is: ${errcode.get(result)}, imageName is: ${imageName}.`);
-    }
-    let eventData: emitter.EventData = {
-      data: {
-        'addImageReason': result,
-        'imageName': imageName,
-      }
-    }
-    emitter.emit('addImage', eventData);
-    imageSourceApi.release();
+  // ...
   }
 }
 ```
 
 创建一个ARImageByDatabase.ets，用于加载本地数据库，加载相机预览画面，并定时触发每一帧绘制。
 
-```ArkTS
-// 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARImageByDatabase.ets。
-import { deviceInfo } from '@kit.BasicServicesKit';
+```text
+import { display } from '@kit.ArkUI';
+import { BusinessError, systemDateTime } from '@kit.BasicServicesKit';
 import { resourceManager } from '@kit.LocalizationKit';
 import arEngineDemo from 'libentry.so';
+import { logger } from '../utils/Logger';
 
 @Builder
 export function ARImageByDatabaseBuilder() {
@@ -394,20 +280,21 @@ export function ARImageByDatabaseBuilder() {
 
 @Component
 struct ARImageByDatabase {
-  pageInfo: NavPathStack = new NavPathStack();
+  pageInfos: NavPathStack = new NavPathStack();
+  @State context: Context = this.getUIContext().getHostContext() as Context;
+  @State rotation: number = 0;
+  @State showPage: boolean = true;
   private isSurfaceDestroy: boolean = false;
   private interval: number = -1;
   private isUpdate: boolean = false;
-  private xComponentId = 'ARImage';
-  @State context: Context = this.getUIContext().getHostContext() as Context;
+  private xComponentId: string = 'ARImage';
+  private idStr: string = systemDateTime.getTime(false).toString() + this.xComponentId;
   private resMgr: resourceManager.ResourceManager = this.context.resourceManager;
-  @State rotation: number = deviceInfo.deviceType === 'tablet' ? 3 : 0;
-  @State showPage: boolean = true;
-
+  // ...
   build(): void {
     NavDestination() {
       RelativeContainer() {
-        XComponent({ id: this.xComponentId, type: XComponentType.SURFACE, libraryname: 'entry' })
+        XComponent({ id: this.idStr, type: XComponentType.SURFACE, libraryname: 'entry' })
           .width('100%')
           .height('100%')
           .visibility(this.showPage ? Visibility.Visible : Visibility.None)
@@ -416,15 +303,15 @@ struct ARImageByDatabase {
             middle: { anchor: '__container__', align: HorizontalAlign.Center }
           })
           .onLoad(() => {
-            console.info(`XComponent onLoad ${this.xComponentId}.`);
+            logger.info(`XComponent onLoad ${this.idStr}.`);
             this.interval = setInterval(() => {
               if (this.isUpdate) {
-                arEngineDemo.update(this.xComponentId);
+                arEngineDemo.update(this.idStr);
               }
-            }, 33) // 将帧率设置为30fps（每33毫秒刷新一次帧）。
+            }, 33) // Set the frame rate to 30 fps (with the frame refreshed every 33 ms).
           })
           .onDestroy(() => {
-            console.info(`XComponent onDestroy ${this.xComponentId}.`);
+            logger.info(`XComponent onDestroy ${this.idStr}.`);
             this.isSurfaceDestroy = true;
             clearInterval(this.interval);
           })
@@ -433,31 +320,36 @@ struct ARImageByDatabase {
     .onAppear(() => {
       arEngineDemo.init(this.resMgr);
       let config: Int32Array = new Int32Array([1, this.rotation]);
-      arEngineDemo.start(this.xComponentId, config);
+      arEngineDemo.start(this.idStr, config);
 
-      arEngineDemo.setPath(this.xComponentId, this.context.filesDir);
+      arEngineDemo.setPath(this.idStr, this.context.filesDir);
 
-      let imageCountInDatabase: number = arEngineDemo.getImageCount(this.xComponentId);
-      console.info(`ImageCountInDatabase: ${imageCountInDatabase}.`);
+      let imageCountInDatabase: number = arEngineDemo.getImageCount(this.idStr);
+      logger.info(`ImageCountInDatabase: ${imageCountInDatabase}.`);
       if (imageCountInDatabase <= 0) {
-        this.showDialog('请添加有效图片');
+        try {
+          this.showDialog(this.context.resourceManager.getStringByNameSync('invalid_image_added'));
+        } catch (error) {
+          const err: BusinessError = error as BusinessError;
+          logger.error(`Failed to showDialog. Code is ${err.code}, message is ${err.message}`);
+        }
       }
     })
     .onWillDisappear(() => {
-      arEngineDemo.stop(this.xComponentId);
+      arEngineDemo.stop(this.idStr);
     })
     .onShown(() => {
       this.isUpdate = true;
-      arEngineDemo.show(this.xComponentId);
+      arEngineDemo.show(this.idStr);
     })
     .onHidden(() => {
       this.isUpdate = false;
       if (!this.isSurfaceDestroy) {
-        arEngineDemo.hide(this.xComponentId);
+        arEngineDemo.hide(this.idStr);
       }
     })
     .onReady((context: NavDestinationContext) => {
-      this.pageInfo = context.pathStack;
+      this.pageInfos = context.pathStack;
     })
     .hideTitleBar(true)
     .hideBackButton(true)
@@ -466,7 +358,7 @@ struct ARImageByDatabase {
 
   showDialog(msg: string): void {
     this.getUIContext().showAlertDialog({
-      title: '警告',
+      title: $r('app.string.warning'),
       message: msg,
       autoCancel: true,
       alignment: DialogAlignment.Center,
@@ -488,10 +380,10 @@ struct ARImageByDatabase {
         enabled: true,
         defaultFocus: true,
         style: DialogButtonStyle.HIGHLIGHT,
-        value: '退出',
+        value: $r('app.string.back'),
         action: () => {
-          console.info('Callback when the second button is clicked.');
-          this.pageInfo.pop();
+          logger.info('Callback when the second button is clicked.');
+          this.pageInfos.pop();
         }
       }]
     })
@@ -514,16 +406,13 @@ struct ARImageByDatabase {
 创建AR会话并配置ARType为图像跟踪。
 
 ```text
-AREngine_ARSession *arSession = nullptr;
-// 创建AR会话。
-HMS_AREngine_ARSession_Create(nullptr, nullptr, &arSession);
+CHECK(HMS_AREngine_ARSession_Create(nullptr, nullptr, &mArSession));
 AREngine_ARConfig *arConfig = nullptr;
-// 创建AR会话配置器。
-HMS_AREngine_ARConfig_Create(arSession, &arConfig);
-// 设置ARType为ARENGINE_TYPE_IMAGE
-HMS_AREngine_ARConfig_SetARType(arSession, arConfig, ARENGINE_TYPE_IMAGE);
-// 配置器设置给AR会话。
-HMS_AREngine_ARSession_Configure(arSession, arConfig);
+CHECK(HMS_AREngine_ARConfig_Create(mArSession, &arConfig));
+// Set AR type to ARENGINE_TYPE_IMAGE
+CHECK(HMS_AREngine_ARConfig_SetARType(mArSession, arConfig, ARENGINE_TYPE_IMAGE));
+// ...
+CHECK(HMS_AREngine_ARSession_Configure(mArSession, arConfig));
 ```
 
 
@@ -533,20 +422,17 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 1.调用[HMS_AREngine_ARAugmentedImageDatabase_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_create)函数，创建跟踪图像数据库。
 
 ```text
-// 创建跟踪图像数据库
-AREngine_ARAugmentedImageDatabase *mDataBase = nullptr;
-HMS_AREngine_ARAugmentedImageDatabase_Create(&mDataBase);
+CHECK(HMS_AREngine_ARAugmentedImageDatabase_Create(&mDataBase));
 ```
 
 2.调用[HMS_AREngine_ARAugmentedImageDatabase_AddImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_addimage)函数，添加图像到数据库，将添加失败的结果保存在reason中。
 
 ```text
-// 添加图像到数据库
-AREngine_ARAddAugmentedImageReason reason = ARENGINE_ADD_AUGMENTED_IMAGE_REASON_NONE;
 AREngine_ARAugmentedImageSource image;
+ // ...
 uint32_t outputIndex = 0;
-// 通过输入的图片构造image,具体可参考示例代码
-auto addRet = HMS_AREngine_ARAugmentedImageDatabase_AddImage(mDataBase, &image, &outputIndex, &reason);
+AREngine_ARAddAugmentedImageReason reason = ARENGINE_ADD_AUGMENTED_IMAGE_REASON_NONE;
+auto addRet = HMS_AREngine_ARAugmentedImageDatabase_AddImage(dataBase, &image, &outputIndex, &reason);
 ```
 
 
@@ -557,8 +443,8 @@ auto addRet = HMS_AREngine_ARAugmentedImageDatabase_AddImage(mDataBase, &image, 
 
 ```text
 AREngine_ARTrackableList *augmentList = nullptr;
-HMS_AREngine_ARTrackableList_Create(arSession, &augmentList);
-HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_AUGMENTED_IMAGE, augmentList);
+CHECK(HMS_AREngine_ARTrackableList_Create(arSession, &augmentList));
+CHECK(HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_AUGMENTED_IMAGE, augmentList));
 ```
 
 
@@ -569,7 +455,7 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_AUGMENTED_
 
 ```text
 int32_t augmentSize = 0;
-HMS_AREngine_ARTrackableList_GetSize(arSession, augmentList, &augmentSize);
+CHECK(HMS_AREngine_ARTrackableList_GetSize(arSession, augmentList, &augmentSize));
 ```
 
 应用环境中，可能存在0个、1个或多个可跟踪图像。
@@ -596,7 +482,7 @@ for (int i = 0; i < augmentSize; ++i) {
 
 ```text
 AREngine_ARTrackable *augment = nullptr;
-HMS_AREngine_ARTrackableList_AcquireItem(arSession, augmentList, i, &augment);
+CHECK(HMS_AREngine_ARTrackableList_AcquireItem(arSession, augmentList, i, &augment));
 AREngine_ARAugmentedImage *arImage = reinterpret_cast<AREngine_ARAugmentedImage*>(augment);
 ```
 
@@ -609,7 +495,7 @@ AREngine_ARAugmentedImage *arImage = reinterpret_cast<AREngine_ARAugmentedImage*
 ```text
 AREngine_ARPose *imagePose = nullptr;
 HMS_AREngine_ARPose_Create(arSession, nullptr, 0, &imagePose);
-HMS_AREngine_ARAugmentedImage_GetCenterPose(arSession, arImage, imagePose);
+auto getPoseResult = HMS_AREngine_ARAugmentedImage_GetCenterPose(arSession, image, imagePose);
 ```
 
 
@@ -620,12 +506,12 @@ HMS_AREngine_ARAugmentedImage_GetCenterPose(arSession, arImage, imagePose);
 
 ```text
 float extent_x;
-HMS_AREngine_ARAugmentedImage_GetExtendX(arSession, arImage, &extent_x);
+HMS_AREngine_ARAugmentedImage_GetExtendX(arSession, image, &extent_x);
 ```
 
 调用[HMS_AREngine_ARAugmentedImage_GetExtendZ](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getextendz)函数，获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到Z轴上的估计值。
 
 ```text
 float extent_z;
-HMS_AREngine_ARAugmentedImage_GetExtendZ(arSession, arImage, &extent_z);
+HMS_AREngine_ARAugmentedImage_GetExtendZ(arSession, image, &extent_z);
 ```

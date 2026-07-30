@@ -1,6 +1,6 @@
 # 卡片拉起应用UIAbility到后台（call事件）
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-call
 
@@ -130,16 +130,16 @@ export default class WidgetEventCallEntryAbility extends UIAbility {
       // 监听call事件所需的方法并调用
       this.callee.on('funA', (data: rpc.MessageSequence) => {
         // 获取call事件中传递的所有参数
-        hilog.info(DOMAIN_NUMBER, TAG, `FunACall param:  ${data.readString()}`);
+        hilog.info(DOMAIN_NUMBER, TAG, `FunACall param:  ${JSON.stringify(data.readString())}`);
         return new MyParcelable(CONST_NUMBER_1, 'aaa');
       });
       this.callee.on('funB', (data: rpc.MessageSequence) => {
         // 获取call事件中传递的所有参数
-        hilog.info(DOMAIN_NUMBER, TAG, `FunBCall param:  ${data.readString()}`);
+        hilog.info(DOMAIN_NUMBER, TAG, `FunBCall param:  ${JSON.stringify(data.readString())}`);
         return new MyParcelable(CONST_NUMBER_2, 'bbb');
       });
-    } catch (error) {
-      hilog.error(DOMAIN_NUMBER, TAG, `Failed to register callee on. error code: ${error.code}, error message: ${error.message}`);
+    } catch (err) {
+      hilog.error(DOMAIN_NUMBER, TAG, `Failed to register callee on. Cause: ${JSON.stringify(err as BusinessError)}`);
     }
   }
 
@@ -148,8 +148,8 @@ export default class WidgetEventCallEntryAbility extends UIAbility {
     try {
       this.callee.off('funA');
       this.callee.off('funB');
-    } catch (error) {
-      hilog.error(DOMAIN_NUMBER, TAG, `Failed to register callee off. error code: ${error.code}, error message: ${error.message}`);
+    } catch (err) {
+      hilog.error(DOMAIN_NUMBER, TAG, `Failed to register callee off. Cause: ${JSON.stringify(err as BusinessError)}`);
     }
   }
 }

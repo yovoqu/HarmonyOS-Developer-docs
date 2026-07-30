@@ -1,6 +1,6 @@
 # @ohos.settings (设置数据项名称)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-settings
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -876,7 +876,7 @@ openNetworkManagerSettings(context: Context): Promise&lt;boolean&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **返回值**：
@@ -912,13 +912,17 @@ settings.openNetworkManagerSettings(context).then((status) => {
 
 
 
-#### settings.enableAirplaneMode
+#### settings.enableAirplaneMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAirplaneMode(enable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 启用或禁用飞行模式。使用callback异步回调（暂不支持）。
+
+> [!NOTE]
+> 从 API version 7开始支持，从API version 26.0.0开始废弃，此接口不再提供替代接口。
+
 
 **系统能力**：SystemCapability.Applications.Settings.Core
 
@@ -945,13 +949,17 @@ settings.enableAirplaneMode(isEnabled, (err:Error) => {
 
 
 
-#### settings.enableAirplaneMode
+#### settings.enableAirplaneMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAirplaneMode(enable: boolean): Promise&lt;void&gt;
 
 启用或禁用飞行模式。使用Promise异步回调（暂不支持）。
+
+> [!NOTE]
+> 从 API version 7开始支持，从API version 26.0.0开始废弃，此接口不再提供替代接口。
+
 
 **系统能力**：SystemCapability.Applications.Settings.Core
 
@@ -982,13 +990,17 @@ settings.enableAirplaneMode(isEnabled).then(() => {
 
 
 
-#### settings.canShowFloating
+#### settings.canShowFloating(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 canShowFloating(callback: AsyncCallback&lt;boolean&gt;): void
 
 检查应用是否能够以悬浮窗形式显示。使用callback异步回调（暂不支持）。
+
+> [!NOTE]
+> 从 API version 7开始支持，从API version 26.0.0开始废弃，此接口不再提供替代接口。
+
 
 **系统能力**：SystemCapability.Applications.Settings.Core
 
@@ -1013,13 +1025,17 @@ settings.canShowFloating((err:Error, status: boolean) => {
 
 
 
-#### settings.canShowFloating
+#### settings.canShowFloating(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 canShowFloating(): Promise&lt;boolean&gt;
 
 检查应用是否能够以悬浮窗形式显示。使用Promise异步回调（暂不支持）。
+
+> [!NOTE]
+> 从 API version 7开始支持，从API version 26.0.0开始废弃，此接口不再提供替代接口。
+
 
 **系统能力**：SystemCapability.Applications.Settings.Core
 
@@ -1040,13 +1056,17 @@ settings.canShowFloating().then((status:boolean) => {
 
 
 
-#### settings.getUriSync8+
+#### settings.getUriSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUriSync(name: string): string
 
 获取数据项的URI（暂不支持）。
+
+> [!NOTE]
+> 从 API version 8开始支持，从API version 26.0.0开始废弃，此接口不再提供替代接口。
+
 
 **系统能力**：SystemCapability.Applications.Settings.Core
 
@@ -1082,7 +1102,7 @@ getURI(name: string, callback: AsyncCallback&lt;object&gt;): void
 获取数据项的URI。使用callback异步回调（暂不支持）。
 
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃，此接口不再提供代替接口。
+> 从 API version 7开始支持，从API version 9开始废弃，此接口不再提供替代接口。
 
 
 **系统能力**：SystemCapability.Applications.Settings.Core
@@ -1114,7 +1134,7 @@ getURI(name: string): Promise&lt;object&gt;
 获取数据项的URI。使用Promise异步回调（暂不支持）。
 
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃，此接口不再提供代替接口。
+> 从 API version 7开始支持，从API version 9开始废弃，此接口不再提供替代接口。
 
 
 **系统能力**：SystemCapability.Applications.Settings.Core
@@ -1149,7 +1169,7 @@ settings.getURI(settings.display.SCREEN_BRIGHTNESS_STATUS).then((uri:string) => 
 
 getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback&lt;object&gt;): void
 
-获取数据库中DEVICE_SHARD域指定数据项的值。使用callback异步回调。
+获取数据库中DEVICE_SHARED域指定数据项的值。使用callback异步回调。
 
 > [!NOTE]
 > 从 API version 7开始支持，从API version 9开始废弃，建议使用 getValue() 替代。
@@ -1345,7 +1365,7 @@ openInputMethodSettings(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1389,7 +1409,7 @@ openInputMethodDetail(context: Context, bundleName: string, inputMethodId: strin
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 | bundleName | string | 是 | 拉起输入法的对应包名 |
 | inputMethodId | string | 是 | 输入法扩展在应用内唯一标识id。 |
 
@@ -1437,7 +1457,7 @@ openBiometricsSettingsPage(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1485,7 +1505,7 @@ openNfcSettingsPage(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1616,7 +1636,7 @@ openMobileNetworkSettingsPage(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1666,7 +1686,7 @@ openDisplaySettingsPage(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1716,7 +1736,7 @@ openScreenRefreshRateSettingsPage(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1766,7 +1786,7 @@ openSoundSettingsPage(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1816,7 +1836,7 @@ openAboutDeviceSettingsPage(context: Context): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 
 
 **错误码**：
@@ -1866,7 +1886,7 @@ openAppDetailSettingsPage(context: Context, bundleName: string, appIndex?: numbe
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和UIExtensionContext）。 Stage模型的应用Context定义见Context。 |
 | bundleName | string | 是 | 应用包名 |
 | appIndex | number | 否 | 应用分身的索引 |
 

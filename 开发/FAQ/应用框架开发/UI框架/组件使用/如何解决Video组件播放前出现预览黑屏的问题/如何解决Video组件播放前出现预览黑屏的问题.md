@@ -11,7 +11,7 @@ Video组件在未播放视频内容之前是黑色的，开始播放后，再点
 问题现象效果如图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/Nxnh2CSpTKaOnWNqj6tGNA/zh-cn_image_0000002658913487.png?HW-CC-KV=V1&HW-CC-Date=20260723T012545Z&HW-CC-Expire=86400&HW-CC-Sign=F67EA8BDFC4DE794BD1E7114F8EC42FC5973F90F83565007C9B54610DD85A762)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/Nxnh2CSpTKaOnWNqj6tGNA/zh-cn_image_0000002658913487.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=F2E534E33B2D0309098D8EE75277FC3DD69DDA00ED8531E4B7384FF148FB56D7)
 
  
  

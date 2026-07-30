@@ -1,6 +1,6 @@
 # ArkTS编程规范
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-coding-style-guide
 
@@ -163,17 +163,17 @@ function findUser(userName: string) {
  
 **【描述】**
  
-常量命名，应该由全大写单词与下划线组成，单词间用下划线分割。常量命名要尽量表达完整的语义。
+常量命名，应该由全大写单词与下划线组成，单词间用下划线分隔。常量命名要尽量表达完整的语义。
  
 **【正例】**
  
 ```ArkTS
+const MAX_USER_SIZE = 10000;
+
 enum UserType1 {
   TEACHER = 0,
   STUDENT = 1
 };
-
-const MAX_USER_SIZE = 10000;
 ```
  
   
@@ -464,11 +464,11 @@ if (flag) {
 function foo() { // 函数声明时，左大括号 { 之前加个空格
   // ...
 }
-// ...
-  bar('attr', { // 左大括号前加个空格
-    age: '1 year',
-    sbreed: 'Bernese Mountain Dog',
-  });
+
+bar('attr', { // 左大括号前加个空格
+  age: '1 year',
+  sbreed: 'Bernese Mountain Dog',
+});
 ```
  
 **【正例】**
@@ -590,7 +590,7 @@ try {
   doSomething();
 }
 catch (err) {
-  // 处理错误。
+  // 处理错误
 }
 ```
  
@@ -600,7 +600,7 @@ catch (err) {
 try {
   doSomething();
 } catch (err) {
-  // 处理错误。
+  // 处理错误
 }
 ```
  

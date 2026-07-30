@@ -1,6 +1,6 @@
 # cm_native_api.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cm-native-api-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -13,7 +13,7 @@
  
 **引用文件：** <device_certificate/certmanager/cm_native_api.h>
  
-**库：** libohcert_manager.so
+**库：** libohcert_manager.z.so
  
 **系统能力：** SystemCapability.Security.CertificateManager
  

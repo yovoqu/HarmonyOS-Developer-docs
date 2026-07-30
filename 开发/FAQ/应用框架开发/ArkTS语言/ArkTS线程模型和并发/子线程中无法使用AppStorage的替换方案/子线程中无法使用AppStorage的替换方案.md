@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [ArkTS的并发模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview#actor模型)： 和其他所有基于JS引擎的语言一样，都是基于Actor内存隔离的并发模型，每个线程都有自己独立的内存空间，线程之间通过消息传递机制进行通信，不会直接访问对方的内存空间。taskpool属于ArkTS提供的并发方案之一，Actor模型图如下所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/7oWO1fhkRlKy5MChTnZm0g/zh-cn_image_0000002659258287.png?HW-CC-KV=V1&HW-CC-Date=20260723T012440Z&HW-CC-Expire=86400&HW-CC-Sign=01777A236E6BC9AD1886A2FB072D133C2860276E5253FFAF3F5A82AB7C00B8AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/7oWO1fhkRlKy5MChTnZm0g/zh-cn_image_0000002659258287.png?HW-CC-KV=V1&HW-CC-Date=20260730T072305Z&HW-CC-Expire=86400&HW-CC-Sign=90E7A3A3B7D69FE5E9B815E46C7B6562C30B10B80CA8D3FCAE9BEB191020020B)
 
 - [AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)是应用全局的UI状态存储，和应用的进程绑定，只能在UI主线程中使用，无法在子线程中使用、修改。
 - [Emitter](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/itc-with-emitter)是一种作用在进程内的事件处理机制，为应用程序提供订阅事件、发布事件、取消事件订阅的能力。

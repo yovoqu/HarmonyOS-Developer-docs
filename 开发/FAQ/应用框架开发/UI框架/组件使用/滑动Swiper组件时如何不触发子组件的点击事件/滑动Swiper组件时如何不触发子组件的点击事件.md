@@ -41,7 +41,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/TBkLtzwZQQy1sz86uALQvw/zh-cn_image_0000002628777522.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012820Z&HW-CC-Expire=86400&HW-CC-Sign=B46EAEF156874282164E8B8A310F607D312968BAADCCDE9DD67DC97FCCD7A6D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/TBkLtzwZQQy1sz86uALQvw/zh-cn_image_0000002628777522.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=FAF2D9A26B694F2C446F25B0F4550CA6166BF011959565C1929EEFD566A2CB32)
 
  
  
@@ -90,7 +90,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ito7WdehTk2BJMuzKS-sNQ/zh-cn_image_0000002658976861.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012820Z&HW-CC-Expire=86400&HW-CC-Sign=65D21DE5159C33121636D89F5A97391EB1F2890C8E0C55236A533B5D818A11A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ito7WdehTk2BJMuzKS-sNQ/zh-cn_image_0000002658976861.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=138D0EC84D7ECEBB969A22A177CF37F189CAC15F0189A47967278B16B4859013)
 
 - **方案二**：当需要识别单击、双击和多次点击事件，并阻止滑动过程中误触发子组件点击事件时，可将子组件的onClick事件替换为TapGesture。[TapGestureParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-tapgesture#tapgestureparameters12对象说明)中可设置连续点击次数count，同时设置distanceThreshold限制手势移动范围，当手势移动距离超过该阈值时，不识别为有效点击，从而有效避免滑动时的误触。
 ```text
@@ -127,4 +127,4 @@ struct <span style="color: rgb(0,0,255);">TapGestureExample </span><span style="
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/5lKw9HRsTLegZ9uD3bFKWg/zh-cn_image_0000002658856921.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012820Z&HW-CC-Expire=86400&HW-CC-Sign=22510618FD070D0F1CA680F33A5EE0476F6C01D66865770B0E4F43F263C8F449)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/5lKw9HRsTLegZ9uD3bFKWg/zh-cn_image_0000002658856921.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=AEB5B8C0E7A373375D30C2CDDCA8641F52FC3E857FBD9A9B5BFE0450F1CDB5C6)

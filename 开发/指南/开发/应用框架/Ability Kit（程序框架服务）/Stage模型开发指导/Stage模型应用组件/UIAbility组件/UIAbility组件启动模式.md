@@ -1,6 +1,6 @@
 # UIAbility组件启动模式
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-launch-type
 
@@ -43,7 +43,7 @@ singleton启动模式为单实例模式，也是默认情况下的启动模式�
       {
         "launchType": "singleton",
         // ···
-      }
+      },
     // ···
     ]
   }
@@ -73,7 +73,7 @@ multiton启动模式的开发使用，在[module.json5配置文件](https://deve
       {
         "launchType": "multiton",
         // ···
-      }
+      },
     // ···
     ]
   }
@@ -117,7 +117,7 @@ specified启动模式为指定实例模式，针对一些特殊场景使用（�
       {
         "launchType": "specified",
         // ···
-      }
+      },
     // ···
     ]
   }

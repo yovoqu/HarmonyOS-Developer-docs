@@ -1,6 +1,6 @@
 # HdsNavDestination
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavdestination
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -721,6 +721,56 @@ HdsNavDestination处于非激活态（处于非栈顶不可操作，或处于栈
  
   
 
+#### onResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+onResult(callback: Optional<Callback&lt;ESObject&gt;>)
+ 
+HdsNavDestination返回时触发该回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.UIDesign.HDSComponent.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Optional<Callback&lt;ESObject&gt;> | 是 | 页面返回回调。回调返回pop、popToName、popToIndex接口传入的result参数；如果不传该参数，回调返回为undefined。 |
+ 
+ 
+  
+
+#### onNewParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+onNewParam(callback: Optional<Callback&lt;ESObject&gt;>)
+ 
+当之前存在于栈中的HdsNavDestination页面通过[launchMode.MOVE_TO_TOP_SINGLETON](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#launchmode12枚举说明)或[launchMode.POP_TO_SINGLETON](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#launchmode12枚举说明)移动到栈顶时，触发该回调。
+ 
+> [!NOTE]
+> replacePath 、 replaceDestination 不会触发该回调。
+
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.UIDesign.HDSComponent.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Optional<Callback&lt;ESObject&gt;> | 是 | onNewParam触发时的回调函数，回调返回路由跳转时传递到目标页面的数据。 |
+ 
+ 
+  
+
 #### HdsNavDestinationTitleMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -748,7 +798,6 @@ HdsNavDestination处于非激活态（处于非栈顶不可操作，或处于栈
 通过titleBar属性，自定义设置标题栏随内容区滚动的动态模糊样式。
  
 ```text
-// 从6.0.2(22)版本开始，无需手动导入HdsNavDestinationAttribute。具体请参考HdsNavDestination的导入模块说明。
 import { HdsNavDestination, HdsNavDestinationAttribute, ScrollEffectType } from '@kit.UIDesignKit';
 import { LengthMetrics } from '@kit.ArkUI';
 
@@ -782,7 +831,7 @@ struct PageOne {
         },
         originalStyle: {
           backgroundStyle: {
-            backgroundColor: $r('sys.color.ohos_id_color_background'),
+            backgroundColor: $r('sys.color.ohos_id_color_background')
           },
           contentStyle: {
             titleStyle: { mainTitleColor: $r('sys.color.font_primary'), subTitleColor: $r('sys.color.font_secondary') },
@@ -798,7 +847,7 @@ struct PageOne {
         },
         scrollEffectStyle: {
           backgroundStyle: {
-            backgroundColor: $r('sys.color.ohos_id_color_background_transparent'),
+            backgroundColor: $r('sys.color.ohos_id_color_background_transparent')
           },
           contentStyle: {
             titleStyle: { mainTitleColor: $r('sys.color.font_primary'), subTitleColor: $r('sys.color.font_secondary') },
@@ -815,7 +864,7 @@ struct PageOne {
       },
       content: {
         title: {
-          mainTitle: "PageOne",
+          mainTitle: 'PageOne',
         },
         menu: {
           value: [{
@@ -824,7 +873,7 @@ struct PageOne {
               icon: 'resources/base/media/startIcon.png',
               isEnabled: true,
               action: () => {
-                console.info("HdsNavDestination menu1");
+                console.info('HdsNavDestination menu1');
               }
             }
           }, {
@@ -833,11 +882,11 @@ struct PageOne {
               icon: 'resources/base/media/startIcon.png',
               isEnabled: true,
               action: () => {
-                console.info("HdsNavDestination menu2");
+                console.info('HdsNavDestination menu2');
               }
             }
           }]
-        },
+        }
       }
     })
     .bindToScrollable([this.scroller])
@@ -848,7 +897,7 @@ struct PageOne {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/jnEukWCdTwiqTYgygKbozg/zh-cn_image_0000002656470591.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=FB570ED7DBE3A0DAAF6D73BC80C21157B8ACE2FBF2566DE9314D7465228CE932)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/v0Bl6-8DS8-gbR-IdaRD3Q/zh-cn_image_0000002656009358.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071607Z&HW-CC-Expire=86400&HW-CC-Sign=CC45F30D38B3F39F48442FD91B32649E63A3C9AAF7BC358D689A462A41E52A90)
 
  
 HdsNavDestination更多示例可以参考HdsNavigation[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#示例)。

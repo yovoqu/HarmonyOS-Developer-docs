@@ -1,6 +1,6 @@
 # @hms.utilityApplication.screenTimeGuard.guardService（屏幕时间守护服务）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice
 **支持设备：** Phone | Tablet
@@ -27,11 +27,12 @@
 开发者可以使用[requestUserAuth](#requestuserauth)请求用户授予权限，并使用[getUserAuthStatus](#getuserauthstatus)查询当前的授权状态。若不再需要权限，管控应用可主动调用[revokeUserAuth](#revokeuserauth)以取消授权。
  
 ```text
+// 以下为调用逻辑的伪代码
 guardService.requestUserAuth(this.getUIContext().getHostContext() as common.UIAbilityContext); // 请求用户授权
 guardService.getUserAuthStatus(); // 查询授权状态
 ... // 若授权成功，可以调用Screen Time Guard Kit相关接口
 guardService.revokeUserAuth(); // 取消授权
-... // 取消授权后，无法使用Screen Time Guard Kit相关接口
+... // 取消授权后，无法调用Screen Time Guard Kit相关接口
 ```
  
   
@@ -42,7 +43,7 @@ guardService.revokeUserAuth(); // 取消授权
  
 - 策略方式
 
-  策略方式通过策略来限制对应用的访问，使用策略来表示在何时对哪些应用的访问进行限制。守护策略GuardStrategy是相关接口的核心参数，代表了一个具体策略对象，由策略名称、时间策略、应用信息和限制类型组成：
+  策略方式通过策略来限制对应用的访问，使用策略来表示在何时对哪些应用的访问进行限制。守护策略[GuardStrategy](#guardstrategy)是相关接口的核心参数，代表了一个具体策略对象，由策略名称、时间策略、应用信息和限制类型组成：
 
   
 [TimeStrategy](#timestrategy)：时间策略，代表了应用可用时长的不同形式，由时间策略类型和不同类型对应的时间参数组成，目前支持三种时间策略类型，以支持不同的管控场景：
@@ -54,14 +55,14 @@ guardService.revokeUserAuth(); // 取消授权
 - [RestrictionType](#restrictiontype): 限制类型，用于选择被管控应用的范围，开发者可以指定策略生效对象是AppInfo对应的应用还是除AppInfo以外的应用。
 
   
- 要实现策略管控，开发者需要实例化一个守护策略对象，以下代码片段说明如何配置管控策略以实现时长管控功能。
+ 要实现策略管控，开发者需要实例化一个守护策略对象，以下代码片段说明如何配置守护策略以实现时长管控功能。
   
 ```text
-guardService.addGuardStrategy(guardStrategy); // 添加管控策略，该策略可以被启动
-guardService.startGuardStrategy(guardStrategy.name); // 启动管控策略
-...
-guardService.stopGuardStrategy(guardStrategy.name);  // 停止管控策略
-guardService.removeGuardStrategy(guardStrategy.name); // 删除策略，该策略已无法再被启动
+// 以下为调用逻辑的伪代码
+guardService.addGuardStrategy(guardStrategy); // 添加守护策略，该策略可以被启动
+guardService.startGuardStrategy(guardStrategy.name); // 启动守护策略
+guardService.stopGuardStrategy(guardStrategy.name);  // 停止守护策略
+guardService.removeGuardStrategy(guardStrategy.name); // 删除守护策略，该策略已无法再被启动
 ```
   - 直接方式
 

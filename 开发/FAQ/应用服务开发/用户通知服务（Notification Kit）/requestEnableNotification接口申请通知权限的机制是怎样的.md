@@ -1,6 +1,6 @@
 # requestEnableNotification接口申请通知权限的机制是怎样的
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-6
 

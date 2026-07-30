@@ -1,6 +1,6 @@
 # privacyManager（隐私管理服务）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-privacymanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -166,8 +166,6 @@ import { privacyManager } from '@kit.AppGalleryKit';
 
 隐私签署结果。
  
-**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.AppGalleryService.PrivacyManager
@@ -176,11 +174,11 @@ import { privacyManager } from '@kit.AppGalleryKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | AppPrivacyType | 是 | 否 | 隐私类型。 |
-| versionCode | number | 是 | 否 | 协议版本号。 |
-| result | AppPrivacyResultType | 是 | 否 | 隐私签署结果。 |
-| id | string | 是 | 否 | 隐私协议id。 |
-| signingTimestamp | number | 是 | 是 | 隐私签署时间(单位:ms)。 起始版本： 5.0.2(14) 元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
+| type | AppPrivacyType | 是 | 否 | 隐私类型。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| versionCode | number | 是 | 否 | 协议版本号。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| result | AppPrivacyResultType | 是 | 否 | 隐私签署结果。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| id | string | 是 | 否 | 隐私协议id。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| signingTimestamp | number | 是 | 是 | 隐私签署时间(单位:ms)。 起始版本： 5.0.2(14) 元服务API： 从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
  
  
   

@@ -1,6 +1,6 @@
 # 显示图片 (Image)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display
 
@@ -60,11 +60,11 @@ Image('images/view.jpg')
  - 缓存策略不可定制，缺乏缓存状态观测能力。开发者无法通过接口感知缓存命中率、淘汰次数等运行时的指标，难以基于实际缓存效果进行动态调优。
 
 
-对于复杂情况，推荐使用[ImageKnife](https://gitcode.com/openharmony-tpc/ImageKnife)，该图像库提供了更灵活、可扩展的缓存策略以及完善的生命周期管理能力，更适合复杂业务需求。
+对于复杂情况，推荐使用[ImageKnife](https://gitcode.com/CPF-ApplicationTPC/ImageKnife)，该图像库提供了更灵活、可扩展的缓存策略以及完善的生命周期管理能力，更适合复杂业务需求。
 
 网络图片必须支持RFC 9113标准，否则会导致加载失败。如果下载的网络图片大于10MB或一次下载的网络图片数量较多，建议使用[HTTP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request)工具提前下载，提高图片加载性能，方便应用侧管理数据。
 
-在显示网络图片时，Image组件在机制上会依赖[缓存下载模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request-cachedownload)，开发者可参考[示例3（下载与显示网络gif图片）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#示例3下载与显示网络gif图片)了解具体用法。
+在显示网络图片时，Image组件在机制上会依赖[@ohos.request.cacheDownload (缓存下载)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request-cachedownload)，开发者可参考[示例3（下载与显示网络gif图片）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#示例3下载与显示网络gif图片)了解具体用法。
 
 缓存下载模块提供独立的预下载接口，允许应用开发者在创建Image组件前预下载所需图片。组件创建后，Image组件可直接从缓存下载模块中获取已下载的图片数据，从而加快图片的显示速度，优化加载体验，并有效避免网络图片加载延迟。网络缓存的位置位于应用根目录下的cache目录中。
 
@@ -209,7 +209,7 @@ struct HttpExample {
           return;
         };
         this.outData = data;
-        // 将网络地址成功返回的数据，编码转码成pixelMap的图片格式
+        // 将网络地址成功返回的数据，解码成PixelMap格式
         if (http.ResponseCode.OK === this.outData.responseCode) {
           let imageData: ArrayBuffer = this.outData.result as ArrayBuffer;
           let imageSource: image.ImageSource = image.createImageSource(imageData);
@@ -218,6 +218,7 @@ struct HttpExample {
           };
           imageSource.createPixelMap(options).then((pixelMap: PixelMap) => {
             this.image = pixelMap;
+            imageSource.release();
           });
         };
       });
@@ -435,7 +436,7 @@ SVG图源通过&lt;image&gt;标签的xlink:href属性指定本地位图路径，
 
 #### 设置图片缩放类型
 
-通过设置[objectFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imagespan#objectfit)属性，可以使图片在高度和宽度确定的框内进行缩放。
+通过设置[objectFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#objectfit)属性，可以使图片在高度和宽度确定的框内进行缩放。
 
 ```ArkTS
 @Entry
@@ -745,7 +746,7 @@ struct SetImageDecodingSize {
 
 #### 为图片添加滤镜效果
 
-通过colorFilter调整图片的像素颜色，为图片添加滤镜。
+通过colorFilter调整图片的像素颜色，为图片添加滤镜。完整的示例及开发指导请参考[基于colorFilter实现图片滤镜效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-filters)。
 
 ```ArkTS
 @Entry
@@ -776,7 +777,7 @@ struct AddFilterEffectsToImages {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/RL68JxQnQ0WY4cra3xIMFA/zh-cn_image_0000002656347775.png?HW-CC-KV=V1&HW-CC-Date=20260624T020751Z&HW-CC-Expire=86400&HW-CC-Sign=97EDAD5495381C440FFA7F899B158A5D6AF590A2DD637A57E4277063A5F06372)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/KIJaZFsnQ0eL_WFqyYUGtA/zh-cn_image_0000002656006274.png?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=6B45B5E83C96A508BE5A97A3156E1D678639BEB1184BC7E8A16C75142724DC3B)
 
 
 
@@ -790,6 +791,14 @@ struct AddFilterEffectsToImages {
 Image($r('app.media.icon'))
   .syncLoad(true)
 ```
+
+
+
+#### 设置图片拉伸
+
+通过Image组件的resizable属性实现精准图片拉伸，其核心原理是：使用特定规则划分图片的固定区域与可拉伸区域，当图片拉伸时，仅对可拉伸区域进行拉伸，固定区域保持原始尺寸与形态不变。
+
+resizable属性参数类型为[ResizableOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#resizableoptions11)，支持使用slice(slice: { left, right, top, bottom })和lattice(lattice: [DrawingLattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawinglattice12))两种图片拉伸方案。完整示例及开发指导请参考[基于resizable实现图片拉伸效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-resizable)
 
 
 
@@ -844,4 +853,4 @@ struct EventCall {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/Gj0oAcxfTPmgz0JQaMj0HQ/zh-cn_image_0000002626228360.png?HW-CC-KV=V1&HW-CC-Date=20260624T020751Z&HW-CC-Expire=86400&HW-CC-Sign=36E6CC5CC1E35FE3C6E0C771427017B57E01CB9B3B5F1C0C996F0185A0C5AF88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/Km7Vj_TJS3mXSfRxqGaN-g/zh-cn_image_0000002655846354.png?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=BE4ECC29BF45899D83A3F7DE5CF39BE88DA6014590855171813F632C10D58279)

@@ -151,7 +151,7 @@ struct BindSheetDemo {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/loEGJflSQkyoC_18gaTrsA/zh-cn_image_0000002628404818.png?HW-CC-KV=V1&HW-CC-Date=20260723T012856Z&HW-CC-Expire=86400&HW-CC-Sign=EC3C6EB7629EC468C936ABA3EAFD1E933A96FDE127A52D7E80563AF3BCB5E1D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/loEGJflSQkyoC_18gaTrsA/zh-cn_image_0000002628404818.png?HW-CC-KV=V1&HW-CC-Date=20260730T072424Z&HW-CC-Expire=86400&HW-CC-Sign=5EA36822EE524A2ACFF596DE9DBD65E2F1063CB1C9EED4D4590C4143BB856523)
 
 - 场景二：bindSheet通过builder参数配置半模态页面内容。可以在[@Builder装饰](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)的构建函数中规定一个传入参数，根据传入的参数选择构建的半模态页面。对于List组件中的每个元素，绑定bindSheet属性，判断当前组件的参数是否应该显示半模态页面。完整示例参考如下：
 ```text
@@ -272,7 +272,7 @@ struct BindSheetDemo1 {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/r6aAfGZIT-myJ-iRR5loSA/zh-cn_image_0000002658804087.png?HW-CC-KV=V1&HW-CC-Date=20260723T012856Z&HW-CC-Expire=86400&HW-CC-Sign=E358991BD096FB473A3C8BD1969BB3B8B155D2BD82A658EAE420CF042A45F5F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/r6aAfGZIT-myJ-iRR5loSA/zh-cn_image_0000002658804087.png?HW-CC-KV=V1&HW-CC-Date=20260730T072424Z&HW-CC-Expire=86400&HW-CC-Sign=A5E7DE3F0ED17398648B7D6E71CC3EA17640B7AEE0473603BF048D78512A303E)
 
 - 场景三：实现侧边弹窗需要将preferType设置为SheetType.SIDE，具体可参考[SheetType枚举说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheettype11枚举说明)。同时设置[自动旋转方向类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-rotation#自动旋转方向类型)，实现横屏效果。完整示例参考如下：
 ```text
@@ -346,4 +346,4 @@ struct BindSheetDemo2 {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/WSq7HcPATX6JSNQeVIcwiA/zh-cn_image_0000002628564724.png?HW-CC-KV=V1&HW-CC-Date=20260723T012856Z&HW-CC-Expire=86400&HW-CC-Sign=B9FC4F0BBD30B1E40F7A8EB1299F5EF8375B8A926A1851D043BD7A4FE541252E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/WSq7HcPATX6JSNQeVIcwiA/zh-cn_image_0000002628564724.png?HW-CC-KV=V1&HW-CC-Date=20260730T072424Z&HW-CC-Expire=86400&HW-CC-Sign=424A09072203B890457C2355FEC9503CB8900FE27D57EC49BFC4EA4AEC8EEB3B)

@@ -13,7 +13,7 @@ Canvas绘制一个数字列表，需要添加滑动手势才能实现滑动，�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/k-vhNSplT8e6uRqWk3TSpA/zh-cn_image_0000002628401810.png?HW-CC-KV=V1&HW-CC-Date=20260723T012641Z&HW-CC-Expire=86400&HW-CC-Sign=EAD2B0965412906D0C32BB35677C66CB13DCB785145136A56889580F798104F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/k-vhNSplT8e6uRqWk3TSpA/zh-cn_image_0000002628401810.png?HW-CC-KV=V1&HW-CC-Date=20260730T072336Z&HW-CC-Expire=86400&HW-CC-Sign=7DFE49D6B6B23E8E73BB9564D16368C13DC1BA7686C765B95ABC5993C6C29E2A)
 
  
  

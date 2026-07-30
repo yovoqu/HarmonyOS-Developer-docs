@@ -1,6 +1,6 @@
 # DID
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api
 **支持设备：** Phone | Tablet
@@ -32,7 +32,7 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -58,7 +58,7 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -81,7 +81,7 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -105,7 +105,7 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -129,7 +129,7 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -151,7 +151,7 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -172,7 +172,7 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -193,7 +193,7 @@ DID密钥生成配置。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -215,7 +215,7 @@ DID密钥生成配置。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -223,7 +223,7 @@ DID密钥生成配置。
 | --- | --- | --- | --- | --- |
 | authTypeList | AuthType[] | 否 | 否 | 使用的认证器类型列表。 |
 | requireBioId | boolean | 否 | 是 | true表示返回生物特征/PIN认证凭证ID，false表示不返回，默认false不返回。 |
-| authMode | AuthMode | 否 | 是 | 认证模式。 |
+| authMode | AuthMode | 否 | 是 | 认证模式。默认值为1，生物特征独立验证。 |
  
  
   
@@ -238,7 +238,7 @@ DID密钥生成请求。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -262,7 +262,7 @@ DID密钥生成响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -286,7 +286,7 @@ DID密钥信息。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -308,7 +308,7 @@ DID导入请求。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -333,7 +333,7 @@ DID导入请求。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -355,7 +355,7 @@ DID导入请求。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -377,7 +377,7 @@ DID查询配置。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -400,7 +400,7 @@ DID查询请求。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -422,7 +422,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -445,7 +445,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -469,7 +469,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -491,7 +491,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -514,7 +514,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -537,7 +537,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -560,7 +560,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -581,7 +581,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -604,7 +604,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -631,7 +631,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -652,7 +652,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -674,7 +674,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -683,8 +683,9 @@ DID查询响应。
 | credentialId | string | 否 | 是 | 数字凭证ID。最大长度为256字节。默认值为空。 |
 | issuerDid | string | 否 | 是 | 发行方DID。最大长度为1024字节。默认值为空。 |
 | credentialProvider | string | 否 | 是 | 凭证提供方。最大长度为1024字节。默认值为空。 |
-| credentialDisclosurePropertyList | string[] | 否 | 是 | 凭证披露属性列表。 |
+| credentialDisclosurePropertyList | string[] | 否 | 是 | 凭证披露属性列表。默认值为空。 |
 | credentialDisplayConfig | CredentialDisplayConfig | 否 | 是 | 凭证显示配置。 |
+| credentialCategory | string | 否 | 是 | 凭证类型。最大长度为1024字节。默认值为空。 |
 | extension | string | 否 | 是 | 扩展信息。最大长度为1024字节。默认值为空。 |
  
  
@@ -700,7 +701,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -723,7 +724,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -751,7 +752,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -772,7 +773,7 @@ DID查询响应。
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
   
@@ -796,7 +797,7 @@ generateKey(context: common.Context, generateKeyRequest: GenerateKeyRequest): Pr
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -817,7 +818,7 @@ generateKey(context: common.Context, generateKeyRequest: GenerateKeyRequest): Pr
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -855,7 +856,7 @@ let generateKeyRequest: did.GenerateKeyRequest = {
 
 try {
   let response: did.GenerateKeyResponse = await did.generateKey(context, generateKeyRequest);
-  console.info("Succeeded in generating did key");
+  console.info('Succeeded in generating did key', response);
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to generate did key. Code: ${err.code}, message: ${err.message}`);
@@ -876,7 +877,7 @@ importDid(context: common.Context, importDidRequest: ImportDidRequest): Promise&
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -897,7 +898,7 @@ importDid(context: common.Context, importDidRequest: ImportDidRequest): Promise&
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -935,7 +936,7 @@ let importDidRequest: did.ImportDidRequest = {
 
 try {
   await did.importDid(context, importDidRequest);
-  console.info("Succeeded in importing did");
+  console.info('Succeeded in importing did');
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to import did. Code: ${err.code}, message: ${err.message}`);
@@ -956,7 +957,7 @@ queryDid(context: common.Context, queryDidRequest: QueryDidRequest): Promise&lt;
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -977,7 +978,7 @@ queryDid(context: common.Context, queryDidRequest: QueryDidRequest): Promise&lt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1009,7 +1010,7 @@ let queryDidRequest: did.QueryDidRequest = {
 
 try {
   let response: did.QueryDidResponse = await did.queryDid(context, queryDidRequest);
-  console.info("Succeeded in querying did");
+  console.info('Succeeded in querying did', response);
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to query did. Code: ${err.code}, message: ${err.message}`);
@@ -1030,7 +1031,7 @@ deleteDid(context: common.Context, did: string): Promise&lt;void&gt;
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -1051,7 +1052,7 @@ deleteDid(context: common.Context, did: string): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1074,7 +1075,7 @@ let context: common.UIAbilityContext = this.getUIContext().getHostContext() as c
 
 try {
   await did.deleteDid(context, 'did:example:123456');
-  console.info("Succeeded in deleting did");
+  console.info('Succeeded in deleting did');
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to delete did. Code: ${err.code}, message: ${err.message}`);
@@ -1095,7 +1096,7 @@ sign(context: common.Context, signRequest: SignRequest): Promise&lt;SignResponse
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -1116,7 +1117,7 @@ sign(context: common.Context, signRequest: SignRequest): Promise&lt;SignResponse
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1146,7 +1147,7 @@ let signRequest: did.SignRequest = {
 
 try {
   let response: did.SignResponse = await did.sign(context, signRequest);
-  console.info("Succeeded in signing data");
+  console.info('Succeeded in signing data', response);
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to sign data. Code: ${err.code}, message: ${err.message}`);
@@ -1167,7 +1168,9 @@ importDigitalCredential(context: common.Context, importDigitalCredentialRequest:
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**申请权限：** ohos.permission.ACCESS_DIGITAL_IDENTITY
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -1188,10 +1191,11 @@ importDigitalCredential(context: common.Context, importDigitalCredentialRequest:
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. |
 | 801 | Invalid device type. |
 | 1024600001 | Invalid parameters. |
 | 1024600005 | The key is invalid. |
@@ -1233,8 +1237,9 @@ let importDigitalCredentialRequest: did.ImportDigitalCredentialRequest = {
 };
 
 try {
-  let response: did.ImportDigitalCredentialResponse = await did.importDigitalCredential(context, importDigitalCredentialRequest);
-  console.info("Succeeded in importing digital credential");
+  let response: did.ImportDigitalCredentialResponse =
+    await did.importDigitalCredential(context, importDigitalCredentialRequest);
+  console.info('Succeeded in importing digital credential', response);
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to import digital credential. Code: ${err.code}, message: ${err.message}`);
@@ -1255,7 +1260,7 @@ queryDigitalCredential(context: common.Context, did?: string, credentialId?: str
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -1264,8 +1269,8 @@ queryDigitalCredential(context: common.Context, did?: string, credentialId?: str
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.Context | 是 | Ability的上下文。 |
-| did | string | 否 | DID标识符。最大长度为256字节。默认值为空。默认值为空。 |
-| credentialId | string | 否 | 数字凭证ID。最大长度为256字节。默认值为空。默认值为空。 |
+| did | string | 否 | DID标识符。最大长度为256字节。默认值为空。 |
+| credentialId | string | 否 | 数字凭证ID。最大长度为256字节。默认值为空。 |
  
  
 **返回值：**
@@ -1277,7 +1282,7 @@ queryDigitalCredential(context: common.Context, did?: string, credentialId?: str
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1299,7 +1304,7 @@ let context: common.UIAbilityContext = this.getUIContext().getHostContext() as c
 
 try {
   let response: did.QueryDigitalCredentialResponse = await did.queryDigitalCredential(context, 'did:example:123456');
-  console.info("Succeeded in querying digital credential");
+  console.info('Succeeded in querying digital credential', response);
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to query digital credential. Code: ${err.code}, message: ${err.message}`);
@@ -1320,7 +1325,9 @@ deleteDigitalCredential(context: common.Context, did?: string, credentialId?: st
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**申请权限：** ohos.permission.ACCESS_DIGITAL_IDENTITY
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -1342,10 +1349,11 @@ deleteDigitalCredential(context: common.Context, did?: string, credentialId?: st
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. |
 | 801 | Invalid device type. |
 | 1024600001 | Invalid parameters. |
 | 1024600007 | Unknown error. |
@@ -1365,7 +1373,7 @@ let context: common.UIAbilityContext = this.getUIContext().getHostContext() as c
 
 try {
   await did.deleteDigitalCredential(context, 'did:example:123456', 'credentialId123');
-  console.info("Succeeded in deleting digital credential");
+  console.info('Succeeded in deleting digital credential');
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to delete digital credential. Code: ${err.code}, message: ${err.message}`);
@@ -1386,7 +1394,7 @@ getDigitalCredential(context: common.Context, getDigitalCredentialRequest: GetDi
  
 **系统能力：** SystemCapability.Security.DID
  
-**元服务API：** 从版本26.0.0开始支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **起始版本：** 26.0.0
  
@@ -1407,7 +1415,7 @@ getDigitalCredential(context: common.Context, getDigitalCredentialRequest: GetDi
  
 **错误码：**
  
-以下错误码的详细介绍请参见[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DID错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1444,7 +1452,7 @@ let getDigitalCredentialRequest: did.GetDigitalCredentialRequest = {
 
 try {
   let response: did.GetDigitalCredentialResponse = await did.getDigitalCredential(context, getDigitalCredentialRequest);
-  console.info("Succeeded in getting digital credential");
+  console.info('Succeeded in getting digital credential', response);
 } catch (error) {
   const err: BusinessError = error as BusinessError;
   console.error(`Failed to get digital credential. Code: ${err.code}, message: ${err.message}`);

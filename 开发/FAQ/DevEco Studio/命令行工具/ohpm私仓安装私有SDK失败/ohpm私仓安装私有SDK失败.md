@@ -20,7 +20,7 @@
 
 在ohpm中，可以通过配置文件.ohpmrc文件来配置多个私有仓库和公共仓库。
  1. 打开项目的ohpm配置文件，可以通过IDE的settings查找文件所在位置：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/qJfPT-lVTw2OKr7LWOOPHA/zh-cn_image_0000002628409724.png?HW-CC-KV=V1&HW-CC-Date=20260723T014011Z&HW-CC-Expire=86400&HW-CC-Sign=25E07B0881D065C1F4BF7BFB97F0D3C7B7514049619BF4B10B7501459A774E4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/qJfPT-lVTw2OKr7LWOOPHA/zh-cn_image_0000002628409724.png?HW-CC-KV=V1&HW-CC-Date=20260730T072725Z&HW-CC-Expire=86400&HW-CC-Sign=5F6DDCFE1044B428B8BD4FCD099590017662EE26AA095E182062B143784218F1)
 
 2. 添加仓库地址配置：通过@group:registry语法，为特定作用域的包指定专属registry。
 

@@ -1,6 +1,6 @@
 # 文本转语音textToSpeech中onData未触发如何解决
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-8
 
@@ -12,7 +12,7 @@
 
 #### 解决方案
 
-参考文本转语音[SpeakParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech#section7843122735210)合成播报音频流的extraParams参数，关于合成类型<'playType', number>的介绍如下：
+参考文本转语音[SpeakParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech#speakparams)合成播报音频流的extraParams参数，关于合成类型<'playType', number>的介绍如下：
  
 - 0：仅合成不播报，返回音频流。
 - 1：合成与播报不返回音频流。

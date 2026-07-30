@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/pI1mDMIkRkyFxFkVd9nftg/zh-cn_image_0000002659258333.png?HW-CC-KV=V1&HW-CC-Date=20260723T013317Z&HW-CC-Expire=86400&HW-CC-Sign=F0F6759678AE8AF26682033EB6B8193D90F4621CEFED3B0D145E52303E3AEBC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/pI1mDMIkRkyFxFkVd9nftg/zh-cn_image_0000002659258333.png?HW-CC-KV=V1&HW-CC-Date=20260730T072526Z&HW-CC-Expire=86400&HW-CC-Sign=3F5DE2542AD3D2039B39D153AE08940080DD9EE038B91015067D7266086EEEC4)
 
  
  
@@ -33,7 +33,7 @@ Image Kit是一个用于图片处理和显示的服务，它提供了一系列�
 媒体库需要在全部file文件的fd都close后才会刷新媒体库。如果使用packToFile方法，需要调用release主动释放ImagePacker，此时ImagePacker内的fd也会close，媒体库才会刷新，打开媒体库才能看到新存入的图片。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/uJFu_n3kTFaGSG1OxHn_Zg/zh-cn_image_0000002628899114.png?HW-CC-KV=V1&HW-CC-Date=20260723T013317Z&HW-CC-Expire=86400&HW-CC-Sign=C32841D06FD0C62A83072ECD2AB2FA7A1AE8F49745E013956F50EA09358934B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/uJFu_n3kTFaGSG1OxHn_Zg/zh-cn_image_0000002628899114.png?HW-CC-KV=V1&HW-CC-Date=20260730T072526Z&HW-CC-Expire=86400&HW-CC-Sign=64D90CC635C8F3DB4BC7231FCF106DE94BC6FA90540A7A05F881543945D2132D)
 
  
  

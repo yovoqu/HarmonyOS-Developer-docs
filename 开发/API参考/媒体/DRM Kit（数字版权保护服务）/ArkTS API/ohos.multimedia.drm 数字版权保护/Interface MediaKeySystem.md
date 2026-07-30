@@ -1,6 +1,6 @@
 # Interface (MediaKeySystem)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysystem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -58,8 +58,8 @@ setConfigurationString(configName: string, value: string): void
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
-mediaKeySystem.setConfigurationString("stringConfigName", "stringConfigValue"); // 确保stringConfigName是可配置的。
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
+mediaKeySystem.setConfigurationString('stringConfigName', 'stringConfigValue'); // 确保stringConfigName是可配置的。
 ```
 
 
@@ -106,8 +106,8 @@ getConfigurationString(configName: string): string
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
-let configValue: string = mediaKeySystem.getConfigurationString("vendor");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
+let configValue: string = mediaKeySystem.getConfigurationString('vendor');
 ```
 
 
@@ -148,11 +148,11 @@ setConfigurationByteArray(configName: string, value: Uint8Array): void
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 // 按实际需求填写configValue属性值，请按实际值传入。
 let configValue: Uint8Array = new Uint8Array([0x00, 0x00, 0x00, 0x00]);
 // 需确认当前DRM解决方案的byteArrayConfigName属性是可配置的。
-mediaKeySystem.setConfigurationByteArray("byteArrayConfigName", configValue);
+mediaKeySystem.setConfigurationByteArray('byteArrayConfigName', configValue);
 ```
 
 
@@ -199,8 +199,8 @@ getConfigurationByteArray(configName: string): Uint8Array
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
-let configValue: Uint8Array = mediaKeySystem.getConfigurationByteArray("deviceUniqueId"); // 确保deviceUniqueId属性是存在的。
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
+let configValue: Uint8Array = mediaKeySystem.getConfigurationByteArray('deviceUniqueId'); // 确保deviceUniqueId属性是存在的。
 ```
 
 
@@ -239,7 +239,7 @@ getStatistics(): StatisticKeyValue[]
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 let statisticKeyValue: drm.StatisticKeyValue[] = mediaKeySystem.getStatistics();
 ```
 
@@ -279,7 +279,7 @@ getMaxContentProtectionLevel(): ContentProtectionLevel
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 let maxLevel: drm.ContentProtectionLevel = mediaKeySystem.getMaxContentProtectionLevel();
 ```
 
@@ -321,7 +321,7 @@ generateKeySystemRequest(): Promise&lt;ProvisionRequest&gt;
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 // 设备上已有设备证书的情况下不需要调用。
 mediaKeySystem.generateKeySystemRequest().then((provisionRequest: drm.ProvisionRequest) => {
   // provisionRequest为接口返回的设备证书请求对象，包含请求数据和默认URL。
@@ -375,7 +375,7 @@ processKeySystemResponse(response: Uint8Array): Promise&lt;void&gt;
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 // keySystemResponse是从DRM服务获取的设备证书响应，请按实际值传入。
 let keySystemResponse = new Uint8Array([0x00, 0x00, 0x00, 0x00]);
 mediaKeySystem.processKeySystemResponse(keySystemResponse).then(() => {
@@ -389,7 +389,7 @@ mediaKeySystem.processKeySystemResponse(keySystemResponse).then(() => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-getCertificateStatus():CertificateStatus
+getCertificateStatus(): CertificateStatus
 
 获取设备证书状态值。
 
@@ -419,7 +419,7 @@ getCertificateStatus():CertificateStatus
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 let certificateStatus: drm.CertificateStatus = mediaKeySystem.getCertificateStatus();
 ```
 
@@ -442,7 +442,7 @@ on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，通过createMediaKeySystem成功创建MediaKeySystem实例后可监听，需要设备证书时触发该事件。 |
-| callback | (eventInfo: EventInfo) => void | 是 | 回调函数，返回事件信息。只要有该事件返回就证明需请求设备证书。 |
+| callback | (eventInfo: EventInfo) => void | 是 | 回调函数，返回事件信息。当收到该事件时，表示需要请求设备证书。 |
 
 
 **错误码：**
@@ -460,7 +460,7 @@ on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 mediaKeySystem.on('keySystemRequired', (eventInfo: drm.EventInfo) => {
   console.info('keySystemRequired ' + 'extra: ' + eventInfo.extraInfo + 'data: ' + eventInfo.info);
 });
@@ -502,7 +502,7 @@ off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void
 
 ```text
 import { drm } from '@kit.DrmKit';
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 mediaKeySystem.off('keySystemRequired');
 ```
 
@@ -551,7 +551,7 @@ createMediaKeySession(level: ContentProtectionLevel): MediaKeySession
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(drm.ContentProtectionLevel.CONTENT_PROTECTION_LEVEL_SW_CRYPTO);
 ```
 
@@ -592,7 +592,7 @@ createMediaKeySession(): MediaKeySession
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession();
 ```
 
@@ -632,7 +632,7 @@ getOfflineMediaKeyIds(): Uint8Array[]
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 let offlineMediaKeyIds: Uint8Array[] = mediaKeySystem.getOfflineMediaKeyIds();
 ```
 
@@ -680,7 +680,7 @@ getOfflineMediaKeyStatus(mediaKeyId: Uint8Array): OfflineMediaKeyStatus
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 // mediaKeyId是processMediaKeyResponse或getOfflineMediaKeyIds接口返回的媒体密钥标识，请按实际值传入。
 let mediaKeyId = new Uint8Array([0x00, 0x00, 0x00, 0x00]);
 let configValue: drm.OfflineMediaKeyStatus = mediaKeySystem.getOfflineMediaKeyStatus(mediaKeyId);
@@ -713,7 +713,7 @@ clearOfflineMediaKeys(mediaKeyId: Uint8Array): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The parameter check failed.Possibly because: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
+| 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
@@ -723,7 +723,7 @@ clearOfflineMediaKeys(mediaKeyId: Uint8Array): void
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 // mediaKeyId是processMediaKeyResponse或getOfflineMediaKeyIds接口返回的媒体密钥标识，请按实际值传入。
 let mediaKeyId = new Uint8Array([0x00, 0x00, 0x00, 0x00]);
 mediaKeySystem.clearOfflineMediaKeys(mediaKeyId);
@@ -758,6 +758,6 @@ destroy(): void
 ```text
 import { drm } from '@kit.DrmKit';
 
-let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
+let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
 mediaKeySystem.destroy();
 ```

@@ -1,11 +1,11 @@
 # @ohos.security.huksExternalCrypto (外部密钥管理)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto
 **支持设备：** Phone | PC/2in1 | Tablet
 
-模块提供外部密钥管理扩展功能的注册与注销，PIN码认证与认证状态获取等。
+模块提供外部密钥管理扩展功能的注册与注销，PIN码认证与认证状态获取等能力。
 
 > [!NOTE]
 > 本模块首批接口从API version 22开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -48,13 +48,13 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| HUKS_EXT_CRYPTO_TAG_UKEY_PIN | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200001 | 表示PIN码的TAG。 |
+| HUKS_EXT_CRYPTO_TAG_UKEY_PIN | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200001 | 表示PIN码的Tag。 |
 | HUKS_EXT_CRYPTO_TAG_ABILITY_NAME | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200002 | 表示CryptoExtensionAbility的名称。 |
 | HUKS_EXT_CRYPTO_TAG_EXTRA_DATA | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200003 | 外部数据，在通用查询场景，表示返回的数据。 |
 | HUKS_EXT_CRYPTO_TAG_UID | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT \| 200004 | 表示调用方的uid。 |
 | HUKS_EXT_CRYPTO_TAG_PURPOSE | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT \| 200005 | 表示证书链对应密钥的使用类型，具体类型详见CertificatePurpose。 |
 | HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200007 | 表示获取资源ID所需的信息，格式和内容由厂商自定义。 起始版本： 26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
-| HUKS_EXT_CRYPTO_TAG_ABILITY_INFO | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200008 | 表示密钥管理扩展自定义PIN码弹窗相关Ability列表信息，在注册密钥管理扩展时，同步注册，详见provider注册示例。注册了自定义弹窗，则在PIN码认证时允许拉起自定义弹窗，进行PIN码认证等操作。 HUKS_EXT_CRYPTO_TAG_ABILITY_INFO中的JSON列表由多个JSON对象组成，每个JSON对象包含两个字段：AbilityName和index。字段应遵循以下要求： 1.AbilityName：长度范围为1~128字节。 2.index：其值为resourceId，最大长度为512字节。允许单个CryptoExtension下该字段为空，为空时传输空字符串，该字段不允许重复。在搜索时优先匹配index对应的UIAbility，当不存在时返回index为空的UIAbility。 起始版本： 26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
+| HUKS_EXT_CRYPTO_TAG_ABILITY_INFO | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200008 | 表示密钥管理扩展自定义PIN码弹窗相关Ability列表信息，在注册密钥管理扩展时，同步注册，详见provider注册示例。注册了自定义弹窗，则在PIN码认证时允许拉起自定义弹窗，进行PIN码认证等操作。 HUKS_EXT_CRYPTO_TAG_ABILITY_INFO 1.abilityName：长度范围为1~128字节。 2.index：其值为resourceId，最大长度为512字节。该字段不允许重复，允许单个CryptoExtension下该字段为空，为空时传输空字符串。在搜索时优先匹配index对应的UIAbility，当不存在时返回index为空的UIAbility。 起始版本： 26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
 | HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME | HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES \| 200009 | 表示CryptoExtensionAbility所属的HAP Bundle名称。 起始版本： 26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
 
 
@@ -76,19 +76,39 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 
+#### HuksExternalErrorInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+表示外部密钥操作时，密钥管理扩展返回的详细错误信息。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此结构体仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Security.Huks.CryptoExtension
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| errno | number | 否 | 否 | 密钥管理扩展返回的错误码。 - 非0值：密钥管理扩展返回了详细错误信息，errno为具体错误码。 - 0值：密钥管理扩展未返回详细错误信息，errno为默认值0，开发者应通过接口异常的错误码判断错误原因。 |
+| errorDesc | string | 否 | 否 | 密钥管理扩展返回的错误描述。该字段的值与errno关联： - errno非0时：密钥管理扩展返回的描述，可能为空字符串（由扩展决定）。 - errno为0时：空字符串。 |
+
+
+
+
 #### HuksExternalPinAuthState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-表示Ukey PIN码管理的状态值的枚举。
+表示UKey PIN码管理的状态值的枚举。
 
 **系统能力：** SystemCapability.Security.Huks.CryptoExtension
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| HUKS_EXT_CRYPTO_PIN_NO_AUTH | 0 | Ukey PIN未认证。 |
-| HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED | 1 | Ukey PIN认证成功。 |
-| HUKS_EXT_CRYPTO_PIN_LOCKED | 2 | Ukey PIN已锁定。 |
+| HUKS_EXT_CRYPTO_PIN_NO_AUTH | 0 | UKey PIN未认证。 |
+| HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED | 1 | UKey PIN认证成功。 |
+| HUKS_EXT_CRYPTO_PIN_LOCKED | 2 | UKey PIN已锁定。 |
 
 
 
@@ -102,7 +122,7 @@ registerProvider(providerName: string, params: Array&lt;HuksExternalCryptoParam&
 注册指定的外部provider。使用Promise异步回调。
 
 若需使用自定义PIN码弹窗，在注册provider时需要同步注册UIAbility，注意事项如下：
-1. 自定义ability通过UIAbility扩展实现。
+1. 自定义弹窗通过UIAbility扩展实现。
 2. 注册的UIAbility可以通过证书管理kit提供的[openUKeyAuthDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenukeyauthdialog22)接口统一拉起。
 3. 系统拉起自定义弹窗时会通过want接口向开发者传递以下参数：
 
@@ -111,7 +131,7 @@ registerProvider(providerName: string, params: Array&lt;HuksExternalCryptoParam&
 
 4. appUid：number参数类型，通过want.parameters传输。"appUid"字段为应用id，开发者可以通过该字段完成应用隔离。
 
-5. keyUri：string参数类型其值为resourceId，通过want.parameters传输，表示Ukey证书的索引。
+5. keyUri：string参数类型，其值为resourceId，通过want.parameters传输，表示UKey证书的索引。
 
 6. 开发者实现UIAbility时，应用需根据指定场景返回对应的错误码：
 
@@ -134,7 +154,7 @@ registerProvider(providerName: string, params: Array&lt;HuksExternalCryptoParam&
 
 | --- | --- | --- | --- |
 
-| providerName | string | 是 | provider名称，最大长度为128。建议包含厂商信息，全局唯一，不要包含个人联系方式等敏感数据。 最多支持注册10个provider。 |
+| providerName | string | 是 | provider名称，最大长度为128字节。建议包含厂商信息，全局唯一，不要包含个人联系方式等敏感数据。 最多支持注册10个provider。 |
 
 | params | Array&lt;HuksExternalCryptoParam&gt; | 是 | 操作时需传入的参数，必选TAG：HUKS_EXT_CRYPTO_TAG_ABILITY_NAME，表示ability的名字，根据业务自己内部定义按照实际填写。 从API版本26.0.0开始，可选TAG：HUKS_EXT_CRYPTO_TAG_ABILITY_INFO，以JSON列表的形式传入PIN码认证自定义弹窗UIAbility的名字以及包名。 |
 
@@ -178,7 +198,7 @@ registerProvider(providerName: string, params: Array&lt;HuksExternalCryptoParam&
 ```text
 import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
-function StringToUint8Array(str: string) {
+function stringToUint8Array(str: string) {
   let arr: number[] = [];
   for (let i = 0, j = str.length; i < j; ++i) {
     arr.push(str.charCodeAt(i));
@@ -190,12 +210,12 @@ const providerName = "testProviderName";
 const extProperties: Array<huksExternalCrypto.HuksExternalCryptoParam> = [
   {
     tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_ABILITY_NAME,
-    value: StringToUint8Array("CryptoExtension")
+    value: stringToUint8Array("CryptoExtension")
   }
 ];
 huksExternalCrypto.registerProvider(providerName, extProperties)
-    .then((data) => {
-        console.info(`promise: registerProvider success`);
+    .then(() => {
+        console.info('promise: registerProvider success.');
     });
 ```
 
@@ -220,7 +240,7 @@ huksExternalCrypto.registerProvider(providerName, extProperties)
 
 | --- | --- | --- | --- |
 
-| providerName | string | 是 | provider名称，最大长度为128。建议包含厂商信息，全局唯一，不要包含个人联系方式等敏感数据。如果provider注册了多个扩展能力，则该provider下的扩展能力都会被注销。 |
+| providerName | string | 是 | provider名称，最大长度为128字节。建议包含厂商信息，全局唯一，不要包含个人联系方式等敏感数据。如果provider注册了多个扩展能力，则该provider下的扩展能力都会被注销。 |
 
 | params | Array&lt;HuksExternalCryptoParam&gt; | 否 | 操作时需传入的参数。 可以在param参数中指定HUKS_EXT_CRYPTO_TAG_ABILITY_NAME，将根据“包名 + providerName + abilityName”注销对应的cryptoExtensionAbility。 如果未在params参数中指定HUKS_EXT_CRYPTO_TAG_ABILITY_NAME，或者未传入params参数，则注销对应的providerName下的所有Provider。 |
 
@@ -260,7 +280,7 @@ huksExternalCrypto.registerProvider(providerName, extProperties)
 ```text
 import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
-function StringToUint8Array(str: string) {
+function stringToUint8Array(str: string) {
   let arr: number[] = [];
   for (let i = 0, j = str.length; i < j; ++i) {
     arr.push(str.charCodeAt(i));
@@ -272,12 +292,12 @@ const providerName = "testProviderName";
 const extProperties: Array<huksExternalCrypto.HuksExternalCryptoParam> = [
   {
     tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_ABILITY_NAME,
-    value: StringToUint8Array("CryptoExtension")
+    value: stringToUint8Array("CryptoExtension")
   }
 ];
 huksExternalCrypto.unregisterProvider(providerName, extProperties)
-    .then((data) => {
-        console.info(`promise: unregisterProvider success`);
+    .then(() => {
+        console.info('promise: unregisterProvider success.');
     });
 ```
 
@@ -302,7 +322,7 @@ huksExternalCrypto.unregisterProvider(providerName, extProperties)
 
 | resourceId | string | 是 | 资源ID，可通过openAuthorizeDialog获取，其结果中附带资源ID。 |
 
-| params | Array&lt;HuksExternalCryptoParam&gt; | 否 | 操作的属性。非系统应用传入HUKS_EXT_CRYPTO_TAG_UID是非法参数。 |
+| params | Array&lt;HuksExternalCryptoParam&gt; | 否 | 操作的属性。不传入时，不向Extension Ability传递额外参数。非系统应用传入HUKS_EXT_CRYPTO_TAG_UID是非法参数。 |
 
   **返回值：**
 
@@ -344,14 +364,6 @@ huksExternalCrypto.unregisterProvider(providerName, extProperties)
 ```text
 import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
-function StringToUint8Array(str: string) {
-  let arr: number[] = [];
-  for (let i = 0, j = str.length; i < j; ++i) {
-    arr.push(str.charCodeAt(i));
-  }
-  return new Uint8Array(arr);
-}
-
 const testResourceId = "{\"providerName\":\"testProviderName\", \"bundleName\":\"com.example.cryptoapplication\", \"abilityName\":\"CryptoExtension\",\"index\":{\"key\":\"testKey\"}}";
 const extProperties: Array<huksExternalCrypto.HuksExternalCryptoParam> = [];
 huksExternalCrypto.getUkeyPinAuthState(testResourceId, extProperties)
@@ -371,7 +383,7 @@ huksExternalCrypto.getUkeyPinAuthState(testResourceId, extProperties)
 
   调用此接口获取属性值并返回结果。使用Promise异步回调。
 
-  propertyId表示查询属性的ID信息，当前仅支持GMT 0016-2023中定义的SKF接口名作为属性ID，支持的ID包括如下：
+  propertyId表示查询属性的ID信息，推荐使用GMT 0016-2023中定义的SKF接口名作为属性ID，支持的ID包括如下：
 
   
 SKF_EnumDev
@@ -379,6 +391,8 @@ SKF_EnumDev
  - SKF_EnumApplication
  - SKF_EnumContainer
 
+
+从API版本26.0.0开始，属性ID放开限制，支持自定义属性ID，由[CryptoExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability)实现方提供。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -390,7 +404,7 @@ SKF_EnumDev
 | --- | --- | --- | --- |
 | resourceId | string | 是 | 资源ID，可通过openAuthorizeDialog获取，该接口的返回结果中附带resourceId。 |
 | propertyId | string | 是 | 查找操作的属性名称，是GMT 0016-2023中定义的SKF接口名，应用开发者需要针对接口名进行适配。 |
-| params | Array&lt;HuksExternalCryptoParam&gt; | 否 | 需要传递给CryptoExtensionAbility的输入参数。非系统应用传入HUKS_EXT_CRYPTO_TAG_UID是非法参数。 |
+| params | Array&lt;HuksExternalCryptoParam&gt; | 否 | 需要传递给CryptoExtensionAbility的输入参数。不传入时，不向Extension Ability传递额外参数。非系统应用传入HUKS_EXT_CRYPTO_TAG_UID是非法参数。 |
 
 
 **返回值：**
@@ -436,7 +450,7 @@ const testResourceId = JSON.stringify({
 let propertyId = "SKF_EnumDev";
 const extProperties: Array<huksExternalCrypto.HuksExternalCryptoParam> = [];
 
-console.info(`promise: await huksExternalCrypto getProperty`);
+console.info('promise: await huksExternalCrypto getProperty.');
 async function testFunction() : Promise<void>
 {
   try {
@@ -458,7 +472,7 @@ async function testFunction() : Promise<void>
 
 clearUkeyPinAuthState(resourceId: string): Promise&lt;void&gt;
 
-清除指定资源ID的PIN码认证状态。使用Promise异步回调。
+清除指定资源ID的PIN码认证状态，清除后PIN认证状态变为HUKS_EXT_CRYPTO_PIN_NO_AUTH（未认证）。使用Promise异步回调。
 
 **起始版本：** 26.0.0
 
@@ -470,7 +484,7 @@ clearUkeyPinAuthState(resourceId: string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| resourceId | string | 是 | 资源ID。 |
+| resourceId | string | 是 | 资源ID，可通过openAuthorizeDialog获取，其结果中附带资源ID。 |
 
 
 **返回值：**
@@ -538,7 +552,7 @@ getResourceId(providerName: string, params: HuksExternalCryptoParam[]): Promise&
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | providerName | string | 是 | 提供者名称，建议包含厂商信息，全局唯一，长度最大为128字节。 |
-| params | HuksExternalCryptoParam[] | 是 | 获取资源ID所需的属性参数。必选TAG包括：HUKS_EXT_CRYPTO_TAG_ABILITY_NAME、HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME、HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO。 |
+| params | HuksExternalCryptoParam[] | 是 | 获取资源ID所需的属性参数。必选TAG包括：HUKS_EXT_CRYPTO_TAG_ABILITY_NAME、HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME、HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO。非系统应用传入HUKS_EXT_CRYPTO_TAG_UID是非法参数。 |
 
 
 **返回值：**
@@ -555,7 +569,7 @@ getResourceId(providerName: string, params: HuksExternalCryptoParam[]): Promise&
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | API is not supported. |
-| 12000002 | The ability name or bundle name parameter is missing. |
+| 12000002 | The ability name, bundle name parameter or resource information is missing. |
 | 12000005 | IPC communication failed. |
 | 12000011 | The provider is not found. |
 | 12000012 | Device environment or input parameters are abnormal. This error may occur if the process function is not found, or due to other issues. |
@@ -570,7 +584,7 @@ getResourceId(providerName: string, params: HuksExternalCryptoParam[]): Promise&
 ```text
 import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
-function StringToUint8Array(str: string) {
+function stringToUint8Array(str: string) {
   let arr: number[] = [];
   for (let i = 0, j = str.length; i < j; ++i) {
     arr.push(str.charCodeAt(i));
@@ -587,15 +601,15 @@ const resourceInfo = "vendor_defined_resource_info";
 const extProperties: Array<huksExternalCrypto.HuksExternalCryptoParam> = [
   {
     tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_ABILITY_NAME,
-    value: StringToUint8Array(abilityName)
+    value: stringToUint8Array(abilityName)
   },
   {
     tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME,
-    value: StringToUint8Array(bundleName)
+    value: stringToUint8Array(bundleName)
   },
   {
     tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO,
-    value: StringToUint8Array(resourceInfo)
+    value: stringToUint8Array(resourceInfo)
   }
 ];
 
@@ -689,7 +703,7 @@ closeResource(resourceId: string, params?: HuksExternalCryptoParam[]): Promise&l
 
 关闭指定资源ID的资源。使用Promise异步回调。
 
-该接口会回调[onClearUkeyPinAuthState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#cryptoextensionabilityonclearukeypinauthstate)清理该资源关联的PIN认证状态，以及会回调[onFinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#cryptoextensionabilityonfinishsession)清理该资源关联的会话handle。
+该接口会回调[onClearUkeyPinAuthState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#onclearukeypinauthstate)清理该资源关联的PIN认证状态，以及会回调[onFinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#onfinishsession)清理该资源关联的会话handle。
 
 **起始版本：** 26.0.0
 
@@ -746,4 +760,151 @@ huksExternalCrypto.closeResource(testResourceId)
     .then(() => {
       console.info('promise: closeResource success.');
     });
+```
+
+
+
+#### huksExternalCrypto.setProperty
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setProperty(resourceId: string, propertyId: string, params?: HuksExternalCryptoParam[]): Promise&lt;void&gt;
+
+调用此接口设置由resourceId标识的UKey资源的属性值。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Security.Huks.CryptoExtension
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| resourceId | string | 是 | 资源ID。可通过openAuthorizeDialog获取keyUri作为resourceId，或通过getResourceId获取外部密钥管理扩展的资源ID。 |
+| propertyId | string | 是 | 设置操作的属性名称。由CryptoExtensionAbility实现方提供，推荐使用GMT 0016-2023中定义的SKF接口名作为属性ID。 |
+| params | HuksExternalCryptoParam[] | 否 | 需要传递给CryptoExtensionAbility的输入参数，包含与propertyId相关的操作参数。不传入时，不向Extension Ability传递额外参数。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[HUKS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-huks)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | API is not supported. |
+| 12000005 | IPC communication failed. |
+| 12000006 | Failed to call the UKey driver interface. Please check the UKey connection and driver status. |
+| 12000011 | The cached resource ID not found. |
+| 12000012 | Device environment or input parameters are abnormal. This may occur if the process function is null, or due to other issues. |
+| 12000014 | The memory is insufficient. |
+| 12000018 | The input parameters are invalid. Possible causes: 1. The resourceId or propertyId length is invalid. 2. The parameters contain invalid tags or invalid value types. |
+| 12000020 | The provider operation failed. This means an error occurred in the crypto extension before calling the UKey driver interface. |
+| 12000021 | The UKey PIN is locked. |
+| 12000023 | The UKey PIN is not authenticated. |
+| 12000024 | The provider or UKey is busy. |
+
+
+**示例：**
+
+```json
+import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
+
+const testResourceId = JSON.stringify({
+  providerName: "testProviderName",
+  bundleName: "com.example.cryptoapplication",
+  abilityName: "CryptoExtension",
+  index: {
+    key: "testKey"
+  } as ESObject
+});
+
+const propertyId = "SKF_SetDevInfo";
+const extProperties: Array<huksExternalCrypto.HuksExternalCryptoParam> = [];
+
+async function testFunction() : Promise<void>
+{
+  try {
+    await huksExternalCrypto.setProperty(testResourceId, propertyId, extProperties)
+      .then(() => {
+        console.info('promise: setProperty success.');
+      });
+  } catch (error) {
+    console.error(`promise: setProperty failed, errCode : ${error.code}, errMsg : ${error.message}`);
+  }
+}
+```
+
+
+
+#### huksExternalCrypto.getErrorInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getErrorInfo(): HuksExternalErrorInfo
+
+以同步方式获取最近一次外部密钥操作的详细错误信息，该错误信息由密钥管理扩展返回。
+
+> [!NOTE]
+> 此接口返回密钥管理扩展的详细错误信息（errno和errorDesc），HUKS内部错误通过接口异常抛出。 当密钥管理扩展未返回详细错误信息时（errno为0），errorDesc为空字符串，开发者应通过接口异常的错误码判断错误原因。 建议在操作失败后立即调用此接口获取详细错误信息。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Security.Huks.CryptoExtension
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| HuksExternalErrorInfo | 返回最近一次操作的错误信息。 |
+
+
+**示例：**
+
+```json
+import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
+
+function stringToUint8Array(str: string) {
+  let arr: number[] = [];
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+const resourceId = JSON.stringify({
+  providerName: "testProviderName",
+  bundleName: "com.example.cryptoapplication",
+  abilityName: "CryptoExtension",
+  index: "testKey"
+});
+const pin = "123456"; // 此处为示例，实际业务中应替换为真实的用户PIN码
+const params: Array<huksExternalCrypto.HuksExternalCryptoParam> = [
+  {
+    tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_UKEY_PIN,
+    value: stringToUint8Array(pin)
+  }
+];
+
+async function testFunction() : Promise<void>
+{
+  try {
+    await huksExternalCrypto.authUkeyPin(resourceId, params);
+  } catch (error) {
+    const errorInfo = huksExternalCrypto.getErrorInfo();
+    console.info(`errno: ${errorInfo.errno}`);
+    console.info(`errorDesc: ${errorInfo.errorDesc}`);
+  }
+}
 ```

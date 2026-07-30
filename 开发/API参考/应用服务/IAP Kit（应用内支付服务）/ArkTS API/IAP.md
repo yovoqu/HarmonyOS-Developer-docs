@@ -1,6 +1,6 @@
 # IAP
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-iap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -164,7 +164,7 @@ import { iap } from '@kit.IAPKit';
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | USER_CANCELED | 1001860000 | 用户取消当前操作。 元服务API： 从API版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| SYSTEM_ERROR | 1001860001 | 通用失败错误码。 元服务API： 从API版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| SYSTEM_ERROR | 1001860001 | 系统内部错误。 元服务API： 从API版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | APP_NOT_AUTHORIZED | 1001860002 | 应用未被授权访问接口。 元服务API： 从API版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | INVALID_PRODUCT | 1001860003 | 无效的商品信息。 元服务API： 从API版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | FREQUENT_CALLS | 1001860004 | 接口访问过频。 元服务API： 从API版本5.0.0(12)开始，该接口支持在元服务中使用。 |

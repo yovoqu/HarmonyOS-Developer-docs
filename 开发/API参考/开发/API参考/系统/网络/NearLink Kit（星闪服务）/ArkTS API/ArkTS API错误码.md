@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,7 +60,7 @@ The UUID is already registered.
 
 **错误信息**
  
-Port is exceeds the upper limit.
+The number of ports exceeds the upper limit.
  
 **错误描述**
  
@@ -82,7 +82,7 @@ Port is exceeds the upper limit.
 
 **错误信息**
  
-No port associated with this UUID is registered.
+The UUID is not registered.
  
 **错误描述**
  
@@ -104,11 +104,11 @@ No port associated with this UUID is registered.
 
 **错误信息**
  
-Write data congest.
+The data writing process is congested.
  
 **错误描述**
  
-数据传输过程中发生异常。
+发送数传数据异常。
  
 **可能原因**
  

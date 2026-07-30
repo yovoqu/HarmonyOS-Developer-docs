@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -63,7 +63,7 @@ createMediaKeySystem(name: string): MediaKeySystem
 ```text
 import { drm } from '@kit.DrmKit';
 // name为DRM解决方案名称，可通过drm.getMediaKeySystems接口获取设备支持的DRM解决方案名称，如"com.wiseplay.drm"。
-let name = "com.wiseplay.drm";
+let name = 'com.wiseplay.drm';
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem(name);
 console.info(`createMediaKeySystem success, name: ${name}`);
 ```
@@ -112,7 +112,7 @@ isMediaKeySystemSupported(name: string): boolean
 ```text
 import { drm } from '@kit.DrmKit';
 
-let supported: boolean = drm.isMediaKeySystemSupported("com.wiseplay.drm");
+let supported: boolean = drm.isMediaKeySystemSupported('com.wiseplay.drm');
 console.info("isMediaKeySystemSupported: ", supported);
 ```
 
@@ -161,7 +161,7 @@ isMediaKeySystemSupported(name: string, mimeType: string): boolean
 ```text
 import { drm } from '@kit.DrmKit';
 
-let supported: boolean = drm.isMediaKeySystemSupported("com.wiseplay.drm", "video/avc");
+let supported: boolean = drm.isMediaKeySystemSupported('com.wiseplay.drm', 'video/avc');
 console.info("isMediaKeySystemSupported: ", supported);
 ```
 
@@ -185,7 +185,7 @@ isMediaKeySystemSupported(name: string, mimeType: string, level: ContentProtecti
 | --- | --- | --- | --- |
 | name | string | 是 | DRM解决方案名称。可通过drm.getMediaKeySystems接口获取设备支持的DRM解决方案名称，如"com.wiseplay.drm"。 |
 | mimeType | string | 是 | 媒体类型，支持的媒体类型取决于DRM解决方案。 |
-| level | ContentProtectionLevel | 是 | 内容保护级别。 |
+| level | ContentProtectionLevel | 是 | 内容保护级别，用于指定DRM内容的安全保护程度，不同级别对应不同的解密能力和安全要求。 |
 
 
 **返回值：**
@@ -211,7 +211,7 @@ isMediaKeySystemSupported(name: string, mimeType: string, level: ContentProtecti
 ```text
 import { drm } from '@kit.DrmKit';
 
-let supported: boolean = drm.isMediaKeySystemSupported("com.wiseplay.drm", "video/avc", drm.ContentProtectionLevel.CONTENT_PROTECTION_LEVEL_SW_CRYPTO);
+let supported: boolean = drm.isMediaKeySystemSupported('com.wiseplay.drm', 'video/avc', drm.ContentProtectionLevel.CONTENT_PROTECTION_LEVEL_SW_CRYPTO);
 console.info("isMediaKeySystemSupported: ", supported);
 ```
 
@@ -221,7 +221,7 @@ console.info("isMediaKeySystemSupported: ", supported);
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-getMediaKeySystemUuid(name: string): string;
+getMediaKeySystemUuid(name: string): string
 
 获取DRM解决方案支持的DRM内容保护系统唯一标识。
 
@@ -249,7 +249,7 @@ getMediaKeySystemUuid(name: string): string;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The parameter check failed.Possibly because: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed. |
+| 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed. |
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
@@ -259,7 +259,7 @@ getMediaKeySystemUuid(name: string): string;
 ```text
 import { drm } from '@kit.DrmKit';
 
-let uuid: string = drm.getMediaKeySystemUuid("com.wiseplay.drm");
+let uuid: string = drm.getMediaKeySystemUuid('com.wiseplay.drm');
 console.info("getMediaKeySystemUuid: ", uuid);
 ```
 

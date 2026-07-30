@@ -14,10 +14,10 @@
 
 - 方法1：通过命令行：
 bm dump -n [bundleName] |grep appProvisionType：判断应用程序签名证书文件的类型来判断release还是debug。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/NcixGPTvQJiAKE6HhE6Mkw/zh-cn_image_0000002628791476.png?HW-CC-KV=V1&HW-CC-Date=20260723T012500Z&HW-CC-Expire=86400&HW-CC-Sign=D88FA907780F403E2A57D87477A59B306F88F5BC9AA93CF28591EF9EFAD96ADA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/NcixGPTvQJiAKE6HhE6Mkw/zh-cn_image_0000002628791476.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=5B5B948F58DEA5AE5B06CE094E429DD477A8339D42FB6C533FFDBF624907138B)
 
 - bm dump -n [bundleName] |grep debug：标识应用是否处于调试模式，取值为true表示应用处于调试模式，取值为false表示应用处于非调试模式，以及应用程序签名证书文件的类型。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/AFBMwcHUR3iz722kETzk8Q/zh-cn_image_0000002658990791.png?HW-CC-KV=V1&HW-CC-Date=20260723T012500Z&HW-CC-Expire=86400&HW-CC-Sign=CCCEEEB448A2E04A54B58ED9921280B62AC11227E5C636E4016A15AB3FAD660E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/AFBMwcHUR3iz722kETzk8Q/zh-cn_image_0000002658990791.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=A62E67BE958693A8F317A442792E1B671F93109D1DA586AF890750CCA18E11C3)
 
 
  - 方法2：通过bundleManager.getBundleInfoForSelf获取自身的应用程序信息：

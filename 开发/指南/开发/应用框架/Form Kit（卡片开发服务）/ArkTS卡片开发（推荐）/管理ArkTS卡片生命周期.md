@@ -1,6 +1,6 @@
 # 管理ArkTS卡片生命周期
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-lifecycle
 
@@ -63,26 +63,14 @@ export default class EntryFormAbility extends FormExtensionAbility {
   onFormEvent(formId: string, message: string): void {
     // 若卡片支持触发事件，则需要重写该方法并实现对事件的触发
     hilog.info(DOMAIN_NUMBER, TAG, `FormAbility onFormEvent, formId = ${formId}, message: ${message}`);
-    class FormDataClass {
-      title: string = 'Title Update.'; // 和卡片布局中对应
-      detail: string = 'Description update success.'; // 和卡片布局中对应
-    }
-
-    // 请根据业务替换为实际刷新的卡片数据
-    let formData = new FormDataClass();
-    let formInfo: formBindingData.FormBindingData = formBindingData.createFormBindingData(formData);
-    formProvider.updateForm(formId, formInfo).then(() => {
-      hilog.info(DOMAIN_NUMBER, TAG, 'FormAbility updateForm success.');
-    }).catch((error: BusinessError) => {
-      hilog.error(DOMAIN_NUMBER, TAG, `Operation updateForm failed. Cause: ${JSON.stringify(error)}`);
-    });
+    // ···
   }
 
   onRemoveForm(formId: string): void {
     // 删除卡片实例数据
     hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onRemoveForm');
     // 删除之前持久化的卡片实例数据
-    // 此接口请根据实际情况实现，具体请参考：FormExtensionAbility Stage模型卡片实例
+    // 此接口请根据实际情况实现，具体请参考：FormExtAbility Stage模型卡片实例
   }
 
   onConfigurationUpdate(config: Configuration) {
@@ -91,12 +79,10 @@ export default class EntryFormAbility extends FormExtensionAbility {
     hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onConfigurationUpdate:' + JSON.stringify(config));
   }
 
-
   onAcquireFormState(want: Want): formInfo.FormState {
     // 卡片提供方接收查询卡片状态通知接口，默认返回卡片初始状态。
     return formInfo.FormState.READY;
   }
-
 }
 ```
 

@@ -42,7 +42,7 @@ this.context.invalidate();
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/7X3eHZR6SWmZkw_zZ9jz9w/zh-cn_image_0000002628553238.png?HW-CC-KV=V1&HW-CC-Date=20260723T013651Z&HW-CC-Expire=86400&HW-CC-Sign=7F7A3AE4629DF4B2423B34F42881D378E361AADD26493E93A03893A2907B98A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/7X3eHZR6SWmZkw_zZ9jz9w/zh-cn_image_0000002628553238.png?HW-CC-KV=V1&HW-CC-Date=20260730T072635Z&HW-CC-Expire=86400&HW-CC-Sign=828D7683026A28EC7F14B739E39547C0052AD2963B61EBC244C16E015A2513A1)
 
 - 绘制实心图形：设置画刷样式，使用attachbrush将画刷应用到画布绘制中，关键代码如下：
 
@@ -59,7 +59,7 @@ this.context.invalidate();
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/Rqf2oy3QSLanoPBVkj9a3Q/zh-cn_image_0000002658912553.png?HW-CC-KV=V1&HW-CC-Date=20260723T013651Z&HW-CC-Expire=86400&HW-CC-Sign=1EC2CAE5284FAF62693A42C91B2A6D9F9FA8AFD0FFB4ADBC10AC7FCCF70D6D4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/Rqf2oy3QSLanoPBVkj9a3Q/zh-cn_image_0000002658912553.png?HW-CC-KV=V1&HW-CC-Date=20260730T072635Z&HW-CC-Expire=86400&HW-CC-Sign=25EF8596EA7BB1FA48C06326E4C045A06F355687B282C03D39533625A72F8662)
 
 - 绘制带描边的实心图形：绘制图案时若既要描边又要填充，可以将画笔和画刷样式都应用到画布绘制中，以绘制带描边的同心圆为示例，代码如下：
 
@@ -83,7 +83,7 @@ canvas.detachBrush();
 this.context.invalidate();
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4U5F9_C6RiqtwoVt_j1Zdg/zh-cn_image_0000002658792613.png?HW-CC-KV=V1&HW-CC-Date=20260723T013651Z&HW-CC-Expire=86400&HW-CC-Sign=189F5AA8A59FB575AFA3CCC97807AFE4E5B28ABD15548888FDF629BDA0F1FFE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4U5F9_C6RiqtwoVt_j1Zdg/zh-cn_image_0000002658792613.png?HW-CC-KV=V1&HW-CC-Date=20260730T072635Z&HW-CC-Expire=86400&HW-CC-Sign=DB2ADB984B006716803DF322643A686BC0CAFEC958E144C5773EDADC2C347BD6)
 
 
  

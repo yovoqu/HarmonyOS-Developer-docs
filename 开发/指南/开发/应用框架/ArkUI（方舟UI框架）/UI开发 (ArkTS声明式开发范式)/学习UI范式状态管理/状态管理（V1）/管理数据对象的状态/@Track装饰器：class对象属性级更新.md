@@ -1,10 +1,10 @@
 # @Track装饰器：class对象属性级更新
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track
 
-@Track应用于class对象的属性级更新。@Track装饰的属性变化时，只会触发该属性关联的UI更新。
+[@Track](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-track#track)应用于class对象的属性级更新。@Track装饰的属性变化时，只会触发该属性关联的UI更新。
 
 在阅读本文档之前，建议开发者对状态管理基本观察能力有基本的了解。建议提前阅读：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)。
 
@@ -47,28 +47,40 @@ struct Index {
     Column() {
       Text(`name: ${this.info.name}`)
         .fontSize(this.getFontSize(1))
+        .margin(10)
       Text(`age: ${this.info.age}`)
         .fontSize(this.getFontSize(2))
+        .margin(10)
 
       // 点击当前Button，可以发现当前虽然仅改变了name属性
       // 但是依旧会触发两个Text的刷新
       // Text(`age: ${this.info.age}`)是冗余刷新
-      Button('change name').onClick(() => {
-        this.info.name = 'Jane';
-      })
+      Button('change name')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.info.name = 'Jane';
+        })
 
       // 点击当前Button，可以发现当前虽然仅改变了age属性
       // 但是依旧会触发两个Text的刷新
       // Text(`name: ${this.info.name}`)是冗余刷新
-      Button('change age').onClick(() => {
-        this.info.age++;
-      })
+      Button('change age')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.info.age++;
+        })
     }
     .height('100%')
     .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/jTJMjwoOQSKvg5VhMRC71Q/zh-cn_image_0000002656005874.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=8D9402539AF72CA67AB28D56C07096D1DA699BF562F86C8D685C20E673C5EA31)
+
 
 > [!NOTE]
 > 当UI刷新时，会执行组件的属性设置方法，利用这一机制可以通过观察getFontSize方法是否被调用来判断当前组件是否刷新。
@@ -161,21 +173,29 @@ struct AddLog {
           .id('str1')
           .fontSize(this.isRender(1))
           .fontWeight(FontWeight.Bold)
+          .margin(10)
         Text(this.logTrack.str2) // Text2
           .fontSize(this.isRender(2))
           .fontWeight(FontWeight.Bold)
+          .margin(10)
         Button('change logTrack.str1')
           .id('str2')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.logTrack.str1 = 'Bye';
           })
         Text(this.logNotTrack.str1) // Text3
           .fontSize(this.isRender(3))
           .fontWeight(FontWeight.Bold)
+          .margin(10)
         Text(this.logNotTrack.str2) // Text4
           .fontSize(this.isRender(4))
           .fontWeight(FontWeight.Bold)
+          .margin(10)
         Button('change logNotTrack.str1')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.logNotTrack.str1 = 'Bye';
           })
@@ -186,6 +206,10 @@ struct AddLog {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/PZwjYyOWT5O2tpBpkTzhvw/zh-cn_image_0000002655845954.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6372F01B6FEE68C6D6F113317D3821DF92FC944E4DE9CA431A165144AFF5273C)
+
 
 在上面的示例中：
 1. 类LogTrack中的属性均被@Track装饰器装饰，点击按钮"change logTrack.str1"，此时Text1刷新，Text2不刷新，只有一条日志输出，避免了冗余刷新。
@@ -275,6 +299,10 @@ struct AddLog {
 }
 ```
 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/xncrZh_3QwGBmeMvWoz_mg/zh-cn_image_0000002686085383.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=BAA484DF24C0CE4E61FEB9B5C587F9B666FEFA01908BB9C0A543232CD7E1F5C9)
+
+
 处理步骤：
 1. AddLog自定义组件的Text.onClick点击事件自增字符串' info.'。
 2. 由于@State log变量的@Track属性logInfo更改，Text重新渲染。
@@ -310,6 +338,8 @@ struct Parent {
   build() {
     // 没有被@Track装饰的属性不可以在UI中使用，运行时会报错
     Text(`Parent id is: ${this.parent.id} and Parent age is: ${this.parent.age}`)
+      .fontSize(20)
+      .margin(10)
   }
 }
 ```

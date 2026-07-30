@@ -1,10 +1,10 @@
 # @Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink
 
-上文所述的装饰器（包括[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)、[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)、[@Provide和@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)装饰器）仅能观察到第一层的变化，但是在实际应用开发中，应用会根据开发需要，封装自己的数据模型。对于多层嵌套的情况，比如二维数组、对象数组、嵌套类场景，无法观察到第二层的属性变化。因此，为了实现对嵌套数据结构中深层属性变化的观察，引入了@Observed和@ObjectLink装饰器。
+上文所述的装饰器（包括[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)、[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)、[@Provide和@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)装饰器）仅能观察到第一层的变化，但是在实际应用开发中，应用会根据开发需要，封装自己的数据模型。对于多层嵌套的情况，比如二维数组、对象数组、嵌套类场景，无法观察到第二层的属性变化。因此，为了实现对嵌套数据结构中深层属性变化的观察，引入了[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-observed#observed)和[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-objectlink#objectlink)装饰器。
 
 @Observed/@ObjectLink适用于观察嵌套对象（对象的属性是对象）属性的变化，需要开发者对装饰器的基本观察能力有一定的了解，再来对比阅读该文档。建议提前阅读：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)的基本用法。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
 
@@ -119,6 +119,8 @@ struct Child {
     Column() {
       // data被@Observed和@ObjectLink装饰，可以被观察到Date整体的赋值以及调用Date接口带来的变化
       Button('child increase the day by 1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.data.setDate(this.data.getDate() + 1);
         })
@@ -128,6 +130,7 @@ struct Child {
         selected: this.data
       })
     }
+    .width('100%')
   }
 }
 
@@ -141,17 +144,26 @@ struct Parent {
       Child({ label: 'date', data: this.newData.data })
 
       Button('parent update the new date')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.newData.data = new DateClass('2023-07-07');
         })
-      Button(`ViewB: this.newData = new NewDate(new DateClass('2023-08-20'))`)
+      Button(`2023-08-20`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.newData = new NewDate(new DateClass('2023-08-20'));
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-3.gif)
+
 
 @ObjectLink装饰继承于Map的class时，可以观察到Map整体的赋值，同时可通过调用Map的接口set, clear, delete 更新Map的值。示例请参考[继承Map类](#继承map类)。
 
@@ -291,11 +303,14 @@ struct Child {
   build() {
     Column() {
       Text(`num value: ${this.num.count}`)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           // 正确写法，可以更改@ObjectLink装饰变量的成员属性
           this.num.count = 20;
         })
     }
+    .width('100%')
   }
 }
 
@@ -307,16 +322,23 @@ struct Parent {
   build() {
     Column() {
       Text(`count value: ${this.num.count}`)
+        .fontSize(20)
+        .margin(10)
       Button('click')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 可以在父组件做整体替换
           this.num = new Info(30);
         })
       Child({ num: this.num })
     }
+    .width('100%')
   }
 }
 ```
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-4.gif)
 
 
 
@@ -345,8 +367,9 @@ struct BookCard {
   build() {
     Column() {
       Text(`BookCard: ${this.book.name}`) // 可以观察到name的变化
-        .width(320)
+        .fontSize(20)
         .margin(10)
+        .width(320)
         .textAlign(TextAlign.Center)
 
       Button('change book.name')
@@ -356,6 +379,7 @@ struct BookCard {
           this.book.name = 'C++';
         })
     }
+    .width('100%')
   }
 }
 
@@ -371,6 +395,10 @@ struct Index {
   }
 }
 ```
+
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-5.gif)
+
 
 
 
@@ -442,7 +470,7 @@ struct Index {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-3.gif)
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-6.gif)
 
 
 上述示例中：
@@ -556,7 +584,7 @@ struct Parent {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-5.gif)
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-8.gif)
 
 
  - this.arrA[Math.floor(this.arrA.length/2)] = new Info(..) ：该状态变量的改变触发2次更新：
@@ -601,7 +629,9 @@ struct Item {
     Row() {
       ForEach(this.itemArr, (item: string, index: number) => {
         Text(`${index}: ${item}`)
-          .width(100)
+          .fontSize(20)
+          .margin(5)
+          .width(120)
           .height(100)
       }, (item: string) => item)
     }
@@ -627,32 +657,41 @@ struct IndexPage {
       Divider()
 
       Button('push two-dimensional array item')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.arr[0].push('strawberry');
         })
 
       Button('push array item')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.arr.push(new ObservedArray<string>('pear'));
         })
 
       Button('change two-dimensional array first item')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.arr[0][0] = 'APPLE';
         })
 
       Button('change array first item')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.arr[0] = new ObservedArray<string>('watermelon');
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-9.gif)
+
 
 API version 19及以后，@ObjectLink也可以被[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)的返回值初始化。所以开发者如果不想额外声明继承Array的类，也可以使用makeV1Observed来达到同样的效果。
 
@@ -720,7 +759,7 @@ struct IndexPage {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-6.gif)
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526228-001.png)
 
 
 
@@ -820,7 +859,7 @@ struct MapSampleNestedChild {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260514130518907-8.gif)
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526230-003.gif)
 
 
 
@@ -912,7 +951,7 @@ struct SetSampleNestedChild {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526228-001.png)
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526230-005.gif)
 
 
 
@@ -1010,7 +1049,7 @@ struct Child {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526229-002.gif)
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526231-006.gif)
 
 
 
@@ -1200,11 +1239,16 @@ struct ViewChild {
   build() {
     Column({ space: 10 }) {
       Text(`childId: ${this.child.getChildId()}`)
+        .fontSize(20)
+        .margin(10)
       Button('Change childId')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.child.setChildId(this.child.getChildId() + 1);
         })
     }
+    .width('100%')
   }
 }
 
@@ -1216,26 +1260,41 @@ struct MyView {
   build() {
     Column({ space: 10 }) {
       Text(`parentId: ${this.cousin.parentId}`)
+        .fontSize(20)
+        .margin(10)
       Button('Change Parent.parentId')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cousin.parentId += 1;
         })
 
       Text(`cousinId: ${this.cousin.cousinId}`)
+        .fontSize(20)
+        .margin(10)
       Button('Change Cousin.cousinId')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cousin.cousinId += 1;
         })
 
       ViewChild({ child: this.cousin.child }) // Text(`childId: ${this.cousin.child.childId}`)的替代写法
       Button('Change Cousin.Child.childId')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cousin.child.childId += 1;
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526231-007.gif)
+
 
 
 
@@ -1411,12 +1470,18 @@ struct CounterChild {
   @ObjectLink subValue: SubCounter; // @ObjectLink 接收 SubCounter
   build() {
     Text(`${this.subValue.counter}`)
+      .fontSize(20)
+      .margin(10)
       .onClick(() => {
         this.subValue.counter += 1;
       })
   }
 }
 ```
+
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526233-008.jpg)
+
 
 该方法使得@ObjectLink分别代理了ParentCounter和SubCounter的属性，这样对于这两个类的属性的变化都可以观察到，即都会对UI视图进行刷新。即使删除了上面所说的this.counter[0].incrCounter()，UI也会进行正确的刷新。
 
@@ -1473,6 +1538,7 @@ struct CounterComp {
       CounterChild({ subValue: this.value.subCounter })
       Divider().height(2)
     }
+    .width('100%')
   }
 }
 
@@ -1482,6 +1548,7 @@ struct CounterChild {
 
   build() {
     Text(`${this.subValue.counter}`)
+      .fontSize(20)
       .onClick(() => {
         this.subValue.counter += 1;
       })
@@ -1509,26 +1576,37 @@ struct ParentComp {
         )
         Divider().height(5)
         Text('Parent: reset entire counter')
-          .fontSize(20).height(50)
+          .fontSize(20)
+          .margin(5)
+          .height(50)
           .onClick(() => {
             this.counter = [new ParentCounter(1), new ParentCounter(2), new ParentCounter(3)];
           })
         Text('Parent: incr counter[0].counter')
-          .fontSize(20).height(50)
+          .fontSize(20)
+          .margin(5)
+          .height(50)
           .onClick(() => {
             this.counter[0].incrCounter();
             this.counter[0].incrSubCounter(10);
           })
         Text('Parent: set.counter to 10')
-          .fontSize(20).height(50)
+          .fontSize(20)
+          .margin(5)
+          .height(50)
           .onClick(() => {
             this.counter[0].setSubCounter(10);
           })
       }
+      .width('100%')
     }
   }
 }
 ```
+
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526234-009.gif)
+
 
 
 
@@ -1561,6 +1639,7 @@ struct Index {
     Column() {
       UserChild({ firstUserByObjectLink: this.users[0], firstUserByProp: this.users[0] })
     }
+    .width('100%')
   }
 }
 
@@ -1573,25 +1652,40 @@ struct UserChild {
     Column() {
       // 比较结果为false说明@Prop经过深拷贝后得到的对象与原对象已不是同一个对象
       Text(`firstUserByObjectLink equals firstUserByProp? : ${this.firstUserByObjectLink === this.firstUserByProp}`)
+        .fontSize(20)
+        .margin(10)
       Text(`UserChild firstUserByObjectLink.id: ${this.firstUserByObjectLink.id}`) // Text1
+        .fontSize(20)
+        .margin(10)
       Text(`UserChild firstUserByProp.id: ${this.firstUserByProp.id}`) // Text2
+        .fontSize(20)
+        .margin(10)
       Button('change @ObjectLink value')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.firstUserByObjectLink.id++;
         })
       Button('change @Prop value')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.firstUserByProp.id++;
         })
     }
+    .width('100%')
   }
 }
 ```
 
+
+![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526235-010.gif)
+
+
 上面的示例关系如图所示：
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526230-003.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/PoJXtg37SXSXeh1qYsItJg/zh-cn_image_0000002685925549.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6189548222C9676047856B8DD10E8BE3B4F674790C2A956464A8FE945729EBE4)
 
 
 
@@ -1692,6 +1786,10 @@ struct DelayedChangeIndex {
 }
 ```
 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/snoXwlVXSIKWacvlUjkuiQ/zh-cn_image_0000002656005870.png?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=F5BB0AC5C4EAB2F01C5F3D83624A603054DF01F130E0A08BAD1FFDF88A20FB55)
+
+
 上文的示例代码将定时器修改移入到组件内，此时界面显示时会先显示“The value of renderClass is: false”。待定时器触发时，renderClass的值改变，触发[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)回调，此时界面刷新显示“The value of renderClass is: true”，日志输出“The value of renderClass is changed to: true”。
 
 因此，更推荐开发者在组件中对@Observed装饰的类成员变量进行修改，以实现刷新。
@@ -1740,7 +1838,10 @@ struct Parent {
 
   build() {
     Column() {
-      Text(this.info.person.name).height(40)
+      Text(this.info.person.name)
+        .fontSize(20)
+        .margin(10)
+        .height(40)
       Child({
         per: this.info.person, clickEvent: () => {
           hilog.info(DOMAIN, TAG, `:::clickEvent before ${this.info.person.name}`); // 1
@@ -1749,6 +1850,7 @@ struct Parent {
         }
       })
     }
+    .width('100%')
   }
 }
 
@@ -1764,11 +1866,14 @@ struct Child {
   build() {
     Column() {
       Button(this.per.name)
+        .width(300)
+        .margin(10)
         .height(40)
         .onClick(() => {
           this.onClickType();
         })
     }
+    .width('100%')
   }
 
   private onClickType() {
@@ -1779,6 +1884,10 @@ struct Child {
   };
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/fjfgskNdSnODxH7U7YzuXQ/zh-cn_image_0000002655845950.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=65EB48BB1D729EE2961773899A944918DB9D2C8AB1D451E80EEF27ECD8A30826)
+
 
 @ObjectLink的数据源更新依赖其父组件，当父组件中数据源改变引起父组件刷新时，会重新设置子组件@ObjectLink的数据源。这个过程不是在父组件数据源变化后立刻发生的，而是在父组件实际刷新时才会进行。上述示例中，Parent包含Child，Parent传递箭头函数给Child，在点击时，日志打印顺序是1-2-3-4-5，打印到日志4时，点击事件流程结束，此时仅仅是将子组件Child标记为需要父组件更新的节点，因此日志4打印的this.per.name的值仍为Bob，等到父组件真正更新时，才会更新Child的数据源。
 
@@ -1883,7 +1992,7 @@ struct Index {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526230-004.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/8m5QfcMMRhqj615YLuFY6A/zh-cn_image_0000002686085379.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=083EF7376C18ECD12D30E58AA2E847636A92E432E59C3ADD1CB93FBF48554029)
 
 
 
@@ -2172,4 +2281,4 @@ struct ChildComponent {
 ```
 
 
-![](assets/@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化/file-20260525091526230-005.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/2wdBOUVjT0e0I4vfby6Q6w/zh-cn_image_0000002685925551.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6F44F71B100A55FBA1A48FD5E427D8778CBDC52D6288F983819E1648B4174439)

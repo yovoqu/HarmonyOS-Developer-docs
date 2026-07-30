@@ -1,6 +1,6 @@
 # Constants
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-c
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -11,8 +11,8 @@
   
 | 名称 | 类型 | 只读 | 说明 |
 | --- | --- | --- | --- |
-| DEFAULT_VOLUME_GROUP_ID9+ | number | 是 | 默认音量组id。 系统能力： SystemCapability.Multimedia.Audio.Volume |
-| DEFAULT_INTERRUPT_GROUP_ID9+ | number | 是 | 默认音频中断组id。 系统能力： SystemCapability.Multimedia.Audio.Interrupt |
+| DEFAULT_VOLUME_GROUP_ID9+ | number | 是 | 默认音量组ID。 系统能力： SystemCapability.Multimedia.Audio.Volume |
+| DEFAULT_INTERRUPT_GROUP_ID9+ | number | 是 | 默认音频中断组ID。 系统能力： SystemCapability.Multimedia.Audio.Interrupt |
  
  
 **示例：**

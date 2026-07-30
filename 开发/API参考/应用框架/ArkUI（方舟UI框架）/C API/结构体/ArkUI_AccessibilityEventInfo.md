@@ -1,6 +1,6 @@
 # ArkUI_AccessibilityEventInfo
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_AccessibilityEventInfo ArkUI_AccessibilityEventInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-无障碍事件信息。当无障碍服务或辅助应用要求控件执行操作后，需要发送执行成功事件。
+无障碍事件信息。当无障碍服务或辅助应用要求控件执行操作后，应用需发送执行成功事件以通知操作结果，适用于需要向无障碍服务反馈操作执行情况的场景。
  
 **起始版本：** 13
  

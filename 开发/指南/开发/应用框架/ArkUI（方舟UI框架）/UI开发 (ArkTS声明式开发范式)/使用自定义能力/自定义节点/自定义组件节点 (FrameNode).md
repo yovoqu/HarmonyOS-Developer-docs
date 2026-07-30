@@ -1,6 +1,6 @@
 # 自定义组件节点 (FrameNode)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-framenode
 
@@ -166,7 +166,7 @@ class MyNodeController extends NodeController {
           frameNode?.clearChildren();
           hilog.info(0x0000, `${TEST_TAG} clearChildren success `, 'success');
         } catch (err) {
-          hilog.error(0x0000, `${TEST_TAG} clearChildren fail: (err as BusinessError).code:
+          hilog.error(0x0000, `${TEST_TAG} clearChildren fail: ${(err as BusinessError).code}:
           ${(err as BusinessError).message}`, 'clearChildren error');
         }
       }, 4000)
@@ -294,10 +294,10 @@ struct Index {
               .fontSize(16)
               .width(400)
               .onClick(() => {
-                // 对FrameNode节点进行进行查询。当前节点为NodeContainer的子节点。
+                // 对FrameNode节点进行查询。当前节点为NodeContainer的子节点。
                 this.result = this.myNodeController.testInterfaceAboutSearch(this.myNodeController?.rootNode);
                 setTimeout(() => {
-                  // 对FrameNode节点进行进行查询。rootNode下的第一个子节点。
+                  // 对FrameNode节点进行查询。rootNode下的第一个子节点。
                   this.result = this.myNodeController.testInterfaceAboutSearch(this.myNodeController?.frameNode);
                 }, 2000)
               })
@@ -309,7 +309,7 @@ struct Index {
               .fontSize(16)
               .width(400)
               .onClick(() => {
-                // 对BuilderNode代理节点进行进行查询。当前节点为BuilderNode中的Column节点。
+                // 对BuilderNode代理节点进行查询。当前节点为BuilderNode中的Column节点。
                 this.result =
                   this.myNodeController.testInterfaceAboutSearch(this.myNodeController?.buttonNode?.getFrameNode());
               })
@@ -527,7 +527,7 @@ struct Index {
         Button('modify ArkTS-FrameNode')
           .onClick(() => {
             // 获取到的是当前页面中的开发者创建的FrameNode对象，该节点可修改。即节点大小与位置。
-            hilog.info(0x0000, `Check the weather the node can be modified ${this.myNodeController?.frameNode
+            hilog.info(0x0000, `Check the whether the node can be modified ${this.myNodeController?.frameNode
             ?.isModifiable()}`, 'isClicked');
             this.myNodeController.modifyNode(this.myNodeController?.frameNode, { width: 150, height: 100 }, {
               x: 100,
@@ -537,7 +537,7 @@ struct Index {
         Button('modify FrameNode get by BuilderNode')
           .onClick(() => {
             // 获取到的是当前页面中的BuilderNode的根节点，该节点不可修改。即节点大小与位置未发生改变。
-            hilog.info(0x0000, `Check the weather the node can be modified
+            hilog.info(0x0000, `Check the whether the node can be modified
             ${this.myNodeController?.buttonNode?.getFrameNode()
             ?.isModifiable()}`, 'isClicked');
             this.myNodeController.modifyNode(this.myNodeController?.buttonNode?.getFrameNode(), {
@@ -549,7 +549,7 @@ struct Index {
           .onClick(() => {
             // rootNode调用getParent()获取到的是当前页面中的NodeContainer节点，该节点不可修改。即节点大小与位置未发生改变。
             hilog.info(0x0000,
-              `Check the weather the node can be modified ${this.myNodeController?.rootNode?.getParent()
+              `Check the whether the node can be modified ${this.myNodeController?.rootNode?.getParent()
               ?.isModifiable()}`, 'isClicked');
             this.myNodeController.modifyNode(this.myNodeController?.rootNode?.getParent(), {
               width: 500,
@@ -573,9 +573,9 @@ struct Index {
         Button('add click event to ArkTS-FrameNode')
           .onClick(() => {
             // 获取到的是当前页面中的开发者创建的FrameNode对象，该节点可增加点击事件。
-            // 增加的点击事件参与事件竞争，即点击事件会在该节点被消费且不不再向父组件冒泡。
+            // 增加的点击事件参与事件竞争，即点击事件会在该节点被消费且不再向父组件冒泡。
             hilog.info(0x0000,
-              `Check the weather the node can be modified ${this.myNodeController?.rootNode?.getParent()
+              `Check the whether the node can be modified ${this.myNodeController?.rootNode?.getParent()
               ?.isModifiable()}`, 'isClicked');
             this.myNodeController.addClickEvent(this.myNodeController?.frameNode);
           })
@@ -583,7 +583,7 @@ struct Index {
           .onClick(() => {
             // 获取到的是当前页面中的BuilderNode的根节点，该类节点可增加点击事件。
             // 点击的时候优先回调通过系统组件接口设置的click事件回调，然后回调通过commonEvent增加的click监听。
-            hilog.info(0x0000, `Check the weather the node can be modified
+            hilog.info(0x0000, `Check the whether the node can be modified
             ${this.myNodeController?.buttonNode?.getFrameNode()
             ?.isModifiable()}`, 'isClicked');
             this.myNodeController.addClickEvent(this.myNodeController?.buttonNode?.getFrameNode());
@@ -592,7 +592,7 @@ struct Index {
           .onClick(() => {
             // rootNode调用getParent()获取到的是当前页面中的NodeContainer节点，该类节点可增加点击事件。
             hilog.info(0x0000,
-              `Check the weather the node can be modified ${this.myNodeController?.rootNode?.getParent()
+              `Check the whether the node can be modified ${this.myNodeController?.rootNode?.getParent()
               ?.isModifiable()}`, 'isClicked');
             this.myNodeController.addClickEvent(this.myNodeController?.rootNode?.getParent());
           })
@@ -1094,164 +1094,168 @@ struct Index {
           .borderWidth(1)
           .width(300)
           .height(100)
-      }
+      }.height(200)
 
-      Button('getUserConfigBorderWidth')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getUserConfigBorderWidth(node);
-            }
-          }
-        })
-      Button('getUserConfigPadding')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getUserConfigPadding(node);
-            }
-          }
-        })
-      Button('getUserConfigMargin')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getUserConfigMargin(node);
-            }
-          }
-        })
-      Button('getUserConfigSize')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getUserConfigSize(node);
-            }
-          }
-        })
-      Button('getId')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getId(node);
-            }
-          }
-        })
-      Button('getUniqueId')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getUniqueId(node);
-            }
-          }
-        })
-      Button('getNodeType')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getNodeType(node);
-            }
-          }
-        })
-      Button('getOpacity')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getOpacity(node);
-            }
-          }
-        })
-      Button('isVisible')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.isVisible(node);
-            }
-          }
-        })
-      Button('isClipToFrame')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.isClipToFrame(node);
-            }
-          }
-        })
-      Button('isAttached')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.isAttached(node);
-            }
-          }
-        })
-      Button('remove Text')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('textTypeNode') || null;
-            if (node) {
-              this.myNodeController.removeChild(node);
-              this.myNodeController.isAttached(node);
-            }
-          }
-        })
-      Button('getInspectorInfo')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              this.myNodeController.getInspectorInfo(node);
-            }
-          }
-        })
-      Button('getCustomProperty')
-        .width(300)
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          if (uiContext) {
-            const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
-            if (node) {
-              const property = node.getCustomProperty('key1');
-              hilog.info(0x0000, TEST_TAG, JSON.stringify(property));
-            }
-          }
-        })
+      Scroll() {
+        Column({ space: 20 }) {
+          Button('getUserConfigBorderWidth')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getUserConfigBorderWidth(node);
+                }
+              }
+            })
+          Button('getUserConfigPadding')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getUserConfigPadding(node);
+                }
+              }
+            })
+          Button('getUserConfigMargin')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getUserConfigMargin(node);
+                }
+              }
+            })
+          Button('getUserConfigSize')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getUserConfigSize(node);
+                }
+              }
+            })
+          Button('getId')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getId(node);
+                }
+              }
+            })
+          Button('getUniqueId')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getUniqueId(node);
+                }
+              }
+            })
+          Button('getNodeType')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getNodeType(node);
+                }
+              }
+            })
+          Button('getOpacity')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getOpacity(node);
+                }
+              }
+            })
+          Button('isVisible')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.isVisible(node);
+                }
+              }
+            })
+          Button('isClipToFrame')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.isClipToFrame(node);
+                }
+              }
+            })
+          Button('isAttached')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.isAttached(node);
+                }
+              }
+            })
+          Button('remove Text')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('textTypeNode') || null;
+                if (node) {
+                  this.myNodeController.removeChild(node);
+                  this.myNodeController.isAttached(node);
+                }
+              }
+            })
+          Button('getInspectorInfo')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  this.myNodeController.getInspectorInfo(node);
+                }
+              }
+            })
+          Button('getCustomProperty')
+            .width(300)
+            .onClick(() => {
+              const uiContext: UIContext = this.getUIContext();
+              if (uiContext) {
+                const node: FrameNode | null = uiContext.getFrameNodeById('buildText') || null;
+                if (node) {
+                  const property = node.getCustomProperty('key1');
+                  hilog.info(0x0000, TEST_TAG, JSON.stringify(property));
+                }
+              }
+            })
+        }
+      }
     }
     .padding({
       left: 35,
@@ -1496,7 +1500,7 @@ class MyNodeAdapter extends NodeAdapter {
   // 刷新数据
   refreshData(): void {
     let items = this.getAllAvailableItems()
-    hilog.info(0x0000, `TEST_TAG ' get All items:' + ${items.length}`, 'isCLicked');
+    hilog.info(0x0000, `${TEST_TAG} get All items: ${items.length}`, 'isClicked');
     this.totalNodeCount -= 1;
     this.reloadAllItems();
   }
@@ -1566,7 +1570,7 @@ class MyNodeAdapter extends NodeAdapter {
   }
 
   onCreateChild(index: number): FrameNode {
-    hilog.info(0x0000, `TEST_TAG + ' onCreateChild:' + ${index}`, 'onCreateChild');
+    hilog.info(0x0000, `${TEST_TAG} onCreateChild: ${index}`, 'onCreateChild');
     // 缓存池有可用节点时，优先复用
     if (this.cachePool.length > 0) {
       let cacheNode = this.cachePool.pop();
@@ -1632,12 +1636,12 @@ struct Index {
     this.adapterController.nodeAdapter?.dispose();
   }
   build() {
-    Column() {
+    Column({ space: 10 }) {
       Text('ListNode Adapter');
       NodeContainer(this.adapterController)
         .width(300).height(300)
         .borderWidth(1).borderColor(Color.Black)
-      Row() {
+      Row({ space: 5 }) {
         Button('Reload')
           .onClick(() => {
             this.adapterController.nodeAdapter?.reloadData(50);
@@ -1652,7 +1656,7 @@ struct Index {
           })
       }
 
-      Row() {
+      Row({ space: 5 }) {
         Button('Remove')
           .onClick(() => {
             this.adapterController.nodeAdapter?.removeData(10, 10);
@@ -1880,7 +1884,7 @@ class MyNodeController extends NodeController {
 
   getChildWithExpand() {
     const childNode = this.rootNode!.getChild(3, ExpandMode.EXPAND);
-    hilog.info(0x0000, `${TEST_TAG} getChild(3, ExpandMode.EXPAND): childNode!.getId()`, 'getId');
+    hilog.info(0x0000, `${TEST_TAG} getChild(3, ExpandMode.EXPAND): ${childNode!.getId()}`, 'getId');
     if (childNode!.getId() === 'N3') {
       hilog.info(0x0000, `${TEST_TAG} getChild(3, ExpandMode.EXPAND)  result: success.`, 'success');
     } else {
@@ -1890,7 +1894,7 @@ class MyNodeController extends NodeController {
 
   getChildWithLazyExpand() {
     const childNode = this.rootNode!.getChild(3, ExpandMode.LAZY_EXPAND);
-    hilog.info(0x0000, `${TEST_TAG} getChild(3, ExpandMode.LAZY_EXPAND): childNode!.getId()`, 'getId');
+    hilog.info(0x0000, `${TEST_TAG} getChild(3, ExpandMode.LAZY_EXPAND): ${childNode!.getId()}`, 'getId');
     if (childNode!.getId() === 'N3') {
       hilog.info(0x0000, `${TEST_TAG} getChild(3, ExpandMode.LAZY_EXPAND) result: success.`, 'success');
     } else {
@@ -2103,7 +2107,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/ML66uZOvRXOF3omFssmUOw/zh-cn_image_0000002677665875.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=BEFCF839E0AD927A54F68C361D66ECA8E829FD552C862FC570F7447A6CA61D66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/fLwdd5j2ScuasSTVi__8MQ/zh-cn_image_0000002686086001.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=165A344BAE0B995C36289DD860AE8C97D6A53CB5AE1BCC5930B3E3273CEEF489)
 
 
 
@@ -2207,7 +2211,7 @@ struct ListNodeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/NeGs6H9pT_m_Civ1PzqbnQ/zh-cn_image_0000002647745994.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=7747DCDAC3FFBFFD55499EF19A9AE6714FB1722F7A18F4401C93BF12853A2338)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/nFSyB_fTQRObaMnCGtp5lg/zh-cn_image_0000002685926173.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=54CCC361FECE039BCA0B155941DB1313D97CEC8A55DBF0B8B2D65C3DB4A95EE0)
 
 
 
@@ -2236,7 +2240,7 @@ struct Index {
     if (isOnRenderTree) {
       hilog.info(1, 'frameNode', 'is on render tree');
     } else {
-      hilog.info(1, 'frameNode', 'is not no render tree');
+      hilog.info(1, 'frameNode', 'is not on render tree');
     }
   }
 
@@ -2270,7 +2274,7 @@ struct Index {
         let textNode1 = this.getUIContext().getFrameNodeById('hello1');
         if (textNode1 != null) {
           let isOnRenderTree = textNode1!.isInRenderState();
-          isOnRenderTree ? this.message = 'is on render tree' : this.message = 'is not on render tree';
+          this.message = isOnRenderTree ? 'is on render tree' : 'is not on render tree';
           hilog.info(1, 'frameNode', 'is hello1 on RenderTree: %{public}s', isOnRenderTree);
         }
       })
@@ -2282,4 +2286,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/MT8bAIPUSxGW5AfZzv32-w/zh-cn_image_0000002647586084.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=87FBBCCCDA9FE7A2A56D4579C30D4692BE311FDBA0CF77C642F64ECF7244ED1C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/2JaqROwxTIymln5rytcxjQ/zh-cn_image_0000002656006494.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=3258265BCB9B508083ECE80FB21BE56D25DF0FC520B4EBA1C25C498015828183)

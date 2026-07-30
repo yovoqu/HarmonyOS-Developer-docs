@@ -15,4 +15,4 @@
 将工作流模式结束节点中的流式输出打开，即可显示markdown格式文档。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/Sq6v_3dPSyajVmJ0DxNikA/zh-cn_image_0000002628394850.png?HW-CC-KV=V1&HW-CC-Date=20260723T014053Z&HW-CC-Expire=86400&HW-CC-Sign=FEBAB56B14977622B2819BA8ED17889A4994F900ADF87829607BFE77CC52619C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/Sq6v_3dPSyajVmJ0DxNikA/zh-cn_image_0000002628394850.png?HW-CC-KV=V1&HW-CC-Date=20260730T072734Z&HW-CC-Expire=86400&HW-CC-Sign=90D0E71F6255F79A9F4649D7178196FED516BDDF2538815540C5B771EACED10B)

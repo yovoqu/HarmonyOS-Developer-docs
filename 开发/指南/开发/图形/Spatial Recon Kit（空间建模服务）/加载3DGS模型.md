@@ -1,6 +1,6 @@
 # 加载3DGS模型
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-load
 

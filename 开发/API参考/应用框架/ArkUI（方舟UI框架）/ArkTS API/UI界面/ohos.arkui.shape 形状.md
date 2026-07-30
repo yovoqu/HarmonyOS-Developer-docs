@@ -1,11 +1,11 @@
 # @ohos.arkui.shape (形状)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-shape
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-在[clipShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clipshape12)和[maskShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#maskshape12)接口中可以传入对应的形状。
+@ohos.arkui.shape模块提供了CircleShape、EllipseShape、PathShape、RectShape等多种形状定义，用于在[clipShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clipshape12)和[maskShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#maskshape12)接口中传入对应的形状，实现对组件的裁剪和遮罩效果。适用于需要将组件裁剪为圆形、椭圆、矩形等特定形状，或通过形状遮罩实现视觉效果的场景，如头像裁剪、图标遮罩等。
  
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
@@ -17,7 +17,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { CircleShape, EllipseShape, PathShape, RectShape } from "@kit.ArkUI";
+import { CircleShape, EllipseShape, PathShape, RectShape } from '@kit.ArkUI';
 ```
  
   
@@ -56,7 +56,7 @@ constructor(options?: ShapeSize)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ShapeSize | 否 | 形状的大小。 |
+| options | ShapeSize | 否 | 形状的大小，包含width（宽度）和height（高度）属性，用于设置形状的尺寸。不传入时使用默认尺寸，默认宽度0vp，默认高度0vp。 |
  
  
   
@@ -95,7 +95,7 @@ constructor(options?: ShapeSize)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ShapeSize | 否 | 形状的大小。 |
+| options | ShapeSize | 否 | 形状的大小，用于自定义椭圆的宽高尺寸。不传入时width和height默认值为0vp。 |
  
  
   
@@ -104,7 +104,7 @@ constructor(options?: ShapeSize)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于clipShape和maskShape接口的路径。
+用于clipShape和maskShape接口的路径形状。
  
 继承自[CommonShapeMethod](#commonshapemethod)。
  
@@ -164,7 +164,7 @@ commands(commands: string): PathShape
   
 | 类型 | 说明 |
 | --- | --- |
-| PathShape | 返回PathShape对象。 |
+| PathShape | 返回设置路径绘制指令后的PathShape对象，可用于链式调用继续配置路径形状。 |
  
  
   
@@ -233,7 +233,7 @@ radiusWidth(rWidth: number | string): RectShape
   
 | 类型 | 说明 |
 | --- | --- |
-| RectShape | 返回RectShape对象。 |
+| RectShape | 返回设置圆角半径后的RectShape对象，可用于链式调用继续配置矩形形状。 |
  
  
   
@@ -263,7 +263,7 @@ radiusHeight(rHeight: number | string): RectShape
   
 | 类型 | 说明 |
 | --- | --- |
-| RectShape | 返回RectShape对象。 |
+| RectShape | 返回设置圆角半径高度后的RectShape对象，可用于链式调用继续配置矩形形状。 |
  
  
   
@@ -286,14 +286,14 @@ radius(radius: number | string | Array<number  |  string>): RectShape
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radius | number \| string \| Array<number \| string> | 是 | 矩形形状的圆角半径。仅接受数组的前四个元素，分别为矩形左上，右上，左下，右下的圆角半径。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 取值为异常值时按照0vp处理。 |
+| radius | number \| string \| Array<number \| string> | 是 | 矩形形状的圆角半径。仅接受数组的前四个元素，分别为矩形左上、右上、左下、右下的圆角半径。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 取值为异常值时按照0vp处理。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| RectShape | 返回RectShape对象。 |
+| RectShape | 返回设置圆角半径宽度后的RectShape对象，可用于链式调用继续配置矩形形状。 |
  
  
   
@@ -302,7 +302,7 @@ radius(radius: number | string | Array<number  |  string>): RectShape
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-形状的尺寸参数。
+形状的大小参数。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
@@ -312,8 +312,8 @@ radius(radius: number | string | Array<number  |  string>): RectShape
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width | number \| string | 否 | 是 | 形状的宽度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 取值为异常值时按照0vp处理。 |
-| height | number \| string | 否 | 是 | 形状的高度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 取值为异常值时按照0vp处理。 |
+| width | number \| string | 否 | 是 | 形状的宽度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 默认值：0vp 取值为异常值时按照0vp处理。 不设置时默认值为0vp。 |
+| height | number \| string | 否 | 是 | 形状的高度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 默认值：0vp 取值为异常值时按照0vp处理。 不设置时默认值为0vp。 |
  
  
   
@@ -332,7 +332,7 @@ PathShape的构造函数参数。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| commands | string | 否 | 是 | 绘制路径的指令。更多说明请参考commands支持的绘制命令。 |
+| commands | string | 否 | 是 | 绘制路径的指令。默认值为空字符串，不设置时不绘制路径。更多说明请参考commands支持的绘制命令。 |
  
  
   
@@ -362,7 +362,7 @@ RectShape 的构造函数参数。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-RectShape 带有半径的构造函数参数。
+RectShape 带有圆角半径的构造函数参数。
  
 继承自[ShapeSize](#shapesize)。
  
@@ -374,8 +374,8 @@ RectShape 带有半径的构造函数参数。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| radiusWidth | number \| string | 否 | 是 | 矩形形状圆角半径的宽度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 取值为异常值时按照0vp处理。 |
-| radiusHeight | number \| string | 否 | 是 | 矩形形状圆角半径的高度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 取值为异常值时按照0vp处理。 |
+| radiusWidth | number \| string | 否 | 是 | 矩形形状圆角半径的宽度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 默认值：0vp 取值为异常值时按照0vp处理。 |
+| radiusHeight | number \| string | 否 | 是 | 矩形形状圆角半径的高度。 类型为number时取值范围是[0, +∞)，string时是Length。 单位：vp 默认值：0vp 取值为异常值时按照0vp处理。 |
  
  
   
@@ -488,7 +488,7 @@ size(size: SizeOptions): T
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-常见的形状方法。
+提供形状的偏移、填充和位置设置等通用方法的基类。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
@@ -564,7 +564,7 @@ fill(color: ResourceColor): T
 
 position(position: Position): T
  
-设置形状的位置。
+形状的位置坐标。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
@@ -576,7 +576,7 @@ position(position: Position): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| position | Position | 是 | 设置形状的位置。 |
+| position | Position | 是 | 形状的位置。 |
  
  
 **返回值：**
@@ -617,6 +617,7 @@ struct ShapeExample {
       Text('PathShape, fill').fontSize(20).width('75%').fontColor('#DCDCDC')
       // $r('app.media.startIcon')需替换为开发者所需的资源文件
       Image($r('app.media.startIcon'))
+        // 使用SVG路径指令绘制三角形作为遮罩形状
         .maskShape(new PathShape().commands('M100 0 L200 240 L0 240 Z').fill(Color.Red))
         .width('500px').height('280px')
     
@@ -633,4 +634,4 @@ struct ShapeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/LzfrGYTATiCGApbMniqsdg/zh-cn_image_0000002659221437.png?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=C5DCB9355B79FE93356BCDD4E7A0A0A0817A0E73F1CBBA9D8672AD06EACED5CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/xYJM0effTUSqAhuja2yZqA/zh-cn_image_0000002656008170.png?HW-CC-KV=V1&HW-CC-Date=20260730T071443Z&HW-CC-Expire=86400&HW-CC-Sign=ED0183F7A410F4A76DC7CD3685771F8DA5BFAB32A41E271F59A674CDD66E89BD)

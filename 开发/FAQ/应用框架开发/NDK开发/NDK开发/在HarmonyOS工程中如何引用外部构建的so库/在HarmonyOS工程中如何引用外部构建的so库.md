@@ -55,7 +55,7 @@ function test() {
 
 
 5. 工程关键部分结构。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/j6-t-5FdTlqKvrOgj5Cv_Q/zh-cn_image_0000002659138349.png?HW-CC-KV=V1&HW-CC-Date=20260723T012520Z&HW-CC-Expire=86400&HW-CC-Sign=16BC03197F1D5762F650423354E4A9DA75895C096EDEB3B87626DF3FCD53D84F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/j6-t-5FdTlqKvrOgj5Cv_Q/zh-cn_image_0000002659138349.png?HW-CC-KV=V1&HW-CC-Date=20260730T072315Z&HW-CC-Expire=86400&HW-CC-Sign=8BCB095985BC5FC551AED10F38819910C4CB012C18EB06E7EA97CE1EFE3CE56C)
 
 - 注意事项：在引用过程中除了将已经适配HarmonyOS的libxxx.so库文件置于entry/libs对应的架构目录下外，还需要将编译三方so库时配套产生的libc++_shared.so库文件置于该目录下。
 
@@ -87,7 +87,7 @@ target_include_directories(entry PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/
 4. 工程关键部分结构。假设xxx代表的是三方库名称，xxx文件夹下包含了arm64架构生成的二进制文件，架构目录下包含了该库的头文件(include)以及二进制文件(lib)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/_H9zIgPsQlmVMgiwXrr8nw/zh-cn_image_0000002629058998.png?HW-CC-KV=V1&HW-CC-Date=20260723T012520Z&HW-CC-Expire=86400&HW-CC-Sign=1D482CE5A15B82169891375B1A3B32BDC2A578B6029FC2506ECE9FD125BCEE17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/_H9zIgPsQlmVMgiwXrr8nw/zh-cn_image_0000002629058998.png?HW-CC-KV=V1&HW-CC-Date=20260730T072315Z&HW-CC-Expire=86400&HW-CC-Sign=21EF38E8C8D3E13B5E24E52ADBDFB54ED015C3174427AEFD64D5145977A1DEE7)
 
 - 注意事项。1. 应用在引用动态库的时候是通过soname来查找的，所以我们需要将名字为soname的库文件拷贝到entry/libs/${OHOS_ARCH}/目录下。soname查看方法：llvm-readelf -d libxxx.so。
 

@@ -1,0 +1,17 @@
+# Calendar Kit
+
+更新时间：2026-07-28 11:14:31
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-calendarkit-7002
+
+| 操作 | 旧版本 | 新版本 | d.ts文件 |
+| --- | --- | --- | --- |
+| 权限变更 | 类名：Calendar； API声明：addEvent(event: Event): Promise&lt;number&gt;; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR | 类名：Calendar； API声明：addEvent(event: Event): Promise&lt;number&gt;; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 权限变更 | 类名：Calendar； API声明：addEvent(event: Event, callback: AsyncCallback&lt;number&gt;): void; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR | 类名：Calendar； API声明：addEvent(event: Event, callback: AsyncCallback&lt;number&gt;): void; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 权限变更 | 类名：Calendar； API声明：addEvents(events: Event[]): Promise&lt;void&gt;; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR | 类名：Calendar； API声明：addEvents(events: Event[]): Promise&lt;void&gt;; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 权限变更 | 类名：Calendar； API声明：addEvents(events: Event[], callback: AsyncCallback&lt;void&gt;): void; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR | 类名：Calendar； API声明：addEvents(events: Event[], callback: AsyncCallback&lt;void&gt;): void; 差异内容：ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 权限变更 | 类名：Calendar； API声明：getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR | 类名：Calendar； API声明：getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 权限变更 | 类名：Calendar； API声明：getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>): void; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR | 类名：Calendar； API声明：getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>): void; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 权限变更 | 类名：Calendar； API声明：getEvents(callback: AsyncCallback<Event[]>): void; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR | 类名：Calendar； API声明：getEvents(callback: AsyncCallback<Event[]>): void; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 权限变更 | 类名：Calendar； API声明：queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR | 类名：Calendar； API声明：queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>; 差异内容：ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23] | api/@ohos.calendarManager.d.ts |
+| 新增API | NA | 类名：Calendar； API声明：openEventEditPage(id: number): Promise&lt;void&gt;; 差异内容：openEventEditPage(id: number): Promise&lt;void&gt;; | api/@ohos.calendarManager.d.ts |

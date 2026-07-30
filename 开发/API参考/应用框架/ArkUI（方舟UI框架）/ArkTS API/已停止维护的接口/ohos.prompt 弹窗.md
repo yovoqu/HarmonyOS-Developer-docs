@@ -1,6 +1,6 @@
 # @ohos.prompt (弹窗)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-prompt
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -45,7 +45,7 @@ showToast(options: ShowToastOptions): void
 import prompt from '@ohos.prompt'
 prompt.showToast({
   message: 'Message Info',
-    duration: 2000
+  duration: 2000
 });
 ```
  
@@ -78,7 +78,7 @@ prompt.showToast({
 
 showDialog(options: ShowDialogOptions): Promise&lt;ShowDialogSuccessResponse&gt;
  
-创建并显示对话框，对话框响应后同步返回结果。
+创建并显示对话框，使用Promise异步回调。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -142,7 +142,7 @@ showDialog(options: ShowDialogOptions, callback: AsyncCallback&lt;ShowDialogSucc
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ShowDialogOptions | 是 | 页面显示对话框信息描述。 |
+| options | ShowDialogOptions | 是 | 对话框选项。 |
 | callback | AsyncCallback&lt;ShowDialogSuccessResponse&gt; | 是 | 对话框响应结果回调。 |
  
  
@@ -265,7 +265,7 @@ prompt.showActionMenu({
 
 showActionMenu(options: ActionMenuOptions): Promise&lt;ActionMenuSuccessResponse&gt;
  
-创建并显示操作菜单，菜单响应后同步返回结果。
+创建并显示操作菜单，使用Promise异步回调。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -309,7 +309,7 @@ prompt.showActionMenu({
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/POk7BCz_RRCnss9ttsGCXg/zh-cn_image_0000002628702274.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014320Z&HW-CC-Expire=86400&HW-CC-Sign=061F3F194F39BADD72B53E14417985793D6989C8E159EF992A5220BC0EED8192)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/48t-DZCMSpudFQmmsemY4Q/zh-cn_image_0000002686087709.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071450Z&HW-CC-Expire=86400&HW-CC-Sign=68D65448EB0281364B6B616075CCCB9CD194366E8A63B9926F41C00FB1492B1F)
 
  
   

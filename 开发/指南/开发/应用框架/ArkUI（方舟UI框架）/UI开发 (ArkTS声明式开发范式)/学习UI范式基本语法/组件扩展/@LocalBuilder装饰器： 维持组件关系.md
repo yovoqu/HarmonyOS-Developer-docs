@@ -1,10 +1,10 @@
 # @LocalBuilder装饰器： 维持组件关系
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder
 
-当开发者使用局部@Builder进行引用数据传递时，需要考虑组件的父子关系。然而在使用.bind(this)的方式更改函数调用上下文后，会出现组件的父子关系与状态管理的父子关系不一致的问题。为了解决这一问题，引入@LocalBuilder装饰器。@LocalBuilder拥有和局部@Builder相同的功能，且比局部@Builder能够更好的确定组件的父子关系和状态管理的父子关系。
+当开发者使用局部@Builder进行引用数据传递时，需要考虑组件的父子关系。然而在使用.bind(this)的方式更改函数调用上下文后，会出现组件的父子关系与状态管理的父子关系不一致的问题。为了解决这一问题，引入[@LocalBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-localbuilder#localbuilder)装饰器。@LocalBuilder拥有和局部@Builder相同的功能，且比局部@Builder能够更好的确定组件的父子关系和状态管理的父子关系。
 
 在阅读本文档前，建议提前阅读：[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)。
 
@@ -65,6 +65,7 @@ struct Child {
     Column() {
       this.customBuilderParam()
     }
+    .width('100%')
   }
 }
 
@@ -76,26 +77,35 @@ struct Parent {
   @Builder
   componentBuilder() {
     Text(`${this.label}`) // @Builder内的this指向实际调用点的组件，在这个用例中因为调用点在Child组件内，所以this实际指向Child组件
+      .fontSize(20)
+      .margin(10)
   }
 
   @LocalBuilder
   componentLocalBuilder() {
     Text(`${this.label}`) // @LocalBuilder内的this指向声明@LocalBuilder函数Parent组件
+      .fontSize(20)
+      .margin(10)
   }
 
   build() {
     Column() {
       Child({ customBuilderParam: this.componentBuilder }) // Child组件内调用customBuilderParam显示字符串Child。
-      Child({ customBuilderParam: this.componentLocalBuilder }) // Child组件内调用customBuilderParam显示字符串Parent，传递函数本身写法。
+      Child({ customBuilderParam: this.componentLocalBuilder }) // 传递函数本身写法，Child组件内调用customBuilderParam显示字符串Parent。
       Child({
         customBuilderParam: () => {
           this.componentLocalBuilder()
         }
-      }) // Child组件内调用customBuilderParam显示字符串Parent，() => { 函数调用 }写法。
+      }) // () => { 函数调用 }写法，Child组件内调用customBuilderParam显示字符串Parent。
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/@LocalBuilder装饰器：%20维持组件关系/file-20260514130509123-3.png)
+
 
 
 
@@ -137,6 +147,8 @@ struct Parent {
   citeLocalBuilder(params: Binding<string>) {
     Row() {
       Text(`UseStateVarByReference: ${params.value}`)
+        .fontSize(20)
+        .margin(10)
     }
   }
 
@@ -145,13 +157,20 @@ struct Parent {
       // 通过UIUtils.makeBinding()方法和Binding类，实现@LocalBuilder函数中状态变量的刷新
       this.citeLocalBuilder(UIUtils.makeBinding<string>(() => this.variableValue))
       Button('Click me')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.variableValue = 'Hi World';
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/@LocalBuilder装饰器：%20维持组件关系/file-202607081039294d672d63.gif)
+
 
 
 
@@ -179,6 +198,8 @@ struct Parent {
   citeLocalBuilder(params: ReferenceType) {
     Row() {
       Text(`UseStateVarByReference: ${params.paramString}`)
+        .fontSize(20)
+        .margin(10)
     }
   };
 
@@ -186,13 +207,21 @@ struct Parent {
     Column() {
       // 按键值对写法进行传值，传入的参数发生变化，会引起citeLocalBuilder内的UI刷新
       this.citeLocalBuilder({ paramString: this.variableValue })
-      Button('Click me').onClick(() => {
-        this.variableValue = 'Hi World';
-      })
+      Button('Click me')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.variableValue = 'Hi World';
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/@LocalBuilder装饰器：%20维持组件关系/file-2026070810392987c36db6.png)
+
 
 按引用传递参数时，如果在@LocalBuilder函数内调用自定义组件，ArkUI提供$$作为按引用传递参数的范式。
 
@@ -210,6 +239,8 @@ struct HelloComponent {
   build() {
     Row() {
       Text(`HelloComponent===${this.message}`)
+        .fontSize(20)
+        .margin(10)
     }
   }
 }
@@ -224,8 +255,11 @@ struct Parent {
     Row() {
       Column() {
         Text(`citeLocalBuilder===${$$.paramString}`)
+          .fontSize(20)
+          .margin(10)
         HelloComponent({ message: $$.paramString })
       }
+      .width('100%')
     }
   }
 
@@ -233,13 +267,21 @@ struct Parent {
     Column() {
       // 按引用传递参数，传入的参数发生变化，会引起citeLocalBuilder内的UI刷新
       this.citeLocalBuilder({ paramString: this.variableValue })
-      Button('Click me').onClick(() => {
-        this.variableValue = 'Hi World';
-      })
+      Button('Click me')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.variableValue = 'Hi World';
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/5EooPHp9SSqYnLeWuTFUEg/zh-cn_image_0000002685925499.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=23E6758844DB517EE3A6FD55A66E4A4C4F8DA31343D6DD67F752D44269708D93)
+
 
 当子组件引用父组件的@LocalBuilder函数并传入状态变量时，状态变量的改变不会触发@LocalBuilder函数内的UI刷新。这是因为调用@LocalBuilder装饰的函数创建出来的组件绑定于父组件，而状态变量的刷新机制仅作用于当前组件及其子组件，对父组件无效。而使用@Builder修饰函数可触发UI刷新，原因在于@Builder改变了函数的this指向，使创建出来的组件绑定到子组件上，从而在子组件修改变量能够实现@Builder中的UI刷新。
 
@@ -260,24 +302,42 @@ struct Parent {
   componentBuilder($$: Data) {
     // 点击Button 触发UI刷新
     Text('builder + $$')
+      .fontSize(20)
+      .margin(10)
     Text(`${'this -> ' + this.label}`)
+      .fontSize(20)
+      .margin(10)
     Text(`${'size : ' + $$.size}`)
+      .fontSize(20)
+      .margin(10)
   }
 
   @LocalBuilder
   componentLocalBuilder($$: Data) {
     // 点击Button 不会触发UI刷新
     Text('LocalBuilder + $$ data')
+      .fontSize(20)
+      .margin(10)
     Text(`${'this -> ' + this.label}`)
+      .fontSize(20)
+      .margin(10)
     Text(`${'size : ' + $$.size}`)
+      .fontSize(20)
+      .margin(10)
   }
 
   @LocalBuilder
   contentLocalBuilderNoArgument() {
     // 点击Button 触发UI刷新
     Text('LocalBuilder + local data')
+      .fontSize(20)
+      .margin(10)
     Text(`${'this -> ' + this.label}`)
+      .fontSize(20)
+      .margin(10)
     Text(`${'size : ' + this.data.size}`)
+      .fontSize(20)
+      .margin(10)
   }
 
   build() {
@@ -289,6 +349,7 @@ struct Parent {
         data: this.data
       })
     }
+    .width('100%')
   }
 }
 
@@ -311,13 +372,20 @@ struct Child {
       this.contentLocalBuilder({ size: this.data.size })
       this.contentLocalBuilderNoArgument()
       Button('add child size')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.data.size += 1;
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/Z9MZFxqnSGyeIA_wUA7ZUQ/zh-cn_image_0000002656005820.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=2D6AB476C6A0BE2A22AB3620B7F1CAFAC363C62E25D5502D6F4E9E095809340B)
+
 
 
 
@@ -337,7 +405,10 @@ struct Parent {
   citeLocalBuilder(paramA1: string) {
     Row() {
       Text(`UseStateVarByValue: ${paramA1}`)
+        .fontSize(20)
+        .margin(10)
     }
+    .height('100%')
   }
 
   build() {
@@ -346,9 +417,14 @@ struct Parent {
       // 改变@State修饰的label值时，@LocalBuilder函数内的值不会发生改变
       this.citeLocalBuilder(this.label)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/ircy4ygoQRCBWzOth0lYUg/zh-cn_image_0000002655845900.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=AD7FF77926C0E691C42629FD3101AED095501B03443D293665D8DEC59D9ED2FA)
+
 
 
 
@@ -380,6 +456,7 @@ struct ChildPage {
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
     }
+    .margin(20)
   }
 }
 
@@ -399,6 +476,7 @@ struct ParentPage {
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
     }
+    .margin(20)
   }
 
   @LocalBuilder
@@ -411,6 +489,7 @@ struct ParentPage {
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
     }
+    .margin(20)
   }
 
   build() {
@@ -419,38 +498,18 @@ struct ParentPage {
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
       this.privateBuilder() // 调用局部@LocalBuilder
-      Line()
-        .width('100%')
-        .height(10)
-        .backgroundColor('#000000')
-        .margin(10)
       Text(`info2: ${this.info2.name}  ${this.info2.age}`) // Text2
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
       this.privateBuilderSecond() // 调用局部@LocalBuilder
-      Line()
-        .width('100%')
-        .height(10)
-        .backgroundColor('#000000')
-        .margin(10)
       Text(`info1: ${this.info1.name}  ${this.info1.age}`) // Text1
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
       ChildPage({ childInfo: this.info1 }) // 调用自定义组件
-      Line()
-        .width('100%')
-        .height(10)
-        .backgroundColor('#000000')
-        .margin(10)
       Text(`info2: ${this.info2.name}  ${this.info2.age}`) // Text2
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
       ChildPage({ childInfo: this.info2 }) // 调用自定义组件
-      Line()
-        .width('100%')
-        .height(10)
-        .backgroundColor('#000000')
-        .margin(10)
       Button('change info1&info2')
         .onClick(() => {
           this.info1 = { name: 'Cat', age: 18 }; // Text1不会刷新，原因是info1没被装饰器装饰，无法监听到值的改变。
@@ -460,6 +519,10 @@ struct ParentPage {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/fs3Km1PgT5-77bUeyzGDVw/zh-cn_image_0000002686085329.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=1CDC8CDAA56CE308BE9A557498AE5F82337F26DD8BCB045D4C5F28D327F5BB79)
+
 
 
 
@@ -568,7 +631,7 @@ struct Child {
 ```
 
 
-![](assets/@LocalBuilder装饰器：%20维持组件关系/file-202607081039294d672d63.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/ujD2ljqbRrilmGDEdRiNzw/zh-cn_image_0000002685925501.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=52F90CBEE34E60114F0497D439511945AC3660563FDD1D309ABC538EC5B57E68)
 
 
 
@@ -612,7 +675,7 @@ struct Page {
 ```
 
 
-![](assets/@LocalBuilder装饰器：%20维持组件关系/file-202607081039295a8c4d94.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/P_F43EDOQ3WmOF1vtoWwRg/zh-cn_image_0000002656005822.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=E823D9B7887A0EC741E8E79BB5A0085EFF4F4315A1BB616EDF2EF6FF7F197945)
 
 
 【正例】
@@ -652,4 +715,4 @@ struct Page {
 ```
 
 
-![](assets/@LocalBuilder装饰器：%20维持组件关系/file-2026070810392987c36db6.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/oVr2kce3Q1O7eXhV0nBunA/zh-cn_image_0000002655845902.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=F4A635B1BFE0025EF70396038D230D29BDA64DBC7718F04B3710D26A801DFA69)

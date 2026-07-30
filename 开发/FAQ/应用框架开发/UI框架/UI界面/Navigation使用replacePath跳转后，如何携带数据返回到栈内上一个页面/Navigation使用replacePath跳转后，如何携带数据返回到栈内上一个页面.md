@@ -10,7 +10,7 @@ PageA通过pushPath跳转到PageB，PageB通过replacePath方式跳转到PageB�
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/bepPEnwaS9yNq4tpsNWu0g/zh-cn_image_0000002658797159.png?HW-CC-KV=V1&HW-CC-Date=20260723T013000Z&HW-CC-Expire=86400&HW-CC-Sign=4204104B26FC98EB79AF2BD57A81824E6565BFAA774EB24DE4EEF8B9C10CE99C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/bepPEnwaS9yNq4tpsNWu0g/zh-cn_image_0000002658797159.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=7D45EEC7114D9972D7540064E3993A126515A58ECAB7BB7C67C5C800B4550812)
 
  
 

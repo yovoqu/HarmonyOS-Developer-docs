@@ -1,6 +1,6 @@
 # 复杂文本绘制与显示（ArkTS）
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-text-arkts
 
@@ -433,7 +433,7 @@ class MyRenderNode extends RenderNode {
         },
         // 装饰线样式，支持波浪，虚线，直线等
         decorationStyle:text.TextDecorationStyle.SOLID,
-        // 装饰线的高度
+        // 装饰线粗细缩放比例
         decorationThicknessScale: 1
       };
 

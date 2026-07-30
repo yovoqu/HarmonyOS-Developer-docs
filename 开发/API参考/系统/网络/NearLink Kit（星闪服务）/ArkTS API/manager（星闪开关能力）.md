@@ -1,6 +1,6 @@
 # manager（星闪开关能力）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-manager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -202,7 +202,7 @@ getLocalName(): string
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -214,7 +214,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   let name: string = manager.getLocalName();
-  console.info('state:' + JSON.stringify(name));
+  console.info('name:' + JSON.stringify(name));
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
@@ -253,7 +253,7 @@ getPairedDevices(): Array&lt;string&gt;
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -717,6 +717,7 @@ try {
 | preState | PairingState | 否 | 否 | 本次上报之前的配对状态。 |
 | state | PairingState | 否 | 否 | 当前配对状态。 |
 | reason | PairingReason | 否 | 否 | 原因值。 |
+| reasonMsg | string | 否 | 是 | 原因详情。该字段仅用于日志信息，不应用于逻辑处理。 起始版本： 26.0.0 |
  
  
   
@@ -760,6 +761,7 @@ try {
 | preState | ConnectionState | 否 | 否 | 本次上报之前的连接状态。 |
 | state | ConnectionState | 否 | 否 | 当前连接状态。 |
 | connectionReason | ConnectionReason | 否 | 否 | 原因值。 |
+| reasonMsg | string | 否 | 是 | 原因详情。该字段仅用于日志信息，不应用于逻辑处理。 起始版本： 26.0.0 |
  
  
   
@@ -805,7 +807,7 @@ try {
 | PAIRING_REASON_PROFILE_UNSUPPORTED | 2 | 表示对端设备不支持服务导致配对失败。 起始版本： 5.1.0(18) |
 | PAIRING_REASON_EXCEED_ACB_MAX | 3 | 表示连接设备数已达上限导致配对失败。 起始版本： 5.1.0(18) |
 | PAIRING_REASON_REMOTE_CANCELED | 4 | 表示对端设备取消配对导致配对失败。 起始版本： 5.1.0(18) |
-| PAIRING_REASON_LOCAL_CANCELED | 5 | 表示本端设备取消配对导致配对失败。 起始版本：5.1.0(18) |
+| PAIRING_REASON_LOCAL_CANCELED | 5 | 表示本端设备取消配对导致配对失败。 起始版本： 5.1.0(18) |
  
  
   

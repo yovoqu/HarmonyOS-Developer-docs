@@ -1,6 +1,6 @@
 # ffrt_rwlockattr_t
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ffrt-ffrt-rwlockattr-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ffrt_rwlockattr_t
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-FFRT读写锁属性结构。
+读写锁属性结构体，用于存储读写锁的属性信息。
  
 **起始版本：** 18
  
@@ -36,4 +36,4 @@ FFRT读写锁属性结构。
  
 | 名称 | 描述 |
 | --- | --- |
-| long storage | FFRT读写锁属性占用空间 |
+| long storage | 读写锁属性的内部存储。请勿直接访问，直接访问可能导致读写锁属性失效。 |

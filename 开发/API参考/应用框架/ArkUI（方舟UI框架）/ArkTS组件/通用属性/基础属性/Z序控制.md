@@ -1,6 +1,6 @@
 # Z序控制
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 组件的Z序，设置同一容器中兄弟组件的堆叠顺序。
  
 > [!NOTE]
-> 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -30,14 +30,14 @@ zIndex(value: number): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 同一容器中兄弟组件显示层级关系。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。当不涉及新增或减少兄弟节点，动态改变zIndex时会在zIndex改变前层级顺序的基础上进行稳定排序。 |
+| value | number | 是 | 同一容器中兄弟组件显示层级关系。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方；不同容器内的组件无法根据zIndex值改变跨容器显示层级。当不涉及新增或减少兄弟节点，动态改变zIndex时会在zIndex改变前层级顺序的基础上进行稳定排序；涉及新增或减少兄弟节点时，zIndex值越大，显示层级越高，zIndex值相等时将按声明顺序显示，即后声明的组件会覆盖在先声明的组件上方。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前组件。 |
+| T | 返回当前组件，用于链式调用。 |
  
  
   
@@ -66,7 +66,7 @@ struct ZIndexExample {
           .size({ width: '40%', height: '30%' }).backgroundColor(0xbbb2cb)
           .zIndex(2)
         // Text2设置zIndex值为1
-        Text('2, default zIndex(1)')
+        Text('2, zIndex(1)')
           .size({ width: '70%', height: '50%' }).backgroundColor(0xd2cab3).align(Alignment.TopStart)
           .zIndex(1)
         // Text3设置zIndex值为0
@@ -79,7 +79,7 @@ struct ZIndexExample {
 }
 ```
  
-Stack容器内子组件不设置zIndex的效果。
+Stack容器内子组件不设置zIndex时，默认按照声明顺序显示，后声明的组件会覆盖在先声明的组件上方。
  
 
 ![](assets/Z序控制/file-20260514163907498-1.png)
@@ -102,14 +102,14 @@ Stack容器子组件设置zIndex后的效果。
 @Entry
 @Component
 struct ZIndexExample {
-  @State zIndex_: number = 0
+  @State zIndexValue: number = 0;
 
   build() {
     Column() {
       // 点击Button改变zIndex后，在点击Button前的层级顺序上根据zIndex进行稳定排序。
-      Button("change Text2 zIndex")
+      Button('change Text2 zIndex')
         .onClick(() => {
-          this.zIndex_ = (this.zIndex_ + 1) % 3;
+          this.zIndexValue = (this.zIndexValue + 1) % 3;
         })
       Stack() {
         // Text1设置zIndex值为1
@@ -117,9 +117,9 @@ struct ZIndexExample {
           .size({ width: '70%', height: '50%' }).backgroundColor(0xd2cab3).align(Alignment.TopStart)
           .zIndex(1)
         // Text2设置zIndex默认值为0
-        Text('2, default zIndex(0), now zIndex:' + this.zIndex_)
+        Text('2, default zIndex(0), now zIndex:' + this.zIndexValue)
           .size({ width: '90%', height: '80%' }).backgroundColor(0xc1cbac).align(Alignment.TopStart)
-          .zIndex(this.zIndex_)
+          .zIndex(this.zIndexValue)
       }.width('100%').height(200)
     }.width('100%').height(200)
   }
@@ -148,7 +148,7 @@ struct ZIndexExample {
 
 #### 示例3（设置不同容器内组件的zIndex属性）
 
-该示例在不同容器内设置zIndex属性。其中，Text1、Text2和Text3在不同的Stack容器内。虽然Text3的zIndex值最小，但Text1、Text2仍无法按照预期显示在Text3的上方。
+该示例在不同容器内设置zIndex属性。其中，Text1、Text2在同一个Stack容器内，Text3在另一个Stack容器内。虽然Text3的zIndex值最小，但Text1、Text2仍无法根据zIndex值显示在Text3的上方。
  
 ```ArkTS
 // xxx.ets
@@ -163,7 +163,7 @@ struct ZIndexExample {
           .size({ width: '40%', height: '30%' }).backgroundColor(0xbbb2cb)
           .zIndex(2)
         // Text2设置zIndex值为1
-        Text('2, default zIndex(1)')
+        Text('2, zIndex(1)')
           .size({ width: '70%', height: '50%' }).backgroundColor(0xd2cab3).align(Alignment.TopStart)
           .zIndex(1)
       }.width('100%').height(200)
@@ -181,4 +181,4 @@ struct ZIndexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/_p1ELZnvRkiyyWP7jwzB_w/zh-cn_image_0000002659221525.png?HW-CC-KV=V1&HW-CC-Date=20260701T014324Z&HW-CC-Expire=86400&HW-CC-Sign=2E018399C29EEE2D6D0E4BDFF0234FBA947CC2F9BC286B3A4245AF7ECC690F60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/aaiyGUA9Tau82FvZpejLRg/zh-cn_image_0000002655848344.png?HW-CC-KV=V1&HW-CC-Date=20260730T071453Z&HW-CC-Expire=86400&HW-CC-Sign=7911C71E276AF0578B45EF945CECF3C8DC52EF2C0EFF768D536FC50246DAEDF0)

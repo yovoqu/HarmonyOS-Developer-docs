@@ -13,7 +13,7 @@ Swiper组件嵌套Swiper，当子组件滑动到首页或尾页边界时，如�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/xkzTUvZRTdad9KZ2wAgFoA/zh-cn_image_0000002628763650.png?HW-CC-KV=V1&HW-CC-Date=20260723T012749Z&HW-CC-Expire=86400&HW-CC-Sign=83E870951BDA00DF8B932B40DF69849F602ACCAFE09241075B202B12E17BF8C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/xkzTUvZRTdad9KZ2wAgFoA/zh-cn_image_0000002628763650.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=857655BA88B7AECE2092D3A316B91AEE902EEA11F35F6A48E6A15731DFFF2058)
 
  
  

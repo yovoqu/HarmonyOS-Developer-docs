@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D对象
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-canvasrenderingcontext2d
 
@@ -310,7 +310,7 @@ export default {
 
 #### 填充渐变色
 
-添加[createLinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createlineargradient)和[createRadialGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createradialgradient)属性创建渐变容器，接着用addColorStop方法添加多个色块组成渐变色，再设置fillStyle为gradient将渐变色填充到矩形中，最后设置阴影的模糊级别（shadowBlur）、阴影颜色（shadowColor）及阴影偏移量（shadowOffset）。
+添加[createLinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#createlineargradient)和[createRadialGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#createradialgradient)属性创建渐变容器，接着用addColorStop方法添加多个色块组成渐变色，再设置fillStyle为gradient将渐变色填充到矩形中，最后设置阴影的模糊级别（shadowBlur）、阴影颜色（shadowColor）及阴影偏移量（shadowOffset）。
 
 ```text
 <!-- xxx.hml -->
@@ -439,7 +439,7 @@ export default {
 
 #### 填充文字
 
-先创建文本，再用[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)方法把文字写在画布上。通过[globalAlpha](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalalpha)属性改变基线透明度，使基线不会挡住文字，再设置[textAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#textalign)和[textBaseline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#textbaseline)属性确定文字基于基线的位置。
+先创建文本，再用[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#filltext)方法把文字写在画布上。通过[globalAlpha](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#globalalpha)属性改变基线透明度，使基线不会挡住文字，再设置[textAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#textalign)和[textBaseline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#textbaseline)属性确定文字基于基线的位置。
 
 ```text
 <!-- xxx.hml -->
@@ -577,7 +577,7 @@ export default {
 
 #### 添加图片
 
-创建图片对象后使用[drawImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#drawimage)方法画出图片，给图片设置一些动画样式如scale（缩放）、translate（平移）或rotate（旋转）。
+创建图片对象后使用[drawImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#drawimage)方法画出图片，给图片设置一些动画样式如scale（缩放）、translate（平移）或rotate（旋转）。
 
 ```text
 <!-- xxx.hml -->
@@ -844,4 +844,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/hxwqAKbXQlOgGrlanBZ_Hw/zh-cn_image_0000002626228662.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020802Z&HW-CC-Expire=86400&HW-CC-Sign=35ED2DAE2A84D7396AA04720FE23750936BB77A0F25E4F3B3B63415EE0811D2E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/j8xRtyFkTCmFoz6SC-DErA/zh-cn_image_0000002655846712.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071857Z&HW-CC-Expire=86400&HW-CC-Sign=60E5647754D1BECCDB241BF372FFED0E1730373D3B6920901E57E78730230083)

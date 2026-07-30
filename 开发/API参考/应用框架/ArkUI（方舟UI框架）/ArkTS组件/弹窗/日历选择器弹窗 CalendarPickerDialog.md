@@ -1,14 +1,14 @@
 # 日历选择器弹窗 (CalendarPickerDialog)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-calendarpicker-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-点击日期弹出日历选择器弹窗，可在弹窗内选择日期。
+点击日期弹出日历选择器弹窗，可在弹窗内选择日期。适用于需要在应用中进行日期选择的场景，如日程管理、预订系统、表单填写等。
 
 > [!TIP]
-> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块功能依赖UI的执行上下文，不可在 UI上下文不明确 的地方使用，参见 UIContext 说明。 本模块不支持深浅色模式热更新，如果需要进行深浅色模式切换，请重新打开弹窗。
+> 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块功能依赖UI的执行上下文，不可在 UI上下文不明确 的地方使用，参见 UIContext 说明。 本模块不支持深浅色模式热更新，如果需要进行深浅色模式切换，请重新打开弹窗。
 
 
 
@@ -24,7 +24,7 @@
 
 static show(options?: CalendarDialogOptions): void
 
-显示日历选择器弹窗。
+显示日历选择器弹窗，供用户选择日期。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -32,13 +32,13 @@ static show(options?: CalendarDialogOptions): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+**设备行为差异：** 该接口在Wearable设备上不支持，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | CalendarDialogOptions | 否 | 配置日历选择器弹窗参数。参数缺省时无法弹出弹窗。 |
+| options | CalendarDialogOptions | 否 | 配置日历选择器弹窗的参数，缺省时无法弹出弹窗。 |
 
 
 
@@ -55,27 +55,28 @@ static show(options?: CalendarDialogOptions): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+**设备行为差异：** 该接口在Wearable设备上不支持，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | onAccept | Callback&lt;Date&gt; | 否 | 是 | 点击弹窗中的“确定”按钮时触发该回调。 回调函数的参数表示选中的日期值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onCancel | VoidCallback | 否 | 是 | 点击弹窗中的“取消”按钮时触发该回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onChange | Callback&lt;Date&gt; | 否 | 是 | 选择弹窗中日期使当前选中项改变时触发该回调。 回调函数的参数表示选中的日期值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 弹窗背板模糊效果。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 弹窗背板效果参数。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| acceptButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置确认按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| cancelButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置取消按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onDidAppear12+ | VoidCallback | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则背景颜色显示效果不符合预期。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则背景颜色显示效果不符合预期。设置backgroundEffect后将覆盖本属性效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果参数，用于自定义弹窗背景模糊的显示样式，支持配置颜色模式、自适应颜色、缩放比例等属性，实现不同的背景模糊视觉效果。默认值请参考BackgroundBlurStyleOptions类型说明。 说明： 未设置时沿用backgroundBlurStyle的默认效果（BlurStyle.COMPONENT_ULTRA_THICK）。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数，用于自定义弹窗背景的显示效果，支持配置模糊半径、饱和度、亮度、颜色等属性，实现不同的背景视觉效果。默认值请参考BackgroundEffectOptions类型说明。 说明： 未设置时不生效，此时弹窗背景模糊效果由backgroundBlurStyle决定；设置后将覆盖backgroundBlurStyle的效果。从API版本26.0.0开始，设置systemMaterial后backgroundEffect与backgroundBlurStyle均不生效。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| acceptButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置确认按钮显示样式、重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变。即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，在关怀模式-大字体场景下按钮形状仍呈现为胶囊型按钮Capsule的样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| cancelButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置取消按钮显示样式、重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变。即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，在关怀模式-大字体场景下按钮形状仍呈现为胶囊型按钮Capsule的样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onDidAppear12+ | VoidCallback | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变显示效果的回调事件，再次调用show时生效。 3.快速连续触发弹出与关闭时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 选取指导： - onWillAppear：适合在弹窗显示前准备数据、重置状态。 - onDidAppear：适合在弹窗完全显示后执行动画、发起网络请求、设置焦点等需要弹窗可见才能进行的操作。 - onWillDisappear：适合在弹窗消失前保存数据、清理资源、取消网络请求。 - onDidDisappear：适合在弹窗完全消失后执行清理工作、重置状态、恢复其他UI。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onDidDisappear12+ | VoidCallback | 否 | 是 | 弹窗消失后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onWillAppear12+ | VoidCallback | 否 | 是 | 弹窗显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onWillDisappear12+ | VoidCallback | 否 | 是 | 弹窗退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下，获焦时阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦时为ShadowStyle.OUTER_FLOATING_SM。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态。 - true：响应悬停态。 - false：不响应悬停态。 默认值：false 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 悬停态下弹窗默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| onWillDisappear12+ | VoidCallback | 否 | 是 | 弹窗退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.快速连续触发弹出与关闭时，存在onWillDisappear在onDidAppear前生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| enableHoverMode14+ | boolean | 否 | 是 | 设置弹窗是否响应悬停态，适用于折叠屏等支持悬停模式的设备。 - true：弹窗响应悬停态，在折叠屏悬停模式下会自适应调整布局区域，提供更好的多任务体验。 - false：弹窗不响应悬停态，在悬停模式下保持默认布局。 默认值：false 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 设置悬停态下弹窗的默认展示区域，仅在enableHoverMode为true时生效。不同的区域值对应弹窗在折叠屏悬停模式下的不同布局位置（如BOTTOM_SCREEN表示弹窗展示在下半屏区域，TOP_SCREEN表示弹窗展示在上半屏区域）。 默认值：HoverModeAreaType.BOTTOM_SCREEN 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | markToday19+ | boolean | 否 | 是 | 设置日历选择器弹窗中系统当前日期是否保持高亮显示。 - true：系统当前日期在日历选择器弹窗内保持高亮显示。 - false：系统当前日期在日历选择器弹窗内不保持高亮显示。 默认值：false 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置弹窗的系统材质。 说明： - 默认值：ImmersiveOptions的style为ImmersiveStyle.ULTRA_THICK的ImmersiveMaterial对象。设置undefined时与默认值保持一致。 - 不同的材质具有不同的视觉效果，包括背景透明度、模糊程度、阴影样式等方面的差异，该接口影响背景色backgroundColor、背景模糊backgroundBlurStyle、背景效果backgroundEffect、边框颜色borderColor、边框宽度borderWidth、阴影shadow，当设置系统材质时，上述接口不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 > [!NOTE]
@@ -285,6 +286,7 @@ struct CalendarPickerDialogExample {
             selected: this.selectedDate,
             hintRadius: 1,
             onAccept: (value) => {
+              // 点击弹窗中的“确定”按钮时触发该回调，value表示选中的日期值。
               this.selectedDate = value;
               console.info('calendar onAccept:' + JSON.stringify(value));
             }
@@ -346,7 +348,7 @@ struct CalendarPickerDialogExample {
 // xxx.ets
 @Entry
 @Component
-struct CalendarPickerExample {
+struct CalendarPickerDialogExample {
   private disabledDateRange: DateRange[] = [
     { start: new Date('2025-01-01'), end: new Date('2025-01-02') },
     { start: new Date('2025-01-09'), end: new Date('2025-01-10') },
@@ -357,7 +359,7 @@ struct CalendarPickerExample {
 
   build() {
     Column() {
-      Button("Show CalendarPicker Dialog")
+      Button('Show CalendarPicker Dialog')
         .margin(20)
         .onClick(() => {
           console.info('CalendarDialog.show');
@@ -412,7 +414,7 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/qyVfzhzkQraaDAQ8REhw9A/zh-cn_image_0000002647748244.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=F95233A0A09C9BC2396199EAF76BEBD52C37B294E568E67359EDA53063F94212)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/iq4L-_vPQRGJ_8jaCXck4g/zh-cn_image_0000002686088367.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=714BF5BFF7A3B009D1FFC3A420AB0D6C334A818A5129CBCFB8D52B13F463E18E)
 
 
 
@@ -456,4 +458,4 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/S0yqDGZ-RtGNPs8TGZbr3A/zh-cn_image_0000002647588336.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=C001E693FB2A82E2ECB887033C1D9E562C2EA2EFE1184491CC00A1C1DD06900C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/WBDVl3wAT5SWpxBptgYApg/zh-cn_image_0000002685928535.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=7A7EED980C7102AF9FE08387CCCD7963BB9B12938CDE713374F1ED0913D4A835)

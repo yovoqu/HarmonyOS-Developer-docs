@@ -171,7 +171,7 @@ export class TaskInfo {
   现象效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/WoHIbE6wREOyLTIVZhp8Eg/zh-cn_image_0000002658916951.png?HW-CC-KV=V1&HW-CC-Date=20260723T012614Z&HW-CC-Expire=86400&HW-CC-Sign=6634D2FB1D0210DBB044450695DAB20D10748A0C9EAD526DE573279B9C65CE3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/WoHIbE6wREOyLTIVZhp8Eg/zh-cn_image_0000002658916951.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=DDF852B9705C673585696C2ADD4CF9DFFD7100D55C60608BDC186D18CD26E903)
 
 2. 在问题一的场景中，删除任务后，如何实现进度条从0平滑增长到当前进度的动画效果？
  
@@ -361,7 +361,7 @@ export class TaskInfo {
   运行效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/BzWjGUtaSR60OF6naomdMA/zh-cn_image_0000002628397742.png?HW-CC-KV=V1&HW-CC-Date=20260723T012614Z&HW-CC-Expire=86400&HW-CC-Sign=7BE2D212BDAF49775A0F2F55DA4FF0DCFF9E08656296F1454CF5FF9A1B2719D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/BzWjGUtaSR60OF6naomdMA/zh-cn_image_0000002628397742.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=5263740D577A0E78C940FEDDA1208746586F11BA095EB7080ACDB2DA4DECF9A8)
 
 - **问题二**可以将style中enableSmoothEffect设置为false取消进度条本身的动效，自定义删除任务时的动画效果实现该场景。在删除任务时首先设置进度值为0，再通过[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)展示进度从0回到当前进度的动画效果。
 
@@ -548,7 +548,7 @@ export class TaskInfo {
   运行效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/mqnKsYYEQiKoOcvyqbwO1g/zh-cn_image_0000002658797005.png?HW-CC-KV=V1&HW-CC-Date=20260723T012614Z&HW-CC-Expire=86400&HW-CC-Sign=B46C7B92BC62D22345BBEE478C2941E16DEEF75CCA1C897A4B93624193FED5E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/mqnKsYYEQiKoOcvyqbwO1g/zh-cn_image_0000002658797005.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=F27A8EBFBBEA888D35DA5C70B44DD460EAFD16A4D16AA1403C4CD362DF2A4446)
 
 
  

@@ -18,13 +18,13 @@ DevEco Testing的[实用工具](https://developer.huawei.com/consumer/cn/doc/har
 
 #### 问题定位
 1. 连接设备，执行“hdc shell param set persist.ace.testmode.enabled 1”命令是否success。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/ksWboBweRD2ocg7sVT6JGw/zh-cn_image_0000002658803453.png?HW-CC-KV=V1&HW-CC-Date=20260723T014026Z&HW-CC-Expire=86400&HW-CC-Sign=96411B40A3F0433EE0F89CC48A694EDE919D1160A8BAFB76CD391EE2FD595F94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/ksWboBweRD2ocg7sVT6JGw/zh-cn_image_0000002658803453.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=7F3F8FBB8805619D0E698823AB71DF113C16D9A92E4502396E24C207E660B8B9)
 
 2. 执行“hdc shell pidof uitest”命令，查看是否存在被占用的线程。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/kR4SHKMmTF2NzLvJXQVlWg/zh-cn_image_0000002628404190.png?HW-CC-KV=V1&HW-CC-Date=20260723T014026Z&HW-CC-Expire=86400&HW-CC-Sign=3ADD89529EDC404757C5D6EB604FFC43F9A95637D39D17962B295CD68DD77E06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/kR4SHKMmTF2NzLvJXQVlWg/zh-cn_image_0000002628404190.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=0ED4006EC94554ACB659CE2B2D5BC96F64FDA55C50E152DDD2761B8A38A588D7)
 
 3. 执行“hdc shell uitest start-daemon singleness”命令，检查是否有信息打印。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/ZSgjLzTVS--QS_KODHKQvQ/zh-cn_image_0000002628564092.png?HW-CC-KV=V1&HW-CC-Date=20260723T014026Z&HW-CC-Expire=86400&HW-CC-Sign=2CA9C0E3B563BD57E437D7747334EA3789CFF40CED3C23D72D2E42E1943B34B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/ZSgjLzTVS--QS_KODHKQvQ/zh-cn_image_0000002628564092.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=7663B8FCF735240CD9455714BFAE3C93EA80C410CCFAEE44673086669A996705)
 
  
  

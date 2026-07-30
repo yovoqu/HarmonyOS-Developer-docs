@@ -1,6 +1,6 @@
 # context.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-context-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -624,7 +624,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_SetAreaMode(
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 操作成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参areaMode为空。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 操作成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参context为空。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 上下文不存在。 |
  
  
 **示例代码：**

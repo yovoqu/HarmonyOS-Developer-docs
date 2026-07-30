@@ -1,6 +1,6 @@
-# 使用AudioRenderer开发音频播放功能(ArkTs)
+# 使用AudioRenderer开发音频播放功能(ArkTS)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback
 
@@ -21,7 +21,7 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
  - running状态：正在进行音频数据播放，可以在prepared状态通过调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#start8)方法进入此状态，也可以在paused状态和stopped状态通过调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#start8)方法进入此状态。
  - paused状态：在running状态可以通过调用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#pause8)方法暂停音频数据的播放并进入paused状态，暂停播放之后可以通过调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#start8)方法继续音频数据播放。
  - stopped状态：在paused/running状态可以通过[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#stop8)方法停止音频数据的播放。
- - released状态：在prepared、paused、stopped等状态，用户均可通过[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#release8)方法释放掉所有占用的硬件和软件资源，并且不会再进入到其他的任何一种状态了。
+ - released状态：在prepared、paused、stopped等状态，用户均可通过[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#release8)方法释放掉所有占用的硬件和软件资源，并且不会再进入其他任何状态。
 
 
 当音频流处于工作状态（非released状态）时，会占用系统的音频流资源。由于系统对音频流数量有限制，所以当客户端暂时不使用音频流时，调用release()回收音频资源，做好资源利用，避免后续创建音频流失败。
@@ -36,7 +36,7 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
 #### 开发步骤及注意事项
 
-以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioRendererSampleJS)。
+以下各步骤示例为代码片段，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioRendererSampleJS)。
 1. 配置音频渲染参数并创建AudioRenderer实例，音频渲染参数的详细信息可以查看[AudioRendererOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendereroptions8)。
 
   
@@ -70,13 +70,13 @@ let audioRendererOptions: audio.AudioRendererOptions = {
         // ...
       }
     } else {
-      console.info(`Failed to create audio renderer. Code: ${err.code}, message: ${err.message}`);
+      console.error(`Failed to create audio renderer. Code: ${err.code}, message: ${err.message}`);
       globalLogUpdate(`Failed to create audio renderer. Code: ${err.code}, message: ${err.message}`, false);
     }
   });
 ```
 
-2. 调用[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)方法，订阅监听音频数据写入回调，推荐使用API version 12支持返回回调结果的方式。
+2. 调用[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)方法，订阅音频数据写入回调，推荐使用API version 12支持返回回调结果的方式。
 
   
  - API version 12开始该方法支持返回回调结果，系统可以根据开发者返回的值来决定此次回调中的数据是否播放。
@@ -160,11 +160,12 @@ import { BusinessError } from '@kit.BasicServicesKit';
         console.error(`Failed to release audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        // 关闭沙箱文件。
         console.info('Succeeded in releasing audio renderer.');
         // ...
       }
     });
+    // 关闭沙箱文件。
+    await context.resourceManager.closeRawFd('S16LE_2_48000.pcm');
 ```
 
 
@@ -172,7 +173,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   #### 选择正确的StreamUsage
 
-  创建播放器时候，开发者需要根据应用场景指定播放器的StreamUsage，选择正确的StreamUsage可以避免用户遇到不符合预期的行为。
+  创建AudioRenderer实例时，开发者需要根据应用场景指定播放器的StreamUsage，选择正确的StreamUsage可以避免用户遇到不符合预期的行为。
 
   在音频API文档[StreamUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage)介绍中，列举了每一种类型推荐的应用场景。例如音乐场景推荐使用STREAM_USAGE_MUSIC，电影或者视频场景推荐使用STREAM_USAGE_MOVIE，游戏场景推荐使用STREAM_USAGE_GAME，等等。
 
@@ -180,7 +181,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 游戏场景错误使用STREAM_USAGE_MUSIC类型，游戏应用将无法和其他音乐应用并发播放，而游戏场景通常可以与其他音乐应用并发播放。
- - 导航场景错误使用STREAM_USAGE_MUSIC类型，导航应用播报时候会导致正在播放的音乐停止播放，而导航场景我们通常期望正在播放的音乐仅降低音量播放。
+ - 导航场景错误使用STREAM_USAGE_MUSIC类型，导航应用播报时会导致正在播放的音乐停止播放，而导航场景我们通常期望正在播放的音乐仅降低音量播放。
 
 
 

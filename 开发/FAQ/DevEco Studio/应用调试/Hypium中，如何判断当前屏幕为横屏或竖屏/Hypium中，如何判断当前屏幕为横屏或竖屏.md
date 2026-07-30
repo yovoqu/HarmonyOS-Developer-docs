@@ -20,7 +20,7 @@ Hypium中，执行视频类应用的全屏或者游戏类应用横屏时，应�
 参考[窗口旋转说明](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-landscape-and-portrait-development#section388473115175)，窗口旋转形态有以下四种，分别为顺时针方向旋转0度（竖屏），旋转90度（反向横屏），旋转270度（横屏），旋转180度（反向竖屏）。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/hIEECqOvSdCaZ-wysLO1ag/zh-cn_image_0000002628569338.png?HW-CC-KV=V1&HW-CC-Date=20260723T013949Z&HW-CC-Expire=86400&HW-CC-Sign=5F2C1E60156DFA73B9A3C17F4718DAFC498B62B2436FC806DE9A94F7DE7D8DE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/hIEECqOvSdCaZ-wysLO1ag/zh-cn_image_0000002628569338.png?HW-CC-KV=V1&HW-CC-Date=20260730T072720Z&HW-CC-Expire=86400&HW-CC-Sign=C9DBB1C297278D095B43B63AFE03C73991BC9FDD78410BB76D8D7B92501EA525)
 
  
  

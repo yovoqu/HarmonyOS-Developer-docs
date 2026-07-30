@@ -1,6 +1,6 @@
 # 如何修改TextReader控件在屏幕纵向的起始位置
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-3
 
@@ -14,7 +14,7 @@
 
 TextReader：朗读控件使用AI能力将文本实时转化成语音并进行朗读，适用于一些新闻类文本内容浏览类APP，帮助用户在一些无法直接浏览文本内容的场景下，通过文本朗读来高效获取信息。
  
-[MinibarParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api#section1179835142719)：用来设置Minibar初始化位置，以及与底部边框的距离。
+[MinibarParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api#minibarparams)：用来设置Minibar初始化位置，以及与底部边框的距离。
  
  
 

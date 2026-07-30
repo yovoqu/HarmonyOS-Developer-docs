@@ -1,6 +1,6 @@
 # 应用模型概述
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/stage-model-development-overview
 
@@ -13,7 +13,7 @@
 Stage模型支持多个应用组件共享同一个ArkTS引擎实例，以及应用组件间的状态共享与对象调用，可以降低内存开销、提升开发效率，适用于复杂应用的开发。
 
 > [!TIP]
-> 随着应用模型的演进发展，从API 7开始支持的FA模型已经不再主推。当前FA模型主要用于Lite Wearable设备，相关指导详见 应用模型开发概述 。 除非另有说明，文档中提及的"应用模型"均指"Stage模型"。
+> 随着应用模型的演进发展，从API 7开始支持的FA模型已经不再主推。当前FA模型主要用于Lite Wearable设备，相关指导详见 应用模型开发概述 。 除非另有说明，文档中提及的"应用模型"均指"Stage 模型"。
 
 
 
@@ -46,7 +46,7 @@ UIAbility组件是一种包含UI的应用组件，主要用于和用户交互。
   每个UIAbility实例都会与一个WindowStage类实例绑定，该类起到了应用进程内窗口管理器的作用。它包含一个主窗口。也就是说UIAbility实例通过WindowStage持有了一个主窗口，该主窗口为ArkUI提供了绘制区域，可以加载不同的ArkUI页面。
  - [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)
 
-  在Stage模型上，Context及其派生类向开发者提供在运行期可以调用的各种资源和能力。UIAbility组件和各种ExtensionAbility组件的派生类都有各自不同的Context类，他们都继承自基类Context，但是各自又根据所属组件，提供不同的能力。
+  在Stage模型上，Context及其派生类向开发者提供在运行期可以调用的各种资源和能力。UIAbility组件和各种ExtensionAbility组件的派生类都有各自不同的Context类，它们都继承自基类Context，但是各自又根据所属组件，提供不同的能力。
  - ArkUI页面
 
   ArkUI页面是基于ArkUI框架构建的用户界面组件，可以将不同UI组件组合在一起，实现复杂的页面效果。UIAbility组件可以通过ArkUI页面展示其功能，同时也可以通过ArkUI页面与用户进行交互。
@@ -119,7 +119,7 @@ UIAbility组件是一种包含UI的应用组件，主要用于和用户交互。
 **图2** Stage模型构成要素
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/UeV_gH1KRAeaOe-TQampjQ/zh-cn_image_0000002656467283.png?HW-CC-KV=V1&HW-CC-Date=20260624T020723Z&HW-CC-Expire=86400&HW-CC-Sign=33B2E19C66A7A35DD98EDF34B7926EB9F2F16ADAE0828A99DEAAC41D25548D13)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/o68ZN6IKTiiNwNMf9mtnOA/zh-cn_image_0000002685925355.png?HW-CC-KV=V1&HW-CC-Date=20260730T071824Z&HW-CC-Expire=86400&HW-CC-Sign=81FB29D5720A97994D3199701D9B5A6C87E434CF79333E5CBF428EE05D4F6F00)
 
 
 **开发阶段** ：需要通过Stage模型提供的应用组件（UIAbility组件和ExtensionAbility组件）开发应用功能，并在应用的配置文件（app.json5和module.json5）中注册应用的相关信息。

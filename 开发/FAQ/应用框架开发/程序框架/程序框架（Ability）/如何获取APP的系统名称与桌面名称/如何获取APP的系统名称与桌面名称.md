@@ -82,9 +82,9 @@ struct <span style="color: rgb(0,0,255);">Index1 </span><span style="color: rgb(
 验证图示和桌面APP图示如下:
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/HewurUxBQ5-HWV_cILQ9oQ/zh-cn_image_0000002658988569.png?HW-CC-KV=V1&HW-CC-Date=20260723T012451Z&HW-CC-Expire=86400&HW-CC-Sign=EF66EFB85EE871CBAF91DCFB988DAED791D650C39EA5EDA644B33F4232DA1FCA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/HewurUxBQ5-HWV_cILQ9oQ/zh-cn_image_0000002658988569.png?HW-CC-KV=V1&HW-CC-Date=20260730T072309Z&HW-CC-Expire=86400&HW-CC-Sign=9A97902DCA3A2C1D0CE4EA2EDAF698890DE6E52B0D166A533B3FA7C2D1FC01B0)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/mPqqBrp-SiqxvYr_bvdmjA/zh-cn_image_0000002658868625.png?HW-CC-KV=V1&HW-CC-Date=20260723T012451Z&HW-CC-Expire=86400&HW-CC-Sign=E561E15A3511D259B36FD8CE9501BA2C4F5331D22A4FB83B25371C5834A56888)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/mPqqBrp-SiqxvYr_bvdmjA/zh-cn_image_0000002658868625.png?HW-CC-KV=V1&HW-CC-Date=20260730T072309Z&HW-CC-Expire=86400&HW-CC-Sign=45E1BCF8E7960CF73B5AAE1D20705B6494A8E509B10F5ED813C228E6592F0DB5)
 
  
  

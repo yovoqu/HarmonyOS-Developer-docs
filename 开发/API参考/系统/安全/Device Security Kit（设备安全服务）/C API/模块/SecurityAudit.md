@@ -1,6 +1,6 @@
 # SecurityAudit
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit
 **支持设备：** PC/2in1
@@ -42,6 +42,7 @@
 | --- | --- |
 | struct SecurityAudit_Event | 定义审计事件信息。 |
 | struct SecurityAudit_Filter | 提供过滤条件。 |
+| struct SecurityAudit_AuthClientConfiguration | 阻断事件客户端配置项。 |
  
  
   
@@ -54,6 +55,7 @@
 | --- | --- |
 | typedef void(* SecurityAudit_Handler) (const SecurityAudit_Event *events, uint64_t count) | 定义事件处理函数。 |
 | typedef struct SecurityAudit_AuthClient_Impl SecurityAudit_AuthClient | 定义阻断事件客户端。 |
+| typedef struct SecurityAudit_AuthClientConfiguration_Impl SecurityAudit_AuthClientConfiguration | 定义阻断事件客户端配置对象。 |
 | typedef struct SecurityAudit_Client_Impl SecurityAudit_Client | 定义通知事件客户端。 |
  
  
@@ -65,8 +67,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| SecurityAudit_Notify_Event { SECURITY_AUDIT_NOTIFY_EVENT_PASTEBOARD = 0x27000000, SECURITY_AUDIT_NOTIFY_EVENT_FILE = 0x1C000007, SECURITY_AUDIT_NOTIFY_EVENT_FILE_INTERCEPTED = 0x1C001100, SECURITY_AUDIT_NOTIFY_EVENT_ACCOUNT = 0x10000100, SECURITY_AUDIT_NOTIFY_EVENT_WINDOW = 0x07000000, SECURITY_AUDIT_NOTIFY_EVENT_VOLUME = 0x0F000000, SECURITY_AUDIT_NOTIFY_EVENT_PRINTER = 0x2E000000, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS = 0x1C000008, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_TRAFFIC = 0x1C00000E, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_CONN = 0x1C00000F, SECURITY_AUDIT_NOTIFY_EVENT_CAMERA = 0x2D000000, SECURITY_AUDIT_NOTIFY_EVENT_APP = 0x10000000, SECURITY_AUDIT_NOTIFY_EVENT_EDM = 0x11000000, SECURITY_AUDIT_NOTIFY_EVENT_CERT = 0x12003000, SECURITY_AUDIT_NOTIFY_EVENT_KIA_CREATE = 0x1C00000B, SECURITY_AUDIT_NOTIFY_EVENT_KIA_READ = 0x1C000012, SECURITY_AUDIT_NOTIFY_EVENT_KIA_VARIANT = 0x1C00000C, SECURITY_AUDIT_NOTIFY_EVENT_KIA_INTERCEPT = 0x1C00000A, SECURITY_AUDIT_NOTIFY_EVENT_PERMISSION = 0x0B000000, SECURITY_AUDIT_NOTIFY_EVENT_DNS = 0x03000001, SECURITY_AUDIT_NOTIFY_EVENT_APP_INSTALL_INTERCEPTED = 0x18000100, SECURITY_AUDIT_NOTIFY_EVENT_APP_UNINSTALL_INTERCEPTED = 0x18000101, SECURITY_AUDIT_NOTIFY_EVENT_APP_UPDATE_INTERCEPTED = 0x18000102, SECURITY_AUDIT_NOTIFY_EVENT_APP_RECOVER_INTERCEPTED = 0x18000103, SECURITY_AUDIT_NOTIFY_EVENT_APP_START_INTERCEPTED = 0x18000104, SECURITY_AUDIT_NOTIFY_EVENT_USB_ACCESS_INTERCEPTED = 0x30000000, SECURITY_AUDIT_NOTIFY_EVENT_SMB_FILE_SEND = 0x0F000001, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SHARE= 0x0F000002, SECURITY_AUDIT_NOTIFY_EVENT_DATA_DRAG= 0x0F000003, SECURITY_AUDIT_NOTIFY_EVENT_KIA_PRE_OPEN = 0x1C000014, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG = 0x27000100, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG_INTERCEPTED = 0x27000101, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER = 0x2F000000, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER_POLICY = 0x2F000001, SECURITY_AUDIT_NOTIFY_EVENT_SERIAL_PORT_ACCESS = 0x30000100, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_INTERCEPTED = 0x03000002, SECURITY_AUDIT_NOTIFY_EVENT_WIFI_INTERCEPTED = 0x03000100, SECURITY_AUDIT_NOTIFY_EVENT_PRINT_INTERCEPTED = 0x2E000001, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_NULL = 0x12001081, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_ABNORMAL = 0x12001082, SECURITY_AUDIT_NOTIFY_EVENT_FS_MOUNT_ABNORMAL = 0x1C001102, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_CS_ABNORMAL = 0x1C001200, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_MMAP_ABNORMAL = 0x1C001201, SECURITY_AUDIT_NOTIFY_EVENT_KERNEL_MEMORY_ABNORMAL = 0x1C001300, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_DEBUG_ABNORMAL = 0x1C001401, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_CRASH_ABNORMAL = 0x1C001402, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_PRIVILEGE_ESCALATION = 0x1C001403, SECURITY_AUDIT_NOTIFY_EVENT_DLP_FILE_ACCESS = 0x0F000006, SECURITY_AUDIT_NOTIFY_EVENT_FILE_CREATE = 0x1C001104, SECURITY_AUDIT_NOTIFY_EVENT_FILE_OPEN = 0x1C001105, SECURITY_AUDIT_NOTIFY_EVENT_FILE_CLOSE = 0x1C001106, SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETE = 0x1C001107, SECURITY_AUDIT_NOTIFY_EVENT_FILE_RENAME = 0x1C001108, SECURITY_AUDIT_NOTIFY_EVENT_FILE_COPY = 0x1C001109, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETOWNER = 0x1C00110A, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETMODE = 0x1C00110B, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETEXTATTR = 0x1C00110C, SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETEEXTATTR = 0x1C00110D, SECURITY_AUDIT_NOTIFY_EVENT_FILE_WRITE = 0x1C00110E } | 定义通知事件的事件ID。 |
-| SecurityAudit_Auth_Event { SECURITY_AUDIT_AUTH_EVENT_FILE_CREATE = 0x1C801100, SECURITY_AUDIT_AUTH_EVENT_FILE_OPEN = 0x1C801101, SECURITY_AUDIT_AUTH_EVENT_FILE_RENAME = 0x1C801102, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETE = 0x1C801103, SECURITY_AUDIT_AUTH_EVENT_FILE_SETEXTATTR = 0x1C801104, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETEEXTATTR = 0x1C801105 } | 定义阻断类事件的事件ID。 |
+| SecurityAudit_Notify_Event { SECURITY_AUDIT_NOTIFY_EVENT_PASTEBOARD = 0x27000000, SECURITY_AUDIT_NOTIFY_EVENT_FILE = 0x1C000007, SECURITY_AUDIT_NOTIFY_EVENT_FILE_INTERCEPTED = 0x1C001100, SECURITY_AUDIT_NOTIFY_EVENT_ACCOUNT = 0x10000100, SECURITY_AUDIT_NOTIFY_EVENT_WINDOW = 0x07000000, SECURITY_AUDIT_NOTIFY_EVENT_VOLUME = 0x0F000000, SECURITY_AUDIT_NOTIFY_EVENT_PRINTER = 0x2E000000, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS = 0x1C000008, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_TRAFFIC = 0x1C00000E, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_CONN = 0x1C00000F, SECURITY_AUDIT_NOTIFY_EVENT_CAMERA = 0x2D000000, SECURITY_AUDIT_NOTIFY_EVENT_APP = 0x10000000, SECURITY_AUDIT_NOTIFY_EVENT_EDM = 0x11000000, SECURITY_AUDIT_NOTIFY_EVENT_CERT = 0x12003000, SECURITY_AUDIT_NOTIFY_EVENT_KIA_CREATE = 0x1C00000B, SECURITY_AUDIT_NOTIFY_EVENT_KIA_READ = 0x1C000012, SECURITY_AUDIT_NOTIFY_EVENT_KIA_VARIANT = 0x1C00000C, SECURITY_AUDIT_NOTIFY_EVENT_KIA_INTERCEPT = 0x1C00000A, SECURITY_AUDIT_NOTIFY_EVENT_PERMISSION = 0x0B000000, SECURITY_AUDIT_NOTIFY_EVENT_DNS = 0x03000001, SECURITY_AUDIT_NOTIFY_EVENT_APP_INSTALL_INTERCEPTED = 0x18000100, SECURITY_AUDIT_NOTIFY_EVENT_APP_UNINSTALL_INTERCEPTED = 0x18000101, SECURITY_AUDIT_NOTIFY_EVENT_APP_UPDATE_INTERCEPTED = 0x18000102, SECURITY_AUDIT_NOTIFY_EVENT_APP_RECOVER_INTERCEPTED = 0x18000103, SECURITY_AUDIT_NOTIFY_EVENT_APP_START_INTERCEPTED = 0x18000104, SECURITY_AUDIT_NOTIFY_EVENT_USB_ACCESS_INTERCEPTED = 0x30000000, SECURITY_AUDIT_NOTIFY_EVENT_SMB_FILE_SEND = 0x0F000001, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SHARE= 0x0F000002, SECURITY_AUDIT_NOTIFY_EVENT_DATA_DRAG= 0x0F000003, SECURITY_AUDIT_NOTIFY_EVENT_KIA_PRE_OPEN = 0x1C000014, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG = 0x27000100, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG_INTERCEPTED = 0x27000101, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER = 0x2F000000, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER_POLICY = 0x2F000001, SECURITY_AUDIT_NOTIFY_EVENT_SERIAL_PORT_ACCESS = 0x30000100, SECURITY_AUDIT_NOTIFY_EVENT_BLUETOOTH_INTERCEPTED = 0x03000200, SECURITY_AUDIT_NOTIFY_EVENT_DISC_BURNING = 0x0F000004, SECURITY_AUDIT_NOTIFY_EVENT_MEDIA_FILE_ACCESS = 0x0F000005, SECURITY_AUDIT_NOTIFY_EVENT_ACCOUNT_MANAGEMENT = 0x10000103, SECURITY_AUDIT_NOTIFY_EVENT_DEVICE_POWER_ON = 0x16000001, SECURITY_AUDIT_NOTIFY_EVENT_DEVICE_POWER_OFF = 0x16000002, SECURITY_AUDIT_NOTIFY_EVENT_AUDIO_INTERFACE_ACCESS = 0x1A000001, SECURITY_AUDIT_NOTIFY_EVENT_VIDEO_INTERFACE_ACCESS = 0x1A000002, SECURITY_AUDIT_NOTIFY_EVENT_SERIAL_PORT_INTERCEPTED = 0x30000101, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_INTERCEPTED = 0x03000002, SECURITY_AUDIT_NOTIFY_EVENT_WIFI_INTERCEPTED = 0x03000100, SECURITY_AUDIT_NOTIFY_EVENT_PRINT_INTERCEPTED = 0x2E000001, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_NULL = 0x12001081, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_ABNORMAL = 0x12001082, SECURITY_AUDIT_NOTIFY_EVENT_FS_MOUNT_ABNORMAL = 0x1C001102, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_CS_ABNORMAL = 0x1C001200, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_MMAP_ABNORMAL = 0x1C001201, SECURITY_AUDIT_NOTIFY_EVENT_KERNEL_MEMORY_ABNORMAL = 0x1C001300, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_DEBUG_ABNORMAL = 0x1C001401, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_CRASH_ABNORMAL = 0x1C001402, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_PRIVILEGE_ESCALATION = 0x1C001403, SECURITY_AUDIT_NOTIFY_EVENT_DLP_FILE_ACCESS = 0x0F000006, SECURITY_AUDIT_NOTIFY_EVENT_FILE_CREATE = 0x1C001104, SECURITY_AUDIT_NOTIFY_EVENT_FILE_OPEN = 0x1C001105, SECURITY_AUDIT_NOTIFY_EVENT_FILE_CLOSE = 0x1C001106, SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETE = 0x1C001107, SECURITY_AUDIT_NOTIFY_EVENT_FILE_RENAME = 0x1C001108, SECURITY_AUDIT_NOTIFY_EVENT_FILE_COPY = 0x1C001109, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETOWNER = 0x1C00110A, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETMODE = 0x1C00110B, SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETEXTATTR = 0x1C00110C, SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETEEXTATTR = 0x1C00110D, SECURITY_AUDIT_NOTIFY_EVENT_FILE_WRITE = 0x1C00110E } | 定义通知事件的事件ID。 |
+| SecurityAudit_Auth_Event { SECURITY_AUDIT_AUTH_EVENT_FILE_CREATE = 0x1C801100, SECURITY_AUDIT_AUTH_EVENT_FILE_OPEN = 0x1C801101, SECURITY_AUDIT_AUTH_EVENT_FILE_RENAME = 0x1C801102, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETE = 0x1C801103, SECURITY_AUDIT_AUTH_EVENT_FILE_SETEXTATTR = 0x1C801104, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETEEXTATTR = 0x1C801105, SECURITY_AUDIT_AUTH_EVENT_FILE_READ_END = 0x1C801106, SECURITY_AUDIT_AUTH_EVENT_PROCESS_EXEC = 0x1C801400 } | 定义阻断类事件的事件ID。 |
 | SecurityAudit_FilterType { EVENT_TYPE_EQUAL = 0x00000100, EVENT_SUBTYPE_EQUAL = 0x00000200, FILE_PATH_EQUAL = 0x00010000, FILE_PATH_PREFIX = 0x00010001, FILE_PATH_SUFFIX = 0x00010002, FILE_PATH_REGULAR = 0x00010003, PROCESS_UID_EQUAL = 0x00020000, PROCESS_PID_EQUAL = 0x00020100, PROCESS_NAME_EQUAL = 0x00020200, PROCESS_NAME_PREFIX = 0x00020201, PROCESS_NAME_SUFFIX = 0x00020202 } | 定义过滤器类型。 |
 | SecurityAudit_AuthResult { SECURITY_AUDIT_AUTH_RESULT_ALLOW = 0, SECURITY_AUDIT_AUTH_RESULT_DENY = 1 } | 定义阻断结果的类型。 |
  
@@ -85,7 +87,11 @@
 | int32_t HMS_SecurityAudit_Unsubscribe (const SecurityAudit_Client *client, const SecurityAudit_Notify_Event *events, uint64_t count) | 取消订阅通知事件。 |
 | int32_t HMS_SecurityAudit_AddFilter (const SecurityAudit_Client *client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter *filter) | 为通知事件添加过滤条件。 |
 | int32_t HMS_SecurityAudit_RemoveFilter (const SecurityAudit_Client *client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter *filter) | 删除通知事件的过滤条件。 |
-| int32_t HMS_SecurityAudit_NewAuthClient (SecurityAudit_AuthClient **client, SecurityAudit_Handler handler) | 创建一个新的阻断类事件客户端。 |
+| int32_t HMS_SecurityAudit_NewAuthClient (SecurityAudit_AuthClient **client, SecurityAudit_Handler handler) | 创建一个新的阻断类事件客户端（超时默认放行）。 |
+| int32_t HMS_SecurityAudit_NewAuthClientWithConfiguration (SecurityAudit_AuthClient **outOwnedClient, SecurityAudit_Handler handler, SecurityAudit_AuthClientConfiguration *configuration) | 创建一个新的阻断类事件客户端（可配置超时默认阻断策略）。 |
+| int32_t HMS_SecurityAudit_CreateAuthClientConfiguration (SecurityAudit_AuthClientConfiguration **outOwnedConfiguration) | 创建阻断类事件客户端配置对象。 |
+| int32_t HMS_SecurityAudit_DestroyAuthClientConfiguration (SecurityAudit_AuthClientConfiguration *configuration) | 销毁阻断类事件客户端配置对象。 |
+| int32_t HMS_SecurityAudit_AuthClientConfiguration_SetTimeoutAuthResult (SecurityAudit_AuthClientConfiguration *configuration, SecurityAudit_AuthResult authResult) | 设置超时默认授权结果。 |
 | int32_t HMS_SecurityAudit_DeleteAuthClient (SecurityAudit_AuthClient *client) | 删除阻断类事件客户端。 |
 | int32_t HMS_SecurityAudit_SubscribeAuthEvent (const SecurityAudit_AuthClient *client, const SecurityAudit_Auth_Event *events, uint64_t count) | 订阅阻断类事件。 |
 | int32_t HMS_SecurityAudit_UnsubscribeAuthEvent (const SecurityAudit_AuthClient *client, const SecurityAudit_Auth_Event *events, uint64_t count) | 取消订阅阻断类事件。 |
@@ -96,6 +102,7 @@
 | int32_t HMS_SecurityAudit_QueryProcesses(uint64_t* pids, uint64_t count, char** result) | 获取输入的pid的应用进程信息。 |
 | int32_t HMS_SecurityAudit_AcquireCodeSign(char* path, char** outOwnedResult) | 获取输入的文件路径的代码签名信息。 |
 | int32_t HMS_SecurityAudit_AcquireAllClientsInfo (char** outOwnedResult) | 获取全量通知类客户端信息。 |
+| int32_t HMS_SecurityAudit_AcquireAllAuthClientsInfo (char** outOwnedResult) | 获取全量阻断类客户端信息。 |
  
  
   
@@ -162,6 +169,22 @@ typedef void(* SecurityAudit_Handler) (const SecurityAudit_Event *events, uint64
  
   
 
+#### SecurityAudit_AuthClientConfiguration
+
+**支持设备：** PC/2in1
+
+```text
+typedef struct SecurityAudit_AuthClientConfiguration_Impl SecurityAudit_AuthClientConfiguration
+```
+ 
+**描述**
+ 
+定义阻断事件客户端配置对象。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
 #### 枚举类型说明
 
 **支持设备：** PC/2in1
@@ -192,6 +215,8 @@ enum SecurityAudit_Auth_Event
 | SECURITY_AUDIT_AUTH_EVENT_FILE_DELETE | 文件删除阻断事件。 |
 | SECURITY_AUDIT_AUTH_EVENT_FILE_SETEXTATTR | 文件设置扩展属性的阻断事件。 |
 | SECURITY_AUDIT_AUTH_EVENT_FILE_DELETEEXTATTR | 文件删除扩展属性的阻断事件。 |
+| SECURITY_AUDIT_AUTH_EVENT_FILE_READ_END | 文件读结束阻断事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_AUTH_EVENT_PROCESS_EXEC | 进程执行阻断事件。 起始版本： 26.0.0 |
  
  
   
@@ -241,7 +266,7 @@ enum SecurityAudit_FilterType
 | FILE_PATH_EQUAL | 文件路径类型的过滤器类型。 |
 | FILE_PATH_PREFIX | 文件路径前缀类型的过滤器类型。 |
 | FILE_PATH_SUFFIX | 文件路径后缀类型的过滤器类型。 |
-| FILE_PATH_REGULAR | 进程名称后缀的过滤类型。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_PATH_REGULAR | 文件路径正则表达式的过滤类型。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 | PROCESS_UID_EQUAL | 过滤进程的 UID 类型。 |
 | PROCESS_PID_EQUAL | 过滤进程 ID 类型。 |
 | PROCESS_NAME_EQUAL | 筛选进程名称类型。 |
@@ -276,7 +301,7 @@ enum SecurityAudit_Notify_Event
 | SECURITY_AUDIT_NOTIFY_EVENT_WINDOW | 窗口截图、屏幕录制、屏幕投影事件。 |
 | SECURITY_AUDIT_NOTIFY_EVENT_VOLUME | 可移动存储设备的插入和移除事件。 |
 | SECURITY_AUDIT_NOTIFY_EVENT_PRINTER | 打印机事件。 |
-| SECURITY_AUDIT_NOTIFY_EVENT_PROCESS | 进程创建退出事件。 |
+| SECURITY_AUDIT_NOTIFY_EVENT_PROCESS | 进程创建或退出事件。 |
 | SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_TRAFFIC | 网络流量事件。 |
 | SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_CONN | 网络连接事件。 |
 | SECURITY_AUDIT_NOTIFY_EVENT_CAMERA | 相机事件。 |
@@ -317,17 +342,26 @@ enum SecurityAudit_Notify_Event
 | SECURITY_AUDIT_NOTIFY_EVENT_FILE_SHARE | 文件分享事件 起始版本：26.0.0 |
 | SECURITY_AUDIT_NOTIFY_EVENT_DATA_DRAG | 数据拖拽事件 起始版本：26.0.0 |
 | SECURITY_AUDIT_NOTIFY_EVENT_DLP_FILE_ACCESS | DLP文件访问 起始版本：26.0.0 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_CREATE | 文件创建事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_OPEN | 文件打开事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_CLOSE | 文件关闭事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETE | 文件删除事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_RENAME | 文件重命名事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_COPY | 文件复制事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETOWNER | 文件修改所有者事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETMODE | 文件修改mode事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETEXTATTR | 文件设置扩展属性事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETEEXTATTR | 文件删除扩展属性事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
-| SECURITY_AUDIT_NOTIFY_EVENT_FILE_WRITE | 文件写事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_CREATE | 文件创建事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_OPEN | 文件打开事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_CLOSE | 文件关闭事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETE | 文件删除事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_RENAME | 文件重命名事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_COPY | 文件复制事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETOWNER | 文件修改所有者事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETMODE | 文件修改mode事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_SETEXTATTR | 文件设置扩展属性事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_DELETEEXTATTR | 文件删除扩展属性事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_FILE_WRITE | 文件写事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_BLUETOOTH_INTERCEPTED | 蓝牙拦截事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_DISC_BURNING | 光盘刻录事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_MEDIA_FILE_ACCESS | 媒体文件访问事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_ACCOUNT_MANAGEMENT | 账户管理事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_DEVICE_POWER_ON | 设备开机事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_DEVICE_POWER_OFF | 设备关机事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_AUDIO_INTERFACE_ACCESS | 音频接口访问事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_VIDEO_INTERFACE_ACCESS | 视频接口访问事件。 起始版本： 26.0.0 |
+| SECURITY_AUDIT_NOTIFY_EVENT_SERIAL_PORT_INTERCEPTED | 串口拦截事件。 起始版本： 26.0.0 |
  
  
   
@@ -517,7 +551,7 @@ int32_t HMS_SecurityAudit_NewAuthClient (SecurityAudit_AuthClient ** client, Sec
   
 | 名称 | 描述 |
 | --- | --- |
-| client | 指向新阻断类事件客户端实例的指针。 |
+| client | 指向新阻断类事件客户端实例的指针，一个进程最大只允许创建2个client实例，当前设备最多只允许创建16个client实例。一个客户端实例最大只允许设置256条正过滤的过滤value和256条反过滤的过滤value。 |
 | handler | 处理发送到此客户端的所有消息的处理器。 |
  
  
@@ -855,7 +889,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
 **返回：**
  
-函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果权限验证失败，则返回201。 如果发生内部错误，1012000001。如果文件未找到或者应用无打开文件权限，1012000008。
+函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果权限验证失败，则返回201。 如果发生内部错误，则返回1012000001。如果文件未找到或者应用无打开文件权限，则返回1012000008。
  
   
 
@@ -886,4 +920,154 @@ ohos.permission.QUERY_AUDIT_EVENT
  
 **返回：**
  
-函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果权限验证失败，则返回201。 如果发生内部错误，则返回1012000001。如果要查询的pid数组元素个数超过限制，则返回1012000006。
+函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果权限验证失败，则返回201。 如果发生内部错误，则返回1012000001。
+ 
+  
+
+#### HMS_SecurityAudit_CreateAuthClientConfiguration()
+
+**支持设备：** PC/2in1
+
+```text
+int32_t HMS_SecurityAudit_CreateAuthClientConfiguration(SecurityAudit_AuthClientConfiguration** outOwnedConfiguration)
+```
+ 
+**描述**
+ 
+创建阻断类事件客户端配置对象。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| outOwnedConfiguration | 指向创建的阻断类事件客户端配置对象的指针。 |
+ 
+ 
+**返回：**
+ 
+函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果发生内部错误，则返回1012000001。
+ 
+**使用说明：**
+ 
+创建的配置对象需要调用HMS_SecurityAudit_DestroyAuthClientConfiguration释放。
+ 
+  
+
+#### HMS_SecurityAudit_DestroyAuthClientConfiguration()
+
+**支持设备：** PC/2in1
+
+```text
+int32_t HMS_SecurityAudit_DestroyAuthClientConfiguration(SecurityAudit_AuthClientConfiguration* configuration)
+```
+ 
+**描述**
+ 
+销毁阻断类事件客户端配置对象。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| configuration | 要销毁的阻断类事件客户端配置对象。 |
+ 
+ 
+**返回：**
+ 
+函数执行结果。 返回值说明： 如果操作成功，则返回0。
+ 
+  
+
+#### HMS_SecurityAudit_AuthClientConfiguration_SetTimeoutAuthResult()
+
+**支持设备：** PC/2in1
+
+```text
+int32_t HMS_SecurityAudit_AuthClientConfiguration_SetTimeoutAuthResult(SecurityAudit_AuthClientConfiguration* configuration, SecurityAudit_AuthResult authResult)
+```
+ 
+**描述**
+ 
+设置超时默认阻断结果。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| configuration | 阻断类事件客户端配置对象。 |
+| authResult | 超时后的默认授权结果。 |
+ 
+ 
+**返回：**
+ 
+函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果发生内部错误，则返回1012000001。
+ 
+  
+
+#### HMS_SecurityAudit_NewAuthClientWithConfiguration()
+
+**支持设备：** PC/2in1
+
+```text
+int32_t HMS_SecurityAudit_NewAuthClientWithConfiguration(SecurityAudit_AuthClient** outOwnedClient, SecurityAudit_Handler handler, SecurityAudit_AuthClientConfiguration* configuration)
+```
+ 
+**描述**
+ 
+创建一个新的阻断类客户端（可配置超时默认阻断策略）。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| outOwnedClient | 指向新阻断类事件客户端实例的指针。 |
+| handler | 处理发送到此客户端的所有消息的处理器。 |
+| configuration | 授权客户端配置对象，用于配置超时默认阻断策略。 |
+ 
+ 
+**Permission：**
+ 
+ohos.permission.kernel.AUTH_AUDIT_EVENT
+ 
+**返回：**
+ 
+函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果权限验证失败，则返回201。 如果发生内部错误，则返回1012000001。 如果客户端数量超过总上限，返回1012000002。 如果客户端数量超过当前进程的上限，则返回1012000003。 如果配置无效，则返回1012000004。
+ 
+  
+
+#### HMS_SecurityAudit_AcquireAllAuthClientsInfo()
+
+**支持设备：** PC/2in1
+
+```text
+int32_t HMS_SecurityAudit_AcquireAllAuthClientsInfo(char** outOwnedResult)
+```
+ 
+**描述**
+ 
+查询获取全量阻断类客户端信息。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| outOwnedResult | 查询获取到的全量阻断类客户端信息。 |
+ 
+ 
+**Permission：**
+ 
+ohos.permission.kernel.AUTH_AUDIT_EVENT
+ 
+**返回：**
+ 
+函数执行结果。 返回值说明： 如果操作成功，则返回0。 如果权限验证失败，则返回201。 如果发生内部错误，则返回1012000001。

@@ -114,7 +114,7 @@ struct CapsuleOne {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/9t_DQF6UTjiCTuUCuClGGQ/zh-cn_image_0000002658926665.png?HW-CC-KV=V1&HW-CC-Date=20260723T013238Z&HW-CC-Expire=86400&HW-CC-Sign=BED34FDE207771A61057BDAB1C5C94FC93D902AA5F7B4EBAB8FD060E517E5F48)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/9t_DQF6UTjiCTuUCuClGGQ/zh-cn_image_0000002658926665.png?HW-CC-KV=V1&HW-CC-Date=20260730T072519Z&HW-CC-Expire=86400&HW-CC-Sign=4D02353F9AF71B375431A34E8773694EEEDCECA50F0246219C1F9E45F09D1CC2)
 
 - 方案二：使用自定义页签实现。设置单个页签的宽度在(页签宽度/页签数-padding值*页签数，页签宽度/页签数)之间。参考代码如下所示：
 
@@ -184,7 +184,7 @@ struct CapsuleTwo {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/NhRyksR5RpK_3N0dT6GMAw/zh-cn_image_0000002658806705.png?HW-CC-KV=V1&HW-CC-Date=20260723T013238Z&HW-CC-Expire=86400&HW-CC-Sign=495B4B8C26152FA48087FE381809B1051DFA830DBB5035E6DFD3F501A379F48F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/NhRyksR5RpK_3N0dT6GMAw/zh-cn_image_0000002658806705.png?HW-CC-KV=V1&HW-CC-Date=20260730T072519Z&HW-CC-Expire=86400&HW-CC-Sign=40FC98759D7F9B7DC7007D42DE1C4193A67477D16A3F178B5790222543EAF816)
 
 
  - **场景四：实现页签栏和内容区重叠，并启用毛玻璃效果。**通过设置Tabs的barOverlap为true，并设置barBackgroundBlurStyle为BlurStyle.Thin，实现页签栏和内容区的重叠及毛玻璃效果。设置底部组件的padding值大于TabBar的高度防止遮挡。参考代码如下所示：
@@ -247,7 +247,7 @@ struct BarOverlapPage {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/yTDbtL9tTByMyM8O6ahh5g/zh-cn_image_0000002628407452.png?HW-CC-KV=V1&HW-CC-Date=20260723T013238Z&HW-CC-Expire=86400&HW-CC-Sign=A2988D804A75BCFAD11E73E42B26D2296EB535470CFFB91A3352835D334BFE96)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/yTDbtL9tTByMyM8O6ahh5g/zh-cn_image_0000002628407452.png?HW-CC-KV=V1&HW-CC-Date=20260730T072519Z&HW-CC-Expire=86400&HW-CC-Sign=3424C74E5A8A8EC25480D53D19192C54840A165FFD821DEE64B230CD94F0AA3A)
 
 - **场景五：实现悬浮式、两端留空的Tab栏样式。**
 方案一：使用自定义组件实现。通过自定义组件实现，使用Stack容器将Tabs与自定义页签堆叠，实现悬浮式、两端留空的Tab栏样式，参考代码如下所示：
@@ -347,7 +347,7 @@ struct SuspensionPage {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/STgUMaMZQTiCi1YcR6LcbQ/zh-cn_image_0000002628567350.png?HW-CC-KV=V1&HW-CC-Date=20260723T013238Z&HW-CC-Expire=86400&HW-CC-Sign=76F00CF0DFD69C7495F42B9C5F8F012E0D5C27750663FB5B4BD9966B38CA99F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/STgUMaMZQTiCi1YcR6LcbQ/zh-cn_image_0000002628567350.png?HW-CC-KV=V1&HW-CC-Date=20260730T072519Z&HW-CC-Expire=86400&HW-CC-Sign=761BD66887DD99AFB643356F5796E1067672A89EAC6FF70813B4746BEAD71C17)
 
 
  - **场景六：处理页签数较多时的TabBar的样式。**通过设置barMode为BarMode.Scrollable，当标签数量较多或内容超出屏幕宽度时，用户可以通过滑动来切换标签。解决方案：参考[示例2（设置Scrollable模式下的TabBar的布局样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例2设置scrollable模式下的tabbar的布局样式)。

@@ -1,6 +1,6 @@
 # @ohos.app.ability.EnvironmentCallback (系统环境变化监听器)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-environmentcallback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -34,7 +34,11 @@ import { EnvironmentCallback } from '@kit.AbilityKit';
 
 onConfigurationUpdated(config: Configuration): void
  
-[注册系统环境变化的监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonenvironment)后，在系统环境变化时触发回调。
+注册系统环境变化的监听[ApplicationContext.on('environment')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonenvironment)后，在系统环境变化时触发回调。
+ 
+> [!NOTE]
+> onConfigurationUpdated回调运行在当前进程的主线程中，如果在该回调中做耗时的UI组件释放，会阻塞主线程任务。因此，不建议在该回调中释放UI组件。
+
  
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
  
@@ -59,10 +63,10 @@ onConfigurationUpdated(config: Configuration): void
 
 onMemoryLevel(level: AbilityConstant.MemoryLevel): void
  
-[注册系统环境变化的监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonenvironment)后，在系统内存变化时触发回调。
+注册系统环境变化的监听[ApplicationContext.on('environment')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonenvironment)后，在系统内存变化时触发回调。
  
 > [!NOTE]
-> onMemoryLevel回调运行在当前进程的主线程中，如果在该回调中做耗时的UI组件释放，会阻塞主线程任务，因此不建议在该回调中释放UI组件。
+> onMemoryLevel回调运行在当前进程的主线程中，如果在该回调中做耗时的UI组件释放，会阻塞主线程任务。因此，不建议在该回调中释放UI组件。
 
  
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。

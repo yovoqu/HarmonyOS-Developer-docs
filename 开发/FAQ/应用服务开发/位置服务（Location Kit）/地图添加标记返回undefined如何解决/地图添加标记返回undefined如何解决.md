@@ -1,6 +1,6 @@
 # 地图添加标记返回undefined如何解决
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-20
 
@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/xV01HIRNR3e9AjMLY6Xf-A/zh-cn_image_0000002658913755.png?HW-CC-KV=V1&HW-CC-Date=20260723T013810Z&HW-CC-Expire=86400&HW-CC-Sign=B0C76C27ECB0C95D08ED85F8E30D6698BF9CD4FDEAC6E3BD9BFE8628CED9F031)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/zWVZ4Dh4QqO4xTXg2EsM8Q/zh-cn_image_0000002658913755.png?HW-CC-KV=V1&HW-CC-Date=20260730T072653Z&HW-CC-Expire=86400&HW-CC-Sign=8228F75F925660FA264165DF2EB5B2F68A34AA5BD0962234EFE3F67F21750ABB)
 
  
  
@@ -74,14 +74,14 @@ struct <span style="color: rgb(0,0,255);">MarkerPage </span><span style="color: 
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/7lWGEMfKTAOyWuKrDPYK5A/zh-cn_image_0000002658793809.png?HW-CC-KV=V1&HW-CC-Date=20260723T013810Z&HW-CC-Expire=86400&HW-CC-Sign=0E1BB3F80CE4F6B9B275502FD1012C3F18813ADF609CF67F89C08A1E4B81C8AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/Xy6Gs4UjRpijQinzukq1Xg/zh-cn_image_0000002658793809.png?HW-CC-KV=V1&HW-CC-Date=20260730T072653Z&HW-CC-Expire=86400&HW-CC-Sign=EB9E224F61DA75C00CF647592D1223EA61D7A4529565CE4ACD8A45FE67E0C028)
 
  
  
 
 #### 背景知识
 
-点标记用来在地图上标记任何位置，例如用户位置、车辆位置、店铺位置等一切带有位置属性的事物，具体实现可参考：[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-marker#section1564972414506)。
+点标记用来在地图上标记任何位置，例如用户位置、车辆位置、店铺位置等一切带有位置属性的事物，具体实现可参考：[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-marker#开发步骤)。
  
  
 

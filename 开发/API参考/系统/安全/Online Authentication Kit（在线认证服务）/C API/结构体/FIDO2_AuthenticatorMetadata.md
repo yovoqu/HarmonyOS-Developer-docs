@@ -1,6 +1,6 @@
 # FIDO2_AuthenticatorMetadata
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_metadata
 
@@ -10,7 +10,9 @@
  
 **起始版本：** 6.0.0(20)
  
-**相关模块：** [FIDO2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+**相关模块：** [FIDO2（通行密钥服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+ 
+**所在头文件：** [fido2_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication_capi_header_fido2)
  
   
 
@@ -22,7 +24,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| Uint8Buff aaguid | 认证器的aaguid。 |
+| Uint8Buff aaguid | 认证器的唯一标识符。 |
 | FIDO2_Uvm uvm | 支持的认证器类型。 |
 | bool isAvailable | 认证器是否可用。如果返回true，则表示认证器可用；返回false，表示认证器不可用。 |
  
@@ -41,7 +43,7 @@ Uint8Buff FIDO2_AuthenticatorMetadata::aaguid
  
 **描述**
  
-认证器的aaguid。
+认证器的唯一标识符。
  
   
 

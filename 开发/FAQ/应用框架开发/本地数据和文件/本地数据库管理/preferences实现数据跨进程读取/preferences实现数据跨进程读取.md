@@ -118,7 +118,7 @@ export default class <span style="color: rgb(0,0,255);">EntryFormAbility </span>
  实现效果：上述代码实现token数据存入myStore文件，文件内容为token的值：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/6BPITkYKRKi3HpYuzLspkw/zh-cn_image_0000002628899082.png?HW-CC-KV=V1&HW-CC-Date=20260723T013257Z&HW-CC-Expire=86400&HW-CC-Sign=D18E7AC35D421527C00289CF0139DE141A8C6B3F679EC74CEB7C987AC572F6AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/6BPITkYKRKi3HpYuzLspkw/zh-cn_image_0000002628899082.png?HW-CC-KV=V1&HW-CC-Date=20260730T072522Z&HW-CC-Expire=86400&HW-CC-Sign=4203712599305E414B69D79661C8008033A87EA8EEEBD998DC2299AF4183D533)
 
  
  

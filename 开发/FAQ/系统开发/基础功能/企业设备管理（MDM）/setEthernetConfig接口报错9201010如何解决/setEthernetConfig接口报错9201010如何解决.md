@@ -1,6 +1,6 @@
 # setEthernetConfig接口报错9201010如何解决
 
-更新时间：2026-07-15 01:37:37
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-12
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-调用[networkManager.setEthernetConfig](https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/api/js-apis-enterprise-networkmanager#networkmanagersetethernetconfig23)接口可以设置以太网配置。错误码[9201010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager#section9201010-以太网网络接口配置失败)表示以太网网络接口配置失败。
+调用[networkManager.setEthernetConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-networkmanager#networkmanagersetethernetconfig23)接口可以设置以太网配置。错误码[9201010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager#section9201010-以太网网络接口配置失败)表示以太网网络接口配置失败。
  
  
 
@@ -33,5 +33,5 @@
 
 检查网卡状态及配置参数
  1. 检查以太网设备是否已连接，且对应网卡是否已启用。
-2. 检查调用[networkManager.setEthernetConfig](https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/api/js-apis-enterprise-networkmanager#networkmanagersetethernetconfig23)接口时传入的网卡名称是否与实际设备网卡名称一致。
+2. 检查调用[networkManager.setEthernetConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-networkmanager#networkmanagersetethernetconfig23)接口时传入的网卡名称是否与实际设备网卡名称一致。
 3. 检查传入接口的配置参数是否正确。

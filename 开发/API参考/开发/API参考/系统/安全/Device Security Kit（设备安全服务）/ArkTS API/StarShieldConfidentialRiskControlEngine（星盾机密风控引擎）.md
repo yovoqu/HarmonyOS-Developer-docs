@@ -1,6 +1,6 @@
 # RiskControlEngine（星盾机密风控引擎）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-riskcontrolengine-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -28,7 +28,7 @@ type ValueType = number | boolean | string
  
 定义因子数据值的类型。可以是布尔值，也可以是任意数字或字符串。
  
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -51,7 +51,7 @@ type ValueType = number | boolean | string
 
 应用风险因子数据。
  
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -73,7 +73,7 @@ type ValueType = number | boolean | string
 
 导入应用风险因子数据。
  
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -95,7 +95,7 @@ type ValueType = number | boolean | string
 
 风控评分的请求参数。
  
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -117,7 +117,7 @@ type ValueType = number | boolean | string
 
 风控评分请求的返回对象。
  
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -140,7 +140,7 @@ importRiskFactors(data: ImportData): Promise&lt;void&gt;
  
 导入应用级风险因子数据。使用Promise异步回调。
  
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -161,17 +161,16 @@ importRiskFactors(data: ImportData): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回值。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-riskcontrolengine)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-riskcontrolengine)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | API is not supported. |
-| 1010800001 | Internal error. |
 | 1010800004 | Verify capability fail. |
 | 1010800005 | The number of calls exceeds the parallel threshold. |
 | 1010800006 | The invoking frequency exceeds the threshold. |
@@ -188,7 +187,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { util } from '@kit.ArkTS';
 
-const TAG = "riskControlEngineJsTest";
+const TAG = 'riskControlEngineJsTest';
 
 let rand = cryptoFramework.createRandom();
 let len = 32;
@@ -197,8 +196,8 @@ let base64 = new util.Base64Helper();
 // 导入应用风险因子数据
 let data: riskControlEngine.ImportData = {
   appFactorData: [
-    { factorName: "factor_1", factorValue: 3600 },
-    { factorName: "factor_2", factorValue: false }
+    { factorName: 'factor_1', factorValue: 3600 },
+    { factorName: 'factor_2', factorValue: false }
   ],
   nonce: base64.encodeToStringSync(randData.data) // 16-66字节随机数
 };
@@ -222,7 +221,7 @@ getRiskControlResult(req: RiskControlDetectionRequest): Promise&lt;RiskControlDe
  
 获取风控评分结果。使用Promise异步回调。
  
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -248,12 +247,11 @@ getRiskControlResult(req: RiskControlDetectionRequest): Promise&lt;RiskControlDe
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-riskcontrolengine)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-riskcontrolengine)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | API is not supported. |
-| 1010800001 | Internal error. |
 | 1010800004 | Verify capability fail. |
 | 1010800005 | The number of calls exceeds the parallel threshold. |
 | 1010800006 | The invoking frequency exceeds the threshold. |
@@ -270,7 +268,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { util } from '@kit.ArkTS';
 
-const TAG = "riskControlEngineJsTest";
+const TAG = 'riskControlEngineJsTest';
 
 let rand = cryptoFramework.createRandom();
 let len = 32;
@@ -278,7 +276,7 @@ let randData = rand.generateRandomSync(len);
 let base64 = new util.Base64Helper();
 
 const request: riskControlEngine.RiskControlDetectionRequest = {
-  policyName: "Policy_1001", // 风险策略
+  policyName: 'Policy_1001', // 风险策略
   nonce: base64.encodeToStringSync(randData.data) // 16-66字节随机数
 };
 

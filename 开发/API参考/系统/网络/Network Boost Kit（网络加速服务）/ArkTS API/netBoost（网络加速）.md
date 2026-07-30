@@ -1,6 +1,6 @@
 # netBoost（网络加速）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netboost
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -129,7 +129,9 @@ try {
 
 setDataFlowDesc(dataFlowDesc : DataFlowDesc): void
  
-设置数据流描述。
+设置数据流描述。应用可向系统上报数据流信息、业务场景、场景事件以及该数据流期望的网络传输质量。系统依据数据流描述，为应用数据流提供差异化的网络传输保障。
+ 
+目前数据流描述仅对前台应用生效，每个应用最多支持设置两条数据流描述。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  

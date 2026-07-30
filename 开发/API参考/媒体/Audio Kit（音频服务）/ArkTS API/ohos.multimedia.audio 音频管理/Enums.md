@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -681,6 +681,48 @@
 
 
 
+#### AudioPlaybackCaptureMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+表示内录（录制设备内部应用的声音）模式的枚举。不同模式决定可录制的目标播放流类型。支持通过按位或组合枚举值，当前仅支持MODE_DEFAULT（0x0）、MODE_MEDIA（0x1）、MODE_EXCLUDING_SELF（0x8000），以及MODE_MEDIA和MODE_EXCLUDING_SELF的按位或组合（0x8001）。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Audio.PlaybackCapture
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| MODE_DEFAULT | 0x0 | 默认模式。录制大部分音频流，但不包括提示音流和隐私流。 |
+| MODE_MEDIA | 0x1 | 媒体模式。录制媒体、语音消息和未知类型的音频流。 |
+| MODE_EXCLUDING_SELF | 0x8000 | 排除自身模式。录制除应用自身播放的音频以外的音频流。 |
+
+
+
+
+#### PlaybackCaptureStartState
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+表示调用[requestPlaybackCaptureStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer#requestplaybackcapturestart)后异步返回的内录启动状态的枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Audio.PlaybackCapture
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| STATE_SUCCESS | 0 | 启动内录成功。 |
+| STATE_FAILED | 1 | 启动内录失败。原因是音频打断请求被拒绝或发生系统内部错误。 |
+| STATE_NOT_AUTHORIZED | 2 | 用户未授权，启动内录失败。 |
+
+
+
+
 #### AudioScene8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -887,7 +929,7 @@
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| UNAVAILABLE_DEVICE | -2 | 表示返听由于输入\输出设备而不可用（如出声设备变更）。 |
+| UNAVAILABLE_DEVICE | -2 | 表示返听由于输入/输出设备而不可用（如出声设备变更）。 |
 | UNAVAILABLE_SCENE | -1 | 表示返听由于音频场景而不可用（如音频焦点、低时延管控）。 |
 | AVAILABLE_IDLE | 0 | 表示返听可用。 |
 | AVAILABLE_RUNNING | 1 | 表示返听运行中。 |
@@ -943,4 +985,5 @@
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEFAULT_BEHAVIOR | 0x00000000 | 默认行为，用于清空音频会话行为设置。 |
-| MUTE_WHEN_INTERRUPTED | 0x00000002 | 当系统需要停止或暂停音频流时，执行强制静音替代。 调用setAudioSessionBehavior接口配置该行为时，必须同步调用setAudioSessionScene接口，否则配置将无法生效。 在音频会话场景下，当音频流静音或恢复时，应用将分别收到AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_MUTE与AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE的通知。 在AudioRenderer和AudioCapturer场景下，当音频流静音或恢复时，应用将分别收到InterruptHint.INTERRUPT_HINT_MUTE与InterruptHint.INTERRUPT_HINT_UNMUTE的通知。 |
+| MUTE_WHEN_INTERRUPTED | 0x00000002 | 当系统需要停止或暂停音频流时，执行强制静音替代。 调用setAudioSessionBehavior接口配置该行为时，必须同步调用setAudioSessionScene接口，否则配置将无法生效。 在音频会话场景下，当音频流静音或恢复时，应用将分别收到AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_MUTE与AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE的通知。 在AudioRenderer和AudioCapturer场景下，当音频流静音或恢复时，应用将分别收到InterruptHint.INTERRUPT_HINT_MUTE与InterruptHint.INTERRUPT_HINT_UNMUTE的通知。 注意： 该标志不能与PAUSE_WHEN_INTERRUPTED共存，若同时设置，仅PAUSE_WHEN_INTERRUPTED生效。 |
+| PAUSE_WHEN_INTERRUPTED | 0x00000004 | 当系统需要停止音频流时，执行暂停替代。 调用setAudioSessionBehavior接口配置该行为时，必须同步调用setAudioSessionScene接口，否则配置将无法生效。 在音频会话场景下，当音频流暂停或恢复时，应用将分别收到AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_PAUSE与AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_RESUME的通知。 在AudioRenderer和AudioCapturer场景下，当音频流暂停或恢复时，应用将分别收到InterruptHint.INTERRUPT_HINT_PAUSE与InterruptHint.INTERRUPT_HINT_RESUME的通知。 注意： 该标志不能与MUTE_WHEN_INTERRUPTED共存，若同时设置，仅该标志生效。 起始版本： 26.0.0 |

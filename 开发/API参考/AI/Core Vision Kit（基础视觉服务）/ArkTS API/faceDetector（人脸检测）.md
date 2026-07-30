@@ -1,13 +1,13 @@
 # faceDetector（人脸检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-face-detector-api
 **支持设备：** Phone | PC/2in1 | Tablet
 
 人脸检测支持2D人脸检测框的检测能力。检测给定图片中的人脸数量、人脸位置、特征点（左右眼中心、鼻子、左右嘴角）和姿态（pitch、roll、yaw）信息。人脸检测框按照大小排序。
 
-与Vision Kit的活体检测的区别是：活体检测用于视频，人脸检测用于图片。
+与[Vision Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-api)的活体检测的区别是：活体检测用于视频，人脸检测用于图片。
 
 **起始版本：** 5.0.0(12)
 
@@ -26,7 +26,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的PixelMap类型的视觉信息。
+待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)类型的视觉信息。
 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
@@ -38,7 +38,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pixelMap | image.PixelMap | 是 | 否 | 待识别的图片。 具体规格请参考约束与限制。 |
+| pixelMap | image.PixelMap | 是 | 否 | 待识别的图片。对于图片的要求请参见约束与限制。 |
 
 
 
@@ -47,7 +47,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-人脸遮挡检测的配置项。
+人脸遮挡检测的配置项。如果配置在初始化和检测期间指定，将启用额外的检测功能。
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
@@ -132,7 +132,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-表示人脸的矩形框。
+表示人脸的矩形框。描述人脸矩形框的位置和大小，包括左上角坐标、宽度和高度。
 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
@@ -146,8 +146,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 | --- | --- | --- | --- | --- |
 | left | number | 是 | 否 | 人脸矩形框左上角x坐标。 |
 | top | number | 是 | 否 | 人脸矩形框左上角y坐标。 |
-| width | number | 是 | 否 | 人脸框宽，单位：pixel。 |
-| height | number | 是 | 否 | 人脸框高，单位：pixel。 |
+| width | number | 是 | 否 | 人脸框宽，单位：px。 |
+| height | number | 是 | 否 | 人脸框高，单位：px。 |
 
 
 
@@ -156,7 +156,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-表示人脸的信息列表。
+表示人脸检测的结果信息，包括人脸数量、坐标信息、人脸姿态和检测结果置信度。
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
@@ -422,8 +422,8 @@ detect(visionInfo: VisionInfo): Promise<Array&lt;Face&gt;>
 | --- | --- |
 | 200 | Run timed out, please try again later. |
 | 401 | The parameter check failed. |
-| 1008800001 | Failed to run, please try again. |
-| 1008800002 | The service is abnormal. |
+| 1008800001 | Failed to run face detector, please try again. |
+| 1008800002 | The face detector service is abnormal. |
 
 
 **示例：**

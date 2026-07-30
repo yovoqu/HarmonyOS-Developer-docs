@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -169,7 +169,7 @@ The Map permission is not enabled.
 2. 配置client_id。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/0WRokVRdTuyI3Qmmwx6cxQ/zh-cn_image_0000002626071700.png?HW-CC-KV=V1&HW-CC-Date=20260624T020346Z&HW-CC-Expire=86400&HW-CC-Sign=F52DC736F33A91B910C3D654B3BFC204F82FF6FD6EE6BBA0B2D952622B0BAD28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/zhqGd2ooTYCN1ZUERczldA/zh-cn_image_0000002686089251.png?HW-CC-KV=V1&HW-CC-Date=20260730T071736Z&HW-CC-Expire=86400&HW-CC-Sign=F2BAFBE6AB8016F52263C7628B04BE91886B1C447D06AE7A90FDC757513E9C5C)
 
 3. 如未解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
@@ -415,7 +415,117 @@ The heatmap ID already exists.
 
 **处理步骤**
 
-尝试更换ID或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+尝试更换ID，如果不能解决可以[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+
+
+#### 1002600017 该应用缺少地图信号预测功能的权限
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**错误信息**
+
+The app lacks permission for the map signal prediction capability.
+
+**错误描述**
+
+该应用缺少地图信号预测功能的权限。
+
+**可能原因**
+
+该应用缺少地图信号预测功能的权限。
+
+**处理步骤**
+
+尝试[开通信号预测能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-map-signal-line#开通信号预测能力)。
+
+
+
+#### 1002600018 信号路线中的signalId已存在
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**错误信息**
+
+signalId in the signal route already exists.
+
+**错误描述**
+
+信号路线中的signalId已存在。
+
+**可能原因**
+
+信号路线中的signalId已存在。
+
+**处理步骤**
+
+更改signalId，如果不能解决可以[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+
+
+#### 1002600019 路线长度超过最大限制200公里
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**错误信息**
+
+The route length exceeds the maximum limit of 200 km.
+
+**错误描述**
+
+路线长度超过最大限制200公里。
+
+**可能原因**
+
+路线长度超过最大限制200公里。
+
+**处理步骤**
+
+减少路线长度，如果不能解决可以[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+
+
+#### 1002600020 无效的运营商
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**错误信息**
+
+Invalid carrier.
+
+**错误描述**
+
+无效的运营商。
+
+**可能原因**
+
+未插SIM卡。
+
+**处理步骤**
+
+检查SIM卡是否正常，如果不能解决可以[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+
+
+#### 1002600021 路由信号不可预测
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**错误信息**
+
+The route signal is unpredictable.
+
+**错误描述**
+
+路由信号不可预测。
+
+**可能原因**
+
+传入的经纬度无法预测出路线结果。
+
+**处理步骤**
+
+建议检查传入的经纬度数据，然后重新调用[信号路线](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addsignalline)接口。
 
 
 

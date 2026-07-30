@@ -1,11 +1,11 @@
 # ScenePostProcessSettings
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-post-process-settings
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供3D图形中的色调映射等图像后处理方法。
+本模块提供ArkGraphics 3D中的色调映射等图像后处理方法。
  
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持，后续版本的新增接口，采用上角标标记接口的起始版本。
@@ -83,7 +83,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, VignetteSettings, 
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| roundness | number | 否 | 是 | 暗角的覆盖区域大小，取值范围为[0, 1]，取值为0时覆盖区域收缩至最小，取值为1时覆盖区域为全局，默认值为sqrt(0.5)（约0.707）。 |
+| roundness | number | 否 | 是 | 暗角的圆度，取值范围为[0, 1]，取值为0时暗角形状趋近矩形，取值为1时暗角形状趋近圆形，默认值为sqrt(0.5)（约0.707）。 |
 | intensity | number | 否 | 是 | 作用强度，取值范围为[0, 1]，取值为0时无暗角效果，取值为1时为最大暗角强度，默认值为0.4。 |
  
  
@@ -99,7 +99,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, VignetteSettings, 
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| intensity | number | 否 | 是 | 作用强度，取值范围为0到1之间，默认值为0.2。 |
+| intensity | number | 否 | 是 | 作用强度，取值范围为[0, 1]，默认值为0.2。 |
  
  
   

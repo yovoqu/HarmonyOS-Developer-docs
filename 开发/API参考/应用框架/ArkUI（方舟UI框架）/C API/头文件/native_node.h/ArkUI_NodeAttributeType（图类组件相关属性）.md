@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（图类组件相关属性）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-image
 
@@ -615,14 +615,14 @@ NODE_IMAGE_ORIENTATION = 4020
 
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 期望的图像内容显示方向ArkUI_Orientation，默认值为ARKUI_ORIENTATION_UP。 |
+| .value[0].i32 | 期望的图像内容显示方向ArkUI_ImageRotateOrientation，默认值为ARKUI_ORIENTATION_UP。 |
 
 
 **返回：**
 
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 期望的图像内容显示方向ArkUI_Orientation。 |
+| .value[0].i32 | 期望的图像内容显示方向ArkUI_ImageRotateOrientation。 |
 
 
 
@@ -686,7 +686,7 @@ NODE_IMAGE_CONTENT_TRANSITION = 4022
 #### NODE_IMAGE_ALT_PLACEHOLDER
 
 ```text
-NODE_IMAGE_ALT_PLACEHOLDER  = 4023
+NODE_IMAGE_ALT_PLACEHOLDER = 4023
 ```
 
 支持加载过程中的占位图的配置，支持属性设置，属性重置，属性获取接口。
@@ -716,7 +716,7 @@ NODE_IMAGE_ALT_PLACEHOLDER  = 4023
 #### NODE_IMAGE_ALT_ERROR
 
 ```text
-NODE_IMAGE_ALT_ERROR  = 4024
+NODE_IMAGE_ALT_ERROR = 4024
 ```
 
 支持加载失败时的占位图的配置，支持属性设置，属性重置，属性获取接口。

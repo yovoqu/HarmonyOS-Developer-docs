@@ -1,6 +1,6 @@
 # RPC错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-rpc
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,11 @@
 > 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-从API version 9起，IPC支持异常返回功能。错误码对应数值及含义如下。
+
+#### 概述
+
+RPC（Remote Procedure Call）错误码用于标识IPC通信过程中发生的各类异常情况。本模块提供了IPC/RPC通信相关的标准错误码定义，帮助开发者快速定位和解决通信问题。
+
 
 
 #### 1900001 系统调用mmap失败
@@ -73,7 +77,7 @@ Failed to write data to the shared memory.
 2. 没有对共享内存设置PROT_WRITE模式。
 
 **处理步骤**
-1. 请检查当前向共享内存所写内容是否已经超过了映射的总大小。
+1. 请检查当前向共享内存写入的内容是否已经超过了映射的总大小。
 2. 请检查是否设置了PROT_WRITE保护权限。
 
 
@@ -91,16 +95,16 @@ Failed to read data from the shared memory.
 从共享内存读数据失败。
 
 **可能原因**
-1. 单次写或者连续写的总内容超过了映射的共享内存大小。
+1. 单次读或者连续读的总内容超过了映射的共享内存大小。
 2. 没有对共享内存设置PROT_READ模式。
 
 **处理步骤**
-1. 请检查当前向共享内存所写内容是否已经超过了映射的总大小。
+1. 请检查当前从共享内存读取的内容是否已经超过了映射的总大小。
 2. 请检查是否设置了PROT_READ保护权限。
 
 
 
-#### 1900005 ipc对象权限错误
+#### 1900005 IPC对象权限错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +114,7 @@ Operation allowed only for the proxy object.
 
 **错误描述**
 
-只有proxy对象允许该操作。
+只有RemoteProxy对象允许该操作。
 
 **可能原因**
 
@@ -122,7 +126,7 @@ Operation allowed only for the proxy object.
 
 
 
-#### 1900006 ipc对象权限错误
+#### 1900006 IPC对象权限错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +136,7 @@ Operation allowed only for the remote object.
 
 **错误描述**
 
-只有remote对象允许该操作。
+只有RemoteObject对象允许该操作。
 
 **可能原因**
 
@@ -154,19 +158,19 @@ Communication failed.
 
 **错误描述**
 
-和远端对象进行进程间通信失败。
+和远程对象进行进程间通信失败。
 
 **可能原因**
-1. 远端对象已经销毁。
-2. 远端对象发生了销毁然后重新创建，本端持有的代理对象已经过期。
+1. 远程对象已经销毁。
+2. 远程对象发生了销毁然后重新创建，本地持有的代理对象已经过期。
 
 **处理步骤**
-1. 请检查远端对象是否已经销毁。
-2. 请检查是否注册了死亡监听，并且远端对象发生析构又重新创建。
+1. 请检查远程对象是否已经销毁。
+2. 请检查是否注册了死亡监听。如果远程对象被销毁后重新创建，需要重新获取代理对象并更新本地引用。
 
 
 
-#### 1900008 非法的ipc对象
+#### 1900008 非法的IPC对象
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,15 +180,15 @@ The proxy or remote object is invalid.
 
 **错误描述**
 
-非法的代理对象或者远端对象。
+非法的代理对象或者远程对象。
 
 **可能原因**
 1. 代理对象已经失效。
-2. 远端对象已经销毁。
+2. 远程对象已经销毁。
 
 **处理步骤**
-1. 请检查proxy对象获取过程是否有异常。
-2. 请检查远端对象是否已经析构。
+1. 请检查Proxy对象获取过程是否有异常。
+2. 请检查远程对象是否已经析构。
 
 
 
@@ -254,7 +258,7 @@ Memory allocation failed.
 
 
 
-#### 1900012 JS方法失败
+#### 1900012 JS回调方法执行失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

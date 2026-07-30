@@ -1,10 +1,13 @@
 # llm_engine.h
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit-llm-engine
+**支持设备：** PC/2in1
 
 #### 概述
+
+**支持设备：** PC/2in1
 
 定义用于LLM模型推理的API。
  
@@ -22,9 +25,13 @@
 
 #### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 #### 类型定义
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,6 +44,8 @@
   
 
 #### 枚举
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -46,12 +55,14 @@
   
 
 #### 函数
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
-| HMS_LLMEngine_Executor * HMS_LLMEngineExecutor_CreateFromExecutorJson (const char *jsonFile) | 通过JSON配置文件创建LLM引擎上下文句柄。 |
+| HMS_LLMEngine_Executor * HMS_LLMEngineExecutor_CreateFromExecutorJson (const char *jsonFile) | 通过JSON配置文件创建LLM引擎执行器句柄。 |
 | void HMS_LLMEngine_Context_Destroy (HMS_LLMEngine_Context **ctx) | 销毁LLM引擎上下文。 |
-| HMS_LLMEngine_Context * HMS_LLMEngineContext_CreateFromContextJson (const char *jsonFile) | 通过JSON配置文件创建LLM引擎执行器句柄。 |
+| HMS_LLMEngine_Context * HMS_LLMEngineContext_CreateFromContextJson (const char *jsonFile) | 通过JSON配置文件创建LLM引擎上下文句柄。 |
 | void HMS_LLMEngineExecutor_Destroy (HMS_LLMEngine_Executor **executor) | 销毁一个LLM引擎执行器，该执行器内存释放。 |
 | HMS_LLMEngine_Prompt * HMS_LLMEnginePrompt_Create (void) | 创建一个LLM引擎提示句柄。 |
 | OH_NN_ReturnCode HMS_LLMEnginePrompt_SetText (HMS_LLMEngine_Prompt *prompt, const char *text) | 设置文本输入。 |

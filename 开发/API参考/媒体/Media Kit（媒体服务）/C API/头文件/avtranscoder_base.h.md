@@ -1,6 +1,6 @@
 # avtranscoder_base.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -136,7 +136,7 @@ typedef void (*OH_AVTranscoder_OnStateChange)(OH_AVTranscoder *transcoder, OH_AV
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-typedef void (*OH_AVTranscoder_OnError)(OH_AVTranscoder *transcoder, int32_t errorCode, const char *errorMsg,void *userData)
+typedef void (*OH_AVTranscoder_OnError)(OH_AVTranscoder *transcoder, int32_t errorCode, const char *errorMsg, void *userData)
 ```
  
 **描述**

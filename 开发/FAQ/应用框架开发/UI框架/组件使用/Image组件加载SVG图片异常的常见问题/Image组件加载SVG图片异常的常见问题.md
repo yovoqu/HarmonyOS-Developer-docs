@@ -82,7 +82,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/q1qtc6dkS72LHIaG0yVWBQ/zh-cn_image_0000002628552624.png?HW-CC-KV=V1&HW-CC-Date=20260723T012543Z&HW-CC-Expire=86400&HW-CC-Sign=79DDAC28D39CBE214EE6E3014011A9B0E87724B4FCECE0D70DBF448C127760C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/q1qtc6dkS72LHIaG0yVWBQ/zh-cn_image_0000002628552624.png?HW-CC-KV=V1&HW-CC-Date=20260730T072321Z&HW-CC-Expire=86400&HW-CC-Sign=E3E1B9191EC85B383C271A8029C37A4A63E1E0FC074C09BD52F1FEF702A300E4)
 
  
 场景二：标签支持范围限制。
@@ -154,7 +154,7 @@ struct <span style="color: rgb(0,0,255);">Page </span><span style="color: rgb(25
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Gds77DkIS565ps206zU8lQ/zh-cn_image_0000002658911941.png?HW-CC-KV=V1&HW-CC-Date=20260723T012543Z&HW-CC-Expire=86400&HW-CC-Sign=32D9695982D5FF5CE1E80B98884DE43681B86C07286E9EB3E6B03479738C1DB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Gds77DkIS565ps206zU8lQ/zh-cn_image_0000002658911941.png?HW-CC-KV=V1&HW-CC-Date=20260730T072321Z&HW-CC-Expire=86400&HW-CC-Sign=B9B8B8B39FB1BB587DF22ECCB9F877D22C032BF99F1009F7F45C2EC2F216D660)
 
  
 场景三：objectFit参数配置。
@@ -213,7 +213,7 @@ struct <span style="color: rgb(0,0,255);">PageOne </span><span style="color: rgb
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/e5knLgFJQzCx1vNUpl9Pog/zh-cn_image_0000002628392732.png?HW-CC-KV=V1&HW-CC-Date=20260723T012543Z&HW-CC-Expire=86400&HW-CC-Sign=9F4B268AEF0E4E570DF6D12ED0C2C1A85CA3B819729C75D1C6218C64B282FBEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/e5knLgFJQzCx1vNUpl9Pog/zh-cn_image_0000002628392732.png?HW-CC-KV=V1&HW-CC-Date=20260730T072321Z&HW-CC-Expire=86400&HW-CC-Sign=BF25740DE49B590F290CC9B6EFF90F2E58C77C85B0F7CC7AB78336E2D823A9DF)
 
  
 场景四：解析能力增强功能的差异。

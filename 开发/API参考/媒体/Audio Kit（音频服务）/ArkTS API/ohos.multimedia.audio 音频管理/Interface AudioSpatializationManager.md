@@ -1,6 +1,6 @@
 # Interface (AudioSpatializationManager)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiospatializationmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -46,6 +46,7 @@ isSpatializationEnabledForCurrentDevice(): boolean
 ```text
 import { audio } from '@kit.AudioKit';
 
+let audioSpatializationManager = audio.getSpatializationManager();
 let isSpatializationEnabledForCurrentDevice: boolean = audioSpatializationManager.isSpatializationEnabledForCurrentDevice();
 console.info(`AudioSpatializationManager isSpatializationEnabledForCurrentDevice: ${isSpatializationEnabledForCurrentDevice}`);
 ```
@@ -67,7 +68,7 @@ on(type: 'spatializationEnabledChangeForCurrentDevice', callback: Callback&lt;bo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'spatializationEnabledChangeForCurrentDevice'，当空间音频渲染开关状态变化时，触发该事件。 |
-| callback | Callback&lt;boolean&gt; | 是 | 回调函数。返回true表示打开空间音频渲染状态；返回false表示关闭空间音频渲染状态。 |
+| callback | Callback&lt;boolean&gt; | 是 | 回调函数。参数为true表示打开空间音频渲染状态；参数为false表示关闭空间音频渲染状态。 |
  
  
 **错误码：**
@@ -97,7 +98,7 @@ audioSpatializationManager.on('spatializationEnabledChangeForCurrentDevice', (is
 
 off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback&lt;boolean&gt;): void
  
-取消监听当前设备空间音频渲染开关状态变化事件。使用callback异步回调。
+取消监听当前设备空间音频渲染开关状态变化事件。
  
 **系统能力：** SystemCapability.Multimedia.Audio.Spatialization
  
@@ -105,8 +106,8 @@ off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback&lt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为'spatializationEnabledChangeForCurrentDevice'，当取消订阅当前设备空间音频渲染开关状态变化事件时，触发该事件。 |
-| callback | Callback&lt;boolean&gt; | 否 | 回调函数。返回true表示打开空间音频渲染状态；返回false表示关闭空间音频渲染状态。 |
+| type | string | 是 | 事件回调类型，支持的事件为'spatializationEnabledChangeForCurrentDevice'。 |
+| callback | Callback&lt;boolean&gt; | 否 | 待注销的回调函数。参数为true表示打开空间音频渲染状态；参数为false表示关闭空间音频渲染状态。 |
  
  
 **错误码：**

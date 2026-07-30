@@ -1,12 +1,12 @@
 # Node-API简介
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-introduction
 
 #### 场景介绍
 
-HarmonyOS Node-API是基于Node.js 18.x LTS的[Node-API](https://nodejs.org/docs/latest-v12.x/api/n-api.html)规范扩展开发的机制，为开发者提供了ArkTS/JS与C/C++模块之间的交互能力。它提供了一组稳定的、跨平台的API，可以在不同的操作系统上使用。
+HarmonyOS Node-API是基于Node.js 18.x LTS的[Node-API](https://nodejs.org/docs/latest-v18.x/api/n-api.html)规范扩展开发的机制，为开发者提供了ArkTS/JS与C/C++模块之间的交互能力。它提供了一组稳定的、跨平台的API，可以在不同的操作系统上使用。
 
 本文中如无特别说明，后续均使用Node-API指代HarmonyOS Node-API能力。
 
@@ -50,7 +50,7 @@ HarmonyOS Node-API是基于Node.js 18.x LTS的[Node-API](https://nodejs.org/docs
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/Hn8yhY1HTfOSA9hwPRQgCw/zh-cn_image_0000002611835305.png?HW-CC-KV=V1&HW-CC-Date=20260528T030201Z&HW-CC-Expire=86400&HW-CC-Sign=3A04E32D43980845C8E5F46F9969604576C7D4B15E71066F390F831B8EBEB965)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/N2_-cS4VQQ2yMxIHedvETA/zh-cn_image_0000002686087613.png?HW-CC-KV=V1&HW-CC-Date=20260730T072018Z&HW-CC-Expire=86400&HW-CC-Sign=A8662AD1322D9690256AFAFA7121059B21BF867D6511797B463E532FFF1B1EFF)
 
 
 ArkTS和C++之间的交互流程，主要分为以下两步：

@@ -1,6 +1,6 @@
 # 应用加载自定义Symbol
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-custom-symbol-res-register
 
@@ -19,9 +19,7 @@
 
 
 #### 开发步骤
-1. 将UX设计师提供的Symbol图标资源（TTF文件）与动效参数资源（JSON文件）放入entry/src/main/resources/rawfile下，可新建目录。
-
-  说明：[Symbol资源设计流程参考](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962#section26702397263)
+1. 将Symbol图标资源（TTF文件，设计规范参见[图标设计文档](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962#section26702397263)）与动效参数资源（JSON文件）放入entry/src/main/resources/rawfile目录下，可在此目录下新建子目录。
 
   
 ![](assets/应用加载自定义Symbol/file-20260514131018399-0.png)
@@ -48,48 +46,17 @@
 
   
 ```text
-import { symbolRegister } from '@kit.UIDesignKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-```
-
-4. 在通过SymbolGlyph/SymbolSpan组件展示自定义Symbol图标前，需要注册加载图标资源与动效参数资源。
-
-  
-```json
-try {
-  let result = symbolRegister.registerSymbol($rawfile("symbol/symbol_register.ttf"), $rawfile("symbol/symbol_register.json"));
-} catch (error) {
-  let err = error as BusinessError;
-  console.error("errCode: " + err.code)
-  console.error("error: " + err.message);
-}
-```
-
-5. 在需要展示自定义Symbol图标的页面通过SymbolGlyph/SymbolSpan组件展示该图标。
-
-  
-```text
-struct test {
-  build() {
-    Column(){
-      SymbolGlyph($r('app.string.symbol_custom_phone_fill_1'))
-    }
-  }
-}
-```
-
-
-
-
-#### 开发实例
-
-```json
 import { symbolRegister } from '@kit.UIDesignKit'
 import { BusinessError } from '@kit.BasicServicesKit'
+```
 
+4. 在通过SymbolGlyph/SymbolSpan组件展示自定义Symbol图标前，需要注册加载图标资源与动效参数资源。在需要展示自定义Symbol图标的页面通过SymbolGlyph/SymbolSpan组件展示该图标。
+
+  
+```json
 @Entry
 @Component
-struct test {
+struct Index {
   aboutToAppear(): void {
     try {
       let result = symbolRegister.registerSymbol($rawfile("symbol/symbol_register.ttf"), $rawfile("symbol/symbol_register.json"));
@@ -103,9 +70,12 @@ struct test {
     Column(){
       SymbolGlyph($r('app.string.symbol_custom_phone_fill_1'))
     }
+    .width('100%')
+    .height('100%')
   }
 }
 ```
+
 
 
 ![](assets/应用加载自定义Symbol/file-20260514131018399-2.png)

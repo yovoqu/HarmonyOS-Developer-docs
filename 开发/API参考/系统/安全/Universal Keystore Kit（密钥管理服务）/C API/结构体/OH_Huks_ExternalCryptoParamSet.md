@@ -1,6 +1,6 @@
 # OH_Huks_ExternalCryptoParamSet
 
-更新时间：2026-06-12 06:54:11（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-huksexternalcryptotypeapi-oh-huks-externalcryptoparamset
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -14,7 +14,7 @@ typedef struct OH_Huks_ExternalCryptoParamSet {...} OH_Huks_ExternalCryptoParamS
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-定义外部加密参数集合的结构。
+定义外部加密参数集合的结构体。
  
 **起始版本：** 22
  

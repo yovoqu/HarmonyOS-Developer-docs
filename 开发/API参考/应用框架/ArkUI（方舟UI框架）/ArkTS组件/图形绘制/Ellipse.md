@@ -1,14 +1,14 @@
 # Ellipse
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-ellipse
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-椭圆绘制组件。
+椭圆绘制组件。该组件通过设置宽度和高度属性绘制椭圆形状，在给定的矩形区域内渲染椭圆轮廓和填充区域。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -32,11 +32,13 @@
 
 new Ellipse(options?: EllipseOptions)
  
-用于绘制椭圆的构造函数。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+用于绘制椭圆的构造函数。调用后创建一个Ellipse对象，可设置宽高属性。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 从API version 18开始，使用EllipseOptions参数时需在Stage模型下使用。
+ 
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -44,7 +46,7 @@ new Ellipse(options?: EllipseOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | EllipseOptions | 否 | 椭圆绘制尺寸。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | EllipseOptions | 否 | 椭圆绘制配置选项，包含宽度和高度设置。不传入时使用默认尺寸（宽度和高度均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
  
  
   
@@ -55,11 +57,13 @@ new Ellipse(options?: EllipseOptions)
 
 Ellipse(options?: EllipseOptions)
  
-用于绘制椭圆的构造函数。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+用于绘制椭圆的构造函数。调用后创建一个Ellipse对象，可设置宽高属性。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 从API version 18开始，使用EllipseOptions参数时需在Stage模型下使用。
+ 
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -67,7 +71,7 @@ Ellipse(options?: EllipseOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | EllipseOptions | 否 | 椭圆绘制尺寸。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | EllipseOptions | 否 | 椭圆绘制配置选项，包含宽度和高度设置。不传入时使用默认尺寸（宽度和高度均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
  
  
   
@@ -102,260 +106,7 @@ Ellipse(options?: EllipseOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
- 
-  
-
-#### fill
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-fill(value: ResourceColor)
- 
-设置填充区域的颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | ResourceColor | 是 | 填充区域颜色。 默认值：Color.Black 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### fillOpacity
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-fillOpacity(value: number | string | Resource)
- 
-设置填充区域透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 填充区域透明度。 说明： number格式取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0，其余异常值按1.0处理。 string格式支持number格式取值的字符串形式，取值范围与number格式相同。 Resource格式支持系统资源或者应用资源中的字符串，取值范围和number格式相同。 异常值NaN按0.0处理，undefined、null和Infinity按1.0处理。 默认值：1.0 |
- 
- 
-  
-
-#### stroke
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-stroke(value: ResourceColor)
- 
-设置边框颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，不设置时，默认边框透明度为0，即没有边框。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | ResourceColor | 是 | 边框颜色。 默认值：Color.Transparent 异常值undefined和null按照默认值处理，NaN和Infinity按照Color.Black处理。 |
- 
- 
-  
-
-#### strokeDashArray
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeDashArray(value: Array&lt;any&gt;)
- 
-设置边框间隙，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。取值范围应为≥0，异常值按照默认值处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | Array&lt;any&gt; | 是 | 定义Ellipse轮廓的虚线模式的数组，数组元素交替表示线段长度和间隙长度。 默认值：[]（空数组） 默认单位：vp 异常值undefined和null按照默认值处理。 说明： 空数组：实线 偶数多元素数组：数组元素按顺序循环，如[a, b, c, d]表示线段长度a->间隙长度b->线段长度c->间隙长度d->线段长度a->... 奇数多元素数组：重复一次该数组元素，按偶数多元素数组的规则顺序循环，如[a, b, c]等效于[a, b, c, a, b, c]，表示线段长度a->间隙长度b->线段长度c->间隙长度a->线段长度b->间隙长度c->线段长度a->... |
- 
- 
-  
-
-#### strokeDashOffset
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeDashOffset(value: number | string)
- 
-设置边框绘制起点的偏移量，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string | 是 | 边框绘制起点的偏移量。 默认值：0 默认单位：vp 异常值undefined和null按照默认值处理，NaN和Infinity会导致strokeDashArray失效。 |
- 
- 
-  
-
-#### strokeLineCap
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeLineCap(value: LineCapStyle)
- 
-设置边框端点绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | LineCapStyle | 是 | 边框端点绘制样式。 默认值：LineCapStyle.Butt 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### strokeLineJoin
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeLineJoin(value: LineJoinStyle)
- 
-设置边框拐角绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Ellipse组件无法形成拐角，该属性设置无效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | LineJoinStyle | 是 | 边框拐角绘制样式。 默认值：LineJoinStyle.Miter 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### strokeMiterLimit
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeMiterLimit(value: number | string)
- 
-设置斜接长度与边框宽度比值的极限值，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Ellipse组件不支持设置尖角图形，该属性设置无效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string | 是 | 斜接长度与边框宽度比值的极限值。 默认值：4 异常值undefined、null和NaN按照默认值处理，Infinity会导致stroke失效。 |
- 
- 
-  
-
-#### strokeOpacity
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeOpacity(value: number | string | Resource)
- 
-设置边框透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性的取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 边框透明度。 默认值：stroke接口设置的透明度。 异常值NaN按0.0处理，undefined、null和Infinity按1.0处理。 |
- 
- 
-  
-
-#### strokeWidth
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeWidth(value: Length)
- 
-设置边框宽度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性若为string类型，暂不支持百分比，百分比按照1px处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | Length | 是 | 边框宽度，取值范围≥0。 默认值：1 默认单位：vp 异常值undefined、null和NaN按照默认值处理，Infinity按0处理。 |
- 
- 
-  
-
-#### antiAlias
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-antiAlias(value: boolean)
- 
-设置是否开启抗锯齿效果，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | boolean | 是 | 是否开启抗锯齿效果。 true：开启抗锯齿；false：关闭抗锯齿。 默认值：true 异常值undefined和null按照false处理。 |
- 
+支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)以及[图形绘制通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common)。
  
   
 
@@ -411,7 +162,7 @@ struct EllipseTypeExample {
       Ellipse({ width: '150', height: '80' }) // 使用string类型
       // 绘制一个 80 * 150 的椭圆
       Ellipse({ width: 80, height: 150 }) // 使用number类型
-      // 绘制一个 150 * 150 的椭圆
+      // 使用Resource类型引用宽高资源字符串的椭圆
       Ellipse({ width: $r('app.string.EllipseWidth'), height: $r('app.string.EllipseHeight') }) // 使用Resource类型，需用户自定义
     }.width('100%')
   }
@@ -419,7 +170,7 @@ struct EllipseTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/BryKKAPrSEGCsye2BDImGg/zh-cn_image_0000002659222069.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=9B267044D80943696E464089A17C15D9D47ED63AB38F64DFCBFF52922ED0B682)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/CWxNZCqSSDuKqVQ8LmhHLA/zh-cn_image_0000002656008810.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=3B077F17BFF6B076B2DACFD9A572E3D69BFDCF842B520B1D8A46512247F24007)
 
  
   
@@ -433,11 +184,11 @@ struct EllipseTypeExample {
 class MyEllipseModifier implements AttributeModifier<EllipseAttribute> {
   applyNormalAttribute(instance: EllipseAttribute): void {
     // 填充颜色#707070，填充透明度0.5，边框颜色#2787D9，边框间隙[20]，向左偏移15，线条两端样式为半圆，边框透明度0.5，边框宽度10，抗锯齿开启
-    instance.fill("#707070")
+    instance.fill('#707070')
     instance.fillOpacity(0.5)
-    instance.stroke("#2787D9")
+    instance.stroke('#2787D9')
     instance.strokeDashArray([20])
-    instance.strokeDashOffset("15")
+    instance.strokeDashOffset('15')
     instance.strokeLineCap(LineCapStyle.Round)
     instance.strokeOpacity(0.5)
     instance.strokeWidth(10)
@@ -461,4 +212,4 @@ struct EllipseModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/RXSE31LpQ02jEQo0WfmVcw/zh-cn_image_0000002628702878.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=3C077BD337FDF9F9AB3A7D246D380239DDC088B3093A4C1F07B349EE31E739DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/BMRBtzRQQcOrE5hRsTP1rQ/zh-cn_image_0000002655848890.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=DB0A14F0B02108AF3DD71B0709F961A3A63114AC403E199EC52148F19074F84B)

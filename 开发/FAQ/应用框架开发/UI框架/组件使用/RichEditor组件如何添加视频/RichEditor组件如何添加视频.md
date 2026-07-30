@@ -13,7 +13,7 @@ RichEditor组件是否可以添加视频，如何添加？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/hLwGCN0MQ6SVbWKrQ8yc1w/zh-cn_image_0000002628569784.png?HW-CC-KV=V1&HW-CC-Date=20260723T012708Z&HW-CC-Expire=86400&HW-CC-Sign=877C12B23DFC61FC32FD3A04E203F54EC5DC740AF7B219D84EF3453DFE512B72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/hLwGCN0MQ6SVbWKrQ8yc1w/zh-cn_image_0000002628569784.png?HW-CC-KV=V1&HW-CC-Date=20260730T072344Z&HW-CC-Expire=86400&HW-CC-Sign=0107349F577B7F78ADC8AFAE49E074F477DDD8FE96A5ED27E6ACAAB67E290D67)
 
  
  

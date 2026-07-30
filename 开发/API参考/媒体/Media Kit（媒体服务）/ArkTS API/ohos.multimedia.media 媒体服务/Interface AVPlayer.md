@@ -1,17 +1,17 @@
 # Interface (AVPlayer)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-播放管理类，用于管理和播放媒体资源。在调用AVPlayer的方法前，需要先通过[createAVPlayer()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavplayer9)构建一个AVPlayer实例。
+播放管理接口，用于管理和播放媒体资源。支持音视频播放、播放控制（播放、暂停、停止、跳转、倍速等）、状态管理和事件监听。适用于本地音视频播放、网络流媒体播放、直播等多种场景。使用AVPlayer可以快速实现播放功能，简化开发流程，提升应用性能和用户体验。在调用AVPlayer的方法前，需要先通过[createAVPlayer()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavplayer9)构建一个AVPlayer实例。
 
 在使用AVPlayer实例的方法时，建议开发者注册相关回调，主动获取当前状态变化。[on('stateChange')](#onstatechange9)：监听播放状态机AVPlayerState切换。[on('error')](#onerror9)：监听错误事件。
 
-应用需要按照实际业务需求合理使用AVPlayer对象，按需创建并及时释放，避免持有过多AVPlayer实例导致内存消耗过大，否则在一定情况下可能导致系统终止应用。
+应用需要控制AVPlayer实例数量，播放结束后应及时调用release()释放资源。建议同时持有的AVPlayer实例数量不超过合理范围，避免内存消耗过大触发系统保护机制终止应用。
 
-Audio/Video播放demo可参考：[音频播放开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avplayer-for-playback)、[视频播放开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
+音视频播放开发指导请参考：[使用AVPlayer播放音频(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avplayer-for-playback)和[使用AVPlayer播放视频(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
 
 > [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。
@@ -36,21 +36,22 @@ import { media } from '@kit.MediaKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| url9+ | string | 否 | 是 | 媒体URL，只允许在idle状态下设置。 支持的视频格式：mp4、mpeg-ts、mkv。 支持的音频格式：m4a、aac、mp3、ogg、wav、flac、amr、ape。 支持路径示例： 1. fd类型播放：fd://xx。 2. http网络播放：http\://xx。 3. https网络播放：https\://xx。 4. HLS网络播放路径：http\://xx或者https\://xx。 说明： - 设置网络播放路径，需声明权限：ohos.permission.INTERNET，相关错误码: 201 权限校验失败。 - 从API version 11开始不支持webm。 - 将资源句柄（fd）传递给AVPlayer实例之后，请不要通过该资源句柄做其他读写操作，包括但不限于将同一个资源句柄传递给多个AVPlayer / AVMetadataExtractor / AVImageGenerator / AVTranscoder。同一时间通过同一个资源句柄读写文件时存在竞争关系，将导致媒体播放器数据获取异常。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| url9+ | string | 否 | 是 | 媒体URL，只允许在idle状态下设置。 支持的视频格式：mp4、mpeg-ts、mkv。 支持的音频格式：m4a、aac、mp3、ogg、wav、flac、amr、ape。 支持路径示例： 1. fd类型播放：fd://xx。 2. http网络播放：http://xx。 3. https网络播放：https://xx。 4. HLS网络播放路径：http://xx或者https://xx。 说明： - 设置网络播放路径，需声明权限：ohos.permission.INTERNET，相关错误码: 201 权限校验失败。 - 从API version 11开始不支持webm。 - 将资源句柄（fd）传递给AVPlayer实例之后，请不要通过该资源句柄做其他读写操作，包括但不限于将同一个资源句柄传递给多个AVPlayer / AVMetadataExtractor / AVImageGenerator / AVTranscoder。同一时间通过同一个资源句柄读写文件时存在竞争关系，将导致媒体播放器数据获取异常。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | fdSrc9+ | AVFileDescriptor | 否 | 是 | 媒体文件描述，只允许在idle状态下设置。 使用场景：应用中的媒体资源被连续存储在同一个文件中。 支持的视频格式（mp4、mpeg-ts、mkv）。 支持的音频格式（m4a、aac、mp3、ogg、wav、flac、amr、ape）。 使用示例： 假设一个连续存储的媒体文件： 视频1（地址偏移：0，字节长度:100）； 视频2（地址偏移：101，字节长度：50）； 视频3（地址偏移：151，字节长度：150）； 1. 播放视频1：AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; }。 2. 播放视频2：AVFileDescriptor { fd = 资源句柄; offset = 101; length = 50; }。 3. 播放视频3：AVFileDescriptor { fd = 资源句柄; offset = 151; length = 150; }。 假设是一个独立的媒体文件: 请使用src=fd://xx。 说明： 从API version 11开始不支持webm。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | dataSrc10+ | AVDataSrcDescriptor | 否 | 是 | 流式媒体资源描述，只允许在idle状态下设置。 使用场景：应用播放从远端下载到本地的文件，在应用未下载完整音视频资源时，提前播放已获取的资源数据。若将已获取的资源数据写入到本地文件中，同时从本地文件中读取数据，即可实现边播边缓存的能力。 支持的视频格式（mp4、mpeg-ts、mkv）。 支持的音频格式（m4a、aac、mp3、ogg、wav、flac、amr、ape）。 使用示例： 假设用户正在从远端服务器获取音视频媒体文件，希望下载到本地的同时播放已经下载好的部分： 1.用户需要获取媒体文件的总大小size（单位为字节），获取不到时设置为-1。 2.用户需要实现回调函数func用于填写数据，如果size = -1，则func形式为：func(buffer: ArrayBuffer, length: number)，此时播放器只会按照顺序获取数据；否则func形式为：func(buffer: ArrayBuffer, length: number, pos: number)，播放器会按需跳转并获取数据。 3.用户设置AVDataSrcDescriptor {fileSize = size, callback = func}。 注意事项： 如果播放的是mp4/m4a格式用户需要保证moov字段（媒体信息字段）在mdat字段（媒体数据字段）之前，或者moov之前的字段小于10M，否则会导致解析失败无法播放。 说明： 从API version 11开始不支持webm。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| surfaceId9+ | string | 否 | 是 | 视频窗口ID，默认无窗口。 仅支持在initialized状态下初始化。 初始化后可以在prepared/playing/paused/completed/stopped状态下重新设置，重新设置后视频播放将在新的窗口渲染。 使用场景：视频播放时的窗口渲染（纯音频播放时不涉及）。 使用示例： 通过getXComponentSurfaceId接口创建surfaceId。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| loop9+ | boolean | 否 | 否 | 视频循环播放属性，默认false，设置为true表示循环播放，动态属性。 只允许在prepared/playing/paused/completed状态下设置。 直播场景不支持loop设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| surfaceId9+ | string | 否 | 是 | 视频窗口ID，默认值为空（表示未设置窗口）。 仅支持在initialized状态下初始化。 初始化后可以在prepared/playing/paused/completed/stopped状态下重新设置，重新设置后视频播放将在新的窗口渲染。 使用场景：视频播放时的窗口渲染（纯音频播放时不涉及）。 使用示例： 通过getXComponentSurfaceId接口创建surfaceId。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| loop9+ | boolean | 否 | 否 | 循环播放属性，默认false，设置为true表示循环播放，动态属性。 只允许在prepared/playing/paused/completed状态下设置。 直播场景不支持loop设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | videoScaleType9+ | VideoScaleType | 否 | 是 | 视频缩放模式，默认VIDEO_SCALE_TYPE_FIT，动态属性。 只允许在prepared/playing/paused/completed状态下设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | audioInterruptMode9+ | audio.InterruptMode | 否 | 是 | 音频焦点模型，默认SHARE_MODE，动态属性。 只允许在prepared/playing/paused/completed状态下设置。 在第一次调用play()之前设置， 以便此后中断模式生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | audioRendererInfo10+ | audio.AudioRendererInfo | 否 | 是 | 设置音频渲染信息。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。若默认usage不满足需求，则须主动配置audio.AudioRendererInfo。 只允许在initialized状态下设置。 在第一次调用prepare()之前设置，以便音频渲染器信息在之后生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| audioEffectMode10+ | audio.AudioEffectMode | 否 | 是 | 设置音频音效模式，默认值为EFFECT_DEFAULT，动态属性。audioRendererInfo的usage变动时会恢复为默认值，只允许在prepared/playing/paused/completed状态下设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| audioEffectMode10+ | audio.AudioEffectMode | 否 | 是 | 设置音频音效模式。 当需要启用特定音效时设置此参数，不设置时使用默认值EFFECT_DEFAULT（默认音效，适合普通播放场景），动态属性。 EFFECT_NONE适合需要原始音频的场景，其他音效模式适合特定的音频处理需求。 audioRendererInfo的usage变动时会恢复为默认值，只允许在prepared/playing/paused/completed状态下设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | state9+ | AVPlayerState | 是 | 否 | 音视频播放的状态，全状态有效，可查询参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| currentTime9+ | number | 是 | 否 | 视频的当前播放位置，单位为毫秒（ms），可查询参数。 返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。 直播场景默认返回（-1）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| duration9+ | number | 是 | 否 | 视频时长，单位为毫秒（ms），可查询参数。 返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。 直播场景默认返回（-1）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| currentTime9+ | number | 是 | 否 | 当前播放位置，单位为毫秒（ms），可查询参数。 返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。 直播场景默认返回（-1）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| duration9+ | number | 是 | 否 | 音视频时长，单位为毫秒（ms），可查询参数。 返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。 直播场景默认返回（-1）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | width9+ | number | 是 | 否 | 视频宽，单位为像素（px），可查询参数。 返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | height9+ | number | 是 | 否 | 视频高，单位为像素（px），可查询参数。 返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| playlistLoopMode | PlaylistLoopMode | 否 | 是 | 在播放媒体列表时，设置循环模式。默认值为PLAYLIST_LOOP_MODE_ALL，表示循环播放列表中的所有项目。 起始版本： 26.0.0 元服务API： 从API Version 26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| playlistLoopMode | PlaylistLoopMode | 否 | 是 | 在播放媒体列表时，设置循环模式。默认值为PLAYLIST_LOOP_MODE_ALL，表示循环播放列表中的所有项目。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| privacyType | audio.AudioPrivacyType | 否 | 是 | 音频隐私配置。 当需要设置音频隐私级别时设置此参数，不设置时使用默认值PRIVACY_TYPE_PUBLIC（公开音频，适合普通播放场景）。 PRIVACY_TYPE_PRIVATE（私密音频）适合隐私敏感的音频内容播放。 详细信息请参阅audio.AudioPrivacyType。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -61,7 +62,7 @@ import { media } from '@kit.MediaKit';
 
 on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void
 
-监听播放状态机AVPlayerState切换的事件。
+注册监听播放状态机AVPlayerState切换的事件。
 
 **元服务API：** 从API version 11 开始，该接口支持在元服务中使用。
 
@@ -71,8 +72,8 @@ on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 状态机切换事件回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。 |
-| callback12+ | OnAVPlayerStateChangeHandle | 是 | 状态机切换事件回调方法。 |
+| type | string | 是 | 事件回调类型，用于注册监听播放状态机AVPlayerState切换事件，支持的事件类型：'stateChange'。用户操作和系统都会触发此事件。 |
+| callback12+ | OnAVPlayerStateChangeHandle | 是 | 状态机切换事件回调方法，若存在多次注册监听，则最后一次注册监听生效。 |
 
 
 **示例：**
@@ -87,7 +88,7 @@ async function test(){
         console.info('state idle called');
         break;
       case 'initialized':
-        console.info('initialized prepared called');
+        console.info('state initialized called');
         break;
       case 'prepared':
         console.info('state prepared called');
@@ -137,7 +138,7 @@ off(type: 'stateChange', callback?: OnAVPlayerStateChangeHandle): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 状态机切换事件回调类型，取消注册的事件：'stateChange' |
-| callback12+ | OnAVPlayerStateChangeHandle | 否 | 状态机切换事件回调方法。如果填写该参数，仅取消注册此回调的方法，否则取消注册stateChange事件的所有回调方法。 |
+| callback12+ | OnAVPlayerStateChangeHandle | 否 | 状态机切换事件回调方法。取消注册监听stateChange事件的所有回调方法，不支持取消某个单个注册监听。 |
 
 
 **示例：**
@@ -168,7 +169,7 @@ on(type: 'error', callback: ErrorCallback): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 错误事件回调类型，支持的事件：'error'，用户操作和系统都会触发此事件。 |
+| type | string | 是 | 事件回调类型，用于注册监听AVPlayer错误事件，支持的事件类型：'error'。用户操作和系统都会触发此事件。 |
 | callback | ErrorCallback | 是 | 错误事件回调方法，使用播放器的过程中发生错误，会提供错误码ID和错误信息。 |
 
 
@@ -185,22 +186,23 @@ on(type: 'error', callback: ErrorCallback): void
 | 801 | Capability not supported. |
 | 5400101 | No memory. |
 | 5400102 | Operation not allowed. |
+| 5400103 | I/O error. 适用版本：9-13 |
 | 5400104 | Time out. |
 | 5400105 | Service died. |
 | 5400106 | Unsupported format. |
-| 5410002 | Seek continuous unsupported. |
-| 5411001 | IO can not find host. |
-| 5411002 | IO connection timeout. |
-| 5411003 | IO network abnormal. |
-| 5411004 | IO network unavailable. |
-| 5411005 | IO no permission. |
-| 5411006 | IO request denied. |
-| 5411007 | IO resource not found. |
-| 5411008 | IO SSL client cert needed. |
-| 5411009 | IO SSL connect fail. |
-| 5411010 | IO SSL server cert untrusted. |
-| 5411011 | IO unsupported request. |
-| 5411012 | Http cleartext traffic is not permitted. |
+| 5410002 | Seek continuous unsupported. 适用版本：18+ |
+| 5411001 | IO can not find host. 适用版本：14+ |
+| 5411002 | IO connection timeout. 适用版本：14+ |
+| 5411003 | IO network abnormal. 适用版本：14+ |
+| 5411004 | IO network unavailable. 适用版本：14+ |
+| 5411005 | IO no permission. 适用版本：14+ |
+| 5411006 | IO request denied. 适用版本：14+ |
+| 5411007 | IO resource not found. 适用版本：14+ |
+| 5411008 | IO SSL client cert needed. 适用版本：14+ |
+| 5411009 | IO SSL connect fail. 适用版本：14+ |
+| 5411010 | IO SSL server cert untrusted. 适用版本：14+ |
+| 5411011 | IO unsupported request. 适用版本：14+ |
+| 5411012 | Http cleartext traffic is not permitted. 适用版本：23+ |
 
 
 **示例：**
@@ -259,7 +261,7 @@ async function test(){
 
 setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise&lt;void&gt;
 
-流媒体预下载资源设置，下载URL对应的流媒体数据并暂存在内存中，此接口只能在idle状态下调用。使用Promise异步回调。
+流媒体预下载资源设置。预下载是指在播放前预先下载部分媒体数据，可减少播放开始时的等待时间，提升用户体验。下载URL对应的流媒体数据并暂存在内存中，此接口只能在idle状态下调用。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -269,8 +271,8 @@ setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise&lt;void&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | MediaSource | 是 | 流媒体预下载媒体来源。 |
-| strategy | PlaybackStrategy | 否 | 流媒体预下载播放策略。 |
+| src | MediaSource | 是 | 流媒体预下载的媒体来源对象。 |
+| strategy | PlaybackStrategy | 否 | 流媒体预下载的播放策略。不传此参数时，播放器不应用特定的播放策略。 |
 
 
 **返回值：**
@@ -286,7 +288,7 @@ setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise&lt;void&gt
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 5400102 | Operation not allowed. Return by promise. |
 
 
@@ -344,6 +346,8 @@ getTrackSelectionFilter(): Promise&lt;TrackSelectionFilter&gt;
 **示例：**
 
 ```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
 async function test() {
   let player = await media.createAVPlayer();
   player.getTrackSelectionFilter().then((selectionFilter: media.TrackSelectionFilter) => {
@@ -374,7 +378,7 @@ setTrackSelectionFilter(filter : TrackSelectionFilter): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| filter | TrackSelectionFilter | 是 | 轨道选择过滤器。 |
+| filter | TrackSelectionFilter | 是 | 轨道选择过滤器配置对象，用于设置视频/音频轨道的选择条件，如比特率范围、分辨率范围、帧率范围等。 |
 
 
 **返回值：**
@@ -396,6 +400,8 @@ setTrackSelectionFilter(filter : TrackSelectionFilter): Promise&lt;void&gt;
 **示例：**
 
 ```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
 async function test() {
   let player = await media.createAVPlayer();
   let selectionFilter: media.TrackSelectionFilter = {
@@ -443,8 +449,8 @@ addPlaybackMediaSource(src: MediaSource, id?: string): Promise&lt;string&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | MediaSource | 是 | 要添加的媒体源。 |
-| id | string | 否 | 表示播放列表中媒体源的ID，新添加的媒体源会插入到指定媒体源之前。如果未指定，默认添加到列表末尾。 |
+| src | MediaSource | 是 | 要添加到播放列表的媒体源对象。 |
+| id | string | 否 | 播放列表中已有媒体源的唯一标识ID，新添加的媒体源会插入到指定媒体源之前。如果未指定，默认添加到列表末尾。 |
 
 
 **返回值：**
@@ -488,7 +494,7 @@ removePlaybackMediaSource(id: string): Promise&lt;void&gt;
 从播放器的播放列表中移除指定的媒体源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/5EuLbajRQB-710jB--gefA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=0FA2EFA2499429CC426DB0A1F62D8211F1BC640C258F7893CF3799B29653371E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/0Zh11XkMSI6Yndg7sRA1vg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=C3FC3166B649A9DD51C2EDD9DA0147EF4954E6139EAFD59FD9AC6829C2F65559)
 
 
  - 如果该ID在当前播放列表中不存在，将返回错误码。
@@ -508,7 +514,7 @@ removePlaybackMediaSource(id: string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| id | string | 是 | 将媒体源添加到播放列表后返回的ID。 |
+| id | string | 是 | 要移除的媒体源的唯一标识ID。 |
 
 
 **返回值：**
@@ -571,7 +577,7 @@ clearPlaybackList(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 5400102 | Operation not allowed or no next mediasource in the list. Return by promise. |
+| 5400102 | Operation not allowed. Returned via promise. |
 
 
 **示例：**
@@ -596,7 +602,7 @@ async function test() {
 
 getCurrentMediaSource(): MediaSource | undefined;
 
-获取当前正在播放的媒体源对象。
+获取当前正在播放的媒体源对象，可以在prepared/playing/paused/completed状态调用。
 
 **起始版本：** 26.0.0
 
@@ -642,7 +648,7 @@ async function test() {
 
 getMediaSources(): Array<MediaSource | undefined>
 
-获取当前播放列表中所有媒体源的数组。
+获取当前播放列表中所有媒体源的数组，可以在idle/prepared/playing/paused/completed/stopped状态调用。
 
 **起始版本：** 26.0.0
 
@@ -711,10 +717,10 @@ advanceToNextMediaSource(): Promise&lt;void&gt;
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-| 错误码 ID | 错误信息 |
+| 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
-| 5400108 | The previous mediasource does not exist in the playlist. Returned via promise. |
+| 5400108 | The previous media source does not exist in the playlist. Returned via promise. |
 
 
 **示例：**
@@ -764,10 +770,10 @@ advanceToPrevMediaSource(): Promise&lt;void&gt;
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-| 错误码 ID | 错误信息 |
+| 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
-| 5400108 | The next mediasource does not exist in the playlist. Returned via promise. |
+| 5400108 | The next media source does not exist in the playlist. Returned via promise. |
 
 
 **示例：**
@@ -813,7 +819,7 @@ advanceToMediaSource(id: string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| id | string | 是 | 指定媒体源的唯一标识符ID。 |
+| id | string | 是 | 要跳转播放的媒体源的唯一标识ID。 |
 
 
 **返回值：**
@@ -827,7 +833,7 @@ advanceToMediaSource(id: string): Promise&lt;void&gt;
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-| 错误码 ID | 错误信息 |
+| 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
 | 5400108 | The mediasource does not exist in the playlist. Returned via promise. |
@@ -870,14 +876,14 @@ setPlaybackStrategy(strategy: PlaybackStrategy): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strategy | PlaybackStrategy | 是 | 播放策略。 |
+| strategy | PlaybackStrategy | 是 | 播放策略配置对象，用于设置播放器的各项参数，如preferredWidth、preferredHeight、preferredBufferDuration、preferredHdr、mutedMediaType等，以优化播放体验。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -929,9 +935,9 @@ setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Prom
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| startTimeMs | number | 是 | 区间开始位置，单位ms，取值[0, duration)。可以设置-1值，系统将会从0位置开始播放。 |
-| endTimeMs | number | 是 | 区间结束位置，单位ms，取值(startTimeMs, duration]。可以设置-1值，系统将会播放到资源末尾。 |
-| mode | SeekMode | 否 | 支持SeekMode.SEEK_PREV_SYNC和SeekMode.SEEK_CLOSEST, 默认值: SeekMode.SEEK_PREV_SYNC。 |
+| startTimeMs | number | 是 | 区间开始位置，单位为毫秒（ms）。 取值原则：该值必须为整数，范围为[0, duration)。可以取值-1，表示从0位置开始播放。小于-1的其他值不满足要求会报错。 |
+| endTimeMs | number | 是 | 区间结束位置，单位为毫秒（ms）。 取值原则：该值必须为整数，范围为(startTimeMs, duration]。可以取值-1，表示播放到资源末尾。 |
+| mode | SeekMode | 否 | 支持SeekMode.SEEK_PREV_SYNC和SeekMode.SEEK_CLOSEST, 默认值为SeekMode.SEEK_PREV_SYNC。 |
 
 
 **返回值：**
@@ -974,7 +980,7 @@ async function  test(){
 
 prepare(callback: AsyncCallback&lt;void&gt;): void
 
-准备播放音频/视频，需在[stateChange](#onstatechange9)事件成功触发至initialized状态后，才能调用。使用callback方式异步获取返回值。
+准备播放音频/视频，需在[stateChange](#onstatechange9)事件成功触发至initialized状态后，才能调用。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1007,7 +1013,7 @@ async function  test(){
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized状态后才能调用。
   avPlayer.prepare((err: BusinessError) => {
     if (err) {
-      console.error('Failed to prepare,error message is :' + err.message);
+      console.error(`Failed to prepare.Code:${err.code},message:${err.message}`);
     } else {
       console.info('Succeeded in preparing');
     }
@@ -1059,7 +1065,7 @@ async function  test(){
   avPlayer.prepare().then(() => {
     console.info('Succeeded in preparing');
   }, (err: BusinessError) => {
-    console.error('Failed to prepare,error message is :' + err.message);
+    console.error(`Failed to prepare.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1084,7 +1090,7 @@ setMediaMuted(mediaType: MediaType, muted: boolean ): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mediaType | MediaType | 是 | 媒体类型枚举。 API version 12-19：仅支持设置MEDIA_TYPE_AUD。 API version 20及以后：增加支持设置MEDIA_TYPE_VID。 |
+| mediaType | MediaType | 是 | 媒体类型枚举，决定静音或画面显示的控制范围。 API version 12-19：仅支持MEDIA_TYPE_AUD，影响音频静音。 API version 20及以后：支持MEDIA_TYPE_VID，影响视频画面显示。 |
 | muted | boolean | 是 | API version 12-19：仅支持设置音频播放策略，表示音频是否静音播放。true为静音播放，false为取消静音播放。 API version 20及以后：增加支持设置视频播放策略，表示视频画面是否关闭。true为关闭画面，false为恢复画面。 |
 
 
@@ -1117,7 +1123,7 @@ async function  test(){
     console.info('Succeeded in preparing');
     avPlayer.setMediaMuted(media.MediaType.MEDIA_TYPE_AUD, true);
   }, (err: BusinessError) => {
-    console.error('Failed to prepare,error message is :' + err.message);
+    console.error(`Failed to prepare.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1130,7 +1136,7 @@ async function  test(){
 
 play(callback: AsyncCallback&lt;void&gt;): void
 
-开始播放音视频资源，只能在prepared/paused/completed状态调用。使用callback方式异步获取返回值。
+开始播放音视频资源，只能在prepared/paused/completed状态调用。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1162,7 +1168,7 @@ async function  test(){
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/paused/completed状态后才能调用。
   avPlayer.play((err: BusinessError) => {
     if (err) {
-      console.error('Failed to play,error message is :' + err.message);
+      console.error(`Failed to play.Code:${err.code},message:${err.message}`);
     } else {
       console.info('Succeeded in playing');
     }
@@ -1211,7 +1217,7 @@ async function  test(){
   avPlayer.play().then(() => {
     console.info('Succeeded in playing');
   }, (err: BusinessError) => {
-    console.error('Failed to play,error message is :' + err.message);
+    console.error(`Failed to play.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1224,7 +1230,7 @@ async function  test(){
 
 pause(callback: AsyncCallback&lt;void&gt;): void
 
-暂停播放音视频资源，只能在playing状态调用。使用callback方式异步获取返回值。
+暂停播放音视频资源，只能在playing状态调用。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1256,7 +1262,7 @@ async function  test(){
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至playing状态后才能调用。
   avPlayer.pause((err: BusinessError) => {
     if (err) {
-      console.error('Failed to pause,error message is :' + err.message);
+      console.error(`Failed to pause.Code:${err.code},message:${err.message}`);
     } else {
       console.info('Succeeded in pausing');
     }
@@ -1305,7 +1311,7 @@ async function  test(){
   avPlayer.pause().then(() => {
     console.info('Succeeded in pausing');
   }, (err: BusinessError) => {
-    console.error('Failed to pause,error message is :' + err.message);
+    console.error(`Failed to pause.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1318,7 +1324,7 @@ async function  test(){
 
 stop(callback: AsyncCallback&lt;void&gt;): void
 
-停止播放音视频资源，只能在prepared/playing/paused/completed状态调用。使用callback方式异步获取返回值。
+停止播放音视频资源，只能在prepared/playing/paused/completed状态调用。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1350,7 +1356,7 @@ async function  test(){
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
   avPlayer.stop((err: BusinessError) => {
     if (err) {
-      console.error('Failed to stop,error message is :' + err.message);
+      console.error(`Failed to stop.Code:${err.code},message:${err.message}`);
     } else {
       console.info('Succeeded in stopping');
     }
@@ -1399,7 +1405,7 @@ async function  test(){
   avPlayer.stop().then(() => {
     console.info('Succeeded in stopping');
   }, (err: BusinessError) => {
-    console.error('Failed to stop,error message is :' + err.message);
+    console.error(`Failed to stop.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1412,7 +1418,7 @@ async function  test(){
 
 reset(callback: AsyncCallback&lt;void&gt;): void
 
-重置播放，只能在initialized/prepared/playing/paused/completed/stopped/error状态调用。使用callback方式异步获取返回值。
+重置播放，将播放器恢复到idle状态并清除已设置的媒体资源，只能在initialized/prepared/playing/paused/completed/stopped/error状态调用。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1444,7 +1450,7 @@ async function  test(){
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized/prepared/playing/paused/completed/stopped/error状态后才能调用。
   avPlayer.reset((err: BusinessError) => {
     if (err) {
-      console.error('Failed to reset,error message is :' + err.message);
+      console.error(`Failed to reset.Code:${err.code},message:${err.message}`);
     } else {
       console.info('Succeeded in resetting');
     }
@@ -1460,7 +1466,7 @@ async function  test(){
 
 reset(): Promise&lt;void&gt;
 
-重置播放，只能在initialized/prepared/playing/paused/completed/stopped/error状态调用。使用Promise异步回调。
+重置播放，将播放器恢复到idle状态并清除已设置的媒体资源，只能在initialized/prepared/playing/paused/completed/stopped/error状态调用。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1493,7 +1499,7 @@ async function  test(){
   avPlayer.reset().then(() => {
     console.info('Succeeded in resetting');
   }, (err: BusinessError) => {
-    console.error('Failed to reset,error message is :' + err.message);
+    console.error(`Failed to reset.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1506,7 +1512,7 @@ async function  test(){
 
 release(callback: AsyncCallback&lt;void&gt;): void
 
-销毁播放资源，除released状态外，均可以调用。使用callback方式异步获取返回值。
+销毁播放资源，除released状态外，AVPlayer在其他状态都可以调用该接口。应用需要按照实际业务需求合理使用AVPlayer对象，按需创建并及时释放，避免持有过多AVPlayer实例导致内存消耗过大，否则可能导致系统终止应用。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1538,7 +1544,7 @@ async function  test(){
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发除released以外的状态才能调用。
   avPlayer.release((err: BusinessError) => {
     if (err) {
-      console.error('Failed to release,error message is :' + err.message);
+      console.error(`Failed to release.Code:${err.code},message:${err.message}`);
     } else {
       console.info('Succeeded in releasing');
     }
@@ -1554,7 +1560,7 @@ async function  test(){
 
 release(): Promise&lt;void&gt;
 
-销毁播放资源，除released状态，都可以调用。使用Promise异步回调。
+销毁播放资源，除released状态外，AVPlayer在其他状态都可以调用该接口。应用需要按照实际业务需求合理使用AVPlayer对象，按需创建并及时释放，避免持有过多AVPlayer实例导致内存消耗过大，否则可能导致系统终止应用。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1587,7 +1593,7 @@ async function  test(){
   avPlayer.release().then(() => {
     console.info('Succeeded in releasing');
   }, (err: BusinessError) => {
-    console.error('Failed to release,error message is :' + err.message);
+    console.error(`Failed to release.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1600,7 +1606,7 @@ async function  test(){
 
 getTrackDescription(callback: AsyncCallback<Array&lt;MediaDescription&gt;>): void
 
-获取音视频轨道信息，可以在prepared/playing/paused状态调用。获取所有音视轨道信息，应在数据加载回调后调用。使用callback方式异步获取返回值。
+获取音视频轨道信息，可以在prepared/playing/paused状态调用。获取所有音视频轨道信息，应在数据加载回调后调用。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1631,10 +1637,10 @@ async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused状态后才能调用。
   avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
-    if ((arrList) != null) {
-      console.info('Succeeded in doing getTrackDescription');
-    } else {
+    if (error) {
       console.error(`Failed to do getTrackDescription, error:${error}`);
+    } else {
+      console.info('Succeeded in doing getTrackDescription');
     }
   });
 }
@@ -1681,7 +1687,7 @@ async function  test(){
   avPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) => {
     console.info('Succeeded in getting TrackDescription');
   }).catch((error: BusinessError) => {
-    console.error(`Failed to get TrackDescription, error:${error}`);
+    console.error(`Failed to get TrackDescription.Code:${error.code},message:${error.message}`);
   });
 }
 ```
@@ -1727,7 +1733,7 @@ async function  test(){
   avPlayer.getSelectedTracks().then((arrList: Array<number>) => {
     console.info('Succeeded in getting SelectedTracks');
   }).catch((error: BusinessError) => {
-    console.error(`Failed to get SelectedTracks, error:${error}`);
+    console.error(`Failed to get SelectedTracks.Code:${error.code},message:${error.message}`);
   });
 }
 ```
@@ -1748,7 +1754,7 @@ getPlaybackInfo(): Promise&lt;PlaybackInfo&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;PlaybackInfo&gt; | Promise对象，返回播放器信息PlaybackInfo。 |
+| Promise&lt;PlaybackInfo&gt; | Promise对象。resolve返回PlaybackInfo对象，包含播放过程中的信息，如播放状态、缓冲状态等详细播放信息；reject返回错误信息。 |
 
 
 **示例：**
@@ -1759,7 +1765,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let avPlayer: media.AVPlayer | undefined;
 let playbackInfo: media.PlaybackInfo | undefined;
 media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
-  if (player != null) {
+  if (player) {
     avPlayer = player;
     console.info(`Succeeded in creating AVPlayer`);
     if (avPlayer) {
@@ -1819,7 +1825,7 @@ async function  test(){
     let playbackPosition: number = avPlayer.getPlaybackPosition();
     console.info(`AVPlayer getPlaybackPosition== ${playbackPosition}`);
   }, (err: BusinessError) => {
-    console.error('Failed to prepare,error message is :' + err.message);
+    console.error(`Failed to prepare.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1869,7 +1875,7 @@ async function  test(){
     let currentPresentation: number = avPlayer.getCurrentPresentationTimestamp();
     console.info(`AVPlayer getCurrentPresentationTimestamp== ${currentPresentation}`);
   }, (err: BusinessError) => {
-    console.error('Failed to prepare,error message is :' + err.message);
+    console.error(`Failed to play.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -1895,7 +1901,7 @@ selectTrack(index: number, mode?: SwitchMode): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 多音视频资源的轨道索引。该值必须为整数。 取值约束：可通过getTrackDescription接口返回的音视频轨道信息MediaDescription中读取的key为MD_KEY_TRACK_INDEX所对应的值。 每个key值的Object类型和范围，请参考MediaDescriptionKey对应Key值的说明。 |
-| mode | SwitchMode | 否 | 切换轨道的模式。 取值约束：该模式仅适用于视频轨道的切换。 默认值：SMOOTH模式，在片段末尾进行切换，以确保视频播放的连续性。仅在DASH/HLS协议网络流视频轨切换时生效。 从API版本26.0.0开始支持HLS协议网络流视频。 |
+| mode | SwitchMode | 否 | 切换轨道的模式。 取值约束：该模式仅适用于视频轨道的切换。 默认值为SMOOTH模式，在片段末尾进行切换，以确保视频播放的连续性。仅在DASH/HLS协议网络流视频轨切换时生效。 从API版本26.0.0开始支持HLS协议网络流视频。 |
 
 
 **返回值：**
@@ -1925,6 +1931,7 @@ async function  test(){
   let audioTrackIndex: Object = 0;
   avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
     if (arrList != null) {
+      // 遍历轨道描述列表，提取非首个轨道的索引用于音频轨道选择。
       for (let i = 0; i < arrList.length; i++) {
         if (i != 0) {
           // 获取音频轨道列表。
@@ -1932,7 +1939,7 @@ async function  test(){
         }
       }
     } else {
-      console.error(`Failed to get TrackDescription, error:${error}`);
+      console.error(`Failed to get TrackDescription.Code:${error.code},message:${error.message}`);
     }
   });
 
@@ -1995,7 +2002,7 @@ avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDe
       }
     }
   } else {
-    console.error(`Failed to get TrackDescription, error:${error}`);
+    console.error(`Failed to get TrackDescription.Code:${error.code},message:${error.message}`);
   }
 });
 
@@ -2013,7 +2020,7 @@ avPlayer.deselectTrack(parseInt(audioTrackIndex.toString()));
 
 setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void
 
-设置解密配置。当收到[on('mediaKeySystemInfoUpdate')](#onmediakeysysteminfoupdate11)事件时，需根据事件上报的信息创建相关配置并设置解密配置，否则无法播放。
+设置解密配置。当收到[on('mediaKeySystemInfoUpdate')](#onmediakeysysteminfoupdate11)事件时，需根据事件上报的MediaKeySystemInfo信息创建MediaKeySystem和MediaKeySession对象，并调用setDecryptionConfig设置解密配置，否则无法播放。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2023,8 +2030,8 @@ setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boole
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mediaKeySession | drm.MediaKeySession | 是 | 解密会话 |
-| secureVideoPath | boolean | 是 | 安全视频通路，true表示选择安全视频通路，false表示选择非安全视频通路 |
+| mediaKeySession | drm.MediaKeySession | 是 | 解密会话对象，用于播放DRM加密内容。 |
+| secureVideoPath | boolean | 是 | 是否使用安全视频通路。true表示使用安全视频通路（用于播放受保护的DRM内容），false表示使用非安全视频通路（用于播放普通内容）。当播放DRM加密的高清视频内容时，通常需要设置为true。 |
 
 
 **错误码：**
@@ -2033,7 +2040,7 @@ setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boole
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 
 
 **示例：**
@@ -2106,7 +2113,7 @@ seek(timeMs: number, mode?:SeekMode): void
 跳转到指定播放位置，只能在prepared/playing/paused/completed状态调用，可以通过[on('seekDone')](#onseekdone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/IV31ZuvhTQqO22tJOrgMFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=C0926C836BB1044EF1D704C169DDBE4C4C1D2DBE3DFB5234F8EC15AB0C3DD0E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/z8yZ3mWiRwCNQPLT-EK0vA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=A8FFA44830E8ED2B5A30CF898540303295E23AE85DC01C6D1765CB4284DAACE5)
 
 
 从API版本26.0.0开始，直播场景支持seek。
@@ -2124,7 +2131,7 @@ seek(timeMs: number, mode?:SeekMode): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | timeMs | number | 是 | 指定的跳转时间节点，单位毫秒（ms），取值范围为[0, duration]。 当模式为SEEK_CONTINUOUS时，可以取值-1，表示SEEK_CONTINUOUS模式结束。该值必须为整数。 |
-| mode | SeekMode | 否 | 基于视频I帧的跳转模式，默认为SEEK_PREV_SYNC模式，仅在视频资源播放时设置。 |
+| mode | SeekMode | 否 | 基于视频I帧的跳转模式，默认值为SEEK_PREV_SYNC模式，仅在视频资源播放时设置。 |
 
 
 **示例：**
@@ -2258,8 +2265,10 @@ setSpeed(speed: PlaybackSpeed): void
 
 设置倍速模式，只能在prepared/playing/paused/completed状态调用，可以通过[on('speedDone')](#onspeeddone9)事件确认是否生效。
 
+setSpeed使用固定的枚举倍速值，适合标准倍速场景；setPlaybackRate支持任意倍速值且取值范围更大，适合自定义倍速场景。两者功能相同，建议根据API版本和精度需求选择：API version 9-19，使用setSpeed；API version 20及以上且需要精确倍速控制，使用setPlaybackRate。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/SVJBMHSWRfqYpkLgz0NnhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=E4D8682C7BCA33D228E884A16271915BABF57EF86711B55369E46549B792E6C1)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/b-IhYwmZSwO0yRhtn8a5qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=A8B0659A275871AD366114201E84419D415F07F73CF4D94E131028BC0C02DD22)
 
 
 直播场景不支持setSpeed。
@@ -2274,7 +2283,7 @@ setSpeed(speed: PlaybackSpeed): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| speed | PlaybackSpeed | 是 | 指定播放倍速模式。 |
+| speed | PlaybackSpeed | 是 | 指定播放倍速模式，设置后播放器将按照指定倍速播放，如SPEED_FORWARD_2_00_X表示以2倍速播放。 |
 
 
 **示例：**
@@ -2361,10 +2370,10 @@ async function  test(){
 
 setPlaybackRate(rate: number): void
 
-设置倍速模式。只能在prepared/playing/paused/completed状态调用，取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
+设置倍速模式。只能在'prepared' | 'playing' | 'paused' | 'completed'状态下调用，在API版本26.0.0及以上的取值范围是[0.125, 8.0]，API版本26.0.0以下的取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/x3rEaulZReaAMIcP18UyzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=403941BFC205848DC1C463F5B52C37667700E578B84FAA3873444429445011BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/B7su3aKGSA-1221HqqtEMw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=7746A8EA4743E8692CEDC75EFA8461A56DA6AD6AC99171130F75EDFCF26A300D)
 
 
 直播场景不支持setPlaybackRate。
@@ -2379,7 +2388,7 @@ setPlaybackRate(rate: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rate | number | 是 | 指定播放倍速速率，取值范围为[0.125, 4.0]。 |
+| rate | number | 是 | 指定播放倍速速率值，单位为倍速（x）。 在API版本26.0.0之前的取值范围是[0.125, 4.0]，API版本26.0.0及以后的取值范围是[0.125, 8.0]。默认值为1.0x（正常速度）。 |
 
 
 **错误码：**
@@ -2522,18 +2531,20 @@ getLoadedTimeRanges(): Promise<Array&lt;Range&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;Range&gt;> | Promise对象，返回播放器当前已加载的时间区间段的列表。 时间区间段以播放时间轴上的[start, end]位置表示，单位为毫秒。 |
+| Promise<Array&lt;Range&gt;> | Promise对象，返回播放器当前已加载的时间区间段的列表。 时间区间段以播放时间轴上的[start, end]位置表示，单位为毫秒（ms）。 |
 
 
 **示例：**
 
 ```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
 async function test(){
   let avPlayer = await media.createAVPlayer();
   avPlayer.getLoadedTimeRanges().then((range: Array<media.Range>) => {
     console.info(`Succeeded in calling getLoadedTimeRanges: ${range}`);
   }).catch((err: BusinessError) => {
-    console.error('Failed to getLoadedTimeRanges, error message is: ' + err.message);
+    console.error(`Failed to getLoadedTimeRanges.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -2562,18 +2573,20 @@ getSeekableTimeRanges(): Promise<Array&lt;Range&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;Range&gt;> | Promise对象，返回播放器当前可跳转的时间区间段的列表。 时间区间段以播放时间轴上的[start, end]位置表示，单位为毫秒。 |
+| Promise<Array&lt;Range&gt;> | Promise对象，返回播放器当前可跳转的时间区间段的列表。 时间区间段以播放时间轴上的[start, end]位置表示，单位为毫秒（ms）。 |
 
 
 **示例：**
 
 ```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
 async function test(){
   let avPlayer = await media.createAVPlayer();
   avPlayer.getSeekableTimeRanges().then((range: Array<media.Range>) => {
     console.info(`Succeeded in calling getSeekableTimeRanges: ${range}`);
   }).catch((err: BusinessError) => {
-    console.error('Failed to getSeekableTimeRanges, error message is: ' + err.message);
+    console.error(`Failed to getSeekableTimeRanges.Code:${err.code},message:${err.message}`);
   });
 }
 ```
@@ -2606,13 +2619,15 @@ seekToDefaultPosition(): void
 **示例：**
 
 ```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
 async function test(){
   let avPlayer = await media.createAVPlayer();
   try {
     avPlayer.seekToDefaultPosition()
     console.info('Succeeded in calling seekToDefaultPosition.');
   } catch (err) {
-    console.error('Failed to seekToDefaultPosition, error message is: ' + err.message);
+    console.error(`Failed to seekToDefaultPosition.Code:${err.code},message:${err.message}`);
   }
 }
 ```
@@ -2635,7 +2650,7 @@ setBitrate(bitrate: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bitrate | number | 是 | 指定比特率，须通过availableBitrates事件获得当前HLS/DASH协议网络流可用的比特率列表，如果用户指定的比特率不在此列表中，则播放器将从可用比特率列表中选择最接近的比特率。如果通过availableBitrates事件获得的比特率列表长度为0，则不支持指定比特率，也不会产生bitrateDone回调。 |
+| bitrate | number | 是 | 指定比特率，单位为比特每秒（bps）。 须通过availableBitrates事件获得当前HLS/DASH协议网络流可用的比特率列表，如果用户指定的比特率不在此列表中，则播放器将从可用比特率列表中选择最接近的比特率。 如果通过availableBitrates事件获得的比特率列表长度为0，则不支持指定比特率，也不会产生bitrateDone回调。 |
 
 
 **示例：**
@@ -2860,7 +2875,7 @@ async function test(){
 
 setLoudnessGain(loudnessGain: number): Promise&lt;void&gt;
 
-设置播放器的响度。调用该接口后，响度增益立即生效。使用Promise异步回调。
+设置播放器的响度增益。响度是指音频的主观感知强度，响度增益通过调整音频信号的强度来改变感知音量，与setVolume的相对音量调节不同。调用该接口后，响度增益立即生效。使用Promise异步回调。
 
 > [!NOTE]
 > 当播放处于prepared/playing/paused/completed/stopped状态时，可调用该接口。 调用此接口时，需确保已设置音频渲染信息AVPlayer.audioRendererInfo，audioRendererInfo的usage参数必须是 STREAM_USAGE_MUSIC 、 STREAM_USAGE_MOVIE 、 STREAM_USAGE_AUDIOBOOK 其中之一。 该接口不支持高清通路的响度设置。 音频流的时延模式必须是普通时延。 该接口错误信息通过 on('error') 回调。
@@ -2872,7 +2887,7 @@ setLoudnessGain(loudnessGain: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| loudnessGain | number | 是 | 设置播放器的响度值，单位为dB，响度范围为[-90.0, 24.0]。默认值为0.0dB。 |
+| loudnessGain | number | 是 | 设置播放器的响度值，单位为分贝（dB），响度范围为[-90.0, 24.0]。默认值为0.0dB。 |
 
 
 **返回值：**
@@ -2917,7 +2932,7 @@ setVolume(volume: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| volume | number | 是 | 指定的相对音量大小，取值范围为[0.00-1.00]，1表示最大音量，即100%。 |
+| volume | number | 是 | 指定的相对音量大小，取值范围为[0.00, 1.00]，1表示最大音量，即100%。 |
 
 
 **示例：**
@@ -3073,7 +3088,7 @@ on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放当前时间，单位为毫秒（ms），用于刷新进度条当前位置，默认间隔100ms时间上报，因用户操作（seek）产生的时间变化会立刻上报。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/UkJW4L8zQJybFo653g7_5Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=04BE8C37151767332B0BDF88E894978457C2DC4B6215A196B1B75B664FAAFEDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/pVSS4mUvSh21yDKYNbBBBQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=14E96F4B7F63D32A975E5750FABA466BB3816BC7F33B4224178F58B30524ACDA)
 
 
  - 直播场景不支持timeUpdate上报。
@@ -3114,7 +3129,7 @@ async function test() {
   let avPlayer = await media.createAVPlayer();
 
   let isSeeking = false;    // 标记是否正在seek。
-  let seekTargetTime = 0;   // 记录目标时间（单位：毫秒）。
+  let seekTargetTime = 0;   // 记录目标时间，单位为毫秒（ms）。
 
   // 1.监听seekDone：确认跳转完成。
   avPlayer.on('seekDone', (seekDoneTime: number) => {
@@ -3139,7 +3154,7 @@ async function test() {
   // 3.模拟seek操作。
   let seekTime: number = 1000;
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
-  avPlayer.seek(seekTime, media.SeekMode.SEEK_PREV_SYNC); // 单位：毫秒。
+  avPlayer.seek(seekTime, media.SeekMode.SEEK_PREV_SYNC); // 单位为毫秒（ms）。
   isSeeking = true; // 标记正在seek。
 }
 ```
@@ -3187,7 +3202,7 @@ on(type: 'durationUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放资源的时长，单位为毫秒（ms），用于刷新进度条长度，默认只在prepared上报一次，同时允许一些特殊码流刷新多次时长。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/oqi8Y-vCQ2WIxvyj8QRWOA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=554105540A8D677B9333A1B57A4F395AE9FEF5CFADEACBBDFA430D124421B5E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/-IzBnunXRtmVoNheOfUUug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=D649515D1125DED71E8962D29443B298BA08EFA1ADA20E51B1A2E0A44942A9B2)
 
 
 直播场景不支持durationUpdate上报。
@@ -3524,7 +3539,7 @@ async function test(){
 
 on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStreamDeviceChangeInfo>): void
 
-订阅监听音频流输出设备变化及原因，使用callback方式返回结果。
+订阅监听音频流输出设备变化及原因。使用callback异步回调。
 
 在订阅此监听时，建议参考[响应输出设备变更时合理暂停](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-output-device-change)自行实现设备连接或者断开时的播放器行为。
 
@@ -3546,7 +3561,7 @@ on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStream
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 
 
 **示例：**
@@ -3571,7 +3586,7 @@ async function test(){
 
 off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void
 
-取消订阅监听音频流输出设备变化及原因，使用callback方式返回结果。
+取消订阅监听音频流输出设备变化及原因。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3591,7 +3606,7 @@ off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStre
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 
 
 **示例：**
@@ -3612,7 +3627,7 @@ async function test(){
 
 addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise&lt;void&gt;
 
-依据fd为视频添加外挂字幕，当前仅支持与视频资源同时设置（在avplayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
+依据fd为视频添加外挂字幕，当前仅支持与视频资源同时设置（在AVPlayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3623,8 +3638,8 @@ addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise&lt;void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fd | number | 是 | 资源句柄，通过resourceManager.getRawFd获取。 |
-| offset | number | 否 | 资源偏移量。需要基于预置资源的信息输入，非法值会造成字幕资源解析错误。默认值为0。单位为字节。 |
-| length | number | 否 | 资源长度。默认值为文件中从偏移量开始的剩余字节，需要基于预置资源的信息输入，非法值会造成字幕资源解析错误，默认值为0。 |
+| offset | number | 否 | 资源偏移量。取值范围[0, +∞)。需要基于预置资源的信息输入，非法值会造成字幕资源解析错误。默认值为0。单位为字节。 |
+| length | number | 否 | 资源长度。取值范围[0, +∞)。如果不传递该参数，默认使用文件中从偏移量开始的剩余字节；如果传递该参数，默认值为0，需要基于预置资源的信息输入，非法值会造成字幕资源解析错误。 |
 
 
 **返回值：**
@@ -3664,7 +3679,7 @@ avPlayer.addSubtitleFromFd(fileDescriptor.fd, fileDescriptor.offset, fileDescrip
 
 addSubtitleFromUrl(url: string): Promise&lt;void&gt;
 
-依据url为视频添加外挂字幕，当前仅支持与视频资源同时设置（在avplayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
+依据URL为视频添加外挂字幕，当前仅支持与视频资源同时设置（在AVPlayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3674,7 +3689,7 @@ addSubtitleFromUrl(url: string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| url | string | 是 | 外挂字幕文件地址。 |
+| url | string | 是 | 外挂字幕文件地址。支持http/https网络地址和本地文件路径。当前支持的字幕文件格式包括srt、vtt等常见格式。 |
 
 
 **返回值：**
@@ -3722,7 +3737,7 @@ on(type: 'subtitleUpdate', callback: Callback&lt;SubtitleInfo&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为：'subtitleUpdate'。 |
+| type | string | 是 | 事件回调类型，用于注册监听外挂字幕更新事件，支持的事件类型为：'subtitleUpdate'。 |
 | callback | Callback&lt;SubtitleInfo&gt; | 是 | 外挂字幕事件回调方法。 |
 
 
@@ -3795,7 +3810,7 @@ on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为：'trackChange'。 |
+| type | string | 是 | 事件回调类型，用于注册监听轨道变更事件，支持的事件类型为：'trackChange'。 |
 | callback | OnTrackChangeHandler | 是 | 轨道变更事件回调方法。 |
 
 
@@ -3861,7 +3876,7 @@ on(type: 'trackInfoUpdate', callback: Callback<Array&lt;MediaDescription&gt;>): 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为：'trackInfoUpdate'。 |
+| type | string | 是 | 事件回调类型，用于注册监听轨道信息更新事件，支持的事件类型为：'trackInfoUpdate'。 |
 | callback | Callback<Array&lt;MediaDescription&gt;> | 是 | 轨道信息更新事件回调方法。 |
 
 
@@ -3925,7 +3940,7 @@ async function test(){
 
 on(type: 'amplitudeUpdate', callback: Callback<Array&lt;number&gt;>): void
 
-订阅音频最大电平值，音频资源播放时定时上报。
+订阅音频最大电平值（振幅强度），用于音频可视化等场景，音频资源播放时定时上报。电平值表示音频信号的瞬时振幅大小。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
@@ -3933,7 +3948,7 @@ on(type: 'amplitudeUpdate', callback: Callback<Array&lt;number&gt;>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为：'amplitudeUpdate'。 |
+| type | string | 是 | 事件回调类型，用于注册监听音频最大电平值更新事件，支持的事件类型为：'amplitudeUpdate'。 |
 | callback | Callback<Array&lt;number&gt;> | 是 | 音频最大电平值更新事件回调方法。 |
 
 
@@ -3997,8 +4012,8 @@ on(type: 'seiMessageReceived', payloadTypes: Array&lt;number&gt;, callback: OnSe
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为：'seiMessageReceived'。 |
-| payloadTypes | Array&lt;number&gt; | 是 | SEI信息的订阅负载类型数组。当前仅支持负载类型为5，即payloadType = 5。 |
+| type | string | 是 | 事件回调类型，用于注册监听SEI信息接收事件，支持的事件类型为：'seiMessageReceived'。仅适用于HTTP-FLV直播流。 |
+| payloadTypes | Array&lt;number&gt; | 是 | SEI信息的订阅负载类型数组，用于指定要监听的SEI消息类型。当前仅支持负载类型为5（payloadType = 5）。 |
 | callback | OnSeiMessageHandle | 是 | 用于监听SEI信息事件的回调函数，接收订阅的负载类型。 |
 
 
@@ -4010,7 +4025,7 @@ import { util } from '@kit.ArkTS';
 async function test(){
   let avPlayer = await media.createAVPlayer();
 
-  // 监听后，开始接收seiMessageReceived事件回调。
+  // 监听后，开始接收seiMessageReceived事件回调。订阅payloadType为5的SEI消息，并解码payload（去除前16字节头部）为UTF-8字符串
   avPlayer.on('seiMessageReceived', [5], (messages: Array<media.SeiMessage>, playbackPosition?: number) =>
   {
     console.info('seiMessageReceived playbackPosition ' + playbackPosition);
@@ -4069,10 +4084,10 @@ async function test(){
 
 setSuperResolution(enabled: boolean) : Promise&lt;void&gt;
 
-动态开启/关闭超分算法，可在 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' 状态下调用。使用Promise异步回调。
+动态开启/关闭超分辨率（超分）算法。超分辨率是一种视频画质增强技术，可将低分辨率视频提升至更高分辨率显示。可在'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped'状态下调用。使用Promise异步回调。
 
 > [!NOTE]
-> 在调用 prepare() 前先通过 PlaybackStrategy 使能超分。 默认目标分辨率为1920x1080，单位为像素。
+> 在调用 prepare() 前先通过 PlaybackStrategy 使能超分。 默认目标分辨率为1920x1080，单位为像素（px）。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -4083,7 +4098,7 @@ setSuperResolution(enabled: boolean) : Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | boolean | 是 | 表示是否开启超分。true表示开启超分，false表示关闭超分。 |
+| enabled | boolean | 是 | 表示是否开启超分。true表示开启超分（当需要提升低分辨率视频的显示质量时选择），false表示关闭超分（当原始分辨率已足够或不需要超分处理时选择）。 |
 
 
 **返回值：**
@@ -4130,7 +4145,7 @@ setVideoWindowSize(width: number, height: number) : Promise&lt;void&gt;
 
 动态设置超分算法的输出分辨率。可在 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' 状态下调用。使用Promise异步回调。
 
-输入参数须在320x320~1920x1080范围内，单位为像素。
+输入参数须在320x320~1920x1080范围内，单位为像素（px）。
 
 在调用[prepare()](#prepare9)前先通过[PlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#playbackstrategy12)使能超分。
 
@@ -4142,8 +4157,8 @@ setVideoWindowSize(width: number, height: number) : Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | number | 是 | 超分算法的目标输出视频宽度，取值范围为[320-1920]，单位为像素。 |
-| height | number | 是 | 超分算法的目标输出视频高度，取值范围为[320-1080]，单位为像素。 |
+| width | number | 是 | 超分算法的目标输出视频宽度，取值范围为[320-1920]，单位为像素（px）。 |
+| height | number | 是 | 超分算法的目标输出视频高度，取值范围为[320-1080]，单位为像素（px）。 |
 
 
 **返回值：**
@@ -4256,7 +4271,7 @@ async function test(){
 
 onPlaybackContentChanged(callback: Callback&lt;string&gt;):void;
 
-注册监听器用于监听播放内容变更事件。使用callback异步回调。
+注册监听器用于监听播放内容变更事件。当播放列表中的当前播放源发生变化时（如调用advanceToNextMediaSource、advanceToMediaSource等方法切换播放源），触发此事件。使用callback异步回调。
 
 **起始版本：** 26.0.0
 
@@ -4270,7 +4285,7 @@ onPlaybackContentChanged(callback: Callback&lt;string&gt;):void;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;string&gt; | 是 | 事件触发时调用的回调函数。 |
+| callback | Callback&lt;string&gt; | 是 | 回调函数，用于接收播放内容变更事件。回调参数为id（string类型），表示当前播放的媒体源的唯一标识符ID。 |
 
 
 **示例：**
@@ -4306,7 +4321,7 @@ offPlaybackContentChanged(callback?: Callback&lt;string&gt;):void;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;string&gt; | 否 | 当事件触发时调用的回调函数。若未指定此参数，则取消订阅该事件的所有回调函数。 |
+| callback | Callback&lt;string&gt; | 否 | 指定要取消注册的回调方法。若未指定此参数，则取消订阅该事件的所有回调函数。 |
 
 
 **示例：**
@@ -4339,7 +4354,7 @@ getPlaybackStatisticMetrics(): Promise&lt;PlaybackMetrics&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;PlaybackMetrics&gt; | Promise对象，返回当前播放器的指标信息PlaybackMetrics。 |
+| Promise&lt;PlaybackMetrics&gt; | Promise对象。resolve返回PlaybackMetrics对象，包含播放器统计指标信息，如播放时长、缓冲时长、错误次数等统计数据；reject返回错误信息。 |
 
 
 **示例：**
@@ -4350,7 +4365,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let avPlayer: media.AVPlayer | undefined;
 let playbackMetrics: media.PlaybackMetrics | undefined;
 media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
-  if (player != null) {
+  if (player) {
     avPlayer = player;
     console.info(`Succeeded in creating AVPlayer`);
     if (avPlayer) {
@@ -4383,7 +4398,7 @@ onMetricsEvent(callback: Callback<Array&lt;AVMetricsEvent&gt;>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<Array&lt;AVMetricsEvent&gt;> | 是 | 上报的指标事件信息的方法。使用callback异步回调。 |
+| callback | Callback<Array&lt;AVMetricsEvent&gt;> | 是 | 上报指标事件信息的回调方法，接收AVMetricsEvent数组作为参数。使用callback异步回调。 |
 
 
 **示例：**
@@ -4419,7 +4434,7 @@ offMetricsEvent(callback?: Callback<Array&lt;AVMetricsEvent&gt;>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<Array&lt;AVMetricsEvent&gt;> | 否 | 上报的指标事件信息的方法。使用callback异步回调。 |
+| callback | Callback<Array&lt;AVMetricsEvent&gt;> | 否 | 指定要取消注册的回调方法。若未填写该参数，则取消订阅该事件的所有回调方法。 |
 
 
 **示例：**
@@ -4488,7 +4503,7 @@ offTimedMetaData(callback?: Callback&lt;AVTimedMetaData&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;AVTimedMetaData&gt; | 否 | 回调函数，返回上报基于时间的元数据。默认值为取消订阅该事件的所有回调函数。 |
+| callback | Callback&lt;AVTimedMetaData&gt; | 否 | 回调函数，返回上报基于时间的元数据。如果未填写该参数，则取消订阅该事件的所有回调函数。 |
 
 
 **示例：**
@@ -4497,5 +4512,68 @@ offTimedMetaData(callback?: Callback&lt;AVTimedMetaData&gt;): void
 async function test(){
   let avPlayer = await media.createAVPlayer();
   avPlayer.offTimedMetaData();
+}
+```
+
+
+
+#### getCurrentTrack
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getCurrentTrack(trackType: MediaType): Promise&lt;number&gt;
+
+获取指定媒体类型的选定轨道。使用Promise异步回调。
+
+只有当AVPlayer处于prepared、playing或者paused状态时，才能调用该接口。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| trackType | MediaType | 是 | 媒体类型枚举，决定获取轨道索引的类型。 仅支持设置MEDIA_TYPE_AUD获取音频轨道索引、MEDIA_TYPE_VID获取视频轨道索引。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;number&gt; | Promise对象，返回指定媒体类型选中轨道的索引值。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400101 | No memory. Return by promise. |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400103 | I/O error. Return by promise. |
+| 5400105 | Service died. Return by promise. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused状态后才能调用。
+  let myTrackId : number;
+  let trackType: media.MediaType = media.MediaType.MEDIA_TYPE_AUD;
+  avPlayer.getCurrentTrack(trackType).then((trackId: number) => {
+    console.info('Succeeded in getting CurrentTrack');
+    myTrackId = trackId;
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get CurrentTrack.Code:${error.code},message:${error.message}`);
+  });
 }
 ```

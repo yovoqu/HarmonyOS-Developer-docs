@@ -1,6 +1,6 @@
 # 启动应用内的UIAbility组件
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-intra-device-interaction
 
@@ -461,7 +461,7 @@ export default class ColdStartAbility extends UIAbility {
 图1 目标UIAbility热启动
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/gnXVrTHGTlON-izCnuZWhg/zh-cn_image_0000002626068012.png?HW-CC-KV=V1&HW-CC-Date=20260624T020724Z&HW-CC-Expire=86400&HW-CC-Sign=E913DEB2A31AE3DE8CB33EEA8A0786C1B7719C7A97D1F4959B4B88306CE2828C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ixiF3tYMQ424JWSIvWlznQ/zh-cn_image_0000002686085187.png?HW-CC-KV=V1&HW-CC-Date=20260730T071824Z&HW-CC-Expire=86400&HW-CC-Sign=88C833FBEC55ABCD9F11A5470AED98A4C9E3BF325078A955EFFE563D283212AC)
 
 
 开发步骤如下所示。
@@ -470,7 +470,7 @@ export default class ColdStartAbility extends UIAbility {
   
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import { Want, UIAbility } from '@kit.AbilityKit';
+import { Want, UIAbility, AbilityConstant } from '@kit.AbilityKit';
 import { window, UIContext } from '@kit.ArkUI';
 const DOMAIN_NUMBER: number = 0xFF00;
 const TAG: string = '[HotStartAbility]';

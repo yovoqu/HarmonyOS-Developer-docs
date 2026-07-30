@@ -11,7 +11,7 @@
 网络拓扑图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/BzQqwhaBQVyuBTQijwtUcg/zh-cn_image_0000002658928945.png?HW-CC-KV=V1&HW-CC-Date=20260723T014010Z&HW-CC-Expire=86400&HW-CC-Sign=7A3C5A80636188F5323EC3CD88387A191BE200ADEDEE51D2C4B5535B01A72E5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/BzQqwhaBQVyuBTQijwtUcg/zh-cn_image_0000002658928945.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=4DF8092388727D783DE371223465D6D6F3BBB664C35EB199CB22D142566F6CDF)
 
  
 **问题描述**：多台开发机和ohpm-repo服务分别在不同网段，有网络隔离，无法直接通过IP访问，只能通过不同域名进行访问。此时应如何配置服务和开发环境才能正常访问私仓服务。

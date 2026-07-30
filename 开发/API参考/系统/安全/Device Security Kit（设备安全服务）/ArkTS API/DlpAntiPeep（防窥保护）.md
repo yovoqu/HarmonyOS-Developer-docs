@@ -1,6 +1,6 @@
 # DlpAntiPeep（防窥保护）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-dlpantipeep-api
 **支持设备：** Phone
@@ -98,7 +98,7 @@ on(type: 'dlpAntiPeep', callback: Callback&lt;DlpAntiPeepStatus&gt;): void
 订阅防窥保护通知。使用callback异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/3F_IBN50QzS2gmj1FqCpFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020058Z&HW-CC-Expire=86400&HW-CC-Sign=CE1663C5E23C15658656FBFCF3F462A48C34B214D4C5E49A059A1E99A3B85E6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/XTTFdINNQGCUiqX33EnLQw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071611Z&HW-CC-Expire=86400&HW-CC-Sign=F0400BFDF96D2016924466BBA6E1D34FD2346CC271D62A3B0479417D8A1F62E2)
 
 
 请在满足[开发前置条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-dlpantipeep#开发前置条件)后再调用此接口，避免无法触发防窥回调。调用接口成功后，并且应用在前台可见时才会收到防窥回调。
@@ -128,7 +128,7 @@ on(type: 'dlpAntiPeep', callback: Callback&lt;DlpAntiPeepStatus&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. Function on can not work correctly due to limited device capabilities. |
 | 1020600001 | Internal error. |
 
 
@@ -179,7 +179,7 @@ off(type: 'dlpAntiPeep', callback?: Callback&lt;DlpAntiPeepStatus&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. Function off can not work correctly due to limited device capabilities. |
 | 1020600001 | Internal error. |
 
 
@@ -259,7 +259,7 @@ passDlpAntiPeepInfo(): void
 若应用在生命周期内不再需要接受窥视状态，可直接调用[off("dlpAntiPeep")](#offdlpantipeep)接口解注册，若仍想接受放通后的非窥视状态，则可以调用该接口。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/3SeU2qTLRUCziDumOmyKqQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020058Z&HW-CC-Expire=86400&HW-CC-Sign=E6CBB8BBAB864A6BFF8EB4CCC1FAF4544D527F02084F0A2C01DFC047F9256736)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/svrwPLtERtWETJGtOf590w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071611Z&HW-CC-Expire=86400&HW-CC-Sign=3CC4879E5535B39D3A2E6333931BE94E14B85C5F29B8B9F373D4D6DD9CA17F57)
 
 
 请在满足[开发前置条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-dlpantipeep#开发前置条件)并调用[on("dlpAntiPeep")](#ondlpantipeep)接口注册后再调用该接口，可用于在应用注册的生命周期内将回调状态变更为非防窥状态，直到应用退出或设备锁屏。
@@ -309,7 +309,7 @@ setAntiPeepMaskLayer(windowId: number): Promise&lt;void&gt;
 对指定窗口设置系统级蒙层，使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/i9L4JAIzRF6bO1Y1NqA-3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020058Z&HW-CC-Expire=86400&HW-CC-Sign=5FD029DB5A069F36037DD32AF69661F37C24BDA640C2FFC4F040A405FB403545)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/DSGIziTVQ2y9f2KOWNokIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071611Z&HW-CC-Expire=86400&HW-CC-Sign=4E9B55E33C4B6BFBBC03EB2EA51DE21E1C8B6BD6BD22443D16701D8A074414DB)
 
 
 该接口调用后会拉起蒙层，覆盖应用窗口，建议开发者在检测到窥视状态后调用一次即可，频繁调用可能对用户体验造成影响。

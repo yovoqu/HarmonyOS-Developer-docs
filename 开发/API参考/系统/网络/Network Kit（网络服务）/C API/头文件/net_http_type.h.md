@@ -1,6 +1,6 @@
 # net_http_type.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -361,7 +361,7 @@ typedef void (*Http_OnDataReceiveCallback)(const char *data, size_t length)
 | 参数项 | 描述 |
 | --- | --- |
 | const char *data | 响应体。 |
-| size_t length | 响应体的长度。 |
+| size_t length | 响应体的长度。单位：Byte。 |
  
  
   
@@ -384,8 +384,8 @@ typedef void (*Http_OnProgressCallback)(uint64_t totalSize, uint64_t transferred
   
 | 参数项 | 描述 |
 | --- | --- |
-| uint64_t totalSize | 数据总大小。 |
-| uint64_t transferredSize | 已传输的数据大小。 |
+| uint64_t totalSize | 数据总大小。单位：Byte。 |
+| uint64_t transferredSize | 已传输的数据大小。单位：Byte。 |
  
  
   

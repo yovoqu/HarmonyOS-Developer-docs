@@ -1,11 +1,11 @@
 # UIExtensionContext
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-UIExtensionContext是[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，提供[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)的相关配置信息以及操作[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的方法，如启动[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)等。
+UIExtensionContext是[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，提供[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)的相关配置信息以及操作[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的能力。如启动[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)等。
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。
@@ -46,7 +46,7 @@ startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
+| want | Want | 是 | 启动UIAbility的Want，包含待启动UIAbility的名称等信息。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动UIAbility成功时，err为undefined，否则为错误对象。 |
 
 
@@ -69,7 +69,7 @@ startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 | 16000011 | The context does not exist. |
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
-| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
+| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. 适用版本：12+ |
 | 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
@@ -164,7 +164,7 @@ startAbility(want: Want, options: StartOptions, callback: AsyncCallback&lt;void&
 | 16000011 | The context does not exist. |
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
-| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
+| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. 适用版本：12+ |
 | 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
@@ -240,8 +240,8 @@ startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
-| options | StartOptions | 否 | 启动UIAbility所携带的额外参数。 |
+| want | Want | 是 | 启动UIAbility的Want，包含待启动UIAbility的名称等信息。 |
+| options | StartOptions | 否 | 启动UIAbility所携带的额外参数，用于自定义启动行为（如指定显示屏幕ID、窗口模式等）。当需要自定义启动配置时传入此参数，不传入时使用系统默认启动配置。 |
 
 
 **返回值：**
@@ -270,7 +270,7 @@ startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 | 16000011 | The context does not exist. |
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
-| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
+| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. 适用版本：12+ |
 | 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
@@ -333,11 +333,11 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 startAbilityForResult(want: Want, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
-启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。UIAbility被启动后，有如下情况:
+启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。UIAbility被启动后，有如下情况：
 
  - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
- - 异常情况下比如杀死UIAbility会返回异常信息给调用方, 异常信息中resultCode为-1。
- - 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 异常情况下比如杀死UIAbility会返回异常信息给调用方，异常信息中resultCode为-1。
+ - 如果被启动的UIAbility模式是单实例模式，不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息，异常信息中resultCode为-1。
 
 
 > [!NOTE]
@@ -373,7 +373,7 @@ startAbilityForResult(want: Want, callback: AsyncCallback&lt;AbilityResult&gt;):
 | 16000011 | The context does not exist. |
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
-| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
+| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. 适用版本：12+ |
 | 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
@@ -433,11 +433,11 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
-启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。UIAbility被启动后，有如下情况:
+启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。UIAbility被启动后，有如下情况：
 
  - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
  - 异常情况下比如杀死UIAbility会返回异常信息给调用方，异常信息中resultCode为-1。
- - 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 如果被启动的UIAbility模式是单实例模式，不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息，异常信息中resultCode为-1。
 
 
 > [!NOTE]
@@ -472,7 +472,7 @@ startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback
 | 16000011 | The context does not exist. |
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
-| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
+| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. 适用版本：12+ |
 | 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
@@ -536,11 +536,11 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 startAbilityForResult(want: Want, options?: StartOptions): Promise&lt;AbilityResult&gt;
 
-启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用Promise异步回调。UIAbility被启动后，有如下情况:
+启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用Promise异步回调。UIAbility被启动后，有如下情况：
 
  - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
- - 异常情况下比如杀死UIAbility会返回异常信息给调用方, 异常信息中resultCode为-1。
- - 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 异常情况下比如杀死UIAbility会返回异常信息给调用方，异常信息中resultCode为-1。
+ - 如果被启动的UIAbility模式是单实例模式，不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息，异常信息中resultCode为-1。
 
 
 > [!NOTE]
@@ -553,8 +553,8 @@ startAbilityForResult(want: Want, options?: StartOptions): Promise&lt;AbilityRes
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
-| options | StartOptions | 否 | 启动UIAbility所携带的额外参数。 |
+| want | Want | 是 | 启动UIAbility的Want，包含待启动UIAbility的名称等信息。 |
+| options | StartOptions | 否 | 启动UIAbility所携带的额外参数，用于自定义启动行为（如指定显示屏幕ID、窗口模式等）。当需要自定义启动配置时传入此参数，不传入时使用系统默认启动配置。 |
 
 
 **返回值：**
@@ -583,7 +583,7 @@ startAbilityForResult(want: Want, options?: StartOptions): Promise&lt;AbilityRes
 | 16000011 | The context does not exist. |
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
-| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
+| 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. 适用版本：12+ |
 | 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
@@ -745,8 +745,6 @@ disconnectServiceExtensionAbility(connection: number): Promise&lt;void&gt;
 
 断开与ServiceExtensionAbility的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用Promise异步回调。
 
-ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/extensionability-overview)组件，这类组件由系统提供，通常用于提供指定场景后台服务能力，不支持开发者自定义。ServiceExtensionAbility可以被其他组件连接，并根据调用者的请求信息在后台处理相关事务。
-
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
@@ -784,8 +782,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
   onForeground() {
-    // connection为connectServiceExtensionAbility中的返回值
-    let connection = 1;
+// connection需要通过connectServiceExtensionAbility接口返回获取，详见connectServiceExtensionAbility示例
+let connection = 1; // 示例值，实际开发中应使用连接时返回的connectionId
     let commRemote: rpc.IRemoteObject | null;
 
     try {
@@ -796,7 +794,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       }).catch((err: BusinessError) => {
         // 处理业务逻辑错误
         console.error(`disconnectServiceExtensionAbility failed, code is ${err.code}, message is ${err.message}`);
-      })
+      });
     } catch (err) {
       commRemote = null;
       // 处理入参错误异常
@@ -817,8 +815,6 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback&lt;void&gt;): void
 
 断开与ServiceExtensionAbility的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用callback异步回调。
-
-ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/extensionability-overview)组件，这类组件由系统提供，通常用于提供指定场景后台服务能力，不支持开发者自定义。ServiceExtensionAbility可以被其他组件连接，并根据调用者的请求信息在后台处理相关事务。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
@@ -893,7 +889,7 @@ terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。UIExtensionAbility停止成功时，err为undefined，否则为错误对象。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。UIExtensionAbility销毁成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
@@ -999,7 +995,7 @@ terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | parameter | AbilityResult | 是 | 返回给UIExtensionAbility拉起方的信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。UIExtensionAbility停止成功时，err为undefined，否则为错误对象。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。UIExtensionAbility销毁成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
@@ -1204,7 +1200,7 @@ openAtomicService(appId: string, options?: AtomicServiceOptions): Promise&lt;Abi
 
  - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
  - 异常情况下比如杀死元服务会返回异常信息给调用方，异常信息中resultCode为-1。
- - 如果不同应用多次调用该接口启动同一个元服务，当这个元服务调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息，异常信息中resultCode为-1。
+ - 如果不同应用多次调用该接口启动同一个元服务，当这个元服务调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息，异常信息中resultCode为-1。
 
 
 > [!NOTE]
@@ -1311,8 +1307,8 @@ openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback&lt;Ab
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | link | string | 是 | 指示要打开的标准格式URL。 |
-| options | OpenLinkOptions | 否 | 打开URL的选项参数。 |
-| callback | AsyncCallback&lt;AbilityResult&gt; | 否 | 回调函数，包含返回给拉起方的信息。 |
+| options | OpenLinkOptions | 否 | 打开URL的选项参数。不传入时使用默认选项。 |
+| callback | AsyncCallback&lt;AbilityResult&gt; | 否 | 回调函数，用于异步接收操作结果和返回数据。 |
 
 
 **返回值：**
@@ -1386,6 +1382,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       appLinkingOnly: true
     };
     try {
+      // 通过App Linking或Deep Linking方式启动UIAbility
       this.context.openLink(
         link,
         openLinkOptions,
@@ -1493,13 +1490,13 @@ struct Index {
                 console.info(`startUIServiceExtensionAbility success.`);
               }).catch((error: BusinessError) => {
                 console.error(`startUIServiceExtensionAbility failed, err code: ${error.code}, err msg: ${error.message}.`);
-              })
+              });
             } catch (err) {
               let code = (err as BusinessError).code;
               let msg = (err as BusinessError).message;
               console.error(`startUIServiceExtensionAbility failed, err code: ${code}, err msg: ${msg}.`);
             }
-          })
+          });
       }
     }
   }
@@ -1594,7 +1591,7 @@ struct Page_UIServiceExtensionAbility {
           console.info(`connectUIServiceExtensionAbility success`);
         }).catch((error: BusinessError) => {
           console.error(`connectUIServiceExtensionAbility failed, err code: ${error.code}, err msg: ${error.message}.`);
-        })
+        });
       })
     }
   }
@@ -1656,11 +1653,12 @@ struct Page_UIServiceExtensionAbility {
       }.onClick(() => {
         const context = this.getUIContext().getHostContext() as common.UIExtensionContext;
         // this.uiServiceProxy是连接时保存的proxy对象
+        // 断开UIServiceExtensionAbility连接
         context.disconnectUIServiceExtensionAbility(this.uiServiceProxy).then(() => {
           console.info(`disconnectUIServiceExtensionAbility success.`);
         }).catch((error: BusinessError) => {
           console.error(`disconnectUIServiceExtensionAbility failed, err code: ${error.code}, err msg: ${error.message}.`);
-        })
+        });
       })
     }
   }
@@ -1678,7 +1676,7 @@ setColorMode(colorMode: ConfigurationConstant.ColorMode): void
 设置UIExtensionAbility的深浅色模式。调用该接口前需要保证该UIExtensionContext对应页面已完成加载。仅支持主线程调用。
 
 > [!NOTE]
-> 调用该接口后会创建新的资源管理器对象，如果此前有缓存资源管理器，需要进行更新。 深浅色模式生效的优先级：UIExtensionAbility的深浅色模式 > 应用的深浅色模式（ ApplicationContext.setColorMode ）> 系统的深浅色模式。
+> 调用该接口后会创建新的资源管理器对象，如果此前有缓存资源管理器，开发者需要更新缓存的资源管理器引用，以使用新创建的资源管理器对象。 深浅色模式生效的优先级：UIExtensionAbility的深浅色模式 > 应用的深浅色模式（ ApplicationContext.setColorMode ）> 系统的深浅色模式。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core

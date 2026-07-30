@@ -1,6 +1,6 @@
 # 获取用户目录环境(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-environment-guidelines
 
@@ -24,9 +24,9 @@
 
 | 接口名称 | 描述 |
 | --- | --- |
-| FileManagement_ErrCode OH_Environment_GetUserDownloadDir (char **result) | 获取用户Download目录沙箱路径。只支持2in1设备。 |
-| FileManagement_ErrCode OH_Environment_GetUserDesktopDir (char **result) | 获取用户Desktop目录沙箱路径。只支持2in1设备。 |
-| FileManagement_ErrCode OH_Environment_GetUserDocumentDir (char **result) | 获取用户Document目录沙箱路径。只支持2in1设备。 |
+| FileManagement_ErrCode OH_Environment_GetUserDownloadDir (char **result) | 获取用户Download目录沙箱路径。支持2in1设备。 从API版本26.0.0开始，支持tablet设备。 |
+| FileManagement_ErrCode OH_Environment_GetUserDesktopDir (char **result) | 获取用户Desktop目录沙箱路径。支持2in1设备。 从API版本26.0.0开始，支持tablet设备。 |
+| FileManagement_ErrCode OH_Environment_GetUserDocumentDir (char **result) | 获取用户Document目录沙箱路径。支持2in1设备。 从API版本26.0.0开始，支持tablet设备。 |
 
 
 

@@ -1,6 +1,6 @@
 # ArkGuard源码混淆工具概述
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-overview
 
@@ -12,5 +12,6 @@ ArkGuard是一款源码混淆工具，提供基础混淆功能。它将代码中
 - [ArkGuard混淆配置选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options)：说明混淆配置选项的作用及其使用方法。
 - [ArkGuard混淆保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)：说明混淆保留选项的作用及其使用方法。
 - [ArkGuard混淆开启指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide)：提供实操指南，包括如何开启源码混淆功能、设置自定义混淆规则，以及如何查看混淆效果和进行报错栈还原。
+- [ArkGuard混淆实践指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-apply-code)：介绍源码混淆的作用、开启混淆的基本条件、HAR包构建方式、混淆选项概览、查看混淆结果以及使用第三方加固服务。
 - [不同包类型的源码混淆建议](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-practice)：针对不同类型的包（HAP、HAR、HSP）提供混淆策略建议。
 - [ArkGuard混淆常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-questions)：总结常见的功能异常场景及其排查方法，提供典型报错案例的解决方案，帮助开发者快速定位和解决问题。

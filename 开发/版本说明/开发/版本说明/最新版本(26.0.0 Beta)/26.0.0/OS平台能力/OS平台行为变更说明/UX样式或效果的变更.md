@@ -1,6 +1,6 @@
 # UX样式或效果的变更
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-07-28 11:14:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-7001
 
@@ -109,7 +109,7 @@ struct ButtonExample {
 孤字换行变更前后效果如下图所示：
  
 
-![](assets/UX样式或效果的变更/file-20260708103304779248f3.png)
+![](assets/UX样式或效果的变更/file-20260708103305909a4907.png)
 
  
 **场景二：小语种行高优化**
@@ -121,7 +121,7 @@ struct ButtonExample {
 小语种行高优化变更前后效果如下图所示：
  
 
-![](assets/UX样式或效果的变更/file-20260708103305909a4907.png)
+![](assets/UX样式或效果的变更/file-20260708103305fa4a15c9.png)
 
  
 **场景三：单词换行改为音节换行**
@@ -133,7 +133,7 @@ struct ButtonExample {
 文本按单词换行改为按音节换行变更前后效果如下图所示：
  
 
-![](assets/UX样式或效果的变更/file-202607081033051f0a509f.png)
+![](assets/UX样式或效果的变更/file-20260708103306065f7dc4.png)
 
  
 **起始 API Level**
@@ -197,25 +197,25 @@ ArkUI组件支持对接沉浸式系统材质功能，为减少应用适配成本
 Dialog变更前后的效果图：
  
 
-![](assets/UX样式或效果的变更/file-20260708103305fa4a15c9.png)
+![](assets/UX样式或效果的变更/file-202607081033074a812787.png)
 
  
 Toast变更前后的效果图：
  
 
-![](assets/UX样式或效果的变更/file-20260708103306065f7dc4.png)
+![](assets/UX样式或效果的变更/file-2026070810330770df3f50.png)
 
  
 AlphabetIndexer变更前后的效果图：
  
 
-![](assets/UX样式或效果的变更/file-202607081033064ea55485.png)
+![](assets/UX样式或效果的变更/file-20260708103307e5926b53.png)
 
  
 文本选择菜单变更前后的效果图：
  
 
-![](assets/UX样式或效果的变更/file-20260708103307e5926b53.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/KxH62mQxSyK3x4zWZtV5Sw/zh-cn_image_0000002607733201.png?HW-CC-KV=V1&HW-CC-Date=20260730T072040Z&HW-CC-Expire=86400&HW-CC-Sign=0D8FDDCA9AADDF37959A41BCE10192BA43B5E529E8599B902A7C49A0B86102FB)
 
  
 **适配指导**
@@ -277,7 +277,7 @@ UX规格变更，当前半模态最大高度限制为窗口短边长度的90%，
 半模态居中弹窗最大高度：取“短边长度*90%”。
  
 
-![](assets/UX样式或效果的变更/file-2026070810330770df3f50.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/Z_rQjlCBS9-JeLWbEwfI2g/zh-cn_image_0000002607653209.png?HW-CC-KV=V1&HW-CC-Date=20260730T072040Z&HW-CC-Expire=86400&HW-CC-Sign=EE5B1E37FCA49A993DE23071B7CB6D41E690267CCE048416DFD569548C939722)
 
  
 变更后：
@@ -285,7 +285,7 @@ UX规格变更，当前半模态最大高度限制为窗口短边长度的90%，
 半模态居中弹窗最大高度：取“短边长度*90%”、“窗口高度-信号栏高度*2”两者中的最小值。
  
 
-![](assets/UX样式或效果的变更/file-202607081033074a812787.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/UMDXLQY9TXSv70VLeKuiHA/zh-cn_image_0000002577173250.png?HW-CC-KV=V1&HW-CC-Date=20260730T072040Z&HW-CC-Expire=86400&HW-CC-Sign=A4DBFB315F93B4C7D8A5A82945F9F144EFE1CC553886CB270E0B1B19CB0D1B55)
 
  
 **起始 API Level**

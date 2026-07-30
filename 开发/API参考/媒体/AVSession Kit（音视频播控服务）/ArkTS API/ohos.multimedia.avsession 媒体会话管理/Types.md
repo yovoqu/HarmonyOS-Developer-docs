@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -158,6 +158,33 @@ type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevio
 | 'answer' 11+ | 接听。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'hangUp' 11+ | 挂断。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'toggleCallMute' 11+ | 切换通话静音状态。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+ 
+ 
+  
+
+#### AVMediaCenterControlType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type AVMediaCenterControlType = 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite'
+ 
+播控中心控制命令类型。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
+  
+| 类型 | 说明 |
+| --- | --- |
+| 'playNext' | 下一首。 |
+| 'playPrevious' | 上一首。 |
+| 'fastForward' | 快进。 |
+| 'rewind' | 快退。 |
+| 'setSpeed' | 设置播放倍速。 |
+| 'setLoopMode' | 设置循环模式。 |
+| 'toggleFavorite' | 是否收藏。 |
  
  
   

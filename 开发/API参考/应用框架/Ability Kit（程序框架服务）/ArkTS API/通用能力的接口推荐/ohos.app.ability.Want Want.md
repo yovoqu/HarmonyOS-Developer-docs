@@ -1,6 +1,6 @@
 # @ohos.app.ability.Want (Want)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -49,7 +49,7 @@ import { Want } from '@kit.AbilityKit';
 | deviceId | string | 否 | 是 | 设备ID。在应用启动场景中表示被拉起方的设备ID，如果未设置该字段，则表示指定当前设备。 |
 | bundleName | string | 否 | 是 | 应用包名。在应用启动场景中表示被拉起方的应用包名。 |
 | moduleName | string | 否 | 是 | 应用模块名。在应用启动场景中表示被拉起方的应用模块名。 说明： 若待启动的Ability所属的模块为HAR，则moduleName需为依赖该HAR的HAP/HSP的moduleName。 |
-| abilityName | string | 否 | 是 | 应用的Ability组件名。在应用启动场景中表示被拉起方的Ability组件名。如果在Want中该字段同时指定了BundleName和AbilityName，则Want可以直接匹配到指定的Ability。AbilityName需要在一个应用的范围内保证唯一。 |
+| abilityName | string | 否 | 是 | 应用的Ability组件名。在应用启动场景中表示被拉起方的Ability组件名。如果在Want中该字段同时指定了BundleName和AbilityName，则Want可以直接匹配到指定的Ability。abilityName需要在一个应用的范围内保证唯一。 |
 | action | string | 否 | 是 | 表示要执行的通用操作（如：查看、分享、应用详情）。在隐式Want中，开发者可以定义该字段，配合uri或parameters来表示对数据执行的操作。隐式Want定义及匹配规则请参见显式Want与隐式Want匹配规则。 |
 | entities | Array&lt;string&gt; | 否 | 是 | 表示目标Ability额外的类别信息（如：浏览器、视频播放器）。在隐式Want中是对action字段的补充。在隐式Want中，开发者可以定义该字段，来过滤匹配Ability类型。 |
 | uri | string | 否 | 是 | 统一资源标识符，一般在应用启动场景中配合type使用，指明待处理的数据类型。如果在Want中指定了uri，则Want将匹配指定的Uri信息，包括scheme、schemeSpecificPart、authority和path信息。 |

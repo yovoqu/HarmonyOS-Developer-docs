@@ -25,7 +25,7 @@ IDE自动签名时报错，报错信息为：
 自动签名时，bundleName没有带出，显示为空，导致出现上述报错。往上定位，发现是AppScope下的app.json5文件没有被识别到，继续定位，发现是设置了忽略app.json5文件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/YDZLw_0UQ6Oii6qsFA3cNQ/zh-cn_image_0000002658808643.png?HW-CC-KV=V1&HW-CC-Date=20260723T013938Z&HW-CC-Expire=86400&HW-CC-Sign=1C2979820C53C261827BC1668EF1A248BA28981A2F742D7BAAFB86DD3007CA03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/YDZLw_0UQ6Oii6qsFA3cNQ/zh-cn_image_0000002658808643.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=F653E79C75950A9E5CD0E2D5FCDDDA808B0BF28E1FBDC2E199E7483FFD1B50D0)
 
  
  

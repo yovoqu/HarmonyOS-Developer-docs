@@ -1,6 +1,6 @@
 # Contacts错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -52,6 +52,50 @@ Invalid parameter value.
 **处理步骤**
 
 请阅读参数规格约束，按照可能原因进行排查。
+
+
+
+#### 16700003 禁止后台调用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**错误信息**
+
+Background usage is prohibited.
+
+**错误描述**
+
+禁止后台调用。
+
+**可能原因**
+
+后台调用。
+
+**处理步骤**
+
+请调用方处于前台调用。
+
+
+
+#### 16700004 联系人数量超过限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**错误信息**
+
+The number of contacts exceeds the limit.
+
+**错误描述**
+
+联系人数量超过限制。
+
+**可能原因**
+
+传入的联系人数量超过限制。
+
+**处理步骤**
+
+请检查联系人数量。
 
 
 
@@ -147,6 +191,10 @@ Failed to open contact portrait file.
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
+
+
+#### 内部关联联系人ID无效
+
 **错误信息**
 
 Internal error. Invalid contact id. Failed to generate contact profile.
@@ -162,6 +210,10 @@ Internal error. Invalid contact id. Failed to generate contact profile.
 **处理步骤**
 
 系统异常，请稍后重试。
+
+
+
+#### 保存联系人头像失败
 
 **错误信息**
 
@@ -179,6 +231,10 @@ Internal error. Failed to save contact portrait.
 
 检查文件。
 
+
+
+#### 数据库查询插入结果集为空指针
+
 **错误信息**
 
 Internal error. The query resultSet is nullptr.
@@ -195,6 +251,10 @@ Internal error. The query resultSet is nullptr.
 
 系统异常，请稍后重试。
 
+
+
+#### 数据库查询插入结果集存在但无数据
+
 **错误信息**
 
 Internal error. The query resultSet is empty.
@@ -210,6 +270,10 @@ Internal error. The query resultSet is empty.
 **处理步骤**
 
 系统异常，请稍后重试。
+
+
+
+#### 内部关联联系人rawId无效
 
 **错误信息**
 

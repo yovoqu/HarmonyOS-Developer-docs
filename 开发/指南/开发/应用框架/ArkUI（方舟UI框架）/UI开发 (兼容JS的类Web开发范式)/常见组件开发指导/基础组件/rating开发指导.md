@@ -1,6 +1,6 @@
 # rating开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-rating
 
@@ -155,10 +155,9 @@ export default {
 
 ```text
 // xxx.js
-import promptAction from '@ohos.promptAction';
 export default {
   showrating(e) {
-    promptAction.showToast({
+    this.getUIContext().getPromptAction().showToast({
       message: '当前评分' + e.rating
     })
   }
@@ -214,7 +213,6 @@ export default {
 
 ```text
 // xxx.js
-import promptAction from '@ohos.promptAction';
 export default {
     data: {
         backstar: '',
@@ -230,7 +228,7 @@ export default {
     },
     setstar(e) {
         if (e.checked == true) {
-            this.backstar = '/common/love.png'
+            this.backstar = 'common/love.png'
             this.secstar = 'common/love.png'
             this.forestar = 'common/love1.png'
         } else {
@@ -243,15 +241,12 @@ export default {
         this.stars = e.progress
         this.ratewidth = 60 * parseInt(this.stars) + 'px'
     },
-    setstep(e) {
-        this.step = e.progress
-    },
     setrating(e){
         this.rate = e.progress
     },
     showrating(e) {
         this.rate = e.rating
-        promptAction.showToast({
+        this.getUIContext().getPromptAction().showToast({
             message: '当前评分' + e.rating
         })
     }
@@ -259,4 +254,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/H4Tli3V4RdSVERR4SaDZdw/zh-cn_image_0000002581434182.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=F651CE3C89496550DEB8F452659CA1C6655DEDAED0FB0A4D7F0F5F59DC039F39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/vLbwrq3eSGOkLIXhioy8VA/zh-cn_image_0000002656006612.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071857Z&HW-CC-Expire=86400&HW-CC-Sign=5EAE0758B8E24B290CA8BF356A17F3689562B70B6F20CB1BE8F3F15DFCE140C9)

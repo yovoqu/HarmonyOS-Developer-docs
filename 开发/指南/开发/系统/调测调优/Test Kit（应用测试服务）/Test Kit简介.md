@@ -1,6 +1,6 @@
 # Test Kit简介
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/test-kit-overview
 
@@ -25,7 +25,8 @@ Test Kit为开发者提供了自动化测试框架，框架提供单元、UI和�
 提供针对指定代码段执行过程的基础性能数据采集能力，包括执行耗时、执行CPU和内存占用数据等。
 - 提供对应用场景化性能数据的采集，包括应用启动时延、页面切换时延、列表滑动帧率等。
 
-  
+  - 辅助测试能力：提供命令行辅助测试工具，支持系统状态管理和环境模拟能力，搭载HarmonyOS 7.0.0及以上版本的设备支持此能力。具体使用方法请参考[辅助测试工具使用指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/testhelper-guidelines)。
+
  
 此外，Test Kit还为开发者提供了如下命令行工具。
  

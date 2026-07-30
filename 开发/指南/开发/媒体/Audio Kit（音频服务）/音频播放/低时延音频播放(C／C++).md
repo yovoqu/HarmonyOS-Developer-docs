@@ -1,6 +1,6 @@
 # 低时延音频播放(C/C++)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-fast-playback
 
@@ -65,7 +65,7 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 从API version 20开始，支持低时延相关查询接口。
 
- - 开发者通过调用[OH_AudioRenderer_GetFastStatus()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_getfaststatus)来获取音频播放流是否正在低时延状态下工作。
+ - 可通过[OH_AudioRenderer_GetFastStatus()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_getfaststatus)来获取音频播放流是否正在低时延状态下工作。
  - 在部分特殊场景（如：存在更高优先级流、当前连接设备不支持等）下，开发者可以通过调用[OH_AudioRenderer_OnFastStatusChange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_onfaststatuschange)来获取低时延状态改变事件。
 
 
@@ -81,8 +81,8 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 #### 使用低时延流的场景
 
- - 游戏、k歌、直播等对时延要求较高的场景，建议使用低时延模式。
- - 视频播放、音乐播放等没有实时要求的场景，不建议使用低时延模式。
+ - 游戏、K歌、直播等对时延要求较高的场景，建议使用低时延模式。
+ - 视频播放、音乐播放等对时延要求不敏感的场景，不建议使用低时延模式。
 
 
 
@@ -126,8 +126,8 @@ static OH_AudioData_Callback_Result MyOnWriteData_New(
     OH_AudioStreamBuilder_SetRendererWriteDataCallback(builder, writeDataCb, nullptr);
 ```
 
- - 为避免音频卡顿，禁止在回调方法OH_AudioRenderer_OnWriteData中执行耗时操作。
- - 为保证OH_AudioRenderer_OnWriteData与流状态控制逻辑独立正常运行，禁止在OH_AudioRenderer_OnWriteData回调方法中调用音频流控制接口。
+ - 为避免音频卡顿，禁止在回调函数OH_AudioRenderer_OnWriteDataCallback中执行耗时操作。
+ - 为保证OH_AudioRenderer_OnWriteDataCallback与流状态控制逻辑独立正常运行，禁止在OH_AudioRenderer_OnWriteDataCallback回调函数中调用音频流控制接口。
 
 | 音频流控制接口 | 说明 |
 
@@ -147,4 +147,4 @@ static OH_AudioData_Callback_Result MyOnWriteData_New(
 ![](assets/低时延音频播放(C／C++)/file-20260514131439515-1.png)
  
 
-  音频流控制接口执行会有耗时（例如OH_AudioRenderer_Stop接口需要播完缓存，单次执行普遍超过50ms），应避免在主线程中直接调用，以免造成界面显示卡顿。
+  音频流控制接口执行存在耗时（例如OH_AudioRenderer_Stop接口需要播完缓存，单次执行普遍超过50ms），应避免在主线程中直接调用，以免造成界面显示卡顿。

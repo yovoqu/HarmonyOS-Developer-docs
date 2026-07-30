@@ -1,6 +1,6 @@
 # appInfoManager（应用元数据管理服务）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/appgallery-appinfomanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -168,12 +168,8 @@ selectDynamicIcon(iconId: string): Promise&lt;void&gt;
 | 401 | Parameter error. |
 | 1006800009 | System internal error. |
 | 1006800011 | Select dynamic icon failed. |
-| 1006800013 | Failed to switch to the custom icon because a custom theme icon is currently in use. |
+| 1006800013 | Failed to switch to the custom icon because a custom theme icon is currently in use. 适用版本：6.0.0(20)+ |
  
- 
-> [!NOTE]
-> 从版本6.0.0(20)开始，该接口支持返回1006800013错误码。
-
  
 **示例：**
  

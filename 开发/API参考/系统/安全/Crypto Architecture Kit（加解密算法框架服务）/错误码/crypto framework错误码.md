@@ -1,6 +1,6 @@
 # cryptoFramework错误码
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -32,17 +32,17 @@ Memory operation failed.
 
 
 
-#### 17620002 ArkTS和C之间转换参数失败
+#### 17620002 获取Native对象失败或参数转换失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
 **错误信息**
 
-Failed to convert parameters between arkts and c.
+Failed to obtain the native object or convert parameters.
 
 **错误描述**
 
-ArkTS和C之间转换参数失败。
+获取Native对象失败或参数转换失败。
 
 **可能原因**
 
@@ -54,7 +54,7 @@ ArkTS和C之间转换参数失败。
 
 
 
-#### 17620003 参数校验失败
+#### 17620003 参数检查失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ Parameter check failed.
 
 **错误描述**
 
-参数校验失败。
+参数检查失败。
 
 **可能原因**
 
@@ -98,7 +98,7 @@ Invalid function call.
 
 
 
-#### 17630001 算法相关的操作错误，调用三方算法库API出错
+#### 17630001 密码操作错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
@@ -108,7 +108,7 @@ Crypto operation error.
 
 **错误描述**
 
-调用三方算法库API出错。
+密码操作错误。
 
 **可能原因**
 

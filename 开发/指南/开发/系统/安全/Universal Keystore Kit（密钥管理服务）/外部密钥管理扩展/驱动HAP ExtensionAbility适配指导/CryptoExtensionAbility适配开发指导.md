@@ -1,8 +1,14 @@
 # CryptoExtensionAbility适配开发指导
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-extension-ability-support-dev
+
+#### 约束限制
+
+针对CryptoExtensionAbility接口调用限制，详细请参考API中的[约束限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#约束限制)。
+
+
 
 #### 适配指导
 
@@ -72,16 +78,17 @@
   
 ```text
 import { huks, huksExternalCrypto, CryptoExtensionAbility, HuksCryptoExtensionCertInfo, HuksCryptoExtensionResult } from '@kit.UniversalKeystoreKit';
-import { util } from '@kit.ArkTS'
-import { cryptoFramework } from '@kit.CryptoArchitectureKit'
+import { util } from '@kit.ArkTS';
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+import { deviceInfo } from '@kit.BasicServicesKit';
 
-class CryptoExtension extends CryptoExtensionAbility {
+export class CryptoExtension extends CryptoExtensionAbility {
   // 本步骤内的接口函数实现均需在class内，为方便开发者理解及使用，每个接口函数在下文详细解释。
 }
 ```
 **接口介绍：**
 
-  （1）onOpenResource在Ukey签名验签操作中用于打开指定资源（如建立会话或连接）。resourceId表示要打开的资源标识，应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，handle成员非空；调用失败时，resultCode携带错误码信息。
+  （1）onOpenResource在UKey签名验签操作中用于打开指定资源（如建立会话或连接）。resourceId表示要打开的资源标识，应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，handle成员非空；调用失败时，resultCode携带错误码信息。
 
   
 ```json
@@ -98,8 +105,14 @@ onOpenResource(resourceId: string, params: Array<huksExternalCrypto.HuksExternal
     return Promise.resolve(result);
   }
 
-  // 解析 resource index
-  let index: string = JSON.parse(resourceId)['index'];
+  // 解析 resource index，API版本不同解析方式也不同。
+  let index: string;
+  const apiVersion = deviceInfo.sdkApiVersion;
+  if (apiVersion >= 26) {
+    index = resourceId;
+  } else {
+    index = JSON.parse(resourceId)['index'];
+  }
 
   // ...
   let res: HuksCryptoExtensionResult = {
@@ -114,12 +127,12 @@ onOpenResource(resourceId: string, params: Array<huksExternalCrypto.HuksExternal
   } catch (error) {
     // 场景：打开资源失败
     result.resultCode = res.resultCode
-    console.error(`promise: onOpenResource failed`);
+    console.error('promise: onOpenResource failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（2）onCloseResource在Ukey签名验签操作中用于关闭指定资源（如释放会话或连接）。handle为待关闭资源的句柄，应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0；调用失败时，resultCode携带错误码信息。
+（2）onCloseResource在UKey签名验签操作中用于关闭指定资源（如释放会话或连接）。handle为待关闭资源的句柄，应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0；调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -140,12 +153,12 @@ onCloseResource(handle: string, params: Array<huksExternalCrypto.HuksExternalCry
   } catch (error) {
     // 场景：关闭资源失败
     result.resultCode = res.resultCode
-    console.error(`promise: onCloseResource failed`);
+    console.error('promise: onCloseResource failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（3）onGetProperty在Ukey签名验签操作中用于获取指定资源的属性信息。handle为资源句柄，propertyId为待获取的属性标识，应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，返回值中的property成员包含属性信息。调用失败时，resultCode携带错误码信息。
+（3）onGetProperty在UKey签名验签操作中用于获取指定资源的属性信息。handle为资源句柄，propertyId为待获取的属性标识，应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，返回值中的property成员包含属性信息。调用失败时，resultCode携带错误码信息。
 
   在onGetProperty中须实现导出公钥功能，以便上游业务使用PIN加密传输并完成PIN码认证。加密算法支持RSA、SM2等。当入参propertyId为SKF_ExportPublicKey时，返回的公钥信息采用JSON格式，包含以下4个必选字段，分别是publicKey（公钥数据）、algo（算法类型及密钥长度）、transformation（密码学操作参数，如填充模式）、size（公钥数据长度）。具体实现可参考下方示例代码中onGetProperty接口的相关部分。
 
@@ -199,12 +212,32 @@ onGetProperty(handle: string, propertyId: string, params: Array<huksExternalCryp
   } catch (error) {
     // 场景：获取属性失败
     result.resultCode = res.resultCode
-    console.error(`promise: onGetProperty failed`);
+    console.error('promise: onGetProperty failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（4）onAuthUkeyPin用于在Ukey签名之前验证PIN码。加密后的PIN码通过param中传入[HUKS_EXT_CRYPTO_TAG_UKEY_PIN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带，需使用onGetProperty中保存的私钥进行解密。
+（4）从API版本26.0.0开始，onSetProperty用于执行设置属性操作。handle为资源句柄，propertyId为待设置的属性标识。操作参数在params中传入。当调用成功时，返回值中的resultCode成员设置为0，表示设置属性成功。调用失败时，resultCode携带错误码信息。
+
+  
+```text
+onSetProperty(handle: string, propertyId: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult> {
+  let result: HuksCryptoExtensionResult = {
+    resultCode: HuksCryptoExtensionResultCode.HUKS_CRYPTO_EXTENSION_ERR_EXTENSION_FAIL,
+  };
+
+  try {
+    let driver: YourUKeyDriver = YourDriverInstance;
+    result = driver.YourDriver_onSetProperty(handle, propertyId, params);
+    result.resultCode = 0;
+  } catch (error) {
+    result.resultCode = HuksCryptoExtensionResultCode.HUKS_CRYPTO_EXTENSION_ERR_EXTENSION_FAIL;
+    console.error('promise: onSetProperty failed.');
+  }
+  return Promise.resolve(result);
+}
+```
+（5）onAuthUkeyPin用于在UKey签名之前验证PIN码。加密后的PIN码通过param中传入[HUKS_EXT_CRYPTO_TAG_UKEY_PIN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带，需使用onGetProperty中保存的私钥进行解密。
 
   当PIN码校验成功时，返回值中的resultCode成员设置为0，返回值中的authState设置为[HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalpinauthstate)。当PIN码不正确时，resultCode携带错误码信息，返回值中的retryCount设置为剩余重试次数，每次认证失败重试次数减1，当重试次数为0时，resultCode设置为[HUKS_CRYPTO_EXTENSION_ERR_PIN_LOCKED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#hukscryptoextensionresultcode)，authState设置为[HUKS_EXT_CRYPTO_PIN_LOCKED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalpinauthstate)。
 
@@ -239,12 +272,12 @@ onAuthUkeyPin(handle: string, params: Array<huksExternalCrypto.HuksExternalCrypt
     // 场景：PIN码认证失败
     result.resultCode = res.resultCode
     result.retryCount = res.retryCount
-    console.error(`promise: onAuthUkeyPin failed`);
+    console.error('promise: onAuthUkeyPin failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（5）onGetUkeyPinAuthState用于应用查询PIN码的认证状态。当调用成功时，返回值中的resultCode成员设置为0，返回值中的authState设置为对应的认证状态。调用失败时，resultCode携带错误码信息。
+（6）onGetUkeyPinAuthState用于应用查询PIN码的认证状态。当调用成功时，返回值中的resultCode成员设置为0，返回值中的authState设置为对应的认证状态。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -274,12 +307,12 @@ onGetUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExter
   } catch (error) {
     // 场景：获取PIN码认证状态失败
     result.resultCode = res.resultCode
-    console.error(`promise: onGetUkeyPinAuthState failed`);
+    console.error('promise: onGetUkeyPinAuthState failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（6）onClearUkeyPinAuthState用于重置PIN码的认证状态。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
+（7）onClearUkeyPinAuthState用于重置PIN码的认证状态。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -300,12 +333,12 @@ onClearUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExt
   } catch (error) {
     // 场景：清除PIN码认证状态失败
     result.resultCode = res.resultCode
-    console.error(`promise: onClearUkeyPinAuthState failed`);
+    console.error('promise: onClearUkeyPinAuthState failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（7）onInitSession在Ukey签名验签操作中用于初始化密钥会话。应用身份可以在param中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，handle成员非空。调用失败时，resultCode携带错误码信息。
+（8）onInitSession在UKey签名验签操作中用于初始化密钥会话。应用身份可以在param中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，handle成员非空。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -328,12 +361,12 @@ onInitSession(handle: string, params: huks.HuksOptions): Promise<HuksCryptoExten
   } catch (error) {
     // 场景：三段式init阶段失败
     result.resultCode = res.resultCode
-    console.error(`promise: onInitSession failed`);
+    console.error('promise: onInitSession failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（8）onUpdateSession在Ukey签名验签操作中用于分段传输大批量数据。应用身份可以在param中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
+（9）onUpdateSession在UKey签名验签操作中用于分段传输大批量数据。应用身份可以在param中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -357,12 +390,12 @@ onUpdateSession(handle: string, params: huks.HuksOptions): Promise<HuksCryptoExt
   } catch (error) {
     // 场景：三段式update阶段失败
     result.resultCode = res.resultCode
-    console.error(`promise: onUpdateSession failed`);
+    console.error('promise: onUpdateSession failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（9）onFinishSession在Ukey签名操作中用于传输最后一段明文，在验签操作中用于传输签名。应用身份可以在param中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
+（10）onFinishSession在UKey签名操作中用于传输最后一段明文，在验签操作中用于传输签名。应用身份可以在param中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -386,12 +419,12 @@ onFinishSession(handle: string, params: huks.HuksOptions): Promise<HuksCryptoExt
   } catch (error) {
     // 场景：三段式finish阶段失败
     result.resultCode = res.resultCode
-    console.error(`promise: onFinishSession failed`);
+    console.error('promise: onFinishSession failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（10）onExportCertificate用于查询某个resourceId下的证书。可以通过解析参数[HUKS_EXT_CRYPTO_TAG_PURPOSE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)获取业务希望的证书类型。如未指定，默认获取的证书类型是签名证书。
+（11）onExportCertificate用于查询某个resourceId下的证书。可以通过解析参数[HUKS_EXT_CRYPTO_TAG_PURPOSE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)获取业务希望的证书类型。如未指定，默认获取的证书类型是签名证书。
 
   其值含义如下：
 
@@ -425,12 +458,12 @@ onExportCertificate(resourceId: string, params: Array<huksExternalCrypto.HuksExt
   } catch (error) {
     // 场景：导出证书失败
     result.resultCode = res.resultCode
-    console.error(`promise: onExportCertificate failed`);
+    console.error('promise: onExportCertificate failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（11）onEnumCertificates在Ukey签名验签操作中用于枚举证书列表。应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，返回值中的certs成员包含证书列表（类型为Array<[HuksCryptoExtensionCertInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#hukscryptoextensioncertinfo)>）。调用失败时，resultCode携带错误码信息。
+（12）onEnumCertificates在UKey签名验签操作中用于枚举证书列表。应用身份可以在params中由[HUKS_EXT_CRYPTO_TAG_UID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数携带。当调用成功时，返回值中的resultCode成员设置为0，返回值中的certs成员包含证书列表（类型为Array<[HuksCryptoExtensionCertInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#hukscryptoextensioncertinfo)>）。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -454,12 +487,12 @@ onEnumCertificates(params: Array<huksExternalCrypto.HuksExternalCryptoParam>): P
   } catch (error) {
     // 场景：导出所有证书失败
     result.resultCode = res.resultCode
-    console.error(`promise: onEnumCertificates failed`);
+    console.error('promise: onEnumCertificates failed.');
   }
   return Promise.resolve(result);
 }
 ```
-（12）从API版本26.0.0开始，onGetResourceId用于获取密钥扩展能力的资源ID。params中需携带以下必选参数：[HUKS_EXT_CRYPTO_TAG_ABILITY_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)表示Ability名称、[HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)表示Bundle名称、[HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)表示厂商自定义的资源信息。当调用成功时，返回值中的resultCode成员设置为0，resourceId成员非空。调用失败时，resultCode携带错误码信息。
+（13）从API版本26.0.0开始，onGetResourceId用于获取密钥扩展能力的资源ID。params中需携带以下必选参数：[HUKS_EXT_CRYPTO_TAG_ABILITY_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)表示Ability名称、[HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)表示Bundle名称、[HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)表示厂商自定义的资源信息。当调用成功时，返回值中的resultCode成员设置为0，resourceId成员非空。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -487,7 +520,7 @@ onGetResourceId(params: huksExternalCrypto.HuksExternalCryptoParam[]): Promise<H
   return Promise.resolve(result);
 }
 ```
-（13）从API版本26.0.0开始，onImportCertificate用于导入证书到扩展设备。certInfo包含待导入的证书信息，包括证书用途、资源ID和证书数据。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
+（14）从API版本26.0.0开始，onImportCertificate用于导入证书到扩展设备。certInfo包含待导入的证书信息，包括证书用途、资源ID和证书数据。当调用成功时，返回值中的resultCode成员设置为0。调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -507,7 +540,7 @@ onImportCertificate(handle: string, certInfo: HuksCryptoExtensionCertInfo, param
   return Promise.resolve(result);
 }
 ```
-（14）从API版本26.0.0开始，onGenerateKeyItem用于在扩展设备内生成密钥对。params中的参数为可选参数，由Extension厂商定义支持范围。如未传入相应参数，厂商需设置默认行为。当调用成功时，返回值中的resultCode成员设置为0；调用失败时，resultCode携带错误码信息。
+（15）从API版本26.0.0开始，onGenerateKeyItem用于在扩展设备内生成密钥对。params中的参数为可选参数，由Extension厂商定义支持范围。如未传入相应参数，厂商需设置默认行为。当调用成功时，返回值中的resultCode成员设置为0；调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -546,7 +579,7 @@ onGenerateKeyItem(handle: string, params: huks.HuksParam[]): Promise<HuksCryptoE
   return Promise.resolve(result);
 }
 ```
-（15）从API版本26.0.0开始，onExportKeyItem用于导出指定密钥的公钥。params中的参数为可选参数，由Extension厂商定义支持范围。如未传入相应参数，厂商需设置默认行为。推荐传入密钥用途（HUKS_TAG_PURPOSE）参数，以便导出指定用途的公钥。当调用成功时，返回值中的resultCode成员设置为0，outData携带导出的公钥数据；调用失败时，resultCode携带错误码信息。
+（16）从API版本26.0.0开始，onExportKeyItem用于导出指定密钥的公钥。params中的参数为可选参数，由Extension厂商定义支持范围。如未传入相应参数，厂商需设置默认行为。推荐传入密钥用途（HUKS_TAG_PURPOSE）参数，以便导出指定用途的公钥。当调用成功时，返回值中的resultCode成员设置为0，outData携带导出的公钥数据；调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -576,7 +609,7 @@ onExportKeyItem(handle: string, params: huks.HuksParam[]): Promise<HuksCryptoExt
   return Promise.resolve(result);
 }
 ```
-（16）从API版本26.0.0开始，onImportWrappedKeyItem用于导入加密封装的密钥对。params中的参数为可选参数，由Extension厂商定义支持范围。如未传入相应参数，厂商需设置默认行为。wrappedHandle用于指定解封密钥的密钥资源句柄，wrappedKey为封装密钥数据。当调用成功时，返回值中的resultCode成员设置为0；调用失败时，resultCode携带错误码信息。
+（17）从API版本26.0.0开始，onImportWrappedKeyItem用于导入加密封装的密钥对。params中的参数为可选参数，由Extension厂商定义支持范围。如未传入相应参数，厂商需设置默认行为。wrappedHandle用于指定解封密钥的密钥资源句柄，wrappedKey为封装密钥数据。当调用成功时，返回值中的resultCode成员设置为0；调用失败时，resultCode携带错误码信息。
 
   
 ```text
@@ -626,7 +659,7 @@ onImportWrappedKeyItem(handle: string, wrappedHandle: string, params: huks.HuksP
 
 #### 注册CryptoExtensionAbility
 
-驱动HAP检测到Ukey存在时，向系统注册CryptoExtensionAbility。例如：Ukey插入等。
+驱动HAP检测到UKey存在时，向系统注册CryptoExtensionAbility。例如：UKey插入等。
 
 **示例：**
 
@@ -651,7 +684,7 @@ huksExternalCrypto.registerProvider(provider, ExtPropertiesTemp);
 
 #### 解注册CryptoExtensionAbility
 
-驱动HAP检测到Ukey不存在时，向系统解注册CryptoExtensionAbility。例如：Ukey拔出等。
+驱动HAP检测到UKey不存在时，向系统解注册CryptoExtensionAbility。例如：UKey拔出等。
 
 **示例：**
 

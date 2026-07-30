@@ -1,6 +1,6 @@
 # 通过API展示关注组件
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-followcomponent
 
@@ -81,15 +81,16 @@ struct Index {
           hilog.info(0x0000, 'testTag', 'follow failed handle');
         }
       }
-    }
+    };
     // 展示关注组件。
     atomicService.showFollowComponent(this.getUIContext(), params, callbacks).catch((error: BusinessError<void>) => {
       hilog.error(0x0000, 'testTag', 'Failed to show the Follow Component, failReason: %{public}d %{public}s', error.code,
         error.message);
-    })
+    });
   }
 
   build() {
+    // 开发者自行实现逻辑处理
   }
 }
 ```

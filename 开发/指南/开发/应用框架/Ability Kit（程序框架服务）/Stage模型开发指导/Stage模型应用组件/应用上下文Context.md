@@ -1,6 +1,6 @@
 # 应用上下文Context
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage
 
@@ -240,7 +240,7 @@ struct UIAbilityComponentsUsage {
 
 
 
-#### 获取ExtensionAbilityContext (ExtensionAbility组件的上下文)
+#### 获取ExtensionAbilityContext （ExtensionAbility组件的上下文）
 
 获取特定场景[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。以FormExtensionContext为例，表示卡片服务的上下文环境，继承自ExtensionContext，提供卡片服务相关的接口能力。
 

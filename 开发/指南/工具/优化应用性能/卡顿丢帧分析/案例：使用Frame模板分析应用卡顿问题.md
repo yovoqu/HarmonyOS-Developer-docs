@@ -1,6 +1,6 @@
 # 案例：使用Frame模板分析应用卡顿问题
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-frame-case
 
@@ -79,12 +79,12 @@ Expected Duration：一帧绘制的期望耗时。与fps的大小有关，如fps
 5. 窗口下方详情区可查看到Trace统计信息列表，逐层展开耗时最长的Trace，定位到主要耗时是在3次H:CreateImagePixelMap。接下来进一步分析这3次H:CreateImagePixelMap耗时的原因。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/c62bGzlmRp6XW-L7b7BI6Q/zh-cn_image_0000002594634876.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=2700CBBF6852923CDB5E5881FA11428A6D091EB6FE355592CE3A840D94FDAD46)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/_t5AuThtQQ2sED20qDMUmg/zh-cn_image_0000002647917486.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=05AEB784695DC7AA3DF013417AA5C2C4E8BC6536B159A62EB17016D9CCD898AC)
 
 6. H:CreateImagePixelMap和图片加载相关，再结合业务代码查看，可以看到是因为同步加载网络图片，建议修改为异步加载。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/73XD4Lf5S2Geey6njOMsdw/zh-cn_image_0000002625074459.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=E85F3CCBAFF5265C17184775B25C06CFEF0A25FAA5741C685BE3FA9FA7E79BFD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/UMiBS0rsRxOQwiTs5RYIBg/zh-cn_image_0000002678157107.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=7C59AE775CCB399EDF33793E8B4660EE4A851EF7B9A59B1CB4CB168CC3110E50)
 
 
   

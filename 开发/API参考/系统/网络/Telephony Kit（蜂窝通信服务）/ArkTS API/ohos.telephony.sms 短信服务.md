@@ -1,9 +1,9 @@
 # @ohos.telephony.sms (短信服务)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sms
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 短信服务提供了管理短信的一些基础能力，包括创建、发送短信，获取发送短信的默认SIM卡槽ID、检查当前设备是否具备短信发送和接收能力等。
 
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 import { sms } from '@kit.TelephonyKit';
@@ -24,7 +24,7 @@ import { sms } from '@kit.TelephonyKit';
 
 #### sms.createMessage
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 createMessage(pdu: Array&lt;number&gt;, specification: string, callback: AsyncCallback&lt;ShortMessage&gt;): void
 
@@ -72,7 +72,7 @@ sms.createMessage(pdu, specification, (err: BusinessError, data: sms.ShortMessag
 
 #### sms.createMessage
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 createMessage(pdu: Array&lt;number&gt;, specification: string): Promise&lt;ShortMessage&gt;
 
@@ -128,7 +128,7 @@ sms.createMessage(pdu, specification).then((data: sms.ShortMessage) => {
 
 #### sms.sendMessage(deprecated)
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 sendMessage(options: SendMessageOptions): void
 
@@ -191,7 +191,7 @@ sms.sendMessage(options);
 
 #### sms.sendShortMessage10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 sendShortMessage(options: SendMessageOptions, callback: AsyncCallback&lt;void&gt;): void
 
@@ -253,7 +253,7 @@ sms.sendShortMessage(options, (err: BusinessError) => {
 
 #### sms.sendShortMessage10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 sendShortMessage(options: SendMessageOptions): Promise&lt;void&gt;
 
@@ -324,7 +324,7 @@ promise.then(() => {
 
 #### sms.getDefaultSmsSlotId7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getDefaultSmsSlotId(callback: AsyncCallback&lt;number&gt;): void
 
@@ -354,7 +354,7 @@ sms.getDefaultSmsSlotId((err: BusinessError, data: number) => {
 
 #### sms.getDefaultSmsSlotId7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getDefaultSmsSlotId(): Promise&lt;number&gt;
 
@@ -386,7 +386,7 @@ sms.getDefaultSmsSlotId().then((data: number) => {
 
 #### sms.hasSmsCapability7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 hasSmsCapability(): boolean
 
@@ -412,7 +412,7 @@ console.info(`hasSmsCapability: ${JSON.stringify(result)}`);
 
 #### sms.getDefaultSmsSimId10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getDefaultSmsSimId(callback: AsyncCallback&lt;number&gt;): void
 
@@ -457,7 +457,7 @@ sms.getDefaultSmsSimId((err: BusinessError, data: number) => {
 
 #### sms.getDefaultSmsSimId10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getDefaultSmsSimId(): Promise&lt;number&gt;
 
@@ -504,7 +504,7 @@ promise.then((data: number) => {
 
 #### ShortMessage
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 短信实例。
 
@@ -529,7 +529,7 @@ promise.then((data: number) => {
 
 #### ShortMessageClass
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 短信类型。
 
@@ -548,7 +548,7 @@ promise.then((data: number) => {
 
 #### SendMessageOptions
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 发送短信的参数和回调。根据SendMessageOptions中的可选参数content的值判断短信类型。
 
@@ -569,7 +569,7 @@ promise.then((data: number) => {
 
 #### ISendShortMessageCallback
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 回调实例。返回短信发送结果、存储已发送短信的URI和是否为长短信的最后一部分。
 
@@ -586,7 +586,7 @@ promise.then((data: number) => {
 
 #### IDeliveryShortMessageCallback
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 回调实例，返回短信送达报告。
 
@@ -601,7 +601,7 @@ promise.then((data: number) => {
 
 #### SendSmsResult
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 短信发送结果。
 

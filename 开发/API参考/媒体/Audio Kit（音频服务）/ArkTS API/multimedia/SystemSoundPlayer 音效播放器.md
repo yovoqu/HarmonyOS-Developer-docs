@@ -1,11 +1,11 @@
 # SystemSoundPlayer (音效播放器)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-multimedia-systemsoundplayer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-音效播放器提供了加载、卸载和播放系统声音的功能。
+音效播放器提供了加载、卸载和播放系统音效的功能。
  
 SystemSoundPlayer需要和[@ohos.multimedia.systemSoundManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-systemsoundmanager)配合使用，才能完成管理系统音效的功能。
  

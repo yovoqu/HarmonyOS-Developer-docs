@@ -11,7 +11,7 @@ Navigation中使用removeByName删除页面时存在从底部滑出的动画，A
 目前效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/gMZ2ZD-yTxC_gXoSh8RnrA/zh-cn_image_0000002658915025.png?HW-CC-KV=V1&HW-CC-Date=20260723T013114Z&HW-CC-Expire=86400&HW-CC-Sign=0DE623DABE86F015CD6AAD543574BD378590D6C0EC40C0E0199423C18E0409B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/gMZ2ZD-yTxC_gXoSh8RnrA/zh-cn_image_0000002658915025.png?HW-CC-KV=V1&HW-CC-Date=20260730T072455Z&HW-CC-Expire=86400&HW-CC-Sign=7374081EFCBAD83BB11EC29E2B64832573B9E0A11E4F55CF47FC8C70E08226CF)
 
  
  

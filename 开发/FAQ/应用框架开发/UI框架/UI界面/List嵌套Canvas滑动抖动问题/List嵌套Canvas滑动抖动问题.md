@@ -89,7 +89,7 @@ export struct <span style="color: rgb(0,0,255);">CanvasInListComponent </span><s
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/a4_jAgGCSFKGgxrNR84sUA/zh-cn_image_0000002628555364.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013110Z&HW-CC-Expire=86400&HW-CC-Sign=CF3F44446D90D05007B7059C51A27EBBCEFCA37965AFC72E2DCA088B39B7B9DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/a4_jAgGCSFKGgxrNR84sUA/zh-cn_image_0000002628555364.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=46C9F097CB8C698E9B2E048AA17E61E3CF2FE4C92AA310541AC0A6AD3852484B)
 
  
  
@@ -97,7 +97,7 @@ export struct <span style="color: rgb(0,0,255);">CanvasInListComponent </span><s
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/dCYy0T8YRiaNJ-0UcJZ4Gg/zh-cn_image_0000002628395470.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013110Z&HW-CC-Expire=86400&HW-CC-Sign=C19D1B9750496DCC5C3806B9A895619667C5CF3C573E70CE68C25C2AEFCB5C39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/dCYy0T8YRiaNJ-0UcJZ4Gg/zh-cn_image_0000002628395470.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=08D0336445EF2DDCC006629C55D95AB6763BADB908B4E5A784FE6075C4EAEB53)
 
  
  
@@ -113,7 +113,7 @@ export struct <span style="color: rgb(0,0,255);">CanvasInListComponent </span><s
 
 #### 问题定位
 1. 通过抓取性能Trace图，观察到在橙色标记的时间段内，存在多个方法执行耗时超出预期的情况。其中，Canvas的FireReadyEvent方法出现在关键路径上，表明当前帧的绘制任务未能按时完成，导致渲染延迟，从而引发界面卡顿。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/KATGwxH4TECVXj27EpWyFg/zh-cn_image_0000002658914687.png?HW-CC-KV=V1&HW-CC-Date=20260723T013110Z&HW-CC-Expire=86400&HW-CC-Sign=4C6B73E989DC3D19B422F133DC06CB8B23AE69012E9E820DF067595CA23905C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/KATGwxH4TECVXj27EpWyFg/zh-cn_image_0000002658914687.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=65C04E56B4AF0E5C3882347EEA874D6057508DEAC54E3422CDA641352DE45330)
 
 2. 分析onReady中绘制方法：排查到使用了OffscreenCanvasRenderingContext2D方法，根据背景知识了解到离屏绘制的绘制速度较慢，尝试修改为在屏绘制，抖动消失。
  

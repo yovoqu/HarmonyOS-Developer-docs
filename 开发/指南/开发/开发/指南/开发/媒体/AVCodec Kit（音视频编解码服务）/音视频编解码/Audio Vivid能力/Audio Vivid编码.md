@@ -1,10 +1,10 @@
 # Audio Vivid编码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audiovivid-audioencoder
 
-Audio Vivid格式的码流可以保存音频对象的位置、增益等信息，在需要改变音频对象的位置、音量增益的场景，从API版本26.0.0开始可以使用Audio Vivid编码。此处的音频对象是指被感知为一个整体的声音或由一个声源发出的独立于环境的声音。
+Audio Vivid格式的码流可以保存音频对象的位置、增益等信息，针对可以提供改变音频对象的位置、音量增益体验的Audio Vivid音源，从API版本26.0.0开始支持使用Audio Vivid编码技术实现高清空间音频编码。此处的音频对象是指被感知为一个整体的声音或由一个声源发出的独立于环境的声音。
  
 详细的API请参考[AudioCodec模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audiocodec)。
  

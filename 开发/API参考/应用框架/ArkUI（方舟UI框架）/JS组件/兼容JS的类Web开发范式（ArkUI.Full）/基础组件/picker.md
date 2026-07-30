@@ -1,6 +1,6 @@
 # picker
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-picker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -296,7 +296,7 @@ import promptAction from '@ohos.promptAction';
 
 export default {
     data: {
-        selectList: ["text", "data", "time", "datetime", "multitext"],
+        selectList: ["text", "date", "time", "datetime", "multitext"],
         rangetext: ['15', "20", "25"],
         multitext: [["a", "b", "c"], ["e", "f", "g"], ["h", "i"], ["k", "l", "m"]],
         textvalue: 'default textvalue',
@@ -330,7 +330,7 @@ export default {
         })
     },
     dateonchange(e) {
-        this.datevalue = e.year + "-" + e.month + "-" + e.day;
+        this.datevalue = e.year + "-" + (e.month + 1) + "-" + e.day;
         promptAction.showToast({
             message: "date:" + e.year + "-" + (e.month + 1) + "-" + e.day
         })
@@ -359,7 +359,7 @@ export default {
         })
     },
     datetimeonchange(e) {
-        this.datetimevalue = e.year + "-" + e.month + "-" + e.day + " " + e.hour + ":" + e.minute;
+        this.datetimevalue = e.year + "-" + (e.month + 1) + "-" + e.day + " " + e.hour + ":" + e.minute;
         promptAction.showToast({
             message: "Time:" + (e.month + 1) + "-" + e.day + " " + e.hour + ":" + e.minute
         })
@@ -381,10 +381,10 @@ export default {
         })
     },
     popup_picker() {
-        this.$element("picker_text").show();
+        this.$element("picker0").show();
     },
 }
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/Y6euYX8rTSq2xmJ9Ox4bhg/zh-cn_image_0000002677828161.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=73BDAA3D06D440E41544F339DB815F15E6E71F3C527360D9287EA33F7AAA25D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/u4QQ03V2QjeXz53aavTPZw/zh-cn_image_0000002655849102.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071524Z&HW-CC-Expire=86400&HW-CC-Sign=174B79D43A82F9EAEDB4198C3315950AB9652D9B808A286DDC153E707655A2E7)

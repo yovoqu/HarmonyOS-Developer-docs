@@ -1,6 +1,6 @@
 # @system.app (应用上下文)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-app
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -42,7 +42,7 @@ static getInfo(): AppResponse
  
 **返回值：**
   
-| 参数类型 | 说明 |
+| 类型 | 说明 |
 | --- | --- |
 | AppResponse | 定义AppResponse信息。 |
  

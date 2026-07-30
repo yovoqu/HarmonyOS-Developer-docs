@@ -1,6 +1,6 @@
 # 通过关系型数据库实现数据持久化 (C/C++)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-relational-store-guidelines
 
@@ -85,7 +85,7 @@ RelationalStore提供了一套完整的对本地数据库进行管理的机制�
 | int OH_RdbTrans_UpdateWithConflictResolution(OH_Rdb_Transaction *trans, const OH_VBucket *row, const OH_Predicates *predicates, Rdb_ConflictResolution resolution, int64_t *changes) | 根据指定条件更新数据库中的数据，并支持冲突解决。 |
 | int OH_RdbTrans_Delete(OH_Rdb_Transaction *trans, const OH_Predicates *predicates, int64_t *changes) | 根据OH_Predicates的指定实例对象从数据库中删除数据。 |
 | int OH_Value_Destroy(OH_Data_Value *value) | 销毁OH_Data_Value对象。 |
-| int OH_Values_Destroy(OH_Data_Values *values) | 销毁OH_Values_Destroy对象。 |
+| int OH_Values_Destroy(OH_Data_Values *values) | 销毁OH_Data_Values对象。 |
 | int OH_RdbTrans_Execute(OH_Rdb_Transaction *trans, const char *sql, const OH_Data_Values *args, OH_Data_Value **result) | 执行包含指定参数的SQL语句。 |
 | int OH_RdbTrans_Commit(OH_Rdb_Transaction *trans) | 提交事务。 |
 | int OH_RdbTrans_Rollback(OH_Rdb_Transaction *trans) | 回滚事务。 |

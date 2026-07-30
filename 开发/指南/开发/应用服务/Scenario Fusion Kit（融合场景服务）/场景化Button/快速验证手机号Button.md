@@ -1,6 +1,6 @@
 # 快速验证手机号Button
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-getphonenumber
 
@@ -14,7 +14,7 @@
 
 #### 约束与限制
 
-快速验证手机号Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备，从API版本26.0.0开始，新增支持Car设备。
+快速验证手机号Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
 
 > [!NOTE]
 > 应用/元服务仅在首次使用时需要用户进行授权，授权成功后，后续只验证授权手机号，不可修改。
@@ -57,7 +57,7 @@ struct Index {
             styleOption: {
               styleConfig: new functionalButtonComponentManager.ButtonConfig()
                 .fontSize(20)
-            },
+            }
           },
           // 当OpenType为GET_PHONE_NUMBER时，回调必须为onGetPhoneNumber。
           controller: new functionalButtonComponentManager.FunctionalButtonController()

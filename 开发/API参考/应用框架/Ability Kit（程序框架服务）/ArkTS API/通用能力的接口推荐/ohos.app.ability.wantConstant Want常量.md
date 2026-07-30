@@ -1,6 +1,6 @@
 # @ohos.app.ability.wantConstant (Want常量)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantconstant
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -32,7 +32,7 @@ import { wantConstant } from '@kit.AbilityKit';
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ABILITY_BACK_TO_OTHER_MISSION_STACK | ability.params.backToOtherMissionStack | 表示是否支持跨任务链返回。 该参数用于控制跨应用的UIAbility返回逻辑，其核心作用是改变用户执行返回键时的应用跳转行为。例如现有UIAbility A和UIAbility B，当前前台显示的是UIAbility A，随后系统服务又拉起UIAbility B（同时在Want的Params字段配置该参数为true），那么，当UIAbility B退出时，会返回到UIAbility A（即返回到最近一次的访问任务）。如果未配置该参数，则默认直接返回桌面。需要注意的是，该字段仅支持系统设置，三方应用传入该字段不生效。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| ABILITY_BACK_TO_OTHER_MISSION_STACK | ability.params.backToOtherMissionStack | 表示是否支持跨任务栈返回。 该参数用于控制跨应用的UIAbility返回逻辑，其核心作用是改变用户执行返回键时的应用跳转行为。例如现有UIAbility A和UIAbility B，当前前台显示的是UIAbility A，随后系统服务又拉起UIAbility B（同时在Want的Params字段配置该参数为true），那么，当UIAbility B退出时，会返回到UIAbility A（即返回到最近一次的访问任务）。如果未配置该参数，则默认直接返回桌面。需要注意的是，该字段仅支持系统设置，三方应用传入该字段不生效。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | ABILITY_RECOVERY_RESTART10+ | ohos.ability.params.abilityRecoveryRestart | 表示当前Ability是否发生了故障恢复重启。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | CONTENT_TITLE_KEY10+ | ohos.extra.param.key.contentTitle | 表示元服务分享的标题。 在跨端分享的onShare回调中，开发者可通过该字段设置分享的标题。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | SHARE_ABSTRACT_KEY10+ | ohos.extra.param.key.shareAbstract | 表示元服务分享的内容摘要。 在跨端分享的onShare回调中，开发者可通过该字段设置分享的摘要。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
@@ -55,7 +55,7 @@ import { wantConstant } from '@kit.AbilityKit';
 | LAUNCH_REASON_MESSAGE18+ | ohos.params.launchReasonMessage | 表示应用拉起的原因。 调用方必须为系统应用，且需要申请ohos.permission.SET_LAUNCH_REASON_MESSAGE权限。当前取值支持： "ReasonMessage_SystemShare"：表示系统分享拉起。 "ReasonMessage_DesktopShortcut"：表示桌面快捷方式拉起。 "ReasonMessage_Notification"：表示通知拉起。 元服务API：从API version 18开始，该接口支持在元服务中使用。 |
 | DESTINATION_PLUGIN_ABILITY19+ | ohos.params.pluginAbility | 指示目标Ability是插件Ability。 |
 | ATOMIC_SERVICE_SHARE_ROUTER20+ | ohos.params.atomicservice.shareRouter | 表示被拉起的元服务的页面栈信息。仅当拉起方为UIAbilityContext，被拉起方为元服务时生效。 例如，某元服务中包含首页和第2页，如果希望直接拉起元服务的第2页，可以在拉起元服务时通过该字段传递第2页的页面栈信息。 说明：从API版本26.0.0开始，如果拉起方具有ohos.permission.START_ABILITY_TO_PAGE权限，目标方不是元服务也能生效。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
-| ABILITY_UNIFIED_DATA_KEY20+ | ohos.param.ability.udKey | 表示基于UDMF进行文件分享时使用的唯一标识。该字段只允许系统应用设置，三方应用可以读取。 当Want中存在URI授权Flag字段（即FLAG_AUTH_READ_URI_PERMISSION或FLAG_AUTH_WRITE_URI_PERMISSION），且同时存在PARAMS_STREAM字段时，该字段将不生效。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
+| ABILITY_UNIFIED_DATA_KEY20+ | ohos.param.ability.udKey | 表示基于unifiedDataChannel进行文件分享时使用的唯一标识。该字段只允许系统应用设置，三方应用可以读取。 当Want中存在URI授权Flag字段（即FLAG_AUTH_READ_URI_PERMISSION或FLAG_AUTH_WRITE_URI_PERMISSION），且同时存在PARAMS_STREAM字段时，该字段将不生效。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
 
 
 
@@ -93,3 +93,22 @@ import { wantConstant } from '@kit.AbilityKit';
 | WINDOW | 0 | 表示独立窗口拉起模式。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | EMBEDDED_FULL | 1 | 表示嵌入式全屏拉起模式。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | EMBEDDED_HALF23+ | 2 | 表示嵌入式半屏拉起模式。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
+
+
+
+
+#### Action
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示要执行的通用操作。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Ability.AbilityBase
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| ACTION_SEND_TO_DATA | ohos.want.action.sendToData | 指示启动向指定接收方发送消息界面的操作。 |

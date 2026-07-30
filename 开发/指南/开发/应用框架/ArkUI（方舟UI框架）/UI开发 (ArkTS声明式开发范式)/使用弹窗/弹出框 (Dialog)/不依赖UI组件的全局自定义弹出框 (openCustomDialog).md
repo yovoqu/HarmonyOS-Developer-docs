@@ -1,10 +1,10 @@
 # 不依赖UI组件的全局自定义弹出框 (openCustomDialog)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-uicontext-custom-dialog
 
-在广告、中奖、警告、软件更新等与用户交互响应操作的场景下，可以使用UIContext中获取到的PromptAction对象提供的[openCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialog12)接口来实现自定义弹出框。相较于[CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)优势点在于页面解耦，支持[动态刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent#update)。
+在广告、中奖、警告、软件更新等与用户交互响应操作的场景下，可以使用UIContext中获取到的PromptAction对象提供的[openCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialog12)接口来实现自定义弹出框。相较于[CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)优势点在于页面解耦，支持动态刷新[update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent#update)。
 
 > [!NOTE]
 > 弹出框（openCustomDialog）存在两种入参方式创建自定义弹出框： openCustomDialog（传参为ComponentContent形式）：通过ComponentContent封装内容可以与UI界面解耦，调用更加灵活，可以满足开发者的封装诉求。具有较高的灵活性，弹出框样式完全自定义，并且在弹出框打开后可以使用updateCustomDialog方法动态更新弹出框的参数。 openCustomDialog（传参为builder形式）：相对于ComponentContent，builder必须要与上下文做绑定，与UI存在一定耦合。此方法有默认的弹出框样式，适合于开发者想要实现与系统弹窗默认风格一致的效果。 本文介绍通过入参形式为ComponentContent创建自定义弹出框，传builder形式的弹出框使用方法可参考 openCustomDialog 。
@@ -57,7 +57,7 @@ PromptActionClassNew.ctx.getPromptAction().openCustomDialog(PromptActionClassNew
   .catch((error: BusinessError) => {
     let message = (error as BusinessError).message;
     let code = (error as BusinessError).code;
-    hilog.error(DOMAIN, 'testTag', 'testTag', 'OpenCustomDialog args error code is ${code}, message is ${message}');
+    hilog.error(DOMAIN, 'testTag', 'testTag', `OpenCustomDialog args error code is ${code}, message is ${message}`);
   })
 ```
 
@@ -71,7 +71,7 @@ PromptActionClassNew.ctx.getPromptAction().openCustomDialog(PromptActionClassNew
 ```ts
 PromptActionClassNew.ctx.getPromptAction().closeCustomDialog(PromptActionClassNew.contentNode)
   .then(() => {
-    hilog.info(DOMAIN, 'testTag', 'testTag', 'CloseCustomDialog complete.g complete.');
+    hilog.info(DOMAIN, 'testTag', 'testTag', 'CloseCustomDialog complete.');
     if (this.contentNode !== null) {
       this.contentNode.dispose();   // 释放contentNode
     }
@@ -79,7 +79,7 @@ PromptActionClassNew.ctx.getPromptAction().closeCustomDialog(PromptActionClassNe
   .catch((error: BusinessError) => {
     let message = (error as BusinessError).message;
     let code = (error as BusinessError).code;
-    hilog.error(DOMAIN, 'testTag', 'testTag', 'CloseCustomDialog args error code is ${code}, message is ${message}');
+    hilog.error(DOMAIN, 'testTag', 'testTag', `CloseCustomDialog args error code is ${code}, message is ${message}`);
   })
 ```
 
@@ -110,7 +110,7 @@ PromptActionClassNew.ctx.getPromptAction().updateCustomDialog(PromptActionClassN
   .catch((error: BusinessError) => {
     let message = (error as BusinessError).message;
     let code = (error as BusinessError).code;
-    hilog.error(DOMAIN, 'testTag', 'testTag', 'UpdateCustomDialog args error code is ${code}, message is ${message}');
+    hilog.error(DOMAIN, 'testTag', 'testTag', `UpdateCustomDialog args error code is ${code}, message is ${message}`);
   })
 ```
 
@@ -194,7 +194,7 @@ export struct CustomDialogComponentWithTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5QVdPDFxSjao8JgMdXVmBw/zh-cn_image_0000002656467763.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=20F3AF5B7E7C72F38D2569562854B13AB5E3274CD67BE056EFE6E5E42E8C73BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/aRcpT4lFQQi39E9klvpGLw/zh-cn_image_0000002656006326.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=4661B79108C660B3F488DA80C5E4572C7E03F72C51C73E074E904665211C47E8)
 
 
 
@@ -255,7 +255,7 @@ export struct CustomDialogWithKeyboardAvoidDistance {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/gzvI4cVmSReSsLebg7HOgw/zh-cn_image_0000002656347811.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=C91AAC7E33914B45773F765F63551ADD9E3E68F3EE4041D38BAB8AD72EF2F1E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/mYPFhXXaSGy76dBwW-zv8w/zh-cn_image_0000002655846406.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=B1DEAD747E95040EDCDFA605C0F0FDF4B5F0556DE79E62FC1AA6DEDC1C8C15DE)
 
 
 
@@ -296,7 +296,7 @@ export class PromptActionClassNew {
         .catch((error: BusinessError) => {
           let message = (error as BusinessError).message;
           let code = (error as BusinessError).code;
-          hilog.error(DOMAIN, 'testTag', 'testTag', 'OpenCustomDialog args error code is ${code}, message is ${message}');
+          hilog.error(DOMAIN, 'testTag', 'testTag', `OpenCustomDialog args error code is ${code}, message is ${message}`);
         })
     }
   }
@@ -311,7 +311,7 @@ export class PromptActionClassNew {
         .catch((error: BusinessError) => {
           let message = (error as BusinessError).message;
           let code = (error as BusinessError).code;
-          hilog.error(DOMAIN, 'testTag', 'testTag', 'CloseCustomDialog args error code is ${code}, message is ${message}');
+          hilog.error(DOMAIN, 'testTag', 'testTag', `CloseCustomDialog args error code is ${code}, message is ${message}`);
         })
     }
   }
@@ -328,7 +328,7 @@ export class PromptActionClassNew {
         .catch((error: BusinessError) => {
           let message = (error as BusinessError).message;
           let code = (error as BusinessError).code;
-          hilog.error(DOMAIN, 'testTag', 'testTag', 'UpdateCustomDialog args error code is ${code}, message is ${message}');
+          hilog.error(DOMAIN, 'testTag', 'testTag', `UpdateCustomDialog args error code is ${code}, message is ${message}`);
         })
     }
   }
@@ -411,4 +411,4 @@ export struct OpenDialogAndUpdate {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/k6-1A8iVShWIz6zyPSfr_w/zh-cn_image_0000002626228396.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=B86041D5F9D7A297766B779A328AA914E821496E7667003E3213F30288C623FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/tUurtqjSSu6IAhUB01I6Jw/zh-cn_image_0000002686085835.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=831DD382E4F365FFCEA0EF1097B0BAD9B61FB40C9E5967D3FD751B886A958185)

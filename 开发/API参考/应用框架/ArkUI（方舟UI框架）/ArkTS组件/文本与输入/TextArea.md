@@ -1,16 +1,16 @@
 # TextArea
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-多行文本输入框组件，当输入的文本内容超过组件宽度时会自动换行显示。
+多行文本输入框组件，当输入的文本内容超过组件宽度时会自动换行显示，适用于评论输入、反馈表单、内容编辑等需要多行文本输入的场景。
 
 高度未设置时，组件无默认高度，自适应内容高度。宽度未设置时，默认撑满最大宽度。
 
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 
@@ -36,7 +36,7 @@ TextArea(value?: TextAreaOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextAreaOptions | 否 | TextArea组件参数。 |
+| value | TextAreaOptions | 否 | TextArea组件参数。默认值：详见TextAreaOptions。 |
 
 
 
@@ -53,9 +53,9 @@ TextArea初始化参数。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| placeholder | ResourceStr | 否 | 是 | 设置无输入时的提示文本。输入内容后，提示文本不显示。 仅设置placeholder属性时，手柄依然跟随拖动，手柄松开后光标停留在文字开头位置。 |
-| text | ResourceStr | 否 | 是 | 设置输入框当前的文本内容。 建议通过onChange事件将状态变量与文本实时绑定， 避免组件刷新时TextArea中的文本内容异常。 从API version 10开始，该参数支持$$双向绑定变量。 从API version 18开始，该参数支持!!双向绑定变量。 |
-| controller8+ | TextAreaController | 否 | 是 | 设置TextArea控制器。 |
+| placeholder | ResourceStr | 否 | 是 | 设置无输入时的提示文本。输入内容后，提示文本不显示。 仅设置placeholder属性时，手柄依然跟随拖动，手柄松开后光标停留在文字开头位置。 默认值：空字符串，不设置时不显示提示文本。 |
+| text | ResourceStr | 否 | 是 | 设置输入框当前的文本内容。默认值：空字符串。 建议通过onChange事件将状态变量与文本实时绑定， 避免组件刷新时TextArea中的文本内容异常。 从API version 10开始，该参数支持$$双向绑定变量。 从API version 18开始，该参数支持!!双向绑定变量。 |
+| controller8+ | TextAreaController | 否 | 是 | 设置TextArea控制器。不设置时，组件使用内部默认控制器，但无法调用控制器相关方法。 |
 
 
 
@@ -67,7 +67,7 @@ TextArea初始化参数。
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)，还支持以下属性：
 
 > [!NOTE]
-> 通用属性padding 的默认值为： { top: '8vp', right: '16vp', bottom: '8vp', left: '16vp' } 从API version 11开始，多行输入框可设置.width('auto')使组件宽度自适应文本宽度，自适应时组件宽度受constraintSize属性以及父容器传递的最大最小宽度限制，其余使用方式参考 尺寸设置 。
+> 通用属性padding 的默认值为 { top: '8vp', right: '16vp', bottom: '8vp', left: '16vp' } 从API version 11开始，多行输入框可设置.width('auto')使组件宽度自适应文本宽度，自适应时组件宽度受constraintSize属性以及父容器传递的最大最小宽度限制，其余使用方式参考 尺寸设置 。
 
 
 
@@ -78,7 +78,7 @@ TextArea初始化参数。
 
 placeholderColor(value: ResourceColor)
 
-设置placeholder文本颜色。
+设置placeholder文本颜色。未通过该接口设置时，默认placeholder文本颜色跟随主题，深色模式下显示为#ffffff（白色），浅色模式下显示为#000000（黑色）。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -88,7 +88,7 @@ placeholderColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | placeholder文本颜色。 默认值：跟随主题。 |
+| value | ResourceColor | 是 | placeholder文本颜色。 |
 
 
 
@@ -99,7 +99,7 @@ placeholderColor(value: ResourceColor)
 
 placeholderFont(value: Font)
 
-设置placeholder文本样式，包括字体大小、字体粗细、字体族、字体风格。
+设置placeholder文本样式，包括字体大小、字体粗细、字体族、字体风格。未通过该接口设置时，默认placeholder文本样式为：字体大小14fp，字体粗细FontWeight.Normal，字体族HarmonyOS Sans，字体风格FontStyle.Normal。
 
 > [!NOTE]
 > 可以使用 loadFontSync 注册自定义字体。
@@ -113,7 +113,7 @@ placeholderFont(value: Font)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Font | 是 | placeholder文本样式。 |
+| value | Font | 是 | placeholder文本样式，包括字体大小、字体粗细、字体族、字体风格。用于自定义placeholder文本的显示样式。 |
 
 
 
@@ -124,7 +124,7 @@ placeholderFont(value: Font)
 
 textAlign(value: TextAlign)
 
-设置文本在输入框中的水平对齐方式。
+设置文本在输入框中的水平对齐方式。未通过该接口设置时，默认文本在输入框中的水平对齐方式为TextAlign.Start。
 
 支持TextAlign.Start、TextAlign.Center和TextAlign.End。从API version 11开始，新增TextAlign.JUSTIFY选项。
 
@@ -145,7 +145,7 @@ textAlign(value: TextAlign)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextAlign | 是 | 文本在输入框中的水平对齐方式。 默认值：TextAlign.Start |
+| value | TextAlign | 是 | 文本在输入框中的水平对齐方式。 |
 
 
 > [!NOTE]
@@ -160,7 +160,7 @@ textAlign(value: TextAlign)
 
 textDirection(direction: TextDirection | undefined)
 
-指定文本排版方向，未通过该接口设置时，默认文本排版方向遵循组件布局方向。
+指定文本排版方向。未通过该接口设置时，默认文本排版方向遵循组件布局方向。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
@@ -210,7 +210,7 @@ horizontalScrolling(enabled: Optional&lt;boolean&gt;)
 
 caretColor(value: ResourceColor)
 
-设置输入框光标颜色。
+设置输入框光标颜色。当同时设置caretColor属性和caretStyle属性中的color参数时，后设置的属性值生效。例如，先设置caretColor再设置caretStyle.color，则caretStyle.color生效；反之，先设置caretStyle.color再设置caretColor，则caretColor生效。未通过该接口设置时，默认输入框光标颜色为'#007DFF'（蓝色）。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -220,7 +220,7 @@ caretColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 输入框光标颜色。 默认值：'#007DFF' |
+| value | ResourceColor | 是 | 输入框光标颜色。 |
 
 
 > [!NOTE]
@@ -235,7 +235,7 @@ caretColor(value: ResourceColor)
 
 fontColor(value: ResourceColor)
 
-设置字体颜色。
+设置字体颜色。未通过该接口设置时，默认字体颜色跟随主题。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -245,7 +245,7 @@ fontColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 字体颜色。 |
+| value | ResourceColor | 是 | 字体颜色，用于自定义输入文本的颜色。 说明： 当同时设置shaderStyle时，shaderStyle优先级更高，fontColor不生效。 |
 
 
 
@@ -256,7 +256,7 @@ fontColor(value: ResourceColor)
 
 fontSize(value: Length)
 
-设置字体大小。
+设置字体大小。未通过该接口设置时，默认字体大小为16fp。Wearable设备上默认字体大小为18fp。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -266,7 +266,7 @@ fontSize(value: Length)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 字体大小。fontSize为number类型时，使用fp单位。字体默认大小16fp，Wearable设备上默认值为：18fp。不支持设置百分比字符串。 |
+| value | Length | 是 | 字体大小。fontSize为number类型时，使用fp单位。不支持设置百分比字符串。 |
 
 
 
@@ -277,7 +277,7 @@ fontSize(value: Length)
 
 fontStyle(value: FontStyle)
 
-设置字体样式。
+设置字体样式。未通过该接口设置时，默认字体样式为FontStyle.Normal。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -287,7 +287,7 @@ fontStyle(value: FontStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | FontStyle | 是 | 字体样式。 默认值：FontStyle.Normal |
+| value | FontStyle | 是 | 字体样式。 |
 
 
 
@@ -298,7 +298,7 @@ fontStyle(value: FontStyle)
 
 fontWeight(value: number | FontWeight | ResourceStr)
 
-设置文本的字体粗细，设置过大可能会在不同字体下有截断。
+设置文本的字体粗细，设置过大可能会在不同字体下有截断。未通过该接口设置时，默认文本的字体粗细为FontWeight.Normal。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -308,7 +308,7 @@ fontWeight(value: number | FontWeight | ResourceStr)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| FontWeight \| ResourceStr | 是 | 文本的字体粗细，number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal 从API version 20开始，支持Resource类型。 |
+| value | number \| FontWeight \| ResourceStr | 是 | 文本的字体粗细 number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。传入超出取值范围或不符合间隔要求的值时按400处理。 从API version 20开始，支持Resource类型。 |
 
 
 
@@ -359,7 +359,7 @@ inputFilter(value: ResourceStr, error?: (value: string) => void)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ResourceStr | 是 | 正则表达式。 |
-| error | (value: string) => void | 否 | 正则匹配失败时，返回被过滤的内容。正则匹配成功时，无返回。 |
+| error | (value: string) => void | 否 | 正则匹配失败时，返回被过滤的内容。正则匹配成功时，无返回。不传入时，不处理被过滤的内容。 |
 
 
 
@@ -370,9 +370,9 @@ inputFilter(value: ResourceStr, error?: (value: string) => void)
 
 copyOption(value: CopyOptions)
 
-设置输入的文本是否可复制。设置CopyOptions.None时，只支持粘贴和全选。
+设置输入的文本是否可复制。设置CopyOptions.None时，只支持粘贴和全选。未通过该接口设置时，默认输入的文本可复制（CopyOptions.LocalDevice，支持设备内复制）。
 
-设置CopyOptions.None时，不支持拖拽操作。
+设置CopyOptions.None时，不支持拖拽操作。[enableSelectedDataDetector](#enableselecteddatadetector22)功能需要CopyOptions为LocalDevice或CROSS_DEVICE时才生效。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -382,7 +382,7 @@ copyOption(value: CopyOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | CopyOptions | 是 | 输入的文本是否可复制。 默认值：CopyOptions.LocalDevice，支持设备内复制。 |
+| value | CopyOptions | 是 | 输入的文本是否可复制。 |
 
 
 
@@ -393,7 +393,7 @@ copyOption(value: CopyOptions)
 
 maxLength(value: number)
 
-设置文本的最大输入字符数。默认不设置最大输入字符数限制。到达文本最大字符限制，将无法继续输入字符。
+设置文本的最大输入字符数。到达文本最大字符限制，将无法继续输入字符。未通过该接口设置时，默认不设置最大输入字符数限制。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -405,7 +405,7 @@ maxLength(value: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 文本的最大输入字符数。 当value<0时，按照默认值处理，不设限制。 默认值：uint32_max，即2的32次方-1。 |
+| value | number | 是 | 文本的最大输入字符数。 取值范围：[0, UINT32_MAX]。当value<0时，不设限制。 |
 
 
 
@@ -418,9 +418,9 @@ showCounter(value: boolean, options?: InputCounterOptions)
 
 设置当通过InputCounterOptions输入的字符数超过阈值时显示计数器。未调用showCounter接口时，默认不显示计数器。
 
-参数value为true时，才能设置options，文本框开启计数器功能，需要配合maxLength（设置最大字符限制）一起使用。字符计数器显示的效果是当前输入字符数/最大可输入字符数。
+参数value为true时，才能设置options，文本框开启计数器功能，需要配合maxLength（设置最大字符限制）一起使用，未设置maxLength时计数器功能不生效。字符计数器显示的效果是当前输入字符数/最大可输入字符数。
 
-当输入字符数大于最大字符数乘百分比值时，显示字符计数器。如果用户设置计数器时不设置InputCounterOptions，那么当前输入字符数达到最大字符数时，边框和计数器下标将变为红色。用户同时设置参数value为true和InputCounterOptions，当thresholdPercentage数值在有效区间内，且输入字符数超过最大字符数时，边框和计数器下标将变为红色，框体抖动。highlightBorder设置为false，则不显示红色边框，计数器默认显示红色边框。内联模式下字符计数器不显示。
+当输入字符数大于最大字符数乘百分比值时，显示字符计数器。如果用户设置计数器时不设置InputCounterOptions，那么当前输入字符数达到最大字符数时，边框和计数器下标将变为红色。若用户同时设置参数value为true和InputCounterOptions，当thresholdPercentage数值在有效区间内且输入字符数超过最大字符数时，边框和计数器下标将变为红色，框体抖动。计数器默认显示红色边框；highlightBorder设置为false时，则不显示红色边框。内联模式下字符计数器不显示。
 
 [示例2（设置计数器）](#示例2设置计数器)展示了设置showCounter的效果。
 
@@ -435,7 +435,7 @@ showCounter(value: boolean, options?: InputCounterOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | boolean | 是 | 是否显示计数器。 true表示显示计数器，false表示不显示。 |
-| options11+ | InputCounterOptions | 否 | 计数器的配置项。 |
+| options11+ | InputCounterOptions | 否 | 计数器的配置项，用于自定义计数器的显示阈值（thresholdPercentage）和红色边框（highlightBorder）。不传入时，计数器在输入字符数达到最大字符数时显示，边框和计数器下标默认变为红色。 |
 
 
 
@@ -446,7 +446,7 @@ showCounter(value: boolean, options?: InputCounterOptions)
 
 style(value: TextContentStyle)
 
-设置文本框多态样式，内联输入风格只支持TextAreaType.NORMAL类型。
+设置文本框多态样式，内联输入风格只支持TextAreaType.NORMAL类型。未通过该接口设置时，默认文本框多态样式为TextContentStyle.DEFAULT。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -458,7 +458,7 @@ style(value: TextContentStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextContentStyle | 是 | 文本框多态样式。 默认值：TextContentStyle.DEFAULT |
+| value | TextContentStyle | 是 | 文本框多态样式。 |
 
 
 
@@ -469,7 +469,7 @@ style(value: TextContentStyle)
 
 enableKeyboardOnFocus(value: boolean)
 
-设置TextArea通过点击以外的方式获焦时，是否主动拉起软键盘。
+设置TextArea通过点击以外的方式获焦时，是否主动拉起软键盘。未通过该接口设置时，默认通过点击以外的方式获焦时主动拉起软键盘。
 
 从API version 10开始，获焦默认绑定输入法。
 
@@ -483,7 +483,7 @@ enableKeyboardOnFocus(value: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 通过点击以外的方式获焦时，是否主动拉起软键盘。 true表示主动拉起，false表示不主动拉起。 默认值：true |
+| value | boolean | 是 | 通过点击以外的方式获焦时，是否主动拉起软键盘。 true表示主动拉起，false表示不主动拉起。 |
 
 
 
@@ -494,7 +494,7 @@ enableKeyboardOnFocus(value: boolean)
 
 selectionMenuHidden(value: boolean)
 
-设置是否不弹出系统文本选择菜单。
+设置是否不弹出系统文本选择菜单。未通过该接口设置时，默认弹出系统文本选择菜单。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -506,7 +506,7 @@ selectionMenuHidden(value: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 是否不弹出系统文本选择菜单。 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，不弹出系统文本选择菜单。 设置为false时，弹出系统文本选择菜单。 默认值：false |
+| value | boolean | 是 | 是否不弹出系统文本选择菜单。 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，不弹出系统文本选择菜单。 设置为false时，弹出系统文本选择菜单。 说明： 设置为true时，即使setTextSelection方法中options设置为MenuPolicy.SHOW，也不会弹出菜单。 |
 
 
 
@@ -517,7 +517,7 @@ selectionMenuHidden(value: boolean)
 
 barState(value: BarState)
 
-设置输入框滚动条的显示模式。
+设置输入框滚动条的显示模式。未通过该接口设置时，默认输入框滚动条的显示模式为BarState.Auto。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -529,7 +529,7 @@ barState(value: BarState)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | BarState | 是 | 输入框滚动条的显示模式。 默认值：BarState.Auto |
+| value | BarState | 是 | 输入框滚动条的显示模式。 |
 
 
 
@@ -540,7 +540,7 @@ barState(value: BarState)
 
 maxLines(value: number)
 
-配置textOverflow一起使用时，maxLines为可显示行数，超出截断；未配置textOverflow时，内联模式获焦状态下内容超出maxLines时，文本可滚动显示，内联模式非获焦状态下不生效maxLines，非内联模式按行截断。
+配置textOverflow一起使用时，maxLines为可显示行数，超出截断；未配置textOverflow时，内联模式获焦状态下内容超出maxLines时，文本可滚动显示，内联模式非获焦状态下不生效maxLines，非内联模式按行截断。未通过该接口设置时，默认内联输入风格编辑态时文本可显示的最大行数为3，非内联模式下默认值为UINT32_MAX。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -552,7 +552,7 @@ maxLines(value: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 内联输入风格编辑态时文本可显示的最大行数。 默认值：3，非内联模式下，默认值为UINT32_MAX。 取值范围：(0, UINT32_MAX] |
+| value | number | 是 | 内联输入风格编辑态时文本可显示的最大行数。 配置textOverflow时超出截断；未配置textOverflow时，内联模式获焦状态下文本可滚动显示，非获焦状态下不生效；非内联模式按行截断。 取值范围：(0, UINT32_MAX]。传入0或负数时，按照默认值处理。 |
 
 
 
@@ -563,7 +563,7 @@ maxLines(value: number)
 
 maxLines(lines: number, options: MaxLinesOptions)
 
-配置[textOverflow](#textoverflow12)一起使用时，maxLines为可显示行数，超出可配置为截断或滚动。未配置textOverflow时，内联模式获焦状态下内容超出maxLines时，文本可滚动显示。内联模式非获焦状态下，maxLines不生效。
+配置[textOverflow](#textoverflow12)一起使用时，maxLines为可显示行数，超出可配置为截断或滚动。未配置textOverflow时，内联模式获焦状态下内容超出maxLines时，文本可滚动显示。内联模式非获焦状态下，maxLines不生效。非内联模式下，按行截断。未通过该接口设置时，默认内联输入风格编辑态时文本可显示的最大行数为3，非内联模式下默认值为+∞，不限制最大行数；文本超长时的显示效果默认为MaxLinesMode.CLIP。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -575,8 +575,8 @@ maxLines(lines: number, options: MaxLinesOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| lines | number | 是 | 内联输入风格编辑态时文本可显示的最大行数。 默认值：3，非内联模式下，默认值为+∞，不限制最大行数。 取值范围：(0, +∞) |
-| options | MaxLinesOptions | 是 | 文本超长时显示效果。 默认值：MaxLinesMode.CLIP |
+| lines | number | 是 | 内联输入风格编辑态时文本可显示的最大行数。 配置textOverflow时超出可配置为截断或滚动；未配置textOverflow时，内联模式获焦状态下文本可滚动显示，非获焦状态下不生效；非内联模式按行截断。 取值范围：(0, +∞)。传入0或负数时，按照默认值处理。 |
+| options | MaxLinesOptions | 是 | 文本超长时显示效果。 |
 
 
 
@@ -587,7 +587,7 @@ maxLines(lines: number, options: MaxLinesOptions)
 
 minLines(lines: Optional&lt;number&gt;)
 
-设置最小行数。组件的高度将根据lines自动调整，确保显示高度不低于lines对应的高度。如果设置了[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)，那么组件最后显示高度会在[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)约束内。
+设置最小行数。组件的高度将根据lines自动调整，确保显示高度不低于lines对应的高度。如果设置了[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)，那么组件最后显示高度会在[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)约束内。未通过该接口设置时，默认最小行数为1。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -599,7 +599,7 @@ minLines(lines: Optional&lt;number&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| lines | Optional&lt;number&gt; | 是 | 最小行数。 默认值：1 取值范围：[1, INT32_MAX] 如果lines的值小于1，取默认值。 |
+| lines | Optional&lt;number&gt; | 是 | 最小行数。 取值范围：[1, INT32_MAX] 如果lines的值小于1，取默认值。 |
 
 
 
@@ -616,7 +616,7 @@ customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: Ke
 
 自定义键盘的高度可以通过自定义组件根节点的height属性设置，宽度则使用系统默认值。
 
-自定义键盘采用覆盖原始界面的方式呈现，当没有开启避让模式或者输入框不需要避让的场景，不会对应用原始界面产生压缩或者上提。
+自定义键盘采用覆盖原始界面的方式呈现，当没有开启避让模式或者输入框所在区域不会被键盘遮挡的场景，不会对应用原始界面产生压缩或者上提。
 
 自定义键盘无法获取焦点，但是会拦截手势事件。
 
@@ -641,7 +641,7 @@ customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: Ke
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | CustomBuilder \| ComponentContent22+ \| undefined22+ | 是 | 自定义键盘。设定值为undefined时，关闭自定义键盘。 |
-| options12+ | KeyboardOptions | 否 | 设置自定义键盘是否支持避让功能。 |
+| options12+ | KeyboardOptions | 否 | 设置自定义键盘是否支持避让功能。不传入时，默认不支持避让功能。 |
 
 
 
@@ -652,9 +652,9 @@ customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: Ke
 
 type(value: TextAreaType)
 
-设置输入框类型。
+设置输入框类型。未通过该接口设置时，默认输入框类型为TextAreaType.NORMAL。
 
-不同的TextAreaType会拉起对应类型的键盘，同时限制输入。
+不同的TextAreaType会拉起对应类型的键盘，同时限制输入。从API version 11开始，设置[inputFilter](#inputfilter8)且输入的字符不为空字符时，type接口附带的文本过滤效果失效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -666,7 +666,7 @@ type(value: TextAreaType)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextAreaType | 是 | 输入框类型。 默认值：TextAreaType.NORMAL |
+| value | TextAreaType | 是 | 输入框类型。 |
 
 
 
@@ -677,7 +677,7 @@ type(value: TextAreaType)
 
 enterKeyType(value: EnterKeyType)
 
-设置输入法回车键类型。
+设置输入法回车键类型。未通过该接口设置时，默认输入法回车键类型为EnterKeyType.NEW_LINE。
 
 > [!NOTE]
 > 从API version 12开始，该接口支持在 attributeModifier 中调用。
@@ -693,7 +693,7 @@ enterKeyType(value: EnterKeyType)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | EnterKeyType | 是 | 输入法回车键类型。 默认值：EnterKeyType.NEW_LINE |
+| value | EnterKeyType | 是 | 输入法回车键类型。 |
 
 
 
@@ -704,7 +704,7 @@ enterKeyType(value: EnterKeyType)
 
 enableAutoFill(value: boolean)
 
-设置是否启用自动填充。典型场景参考[密码自动填充服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/passwordvault)、[智能填充服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-intelligent-filling)。
+设置是否启用自动填充。典型场景参考[密码自动填充服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/passwordvault)、[智能填充服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-intelligent-filling)。未通过该接口设置时，默认启用自动填充。
 
 具体使用场景请参考[账号密码填充](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/passwordvault-autofill-acc-password)。
 
@@ -718,7 +718,7 @@ enableAutoFill(value: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 是否启用自动填充。 true表示启用，false表示不启用。 默认值：true |
+| value | boolean | 是 | 是否启用自动填充。 true表示启用，false表示不启用。 |
 
 
 
@@ -729,7 +729,7 @@ enableAutoFill(value: boolean)
 
 enableSelectedDataDetector(enable: boolean | undefined)
 
-设置是否对选中文本进行实体识别。该接口依赖设备底层应具有文本识别能力，否则设置不会生效。
+设置是否对选中文本进行实体识别。该接口依赖设备底层应具有文本识别能力，否则设置不会生效。未通过该接口设置时，默认开启选中文本进行实体识别。
 
 当enableSelectedDataDetector设置为true时，默认识别所有类型的实体。
 
@@ -751,7 +751,7 @@ AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean \| undefined | 是 | 是否对选中文本进行实体识别。 true：开启识别，false：关闭识别。默认值为：true。 |
+| enable | boolean \| undefined | 是 | 是否对选中文本进行实体识别。 true：开启识别，false：关闭识别。 需要CopyOptions为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时本功能才生效。 |
 
 
 
@@ -774,7 +774,7 @@ contentType(contentType: ContentType)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| contentType | ContentType | 是 | 自动填充类型。 |
+| contentType | ContentType | 是 | 自动填充类型，用于指定输入框的自动填充内容类型，以便系统提供正确的自动填充建议。 |
 
 
 
@@ -801,7 +801,7 @@ lineHeight(value: number | string | Resource)
 
 
 > [!NOTE]
-> 特殊字符字体高度远超出同行的其他字符高度时，文本框出现截断、遮挡、内容相对位置发生变化等不符合预期的显示异常，需要开发者调整组件高度、行高等属性，修改对应的页面布局。
+> 特殊字符字体高度远超出同行的其他字符高度时，文本框可能出现截断、遮挡、内容相对位置发生变化等显示异常。开发者需调整组件高度、行高等属性，修改对应的页面布局。
 
 
 
@@ -812,7 +812,19 @@ lineHeight(value: number | string | Resource)
 
 decoration(value: TextDecorationOptions)
 
-设置文本装饰线类型样式及其颜色。
+设置文本装饰线类型样式及其颜色。未通过该接口设置时，默认文本装饰线对象为
+
+{
+
+type: TextDecorationType.None,
+
+color: Color.Black,
+
+style: TextDecorationStyle.SOLID,
+
+thicknessScale: 1.0
+
+}
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -824,7 +836,7 @@ decoration(value: TextDecorationOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextDecorationOptions | 是 | 文本装饰线对象。 默认值：{ type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID, thicknessScale: 1.0 } |
+| value | TextDecorationOptions | 是 | 文本装饰线对象。 |
 
 
 > [!NOTE]
@@ -839,7 +851,7 @@ decoration(value: TextDecorationOptions)
 
 letterSpacing(value: number | string | Resource)
 
-设置文本字符间距。设置该值为百分比时，按默认值显示。当设置该值为0时，使用默认值。string类型支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
+设置文本字符间距。设置该值为百分比时，按默认值显示。当设置该值为0时，使用默认值。string类型支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。未通过该接口设置时，默认文本字符间距为0fp。
 
 当取值为负值时，文字会发生压缩，负值过小时会将组件内容区大小压缩为0，导致无内容显示。
 
@@ -855,7 +867,7 @@ letterSpacing(value: number | string | Resource)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 文本字符间距。 单位：fp |
+| value | number \| string \| Resource | 是 | 文本字符间距。 设置为百分比时按默认值处理；设置为0时使用默认值；负值会导致文字压缩，过小时可能无内容显示。 单位：fp |
 
 
 
@@ -886,7 +898,7 @@ fontFeature(value: string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string | 是 | 文字特性效果。 |
+| value | string | 是 | 文字特性效果，用于设置文字的特殊显示效果，如数字等宽等。格式为：normal \| [/topic/body/section/table/tgroup/tbody/row/entry/feature-tag-value {""}) 。 (feature-tag-value] |
 
 
 Font Feature当前支持的属性参见[fontFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontfeature12)属性列表。
@@ -903,7 +915,7 @@ Font Feature当前支持的属性参见[fontFeature](https://developer.huawei.co
 
 wordBreak(value: WordBreak)
 
-设置文本断行规则。该属性对placeholder文本无效。
+设置文本断行规则。该属性对placeholder文本无效。当设置为WordBreak.BREAK_ALL时，[lineBreakStrategy](#linebreakstrategy12)属性不生效，[orphanCharOptimization](#orphancharoptimization)功能也不生效。未通过该接口设置时，默认文本断行规则为WordBreak.BREAK_WORD。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -915,7 +927,7 @@ wordBreak(value: WordBreak)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | WordBreak | 是 | 文本断行规则。 默认值：WordBreak.BREAK_WORD |
+| value | WordBreak | 是 | 文本断行规则。 |
 
 
 > [!NOTE]
@@ -942,7 +954,7 @@ selectedBackgroundColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 文本选中底板颜色。 |
+| value | ResourceColor | 是 | 文本选中底板颜色，用于自定义文本选中时的背景颜色。如果未设置不透明度，默认为20%不透明度。 |
 
 
 
@@ -965,7 +977,7 @@ caretStyle(value: CaretStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | CaretStyle | 是 | 光标的风格。 |
+| value | CaretStyle | 是 | 光标的风格，用于自定义光标的显示样式，包括宽度和颜色。 |
 
 
 > [!NOTE]
@@ -980,7 +992,7 @@ caretStyle(value: CaretStyle)
 
 textIndent(value: Dimension)
 
-设置首行文本缩进。
+设置首行文本缩进。未通过该接口设置时，默认首行文本缩进为0。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -992,7 +1004,7 @@ textIndent(value: Dimension)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Dimension | 是 | 首行文本缩进。 默认值：0 单位：vp 取值范围：大于等于0。设置负数时，按默认值处理。 |
+| value | Dimension | 是 | 首行文本缩进。 单位：vp 取值范围：大于等于0。设置负数时，按默认值处理。 |
 
 
 
@@ -1003,7 +1015,7 @@ textIndent(value: Dimension)
 
 textOverflow(value: TextOverflow)
 
-设置文本超长时的显示方式。
+设置文本超长时的显示方式。未通过该接口设置时，默认文本超长时的显示方式为TextOverflow.Clip。
 
 内联模式，主动配置textOverflow才会生效按[maxLines](#maxlines10)截断效果，不配置时，默认不截断。
 
@@ -1025,7 +1037,7 @@ textOverflow(value: TextOverflow)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextOverflow | 是 | 文本超长时的显示方式。 默认值：TextOverflow.Clip |
+| value | TextOverflow | 是 | 文本超长时的显示方式。 内联模式需主动配置才生效，设置为None、Clip、Ellipsis时需配合maxLines使用，单独设置不生效。 不支持TextOverflow.MARQUEE模式，设置为MARQUEE时显示为Clip。 |
 
 
 
@@ -1054,7 +1066,7 @@ minFontSize小于或等于0时，自适应字号不生效，此时按照[fontSiz
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 文本最小显示字号。 单位：fp |
+| value | number \| string \| Resource | 是 | 文本最小显示字号。 需配合maxFontSize以及maxLines或布局大小限制使用，单独设置不生效。 取值范围：(0, maxFontSize]。超出取值范围时按照fontSize属性值生效。 单位：fp |
 
 
 
@@ -1083,7 +1095,7 @@ maxFontSize小于等于0或者maxFontSize小于minFontSize时，自适应字号�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 文本最大显示字号。 单位：fp |
+| value | number \| string \| Resource | 是 | 文本最大显示字号。 需配合minFontSize以及maxLines或布局大小限制使用，单独设置不生效。 取值范围：(0, +∞)。超出取值范围时按照fontSize属性值生效。 单位：fp |
 
 
 
@@ -1094,11 +1106,11 @@ maxFontSize小于等于0或者maxFontSize小于minFontSize时，自适应字号�
 
 heightAdaptivePolicy(value: TextHeightAdaptivePolicy)
 
-设置文本自适应高度的方式。
+设置文本自适应高度的方式。未通过该接口设置时，默认文本自适应高度的方式为TextHeightAdaptivePolicy.MAX_LINES_FIRST。
 
 当设置为TextHeightAdaptivePolicy.MAX_LINES_FIRST时，优先使用[maxLines](#maxlines10)属性来调整文本高度。如果使用maxLines属性的布局大小超过了布局约束，则尝试在[minFontSize](#minfontsize12)和[maxFontSize](#maxfontsize12)的范围内缩小字体以显示更多文本。
 
-组件设置为内联输入风格，编辑态与非编辑态存在字体大小不一致情况。
+组件设置为内联输入风格时，编辑态与非编辑态的字体大小可能不一致。
 
 当设置为TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST时，优先使用minFontSize属性来调整文本高度。如果使用minFontSize属性可以将文本布局在一行中，则尝试在minFontSize和maxFontSize的范围内增大字体并使用最大可能的字体大小。
 
@@ -1114,7 +1126,7 @@ heightAdaptivePolicy(value: TextHeightAdaptivePolicy)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextHeightAdaptivePolicy | 是 | 文本自适应高度的方式。 默认值：TextHeightAdaptivePolicy.MAX_LINES_FIRST |
+| value | TextHeightAdaptivePolicy | 是 | 文本自适应高度的方式。 MAX_LINES_FIRST优先使用maxLines调整高度，超出布局约束时在minFontSize和maxFontSize范围内缩小字体；MIN_FONT_SIZE_FIRST优先使用minFontSize调整高度；LAYOUT_CONSTRAINT_FIRST优先使用布局约束调整高度，超出约束时缩小字体。 |
 
 
 
@@ -1125,7 +1137,7 @@ heightAdaptivePolicy(value: TextHeightAdaptivePolicy)
 
 lineSpacing(value: LengthMetrics)
 
-设置文本的行间距，设置值不大于0时，取默认值0。
+设置文本的行间距，设置值不大于0时，取默认值0。未通过该接口设置时，默认文本的行间距为0。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1137,7 +1149,7 @@ lineSpacing(value: LengthMetrics)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | LengthMetrics | 是 | 文本的行间距。默认值：0 |
+| value | LengthMetrics | 是 | 文本的行间距。 |
 
 
 
@@ -1148,7 +1160,7 @@ lineSpacing(value: LengthMetrics)
 
 lineSpacing(value: LengthMetrics, options?: LineSpacingOptions)
 
-设置文本的行间距。当不配置LineSpacingOptions时，首行上方和尾行下方默认会有行间距。
+设置文本的行间距。当不配置LineSpacingOptions时，首行上方和尾行下方默认会有行间距。未通过该接口设置时，默认文本的行间距为0。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1161,7 +1173,7 @@ lineSpacing(value: LengthMetrics, options?: LineSpacingOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | LengthMetrics | 是 | 文本的行间距。设置值不大于0时，取默认值0。 |
-| options | LineSpacingOptions | 否 | 设置行间距配置项。 默认值：{ onlyBetweenLines: false } |
+| options | LineSpacingOptions | 否 | 设置行间距配置项。 |
 
 
 
@@ -1172,7 +1184,7 @@ lineSpacing(value: LengthMetrics, options?: LineSpacingOptions)
 
 lineBreakStrategy(strategy: LineBreakStrategy)
 
-设置折行规则。该属性在[wordBreak](#wordbreak12)不等于WordBreak.BREAK_ALL的时候生效，不支持连词符。
+设置折行规则。适用于需要优化多行文本换行效果的场景，例如GREEDY策略适合一般文本的快速排版，HIGH_QUALITY策略适合对排版质量要求较高的正式文档，BALANCED策略适合需要各行宽度均衡的展示场景。该属性在[wordBreak](#wordbreak12)不等于WordBreak.BREAK_ALL的时候生效，不支持连词符。未通过该接口设置时，默认文本的折行规则为LineBreakStrategy.GREEDY。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1184,7 +1196,7 @@ lineBreakStrategy(strategy: LineBreakStrategy)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strategy | LineBreakStrategy | 是 | 文本的折行规则。 默认值：LineBreakStrategy.GREEDY |
+| strategy | LineBreakStrategy | 是 | 文本的折行规则。该属性在wordBreak不等于WordBreak.BREAK_ALL时生效，不支持连词符。 |
 
 
 
@@ -1209,7 +1221,7 @@ editMenuOptions(editMenu: EditMenuOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| editMenu | EditMenuOptions | 是 | 扩展菜单选项。 |
+| editMenu | EditMenuOptions | 是 | 扩展菜单选项，用于自定义文本选择菜单扩展项，允许设置扩展项的文本内容、图标、回调方法。 |
 
 
 
@@ -1220,7 +1232,7 @@ editMenuOptions(editMenu: EditMenuOptions)
 
 enablePreviewText(enable: boolean)
 
-设置是否开启输入预上屏。
+设置是否开启输入预上屏。未通过该接口设置时，默认开启输入预上屏。
 
 预上屏内容定义为文字暂存态，目前不支持文字拦截功能。
 
@@ -1234,7 +1246,7 @@ enablePreviewText(enable: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean | 是 | 是否开启输入预上屏。 true表示开启，false表示不开启。 默认值：true |
+| enable | boolean | 是 | 是否开启输入预上屏。 true表示开启，false表示不开启。 |
 
 
 > [!NOTE]
@@ -1249,15 +1261,15 @@ enablePreviewText(enable: boolean)
 
 enableHapticFeedback(isEnabled: boolean)
 
-设置是否开启触控反馈。
+设置是否开启触控反馈。未通过该接口设置时，默认开启触控反馈。
 
 开启触控反馈时，需要在工程的[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置requestPermissions字段以开启振动权限，配置如下：
 
 ```json
 "requestPermissions": [
- {
-    "name": "ohos.permission.VIBRATE",
- }
+  {
+    "name": "ohos.permission.VIBRATE"
+  }
 ]
 ```
 
@@ -1271,7 +1283,7 @@ enableHapticFeedback(isEnabled: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isEnabled | boolean | 是 | 是否开启触控反馈。 true表示开启，false表示不开启。 默认值：true |
+| isEnabled | boolean | 是 | 是否开启触控反馈。 true表示开启，false表示不开启。 |
 
 
 
@@ -1294,7 +1306,7 @@ autoCapitalizationMode(mode: AutoCapitalizationMode)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | AutoCapitalizationMode | 是 | 自动大小写模式，默认状态无效。 |
+| mode | AutoCapitalizationMode | 是 | 自动大小写模式，具体实现以输入法应用为主。 |
 
 
 
@@ -1305,7 +1317,7 @@ autoCapitalizationMode(mode: AutoCapitalizationMode)
 
 keyboardAppearance(appearance: Optional&lt;KeyboardAppearance&gt;)
 
-设置输入框拉起的键盘样式，需要输入法适配后生效。具体参考[输入法应用沉浸模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-immersive-mode-guide)。
+设置输入框拉起的键盘样式，需要输入法适配后生效。具体参考[输入法应用沉浸模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-immersive-mode-guide)。未通过该接口设置时，默认键盘样式为KeyboardAppearance.NONE_IMMERSIVE。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -1317,7 +1329,7 @@ keyboardAppearance(appearance: Optional&lt;KeyboardAppearance&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appearance | Optional&lt;KeyboardAppearance&gt; | 是 | 键盘样式。 默认值：KeyboardAppearance.NONE_IMMERSIVE |
+| appearance | Optional&lt;KeyboardAppearance&gt; | 是 | 键盘样式。 设置为KeyboardAppearance.NONE_IMMERSIVE时，显示非沉浸式键盘；设置为KeyboardAppearance.IMMERSIVE时，显示沉浸式键盘。 |
 
 
 
@@ -1328,7 +1340,7 @@ keyboardAppearance(appearance: Optional&lt;KeyboardAppearance&gt;)
 
 strokeWidth(width: Optional&lt;LengthMetrics&gt;)
 
-设置文本描边的宽度。
+设置文本描边的宽度。当同时设置strokeWidth属性和[shaderStyle](#shaderstyle)时，shaderStyle不生效。未通过该接口设置时，默认值为0，不做描边处理。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1340,7 +1352,7 @@ strokeWidth(width: Optional&lt;LengthMetrics&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | Optional&lt;LengthMetrics&gt; | 是 | 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。 若设置值小于0，显示实心字；若大于0，显示空心字。 默认值为0，不做描边处理。 |
+| width | Optional&lt;LengthMetrics&gt; | 是 | 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。 若设置值小于0，显示实心字；若大于0，显示空心字。 |
 
 
 
@@ -1351,7 +1363,7 @@ strokeWidth(width: Optional&lt;LengthMetrics&gt;)
 
 strokeColor(color: Optional&lt;ResourceColor&gt;)
 
-设置文本描边的颜色。
+设置文本描边的颜色。未通过该接口设置时，默认描边颜色为字体颜色。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1363,7 +1375,7 @@ strokeColor(color: Optional&lt;ResourceColor&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | Optional&lt;ResourceColor&gt; | 是 | 描边颜色。默认值为字体颜色，设置异常值时取默认值。 |
+| color | Optional&lt;ResourceColor&gt; | 是 | 描边颜色。设置异常值时取默认值。 |
 
 
 
@@ -1374,7 +1386,7 @@ strokeColor(color: Optional&lt;ResourceColor&gt;)
 
 stopBackPress(isStopped: Optional&lt;boolean&gt;)
 
-设置是否阻止返回键传递。
+设置是否阻止返回键事件向其他组件或系统传递。设置为true时，TextArea拦截返回键事件，不向其他组件传递；设置为false时，返回键事件正常向其他组件或系统传递。适用于需要自定义返回键行为的场景，如表单未保存时拦截返回操作并弹出确认提示、自定义导航流程、游戏或特殊交互场景中需要接管返回键控制等。未通过该接口设置时，默认阻止返回键。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -1386,7 +1398,7 @@ stopBackPress(isStopped: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isStopped | Optional&lt;boolean&gt; | 是 | 是否阻止返回键。 true表示阻止，false表示不阻止。 默认值：true。异常值取默认值。 |
+| isStopped | Optional&lt;boolean&gt; | 是 | 是否阻止返回键。 true表示阻止，false表示不阻止。异常值取默认值。 |
 
 
 
@@ -1397,7 +1409,7 @@ stopBackPress(isStopped: Optional&lt;boolean&gt;)
 
 halfLeading(halfLeading: Optional&lt;boolean&gt;)
 
-设置文本在行内垂直居中，将行间距平分至行的顶部与底部。
+设置文本在行内垂直居中，将行间距平分至行的顶部与底部。未通过该接口设置时，默认不平分行间距。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -1409,7 +1421,7 @@ halfLeading(halfLeading: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| halfLeading | Optional&lt;boolean&gt; | 是 | 设置文本是否垂直居中。 true表示将行间距平分至行的顶部与底部，false则不平分。 默认值：false |
+| halfLeading | Optional&lt;boolean&gt; | 是 | 设置文本是否垂直居中。 true表示将行间距平分至行的顶部与底部，false则不平分。 |
 
 
 
@@ -1466,7 +1478,7 @@ maxFontScale(scale: Optional<number | Resource>)
 
 ellipsisMode(mode: Optional&lt;EllipsisMode&gt;)
 
-设置省略位置。ellipsisMode属性需要配合[textOverflow](#textoverflow12)设置为TextOverflow.Ellipsis以及[maxLines](#maxlines10)使用，单独设置ellipsisMode属性不生效。
+设置省略位置。ellipsisMode属性需要配合[textOverflow](#textoverflow12)设置为TextOverflow.Ellipsis以及[maxLines](#maxlines10)使用，单独设置ellipsisMode属性不生效。未通过该接口设置时，默认省略位置为EllipsisMode.END。
 
 EllipsisMode.START和EllipsisMode.CENTER仅在[maxLines](#maxlines10)设置为1生效。
 
@@ -1480,7 +1492,7 @@ EllipsisMode.START和EllipsisMode.CENTER仅在[maxLines](#maxlines10)设置为1�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | Optional&lt;EllipsisMode&gt; | 是 | 省略位置。 默认值：EllipsisMode.END |
+| mode | Optional&lt;EllipsisMode&gt; | 是 | 省略位置。需配合textOverflow设置为TextOverflow.Ellipsis以及maxLines使用，单独设置不生效。 EllipsisMode.START和EllipsisMode.CENTER仅在maxLines设置为1时生效。 |
 
 
 
@@ -1491,7 +1503,7 @@ EllipsisMode.START和EllipsisMode.CENTER仅在[maxLines](#maxlines10)设置为1�
 
 enableAutoSpacing(enabled: Optional&lt;boolean&gt;)
 
-设置是否开启中文与西文的自动间距。
+设置是否开启中文与西文的自动间距。未通过该接口设置时，默认不开启中文与西文的自动间距。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1503,7 +1515,7 @@ enableAutoSpacing(enabled: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | Optional&lt;boolean&gt; | 是 | 是否开启中文与西文的自动间距。 true为开启自动间距，false为不开启。 默认值：false |
+| enabled | Optional&lt;boolean&gt; | 是 | 是否开启中文与西文的自动间距。 true为开启自动间距，false为不开启。 |
 
 
 
@@ -1514,7 +1526,7 @@ enableAutoSpacing(enabled: Optional&lt;boolean&gt;)
 
 scrollBarColor(thumbColor: ColorMetrics | undefined)
 
-设置滚动条的颜色。
+设置滚动条的颜色。未通过该接口设置时，默认滚动条的颜色为'#66182431'，表示深灰色（不透明度为40%），显示为灰色。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -1526,7 +1538,7 @@ scrollBarColor(thumbColor: ColorMetrics | undefined)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| thumbColor | ColorMetrics \| undefined | 是 | 滚动条的颜色。 默认值：'#66182431'，显示为灰色。 |
+| thumbColor | ColorMetrics \| undefined | 是 | 滚动条的颜色。 |
 
 
 
@@ -1537,7 +1549,7 @@ scrollBarColor(thumbColor: ColorMetrics | undefined)
 
 compressLeadingPunctuation(enabled: Optional&lt;boolean&gt;)
 
-设置是否开启行首标点符号压缩。
+设置是否开启行首标点符号压缩。未通过该接口设置时，默认不开启行首标点符号压缩。
 
 > [!NOTE]
 > 行首标点符号默认不压缩。 支持压缩的标点符号，请参考 ParagraphStyle 的行首压缩的标点范围。
@@ -1583,13 +1595,92 @@ orphanCharOptimization(enabled: Optional&lt;boolean&gt;)
 
 
 
+#### strokeJoinStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined)
+
+设置文本描边拐角样式。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| strokeJoinStyle | StrokeJoinStyle \| undefined | 是 | 文本描边拐角样式。 值为undefined时，按照StrokeJoinStyle.MITER_JOIN处理，请参考StrokeJoinStyle，文本拐角处表现为锐角。 |
+
+
+
+
+#### shaderStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+shaderStyle(shader: ShaderStyle | undefined)
+
+设置文本着色器效果，如线性渐变、径向渐变效果等。
+
+> [!NOTE]
+> 当同时设置shaderStyle和 strokeWidth 时，shaderStyle不生效。 shaderStyle的优先级高于 fontColor 。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| shader | ShaderStyle \| undefined | 是 | 文本着色器效果，用于设置文本渐变效果（如线性渐变、径向渐变等）。 值为undefined时，无渐变效果。 |
+
+
+
+
+#### punctuationOverflow
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+punctuationOverflow(enabled: Optional&lt;boolean&gt;)
+
+设置是否启用行尾标点符号悬挂。不通过该接口设置，默认标点符号不悬挂。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | Optional&lt;boolean&gt; | 是 | 是否启用行尾标点符号悬挂。 true表示启用行尾标点符号悬挂，false表示不启用行尾标点符号悬挂。设置为undefined或null时，不启用标点符号悬挂。 |
+
+
+
+
 #### includeFontPadding23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 includeFontPadding(include: Optional&lt;boolean&gt;)
 
-设置是否在首行和尾行增加间距以避免文字截断。不通过该接口设置，默认不增加间距。
+设置是否在首行和尾行增加间距以避免文字截断。未通过该接口设置时，默认不增加间距。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
@@ -1612,7 +1703,7 @@ includeFontPadding(include: Optional&lt;boolean&gt;)
 
 fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
-针对多行文字叠加，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。不通过该接口设置，默认行高不基于文字实际高度自适应。
+针对多行文字叠加，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。未通过该接口设置时，默认行高不基于文字实际高度自适应。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
@@ -1735,6 +1826,10 @@ onWillCopy(callback: Callback<string, boolean>)
 
 在进行复制操作前，触发该回调。
 
+> [!NOTE]
+> onWillCopy和onCopy形成will/did时序模式： onWillCopy在复制操作前触发，可通过返回false拦截复制操作；返回true则允许复制，随后触发onCopy。 onCopy在复制操作完成后触发，无法拦截。 两者可以同时使用，onWillCopy用于拦截控制，onCopy用于获取复制结果。
+
+
 **起始版本：** 26.0.0
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1747,7 +1842,7 @@ onWillCopy(callback: Callback<string, boolean>)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<string, boolean> | 是 | 复制操作前的回调。回调参数类型为string时，表示将要被复制的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被复制，true：允许文本被复制；false：不允许文本被复制。 |
+| callback | Callback<string, boolean> | 是 | 复制操作前的回调。回调参数为将要被复制的文本内容（string类型）。回调返回boolean值：true表示允许文本被复制，false表示不允许文本被复制。 |
 
 
 
@@ -1781,6 +1876,10 @@ onWillCut(callback: Callback<string, boolean>)
 
 在进行剪切操作前，触发该回调。
 
+> [!NOTE]
+> onWillCut和onCut形成will/did时序模式： onWillCut在剪切操作前触发，可通过返回false拦截剪切操作；返回true则允许剪切，随后触发onCut。 onCut在剪切操作完成后触发，无法拦截。 两者可以同时使用，onWillCut用于拦截控制，onCut用于获取剪切结果。
+
+
 **起始版本：** 26.0.0
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1793,7 +1892,7 @@ onWillCut(callback: Callback<string, boolean>)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<string, boolean> | 是 | 剪切操作前的回调。回调参数类型为string时，表示将要被剪切的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被剪切，true：允许文本被剪切；false：不允许文本被剪切。 |
+| callback | Callback<string, boolean> | 是 | 剪切操作前的回调。回调参数为将要被剪切的文本内容（string类型）。回调返回boolean值：true表示允许文本被剪切，false表示不允许文本被剪切。 |
 
 
 
@@ -1897,7 +1996,7 @@ onSubmit(callback: (enterKey: EnterKeyType) => void)
 
 onSubmit(callback: TextAreaSubmitCallback)
 
-按下软键盘输入法回车键触发该回调事件，提交事件时提供保持TextArea编辑状态的方法。
+按下软键盘输入法回车键触发该回调事件。回调参数提供保持TextArea编辑状态的方法。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -1922,6 +2021,10 @@ onWillInsert(callback: Callback<InsertValue, boolean>)
 
 在将要输入时，触发该回调。
 
+> [!NOTE]
+> onWillInsert和onDidInsert形成will/did时序模式： onWillInsert在插入操作前触发，可通过返回false拦截插入操作；返回true则允许插入，随后触发onDidInsert。 onDidInsert在插入完成后触发，无法拦截。 两者可以同时使用，onWillInsert用于拦截控制，onDidInsert用于获取插入结果。
+
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1944,6 +2047,10 @@ onWillInsert(callback: Callback<InsertValue, boolean>)
 onDidInsert(callback: Callback&lt;InsertValue&gt;)
 
 在输入完成时，触发该回调。
+
+> [!NOTE]
+> onWillInsert和onDidInsert形成will/did时序模式： onWillInsert在插入操作前触发，可通过返回false拦截插入操作；返回true则允许插入，随后触发onDidInsert。 onDidInsert在插入完成后触发，无法拦截。 两者可以同时使用，onWillInsert用于拦截控制，onDidInsert用于获取插入结果。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1968,6 +2075,12 @@ onWillDelete(callback: Callback<DeleteValue, boolean>)
 
 在将要删除时，触发该回调。
 
+点击清除按钮不触发onWillDelete回调。
+
+> [!NOTE]
+> onWillDelete和onDidDelete形成will/did时序模式： onWillDelete在删除操作前触发，可通过返回false拦截删除操作；返回true则允许删除，随后触发onDidDelete onDidDelete在删除完成后触发，无法拦截 两者可以同时使用，onWillDelete用于拦截控制，onDidDelete用于获取删除结果
+
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1978,7 +2091,7 @@ onWillDelete(callback: Callback<DeleteValue, boolean>)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<DeleteValue, boolean> | 是 | 在将要删除时调用的回调。 在返回true时，表示正常删除，返回false时，表示不删除。 在预上屏删除操作时，该回调不触发。 仅支持系统输入法输入的场景。 |
+| callback | Callback<DeleteValue, boolean> | 是 | 在将要删除时调用的回调。 在返回true时，表示正常删除，返回false时，表示不删除。 在预上屏和候选词操作时，该回调不触发。点击清除按钮不触发onDidDelete回调。 仅支持系统输入法输入的场景。 |
 
 
 
@@ -1991,6 +2104,12 @@ onDidDelete(callback: Callback&lt;DeleteValue&gt;)
 
 在删除完成时，触发该回调。
 
+点击清除按钮不触发onDidDelete回调。
+
+> [!NOTE]
+> onWillDelete在删除操作前触发，可通过返回false拦截删除操作；返回true则允许删除，随后触发onDidDelete。 onDidDelete在删除完成后触发，无法拦截。 两者可以同时使用，onWillDelete用于拦截控制，onDidDelete用于获取删除结果。
+
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2001,11 +2120,7 @@ onDidDelete(callback: Callback&lt;DeleteValue&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;DeleteValue&gt; | 是 | 在删除完成时调用的回调。 仅支持系统输入法输入的场景。 |
-
-
-> [!NOTE]
-> 点击清除按钮不触发onDidDelete回调。
+| callback | Callback&lt;DeleteValue&gt; | 是 | 在删除完成时调用的回调。 点击清除按钮不触发onDidDelete回调。 仅支持系统输入法输入的场景。 |
 
 
 
@@ -2017,6 +2132,10 @@ onDidDelete(callback: Callback&lt;DeleteValue&gt;)
 onWillChange(callback: Callback<EditableTextChangeValue, boolean>)
 
 在文本内容将要发生变化时，触发该回调。
+
+> [!NOTE]
+> onWillChange与onChange均监听文本变更，区别在于： onWillChange在文本变更前触发，返回false可拦截此次变更；onChange在变更后触发，仅用于通知，无法拦截 需要拦截控制时使用onWillChange，仅需获取变更结果时使用onChange
+
 
 onWillChange的回调时序晚于onWillInsert、onWillDelete，早于onDidInsert、onDidDelete。
 
@@ -2077,7 +2196,7 @@ TextArea组件的控制器继承自[TextContentControllerBase](https://developer
 #### 导入对象
 
 ```text
-controller: TextAreaController = new TextAreaController()
+controller: TextAreaController = new TextAreaController();
 ```
 
 
@@ -2092,8 +2211,6 @@ TextAreaController的构造函数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
-
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -2107,8 +2224,6 @@ caretPosition(value: number): void
 设置输入光标的位置。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2145,7 +2260,7 @@ setTextSelection(selectionStart: number, selectionEnd: number, options?: Selecti
 
 
 > [!NOTE]
-> 如果selectionMenuHidden被赋值为true或设备为2in1时，即使options被赋值为MenuPolicy.SHOW，调用setTextSelection也不弹出菜单。 如果选中的文本含有emoji表情时，表情的起始位置包含在设置的文本选中区域内就会被选中。
+> 如果selectionMenuHidden被赋值为true或设备为PC/2in1时，即使options被赋值为MenuPolicy.SHOW，调用setTextSelection也不弹出菜单。 如果选中的文本含有emoji表情时，表情的起始位置包含在设置的文本选中区域内就会被选中。
 
 
 
@@ -2208,7 +2323,7 @@ type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enterKeyType | EnterKeyType | 是 | 软键盘输入法回车键类型。 类型为EnterKeyType.NEW_LINE时不触发onSubmit。 |
-| event | SubmitEvent | 否 | 提交事件。 |
+| event | SubmitEvent | 否 | 提交事件。用于获取提交事件的详细信息。不传入此参数时，无法获取提交事件的详细信息。 |
 
 
 
@@ -2269,7 +2384,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-25.gif)
+![](assets/TextArea/file-20260514164029352-4.jpeg)
 
 
 
@@ -2301,10 +2416,10 @@ struct TextAreaExample {
         .fontColor('#182431')
         .backgroundColor('#FFFFFF')
         .maxLength(4)
+        // 计数器显示效果为用户当前输入字符数/最大字符限制数。最大字符限制数通过maxLength()接口设置。
+        // 如果用户当前输入字符数达到最大字符限制乘50%（thresholdPercentage）。字符计数器显示。
+        // 用户设置highlightBorder为false时，配置取消红色边框。不设置此参数时，默认为true。
         .showCounter(true, { thresholdPercentage: 50, highlightBorder: true })
-          // 计数器显示效果为用户当前输入字符数/最大字符限制数。最大字符限制数通过maxLength()接口设置。
-          // 如果用户当前输入字符数达到最大字符限制乘50%（thresholdPercentage）。字符计数器显示。
-          // 用户设置highlightBorder为false时，配置取消红色边框。不设置此参数时，默认为true。
         .onChange((value: string) => {
           this.text = value;
         })
@@ -2314,7 +2429,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-26.png)
+![](assets/TextArea/file-20260514164029352-5.png)
 
 
 
@@ -2389,7 +2504,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-27.gif)
+![](assets/TextArea/file-20260514164029352-6.png)
 
 
 
@@ -2418,7 +2533,7 @@ struct TextAreaExample {
           this.text = value;
         })
         .onSubmit((enterKey: EnterKeyType) => {
-          console.info("trigger area onSubmit" + enterKey);
+          console.info('trigger area onSubmit' + enterKey);
         })
       Button('改变EnterKeyType').onClick(() => {
         this.index = (this.index + 1) % this.enterTypes.length;
@@ -2430,7 +2545,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-28.png)
+![](assets/TextArea/file-20260514164029352-7.gif)
 
 
 
@@ -2446,21 +2561,21 @@ struct TextAreaExample {
 struct TextAreaExample {
   build() {
     Column() {
-      Text("属性WordBreakType为NORMAL的样式：").fontSize(16).fontColor(0xFF0000)
+      Text('属性WordBreakType为NORMAL的样式：').fontSize(16).fontColor(0xFF0000)
       TextArea({
         text: 'This is set wordBreak to WordBreak text Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu.'
       })
         .fontSize(16)
         .border({ width: 1 })
         .wordBreak(WordBreak.NORMAL)
-      Text("英文文本，属性WordBreakType为BREAK_ALL的样式：").fontSize(16).fontColor(0xFF0000)
+      Text('英文文本，属性WordBreakType为BREAK_ALL的样式：').fontSize(16).fontColor(0xFF0000)
       TextArea({
         text: 'This is set wordBreak to WordBreak text Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu.'
       })
         .fontSize(16)
         .border({ width: 1 })
         .wordBreak(WordBreak.BREAK_ALL)
-      Text("中文文本，属性WordBreakType为BREAK_ALL的样式：").fontSize(16).fontColor(0xFF0000)
+      Text('中文文本，属性WordBreakType为BREAK_ALL的样式：').fontSize(16).fontColor(0xFF0000)
       TextArea({
         text: '多行文本输入框组件，当输入的文本内容超过组件宽度时会自动换行显示。\n高度未设置时，组件无默认高度，自适应内容高度。宽度未设置时，默认撑满最大宽度。'
       })
@@ -2480,7 +2595,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-29.gif)
+![](assets/TextArea/file-20260514164029352-8.png)
 
 
 
@@ -2532,7 +2647,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-3.gif)
+![](assets/TextArea/file-20260514164029352-9.png)
 
 
 
@@ -2554,20 +2669,20 @@ struct TextAreaExample {
       TextArea({ text: this.text1 })
         .fontSize(20)
         .margin({ top: 200 })
-        .fontFeature("\"ss01\" on")
+        .fontFeature('"ss01" on')
       TextArea({ text: this.text2 })
         .margin({ top: 10 })
         .fontSize(20)
-        .fontFeature("\"ss01\" off")
+        .fontFeature('"ss01" off')
     }
-    .width("90%")
-    .margin("5%")
+    .width('90%')
+    .margin('5%')
   }
 }
 ```
 
 
-![](assets/TextArea/file-20260514164029352-30.png)
+![](assets/TextArea/file-20260525091211936-001.gif)
 
 
 
@@ -2616,19 +2731,19 @@ struct TextAreaExample {
         Button("20%")
           .fontSize(24)
           .onClick(() => {
-            this.height1 = "20%";
+            this.height1 = '20%';
           })
-        Button("80%")
+        Button('80%')
           .fontSize(24)
           .margin({ left: 20 })
           .onClick(() => {
-            this.height1 = "80%";
+            this.height1 = '80%';
           })
       }
       .justifyContent(FlexAlign.Center)
       .alignItems(VerticalAlign.Bottom)
       .height(this.height1)
-      .width("100%")
+      .width('100%')
       .padding({ bottom: 50 })
 
       TextArea({ controller: this.controller, text: this.inputValue })// 绑定自定义键盘
@@ -2642,7 +2757,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-4.jpeg)
+![](assets/TextArea/file-20260525091211936-002.gif)
 
 
 
@@ -2687,14 +2802,14 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-5.png)
+![](assets/TextArea/file-20260525091211938-003.gif)
 
 
 
 
 #### 示例10（设置文本行间距）
 
-从API version 12开始，该示例通过[lineSpacing](#linespacing12)属性展示了文本在不同行间距下的展示效果，同时，配置[LineSpacingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#linespacingoptions20对象说明)中的onlyBetweenLines（从API version 20开始）属性，可以设置文本的行间距，是否仅在行与行之间生效。
+从API version 12开始，该示例通过[lineSpacing](#linespacing12)属性展示了文本在不同行间距下的展示效果，同时，配置[LineSpacingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#linespacingoptions20对象说明)中的onlyBetweenLines（从API version 20开始）属性，可以设置文本的行间距是否仅在行与行之间生效。
 
 ```ArkTS
 // xxx.ets
@@ -2732,7 +2847,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-6.png)
+![](assets/TextArea/file-20260525091211938-004.gif)
 
 
 
@@ -2785,9 +2900,9 @@ struct TextAreaExample {
 @Component
 struct TextAreaExample {
   @State message1: string =
-    "They can be classified as built-in components–those directly provided by the ArkUI framework and custom components – those defined by developers" +
-      "The built-in components include buttons radio buttonsprogress indicators and text You can set the rendering effect of these components in method chaining mode," +
-      "page components are divided into independent UI units to implement independent creation development and reuse of different units on pages making pages more engineering-oriented.";
+    'They can be classified as built-in components–those directly provided by the ArkUI framework and custom components – those defined by developers' +
+      'The built-in components include buttons radio buttonsprogress indicators and text You can set the rendering effect of these components in method chaining mode,' +
+      'page components are divided into independent UI units to implement independent creation development and reuse of different units on pages making pages more engineering-oriented.';
   @State lineBreakStrategyIndex: number = 0;
   @State lineBreakStrategy: LineBreakStrategy[] =
     [LineBreakStrategy.GREEDY, LineBreakStrategy.HIGH_QUALITY, LineBreakStrategy.BALANCED];
@@ -2816,7 +2931,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-7.gif)
+![](assets/TextArea/file-20260525091211938-005.jpeg)
 
 
 
@@ -2830,18 +2945,18 @@ struct TextAreaExample {
 @Entry
 @Component
 struct TextAreaExample {
-  @State insertValue: string = "";
-  @State deleteValue: string = "";
+  @State insertValue: string = '';
+  @State deleteValue: string = '';
   @State insertOffset: number = 0;
   @State deleteOffset: number = 0;
   @State deleteDirection: number = 0;
-  @State currentValue_1: string = "";
-  @State currentValue_2: string = "";
+  @State currentValue_1: string = '';
+  @State currentValue_2: string = '';
 
   build() {
     Row() {
       Column() {
-        TextArea({ text: "TextArea支持插入回调文本" })
+        TextArea({ text: 'TextArea支持插入回调文本' })
           .width(300)
           .height(60)
           .onWillInsert((info: InsertValue) => {
@@ -2852,14 +2967,14 @@ struct TextAreaExample {
             this.insertOffset = info.insertOffset;
           })
           .onWillChange((info: EditableTextChangeValue) => {
-            this.currentValue_1 = info.content
-            return true
+            this.currentValue_1 = info.content;
+            return true;
           })
 
-        Text("insertValue:" + this.insertValue + "  insertOffset:" + this.insertOffset).height(30)
-        Text("currentValue_1:" + this.currentValue_1).height(30)
+        Text('insertValue:' + this.insertValue + '  insertOffset:' + this.insertOffset).height(30)
+        Text('currentValue_1:' + this.currentValue_1).height(30)
 
-        TextArea({ text: "TextArea支持删除回调文本b" })
+        TextArea({ text: 'TextArea支持删除回调文本b' })
           .width(300)
           .height(60)
           .onWillDelete((info: DeleteValue) => {
@@ -2872,13 +2987,13 @@ struct TextAreaExample {
             this.deleteDirection = info.direction;
           })
           .onWillChange((info: EditableTextChangeValue) => {
-            this.currentValue_2 = info.content
-            return true
+            this.currentValue_2 = info.content;
+            return true;
           })
 
-        Text("deleteValue:" + this.deleteValue + "  deleteOffset:" + this.deleteOffset).height(30)
-        Text("deleteDirection:" + (this.deleteDirection == 0 ? "BACKWARD" : "FORWARD")).height(30)
-        Text("currentValue_2:" + this.currentValue_2).height(30)
+        Text('deleteValue:' + this.deleteValue + '  deleteOffset:' + this.deleteOffset).height(30)
+        Text('deleteDirection:' + (this.deleteDirection == 0 ? 'BACKWARD' : 'FORWARD')).height(30)
+        Text('currentValue_2:' + this.currentValue_2).height(30)
 
       }.width('100%')
     }
@@ -2888,7 +3003,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260514164029352-8.png)
+![](assets/TextArea/file-20260525091211938-006.png)
 
 
 
@@ -2926,20 +3041,20 @@ struct TextAreaExample {
     return menuItems;
   }
   onMenuItemClick = (menuItem: TextMenuItem, textRange: TextRange) => {
-    if (menuItem.id.equals(TextMenuItemId.of("create2"))) {
-      console.info("拦截 id: create2 start:" + textRange.start + "; end:" + textRange.end);
+    if (menuItem.id.equals(TextMenuItemId.of('create2'))) {
+      console.info('拦截 id: create2 start:' + textRange.start + '; end:' + textRange.end);
       return true;
     }
-    if (menuItem.id.equals(TextMenuItemId.of("prepare1"))) {
-      console.info("拦截 id: prepare1 start:" + textRange.start + "; end:" + textRange.end);
+    if (menuItem.id.equals(TextMenuItemId.of('prepare1'))) {
+      console.info('拦截 id: prepare1 start:' + textRange.start + '; end:' + textRange.end);
       return true;
     }
     if (menuItem.id.equals(TextMenuItemId.COPY)) {
-      console.info("拦截 COPY start:" + textRange.start + "; end:" + textRange.end);
+      console.info('拦截 COPY start:' + textRange.start + '; end:' + textRange.end);
       return true;
     }
     if (menuItem.id.equals(TextMenuItemId.SELECT_ALL)) {
-      console.info("不拦截 SELECT_ALL start:" + textRange.start + "; end:" + textRange.end);
+      console.info('不拦截 SELECT_ALL start:' + textRange.start + '; end:' + textRange.end);
       return false;
     }
     return false;
@@ -2971,14 +3086,14 @@ struct TextAreaExample {
           this.endIndex = selectionEnd;
         })
     }
-    .width("90%")
-    .margin("5%")
+    .width('90%')
+    .margin('5%')
   }
 }
 ```
 
 
-![](assets/TextArea/file-20260514164029352-9.png)
+![](assets/TextArea/file-20260525091211939-007.png)
 
 
 
@@ -3001,10 +3116,10 @@ struct TextAreaExample {
 @Component
 struct EllipsisModeExample {
   @State textIndex: number = 0;
-  @State text: string = "As the sun begins to set, casting a warm golden hue across the sky," +
-    "the world seems to slow down and breathe a sigh of relief. The sky is painted with hues of orange, " +
-    " pink, and lavender, creating a breath taking tapestry that stretches as far as the eye can see." +
-    "The air is filled with the sweet scent of blooming flowers, mingling with the earthy aroma of freshly turned soil.";
+  @State text: string = 'As the sun begins to set, casting a warm golden hue across the sky,' +
+    'the world seems to slow down and breathe a sigh of relief. The sky is painted with hues of orange, ' +
+    ' pink, and lavender, creating a breath taking tapestry that stretches as far as the eye can see.' +
+    'The air is filled with the sweet scent of blooming flowers, mingling with the earthy aroma of freshly turned soil.';
   @State ellipsisModeIndex: number = 0;
   @State ellipsisMode: (EllipsisMode | undefined | null)[] =
     [EllipsisMode.START, EllipsisMode.END, EllipsisMode.CENTER, EllipsisMode.MULTILINE_START,
@@ -3061,7 +3176,7 @@ struct EllipsisModeExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211936-001.gif)
+![](assets/TextArea/file-20260525091211939-008.gif)
 
 
 
@@ -3153,7 +3268,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211936-002.gif)
+![](assets/TextArea/file-20260525091211939-009.png)
 
 
 
@@ -3215,7 +3330,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211938-003.gif)
+![](assets/TextArea/file-20260525091211939-010.png)
 
 
 
@@ -3260,7 +3375,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211938-004.gif)
+![](assets/TextArea/file-20260525091211939-011.gif)
 
 
 
@@ -3268,6 +3383,8 @@ struct TextAreaExample {
 #### 示例19（设置文本描边）
 
 从API version 20开始，该示例通过[strokeWidth](#strokewidth20)和[strokeColor](#strokecolor20)属性设置文本的描边宽度及颜色。
+
+从API版本26.0.0开始，新增[strokeJoinStyle](#strokejoinstyle)接口，支持设置文本描边拐角样式。
 
 ```ArkTS
 // xxx.ets
@@ -3299,6 +3416,7 @@ struct TextAreaExample {
           .borderWidth(1)
           .fontSize(40)
           .strokeWidth(LengthMetrics.px(3.0))
+          .strokeJoinStyle(StrokeJoinStyle.MITER_JOIN)
           .strokeColor(Color.Red)
       }.height('90%')
     }
@@ -3309,7 +3427,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211938-005.jpeg)
+![](assets/TextArea/file-20260525091211939-012.png)
 
 
 
@@ -3340,7 +3458,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211938-006.png)
+![](assets/TextArea/file-20260525091211940-013.png)
 
 
 
@@ -3373,7 +3491,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211939-007.png)
+![](assets/TextArea/file-20260525091211941-014.gif)
 
 
 
@@ -3406,7 +3524,7 @@ struct Index {
 ```
 
 
-![](assets/TextArea/file-20260525091211939-008.gif)
+![](assets/TextArea/file-20260525091211941-015.png)
 
 
 
@@ -3452,7 +3570,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211939-009.png)
+![](assets/TextArea/file-20260525091211941-016.png)
 
 
 
@@ -3471,7 +3589,7 @@ struct Index {
   build() {
       Column() {
         TextArea({
-          text: "Hello World TextArea\nHello World TextArea\nHello World TextArea\nHello World TextArea",
+          text: 'Hello World TextArea\nHello World TextArea\nHello World TextArea\nHello World TextArea',
           placeholder: 'Type to text area...',
           controller: this.controller
         })
@@ -3484,7 +3602,7 @@ struct Index {
           .barState(BarState.On)
           .scrollBarColor(undefined)
         TextArea({
-          text: "Hello World TextArea\nHello World TextArea\nHello World TextArea\nHello World TextArea",
+          text: 'Hello World TextArea\nHello World TextArea\nHello World TextArea\nHello World TextArea',
           placeholder: 'Type to text area...',
           controller: this.controller
         })
@@ -3516,7 +3634,7 @@ struct Index {
 ```
 
 
-![](assets/TextArea/file-20260525091211939-010.png)
+![](assets/TextArea/file-20260525091211941-017.png)
 
 
 
@@ -3535,7 +3653,7 @@ import { LengthMetrics } from '@kit.ArkUI';
 @Component
 struct TextAreaExample {
   styledString: MutableStyledString =
-    new MutableStyledString("段落标题\n正文第一段\n正文第二段indent 40 vp\n正文第三段textAlign居中对齐",
+    new MutableStyledString('段落标题\n正文第一段\n正文第二段indent 40 vp\n正文第三段textAlign居中对齐',
       [
         {
           start: 0,
@@ -3577,7 +3695,7 @@ struct TextAreaExample {
   build() {
     Scroll() {
       Column() {
-        Text("TextArea placeholder富文本")
+        Text('TextArea placeholder富文本')
           .fontSize(8)
         TextArea({ controller: this.controller })
           .width(200)
@@ -3591,7 +3709,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211939-011.gif)
+![](assets/TextArea/file-20260525091211941-018.png)
 
 
 
@@ -3611,7 +3729,7 @@ struct TextAreaExample {
         .onWillAttachIME((client: IMEClient) => {
           client.setExtraConfig({
             customSettings: {
-              name: "TextArea", // 自定义属性
+              name: 'TextArea', // 自定义属性
               id: client.nodeId // 自定义属性
             }
           })
@@ -3623,35 +3741,57 @@ struct TextAreaExample {
 
 
 
-#### 示例27（设置行首标点压缩）
+#### 示例27（设置行首标点符号压缩和行尾标点符号悬挂）
 
-该示例通过[compressLeadingPunctuation](#compressleadingpunctuation23)接口设置行首标点压缩，左侧有间距的标点符号位于行首时，标点会直接压缩间距至左侧边界。
+本示例通过[compressLeadingPunctuation](#compressleadingpunctuation23)接口设置行首标点符号压缩，通过[punctuationOverflow](#punctuationoverflow)设置行尾标点符号悬挂。
 
-从API version 23开始，支持compressLeadingPunctuation接口。
+左侧有间距的标点符号位于行首时，标点会直接压缩间距至左侧边界。
 
-```ArkTS
-// xxx.ets
+当文本自动换行后，如果剩余内容（含标点符号）能够放入上一行，则标点符号悬挂生效。
+
+从API版本23开始，新增compressLeadingPunctuation接口。
+
+从API版本26.0.0开始，新增punctuationOverflow接口。
+
+```text
 @Entry
 @Component
-struct Index {
+struct PunctuationDemo {
+  @State compressLeadingPunctuation: boolean = false;
+  @State punctuationOverflow: boolean = false;
+  @State text: string = '「0123456789！\n『0123456789：\n（0123456789；\n《0123456789）\n〈0123456789】';
+
   build() {
-    Column(){
-      TextArea({ text: "\u300C行首标点压缩打开" })
-        .compressLeadingPunctuation(true)
-        .margin(5)
-        .fontSize(30)
-        .width("90%")
-      TextArea({ text: "\u300C行首标点压缩关闭" })
-        .compressLeadingPunctuation(false)
-        .fontSize(30)
-        .width("90%")
-    }
+    Column() {
+      TextArea({ text: this.text })
+        .compressLeadingPunctuation(this.compressLeadingPunctuation)
+        .punctuationOverflow(this.punctuationOverflow)
+        .fontSize('20fp')
+        .align(Alignment.Center)
+        .height('35%')
+        .width('50%')
+
+      Column() {
+        Button('开启行首标点符号压缩').onClick(() => {
+          this.compressLeadingPunctuation = true;
+        }).margin(5)
+        Button('关闭行首标点符号压缩').onClick(() => {
+          this.compressLeadingPunctuation = false;
+        }).margin(5)
+        Button('开启行尾标点符号悬挂').onClick(() => {
+          this.punctuationOverflow = true;
+        }).margin(5)
+        Button('关闭行尾标点符号悬挂').onClick(() => {
+          this.punctuationOverflow = false;
+        }).margin(5)
+      }
+    }.width('100%').padding(20)
   }
 }
 ```
 
 
-![](assets/TextArea/file-20260525091211939-012.png)
+![](assets/TextArea/file-20260525091211941-019.png)
 
 
 
@@ -3722,7 +3862,7 @@ struct Index {
 ```
 
 
-![](assets/TextArea/file-20260525091211940-013.png)
+![](assets/TextArea/file-20260525091211941-020.gif)
 
 
 
@@ -3753,7 +3893,7 @@ struct TextAreaTest {
 ```
 
 
-![](assets/TextArea/file-20260525091211941-014.gif)
+![](assets/TextArea/file-20260525091211942-021.png)
 
 
 
@@ -3783,7 +3923,7 @@ struct Page {
 ```
 
 
-![](assets/TextArea/file-20260525091211941-015.png)
+![](assets/TextArea/file-20260525091211942-022.gif)
 
 
 
@@ -3841,7 +3981,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211941-016.png)
+![](assets/TextArea/file-20260525091211942-023.jpg)
 
 
 
@@ -3865,8 +4005,8 @@ struct TextAreaExample {
       TextArea({ text: this.text, controller: this.controller })
         .width(336)
         .height(150)
-      Button("滚动文本到可视区").onClick(() => {
-        this.controller.scrollToVisible({ start: 110, end: 115 })
+      Button('滚动文本到可视区').onClick(() => {
+        this.controller.scrollToVisible({ start: 110, end: 115 });
       })
     }.width('100%').height('100%').backgroundColor('#F1F3F5')
   }
@@ -3880,7 +4020,7 @@ struct TextAreaExample {
 ```
 
 
-![](assets/TextArea/file-20260525091211941-017.png)
+![](assets/TextArea/file-20260525091211942-024.jpg)
 
 
 
@@ -3920,7 +4060,7 @@ Hello World Hello World Hello World Hello World Hello World\n
 ```
 
 
-![](assets/TextArea/file-20260525091211941-018.png)
+![](assets/TextArea/file-20260525091211942-025.gif)
 
 
 
@@ -3963,12 +4103,86 @@ struct TextExample {
 该效果图会因设备尺寸差异有显示区别，仅供参考。
 
 
-![](assets/TextArea/file-20260525091211941-019.png)
+![](assets/TextArea/file-20260525091211942-026.gif)
 
 
 
 
-#### 示例35（设置文本选择的AI菜单）
+#### 示例35（设置文本着色器效果）
+
+该示例通过[shaderStyle](#shaderstyle)接口实现对TextArea组件内文本着色效果。
+
+从API版本26.0.0开始，新增shaderStyle接口。
+
+```text
+@Entry
+@Component
+struct ShaderColorStyle {
+  @State message: string = 'Hello World';
+  @State linearGradientOptions1: LinearGradientOptions =
+    {
+      angle: 45,
+      colors: [[Color.Red, 0.0], [Color.Blue, 0.3], [Color.Green, 0.5]]
+    };
+  @State linearGradientOptions2: LinearGradientOptions =
+    {
+      direction: GradientDirection.LeftTop,
+      colors: [[Color.Red, 0.0], [Color.Blue, 0.3], [Color.Green, 0.5]],
+      repeating: true,
+    };
+  @State radialGradientOptions: RadialGradientOptions =
+    {
+      center: [50, 50],
+      radius: 20,
+      colors: [[Color.Red, 0.0], [Color.Blue, 0.3], [Color.Green, 0.5]],
+      repeating: true,
+    };
+  @State colorShaderStyle: ColorShaderStyle =
+    {
+      color: Color.Blue
+    };
+  build() {
+    Column({ space: 5 }) {
+      Text('angle为45°的线性渐变').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      TextArea({ text: this.message })
+        .fontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.linearGradientOptions1)
+      Text('direction为LeftTop的线性渐变').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      TextArea({ text: this.message })
+        .fontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.linearGradientOptions2)
+      Text('径向渐变').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      TextArea({ text: this.message })
+        .fontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.radialGradientOptions)
+      Text('纯色').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      TextArea({ text: this.message })
+        .fontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.colorShaderStyle)
+    }
+  }
+}
+```
+
+
+![](assets/TextArea/file-20260525091211943-027.png)
+
+
+
+
+#### 示例36（设置文本选择的AI菜单）
 
 该示例通过[enableSelectedDataDetector](#enableselecteddatadetector22)，配置文本选择AI菜单功能。
 
@@ -3977,7 +4191,7 @@ struct TextExample {
 ```text
 @Entry
 @Component
-struct Demo35 {
+struct Demo36 {
   exampleText: string = '示例网址：www.example.com';
 
   build() {
@@ -3996,4 +4210,4 @@ struct Demo35 {
 ```
 
 
-![](assets/TextArea/file-20260525091211941-020.gif)
+![](assets/TextArea/file-20260525091211943-028.gif)

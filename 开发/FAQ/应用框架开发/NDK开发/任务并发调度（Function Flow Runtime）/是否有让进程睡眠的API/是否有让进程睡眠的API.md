@@ -13,7 +13,7 @@ HarmonyOS中是否有让进程睡眠的API？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/PLQD5NteSWujekbW5MzmQg/zh-cn_image_0000002628899080.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012521Z&HW-CC-Expire=86400&HW-CC-Sign=A38E4C7D713BB246AD978223AE80E80B19E443AAF3DC9683F9601F4A2D7CFF0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/PLQD5NteSWujekbW5MzmQg/zh-cn_image_0000002628899080.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072315Z&HW-CC-Expire=86400&HW-CC-Sign=485AB14220056C6BD309F1DE4B9FDF98BCFA5C80D7265C31A3BD2DC2E8553123)
 
  
  

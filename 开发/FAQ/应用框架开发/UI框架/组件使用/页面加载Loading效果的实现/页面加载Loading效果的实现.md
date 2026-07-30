@@ -82,7 +82,7 @@ struct <span style="color: rgb(0,0,255);">LoadingView </span><span style="color:
  代码运行效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/sUiS152zR-qciaaApdArog/zh-cn_image_0000002628398440.png?HW-CC-KV=V1&HW-CC-Date=20260723T012619Z&HW-CC-Expire=86400&HW-CC-Sign=B1D9325138B72AAB2F4E6DE6D63D6CC8C2810613574113CF0DB2770FB3A1CDCA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/sUiS152zR-qciaaApdArog/zh-cn_image_0000002628398440.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=E9C3C1B9ABBF0278D4DA882808D62A51002DB278BA58CBEF00A1DA5E882C9E34)
 
 1. 自定义LoadingView，供全局调用。
 自定义LoadingView.ets。
@@ -416,4 +416,4 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
  代码运行效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/4RwYKHaHT3SdY3ptX_k2tg/zh-cn_image_0000002658797721.png?HW-CC-KV=V1&HW-CC-Date=20260723T012619Z&HW-CC-Expire=86400&HW-CC-Sign=6BF142E9F55FF24BBCB26259E97D2A86F4433985A0671E65657C01505F2F2CA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/4RwYKHaHT3SdY3ptX_k2tg/zh-cn_image_0000002658797721.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=2520A788EA7DA6A763CBE2BDD2AA400AACFCF4FA904DA9DD258B9078285ED3AF)

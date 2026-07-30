@@ -117,7 +117,7 @@ export struct PageB {
  查看日志，只触发了PageB页面的onRenderExited回调。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/5C8J8-U6TmeZIYaxuvSM_A/zh-cn_image_0000002628899174.png?HW-CC-KV=V1&HW-CC-Date=20260723T013354Z&HW-CC-Expire=86400&HW-CC-Sign=B367BD418E6AD5BCBEAF59F9BB2F8CD4067ECDF54F8CB4A574A434B07119E4AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/5C8J8-U6TmeZIYaxuvSM_A/zh-cn_image_0000002628899174.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=7FB7DBE9F822A8F1FFC06A792B8CCFE0D9A9E83B550E02D4AD85F17012F04C9F)
 
 
   需要注意的是，setRenderProcessMode是静态方法，设置后对整个应用都生效，无需对每个Web页面重复设置。

@@ -1,6 +1,6 @@
 # Code Scanner代码检查
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-scanner
 
@@ -12,13 +12,13 @@
 
   点击扫描规则名称可在右侧查看规则功能描述和**Code Example**（包括正例和反例），可根据其中的建议修改工程代码，在**Severity**处可设置规则的告警级别（error，warn，fatal），默认为**error**。
 
-  勾选和设置完成后，点击**OK**保存规则配置**，****Save and Run**保存规则配置并开始代码扫描。
+  勾选和设置完成后，点击**OK**保存规则配置，或点击**Save and Run**保存规则配置并开始代码扫描。
 > [!NOTE]
 > 对于ArkTS工程，需勾选ARKTS下的扫描规则；对于C++工程，需勾选CPP下的扫描规则。
 
 
   
-![](assets/Code%20Scanner代码检查/file-20260708103431a23ff0ff.png)
+![](assets/Code%20Scanner代码检查/file-20260708103432dfb22bc8.png)
 
 2. 在菜单栏点击**Code > Code Scanner >** **Scan**，开始全量代码扫描。
 3. 扫描完成后，在底部工具面板查看检查结果。
@@ -26,4 +26,4 @@
   Severity统计了所有告警数量，点击**All**、**Fatal**、**Error**、**Warn**可分别查看对应告警级别的具体信息。点击**Filter by scene**下拉菜单，可以筛选不同规则的检查结果。单击告警文件可以查看告警信息和对应配置的规则。双击某条告警结果，可以跳转到对应代码缺陷位置；选中告警结果时，可以在右侧Execution Trace窗口查看告警原因和问题的来源到问题的发生点的可能的执行流。
 
   
-![](assets/Code%20Scanner代码检查/file-20260708103432dfb22bc8.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/_7DzEusSQgy5wWQAqXI3gw/zh-cn_image_0000002647916636.png?HW-CC-KV=V1&HW-CC-Date=20260730T072033Z&HW-CC-Expire=86400&HW-CC-Sign=49CE253A56C469DA92F975F6A49857BCCD80F760A18B2F53373746E00F31B09F)

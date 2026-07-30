@@ -1,6 +1,6 @@
 # oh_key_code.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-key-code-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -237,7 +237,7 @@ enum Input_KeyCode
 | KEYCODE_STOP = 2616 | 停止键 起始版本： 22 |
 | KEYCODE_AGAIN = 2617 | 重复键 起始版本： 22 |
 | KEYCODE_PROPS = 2618 | 道具键 起始版本： 22 |
-| KEYCODE_UNDO = 2619 | 撤消键 起始版本： 22 |
+| KEYCODE_UNDO = 2619 | 撤销键 起始版本： 22 |
 | KEYCODE_COPY = 2620 | 复制键 起始版本： 22 |
 | KEYCODE_OPEN = 2621 | 打开键 起始版本： 22 |
 | KEYCODE_PASTE = 2622 | 粘贴键 起始版本： 22 |

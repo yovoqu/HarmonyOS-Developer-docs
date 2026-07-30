@@ -1,6 +1,6 @@
 # 人脸活体检测结果mPixelMap的获取
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-15
 
@@ -40,7 +40,7 @@ interactiveLiveness.startLivenessDetection(routerOptions,
 
 #### 背景知识
 
-人脸活体检测API中[InteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section173751154134515)为返回人脸活体检测结果的相关参数，其中包含mPixelMap对象，该对象表示检测成功后返回最具有活体特征的图片，类型为[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。
+人脸活体检测API中[InteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#interactivelivenessresult)为返回人脸活体检测结果的相关参数，其中包含mPixelMap对象，该对象表示检测成功后返回最具有活体特征的图片，类型为[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。
  
  
 
@@ -70,6 +70,6 @@ A：出现偏蓝的情况可能是因为光线、相机曝光等原因导致的�
  1. 调整光线：将环境光线调整到适宜的亮度，避免过暗或过亮的情况。
 2. 调整相机曝光：可以尝试调整相机曝光参数，使得拍摄的图片更加清晰明亮。
  
-Q：[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section19136935154313)和[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)都可以获取检测结果，一个是Promise回调一个是使用callback回调获取检测结果，有什么区别？
+Q：[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#getinteractivelivenessresult)和[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)都可以获取检测结果，一个是Promise回调一个是使用callback回调获取检测结果，有什么区别？
  
-A：[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)的callback回调函数当前只适用于RouteRedirectionMode.BACK_MODE跳转模式。如果是RouteRedirectionMode.REPLACE_MODE模式需要使用[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section19136935154313)，参考人脸活体检测[开发实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-interactiveliveness#section22701210512)。
+A：[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)的callback回调函数当前只适用于RouteRedirectionMode.BACK_MODE跳转模式。如果是RouteRedirectionMode.REPLACE_MODE模式需要使用[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#getinteractivelivenessresult)，参考人脸活体检测[开发实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-interactiveliveness#开发实例)。

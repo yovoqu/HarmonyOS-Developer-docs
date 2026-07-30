@@ -1,6 +1,6 @@
 # xeg_extension_defs.h
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-extension-defs-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -41,6 +41,7 @@
 | XEG_neural_upscale 1 | XEngine空域AI超分扩展特性宏定义。 |
 | XEG_NEURAL_UPSCALE_VERSION 1 | XEngine空域AI超分扩展特性版本号。 |
 | XEG_NEURAL_UPSCALE_EXTENSION_NAME "XEG_neural_upscale" | XEngine空域AI超分扩展特性名称。 |
+| XEG_NEURAL_UPSCALE2_EXTENSION_NAME "XEG_neural_upscale2" | XEngine空域AI超分（版本2）扩展特性名称。 |
 | XEG_temporal_upscale 1 | XEngine时域AI超分扩展特性宏定义。 |
 | XEG_TEMPORAL_UPSCALE_VERSION 1 | XEngine时域AI超分扩展特性版本号。 |
 | XEG_TEMPORAL_UPSCALE_EXTENSION_NAME "XEG_temporal_upscale" | XEngine时域AI超分扩展特性名称。 |

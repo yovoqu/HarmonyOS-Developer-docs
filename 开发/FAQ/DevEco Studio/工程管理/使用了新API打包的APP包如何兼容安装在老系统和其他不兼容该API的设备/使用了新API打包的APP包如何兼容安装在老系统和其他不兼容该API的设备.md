@@ -1,6 +1,6 @@
 # 使用了新API打包的APP包如何兼容安装在老系统和其他不兼容该API的设备
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-37
 
@@ -28,7 +28,7 @@ SysCap，全称SystemCapability，即系统能力，指操作系统中每一个�
 
 #### 解决方案
 1. 配置build-profile.json5设置[应用开发过程使用的SDK版本](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-influence-factor#section99881928838)：假如应用使用并适配了API版本6.0.0(20)，同时希望应用能够运行5.0.5(17)，那么可以在应用工程的build-profile.json5文件中设置“targetSdkVersion": "6.0.0(20)”，“compatibleSdkVersion": "5.0.5(17)”。
-2. [通过distributionOSApiVersion和sdkApiVersion接口消除](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/arkts-api-compatibility-warning-elim#section9264409142)：假如某个新特性的API是在SDK版本6.0.0(20)提供，为了让应用兼容在基于API版本5.0.5(17)的老设备正常运行，开发者可以使用如下兼容性判断。
+2. [通过distributionOSApiVersion和sdkApiVersion接口消除](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/arkts-api-compatibility-warning-elim)：假如某个新特性的API是在SDK版本6.0.0(20)提供，为了让应用兼容在基于API版本5.0.5(17)的老设备正常运行，开发者可以使用如下兼容性判断。
 
   
 针对HarmonyOS设备独有特性接口，即接口标记为since M.F.S(N)（文档中标记“起始版本：M.F.S(N)”, SDK物理包中hms路径下所包含的接口），使用distributionOSApiVersion接口进行兼容性判断保护。例如判断“deviceInfo.distributionOSApiVersion >= 60000”时，调用6.0.0(20)的API新接口，否则使用降级方案，其中“60000”是由新接口的since字段“M*10000+F*100+S”转换而来，即60000=6*10000+0*100+0。

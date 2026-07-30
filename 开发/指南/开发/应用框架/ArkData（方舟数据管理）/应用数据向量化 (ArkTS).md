@@ -1,6 +1,6 @@
 # 应用数据向量化 (ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aip-data-intelligence-embedding
 
@@ -95,22 +95,23 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 ```ArkTS
-let textConfig:intelligence.ModelConfig = {
-  version:intelligence.ModelVersion.BASIC_MODEL,
-  isNpuAvailable:false,
-  cachePath:"/data"
+let textConfig: intelligence.ModelConfig = {
+  version: intelligence.ModelVersion.BASIC_MODEL,
+  isNpuAvailable: false,
+  cachePath: "/data"
 }
-let textEmbedding:intelligence.TextEmbedding;
+let textEmbedding: intelligence.TextEmbedding;
+let modelInfo:  intelligence.CloudModelInfo;
 ```
 
 ```ArkTS
 intelligence.getTextEmbeddingModel(textConfig)
-  .then((data:intelligence.TextEmbedding) => {
+  .then((data: intelligence.TextEmbedding) => {
     console.info('Succeeded in getting TextModel');
     textEmbedding = data;
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to get TextModel and code is ' + err.code);
     // ...
   })
@@ -127,7 +128,7 @@ textEmbedding.loadModel()
     console.info('Succeeded in loading Model');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to load Model and code is ' + err.code);
     // ...
   })
@@ -140,17 +141,17 @@ textEmbedding.loadModel()
   
 ```ArkTS
 let splitConfig:intelligence.SplitConfig = {
-  size:10,
-  overlapRatio:0.1
+  size: 10,
+  overlapRatio: 0.1
 }
 let splitText = 'text';
 
 intelligence.splitText(splitText, splitConfig)
-  .then((data:Array<string>) => {
+  .then((data: Array<string>) => {
     console.info('Succeeded in splitting Text');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to split Text and code is ' + err.code);
     // ...
   })
@@ -164,22 +165,22 @@ intelligence.splitText(splitText, splitConfig)
 ```ArkTS
 let text = 'text';
 textEmbedding.getEmbedding(text)
-  .then((data:Array<number>) => {
+  .then((data: Array<number>) => {
     console.info('Succeeded in getting Embedding');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to get Embedding and code is ' + err.code);
     // ...
   })
 
 let batchTexts = ['text1','text2'];
 textEmbedding.getEmbedding(batchTexts)
-  .then((data:Array<Array<number>>) => {
+  .then((data: Array<Array<number>>) => {
     console.info('Succeeded in getting Embedding');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to get Embedding and code is ' + err.code);
     // ...
   })
@@ -196,7 +197,7 @@ textEmbedding.releaseModel()
     console.info('Succeeded in releasing Model');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to release Model and code is ' + err.code);
     // ...
   })
@@ -220,22 +221,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 ```ArkTS
-let imageConfig:intelligence.ModelConfig = {
-  version:intelligence.ModelVersion.BASIC_MODEL,
-  isNpuAvailable:false,
-  cachePath:"/data"
+let imageConfig: intelligence.ModelConfig = {
+  version: intelligence.ModelVersion.BASIC_MODEL,
+  isNpuAvailable: false,
+  cachePath: "/data"
 }
-let imageEmbedding:intelligence.ImageEmbedding;
+let imageEmbedding: intelligence.ImageEmbedding;
 ```
 
 ```ArkTS
 intelligence.getImageEmbeddingModel(imageConfig)
-  .then((data:intelligence.ImageEmbedding) => {
+  .then((data: intelligence.ImageEmbedding) => {
     console.info('Succeeded in getting ImageModel');
     imageEmbedding = data;
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to get ImageModel and code is ' + err.code);
     // ...
   })
@@ -252,7 +253,7 @@ imageEmbedding.loadModel()
     console.info('Succeeded in loading Model');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to load Model and code is ' + err.code);
     // ...
   })
@@ -266,11 +267,11 @@ imageEmbedding.loadModel()
 ```ArkTS
 let image = 'file://<packageName>/data/storage/el2/base/haps/entry/files/xxx.jpg';
 imageEmbedding.getEmbedding(image)
-  .then((data:Array<number>) => {
+  .then((data: Array<number>) => {
     console.info('Succeeded in getting Embedding');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to get Embedding and code is ' + err.code);
     // ...
   })
@@ -287,7 +288,7 @@ imageEmbedding.releaseModel()
     console.info('Succeeded in releasing Model');
     // ...
   })
-  .catch((err:BusinessError) => {
+  .catch((err: BusinessError) => {
     console.error('Failed to release Model and code is ' + err.code);
     // ...
   })

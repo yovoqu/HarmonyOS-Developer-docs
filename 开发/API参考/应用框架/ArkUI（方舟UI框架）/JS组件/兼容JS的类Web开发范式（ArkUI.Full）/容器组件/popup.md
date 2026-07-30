@@ -1,6 +1,6 @@
 # popup
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-popup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -142,7 +142,7 @@ export default {
   visibilitychange(e) {
     promptAction.showToast({
       message: 'visibility change visibility: ' + e.visibility,
-        duration: 3000
+      duration: 3000
     });
   },
   showpopup() {
@@ -155,4 +155,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/tQ9AS2lDTc-eMlZW-efJxg/zh-cn_image_0000002628703060.png?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=E206C957EFE619AB4626113E03AF90F01477358D718CCF9B5A647E49FBC49425)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/WZYRh09PRdSUnVFkLcJUjA/zh-cn_image_0000002656009012.png?HW-CC-KV=V1&HW-CC-Date=20260730T071523Z&HW-CC-Expire=86400&HW-CC-Sign=4D656601630D9BC59E6312583AD641E7FA88917B5F51C97A202C3B9477C36FFA)

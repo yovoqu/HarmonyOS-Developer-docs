@@ -1,6 +1,6 @@
 # 在NDK工程中使用预构建库
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-prebuilts
 
@@ -17,7 +17,7 @@
 
 #### 直接引入预构建库
 
-可以通过直接将预构建的库文件复制到项目文件中, 来使用预构建库。例如在项目中需要使用预构建库libavcodec_ffmpeg.so，其开发态存放路径如下图所示：
+可以通过直接将预构建的库文件复制到项目文件中，来使用预构建库。例如在项目中需要使用预构建库libavcodec_ffmpeg.so，其开发态存放路径如下图所示：
  
 
 ![](assets/在NDK工程中使用预构建库/file-20260514132700047-0.png)

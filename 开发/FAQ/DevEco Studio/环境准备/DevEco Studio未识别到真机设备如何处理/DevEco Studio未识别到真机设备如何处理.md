@@ -18,13 +18,13 @@
  1. 使用USB方式，将Phone或Tablet与PC进行连接。
 2. 在设置>系统>开发者选项中，打开“USB调试”开关（确保设备已连接USB）。
 3. 在Phone或Tablet中会弹出“允许USB调试”的弹框如下图，单击允许。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/_SFdtMcpTNmQPwrcEKwG2w/zh-cn_image_0000002628564958.png?HW-CC-KV=V1&HW-CC-Date=20260723T013902Z&HW-CC-Expire=86400&HW-CC-Sign=733335BC3BBEE8DB04053EEAEC060B9D6E7E6E105E379A30A461CE8688E781BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/_SFdtMcpTNmQPwrcEKwG2w/zh-cn_image_0000002628564958.png?HW-CC-KV=V1&HW-CC-Date=20260730T072708Z&HW-CC-Expire=86400&HW-CC-Sign=F17127C6A493D50E27330D7FDB01FE06217DD4C92F570D5925EBF9A94BE76400)
 
  
 **二、使用无线调试连接方式**：
  1. 将Phone/Tablet和PC连接到同一WLAN网络。
 2. 在设置>系统>开发者选项中，打开“无线调试”开关，并获取Phone/Tablet端的IP地址和端口号。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/JM8hoVC2SA2qqBqPdh4rbA/zh-cn_image_0000002628405052.png?HW-CC-KV=V1&HW-CC-Date=20260723T013902Z&HW-CC-Expire=86400&HW-CC-Sign=1559A93D325F8A9ADBAA5EE383C447AE9BE7094883C81FFBA609D31694AEBD62)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/JM8hoVC2SA2qqBqPdh4rbA/zh-cn_image_0000002628405052.png?HW-CC-KV=V1&HW-CC-Date=20260730T072708Z&HW-CC-Expire=86400&HW-CC-Sign=066808B4A541039960DEC88AA2B60916990FB84EDE7074B92D8066B75F7AC675)
 
 3. 在PC中执行hdc tconn设备IP地址:端口号命令连接设备。
  

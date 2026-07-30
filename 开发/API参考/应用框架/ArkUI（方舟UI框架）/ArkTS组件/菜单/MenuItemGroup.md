@@ -1,11 +1,11 @@
 # MenuItemGroup
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menuitemgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该组件用来展示菜单MenuItem的分组。
+该组件用于展示MenuItem的分组，支持设置分组的标题和尾部信息，用于组织和管理菜单项的分类结构。适用于需要在菜单中按类别组织多个菜单项的场景，通过分组清晰地展示菜单的层次结构，提升菜单的可读性和用户体验。
  
 > [!NOTE]
 > 该组件从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
@@ -34,7 +34,7 @@ MenuItemGroup(value?: MenuItemGroupOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | MenuItemGroupOptions | 否 | 包含设置MenuItemGroup的标题和尾部显示信息。 未设置时，不显示标题和尾部信息。 |
+| value | MenuItemGroupOptions | 否 | 设置MenuItemGroup的标题和尾部信息。 未设置时，不显示标题和尾部信息。 |
  
  
   
@@ -43,7 +43,7 @@ MenuItemGroup(value?: MenuItemGroupOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-菜单MenuItem分组的标题和尾部信息。
+MenuItem分组的标题和尾部信息。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -51,8 +51,8 @@ MenuItemGroup(value?: MenuItemGroupOptions)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| header | ResourceStr \| CustomBuilder | 否 | 是 | 设置对应group的标题显示信息。 未设置时，不显示标题信息。 |
-| footer | ResourceStr \| CustomBuilder | 否 | 是 | 设置对应group的尾部显示信息。 未设置时，不显示尾部信息。 |
+| header | ResourceStr \| CustomBuilder | 否 | 是 | 设置分组的标题，显示在分组中所有菜单项的顶部。 未设置时，不显示标题。 |
+| footer | ResourceStr \| CustomBuilder | 否 | 是 | 设置分组的菜单页脚，显示在分组中所有菜单项的底部。 未设置时，不显示菜单页脚。 |
  
  
   

@@ -1,6 +1,6 @@
-# HiDebug接口使用示例(ArkTS)
+# HiDebug接口使用示例（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidebug-guidelines-arkts
 

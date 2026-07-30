@@ -1,11 +1,11 @@
 # @ohos.multimedia.systemSoundManager (系统声音管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-systemsoundmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-系统声音管理提供管理系统声音的基础能力，包括对系统音效类型的定义、获取系统音效播放器等。
+系统声音管理提供管理系统声音的基础能力，包括对系统音效类型的定义、创建系统音效播放器等。
  
 > [!NOTE]
 > 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。

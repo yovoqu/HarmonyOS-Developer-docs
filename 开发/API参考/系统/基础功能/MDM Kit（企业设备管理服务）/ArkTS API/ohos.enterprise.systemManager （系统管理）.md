@@ -1,6 +1,6 @@
-# @ohos.enterprise.systemManager （系统管理）
+# @ohos.enterprise.systemManager（系统管理）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -43,7 +43,7 @@ setNTPServer(admin: Want, server: string): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| server | string | 是 | NTP服务器地址（以","分隔，如"ntpserver1.com,ntpserver2.com"。最大长度96字节，包括结束符）。 |
+| server | string | 是 | NTP服务器地址（以","分隔，如"ntpserver1.com,ntpserver2.com"。最大长度96字节，包括null终止符（\0））。 |
 
 
 **错误码**：
@@ -560,6 +560,142 @@ systemManager.getUpdateAuthData(wantTemp).then((result: string) => {
 
 
 
+#### systemManager.setOtaUpdateNonceEnable
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setOtaUpdateNonceEnable(admin: Want, isEnable: boolean): void
+
+设置OTA更新时Nonce的启用状态（默认为启用状态）。启用后，系统将在OTA更新过程中校验Nonce的有效性，从而防止重放攻击，提升系统安全性。
+
+> [!NOTE]
+> 为保障系统安全，若非内网升级等特殊业务需求，不建议禁用Nonce校验。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**设备行为差异：** 该接口在PC/2in1企业设备中可正常调用，在其他设备中返回801错误码。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| isEnable | boolean | 是 | true表示启用OTA更新Nonce，false表示禁用OTA更新Nonce。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200016 | Service timeout. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { systemManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let isEnable: boolean = true;
+try {
+  systemManager.setOtaUpdateNonceEnable(wantTemp, isEnable);
+  console.info('Succeeded in setting OTA update Nonce enable.');
+} catch (err) {
+  console.error(`Failed to set OTA update Nonce enable. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### systemManager.isOtaUpdateNonceEnable
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+isOtaUpdateNonceEnable(admin: Want): boolean
+
+查询OTA更新Nonce是否启用。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**设备行为差异：** 该接口在PC/2in1企业设备中可正常调用，在其他设备中返回801错误码。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 返回true表示OTA更新Nonce已启用，返回false表示OTA更新Nonce已禁用。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200016 | Service timeout. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { systemManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+try {
+  let result: boolean = systemManager.isOtaUpdateNonceEnable(wantTemp);
+  console.info(`Succeeded in querying OTA update Nonce enable: ${result}`);
+} catch (err) {
+  console.error(`Failed to query OTA update Nonce enable. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
 #### systemManager.addDisallowedNearLinkProtocols20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -846,7 +982,7 @@ getInstallLocalEnterpriseAppEnabled(admin: Want | null): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 API version 24之前，调用本接口查询系统当前是否支持本地安装企业应用。当设备有多个MDM应用时，传入admin查询对应admin设置的策略。从API version 24开始，admin新增支持传入null，传入null时查询整机实际生效的策略。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 API version 24之前，调用本接口查询系统当前是否支持本地安装企业应用。当设备存在多个MDM应用时，传入admin查询对应admin设置的策略。从API version 24开始，admin新增支持传入null，传入null时查询整机实际生效的策略。 |
 
 
 **返回值：**
@@ -953,7 +1089,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getAutoUnlockAfterReboot(admin: Want): boolean
+getAutoUnlockAfterReboot(admin: Want | null): boolean
 
 获取设备是否重启自动解锁。
 
@@ -969,7 +1105,7 @@ getAutoUnlockAfterReboot(admin: Want): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
 
 
 **返回值：**
@@ -1150,7 +1286,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getKeyEventPolicies(admin: Want): Array&lt;KeyEventPolicy&gt;
+getKeyEventPolicies(admin: Want | null): Array&lt;KeyEventPolicy&gt;
 
 获取按键事件处理策略。
 
@@ -1166,7 +1302,7 @@ getKeyEventPolicies(admin: Want): Array&lt;KeyEventPolicy&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
 
 
 **返回值：**
@@ -1266,6 +1402,7 @@ startCollectLog(admin: Want): Promise&lt;void&gt;
 
 ```text
 import { Want } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 import { systemManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
@@ -1398,6 +1535,7 @@ setActivationLockDisabled(admin: Want, isDisabled: boolean, credential?: string)
 
 ```text
 import { Want } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 import { systemManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
@@ -1464,6 +1602,7 @@ isActivationLockDisabled(admin: Want): Promise&lt;boolean&gt;
 
 ```json
 import { Want } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 import { systemManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
@@ -1571,7 +1710,7 @@ getInstallLocalEnterpriseAppEnabledForAccount(admin: Want | null, accountId: num
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备有多个MDM应用时，传入admin查询对应admin设置的策略。传入null时查询整机实际生效的策略。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，传入admin查询对应admin设置的策略。传入null时查询整机实际生效的策略。 |
 | accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过getOsAccountLocalId等接口来获取。 |
 
 

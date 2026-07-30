@@ -1,6 +1,6 @@
 # hidumper
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper
 
@@ -47,7 +47,7 @@ HiDumper命令行工具使用常见问题汇总在[常见问题](#常见问题)�
 | --ipc [pid]/-a --start-stat/stat/--stop-stat | 统计一段时间进程IPC信息。如果使用-a，则统计所有进程IPC数据。使用--start-stat开始统计，使用--stat获取统计数据，使用--stop-stat结束统计。 |
 | --mem-smaps pid [-v] | 获取pid内存统计信息，数据来源于/proc/pid/smaps，使用-v指定更多详细信息。（仅支持导出debug版本应用） 说明：从API version 20开始，支持该参数。 |
 | --mem-jsheap pid [-T tid] [--gc] [--leakobj] [--raw] [--clean] [--single] | 必选参数pid。触发ArkTS应用JS线程的gc和堆内存快照导出。文件命名格式为：hidumper-jsheap-进程号-JS线程号-时间戳，文件内容为JSON结构的JS堆快照。 指定线程tid时，仅触发该线程的gc和堆内存快照导出。 指定--gc时，仅触发gc，不导出快照。 指定--leakobj时，应用开启泄漏检测可获取泄漏对象列表。 指定--raw时，堆快照以rawheap格式导出。 指定--clean时，快照导出后触发清理nodeId节点信息。 指定--single时，按进程导出一份快照，只支持rawheap格式，需配合--raw命令使用。 导出快照时，应用应处于亮屏场景。 说明： 从API version 19开始，支持--raw参数。 从API version 24开始，支持--clean参数。 从API版本26.0.0开始，支持--single参数。 从API版本26.0.0开始，release版本应用支持此命令，但需同时满足profileable标签、enterprise类型的appDistributionType且开发者模式打开。 |
-| --mem-heap pid ARG [-T tid] [--raw] | 导出指定类型的内存快照信息。ARG用于指定快照类型，支持--jsvm、--kotlin、--arkweb-js等类型。 指定线程tid时，仅触发该线程的虚拟机快照导出，仅配合--jsvm参数使用。 指定--raw时，虚拟机快照以rawheap格式导出，仅配合--jsvm、--arkweb-js参数使用。 指定--gc时，触发指定应用的render进程GC，仅配合--arkweb-js参数使用。 说明：从API版本26.0.0开始，支持-T tid、--raw参数。 |
+| --mem-heap pid ARG [--leakobj] [-T tid] [--raw] | 导出指定类型的内存快照信息。ARG用于指定快照类型，支持--native、--jsvm、--kotlin、--arkweb-js等类型。 指定--leakobj时，只触发打印可疑内存泄漏点不做快照导出，仅配合--native参数使用。 指定线程tid时，仅触发该线程的虚拟机快照导出，仅配合--jsvm参数使用。 指定--raw时，虚拟机快照以rawheap格式导出，仅配合--jsvm、--arkweb-js参数使用。 指定--gc时，触发指定应用的render进程GC，仅配合--arkweb-js参数使用。 说明：从API版本26.0.0开始，支持--leakobj、-T tid、--raw参数。 |
 
 
 
@@ -382,13 +382,13 @@ hdc shell "bm dump -n com.example.myapplication | grep appProvisionType"
 
 #### 查询虚拟机堆内存
 
-使用hidumper --mem-jsheap pid [-T tid] [--gc] [--leakobj] [--raw] [--clean] [--single]命令可以查看ArkTS应用虚拟机堆内存，使用hidumper --mem-heap pid ARG 命令可以查看指定虚拟机堆内存，ARG用于指定快照类型。生成的堆内存文件存放于/data/log/reliability/resource_leak/memory_leak目录。
+使用hidumper --mem-jsheap pid [-T tid] [--gc] [--leakobj] [--raw] [--clean] [--single]命令可以查看ArkTS应用虚拟机堆内存，使用hidumper --mem-heap pid ARG [--leakobj]命令可以查看指定虚拟机堆内存，ARG用于指定快照类型。生成的堆内存文件存放于/data/log/reliability/resource_leak/memory_leak目录。
 
 
 ![](assets/hidumper/file-20260514131430486-1.png)
 
 
-hidumper --mem-jsheap pid [-T tid] [--gc] [--leakobj] [--raw] [--clean] [--single]，hidumper --mem-heap pid ARG 命令调试的进程应为“使用调试证书签名的应用”，同[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)。
+hidumper --mem-jsheap pid [-T tid] [--gc] [--leakobj] [--raw] [--clean] [--single]，hidumper --mem-heap pid ARG [--leakobj]命令调试的进程应为“使用调试证书签名的应用”，同[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)。
 
 确认命令指定的应用是否为可调试应用：参考上述hidumper --mem-smaps [pid] [-v]命令中的注意事项。
 
@@ -479,6 +479,93 @@ $ hidumper --mem-jsheap 64949 --clean  -> 64949 为目标应用进程号
 ```bash
 $ hidumper --mem-jsheap 64949 --raw --single  -> 64949 为目标应用进程号
 ```
+
+ - 可使用hidumper --mem-heap pid --native --leakobj打印指定进程的native堆内存可疑泄漏点，该命令不会生成任何文件。
+
+  使用样例：
+
+  
+```bash
+$ hidumper --mem-heap 65097 --native --leakobj  -> 65097 为目标应用进程号
+192 bytes leak directly at 0x59d4852740
+  first 32 memory:
+    0x59d4852740: 00 7f 80 d4 59 00 00 00 88 39 2f d4 59 00 00 00 ....Y....9/.Y...
+    0x59d4852750: 01 00 00 00 00 00 00 00 00 00 00 00 84 00 00 00 ................
+  last 32 memory:
+    0x59d48527e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+    0x59d48527f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+8 bytes leak directly at 0x59d4809b40
+  referencing 8 bytes leak in 1 allocations
+  memory:
+    0x59d4809b40: 48 9b 80 d4 59 00 00 00                         H...Y...
+8 bytes leak indirectly at 0x59d4809b48
+  referencing 8 bytes leak in 1 allocations
+  memory:
+    0x59d4809b48: 50 9b 80 d4 59 00 00 00                         P...Y...
+8 bytes leak indirectly at 0x59d4809b40
+  memory:
+    0x59d4809b50: 00 00 00 00 00 00 00 00                         ........
+```
+解析说明：
+
+  192 bytes leak directly at 0x59d4852740，表示从0x59d4852740开始直接泄漏了192字节，当泄漏字节数大于64时，只会打印前32个字节和最后32个字节的内容。
+
+  
+```bash
+8 bytes leak directly at 0x59d4809b40
+    referencing 8 bytes leak in 1 allocations
+    memory:
+      0x59d4809b40: 48 9b 80 d4 59 00 00 00                         H...Y...
+```
+表示从0x59d4809b40开始直接泄漏了8字节的内容，当泄漏字节数小于64时，会直接全部打印出来。
+
+  referencing 表示该地址引用了其他地址，打印内容会指向引用的地址，从后往前看，指向的地址为0x59d4809b48。因此，被指向的0x59d4809b48及下一步指向的0x59d4809b40为 indirectly 间接泄漏。
+
+  打印出来的顺序遵循以下规则：
+
+1. 直接泄漏的在前，directly的在前，indirectly在后面；
+
+2. 容量大的在前，192 bytes的在前面，8 bytes的在后面；
+
+3. 引用内存块大的在前，referencing 8 bytes的在前面，没有引用或者引用比8 bytes小的在后面；
+
+4. 地址小的在前。
+ - 可使用hidumper --mem-heap pid --native命令导出指定进程的native堆内存快照文件，文件命名为：hidumper-nativeheap-进程号-时间戳
+
+  使用样例：
+
+
+```bash
+$ hidumper --mem-heap 65097 --native  -> 65097 为目标应用进程号
+    $ ls | grep nativeheap -> 进入堆内存文件存放目录后执行
+    hidumper-nativeheap-65097-1775640819058
+```
+
+解析说明：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/dNHDcFaKRO2ngBldikAErA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=EE772951E54A658DF7004FBB01BD097362294EEB461D440DD59C5B2D0ECA5339)
+
+
+该文件内容格式为二进制，需要使用十六进制编辑器查看。
+
+
+
+```text
+4E 53 4E 41 50 31 2E 30 64 00 00 00 00 00 00 00
+20 C0 E0 8F 5A 00 00 00 20 00 00 00 00 00 00 00
+C0 B7 E0 8F 5A 00 00 00 40 00 00 00 00 00 00 00
+60 80 E0 8F 5A 00 00 00 30 00 00 00 00 00 00 00
+...
+```
+
+第一行的前8个字节4E 53 4E 41 50 31 2E 30，转成字符形式即为“NSNAP1.0”，代表了本文件的版本号，该字段固定不变。
+
+第一行的后8个字节64 00 00 00 00 00 00 00，代表了泄漏点的数量，即0x0000000000000064，转成10进制为100，本次检测到了100个泄漏点，该值会随着上报的节点数量进行变化。
+
+根据检测到的泄漏点数量，第二行开始会展示相对应数量的信息，每16字节为一组。
+
+以第二行为例，前8字节代表地址：0x0000005A8FE0C020，后8字节代表大小：0x0000000000000020，即32个字节。
 
  - 可使用hidumper --mem-heap pid --jsvm命令导出指定进程的jsvm堆内存快照文件，文件命名为：hidumper-jsvmheap-进程号-JS线程号-时间戳，如果有多个JS线程,会生成多个文件。
 
@@ -804,7 +891,7 @@ GL_SHADING_LANGUAGE_VERSION: OpenGL ES GLSL ES 3.20
 可使用hidumper -p [pid]命令获取指定进程的相关信息，包括进程的挂载信息，进程的线程信息，线程的运行时间，进程等待通道信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/aYtHc_F7TWiKxfN_7DLT8w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020901Z&HW-CC-Expire=86400&HW-CC-Sign=01F5416B3D2C4134E37C546088B36F6A633A5143E9B2B03BB9ADAF3FF4B543D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/vSluqBnvSv-zckeK3QyuTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=ED4EE100738E39D702C9D20220820C3EA11BEC480EFD35A187C791220FA09081)
 
 
 hidumper -p [pid]命令调试的进程应为“使用调试证书签名的应用”。
@@ -848,7 +935,7 @@ root             2     4     0  127 10:46:59 ?     00:00:00 [call_ebr]
 从API版本26.0.0开始，可使用-p pid --fd/--thread [-v]命令 获取指定进程的文件句柄或线程的摘要信息，其中-v选项为获取指定进程的文件句柄或线程的详细信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/WzdRa5h2TziL1yg5OWLzTw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020901Z&HW-CC-Expire=86400&HW-CC-Sign=0DB2AA92AE3CCC46A19DB19A48A2A1E3B9588C76C2B39E65C37F6A9EC1C0A685)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/jrZE4Hd2SNaeak8G0th15w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=696EE2830E213A67F284F68CA766AF3F17F0AF2619F7C86F94B90831A068FBFC)
 
 
 可使用-p pid --fd/--thread [-v]命令调试的进程应为“使用调试证书签名的应用”。

@@ -1,6 +1,6 @@
 # Media Kit简介
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro
 
@@ -264,7 +264,7 @@ AVScreenCapture主要工作是捕获音频信号、视频信号，并通过音�
 当使用AVScreenCapture开发应用录制屏幕时，AVScreenCapture与外部模块的交互关系如图所示。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/_2Ap_bMLTaW5ZmvRb1MWqQ/zh-cn_image_0000002611754625.png?HW-CC-KV=V1&HW-CC-Date=20260528T030353Z&HW-CC-Expire=86400&HW-CC-Sign=3177AA6B7E1B023E6D7AFC005E4044F57A04681A632D2776E61E78AFC482BA44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/0ml9PF6bRdG5vK3ud3NAtQ/zh-cn_image_0000002656007230.png?HW-CC-KV=V1&HW-CC-Date=20260730T071943Z&HW-CC-Expire=86400&HW-CC-Sign=38B57E8C38E6DAD15ADB2E56797EF5448F5CCF38E897A4C5FFB5C419DDCEF381)
 
 
  - 音频录制：应用通过调用JS/Native接口层提供的AVScreenCapture接口实现音频录制时，框架层会通过录屏框架，调用音频服务（Audio Framework）通过音频捕获音频数据，通过软件编码封装后保存至文件中，实现音频录制功能。
@@ -280,7 +280,7 @@ AVScreenCapture主要工作是捕获音频信号、视频信号，并通过音�
 | 音频源类型 | 说明 |
 | --- | --- |
 | MIC | 系统麦克风作为音频源输入。 |
-| ALL_PLAYBACK | 系统内录使用作为音频源输入。 |
+| ALL_PLAYBACK | 系统内录音频作为音频源输入。 |
 
 
 支持的视频源如下：
@@ -360,14 +360,31 @@ AVTranscoder主要用于将已压缩编码的视频文件按照指定参数转�
   目标视频宽、高不能大于源视频宽、高，且不能设置为奇数，详情请参考[设置正确的视频宽高](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/obtain-supported-codecs#设置正确的视频宽高)。
  - 支持的源视频格式：
 
-  当前转码支持的源视频格式依赖于系统解码器和解封装支持的格式，详细情况请参考[AVCodec支持的格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#媒体数据解析)。
+  当前转码支持的源视频格式依赖于系统解码器和解封装支持的格式，详细情况请参考[AVCodec支持的格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#媒体数据解封装)。
  - 支持的目标视频格式：
 
 | 封装格式 | 视频编码类型 | 音频编码类型 |
 
 | --- | --- | --- |
 
-| mp4 | AVC（H.264）、HEVC（H.265） | AAC |
+| mp4 | AVC（H.264）、HEVC（H.265）、HEVC（H.265） | AAC、MPEG（MP3） |
+ - 支持的目标音频格式：
+
+| 封装格式 | 音频编码类型 |
+
+| --- | --- |
+
+| mp4 | AAC、MPEG（MP3） |
+
+| m4a | AAC |
+
+| mp3 | MPEG（MP3） |
+
+| amr | AMR（amrnb、amrwb） |
+
+| wav | raw（pcm） |
+
+| aac | AAC |
  - 支持的轨道数：
 
   

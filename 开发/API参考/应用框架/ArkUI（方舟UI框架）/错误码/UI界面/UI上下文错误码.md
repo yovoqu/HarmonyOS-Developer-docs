@@ -1,6 +1,6 @@
 # UI上下文错误码
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uicontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -46,7 +46,7 @@ The callback function is invalid.
 
 **处理步骤**
 
-传入正确类型的回调函数。
+传入非空且符合接口签名要求的回调函数。
 
 
 
@@ -68,7 +68,7 @@ The parameter value cannot be less than 0.
 
 **处理步骤**
 
-传入正常范围的参数。
+传入大于或等于0的参数。
 
 
 
@@ -126,7 +126,7 @@ The UIContext is not available.
 
 **错误描述**
 
-实例不存在。
+UIContext不可用。
 
 **可能原因**
 

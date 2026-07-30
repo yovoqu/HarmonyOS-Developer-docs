@@ -1,6 +1,6 @@
 # ProxyConfiguration：定制代理
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customproxyconfig
 
@@ -65,11 +65,13 @@ request.configuration = configuration;
 session.fetch(request).then((response: rcp.Response) => {
   // 处理请求成功响应
   console.info(`Response success, ${response}`);
+  // ...
   // 关闭会话
   session.close();
 }).catch((err: BusinessError) => {
   // 处理请求失败响应
   console.error(`The error code is ${err.code}, error data is ${err.data}`);
+  // ...
   // 关闭会话
   session.close();
 })
@@ -116,11 +118,13 @@ request.configuration = configuration;
 session.fetch(request).then((response: rcp.Response) => {
   // 处理请求成功响应
   console.info(`Response success, ${response}`);
+  // ...
   // 关闭会话
   session.close();
 }).catch((err: BusinessError) => {
   // 处理请求失败响应
   console.error(`The error code is ${err.code}, error data is ${err.data}`);
+  // ...
   // 关闭会话
   session.close();
 })
@@ -151,15 +155,11 @@ const requestURL = 'https://example.com';
 
   
 ```text
-// 自定义proxy
+// 自定义proxy（请根据实际需求调整）
 const configuration: rcp.Configuration = {
   proxy: {
     url: 'https://www.example.com',
-    createTunnel: 'always',
-    exclusions: [
-      'https://www.example1.com',
-      'https://www.example2.com'
-    ]
+    createTunnel: 'always'
   }
 }
 // 定义request并将请求configuration添加到request中
@@ -174,11 +174,13 @@ request.configuration = configuration;
 session.fetch(request).then((response: rcp.Response) => {
   // 处理请求成功响应
   console.info(`Response success, ${response}`);
+  // ...
   // 关闭会话
   session.close();
 }).catch((err: BusinessError) => {
   // 处理请求失败响应
   console.error(`The error code is ${err.code}, error data is ${err.data}`);
+  // ...
   // 关闭会话
   session.close();
 })

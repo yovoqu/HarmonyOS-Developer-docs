@@ -1,6 +1,6 @@
 # @ohos.bluetooth.socket (蓝牙socket模块)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-socket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -154,7 +154,7 @@ sppAccept(serverSocket: number, callback: AsyncCallback&lt;number&gt;): void
 
  - 须在调用[socket.sppListen](#socketspplisten)创建服务端套接字成功后，才能调用该接口监听客户端的连接请求。
  - 客户端可通过[socket.sppConnect](#socketsppconnect)向该服务端发起连接请求。
- - 连接建立成功后，即可通过[socket.sppWrite](#socketsppwrite)、[socket.sppWriteAsync](#socketsppwriteasync18)、[socket.sppReadAsync](#socketsppreadasync18)等接口，同客户端进行数据传输。
+ - 连接建立成功后，即可通过[socket.sppWrite](#socketsppwrite)、[socket.sppWriteAsync](#socketsppwriteasync18)、[socket.sppReadAsync](#socketsppreadasync18)等接口，与客户端进行数据传输。
  - 当服务端不再需要已建立的连接时，可通过[socket.sppCloseClientSocket](#socketsppcloseclientsocket)主动断开指定的客户端套接字连接。
 
 

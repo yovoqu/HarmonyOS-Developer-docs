@@ -1,6 +1,6 @@
 # @ohos.app.ability.InsightIntentEntryExecutor (@InsightIntentEntry的意图执行基类)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintententryexecutor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,7 +54,7 @@ import { InsightIntentEntryExecutor } from '@kit.AbilityKit';
 
 onExecute(): Promise<insightIntent.IntentResult&lt;T&gt;>
  
-当AI入口触发意图执行时，系统将会拉起该类绑定的Ability组件，并触发该回调，开发者可以在该回调中实现需要执行的意图操作。使用Promise异步回调。
+当AI入口触发意图执行时，系统拉起绑定的Ability组件，触发回调，开发者在此实现意图操作。使用Promise异步回调。
  
 该接口的调用时机与意图执行模式的对应关系如下：
   
@@ -129,7 +129,7 @@ export default class PlayMusicDemo extends InsightIntentEntryExecutor<string> {
     let result: insightIntent.IntentResult<string> = {
       code: 123,
       result: 'result'
-    }
+    };
     hilog.info(0x0000, LOG_TAG, 'PlayMusicDemo return %{public}s', JSON.stringify(result));
     // 以Promise的方式返回意图执行结果
     return Promise.reject(result);

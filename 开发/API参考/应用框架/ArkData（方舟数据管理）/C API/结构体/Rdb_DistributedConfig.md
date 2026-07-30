@@ -1,6 +1,6 @@
 # Rdb_DistributedConfig
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-rdb-distributedconfig
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,5 +36,5 @@ typedef struct Rdb_DistributedConfig {...} Rdb_DistributedConfig
  
 | 名称 | 描述 |
 | --- | --- |
-| int version | 用于唯一标识Rdb_DistributedConfig结构的版本。 |
+| int version | 表示Rdb_DistributedConfig结构体的版本。 |
 | bool isAutoSync | 表示该表是否支持端云自动同步。为true时，支持系统自动触发端云同步；为false时不支持系统自动触发端云同步，需要调用OH_Rdb_CloudSync接口触发端云同步。 |

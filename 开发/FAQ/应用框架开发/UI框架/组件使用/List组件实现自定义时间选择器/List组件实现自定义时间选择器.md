@@ -9,7 +9,7 @@
 目前HarmonyOS官方提供的TextPicker组件没有横向滑动的能力，怎样实现横向滑动的时间选择器？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/4EU6zWyDTXawMr-uLawZLw/zh-cn_image_0000002628763170.png?HW-CC-KV=V1&HW-CC-Date=20260723T012746Z&HW-CC-Expire=86400&HW-CC-Sign=DA188A391F0F967EE8F23EAA89A2F49563144FD5F218540E0FC5D3FF4F59709D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/4EU6zWyDTXawMr-uLawZLw/zh-cn_image_0000002628763170.png?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=E23FB56ECAC230FAC53E78AE55561074D9FA6856963D0F6D4481A7E25707F569)
 
  
  
@@ -17,7 +17,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/KwCOIg0sTcih3C14YNqXkA/zh-cn_image_0000002658962483.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012746Z&HW-CC-Expire=86400&HW-CC-Sign=A48B62F5EB50E954F5148C4A3733E4EAC6211636E0E3574BE08EA31AA898B651)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/KwCOIg0sTcih3C14YNqXkA/zh-cn_image_0000002658962483.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072359Z&HW-CC-Expire=86400&HW-CC-Sign=EE4B4FC99A98DA4DA94AA16F1C0F734448169F8FB9082F9E2AA3AB186B16625B)
 
  
  

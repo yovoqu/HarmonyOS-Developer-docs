@@ -1,10 +1,10 @@
 # @SyncMonitor装饰器：状态变量修改同步监听
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-syncmonitor
 
-为了增强状态管理框架对状态变量变化的监听能力，开发者可以使用@SyncMonitor装饰器对状态变量进行监听。
+为了增强状态管理框架对状态变量变化的监听能力，开发者可以使用[@SyncMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-syncmonitor#syncmonitor)装饰器对状态变量进行监听。
 
 @SyncMonitor提供了对V2状态变量的同步监听。在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)，[@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)，[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)，[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)。
 
@@ -186,7 +186,7 @@ Monitor - sum changed from 0 to 6
 
 #### 接口说明
 
-IMonitor类型和IMonitorValue&lt;T&gt;类型的接口说明参考API文档：[状态变量变化监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor)。
+IMonitor类型和IMonitorValue&lt;T&gt;类型的接口说明参考API文档：[@Monitor：状态变量修改监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-monitor)。
 
 
 
@@ -613,7 +613,7 @@ struct Index {
   @SyncMonitor与@Monitor行为不一样，@Monitor只被调用一次并以最后一次修改为准。
 
   
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1730,7 +1730,8 @@ class Info {
   public name: string = 'John';
   @Trace public age: number = 24;
 
-  // 只允许监听状态变量age，监听非状态变量name，会编译告警，提示`Cannot observe non-existent variables or non-state variables, except in wildcard-based monitoring scenarios.`
+  // 只允许监听状态变量age。监听非状态变量name，会编译告警，
+  // 提示：`Cannot observe non-existent variables or non-state variables, except in wildcard-based monitoring scenarios.`
   @SyncMonitor('age', 'name')
   onPropertyChange(monitor: IMonitor) {
     monitor.dirty.forEach((path: string) => {

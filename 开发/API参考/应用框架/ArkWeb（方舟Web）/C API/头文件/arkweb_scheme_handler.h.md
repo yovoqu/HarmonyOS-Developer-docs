@@ -1,6 +1,6 @@
 # arkweb_scheme_handler.h
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-scheme-handler-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -305,7 +305,7 @@ typedef void (*ArkWeb_HttpBodyStreamReadCallback)(const ArkWeb_HttpBodyStream* h
 | --- | --- |
 | const ArkWeb_HttpBodyStream* httpBodyStream | ArkWeb_HttpBodyStream。 |
 | uint8_t* buffer | 接收数据的buffer。 |
-| int bytesRead | OH_ArkWebHttpBodyStream_Read后的回调函数。如果bytesRead大于0，则表示buffer已填充了bytesRead大小的数据。开发者可以从buffer中读取数据，如果OH_ArkWebHttpBodyStream_IsEof的返回值为false，则开发者可以继续读取剩余的数据。 |
+| int bytesRead | OH_ArkWebHttpBodyStream_Read后的回调函数。如果bytesRead大于0，则表示buffer已填充了bytesRead大小的数据。开发者可以从buffer中读取数据，如果OH_ArkWebHttpBodyStream_IsEof为false，则开发者可以继续读取剩余的数据。 |
  
  
   
@@ -332,7 +332,7 @@ typedef void (*ArkWeb_HttpBodyStreamAsyncReadCallback)(const ArkWeb_HttpBodyStre
 | --- | --- |
 | const ArkWeb_HttpBodyStream* httpBodyStream | ArkWeb_HttpBodyStream。 |
 | uint8_t* buffer | 接收数据的缓冲区。 |
-| int bytesRead | 标识异步读取操作执行结果的字节计数值。如果bytesRead大于0，则表示buffer已填充了bytesRead大小的数据。开发者可以从buffer中读取数据，如果OH_ArkWebHttpBodyStream_IsEof的返回值为false，则开发者可以继续读取剩余的数据。 |
+| int bytesRead | 标识异步读取操作执行结果的字节计数值。如果bytesRead大于0，则表示buffer已填充了bytesRead大小的数据。开发者可以从buffer中读取数据，如果OH_ArkWebHttpBodyStream_IsEof为false，则开发者可以继续读取剩余的数据。 |
  
  
   
@@ -987,7 +987,7 @@ bool OH_ArkWebHttpBodyStream_IsChunked(const ArkWeb_HttpBodyStream* httpBodyStre
   
 | 类型 | 说明 |
 | --- | --- |
-| bool | 如果采用分块传输则返回true;否则返回false。 |
+| bool | 如果采用分块传输则返回true；否则返回false。 |
  
  
   

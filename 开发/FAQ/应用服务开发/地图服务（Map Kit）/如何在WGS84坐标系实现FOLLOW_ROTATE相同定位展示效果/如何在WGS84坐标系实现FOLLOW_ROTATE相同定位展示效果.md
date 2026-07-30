@@ -1,6 +1,6 @@
 # 如何在WGS84坐标系实现FOLLOW_ROTATE相同定位展示效果
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-39
 
@@ -14,11 +14,11 @@ Map Kit使用GCJ02坐标系，当使用WGS84坐标图源时，使用Map Kit自�
 
 #### 背景知识
 
-[sensor.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoron)：传感器订阅，其中[ORIENTATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#orientation9)表示订阅方向传感器数据。
+[sensor.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoronsensoridorientation9)：传感器订阅，其中[ORIENTATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoronsensoridorientation9)表示订阅方向传感器数据。
  
-[setRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section20889283323)：设置标记的旋转角度，即标记围绕标记锚点顺时针旋转的角度，旋转轴垂直于标记。
+[setRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#setrotation)：设置标记的旋转角度，即标记围绕标记锚点顺时针旋转的角度，旋转轴垂直于标记。
  
-[setPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section98480257324)：设置标记的位置坐标。
+[setPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#setposition)：设置标记的位置坐标。
  
 [geoLocationManager.on('locationChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanageronlocationchange)：开启位置变化订阅，并发起定位请求。
  

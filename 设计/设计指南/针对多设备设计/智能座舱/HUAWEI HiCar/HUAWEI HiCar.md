@@ -19,7 +19,7 @@
 2. 应用的内容区域可包括导航条宽度，以呈现出沉浸式效果，但重要信息、功能（如应用导航），应避开系统导航条。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/xLLADdzoSTONDYCB00KEPQ/zh-cn_image_0000002592669342.png?HW-CC-KV=V1&HW-CC-Date=20260723T014116Z&HW-CC-Expire=86400&HW-CC-Sign=5F453C24A58CAAE3F2938BEAB69D9062F7633F283D2A5E3E0D1D828878CD1D15)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/xLLADdzoSTONDYCB00KEPQ/zh-cn_image_0000002592669342.png?HW-CC-KV=V1&HW-CC-Date=20260730T072746Z&HW-CC-Expire=86400&HW-CC-Sign=DC8683B40914289921C39FEA6C5FFEEE22E1EC0CE252C8E6BFFB854AE134AA52)
 
  
  
@@ -38,4 +38,4 @@
 强烈建议应用可支持无级调节窗口大小。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/h17kG17MTQOtDsWjaU_A5g/zh-cn_image_0000002622988861.png?HW-CC-KV=V1&HW-CC-Date=20260723T014116Z&HW-CC-Expire=86400&HW-CC-Sign=386E4C7E63DA9BC1464B4949FC613034E943E7755DD41DF095DB36E8710BA2A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/h17kG17MTQOtDsWjaU_A5g/zh-cn_image_0000002622988861.png?HW-CC-KV=V1&HW-CC-Date=20260730T072746Z&HW-CC-Expire=86400&HW-CC-Sign=15DD38DA7609126DEAAB4FC0B5616133D088C65307D74D5BE7E3D1CC046B91D2)

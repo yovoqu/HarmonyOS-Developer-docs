@@ -1,6 +1,6 @@
 # native_avcodec_audioencoder.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-audioencoder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -460,7 +460,7 @@ OH_AVFormat *OH_AudioEncoder_GetOutputDescription(OH_AVCodec *codec)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVFormat * | 返回OH_AVFormat句柄指针，生命周期将使用下一个GetOutputDescription刷新，或使用OH_AVCodec销毁。 |
+| OH_AVFormat * | 返回OH_AVFormat句柄指针。 |
  
  
   

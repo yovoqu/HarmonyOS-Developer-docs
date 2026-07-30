@@ -1,11 +1,11 @@
 # NotificationFlags
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationflags
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-描述通知标志的实例。
+描述通知标志位。应用可以使用NotificationFlags按需削减通知的提醒方式。
  
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -40,6 +40,6 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| TYPE_NONE | 0 | 默认标志，与TYPE_OPEN效果相同。 |
+| TYPE_NONE | 0 | 未设置标志时的默认值，与TYPE_OPEN效果相同。 |
 | TYPE_OPEN | 1 | 通知标志打开。 |
 | TYPE_CLOSE | 2 | 通知标志关闭。 |

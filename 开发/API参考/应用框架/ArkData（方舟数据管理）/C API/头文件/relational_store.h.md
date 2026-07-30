@@ -1,6 +1,6 @@
 # relational_store.h
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-relational-store-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_Rdb_Config | OH_Rdb_Config | 管理关系数据库配置。 |
-| OH_Rdb_Store | OH_Rdb_Store | 表示数据库类型。 |
+| OH_Rdb_Store | OH_Rdb_Store | 表示数据库实例。 |
 | Rdb_DistributedConfig | Rdb_DistributedConfig | 记录表的分布式配置信息。 |
 | Rdb_KeyInfo | Rdb_KeyInfo | 描述发生变化的行的主键或者行号。 |
 | Rdb_KeyData | - | 存放变化的具体数据。 |
@@ -65,7 +65,7 @@
 | Rdb_DistributedType | Rdb_DistributedType | 描述表的分布式类型的枚举。 |
 | Rdb_ChangeType | Rdb_ChangeType | 描述数据变更类型。 |
 | Rdb_SubscribeType | Rdb_SubscribeType | 描述订阅类型。 |
-| Rdb_SyncMode | Rdb_SyncMode | 表示数据库的同步模式 |
+| Rdb_SyncMode | Rdb_SyncMode | 表示数据库的同步模式。 |
 | Rdb_Progress | Rdb_Progress | 描述端云同步过程。 |
 | Rdb_ProgressCode | Rdb_ProgressCode | 表示端云同步过程的状态。 |
  
@@ -110,15 +110,15 @@
 | int OH_Rdb_Update(OH_Rdb_Store *store, OH_VBucket *valuesBucket, OH_Predicates *predicates) | - | 根据指定的条件更新数据库中的数据。 |
 | int OH_Rdb_UpdateWithConflictResolution(OH_Rdb_Store *store, OH_VBucket *row, OH_Predicates *predicates,Rdb_ConflictResolution resolution, int64_t *changes) | - | 根据指定条件更新数据库中的数据，并支持冲突解决。 |
 | int OH_Rdb_Delete(OH_Rdb_Store *store, OH_Predicates *predicates) | - | 根据指定的条件删除数据库中的数据。 |
-| OH_Cursor *OH_Rdb_Query(OH_Rdb_Store *store, OH_Predicates *predicates, const char *const *columnNames, int length) | - | 根据指定条件查询数据库中的数据 |
+| OH_Cursor *OH_Rdb_Query(OH_Rdb_Store *store, OH_Predicates *predicates, const char *const *columnNames, int length) | - | 根据指定条件查询数据库中的数据。 |
 | int OH_Rdb_Execute(OH_Rdb_Store *store, const char *sql) | - | 执行无返回值的SQL语句。 |
 | int OH_Rdb_ExecuteV2(OH_Rdb_Store *store, const char *sql, const OH_Data_Values *args, OH_Data_Value **result) | - | 执行有返回值的SQL语句，支持向量数据库。 |
 | int OH_Rdb_ExecuteByTrxId(OH_Rdb_Store *store, int64_t trxId, const char *sql) | - | 使用指定的事务ID执行无返回值的SQL语句，仅支持向量数据库。 |
 | OH_Cursor *OH_Rdb_ExecuteQuery(OH_Rdb_Store *store, const char *sql) | - | 根据指定SQL语句查询数据库中的数据，支持向量数据库。 |
 | OH_Cursor *OH_Rdb_ExecuteQueryV2(OH_Rdb_Store *store, const char *sql, const OH_Data_Values *args) | - | 根据指定SQL语句查询数据库中的数据，支持向量数据库。 |
 | int OH_Rdb_BeginTransaction(OH_Rdb_Store *store) | - | 在开始执行SQL语句之前，开始事务。 |
-| int OH_Rdb_RollBack(OH_Rdb_Store *store) | - | 回滚已经执行的SQL语句。 |
-| int OH_Rdb_Commit(OH_Rdb_Store *store) | - | 提交已执行的SQL语句 |
+| int OH_Rdb_RollBack(OH_Rdb_Store *store) | - | 回滚已经执行的SQL语句。使用前需先调用OH_Rdb_BeginTransaction开始事务。 |
+| int OH_Rdb_Commit(OH_Rdb_Store *store) | - | 提交已执行的SQL语句。使用前需先调用OH_Rdb_BeginTransaction开始事务。 |
 | int OH_Rdb_BeginTransWithTrxId(OH_Rdb_Store *store, int64_t *trxId) | - | 在开始执行SQL语句之前，开始事务，并获得该事务的ID，仅支持向量数据库。 |
 | int OH_Rdb_RollBackByTrxId(OH_Rdb_Store *store, int64_t trxId) | - | 使用指定的事务ID，回滚已经执行的SQL语句，仅支持向量数据库。 |
 | int OH_Rdb_CommitByTrxId(OH_Rdb_Store *store, int64_t trxId) | - | 使用指定的事务ID，提交已经执行的SQL语句，仅支持向量数据库。 |
@@ -467,7 +467,7 @@ OH_Rdb_ConfigV2 *OH_Rdb_CreateConfig()
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Rdb_ConfigV2 | 返回一个指向OH_Rdb_ConfigV2实例的指针。 使用完成后，必须通过OH_Rdb_DestroyConfig接口释放内存。 |
+| OH_Rdb_ConfigV2 * | 返回一个指向OH_Rdb_ConfigV2实例的指针。 使用完成后，必须通过OH_Rdb_DestroyConfig接口释放内存。 |
  
  
 **参考：**
@@ -525,7 +525,7 @@ int OH_Rdb_SetDatabaseDir(OH_Rdb_ConfigV2 *config, const char *databaseDir)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Rdb_ConfigV2 *config | 指向OH_Rdb_ConfigV2对象的指针，即与此RDB存储相关的数据库配置。 |
-| const char *dataBaseDir | 表示数据库文件路径，不能为空，包含数据库名称在内的全路径长度不超过1024个字符。 |
+| const char *databaseDir | 表示数据库文件路径，不能为空，包含数据库名称在内的全路径长度不超过1024个字符。 |
  
  
 **返回：**
@@ -1024,7 +1024,7 @@ OH_VObject *OH_Rdb_CreateValueObject()
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_VObject | 创建成功则返回一个指向OH_VObject结构体实例的指针，否则返回NULL。 |
+| OH_VObject * | 创建成功则返回一个指向OH_VObject结构体实例的指针，否则返回NULL。 |
  
  
 **参考：**
@@ -1051,7 +1051,7 @@ OH_VBucket *OH_Rdb_CreateValuesBucket()
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_VBucket | 创建成功则返回一个指向OH_VBucket结构体实例的指针，否则返回NULL。 |
+| OH_VBucket * | 创建成功则返回一个指向OH_VBucket结构体实例的指针，否则返回NULL。 |
  
  
 **参考：**
@@ -1085,7 +1085,7 @@ OH_Predicates *OH_Rdb_CreatePredicates(const char *table)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Predicates | 创建成功则返回一个指向OH_Predicates结构体实例的指针，否则返回NULL。 |
+| OH_Predicates * | 创建成功则返回一个指向OH_Predicates结构体实例的指针，否则返回NULL。 |
  
  
 **参考：**
@@ -1120,7 +1120,7 @@ OH_Rdb_Store *OH_Rdb_GetOrOpen(const OH_Rdb_Config *config, int *errCode)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Rdb_Store | 创建成功则返回一个指向OH_Rdb_Store结构体实例的指针，否则返回NULL。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| OH_Rdb_Store * | 创建成功则返回一个指向OH_Rdb_Store结构体实例的指针，否则返回NULL。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
  
  
   
@@ -1151,7 +1151,7 @@ OH_Rdb_Store *OH_Rdb_CreateOrOpen(const OH_Rdb_ConfigV2 *config, int *errCode)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Rdb_Store | 创建成功则返回一个指向OH_Rdb_Store结构体实例的指针，否则返回NULL。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| OH_Rdb_Store * | 创建成功则返回一个指向OH_Rdb_Store结构体实例的指针，否则返回NULL。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
  
  
   
@@ -1319,7 +1319,7 @@ int OH_Rdb_InsertWithConflictResolution(OH_Rdb_Store *store, const char *table, 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int OH_Rdb_BatchInsert(OH_Rdb_Store *store, const char *table,const OH_Data_VBuckets *rows, Rdb_ConflictResolution resolution, int64_t *changes)
+int OH_Rdb_BatchInsert(OH_Rdb_Store *store, const char *table, const OH_Data_VBuckets *rows, Rdb_ConflictResolution resolution, int64_t *changes)
 ```
  
 **描述**
@@ -1339,7 +1339,7 @@ int OH_Rdb_BatchInsert(OH_Rdb_Store *store, const char *table,const OH_Data_VBuc
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Rdb_Store *store | 指向OH_Rdb_Store实例的指针。 |
-| const char *tables | 要设置的分布式数据库表表名。 |
+| const char *table | 要设置的分布式数据库表表名。 |
 | const OH_Data_VBuckets *rows | 表示要插入到表中的一组数据。 |
 | Rdb_ConflictResolution resolution | 表示发生冲突时的解决策略。 |
 | int64_t *changes | 输出参数，表示插入成功的次数。 |
@@ -1461,7 +1461,7 @@ OH_Cursor *OH_Rdb_Query(OH_Rdb_Store *store, OH_Predicates *predicates, const ch
  
 **描述**
  
-根据指定条件查询数据库中的数据
+根据指定条件查询数据库中的数据。
  
 **起始版本：** 10
  
@@ -1622,7 +1622,7 @@ OH_Cursor *OH_Rdb_ExecuteQuery(OH_Rdb_Store *store, const char *sql)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Cursor | 如果查询成功则返回一个指向OH_Cursor结构体实例的指针，否则返回NULL。 |
+| OH_Cursor * | 如果查询成功则返回一个指向OH_Cursor结构体实例的指针，否则返回NULL。 |
  
  
 **参考：**
@@ -1737,7 +1737,7 @@ int OH_Rdb_Commit(OH_Rdb_Store *store)
  
 **描述**
  
-提交已执行的SQL语句
+提交已执行的SQL语句。
  
 **起始版本：** 10
  
@@ -2052,7 +2052,7 @@ OH_Cursor *OH_Rdb_FindModifyTime(OH_Rdb_Store *store, const char *tableName, con
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Cursor | 如果操作成功则返回一个指向OH_Rdb_Store结构体实例的指针，否则返回NULL。 |
+| OH_Cursor * | 如果操作成功则返回一个指向OH_Cursor结构体实例的指针，否则返回NULL。 |
  
  
   
@@ -2157,7 +2157,7 @@ int OH_Rdb_Unsubscribe(OH_Rdb_Store *store, Rdb_SubscribeType type, const Rdb_Da
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Rdb_Store *store | 指向OH_Rdb_Store实例的指针 |
+| OH_Rdb_Store *store | 指向OH_Rdb_Store实例的指针。 |
 | Rdb_SubscribeType type | 表示在Rdb_SubscribeType中定义的订阅类型。 |
 | const Rdb_DataObserver *observer | 数据库中更改事件的观察者Rdb_DataObserver。如果这是nullptr，表示删除该类型的所有观察者。 |
  
@@ -2772,7 +2772,7 @@ OH_Cursor *OH_Rdb_QuerySqlWithoutRowCount(OH_Rdb_Store *store, const char *sql, 
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Cursor * | 如果查询成功则返回一个指向OH_Cursor结构体实例的指针。如果SQL语句无效或内存分配失败，则返回nullptr。 |
+| OH_Cursor * * | 如果查询成功则返回一个指向OH_Cursor结构体实例的指针。如果SQL语句无效或内存分配失败，则返回nullptr。 |
  
  
   

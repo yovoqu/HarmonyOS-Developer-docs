@@ -9,7 +9,7 @@
 使用Swiper组件的DotIndicator构建导航指示器，并将导航点底部相对于Swiper的位置属性bottom设置为0，该指示器无法完全贴底，具体演示如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/gY1_0Kd0S9SCwibdxzO7HQ/zh-cn_image_0000002628613328.png?HW-CC-KV=V1&HW-CC-Date=20260723T012814Z&HW-CC-Expire=86400&HW-CC-Sign=92FDA9360EFBA3466595EFC2D91AD83AE2EEB460080AE0CEBEA63F25D637ADDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/gY1_0Kd0S9SCwibdxzO7HQ/zh-cn_image_0000002628613328.png?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=D69016437351C17BF97EAC3489DBEA42BF51B17AADB0CF34FC8C274DF27292D9)
 
  
 上下左右存在留白，如何实现可以去除内边距的导航指示器效果？
@@ -19,7 +19,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/sRlkmNzxS1qFXPhPJ1mItg/zh-cn_image_0000002658972541.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012814Z&HW-CC-Expire=86400&HW-CC-Sign=1BAF0FE8F68C604C7BE0C9FE2D49F8E2E731B04493CEC3F39477570344C08573)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/sRlkmNzxS1qFXPhPJ1mItg/zh-cn_image_0000002658972541.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=381552EBB3091324D72AB54EDBFFCF81557629B55343D12AF1F106804BC651EE)
 
  
  
@@ -92,7 +92,7 @@ struct <span style="color: rgb(0,0,255);">SwiperExample </span><span style="colo
 方案二运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/LEYIs8L2Q9WSGFE-0abQtA/zh-cn_image_0000002658852587.png?HW-CC-KV=V1&HW-CC-Date=20260723T012814Z&HW-CC-Expire=86400&HW-CC-Sign=55FF300322D7C86F6B765950407DD1339376C1E9875222AA985367B978EE501D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/LEYIs8L2Q9WSGFE-0abQtA/zh-cn_image_0000002658852587.png?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=6F38A04C7388F1B0D723B3411DDE886BCD9B44FE2437938A5B51C6379BCE67F2)
 
  
 - **方案三：采用API15中Indicator组件。**Indicator组件采用的依旧是Swiper中的默认指示器样式，一样有32vp的交互高度限制，不过该组件将Swiper与指示器单独分割，可以通过Column组件单独封装指示器，再通过clip属性裁剪，控制Indicator组件高度，其它的与方案二类似采用Stack组件封装。
@@ -146,7 +146,7 @@ struct <span style="color: rgb(0,0,255);">DotIndicatorDemo </span><span style="c
  方案三运行效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/x2em69MFQGSUELXeUw1X2w/zh-cn_image_0000002628773228.png?HW-CC-KV=V1&HW-CC-Date=20260723T012814Z&HW-CC-Expire=86400&HW-CC-Sign=DABF8DE20BE3DE95B22A18482040CBA9FE29E53D7ED21248E486FAE5671AD4FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/x2em69MFQGSUELXeUw1X2w/zh-cn_image_0000002628773228.png?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=691037C54C6B18E64327E9F0846717C6F4D63A8B511B5C525DD7B4AB8AEBDD47)
 
 
  

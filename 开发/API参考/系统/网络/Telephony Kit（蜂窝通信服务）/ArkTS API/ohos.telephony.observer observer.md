@@ -1,9 +1,9 @@
 # @ohos.telephony.observer (observer)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-observer
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 本模块提供订阅管理功能，可以订阅/取消订阅的事件包括：网络状态变化、信号状态变化、通话状态变化、蜂窝数据链路连接状态、蜂窝数据业务的上下行数据流状态、SIM状态变化。
 
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 ```text
 import { observer } from '@kit.TelephonyKit';
@@ -24,7 +24,7 @@ import { observer } from '@kit.TelephonyKit';
 
 #### NetworkState
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type NetworkState = radio.NetworkState
 
@@ -41,7 +41,7 @@ type NetworkState = radio.NetworkState
 
 #### SignalInformation
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type SignalInformation = radio.SignalInformation
 
@@ -58,7 +58,7 @@ type SignalInformation = radio.SignalInformation
 
 #### DataConnectState
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type DataConnectState = data.DataConnectState
 
@@ -75,7 +75,7 @@ type DataConnectState = data.DataConnectState
 
 #### RatType
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type RatType = radio.RadioTechnology
 
@@ -92,7 +92,7 @@ type RatType = radio.RadioTechnology
 
 #### DataFlowType
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type DataFlowType = data.DataFlowType
 
@@ -109,7 +109,7 @@ type DataFlowType = data.DataFlowType
 
 #### CallState
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type CallState = call.CallState
 
@@ -126,7 +126,7 @@ type CallState = call.CallState
 
 #### CCallState23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type CCallState = call.CCallState
 
@@ -143,7 +143,7 @@ type CCallState = call.CCallState
 
 #### CardType
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type CardType = sim.CardType
 
@@ -160,7 +160,7 @@ type CardType = sim.CardType
 
 #### SimState
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type SimState = sim.SimState
 
@@ -177,7 +177,7 @@ SIM卡状态。
 
 #### TelCallState21+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 type TelCallState = call.TelCallState
 
@@ -194,7 +194,7 @@ type TelCallState = call.TelCallState
 
 #### observer.on('networkStateChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'networkStateChange', callback: Callback&lt;NetworkState&gt;): void
 
@@ -238,7 +238,7 @@ observer.on('networkStateChange', (data: observer.NetworkState) => {
 
 #### observer.on('networkStateChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'networkStateChange', options: ObserverOptions, callback: Callback&lt;NetworkState&gt;): void
 
@@ -286,7 +286,7 @@ observer.on('networkStateChange', options, (data: observer.NetworkState) => {
 
 #### observer.off('networkStateChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'networkStateChange', callback?: Callback&lt;NetworkState&gt;): void
 
@@ -335,7 +335,7 @@ observer.off('networkStateChange');
 
 #### observer.on('signalInfoChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'signalInfoChange', callback: Callback<Array&lt;SignalInformation&gt;>): void
 
@@ -378,7 +378,7 @@ observer.on('signalInfoChange', (data: Array<radio.SignalInformation>) => {
 
 #### observer.on('signalInfoChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array&lt;SignalInformation&gt;>): void
 
@@ -425,7 +425,7 @@ observer.on('signalInfoChange', options, (data: Array<radio.SignalInformation>) 
 
 #### observer.off('signalInfoChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'signalInfoChange', callback?: Callback<Array&lt;SignalInformation&gt;>): void
 
@@ -476,7 +476,7 @@ observer.off('signalInfoChange');
 
 #### observer.on('callStateChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'callStateChange', callback: Callback&lt;CallStateInfo&gt;): void
 
@@ -517,7 +517,7 @@ observer.on('callStateChange', (data: observer.CallStateInfo) => {
 
 #### observer.on('callStateChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'callStateChange', options: ObserverOptions, callback: Callback&lt;CallStateInfo&gt;): void
 
@@ -562,7 +562,7 @@ observer.on('callStateChange', options, (data: observer.CallStateInfo) => {
 
 #### observer.off('callStateChange')
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'callStateChange', callback?: Callback&lt;CallStateInfo&gt;): void
 
@@ -611,7 +611,7 @@ observer.off('callStateChange');
 
 #### observer.on('callStateChangeEx')21+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'callStateChangeEx', callback: Callback&lt;TelCallState&gt;, options?: ObserverOptions): void
 
@@ -660,7 +660,7 @@ observer.on('callStateChangeEx', callback);
 
 #### observer.off('callStateChangeEx')21+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'callStateChangeEx', callback?: Callback&lt;TelCallState&gt;): void
 
@@ -709,7 +709,7 @@ observer.off('callStateChangeEx');
 
 #### observer.on('cellularDataConnectionStateChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'cellularDataConnectionStateChange', callback: Callback&lt;DataConnectionStateInfo&gt;): void
 
@@ -750,7 +750,7 @@ observer.on('cellularDataConnectionStateChange', (data: observer.DataConnectionS
 
 #### observer.on('cellularDataConnectionStateChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'cellularDataConnectionStateChange', options: ObserverOptions, callback: Callback&lt;DataConnectionStateInfo&gt;): void
 
@@ -795,7 +795,7 @@ observer.on('cellularDataConnectionStateChange', options, (data: observer.DataCo
 
 #### observer.off('cellularDataConnectionStateChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'cellularDataConnectionStateChange', callback?: Callback&lt;DataConnectionStateInfo&gt;): void
 
@@ -844,7 +844,7 @@ observer.off('cellularDataConnectionStateChange');
 
 #### observer.on('cellularDataFlowChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'cellularDataFlowChange', callback: Callback&lt;DataFlowType&gt;): void
 
@@ -887,7 +887,7 @@ observer.on('cellularDataFlowChange', (data: data.DataFlowType) => {
 
 #### observer.on('cellularDataFlowChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'cellularDataFlowChange', options: ObserverOptions, callback: Callback&lt;DataFlowType&gt;): void
 
@@ -934,7 +934,7 @@ observer.on('cellularDataFlowChange', options, (data: data.DataFlowType) => {
 
 #### observer.off('cellularDataFlowChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'cellularDataFlowChange', callback?: Callback&lt;DataFlowType&gt;): void
 
@@ -985,7 +985,7 @@ observer.off('cellularDataFlowChange');
 
 #### observer.on('simStateChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'simStateChange', callback: Callback&lt;SimStateData&gt;): void
 
@@ -1030,7 +1030,7 @@ observer.on('simStateChange', (data: observer.SimStateData) => {
 
 #### observer.on('simStateChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'simStateChange', options: ObserverOptions, callback: Callback&lt;SimStateData&gt;): void
 
@@ -1075,7 +1075,7 @@ observer.on('simStateChange', options, (data: observer.SimStateData) => {
 
 #### observer.off('simStateChange')7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'simStateChange', callback?: Callback&lt;SimStateData&gt;): void
 
@@ -1124,7 +1124,7 @@ observer.off('simStateChange');
 
 #### observer.on('iccAccountInfoChange')10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 on(type: 'iccAccountInfoChange', callback: Callback&lt;void&gt;): void
 
@@ -1165,7 +1165,7 @@ observer.on('iccAccountInfoChange', () => {
 
 #### observer.off('iccAccountInfoChange')10+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 off(type: 'iccAccountInfoChange', callback?: Callback&lt;void&gt;): void
 
@@ -1214,7 +1214,7 @@ observer.off('iccAccountInfoChange');
 
 #### observer.onGetSimActiveState23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 onGetSimActiveState(slotId: number, callback: Callback&lt;boolean&gt;): void
 
@@ -1262,7 +1262,7 @@ observer.onGetSimActiveState(sislotId, simActiveState);
 
 #### observer.offGetSimActiveState23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 offGetSimActiveState(callback?: Callback&lt;boolean&gt;): void
 
@@ -1308,7 +1308,7 @@ observer.offGetSimActiveState(simActiveState);
 
 #### observer.onCCallStateChange23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 onCCallStateChange(callback: Callback&lt;CCallStateInfo&gt;, options?: ObserverOptions): void
 
@@ -1359,7 +1359,7 @@ observer.onCCallStateChange(callback);
 
 #### observer.offCCallStateChange23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 offCCallStateChange(callback?: Callback&lt;CCallStateInfo&gt;): void
 
@@ -1404,9 +1404,104 @@ observer.offCCallStateChange();
 
 
 
+#### observer.onCommunicationStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+onCommunicationStateChange(callback: Callback&lt;boolean&gt;, options?:ObserverOptions): void
+
+订阅5A网络状态变化事件，使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Telephony.StateRegistry
+
+**需要权限**：ohos.permission.GET_NETWORK_INFO
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 是 | 回调函数。返回true表示5A状态为使能态；返回false表示5A状态为非使能态。 |
+| options | ObserverOptions | 否 | 电话相关事件订阅参数可选项，指定事件订阅的卡槽ID，默认为当前默认数据卡槽ID。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+
+
+**示例：**
+
+```json
+let options: observer.ObserverOptions = {
+    slotId: 0
+}
+let callback: Callback<boolean> = (isCommunicationStateOn: boolean) => {
+    console.info(`communicationStateChanged ${JSON.stringify(isCommunicationStateOn)}`);
+}
+observer.onCommunicationStateChange(callback, options);
+```
+
+
+
+#### observer.offCommunicationStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+offCommunicationStateChange(callback: Callback&lt;boolean&gt;, options?:ObserverOptions): void
+
+取消订阅5A网络状态变化事件，使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Telephony.StateRegistry
+
+**需要权限**：ohos.permission.GET_NETWORK_INFO
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 是 | 回调函数。返回true表示5A状态为使能态；返回false表示5A状态为非使能态。 |
+| options | ObserverOptions | 否 | 电话相关事件订阅参数可选项，指定事件订阅的卡槽ID，默认为当前默认数据卡槽ID。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+
+
+**示例：**
+
+```json
+let options: observer.ObserverOptions = {
+    slotId: 0
+}
+let callback: Callback<boolean> = (isCommunicationStateOn: boolean) => {
+    console.info(`communicationStateChanged ${JSON.stringify(isCommunicationStateOn)}`);
+}
+observer.onCommunicationStateChange(callback, options);
+observer.offCommunicationStateChange(callback, options);
+```
+
+
+
 #### LockReason8+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 SIM卡锁类型。
 
@@ -1433,7 +1528,7 @@ SIM卡锁类型。
 
 #### SimStateData7+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 SIM卡类型和状态。
 
@@ -1450,7 +1545,7 @@ SIM卡类型和状态。
 
 #### CallStateInfo11+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 通话状态相关信息。
 
@@ -1466,7 +1561,7 @@ SIM卡类型和状态。
 
 #### CCallStateInfo23+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 通话状态相关信息。
 
@@ -1482,7 +1577,7 @@ SIM卡类型和状态。
 
 #### DataConnectionStateInfo11+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 数据连接状态相关信息。
 
@@ -1498,7 +1593,7 @@ SIM卡类型和状态。
 
 #### ObserverOptions11+
 
-**支持设备：** Phone | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 电话相关事件订阅参数可选项。
 

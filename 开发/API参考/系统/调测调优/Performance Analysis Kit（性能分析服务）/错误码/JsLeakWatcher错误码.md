@@ -1,6 +1,6 @@
 # JsLeakWatcher错误码
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-jsleakwatcher
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,10 +23,8 @@ The parameter isEnabled is invalid.
 在调用接口函数enableLeakWatcher时，传入无效参数isEnabled。
 
 **可能原因**
-
-1.传入参数isEnabled的类型错误。
-
-2.必填参数未指定。
+1. 传入参数isEnabled的类型错误。
+2. 必填参数未指定。
 
 **处理步骤**
 
@@ -47,12 +45,9 @@ The parameter config is invalid.
 在调用接口函数enableLeakWatcher时，传入无效参数config。
 
 **可能原因**
-
-1.传入参数config的类型错误。
-
-2.必填参数未指定。
-
-3.参数校验失败。该参数为字符串类型数组，数组元素必须包含：XComponent，NodeContainer，Window，CustomComponent和Ability中一个或者多个。
+1. 传入参数config的类型错误。
+2. 必填参数未指定。
+3. 参数校验失败。该参数为字符串类型数组，数组元素必须包含：XComponent、NodeContainer、Window、CustomComponent或Ability中一个或者多个。
 
 **处理步骤**
 
@@ -73,12 +68,9 @@ The parameter callback is invalid.
 在调用接口函数enableLeakWatcher时，传入无效参数callback。
 
 **可能原因**
-
-1.传入参数callback的类型错误。
-
-2.必填参数未指定。
-
-3.参数校验失败。校验callback回调函数入参是一个包含两个元素字符串类型数组。
+1. 传入参数callback的类型错误。
+2. 必填参数未指定。
+3. 参数校验失败。校验callback回调函数入参是一个包含两个元素字符串类型数组。
 
 **处理步骤**
 

@@ -1,6 +1,6 @@
 # DRM_MediaKeySystemInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-drm-mediakeysysteminfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-DRM_MediaKeySystemInfo类型。
+DRM_MediaKeySystemInfo类型，DRM媒体密钥系统信息结构体，用于存储和管理DRM媒体密钥系统相关信息。
  
 **起始版本：** 12
  

@@ -1,6 +1,6 @@
 # PdfView（PDF预览组件）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfview-component
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -26,6 +26,8 @@ import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit';
 
 该类是用来展示PDF文档预览的UI组件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **装饰器类型：** @Component
  
 **系统能力：** SystemCapability.OfficeService.PDFService.Core
@@ -50,6 +52,8 @@ import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit';
 build(): void
  
 用于构建[PdfView](#pdfview)对象的生命周期方法。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.OfficeService.PDFService.Core
  

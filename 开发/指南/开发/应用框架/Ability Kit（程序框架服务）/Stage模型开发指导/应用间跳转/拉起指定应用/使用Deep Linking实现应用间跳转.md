@@ -1,6 +1,6 @@
 # 使用Deep Linking实现应用间跳转
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-linking-startup
 
@@ -22,7 +22,7 @@ Deep Linking基于隐式Want匹配机制中的uri匹配来查询、拉起目标�
 为了能够支持被其他应用访问，目标应用需要在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置[skills标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)。
 
 > [!NOTE]
-> skills标签下默认包含一个skill对象，用于标识应用入口。应用跳转链接不能在该skill对象中配置，需要创建独立的skill对象。如果存在多个跳转场景，需要在skills标签下创建不同的skill对象，否则会导致配置无法生效。 Deep Linking中的scheme可以自定义，但不能以"ohos"开头，也不建议使用"https"、"http"、"file" 、"store"、"filemanager"、"hww"等系统已保留的scheme值，否则可能会拉起默认的系统应用而非目标应用。
+> skills标签下默认包含一个skill对象，用于标识应用入口。应用跳转链接不能在该skill对象中配置，需要创建独立的skill对象。如果存在多个跳转场景，需要在skills标签下创建不同的skill对象，否则会导致配置无法生效。
 
 
 配置示例如下：

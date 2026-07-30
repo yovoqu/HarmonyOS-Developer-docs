@@ -1,6 +1,6 @@
 # 使用LPP播放器播放视频 (C/C++)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-lpp-for-playback
 
@@ -15,7 +15,7 @@
 **图1** 播放状态变化示意图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/v82YNgesSCaXynRKtapZqg/zh-cn_image_0000002617668779.png?HW-CC-KV=V1&HW-CC-Date=20260604T012924Z&HW-CC-Expire=86400&HW-CC-Sign=31C401B37FC60B31513048DD1E1296D5DF9C8880EA757F306D21D2D14E7C21DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/GrFuRlTLS96hGGbcyRGyVA/zh-cn_image_0000002655847330.png?HW-CC-KV=V1&HW-CC-Date=20260730T071944Z&HW-CC-Expire=86400&HW-CC-Sign=06D830B095E7E7161B62227C00BFC5B5936D2E9C208ADBAB9E7C971C52F31A02)
 
 
 播放流程包含：创建（created）、初始化（initialized）、就绪（ready）、解码（decoding）和渲染（rendering）五个阶段。
@@ -117,6 +117,9 @@ int32_t ret = GetTrackInfo(sourceFormat, info);
   
 ```text
 lppVideoStreamer_ = OH_LowPowerVideoSink_CreateByMime(videoCodecMime.c_str());
+```
+
+```text
 lppAudioStreamer_ = OH_LowPowerAudioSink_CreateByMime(audioCodecMime.c_str());
 ```
 
@@ -127,8 +130,10 @@ lppAudioStreamer_ = OH_LowPowerAudioSink_CreateByMime(audioCodecMime.c_str());
   
 ```text
 lppAudioStreamerCallback_ = OH_LowPowerAudioSinkCallback_Create();
-OH_LowPowerAudioSinkCallback_SetDataNeededListener(lppAudioStreamerCallback_, LppCallback::OnDataNeeded, lppUserData);
-OH_LowPowerAudioSinkCallback_SetPositionUpdateListener(lppAudioStreamerCallback_, LppCallback::OnPositionUpdated, lppUserData);
+OH_LowPowerAudioSinkCallback_SetDataNeededListener(lppAudioStreamerCallback_,
+    LppCallback::OnDataNeeded, lppUserData);
+OH_LowPowerAudioSinkCallback_SetPositionUpdateListener(lppAudioStreamerCallback_,
+    LppCallback::OnPositionUpdated, lppUserData);
 ret = OH_LowPowerAudioSink_RegisterCallback(lppAudioStreamer_, lppAudioStreamerCallback_);
 ```
 
@@ -155,9 +160,15 @@ int ret = OH_LowPowerVideoSink_Configure(lppVideoStreamer_, format);
 
   
 ```text
-OH_LowPowerVideoSink_SetSyncAudioSink(lppVideoStreamer_, lppAudioStreamer_);
-OH_LowPowerVideoSink_Prepare(lppVideoStreamer_);
-OH_LowPowerAudioSink_Prepare(lppAudioStreamer_);
+auto ret = OH_LowPowerVideoSink_SetSyncAudioSink(lppVideoStreamer_, audioStreamer);
+```
+
+```text
+auto ret = OH_LowPowerVideoSink_Prepare(lppVideoStreamer_);
+```
+
+```text
+auto ret = OH_LowPowerAudioSink_Prepare(lppAudioStreamer_);
 ```
 
 6. 开始播放。
@@ -166,8 +177,11 @@ OH_LowPowerAudioSink_Prepare(lppAudioStreamer_);
 
   
 ```text
-OH_LowPowerVideoSink_StartDecoder(lppVideoStreamer_);
-OH_LowPowerVideoSink_StartRenderer(lppVideoStreamer_);
+auto ret = OH_LowPowerVideoSink_StartDecoder(lppVideoStreamer_);
+```
+
+```text
+auto ret = OH_LowPowerVideoSink_StartRenderer(lppVideoStreamer_);
 ```
 
 7. 播放控制（可选）。
@@ -189,58 +203,3 @@ OH_LowPowerVideoSink_StartRenderer(lppVideoStreamer_);
 9. 退出播放。
 
   调用[OH_LowPowerAudioSink_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-audio-sink-h#oh_lowpoweraudiosink_destroy)或[OH_LowPowerVideoSink_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-video-sink-h#oh_lowpowervideosink_destroy)销毁实例，AVPlayer进入'RELEASED'状态，退出播放。
-
-
-
-#### 运行完整示例
-1. 新建工程。下载[示例工程](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MediaKit/LowPowerAVSInk/lowPowerAVSinkSample)，并将示例工程的以下资源复制到对应目录。
-
-  
-```ArkTS
-lpp_demo-sample/entry/src/main/
-├── cpp                                # Native层
-│   ├── capabilities                   # 能力接口和实现
-│   │   ├── include                    # 能力接口
-│   │   ├── demuxer.cpp                # 解封装实现
-│   │   ├── lpp_audio_streamer.cpp     # 低功耗音频流实现
-│   │   └── lpp_video_streamer.cpp     # 低功耗视频流实现
-│   ├── common                         # 公共模块
-│   │   ├── dfx                        # 日志
-│   │   ├── lpp_callback.cpp           # 低功耗音视频回调实现
-│   │   ├── lpp_callback.h             # 低功耗音视频回调接口
-│   │   └── sample_info.h              # 功能实现公共类
-│   ├── render                         # 送显模块接口和实现 * window player设置
-│   │   ├── include                    # 送显模块接口
-│   │   ├── egl_core.cpp               # 送显参数设置
-│   │   ├── plugin_manager.cpp         # 送显模块管理实现
-│   │   └── plugin_render.cpp          # 送显逻辑实现
-│   ├── sample                         # Native层
-│   │   ├── player                     # Native层播放接口和实现
-│   │   │   ├── Player.cpp             # Native层播放功能调用逻辑的实现
-│   │   │   ├── Player.h               # Native层播放功能调用逻辑的接口
-│   │   │   ├── PlayerNative.cpp       # Native层播放的入口
-│   │   │   └── PlayerNative.h         # Native层暴露上来的接口
-│   ├── types                          #
-│   │   └── libplayer                  # 播放模块暴露给UI层的接口
-│   └── CMakeLists.txt                 # 编译入口
-├── ets                                # UI层
-│   ├── common                         # 公共模块
-│   │   ├── utils                      # 共用的工具类
-│   │   │   ├── DateTimeUtils.ets      # 获取当前时间
-│   │   │   └── Logger.ts              # 日志工具
-│   |   └───CommonConstants.ets        # 参数常量
-│   ├── entryability                   # 应用的入口
-│   │   └── EntryAbility.ts            # 申请权限弹窗实现
-│   ├── pages                          # EntryAbility包含的页面
-│   │   └── Index.ets                  # 首页/播放页面
-├── resources                          # 用于存放应用所用到的资源文件
-│   ├── base                           # 该目录下的资源文件会被赋予唯一的ID
-│   │   ├── element                    # 用于存放字体和颜色
-│   │   ├── media                      # 用于存放图片
-│   │   └── profile                    # 应用入口首页
-│   ├── en_US                          # 设备语言是美式英文时，优先匹配此目录下资源
-│   └── zh_CN                          # 设备语言是简体中文时，优先匹配此目录下资源
-└── module.json5                       # 模块配置信息
-```
-
-2. 编译新建工程并运行。

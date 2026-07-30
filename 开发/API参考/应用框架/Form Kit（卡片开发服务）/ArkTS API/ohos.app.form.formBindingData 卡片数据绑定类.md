@@ -1,6 +1,6 @@
 # @ohos.app.form.formBindingData (卡片数据绑定类)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formbindingdata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,8 +36,8 @@ import { formBindingData } from '@kit.FormKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| key10+ | string | 否 | 否 | 卡片代理刷新的订阅标识，与数据发布者保持一致。 |
-| subscriberId10+ | string | 否 | 是 | 卡片代理刷新的订阅条件，默认值为当前卡片的formId。 |
+| key | string | 否 | 否 | 卡片代理刷新的订阅标识，与数据发布者保持一致。 |
+| subscriberId | string | 否 | 是 | 卡片代理刷新的订阅者标识，默认值为当前卡片的formId。 |
 
 
 

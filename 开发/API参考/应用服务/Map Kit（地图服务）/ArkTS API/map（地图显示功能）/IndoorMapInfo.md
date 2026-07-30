@@ -1,6 +1,6 @@
 # Interface (IndoorMapInfo)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -19,7 +19,7 @@ import { map } from '@kit.MapKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-室内图信息。使用[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager#onindoormapenter)(type: 'indoorMapEnter', callback: Callback<[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)>)方法会在进入室内图时触发回调，并返回[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)类型的实例。
+室内图信息。当进入室内图时，会通过[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager#onindoormapenter)方法触发回调，并返回[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)类型的实例。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -27,7 +27,7 @@ import { map } from '@kit.MapKit';
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.1.1(19)
   

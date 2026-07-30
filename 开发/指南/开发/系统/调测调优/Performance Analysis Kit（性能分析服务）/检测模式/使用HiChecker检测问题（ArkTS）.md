@@ -1,6 +1,6 @@
 # 使用HiChecker检测问题（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hichecker-guidelines-arkts
 
@@ -105,7 +105,7 @@ export default class EntryAbility extends UIAbility {
 };
 ```
 
-2. 安装hap后运行，通过DevEco Studio Log插件过滤 HICHECKER 关键字日志或者通过 hdc shell "hilog | grep HICHECKER" 命令查询，有如下调用栈信息说明检测成功（调用栈为触发检测规则时的调用栈）。
+2. 安装hap后运行，通过DevEco Studio Log插件过滤 HICHECKER 关键字日志或者通过 hdc shell "hilog | grep HICHECKER" 命令查询，有如下调用栈信息说明检测成功（调用栈为触发检测时的调用栈）。
 
   
 ```bash

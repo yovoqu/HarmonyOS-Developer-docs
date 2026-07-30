@@ -1,6 +1,6 @@
 # NetworkBoost
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -177,7 +177,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-#define NB_BPS   1
+#define NB_BPS 1
 ```
  
 **描述**
@@ -193,7 +193,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-#define NB_GBPS   1000000000
+#define NB_GBPS 1000000000
 ```
  
 **描述**
@@ -209,7 +209,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-#define NB_KBPS   1000
+#define NB_KBPS 1000
 ```
  
 **描述**
@@ -241,7 +241,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-#define NB_TBPS   1000000000000
+#define NB_TBPS 1000000000000
 ```
  
 **描述**
@@ -257,7 +257,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-#define NETBOOST_MAX_PATH_NUM   4
+#define NETBOOST_MAX_PATH_NUM 4
 ```
  
 **描述**

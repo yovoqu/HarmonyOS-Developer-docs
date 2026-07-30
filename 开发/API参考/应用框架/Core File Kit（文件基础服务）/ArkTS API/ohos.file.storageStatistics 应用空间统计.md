@@ -1,9 +1,9 @@
 # @ohos.file.storageStatistics (应用空间统计)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-storage-statistics
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该模块提供空间查询相关的常用功能：包括对内外卡的空间查询、对应用分类数据统计的查询、对应用数据的查询等。
 
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { storageStatistics } from '@kit.CoreFileKit';
@@ -24,7 +24,7 @@ import { storageStatistics } from '@kit.CoreFileKit';
 
 #### storageStatistics.getCurrentBundleStats9+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentBundleStats(): Promise&lt;BundleStats&gt;
 
@@ -65,7 +65,7 @@ storageStatistics.getCurrentBundleStats().then((BundleStats: storageStatistics.B
 
 #### storageStatistics.getCurrentBundleStats9+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentBundleStats(callback: AsyncCallback&lt;BundleStats&gt;): void
 
@@ -109,7 +109,7 @@ storageStatistics.getCurrentBundleStats((error: BusinessError, bundleStats: stor
 
 #### storageStatistics.getTotalSize15+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalSize(): Promise&lt;number&gt;
 
@@ -149,7 +149,7 @@ storageStatistics.getTotalSize().then((number: number) => {
 
 #### storageStatistics.getTotalSize15+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalSize(callback: AsyncCallback&lt;number&gt;): void
 
@@ -193,7 +193,7 @@ storageStatistics.getTotalSize((error: BusinessError, number: number) => {
 
 #### storageStatistics.getTotalSizeSync15+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalSizeSync(): number
 
@@ -235,7 +235,7 @@ try {
 
 #### storageStatistics.getFreeSize15+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFreeSize(): Promise&lt;number&gt;
 
@@ -275,7 +275,7 @@ storageStatistics.getFreeSize().then((number: number) => {
 
 #### storageStatistics.getFreeSize15+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFreeSize(callback: AsyncCallback&lt;number&gt;): void
 
@@ -319,7 +319,7 @@ storageStatistics.getFreeSize((error: BusinessError, number: number) => {
 
 #### storageStatistics.getFreeSizeSync15+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFreeSizeSync(): number
 
@@ -361,7 +361,7 @@ try {
 
 #### BundleStats9+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.StorageService.SpatialStatistics
 
@@ -376,7 +376,7 @@ try {
 
 #### storageStatistics.getTotalInodes24+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalInodes(): Promise&lt;number&gt;
 
@@ -419,7 +419,7 @@ storageStatistics.getTotalInodes().then((totalInodes: number) => {
 
 #### storageStatistics.getFreeInodes24+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFreeInodes(): Promise&lt;number&gt;
 
@@ -462,7 +462,7 @@ storageStatistics.getFreeInodes().then((freeInodes: number) => {
 
 #### storageStatistics.getCurrentBundleInodes24+
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentBundleInodes(): Promise&lt;number&gt;
 

@@ -1,6 +1,6 @@
 # 栅格布局 (GridRow/GridCol)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout
 
@@ -172,7 +172,7 @@ API version 20之前布局显示：
 
 
 
-columns支持number和[GridRowColumnOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridrow#gridrowcolumnoption)两种类型, 可按两种方式设置栅格布局的总列数。
+columns支持number和[GridRowColumnOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridrow#gridrowcolumnoption)两种类型，可按两种方式设置栅格布局的总列数。
 
  - 当columns类型为number时，栅格布局在任何尺寸设备下都被分为同一列数。下面分别设置栅格布局列数为4和8，子元素占一列，效果如下：
 
@@ -398,7 +398,7 @@ GridCol({ span: 1 }){}.order(gOrder)
 
 子组件占栅格布局的列数，决定了子组件的宽度。默认值为1。
 
-span支持number和[GridColColumnOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcol#gridcolcolumnoption)两种类型, 可按两种方式设置栅格子组件占栅格容器的列数。
+span支持number和[GridColColumnOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcol#gridcolcolumnoption)两种类型，可按两种方式设置栅格子组件占栅格容器的列数。
 
  - 当span类型为number时，子组件在所有尺寸设备下占用的列数相同。
 
@@ -570,7 +570,7 @@ struct OffsetColumnOptionExample {
 
 #### order
 
-栅格子组件的序号，决定子组件排列次序。当子组件不设置order或者设置相同的order, 子组件按照代码顺序展示。当子组件设置不同的order时，order较小的组件在前，较大的在后。
+栅格子组件的序号，决定子组件排列次序。当子组件不设置order或者设置相同的order，子组件按照代码顺序展示。当子组件设置不同的order时，order较小的组件在前，较大的在后。
 
 当子组件部分设置order，部分不设置order时，未设置order的子组件依次排序靠前，设置了order的子组件按照数值从小到大排列。
 

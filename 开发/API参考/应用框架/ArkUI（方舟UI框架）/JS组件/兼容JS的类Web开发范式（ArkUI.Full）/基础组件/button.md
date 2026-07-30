@@ -1,6 +1,6 @@
 # button
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-button
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -77,7 +77,7 @@
 | allow-scale | boolean | true | 否 | 弧形按钮的文本尺寸是否跟随系统设置字体缩放尺寸进行放大缩小。true表示跟随系统放大缩小，false表示不跟随系统放大缩小。 |
 | font-style | string | normal | 否 | 弧形按钮的字体样式。 |
 | font-weight | number \| string | normal | 否 | 弧形按钮的字体粗细。见text组件font-weight的样式属性。 |
-| font-family | &lt;string&gt; | sans-serif | 否 | 按钮的字体列表，用逗号分隔，每个字体用字体名或者字体族名设置。列表中第一个系统中存在的或者通过自定义字体指定的字体，会被选中作为文本的字体。 |
+| font-family | &lt;string&gt; | sans-serif | 否 | 弧形按钮的字体列表，用逗号分隔，每个字体用字体名或者字体族名设置。列表中第一个系统中存在的或者通过自定义字体指定的字体，会被选中作为文本的字体。 |
  
  
   
@@ -183,4 +183,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/CWX0GY2pSXycNgUOhPVN0w/zh-cn_image_0000002628862942.png?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=99719A7AAEF3A72807EE3F28543F3854B0AAC1CBE7B8EF7EE25D3091BA8F1C6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/Yee9IIynQGiWRaOJ8IfLkg/zh-cn_image_0000002686088525.png?HW-CC-KV=V1&HW-CC-Date=20260730T071524Z&HW-CC-Expire=86400&HW-CC-Sign=B1B6724C21CAFC02F8EBA1EF77675CF94C1589E7070CD5D9FEB69CD5325AEA1E)

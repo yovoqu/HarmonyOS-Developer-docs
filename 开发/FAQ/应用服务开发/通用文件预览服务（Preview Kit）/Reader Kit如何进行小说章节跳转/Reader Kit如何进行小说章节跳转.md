@@ -1,6 +1,6 @@
 # Reader Kit如何进行小说章节跳转
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-3
 
@@ -23,7 +23,7 @@
 
 #### 解决方案
 
-通过[getDomPosByCatalogHref](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-book-parser#section124930457617)获取domPos信息，通过[getSpineList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-book-parser#section61575276477)得到Spine的列表再对比获得对应章节的spineIndex。最后使用[startPlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#section3667128165411)完成跳转。
+通过[getDomPosByCatalogHref](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-book-parser#getdomposbycataloghref)获取domPos信息，通过[getSpineList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-book-parser#getspinelist)得到Spine的列表再对比获得对应章节的spineIndex。最后使用[startPlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#startplay)完成跳转。
  
 ```json
 import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">display </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>

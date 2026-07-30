@@ -1,6 +1,6 @@
 # 使用Web组件显示网页弹框
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-dialog
 
@@ -400,7 +400,9 @@ window.prompt()用于显示一个对话框，并等待用户提交文本或取�
 
 应用可以通过[onPrompt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onprompt9)事件监听网页prompt方法，并创建合适的弹框。
 
- - 用[CustomContentDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#customcontentdialog12)创建弹框。        
+ - 用[CustomContentDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#customcontentdialog12)创建弹框。
+
+  
 ```ArkTS
 import { CustomContentDialog } from '@kit.ArkUI';
 import { webview } from '@kit.ArkWeb';
@@ -477,7 +479,9 @@ struct PromptDialog {
   }
 }
 ```
- 加载的html。       
+加载的html。
+
+  
 ```text
 <!-- prompt.html -->
 <!DOCTYPE html>

@@ -1,12 +1,12 @@
 # 地图POI搜索中adminCode是否可以仅返回区划代码
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-32
 
 #### 问题现象
 
-使用地图服务的[POI搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search)时，关键字搜索（[searchByText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#section1117619561413)）和周边搜索（[nearbySearch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#section6315894393)）的搜索结果中，当前返回的adminCode是9位数代码，是否可以仅返回区划代码？
+使用地图服务的[POI搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search)时，关键字搜索（[searchByText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#searchbytext)）和周边搜索（[nearbySearch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#nearbysearch)）的搜索结果中，当前返回的adminCode是9位数代码，是否可以仅返回区划代码？
  
 ```json
 "sites": [
@@ -30,7 +30,7 @@
 
 #### 解决方案
 
-关键字搜索（searchByText）和周边搜索（nearbySearch）的搜索结果中，[AddressComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#section1652881563212)描述详细的地址信息。其中adminCode表示行政区划代码。
+关键字搜索（searchByText）和周边搜索（nearbySearch）的搜索结果中，[AddressComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#addresscomponent)描述详细的地址信息。其中adminCode表示行政区划代码。
  
 在部分城市和地区搜索时，返回的行政区划代码adminCode超过了标准的6位区划代码，但adminCode的前6位仍是标准的6位区划代码。
  

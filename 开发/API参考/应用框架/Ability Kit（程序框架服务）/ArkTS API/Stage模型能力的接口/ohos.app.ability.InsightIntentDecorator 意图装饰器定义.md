@@ -1,15 +1,15 @@
 # @ohos.app.ability.InsightIntentDecorator (意图装饰器定义)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentdecorator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-InsightIntentDecorator模块提供了几类意图装饰器，用于装饰类或方法。开发者可以[使用装饰器开发意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/insight-intent-decorator-development), 将应用的功能定义为意图，并集成到智能问答、智能搜索、智能推荐等AI入口。
+InsightIntentDecorator模块提供了几类意图装饰器，用于装饰类或方法。开发者可以[使用装饰器开发意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/insight-intent-decorator-development)，将应用的功能定义为意图，并集成到智能问答、智能搜索、智能推荐等AI入口。
 
- - [@InsightIntentLink](#insightintentlink)装饰器：使用该装饰器装饰当前应用的uri链接，可以将该uri链接定义为意图，便于AI入口通过意图快速跳转到当前应用。该装饰器支持的参数参见[LinkIntentDecoratorInfo](#linkintentdecoratorinfo)。
+ - [@InsightIntentLink](#insightintentlink)装饰器：使用该装饰器装饰当前应用的URI，可将该URI定义为意图，便于AI入口跳转到当前应用。该装饰器支持的参数参见[LinkIntentDecoratorInfo](#linkintentdecoratorinfo)。
  - [@InsightIntentPage](#insightintentpage)装饰器：使用该装饰器装饰当前应用的Page页面，可以将该Page页面定义为意图，便于AI入口通过意图快速跳转到当前Page页面。该装饰器支持的参数参见[PageIntentDecoratorInfo](#pageintentdecoratorinfo)。
- - [@InsightIntentFunction](#insightintentfunction)装饰器与[@InsightIntentFunctionMethod](#insightintentfunctionmethod)装饰器：两者必须组合使用。使用[@InsightIntentFunction](#insightintentfunction)装饰器来装饰类，同时使用[@InsightIntentFunctionMethod](#insightintentfunctionmethod)装饰器来装饰类中的静态函数，可以将对应的静态函数定义为意图，便于AI入口能够快速执行此函数。
+ - [@InsightIntentFunction](#insightintentfunction)装饰器与[@InsightIntentFunctionMethod](#insightintentfunctionmethod)装饰器：两者必须组合使用。使用[@InsightIntentFunction](#insightintentfunction)装饰类，同时使用[@InsightIntentFunctionMethod](#insightintentfunctionmethod)装饰类中的静态函数，即可将静态函数定义为意图，便于AI入口快速执行该函数。
  - [@InsightIntentEntry](#insightintententry)装饰器：使用该装饰器装饰一个继承自[InsightIntentEntryExecutor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintententryexecutor)的类，实现意图操作并配置意图依赖的Ability组件，便于AI入口拉起依赖的Ability组件时，执行对应的意图操作。该装饰器支持的参数参见[EntryIntentDecoratorInfo](#entryintentdecoratorinfo)。
  - [@InsightIntentForm](#insightintentform)装饰器：使用该装饰器装饰[FormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability)并配置FormExtensionAbility绑定的卡片名称，便于AI入口通过意图添加卡片。该装饰器支持的参数参见[FormIntentDecoratorInfo](#formintentdecoratorinfo)。
  - [@InsightIntentEntity](#insightintententity)装饰器：使用该装饰器装饰一个继承自[IntentEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#intententity20)的类，可将该类定义为意图实体，用于传递意图调用时所需的参数。该装饰器支持的参数参见[IntentEntityDecoratorInfo](#intententitydecoratorinfo)。
@@ -51,7 +51,7 @@ import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, Insi
 使用该装饰器装饰当前应用的uri链接，可以将该uri链接定义为意图，便于AI入口通过定义的意图快速跳转到当前应用。该装饰器支持的参数参见[LinkIntentDecoratorInfo](#linkintentdecoratorinfo)。
 
 > [!TIP]
-> uri链接格式需要符合 应用链接说明 中的要求。
+> URI格式需要符合 应用链接说明 中的要求。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -131,7 +131,7 @@ export class ClassForLink {
     this._playback = playback;
   }
 
-  static Function1(playbackProgress: number, playback?: number): void {
+  static updatePlaybackStatus(playbackProgress: number, playback?: number): void {
     console.info(`Function1, playbackProgress: ${playbackProgress}.`);
   }
 }
@@ -164,7 +164,7 @@ export class ClassForLink {
 | displayDescription | string | 否 | 是 | 表示显示给用户的意图描述。 |
 | schema | string | 否 | 是 | 表示接入的标准意图的名称。开发者接入标准意图时，需要配置该字段，创建自定义意图时，无需配置该字段。标准意图列表参见附录：标准意图接入规范。 |
 | icon | ResourceStr | 否 | 是 | 表示意图图标，用于在AI入口显示。 - 当取值为字符串类型时，表示图标读取网络资源。 - 当取值为Resource时，表示图标读取本地资源。 |
-| llmDescription | string | 否 | 是 | 表示意图的功能，用于大型语言模型理解该意图。 |
+| llmDescription | string | 否 | 是 | 表示意图的功能描述，用于大型语言模型理解该意图。 |
 | keywords | string[] | 否 | 是 | 表示意图的搜索关键字。 |
 | parameters | Record<string, Object> | 否 | 是 | 表示意图参数的数据格式声明，用于意图调用时定义入参的数据格式。取值参见各垂域意图Schema |
 | result | Record<string, Object> | 否 | 是 | 表示意图调用返回结果的数据格式声明，用于定义意图调用返回结果的数据格式。 |
@@ -186,7 +186,7 @@ LinkIntentDecoratorInfo继承自[IntentDecoratorInfo](#intentdecoratorinfo)，�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| uri | string | 否 | 否 | 表示意图的uri信息。 |
+| uri | string | 否 | 否 | 表示意图的URI地址。 |
 | paramMappings | LinkIntentParamMapping[] | 否 | 是 | 意图参数和uri信息的映射。 |
 
 
@@ -208,7 +208,7 @@ LinkIntentParamMapping是[@InsightIntentLink](#insightintentlink)装饰器的意
 | --- | --- | --- | --- | --- |
 | paramName | string | 否 | 否 | 表示意图参数的名称。 |
 | paramMappingName | string | 否 | 是 | 表示意图参数映射名称。 |
-| paramCategory | LinkParamCategory | 否 | 是 | 表示意图参数类别。 若意图参数类别取值为LINK，系统获取paramName字段对应的意图参数映射名称，并将该意图参数映射名称拼接到uri链接的末尾(以键值对的形式key=value，key为意图参数映射名称，value为意图参数值)。 若意图参数类别为WANT，系统获取paramName字段对应的意图参数映射名称，并将该意图参数映射名称及取值通过Want的parameters字段进行传递。 |
+| paramCategory | LinkParamCategory | 否 | 是 | 表示意图参数类别。若取值为LINK，系统获取paramName对应的映射名称，并以键值对形式拼接到URI末尾。若取值为WANT，系统获取paramName对应的映射名称及其取值，通过Want的parameters字段传递。 |
 
 
 
@@ -225,8 +225,8 @@ LinkIntentParamMapping是[@InsightIntentLink](#insightintentlink)装饰器的意
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| LINK | 'link' | 表示意图参数类别为'link'。意图参数将被拼接到uri链接的末尾，以uri链接的形式传给应用。 |
-| WANT | 'want' | 表示意图参数类别为'want'。意图参数将通过Want的parameters字段传给应用。 |
+| LINK | 'link' | 表示意图参数类别为'link'。系统获取paramName字段对应的意图参数映射名称，并将该意图参数映射名称拼接到URI链接的末尾。 |
+| WANT | 'want' | 表示意图参数类别为'want'。系统获取paramName字段对应的意图参数映射名称，并将该意图参数映射名称及取值通过Want的parameters字段进行传递。 |
 
 
 
@@ -352,12 +352,12 @@ export class ClassForFuncDemo {
   displayName: '查询天气',
   displayDescription: '显示天气信息',
   icon: $r('app.media.app_icon'), // $r表示本地图标，需要在资源目录中定义
-  llmDescription: 'Get weather of an location',
+  llmDescription: 'Get weather of a location',
   parameters: {
     'schema': 'http://json-schema.org/draft-07/schema#',
     'type': 'object',
     'title': 'Weather Schema',
-    'description': 'A schema for get weather of an location',
+    'description': 'A schema for getting weather of a location',
     'properties': {
       'location': {
         'type': 'string',
@@ -458,7 +458,7 @@ export default class PlayMusicDemo extends InsightIntentEntryExecutor<string> {
       code: 123,
       result: 'result'
     }
-    hilog.info(0x0000, LOG_TAG, 'PlayMusicDemo return %{public}s', JSON.stringify(result));
+    hilog.error(0x0000, LOG_TAG, `Failed to execute PlayMusicDemo. Code: ${result.code}, message: ${result.result}`);
     // 以Promise的方式返回意图执行结果
     return Promise.reject(result);
   }
@@ -504,7 +504,7 @@ EntryIntentDecoratorInfo继承自[IntentDecoratorInfo](#intentdecoratorinfo)，�
 **示例：**
 
 ```json
-import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
+import { formBindingData, FormExtensionAbility } from '@kit.FormKit';
 import { insightIntent, Want, InsightIntentForm } from '@kit.AbilityKit';
 
 // 使用@InsightIntentForm装饰器将该FormExtensionAbility名为widget的卡片定义为意图
@@ -648,6 +648,6 @@ export class ArtistClassDef implements insightIntent.IntentEntity {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| entityCategory | string | 否 | 否 | 表示意图实体类别。可以基于意图实体类别对意图实体进行归类 |
+| entityCategory | string | 否 | 否 | 表示意图实体类别，用于对意图实体进行归类。 |
 | parameters | Record<string, Object> | 否 | 是 | 表示意图实体的数据格式声明。用于定义意图实体的数据格式。 |
 | supportedQueryProperties | string[] | 否 | 是 | 表示意图实体支持查询的属性列表。列表中的属性名必须在parameters中定义。 起始版本： 26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 |

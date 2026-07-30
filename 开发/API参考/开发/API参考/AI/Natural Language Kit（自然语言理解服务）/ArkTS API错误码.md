@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-natural-language
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -23,12 +23,13 @@ Run timed out, please try again later.
 运行超时，请重试。
  
 **可能原因**
- 
-当前存在大量的请求，无法及时处理。
+ 1. 当前存在大量请求。
+2. 当前设备CPU或者NPU占用过高。
+3. 当前设备内存不足。
  
 **处理步骤**
  
-过一段时间重试，并做好相关的逻辑判断。
+重启设备或者清理后台业务之后，等待一段时间再重试。
  
   
 

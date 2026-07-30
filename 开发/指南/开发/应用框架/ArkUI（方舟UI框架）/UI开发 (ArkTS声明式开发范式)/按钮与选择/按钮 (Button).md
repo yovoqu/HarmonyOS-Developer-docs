@@ -1,6 +1,6 @@
 # 按钮 (Button)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-button
 
@@ -167,7 +167,7 @@ Button('background color').backgroundColor(0xF55A42)
   
 ```ArkTS
 Button({ type: ButtonType.Circle, stateEffect: true }) {
-  // 请将$r('app.media.ic_public_delete_filled3')替换为实际资源文件
+  // 请将$r('app.media.ic_public_delete_filled')替换为实际资源文件
   Image($r('app.media.ic_public_delete_filled')).width(30).height(30)
 }.width(55).height(55).margin({ 'left': 20 }).backgroundColor(0xF55A42)
 ```
@@ -199,6 +199,8 @@ Button('Ok', { type: ButtonType.Normal, stateEffect: true })
 
   
 ```ArkTS
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
 const DOMAIN = 0x0000;
 // xxx.ets
 @Entry
@@ -310,7 +312,7 @@ export struct pageThreeTmp {
     }.title('pageThree')
     .onBackPressed(() => {
       const popDestinationInfo = this.pathStack.pop(); // 弹出路由栈栈顶元素
-      /// 请将$r('app.string.return_value')替换为实际资源文件，在本示例中该资源文件的value值为"返回值"
+      // 请将$r('app.string.return_value')替换为实际资源文件，在本示例中该资源文件的value值为"返回值"
       hilog.info(DOMAIN, 'testTag', 'pop' + $r('app.string.return_value') + JSON.stringify(popDestinationInfo));
       return true;
     })

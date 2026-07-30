@@ -1,6 +1,6 @@
 # 高精几何重建（ArkTS）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-volume-measurement
 
@@ -36,7 +36,7 @@
 
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
-import { Node, Scene } from '@kit.ArkGraphics3D';
+import { Node, Scene, Vec3 } from '@kit.ArkGraphics3D';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
@@ -47,7 +47,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 定义变量cubeVertexData接收立方体顶点数据，定义变量cubeConfidence接收识别出立方体的置信度数据，定义变量cubeLabel接收立方体的语义信息。
 
 ```text
-let cubeVertexData: Array<number>;
+let cubeVertexData: number[];
 let cubeConfidence: number;
 let cubeLabel: arEngine.ARSemanticPlaneLabel;
 ```
@@ -62,15 +62,32 @@ let cubeLabel: arEngine.ARSemanticPlaneLabel;
 
 ```text
 @Builder
-export function ARSemanticDenseBuilder(): void {
-  ARSemanticDense();
+export function ARSemanticDenseBuilder() {
+  ARSemanticDense()
 }
+
+let arSession: arEngine.ARSession;
+let frame: arEngine.ARFrame
+let semanticData: arEngine.ARSemanticDenseData
+let cubeVertexData: number[];
+let cubeConfidence: number;
+let cubeLabel: arEngine.ARSemanticPlaneLabel;
 
 @Component
 struct ARSemanticDense {
+  pageInfos: NavPathStack = new NavPathStack();
   @State arContext?: arViewController.ARViewContext = undefined;
+  private intervalId: number = -1;
+  private delayInterval: number = 33;
+  private params: arEngine.ARConfig = { type: arEngine.ARType.WORLD };
+  @State translation: Vec3 = {
+    x: 0,
+    y: 0,
+    z: 0
+  };
+  @State currentTimeStamp: Date = new Date();
 
-  build(): void {
+  build() {
     NavDestination() {
       RelativeContainer() {
         if (this.arContext) {
@@ -81,60 +98,55 @@ struct ARSemanticDense {
               center: { anchor: '__container__', align: VerticalAlign.Center },
               middle: { anchor: '__container__', align: HorizontalAlign.Center }
             })
+
         }
       }
     }
     .onAppear(() => {
-      this.initARView();
+      this.initARView()
     })
     .onWillDisappear(() => {
-      this.stopARView();
+      clearInterval(this.intervalId);
+      this.arContext?.destroy();
     })
     .onShown(() => {
-      this.resumeARView();
+      this.resumeARView()
     })
     .onHidden(() => {
-      this.pauseARView();
+      this.pauseARView()
+    })
+    .onReady(ctx => {
+      this.params = ctx.pathInfo.param as arEngine.ARConfig;
     })
     .hideTitleBar(true)
     .hideBackButton(true)
     .hideToolBar(true)
   }
 
-  private initARView(): void {
-    Scene.load().then((scene: Scene) => {
-      let viewContext: arViewController.ARViewContext = new arViewController.ARViewContext();
-      viewContext.scene = scene;
-      viewContext.callback = new ARViewCallbackImpl();
-      viewContext.config = {
-        type: arEngine.ARType.WORLD,
-        planeFindingMode: arEngine.ARPlaneFindingMode.HORIZONTAL_AND_VERTICAL,
-        powerMode: arEngine.ARPowerMode.NORMAL,
-        semanticDenseMode: arEngine.ARSemanticDenseMode.CUBE_VOLUME, // 开启体积测量
-        poseMode: arEngine.ARPoseMode.GRAVITY,
-        depthMode: arEngine.ARDepthMode.DISABLED,
-        meshMode: arEngine.ARMeshMode.DISABLED,
-        focusMode: arEngine.ARFocusMode.AUTO
-      }
-      viewContext.init().then(() => {
-        this.arContext = viewContext;
-        console.info('Succeeded in initializing ARView.');
-      }).catch((err: BusinessError) => {
-        console.error(`Failed to init ARView. Code is ${err.code}, message is ${err.message}.`);
-      })
-    })
-  }
-
-  private stopARView(): void {
-    // ...
-  }
-  private resumeARView(): void {
-    // ...
-  }
   private pauseARView(): void {
     // ...
   }
-}
+
+  private resumeARView(): void {
+    // ...
+  }
+
+  private initARView(): void {
+    Scene.load().then(async (scene: Scene) => {
+      let ret :boolean = arViewController.isARTypeSupported(arEngine.ARFeatureType.ARENGINE_FEATURE_TYPE_SEMANTIC_DENSE);
+      logger.info('ARSemanticDense isARTypeSupported is' + ret);
+      let context = new arViewController.ARViewContext()
+      context.scene = scene
+      context.callback = new ARViewCallbackImpl()
+      context.config = {
+        type: arEngine.ARType.WORLD,
+        planeFindingMode: arEngine.ARPlaneFindingMode.DISABLED,
+        powerMode: this.params?.powerMode,
+        semanticDenseMode: arEngine.ARSemanticDenseMode.CUBE_VOLUME
+      };
+      context.init().then(() => {
+        this.arContext = context;
+        // ...
 ```
 
 
@@ -146,38 +158,35 @@ struct ARSemanticDense {
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
-    // ...
   }
 
   onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
-    // ...
   }
 
-  async onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): Promise<void> {
-    if (!ctx.session) {
-      return;
-    }
-
-    let arSession: arEngine.ARSession = ctx.session;
-
-    try {
-      let frame: arEngine.ARFrame = arSession.getFrame();
-      if (frame) {
-        let semanticData: arEngine.ARSemanticDenseData = frame.acquireSemanticDense();
-        if(semanticData){
+  onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): void {
+    let session: arEngine.ARSession | undefined = ctx.session;
+    if (session) {
+      arSession = session;
+      frame = session.getFrame()
+      if (!frame){
+        // ...
+      } else {
+        semanticData = frame.acquireSemanticDense();
+        if(semanticData !== undefined){
+          // ...
           if(semanticData.cubeDataSize>0){
-            // 获取第一个Cube的体积数据
             let semanticCubeData: arEngine.ARSemanticDenseCubeData = semanticData.acquireCubeData()[0];
             cubeVertexData = semanticCubeData.vertexData;
             cubeConfidence = semanticCubeData.confidence;
             cubeLabel = semanticCubeData.label;
+            // ...
           }
-          await semanticData.release();
         }
+        semanticData.release()
+        semanticData.timestamp
       }
-    } catch (error) {
-      const err: BusinessError = error as BusinessError;
-      console.error(`Failed to update data. Code is ${err.code}, message is ${err.message}.`);
+      releaseFrame(frame);
+    // ...
     }
   }
 }

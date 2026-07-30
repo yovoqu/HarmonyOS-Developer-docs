@@ -17,19 +17,19 @@ Slider组件设置渐变色效果可能遇到以下场景：
 预期效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/29sD7EIlTny0_VGTIZWbcw/zh-cn_image_0000002658969517.png?HW-CC-KV=V1&HW-CC-Date=20260723T012812Z&HW-CC-Expire=86400&HW-CC-Sign=2919532C6621B7D0A0BD3561FE87B9291090A5D56EE2BA3AC52A6ED09084F1BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/29sD7EIlTny0_VGTIZWbcw/zh-cn_image_0000002658969517.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=BE47E6A9603CB317567E01C0DB9FD17952CFCAEB868A6DBFD8491935C7F0F48E)
 
  
 实际效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/8qNdbAeESIuSdmtx_DkBGg/zh-cn_image_0000002628610298.png?HW-CC-KV=V1&HW-CC-Date=20260723T012812Z&HW-CC-Expire=86400&HW-CC-Sign=88E9A41BB6D4055B2A8A844304B6A29D85F13FB10CDB29E8BCAA7BABF24E1E4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/8qNdbAeESIuSdmtx_DkBGg/zh-cn_image_0000002628610298.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=F789F70D36A31EDF816CEDBA04DF0FB176328C41AADB5D9B2DBAC99D01C19E3B)
 
  
 场景四：如何实现Slider组件滑动条颜色为渐变色时，滑动条颜色不压缩？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/zmr0eDP1S42DRTwfjH7NFQ/zh-cn_image_0000002658849561.png?HW-CC-KV=V1&HW-CC-Date=20260723T012812Z&HW-CC-Expire=86400&HW-CC-Sign=142E844EAC6770BDD571F32F38C7FD60BBC8DEC6EDF7E4A1E92455FA271C64AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/zmr0eDP1S42DRTwfjH7NFQ/zh-cn_image_0000002658849561.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=2E6A33905037DC863EFDB63A87BB4830A62BD87AC087A49A1E55401E8E43EE9D)
 
  
  
@@ -80,7 +80,7 @@ struct PageLinearGradientOne {
   效果如图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/vQMeW6llTPOiBfC-bQOZmA/zh-cn_image_0000002628770196.png?HW-CC-KV=V1&HW-CC-Date=20260723T012812Z&HW-CC-Expire=86400&HW-CC-Sign=6E10353DD648425BADFF77102CE854A6C878B1484DAB3674F6352BBF85A40FAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/vQMeW6llTPOiBfC-bQOZmA/zh-cn_image_0000002628770196.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=B467F7557E8E125867C38B455661BE45C82422E94F25B2132EE9FEFDCA2BCA31)
 
 - 方案三：将滑轨的背景颜色及已滑动部分颜色均设置成渐变色。示例代码如下：
 ```text
@@ -115,7 +115,7 @@ struct PageLinearGradientTwo {
   效果如图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/Q7HSykl3TEeXBUYJaOrfdA/zh-cn_image_0000002658969519.png?HW-CC-KV=V1&HW-CC-Date=20260723T012812Z&HW-CC-Expire=86400&HW-CC-Sign=047518129DC90F8ECF2FDF44601C024A86B256281291CE2865B3801DDE21131A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/Q7HSykl3TEeXBUYJaOrfdA/zh-cn_image_0000002658969519.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=650C3BE50DF6CD541118E7ACB0E78C3ED2F20789A664F475263DEE1F5E691A09)
 
 - 场景四：当滑轨的背景颜色为渐变色时，滑块滑动过程中未选择部分的颜色渐变不会产生压缩效果。因此，为了实现滑轨已选择部分为渐变色且不压缩，可以将滑轨的背景颜色设置为渐变色，并通过设置reverse属性为true来将滑动条取值范围设置为反向，从而将已选择部分和未选择部分替换，实现渐变色不压缩的效果。
 ```text
@@ -162,4 +162,4 @@ struct SliderExample {
   效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/6kthIcYCR2uoW8s8KqI9uw/zh-cn_image_0000002628610300.png?HW-CC-KV=V1&HW-CC-Date=20260723T012812Z&HW-CC-Expire=86400&HW-CC-Sign=83EF6309583FAF63F1D07D028F32396EF89008082935E28BED5F90AA62993A91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/6kthIcYCR2uoW8s8KqI9uw/zh-cn_image_0000002628610300.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=F5F053BCCC8E48C7386F3366D5897B3E746C7FC5E1243B3FC8A6595D94F52295)

@@ -1,6 +1,6 @@
 # cdsm（星闪合作设备集合能力）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-cdsm
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,7 +40,7 @@ createCdsmClient(address: string): CdsmClient
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| address | string | 是 | 已配对连接的合作设备集合的成员设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
+| address | string | 是 | 已配对连接的合作设备集合的成员设备地址。地址格式参考：11:22:33:AA:BB:FF。地址应为标准MAC地址格式，长度为17个字符（包括冒号），格式为xx:xx:xx:xx:xx:xx，其中x为十六进制数字。 |
  
  
 **返回值：**
@@ -58,7 +58,7 @@ createCdsmClient(address: string): CdsmClient
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported because the chip does not support it. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700050 | Coordinated Devices Set Management not supported. |
 | 1009700099 | Operation failed. |
  
@@ -127,7 +127,7 @@ getCdsmInfo(): CdsmInfo
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -240,8 +240,7 @@ offCdsmInfoChange(callback?: Callback&lt;CdsmInfo&gt;): void
  
 ```json
 import { cdsm } from '@kit.NearLinkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Callback } from '@kit.BasicServicesKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<cdsm.CdsmInfo> = (data: cdsm.CdsmInfo) => {
   console.info('CdsmInfo:' + JSON.stringify(data));

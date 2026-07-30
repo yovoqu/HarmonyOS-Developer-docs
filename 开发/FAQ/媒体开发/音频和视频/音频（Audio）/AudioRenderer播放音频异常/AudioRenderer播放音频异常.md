@@ -36,7 +36,7 @@ AudioRenderer仅支持播放PCM格式的音频文件，播放其他音频格式�
 - **分析原因**：AudioRenderer会调用[AudioRendererWriteDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiorendererwritedatacallback12)方法来写入音频数据，如果数据未能填满回调buffer的长度就放入队列里播放，则会导致杂音、卡顿等现象。如下图所示，因为部分buffer未填满导致存在脏数据影响播放：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/yImVb8kjRKmzKPHnJ2z83A/zh-cn_image_0000002658911947.png?HW-CC-KV=V1&HW-CC-Date=20260723T013611Z&HW-CC-Expire=86400&HW-CC-Sign=68DC04FA40885BD49BA64B3C87E8D1A1C871F8CE39619B815D8AAF2124A8BDC9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/yImVb8kjRKmzKPHnJ2z83A/zh-cn_image_0000002658911947.png?HW-CC-KV=V1&HW-CC-Date=20260730T072623Z&HW-CC-Expire=86400&HW-CC-Sign=67F5253713C69515060638A3647BF9ED2F7D5DCF1677BACE72BE585AB8D64580)
 
 
   此时可以将buffer长度和写入数据长度打印出来，比较大小，相关日志如下：
@@ -69,7 +69,7 @@ if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);"
 - **分析原因**：在没有写入新的音频数据也没有停止AudioRenderer的情况下，则会循环播放缓冲区的历史数据，导致不断输出杂音，影响播放效果，如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CttIZ8W6RESeVHEaAFB9GA/zh-cn_image_0000002628392738.png?HW-CC-KV=V1&HW-CC-Date=20260723T013611Z&HW-CC-Expire=86400&HW-CC-Sign=BF2396AB7D5306E28A62A456D7489FC0A87857D1B3B5630730CBE2F6F74E7F0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CttIZ8W6RESeVHEaAFB9GA/zh-cn_image_0000002628392738.png?HW-CC-KV=V1&HW-CC-Date=20260730T072623Z&HW-CC-Expire=86400&HW-CC-Sign=3AA7CCFDCF635FA3B167B9DD0D1767C02FFCA20C9307E5E1EDB9D07962899314)
 
 
   打印出日志如下图所示，在没有新数据写入也没有停止的情况下，会不断循环播放缓冲区数据：

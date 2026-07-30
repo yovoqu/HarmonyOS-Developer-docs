@@ -1,18 +1,18 @@
 # 如何接入AGC应用性能监测服务（含崩溃服务）
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-24 01:16:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-48
 
 #### 问题现象
 
-性能管理服务是不是实现崩溃日志堆栈信息上报收集功能？怎么在AGC平台上开通应用性能管理服务，方便应用崩溃时日志的查看和问题定位。
+性能管理服务是否实现崩溃日志堆栈信息上报收集功能？怎么在AGC平台上开通应用性能管理服务，方便应用崩溃时日志的查看和问题定位。
  
  
 
 #### 背景知识
 
-崩溃服务已经合并到性能管理服务。实现了和友盟/bugly等类似的崩溃日志上报收集功能。
+崩溃服务已经合并至性能管理服务，该服务提供了与友盟/bugly等平台类似的崩溃日志上报收集功能。
  
 应用性能管理服务（Application Performance Management Service，简称APMS）是AppGallery Connect（简称AGC）向开发者提供的一个现网质量监测解决方案。
  
@@ -22,7 +22,7 @@
 
 #### 解决方案
 
-2025年4月9日前，创建且从未使用过APMS服务的存量应用，可通过刷新【应用信息】的方式触发刷新，完成服务的开通，可以参考[存量应用如何开通APMS服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-faq-0000002271373129#section17901136608)。
+2025年4月9日前，创建且从未使用过APMS服务的存量应用，可通过更新【应用信息】的方式完成服务开通，刷新应用具体方法：登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)进入“APP与元服务”，选择需要开启APMS服务的应用，在“应用信息”-“可本地化基础信息”中修改应用名称，点击右上角“保存”，再修改回原应用名。
  
 2025年4月9日后，创建应用后，AGC将为应用自动开通APMS服务。创建应用可参考[AGC控制台配置](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudstorage-console-0000001275489978)。
  
@@ -30,7 +30,7 @@
  
 APMS指导文档可以参考：APMS[业务介绍](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-introduction-0000002236333914)。
  
-APMS崩溃相关可以参考：[异常管理](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-crash-0000002236333918)。
+APMS崩溃相关可以参考：[异常管理](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-crash-0000002577579282)。
  
  
 
@@ -75,7 +75,7 @@ Q：APMS报错信息是混淆的，能否还原至原始代码？
 A：点击“还原堆栈”页签，可将混淆后的业务堆栈信息还原成用户可读信息。请确保已上传对应符号表文件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lHEDsk3rSfiVh3XwUc3Tow/zh-cn_image_0000002658793885.png?HW-CC-KV=V1&HW-CC-Date=20260723T013834Z&HW-CC-Expire=86400&HW-CC-Sign=3781CF902B9922FA478E4D2189A067D71CD579B01225F601AE034DB62B5AF5D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/zRwcIjXPTZSILpn3PmKWKQ/zh-cn_image_0000002675224017.png?HW-CC-KV=V1&HW-CC-Date=20260730T072700Z&HW-CC-Expire=86400&HW-CC-Sign=CC9410547E5AB1097213B01D6BFB14002906239E931FCBD9A58C06FDA3B7D5BA)
 
  
 Q：在APMS中为什么最新型号手机信息没有，导致异常日志搜索不到。
@@ -87,7 +87,7 @@ Q：本地调试的Debug版本崩溃日志也会上传APMS吗？是否能够设�
 A：应用接入异常管理后，可通过设置调试版本和发布版本的不同版本号进行区分。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/LCNdv1mIRh6TXjpghHSONg/zh-cn_image_0000002628394620.png?HW-CC-KV=V1&HW-CC-Date=20260723T013834Z&HW-CC-Expire=86400&HW-CC-Sign=663BBE94FDDA374098750C309B4CB89772A5920EF7EE40C4EA6A9F41D111B3DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/_NZYY-B6R7q65n6vOJ-YOA/zh-cn_image_0000002645184080.png?HW-CC-KV=V1&HW-CC-Date=20260730T072700Z&HW-CC-Expire=86400&HW-CC-Sign=796D8EBBA2D7E2F8D6A6C78F12801A0EDEC434426A609CF94C658CD22782BCDB)
 
  
 Q：为什么收集到的崩溃信息的行号与源代码不一致？
@@ -100,3 +100,7 @@ A：数据来源主要包括客户端、服务端和网络等多个层面的监�
  1. 客户端数据主要来源于用户设备上的应用程序。
 2. 服务端数据主要来源于后端服务器、数据库、缓存系统等基础设施（比如日志数据依赖于服务器生成的日志文件）。
 3. 网络数据主要来源于网络传输过程中的各种指标，比如网络延迟等。
+ 
+Q：开发本地打的包，走华为公测流程的包，会统计到APMS吗？
+ 
+A：APMS采的是系统事件，只要是这个应用上架过，运行的都会统计到APMS。

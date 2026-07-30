@@ -1,6 +1,6 @@
 # Session间缓存共享
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-cache-shared
 
@@ -33,10 +33,11 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 
   
 ```text
+// 创建ResponseCache实例
 const responseCache = new rcp.ResponseCache({
   persistent: {
     kind: 'file-system',
-    pathToFolder: '/path/dir' // 请根据自身业务选择合适的路径
+    pathToFolder: '/data/storage/el2/base/entry/temp/SomeInstance' // 请根据自身业务选择合适的路径
   }
 });
 ```
@@ -47,12 +48,12 @@ const responseCache = new rcp.ResponseCache({
 ```text
 const sessionA: rcp.Session = rcp.createSession({
   requestConfiguration: {
-    cache: responseCache
+    cache: responseCache,
   }
 });
 const sessionB: rcp.Session = rcp.createSession({
   requestConfiguration: {
-    cache: responseCache
+    cache: responseCache,
   }
 });
 ```
@@ -61,6 +62,7 @@ const sessionB: rcp.Session = rcp.createSession({
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseA = await sessionA.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseA)}`);
 let cacheState = await responseCache.getState();
@@ -71,6 +73,7 @@ console.info(`The current number of cache entries is: ${cacheState.count}`);
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseB = await sessionB.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseB)}`);
 cacheState = await responseCache.getState();
@@ -94,17 +97,18 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 
   
 ```text
+// 创建ResponseCache实例
 const responseCacheA = new rcp.ResponseCache({
   persistent: {
     kind: 'file-system',
-    pathToFolder: '/path/dir' // 请根据自身业务选择合适的路径
-  }
+    pathToFolder: '/data/storage/el2/base/entry/temp/SomeCache' // 请根据自身业务选择合适的路径
+  },
 });
 const responseCacheB = new rcp.ResponseCache({
   persistent: {
     kind: 'file-system',
-    pathToFolder: '/path/dir' // 请根据自身业务选择合适的路径
-  }
+    pathToFolder: '/data/storage/el2/base/entry/temp/SomeCache' // 请根据自身业务选择合适的路径
+  },
 });
 ```
 
@@ -114,12 +118,12 @@ const responseCacheB = new rcp.ResponseCache({
 ```text
 const sessionA: rcp.Session = rcp.createSession({
   requestConfiguration: {
-    cache: responseCacheA
+    cache: responseCacheA,
   }
 });
 const sessionB: rcp.Session = rcp.createSession({
   requestConfiguration: {
-    cache: responseCacheB
+    cache: responseCacheB,
   }
 });
 ```
@@ -128,6 +132,7 @@ const sessionB: rcp.Session = rcp.createSession({
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseA = await sessionA.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseA)}`);
 let cacheState = await responseCacheA.getState();
@@ -138,6 +143,7 @@ console.info(`The current number of cache entries is: ${cacheState.count}`);
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseB = await sessionB.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseB)}`);
 cacheState = await responseCacheB.getState();

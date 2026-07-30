@@ -1,11 +1,11 @@
 # PanGesture
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-滑动手势事件，当滑动的最小距离达到设定的最小值时触发滑动手势事件。
+当滑动距离达到设定的最小值时，触发滑动手势事件。
  
 以下场景可以触发滑动手势：
   
@@ -20,7 +20,7 @@
  
  
 > [!NOTE]
-> 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -46,7 +46,7 @@ PanGesture(value?: { fingers?: number; direction?: PanDirection; distance?: numb
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | { fingers?: number; direction?: PanDirection; distance?: number } \| PanGestureOptions | 否 | 滑动手势参数。 - fingers：用于指定触发滑动的最少手指数，最小为1指，最大取值为10指。 默认值：1 取值范围：[1, 10] 说明： 当设置的值小于1或不设置时，会被转化为默认值。 - direction：用于指定触发滑动的手势方向，此枚举值支持逻辑与(&)和逻辑或（\|）运算。 默认值：PanDirection.All - distance：用于指定触发滑动手势事件的最小滑动距离，单位为vp。 取值范围：[0, +∞) 手写笔默认值：8，其余输入源默认值：5 说明： Tabs组件滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免造成事件错乱。 当设定的值小于0时，按默认值处理。 当组件应用了scale缩放变换时，distance的实际识别距离会按照scale比例进行缩放。 |
+| value | { fingers?: number; direction?: PanDirection; distance?: number } \| PanGestureOptions | 否 | 滑动手势参数。 - fingers：用于指定触发滑动的最少手指数，最小为1指，最大取值为10指。 默认值：1 取值范围：[1, 10] 说明： 当设置的值小于1或不设置时，会被转化为默认值。 - direction：用于指定触发滑动的手势方向，此枚举值支持逻辑与(&)和逻辑或（\|）运算。 默认值：PanDirection.All - distance：用于指定触发滑动手势事件的最小滑动距离，单位为vp。 取值范围：[0, +∞) 手写笔默认值：8，其余输入源默认值：5 说明： Tabs组件滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免滑动手势与Tabs组件滑动事件的响应结果不符合预期。 当设定的值小于0时，按默认值处理。 当组件应用了scale缩放变换时，distance的实际识别距离会按照scale比例进行缩放。 |
  
  
   
@@ -57,7 +57,7 @@ PanGesture(value?: { fingers?: number; direction?: PanDirection; distance?: numb
 
 PanGesture(options?: PanGestureHandlerOptions)
  
-创建滑动手势对象。与[PanGesture](#pangesture-1)相比，options参数新增了对isFingerCountLimited和distanceMap参数，分别表示是否检查触摸屏幕的手指数量以及指定不同输入源触发滑动手势事件的最小滑动距离。
+创建滑动手势对象。与[PanGesture](#pangesture-1)相比，options参数新增了isFingerCountLimited参数，表示是否检查触摸屏幕的手指数量；distanceMap参数从API version 19开始支持，用于指定不同输入源触发滑动手势事件的最小滑动距离，单位为vp。
  
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
  
@@ -69,7 +69,7 @@ PanGesture(options?: PanGestureHandlerOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | PanGestureHandlerOptions | 否 | 滑动手势处理器配置参数。 |
+| options | PanGestureHandlerOptions | 否 | 滑动手势处理器配置参数，用于配置触发滑动手势事件的条件，包括是否检查触摸屏幕的手指数量（isFingerCountLimited）以及为不同输入源指定触发滑动手势事件的最小滑动距离（distanceMap，API version 19开始支持，单位为vp）。当需要配置是否检查触摸屏幕的手指数量，或需要为不同输入源分别指定触发滑动手势事件的最小滑动距离时，传入该参数；不传入时，使用默认滑动手势处理器配置。 |
  
  
   
@@ -110,7 +110,7 @@ PanGesture(options?: PanGestureHandlerOptions)
 
 constructor(value?: { fingers?: number; direction?: PanDirection; distance?: number })
  
-创建滑动手势配置参数对象。通过PanGestureOptions对象接口可以动态修改滑动手势的属性，从而避免通过状态变量修改属性（状态变量修改会导致UI刷新）。
+创建滑动手势配置参数对象。通过PanGestureOptions对象可以动态修改滑动手势的属性，从而避免通过状态变量修改属性导致UI刷新。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -120,7 +120,7 @@ constructor(value?: { fingers?: number; direction?: PanDirection; distance?: num
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | { fingers?: number; direction?: PanDirection; distance?: number } | 否 | 滑动手势配置参数对象。 fingers用于指定触发滑动的最少手指数，最小为1指， 最大取值为10指。 默认值：1 direction用于指定触发滑动的手势方向，此枚举值支持逻辑与(&)和逻辑或（\|）运算。 默认值：PanDirection.All distance用于指定触发滑动手势事件的最小滑动距离，单位为vp。 手写笔默认值：8，其余输入源默认值：5 说明： Tabs组件滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免造成事件错乱。 当设定的值小于0时，按默认值处理。 建议设置合理的滑动距离，滑动距离设置过大时会导致滑动不跟手（响应时延慢）的问题。 当组件应用了scale缩放变换时，distance的实际识别距离会按照scale比例进行缩放。 |
+| value | { fingers?: number; direction?: PanDirection; distance?: number } | 否 | 滑动手势配置参数对象。 fingers用于指定触发滑动的最少手指数，最小为1指， 最大取值为10指。 默认值：1 direction用于指定触发滑动的手势方向，此枚举值支持逻辑与(&)和逻辑或（\|）运算。 默认值：PanDirection.All distance用于指定触发滑动手势事件的最小滑动距离，单位为vp。 取值范围：[0, +∞) 手写笔默认值：8，其余输入源默认值：5 说明： Tabs组件滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免造成事件错乱。 当设定的值小于0时，按默认值处理。 建议设置合理的滑动距离，滑动距离设置过大时会导致滑动不跟手（响应时延增加）的问题。 当组件应用了scale缩放变换时，distance的实际识别距离会按照scale比例进行缩放。 |
  
  
   
@@ -152,7 +152,7 @@ setDirection(value: PanDirection)
 
 setDistance(value: number)
  
-设置触发滑动手势事件的最小滑动距离，单位为vp。距离值不宜设置过大，避免因滑动脱手、响应时延过大等问题导致性能劣化，最佳实践请参考：[减小拖动识别距离](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimization-cases#section1116134115286)。
+设置触发滑动手势事件的最小滑动距离，单位为vp。建议以手写笔8vp、其余输入源5vp为初始值，根据实际交互场景调整滑动距离；滑动距离增大时，可能出现手势跟随效果变差、响应时延增加等问题，导致性能劣化，最佳实践请参考：[减小拖动识别距离](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimization-cases#section1116134115286)。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -162,7 +162,7 @@ setDistance(value: number)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 触发滑动手势事件的最小滑动距离，单位为vp。 手写笔默认值：8，其余输入源默认值：5 说明： Tabs组件滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免造成事件错乱。 当设定的值小于0时，按默认值处理。 建议设置合理的滑动距离，滑动距离设置过大时会导致滑动不跟手（响应时延慢）的问题。 当组件应用了scale缩放变换时，distance的实际识别距离会按照scale比例进行缩放。 |
+| value | number | 是 | 触发滑动手势事件的最小滑动距离，单位为vp。 取值范围：[0, +∞) 手写笔默认值：8，其余输入源默认值：5 说明： Tabs组件滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免滑动手势与Tabs组件滑动事件的响应结果不符合预期。 当设定的值小于0时，按默认值处理。 建议设置合理的滑动距离，滑动距离设置过大时会导致滑动不跟手（响应时延慢）的问题。 当组件应用了scale缩放变换时，distance的实际识别距离会按照scale比例进行缩放。 |
  
  
   
@@ -206,7 +206,7 @@ getDirection(): PanDirection
   
 | 类型 | 说明 |
 | --- | --- |
-| PanDirection | 滑动方向。 |
+| PanDirection | 当前PanGestureOptions对象中配置的滑动触发方向。 |
  
  
   
@@ -229,7 +229,7 @@ getDistance(): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 滑动手势事件的最小滑动距离。 |
+| number | 当前PanGestureOptions对象中配置的触发滑动手势事件的最小滑动距离，单位为vp。 |
  
  
   
@@ -260,7 +260,7 @@ onActionStart(event: (event: GestureEvent) => void)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | (event: GestureEvent) => void | 是 | 滑动手势识别成功回调。 |
+| event | (event: GestureEvent) => void | 是 | 滑动手势识别成功时触发的回调函数，回调参数event为GestureEvent对象，用于获取本次滑动手势的事件信息。 |
  
  
   
@@ -271,7 +271,7 @@ onActionStart(event: (event: GestureEvent) => void)
 
 onActionUpdate(event: (event: GestureEvent) => void)
  
-设置滑动手势更新回调。fingerList为多根手指时，该回调监听每次只会更新一根手指的位置信息。
+设置滑动手势更新回调。fingerList包含多根手指时，每次触发该回调仅更新一根手指的位置信息。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -281,7 +281,7 @@ onActionUpdate(event: (event: GestureEvent) => void)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | (event: GestureEvent) => void | 是 | 滑动手势更新回调。 |
+| event | (event: GestureEvent) => void | 是 | 滑动手势更新时触发的回调函数，回调参数event为GestureEvent对象，用于获取滑动过程中的手势事件信息。 |
  
  
   
@@ -302,7 +302,7 @@ onActionEnd(event: (event: GestureEvent) => void)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | (event: GestureEvent) => void | 是 | 滑动手势结束回调。 |
+| event | (event: GestureEvent) => void | 是 | 滑动手势结束时触发的回调函数，回调参数event为GestureEvent对象，用于获取滑动结束时的手势事件信息。 |
  
  
   
@@ -346,7 +346,7 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | Callback&lt;GestureEvent&gt; | 是 | 滑动手势取消回调。 |
+| event | Callback&lt;GestureEvent&gt; | 是 | 滑动手势取消时触发的回调函数，回调参数为GestureEvent对象，用于获取滑动取消时的手势事件信息。 |
  
  
   
@@ -388,11 +388,13 @@ struct PanGestureExample {
         })
         .onActionUpdate((event: GestureEvent) => {
           if (event) {
+            // 根据滑动偏移量更新组件当前位置
             this.offsetX = this.positionX + event.offsetX;
             this.offsetY = this.positionY + event.offsetY;
           }
         })
         .onActionEnd((event: GestureEvent) => {
+          // 滑动结束后保存当前位置，作为下一次滑动的起始位置
           this.positionX = this.offsetX;
           this.positionY = this.offsetY;
           console.info('Pan end');
@@ -416,10 +418,10 @@ struct PanGestureExample {
 向左滑动：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/cUjJHZ3zRCWDSCvPUOnS1w/zh-cn_image_0000002659101663.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=58315A06B99FC0C409400BBEF9922C4BA627A9EB9288D1D556F19BA7876FBE4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/h94VYlYwR-yizvgx_dAr-w/zh-cn_image_0000002686087877.png?HW-CC-KV=V1&HW-CC-Date=20260730T071458Z&HW-CC-Expire=86400&HW-CC-Sign=9DE6155484502AFAE2B88CAFA2DCDB4E924FB06D5D9C61AC71CA3975A3BC2F42)
 
  
-点击按钮时，修改PanGesture触发条件为双指向左下方滑动：
+点击按钮时，修改PanGesture触发条件为双指向任意方向滑动：
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/5LMuugvATBOuJ7Dl7PWW0A/zh-cn_image_0000002628862314.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=5F004FF1F04454AAF9B43AC263AC80265B14C1FCA4C96E9AB869442A8E814E73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/YcJKSD0DQm-KV15SOtQPbw/zh-cn_image_0000002685928049.png?HW-CC-KV=V1&HW-CC-Date=20260730T071458Z&HW-CC-Expire=86400&HW-CC-Sign=44B993DF57B336B1A528A3F6C88D4F6CF303D40CAFF12DADDD0C386F895D83CC)

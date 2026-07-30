@@ -1,6 +1,6 @@
 # 如何实现rcp网络请求时忽略csr证书校验
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-6
 
@@ -22,7 +22,7 @@
 
 #### 解决方案
 
-- **方案一：**自定义requestConfig对象，重写[ValidationCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section209691249748)。remoteValidation在实际的证书验证中，这个函数会检查证书的有效性等信息，这里返回true来忽略证书校验，样例代码如下：
+- **方案一：**自定义requestConfig对象，重写[ValidationCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#validationcallback)。remoteValidation在实际的证书验证中，这个函数会检查证书的有效性等信息，这里返回true来忽略证书校验，样例代码如下：
 
   
 ```text

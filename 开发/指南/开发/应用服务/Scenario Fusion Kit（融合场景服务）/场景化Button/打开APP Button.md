@@ -1,6 +1,6 @@
 # 打开APP Button
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-launchapp
 
@@ -18,7 +18,7 @@
 
 #### 约束与限制
 
-打开APP Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备，从API版本26.0.0开始，新增支持Car设备。
+打开APP Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
 
 
 
@@ -56,7 +56,7 @@ struct Index {
             styleOption: {
               styleConfig: new functionalButtonComponentManager.ButtonConfig()
                 .fontSize(20)
-            },
+            }
           },
           // 当OpenType设置为LAUNCH_APP时，回调函数必须是onLaunchApp。
           controller: new functionalButtonComponentManager.FunctionalButtonController().onLaunchApp((err) => {

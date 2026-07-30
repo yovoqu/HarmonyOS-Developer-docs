@@ -1,6 +1,6 @@
 # picker-view
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-picker-view
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -39,7 +39,7 @@
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| range | Array | - | 否 | 设置文本选择器的取值范围。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data：["15","20","25"]。 |
+| range | Array | - | 否 | 设置文本选择器的取值范围。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data: ['15', '20', '25']。 |
 | selected | string | 0 | 否 | 设置文本选择器的默认选择值，该值需要为range的索引。 |
 | indicatorprefix | string | - | 否 | 文本选择器选定值增加的前缀字段。 |
 | indicatorsuffix | string | - | 否 | 文本选择器选定值增加的后缀字段。 |
@@ -96,7 +96,7 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | columns | number | - | 是 | 设置多列文本选择器的列数。 |
-| range | 二维Array | - | 否 | 设置多列文本选择器的选择值，该值为二维数组。长度表示多少列，数组的每项表示每列的数据，如 [["a","b"], ["c","d"]]。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data：[["a","b"], ["c","d"]]。 |
+| range | 二维Array | - | 否 | 设置多列文本选择器的选择值，该值为二维数组。长度表示多少列，数组的每项表示每列的数据，如 [["a","b"], ["c","d"]]。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data: [['a', 'b'], ['c', 'd']]。 |
 | selected | Array | [0,0,0,…] | 否 | 设置多列文本选择器的默认值，每一列被选中项对应的索引构成的数组，该取值表示选择器界面的默认选择值。 |
  
  
@@ -457,4 +457,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/pYjK0YsJSre8P-qgQwibcg/zh-cn_image_0000002677668317.png?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=C88070BA5F2E6BA9D65703E4D0E0DD3B9EFA264D42B87937F25DD4D8F9B741FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/gDfkWwx_Sei7V4vZxq8reA/zh-cn_image_0000002686088535.png?HW-CC-KV=V1&HW-CC-Date=20260730T071524Z&HW-CC-Expire=86400&HW-CC-Sign=DA132C8FDC14AB96ADE257DD2E03852A6EC961B44D12A192C9A933C03939C26D)

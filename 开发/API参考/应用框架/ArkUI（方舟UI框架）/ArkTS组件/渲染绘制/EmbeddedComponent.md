@@ -1,16 +1,16 @@
 # EmbeddedComponent
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-EmbeddedComponent用于支持在当前页面嵌入本应用内其他[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)提供的UI。EmbeddedUIExtensionAbility在独立进程中运行，完成页面布局和渲染。
+EmbeddedComponent用于支持在当前页面嵌入本应用内或满足跨应用权限条件的其他[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)提供的UI。EmbeddedUIExtensionAbility在独立进程中运行，完成页面布局和渲染。
 
 通常用于有进程隔离诉求的模块化开发场景。
 
 > [!NOTE]
-> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 API版本26.0.0之前，EmbeddedComponent组件获焦时，其拉起的EmbeddedUIExtensionAbility进程内焦点直接下发到第一个可获焦子节点。从API版本26.0.0开始， 如果外部走焦到EmbeddedUIExtensionAbility，焦点正常下发到第一个可获焦子节点。 如果由于层级页面切换导致焦点转移到EmbeddedUIExtensionAbility，则与UIAbility保持统一规则。两者在拉起一个层级页面且该页面未设置 defaultFocus 、未 主动请求焦点 时，焦点均停留在根容器，不下发到子节点。
+> 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 API版本26.0.0之前，EmbeddedComponent组件获焦时，其拉起的EmbeddedUIExtensionAbility进程内焦点直接下发到第一个可获焦子节点。从API版本26.0.0开始， 如果外部走焦到EmbeddedUIExtensionAbility，焦点正常下发到第一个可获焦子节点。 如果由于层级页面切换导致焦点转移到EmbeddedUIExtensionAbility，则采用与UIAbility一致的规则。EmbeddedUIExtensionAbility和UIAbility在拉起一个层级页面且该页面未设置 defaultFocus 、未 主动请求焦点 时，焦点均停留在根容器，不下发到子节点。
 
 
 
@@ -18,9 +18,13 @@ EmbeddedComponent用于支持在当前页面嵌入本应用内其他[EmbeddedUIE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-EmbeddedComponent仅支持在拥有多进程权限的设备上使用。
+EmbeddedComponent仅支持在拥有多进程权限的设备上使用。开发者可通过canIUse相关接口或系统设置查询当前设备是否支持多进程权限。
 
-EmbeddedComponent只能在UIAbility中使用，且被拉起的EmbeddedUIExtensionAbility需与UIAbility属于同一应用。
+EmbeddedComponent只能在UIAbility中使用，且默认情况下被拉起的EmbeddedUIExtensionAbility需与UIAbility属于同一应用。从API版本26.0.0开始，在同时满足以下条件时，允许EmbeddedComponent跨应用拉起EmbeddedUIExtensionAbility：
+
+ - EmbeddedComponent所属应用申请了ohos.permission.SUPPORT_CROSS_APP_EMBED_FOR_OA权限（该权限仅企业普通应用可申请）；
+ - 该应用的[appIdentifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-problem-of-application#什么是appidentifier)在EmbeddedUIExtensionAbility支持的应用清单（即[extensionAbilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#extensionabilities标签)的appIdentifierAllowList属性）中。
+
 
 
 
@@ -36,9 +40,15 @@ EmbeddedComponent只能在UIAbility中使用，且被拉起的EmbeddedUIExtensio
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-EmbeddedComponent(loader: import('../api/@ohos.app.ability.Want').default, type: EmbeddedType, options?: EmbeddedOptions)
 
-创建跨进程嵌入式组件，用于显示同包名EmbeddedUIExtensionAbility的UI。
+
+#### EmbeddedComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+EmbeddedComponent(loader: import('../api/@ohos.app.ability.Want').default, type: EmbeddedType)
+
+创建跨进程嵌入式组件，用于显示同包名或满足跨应用权限条件的EmbeddedUIExtensionAbility的UI。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -49,7 +59,32 @@ EmbeddedComponent(loader: import('../api/@ohos.app.ability.Want').default, type:
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | loader | import('../api/@ohos.app.ability.Want').default | 是 | 要加载的EmbeddedUIExtensionAbility。 |
-| type | EmbeddedType | 是 | 提供方的类型。 |
+| type | EmbeddedType | 是 | 提供方的类型，当前支持值为EmbeddedType.EMBEDDED_UI_EXTENSION，表示嵌入的是EmbeddedUIExtensionAbility提供的UI。 |
+
+
+
+
+#### EmbeddedComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+EmbeddedComponent(loader: import('../api/@ohos.app.ability.Want').default, type: EmbeddedType, options?: EmbeddedOptions)
+
+创建跨进程嵌入式组件，用于显示同包名或满足跨应用权限条件的EmbeddedUIExtensionAbility的UI。相对于API version 12的接口，新增options参数用于传递构造参数。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| loader | import('../api/@ohos.app.ability.Want').default | 是 | 要加载的EmbeddedUIExtensionAbility。 |
+| type | EmbeddedType | 是 | 提供方的类型，当前支持值为EmbeddedType.EMBEDDED_UI_EXTENSION，表示嵌入的是EmbeddedUIExtensionAbility提供的UI。 |
+| options | EmbeddedOptions | 否 | 嵌入式组件的可选配置项，用于设置占位符、DPI跟随策略、窗口模式跟随策略等。详见EmbeddedOptions。 |
 
 
 
@@ -61,7 +96,7 @@ EmbeddedComponent(loader: import('../api/@ohos.app.ability.Want').default, type:
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 > [!NOTE]
-> EmbeddedComponent组件宽高默认值和最小值均为10vp。不支持如下与宽高相关的属性："constraintSize"、"aspectRatio"、"layoutWeight"、"flexBasis"、"flexGrow"和"flexShrink"。
+> EmbeddedComponent组件宽高默认值和最小值均为10vp。不支持如下与宽高相关的属性：“constraintSize”、“aspectRatio”、“layoutWeight”、“flexBasis”、“flexGrow”和“flexShrink”。
 
 
 
@@ -100,7 +135,7 @@ onTerminated(callback: import('../api/@ohos.base').Callback&lt;TerminationInfo&g
 
 
 > [!NOTE]
-> 若EmbeddedUIExtensionAbility通过调用terminateSelfWithResult退出，其携带的信息会传给回调函数的入参； 若EmbeddedUIExtensionAbility通过调用terminateSelf退出，上述回调函数的入参中，"code"取默认值"0"，"want"为"undefined"。
+> 若EmbeddedUIExtensionAbility通过调用terminateSelfWithResult退出，其携带的信息会传给回调函数的入参； 若EmbeddedUIExtensionAbility通过调用terminateSelf退出，上述回调函数的入参中，code取默认值0，want为undefined。
 
 
 
@@ -129,7 +164,104 @@ onError(callback: import('../api/@ohos.base').ErrorCallback)
 
 
 > [!NOTE]
-> 如下情形会触发本回调： 通知提供方拉起EmbeddedUIExtensionAbility失败。 通知提供方EmbeddedUIExtensionAbility切后台失败。 通知提供方销毁EmbeddedUIExtensionAbility失败。 提供方EmbeddedUIExtensionAbility异常退出。 在EmbeddedUIExtensionAbility中嵌套使用EmbeddedComponent。
+> 如下情形会触发本回调： 拉起EmbeddedUIExtensionAbility失败。 通知提供方EmbeddedUIExtensionAbility切后台失败。 通知提供方销毁EmbeddedUIExtensionAbility失败。 提供方EmbeddedUIExtensionAbility异常退出。 在EmbeddedUIExtensionAbility中嵌套使用EmbeddedComponent。
+
+
+
+
+#### onDrawReady
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onDrawReady(callback: Callback&lt;void&gt;)
+
+被拉起的[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability#embeddeduiextensionability)绘制第一帧时触发该回调。
+
+> [!NOTE]
+> 该接口不支持在 attributeModifier 中调用。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;void&gt; | 是 | 回调函数，在EmbeddedUIExtensionAbility绘制第一帧时触发。 |
+
+
+
+
+#### EmbeddedOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+用于在EmbeddedComponent创建时传递可选的构造参数。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| placeholder | ComponentContent | 否 | 是 | 设置占位符，在EmbeddedComponent与EmbeddedUIExtensionAbility建立连接前显示。 默认值：null，表示不显示占位符。 |
+| areaChangePlaceholder | Record<string, ComponentContent> | 否 | 是 | 设置尺寸变化占位符，在EmbeddedComponent尺寸发生变化并且内部渲染未完成时显示。key为尺寸变化场景类型（如“FOLD_TO_EXPAND”表示折叠展开场景），value为对应场景的占位符组件。当前支持的键值包括：FOLD_TO_EXPAND。传入不支持的键值时，该占位符不生效。默认值：null，表示不设置尺寸变化占位符。 |
+| dpiFollowStrategy | EmbeddedDpiFollowStrategy | 否 | 是 | 设置DPI，使其能够跟随宿主或EmbeddedUIExtensionAbility。 默认值：FOLLOW_UI_EXTENSION_ABILITY_DPI，表示跟随EmbeddedUIExtensionAbility。 |
+| windowModeFollowStrategy | EmbeddedWindowModeFollowStrategy | 否 | 是 | 设置窗口模式，使其能够跟随宿主或EmbeddedUIExtensionAbility。 默认值：FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE，表示窗口模式跟随EmbeddedUIExtensionAbility。 起始版本： 26.0.0 |
+
+
+
+
+#### EmbeddedDpiFollowStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+DPI跟随策略，用于设置DPI，使其能够跟随宿主或EmbeddedUIExtensionAbility。例如，当EmbeddedUIExtensionAbility需要与宿主应用保持视觉一致性时，可选择跟随宿主DPI；当EmbeddedUIExtensionAbility需要独立适配自身资源的DPI配置时，可选择跟随EmbeddedUIExtensionAbility DPI。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| FOLLOW_HOST_DPI | 0 | 表示DPI跟随宿主。 |
+| FOLLOW_UI_EXTENSION_ABILITY_DPI | 1 | 表示DPI跟随EmbeddedUIExtensionAbility。 |
+
+
+
+
+#### EmbeddedWindowModeFollowStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+窗口模式跟随策略，用于设置窗口模式跟随宿主或EmbeddedUIExtensionAbility。例如，当EmbeddedUIExtensionAbility需要与宿主应用保持一致的窗口模式（如全屏、分屏）时，可选择跟随宿主；当EmbeddedUIExtensionAbility需要独立控制窗口模式时，可选择跟随EmbeddedUIExtensionAbility。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| FOLLOW_HOST_WINDOW_MODE | 0 | 表示窗口模式跟随宿主。 |
+| FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE | 1 | 表示窗口模式跟随EmbeddedUIExtensionAbility。 |
 
 
 
@@ -146,8 +278,8 @@ onError(callback: import('../api/@ohos.base').ErrorCallback)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| code | number | 否 | 否 | 被拉起EmbeddedUIExtensionAbility退出时返回的结果码，返回的结果码由terminateSelfWithResult或者terminateSelf被调用时传入的数据决定。 |
-| want | import('../api/@ohos.app.ability.Want').default | 否 | 是 | 被拉起EmbeddedUIExtensionAbility退出时返回的数据。 |
+| code | number | 否 | 否 | 被拉起的EmbeddedUIExtensionAbility退出时返回的结果码，由terminateSelfWithResult或者terminateSelf被调用时传入的数据决定。若通过terminateSelf退出，code取默认值0。 |
+| want | import('../api/@ohos.app.ability.Want').default | 否 | 是 | 被拉起的EmbeddedUIExtensionAbility退出时返回的数据。若通过terminateSelf退出，则该值为undefined。 |
 
 
 
@@ -156,22 +288,47 @@ onError(callback: import('../api/@ohos.base').ErrorCallback)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本示例展示EmbeddedComponent组件和EmbeddedUIExtensionAbility的基础使用方式，示例应用的bundleName为"com.example.embeddedComponent", 同应用下被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。本示例仅支持在拥有多进程权限的设备上运行，如2in1。
+本示例展示EmbeddedComponent组件和EmbeddedUIExtensionAbility的基础使用方式，示例应用的bundleName为“com.example.embeddedComponent”，同应用下被拉起的EmbeddedUIExtensionAbility为“ExampleEmbeddedAbility”。本示例仅支持在拥有多进程权限的设备上运行（如PC/2in1），开发者可通过设备类型判断接口或系统设置确认当前设备是否具备多进程权限。
+
+从API版本26.0.0开始，新增[onDrawReady](#ondrawready)接口。
 
  - 示例应用中的EntryAbility(UIAbility)加载首页文件ets/pages/Index.ets，其中内容如下：
 
   
 ```json
 import { Want } from '@kit.AbilityKit';
+import { ComponentContent } from '@kit.ArkUI';
 
+class Params {
+}
+@Builder
+function LoadingBuilder(params: Params) {
+  Column() {
+    LoadingProgress()
+      .color(Color.Blue)
+  }
+}
+@Builder
+function AreaChangePlaceholderBuilder(params: Params) {
+  Column() {
+  }
+  .width('100%')
+  .height('100%')
+  .backgroundColor(Color.Orange)
+}
 @Entry
 @Component
 struct Index {
   @State message: string = 'Message: ';
   private want: Want = {
-    bundleName: "com.example.embeddedComponent",
-    abilityName: "ExampleEmbeddedAbility",
+    bundleName: 'com.example.embeddedComponent',
+    abilityName: 'ExampleEmbeddedAbility',
   };
+  @State dpiFollowStrategy: EmbeddedDpiFollowStrategy = EmbeddedDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI;
+  @State windowStrategy: EmbeddedWindowModeFollowStrategy =
+  EmbeddedWindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE;
+  private initPlaceholder = new ComponentContent(this.getUIContext(), wrapBuilder(LoadingBuilder), new Params());
+  private areaChangePlaceholder = new ComponentContent(this.getUIContext(), wrapBuilder(AreaChangePlaceholderBuilder), new Params());
 
   build() {
     Row() {
@@ -179,7 +336,15 @@ struct Index {
         Text(this.message)
           .fontSize(20)
           .fontWeight(FontWeight.Bold)
-        EmbeddedComponent(this.want, EmbeddedType.EMBEDDED_UI_EXTENSION)
+        EmbeddedComponent(this.want, EmbeddedType.EMBEDDED_UI_EXTENSION,
+          {
+            placeholder: this.initPlaceholder,
+            areaChangePlaceholder: {
+              'FOLD_TO_EXPAND' : this.areaChangePlaceholder,
+            },
+            windowModeFollowStrategy: this.windowStrategy,
+            dpiFollowStrategy: this.dpiFollowStrategy
+          })
           .width('100%')
           .height('90%')
           .onTerminated((info) => {
@@ -189,6 +354,10 @@ struct Index {
           .onError((error) => {
             // 失败或异常触发onError回调，文本框显示如下报错内容
             this.message = 'Error: code = ' + error.code;
+          })
+          .onDrawReady(() => {
+            // 从API版本26.0.0开始，新增支持被拉起的EmbeddedUIExtensionAbility绘制第一帧时触发onDrawReady回调，文本框显示如下信息
+            this.message = `onDrawReady`;
           })
       }
       .width('100%')
@@ -257,13 +426,13 @@ struct Extension {
       Text(this.message)
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
-      Button("terminateSelfWithResult").fontSize(20).onClick(() => {
+      Button('terminateSelfWithResult').fontSize(20).onClick(() => {
         // 点击按钮后调用terminateSelfWithResult退出
         this.session?.terminateSelfWithResult({
           resultCode: 1,
           want: {
-            bundleName: "com.example.embeddedComponent",
-            abilityName: "ExampleEmbeddedAbility",
+            bundleName: 'com.example.embeddedComponent',
+            abilityName: 'ExampleEmbeddedAbility',
           }
         });
       })
@@ -305,4 +474,4 @@ struct Extension {
  - 示例图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/R2YAtmiEQz6C9jdDPrd0Ww/zh-cn_image_0000002659222083.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=8A672F688C3E19FCF51D61319582DD5499ECED1529B697807ABBA9E231090516)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/lHlEmaxTSrW94jYqboxCBA/zh-cn_image_0000002686088333.png?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=E682A9C142F97A3D27743B1E5AE224523E54603C3F695F4142EE75B059045145)

@@ -1,6 +1,6 @@
 # ArkUI_CircleShapeOption
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-circleshapeoption
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_CircleShape ArkUI_CircleShapeOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义圆形形状配置项。
+定义圆形形状配置项，用于在ArkUI_RenderNodeUtils中创建圆形形状，并配置圆心坐标和半径，作为RenderNode的遮罩或裁剪形状。
  
 **起始版本：** 20
  

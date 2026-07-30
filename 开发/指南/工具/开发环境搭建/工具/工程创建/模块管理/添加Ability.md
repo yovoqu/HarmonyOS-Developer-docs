@@ -1,6 +1,6 @@
 # 添加Ability
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-add-new-ability
 
@@ -33,6 +33,8 @@ UIAbility组件：包含UI界面，提供展示UI的能力，主要用于和用�
 #### 在模块中添加Extension Ability
 
 从DevEco Studio 6.1.0 Beta2版本开始，支持在API 23及以上Car设备工程的模块中添加RemoteNotificationAbility。
+ 
+从26.0.0 Beta2版本开始，支持在API 26.0.0及以上工程的模块中添加Agent、AgentUI。
  1. 在工程中选中对应的模块，单击鼠标右键，选择**New > Extension Ability**，选择不同的场景类型 。当前仅Application工程支持创建Extension Ability。
 
   
@@ -42,10 +44,12 @@ UIAbility组件：包含UI界面，提供展示UI的能力，主要用于和用�
 3. **WorkScheduler**：用于提供[延迟任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/work-scheduler)的相关能力。
 4. **RemoteNotificationAbility**：用于提供获取场景化消息数据和生命周期销毁的回调的通知能力，当前仅支持在Phone、Tablet、2in1、Car设备中使用。
 5. **Driver**：用于提供[驱动相关扩展框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/driverextensionability)。仅在当前工程的设备类型只含有2in1设备时，支持创建该类型。
-6. 若创建的模块类型为HAR或HSP，支持创建以下两种Extension Ability：
+6. **Agent：**用于提供[智能体扩展](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-extension-ability)的能力。
+7. **A****gentUI****：**用于提供[接入端侧Agent UI界面显示](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-agent-agentuiextensionability)的能力。
+8. 若创建的模块类型为HAR或HSP，支持创建以下两种Extension Ability：
 **EmbeddedUIExtensionAbility**：用于提供[跨进程界面嵌入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/embeddeduiextensionability)的能力。
-7. **WorkScheduler**：用于提供[延迟任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/work-scheduler)的相关能力。
-8. 设置Ability名称，单击Finish完成Extension Ability创建。
+9. **WorkScheduler**：用于提供[延迟任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/work-scheduler)的相关能力。
+10. 设置Ability名称，单击Finish完成Extension Ability创建。
 
   
 ![](assets/添加Ability/file-20260514134344351-2.png)

@@ -109,4 +109,4 @@ struct HitTestBehaviorExample {
 运行结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/KbxogUPqTDKnIYDOVuaktA/zh-cn_image_0000002631375376.png?HW-CC-KV=V1&HW-CC-Date=20260723T012829Z&HW-CC-Expire=86400&HW-CC-Sign=0120B2067BFFE477DE3E88C21F0A40660527354D8C9225430C92764C00703A89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/KbxogUPqTDKnIYDOVuaktA/zh-cn_image_0000002631375376.png?HW-CC-KV=V1&HW-CC-Date=20260730T072417Z&HW-CC-Expire=86400&HW-CC-Sign=C28D92901AE328785C9AE50C4ACA1DF970FCBD8DFFAECFEFAD5E83BB9FEE8464)

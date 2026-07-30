@@ -1,6 +1,6 @@
 # image-animator
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-image-animator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| images | Array&lt;ImageFrame&gt; | - | 是 | 设置图片帧信息集合。每一帧的帧信息包含图片路径、图片大小和图片位置信息。目前支持以下图片格式：png、jpg、svg和heif。ImageFrame的详细说明请见表 ImageFrame说明。 使用时需要使用数据绑定的方式： - hml文件中引用图片资源：images = {{images}}， - js文件中声明相应变量： images: [{src: "/common/heart-rate01.png",duration:"100"}]。从API version 6开始，支持配置每一帧图片的时长，单位毫秒。 |
+| images | Array&lt;ImageFrame&gt; | - | 是 | 设置图片帧信息集合。每一帧的帧信息包含图片路径、图片大小和图片位置信息。目前支持以下图片格式：png、jpg、svg和heif。ImageFrame的详细说明请见表 ImageFrame说明。 使用时需要使用数据绑定的方式： - hml文件中引用图片资源：images = {{images}}， - js文件中声明相应变量： images: [{src: "/common/heart-rate01.png",duration:100}]。从API version 6开始，支持配置每一帧图片的时长，单位毫秒。 |
 | predecode6+ | number | 0 | 否 | 是否启用预解码，默认值为0，即不启用预解码，如该值设为2，则播放当前页时会提前加载后面两张图片至缓存以提升性能。 |
 | iteration | number \| string | infinite | 否 | 设置帧动画播放次数。number表示固定次数，infinite枚举表示无限次数播放。 |
 | reverse | boolean | false | 否 | 设置播放顺序。false表示从第1张图片播放到最后1张图片； true表示从最后1张图片播放到第1张图片。 |
@@ -79,7 +79,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：
+除支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：
   
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -218,4 +218,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/FmWAd2rKT2y4JNYHQ-wWlw/zh-cn_image_0000002677828157.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=A0C797070D81DECA3D6D779DBC9279E23E59283A19B0C392E131AABB64A3A3DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/7z0DLDluTiGTb9wEHRoZNA/zh-cn_image_0000002655849098.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071524Z&HW-CC-Expire=86400&HW-CC-Sign=13AA06504EEC3E42D421C3AB3BE51821C414288E7341A9020F1A2946CAA98657)

@@ -270,7 +270,7 @@ struct SwiperPageOne {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/Xc-Gwle5SOiIq6KKqtuhhQ/zh-cn_image_0000002628606554.png?HW-CC-KV=V1&HW-CC-Date=20260723T013035Z&HW-CC-Expire=86400&HW-CC-Sign=103EDBDECDBCD0D2D145F062CD957B6CEA9319444B9CA67346F29E8AF546D217)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/Xc-Gwle5SOiIq6KKqtuhhQ/zh-cn_image_0000002628606554.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=A6BC99CA39AD97F0728D3B2C456D16512B686B2E58ADBEE9FB5E837E628B3991)
 
 - 方案二：通过自定义页面切换的动画来实现图片滑动过程中的缩放效果。1. 创建继承IDataSource的类MyDataSource，监听滑动的图片。
 
@@ -434,4 +434,4 @@ struct SwiperPageTwo {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/4FKw2it6RCaycQt8TndqDg/zh-cn_image_0000002658845803.png?HW-CC-KV=V1&HW-CC-Date=20260723T013035Z&HW-CC-Expire=86400&HW-CC-Sign=89BDA002A442EEB6AE02F09A3B1DB5A86C17337E9E32525927BA178B216EDE6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/4FKw2it6RCaycQt8TndqDg/zh-cn_image_0000002658845803.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=E6E0FA9D9D3390BD0AC39C6BBCEC2A6F23B23CDBC1ABB52F04151C3B7E3908A0)

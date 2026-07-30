@@ -23,11 +23,11 @@
 在项目中引用HAR，本文介绍采用从本地文件夹安装以及从本地压缩包安装两种方式。
  
 - **场景一**：从本地文件夹安装。1. 参考[创建ArkTS卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)，在工程中创建动态卡片。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/-mD39QMBRoGhvng6ybkMmQ/zh-cn_image_0000002658990871.png?HW-CC-KV=V1&HW-CC-Date=20260723T012513Z&HW-CC-Expire=86400&HW-CC-Sign=7999550CDFCD22614CA957B355D58F282504DE2C92E691ACBF55DB76DF0401FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/-mD39QMBRoGhvng6ybkMmQ/zh-cn_image_0000002658990871.png?HW-CC-KV=V1&HW-CC-Date=20260730T072313Z&HW-CC-Expire=86400&HW-CC-Sign=CAEBEBE918B207B110A11BE102EA79636C7667E370BAFEE6B7E9313D1BD38D32)
 
 
 2. 参考[构建HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har#section3761328124112)，在工程中创建名称为localFolderPack的HAR包。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/ejL-j72yRW-Xast0raw6cg/zh-cn_image_0000002628631660.png?HW-CC-KV=V1&HW-CC-Date=20260723T012513Z&HW-CC-Expire=86400&HW-CC-Sign=0E78B98BE420590455C4CBAA92F9A635DBC47FD3C396F4C37C4A7B824D92AC68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/ejL-j72yRW-Xast0raw6cg/zh-cn_image_0000002628631660.png?HW-CC-KV=V1&HW-CC-Date=20260730T072313Z&HW-CC-Expire=86400&HW-CC-Sign=8306110095CC809D86216C695C1A59D3163CCABE1118140778B92D4DD56110A2)
 
 
 3. 在localFolderPack的HAR包中自定义MainPage组件，并导出。
@@ -75,11 +75,11 @@ struct WidgetCard {
 ```
 
 - **场景二**：从本地压缩包安装。1. 参考创建ArkTS卡片，在工程中创建动态卡片。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/oxaRkI2tS7mJIBRWOQeHkQ/zh-cn_image_0000002658870933.png?HW-CC-KV=V1&HW-CC-Date=20260723T012513Z&HW-CC-Expire=86400&HW-CC-Sign=67314BF5BD933E899239E7D3E40139B5378BA5CEC4ADB375FFDAD8808DAB651B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/oxaRkI2tS7mJIBRWOQeHkQ/zh-cn_image_0000002658870933.png?HW-CC-KV=V1&HW-CC-Date=20260730T072313Z&HW-CC-Expire=86400&HW-CC-Sign=91E8583AAF22F0FC2036E9565E48EB7856DB731D5ABFE1E4BCD235EA7413BBF8)
 
 
 2. 参考构建HAR，在工程中创建名称为localZipPack的HAR包。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/lYnmQBmyRjCC-uDMMIzpHw/zh-cn_image_0000002628791564.png?HW-CC-KV=V1&HW-CC-Date=20260723T012513Z&HW-CC-Expire=86400&HW-CC-Sign=88531605FBF22A9BED11734FECB10E0766C7F5397599EE208CFE92CC49280BA9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/lYnmQBmyRjCC-uDMMIzpHw/zh-cn_image_0000002628791564.png?HW-CC-KV=V1&HW-CC-Date=20260730T072313Z&HW-CC-Expire=86400&HW-CC-Sign=2013522D5DAA4EF976D5B5782B5FF53A52585AF9DC1E6CAD6EA25FE04AC6B9FE)
 
 
 3. 在localZipPack的HAR包中自定义MainPage组件，并导出。

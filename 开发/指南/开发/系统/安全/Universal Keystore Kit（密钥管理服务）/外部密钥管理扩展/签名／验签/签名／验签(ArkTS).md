@@ -1,6 +1,6 @@
 # 签名/验签(ArkTS)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-signing-signature-verification-arkts
 
@@ -15,14 +15,14 @@
 #### 开发步骤
 
 **签名**
-1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)后完成PIN码认证。
+1. 通过证书管理系统能力提供的[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)后完成PIN码认证。
 2. 指定待签名的明文数据。
 3. 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入明文数据，properties传入算法参数配置。
 4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
 5. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取签名signature。
 
 **验签**
-1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，然后[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。
+1. 通过证书管理系统能力提供的[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，然后[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。
 2. 获取待验证的签名。
 3. 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入签名signature，properties传入算法参数配置。
 4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
@@ -111,22 +111,22 @@ function GetRsaVerifyProperties() {
 }
 
 async function initSession(keyAlias: string, huksOptions: huks.HuksOptions) {
-  console.info(`promise: enter initSession`);
+  console.info('promise: enter initSession.');
   try {
     await huks.initSession(keyAlias, huksOptions)
       .then((data) => {
         handle = data.handle;
-        console.info(`promise: initSession success`);
+        console.info('promise: initSession success.');
       }).catch((error: BusinessError) => {
         console.error(`promise: initSession failed, errCode : ${error.code}, errMsg : ${error.message}`);
       })
   } catch (error) {
-    console.error(`promise: initSession input arg invalid`);
+    console.error('promise: initSession input arg invalid.');
   }
 }
 
 async function updateSession(handle: number, huksOptions: huks.HuksOptions) {
-  console.info(`promise: enter updateSession`);
+  console.info('promise: enter updateSession.');
   try {
     await huks.updateSession(handle, huksOptions)
       .then((data) => {
@@ -136,12 +136,12 @@ async function updateSession(handle: number, huksOptions: huks.HuksOptions) {
         console.error(`promise: updateSession failed, errCode : ${error.code}, errMsg : ${error.message}`);
       })
   } catch (error) {
-    console.error(`promise: updateSession input arg invalid`);
+    console.error('promise: updateSession input arg invalid.');
   }
 }
 
 async function finishSession(handle: number, huksOptions: huks.HuksOptions) {
-  console.info(`promise: enter finishSession`);
+  console.info('promise: enter finishSession.');
   try {
     await huks.finishSession(handle, huksOptions)
       .then((data) => {
@@ -151,12 +151,12 @@ async function finishSession(handle: number, huksOptions: huks.HuksOptions) {
         console.error(`promise: finishSession failed, errCode : ${error.code}, errMsg : ${error.message}`);
       })
   } catch (error) {
-    console.error(`promise: finishSession input arg invalid`);
+    console.error('promise: finishSession input arg invalid.');
   }
 }
 
 async function Sign(keyAlias: string, plaintext: string) {
-  console.info(`enter Sign`);
+  console.info('enter Sign.');
   let signProperties = GetRsaSignProperties();
   let options: huks.HuksOptions = {
     properties: signProperties,
@@ -170,7 +170,7 @@ async function Sign(keyAlias: string, plaintext: string) {
 }
 
 async function Verify(keyAlias: string, plaintext: string, signature: Uint8Array) {
-  console.info(`enter Verify`);
+  console.info('enter Verify.');
   let verifyProperties = GetRsaVerifyProperties();
   let options: huks.HuksOptions = {
     properties: verifyProperties,

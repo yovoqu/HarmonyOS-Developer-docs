@@ -1,6 +1,6 @@
 # HuksKeyApi
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukskeyapi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-HUKS向应用提供密钥库能力，支持密钥管理和密钥的密码学操作。应用可以导入密钥或者调用HUKS接口生成密钥。
+通用密钥库（HUKS）向应用提供密钥库能力，支持密钥管理和密钥的密码学操作。应用可以导入密钥或者调用HUKS接口生成密钥。
  
 **起始版本：** 9
  

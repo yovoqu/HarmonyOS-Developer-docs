@@ -1,6 +1,6 @@
 # 不依赖UI组件的全局菜单 (openMenu)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-menu
 
@@ -45,7 +45,7 @@ private contentNode: ComponentContent<Object> =
 @Builder
 export function buildText(params: Params) {
   Popup({
-    // 类型设置图标内容
+    // 设置图标内容
     icon: {
       // 请将$r('app.media.app_icon')替换为实际资源文件
       image: $r('app.media.app_icon'),
@@ -61,7 +61,7 @@ export function buildText(params: Params) {
       fontColor: Color.Black,
       fontWeight: FontWeight.Normal
     } as PopupTextOptions,
-    // 设置文字内容
+    // 设置消息内容
     message: {
       text: `This is a Popup message 1`,
       fontSize: 15,

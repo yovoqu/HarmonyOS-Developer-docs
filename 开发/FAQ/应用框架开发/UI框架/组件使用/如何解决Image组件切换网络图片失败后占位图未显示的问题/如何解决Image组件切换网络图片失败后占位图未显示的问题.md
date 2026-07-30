@@ -1,6 +1,6 @@
 # 如何解决Image组件切换网络图片失败后占位图未显示的问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-847
 
@@ -10,7 +10,7 @@
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/yTYD4vWRQqWEml43Hsbdpw/zh-cn_image_0000002658797917.png?HW-CC-KV=V1&HW-CC-Date=20260723T012623Z&HW-CC-Expire=86400&HW-CC-Sign=F8B240E961B2A567F6203CFCF35E44A8E845A422DED3810F7906EDF522A003B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/lWdEsXxZSdqMFQAbZUKP0g/zh-cn_image_0000002658797917.png?HW-CC-KV=V1&HW-CC-Date=20260730T072331Z&HW-CC-Expire=86400&HW-CC-Sign=304B7A5E6CA2A92B99A68EA8D49326DE7B939BF779FA20B0E37ADF5E3BDE5FAE)
 
  
 问题代码如下：
@@ -66,7 +66,7 @@ struct Page {
 #### 解决方案
 
  
-方案一：对于API22及以后的版本可以设置alt属性实现图片加载过程中和图片加载失败时显示指定图片，具体案例可以查看[使用alt属性实现设置加载失败中图片和加载失败时图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#示例28使用alt属性实现设置加载失败中图片和加载失败时图片)。
+方案一：对于API22及以后的版本可以设置alt属性实现图片加载过程中和图片加载失败时显示指定图片，具体案例可以查看[使用alt属性实现设置加载失败中图片和加载失败时图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#示例28使用alt属性实现设置加载过程中图片和加载失败时图片)。
  
 方案二：对于API22以前的版本，由于该问题是由于Image组件在成功加载当前图片后，若将其路径更新为无效值（包括空值），组件不会自动触发重新渲染，导致界面仍保留已加载的图片，占位图因此无法显示。可以参考以下方案达到预期的效果：
  1. 为Image组件添加onError事件回调，用于监听图片加载失败的情况。
@@ -116,4 +116,4 @@ struct Index {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/AtfnSPl9TfyNFUlzYIX0TQ/zh-cn_image_0000002628558548.png?HW-CC-KV=V1&HW-CC-Date=20260723T012623Z&HW-CC-Expire=86400&HW-CC-Sign=DF3CC8B5FC741EF6DF8110D4F71457146F4C55D3F58018EC5DF5F19659E00320)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/1n9LCW2JQVKQaDA1WOB8zg/zh-cn_image_0000002628558548.png?HW-CC-KV=V1&HW-CC-Date=20260730T072331Z&HW-CC-Expire=86400&HW-CC-Sign=38A6F0C39AEBBDC9DE245EF7466A4EE3C0645BBD5BD4861DC6F6AD72A1DB1B14)

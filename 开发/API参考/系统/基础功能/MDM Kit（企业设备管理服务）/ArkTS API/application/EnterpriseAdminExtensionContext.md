@@ -1,6 +1,6 @@
-# EnterpriseAdminExtensionContext
+# EnterpriseAdminExtensionContext（企业设备管理扩展能力上下文环境）
 
-更新时间：2026-06-03 01:38:22（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-enterpriseadminextensioncontext
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -94,7 +94,7 @@ startAbilityByAdmin(admin: Want, want: Want): Promise&lt;void&gt;
     "startWindowBackground": "$color:white",
     "exported": true,
     "permissions": [
-      "ohos.permission.START_UI_Ability"
+      "ohos.permission.START_UI_ABILITY"
     ]
   }
 ]

@@ -9,7 +9,7 @@
 Hypium自动化在定位器中，通过XPath语法写的XPath路径，在定位器的哪里验证该XPath是否唯一？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/tN7nnQO-R5WjV8RIbrWE0Q/zh-cn_image_0000002628569454.png?HW-CC-KV=V1&HW-CC-Date=20260723T014001Z&HW-CC-Expire=86400&HW-CC-Sign=FE25574B92A7B4EFDABAE838CE01AEF1F6033D4969F73B29C5778ABA5006AE27)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/tN7nnQO-R5WjV8RIbrWE0Q/zh-cn_image_0000002628569454.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=C0B254A2D0E2D0C5B0CDB979EF78B0E931068A0CB10508B946884E5105F1BC78)
 
  
  
@@ -25,7 +25,7 @@ Hypium自动化在定位器中，通过XPath语法写的XPath路径，在定位�
 #### 解决方案
 
 - 用户可以根据控件的key、text、type内容来搜索指定控件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/tq0CPbjlSduaW-r_3NKnHQ/zh-cn_image_0000002658928773.png?HW-CC-KV=V1&HW-CC-Date=20260723T014001Z&HW-CC-Expire=86400&HW-CC-Sign=834DF9751C409C82AFAEE969DA5A08E7AA57BC7A4D31162F011FE85F4916D75A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/tq0CPbjlSduaW-r_3NKnHQ/zh-cn_image_0000002658928773.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=ACF782B7478C1E2AED7B32082CB117A6BCA5A50D5C06EFE6DEF78A11921F1A4E)
 
 - 通过API方法实现XPath语法验证控件是否唯一。
 ```text
@@ -65,4 +65,4 @@ Q：使用“hdc shell uitest dumpLayout”指令获取到的控件树如何实�
 A：控件树中类型为空串的节点代表当前的屏幕信息，类型为root和WindowScene和当前屏幕的对应关系可以通过UiViewer查看，如果想实现UI自动化，推荐使用[DevEco Testing Hypium](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section16890204264419)的UiViewer插件，可以对控件树进行可视化和获取控件的信息。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/8qQAGBrARfClfmPd-uLxQA/zh-cn_image_0000002658808825.png?HW-CC-KV=V1&HW-CC-Date=20260723T014001Z&HW-CC-Expire=86400&HW-CC-Sign=BEBB09383526934A144821A0CBBC7D2645A20F21FE91FAC77019B1A4C718C45B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/8qQAGBrARfClfmPd-uLxQA/zh-cn_image_0000002658808825.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=2676209FDEC877B355C68940DC93D60048E210DD69B75192DA084001ED7A020D)

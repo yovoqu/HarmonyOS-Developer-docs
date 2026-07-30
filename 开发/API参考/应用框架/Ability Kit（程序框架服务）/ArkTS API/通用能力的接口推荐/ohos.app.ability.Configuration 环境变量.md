@@ -1,6 +1,6 @@
 # @ohos.app.ability.Configuration (环境变量)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,7 +30,7 @@ import { Configuration } from '@kit.AbilityKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| language | string | 否 | 是 | 表示应用当前语言，例如“zh”(中文)，“en”（英文）。 支持开发者设置应用语言。 取值范围可以通过getSystemLanguages()获取。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| language | string | 否 | 是 | 表示应用当前语言，例如“zh”（中文），“en”（英文）。 支持开发者设置应用语言。 取值范围可以通过getSystemLanguages()获取。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | colorMode | ConfigurationConstant.ColorMode | 否 | 是 | 表示应用深浅色模式，默认为浅色。 支持开发者设置应用或组件深浅色。 取值范围： - COLOR_MODE_NOT_SET：未设置 - COLOR_MODE_LIGHT：浅色模式 - COLOR_MODE_DARK：深色模式 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | direction | ConfigurationConstant.Direction | 否 | 是 | 表示应用屏幕方向。 取值范围： - DIRECTION_NOT_SET：未设置 - DIRECTION_HORIZONTAL：水平方向 - DIRECTION_VERTICAL：垂直方向 该环境变量支持在UIAbility组件和UIExtensionAbility组件中订阅，不支持在ApplicationContext和AbilityStage组件容器中订阅。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | screenDensity | ConfigurationConstant.ScreenDensity | 否 | 是 | 表示屏幕显示密度。 取值范围： - SCREEN_DENSITY_NOT_SET：未设置 - SCREEN_DENSITY_SDPI：120 - SCREEN_DENSITY_MDPI：160 - SCREEN_DENSITY_LDPI：240 - SCREEN_DENSITY_XLDPI：320 - SCREEN_DENSITY_XXLDPI：480 - SCREEN_DENSITY_XXXLDPI：640 字体显示大小与屏幕像素密度呈正相关关系。通过监听屏幕像素密度变化，可以感知字体显示大小的调整。通常情况下，对于相同的物理尺寸，屏幕像素密度越高，字体显示效果越大。 该环境变量支持在UIAbility组件和UIExtensionAbility组件中订阅，不支持在ApplicationContext和AbilityStage组件容器中订阅。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |

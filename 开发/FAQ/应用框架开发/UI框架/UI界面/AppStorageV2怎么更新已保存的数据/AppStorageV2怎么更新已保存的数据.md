@@ -13,7 +13,7 @@ AppStorageV2只有connect、remove、keys方法，没有update更新方法，如
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/L_jr2R-LTAKGBJEQw6flKA/zh-cn_image_0000002628600020.png?HW-CC-KV=V1&HW-CC-Date=20260723T013054Z&HW-CC-Expire=86400&HW-CC-Sign=87CEEC358E3277C15AEB0236E2E8AE89267E88F3CFF54140B6F0197594E8060B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/L_jr2R-LTAKGBJEQw6flKA/zh-cn_image_0000002628600020.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=342A0025AB474502AA4B1377A34F706FBB4CBEC8399862B5AF5984D068973BE4)
 
  
  

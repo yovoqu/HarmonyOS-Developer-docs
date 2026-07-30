@@ -1,6 +1,6 @@
 # Interface (ImageCreator)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagecreator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -259,7 +259,7 @@ off(type: 'imageRelease', callback?: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，如'imageRelease'。 |
-| callback | AsyncCallback&lt;void&gt; | 否 | 回调函数。当移除注册成功时，err返回null，否则为错误对象。 |
+| callback | AsyncCallback&lt;void&gt; | 否 | 回调函数。当移除注册成功时，err为undefined，否则为错误对象。 |
  
  
 **示例：**

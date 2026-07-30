@@ -76,7 +76,7 @@
 2. 禁用metal渲染框架，禁用该框架会提升IDE的响应速度和整体性能，点击“help->Edit Custom VM Options...”，在打开的文件中新增以下配置：-Dsun.java2d.metal=false。
 3. 关闭JavaScript相关的设置，可以减少不必要的计算和内存消耗，提高IDE工具的性能和响应速度：
 Settings(设置)-(Editor)编辑器-(Intentions)意图下的JavaScript相关的设置取消勾选。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/OkF_529nQ6COGVYAlzg5cw/zh-cn_image_0000002658928955.png?HW-CC-KV=V1&HW-CC-Date=20260723T014017Z&HW-CC-Expire=86400&HW-CC-Sign=9903F8AA93F41E4C4F149CCBC1519DE36618C2492B503A574627175234FAB4B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/OkF_529nQ6COGVYAlzg5cw/zh-cn_image_0000002658928955.png?HW-CC-KV=V1&HW-CC-Date=20260730T072726Z&HW-CC-Expire=86400&HW-CC-Sign=E443B9667E47FF9634C9BC3E0CDC2D279AE137D6216E2A0211E9AE17627CEC21)
 
 4. 关闭native相关设置，通过File—>Settings—>Editor—>Inspection—>JavaScript TypeScript ArkTS—>Unregister function in native declaration file，取消Unregister function in native declaration file勾选，保存。
 5. 关闭并行模式：打开菜单栏：File->Settings->Build, Execution, Deployment->Build Tools->Hvigor，取消勾选Execute tasks in parallel mode。
@@ -86,7 +86,7 @@ Settings(设置)-(Editor)编辑器-(Intentions)意图下的JavaScript相关的�
 #### 场景二
 1. Git端处理方法：提交代码阶段避免提交.idea资源上库；
 2. 本地清理非必要的调试断点方法：可以通过[断点管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-breakpoint#section168791742202819)工具删除不必要的断点。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/6b8zoS9WQM29G6T073eMsA/zh-cn_image_0000002658808999.png?HW-CC-KV=V1&HW-CC-Date=20260723T014017Z&HW-CC-Expire=86400&HW-CC-Sign=7B23B53328616D43A5E383A3C1DC93E39FBD7C1CB5C87C9103D5899A03524B4D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/6b8zoS9WQM29G6T073eMsA/zh-cn_image_0000002658808999.png?HW-CC-KV=V1&HW-CC-Date=20260730T072726Z&HW-CC-Expire=86400&HW-CC-Sign=10CD476D12B2140F7DDB497AF11C4530227CCF24D22E3289F7808DDEE3DEF8BA)
 
  
  

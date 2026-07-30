@@ -1,6 +1,6 @@
 # net_websocket_type.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -155,7 +155,7 @@ websocket客户端接收数据的回调函数定义。
 | --- | --- |
 | struct WebSocket *client | websocket客户端。 |
 | char *data | websocket客户端接收的数据。 |
-| uint32_t length | websocket客户端接收的数据长度。 |
+| uint32_t length | websocket客户端接收的数据长度。单位：Byte。 |
  
  
   

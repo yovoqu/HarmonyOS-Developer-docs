@@ -1,6 +1,6 @@
 # os_account_common.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-os-account-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -62,7 +62,7 @@ enum OsAccount_ErrCode
   
 | 枚举项 | 描述 |
 | --- | --- |
-| OS_ACCOUNT_ERR_OK = 0 | 成功。 |
+| OS_ACCOUNT_ERR_OK = 0 | 操作成功。 |
 | OS_ACCOUNT_ERR_PERMISSION_DENIED = 201 | 没有权限。 起始版本： 26.0.0 |
 | OS_ACCOUNT_ERR_INTERNAL_ERROR = 12300001 | 内部错误。 |
 | OS_ACCOUNT_ERR_INVALID_PARAMETER = 12300002 | 无效的参数。 |

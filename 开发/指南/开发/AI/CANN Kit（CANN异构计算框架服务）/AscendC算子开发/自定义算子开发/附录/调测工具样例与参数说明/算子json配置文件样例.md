@@ -1,13 +1,13 @@
 # 算子json配置文件样例
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-example-of-the-operator-json
 
 #### 样例1：NPU/CPU调测算子json配置文件样例
 
 > [!NOTE]
-> 在"param_type"："optional"时，"ignore"：true，表示不需要该输入；"ignore"：false，表示需要该输入。 在"param_type"："required"时，"ignore"不能配置为true。
+> 在"param_type"："optional"时，"ignore"为true，表示不需要该输入；"ignore"为false，表示需要该输入。 在"param_type"："required"时，"ignore"不能配置为true。
 
  
 ```json

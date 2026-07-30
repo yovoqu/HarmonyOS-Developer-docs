@@ -1,6 +1,6 @@
 # 使用URPC进行远程程序调用
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-urpccall
 
@@ -30,6 +30,7 @@
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { urpc } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { describe, beforeAll, beforeEach, afterEach, afterAll, it, expect } from '@ohos/hypium';
 ```
 
 2. 定义远程调用的类，作为调用方法的入参和返回值，示例如下：

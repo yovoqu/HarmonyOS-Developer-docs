@@ -13,7 +13,7 @@
 **实际效果：** 当前视频播放状态未保持连续性，切换到后台后视频停止播放，返回前台后需要手动刷新页面才能恢复播放。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/jKlr0kz6R_GAvenSVC5a_w/zh-cn_image_0000002628552658.png?HW-CC-KV=V1&HW-CC-Date=20260723T013629Z&HW-CC-Expire=86400&HW-CC-Sign=22894E2BFC0EC7E8CA453F04A280B141C34CDBE40E9E8C2C001B0D6F1D2DD9F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/jKlr0kz6R_GAvenSVC5a_w/zh-cn_image_0000002628552658.png?HW-CC-KV=V1&HW-CC-Date=20260730T072629Z&HW-CC-Expire=86400&HW-CC-Sign=5103093D5C93351540B3CDFE90BCE532AF4592232A895C6DAA5B930FD442DE4C)
 
  
  
@@ -227,4 +227,4 @@ struct VideoControlPage {
 **效果预览图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/ZY5MIJ8mSdOxO-i94pOSYQ/zh-cn_image_0000002658911981.png?HW-CC-KV=V1&HW-CC-Date=20260723T013629Z&HW-CC-Expire=86400&HW-CC-Sign=27DB017657FE20D570245BB4CB92F60C7E986997E154565DF9BBEA0D980B2D9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/ZY5MIJ8mSdOxO-i94pOSYQ/zh-cn_image_0000002658911981.png?HW-CC-KV=V1&HW-CC-Date=20260730T072629Z&HW-CC-Expire=86400&HW-CC-Sign=1F8CD2BBDC485CC884FF1603E3986C82EA1ADA2FAECF8B7DFA8B4DBB21FBA420)

@@ -9,7 +9,7 @@
 使用Tabs组件嵌套Web组件的布局，当左右滑动时，Tabs组件不能切换。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/vp-xoMhVRDKxLFsmYIm4oQ/zh-cn_image_0000002629059056.png?HW-CC-KV=V1&HW-CC-Date=20260723T013343Z&HW-CC-Expire=86400&HW-CC-Sign=697DEB1B8AF315312CED788C7D74F0BF75EA4BF10D570E245AF4D5E11A69246F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/vp-xoMhVRDKxLFsmYIm4oQ/zh-cn_image_0000002629059056.png?HW-CC-KV=V1&HW-CC-Date=20260730T072534Z&HW-CC-Expire=86400&HW-CC-Sign=49629A91637C85BAD2B1C47AD8036C778A8479B095617BFB306359E37D30A356)
 
  
  
@@ -17,7 +17,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/xvJYbdUaQsebW0J9jzdCMg/zh-cn_image_0000002659258359.png?HW-CC-KV=V1&HW-CC-Date=20260723T013343Z&HW-CC-Expire=86400&HW-CC-Sign=9DB8925C9D66F450571B3B6D0D3060EBAEC6A1CD5D09CE31186817C9BB0E7C75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/xvJYbdUaQsebW0J9jzdCMg/zh-cn_image_0000002659258359.png?HW-CC-KV=V1&HW-CC-Date=20260730T072534Z&HW-CC-Expire=86400&HW-CC-Sign=F7E8FCC59DD5866ADBFF318D3B52A8AF7411F8643DF558642E782A9BC75BC6C8)
 
  
  

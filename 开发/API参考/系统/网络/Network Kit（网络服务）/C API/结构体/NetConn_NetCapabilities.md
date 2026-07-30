@@ -1,6 +1,6 @@
 # NetConn_NetCapabilities
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netconnection-netconn-netcapabilities
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,9 +36,9 @@ typedef struct NetConn_NetCapabilities {...} NetConn_NetCapabilities
  
 | 名称 | 描述 |
 | --- | --- |
-| uint32_t linkUpBandwidthKbps | 上行带宽。 |
-| uint32_t linkDownBandwidthKbps | 下行带宽。 |
-| NetConn_NetCap netCaps[NETCONN_MAX_CAP_SIZE] | 网络能力列表。 |
+| uint32_t linkUpBandwidthKbps | 上行带宽。单位：Kbps（千比特每秒）。 |
+| uint32_t linkDownBandwidthKbps | 下行带宽。单位：Kbps（千比特每秒）。 |
+| NetConn_NetCap netCapsNETCONN_MAX_CAP_SIZE | 网络能力列表。 |
 | int32_t netCapsSize | 网络能力列表的实际size。 |
-| NetConn_NetBearerType bearerTypes[NETCONN_MAX_BEARER_TYPE_SIZE] | 承载类型列表 |
+| NetConn_NetBearerType bearerTypesNETCONN_MAX_BEARER_TYPE_SIZE | 承载类型列表。 |
 | int32_t bearerTypesSize | 承载类型列表的实际size |

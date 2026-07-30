@@ -1,9 +1,11 @@
 # Types
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+本文件介绍ArkUI UIContext相关类型，包括自定义组件构建、UIObserver事件监听回调、节点标识、光标样式和上下文等类型。
 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -52,7 +54,7 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | ClickEvent | 是 | 触发事件监听的点击事件的相关信息。 |
-| node | FrameNode | 否 | 触发事件监听的点击事件所绑定的组件。 |
+| node | FrameNode | 否 | 触发事件监听的点击事件所绑定的组件。不传入该参数时，默认值为undefined。 |
 
 
 
@@ -63,7 +65,7 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void
 
 type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void
 
-Pan手势事件监听函数类型。
+Pan手势事件监听函数类型，可用于需要监听组件拖拽、平移等Pan手势交互的场景。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -77,7 +79,7 @@ Pan手势事件监听函数类型。
 | --- | --- | --- | --- |
 | event | GestureEvent | 是 | 触发事件监听的手势事件的相关信息。 |
 | current | GestureRecognizer | 是 | 触发事件监听的手势识别器的相关信息。 |
-| node | FrameNode | 否 | 触发事件监听的手势事件所绑定的组件。 |
+| node | FrameNode | 否 | 触发事件监听的手势事件所绑定的组件。不传入该参数时，默认值为undefined。 |
 
 
 
@@ -122,8 +124,8 @@ type NodeIdentity = string | number
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 指定组件id，该id通过通用属性id设置。 |
-| number | 系统分配的唯一标识的节点UniqueID，可通过getUniqueId获取。 |
+| string | 指定组件ID，该ID通过通用属性id设置。 |
+| number | 系统分配的节点唯一标识UniqueID，可通过getUniqueId获取。 |
 
 
 
@@ -146,8 +148,8 @@ type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| state | NodeRenderState | 是 | 触发事件监听的手势事件的相关信息。 |
-| node | FrameNode | 否 | 触发事件监听的手势事件所绑定的组件，如果组件被释放将返回null。 |
+| state | NodeRenderState | 是 | 节点当前的渲染状态，用于表示被监控节点是否处于可渲染状态。 |
+| node | FrameNode | 否 | 触发渲染状态变化监听的组件。当需要获取发生渲染状态变化的组件节点信息时，可通过该参数获取；如果组件被释放将返回null。不传入该参数时，默认值为undefined。 |
 
 
 
@@ -200,7 +202,7 @@ type PointerStyle = pointer.PointerStyle
 
 type Context = common.Context
 
-当前组件所在Ability的上下文。
+当前组件所在Ability（应用组件）的上下文。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 

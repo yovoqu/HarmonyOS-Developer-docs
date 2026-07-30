@@ -1,6 +1,6 @@
 # Interface (AudioVolumeGroupManager)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1200,12 +1200,12 @@ let rendererInfo: audio.AudioRendererInfo = {
 
 audio.getAudioManager().getRoutingManager().getPreferOutputDeviceForRendererInfo(rendererInfo).then((data) => {
   audioVolumeGroupManager.getMaxAmplitudeForOutputDevice(data[0]).then((value) => {
-    console.info(`Succeeded in getting maxAmplitude for input device. Amplitude: ${value}.`);
+    console.info(`Succeeded in getting maxAmplitude for output device. Amplitude: ${value}.`);
   }).catch((err: BusinessError) => {
-    console.error(`Failed to get maxAmplitude for input device. Code: ${err.code}, message: ${err.message}`);
+    console.error(`Failed to get maxAmplitude for output device. Code: ${err.code}, message: ${err.message}`);
   })
 }).catch((err: BusinessError) => {
-  console.error(`Failed to get preferred input device for capturer info. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to get prefer output device for renderer info. Code: ${err.code}, message: ${err.message}`);
 })
 ```
 
@@ -1220,7 +1220,7 @@ setMicrophoneMute(mute: boolean, callback: AsyncCallback&lt;void&gt;): void
 设置麦克风静音状态。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃，替代接口仅面向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃。
 
 
 **需要权限：** ohos.permission.MANAGE_AUDIO_CONFIG，该权限仅系统应用可申请。
@@ -1260,7 +1260,7 @@ setMicrophoneMute(mute: boolean): Promise&lt;void&gt;
 设置麦克风静音状态。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃，替代接口仅面向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃。
 
 
 **需要权限：** ohos.permission.MANAGE_AUDIO_CONFIG，该权限仅系统应用可申请。

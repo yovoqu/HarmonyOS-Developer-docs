@@ -1,6 +1,6 @@
 # Socket错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-socket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -549,7 +549,7 @@ SSL is null.
 
 **错误描述**
 
-SSL/TLS上下文为空，参数错误。
+SSL/TLS连接对象为空，参数错误。
 
 **可能原因**
 1. [TLSSocket.connect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#connect9)方法未调用。
@@ -649,7 +649,7 @@ TLS系统调用发生不可恢复的致命I/O错误。
 4. Socket在TLS操作过程中被关闭，日志提示poll to recv failed, socket is .*, errno is .*或recv fail, socket:.*, errno:.*，其中 .* 为通配符。常见errno值参考：errno=9（EBADF，无效文件描述符）、errno=104（ECONNRESET，连接被重置）、errno=110（ETIMEDOUT，连接超时）、errno=111（ECONNREFUSED，连接被拒绝）。
 
 **处理步骤**
-1. 请参阅日志中的Linux系统内核错误码errno以了解详细信息。
+1. 请参阅日志中的内核通用错误码errno以了解详细信息。
 2. 检查网络连接状态。
 3. 尝试重新建立TLS连接。
 

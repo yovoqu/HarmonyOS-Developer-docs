@@ -1,6 +1,6 @@
 # 在不同存储路径下如何读取JSON文件
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-69
 
@@ -76,7 +76,7 @@ getRawFileJsonData() {
 }
 ```
 
-- 场景二：读取放在沙箱目录下的JSON文件，并解析为对象。通过[fs.readTextSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadtextsync)读取文件，返回字符串文本数据，通过JSON.parse解析为对象。示例代码如下：
+- 场景二：读取放在沙箱目录下的JSON文件，并解析为对象。通过[fs.readTextSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadtextsync)读取文件，返回字符串文本数据，通过JSON.parse解析为对象。示例代码如下：
 
   
 ```json

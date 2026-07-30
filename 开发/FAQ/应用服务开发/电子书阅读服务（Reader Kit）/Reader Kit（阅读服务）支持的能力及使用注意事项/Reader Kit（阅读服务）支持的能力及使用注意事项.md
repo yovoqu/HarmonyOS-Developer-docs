@@ -1,6 +1,6 @@
 # Reader Kit（阅读服务）支持的能力及使用注意事项
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-3
 

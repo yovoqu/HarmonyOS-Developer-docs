@@ -1,6 +1,6 @@
 # HarmonyOS应用如何做到防抓包
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-83
 
@@ -25,14 +25,14 @@ HarmonyOS应用的防抓包策略是HTTPS协议+证书校验+取消代理。
 2. 证书校验：常规HTTPS是单向认证（服务端向客户端证明身份），抓包工具通过伪造根证书让客户端信任，从而解密HTTPS数据。双向认证让客户端也向服务端证明身份，只有携带合法客户端证书的请求，服务端才会处理。详细步骤：
  
 - 服务端生成CA根证书，并基于根证书生成客户端证书（公钥+私钥，如p12/pem格式）。
-- HarmonyOS应用客户端将客户端证书内置到应用中，参考[配置信任应用管理的CA证书](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section05271716102218)；同时配置[不信任用户安装的CA证书](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section11935814273)。
+- HarmonyOS应用客户端将客户端证书内置到应用中，参考[配置信任应用管理的CA证书](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-connection-security-configuration#配置信任应用管理的ca证书)；同时配置[不信任用户安装的CA证书](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-connection-security-configuration#配置不信任用户安装的ca证书)。
 - 服务端配置TLS双向认证，要求客户端握手时必须携带合法客户端证书，否则直接断开连接；
 - 证书定期更新，避免证书泄露，若泄露立即吊销并更换。
 
 1. 取消代理：检测客户端是否开启了HTTP/HTTPS代理，抓包工具几乎都需要通过代理拦截请求，对于有HTTPS请求和RCP请求可通过取消代理实现。
  
 - Network Kit：[使用HTTP访问网络](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request)通过配置usingProxy:false实现，示例代码可参考[发起HTTP数据请求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request#发起http数据请求).
-- Remote Communication Kit：[定制代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customproxyconfig)通过配置proxy:'no-proxy'实现，示例代码可参考[使用样例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customproxyconfig#section16684193015209)。
+- Remote Communication Kit：[定制代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customproxyconfig)通过配置proxy:'no-proxy'实现，示例代码可参考[使用样例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customproxyconfig#no-proxy)。
 
  
  
@@ -45,4 +45,4 @@ A：防抓包需要SSL证书，所以需要及时更新SSL证书，避免证书�
  
 Q：如何禁止使用网络代理工具（如Fiddler、Charles）对应用进行抓包，从而获取HTTPS协议的网络请求返回的明文信息？
  
-A：配置不信任用户安装的CA证书，创建src/main/resources/base/profile/network_config.json配置文件并进行配置，如下设置（参考文档：[配置不信任用户安装的CA证书](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section11935814273)）：{"trust-current-user-ca": false}
+A：配置不信任用户安装的CA证书，创建src/main/resources/base/profile/network_config.json配置文件并进行配置，如下设置（参考文档：[配置不信任用户安装的CA证书](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-connection-security-configuration#配置不信任用户安装的ca证书)）：{"trust-current-user-ca": false}

@@ -1,6 +1,6 @@
 # 应用启动框架AppStartup
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup
 
@@ -41,7 +41,7 @@ AppStartup提供了一种简单高效的应用启动方式，可以支持任务�
 #### 支持的范围
 
  - HAP：entry类型的HAP支持以自动和手动模式启动。从API version 20开始，feature类型的HAP支持以自动和手动模式启动。
- - HSP/HAR: 从API version 18开始，支持在[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)和[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)中配置启动任务。HSP和HAR的启动任务、so预加载任务无法主动配置为自动模式，但可以被HAP中自动模式的启动任务、so预加载任务拉起。
+ - HSP/HAR：从API version 18开始，支持在[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)和[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)中配置启动任务。HSP和HAR的启动任务、so预加载任务无法主动配置为自动模式，但可以被HAP中自动模式的启动任务、so预加载任务拉起。
  - 启动框架从API version 18开始支持配置[应用级so](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#应用级so)预加载任务，so文件开发可以参考[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)创建Native C++工程。不支持配置[系统级so](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#系统级so)预加载任务。
 
 
@@ -242,7 +242,7 @@ AppStartup提供了一种简单高效的应用启动方式，可以支持任务�
 **图5** so预加载任务依赖关系图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/zfp7JkTjSe-fTVkiCTgcqw/zh-cn_image_0000002628859956.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=BB0F8D9CF3FD5AD383F98D3CA599A98F61A9FCB4CF7C850EEABC059EA17439AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/e1ABuBPsTHOwqnXguHvjEw/zh-cn_image_0000002685925371.png?HW-CC-KV=V1&HW-CC-Date=20260730T071825Z&HW-CC-Expire=86400&HW-CC-Sign=9DADECD31458743946033473FDBA5703375E177951C0B33D60099499F5541A77)
 
 1. 参考[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)创建so文件。本例中的6个so文件名称分别为libentry_001.so~libentry_006.so。
 2. 在启动框架配置文件startup_config.json中，添加预加载so任务配置。
@@ -331,7 +331,7 @@ AppStartup提供了一种简单高效的应用启动方式，可以支持任务�
 
 
 ```ArkTS
-import { StartupConfig, StartupConfigEntry, StartupListener } from '@kit.AbilityKit';
+import { StartupConfig, StartupConfigEntry, StartupListener, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -356,7 +356,7 @@ export default class MyStartupConfigEntry extends StartupConfigEntry {
     };
     return config;
   }
-// ···
+  // ...
 }
 ```
 
@@ -423,7 +423,7 @@ export default class StartupTask_001 extends StartupTask {
 **图6** 启动任务与so预加载依赖关系图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/_hxmvejDTH22AGn-wxK0Yg/zh-cn_image_0000002659219271.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=5CEFA0033C5599886B2A1935BB2A1FFA8B552B0F2C79BFD8F15581368AF5B504)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/uPK6OJxmTwSfi-4EU9CgWA/zh-cn_image_0000002656005692.png?HW-CC-KV=V1&HW-CC-Date=20260730T071825Z&HW-CC-Expire=86400&HW-CC-Sign=38D0A343429E56CE68EB9A151EF20A679E31EFFDD4AC24560D03AFDBB703E334)
 
 
 开发步骤如下：
@@ -497,8 +497,8 @@ export default class StartupTask_001 extends StartupTask {
   "module": {
     "name": "har1",
     "type": "har",
-    // ···
-    "appStartup": "$profile:startup_config", // 启动框架的配置文件
+    // ...
+    "appStartup": "$profile:startup_config" // 启动框架的配置文件
   }
 }
 ```
@@ -594,7 +594,7 @@ struct Index {
 **图7** 启动任务设置匹配规则
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/Bxw-moHSQga0M4gKleilew/zh-cn_image_0000002628700072.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=34673FF2E667EEF6DEA5F005B1539E5B8A5B15205DA01E733789134EF7046DFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/eVx7XlU9Qmu6kVL5RudYfQ/zh-cn_image_0000002655845772.png?HW-CC-KV=V1&HW-CC-Date=20260730T071825Z&HW-CC-Expire=86400&HW-CC-Sign=76877476E40211B30984EE3EC7F539238702641D004D3C500B896D204CD10AC1)
 
 
 可以通过以下两种方式添加匹配规则：
@@ -670,18 +670,17 @@ struct Index {
 
   
 ```ArkTS
-import { StartupConfigEntry, Want } from '@kit.AbilityKit';
-// ···
+import { StartupConfig, StartupConfigEntry, StartupListener, Want } from '@kit.AbilityKit';
+// ...
 
 export default class MyStartupConfigEntry extends StartupConfigEntry {
-// ···
+  // ...
   onRequestCustomMatchRule(want: Want): string {
     if (want?.parameters?.fromType == 'card') {
       return 'ruleCard';
     }
     return '';
   }
-
 }
 ```
 
@@ -722,7 +721,7 @@ export default class MyStartupConfigEntry extends StartupConfigEntry {
 **图8** 设置启动任务提前调度
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/6O840_MPSbmbHeL9SyIOXA/zh-cn_image_0000002659099307.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=790BE19481752E380EC032CF0F4D87BFDA697F50253892F7A4A0B5D3F7003448)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/tNyAoQTySbyDTxxbYzbVbQ/zh-cn_image_0000002686085201.png?HW-CC-KV=V1&HW-CC-Date=20260730T071825Z&HW-CC-Expire=86400&HW-CC-Sign=4FACFE191B9EA9C266AD849F12791CAE437D13B74D89CFFD5AC53AC83F1EC14C)
 
 
 例如，应用首页需要通过网络请求获取Feed流数据，且希望该任务能在异步线程中与AbilityStage模块加载并发执行。假设网络请求任务为[定义启动任务配置](#定义启动任务配置)步骤中的StartupTask_004，开发步骤如下：

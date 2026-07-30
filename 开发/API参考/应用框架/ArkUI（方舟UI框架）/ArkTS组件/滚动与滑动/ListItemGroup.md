@@ -1,20 +1,20 @@
 # ListItemGroup
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitemgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该组件用来展示列表item分组，宽度默认充满[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件，必须配合List组件来使用。
+该组件用来展示列表项分组，支持自定义分组头部和尾部区域、卡片样式、分割线、懒加载与预加载等能力，适用于需要对列表项进行逻辑分组展示的场景。宽度默认充满[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件，必须配合List组件来使用。
 
-ListItemGroup的懒加载是指组件按需加载可见区域可见的子组件。相比全量加载，使用懒加载可以提升应用启动速度，减少内存消耗。ListItemGroup和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)、[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)结合，懒加载能力存在差异：
+ListItemGroup的懒加载是指组件按需加载可见区域内的子组件。相比全量加载，使用懒加载可以提升应用启动速度，减少内存消耗。ListItemGroup和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)、[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)结合，懒加载能力存在差异：
 
- - 当ListItemGroup和ForEach结合，会一次性创建所有的子组件，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，划出屏幕范围的节点不会下树销毁，划入屏幕范围的节点会布局和渲染。
- - 当ListItemGroup和LazyForEach结合，会一次性创建、布局、渲染屏幕范围的节点。当用户滑动时，划出屏幕范围的节点会下树销毁，划入屏幕范围的节点会创建、布局、渲染。
+ - 当ListItemGroup和ForEach结合，会一次性创建所有的子组件，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，滑出屏幕范围的节点不会下树销毁，滑入屏幕范围的节点会布局和渲染。
+ - 当ListItemGroup和LazyForEach结合，会一次性创建、布局、渲染屏幕范围的节点。当用户滑动时，滑出屏幕范围的节点会下树销毁，滑入屏幕范围的节点会创建、布局、渲染。
  - 当ListItemGroup和带[virtualScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscroll)的Repeat结合，它的懒加载行为和LazyForEach一致。当ListItemGroup和不带virtualScroll的Repeat结合，它的懒加载行为和ForEach一致。
 
 
-ListItemGroup的预加载是指除了加载显示区域内可见的子组件外，还支持空闲时隙提前加载部分显示区域外不可见的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。ListItemGroup和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)、[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)结合，预加载能力存在差异：
+ListItemGroup的预加载是指除了加载显示区域内的子组件外，还支持空闲时隙提前加载部分显示区域外的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。ListItemGroup和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)、[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)结合，预加载能力存在差异：
 
  - 当ListItemGroup和ForEach结合，如果设置了[cachedCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#cachedcount)，除了会布局显示区域内子组件外，还会在空闲时隙根据List组件的cachedCount属性预布局显示区域外cachedCount范围内的子组件。
  - 当ListItemGroup和LazyForEach结合，如果设置了[cachedCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#cachedcount)，除了会创建和布局显示区域内子组件外，还会在空闲时隙根据List组件的cachedCount属性预创建和预布局显示区域外cachedCount范围内的子组件。
@@ -22,7 +22,7 @@ ListItemGroup的预加载是指除了加载显示区域内可见的子组件外�
 
 
 > [!NOTE]
-> 该组件从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件的父组件只能是 List 。 ListItemGroup组件不支持设置 通用属性aspectRatio 。 当ListItemGroup的父组件List的 listDirection 属性为Axis.Vertical时，设置 通用属性height 属性不生效。ListItemGroup的高度为header高度、footer高度和所有ListItem布局后总高度之和。 当父组件List的listDirection属性为Axis.Horizontal时，设置 通用属性width 属性不生效。ListItemGroup的宽度为header宽度、footer宽度和所有ListItem布局后总宽度之和。 ListItemGroup使用direction属性设置布局方向不生效，ListItemGroup组件布局方向跟随父容器List组件的布局方向。
+> 该组件从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件的父组件只能是 List 。 ListItemGroup组件不支持设置 通用属性aspectRatio 。 当ListItemGroup的父组件List的 listDirection 属性为Axis.Vertical时，设置 通用属性height 不生效。ListItemGroup的高度为header高度、footer高度和所有ListItem布局后总高度之和。 当父组件List的listDirection属性为Axis.Horizontal时，设置 通用属性width 不生效。ListItemGroup的宽度为header宽度、footer宽度和所有ListItem布局后总宽度之和。 ListItemGroup使用direction属性设置布局方向不生效，ListItemGroup组件布局方向跟随父容器List组件的布局方向。
 
 
 
@@ -40,7 +40,7 @@ ListItemGroup的预加载是指除了加载显示区域内可见的子组件外�
 
 ListItemGroup(options?: ListItemGroupOptions)
 
-创建ListItemGroup组件。
+创建ListItemGroup组件。该组件的父组件只能是List组件。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -50,7 +50,7 @@ ListItemGroup(options?: ListItemGroupOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ListItemGroupOptions | 否 | 列表item分组组件参数。 |
+| options | ListItemGroupOptions | 否 | ListItemGroup组件参数，用于配置header、footer、间距和样式等。不传入时使用默认配置（无header、footer，间距为0，无卡片样式）。 |
 
 
 
@@ -65,15 +65,15 @@ ListItemGroup组件参数。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| header | CustomBuilder | 否 | 是 | 设置ListItemGroup头部组件。 说明： 可以放单个子组件或不放子组件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| headerComponent13+ | ComponentContent | 否 | 是 | 使用ComponentContent类型参数设置ListItemGroup头部组件。 说明： 可以放单个子组件或不放子组件。 该参数的优先级高于参数header。即同时设置header和headerComponent时，以headerComponent设置的值为准。 同一个headerComponent不推荐同时给不同的ListItemGroup使用，否则会导致显示问题。 元服务API： 从API version 13开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| footer | CustomBuilder | 否 | 是 | 设置ListItemGroup尾部组件。 说明： 可以放单个子组件或不放子组件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| footerComponent13+ | ComponentContent | 否 | 是 | 使用ComponentContent类型参数设置ListItemGroup尾部组件。 说明： 可以放单个子组件或不放子组件。该参数的优先级高于参数footer。 即同时设置footer和footerComponent时，以footerComponent设置的值为准。 同一个footerComponent不推荐同时给不同的ListItemGroup使用，否则会导致显示问题。 元服务API： 从API version 13开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| space | number \| string | 否 | 是 | 列表项间距。只作用于ListItem与ListItem之间，不作用于header与ListItem、footer与ListItem之间。 默认值：0 单位：vp 说明： 设置为负数或者大于等于List内容区长度时，按默认值显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| header | CustomBuilder | 否 | 是 | 设置ListItemGroup头部组件。 说明： 可以放单个子组件或不放子组件，不设置时无头部组件。该参数的优先级低于参数headerComponent。即同时设置header和headerComponent时，以headerComponent设置的值为准。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| headerComponent13+ | ComponentContent | 否 | 是 | 使用ComponentContent类型参数设置ListItemGroup头部组件。 说明： 可以放单个子组件或不放子组件，不设置时无头部组件。该参数的优先级高于参数header。即同时设置header和headerComponent时，以headerComponent设置的值为准。 同一个headerComponent不推荐同时给不同的ListItemGroup使用，否则会导致显示问题。 元服务API： 从API version 13开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| footer | CustomBuilder | 否 | 是 | 设置ListItemGroup尾部组件。 说明： 可以放单个子组件或不放子组件，不设置时无尾部组件。该参数的优先级低于参数footerComponent。即同时设置footer和footerComponent时，以footerComponent设置的值为准。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| footerComponent13+ | ComponentContent | 否 | 是 | 使用ComponentContent类型参数设置ListItemGroup尾部组件。 说明： 可以放单个子组件或不放子组件，不设置时无尾部组件。该参数的优先级高于参数footer。即同时设置footer和footerComponent时，以footerComponent设置的值为准。 同一个footerComponent不推荐同时给不同的ListItemGroup使用，否则会导致显示问题。 元服务API： 从API version 13开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| space | number \| string | 否 | 是 | 列表项间距。只作用于ListItem与ListItem之间，不作用于header与ListItem、footer与ListItem之间。 默认值：0 单位：vp 说明： 设置为负数或者大于等于List内容区长度时，按默认值显示。如果同时设置了spaceWidth和space，则spaceWidth优先生效。当spaceWidth为undefined或null时，space生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | spaceWidth | Dimension | 否 | 是 | 列表项间距。只作用于ListItem与ListItem之间，不作用于header与ListItem、footer与ListItem之间。 默认值：0 单位：vp 说明： 设置为负数或者大于等于List内容区长度时，按默认值显示。如果同时设置了spaceWidth和space，则spaceWidth优先生效。当spaceWidth为undefined或null时，space生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
-| style10+ | ListItemGroupStyle | 否 | 是 | 设置List组件卡片样式。 默认值：ListItemGroupStyle.NONE 设置为ListItemGroupStyle.NONE时无样式。 设置为ListItemGroupStyle.CARD时，建议配合ListItem的ListItemStyle.CARD同时使用，显示默认卡片样式。 卡片样式下，ListItemGroup默认规格：左右外边距12vp，上下左右内边距4vp。 卡片样式下，为卡片内的列表选项提供了默认的focused、hover、pressed、selected和disabled样式。 说明： 当设置为ListItemStyle.CARD时，List的listDirection属性值须为Axis.Vertical，如果设置为Axis.Horizontal，会导致显示混乱；List属性alignListItem默认为ListItemAlign.Center，居中对齐显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| headerStyle | ListItemGroupHeaderFooterStyle | 否 | 是 | 设置ListItemGroup头部样式。 默认值：ListItemGroupHeaderFooterStyle.NONE 设置为ListItemGroupHeaderFooterStyle.FLOATING时，头部组件在滚动时悬浮显示。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
-| footerStyle | ListItemGroupHeaderFooterStyle | 否 | 是 | 设置ListItemGroup尾部样式。 默认值：ListItemGroupHeaderFooterStyle.NONE 设置为ListItemGroupHeaderFooterStyle.FLOATING时，尾部组件在滚动时悬浮显示。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| style10+ | ListItemGroupStyle | 否 | 是 | 设置ListItemGroup组件卡片样式。 默认值：ListItemGroupStyle.NONE 设置为ListItemGroupStyle.NONE时无样式。 设置为ListItemGroupStyle.CARD时，建议配合ListItem的ListItemStyle.CARD同时使用，显示默认卡片样式。 卡片样式下，ListItemGroup默认规格：左右外边距12vp，上下左右内边距4vp。 卡片样式下，为卡片内的列表选项提供了默认的focused、hover、pressed、selected和disabled样式。 说明： 当设置为ListItemGroupStyle.CARD时，List的listDirection属性值须为Axis.Vertical，如果设置为Axis.Horizontal，会导致显示混乱；List属性alignListItem默认为ListItemAlign.Center，居中对齐显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| headerStyle | ListItemGroupHeaderFooterStyle | 否 | 是 | 设置ListItemGroup头部样式。 默认值：ListItemGroupHeaderFooterStyle.NONE 设置为ListItemGroupHeaderFooterStyle.NONE时无样式。 设置为ListItemGroupHeaderFooterStyle.FLOATING时，头部组件在滚动时悬浮显示。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| footerStyle | ListItemGroupHeaderFooterStyle | 否 | 是 | 设置ListItemGroup尾部样式。 默认值：ListItemGroupHeaderFooterStyle.NONE 设置为ListItemGroupHeaderFooterStyle.NONE时无样式。 设置为ListItemGroupHeaderFooterStyle.FLOATING时，尾部组件在滚动时悬浮显示。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -118,7 +118,7 @@ childrenMainSize(value: ChildrenMainSize)
 设置ListItemGroup组件的子组件在主轴方向的大小信息。
 
 > [!NOTE]
-> 必须同时给所在的List组件设置childrenMainSize属性才可以正常生效。
+> 当List组件的子组件包含ListItemGroup时，必须同时给List组件和每个ListItemGroup组件设置childrenMainSize属性。ListItemGroup通过该属性提供其子组件在主轴方向的大小信息，用于配合List组件的childrenMainSize属性正常生效。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -385,7 +385,7 @@ struct ListItemGroupExample2 {
                     .textAlign(TextAlign.Center)
                 }
               }
-            }, (item: string) => item)
+            }, (item: number) => item.toString())
           }
         })
       }
@@ -469,20 +469,20 @@ struct MyItemGroup {
     this.footer = new ComponentContent(this.getUIContext(), wrapBuilder(itemFoot), this.footerParam);
     this.itemArr = new ProjectsDataSource(this.item.projects);
   }
-  GetHeader() {
+  getHeader() {
     this.header?.update(new HeadBuilderParams(this.item.title));
     return this.header;
   }
 
-  GetFooter() {
+  getFooter() {
     this.footer?.update(new FootBuilderParams(this.item.projects.length));
     return this.footer;
   }
 
   build() {
     ListItemGroup({
-      headerComponent: this.GetHeader(),
-      footerComponent: this.GetFooter()
+      headerComponent: this.getHeader(),
+      footerComponent: this.getFooter()
     }) {
       LazyForEach(this.itemArr, (project: string) => {
         ListItem() {
@@ -614,20 +614,20 @@ struct MyItemGroup {
     this.itemArr = new ProjectsDataSource(this.item.projects);
   }
 
-  GetHeader() {
+  getHeader() {
     this.header?.update(new HeadBuilderParams(this.item.title));
     return this.header;
   }
 
-  GetFooter() {
+  getFooter() {
     this.footer?.update(new FootBuilderParams(this.item.projects.length));
     return this.footer;
   }
 
   build() {
     ListItemGroup({
-      headerComponent: this.GetHeader(),
-      footerComponent: this.GetFooter()
+      headerComponent: this.getHeader(),
+      footerComponent: this.getFooter()
     }) {
       LazyForEach(this.itemArr, (project: string) => {
         ListItem() {

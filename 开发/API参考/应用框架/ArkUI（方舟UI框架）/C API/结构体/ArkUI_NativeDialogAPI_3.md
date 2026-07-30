@@ -1,6 +1,6 @@
 # ArkUI_NativeDialogAPI_3
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialogapi-3
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_NativeDialogAPI_3
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-ArkUI提供的Native侧自定义弹窗接口集合。
+ArkUI提供的Native侧自定义弹窗接口集合，支持设置边框样式、尺寸、背景效果、键盘避让模式、焦点管理等能力，用于在Native层精细控制自定义弹窗的外观样式和交互行为，适用于需要高度定制化弹窗UI的场景。
  
 **起始版本：** 19
  
@@ -59,14 +59,14 @@ ArkUI提供的Native侧自定义弹窗接口集合。
 | int32_t (*setWidth)(ArkUI_NativeDialogHandle handle, float width, ArkUI_LengthMetricUnit unit) | 设置自定义弹窗的背板宽度。 |
 | int32_t (*setHeight)(ArkUI_NativeDialogHandle handle, float height, ArkUI_LengthMetricUnit unit) | 设置自定义弹窗的背板高度。 |
 | int32_t (*setShadow)(ArkUI_NativeDialogHandle handle, ArkUI_ShadowStyle shadow) | 设置自定义弹窗的背板阴影。 |
-| int32_t (*setCustomShadow)(ArkUI_NativeDialogHandle handle, const ArkUI_AttributeItem* customShadow) | 设置自定义弹窗的背板阴影。 |
+| int32_t (*setCustomShadow)(ArkUI_NativeDialogHandle handle, const ArkUI_AttributeItem* customShadow) | 设置自定义弹窗的背板自定义阴影。 |
 | int32_t (*setBackgroundBlurStyle)(ArkUI_NativeDialogHandle handle, ArkUI_BlurStyle blurStyle) | 设置自定义弹窗的背板模糊材质。 |
 | int32_t (*setKeyboardAvoidMode)(ArkUI_NativeDialogHandle handle, ArkUI_KeyboardAvoidMode keyboardAvoidMode) | 设置自定义弹窗避让键盘模式。 |
 | int32_t (*enableHoverMode)(ArkUI_NativeDialogHandle handle, bool enableHoverMode) | 设置自定义弹窗是否响应悬停态。 |
 | int32_t (*setHoverModeArea)(ArkUI_NativeDialogHandle handle, ArkUI_HoverModeAreaType hoverModeAreaType) | 设置悬停态下自定义弹窗默认展示区域。 |
 | int32_t (*setFocusable)(ArkUI_NativeDialogHandle handle, bool focusable) | 设置自定义弹窗是否获取焦点。 |
-| int32_t (*setBackgroundBlurStyleOptions)(ArkUI_NativeDialogHandle handle, const ArkUI_AttributeItem* backgroundBlurStyleOptions) | 设置自定义弹窗的背景模糊效果。 |
-| int32_t (*setBackgroundEffect)(ArkUI_NativeDialogHandle handle, const ArkUI_AttributeItem* backgroundEffect) | 设置自定义弹窗的背景效果参数。 |
+| int32_t (*setBackgroundBlurStyleOptions)(ArkUI_NativeDialogHandle handle, const ArkUI_AttributeItem* backgroundBlurStyleOptions) | 设置自定义弹窗的背板模糊效果。 |
+| int32_t (*setBackgroundEffect)(ArkUI_NativeDialogHandle handle, const ArkUI_AttributeItem* backgroundEffect) | 设置自定义弹窗的背板效果参数。 |
  
  
   
@@ -318,10 +318,10 @@ int32_t (*setBorderColor)(ArkUI_NativeDialogHandle handle, uint32_t top, uint32_
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| uint32_t top | 上边框的颜色。 |
-| uint32_t right | 右边框的颜色。 |
-| uint32_t bottom | 下边框的颜色。 |
-| uint32_t left | 左边框的颜色。 |
+| uint32_t top | 上边框的颜色，0xARGB格式。 |
+| uint32_t right | 右边框的颜色，0xARGB格式。 |
+| uint32_t bottom | 下边框的颜色，0xARGB格式。 |
+| uint32_t left | 左边框的颜色，0xARGB格式。 |
  
  
 **返回：**
@@ -466,7 +466,7 @@ int32_t (*setShadow)(ArkUI_NativeDialogHandle handle, ArkUI_ShadowStyle shadow)
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| ArkUI_ShadowStyle shadow | 背板阴影样式，枚举值。 |
+| ArkUI_ShadowStyle shadow | 背板阴影样式，枚举值。用于设置弹窗背板的阴影效果，不同枚举值提供不同深浅或漂浮样式的阴影。 |
  
  
 **返回：**
@@ -488,7 +488,7 @@ int32_t (*setCustomShadow)(ArkUI_NativeDialogHandle handle, const ArkUI_Attribut
  
 **描述：**
  
-设置自定义弹窗的背板阴影。
+设置自定义弹窗的背板自定义阴影。
  
 > [!NOTE]
 > setCustomShadow方法需要在调用 show 之前调用。
@@ -536,7 +536,7 @@ int32_t (*setBackgroundBlurStyle)(ArkUI_NativeDialogHandle handle, ArkUI_BlurSty
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| ArkUI_BlurStyle blurStyle | 背板模糊材质，枚举值。 |
+| ArkUI_BlurStyle blurStyle | 背板模糊材质，枚举值。用于设置弹窗背板的模糊效果，不同枚举值提供不同深度的材质感。 |
  
  
 **返回：**
@@ -571,7 +571,7 @@ int32_t (*setKeyboardAvoidMode)(ArkUI_NativeDialogHandle handle, ArkUI_KeyboardA
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| ArkUI_KeyboardAvoidMode keyboardAvoidMode | 避让键盘模式，枚举值。 |
+| ArkUI_KeyboardAvoidMode keyboardAvoidMode | 避让键盘模式，枚举值。用于设置键盘弹出时弹窗的避让行为。 |
  
  
 **返回：**
@@ -641,7 +641,7 @@ int32_t (*setHoverModeArea)(ArkUI_NativeDialogHandle handle, ArkUI_HoverModeArea
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| ArkUI_HoverModeAreaType hoverModeAreaType | 悬停态区域，枚举值。 |
+| ArkUI_HoverModeAreaType hoverModeAreaType | 悬停态区域，枚举值。用于设置悬停时弹窗默认展示的区域位置（上半屏或下半屏）。 |
  
  
 **返回：**
@@ -698,7 +698,7 @@ int32_t (*setBackgroundBlurStyleOptions)(ArkUI_NativeDialogHandle handle, const 
  
 **描述：**
  
-设置自定义弹窗的背景模糊效果。
+设置自定义弹窗的背板模糊效果。
  
 > [!NOTE]
 > setBackgroundBlurStyleOptions方法需要在调用 show 之前调用。
@@ -711,7 +711,7 @@ int32_t (*setBackgroundBlurStyleOptions)(ArkUI_NativeDialogHandle handle, const 
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| const ArkUI_AttributeItem* backgroundBlurStyleOptions | 背景模糊效果。参数ArkUI_AttributeItem格式： .value[0].i32：表示深浅色模式，取ArkUI_ColorMode枚举值。 .value[1]?.i32：表示取色模式，取ArkUI_AdaptiveColor枚举值。 .value[2]?.f32：表示模糊效果程度，取[0.0,1.0]范围内的值，超出有效值区间时取边界值。 .value[3]?.u32：表示灰阶模糊参数，对黑色的提亮程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[4]?.u32：表示灰阶模糊参数，对白色的压暗程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[5]?.i32：表示模糊激活策略，取ArkUI_BlurStyleActivePolicy枚举值。 .value[6]?.u32：表示窗口失焦后，窗口内控件模糊效果会被移除，此时控件背板的颜色，0xargb类型。 |
+| const ArkUI_AttributeItem* backgroundBlurStyleOptions | 背景模糊效果。参数ArkUI_AttributeItem格式： .value[0].i32：表示深浅色模式，取ArkUI_ColorMode枚举值。 .value[1]?.i32：表示取色模式，取ArkUI_AdaptiveColor枚举值。 .value[2]?.f32：表示模糊效果程度，取[0.0,1.0]范围内的值，超出有效值区间时取边界值。 .value[3]?.u32：表示灰阶模糊参数，对黑色的提亮程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[4]?.u32：表示灰阶模糊参数，对白色的压暗程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[5]?.i32：表示模糊激活策略，取ArkUI_BlurStyleActivePolicy枚举值。 .value[6]?.u32：表示窗口失焦后，窗口内控件模糊效果会被移除，此时控件背板的颜色，0xARGB类型。 |
  
  
 **返回：**
@@ -733,7 +733,7 @@ int32_t (*setBackgroundEffect)(ArkUI_NativeDialogHandle handle, const ArkUI_Attr
  
 **描述：**
  
-设置自定义弹窗的背景效果参数。
+设置自定义弹窗的背板效果参数。
  
 > [!NOTE]
 > setBackgroundEffect方法需要在调用 show 之前调用。
@@ -746,7 +746,7 @@ int32_t (*setBackgroundEffect)(ArkUI_NativeDialogHandle handle, const ArkUI_Attr
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| const ArkUI_AttributeItem* backgroundEffect | 背景效果参数。参数ArkUI_AttributeItem格式： .value[0].f32：表示模糊半径，单位为vp。 .value[1]?.f32：表示饱和度。 .value[2]?.f32：表示亮度。 .value[3]?.u32：表示颜色，0xargb类型。 .value[4]?.i32：表示取色模式，取ArkUI_AdaptiveColor枚举值。 .value[5]?.u32：表示灰阶模糊参数，对黑色的提亮程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[6]?.u32：表示灰阶模糊参数，对白色的压暗程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[7]?.i32：表示模糊激活策略，取ArkUI_BlurStyleActivePolicy枚举值。 .value[8]?.u32：表示窗口失焦后，窗口内控件模糊效果会被移除，此时控件背板的颜色，0xargb类型。 |
+| const ArkUI_AttributeItem* backgroundEffect | 背景效果参数。参数ArkUI_AttributeItem格式： .value[0].f32：表示模糊半径，单位为vp。 .value[1]?.f32：表示饱和度，取[0.0,1.0]范围内的值。 .value[2]?.f32：表示亮度，取[0.0,1.0]范围内的值。 .value[3]?.u32：表示颜色，0xARGB类型。 .value[4]?.i32：表示取色模式，取ArkUI_AdaptiveColor枚举值。 .value[5]?.u32：表示灰阶模糊参数，对黑色的提亮程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[6]?.u32：表示灰阶模糊参数，对白色的压暗程度，有效值范围为[0,127]，超出有效值范围，取0。 .value[7]?.i32：表示模糊激活策略，取ArkUI_BlurStyleActivePolicy枚举值。 .value[8]?.u32：表示窗口失焦后，窗口内控件模糊效果被移除时显示的控件背板颜色，0xARGB类型。 |
  
  
 **返回：**

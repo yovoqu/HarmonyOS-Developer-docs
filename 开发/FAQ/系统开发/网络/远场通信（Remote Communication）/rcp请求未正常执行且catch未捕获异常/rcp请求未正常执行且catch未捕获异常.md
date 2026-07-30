@@ -1,6 +1,6 @@
 # rcp请求未正常执行且catch未捕获异常
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-4
 
@@ -134,7 +134,7 @@ A：该响应码通常是提交数据的字段名称或者是字段类型和后�
  
 Q：使用rcp下载文件报错，报错信息{"code":1007900028,"data":"Timeout was reached"}？
  
-A：可以尝试增大[timeout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section253517541009)的时间。
+A：可以尝试增大[timeout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#timeout)的时间。
  
 Q：可以使用哪些API实现post类型的长连接？例如聊天场景。
  

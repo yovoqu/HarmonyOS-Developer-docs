@@ -1,11 +1,11 @@
 # @ohos.graphics.hdrCapability (HDR能力)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hdrcapability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供HDR（高动态显示范围）能力涉及到的相关枚举类型。
+本模块提供HDR（High Dynamic Range，高动态显示范围）能力涉及到的相关枚举类型。HDR技术能够显著扩展图像的动态范围和色彩表现力，适用于视频播放、图像显示等场景，可解决传统SDR在高对比度场景下亮部过曝、暗部细节丢失的问题，带来更真实、更丰富的视觉体验。
  
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。

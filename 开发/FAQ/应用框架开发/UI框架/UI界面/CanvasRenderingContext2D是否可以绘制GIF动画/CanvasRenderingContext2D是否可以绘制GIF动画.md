@@ -13,7 +13,7 @@ CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/b55tvD7PQ5e8AwCHSswlPw/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260723T013249Z&HW-CC-Expire=86400&HW-CC-Sign=AD547003A6A80EF16B4AA1AC5C9017CDE320548EBDECBE03FE2B4525C8CAA8F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/b55tvD7PQ5e8AwCHSswlPw/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=563FA65DFA6778F3B8932DD66E1D137577FCD7BB2660C76476F13A143E00D1FA)
 
  
  

@@ -120,7 +120,7 @@ Progress({ value: this.currentValue, total: 10 })
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/bNMhR760Q5mFgeksBd0EGA/zh-cn_image_0000002658917665.png?HW-CC-KV=V1&HW-CC-Date=20260723T013138Z&HW-CC-Expire=86400&HW-CC-Sign=A622AE0A12C7EE7436EA7CC4FB4B7DFB751E25465B7628543DC04276C5589763)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/bNMhR760Q5mFgeksBd0EGA/zh-cn_image_0000002658917665.png?HW-CC-KV=V1&HW-CC-Date=20260730T072500Z&HW-CC-Expire=86400&HW-CC-Sign=E77DAB3CDC5AAB3932322341B1690F595CFF2FB1BC80A3A84CDC21916DA52215)
 
  
 完整代码：

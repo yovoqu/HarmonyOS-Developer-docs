@@ -1,6 +1,6 @@
 # AtomicServiceNavigation
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicenavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -116,7 +116,7 @@ AtomicServiceNavigation({
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| primaryColor | ResourceColor | 否 | 否 | 单色渐变色彩值和双色渐变第一色彩值。默认值为空，即无颜色设置。 |
+| primaryColor | ResourceColor | 否 | 否 | 单色渐变色彩值和双色渐变第一色彩值。 |
 | secondaryColor | ResourceColor | 否 | 是 | 双色渐变色第二色彩值。默认值为空，即无颜色设置。 |
 | backgroundTheme | BackgroundTheme | 否 | 是 | 导航栏背景底色。默认值为DEFAULT。 |
 | mixMode | MixMode | 否 | 是 | 同时设置primaryColor和secondaryColor时此参数生效。代表双色渐变下两种颜色的融合方式。默认值为TOWARDS。 |
@@ -688,4 +688,4 @@ export struct PageTwo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/u3QGwHYxQ3uMddUEHBAx6g/zh-cn_image_0000002659222145.png?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=8C1A789EF984BF2A92C46882658649069DE78FEA7E6C570DFE5F0B5DF58CBBED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/A36CV16hQfmROCiWCieq-g/zh-cn_image_0000002656008886.png?HW-CC-KV=V1&HW-CC-Date=20260730T071516Z&HW-CC-Expire=86400&HW-CC-Sign=9039D2E2DA2F34D40728E2D1E7F3552F5571DE377B7EBB17C96F191DDCE8ECB1)

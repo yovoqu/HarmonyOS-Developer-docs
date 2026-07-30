@@ -1,6 +1,6 @@
 # SecurityAudit（安全审计）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ check permission fail.
  
 **处理步骤**
  
-只允许清单内的企业类应用申请该权限，申请方式请参考：[申请使用企业类应用可用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-enterprise-apps)。
+只允许清单内的企业类应用申请该权限，申请方式请参考：[企业类应用可用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-enterprise-apps)。
  
   
 
@@ -68,7 +68,9 @@ Internal error.
  
 **可能原因**
  
-接口执行流程中调用系统其它接口出现异常。
+1.系统服务进程故障。
+ 
+2.IPC（Inter-Process Communication，进程间通信）跨进程调用失败。
  
 **处理步骤**
  

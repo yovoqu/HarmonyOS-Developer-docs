@@ -1,6 +1,6 @@
 # 如何实现TcpSocket断开重连
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-125
 
@@ -12,7 +12,7 @@ TcpSocket异常断开连接后，如何实现循环重连？
 
 #### 背景知识
 
-建立TcpSocket连接前，需要通过[constructTCPSocketInstance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#socketconstructtcpsocketinstance7)创建tcp实例，然后才能调用[connect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#connect)接口连接指定tcp服务。若是TcpSocket异常断开，需调用[close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#close-2)接口销毁之前的实例，然后重新创建TcpSocket实例，调用connect接口尝试重连。
+建立TcpSocket连接前，需要通过[constructTCPSocketInstance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#socketconstructtcpsocketinstance)创建tcp实例，然后才能调用[connect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#connect)接口连接指定tcp服务。若是TcpSocket异常断开，需调用[close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#close-2)接口销毁之前的实例，然后重新创建TcpSocket实例，调用connect接口尝试重连。
  
  
 

@@ -1,6 +1,6 @@
 # Class (PlayImageAnimation)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-playimageanimation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -21,6 +21,8 @@ import { image } from '@kit.ImageKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 控制多张图片的帧动画，继承[Animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animation)。
+ 
+主要用于在地图应用中实现动态图像展示效果，包括路径追踪、事件标识、状态变化等场景，通过连续播放一组图片帧，可以生动地呈现移动轨迹、动画图标或状态转换过程，增强用户的视觉反馈和交互体验。
  
 帧动画是一种通过快速连续显示一系列静态图像来创建动画效果的技术。每一张图像被称为一帧，当这些帧以快速的顺序播放时，用户会感知到平滑的运动或变化。
  

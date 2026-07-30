@@ -1,6 +1,6 @@
 # Context (FA模型的上下文基类)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -113,7 +113,7 @@ context.getOrCreateLocalDir().then((data) => {
 
 verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback&lt;number&gt;): void
  
-验证系统中运行的特定pid和uid是否允许指定的权限。使用callback异步回调。
+验证系统中运行的特定pid和uid是否具有指定的权限。使用callback异步回调。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
@@ -145,7 +145,7 @@ bundle.getBundleInfo('com.context.test', 1, (err: BusinessError, datainfo: bundl
 });
 ```
  
-示例代码中出现的getBundleInfo相关描述可参考对应[文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager)。
+示例代码中出现的getBundleInfo相关描述可参考对应[@ohos.bundle.bundleManager (应用程序包管理模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager)。
  
   
 
@@ -616,7 +616,7 @@ context.getDisplayOrientation((error, data) => {
 
 getDisplayOrientation(): Promise<bundle.DisplayOrientation>
  
-获取此能力的当前显示方向。使用Promise异步回调。
+获取当前Ability的显示方向。使用Promise异步回调。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
@@ -726,7 +726,7 @@ setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCal
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| orientation | bundle.DisplayOrientation | 是 | 指示当前能力的新方向。 |
+| orientation | bundle.DisplayOrientation | 是 | 表示屏幕方向。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置当前Ability的显示方向成功，err为undefined，否则为错误对象。 |
  
  
@@ -871,7 +871,7 @@ setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback&lt;void&gt;): void
 设置恢复此功能时是否唤醒屏幕。使用callback异步回调。
  
 > [!NOTE]
-> 该接口功能仅对系统应用生效。 从API version 7开始支持，从API version 12开始废弃。替代接口window.setWakeUpScreen替代，新接口为系统接口。
+> 该接口功能仅对系统应用生效。 从API version 7开始支持，从API version 12开始废弃。建议使用window.setWakeUpScreen替代，新接口为系统接口。
 
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -907,7 +907,7 @@ setWakeUpScreen(wakeUp: boolean): Promise&lt;void&gt;
 设置恢复此功能时是否唤醒屏幕。使用Promise异步回调。
  
 > [!NOTE]
-> 该接口功能仅对系统应用生效。 从API version 7开始支持，从API version 12开始废弃。替代接口window.setWakeUpScreen替代，新接口为系统接口。
+> 该接口功能仅对系统应用生效。 从API version 7开始支持，从API version 12开始废弃。建议使用window.setWakeUpScreen替代，新接口为系统接口。
 
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -980,7 +980,7 @@ context.getProcessInfo((error, data) => {
 
 getProcessInfo(): Promise&lt;ProcessInfo&gt;
  
-获取有关当前进程的信息，包括进程id和名称。使用Promise异步回调。
+获取有关当前进程的信息，包括进程ID和名称。使用Promise异步回调。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
@@ -1046,7 +1046,7 @@ context.getElementName((error, data) => {
 
 getElementName(): Promise&lt;ElementName&gt;
  
-获取当前能力的ohos.bundleManager.ElementName对象。使用Promise异步回调。
+获取当前Ability的ohos.bundleManager.ElementName对象。使用Promise异步回调。
  
 此方法仅适用于页面功能。
  
@@ -1206,7 +1206,7 @@ context.getCallingBundle().then((data) => {
 
 getCacheDir(callback: AsyncCallback&lt;string&gt;): void
  
-获取该应用程序的内部存储目录。使用callback异步回调。
+获取该应用程序的缓存目录。使用callback异步回调。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
@@ -1214,7 +1214,7 @@ getCacheDir(callback: AsyncCallback&lt;string&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，返回该应用程序的内部存储目录。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，返回该应用程序的缓存目录。 |
  
  
 **示例：**
@@ -1240,7 +1240,7 @@ context.getCacheDir((error, data) => {
 
 getCacheDir(): Promise&lt;string&gt;
  
-获取该应用程序的内部存储目录。使用Promise异步回调。
+获取该应用程序的缓存目录。使用Promise异步回调。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
@@ -1248,7 +1248,7 @@ getCacheDir(): Promise&lt;string&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，返回该应用程序的内部存储目录。 |
+| Promise&lt;string&gt; | Promise对象，返回该应用程序的缓存目录。 |
  
  
 **示例：**
@@ -1685,7 +1685,7 @@ let context: featureAbility.Context = featureAbility.getContext().getApplication
 
 isUpdatingConfigurations(callback: AsyncCallback&lt;boolean&gt;): void
  
-检查此能力的配置是否正在更改。使用callback异步回调。
+检查此Ability的配置是否正在更改。使用callback异步回调。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
@@ -1719,7 +1719,7 @@ context.isUpdatingConfigurations((error, data) => {
 
 isUpdatingConfigurations(): Promise&lt;boolean&gt;
  
-检查此能力的配置是否正在更改。使用Promise异步回调。
+检查此Ability的配置是否正在更改。使用Promise异步回调。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  

@@ -15,7 +15,7 @@ Text组件绑定自定义菜单如何实现以下效果：
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/VycHdmELR7S69-C6mIMM5g/zh-cn_image_0000002658795071.png?HW-CC-KV=V1&HW-CC-Date=20260723T012612Z&HW-CC-Expire=86400&HW-CC-Sign=AA561F7EF849492F12A6BED86DBC0112140322AE06312452A6800149BE8DBE58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/VycHdmELR7S69-C6mIMM5g/zh-cn_image_0000002658795071.png?HW-CC-KV=V1&HW-CC-Date=20260730T072328Z&HW-CC-Expire=86400&HW-CC-Sign=4A489B4DEBDC1F29BA5C8187087E23FE522143C81C6C470050DCC2FA49EA55BD)
 
  
  
@@ -23,7 +23,7 @@ Text组件绑定自定义菜单如何实现以下效果：
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/UHS5Z8rQQmCU0mIpMR0CSw/zh-cn_image_0000002628555700.png?HW-CC-KV=V1&HW-CC-Date=20260723T012612Z&HW-CC-Expire=86400&HW-CC-Sign=14E769AAB63670C9FBD6BC3B0488BB481DD6FF52D1E46284F497CDE6410202DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/UHS5Z8rQQmCU0mIpMR0CSw/zh-cn_image_0000002628555700.png?HW-CC-KV=V1&HW-CC-Date=20260730T072328Z&HW-CC-Expire=86400&HW-CC-Sign=C826CB098EC18F1DC44D0FC4E05DAB634E38392DB90819D65005B7F8C76B347B)
 
  
  

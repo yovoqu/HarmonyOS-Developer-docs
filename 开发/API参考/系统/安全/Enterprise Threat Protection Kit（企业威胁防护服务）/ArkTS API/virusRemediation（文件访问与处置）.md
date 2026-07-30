@@ -1,6 +1,6 @@
 # virusRemediation（病毒检测与处置）
 
-更新时间：2026-06-27 10:02:54（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisethreatprotection-virusremediation-interface
 **支持设备：** PC/2in1
@@ -300,10 +300,9 @@ scanBundleFiles(type: ScanTargetType, callback: ScanCallback, bundleName?: strin
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 401 | The parameter check failed. |
-| 1023801001 | System service exception. |
-| 1023802002 | Access and disposal denied for this path. |
+| 201 | Permission denied. The application calls an API without the required permission. Check the permission required to call the API and make sure the application has the permission. |
+| 1023801001 | System service exception. The system is in an insecure state (for example, the device is not unlocked), or there is a hardware failure. Ensure that the system status is normal and try again. |
+| 1023802002 | Access and disposal denied for this path. The target path does not meet the access restrictions or handling restrictions, such as permission levels and app sandbox restrictions. Check whether the path meets the access and handling restrictions. |
 
 
 **示例：**
@@ -375,13 +374,12 @@ openFile(path: string): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 401 | The parameter check failed. |
-| 1023801001 | System service exception. |
-| 1023802001 | File not found. |
-| 1023802002 | Access and disposal denied for this path. |
-| 1023803001 | Access to other users' files is restricted. |
-| 1023804001 | Invalid file type. |
+| 201 | Permission denied. The application calls an API without the required permission. Check the permission required to call the API and make sure the application has the permission. |
+| 1023801001 | System service exception. The system is in an insecure state (for example, the device is not unlocked), or there is a hardware failure. Ensure that the system status is normal and try again. |
+| 1023802001 | File not found. The target path is incorrectly configured or the file has been deleted. Verify the target path and file status. |
+| 1023802002 | Access and disposal denied for this path. The target path does not meet the access restrictions or handling restrictions, such as permission levels and app sandbox restrictions. Check whether the path meets the access and handling restrictions. |
+| 1023803001 | Access to other users' files is restricted. The file resources are not under the current user account. Verify the identity of the current user and change the path to a valid one. |
+| 1023804001 | Invalid file type. Currently, only single files can be handled. Directories are not supported. Check whether the path contains a single file. If not, change the target to a single file and perform the operation again. |
 
 
 **示例：**
@@ -432,9 +430,8 @@ queryIsolatedFiles(callback: QueryCallback, batchNum?: number): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 401 | The parameter check failed. |
-| 1023801001 | System service exception. |
+| 201 | Permission denied. The application calls an API without the required permission. Check the permission required to call the API and make sure the application has the permission. |
+| 1023801001 | System service exception. The system is in an insecure state (for example, the device is not unlocked), or there is a hardware failure. Ensure that the system status is normal and try again. |
 
 
 **示例：**
@@ -506,15 +503,14 @@ isolateThreatFile(path: string): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 401 | The parameter check failed. |
-| 1023801001 | System service exception. |
-| 1023802001 | File not found. |
-| 1023802002 | Access and disposal denied for this path. |
-| 1023803001 | Access to other users' files is restricted. |
-| 1023804001 | Invalid file type. |
-| 1023804002 | Disposal is not supported. Please handle it manually. |
-| 1023805001 | Quarantine storage space is full. |
+| 201 | Permission denied. The application calls an API without the required permission. Check the permission required to call the API and make sure the application has the permission. |
+| 1023801001 | System service exception. The system is in an insecure state (for example, the device is not unlocked), or there is a hardware failure. Ensure that the system status is normal and try again. |
+| 1023802001 | File not found. The target path is incorrectly configured or the file has been deleted. Verify the target path and file status. |
+| 1023802002 | Access and disposal denied for this path. The target path does not meet the access restrictions or handling restrictions, such as permission levels and app sandbox restrictions. Check whether the path meets the access and handling restrictions. |
+| 1023803001 | Access to other users' files is restricted. The file resources are not under the current user account. Verify the identity of the current user and change the path to a valid one. |
+| 1023804001 | Invalid file type. Currently, only single files can be handled. Directories are not supported. Check whether the path contains a single file. If not, change the target to a single file and perform the operation again. |
+| 1023804002 | Disposal is not supported. Please handle it manually. The target path is the app package path. You are advised to handle it in the following ways: 1. Prohibit the app from running. 2. Uninstall the app. Check whether the path is the app package path and select a proper handling method. |
+| 1023805001 | Quarantine storage space is full. The disk in the isolation zone is full or has reached the upper capacity limit. Check the space usage and status of the current isolation zone. |
 
 
 **示例：**
@@ -568,13 +564,12 @@ restoreIsolatedFile(id: string): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 401 | The parameter check failed. |
-| 1023801001 | System service exception. |
-| 1023802003 | A file with the same name already exists in the restored path. |
-| 1023803001 | Access to other users' files is restricted. |
-| 1023804003 | Invalid operation. |
-| 1023806001 | Database corruption detected. |
+| 201 | Permission denied. The application calls an API without the required permission. Check the permission required to call the API and make sure the application has the permission. |
+| 1023801001 | System service exception. The system is in an insecure state (for example, the device is not unlocked), or there is a hardware failure. Ensure that the system status is normal and try again. |
+| 1023802003 | Existed same file in the restored path. The restoration fails because new and old files have the same name. Check whether duplicate file names exist in the restoration path. You can rename the files or delete the old files to rectify the fault. |
+| 1023803001 | Access to other users' files is restricted. The file resources are not under the current user account. Verify the identity of the current user and change the path to a valid one. |
+| 1023804003 | Invalid operation. The requested ID is in an incorrect format or is invalid. Check whether the isolation ID is the same as that stored in the app and whether the file corresponding to the isolation ID is in the isolated state (that is, there is an isolation record that has not been released). |
+| 1023806001 | Database corruption detected. The table structure is abnormal or the connection fails. Run preliminary self-check commands or view logs to obtain detailed error information. |
 
 
 **示例：**
@@ -628,12 +623,11 @@ removeIsolatedFile(id: string): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 401 | The parameter check failed. |
-| 1023801001 | System service exception. |
-| 1023803001 | Access to other users' files is restricted. |
-| 1023804003 | Invalid operation. |
-| 1023806001 | Database corruption detected. |
+| 201 | Permission denied. The application calls an API without the required permission. Check the permission required to call the API and make sure the application has the permission. |
+| 1023801001 | System service exception. The system is in an insecure state (for example, the device is not unlocked), or there is a hardware failure. Ensure that the system status is normal and try again. |
+| 1023803001 | Access to other users' files is restricted. The file resources are not under the current user account. Verify the identity of the current user and change the path to a valid one. |
+| 1023804003 | Invalid operation. The requested ID is in an incorrect format or is invalid. Check whether the isolation ID is the same as that stored in the app and whether the file corresponding to the isolation ID is in the isolated state (that is, there is an isolation record that has not been released). |
+| 1023806001 | Database corruption detected. The table structure is abnormal or the connection fails. Run preliminary self-check commands or view logs to obtain detailed error information. |
 
 
 **示例：**
@@ -687,12 +681,11 @@ terminateProcess(pid: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 401 | The parameter check failed. |
-| 1023801001 | System service exception. |
-| 1023807001 | Process not found. |
-| 1023807002 | Access and disposal are denied for this process. |
-| 1023807003 | Access to other users' processes is not allowed. |
+| 201 | Permission denied. The application calls an API without the required permission. Check the permission required to call the API and make sure the application has the permission. |
+| 1023801001 | System service exception. The system is in an insecure state (for example, the device is not unlocked), or there is a hardware failure. Ensure that the system status is normal and try again. |
+| 1023807001 | Process not found. The specified process does not exist or has already terminated. Ensure the provided process ID is valid. |
+| 1023807002 | Access and disposal are denied for this process. The process is protected and cannot be terminated or accessed. Ensure the process is not a critical system process and termination is permitted. |
+| 1023807003 | Access to other users' processes is not allowed. The target process belongs to a different user and cannot be accessed. Only operate on processes owned by the current user or run with elevated privileges. |
 
 
 **示例：**

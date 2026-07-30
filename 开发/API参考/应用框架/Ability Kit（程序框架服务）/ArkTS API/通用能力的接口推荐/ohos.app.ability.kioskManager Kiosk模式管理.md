@@ -1,6 +1,6 @@
 # @ohos.app.ability.kioskManager (Kiosk模式管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-kioskmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@ KioskManager模块提供Kiosk模式管理能力，包括系统进入/退出Kiosk
 Kiosk模式是一种特殊的设备锁定模式，可以确保设备界面只服务于特定的交互场景。在这种模式下，用户只能使用特定的应用。例如，在银行ATM机上，用户只能通过ATM软件进行操作，而不能退出该软件或切换到其他应用。
 
 > [!NOTE]
-> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅适用于通过 setAllowedKioskApps接口 配置的支持Kiosk模式的应用。
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅适用于通过 applicationManager.setAllowedKioskApps 配置的支持Kiosk模式的应用。
 
 
 
@@ -30,7 +30,7 @@ import { kioskManager } from '@kit.AbilityKit';
 
 enterKioskMode(context: UIAbilityContext): Promise&lt;void&gt;
 
-进入Kiosk模式。使用Promise异步回调。
+调用此接口进入Kiosk模式，采用Promise异步回调方式。若触发进入Kiosk模式的应用进程被终止，系统将自动退出该模式。
 
 **系统能力**： SystemCapability.Ability.AbilityRuntime.Core
 

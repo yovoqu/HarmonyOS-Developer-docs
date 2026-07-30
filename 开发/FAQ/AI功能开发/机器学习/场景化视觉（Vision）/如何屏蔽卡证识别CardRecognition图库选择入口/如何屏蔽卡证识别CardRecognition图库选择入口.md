@@ -1,6 +1,6 @@
 # 如何屏蔽卡证识别CardRecognition图库选择入口
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-12
 
@@ -20,7 +20,7 @@
 
 #### 解决方案
 
-在卡证识别控件的参数配置对象[CardRecognitionConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#section14439151274411)中有一个isPhotoSelectionSupported参数，可以控制在卡证识别时是否支持从图库中选取图片进行识别。参数说明如下：
+在卡证识别控件的参数配置对象[CardRecognitionConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#cardrecognitionconfig)中有一个isPhotoSelectionSupported参数，可以控制在卡证识别时是否支持从图库中选取图片进行识别。参数说明如下：
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

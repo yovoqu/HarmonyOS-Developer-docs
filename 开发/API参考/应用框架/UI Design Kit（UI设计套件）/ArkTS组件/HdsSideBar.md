@@ -1,6 +1,6 @@
 # HdsSideBar
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssidebar
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -90,7 +90,8 @@ import { HdsSideBar } from '@kit.UIDesignKit';
 struct Index {
   @Local isShowSidebar: boolean = true;
 
-  @Builder // 左侧侧边栏区
+  // 左侧侧边栏区
+  @Builder
   SideBarPanelBuilder() {
     Column() {
       Text('左侧侧边栏区')
@@ -100,7 +101,8 @@ struct Index {
     .margin(40)
   }
 
-  @Builder // 右侧内容区
+  // 右侧内容区
+  @Builder
   ContentPanelBuilder() {
     Text('右侧内容区')
       .margin(40)

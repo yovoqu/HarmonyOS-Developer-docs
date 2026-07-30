@@ -1,6 +1,6 @@
 # Retrieval
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -316,7 +316,7 @@ enum Retrieval_Channel_Type
   
 | 枚举值 | 描述 |
 | --- | --- |
-| RETRIEVAL_TYPE_VECTOR | 表示向量索引。 |
+| RETRIEVAL_TYPE_VECTOR | 表示向量索引，其对应的数值为1。 |
  
  
   
@@ -1195,7 +1195,7 @@ int OH_Retrieval_SetVectorRecallLimit(OH_Retrieval_VectorCondition *condition, u
 | 名称 | 描述 |
 | --- | --- |
 | condition | 指向检索条件OH_Retrieval_VectorCondition实例的指针。 |
-| limit | 向量检索结果的数量上限，最大值1000。 |
+| limit | 向量检索结果的数量上限，取值范围[1, 1000]。 |
  
  
 **返回：**

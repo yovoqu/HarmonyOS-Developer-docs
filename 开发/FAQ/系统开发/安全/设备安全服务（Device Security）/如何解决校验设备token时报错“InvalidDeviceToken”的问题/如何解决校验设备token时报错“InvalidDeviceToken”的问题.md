@@ -1,6 +1,6 @@
 # 如何解决校验设备token时报错“InvalidDeviceToken”的问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-3
 
@@ -93,4 +93,4 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
  
 - 请求发送过程：1. 检查是否正确获取服务账号令牌，服务账号令牌获取指导详情请参见[基于服务账号生成鉴权令牌](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-token)。
 
-2. 检查消息体构造是否正确。请求构造过程需要构造请求消息体时，消息体需要在外层包一层data结构。详情参考如[请求示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-deviceverify-checkdevicetoken#section6804114718362)。
+2. 检查消息体构造是否正确。请求构造过程需要构造请求消息体时，消息体需要在外层包一层data结构。详情参考如[请求示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-deviceverify-checkdevicetoken#请求示例)。

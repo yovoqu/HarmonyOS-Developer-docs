@@ -1,6 +1,6 @@
 # @ohos.window.floatingBall (闪控球窗口)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 该模块提供闪控球的基础功能，包括判断设备是否支持闪控球功能，以及创建闪控球控制器来启动、更新或停止闪控球。适用于跨应用的题目搜索、账单记录、商品比价、抢单、翻译场景，以及金融类应用的实时盯盘场景，以小窗模式呈现内容。闪控球以悬浮小组件形式显示在其他应用之上，即时呈现应用的关键信息。
 
 > [!NOTE]
-> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 在HarmonyOS 7.0.0之前，支持在Tablet设备的非 电脑模式 、Phone设备使用闪控球功能，其他设备不可用；从HarmonyOS 7.0.0开始，支持在Phone、PC/2in1、Tablet设备使用闪控球功能，其他设备不可用。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
 
 
 **闪控球和闪控窗对比**
@@ -56,6 +56,7 @@ isFloatingBallEnabled(): boolean
 **示例：**
 
 ```text
+// 判断当前设备是否支持闪控球功能
 let enable: boolean = floatingBall.isFloatingBallEnabled();
 console.info('Floating ball enabled is: ' + enable);
 ```
@@ -72,7 +73,7 @@ create(config: FloatingBallConfiguration): Promise&lt;FloatingBallController&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在Tablet设备的非电脑模式、Phone设备下可正常调用，在其他设备、Tablet设备的电脑模式下调用返回801错误码。
+**设备行为差异：** 在HarmonyOS 7.0.0之前，该接口在Tablet设备的非[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)、Phone设备下可正常调用，在其他设备、Tablet设备的[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)下调用返回801错误码。从HarmonyOS 7.0.0开始，支持在Phone、PC/2in1、Tablet设备使用，其他设备调用返回801错误码。
 
 **参数：**
 
@@ -105,14 +106,18 @@ create(config: FloatingBallConfiguration): Promise&lt;FloatingBallController&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
+// 声明闪控球控制器实例
 let floatingBallController: floatingBall.FloatingBallController | undefined = undefined;
 // 请在组件内获取context，确保this.getUIContext().getHostContext()返回的结果为UIAbilityContext
 let ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
+// 配置闪控球控制器参数
 let config: floatingBall.FloatingBallConfiguration = {
   context: ctx,
 };
 try {
+  // 创建闪控球控制器
   floatingBall.create(config).then((data: floatingBall.FloatingBallController) => {
+    // 保存控制器实例
     floatingBallController = data;
     console.info(`Succeeded in creating floating ball controller. Data: ${data}`);
   }).catch((err: BusinessError) => {
@@ -135,7 +140,7 @@ try {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | BaseContext | 否 | 否 | 表示上下文环境。 |
+| context | BaseContext | 否 | 否 | 表示上下文环境，用于创建闪控球控制器时关联应用的主窗口。该参数不能为空，通常传入UIAbilityContext对象。 |
 
 
 
@@ -168,7 +173,7 @@ startFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | FloatingBallParams | 是 | 启动闪控球的参数。 |
+| params | FloatingBallParams | 是 | 启动闪控球的参数，用于配置闪控球的标题、内容或背景色等。 |
 
 
 **返回值：**
@@ -200,12 +205,14 @@ startFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 配置闪控球启动参数
 let startParams: floatingBall.FloatingBallParams = {
   template: floatingBall.FloatingBallTemplate.EMPHATIC,
   title: 'title',
   content: 'content'
 };
 try {
+  // 启动闪控球
   floatingBallController.startFloatingBall(startParams).then(() => {
     console.info('Succeeded in starting floating ball.');
   }).catch((err: BusinessError) => {
@@ -224,7 +231,7 @@ try {
 
 updateFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 
-更新闪控球，使用Promise异步回调。
+更新闪控球，使用Promise异步回调。必须先调用[startFloatingBall()](#startfloatingball)启动闪控球后，才能调用此方法更新闪控球参数。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -232,7 +239,7 @@ updateFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | FloatingBallParams | 是 | 更新闪控球的参数。 |
+| params | FloatingBallParams | 是 | 更新闪控球的参数，用于更新闪控球的标题、内容或背景色等。调用此接口更新闪控球时，模板类型template字段不可更改。 |
 
 
 **返回值：**
@@ -264,12 +271,14 @@ updateFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 配置闪控球更新参数
 let updateParams: floatingBall.FloatingBallParams = {
   template: floatingBall.FloatingBallTemplate.EMPHATIC,
   title: 'title2',
   content: 'content2'
 };
 try {
+  // 更新闪控球
   floatingBallController.updateFloatingBall(updateParams).then(() => {
     console.info('Succeeded in updating floating ball.');
   }).catch((err: BusinessError) => {
@@ -315,6 +324,7 @@ stopFloatingBall(): Promise&lt;void&gt;
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 停止闪控球
 floatingBallController.stopFloatingBall().then(() => {
   console.info('Succeeded in stopping floating ball.');
 }).catch((err: BusinessError) => {
@@ -357,10 +367,12 @@ on(type: 'stateChange', callback: Callback&lt;FloatingBallState&gt;): void
 **示例：**
 
 ```text
+// 定义状态变化回调函数
 let onStateChange = (state: floatingBall.FloatingBallState) => {
   console.info('Floating ball stateChange: ' + state);
 };
 try {
+  // 注册闪控球状态变化监听
   floatingBallController.on('stateChange', onStateChange);
 } catch (e) {
   console.error(`Failed to on stateChange floating ball. Cause:${e.code}, message:${e.message}`);
@@ -401,10 +413,12 @@ off(type: 'stateChange', callback?: Callback&lt;FloatingBallState&gt;): void
 **示例：**
 
 ```text
+// 定义状态变化回调函数（需与注册时的回调一致）
 let onStateChange = (state: floatingBall.FloatingBallState) => {
   console.info('Floating ball stateChange: ' + state);
 };
 try {
+  // 取消闪控球状态变化监听
   floatingBallController.off('stateChange', onStateChange);
 } catch (e) {
   console.error(`Failed to off stateChange floating ball. Cause:${e.code}, message:${e.message}`);
@@ -446,10 +460,12 @@ on(type: 'click', callback: Callback&lt;void&gt;): void
 **示例：**
 
 ```text
+// 定义点击事件回调函数
 let onClick = () => {
   console.info('Floating ball onClick');
 };
 try {
+  // 注册闪控球点击监听
   floatingBallController.on('click', onClick);
 } catch (e) {
   console.error(`Failed to on click floating ball. Cause:${e.code}, message:${e.message}`);
@@ -490,10 +506,12 @@ off(type: 'click', callback?: Callback&lt;void&gt;): void
 **示例：**
 
 ```text
+// 定义点击事件回调函数（需与注册时的回调一致）
 let onClick = () => {
   console.info('Floating ball onClick');
 };
 try {
+  // 取消闪控球点击监听
   floatingBallController.off('click', onClick);
 } catch (e) {
   console.error(`Failed to off click floating ball. Cause:${e.code}, message:${e.message}`);
@@ -508,7 +526,7 @@ try {
 
 getFloatingBallWindowInfo(): Promise&lt;FloatingBallWindowInfo&gt;
 
-获得闪控球窗口信息，使用Promise异步回调。
+获取闪控球窗口信息，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -538,6 +556,7 @@ getFloatingBallWindowInfo(): Promise&lt;FloatingBallWindowInfo&gt;
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 获取闪控球窗口信息
 floatingBallController.getFloatingBallWindowInfo().then((data: floatingBall.FloatingBallWindowInfo) => {
   console.info('Succeeded in getting floating ball window info. Info: ' + JSON.stringify(data));
 }).catch((err: BusinessError) => {
@@ -596,11 +615,13 @@ restoreMainWindow(want: Want): Promise&lt;void&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
 
+// 配置要恢复的主窗口Want参数
 let want: Want = {
   bundleName: 'xxx.xxx.xxx',
   abilityName: 'EntryAbility'
 };
 try {
+  // 恢复应用主窗口并加载指定页面
   floatingBallController.restoreMainWindow(want).then(() => {
     console.info('Succeeded in restoring floating ball main window.');
   }).catch((err: BusinessError) => {
@@ -660,11 +681,117 @@ setFloatingBallVisibilityInApp(isVisible: boolean): Promise&lt;void&gt;
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 设置闪控球在应用内不可见
 floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
   console.info('Succeeded in setting floating ball visibility.');
 }).catch((err: BusinessError) => {
   console.error(`Failed to set floating ball visibility. Cause code: ${err.code}, message: ${err.message}`);
 });
+```
+
+
+
+#### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onDestroy(callback: Callback&lt;string&gt;): void
+
+注册闪控球销毁事件的监听。当闪控球销毁时，回调函数会接收到销毁原因的字符串。不再使用时，调用[offDestroy](#offdestroy)接口取消监听以避免内存泄漏。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;string&gt; | 是 | 回调函数。返回闪控球停止的原因。停止原因包括： - "APP_STOP"：应用主动停止。 - "DUMPSTER_STOP"：拖动到垃圾桶触发停止。 - "LONG_PRESS_SINGLE_STOP"：长按单个闪控球触发停止。 - "LONG_PRESS_ALL_STOP"：长按全部闪控球触发停止。 - "MAIN_WINDOW_DESTROY_STOP"：context关联的主窗口被销毁后触发停止。 - "SQUEEZE"：超出设备闪控球数量上限，被其他闪控球挤占停止。 - "FLOAT_VIEW_STOP"：与闪控窗绑定后，绑定状态下跟随闪控窗停止。 - "STOP_IN_SIDEBAR"：在侧边栏中被停止。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1300019 | Wrong parameters for operating the floating ball. Possible cause: Callback is null or not callable. |
+| 1300022 | Repeated floating ball operation. |
+| 1300023 | Floating ball internal error. Possible cause: System error, such as a null pointer, insufficient memory. |
+| 1300024 | The floating ball window state is abnormal. Possible cause: The floating ball controller has been destroyed. |
+
+
+**示例：**
+
+```text
+// 定义销毁事件回调函数
+let onDestroy = (reason: string) => {
+  console.info('Floating ball has destroyed, reason: ' + reason);
+};
+try {
+  // 注册闪控球销毁事件监听
+  floatingBallController?.onDestroy(onDestroy);
+} catch (e) {
+  console.error(`Failed to onDestroy floating ball. Cause:${e.code}, message:${e.message}`);
+}
+```
+
+
+
+#### offDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offDestroy(callback?: Callback&lt;string&gt;): void
+
+取消闪控球销毁事件的监听。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;string&gt; | 否 | 回调函数。若传入参数，则取消该监听；若未传入参数，则取消所有闪控球销毁事件的监听。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1300019 | Wrong parameters for operating the floating ball. Possible cause: Callback is null or not callable. |
+| 1300023 | Floating ball internal error. Possible cause: System error, such as a null pointer, insufficient memory. |
+| 1300024 | The floating ball window state is abnormal. Possible cause: The floating ball controller has been destroyed. |
+
+
+**示例：**
+
+```text
+// 定义销毁事件回调函数（需与注册时的回调一致）
+let onDestroy = (reason: string) => {
+  console.info('Floating ball has destroyed, reason: ' + reason);
+};
+try {
+  // 取消闪控球销毁事件监听
+  floatingBallController?.offDestroy(onDestroy);
+} catch (e) {
+  console.error(`Failed to offDestroy floating ball. Cause:${e.code}, message:${e.message}`);
+}
+// 取消所有监听
+try {
+  floatingBallController?.offDestroy();
+} catch (e) {
+  console.error(`Failed to offDestroy all listeners. Cause:${e.code}, message:${e.message}`);
+}
 ```
 
 
@@ -679,11 +806,13 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| template | FloatingBallTemplate | 否 | 否 | 闪控球模板。 |
-| title | string | 否 | 否 | 闪控球标题，不可为空字符串，大小不超过64字节。 |
-| content | string | 否 | 是 | 闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。 |
-| backgroundColor | string | 否 | 是 | 闪控球背景颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时闪控球跟随系统深浅色模式的默认背景色。 |
-| icon | image.PixelMap | 否 | 是 | 闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过getPixelBytesNumber获取）。建议图标像素宽高为128px*128px。实际显示效果依赖于设备能力和闪控球UI样式。 |
+| template | FloatingBallTemplate | 否 | 否 | 闪控球模板。不同模板对其他参数有不同要求，详见FloatingBallTemplate枚举说明。 |
+| title | string | 否 | 否 | 闪控球标题，不可为空字符串，大小不超过64字节。传入空字符串或超过64字节时返回错误码1300019。 |
+| content | string | 否 | 是 | 闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。超过64字节时返回错误码1300019。 |
+| backgroundColor | string | 否 | 是 | 闪控球背景颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'）。格式错误时返回错误码1300019。不传入时闪控球跟随系统深浅色模式的默认背景色。 |
+| titleColor | string | 否 | 是 | 闪控球标题文字颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时根据背景色色度自动填充，若背景色为亮色则填充黑色('#E5000000')，若背景色为暗色则填充白色('#E5FFFFFF')。配置此属性时，必须配置背景色backgroundColor，否则返回错误码1300019。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| contentColor | string | 否 | 是 | 闪控球内容文字颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时根据背景色色度自动填充，若背景色为亮色则填充黑色('#99000000')，若背景色为暗色则填充白色('#99FFFFFF')。配置此属性时，必须配置背景色backgroundColor，否则返回错误码1300019。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| icon | image.PixelMap | 否 | 是 | 闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过getPixelBytesNumber获取），超过192KB时返回错误码1300019。建议图标像素宽高为128px*128px。实际显示效果依赖于设备能力和闪控球UI样式。 |
 | textUpdateAnimationType | FloatingBallTextUpdateAnimationType | 否 | 是 | 闪控球文本更新时的动画类型。默认为FloatingBallTextUpdateAnimationType.ANIMATION_NONE。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 

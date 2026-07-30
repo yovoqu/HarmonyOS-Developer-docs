@@ -1,14 +1,14 @@
 # LongPressGesture
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于触发长按手势事件，触发长按手势的最少手指数为1，默认最短长按时间为500毫秒。可配置duration参数控制最短长按时长。
+用于触发长按手势事件，触发长按手势的最少手指数为1，默认最短长按时间为500毫秒。可配置duration参数控制最短长按时长，适用于需要通过用户长按操作触发组件交互的场景。
  
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 18开始，部分设备会优先响应系统的双指长按手势，导致应用的双指长按手势不生效。
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 18开始，在优先响应系统双指长按手势的设备上，应用的双指长按手势不生效。
 
   
 
@@ -26,7 +26,7 @@ LongPressGesture(value?: { fingers?: number; repeat?: boolean; duration?: number
  
 创建长按手势对象。继承自[GestureInterface&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gestureinterfacet11)。
  
-当组件默认支持可拖拽时，如Text、TextInput、TextArea、HyperLink、Image和RichEditor等组件。长按手势与拖拽会出现冲突，事件优先级如下：
+当组件默认支持可拖拽时，如Text、TextInput、TextArea、HyperLink、Image和RichEditor等组件，长按手势与拖拽会出现冲突，事件优先级如下：
  
 当长按触发时间小于500毫秒时，系统优先响应长按事件而非拖拽事件。
  
@@ -40,7 +40,7 @@ LongPressGesture(value?: { fingers?: number; repeat?: boolean; duration?: number
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | { fingers?: number; repeat?: boolean; duration?: number } | 否 | 设置长按手势参数。 - fingers：触发长按的最少手指数，最小值为1， 最大值为10。 默认值：1 - repeat：是否连续触发事件回调。true表示连续触发事件回调，false表示不连续触发事件回调。 默认值：false - duration：触发长按的最短时间，单位为毫秒（ms）。 默认值：500 |
+| value | { fingers?: number; repeat?: boolean; duration?: number } | 否 | 设置长按手势参数。当需要自定义长按手势的触发手指数、是否连续触发回调或最短长按时间时传入；不传入时，使用默认配置创建长按手势。 - fingers：触发长按的最少手指数，最小值为1，最大值为10，超出范围时使用默认值；当需要多指长按触发时设置为大于1的值，默认值：1。 - repeat：是否连续触发事件回调。true表示连续触发事件回调，适用于长按期间需要持续响应的场景；false表示不连续触发事件回调，适用于仅需响应一次长按识别成功的场景，默认值：false。 - duration：触发长按的最短时间，单位为毫秒（ms），取值范围为[0, +∞)，当设置值小于0时使用默认值。当需要调整长按识别灵敏度时设置，默认值：500。 |
  
  
   
@@ -53,7 +53,7 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
  
 创建长按手势对象。与[LongPressGesture](#longpressgesture-1)相比，options参数新增了对isFingerCountLimited参数，表示是否检查触摸屏幕的手指数量。
  
-当组件默认支持可拖拽时，如Text、TextInput、TextArea、HyperLink、Image和RichEditor等组件。长按手势与拖拽会出现冲突，事件优先级如下：
+当组件默认支持可拖拽时，如Text、TextInput、TextArea、HyperLink、Image和RichEditor等组件，长按手势与拖拽会出现冲突，事件优先级如下：
  
 当长按触发时间小于500毫秒时，系统优先响应长按事件而非拖拽事件。
  
@@ -69,7 +69,7 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | LongPressGestureHandlerOptions | 否 | 长按手势处理器配置参数。 |
+| options | LongPressGestureHandlerOptions | 否 | 长按手势处理器配置参数。当需要自定义长按手势的处理器配置（如是否检查触摸屏幕的手指数量、手势识别参数等）时传入；不传入时，使用长按手势的默认处理器配置。 |
  
  
   
@@ -79,7 +79,7 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!TIP]
-> 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议优先使用fingerInfos。 长按手势触发后， GestureEvent 中fingerList和fingerInfo的信息仅在有手指按下时才会更新，手指抬起时不会更新。
+> 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议优先使用fingerInfos。 长按手势触发后， GestureEvent 中fingerList和fingerInfos的信息仅在有手指按下时才会更新，手指抬起时不会更新。
 
  
   
@@ -100,7 +100,7 @@ onAction(event: (event: GestureEvent) => void)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | (event: GestureEvent) => void | 是 | 长按手势识别成功回调函数。 |
+| event | (event: GestureEvent) => void | 是 | 长按手势识别成功回调函数，用于在长按手势识别成功时接收GestureEvent手势事件信息。 |
  
  
   
@@ -121,7 +121,7 @@ onActionEnd(event: (event: GestureEvent) => void)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | (event: GestureEvent) => void | 是 | 长按手势结束回调函数。 |
+| event | (event: GestureEvent) => void | 是 | 长按手势结束回调函数，用于在长按手势识别成功后最后一根手指抬起时接收GestureEvent手势事件信息。 |
  
  
   
@@ -165,7 +165,7 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | Callback&lt;GestureEvent&gt; | 是 | 长按手势取消回调函数。 |
+| event | Callback&lt;GestureEvent&gt; | 是 | 长按手势取消回调函数，用于在长按手势识别成功后接收到触摸取消事件时接收GestureEvent手势事件信息。 |
  
  
   
@@ -186,19 +186,19 @@ struct LongPressGestureExample {
   build() {
     Column() {
       Text('LongPress onAction:' + this.count).fontSize(28)
-        // 单指长按文本触发该手势事件
+        // 单指长按文本触发该手势事件。
         .gesture(
-        // 设置长按手势识别器识别的手势的最大移动距离为200px
+        // 设置长按手势识别器识别的手势的最大移动距离为200px。
         LongPressGesture({ repeat: true, allowableMovement: 200 })
-          // 由于repeat设置为true，长按动作存在时会连续触发，触发间隔为duration（默认值500ms）
+          // 由于repeat设置为true，长按动作存在时会连续触发，触发间隔为duration（默认值500ms）。
           .onAction((event: GestureEvent) => {
             if (event && event.repeat) {
-              this.count++
+              this.count++;
             }
           })
-            // 长按动作一结束触发
-          .onActionEnd((event: GestureEvent) => {
-            this.count = 0
+            // 长按动作一结束触发。
+          .onActionEnd(() => {
+            this.count = 0;
           })
         )
     }
@@ -212,4 +212,4 @@ struct LongPressGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/E_Zk3MaKS4eK282SAj_bzg/zh-cn_image_0000002628702434.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=E4B794C62D234DA79B92C706FB2344F429CA6B17A965D88003B9526EADBF783A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/pGQYdjEZQRy0pH9zC8z7mA/zh-cn_image_0000002655848448.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071458Z&HW-CC-Expire=86400&HW-CC-Sign=FFC33F961D208EAEB4310E3B407CA0C35C7FD91BA82162520EE62205F603B05C)

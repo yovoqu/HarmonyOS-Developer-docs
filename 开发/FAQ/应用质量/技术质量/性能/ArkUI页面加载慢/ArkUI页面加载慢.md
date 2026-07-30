@@ -53,24 +53,24 @@
 
 以打开某新闻类应用的新闻信息过程中，显示加载时间长问题为例，定位过程如下：
  1. 点击页面内容开始加载新页面后，长时间显示加载页，使用ArkUI Inspector工具抓取加载过程的布局，发现加载页是一个Loading组件。当该加载页消失后会显示出应用新闻详情页，因此该加载流程的起始点为手指离开屏幕、加载页显示，结束点为加载页消失。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/E5g7d-ZLQfSW0E6E0VZjlQ/zh-cn_image_0000002658794341.png?HW-CC-KV=V1&HW-CC-Date=20260723T012411Z&HW-CC-Expire=86400&HW-CC-Sign=00E17F637DA51B5AD9BE3E505C9F9FA8DA7C1E01456BB478A873FBAF57DCB962)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/E5g7d-ZLQfSW0E6E0VZjlQ/zh-cn_image_0000002658794341.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=9E9AFC0C89438B0B17EC4F02ECBAC8AEFC52378D3ECDF61182D6222522AD9A50)
 
 2. 在Trace中搜索加载页创建、销毁或完成加载的Trace关键字来确定问题分析的范围。首先搜索创建Loading组件的Trace关键字H:CustomNode:BuildItem[Loading]，可看到应用在收到手指离开屏幕的事件中加载了DetailPage详情页面，之后创建了Loading组件显示。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/3cIHgHQoTlSfEPqYvpgkhQ/zh-cn_image_0000002628554974.png?HW-CC-KV=V1&HW-CC-Date=20260723T012411Z&HW-CC-Expire=86400&HW-CC-Sign=E54F6D62CCD5D76229830155D99BCA023A573CACBB7B62D0998E0001C7D7A470)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/3cIHgHQoTlSfEPqYvpgkhQ/zh-cn_image_0000002628554974.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=0B60200F0480DF093D6F97CA865EBFD02889CEFE9CF4139D745775B5815E6AF7)
 
 
   然后搜索销毁Loading组件的Trace关键字H:CustomNodeBase:Destroy[Loading]，最终划定的分析范围如下图所示。可看到应用在加载详情页面时，会触发页面跳转动画，然后发起http请求从云侧获取详情页的相关数据，最后将详情页面内容刷新显示出来，移除加载页，整体耗时1.0s。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/B7B1ZuKETTyUDF0tHz0S5g/zh-cn_image_0000002628395076.png?HW-CC-KV=V1&HW-CC-Date=20260723T012411Z&HW-CC-Expire=86400&HW-CC-Sign=E25F0CD9B07D7B41AD3019700A27C5A4A528B99E888FE317435C606D06F1313C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/B7B1ZuKETTyUDF0tHz0S5g/zh-cn_image_0000002628395076.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=1DB6C52ECEFF5EFDEF33E35660929671A909B56BC7D2795E645D15DA35C4DD97)
 
 
   或者搜索Loading组件完成加载的Trace关键字H:ViewPU.viewPropertyHasChanged Loading loadingComplete 1。划定的分析范围如下图所示。可看到应用在创建组件后会发起http请求从云侧获取详情页的相关数据，请求完成后loadingComplete状态值改变为1，整体耗时16.3s。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/rgaUJWc0RcewfZ1hx1uB-Q/zh-cn_image_0000002658914297.png?HW-CC-KV=V1&HW-CC-Date=20260723T012411Z&HW-CC-Expire=86400&HW-CC-Sign=293BF6035FD9E995DB7D51E32905E23717B47D6C9BBB85373C381864D7166810)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/rgaUJWc0RcewfZ1hx1uB-Q/zh-cn_image_0000002658914297.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=CC8D39E5EEC68B46499B8DA12C801E31D1BA25F803E01B590D7026A5A42057AB)
 
 3. 从上述分析中，可看到页面加载完成耗时主要集中在http请求以及页面内容刷新。
 - http请求：在日志中搜索应用包名/NETSTACK关键字去分析http请求耗时，可看到耗时部分主要集中在服务器响应处理部分，服务器处理请求、数据传输耗时较多导致。
@@ -80,13 +80,13 @@
 
 
 4. 页面内容刷新：通过查看该部分Trace关键字得知耗时集中在页面测量，主要在创建和测量ImageItem组件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/kTSiyVl7R8-K1lQ3983rIg/zh-cn_image_0000002658794343.png?HW-CC-KV=V1&HW-CC-Date=20260723T012411Z&HW-CC-Expire=86400&HW-CC-Sign=833EF264FA7DCCB03D0F97B59E34E2EDE202789FDA7E0AE1DAA60E6093FBE1C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/kTSiyVl7R8-K1lQ3983rIg/zh-cn_image_0000002658794343.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=388F89780A8FA19867F0DD8482D3E0ED2B844871F9ED7DDD2B230D8C76E36C40)
 
 
   通过ArkUI Inspector查看发现是推荐阅读列表，数了下该列表一共有80个ImageItem。ImageItem是应用的自定义组件，用于显示一则新闻的概要信息，该组件个数较多导致应用页面测量确认组件宽高耗时较多。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/T3RL-SEDRayp6aexXQCiAg/zh-cn_image_0000002628554976.png?HW-CC-KV=V1&HW-CC-Date=20260723T012411Z&HW-CC-Expire=86400&HW-CC-Sign=9D8CD27B09F099B3EE1107762089C53C2F77D4FE7AACC6BDA3F8AA8BB053C185)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/T3RL-SEDRayp6aexXQCiAg/zh-cn_image_0000002628554976.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=6A332EFC70A13EA211C1D0E0CE25B89B8275E942FB1FF1AC6F168D1DF5BE6543)
 
 
   

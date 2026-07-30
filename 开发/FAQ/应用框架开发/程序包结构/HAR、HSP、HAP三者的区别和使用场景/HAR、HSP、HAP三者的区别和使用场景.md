@@ -56,7 +56,7 @@ Q：在HAR包中是否可以创建AbilityStage，该AbilityStage的生命周期�
 A：不能。AbilityStage与HAP包一一对应。具体关系可见下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/U6py1gXwTa2XzfO83PkVIA/zh-cn_image_0000002663796297.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=201F0545819C3E683F4F29F1BB245905A696900A0BE972FF08DDCFC2828B018E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/U6py1gXwTa2XzfO83PkVIA/zh-cn_image_0000002663796297.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=D8C68127C35A7586C1139862C15C43C57AF53BA5413F637FBE25C9611C605588)
 
  
 Q：HAR转HSP后，编译报错，该怎么排查？

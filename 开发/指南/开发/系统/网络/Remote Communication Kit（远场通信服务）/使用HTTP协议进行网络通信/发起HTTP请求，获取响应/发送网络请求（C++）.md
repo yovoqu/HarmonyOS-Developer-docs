@@ -1,6 +1,6 @@
 # 发送网络请求（C++）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netsend-c
 
@@ -33,7 +33,10 @@
   
 ```text
 #include "RemoteCommunicationKit/rcp.h"
-#include <stdio.h>
+#include <cstdlib>
+#include <cstring>
+#include <cstdio>
+#include <thread>
 ```
 
 2. CMakeLists.txt中添加以下lib。（具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-preparations#c-api开发准备)）。
@@ -66,8 +69,10 @@ Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
 Rcp_Response *response = HMS_Rcp_FetchSync(session, request, &errCode);
 if (response != NULL) {
     printf("Response status: %d\n", response->statusCode);
+    // ...
 } else {
-    printf("Fetch failed: errCode: %u\n", errCode);
+    printf("FetchSync failed: errCode: %u\n", errCode);
+    // ...
 }
 ```
 
@@ -112,9 +117,10 @@ errCode = HMS_Rcp_CloseSession(&session);
   
 ```text
 #include "RemoteCommunicationKit/rcp.h"
+#include <cstdlib>
 #include <cstring>
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdio>
+#include <thread>
 ```
 
 2. CMakeLists.txt中添加以下lib。（具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-preparations#c-api开发准备)）。
@@ -124,74 +130,33 @@ errCode = HMS_Rcp_CloseSession(&session);
 librcp_c.so
 ```
 
-3. 创建Request对象。"https://www.example.com"请根据实际情况替换为想要请求的URL地址。（完整见步骤5）
+3. 创建会话，会话发起Fetch请求。“https://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
 
   
 ```text
+// 创建request
 const char *kHttpServerAddress = "https://www.example.com";
 Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-```
-
-4. 创建会话。（完整见步骤5）
-
-  
-```text
+ctx->request = request;
 uint32_t errCode = 0;
+// 创建session
 Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-```
-
-5. 发起请求，并处理返回结果。最后关闭session。
-
-  
-```text
-// 异步请求的响应处理回调，请用户自定义
-void ResponseCallback(void *usrCtx, Rcp_Response *response, uint32_t errCode)
-{
-    (void *)usrCtx;
-    if (response != NULL) {
-        printf("Response status: %d\n", response->statusCode);
-    } else {
-        printf("Fetch failed: errCode: %u\n", errCode);
-    }
-    // 注意清理响应
-    if (response != NULL) {
-        response->destroyResponse(response);
-    }
-}
-
-int main() {
-    const char *kHttpServerAddress = "https://www.example.com";
-    // 请求配置
-    Rcp_Configuration config;
-    // 初始化配置参数
-    (void)memset(&config, 0, sizeof(Rcp_Configuration));
-    // 重新设置自动重定向
-    config.transferConfiguration.autoRedirect = true;
-    // 重新设置请求超时配置参数
-    config.transferConfiguration.timeout.transferMs = 1000 * 10;
-    config.transferConfiguration.timeout.connectMs = 1000 * 10;
-    Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-    request->method = RCP_METHOD_GET;
-    request->configuration = &config;
-    uint32_t errCode = 0;
-    // 创建session
-    Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-    // 配置请求回调
-    Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
-    // 发起fetch请求
-    errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
-    // 等待fetch结果，仅是等待异步调用完成，开发者可根据自己实际场景处理回调。
-    usleep(1000 * 1000 * 3);
-    printf("Fetch completed, errCode: %u\n", errCode);
-    // 在退出前取消可能还在执行的requests
-    errCode = HMS_Rcp_CancelSession(session);
-    // 清理request
-    HMS_Rcp_DestroyRequest(request);
-    // 关闭session
-    errCode = HMS_Rcp_CloseSession(&session);
-    // 处理errCode
-    return 0;
-}
+ctx->session = session;
+// 请求配置
+Rcp_Configuration config;
+// 初始化配置参数
+(void)memset(&config, 0, sizeof(Rcp_Configuration));
+// 重新设置自动重定向
+config.transferConfiguration.autoRedirect = true;
+// 重新设置请求超时配置参数
+config.transferConfiguration.timeout.transferMs = 1000 * 10;
+config.transferConfiguration.timeout.connectMs = 1000 * 10;
+request->method = RCP_METHOD_GET;
+request->configuration = &config;
+// 配置请求回调
+Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, ctx};
+// 发起请求
+errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
 ```
 
 
@@ -209,9 +174,10 @@ int main() {
   
 ```text
 #include "RemoteCommunicationKit/rcp.h"
+#include <cstdlib>
 #include <cstring>
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdio>
+#include <thread>
 ```
 
 2. CMakeLists.txt中添加以下lib。（具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-preparations#c-api开发准备)）。
@@ -221,57 +187,32 @@ int main() {
 librcp_c.so
 ```
 
-3. 创建会话，会话发起get请求。“http://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
+3. 创建会话，会话发起get请求。“https://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
 
   
 ```text
-void ResponseCallback(void *usrCtx, Rcp_Response *response, uint32_t errCode)
-{
-    (void *)usrCtx;
-    if (response != NULL) {
-        printf("Response status: %d\n", response->statusCode);
-    } else {
-        printf("Fetch failed: errCode: %u\n", errCode);
-    }
-    // 注意清理响应
-    if (response != NULL) {
-        response->destroyResponse(response);
-    }
-}
-
-int main() {
-    const char *kHttpServerAddress = "http://www.example.com";
-    // 请求配置
-    Rcp_Configuration config;
-    // 初始化配置参数
-    (void)memset(&config, 0, sizeof(Rcp_Configuration));
-    // 重新设置自动重定向
-    config.transferConfiguration.autoRedirect = true;
-    // 重新设置请求超时配置参数
-    config.transferConfiguration.timeout.transferMs = 1000 * 10;
-    config.transferConfiguration.timeout.connectMs = 1000 * 10;
-    Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-    request->method = RCP_METHOD_GET;
-    request->configuration = &config;
-    uint32_t errCode = 0;
-    // 创建session
-    Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-    // 配置请求回调
-    Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
-    // 发起请求
-    errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
-    // 等待结果，仅是等待异步调用完成，开发者可根据自己实际场景处理回调。
-    usleep(1000 * 1000 * 3);
-    printf("Fetch completed, errCode: %u\n", errCode);
-    // 在退出前取消可能还在执行的requests
-    errCode = HMS_Rcp_CancelSession(session);
-    // 清理request
-    HMS_Rcp_DestroyRequest(request);
-    // 关闭session
-    errCode = HMS_Rcp_CloseSession(&session);
-    // 处理errCode
-    return 0;
-}
+const char *kHttpServerAddress = "https://www.example.com";
+// 请求配置
+Rcp_Configuration config;
+// 初始化配置参数
+(void)memset(&config, 0, sizeof(Rcp_Configuration));
+// 重新设置自动重定向
+config.transferConfiguration.autoRedirect = true;
+// 重新设置请求超时配置参数
+config.transferConfiguration.timeout.transferMs = 1000 * 10;
+config.transferConfiguration.timeout.connectMs = 1000 * 10;
+Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
+ctx->request = request;
+request->method = RCP_METHOD_GET;
+request->configuration = &config;
+uint32_t errCode = 0;
+// 创建session
+Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
+ctx->session = session;
+// 配置请求回调
+Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, ctx};
+// 发起请求
+errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
 ```
 
 
@@ -291,8 +232,7 @@ int main() {
 #include "RemoteCommunicationKit/rcp.h"
 #include <cstdlib>
 #include <cstring>
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdio>
 #include <thread>
 ```
 
@@ -303,63 +243,39 @@ int main() {
 librcp_c.so
 ```
 
-3. 创建会话，会话发起post请求。“http://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
+3. 创建会话，会话发起post请求。“https://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
 
   
 ```text
-void ResponseCallback(void *usrCtx, Rcp_Response *response, uint32_t errCode)
-{
-    (void *)usrCtx;
-    if (response != NULL) {
-        printf("Response status: %d\n", response->statusCode);
-    } else {
-        printf("Fetch failed: errCode: %u\n", errCode);
-    }
-    // 注意清理响应
-    if (response != NULL) {
-        response->destroyResponse(response);
-    }
-}
-
-int main() {
-    const char *kHttpServerAddress = "http://www.example.com";
-    const char *content = "content";
-    Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-    // 设置request参数
-    request->method = RCP_METHOD_POST;
-    request->content = (Rcp_RequestContent *)calloc(1, sizeof(Rcp_RequestContent));
-    request->content->type = RCP_CONTENT_TYPE_STRING;
-    request->content->data.contentStr.buffer = content;
-    request->content->data.contentStr.length = strlen(content);
-    // 请求配置
-    Rcp_Configuration config;
-    // 初始化配置参数
-    (void)memset(&config, 0, sizeof(Rcp_Configuration));
-    // 重新设置自动重定向
-    config.transferConfiguration.autoRedirect = true;
-    // 重新设置请求超时配置参数
-    config.transferConfiguration.timeout.transferMs = 1000 * 10;
-    config.transferConfiguration.timeout.connectMs = 1000 * 10;
-    request->configuration = &config;
-    uint32_t errCode = 0;
-    // 创建session
-    Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-    // 配置请求回调
-    Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
-    // 发起请求
-    errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
-    // 等待fetch结果，仅是等待异步调用完成，开发者可根据自己实际场景处理回调。
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000 * 1000 * 3));
-    printf("Fetch completed, errCode: %u\n", errCode);
-    // 清理request->content
-    free(request->content);
-    // 清理request
-    HMS_Rcp_DestroyRequest(request);
-    // 关闭session
-    errCode = HMS_Rcp_CloseSession(&session);
-    // 处理errCode
-    return 0;
-}
+// 创建request
+const char *kHttpServerAddress = "http://www.example.com";
+const char *content = "content";
+Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
+// 设置request参数
+request->method = RCP_METHOD_POST;
+request->content = (Rcp_RequestContent *)calloc(1, sizeof(Rcp_RequestContent));
+request->content->type = RCP_CONTENT_TYPE_STRING;
+request->content->data.contentStr.buffer = content;
+request->content->data.contentStr.length = strlen(content);
+ctx->request = request;
+// 请求配置
+Rcp_Configuration config;
+// 初始化配置参数
+(void)memset(&config, 0, sizeof(Rcp_Configuration));
+// 重新设置自动重定向
+config.transferConfiguration.autoRedirect = true;
+// 重新设置请求超时配置参数
+config.transferConfiguration.timeout.transferMs = 1000 * 10;
+config.transferConfiguration.timeout.connectMs = 1000 * 10;
+request->configuration = &config;
+uint32_t errCode = 0;
+// 创建session
+Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
+ctx->session = session;
+// 配置请求回调
+Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, ctx};
+// 发起请求
+errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
 ```
 
 
@@ -379,8 +295,7 @@ int main() {
 #include "RemoteCommunicationKit/rcp.h"
 #include <cstdlib>
 #include <cstring>
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdio>
 #include <thread>
 ```
 
@@ -391,65 +306,38 @@ int main() {
 librcp_c.so
 ```
 
-3. 创建会话，会话发起put请求。“http://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
+3. 创建会话，会话发起put请求。“https://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
 
   
 ```text
-void ResponseCallback(void *usrCtx, Rcp_Response *response, uint32_t errCode)
-{
-    (void *)usrCtx;
-    if (response != NULL) {
-        printf("Response status: %d\n", response->statusCode);
-    } else {
-        printf("Fetch failed: errCode: %u\n", errCode);
-    }
-    // 注意清理响应
-    if (response != NULL) {
-        response->destroyResponse(response);
-    }
-}
-
-int main() {
-    const char *kHttpServerAddress = "http://www.example.com";
-    const char *content = "content";
-    // 创建request，并设置request的参数
-    Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-    request->method = RCP_METHOD_PUT;
-    request->content = (Rcp_RequestContent *)calloc(1, sizeof(Rcp_RequestContent));
-    request->content->type = RCP_CONTENT_TYPE_STRING;
-    request->content->data.contentStr.buffer = content;
-    request->content->data.contentStr.length = strlen(content);
-    // 请求配置
-    Rcp_Configuration config;
-    // 初始化配置参数
-    (void)memset(&config, 0, sizeof(Rcp_Configuration));
-    // 重新设置自动重定向
-    config.transferConfiguration.autoRedirect = true;
-    // 重新设置请求超时配置参数
-    config.transferConfiguration.timeout.transferMs = 1000 * 10;
-    config.transferConfiguration.timeout.connectMs = 1000 * 10;
-    request->configuration = &config;
-    uint32_t errCode = 0;
-    // 创建session
-    Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-    // 配置请求回调
-    Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
-    // 发起fetch请求
-    errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
-    // 等待结果，仅是等待异步调用完成，开发者可根据自己实际场景处理回调。
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000 * 1000 * 3));
-    printf("Fetch completed, errCode: %u\n", errCode);
-    // 在退出前取消可能还在执行的requests
-    errCode = HMS_Rcp_CancelSession(session);
-    // 清理request content
-    free(request->content);
-    // 清理request
-    HMS_Rcp_DestroyRequest(request);
-    // 关闭session
-    errCode = HMS_Rcp_CloseSession(&session);
-    // 处理errCode
-    return 0;
-}
+const char *kHttpServerAddress = "http://www.example.com";
+const char *content = "content";
+// 创建request，并设置request的参数
+Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
+request->method = RCP_METHOD_PUT;
+request->content = (Rcp_RequestContent *)calloc(1, sizeof(Rcp_RequestContent));
+request->content->type = RCP_CONTENT_TYPE_STRING;
+request->content->data.contentStr.buffer = content;
+request->content->data.contentStr.length = strlen(content);
+ctx->request = request;
+// 请求配置
+Rcp_Configuration config;
+// 初始化配置参数
+(void)memset(&config, 0, sizeof(Rcp_Configuration));
+// 重新设置自动重定向
+config.transferConfiguration.autoRedirect = true;
+// 重新设置请求超时配置参数
+config.transferConfiguration.timeout.transferMs = 1000 * 10;
+config.transferConfiguration.timeout.connectMs = 1000 * 10;
+request->configuration = &config;
+uint32_t errCode = 0;
+// 创建session
+Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
+ctx->session = session;
+// 配置请求回调
+Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, ctx};
+// 发起fetch请求
+errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
 ```
 
 
@@ -467,9 +355,10 @@ int main() {
   
 ```text
 #include "RemoteCommunicationKit/rcp.h"
+#include <cstdlib>
 #include <cstring>
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdio>
+#include <thread>
 ```
 
 2. CMakeLists.txt中添加以下lib。（具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-preparations#c-api开发准备)）。
@@ -479,57 +368,32 @@ int main() {
 librcp_c.so
 ```
 
-3. 创建会话，会话发起head请求。“http://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
+3. 创建会话，会话发起head请求。“https://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
 
   
 ```text
-void ResponseCallback(void *usrCtx, Rcp_Response *response, uint32_t errCode)
-{
-    (void *)usrCtx;
-    if (response != NULL) {
-        printf("Response status: %d\n", response->statusCode);
-    } else {
-        printf("Fetch failed: errCode: %u\n", errCode);
-    }
-    // 注意清理响应
-    if (response != NULL) {
-        response->destroyResponse(response);
-    }
-}
-
-int main() {
-    const char *kHttpServerAddress = "http://www.example.com/head";
-    Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-    request->method = RCP_METHOD_HEAD;
-    // 请求配置
-    Rcp_Configuration config;
-    // 初始化配置参数
-    (void)memset(&config, 0, sizeof(Rcp_Configuration));
-    // 重新设置自动重定向
-    config.transferConfiguration.autoRedirect = true;
-    // 重新设置请求超时配置参数
-    config.transferConfiguration.timeout.transferMs = 1000 * 10;
-    config.transferConfiguration.timeout.connectMs = 1000 * 10;
-    request->configuration = &config;
-    uint32_t errCode = 0;
-    // 创建session
-    Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-    // 配置请求回调
-    Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
-    // 发起fetch请求
-    errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
-    // 等待fetch结果，仅是等待异步调用完成，开发者可根据自己实际场景处理回调。
-    usleep(1000 * 1000 * 3);
-    printf("Fetch completed, errCode: %u\n", errCode);
-    // 在退出前取消可能还在执行的requests
-    errCode = HMS_Rcp_CancelSession(session);
-    // 清理request
-    HMS_Rcp_DestroyRequest(request);
-    // 关闭session
-    errCode = HMS_Rcp_CloseSession(&session);
-    // 处理errCode
-    return 0;
-}
+const char *kHttpServerAddress = "http://www.example.com/head";
+Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
+request->method = RCP_METHOD_HEAD;
+// 请求配置
+Rcp_Configuration config;
+// 初始化配置参数
+(void)memset(&config, 0, sizeof(Rcp_Configuration));
+// 重新设置自动重定向
+config.transferConfiguration.autoRedirect = true;
+// 重新设置请求超时配置参数
+config.transferConfiguration.timeout.transferMs = 1000 * 10;
+config.transferConfiguration.timeout.connectMs = 1000 * 10;
+request->configuration = &config;
+ctx->request = request;
+uint32_t errCode = 0;
+// 创建session
+Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
+ctx->session = session;
+// 配置请求回调
+Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, ctx};
+// 发起fetch请求
+errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
 ```
 
 
@@ -547,9 +411,10 @@ int main() {
   
 ```text
 #include "RemoteCommunicationKit/rcp.h"
+#include <cstdlib>
 #include <cstring>
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdio>
+#include <thread>
 ```
 
 2. CMakeLists.txt中添加以下lib。（具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-preparations#c-api开发准备)）。
@@ -559,54 +424,30 @@ int main() {
 librcp_c.so
 ```
 
-3. 创建会话，会话发起delete请求。“http://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
+3. 创建会话，会话发起delete请求。“https://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
 
   
 ```text
-void ResponseCallback(void *usrCtx, Rcp_Response *response, uint32_t errCode)
-{
-    (void *)usrCtx;
-    if (response != NULL) {
-        printf("Response status: %d\n", response->statusCode);
-    } else {
-        printf("Fetch failed: errCode: %u\n", errCode);
-    }
-    if (response != NULL) {
-        response->destroyResponse(response);
-    }
-}
-
-int main() {
-    const char *kHttpServerAddress = "http://www.example.com/delete";
-    Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-    request->method = RCP_METHOD_DELETE;
-    // 请求配置
-    Rcp_Configuration config;
-    // 初始化配置参数
-    (void)memset(&config, 0, sizeof(Rcp_Configuration));
-    // 重新设置自动重定向
-    config.transferConfiguration.autoRedirect = true;
-    // 重新设置请求超时配置参数
-    config.transferConfiguration.timeout.transferMs = 1000 * 10;
-    config.transferConfiguration.timeout.connectMs = 1000 * 10;
-    request->configuration = &config;
-    uint32_t errCode = 0;
-    // 创建session
-    Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-    // 配置请求回调
-    Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
-    // 发起fetch请求
-    errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
-    // 等待fetch结果，仅是等待异步调用完成，开发者可根据自己实际场景处理回调。
-    usleep(1000 * 1000 * 3);
-    printf("Fetch completed, errCode: %u\n", errCode);
-    // 在退出前取消可能还在执行的requests
-    errCode = HMS_Rcp_CancelSession(session);
-    // 清理request
-    HMS_Rcp_DestroyRequest(request);
-    // 关闭session
-    errCode = HMS_Rcp_CloseSession(&session);
-    // 处理errCode
-    return 0;
-}
+const char *kHttpServerAddress = "http://www.example.com/delete";
+Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
+request->method = RCP_METHOD_DELETE;
+// 请求配置
+Rcp_Configuration config;
+// 初始化配置参数
+(void)memset(&config, 0, sizeof(Rcp_Configuration));
+// 重新设置自动重定向
+config.transferConfiguration.autoRedirect = true;
+// 重新设置请求超时配置参数
+config.transferConfiguration.timeout.transferMs = 1000 * 10;
+config.transferConfiguration.timeout.connectMs = 1000 * 10;
+request->configuration = &config;
+ctx->request = request;
+uint32_t errCode = 0;
+// 创建session
+Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
+ctx->session = session;
+// 配置请求回调
+Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, ctx};
+// 发起fetch请求
+errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
 ```

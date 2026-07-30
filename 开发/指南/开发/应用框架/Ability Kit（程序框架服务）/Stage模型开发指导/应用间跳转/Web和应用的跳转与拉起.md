@@ -1,6 +1,6 @@
 # Web和应用的跳转与拉起
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/navigating-between-web-and-apps
 
@@ -43,13 +43,11 @@ NavDestination() {
       .width('100%')
       .height(40)
       .onClick(() => {
-        this.navPathStack.pushPath({ name: 'WebPage' });
+        this.navPathStack.pop();
       })
   }
-
   // ...
 }
-.title('ArkTS页面')
 ```
  
   
@@ -67,21 +65,21 @@ NavDestination() {
 > [!NOTE]
 > 开发者可以根据业务场景自行定义href，此处定义的href并不作为a标签跳转后的地址，而是会在ArkTS侧进行跳转拦截，当检测到该链接时执行自定义逻辑。
 
-2. 然后在Web页面中，需要在[onLoadIntercept()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)回调函数中进行跳转拦截，获取跳转的url，如果与自定义的跳转链接一致，那么可以使用路由栈进行页面跳转。
+2. 然后在Web页面中，需要在[onLoadIntercept()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)回调函数中进行跳转拦截，拦截后通过路由栈进行页面跳转。
 
   
 ```text
-NavDestination() {
+Navigation(this.navPathStack) {
   Column() {
     Web({
-      src: $rawfile('index.html'),
-      controller: this.controller
+      src: $rawfile(this.la == Constants.ENGLISH_LANGUAGE ? 'index_en.html' : 'index_cn.html'),
+      controller: webviewController
     })
       .zoomAccess(false)
       .onLoadIntercept((event) => {
         const url: string = event.data.getRequestUrl();
         if (url === 'arkts://pages/toOriginPage') {
-          this.navPathStack.pop();
+          this.navPathStack.pushPath({ name: Constants.ORIGIN_PAGE });
         }
         // ...
       })
@@ -140,7 +138,7 @@ NavDestination() {
   
 ```json
 "querySchemes": [
-  "app1Scheme"
+  "appScheme"
 ],
 ```
 
@@ -148,7 +146,7 @@ NavDestination() {
 
   
 ```text
-const link: string = "appScheme://www.test.com:80/path1";
+const link: string = 'appScheme://www.test.com:80/path1';
 ```
 
 4. 通过[canOpenLink()](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canopenlink)接口判断link是否可以打开，如不能打开链接开发者可以自定义响应逻辑，此处直接返回。
@@ -167,32 +165,30 @@ if (!bundleManager.canOpenLink(link)) {
 Navigation(this.navPathStack) {
   Column() {
     Web({
-      src: $rawfile('index.html'),
-      controller: this.controller
+      src: $rawfile(this.la == Constants.ENGLISH_LANGUAGE ? 'index_en.html' : 'index_cn.html'),
+      controller: webviewController
     })
       .zoomAccess(false)
       .onLoadIntercept((event) => {
         const url: string = event.data.getRequestUrl();
-        if (url === 'third-party://pages/toThirdApp') {
-          const link: string = "appScheme://www.test.com:80/path1";
-          if (!bundleManager.canOpenLink(link)) {
-            return true;
-          }
-          // Configuration parameter.
-          const openLinkOptions: OpenLinkOptions = {
-            appLinkingOnly: false,
-            parameters: {
-              name: 'test'
+        // ...
+        else if (url === 'third-party://pages/toThirdPage') {
+          const link: string = 'appScheme://www.test.com:80/path1';
+          try {
+            if (!bundleManager.canOpenLink(link)) {
+              return true;
             }
-          };
-          // Open the application using the openLink interface.
-          this.context.openLink(link, openLinkOptions).then(() => {
-            console.info('open link success.');
+          } catch (error) {
+            hilog.error(0x0000, 'testTag', 'canOpenLink failed, code = %{public}d, message = %{public}s',
+              error.code, error.message);
+          }
+          this.context.openLink(link).then(() => {
+            Logger.info('Succeeded in starting FuncAbility');
           }).catch((err: BusinessError) => {
-            console.error(`open link failed. Code is ${err.code}, message is ${err.message}`);
-          })
+            Logger.error(`Failed to start FuncAbility. Code is ${err.code}, message: ${err.message}`);
+          });
         }
-        return url !== 'resource://rawfile/index2.html';
+        // ...
       })
   }
 }
@@ -217,7 +213,7 @@ Navigation(this.navPathStack) {
 **图 1** Web页面打开效果图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/1lw4r-TVS4uJmfipwhLFew/zh-cn_image_0000002622857339.png?HW-CC-KV=V1&HW-CC-Date=20260611T074937Z&HW-CC-Expire=86400&HW-CC-Sign=C9A7C1E82284F3A2DE470332A747CBB84BC345D2B880934C268F54F812AC5005)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/P9R_TWMhS3Kb8t0lWPe-dQ/zh-cn_image_0000002655845794.png?HW-CC-KV=V1&HW-CC-Date=20260730T072024Z&HW-CC-Expire=86400&HW-CC-Sign=F9F62EB60FB2D04DC88932E94CB7722C3345F3941B7D8D472EF1A216DB96F923)
 
  
 因此，Deep Linking适用于需要在已安装的应用之间进行跳转，实现相对简单，但当无应用匹配时用户体验不佳。而App Linking适用于社交分享、广告引流等需要外部链接访问应用的场景，以及对安全性和用户体验要求较高的场景。AppLinking在Deep Linking的基础上增加了域名校验，提高了链接的安全性和可靠性，且无论应用是否安装，用户都能访问内容。
@@ -237,7 +233,7 @@ Navigation(this.navPathStack) {
 2. 在Web组件中，当匹配到对应的文本时，执行拉起指定类型的操作。
 
   
-```json
+```text
 Navigation(this.navPathStack) {
   Column() {
     Web({
@@ -247,17 +243,17 @@ Navigation(this.navPathStack) {
       .zoomAccess(false)
       .onLoadIntercept((event) => {
         const url: string = event.data.getRequestUrl();
-        if (url === 'arkts://pullSpeciallyApp') {
+        if (url === 'navigation://pages/toNavigation') {
           const wantParam: Record<string, Object> = {
             'sceneType': 1,
             'destinationLatitude': 32.060844,
             'destinationLongitude': 118.78315,
-            'destinationName': 'xx市xx路xx号',
+            'destinationName': 'xx City xx Road xx Number',
             'destinationPoiIds': {
               1: '111111111111',
               2: '222222222222'
             } as Record<number, string>,
-            'originName': 'xx市xx公园',
+            'originName': 'xx City xx Park',
             'originLatitude': 31.060844,
             'originLongitude': 120.78315,
             'originPoiIds': {
@@ -268,15 +264,17 @@ Navigation(this.navPathStack) {
           };
           const abilityStartCallback: common.AbilityStartCallback = {
             onError: (code: number, name: string, message: string) => {
-              hilog.error(0x0000, 'Sample', '%{public}s', 'onError code ' + code + 'name: ' + name + 'message: ' + message);
-            },
-            onResult: (result:ESObject) => {
-              hilog.error(0x0000, 'Sample', '%{public}s', 'onResult result: ' + JSON.stringify(result));
+              hilog.error(0x0000, 'testTag', 'onError code %{public}d, name: %{public}s, message: %{public}s',
+                code, name, message);
             }
           };
-          this.context.startAbilityByType('navigation', wantParam, abilityStartCallback);
+          this.context.startAbilityByType('navigation', wantParam, abilityStartCallback)
+            .catch((err: BusinessError) => {
+              hilog.error(0x0000, 'testTag', 'startAbilityByType failed, code = %{public}d, message = %{public}s',
+                err.code, err.message);
+            });
         }
-        return url !== 'resource://rawfile/index.html';
+        // ...
       })
   }
 }
@@ -310,8 +308,8 @@ Navigation(this.navPathStack) {
         const url: string = event.data.getRequestUrl();
         if (url === 'photo://pages/selectPhoto') {
           const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-          photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; // Filter and select the media file type as IMAGE
-          photoSelectOptions.maxSelectNumber = 5; // Select the maximum number of media files
+          photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+          photoSelectOptions.maxSelectNumber = 5;
           let uris: Array<string> = [];
           const photoViewPicker = new photoAccessHelper.PhotoViewPicker();
           photoViewPicker.select(photoSelectOptions)
@@ -323,13 +321,17 @@ Navigation(this.navPathStack) {
               console.error(`Invoke photoViewPicker.select failed, code is ${err.code}, message is ${err.message}`);
             })
         }
-        return url !== 'resource://rawfile/index3.html';
+        // ...
       })
   }
 }
-.hideTitleBar(true)
-.navDestination(this.PageMap)
 ```
 
  
 更多拉起系统应用的方式，开发者可以参考：[拉起系统应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/system-app-startup)。
+ 
+  
+
+#### 示例代码
+
+- [基于应用拉起相关能力实现Web跳转功能](https://gitcode.com/harmonyos_samples/web-application-jump)

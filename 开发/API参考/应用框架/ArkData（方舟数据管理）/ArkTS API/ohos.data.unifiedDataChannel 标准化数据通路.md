@@ -1,14 +1,18 @@
 # @ohos.data.unifiedDataChannel (标准化数据通路)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-unifieddatachannel
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-本模块为统一数据管理框架（Unified Data Management Framework，UDMF）的组成部分，针对多对多跨应用数据共享的不同业务场景提供了标准化的数据通路，提供了标准化的数据接入与读取接口。同时对文本、图片等数据类型提供了标准化定义，方便不同应用间进行数据交互，减少数据类型适配的工作量。UDMF处理数据时，不会解析用户数据的内容，存储路径安全性较低，不建议传输个人敏感数据和隐私数据。
+本模块为统一数据管理框架（Unified Data Management Framework，UDMF）的组成部分，针对多对多跨应用数据共享的不同业务场景提供了标准化的数据通路，提供了标准化的数据接入与读取接口。同时对文本、图片等数据类型提供了标准化定义，方便不同应用间进行数据交互，减少数据类型适配的工作量。
+
+**设计逻辑：** UDMF采用统一数据模型，将不同类型的数据封装为UnifiedData对象，通过Intention标识不同的数据通路类型（如DATA_HUB、DRAG等），实现跨应用数据共享。数据写入时生成唯一标识符key，数据读取时通过key或intention查询获取。
+
+UDMF处理数据时，不会解析用户数据的内容，存储路径安全性较低，不建议传输个人敏感数据和隐私数据。
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -46,7 +50,7 @@ UDMF支持的设备内使用范围类型枚举。
 
 type GetDelayData = (type: string) => UnifiedData
 
-对UnifiedData的延迟封装，支持延迟获取数据。当前只支持同设备剪贴板场景，后续场景待开发。
+对UnifiedData的延迟封装，支持延迟获取数据。当数据接收方请求特定类型数据时，系统会触发此回调函数，数据发送方可在回调中动态生成数据，而非提前准备所有数据。当前只支持同设备剪贴板场景。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -56,14 +60,14 @@ type GetDelayData = (type: string) => UnifiedData
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 作为延迟数据类型的标识。 |
+| type | string | 是 | 作为延迟数据类型的标识，用于区分不同类型的数据。取值见UniformDataType，如'general.plain-text'表示纯文本类型。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| UnifiedData | 当延迟回调触发时，返回一个UnifiedData对象。 |
+| UnifiedData | 当延迟回调触发时，返回包含相应类型数据的UnifiedData对象，可用于跨应用数据共享和传输。 |
 
 
 **示例：**
@@ -73,16 +77,16 @@ import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
 let getDelayData: unifiedDataChannel.GetDelayData = ((type: string) => {
   if (type == uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) {
-    let plainTextDetails : Record<string, string> = {
+    let plainTextDetails: Record<string, string> = {
       'attr1': 'value1',
       'attr2': 'value2'
-    }
-    let plainText : uniformDataStruct.PlainText = {
+    };
+    let plainText: uniformDataStruct.PlainText = {
       uniformDataType: 'general.plain-text',
-      textContent : 'This is a plain text example',
-      abstract : 'This is abstract',
-      details : plainTextDetails
-    }
+      textContent: 'This is a plain text example',
+      abstract: 'This is abstract',
+      details: plainTextDetails
+    };
     let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
     let textData = new unifiedDataChannel.UnifiedData(text);
     return textData;
@@ -130,12 +134,14 @@ type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer
 > 此授权策略仅在拖拽场景下生效，其他场景不生效。
 
 
+**实现机制：** 系统在拖拽数据传输时，根据UriPermission配置对目标URI进行临时授权。授权生命周期与拖拽会话绑定，拖拽完成后自动清理临时授权。接收方应用访问URI时，系统验证权限配置决定是否允许访问。PERSIST权限会将临时授权转换为持久化授权。
+
 支持不授权、读、写、持久化四种权限策略，可组合使用，仅以下组合生效：
 
  - 仅使用NONE：不做任何文件授权。
  - 仅使用READ：仅做单次只读授权。
  - 仅使用WRITE：做单次读、写授权（写授权包含读授权）。
- - READ+WRITE：做单次读、写授权，与仅写授权等同。
+ - READ+WRITE：做单次读、写授权，与仅使用WRITE的授权效果相同。
  - READ+PERSIST：做持久化读授权。
  - WRITE+PERSIST：做持久化读写授权。
  - READ+WRITE+PERSIST：做持久化读写授权。
@@ -143,7 +149,7 @@ type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer
 
 拖拽授权策略应用规则（按优先级从高到低）：
 
- - 单个数据级别：FileUri、HTML两个UDS以及File、Image、Video、Audio、Folder、HTML六个UDC数据结构支持配置授权策略参数，仅对单个record单次生效，优先级最高。
+ - 单个数据级别：FileUri、HTML两个统一数据结构（UDS）以及File、Image、Video、Audio、Folder、HTML六个统一数据内容（UDC）数据结构支持配置授权策略参数，仅对单个record单次生效，优先级最高。
  - UnifiedData级别：UnifiedDataProperties中提供的授权参数对单次拖拽有效。若某个数据中配置了授权策略，则优先按照该数据的配置进行，优先级次之。
  - 默认级别：若单个数据和UnifiedDataProperties均未配置授权策略，则按照拖拽默认逻辑进行代理授权。默认逻辑如下：
 
@@ -153,11 +159,9 @@ FileUri类型数据（FileUri UDS或File、Image、Video、Audio、Folder五个U
 
 
 
-**起始版本**：26.0.0
+**起始版本：** 26.0.0
 
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
@@ -185,8 +189,8 @@ FileUri类型数据（FileUri UDS或File、Image、Video、Audio、Folder五个U
 | tag | string | 否 | 是 | 用户自定义标签。非必填字段，默认值为空字符串。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | timestamp | Date | 是 | 是 | UnifiedData的生成时间戳。默认值为1970年1月1日（UTC）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | shareOptions | ShareOptions | 否 | 是 | 指示UnifiedData支持的设备内使用范围，非必填字段，默认值为CROSS_APP。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| getDelayData | GetDelayData | 否 | 是 | 延迟获取数据回调。当前只支持同设备剪贴板场景，后续场景待开发。非必填字段，默认值为undefined。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| uriAuthorizationPolicies | Array&lt;UriPermission&gt; | 否 | 是 | 用于拖拽场景的URI授权策略。默认值为READ+WRITE+PERSIST，只对单次数据生效，优先级较低，具体策略见UriPermission。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| getDelayData | GetDelayData | 否 | 是 | 延迟获取数据回调。当前只支持同设备剪贴板场景，当用户从剪贴板读取数据时触发该回调。非必填字段，默认值为undefined。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| uriAuthorizationPolicies | Array&lt;UriPermission&gt; | 否 | 是 | 用于拖拽场景的URI授权策略。默认值为READ+WRITE+PERSIST，只对单次数据生效，优先级较低，具体策略见UriPermission。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 **示例：**
@@ -209,16 +213,16 @@ properties.uriAuthorizationPolicies = [
 ];
 properties.getDelayData = ((type: string) => {
   if (type == uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) {
-    let plainTextDetails : Record<string, string> = {
+    let plainTextDetails: Record<string, string> = {
       'attr1': 'value1',
       'attr2': 'value2'
-    }
-    let plainText : uniformDataStruct.PlainText = {
+    };
+    let plainText: uniformDataStruct.PlainText = {
       uniformDataType: 'general.plain-text',
-      textContent : 'This is a plain text example',
-      abstract : 'This is abstract',
-      details : plainTextDetails
-    }
+      textContent: 'This is a plain text example',
+      abstract: 'This is abstract',
+      details: plainTextDetails
+    };
     let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
     let textData = new unifiedDataChannel.UnifiedData(text);
     return textData;
@@ -274,7 +278,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData();
 
 constructor(record: UnifiedRecord)
 
-用于创建带有一条数据记录的统一数据对象。
+用于创建带有一条数据记录的统一数据对象。调用成功后，返回包含指定数据记录的UnifiedData对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -293,7 +297,7 @@ constructor(record: UnifiedRecord)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -304,7 +308,7 @@ let plainText : uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
   textContent : 'This is a plain text example',
   abstract : 'This is abstract'
-}
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 ```
@@ -317,7 +321,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 addRecord(record: UnifiedRecord): void
 
-在当前统一数据对象中添加一条数据记录。
+在当前统一数据对象中添加一条数据记录。调用成功后，指定的数据记录被添加到当前统一数据对象中。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -327,7 +331,7 @@ addRecord(record: UnifiedRecord): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| record | UnifiedRecord | 是 | 要添加到统一数据对象中的数据记录，该记录为UnifiedRecord子类对象。 |
+| record | UnifiedRecord | 是 | 要添加到统一数据对象中的数据记录，该记录为UnifiedRecord或其子类对象。 |
 
 
 **错误码：**
@@ -336,26 +340,27 @@ addRecord(record: UnifiedRecord): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
 
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
-let plainText : uniformDataStruct.PlainText = {
+
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
-let hyperlink : uniformDataStruct.Hyperlink = {
-  uniformDataType:'general.hyperlink',
-  url : 'www.XXX.com',
-  description : 'This is the description of the hyperlink'
-}
+let hyperlink: uniformDataStruct.Hyperlink = {
+  uniformDataType: 'general.hyperlink',
+  url: 'www.XXX.com',
+  description: 'This is the description of the hyperlink'
+};
 let link = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HYPERLINK, hyperlink);
 unifiedData.addRecord(link);
 ```
@@ -364,19 +369,21 @@ unifiedData.addRecord(link);
 
 #### getRecords
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getRecords(): Array&lt;UnifiedRecord&gt;
 
 将当前统一数据对象中的所有数据记录取出。通过本接口取出的数据为UnifiedRecord类型，需通过[getType](#gettype)获取数据类型后转为子类再使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力** ：SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;UnifiedRecord&gt; | 当前统一数据对象内所添加的记录。 |
+| Array&lt;UnifiedRecord&gt; | 当前统一数据对象中包含的所有数据记录数组，每条记录可通过getType获取类型后转换为具体子类使用，用于读取和处理统一数据中的各种类型数据。 |
 
 
 **示例：**
@@ -384,19 +391,19 @@ getRecords(): Array&lt;UnifiedRecord&gt;
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
-let hyperlink : uniformDataStruct.Hyperlink = {
-  uniformDataType:'general.hyperlink',
-  url : 'www.XXX.com',
-  description : 'This is the description of the hyperlink'
-}
+let hyperlink: uniformDataStruct.Hyperlink = {
+  uniformDataType: 'general.hyperlink',
+  url: 'www.XXX.com',
+  description: 'This is the description of the hyperlink'
+};
 let link = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HYPERLINK, hyperlink);
 unifiedData.addRecord(link);
 
@@ -418,6 +425,8 @@ for (let i = 0; i < records.length; i++) {
 
 #### hasType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 hasType(type: string): boolean
 
 检查当前统一数据对象中是否有指定的数据类型，检查范围包括使用[addEntry](#addentry15)函数添加的数据类型。
@@ -426,7 +435,7 @@ hasType(type: string): boolean
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力** ：SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 **参数：**
 
@@ -448,7 +457,7 @@ hasType(type: string): boolean
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -456,19 +465,19 @@ hasType(type: string): boolean
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
-let hyperlink : uniformDataStruct.Hyperlink = {
-  uniformDataType:'general.hyperlink',
-  url : 'www.XXX.com',
-  description : 'This is the description of the hyperlink'
-}
+let hyperlink: uniformDataStruct.Hyperlink = {
+  uniformDataType: 'general.hyperlink',
+  url: 'www.XXX.com',
+  description: 'This is the description of the hyperlink'
+};
 let link = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HYPERLINK, hyperlink);
 unifiedData.addRecord(link);
 
@@ -480,19 +489,21 @@ let hasLink = unifiedData.hasType(uniformTypeDescriptor.UniformDataType.HYPERLIN
 
 #### getTypes12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getTypes(): Array&lt;string&gt;
 
 获取当前统一数据对象所有数据记录的类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力** ：SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;string&gt; | UniformDataType类型的数组，表示当前统一数据对象所有数据记录对应的数据类型。 |
+| Array&lt;string&gt; | UniformDataType类型的数组，表示当前记录的数据类型集合，元素值如'general.plain-text'、'general.hyperlink'、'openharmony.form'等。 |
 
 
 **示例：**
@@ -500,19 +511,19 @@ getTypes(): Array&lt;string&gt;
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
-let hyperlink : uniformDataStruct.Hyperlink = {
-  uniformDataType:'general.hyperlink',
-  url : 'www.XXX.com',
-  description : 'This is the description of the hyperlink'
-}
+let hyperlink: uniformDataStruct.Hyperlink = {
+  uniformDataType: 'general.hyperlink',
+  url: 'www.XXX.com',
+  description: 'This is the description of the hyperlink'
+};
 let link = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HYPERLINK, hyperlink);
 unifiedData.addRecord(link);
 
@@ -539,20 +550,20 @@ let types = unifiedData.getTypes();
 **示例：**
 
 ```text
-function parseSummary(summary : unifiedDataChannel.Summary) {
+function parseSummary(summary: unifiedDataChannel.Summary) {
   let summaryRecord = summary.summary as Record<string, number>;
   if (summaryRecord) {
     for (let item of Object.entries(summaryRecord)) {
       if (item && item.length <= 1) {
         continue;
       }
-      let summaryStr : string = String(item[1]);
-      let info : string[] = summaryStr.split(",");
+      let summaryStr: string = String(item[1]);
+      let info: string[] = summaryStr.split(",");
       if (info.length <= 1) {
         continue;
       }
-      let key : string = info[0];
-      let value : string = info[1];
+      let key: string = info[0];
+      let value: string = info[1];
     }
   }
   let overviewRecord = summary.overview as Record<string, number>;
@@ -566,7 +577,7 @@ function parseSummary(summary : unifiedDataChannel.Summary) {
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-对UDMF支持的数据内容的抽象定义，称为数据记录。一个统一数据对象内包含一条或多条数据记录，例如一条文本记录、一条图片记录、一条HTML记录等。从API version 15开始，支持往数据记录中增加同一内容的不同表现样式，数据使用方根据业务需要获取对应的样式。
+对UDMF支持的数据内容的抽象定义，称为数据记录。一个统一数据对象内包含一条或多条数据记录，例如一条文本记录、一条图片记录、一条HTML记录等。从API version 15开始，支持往数据记录中增加同一内容的不同数据格式（例如同一文本可同时以纯文本、HTML或超链接等格式存储），数据使用方根据业务需要通过getEntry方法获取对应格式。
 
 
 
@@ -576,7 +587,7 @@ function parseSummary(summary : unifiedDataChannel.Summary) {
 
 constructor()
 
-用于创建数据记录。
+用于创建数据记录。调用成功后，返回一个空的UnifiedRecord对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -596,7 +607,7 @@ let unifiedRecord = new unifiedDataChannel.UnifiedRecord();
 
 constructor(type: string, value: ValueType)
 
-用于创建指定类型和值的数据记录。
+用于创建指定类型和值的数据记录。调用成功后，返回包含指定类型和值的UnifiedRecord对象。
 
 当参数value为[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)类型时，参数type必须对应为[UniformDataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-uniformtypedescriptor#uniformdatatype)中OPENHARMONY_PIXEL_MAP的值；
 
@@ -610,7 +621,7 @@ constructor(type: string, value: ValueType)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 要创建的数据记录的类型。 |
+| type | string | 是 | 要创建的数据记录的类型，用于标识数据记录的具体类型。取值见UniformDataType，如'general.plain-text'、'general.hyperlink'等。 |
 | value | ValueType | 是 | 要创建的数据记录的值。 |
 
 
@@ -620,7 +631,7 @@ constructor(type: string, value: ValueType)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -629,32 +640,40 @@ constructor(type: string, value: ValueType)
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 import { image } from '@kit.ImageKit';
 
-let hyperlink : uniformDataStruct.Hyperlink = {
-  uniformDataType:'general.hyperlink',
-  url : 'www.XXX.com',
-  description : 'This is the description of the hyperlink'
-}
+let hyperlink: uniformDataStruct.Hyperlink = {
+  uniformDataType: 'general.hyperlink',
+  url: 'www.XXX.com',
+  description: 'This is the description of the hyperlink'
+};
 let hyperlinkRecord = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HYPERLINK, hyperlink);
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 
 let arrayBuffer = new ArrayBuffer(4 * 200 * 200);
-let opt : image.InitializationOptions = { editable: true, pixelFormat: 3, size: { height: 200, width: 200 }, alphaType: 3 };
-let pixelMap : uniformDataStruct.PixelMap = {
-  uniformDataType : 'openharmony.pixel-map',
-  pixelMap : image.createPixelMapSync(arrayBuffer, opt)
-}
-let pixelMapRecord = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.OPENHARMONY_PIXEL_MAP, pixelMap);
+let opt: image.InitializationOptions = {
+  editable: true,
+  pixelFormat: 3,
+  size: { height: 200, width: 200 },
+  alphaType: 3
+};
+let pixelMap: uniformDataStruct.PixelMap = {
+  uniformDataType: 'openharmony.pixel-map',
+  pixelMap: image.createPixelMapSync(arrayBuffer, opt)
+};
+let pixelMapRecord =
+  new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.OPENHARMONY_PIXEL_MAP, pixelMap);
 ```
 
 
 
 #### getType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getType(): string
 
@@ -662,7 +681,7 @@ getType(): string
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力** ：SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 **返回值：**
 
@@ -676,11 +695,11 @@ getType(): string
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
@@ -695,13 +714,15 @@ if (records[0].getType() == uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) {
 
 #### getValue12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getValue(): ValueType
 
 获取当前数据记录的值。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力** ：SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 **返回值：**
 
@@ -715,19 +736,20 @@ getValue(): ValueType
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, 'this is value of text');
+let text =
+  new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, 'this is value of text');
 let value = text.getValue();
 
-let hyperlinkDetails : Record<string, string> = {
+let hyperlinkDetails: Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
-let hyperlink : uniformDataStruct.Hyperlink = {
-  uniformDataType:'general.hyperlink',
-  url : 'www.XXX.com',
-  description : 'This is the description of the hyperlink',
-  details : hyperlinkDetails
-}
+};
+let hyperlink: uniformDataStruct.Hyperlink = {
+  uniformDataType: 'general.hyperlink',
+  url: 'www.XXX.com',
+  description: 'This is the description of the hyperlink',
+  details: hyperlinkDetails
+};
 let hyperlinkRecord = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HYPERLINK, hyperlink);
 let hyperlinkValue = hyperlinkRecord.getValue();
 ```
@@ -740,7 +762,7 @@ let hyperlinkValue = hyperlinkRecord.getValue();
 
 addEntry(type: string, value: ValueType): void
 
-在当前数据记录中添加一条指定数据类型和内容的数据，通过该方法增加的数据类型和内容为同一内容的不同表现样式.
+在当前数据记录中添加一条指定数据类型和内容的数据，通过该方法增加的数据类型和内容为同一内容的不同表现样式。调用成功后，指定的数据类型和内容被添加到当前数据记录中。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -760,7 +782,7 @@ addEntry(type: string, value: ValueType): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -768,21 +790,21 @@ addEntry(type: string, value: ValueType): void
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let fileUriDetails : Record<string, string> = {
+let fileUriDetails: Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
-let fileUri : uniformDataStruct.FileUri = {
-  uniformDataType : 'general.file-uri',
-  oriUri : 'file://data/image/1.png',
-  fileType : 'general.image',
-  details : fileUriDetails
-}
-let hyperlink : uniformDataStruct.Hyperlink = {
-  uniformDataType:'general.hyperlink',
-  url : 'file://data/image/1.png',
-  description : 'This is the description of the hyperlink'
-}
+};
+let fileUri: uniformDataStruct.FileUri = {
+  uniformDataType: 'general.file-uri',
+  oriUri: 'file://data/image/1.png',
+  fileType: 'general.image',
+  details: fileUriDetails
+};
+let hyperlink: uniformDataStruct.Hyperlink = {
+  uniformDataType: 'general.hyperlink',
+  url: 'file://data/image/1.png',
+  description: 'This is the description of the hyperlink'
+};
 
 let unifiedData = new unifiedDataChannel.UnifiedData();
 let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HYPERLINK, hyperlink);
@@ -824,7 +846,7 @@ getEntry(type: string): ValueType
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -832,29 +854,29 @@ getEntry(type: string): ValueType
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let fileUriDetails : Record<string, string> = {
+let fileUriDetails: Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
-let fileUri : uniformDataStruct.FileUri = {
-  uniformDataType : 'general.file-uri',
-  oriUri : 'file://data/image/1.png',
-  fileType : 'general.image',
-  details : fileUriDetails
-}
-let formDetails : Record<string, string> = {
+};
+let fileUri: uniformDataStruct.FileUri = {
+  uniformDataType: 'general.file-uri',
+  oriUri: 'file://data/image/1.png',
+  fileType: 'general.image',
+  details: fileUriDetails
+};
+let formDetails: Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
-let form : uniformDataStruct.Form = {
-  uniformDataType : 'openharmony.form',
-  formId : 1,
-  formName : 'form',
-  bundleName : 'com.xx.app',
-  abilityName : 'ability',
-  module : 'module',
-  details : formDetails
-}
+};
+let form: uniformDataStruct.Form = {
+  uniformDataType: 'openharmony.form',
+  formId: 1,
+  formName: 'form',
+  bundleName: 'com.xx.app',
+  abilityName: 'ability',
+  module: 'module',
+  details: formDetails
+};
 
 let unifiedData = new unifiedDataChannel.UnifiedData();
 let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.OPENHARMONY_FORM, form);
@@ -864,11 +886,13 @@ unifiedData.addRecord(record);
 let records = unifiedData.getRecords();
 for (let i = 0; i < records.length; i++) {
   let unifiedDataRecord = records[i] as unifiedDataChannel.UnifiedRecord;
-  let fileUriRead : uniformDataStruct.FileUri = unifiedDataRecord.getEntry(uniformTypeDescriptor.UniformDataType.FILE_URI) as uniformDataStruct.FileUri;
+  let fileUriRead: uniformDataStruct.FileUri =
+    unifiedDataRecord.getEntry(uniformTypeDescriptor.UniformDataType.FILE_URI) as uniformDataStruct.FileUri;
   if (fileUriRead != undefined) {
     console.info(`oriUri: ${fileUriRead.oriUri}`);
   }
-  let formRead = unifiedDataRecord.getEntry(uniformTypeDescriptor.UniformDataType.OPENHARMONY_FORM) as uniformDataStruct.Form;
+  let formRead =
+    unifiedDataRecord.getEntry(uniformTypeDescriptor.UniformDataType.OPENHARMONY_FORM) as uniformDataStruct.Form;
   if (formRead != undefined) {
     console.info(`formName: ${formRead.formName}`);
   }
@@ -904,17 +928,17 @@ import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 let fileUriDetails : Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
+};
 let fileUri : uniformDataStruct.FileUri = {
   uniformDataType : 'general.file-uri',
   oriUri : 'file://data/image/1.png',
   fileType : 'general.image',
   details : fileUriDetails
-}
+};
 let formDetails : Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
+};
 let form : uniformDataStruct.Form = {
   uniformDataType : 'openharmony.form',
   formId : 1,
@@ -923,7 +947,7 @@ let form : uniformDataStruct.Form = {
   abilityName : 'ability',
   module : 'module',
   details : formDetails
-}
+};
 
 let unifiedData = new unifiedDataChannel.UnifiedData();
 let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.OPENHARMONY_FORM, form);
@@ -949,19 +973,21 @@ for (let i = 0; i < records.length; i++) {
 
 #### getTypes15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getTypes(): Array&lt;string&gt;
 
 获取数据记录中数据的所有类型集合。可通过UnifiedRecord数据记录对象调用本接口，查询出此记录中数据的所有类型集合，包括使用[addEntry](#addentry15)函数添加的数据类型。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-**系统能力** ：SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;string&gt; | UniformDataType类型的数组，表示当前记录的数据类型集合。 |
+| Array&lt;string&gt; | UniformDataType类型的数组，表示当前统一数据对象所有数据记录对应的数据类型，元素值如'general.plain-text'、'general.hyperlink'、'general.html'等。 |
 
 
 **示例：**
@@ -969,29 +995,29 @@ getTypes(): Array&lt;string&gt;
 ```text
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 
-let fileUriDetails : Record<string, string> = {
+let fileUriDetails: Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
-let fileUri : uniformDataStruct.FileUri = {
-  uniformDataType : 'general.file-uri',
-  oriUri : 'file://data/image/1.png',
-  fileType : 'general.image',
-  details : fileUriDetails
-}
-let formDetails : Record<string, string> = {
+};
+let fileUri: uniformDataStruct.FileUri = {
+  uniformDataType: 'general.file-uri',
+  oriUri: 'file://data/image/1.png',
+  fileType: 'general.image',
+  details: fileUriDetails
+};
+let formDetails: Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
-let form : uniformDataStruct.Form = {
-  uniformDataType : 'openharmony.form',
-  formId : 1,
-  formName : 'form',
-  bundleName : 'com.xx.app',
-  abilityName : 'ability',
-  module : 'module',
-  details : formDetails
-}
+};
+let form: uniformDataStruct.Form = {
+  uniformDataType: 'openharmony.form',
+  formId: 1,
+  formName: 'form',
+  bundleName: 'com.xx.app',
+  abilityName: 'ability',
+  module: 'module',
+  details: formDetails
+};
 
 let unifiedData = new unifiedDataChannel.UnifiedData();
 let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.OPENHARMONY_FORM, form);
@@ -1001,11 +1027,11 @@ unifiedData.addRecord(record);
 let records = unifiedData.getRecords();
 for (let i = 0; i < records.length; i++) {
   let unifiedDataRecord = records[i] as unifiedDataChannel.UnifiedRecord;
-  let types : Array<string> = unifiedDataRecord.getTypes();
+  let types: Array<string> = unifiedDataRecord.getTypes();
   if (types.includes(uniformTypeDescriptor.UniformDataType.OPENHARMONY_FORM)) {
     console.info(`Types include: ${uniformTypeDescriptor.UniformDataType.OPENHARMONY_FORM}`);
   }
-}
+};
 ```
 
 
@@ -1018,7 +1044,7 @@ for (let i = 0; i < records.length; i++) {
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1046,7 +1072,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1072,7 +1098,7 @@ text.abstract = 'This is abstract';
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1096,13 +1122,13 @@ link.description = 'This is description';
 
 HTML类型数据，是[Text](#text)的子类，用于描述超文本标记语言数据。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | htmlContent | string | 否 | 否 | html格式内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | plainContent | string | 否 | 是 | 去除html标签后的纯文本内容，非必填字段，默认值为空字符串。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| uriAuthorizationPolicies | Array&lt;UriPermission&gt; | 否 | 是 | 用于拖拽场景的URI授权策略。默认值为READ（仅读授权），仅在img标签等场景下生效。只针对单个record使用，优先级最高，具体策略见UriPermission。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| uriAuthorizationPolicies | Array&lt;UriPermission&gt; | 否 | 是 | 用于拖拽场景的URI授权策略。默认值为READ（仅读授权），仅在img标签等场景下生效。只针对单个record使用，优先级最高，具体策略见UriPermission。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 **示例：**
@@ -1125,13 +1151,13 @@ html.uriAuthorizationPolicies = [
 
 File类型数据，是[UnifiedRecord](#unifiedrecord)的子类，也是文件类型数据的基类，用于描述文件类型数据，推荐开发者优先使用File的子类描述数据，如[Image](#image)、[Video](#video)、[Folder](#folder)等具体子类。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | details | Record<string, string> | 否 | 是 | 是一个字典类型对象，key和value都是string类型，用于描述文件相关信息。例如，可生成一个details内容为 { "name":"文件名", "type":"文件类型" } 的数据对象，用于描述一个文件。非必填字段，默认值为空字典对象。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | uri | string | 否 | 否 | 本地文件数据uri或网络文件uri，本地文件数据uri可通过getUriFromPath函数获取。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| uriAuthorizationPolicies | Array&lt;UriPermission&gt; | 否 | 是 | 用于拖拽场景的URI授权策略。默认值为READ+WRITE+PERSIST（读+写+持久化授权），只针对单个record使用，优先级最高，具体策略见UriPermission。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| uriAuthorizationPolicies | Array&lt;UriPermission&gt; | 否 | 是 | 用于拖拽场景的URI授权策略。默认值为READ+WRITE+PERSIST（读+写+持久化授权），只针对单个record使用，优先级最高，具体策略见UriPermission。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 **示例：**
@@ -1171,7 +1197,7 @@ export default class EntryAbility extends UIAbility {
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1207,7 +1233,7 @@ export default class EntryAbility extends UIAbility {
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1228,7 +1254,7 @@ export default class EntryAbility extends UIAbility {
     let pathDir = context.filesDir;
     let video = new unifiedDataChannel.Video();
     let filePath = pathDir + '/test.mp4';
-    video.videoUri =fileUri.getUriFromPath(filePath);
+    video.videoUri = fileUri.getUriFromPath(filePath);
   }
 }
 ```
@@ -1243,7 +1269,7 @@ export default class EntryAbility extends UIAbility {
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1279,7 +1305,7 @@ export default class EntryAbility extends UIAbility {
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1315,7 +1341,7 @@ SystemDefinedRecord是[UnifiedRecord](#unifiedrecord)的子类，也是HarmonyOS
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1328,9 +1354,9 @@ SystemDefinedRecord是[UnifiedRecord](#unifiedrecord)的子类，也是HarmonyOS
 let sdr = new unifiedDataChannel.SystemDefinedRecord();
 let u8Array = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 sdr.details = {
-    title: 'recordTitle',
-    version: 1,
-    content: u8Array
+  title: 'recordTitle',
+  version: 1,
+  content: u8Array
 };
 let unifiedData = new unifiedDataChannel.UnifiedData(sdr);
 ```
@@ -1345,7 +1371,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(sdr);
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1384,14 +1410,14 @@ let unifiedData = new unifiedDataChannel.UnifiedData(form);
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | appId | string | 否 | 否 | 图标对应的应用id。 |
 | appName | string | 否 | 否 | 图标对应的应用名。 |
-| appIconId | string | 否 | 否 | 图标的图片id。 模型约束： 此接口仅可在Stage模型下使用。 |
-| appLabelId | string | 否 | 否 | 图标名称对应的标签id。 模型约束： 此接口仅可在Stage模型下使用。 |
+| appIconId | string | 否 | 否 | 图标的图片id。 |
+| appLabelId | string | 否 | 否 | 图标名称对应的标签id。 |
 | bundleName | string | 否 | 否 | 图标对应的应用bundle名。 |
 | abilityName | string | 否 | 否 | 图标对应的应用ability名。 |
 
@@ -1408,9 +1434,9 @@ appItem.bundleName = 'MyBundleName';
 appItem.abilityName = 'MyAbilityName';
 let u8Array = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 appItem.details = {
-    appItemKey1: 123,
-    appItemKey2: 'appItemValue',
-    appItemKey3: u8Array
+  appItemKey1: 123,
+  appItemKey2: 'appItemValue',
+  appItemKey3: u8Array
 };
 let unifiedData = new unifiedDataChannel.UnifiedData(appItem);
 ```
@@ -1425,7 +1451,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(appItem);
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1484,7 +1510,7 @@ ApplicationDefinedRecord是[UnifiedRecord](#unifiedrecord)的子类，也是应�
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**： SystemCapability.DistributedDataManager.UDMF.Core
+**系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1514,11 +1540,11 @@ UDMF已经支持的数据通路枚举类型。其主要用途是标识各种UDMF
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| DATA_HUB | 'DataHub' | 公共数据通路。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| DRAG14+ | 'Drag' | 拖拽类型数据通道。 模型约束： 此接口仅可在Stage模型下使用。 适用场景： 适用于在拖拽场景下使用UDMF来跨应用数据共享。 |
-| SYSTEM_SHARE20+ | 'SystemShare' | 系统分享类型数据通道。 模型约束： 此接口仅可在Stage模型下使用。 适用场景： 适用于在系统分享场景下使用UDMF来跨应用数据共享。 |
-| PICKER20+ | 'Picker' | Picker类型数据通道。 模型约束： 此接口仅可在Stage模型下使用。 适用场景： 适用于在Picker选择器场景下使用UDMF来跨应用数据共享。 |
-| MENU20+ | 'Menu' | 菜单类型数据通道。 模型约束： 此接口仅可在Stage模型下使用。 适用场景： 适用于在右键菜单场景下使用UDMF来跨应用数据共享。 |
+| DATA_HUB | 'DataHub' | 公共数据通路。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 适用场景： 适用于在公共数据共享场景下使用UDMF来跨应用数据共享。 |
+| DRAG14+ | 'Drag' | 拖拽类型数据通道。 适用场景： 适用于在拖拽场景下使用UDMF来跨应用数据共享。 |
+| SYSTEM_SHARE20+ | 'SystemShare' | 系统分享类型数据通道。 适用场景： 适用于在系统分享场景下使用UDMF来跨应用数据共享。 |
+| PICKER20+ | 'Picker' | Picker类型数据通道。 适用场景： 适用于在Picker选择器场景下使用UDMF来跨应用数据共享。 |
+| MENU20+ | 'Menu' | 菜单类型数据通道。 适用场景： 适用于在右键菜单场景下使用UDMF来跨应用数据共享。 |
 
 
 
@@ -1533,8 +1559,8 @@ UDMF已经支持的数据通路枚举类型。其主要用途是标识各种UDMF
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ALL | 0 | 可见性等级，所有应用可见。 模型约束： 此接口仅可在Stage模型下使用。 |
-| OWN_PROCESS | 1 | 可见性等级，仅数据提供者可见。 模型约束： 此接口仅可在Stage模型下使用。 |
+| ALL | 0 | 可见性等级，所有应用可见。 |
+| OWN_PROCESS | 1 | 可见性等级，仅数据提供者可见。 |
 
 
 
@@ -1549,9 +1575,9 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| intention | Intention | 否 | 是 | 表示数据操作相关的数据通路类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| key | string | 否 | 是 | UDMF中数据对象的唯一标识符，可通过insertData接口的返回值获取。 由udmf:/、intention、bundleName和groupId四部分组成，以'/'连接，比如：udmf://DataHub/com.ohos.test/0123456789。 其中udmf:/固定，DataHub为对应枚举的取值，com.ohos.test为包名，0123456789为随机生成的groupId。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| visibility20+ | Visibility | 否 | 是 | 表示数据的可见性等级。只在写入数据的时候填写才生效，若不填写默认是Visibility.ALL。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| intention | Intention | 否 | 是 | 表示数据操作相关的数据通路类型，取值为Intention枚举类型，包括DATA_HUB、DRAG等。不填写时默认无值，具体是否必填请参阅具体接口的参数说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| key | string | 否 | 是 | UDMF中数据对象的唯一标识符，可通过insertData接口的返回值获取。不填写时默认无值，具体是否必填请参阅具体接口的参数说明。 由udmf:/、intention、bundleName和groupId四部分组成，以'/'连接，比如：udmf://DataHub/com.ohos.test/0123456789。 其中udmf:/固定，DataHub为对应枚举的取值，com.ohos.test为包名，0123456789为随机生成的groupId。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| visibility20+ | Visibility | 否 | 是 | 表示数据的可见性等级，仅公共数据通路可使用，取值为Visibility枚举类型。只在写入数据的时候填写才生效，若不填写默认是Visibility.ALL。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
 
@@ -1650,7 +1676,7 @@ type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | nul
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| progressInfo | ProgressInfo | 是 | 定义进度上报的进度信息。 |
+| progressInfo | ProgressInfo | 是 | 定义进度上报的进度信息，用于接收拖拽任务的进度状态和进度百分比。包含progress（进度百分比，取值范围[-1-100]）和status（任务状态码）两个字段，其中progress为-1表示获取数据失败，100表示获取数据完成。 |
 | data | UnifiedData \| null | 是 | 进度达到100时获取的数据，进度未到100时返回null。 |
 
 
@@ -1728,7 +1754,7 @@ type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null
 
 | 类型 | 说明 |
 | --- | --- |
-| UnifiedData \| null | 当延迟处理函数触发时，返回UnifiedData或null。 |
+| UnifiedData \| null | 当延迟处理函数触发时，返回根据接收方信息生成的UnifiedData对象，用于数据传输。若无法生成数据或生成失败则返回null。 |
 
 
 
@@ -1745,8 +1771,6 @@ type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<Unified
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
-
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
 **参数：**
@@ -1760,7 +1784,7 @@ type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<Unified
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<UnifiedData \| null> | 当延迟处理函数触发时，返回Promise对象。 |
+| Promise<UnifiedData \| null> | Promise对象。resolve返回根据接收方信息生成的UnifiedData对象或null，reject返回错误信息。 |
 
 
 
@@ -1779,8 +1803,8 @@ type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<Unified
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| loadHandler | DataLoadHandler | 否 | 否 | 表示用于延迟加载数据的处理函数。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| delayedDataLoadHandler22+ | DelayedDataLoadHandler | 否 | 是 | 表示用于延迟加载数据的异步处理函数。 元服务API： 从API version 22开始，该接口支持在元服务中使用. 模型约束： 此接口仅可在Stage模型下使用。 |
+| loadHandler | DataLoadHandler | 否 | 否 | 表示用于延迟加载数据的处理函数。该处理函数为同步函数，适用于处理简单业务逻辑，若函数业务逻辑较复杂、执行时间较长（3s以上），推荐使用DelayedDataLoadHandler。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| delayedDataLoadHandler22+ | DelayedDataLoadHandler | 否 | 是 | 表示用于延迟加载数据的异步处理函数。默认值为undefined，不填写时仅使用loadHandler。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | dataLoadInfo | DataLoadInfo | 否 | 否 | 用于描述当前发送方可生成的数据类型及数量信息。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
@@ -1794,6 +1818,8 @@ insertData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;strin
 
 将数据写入UDMF的公共数据通路中，并生成数据的唯一标识符，使用callback异步回调。
 
+**实现机制：** 系统接收UnifiedData对象后，验证数据完整性并序列化存储。根据intention值路由到对应存储空间，生成唯一标识符key。数据在公共数据通路中由系统管理有效期，默认策略为应用退出后自动清理。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
@@ -1803,7 +1829,7 @@ insertData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;strin
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | Options | 是 | 配置项参数，参数中intention字段必填，且不支持DRAG，不填时会返回401错误码；其他字段是否填写均不影响接口的使用。 |
-| data | UnifiedData | 是 | 目标数据。 |
+| data | UnifiedData | 是 | 要写入或更新的统一数据对象，用于存储数据记录及其属性信息。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，返回写入UDMF的数据的唯一标识符key的值。 |
 
 
@@ -1813,7 +1839,7 @@ insertData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;strin
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1822,17 +1848,17 @@ insertData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;strin
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 let options: unifiedDataChannel.Options = {
   intention: unifiedDataChannel.Intention.DATA_HUB
-}
+};
 try {
   unifiedDataChannel.insertData(options, unifiedData, (err, key) => {
     if (err === undefined) {
@@ -1843,7 +1869,7 @@ try {
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Insert data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Insert data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -1882,7 +1908,7 @@ insertData(options: Options, data: UnifiedData): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1891,26 +1917,26 @@ insertData(options: Options, data: UnifiedData): Promise&lt;string&gt;
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 let options: unifiedDataChannel.Options = {
   intention: unifiedDataChannel.Intention.DATA_HUB
-}
+};
 try {
   unifiedDataChannel.insertData(options, unifiedData).then((key) => {
     console.info(`Succeeded in inserting data. key = ${key}`);
   }).catch((err: BusinessError) => {
-    console.error(`Failed to insert data. code is ${err.code}, message is ${err.message} `);
+    console.error(`Failed to insert data. code is ${err.code}, message is ${err.message}`);
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Insert data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Insert data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -1943,7 +1969,7 @@ updateData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;void&
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1952,48 +1978,49 @@ updateData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;void&
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 let options: unifiedDataChannel.Options = {
   intention: unifiedDataChannel.Intention.DATA_HUB
-}
+};
 try {
   unifiedDataChannel.insertData(options, unifiedData).then((key) => {
     console.info(`Succeeded in inserting data. key = ${key}`);
     let updateOptions: unifiedDataChannel.Options = {
       intention: unifiedDataChannel.Intention.DATA_HUB,
       key: key
-    }
-    let plainTextUpdate : uniformDataStruct.PlainText = {
+    };
+    let plainTextUpdate: uniformDataStruct.PlainText = {
       uniformDataType: 'general.plain-text',
-      textContent : 'This is plainText textContent for update',
-      abstract : 'This is abstract for update'
-    }
-    let textUpdate = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainTextUpdate);
+      textContent: 'This is plainText textContent for update',
+      abstract: 'This is abstract for update'
+    };
+    let textUpdate =
+      new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainTextUpdate);
     let unifiedDataUpdate = new unifiedDataChannel.UnifiedData(textUpdate);
     try {
       unifiedDataChannel.updateData(updateOptions, unifiedDataUpdate, (err) => {
         if (err === undefined) {
           console.info('Succeeded in updating data.');
         } else {
-          console.error(`Failed to update data. code is ${err.code}, message is ${err.message} `);
+          console.error(`Failed to update data. code is ${err.code}, message is ${err.message}`);
         }
       });
     } catch (e) {
       let error: BusinessError = e as BusinessError;
-      console.error(`Update data throws an exception. code is ${error.code}, message is ${error.message} `);
+      console.error(`Update data throws an exception. code is ${error.code}, message is ${error.message}`);
     }
   }).catch((err: BusinessError) => {
-    console.error(`Failed to insert data. code is ${err.code}, message is ${err.message} `);
+    console.error(`Failed to insert data. code is ${err.code}, message is ${err.message}`);
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Insert data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Insert data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2032,7 +2059,7 @@ updateData(options: Options, data: UnifiedData): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -2041,29 +2068,31 @@ updateData(options: Options, data: UnifiedData): Promise&lt;void&gt;
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let plainText : uniformDataStruct.PlainText = {
+let plainText: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'This is a plain text example',
-  abstract : 'This is abstract'
-}
+  textContent: 'This is a plain text example',
+  abstract: 'This is abstract'
+};
 let text = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainText);
 let unifiedData = new unifiedDataChannel.UnifiedData(text);
 let options: unifiedDataChannel.Options = {
   intention: unifiedDataChannel.Intention.DATA_HUB
-}
+};
+
 try {
   unifiedDataChannel.insertData(options, unifiedData).then((key) => {
     console.info(`Succeeded in inserting data. key = ${key}`);
     let updateOptions: unifiedDataChannel.Options = {
       intention: unifiedDataChannel.Intention.DATA_HUB,
       key: key
-    }
-    let plainTextUpdate : uniformDataStruct.PlainText = {
+    };
+    let plainTextUpdate: uniformDataStruct.PlainText = {
       uniformDataType: 'general.plain-text',
-      textContent : 'This is plainText textContent for update',
-      abstract : 'This is abstract for update'
-    }
-    let textUpdate = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainTextUpdate);
+      textContent: 'This is plainText textContent for update',
+      abstract: 'This is abstract for update'
+    };
+    let textUpdate =
+      new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainTextUpdate);
     let unifiedDataUpdate = new unifiedDataChannel.UnifiedData(textUpdate);
     try {
       unifiedDataChannel.updateData(updateOptions, unifiedDataUpdate).then(() => {
@@ -2112,7 +2141,7 @@ queryData(options: Options, callback: AsyncCallback<Array&lt;UnifiedData&gt;>): 
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -2133,18 +2162,19 @@ try {
         let records = data[i].getRecords();
         for (let j = 0; j < records.length; j++) {
           if (records[j].getTypes().includes(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT)) {
-            let text = records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
+            let text =
+              records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
             console.info(`${i + 1}.${text.textContent}`);
           }
         }
       }
     } else {
-      console.error(`Failed to query data. code is ${err.code}, message is ${err.message} `);
+      console.error(`Failed to query data. code is ${err.code}, message is ${err.message}`);
     }
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Query data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Query data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2182,7 +2212,7 @@ queryData(options: Options): Promise<Array&lt;UnifiedData&gt;>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -2202,17 +2232,18 @@ try {
       let records = data[i].getRecords();
       for (let j = 0; j < records.length; j++) {
         if (records[j].getTypes().includes(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT)) {
-          let text = records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
+          let text =
+            records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
           console.info(`${i + 1}.${text.textContent}`);
         }
       }
     }
   }).catch((err: BusinessError) => {
-    console.error(`Failed to query data. code is ${err.code}, message is ${err.message} `);
+    console.error(`Failed to query data. code is ${err.code}, message is ${err.message}`);
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Query data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Query data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2244,7 +2275,7 @@ deleteData(options: Options, callback: AsyncCallback<Array&lt;UnifiedData&gt;>):
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -2265,18 +2296,19 @@ try {
         let records = data[i].getRecords();
         for (let j = 0; j < records.length; j++) {
           if (records[j].getTypes().includes(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT)) {
-            let text = records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
+            let text =
+              records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
             console.info(`${i + 1}.${text.textContent}`);
           }
         }
       }
     } else {
-      console.error(`Failed to delete data. code is ${err.code}, message is ${err.message} `);
+      console.error(`Failed to delete data. code is ${err.code}, message is ${err.message}`);
     }
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Delete data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Delete data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2314,7 +2346,7 @@ deleteData(options: Options): Promise<Array&lt;UnifiedData&gt;>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -2334,17 +2366,18 @@ try {
       let records = data[i].getRecords();
       for (let j = 0; j < records.length; j++) {
         if (records[j].getTypes().includes(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT)) {
-          let text = records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
+          let text =
+            records[j].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
           console.info(`${i + 1}.${text.textContent}`);
         }
       }
     }
   }).catch((err: BusinessError) => {
-    console.error(`Failed to delete data. code is ${err.code}, message is ${err.message} `);
+    console.error(`Failed to delete data. code is ${err.code}, message is ${err.message}`);
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Query data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Delete data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2356,11 +2389,9 @@ try {
 
 setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void
 
-设置应用内拖拽通道数据可使用的范围[ShareOptions](#shareoptions12)，目前仅支持DRAG类型数据通道的管控设置。
+设置应用内拖拽通道数据可使用的范围[ShareOptions](#shareoptions12)，目前仅支持DRAG类型数据通道的管控设置。调用成功后，应用内拖拽通道数据的使用范围被设置为指定的ShareOptions值。
 
 **需要权限：** ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
@@ -2380,19 +2411,20 @@ setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void
 | --- | --- |
 | 201 | Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION". |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 20400001 | Settings already exist. |
+| 20400001 | Settings already exist. To reconfigure, remove the existing sharing options. |
 
 
 **示例：**
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
+
 try {
   unifiedDataChannel.setAppShareOptions(unifiedDataChannel.Intention.DRAG, unifiedDataChannel.ShareOptions.IN_APP);
-  console.info(`[UDMF]setAppShareOptions success. `);
-}catch (e){
+  console.info(`[UDMF]setAppShareOptions success.`);
+} catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`[UDMF]setAppShareOptions throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`[UDMF]setAppShareOptions throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2404,11 +2436,9 @@ try {
 
 removeAppShareOptions(intention: Intention): void
 
-清除[setAppShareOptions](#unifieddatachannelsetappshareoptions14)设置的管控信息。
+清除[setAppShareOptions](#unifieddatachannelsetappshareoptions14)设置的管控信息。调用成功后，setAppShareOptions设置的管控信息被清除，应用内拖拽通道数据恢复到默认使用范围。
 
 **需要权限：** ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
@@ -2433,12 +2463,13 @@ removeAppShareOptions(intention: Intention): void
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
+
 try {
   unifiedDataChannel.removeAppShareOptions(unifiedDataChannel.Intention.DRAG);
-  console.info(`[UDMF]removeAppShareOptions success. `);
-}catch (e){
+  console.info(`[UDMF]removeAppShareOptions success.`);
+} catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`[UDMF]removeAppShareOptions throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`[UDMF]removeAppShareOptions throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2450,17 +2481,15 @@ try {
 
 convertRecordsToEntries(data: UnifiedData): void
 
-本接口用于将传入的data转换成多样式数据结构。若原data使用多个record去承载同一份数据的不同样式，则可以使用此接口将原data转换为多样式数据结构。
+本接口用于将传入的data转换成多样式数据结构。若原data使用多个record去承载同一份数据的不同数据格式，则可以使用此接口将原data转换为多样式数据结构。
 
 当满足以下规则时进行转换，传入的data经转换后变为多样式数据结构：
-1. data中的record数量大于1;
+1. data中的record数量大于1；
 2. data中的properties中的tag值为"records_to_entries_data_format"。
 
 否则不会产生任何行为。
 
 **元服务API：** 从API version 17开始，该接口支持在元服务中使用。
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
@@ -2468,7 +2497,7 @@ convertRecordsToEntries(data: UnifiedData): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | UnifiedData | 是 | 目标数据。 |
+| data | UnifiedData | 是 | 需要转换为多样式数据结构的统一数据对象。 |
 
 
 **错误码：**
@@ -2477,7 +2506,7 @@ convertRecordsToEntries(data: UnifiedData): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -2487,22 +2516,22 @@ import { unifiedDataChannel } from '@kit.ArkData';
 import { uniformDataStruct, uniformTypeDescriptor } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let details : Record<string, string> = {
+let details: Record<string, string> = {
   'attr1': 'value1',
   'attr2': 'value2'
-}
-let plainTextObj : uniformDataStruct.PlainText = {
+};
+let plainTextObj: uniformDataStruct.PlainText = {
   uniformDataType: 'general.plain-text',
-  textContent : 'The weather is very good today',
-  abstract : 'The weather is very good today',
-  details : details
-}
-let htmlObj : uniformDataStruct.HTML = {
-  uniformDataType :'general.html',
-  htmlContent : '<div><p>The weather is very good today</p></div>',
-  plainContent : 'The weather is very good today',
-  details : details
-}
+  textContent: 'The weather is very good today',
+  abstract: 'The weather is very good today',
+  details: details
+};
+let htmlObj: uniformDataStruct.HTML = {
+  uniformDataType: 'general.html',
+  htmlContent: '<div><p>The weather is very good today</p></div>',
+  plainContent: 'The weather is very good today',
+  details: details
+};
 let plainText = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT, plainTextObj);
 let html = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformDataType.HTML, htmlObj);
 let unifiedData = new unifiedDataChannel.UnifiedData(plainText);
@@ -2514,13 +2543,15 @@ try {
   let records: Array<unifiedDataChannel.UnifiedRecord> = unifiedData.getRecords();
   console.info(`Records size is ${records.length}`); // After conversion, its length must be less than 1
   if (records.length == 1) {
-    let plainTextObjRead: uniformDataStruct.PlainText = records[0].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
+    let plainTextObjRead: uniformDataStruct.PlainText =
+      records[0].getEntry(uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) as uniformDataStruct.PlainText;
     console.info(`TextContent is ${plainTextObjRead.textContent}`);
-    let htmlObjRead: uniformDataStruct.HTML = records[0].getEntry(uniformTypeDescriptor.UniformDataType.HTML) as uniformDataStruct.HTML;
+    let htmlObjRead: uniformDataStruct.HTML =
+      records[0].getEntry(uniformTypeDescriptor.UniformDataType.HTML) as uniformDataStruct.HTML;
     console.info(`HtmlContent is ${htmlObjRead.htmlContent}`);
   }
 } catch (e) {
   let error: BusinessError = e as BusinessError;
-  console.error(`Convert data throws an exception. code is ${error.code}, message is ${error.message} `);
+  console.error(`Convert data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```

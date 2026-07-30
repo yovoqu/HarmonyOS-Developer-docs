@@ -13,7 +13,7 @@ Stack组件中有四个Text组件，如何使子组件分别分布在Stack组件
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/3kCfrW2LShGLORetb4SYfQ/zh-cn_image_0000002628557804.png?HW-CC-KV=V1&HW-CC-Date=20260723T013044Z&HW-CC-Expire=86400&HW-CC-Sign=5D99A5263BCAD176385347B5871DE2817A77D4C4791B691EEA7D57FB426C687A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/3kCfrW2LShGLORetb4SYfQ/zh-cn_image_0000002628557804.png?HW-CC-KV=V1&HW-CC-Date=20260730T072448Z&HW-CC-Expire=86400&HW-CC-Sign=8A6D1C0C3FC401FB89F7930495534E9BF04FB8058F2C486A5E26148907F90223)
 
  
  

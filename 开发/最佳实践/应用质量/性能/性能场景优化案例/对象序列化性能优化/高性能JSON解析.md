@@ -1,6 +1,6 @@
 # 高性能JSON解析
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-07-28 03:34:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-high-performance-json-parsing
 
@@ -241,7 +241,7 @@ if (featureJsonNode.jsonType() === JsonNodeType.JSON_OBJECT) {
 }
 ```
 
-4. 针对未定义业务类型的，可以使用toPlainObjectAsync()方法将JsonNode转换为简单对象。在实际业务场景中，可先利用JsonNode提供的JsonPointer局部访问能力读取所需节点，再通过toPlainObjectAsync方法转换，以减少对象创建的耗时。
+4. 针对未定义业务类型的，可以使用toPlainObjectAsync()方法将JsonNode转换为简单对象。在实际业务场景中，可先利用JsonNode提供的JsonPointer局部访问能力读取所需节点，再通过toPlainObjectAsync()方法转换，以减少对象创建的耗时。
 ```ArkTS
 const obj: ESObject = await jsonNode.toPlainObjectAsync();
 ```
@@ -284,7 +284,7 @@ const obj: ESObject = await jsonNode.toPlainObjectAsync();
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Eoyhw1ntQKWUmDSDXw3M-w/zh-cn_image_0000002501330544.png?HW-CC-KV=V1&HW-CC-Date=20260528T024714Z&HW-CC-Expire=86400&HW-CC-Sign=083195BFB683B1E6EAEE388A4B676B6A2BA01DEE69A96A0BACC1C245FD2A4811)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/lEcLzF8oTLaHRV9n1Bnhgg/zh-cn_image_0000002501330544.png?HW-CC-KV=V1&HW-CC-Date=20260730T072038Z&HW-CC-Expire=86400&HW-CC-Sign=281541BB5EF1AD08F55D330AD46829D06FA16173F396F0B73B72708652E654C3)
 
  
 通过上述比对数据发现：

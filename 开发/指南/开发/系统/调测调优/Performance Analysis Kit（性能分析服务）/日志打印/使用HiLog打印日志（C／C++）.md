@@ -1,6 +1,6 @@
 # 使用HiLog打印日志（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog-guidelines-ndk
 
@@ -34,7 +34,7 @@ HiLog中定义了DEBUG、INFO、WARN、ERROR、FATAL五种日志级别，并提�
 ![](assets/使用HiLog打印日志（C／C++）/file-20260514131402206-0.png)
 
 
-HiLog日志接口是非信号安全函数，禁止在信号处理函数中调用非信号安全的HiLog日志接口。
+hilog日志接口是非信号安全函数，禁止在信号处理函数中调用非信号安全的HiLog日志接口。
 
 如果设置的日志级别低于[全局日志级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#查看和设置日志级别)，OH_LOG_SetMinLogLevel()设置不生效。
 

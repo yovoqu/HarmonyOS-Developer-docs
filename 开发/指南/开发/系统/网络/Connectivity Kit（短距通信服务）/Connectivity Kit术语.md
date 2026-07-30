@@ -1,6 +1,6 @@
 # Connectivity Kit术语
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology
 
@@ -96,6 +96,12 @@ Generic Attribute Profile，即通用属性协议。是[BLE](#ble)的核心协�
 
 #### H
 
+  
+
+#### HADM
+
+High Accuracy Distance Measurement，即高精度距离测量。基于星闪无线信号进行设备间测距的技术，通过测量信号往返时间或相位差计算设备间距离，可实现厘米级测量精度。
+ 
   
 
 #### HF

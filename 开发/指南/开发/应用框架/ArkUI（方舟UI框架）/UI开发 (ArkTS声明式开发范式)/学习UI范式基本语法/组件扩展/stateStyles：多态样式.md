@@ -1,6 +1,6 @@
 # stateStyles：多态样式
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-statestyles
 
@@ -35,7 +35,7 @@ stateStyles是属性方法，可以根据UI内部状态来设置样式，类似�
 
 #### 基础场景
 
-下面的示例展示了stateStyles最基本的使用场景。Button1处于第一个组件，Button2处于第二个组件。按压时显示为pressed态指定的黑色。使用Tab键走焦，Button1获焦并显示为focused态指定的粉色。当Button2获焦的时候，Button2显示为focused态指定的粉色，Button1失焦显示normal态指定的蓝色。
+下面的示例展示了stateStyles最基本的使用场景。Button1处于第一个组件，Button2处于第二个组件。按压时显示为pressed态指定的灰色。使用Tab键走焦，Button1获焦并显示为focused态指定的粉色。当Button2获焦的时候，Button2显示为focused态指定的粉色，Button1失焦显示normal态指定的蓝色。
 
 ```ArkTS
 @Entry
@@ -113,7 +113,7 @@ struct MyComponent {
 **图2** 正常态和按压态
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/3ORrUnGFRsWMZCSwoPm-vA/zh-cn_image_0000002626068140.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=B8CF6529968A41EEEA93565FE604E69B89755F26C1234CF8454B26E9AE68A269)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/fivS-hKhSwuiNd_pe7jlPw/zh-cn_image_0000002686085341.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071839Z&HW-CC-Expire=86400&HW-CC-Sign=0F2ACBC093F08A8F66EF8F2D3F3C751B09991512A22537050E42F12A65AC5A28)
 
 
 
@@ -156,4 +156,4 @@ Button默认normal态显示蓝色，第一次按下Tab键让Button获焦显示�
 **图3** 点击改变获焦态样式
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/dBvUfyinRWaArUzhLJJvXA/zh-cn_image_0000002656467415.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=FC6149DA85F5009C9ADDD8B8620A213B17212BB577D2C76D489F2BEEE410920C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/z_in4tIXRb-t0cgkke_nlg/zh-cn_image_0000002685925513.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071839Z&HW-CC-Expire=86400&HW-CC-Sign=BF5856091CC0C06DC671C10B55F0D1A877958B453AB8AF39CC9B26F7E03C4C6C)

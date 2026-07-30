@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/NNPxFT8bTHGrLmtnp5SuZg/zh-cn_image_0000002628392502.png?HW-CC-KV=V1&HW-CC-Date=20260723T012341Z&HW-CC-Expire=86400&HW-CC-Sign=24FD348284E4B0627337CDA54CDCA74601959D5BF286ADD8CCB06E51C0E49DCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/NNPxFT8bTHGrLmtnp5SuZg/zh-cn_image_0000002628392502.png?HW-CC-KV=V1&HW-CC-Date=20260730T072245Z&HW-CC-Expire=86400&HW-CC-Sign=D95A907A4FFFC2C3565AD4048A2D59238273CA50CBE5CC8A63F8E676D2133108)
 
  
  
@@ -19,13 +19,13 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/JeCojTLsQUihbF0EnxK-PQ/zh-cn_image_0000002658791773.png?HW-CC-KV=V1&HW-CC-Date=20260723T012341Z&HW-CC-Expire=86400&HW-CC-Sign=1DE17C38B9F3CAE0799A779B888127B250D55430681E6550E92E9D640628E9C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/JeCojTLsQUihbF0EnxK-PQ/zh-cn_image_0000002658791773.png?HW-CC-KV=V1&HW-CC-Date=20260730T072245Z&HW-CC-Expire=86400&HW-CC-Sign=EC7B419480B11DDF2560288EEC5C2427CF22F1AC625A6C4CDE3C154A691378DC)
 
  
 PC上进行全屏展示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/wLgUV1wUTiOnTYf3bs74bA/zh-cn_image_0000002628552392.png?HW-CC-KV=V1&HW-CC-Date=20260723T012341Z&HW-CC-Expire=86400&HW-CC-Sign=E0813539117825821ACECC020159689118419DCF1490E7B8ECC57A56590030A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/wLgUV1wUTiOnTYf3bs74bA/zh-cn_image_0000002628552392.png?HW-CC-KV=V1&HW-CC-Date=20260730T072245Z&HW-CC-Expire=86400&HW-CC-Sign=4625EE38EE48A379876AE5885719A33DAD0D396EA3FA49E33936A8BFC7C24D35)
 
  
  

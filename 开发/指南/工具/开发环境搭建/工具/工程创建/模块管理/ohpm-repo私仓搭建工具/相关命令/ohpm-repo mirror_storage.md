@@ -1,6 +1,6 @@
 # ohpm-repo mirror_storage
 
-更新时间：2026-01-27 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-mirror_storage
 
@@ -25,7 +25,7 @@ ohpm-repo mirror_storage <source_sftp> <target_sftp> <target> [options]
 
 #### 功能描述
 
-该命令必须配置文件存储插件模块为sftp。命令会将**源sftp**目录下满足&lt;target&gt;条件的包同步到**目标sftp**目录下。
+该命令必须配置文件存储插件模块为sftp。命令会将源sftp目录下满足&lt;target&gt;条件的包同步到**目标sftp**目录下。
  
  
 

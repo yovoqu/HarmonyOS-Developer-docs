@@ -1,6 +1,6 @@
 # AppStorage：应用全局的UI状态存储
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage
 
@@ -29,7 +29,7 @@ AppStorage中的属性可以被双向同步，并具有不同的功能，比如�
 
 #### @StorageProp
 
-@StorageProp与AppStorage中对应的属性建立单向数据同步。
+[@StorageProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-storageprop#storageprop)与AppStorage中对应的属性建立单向数据同步。
 
 > [!NOTE]
 > 从API version 11开始，该装饰器支持在元服务中使用。
@@ -87,7 +87,7 @@ AppStorage中的属性可以被双向同步，并具有不同的功能，比如�
 
 #### @StorageLink
 
-@StorageLink与AppStorage中对应的属性建立双向数据同步。
+[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-storagelink#storagelink)与AppStorage中对应的属性建立双向数据同步。
 
 > [!NOTE]
 > 从API version 11开始，该装饰器支持在元服务中使用。
@@ -160,9 +160,9 @@ AppStorage.setOrCreate('propA', 47);
 @StorageLink('propA') storageLink: number = 2;
 ```
 
-2. @StorageProp与@StorageLink不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
+2. @StorageProp与@StorageLink不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
 
-  从API version 23开始，添加对@StorageProp与@StorageLink装饰Function类型变量的校验，编译期会报错。
+  从API version 23开始，在应用编译时添加了相关校验，@StorageProp与@StorageLink装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@StorageProp或@StorageLink装饰器。
 3. AppStorage与[PersistentStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage)以及[Environment](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-environment)配合使用时，需要注意以下几点：
 
   (1) 在AppStorage中创建属性后，调用PersistentStorage.[persistProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#persistprop10)接口时，会使用AppStorage中已存在的值，并覆盖PersistentStorage中的同名属性。因此，建议使用相反的调用顺序。反例可见[在PersistentStorage之前访问AppStorage中的属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage#在persistentstorage之前访问appstorage中的属性)。
@@ -253,6 +253,8 @@ struct TestStorageProp {
     Column({ space: 20 }) {
       // @StorageLink与AppStorage建立双向联系，更改数据会同步回AppStorage中key为'propA'的值
       Text(`storageLink ${this.storageLink}`)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.storageLink += 1;
         })
@@ -260,6 +262,8 @@ struct TestStorageProp {
       // @StorageProp与AppStorage建立单向联系，更改数据不会同步回AppStorage中key为'propA'的值
       // 但能被AppStorage的set/setOrCreate更新值
       Text(`storageProp ${this.storageProp}`)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.storageProp += 1;
         })
@@ -267,24 +271,35 @@ struct TestStorageProp {
       // AppStorage的API虽然能获取值，但是不具有刷新UI的能力，日志能看到数值更改
       // 依赖@StorageLink/@StorageProp才能建立起与自定义组件的联系，刷新UI
       Text(`change by AppStorage: ${AppStorage.get<number>('propA')}`)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           hilog.info(DOMAIN, TAG, `Appstorage.get: ${AppStorage.get<number>('propA')}`);
           AppStorage.set<number>('propA', 100);
         })
 
       Text(`storageLinkObject ${this.storageLinkObject.code}`)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.storageLinkObject.code += 1;
         })
 
       Text(`storagePropObject ${this.storagePropObject.code}`)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.storagePropObject.code += 1;
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/haxJGhwKRTyIaHoq3Vgc8g/zh-cn_image_0000002656005886.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=23F98A4DA91E04DE10CCB52E034746AB66AFB076DA6783E2F6FD0D93B8ED3FBA)
+
 
 
 
@@ -301,15 +316,24 @@ struct StorageLinkComponent {
   build() {
     Column() {
       Text('@StorageLink接口初始化，@StorageLink取值')
+        .fontSize(20)
+        .margin(10)
       // linkA为null时，点击后会切换为1；linkA为1时，点击后会切换为null
-      Text(`${this.linkA}`).fontSize(20).onClick(() => {
-        this.linkA ? this.linkA = null : this.linkA = 1;
-      })
-      Text(`${this.linkB}`).fontSize(20).onClick(() => {
-        this.linkB ? this.linkB = undefined : this.linkB = 1;
-      })
+      Text(`${this.linkA}`)
+        .fontSize(20)
+        .margin(10)
+        .onClick(() => {
+          this.linkA ? this.linkA = null : this.linkA = 1;
+        })
+      Text(`${this.linkB}`)
+        .fontSize(20)
+        .margin(10)
+        .onClick(() => {
+          this.linkB ? this.linkB = undefined : this.linkB = 1;
+        })
     }
     .borderWidth(3).borderColor(Color.Red)
+    .width('100%')
   }
 }
 
@@ -321,14 +345,23 @@ struct StoragePropComponent {
   build() {
     Column() {
       Text('@StorageProp接口初始化，@StorageProp取值')
-      Text(`${this.propA}`).fontSize(20).onClick(() => {
-        this.propA ? this.propA = null : this.propA = 1;
-      })
-      Text(`${this.propB}`).fontSize(20).onClick(() => {
-        this.propB ? this.propB = undefined : this.propB = 1;
-      })
+        .fontSize(20)
+        .margin(10)
+      Text(`${this.propA}`)
+        .fontSize(20)
+        .margin(10)
+        .onClick(() => {
+          this.propA ? this.propA = null : this.propA = 1;
+        })
+      Text(`${this.propB}`)
+        .fontSize(20)
+        .margin(10)
+        .onClick(() => {
+          this.propB ? this.propB = undefined : this.propB = 1;
+        })
     }
     .borderWidth(3).borderColor(Color.Blue)
+    .width('100%')
   }
 }
 
@@ -347,6 +380,10 @@ struct TestPageStorageLink {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/ug-wWF9fQq6IqSDNqK59EA/zh-cn_image_0000002655845966.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=28B9CBEA7F48B541100615D335F540B7F26105B1F71E035B32DB0750E9EECD9B)
+
 
 
 
@@ -369,36 +406,41 @@ struct ArraySample {
       })
       // 新增数组元素，触发UI刷新
       Button('Push element')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.message.push(4);
         })
-        .width(300)
-        .margin(10)
       // 删除数组元素，触发UI刷新
       Button('Pop element')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.message.pop();
         })
-        .width(300)
-        .margin(10)
       // 对数组整体重新赋值，触发UI刷新
       Button('Reset array')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.message = [9, 8, 7, 6];
         })
-        .width(300)
-        .margin(10)
       // 更新数组元素，触发UI刷新
       Button('Modify element[0]')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.message[0] = 10;
         })
-        .width(300)
-        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/xYCJvpXbTx-__O75C4OdFA/zh-cn_image_0000002686085395.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=930F2E67BF2AF2814197CCB87EF33E0AF3F630AAF93D126B69C006A955788657)
+
 
 
 
@@ -419,22 +461,26 @@ struct DateSample {
   build() {
     Column() {
       Button('set selectedDate to 2023-07-08')
+        .width(300)
         .margin(10)
         .onClick(() => {
           AppStorage.setOrCreate('date', new Date('2023-07-08'));
         })
       // 点击Button更新selectedDate年份数据，触发视图刷新
       Button('increase the year by 1')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate.setFullYear(this.selectedDate.getFullYear() + 1);
         })
       Button('increase the month by 1')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate.setMonth(this.selectedDate.getMonth() + 1);
         })
       Button('increase the day by 1')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate.setDate(this.selectedDate.getDate() + 1);
@@ -448,6 +494,10 @@ struct DateSample {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/lYOAbevAQJaoOo5u2siE-w/zh-cn_image_0000002685925567.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=69D7A07D07D09D2175123866FB4FDEB2126D3D9B1298787D8050C2D93F927A45)
+
 
 
 
@@ -469,26 +519,45 @@ struct MapSample {
     Row() {
       Column() {
         ForEach(Array.from(this.message.entries()), (item: [number, string]) => {
-          Text(`${item[0]}`).fontSize(30)
-          Text(`${item[1]}`).fontSize(30)
+          Text(`${item[0]}`)
+            .fontSize(30)
+            .margin(10)
+          Text(`${item[1]}`)
+            .fontSize(30)
+            .margin(10)
           Divider()
         })
         // 点击Button初始化message
-        Button('init map').onClick(() => {
-          this.message = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
-        })
-        Button('set new one').onClick(() => {
-          this.message.set(4, 'd');
-        })
-        Button('clear').onClick(() => {
-          this.message.clear();
-        })
-        Button('replace the existing one').onClick(() => {
-          this.message.set(0, 'aa');
-        })
-        Button('delete the existing one').onClick(() => {
-          AppStorage.get<Map<number, string>>('map')?.delete(0);
-        })
+        Button('init map')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+          })
+        Button('set new one')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message.set(4, 'd');
+          })
+        Button('clear')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message.clear();
+          })
+        Button('replace the existing one')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message.set(0, 'aa');
+          })
+        Button('delete the existing one')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            AppStorage.get<Map<number, string>>('map')?.delete(0);
+          })
       }
       .width('100%')
     }
@@ -496,6 +565,10 @@ struct MapSample {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/CeTOuUwvS5y68GP-ST3jdw/zh-cn_image_0000002656005888.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=8F786373242818DC0FA0CA34E3010546B396126B1A8B768D20B7409B1ADD0DF6)
+
 
 
 
@@ -519,22 +592,31 @@ struct SetSample {
         ForEach(Array.from(this.memberSet.entries()), (item: [number, number]) => {
           Text(`${item[0]}`)
             .fontSize(30)
+            .margin(10)
           Divider()
         })
         // 点击Button初始化memberSet
         Button('init set')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.memberSet = new Set([0, 1, 2, 3, 4]);
           })
         Button('set new one')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             AppStorage.get<Set<number>>('set')?.add(5);
           })
         Button('clear')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.memberSet.clear();
           })
         Button('delete the first one')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.memberSet.delete(0);
           })
@@ -545,6 +627,10 @@ struct SetSample {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/tGHiDQtHS4mkXUEX5PA_ew/zh-cn_image_0000002655845968.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=73D2355D6BF39A8CFE580FBBC736063F4B39B15B16B3889A53F50586F07940EB)
+
 
 
 
@@ -570,20 +656,28 @@ struct Index {
           Text(`${this.linkA}`)
             .fontSize(50)
             .fontWeight(FontWeight.Bold)
+            .margin(10)
           Text(`${this.propB}`)
             .fontSize(50)
             .fontWeight(FontWeight.Bold)
+            .margin(10)
           Button('Change linkA')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               // 刷新UI，修改将会被同步回AppStorage
               this.linkA++;
             })
           Button('Change propB')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               // 刷新UI，修改不会被同步回AppStorage
               this.propB++;
             })
           Button('To Page')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               this.pageStack.pushPathByName('Page', null);
             })
@@ -616,20 +710,28 @@ struct Page {
           Text(`${this.linkA}`)
             .fontSize(50)
             .fontWeight(FontWeight.Bold)
+            .margin(10)
           Text(`${this.propB}`)
             .fontSize(50)
             .fontWeight(FontWeight.Bold)
+            .margin(10)
           Button('Change linkA')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               // 刷新UI，修改将会被同步回AppStorage
               this.linkA++;
             })
           Button('Change propB')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               // 刷新UI，修改不会被同步回AppStorage
               this.propB++;
             })
           Button('Back Index')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               this.pageStack.pop();
             })
@@ -660,6 +762,10 @@ struct Page {
   ]
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/HgjgipFvRSGWY7-0hE1eWA/zh-cn_image_0000002686085397.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=7E0CEC8036EF2A3D49AA272EC54AF7DB05C18A02AC306EF9FB17566D6C132554)
+
 
 
 
@@ -717,7 +823,7 @@ struct Gallery {
         })
       }.columnsTemplate('1fr 1fr')
     }
-
+    .width('100%')
   }
 }
 
@@ -918,7 +1024,7 @@ struct Gallery {
         })
       }.columnsTemplate('1fr 1fr')
     }
-
+    .width('100%')
   }
 }
 
@@ -979,16 +1085,25 @@ struct PageStorageProp {
   build() {
     Column() {
       Text(`${this.propA}`)
+        .fontSize(20)
+        .margin(10)
       Button('change')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           AppStorage.setOrCreate('propA', false);
           // 输出当前this.propA的值
           hilog.info(DOMAIN, TAG, `propA: ${this.propA}`);
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/KAtEOGxqTIaik0Q4OM6Nww/zh-cn_image_0000002685925569.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=25A60BEC5E40E648C119D97BD3CEEBD8DB8B4E5DACBDFE51CCAE9ACF81B15B58)
+
 
 上述示例，在点击事件之前，propA的值已经在本地被更改为true，而AppStorage中存的值仍为false。当点击事件通过setOrCreate接口尝试更新propA的值为false时，由于AppStorage中的值为false，两者相等，不会触发更新同步，因此@StorageProp的值仍为true。
 

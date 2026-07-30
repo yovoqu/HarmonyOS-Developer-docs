@@ -1,6 +1,6 @@
 # ringtone（铃声服务）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone
 **支持设备：** Phone | Tablet
@@ -61,6 +61,7 @@ import { ringtone } from '@kit.RingtoneKit';
 | ERROR_FILE_NOT_FOUND | 1011600002 | 文件不存在。 |
 | ERROR_SHOW_FAILED | 1011600003 | 铃声弹框失败。 |
 | ERROR_CALL_SYSTEM_API_FAILED | 1011600004 | 调用系统接口失败。 |
+| ERROR_DATA_TYPE_NOT_MATCHED | 1011600005 | 文件类型不匹配。起始版本： 26.0.0 |
 | ERROR_SYSTEM | 1011699999 | 系统内部错误。 |
  
  
@@ -123,6 +124,71 @@ struct Index {
  
   
 
+#### ringtone.getSupportedRingtoneTypes
+
+**支持设备：** Phone | Tablet
+
+getSupportedRingtoneTypes(mediaType: uniformTypeDescriptor.UniformDataType): Array&lt;RingtoneType&gt;
+ 
+查询当前系统支持自定义的铃声类型。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Ringtone.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| mediaType | uniformTypeDescriptor.UniformDataType | 是 | 待查询的文件类型。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;RingtoneType&gt; | 当前系统支持自定义的铃声类型。 |
+ 
+ 
+**示例：**
+ 
+```json
+import { ringtone } from '@kit.RingtoneKit';
+import { JSON } from '@kit.ArkTS';
+import { uniformTypeDescriptor } from '@kit.ArkData';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+const APP_TAG = 'Msc_Demo'
+const DOMAIN = 0x0001
+
+@Entry
+@Component
+struct Index {
+  build() {
+    Stack() {
+      Column() {
+        Button('查询当前系统支持自定义的铃声类型')
+          .width(200)
+          .height(50)
+          .onClick(() => {
+            let typeList: ringtone.RingtoneType[] = ringtone.getSupportedRingtoneTypes(uniformTypeDescriptor.UniformDataType.AUDIO)
+            hilog.info(DOMAIN, APP_TAG, `getSupportedRingtoneTypes: ${JSON.stringify(typeList)}`);
+          })
+      }
+      .width('100%')
+      .height('100%')
+      .backgroundColor(Color.Pink)
+    }
+    .height('100%')
+    .width('100%')
+  }
+}
+```
+ 
+  
+
 #### ringtone.getSupportedDataTypes
 
 **支持设备：** Phone | Tablet
@@ -153,11 +219,11 @@ getSupportedDataTypes(ringtoneType: RingtoneType): Array<uniformTypeDescriptor.U
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter invalid. |
+| 401 | Parameter error. Possible causes:ringtoneType is invalid. |
  
  
 **示例：**
@@ -211,7 +277,7 @@ struct Index {
 
 getSupportedMaxDuration(ringtoneType: RingtoneType, dataType: uniformTypeDescriptor.UniformDataType): number
  
-查询对应铃声类型以及文件类型支持的时长。
+查询不同铃声类型和文件类型对应的文件时长上限。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -236,11 +302,11 @@ getSupportedMaxDuration(ringtoneType: RingtoneType, dataType: uniformTypeDescrip
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter invalid. |
+| 401 | Parameter error. Possible causes:data type does not match the ringtone type. |
  
  
 **示例：**
@@ -288,6 +354,89 @@ struct Index {
  
   
 
+#### ringtone.getSupportedMaxSize
+
+**支持设备：** Phone | Tablet
+
+getSupportedMaxSize(ringtoneType: RingtoneType, dataType: uniformTypeDescriptor.UniformDataType): number
+ 
+查询不同铃声类型和文件类型对应的文件大小上限。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力**：SystemCapability.Ringtone.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| ringtoneType | RingtoneType | 是 | 待查询的铃声类型。 |
+| dataType | uniformTypeDescriptor.UniformDataType | 是 | 待查询的文件类型。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| number | 返回对应类型的铃声和文件支持的最大文件大小（单位：kb），其中视频大小限制200MB及以下，音频大小无限制返回-1。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1011600005 | The data type does not match the ringtone type. |
+ 
+ 
+**示例：**
+ 
+```text
+import { ringtone } from '@kit.RingtoneKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { uniformTypeDescriptor } from '@kit.ArkData';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+const APP_TAG = 'Msc_Demo'
+const DOMAIN = 0x0001
+
+@Entry
+@Component
+struct Index {
+  build() {
+    Stack() {
+      Column() {
+        Button('查询文件大小限制')
+          .width(200)
+          .height(50)
+          .onClick(() => {
+            try {
+              let maxSize: number =
+                ringtone.getSupportedMaxSize(ringtone.RingtoneType.CALL,
+                  uniformTypeDescriptor.UniformDataType.MP3)
+              hilog.info(DOMAIN, APP_TAG, `getSupportedMaxSize: ${maxSize}`);
+            } catch (error) {
+              let err: BusinessError = error as BusinessError;
+              hilog.error(DOMAIN, APP_TAG,
+                `getSupportedMaxSize error message: ${err.message}, error code: ${err.code}`);
+            }
+          })
+      }
+      .width('100%')
+      .height('100%')
+      .backgroundColor(Color.Pink)
+    }
+    .height('100%')
+    .width('100%')
+  }
+}
+```
+ 
+  
+
 #### ringtone.startRingtoneSetting
 
 **支持设备：** Phone | Tablet
@@ -314,11 +463,11 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter invalid. |
+| 401 | Parameter error. Possible causes: context is invalid. |
 | 1011600001 | User canceled. |
 | 1011600002 | The media file is not found. |
 | 1011600003 | Failed to show the dialog box. |
@@ -409,11 +558,11 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter invalid. |
+| 401 | Parameter error. Possible causes: context is invalid. |
 | 1011600001 | User canceled. |
 | 1011600002 | The media file is not found. |
 | 1011600003 | Failed to show the dialog box. |
@@ -450,6 +599,7 @@ struct Index {
             let fileName = splitList[splitList.length - 1]
             hilog.info(DOMAIN, APP_TAG, `audioPath: ${audioPath}`)
             hilog.info(DOMAIN, APP_TAG, `fileName: ${fileName}`)
+
             try {
               ringtone.startRingtoneSetting(this.context, audioPath, fileName).then(res => {
                 hilog.info(DOMAIN, APP_TAG, `返回值：${JSON.stringify(res)}`)

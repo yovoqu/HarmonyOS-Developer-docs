@@ -9,7 +9,7 @@
 当用户在平板设备上或折叠屏展开态打开应用时，应用的页面呈现出左侧为导航栏，而右侧为大面积空白的现象。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/NWLfyhC-TquS_qdC0XzXDw/zh-cn_image_0000002658834707.png?HW-CC-KV=V1&HW-CC-Date=20260723T012912Z&HW-CC-Expire=86400&HW-CC-Sign=D1578E46E4A9B2168C0309D5E11BCB04B677B3FC30B9F9506B96053DE1D5EC55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/NWLfyhC-TquS_qdC0XzXDw/zh-cn_image_0000002658834707.png?HW-CC-KV=V1&HW-CC-Date=20260730T072428Z&HW-CC-Expire=86400&HW-CC-Sign=CA63757BE5698E3FE1504E50AEFCC27EDE400C97E9348F96FA19ACC985D4C015)
 
  
  

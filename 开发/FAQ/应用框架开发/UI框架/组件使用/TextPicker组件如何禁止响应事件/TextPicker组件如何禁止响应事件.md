@@ -47,7 +47,7 @@ struct <span style="color: rgb(0,0,255);">TextPickerExample1 </span><span style=
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/J9yH8ZgURXK_hwdbLJmQpQ/zh-cn_image_0000002658794593.png?HW-CC-KV=V1&HW-CC-Date=20260723T012607Z&HW-CC-Expire=86400&HW-CC-Sign=8F4E6E8438321F88AAAC05D157E9697C6F290D1603277589F25EF54C98AC80F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/J9yH8ZgURXK_hwdbLJmQpQ/zh-cn_image_0000002658794593.png?HW-CC-KV=V1&HW-CC-Date=20260730T072327Z&HW-CC-Expire=86400&HW-CC-Sign=0C6E2BD5CFB2AC4564E35737E7A0B5762F468A5700BD43EFA0A2D21EB4ABCA04)
 
 2. 禁止组件指定的响应事件，可以通过onGestureJudgeBegin自定义手势判定函数，自主决定是否响应。如下相关代码实现了当前TextPicker的选中项点击事件被禁止，而不影响对其他手势事件的响应。
 ```text
@@ -101,7 +101,7 @@ struct <span style="color: rgb(0,0,255);">TextPickerExample2 </span><span style=
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/kaYeAGqgSA6oT0E67IfBhw/zh-cn_image_0000002628555226.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012607Z&HW-CC-Expire=86400&HW-CC-Sign=D2B0519ACABA98C10B5498708D0EF4A865EEC040EC0AB509CB2426A497500BB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/kaYeAGqgSA6oT0E67IfBhw/zh-cn_image_0000002628555226.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072327Z&HW-CC-Expire=86400&HW-CC-Sign=5D1679D5360977EB11652B35C2BAFADC071730D110A448DC2D57E8DFAD8D96F5)
 
 
   以长按手势为例，区分是否禁用对应的手势。代码中设置点击手势标志：“点击tap1”无打印，长按手势标志打印：“长按longPress”。
@@ -109,7 +109,7 @@ struct <span style="color: rgb(0,0,255);">TextPickerExample2 </span><span style=
   日志如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/FIITL8SZTjGzuUADcSZJeg/zh-cn_image_0000002658914549.png?HW-CC-KV=V1&HW-CC-Date=20260723T012607Z&HW-CC-Expire=86400&HW-CC-Sign=2A4EF48A83797C3539A0546781FA92CA3C212128015AB4D9AE5F1033E07AAC75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/FIITL8SZTjGzuUADcSZJeg/zh-cn_image_0000002658914549.png?HW-CC-KV=V1&HW-CC-Date=20260730T072327Z&HW-CC-Expire=86400&HW-CC-Sign=75B1779D1A2F695B5E0EC5374F3C23C0F45A937ED4ECFF2BE48298C131C2AC53)
 
  
  

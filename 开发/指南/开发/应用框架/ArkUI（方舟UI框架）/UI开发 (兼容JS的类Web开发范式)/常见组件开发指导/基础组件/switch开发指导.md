@@ -1,6 +1,6 @@
 # switch开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-switch
 
@@ -34,7 +34,7 @@ switch为开关选择器，切换开启或关闭状态。具体用法请参考[s
 
 #### 添加属性和方法
 
-switch组件通过textoff和showtext属性设置文本选中和未选中时的状态。设置checked属性值为true（组件为打开状态）。添加change事件，当组件状态改变时触发，触发后执行switchChange函数获取组件当前状态（关闭/打开）。
+switch组件通过texton、textoff和showtext属性设置文本选中和未选中时的状态。设置checked属性值为true（组件为打开状态）。添加change事件，当组件状态改变时触发，触发后执行switchChange函数获取组件当前状态（关闭/打开）。
 
 ```text
 <!-- xxx.hml -->
@@ -63,15 +63,14 @@ switch {
 
 ```text
 // xxx.js
-import promptAction from '@ohos.promptAction';
 export default {
   switchChange(e){
     if(e.checked){
-      promptAction.showToast({
+      this.getUIContext().getPromptAction().showToast({
         message: "open"
       });
     }else{
-      promptAction.showToast({
+      this.getUIContext().getPromptAction().showToast({
         message: "close"
       });
     }
@@ -108,7 +107,7 @@ export default {
   <div class="myAddress" style="display: {{addressDisplay}};">
     <text style="font-size: 30px;margin-bottom: 50px;">Choose an address:</text>
     <text class="addressText" style="background-color: {{item == address?'#0fabe7':''}};color: {{item == address?'white':'black'}};"
-    for="item in addressList"@click="changeAddress({{$idx}}})">{{item}}</text>
+    for="item in addressList"@click="changeAddress({{$idx}})">{{item}}</text>
   </div>
 </div>
 ```
@@ -193,4 +192,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Q5P_FVUASxGvmHx--Uwf7Q/zh-cn_image_0000002611754123.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=CF826D9923923FC2C3BFB8380559D0B782768D8046289827930ABF1D046F9E00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/gwz8VzWWS7W6ES242a1MKQ/zh-cn_image_0000002685926297.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071857Z&HW-CC-Expire=86400&HW-CC-Sign=7367615C1DF0DFFDCE51FB9C3D54534543A85104464C47FE86B6A6A883A8FA69)

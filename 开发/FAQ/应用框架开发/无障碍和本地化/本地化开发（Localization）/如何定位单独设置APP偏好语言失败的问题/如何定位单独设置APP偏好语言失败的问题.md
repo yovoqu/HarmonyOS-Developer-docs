@@ -67,7 +67,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(1
  1. 在资源文件中添加中/英文的value值。默认语言（base文件）以及中文语言（zh_CN文件）写的是中文，英文语言（en_US文件）写的是英文。因此在偏好语言为英文时，显示en_US文件的内容；偏好语言为中文时，显示zh_CN文件的内容；偏好语言为其他语言时，显示base文件的内容。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/1XDrbTGBSay6W35vK47mPw/zh-cn_image_0000002628663108.png?HW-CC-KV=V1&HW-CC-Date=20260723T013324Z&HW-CC-Expire=86400&HW-CC-Sign=E985FC5E416B8FE88D1648DB392873EE093373B1947631DFAF5B5BD1C4B73762)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/1XDrbTGBSay6W35vK47mPw/zh-cn_image_0000002628663108.png?HW-CC-KV=V1&HW-CC-Date=20260730T072528Z&HW-CC-Expire=86400&HW-CC-Sign=7A593A610178805D7701051D3853BC3C213796183513A536B9989620D9A96B49)
 
 
   

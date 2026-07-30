@@ -1,6 +1,6 @@
 # Navigation跨包跳转报错hap path error
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1449
 
@@ -17,7 +17,7 @@
 #### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件适用于模块内和跨模块的路由切换，通过组件级路由能力实现更加自然流畅的转场体验。
-- [跨包路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#跨包路由)：动态路由设计的初衷旨在解决多个模块（HAR/HSP）能够复用相同的业务逻辑，实现各业务模块间的解耦，同时支持路由功能的扩展与整合。
+- [跨包路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package)：动态路由设计的初衷旨在解决多个模块（HAR/HSP）能够复用相同的业务逻辑，实现各业务模块间的解耦，同时支持路由功能的扩展与整合。
 
  
  

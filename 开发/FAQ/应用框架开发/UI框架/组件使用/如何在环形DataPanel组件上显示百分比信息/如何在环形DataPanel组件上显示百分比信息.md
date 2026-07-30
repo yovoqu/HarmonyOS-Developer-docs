@@ -9,7 +9,7 @@
 如何在环形DataPanel组件上显示百分比信息，即DataPanel组件与百分比联动。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/lMLTCnI4Q8WUpC-51YY-eg/zh-cn_image_0000002658801071.png?HW-CC-KV=V1&HW-CC-Date=20260723T012640Z&HW-CC-Expire=86400&HW-CC-Sign=642A790680A49DA9259C71124A604E02B885B507D73371091E2385414BE8DC95)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/lMLTCnI4Q8WUpC-51YY-eg/zh-cn_image_0000002658801071.png?HW-CC-KV=V1&HW-CC-Date=20260730T072336Z&HW-CC-Expire=86400&HW-CC-Sign=E853E3D89EDCED1BBCEB1CFC991483573E75F9BE33978EF1AE39DC5ACA920D05)
 
  
  
@@ -17,7 +17,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/m02YrxjZSsaP4quNJGQEfg/zh-cn_image_0000002628401804.png?HW-CC-KV=V1&HW-CC-Date=20260723T012640Z&HW-CC-Expire=86400&HW-CC-Sign=EE088FDD2992FBCEA56DBFBF1849B48F3EB845E1750281D68090FE7739CA7558)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/m02YrxjZSsaP4quNJGQEfg/zh-cn_image_0000002628401804.png?HW-CC-KV=V1&HW-CC-Date=20260730T072336Z&HW-CC-Expire=86400&HW-CC-Sign=E8E36FC62AD42C181EC9467C2F7D70E98668F3FA5F0939FB6E0E62FEC5EDE8ED)
 
  
  

@@ -1,6 +1,6 @@
 # Navigation基础架构介绍
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture
 
@@ -158,9 +158,9 @@ struct NavigationDemo {
             }
             .width('100%')
             .onClick(() => {
-              // $r('app.string.detailsPageParameters')需要替换为开发者所需的字符串资源文件,资源文件中的value值为“详情页面参数”
+              // $r('app.string.detailsPageParameters')需要替换为开发者所需的字符串资源文件，资源文件中的value值为“详情页面参数”
               this.navPathStack.pushPathByName(`${item}`,
-                // 将name指定的NavDestination页面信息入栈,传递的参数为param
+                // 将name指定的NavDestination页面信息入栈，传递的参数为param
                 this.context!.resourceManager.getStringSync($r('app.string.detailsPageParameters').id));
             })
           }, (item: string): string => item)
@@ -173,7 +173,7 @@ struct NavigationDemo {
       }
       .width('100%')
       .mode(NavigationMode.Auto)
-      // $r('app.string.settings')需要替换为开发者所需的字符串资源文件,资源文件中的value值为“设置”
+      // $r('app.string.settings')需要替换为开发者所需的字符串资源文件，资源文件中的value值为“设置”
       .title($r('app.string.settings')) // 设置标题文字
     }
     .size({ width: '100%', height: '100%' })

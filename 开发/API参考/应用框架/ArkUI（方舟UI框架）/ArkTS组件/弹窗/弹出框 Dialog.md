@@ -1,6 +1,6 @@
 # 弹出框 (Dialog)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ import { TipsDialog, SelectDialog, ConfirmDialog, AlertDialog, LoadingDialog, Cu
 
 TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, title?: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, checkAction?: (isChecked: boolean) => void, onCheckedChange?: Callback&lt;boolean&gt;, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
-提示弹出框，即为带图形确认弹出框，必要时可通过图形化方式展现确认弹出框。
+提示弹出框，用于提醒用户关注特定事项或进行确认操作。
 
 **装饰器类型：**@CustomDialog
 
@@ -44,14 +44,14 @@ TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| controller | CustomDialogController | 是 | - | 提示弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | - | 提示弹出框控制器，用于控制弹出框的显示和隐藏。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | imageRes | ResourceStr \| PixelMap | 是 | - | 展示的图片。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | imageSize | SizeOptions | 否 | - | 自定义图片尺寸。 默认值：64*64vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | title | ResourceStr | 否 | - | 提示弹出框标题。 默认不设置或设置为undefined，弹出框标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | content | ResourceStr | 否 | - | 提示弹出框内容。 默认不设置或设置为undefined，弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | checkTips | ResourceStr | 否 | - | checkbox的提示内容。 默认不设置或设置为undefined，提示内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isChecked | boolean | 否 | @Prop | value为true时，表示checkbox已选中，value为false时，表示未选中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| checkAction12+ | (isChecked: boolean) => void | 否 | - | checkbox的选中状态改变事件。isChecked为true时，表示checkbox已选中，isChecked为false时，表示checkbox未选中。现推荐使用onCheckedChange12+。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isChecked | boolean | 否 | @Prop | isChecked为true时，表示checkbox已选中，isChecked为false时，表示未选中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| checkAction12+ | (isChecked: boolean) => void | 否 | - | checkbox的选中状态改变事件。isChecked为true时，表示checkbox已选中，isChecked为false时，表示checkbox未选中。 说明： 推荐使用onCheckedChange12+。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onCheckedChange12+ | Callback&lt;boolean&gt; | 否 | - | checkbox的选中状态改变事件回调。回调参数类型为boolean，true表示checkbox已选中，false表示checkbox未选中。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | primaryButton | ButtonOptions | 否 | - | 提示弹出框左侧按钮。 默认不设置或设置为undefined，左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | secondaryButton | ButtonOptions | 否 | - | 提示弹出框右侧按钮。 默认不设置或设置为undefined，右侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -75,11 +75,11 @@ SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: 
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controller | CustomDialogController | 是 | 选择弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | 选择弹出框控制器，用于控制弹出框的显示和隐藏。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | title | ResourceStr | 是 | 选择弹出框标题。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | content | ResourceStr | 否 | 选择弹出框内容。 默认不设置或设置为undefined，弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | selectedIndex | number | 否 | 选择弹出框的选中项。 取值范围：大于等于-1的整数。 默认值：-1，没有选中项。若设置数值小于-1，按没有选中项处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| confirm | ButtonOptions | 否 | 选择弹出框底部按钮。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| confirm | ButtonOptions | 否 | 选择弹出框底部按钮。 默认不设置或设置为undefined，底部按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | radioContent | Array&lt;SheetInfo&gt; | 是 | 选择弹出框的子项内容列表，每个选择项支持设置文本和选中的回调事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | theme12+ | Theme \| CustomTheme | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | themeColorMode12+ | ThemeColorMode | 否 | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -91,9 +91,9 @@ SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: 
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
+ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, onCheckedChange?: Callback&lt;boolean&gt;, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
-信息确认类弹出框，操作未正确执行（如网络错误、电池电量过低），或未正确操作时（如指纹录入），反馈的错误或提示信息。
+信息确认类弹出框，用于在操作未正确执行（如网络错误、电池电量过低），或未正确操作时（如指纹录入）反馈错误或提示信息。
 
 **装饰器类型：**@CustomDialog
 
@@ -101,11 +101,11 @@ ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?:
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| controller | CustomDialogController | 是 | - | 确认弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | - | 确认弹出框控制器，用于控制弹出框的显示和隐藏。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | title | ResourceStr | 是 | - | 确认弹出框标题。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | content | ResourceStr | 否 | - | 确认弹出框内容。 默认不设置或设置为undefined，确认弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | checkTips | ResourceStr | 否 | - | checkbox的提示内容。 默认不设置或设置为undefined，checkbox的提示内容不显示。 说明： 当提示内容不设置时，checkbox也会显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isChecked | boolean | 否 | @Prop | value为true时，表示checkbox已选中，value为false时，表示未选中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| isChecked | boolean | 否 | @Prop | isChecked为true时，表示checkbox已选中，isChecked为false时，表示未选中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onCheckedChange12+ | Callback&lt;boolean&gt; | 否 | - | checkbox的选中状态改变事件回调。回调参数类型为boolean，true表示checkbox已选中，false表示checkbox未选中。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | primaryButton | ButtonOptions | 否 | - | 确认弹出框左侧按钮。 默认不设置或设置为undefined，确认弹出框左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | secondaryButton | ButtonOptions | 否 | - | 确认弹出框右侧按钮。 默认不设置或设置为undefined，确认弹出框右侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -121,7 +121,7 @@ ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?:
 
 AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content: ResourceStr, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
-操作确认类弹出框，触发一个将产生严重后果的不可逆操作时，如删除、重置、取消编辑、停止等。
+警告类弹出框，用于在触发一个将产生严重后果的不可逆操作（如删除、重置、取消编辑、停止等）时进行警告。
 
 **装饰器类型：**@CustomDialog
 
@@ -129,12 +129,12 @@ AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, sec
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controller | CustomDialogController | 是 | 确认弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| primaryTitle12+ | ResourceStr | 否 | 确认弹出框一级标题。 默认不设置或设置为undefined，确认弹出框一级标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| secondaryTitle12+ | ResourceStr | 否 | 确认弹出框二级标题。 默认不设置或设置为undefined，确认弹出框二级标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| content | ResourceStr | 是 | 确认弹出框内容。 默认不设置或设置为undefined，确认弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| primaryButton | ButtonOptions | 否 | 确认弹出框左侧按钮。 默认不设置或设置为undefined，确认弹出框左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| secondaryButton | ButtonOptions | 否 | 确认弹出框右侧按钮。 默认不设置或设置为undefined，确认弹出框右侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | 警告弹出框控制器，用于控制弹出框的显示和隐藏。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| primaryTitle12+ | ResourceStr | 否 | 警告弹出框一级标题。 默认不设置或设置为undefined，警告弹出框一级标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| secondaryTitle12+ | ResourceStr | 否 | 警告弹出框二级标题。 默认不设置或设置为undefined，警告弹出框二级标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 是 | 警告弹出框内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| primaryButton | ButtonOptions | 否 | 警告弹出框左侧按钮。 默认不设置或设置为undefined，警告弹出框左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| secondaryButton | ButtonOptions | 否 | 警告弹出框右侧按钮。 默认不设置或设置为undefined，警告弹出框右侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | theme12+ | Theme \| CustomTheme | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | themeColorMode12+ | ThemeColorMode | 否 | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
@@ -155,7 +155,7 @@ LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| Controller | CustomDialogController | 是 | 加载弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Controller | CustomDialogController | 是 | 加载弹出框控制器，用于控制弹出框的显示和隐藏。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | content | ResourceStr | 否 | 加载弹出框内容。 默认不设置或设置为undefined，加载弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | theme12+ | Theme \| CustomTheme | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | themeColorMode12+ | ThemeColorMode | 否 | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -167,7 +167,7 @@ LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-CustomContentDialog({controller: CustomDialogController, contentBuilder: () => void, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, contentAreaPadding?: Padding, buttons?: ButtonOptions[], theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
+CustomContentDialog({controller: CustomDialogController, contentBuilder: () => void, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, localizedContentAreaPadding?: LocalizedPadding, contentAreaPadding?: Padding, buttons?: ButtonOptions[], theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 自定义内容区弹出框，同时支持定义操作区按钮样式。
 
@@ -179,15 +179,15 @@ CustomContentDialog({controller: CustomDialogController, contentBuilder: () => v
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| controller | CustomDialogController | 是 | - | 弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 |
-| contentBuilder | () => void | 是 | @BuilderParam | 弹出框内容。 |
+| controller | CustomDialogController | 是 | - | 弹出框控制器，用于控制弹出框的显示和隐藏。 说明： 未使用@Require装饰，构造时不强制校验参数。 |
+| contentBuilder | () => void | 是 | @BuilderParam | 用于构建弹出框内容区域的组件构建函数。 |
 | primaryTitle | ResourceStr | 否 | - | 弹出框标题。 默认不设置或设置为undefined，弹出框标题不显示。 说明： 标题超过两行会显示“...”。 |
 | secondaryTitle | ResourceStr | 否 | - | 弹出框辅助文本。 默认不设置或设置为undefined，弹出框辅助文本不显示。 说明： 辅助文本超过两行会显示“...”。 |
-| localizedContentAreaPadding | LocalizedPadding | 否 | - | 弹出框内容区内边距。 |
+| localizedContentAreaPadding | LocalizedPadding | 否 | - | 弹出框内容区内边距，支持按语言方向自适应。设置了该属性时，contentAreaPadding不生效。 |
 | contentAreaPadding | Padding | 否 | - | 弹出框内容区内边距。设置了localizedContentAreaPadding属性时该属性不生效。 |
 | buttons | ButtonOptions[] | 否 | - | 弹出框操作区按钮，最多支持4个按钮。 |
 | theme | Theme \| CustomTheme | 否 | - | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 |
-| themeColorMode | ThemeColorMode | 否 | - | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM |
+| themeColorMode | ThemeColorMode | 否 | - | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM。 |
 
 
 > [!NOTE]
@@ -202,7 +202,7 @@ CustomContentDialog({controller: CustomDialogController, contentBuilder: () => v
 
 PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callback&lt;void&gt;})
 
-跟手弹出框，基于目标组件位置弹出，上文中的TipsDialog、SelectDialog、ConfirmDialog、AlertDialog、LoadingDialog、CustomContentDialog都可作为弹出框内容。
+跟手弹出框，基于目标组件位置弹出，上述的TipsDialog、SelectDialog、ConfirmDialog、AlertDialog、LoadingDialog、CustomContentDialog都可作为弹出框内容。
 
 **装饰器类型：**@Component
 
@@ -212,9 +212,9 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| visible | boolean | 是 | @Link | 跟手弹出框显示状态。visible为true时，表示显示弹出框，visible为false时，表示隐藏弹出框。 默认值为false，隐藏弹出框。 |
-| popover | PopoverOptions | 是 | @Prop @Require | 配置跟手弹出框的参数。 |
-| targetBuilder | Callback&lt;void&gt; | 是 | @Require @BuilderParam | 跟手弹出框基于的目标组件。 |
+| visible | boolean | 是 | @Link | 是否显示跟手弹出框。true表示显示弹出框，false表示隐藏弹出框。 默认值为false。 |
+| popover | PopoverOptions | 是 | @Prop @Require | 配置跟手弹出框的参数，包含弹出框内容、位置等属性，具体参见PopoverOptions类型说明。 |
+| targetBuilder | Callback&lt;void&gt; | 是 | @Require @BuilderParam | 跟手弹出框基于的目标组件构建器函数，用于定义弹出框显示的参考位置组件。 |
 
 
 
@@ -292,18 +292,18 @@ struct Index {
       primaryButton: {
         value: '取消',
         action: () => {
-          console.info('Callback when the first button is clicked')
+          console.info('Callback when the first button is clicked');
         },
       },
       secondaryButton: {
         value: '删除',
         role: ButtonRole.ERROR,
         action: () => {
-          console.info('Callback when the second button is clicked')
+          console.info('Callback when the second button is clicked');
         }
       },
       onCheckedChange: () => {
-        console.info('Callback when the checkbox is clicked')
+        console.info('Callback when the checkbox is clicked');
       }
     }),
   })
@@ -316,7 +316,7 @@ struct Index {
             .width(96)
             .height(40)
             .onClick(() => {
-              this.dialogControllerImage.open()
+              this.dialogControllerImage.open();
             })
         }.margin({bottom: 300})
       }.align(Alignment.Bottom)
@@ -358,19 +358,19 @@ struct Index {
         {
           title: '文本文本文本文本文本',
           action: () => {
-            this.radioIndex = 0
+            this.radioIndex = 0;
           }
         },
         {
           title: '文本文本文本文本',
           action: () => {
-            this.radioIndex = 1
+            this.radioIndex = 1;
           }
         },
         {
           title: '文本文本文本文本',
           action: () => {
-            this.radioIndex = 2
+            this.radioIndex = 2;
           }
         },
       ]
@@ -385,7 +385,7 @@ struct Index {
             .width(96)
             .height(40)
             .onClick(() => {
-              this.dialogControllerList.open()
+              this.dialogControllerList.open();
             })
         }.margin({ bottom: 300 })
       }
@@ -431,12 +431,12 @@ struct Index {
       secondaryButton: {
         value: '允许',
         action: () => {
-          this.isChecked = false
-          console.info('Callback when the second button is clicked')
+          this.isChecked = false;
+          console.info('Callback when the second button is clicked');
         }
       },
       onCheckedChange: () => {
-        console.info('Callback when the checkbox is clicked')
+        console.info('Callback when the checkbox is clicked');
       },
     }),
     autoCancel: true,
@@ -451,7 +451,7 @@ struct Index {
             .width(96)
             .height(40)
             .onClick(() => {
-              this.dialogControllerCheckBox.open()
+              this.dialogControllerCheckBox.open();
             })
         }
         .margin({bottom: 300})
@@ -496,7 +496,7 @@ struct Index {
         value: '确认',
         role: ButtonRole.ERROR,
         action: () => {
-          console.info('Callback when the second button is clicked')
+          console.info('Callback when the second button is clicked');
         }
       },
     }),
@@ -510,7 +510,7 @@ struct Index {
             .width(96)
             .height(40)
             .onClick(() => {
-              this.dialogControllerConfirm.open()
+              this.dialogControllerConfirm.open();
             })
         }
         .margin({ bottom: 300 })
@@ -555,7 +555,7 @@ struct Index {
             .width(96)
             .height(40)
             .onClick(() => {
-              this.dialogControllerProgress.open()
+              this.dialogControllerProgress.open();
             })
         }
         .margin({ bottom: 300 })
@@ -612,7 +612,7 @@ struct Index {
     Row() {
       Stack() {
         Column() {
-          Button('dialog')
+          Button("dialog")
             .width(96)
             .height(40)
             .onClick(() => {
@@ -658,7 +658,7 @@ struct Index {
     Row() {
       Stack() {
         Column() {
-          Button('Dialog')
+          Button("Dialog")
             .width(96)
             .height(40)
             .onClick(() => {
@@ -678,7 +678,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/XN_L2rPFRNaqSwjtsE_sIg/zh-cn_image_0000002647748270.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=1311DF830FE417BF7E1B853062E54B63E25EBF09FA04A5BE6250BDD2F3079396)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/Kj3ADihjToCS81MwPwjCiA/zh-cn_image_0000002686088387.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=5E3EAA6F9831BD23CACD5DBB26806DD2F62F0B589C6AD5B5477968483014C742)
 
 
 
@@ -705,7 +705,7 @@ struct Index {
           value: '按钮1',
           buttonStyle: ButtonStyleMode.TEXTUAL,
           action: () => {
-            console.info('Callback when the button is clicked')
+            console.info('Callback when the button is clicked');
           }
         },
         {
@@ -721,7 +721,7 @@ struct Index {
     Column() {
       Button("支持自定义内容弹出框")
         .onClick(() => {
-          this.dialogController.open()
+          this.dialogController.open();
         })
     }
     .width('100%')
@@ -741,7 +741,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/7_WJ5H1pSdyd2SpLCMgFpg/zh-cn_image_0000002647588362.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=65473484F5B39CC6BBE92321CFFABC21040BE3A191B48183165FD3D862A6177D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/8qXC_l0SSuqp41a_ID1oLQ/zh-cn_image_0000002685928555.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=7544CC30369DBF68C8CDFBFDDD46EF17E5C3DB689A76E5E4125785917174D1FC)
 
 
 
@@ -782,7 +782,7 @@ struct Index {
       },
     });
   }
-  
+
   // 跟手弹出框绑定的builder
   @Builder buttonBuilder() {
     Button('跟手弹出框目标组件')
@@ -806,7 +806,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/CZah1d-YTQGpzoYA4fP1Tw/zh-cn_image_0000002677828001.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=1D6507F333AB3F63521BDD27604D34DE63A34DB2F946F3CDCD4BE3539590F619)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/N0Ts0JqzSBm5RqqzeQLZ3w/zh-cn_image_0000002656008878.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=A9ECCA5446D9B0074BAA59247ABC1DF48CA06B6B4D4F4F5E819B73457FBA9AAF)
 
 
 
@@ -846,7 +846,7 @@ struct Index {
             .width(96)
             .height(40)
             .onClick(() => {
-              this.dialogController.open()
+              this.dialogController.open();
             })
         }
         .margin({ bottom: 300 })
@@ -862,4 +862,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/Pt4mxWvpT8S4A7Rje-p1kA/zh-cn_image_0000002677668155.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=C1498CEDD7865506D55EDDECAE2B6C7410B1524F4766560FA3AECDFD8DCC9EF8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/Pz5kekpEQauRBuQgdY1nHg/zh-cn_image_0000002655848958.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=18E0D109CEDC6EF9F65B603ED7EE3022346D7E0042B0C1DF0D80FC78288943AD)

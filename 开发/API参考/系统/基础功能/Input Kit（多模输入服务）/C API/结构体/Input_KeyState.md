@@ -1,6 +1,6 @@
 # Input_KeyState
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -26,5 +26,5 @@ typedef struct Input_KeyState Input_KeyState
   
 | 名称 | 描述 |
 | --- | --- |
-| OH_Input_CreateKeyState | 创建按键状态的枚举对象。通过调用OH_Input_DestroyKeyState销毁按键状态的枚举对象。 |
+| OH_Input_CreateKeyState | 创建按键状态的结构体对象。通过调用OH_Input_DestroyKeyState销毁按键状态的结构体对象。 |
 | OH_Input_DestroyKeyState | 销毁按键状态的枚举对象。 |

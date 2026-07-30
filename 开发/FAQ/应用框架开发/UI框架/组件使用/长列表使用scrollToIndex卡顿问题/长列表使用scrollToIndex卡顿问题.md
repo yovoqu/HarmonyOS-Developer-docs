@@ -149,10 +149,10 @@ export struct <span style="color: rgb(0,0,255);">virtrulScroll </span><span styl
 
 - 开动效直接跳到目标位置和先关动效跳到附近位置再开启动效跳转到目标位置对比，通过DevEco Studio的Profiler抓取launch数据可以得到如下，可以明显看出实现了性能优化。
 直接跳转：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/J0aIbq9_TEOoibgXElbJJQ/zh-cn_image_0000002658793543.png?HW-CC-KV=V1&HW-CC-Date=20260723T012546Z&HW-CC-Expire=86400&HW-CC-Sign=4145DF2355A7F7D20F63E2A1A763EF4449BA7CCA36143F142D529000ECBD6C8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/J0aIbq9_TEOoibgXElbJJQ/zh-cn_image_0000002658793543.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=1C5DBFAC2E165825758C5C3C2E53A2B7689E0103FFB6EFDC4050C43AAA6A917E)
 
 - 间接跳转：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/jCVw54aURUei9X6qRWkoug/zh-cn_image_0000002628554176.png?HW-CC-KV=V1&HW-CC-Date=20260723T012546Z&HW-CC-Expire=86400&HW-CC-Sign=FA11784140AD2DED20E3478114DADCD1D351D625CCC2C2A53666C6B789FE74AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/jCVw54aURUei9X6qRWkoug/zh-cn_image_0000002628554176.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=4E2C71F0FA7123355856B88C4E137DD9B7CC14D6697FA7C154F451953F60C91C)
 
 - 数据对比：
 

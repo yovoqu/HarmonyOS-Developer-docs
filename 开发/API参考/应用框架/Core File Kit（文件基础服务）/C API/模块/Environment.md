@@ -1,13 +1,13 @@
 # Environment
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-environment
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 #### 概述
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 提供获取公共文件根目录路径的能力。
  
@@ -17,7 +17,7 @@
 
 #### 文件汇总
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

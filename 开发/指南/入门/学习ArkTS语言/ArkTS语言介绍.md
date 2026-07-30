@@ -1,6 +1,6 @@
 # ArkTS语言介绍
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts
 
@@ -83,7 +83,7 @@ ArkTS提供number类型，任何整数和浮点数都可以被赋给此类型的
 
 浮点数字面量包括以下部分：
 
- - 十进制整数，支持正负号前缀（前缀为"+"或"-"），默认为正。
+ - 十进制整数，可为有符号数（前缀为“+”或“-”）。
  - 小数点（“.”）。
  - 小数部分（由十进制数字字符串表示）。
  - 指数部分，以“e”或“E”开头，后跟有符号（前缀为“+”或“-”）或无符号整数。
@@ -110,7 +110,7 @@ function factorial(n: number): number {
   factorial(n4) // 9900
 ```
 
-number类型在表示大整数（即超过-9007199254740991~9007199254740991）时会造成精度丢失。在开发时可以按需使用bigint类型来确保精度：
+number类型在表示大整数（即超过Number.MIN_SAFE_INTEGER（-9007199254740991）~`Number.MAX_SAFE_INTEGER（9007199254740991））时会造成精度丢失。在开发时可以按需使用bigint`类型来确保精度：
 
 ```ArkTS
 let bigInt: bigint = 999999999999999999999999999999999999999999999999999999999999n;
@@ -150,7 +150,7 @@ let s3 = `The result is ${a}`;
 
 void类型用于指定函数没有返回值。
 
-此类型只有一个值，同样是void。由于void是引用类型，因此它可以用于泛型类型参数。
+此类型只有一个值，同样是void。void可用于泛型类型参数。
 
 ```ArkTS
 class Class<T> {
@@ -202,9 +202,9 @@ enum ColorSet { White = 0xFF, Grey = 0x7F, Black = 0x00 }
 let c: ColorSet = ColorSet.Black;
 ```
 
-**Union类型**
+**联合类型（Union）**
 
-Union类型，即联合类型，是由多个类型组合成的引用类型。联合类型包含了变量可能的所有类型。
+联合类型（Union）是由多个类型组合成的类型。联合类型包含了变量可能的所有类型。
 
 ```ArkTS
 class Cat {
@@ -252,9 +252,9 @@ function foo(animal: Animal) {
 }
 ```
 
-**Aliases类型**
+**类型别名（Aliases）**
 
-Aliases类型为匿名类型（如数组、函数、对象字面量或联合类型）提供名称，或为已定义的类型提供替代名称。
+类型别名（Aliases）为匿名类型（如数组、函数、对象字面量或联合类型）提供名称，或为已定义的类型提供替代名称。
 
 ```ArkTS
 // 二维数组类型
@@ -305,8 +305,8 @@ let emptyData: NullableObject = null;
 | --- | --- |
 | === | 如果两个操作数严格相等（对于不同类型的操作数认为是不相等的），则返回true。 |
 | !== | 如果两个操作数严格不相等（对于不同类型的操作数认为是不相等的），则返回true。 |
-| == | 如果两个操作数相等，则返回true。 |
-| != | 如果两个操作数不相等，则返回true。 |
+| == | 如果两个操作数相等，则返回true。建议使用===替代。 |
+| != | 如果两个操作数不相等，则返回true。建议使用!==替代。 |
 | > | 如果左操作数大于右操作数，则返回true。 |
 | >= | 如果左操作数大于或等于右操作数，则返回true。 |
 | < | 如果左操作数小于右操作数，则返回true。 |
@@ -417,12 +417,12 @@ if (condition1) {
 ```ArkTS
 let s1 = 'Hello';
 if (s1) {
-  console.info(s1); // 打印"Hello"
+  console.info(s1); // 打印“Hello”
 }
 
 let s2 = 'World';
 if (s2.length != 0) {
-  console.info(s2); // 打印"World"
+  console.info(s2); // 打印“World”
 }
 ```
 
@@ -434,13 +434,13 @@ switch语句如下所示：
 
 ```ArkTS
 switch (expression) {
-  case label1: // 如果label1匹配,则执行
+  case label1: // 如果label1匹配，则执行
     // ...
     // 语句1
     // ...
     break; // 可省略
   case label2:
-  case label3: // 如果label2或label3匹配,则执行
+  case label3: // 如果label2或label3匹配，则执行
     // ...
     // 语句23
     // ...
@@ -640,6 +640,7 @@ try语句用于捕获和处理异常或错误：
 
 ```ArkTS
 try {
+  // 可能发生异常的语句块
   // ...
 } catch (e) {
   // 异常处理
@@ -1011,8 +1012,8 @@ class Person {
   }
   
   getName(): string {
-    // 开发者使用"string"作为返回类型，这隐藏了name可能为"undefined"的事实。
-    // 更合适的做法是将返回类型标注为"string | undefined"，以告诉开发者这个API所有可能的返回值。
+    // 开发者使用"string"作为返回类型，这隐藏了name可能为"undefined"的事实
+    // 更合适的做法是将返回类型标注为"string | undefined"，以告诉开发者这个API所有可能的返回值
     return this.name;
   }
 }
@@ -1041,7 +1042,7 @@ class Person3 {
 
 let jack = new Person3();
 // 假设代码中没有对name赋值，即没有调用"jack.setName('Jack')"
-jack.getName().length; // 0, 没有运行时异常
+jack.getName().length; // 0，没有运行时异常
 ```
 
 接下来的代码示例展示了当name的值可能为undefined时，如何正确编写代码。
@@ -1491,7 +1492,7 @@ let x = new Derived(666);
 
 ```text
 class Y {
-  abstract method(p: string)  // 编译时错误：抽象方法只能在抽象类内。
+  abstract method(p: string)  // 编译时错误：抽象方法只能在抽象类内
 }
 ```
 
@@ -1736,7 +1737,7 @@ function last(x: number[]): number {
 
 如果需要为任何数组定义相同的函数，使用类型参数将该函数定义为泛型：
 
-```text
+```ArkTS
 function last<T>(x: T[]): T {
   return x[x.length - 1];
 }
@@ -1947,7 +1948,7 @@ export default new Demo();
 导入绑定* as A表示绑定名称“A”，通过A.name可访问从导入路径指定的模块导出的所有实体：
 
 ```ArkTS
-import * as Utils from './utils';
+import * as Utils from './Utils';
 // ...
 Utils.X // 表示来自Utils的X
 Utils.Y // 表示来自Utils的Y
@@ -1956,16 +1957,16 @@ Utils.Y // 表示来自Utils的Y
 导入绑定{ ident1, ..., identN }表示将导出的实体与指定名称绑定，该名称可以用作简单名称：
 
 ```ArkTS
-import { X, Y } from './utils';
+import { X, Y } from './Utils';
 // ...
-X // 表示来自utils的X
-Y // 表示来自utils的Y
+X // 表示来自Utils的X
+Y // 表示来自Utils的Y
 ```
 
 如果标识符列表定义了ident as alias，则实体ident将绑定在名称alias下：
 
 ```text
-import { X as Z, Y } from './utils';
+import { X as Z, Y } from './Utils';
 Z // 表示来自Utils的X
 Y // 表示来自Utils的Y
 X // 编译时错误：'X'不可见
@@ -2014,7 +2015,7 @@ export function bye() {
 
 ```ArkTS
 async function test() {
-  let ns = await import('./say');
+  let ns = await import('./Say');
   let hi = ns.hi;
   let bye = ns.bye;
   hi();
@@ -2148,11 +2149,10 @@ class MyClass {
  - 注解可以包含上述示例中所示的参数。
 
 
-对于要使用的注解，其名称必须以符号@（例如：@MyAnno）为前缀。符号@和名称之间不允许有空格和行分隔符。
+对于要使用的注解，其名称必须以符号@（例如：@MyAnno）为前缀。
 
 ```text
 ClassAuthor({authorName: "Bob"}) // 编译错误：注解需要'@'为前缀
-@ ClassAuthor({authorName: "Bob"}) // 编译错误：符号`@`和名称之间不允许有空格和行分隔符
 ```
 
 如果在使用位置无法访问注解名称，则会发生编译错误。
@@ -2172,7 +2172,7 @@ class MyClass1 {
 注解不是Typescript中的特性，只能在.ets/.d.ets文件中使用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/Z_MJDBNXQjO5e63TdM13iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012107Z&HW-CC-Expire=86400&HW-CC-Sign=47CE6576FC2ECD73B3317301745E9F2046671FB526A4E5F4C1F606EBE4AFDFE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Z2QLuuNJTQGEQd2gppPQlA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071810Z&HW-CC-Expire=86400&HW-CC-Sign=C4E01D46C81CACCE637AB30F8286C888F1044586152D5DE70EA0B5BAB0B6D94C)
 
 
 应用开发中，在[release模式下构建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har#section19788284410)源码HAR，并同时[开启混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation)时，由于编译产物为JS文件，而在JS中没有注解的实现机制，因此会在编译过程中被移除，导致无法通过注解实现AOP插桩。

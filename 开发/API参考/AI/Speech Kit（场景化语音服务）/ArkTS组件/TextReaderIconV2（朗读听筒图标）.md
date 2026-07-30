@@ -1,6 +1,6 @@
 # TextReaderIconV2（朗读听筒图标）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreadericonv2
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -201,3 +201,16 @@ struct Index {
   }
 }
 ```
+ 
+组件如下图：
+ 
+静止状态
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/BZOOBVQiT2S7Rfq0WPlfhA/zh-cn_image_0000002656009756.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=78922C24DB89345A733E65E760943681652766FFAE6DDF9590C662BC004DAC02)
+
+ 
+播放状态
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/A6JfrnHPQmqnL4W8ti_kpg/zh-cn_image_0000002655849834.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=21EDC6F45CFFDE2AAD7C99E55CB49A943CA5A877D77DE5833A0988B72E741811)

@@ -1,6 +1,6 @@
 # Rdb_KeyData
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-rdb-keydata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,4 +36,4 @@ union Rdb_KeyData { ... }
 | --- | --- |
 | uint64_t integer | 存放uint64_t类型的数据。 |
 | double real | 存放double类型的数据。 |
-| const char* text | 存放char类型的数据。 |
+| const char* text | 存放字符串类型的数据。 |

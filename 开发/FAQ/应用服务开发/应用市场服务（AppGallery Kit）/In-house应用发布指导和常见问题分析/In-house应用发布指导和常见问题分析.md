@@ -1,6 +1,6 @@
 # In-house应用发布指导和常见问题分析
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-80
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-[发布In-house应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-harmonyos-inhouserelease-0000001756878768)不属于标准的发布方案，仅允许部分特殊场景的开发者申请。
+[发布In-house应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696)不属于标准的发布方案，仅允许部分特殊场景的开发者申请。
  
 通过此方式分发，必须使用专用的组织内部发布证书和组织内部发布Profile来编译打包HarmonyOS应用，然后将应用包及应用描述文件上传到您的服务器或第三方云上，用户按指定方式直接下载安装即可。
  

@@ -1,6 +1,6 @@
 # DisplaySoloist_ExpectedRateRange
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaysoloist-displaysoloist-expectedraterange
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} DisplaySoloist_ExpectedRateRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供期望帧率范围结构体。
+期望帧率范围结构体，用于设置DisplaySoloist（可变帧率独立线程绘制）的期望帧率范围。设置的期望帧率范围将作为系统调度的参考，系统会尽量在此范围内调整绘制帧率。
  
 **起始版本：** 12
  
@@ -36,6 +36,6 @@ typedef struct {...} DisplaySoloist_ExpectedRateRange
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t min | 期望帧率范围最小值，取值范围为[0,120]。 |
-| int32_t max | 期望帧率范围最大值，取值范围为[0,120]。 |
-| int32_t expected | 期望帧率，取值范围为[0,120]。 |
+| int32_t min | 期望的最小帧率，单位为帧/秒（fps），取值范围为[0, 设备支持的最大刷新率]。 |
+| int32_t max | 期望的最大帧率，单位为帧/秒（fps），取值范围为[min, 设备支持的最大刷新率]。 |
+| int32_t expected | 期望的目标帧率，单位为帧/秒（fps），取值范围为[min, max]。 |

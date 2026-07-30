@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,7 +55,7 @@ let audioManager = audio.getAudioManager();
 
 createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback&lt;AudioRenderer&gt;): void
 
-获取音频渲染器。使用callback异步回调。
+创建音频渲染器。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
@@ -64,7 +64,7 @@ createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback&lt;Au
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | AudioRendererOptions | 是 | 配置渲染器。 |
-| callback | AsyncCallback&lt;AudioRenderer&gt; | 是 | 回调函数。当获取音频渲染器成功，err为undefined，data为获取到的音频渲染器对象；否则为错误对象。 |
+| callback | AsyncCallback&lt;AudioRenderer&gt; | 是 | 回调函数。当创建音频渲染器成功，err为undefined，data为创建的音频渲染器对象；否则为错误对象。 |
 
 
 **示例：**
@@ -109,7 +109,7 @@ audio.createAudioRenderer(audioRendererOptions,(err, data) => {
 
 createAudioRenderer(options: AudioRendererOptions): Promise&lt;AudioRenderer&gt;
 
-获取音频渲染器。使用Promise异步回调。
+创建音频渲染器。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
@@ -168,7 +168,7 @@ audio.createAudioRenderer(audioRendererOptions).then((data) => {
 
 createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback&lt;AudioCapturer&gt;): void
 
-获取音频采集器。使用callback异步回调。
+创建音频采集器。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
@@ -181,7 +181,7 @@ createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback&lt;Au
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | AudioCapturerOptions | 是 | 配置音频采集器。 |
-| callback | AsyncCallback&lt;AudioCapturer&gt; | 是 | 回调函数。当获取音频采集器成功，err为undefined，data为获取到的音频采集器对象；否则为错误对象。异常将返回error对象： 错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。 错误码6800101：表示必选参数为空或参数类型错误。 |
+| callback | AsyncCallback&lt;AudioCapturer&gt; | 是 | 回调函数。当创建音频采集器成功，err为undefined，data为创建的音频采集器对象；否则为错误对象。 异常将返回error对象： 返回错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。 返回错误码6800101：表示必选参数为空或参数类型错误。 |
 
 
 **示例：**
@@ -226,7 +226,7 @@ audio.createAudioCapturer(audioCapturerOptions, (err, data) => {
 
 createAudioCapturer(options: AudioCapturerOptions): Promise&lt;AudioCapturer&gt;
 
-获取音频采集器。使用Promise异步回调。
+创建音频采集器。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
@@ -245,7 +245,7 @@ createAudioCapturer(options: AudioCapturerOptions): Promise&lt;AudioCapturer&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AudioCapturer&gt; | Promise对象，成功将返回音频采集器对象，异常将返回error对象： 错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。 错误码6800101：表示必选参数为空或参数类型错误。 |
+| Promise&lt;AudioCapturer&gt; | Promise对象，成功将返回音频采集器对象，异常将返回error对象。 返回错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。 返回错误码6800101：表示必选参数为空或参数类型错误。 |
 
 
 **示例：**
@@ -297,6 +297,10 @@ createAudioLoopback(mode: AudioLoopbackMode): Promise&lt;AudioLoopback&gt;
 
 **需要权限：** ohos.permission.MICROPHONE
 
+ - API version 20-24，需要申请权限才可以使用本接口。
+ - 从API版本26.0.0开始，无需申请权限可以直接使用本接口。
+
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -317,8 +321,8 @@ createAudioLoopback(mode: AudioLoopbackMode): Promise&lt;AudioLoopback&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 801 | Unsupported API. |
+| 201 | Permission denied. 适用版本：20-24 |
+| 801 | Unsupported API. 适用版本：20-24 |
 | 6800101 | Parameter verification failed. |
 | 6800104 | Loopback mode is unsupported. |
 

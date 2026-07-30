@@ -28,7 +28,7 @@ OHAudio播放音频出现卡顿，如何定位？
 4. 使用[DevEco Profiler调优工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler)或[Smartperf](https://gitcode.com/openharmony/developtools_smartperf_host/releases)网页中打开trace文件分析。
 查看应用进程下的音频输出回调线程OS_AudioWriteCB，其中RendererInClientInner::OnWriteData是应用送数据给系统的回调处理函数，trace中发现此回调函数处理耗时都小于1ms，没有明显堵塞问题，运行正常。
 5. 查看RendererInClientInClient线程，会打印应用送给系统的数据大小，发现有几次为0的数据，这不是正常现象。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/1WIAqJmeTtaKgPHaQvoWug/zh-cn_image_0000002664157965.png?HW-CC-KV=V1&HW-CC-Date=20260723T013622Z&HW-CC-Expire=86400&HW-CC-Sign=28E9541CF0F7822B31D359EF4C05C259206CF1D3868D30733B8BC8FF62907EEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/1WIAqJmeTtaKgPHaQvoWug/zh-cn_image_0000002664157965.png?HW-CC-KV=V1&HW-CC-Date=20260730T072626Z&HW-CC-Expire=86400&HW-CC-Sign=2C0BB55CF76076B92D3B1B64E7B7807AA7AAADEE2D60975F3E4BD3F0AD0685E5)
 
  
  

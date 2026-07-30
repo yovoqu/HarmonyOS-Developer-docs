@@ -105,7 +105,7 @@ export function myProgress1(config: ProgressConfiguration) {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/GEiHX9AKTTaKkHsIBSwSOA/zh-cn_image_0000002628557788.png?HW-CC-KV=V1&HW-CC-Date=20260723T012615Z&HW-CC-Expire=86400&HW-CC-Sign=B16C05E5595FB063E243CC845DF785E1A32E670490F3E3ED598E40C39B3102FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/GEiHX9AKTTaKkHsIBSwSOA/zh-cn_image_0000002628557788.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=45427B3AF4A59FE39B3E30EEAF28014688B86B0F99D0640DF83EBE2C6651371F)
 
 - **场景二**：阶段进度条。同样是自定义内容区，但是是使用多个基础组件组合实现自定义进度条。在布局组件中通过相对定位的方式将多个阶段图标设置在相应的进度对应的位置，在下层添加线性渐变的组件实现进度条功能（如果需要可设置多个阶段的颜色）。
 ```text
@@ -197,7 +197,7 @@ export function myProgress2(config: ProgressConfiguration) {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/vvhGHc1fRXur2km-EmlYSg/zh-cn_image_0000002658917105.png?HW-CC-KV=V1&HW-CC-Date=20260723T012615Z&HW-CC-Expire=86400&HW-CC-Sign=C757363473F4686A6A1B2A3D18F0E6DD8B57DFFCBF577CA7CE754E48AFEF9D4C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/vvhGHc1fRXur2km-EmlYSg/zh-cn_image_0000002658917105.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=709359CAC46866232BEC0079037E164BFBE784B5FB9478FD3A419C5FD27C8450)
 
 - **场景三**：弧形进度条。不仅可以使用contentModifier方法自定义内容区，还可以通过通用属性[drawModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawmodifier)绘制组件内容。在绘制内容接口中获取[DrawContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#drawcontext)对象，再通过该对象中[canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#canvas)方法获取用于绘制的画布实例。通过[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的接口绘制内容到画布，从而实现自定义进度条样式。该方案可以在组件基础上添加前景保留原本的内容。
 ```text
@@ -307,7 +307,7 @@ export class MyProgressDrawModifier extends DrawModifier {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/0jBMeGkiQHO4znTX369WZg/zh-cn_image_0000002628397884.png?HW-CC-KV=V1&HW-CC-Date=20260723T012615Z&HW-CC-Expire=86400&HW-CC-Sign=9D30E1A1EBE5B1321062009A5978F8498639D2DE01CAE79A278A1465327418A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/0jBMeGkiQHO4znTX369WZg/zh-cn_image_0000002628397884.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=E9E8E0945AB6541986A762F0EB4EDD714DAC6AE4D6940678ED99C7F0ED5E2CD0)
 
 - **场景四**：方形环绕的进度条。除了如上三个场景中的方案，还可以直接通过组件模仿进度条效果，从而实现自定义Proress。1. 直接使用画布组件自定义进度条，参考[如何实现圆角矩形进度条](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-785)。
 
@@ -403,7 +403,7 @@ struct CustomProgressExample4 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/5umxYWifQY-UnDXX6_2apQ/zh-cn_image_0000002658797153.png?HW-CC-KV=V1&HW-CC-Date=20260723T012615Z&HW-CC-Expire=86400&HW-CC-Sign=17DFA412A8E3B09F9054608FDA0578CE95ED045625F49AB6912E5C9B48F32C4C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/5umxYWifQY-UnDXX6_2apQ/zh-cn_image_0000002658797153.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=2F59408B5D1C642D650CF2E2A19F63F6BEC516A28551A07A5316EA2EFB8EBD6A)
 
 
  

@@ -1,6 +1,6 @@
-# @ohos.data.sendableRelationalStore（共享关系型数据库）
+# @ohos.data.sendableRelationalStore (共享关系型数据库)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-sendablerelationalstore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -543,6 +543,7 @@ async function queryByName(context: Context, name: string) {
     securityLevel: relationalStore.SecurityLevel.S3,
   };
 
+  let result: sendableRelationalStore.ValuesBucket | undefined;
   let store = await relationalStore.getRdbStore(context, CONFIG);
   console.info(`Get store successfully!`);
 
@@ -552,9 +553,11 @@ async function queryByName(context: Context, name: string) {
   const resultSet = await store.query(predicates);
   if (resultSet.rowCount > 0 && resultSet.goToFirstRow()) {
     // 获取可用于跨线程传递的ValuesBucket返回查询结果
-    return resultSet.getSendableRow();
+    result = resultSet.getSendableRow();
   }
-  return null;
+  resultSet.close();
+  await store.close();
+  return result;
 }
 
 

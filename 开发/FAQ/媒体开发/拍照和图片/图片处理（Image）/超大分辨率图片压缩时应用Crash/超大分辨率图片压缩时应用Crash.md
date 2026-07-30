@@ -39,7 +39,7 @@ resourceMgr.getRawFileContent('XXXXXX.jpg').then((fileData: Uint8Array) => {
 3. 压缩超大分辨率（30648X12480）图片，当[PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption)参数中的quality设置为0时，输出最低质量图片，应用仍然Crash；
 4. 分析日志，写入数据超出最大值“write data:[29144176] out of max size:[26214400].”；
 5. [DevEco Profiler工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler)分析，packToData压缩图片时内存溢出。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/M052Yb-YRZqvLpQrfKSk6Q/zh-cn_image_0000002658791873.png?HW-CC-KV=V1&HW-CC-Date=20260723T013557Z&HW-CC-Expire=86400&HW-CC-Sign=F3E8EA6940BF74A05B9C036683C3FF70922F0E2CA1E211B122869285BA404F78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/M052Yb-YRZqvLpQrfKSk6Q/zh-cn_image_0000002658791873.png?HW-CC-KV=V1&HW-CC-Date=20260730T072617Z&HW-CC-Expire=86400&HW-CC-Sign=4FD0B57D22BED022208D1334A74A408E4B305A32E7D80A4B58EC8C062303A3B6)
 
 
   PrivateDirty持续增长，存在内存泄漏风险。
@@ -51,7 +51,7 @@ resourceMgr.getRawFileContent('XXXXXX.jpg').then((fileData: Uint8Array) => {
 超大分辨率图片通过packToData编码时存在内存溢出问题，需要在解码前对图片进行优化处理，通过desiredSize属性提前设置缩小后的分辨率，避免内存溢出且提高压缩效率。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/MXoCPiNzSzqfHPDHMouZgQ/zh-cn_image_0000002628552504.png?HW-CC-KV=V1&HW-CC-Date=20260723T013557Z&HW-CC-Expire=86400&HW-CC-Sign=D74E031DBC7146EE5165DD502EAE9DF8DC9A1A8455399AA64C913E02743B675B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/MXoCPiNzSzqfHPDHMouZgQ/zh-cn_image_0000002628552504.png?HW-CC-KV=V1&HW-CC-Date=20260730T072617Z&HW-CC-Expire=86400&HW-CC-Sign=3249264213290B94445D2FCD7B0108AA6F991F8390F4DAE14084769CA1CC2B7B)
 
  
  

@@ -1,6 +1,6 @@
 # form开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-form
 
@@ -55,7 +55,7 @@ form是一个表单容器，支持容器内[Input](https://developer.huawei.com/
 
 #### 设置form样式
 
-通过为form添加background-color和border属性，来设置表单的背景颜色和边框。
+通过为form添加border属性，来设置表单的边框。
 
 ```text
 /* xxx.css */

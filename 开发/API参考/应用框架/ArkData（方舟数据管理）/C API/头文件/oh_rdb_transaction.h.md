@@ -1,6 +1,6 @@
 # oh_rdb_transaction.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-transaction-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -300,7 +300,7 @@ int OH_RdbTrans_Insert(OH_Rdb_Transaction *trans, const char *table, const OH_VB
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int OH_RdbTrans_InsertWithConflictResolution(OH_Rdb_Transaction *trans, const char *table, const OH_VBucket *row,Rdb_ConflictResolution resolution, int64_t *rowId)
+int OH_RdbTrans_InsertWithConflictResolution(OH_Rdb_Transaction *trans, const char *table, const OH_VBucket *row, Rdb_ConflictResolution resolution, int64_t *rowId)
 ```
  
 **描述**
@@ -390,7 +390,7 @@ int OH_RdbTrans_Update(OH_Rdb_Transaction *trans, const OH_VBucket *row, const O
 | OH_Rdb_Transaction *trans | 指向OH_Rdb_Transaction实例的指针。 |
 | const OH_VBucket *row | 表示要更新到表中的数据行。 |
 | const OH_Predicates *predicates | 表示OH_Predicates指定的更新条件。 |
-| int64_t *changes | 输出参数，表示更新成功的次数。 |
+| int64_t *changes | 输出参数，表示更新成功的行数。 |
  
  
 **返回：**
@@ -407,7 +407,7 @@ int OH_RdbTrans_Update(OH_Rdb_Transaction *trans, const OH_VBucket *row, const O
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int OH_RdbTrans_UpdateWithConflictResolution(OH_Rdb_Transaction *trans, const OH_VBucket *row,const OH_Predicates *predicates, Rdb_ConflictResolution resolution, int64_t *changes)
+int OH_RdbTrans_UpdateWithConflictResolution(OH_Rdb_Transaction *trans, const OH_VBucket *row, const OH_Predicates *predicates, Rdb_ConflictResolution resolution, int64_t *changes)
 ```
  
 **描述**
@@ -489,7 +489,7 @@ OH_Cursor *OH_RdbTrans_Query(OH_Rdb_Transaction *trans, const OH_Predicates *pre
 | OH_Rdb_Transaction *trans | 指向OH_Rdb_Transaction实例的指针。 |
 | const OH_Predicates *predicates | 表示OH_Predicates指定的查询条件。 |
 | const char *columns[] | 表示要查询的列，如果传入空值，则查询适用于所有列。 |
-| int len | 表示列中元素的个数。 |
+| int len | 传入的columns数组的长度。若len大于columns数组的实际长度，则会访问越界。 |
  
  
 **返回：**

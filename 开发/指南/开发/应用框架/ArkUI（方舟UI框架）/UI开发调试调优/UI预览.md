@@ -1,6 +1,6 @@
 # UI预览
 
-更新时间：2026-03-20 09:49:50
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-ide-previewer
 
@@ -27,7 +27,7 @@ ArkTS应用/元服务均支持页面预览。页面预览通过在工程的ets�
 
  - 启动方式：选中需要预览的ets页面，点击右侧侧边栏的Previewer按钮，启动页面预览。
  - 热加载：在启动页面预览的前提下，添加、删除或修改UI组件后，通过Ctrl+S保存，预览器会同步刷新预览效果，无需重新启动预览。
- - 路由能力：支持通过路由能力进行页面切换查看其它页面预览效果。
+ - 路由能力：支持通过路由能力进行页面切换查看其他页面预览效果。
 
 
 在页面预览的基础上，提供了极速预览和Inspector双向预览两种特性。下面将详细说明这两种特性。
@@ -90,7 +90,7 @@ ArkTS应用/元服务均支持页面预览。页面预览通过在工程的ets�
 
 #### 组件预览
 
-ArkTS应用/元服务支持组件预览功能。组件预览通过在自定义组件前添加[@Preview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer#preview装饰器)装饰器实现。在单个源文件中，最多可以使用10个@Preview装饰自定义组件。启动方式：
+ArkTS应用/元服务支持组件预览功能。组件预览通过在自定义组件前添加[@Preview装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer#preview装饰器)装饰器实现。在单个源文件中，最多可以使用10个@Preview装饰自定义组件。启动方式：
 
  - 当组件被@Entry和@Preview装饰时，点击右侧侧边栏的Previewer按钮，启动页面预览，页面加载成功后，点击
 ![](assets/UI预览/file-20260514130808233-7.gif)
@@ -159,4 +159,4 @@ struct ComponentPreviewTwo {
 **图5** 动态修改分辨率效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/lxWF0DWqT5mkgP64Lq0WKQ/zh-cn_image_0000002611834057.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030419Z&HW-CC-Expire=86400&HW-CC-Sign=271B8FFE3AC2191A18C57D49E890912F0AB9896C7CDF9E38961D4E36B55E5761)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/Z9VzeO7zSPm8RMPzM0b6IA/zh-cn_image_0000002655846738.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071858Z&HW-CC-Expire=86400&HW-CC-Sign=41250AB416F0F2F231E1AD099FFD2E30D975EACBC058454EC462A40056A011CA)

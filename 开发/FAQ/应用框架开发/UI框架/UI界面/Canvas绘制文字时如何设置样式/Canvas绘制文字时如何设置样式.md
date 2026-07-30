@@ -73,7 +73,7 @@ struct CanvasCustomFont {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/89IAV_sVSG-JoiZ3x_8Gkw/zh-cn_image_0000002658804045.png?HW-CC-KV=V1&HW-CC-Date=20260723T013202Z&HW-CC-Expire=86400&HW-CC-Sign=BC9E521FA52B88646EE52DC122194F4123A3A7CAE5DA2179914C32E31A0A4ABE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/89IAV_sVSG-JoiZ3x_8Gkw/zh-cn_image_0000002658804045.png?HW-CC-KV=V1&HW-CC-Date=20260730T072508Z&HW-CC-Expire=86400&HW-CC-Sign=2A11E965471903F69A9A3C03E2A2EB7168CD435CDF437A74BAF35E3D8E967B92)
 
 
  
@@ -123,7 +123,7 @@ struct CanvasGradFont {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/f--kYWcRRh-eXlM3Qje_Xg/zh-cn_image_0000002628404776.png?HW-CC-KV=V1&HW-CC-Date=20260723T013202Z&HW-CC-Expire=86400&HW-CC-Sign=3E12902E88077391DC3A6E0B9B2DEE776BD6E6E5CF984553BB029456970F2F4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/f--kYWcRRh-eXlM3Qje_Xg/zh-cn_image_0000002628404776.png?HW-CC-KV=V1&HW-CC-Date=20260730T072508Z&HW-CC-Expire=86400&HW-CC-Sign=690C9AE29397CF5E83EBFA4141AC782FDA811525B8BE1A9CFEDE7D68883FB5D5)
 
 
  
@@ -160,7 +160,7 @@ struct CanvasShadowFont {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/iR4FpS6zRp2F2OBOTzQyVQ/zh-cn_image_0000002628564682.png?HW-CC-KV=V1&HW-CC-Date=20260723T013202Z&HW-CC-Expire=86400&HW-CC-Sign=E3E4EE886F6555685D2D505BB071D0CCB33D421D271AC7301EA3077FE18C8366)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/iR4FpS6zRp2F2OBOTzQyVQ/zh-cn_image_0000002628564682.png?HW-CC-KV=V1&HW-CC-Date=20260730T072508Z&HW-CC-Expire=86400&HW-CC-Sign=62BD87F2FF7708644B7085E8C4A5D3FFD41AC612574FA0498E1AB8FEDA7F42A3)
 
 
  

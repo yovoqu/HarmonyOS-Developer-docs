@@ -71,7 +71,7 @@ struct <span style="color: rgb(0,0,255);">PinchGesturePage </span><span style="c
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/SRfFAAEARqO1_x-q9mr1KA/zh-cn_image_0000002628554400.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012548Z&HW-CC-Expire=86400&HW-CC-Sign=6FC26EA384E65B44E3E9D0ACA26F07AE8DF6E5F45432ED50B3F77420A0CCB95F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/SRfFAAEARqO1_x-q9mr1KA/zh-cn_image_0000002628554400.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=F054C5E75A45FFE56AAA22AA9845B6C6A0693DB87CC60DE6540BB8C86DE15712)
 
  
  

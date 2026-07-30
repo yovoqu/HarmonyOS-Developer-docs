@@ -92,7 +92,7 @@ struct CustomDialogUser {
 使用限制：实际是创建了新弹窗，所以修改样式后需要先关闭弹窗再重新打开弹窗才有效。
 - 样式修改的范围：[CustomDialogControllerOptions对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)支持的参数均可修改，如width、maskColor、offset等。
 - 效果如下：点击change按钮后，创建了一个新的弹窗，改变了原弹窗的宽度。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/YssehmbETMG1842IJsRxAw/zh-cn_image_0000002628551602.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012957Z&HW-CC-Expire=86400&HW-CC-Sign=BEAC6F42C001C0CD3602E42F169CCA9EE949CE0E1BE0689163EB19FB87EB5169)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/YssehmbETMG1842IJsRxAw/zh-cn_image_0000002628551602.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=06B0EBE6C528AD109147A60465B3C3ECAD4A68C08C95E1D897A23940FEB98733)
 
 
  - **方案二**：使用ComponentContent封装弹窗的UI，使用PromptAction控制弹窗的显隐，使用ComponentContent的update方法更新弹窗，实现动态修改弹窗样式的效果。
@@ -138,7 +138,7 @@ struct ComponentContentDemo {
  
 可以在弹窗展示的过程中动态修改样式，只要update方法支持传递的参数均可用于动态修改样式。
 - 效果如下：在弹窗显示的过程中，更新弹窗的文字。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/D-RpiaMpSLOs8qW5wltXXQ/zh-cn_image_0000002628391704.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012957Z&HW-CC-Expire=86400&HW-CC-Sign=94ADE87D9B2DC41E917DACABD09E2EFFB5DA28811B28E115B758A0D2D37459A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/D-RpiaMpSLOs8qW5wltXXQ/zh-cn_image_0000002628391704.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=C8431C2D885926B1E2CC7B4759A3CDC92F1A0CB89B2D32ADED8ADD7881BD9B58)
 
 
  - **方案三**：和方案二一样使用PromptAction显示弹窗，使用updateCustomDialog更新弹窗样式，但目前仅支持更新alignment、offset、autoCancel、maskColor四种属性。使用方法可参考[updateCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatecustomdialog12)下方的代码示例。

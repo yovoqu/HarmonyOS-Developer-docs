@@ -1,6 +1,6 @@
 # ohpm list
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-list
 
@@ -82,7 +82,8 @@ alias: ls
 
 #### recursive
 
-- 默认值：无
+- 默认值：false
+- 类型：Boolean
 - 别名：r
 
  
@@ -133,7 +134,7 @@ ohpm list
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/F46cmKWdRLaumJ_RnP5ACw/zh-cn_image_0000002594475080.png?HW-CC-KV=V1&HW-CC-Date=20260723T012116Z&HW-CC-Expire=86400&HW-CC-Sign=9BB89D2859A377767F03A46C553446B83931673AA31B30764C9C21A8DE7C359F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/r7Md2q-QTpKpdmn-deqidg/zh-cn_image_0000002648077104.png?HW-CC-KV=V1&HW-CC-Date=20260730T071813Z&HW-CC-Expire=86400&HW-CC-Sign=6F6A84EDC02B0B94CABA043C530F87999E685C8A334B5F7C3C5094C03E2CA2D6)
 
 - 查看当前项目安装的**某个**三方库的依赖关系
 
@@ -146,7 +147,7 @@ ohpm list universalify
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/JCs47snQRCubEJOK0e6zew/zh-cn_image_0000002594635002.png?HW-CC-KV=V1&HW-CC-Date=20260723T012116Z&HW-CC-Expire=86400&HW-CC-Sign=B0928491EA8AEBFBF4207F47E2DD21A0A52A86E2A89ECA5173CEE8939E46CD5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/b0LM_kBxQjqSB7nmz9mxKA/zh-cn_image_0000002678156823.png?HW-CC-KV=V1&HW-CC-Date=20260730T071813Z&HW-CC-Expire=86400&HW-CC-Sign=74CF5AF34284FB63452CA1C9923CCB3FD479175A848271CB6E1C49A0E8C536FF)
 
 - 查看当前项目所有module安装的**所有**三方库及依赖关系。执行以下命令：
 

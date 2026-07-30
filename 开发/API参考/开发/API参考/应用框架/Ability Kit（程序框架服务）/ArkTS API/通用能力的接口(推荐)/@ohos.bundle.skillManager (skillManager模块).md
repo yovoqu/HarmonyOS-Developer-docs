@@ -1,6 +1,6 @@
 # @ohos.bundle.skillManager (skillManager模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-skillmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -140,6 +140,15 @@ getSkillInfosForSelf(flags: number): Promise<Array<[SkillInfo](https://developer
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Array&lt;SkillInfo&gt;> | Promise对象，返回调用方所在应用的所有技能信息数组。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17700101 | Bundle manager service is exception. Possible causes: 1. Failed to connect to the system service. 2. IPC data transmission failed. 3. Failed to obtain the object constructor. |
 
 
 **示例：**

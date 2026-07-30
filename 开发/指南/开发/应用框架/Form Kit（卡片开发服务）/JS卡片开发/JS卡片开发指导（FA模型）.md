@@ -1,6 +1,6 @@
 # JS卡片开发指导（FA模型）
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/widget-development-fa
 
@@ -28,8 +28,8 @@ FormProvider类有如下API接口，具体的API介绍详见[@ohos.app.form.form
 
 | 接口名 | 描述 |
 | --- | --- |
-| setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&lt;void&gt;): void; | 设置指定卡片的下一次更新时间，使用callback异步回调。 |
-| setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;; | 设置指定卡片的下一次更新时间，以promise方式返回。 |
+| setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&lt;void&gt;): void; | 设置指定卡片的下一次刷新时间，使用callback异步回调。 |
+| setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;; | 设置指定卡片的下一次刷新时间，以promise方式返回。 |
 | updateForm(formId: string, formBindingData: formBindingData.FormBindingData,callback: AsyncCallback&lt;void&gt;): void; | 更新指定的卡片，使用callback异步回调。 |
 | updateForm(formId: string, formBindingData: FormBindingData): Promise&lt;void&gt;; | 更新指定的卡片，以promise方式返回。 |
 
@@ -457,7 +457,7 @@ onUpdate(formId: string) {
 开发者可以使用类Web范式（HML+CSS+JSON）开发JS卡片页面。生成如下卡片页面，可以这样配置卡片页面文件：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/IjFnjN_kQg2veKSOfonmnw/zh-cn_image_0000002677826069.png?HW-CC-KV=V1&HW-CC-Date=20260723T012144Z&HW-CC-Expire=86400&HW-CC-Sign=236DFBC553F30103BC7715B11D10FBA21606C40B547B27F55A704971B542757D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/tnsJc6GtQfC7G9-4NYspqQ/zh-cn_image_0000002685926553.png?HW-CC-KV=V1&HW-CC-Date=20260730T071906Z&HW-CC-Expire=86400&HW-CC-Sign=D469AA9A7B8955FD092B75850B566FA9B6FE42743801188E9170B25A57916FE8)
 
 
 > [!NOTE]

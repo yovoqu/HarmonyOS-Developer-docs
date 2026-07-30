@@ -14,7 +14,7 @@ AES加密无法在CBC模式下用ISO7816-4PADDING进行填充，CBC模式下填�
 
 - AES为分组加密算法，分组长度为128位。在实际应用中，最后一组明文可能不足128位（16字节），此时可以通过不同的[填充模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#填充模式)进行数据填充。
 - 不同分组模式支持的填充模式如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/zrcFZv-2SCGKCOMsUt6Olg/zh-cn_image_0000002628609218.png?HW-CC-KV=V1&HW-CC-Date=20260723T013406Z&HW-CC-Expire=86400&HW-CC-Sign=4E438D98BCAE835EABE930BFF6C443E1C046DB3A4B8266021DE14E33526213AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/zrcFZv-2SCGKCOMsUt6Olg/zh-cn_image_0000002628609218.png?HW-CC-KV=V1&HW-CC-Date=20260730T072541Z&HW-CC-Expire=86400&HW-CC-Sign=B3EDBCB37B622B4967582110BE957776516D31B6913435905B88A97C7D94FEAB)
 
 - 使用算法库CBC的NoPadding填充，依据业务自行对数据进行ISO7816-4PADDING填充和校验。
 - ISO 7816-4是智能卡通信的国际标准，其中定义了一种特殊的数据填充（Padding）机制，用于将数据块扩展到特定长度；这种填充方案确保数据在传输或加密时符合块大小要求，同时保持数据完整性。

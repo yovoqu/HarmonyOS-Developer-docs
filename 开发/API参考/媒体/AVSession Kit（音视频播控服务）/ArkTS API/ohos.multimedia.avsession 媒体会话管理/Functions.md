@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -211,7 +211,6 @@ import { avSession } from '@kit.AVSessionKit';
 @Entry
 @Component
 struct Index {
-  private avsessioncontroller !: avSession.AVSessionController;
   @State message: string = 'hello world';
 
   build() {

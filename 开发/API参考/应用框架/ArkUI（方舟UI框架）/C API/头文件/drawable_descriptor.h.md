@@ -1,6 +1,6 @@
 # drawable_descriptor.h
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawable-descriptor-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,8 +40,8 @@
 | ArkUI_DrawableDescriptor | ArkUI_DrawableDescriptor | 定义DrawableDescriptor对象。 |
 | OH_PixelmapNative | - | 使用Image Kit定义的Native侧的OH_PixelmapNative对象。 |
 | OH_PixelmapNative* | OH_PixelmapNativeHandle | 定义OH_PixelmapNative对象指针类型。 |
-| ArkUI_Node | - | 定义ArkUI native组件实例对象。 起始版本： 22 |
-| ArkUI_Node* | ArkUI_NodeHandle | 定义ArkUI native组件实例对象指针。 起始版本： 22 |
+| ArkUI_Node | - | 定义ArkUI Native组件实例对象，供ArkUI_NodeHandle指针在Native接口中标识和传递组件实例。 起始版本： 22 |
+| ArkUI_Node* | ArkUI_NodeHandle | 定义 ArkUI Native 组件实例对象指针，用于在 ArkUI Native 接口中标识和传递组件实例，例如创建、挂载、移除或销毁组件节点。 起始版本： 22 |
 | ArkUI_DrawableDescriptor_AnimationController | ArkUI_DrawableDescriptor_AnimationController | 定义DrawableDescriptor动图控制器对象。 起始版本： 22 |
 
 
@@ -84,7 +84,7 @@
 | int32_t OH_ArkUI_DrawableDescriptor_CreateAnimationController(ArkUI_DrawableDescriptor* drawableDescriptor, ArkUI_NodeHandle node, ArkUI_DrawableDescriptor_AnimationController** controller) | 创建动图控制器。 |
 | void OH_ArkUI_DrawableDescriptor_DisposeAnimationController( ArkUI_DrawableDescriptor_AnimationController* controller) | 销毁动图控制器。 |
 | int32_t OH_ArkUI_DrawableDescriptor_StartAnimation(ArkUI_DrawableDescriptor_AnimationController* controller) | 从首帧开始播放。 |
-| int32_t OH_ArkUI_DrawableDescriptor_StopAnimation(ArkUI_DrawableDescriptor_AnimationController* controller) | 停止动图播放并回到首帧。 |
+| int32_t OH_ArkUI_DrawableDescriptor_StopAnimation(ArkUI_DrawableDescriptor_AnimationController* controller) | 停止动图播放。停止后的位置由OH_ArkUI_DrawableDescriptor_SetAnimationStopMode设置的停止模式决定。 |
 | int32_t OH_ArkUI_DrawableDescriptor_ResumeAnimation(ArkUI_DrawableDescriptor_AnimationController* controller) | 从当前帧恢复动图播放。 |
 | int32_t OH_ArkUI_DrawableDescriptor_PauseAnimation(ArkUI_DrawableDescriptor_AnimationController* controller) | 暂停动图的播放，保持在当前帧。 |
 | int32_t OH_ArkUI_DrawableDescriptor_GetAnimationStatus(ArkUI_DrawableDescriptor_AnimationController* controller, DrawableDescriptor_AnimationStatus* status) | 获取动图的播放状态。 |
@@ -199,7 +199,7 @@ ArkUI_DrawableDescriptor* OH_ArkUI_DrawableDescriptor_CreateFromAnimatedPixelMap
 | 参数项 | 描述 |
 | --- | --- |
 | OH_PixelmapNativeHandle* array | PixelMap图片数组对象指针。 |
-| int32_t size | PixelMap图片数组大小。 |
+| int32_t size | PixelMap图片数组大小，单位为元素个数，必须为正整数；传入 NULL 数组或 size <= 0 时返回 nullptr。 |
 
 
 **返回：**
@@ -630,7 +630,7 @@ int32_t OH_ArkUI_DrawableDescriptor_CreateAnimationController(ArkUI_DrawableDesc
 
 **描述：**
 
-创建动图控制器。
+创建动图控制器。当需要手动控制动图播放（如逐帧播放、暂停、跳转到指定帧、设置单帧时长）而非使用自动播放时，通过本接口获取控制器，再调用 StartAnimation/Pause 等控制接口。
 
 **起始版本：** 22
 
@@ -638,9 +638,9 @@ int32_t OH_ArkUI_DrawableDescriptor_CreateAnimationController(ArkUI_DrawableDesc
 
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_DrawableDescriptor* drawableDescriptor | DrawableDescriptor对象指针。 |
-| ArkUI_NodeHandle node | 组件节点指针。 |
-| ArkUI_DrawableDescriptor_AnimationController** controller | DrawableDescriptor动图控制器对象指针。 |
+| ArkUI_DrawableDescriptor* drawableDescriptor | DrawableDescriptor对象指针。必须是通过OH_ArkUI_DrawableDescriptor_CreateFromAnimatedPixelMap创建的动图对象。 |
+| ArkUI_NodeHandle node | 组件节点指针。必须是有效的ArkUI组件节点。 |
+| ArkUI_DrawableDescriptor_AnimationController** controller | DrawableDescriptor动图控制器对象指针。输出参数，调用成功时返回控制器指针。 |
 
 
 **返回：**

@@ -1,6 +1,6 @@
 # image_common.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -67,6 +67,9 @@
 | Image_ErrorCode OH_PictureMetadata_Create(Image_MetadataType metadataType, OH_PictureMetadata **metadata) | 创建OH_PictureMetadata指针。 |
 | Image_ErrorCode OH_PictureMetadata_GetProperty(OH_PictureMetadata *metadata, Image_String *key, Image_String *value) | 根据key获取Metadata的单条属性。该接口获取到的value.data缺少字符串结束符'\0'，请谨慎使用。 |
 | Image_ErrorCode OH_PictureMetadata_SetProperty(OH_PictureMetadata *metadata, Image_String *key, Image_String *value) | 根据key修改Metadata的单条属性。 |
+| Image_ErrorCode OH_PictureMetadata_SetBlobData(OH_PictureMetadata *metadata, uint8_t *blob, uint32_t blobSize) | 使用二进制数据替换当前元数据。 |
+| Image_ErrorCode OH_PictureMetadata_GetBlobDataSize(OH_PictureMetadata *metadata, uint32_t *blobSize) | 获取元数据中blob数据的大小。 |
+| Image_ErrorCode OH_PictureMetadata_GetBlobData(OH_PictureMetadata *metadata, uint8_t *blob, uint32_t blobSize) | 以二进制数据的形式获取元数据。 |
 | Image_ErrorCode OH_PictureMetadata_GetPropertyWithNull(OH_PictureMetadata *metadata, Image_String *key, Image_String *value) | 获取图片元数据的属性值。输出的value.data以字符串结束符'\0'结尾。 |
 | Image_ErrorCode OH_PictureMetadata_Release(OH_PictureMetadata *metadata) | 释放OH_PictureMetadata指针。 |
 | Image_ErrorCode OH_PictureMetadata_Clone(OH_PictureMetadata *oldMetadata, OH_PictureMetadata **newMetadata) | 拷贝元数据。 |
@@ -465,7 +468,7 @@ Image_ErrorCode OH_PictureMetadata_Create(Image_MetadataType metadataType, OH_Pi
 | 参数项 | 描述 |
 | --- | --- |
 | Image_MetadataType metadataType | 元数据的类型。 |
-| OH_PictureMetadata **metadata | 被操作的OH_PictureMetadata指针。 |
+| OH_PictureMetadata **metadata | 指向OH_PictureMetadata对象的指针。 |
  
  
 **返回：**
@@ -499,7 +502,7 @@ Image_ErrorCode OH_PictureMetadata_GetProperty(OH_PictureMetadata *metadata, Ima
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_PictureMetadata *metadata | 被操作的OH_PictureMetadata指针。 |
+| OH_PictureMetadata *metadata | 指向OH_PictureMetadata对象的指针。 |
 | Image_String *key | 属性的键。 |
 | Image_String *value | 属性的值。 |
  
@@ -535,7 +538,7 @@ Image_ErrorCode OH_PictureMetadata_SetProperty(OH_PictureMetadata *metadata, Ima
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_PictureMetadata *metadata | 被操作的OH_PictureMetadata指针。 |
+| OH_PictureMetadata *metadata | 指向OH_PictureMetadata对象的指针。 |
 | Image_String *key | 属性的键。 |
 | Image_String *value | 属性的值。 |
  
@@ -545,6 +548,101 @@ Image_ErrorCode OH_PictureMetadata_SetProperty(OH_PictureMetadata *metadata, Ima
 | 类型 | 说明 |
 | --- | --- |
 | Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_METADATA：不支持的元数据类型，或元数据类型与辅助图片类型不匹配。 |
+ 
+ 
+  
+
+#### OH_PictureMetadata_SetBlobData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureMetadata_SetBlobData(OH_PictureMetadata *metadata, uint8_t *blob, uint32_t blobSize)
+```
+ 
+**描述**
+ 
+使用二进制数据替换当前元数据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureMetadata *metadata | 指向OH_PictureMetadata对象的指针。 |
+| uint8_t *blob | 指向二进制数据的指针。 |
+| uint32_t blobSize | 二进制数据的大小。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：metadata或blob为空指针、blobSize为0。 IMAGE_UNSUPPORTED_METADATA：不支持的元数据类型。 IMAGE_UNSUPPORTED_OPERATION：未能设置二进制数据。 |
+ 
+ 
+  
+
+#### OH_PictureMetadata_GetBlobDataSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureMetadata_GetBlobDataSize(OH_PictureMetadata *metadata, uint32_t *blobSize)
+```
+ 
+**描述**
+ 
+获取元数据中blob数据的大小。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureMetadata *metadata | 指向OH_PictureMetadata对象的指针。 |
+| uint32_t *blobSize | 指向二进制数据大小的指针。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：metadata或blobSize为空指针。 IMAGE_UNSUPPORTED_METADATA：不支持的元数据类型。 |
+ 
+ 
+  
+
+#### OH_PictureMetadata_GetBlobData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureMetadata_GetBlobData(OH_PictureMetadata *metadata, uint8_t *blob, uint32_t blobSize)
+```
+ 
+**描述**
+ 
+以二进制数据的形式获取元数据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureMetadata *metadata | 指向OH_PictureMetadata对象的指针。 |
+| uint8_t *blob | 指向获取到的二进制数据的指针。 |
+| uint32_t blobSize | 二进制数据的大小。该值必须大于或等于通过OH_PictureMetadata_GetBlobDataSize方法获取的值。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：metadata或blob为空指针、blobSize为0或小于要求。 IMAGE_UNSUPPORTED_METADATA：不支持的元数据类型。 IMAGE_UNSUPPORTED_OPERATION：无法获取二进制数据。 |
  
  
   

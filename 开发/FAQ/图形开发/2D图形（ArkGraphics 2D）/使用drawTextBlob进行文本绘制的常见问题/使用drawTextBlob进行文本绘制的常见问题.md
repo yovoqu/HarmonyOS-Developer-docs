@@ -74,13 +74,13 @@ onDrawWrong(context: DrawContext, drawInfo: CustomSpanDrawInfo): void {
   问题效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/1lI9VUa7Qo2ky5gnRtI99w/zh-cn_image_0000002628553198.png?HW-CC-KV=V1&HW-CC-Date=20260723T013649Z&HW-CC-Expire=86400&HW-CC-Sign=1B905CCCF798F99BFCDBC147575998DC29C5810AC79F926FB2AD0DDF3A0101F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/1lI9VUa7Qo2ky5gnRtI99w/zh-cn_image_0000002628553198.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=4355FE1494B4CF9E001E35DF00C3FF08928DE36E0D02D642605D8997CD305D6D)
 
 
   因此在计算文本坐标时要根据字体的bound做出相应调整，bound和baseline的关系如下图所示，从Top到bottom为bound垂直区域，ascent为文本的升部，decender为文本的降部。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/FJWDuM--RXyBpSgLCO4lTA/zh-cn_image_0000002658912515.png?HW-CC-KV=V1&HW-CC-Date=20260723T013649Z&HW-CC-Expire=86400&HW-CC-Sign=31B58EF42758C8FA49564A866C48EEDB05CCA4D3847EFA33F962DE834C6610A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/FJWDuM--RXyBpSgLCO4lTA/zh-cn_image_0000002658912515.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=B86FF5346A79905D36C142D927A83DBFC79AC27DD3F24D47E02BA65676D91608)
 
 
   根据bound修改后的绘制效果参考代码如下：
@@ -180,7 +180,7 @@ struct <span style="color: rgb(0,0,255);">DrawText </span><span style="color: rg
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/oJAR4daqRnqBrk7Eg0qfww/zh-cn_image_0000002658792571.png?HW-CC-KV=V1&HW-CC-Date=20260723T013649Z&HW-CC-Expire=86400&HW-CC-Sign=C63CCB5C18C048C5663B6ADC50010707A1A6C4C61FC32C34BC5885B3AB7B0218)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/oJAR4daqRnqBrk7Eg0qfww/zh-cn_image_0000002658792571.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=684A4BEEB1CB6AF28346EF5AF6217DE7DCE6ADFB11189C57CDA80BAA7C03C9B9)
 
 
  

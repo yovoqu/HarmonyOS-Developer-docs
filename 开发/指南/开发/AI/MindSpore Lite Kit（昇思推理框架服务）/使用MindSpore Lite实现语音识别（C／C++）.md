@@ -1,6 +1,6 @@
-# 使用MindSpore Lite实现语音识别（C/C++）
+# 使用MindSpore Lite实现语音识别 (C/C++)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-asr-based-native
 
@@ -800,7 +800,7 @@ struct Index {
 
 
 #### 调测验证
-1. 在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
+1. 在DevEco Studio中连接设备，点击Run entry，编译HAP，有如下显示：
 
   
 ```bash

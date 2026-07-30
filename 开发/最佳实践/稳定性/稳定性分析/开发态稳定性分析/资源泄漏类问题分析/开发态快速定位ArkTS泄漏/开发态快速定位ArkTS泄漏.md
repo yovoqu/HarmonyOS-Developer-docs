@@ -15,7 +15,7 @@
 ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gc-introduction#hpp-gc)（即高性能部分垃圾回收），将对象按生命周期划分为新生代和老年代。使用标记-清除（mark-and-sweep）算法回收内存，所有可达对象被标记为存活，不可达对象则被回收。每次GC都是从根节点开始遍历，因此根节点被称为[GC Root](#table17319174010236)。该树的快照如下图所示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/SM5DEkN4T6yhOgdJU-Ba5g/zh-cn_image_0000002675100549.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=1CFB83CE4E7F05A1F26302112F1A865A9A376DB907D26BD149B9707E28E14A5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/jJaothozQniL1Q3Z-CxxDA/zh-cn_image_0000002675100549.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=0D08C703F6D19C1AC67C832EA2F12E81DE9AE55AE1085940ED930BCE3DEC76BE)
 
  
 理解垃圾回收（GC）机制的核心，在于把握一个根本原则：GC仅回收那些从GC Root不可达的对象。换言之，只要一个对象仍处于引用树的路径之上，即便它已被程序逻辑遗忘、不再被实际需要，GC也无力将其回收。内存泄漏的本质不是GC失效，而是开发者留下了不该留的引用链。因此排查内存泄漏的关键，就是找到那条从GC Root出发、让无用对象“存活”的引用路径，并在适当位置将其切断。
@@ -84,7 +84,7 @@ ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmon
   标准化排查流程整体流程如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/-42lqJWbSDuFGUzE1GT9bg/zh-cn_image_0000002675020693.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=3F8489C8FD87DF7CE117003EFCFE4304A117FE31BC7D41787585DDED5B8D2B0E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/sgLCRtl-Rt2roYqzsAyJlg/zh-cn_image_0000002675020693.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=57CBD674016FFE360CBBAD4F8DF5277B92A6326A07422632CE79A7698B60E88C)
 
 
   
@@ -118,32 +118,32 @@ ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmon
 5. **实际现象**：曲线呈阶梯状上升，多次操作后内存增长至314.1MB且无明显回落，存在内存泄漏。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/1OusZs0fQjKl3h_jBrM0Jw/zh-cn_image_0000002645100746.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=C76732C1D6595B12227B59687CCD10C794D2C65BD6B3BFA359AD20C31612696C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/qJ4XSnxpQTaTRoCHdJ7UAA/zh-cn_image_0000002645100746.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=AFEBEDB097F48CCA96446B3D15EBFC2068B91E73B7F51D8AA461E923CCEA06CD)
 
 - **堆快照对比定位异常对象**
 
   在 Profiler 中切换到Snapshot模板，请参考[Snapshot模板基本操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations)：选择Profiler工具 → 选择设备与应用进程 → 选择Snapshot模板 → 创建Session → 启动录制。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/ihtjvMa8R3qhKmTvOI1DZQ/zh-cn_image_0000002644940842.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=0490B308A0929373708EA9085BD0DB0C0035D51B123313532C7CB9FACA2A6545)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/4pFKbsygQ6OhpCJe91mx4Q/zh-cn_image_0000002644940842.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=49E3B00B1DC5468E0FC901B862DA9BD632999A23B3B659FA85CF8A3C51C96EE3)
 
 
   抓取快照1：首次在进入消息页前，点击“Take Heap Snapshot”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/j2oWBvZ9SSiBgL8YhP_zXA/zh-cn_image_0000002675100551.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=A07AD421B9E61BED054DF373423D2C5DB39FFB0C51831C72CED0888C41834712)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/7h6JTuIwR32Yr3mLlz5dhg/zh-cn_image_0000002675100551.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=3CB9706B6573CE88BF7F5261F294D068165DCA990DF97A9DD9908BA8B55F4329)
 
 
   抓取快照2：重复进出消息页面7次后，回到首页，点击“Take Heap Snapshot”，再抓取第二次快照，并停止录制。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/0ZbwgsPXRC6jyTFk7HVrhw/zh-cn_image_0000002675020695.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=1C8A0FE95CCBF457063C416FF16722FC7BD4229836B747CDF3D05393CEA41804)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/kHv_I08_R_6QN-9frCCHGg/zh-cn_image_0000002675020695.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=CDE16AD4633C98BF8E6CEE2D437210E0350B0B6B307C5321E13CCB1A5D299994)
 
 
   在快照对比视图Comparison中，选择CompareTo Snapshot1。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/TBlB3sRhQLe0b8e1hJMSKA/zh-cn_image_0000002645100748.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=031B60DF5A1CDE37B96DB4A35B98848DA062457F495E6F3B8750D1531C1CB3A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/JsiYRNTBSTaZIybjBwjwiQ/zh-cn_image_0000002645100748.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=B322112B3AB62B7C8A5E27D44FF34A811CD260DCCDC5ED640D8247B97D75FD84)
 
 
   查看对象新增销毁情况，优先关注：
@@ -153,7 +153,7 @@ ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmon
   业务对象，即Constructor的结构为包名/模块名/文件路径#泄漏对象。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/RxSpK_ZhSnOQq2fvZiv_lw/zh-cn_image_0000002644940844.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=D84C0302EDBE06B02CEF4F84BA7757B90A27B261A7DF55DFEB5CB0C7184DCFEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/Bu-H9MAvRue2rSyBol7p6A/zh-cn_image_0000002644940844.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=001580E3AABA8E534E4B20A366E0A1FE5DE24B8C6CF20842853FFF75619FCFA6)
 
 
   关键发现：
@@ -171,62 +171,62 @@ ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmon
   注：选择Distance数量较多的对象实例，主要是因为这些实例频繁地被创建且未能得到及时释放。这表明存在潜在的内存泄漏问题，需要进一步调查以确定具体的泄漏源。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/p4mK8QkjQomCvELzdx6pqw/zh-cn_image_0000002675100553.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=E288B219106ABED8D6CFE1D0DB391744704199401DBE87C6B2A2730BDE5AE74E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/5uh0a3NpSY2MeQRdYeq5Eg/zh-cn_image_0000002675100553.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=A462C8004A467F156A599DC87EA7CCE290A4A44F188F8498C9D9FDB5E70D8412)
 
 
   点击“Shortest Paths”获得如下Test对象实例的最短引用链：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/1eBwVWR0S3GI5Jj9C8mOOA/zh-cn_image_0000002675020697.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=EB8539185FAEF1FD25C08B3B902052E4F48DBF8F621FAC4552F79DB22F5403DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/25w1yBBhTSCs_CNNs0m0dA/zh-cn_image_0000002675020697.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=088A78FBCB847DE9C335DA4C883C3473BC326E27AB54D209EDB22254C52FA6A5)
 
 - **分析****VMRoot类型持有导致泄漏问题**
 
 1. 根据步骤3得到的Test对象实例的最短引用链分析，该引用链的GC Root为SourceTextModule符合被export模块导出对象持有，[VMRoot](#table17319174010236)泄漏类型场景。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/0ZA5i6hxQdqiXYBrK6KWNA/zh-cn_image_0000002645100750.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=17EC2E1515B79235A30C29BDAEBE35148DE324418B1A71B1938CC3FCB17314D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/4qNL1xk8RtW9KrRFefIEOw/zh-cn_image_0000002645100750.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=11FA08B88BA8D889A7CFF35881FE6BCAC1862D76701E45277471FBF496282DA1)
 
 
 2. 从GC Root向上排查引用链，找到第一个业务对象，即CacheTest.ts文件中的CacheTest对象的cache属性持有了Test对象未释放。点击后面跳转图标，打开CacheTest对象实例详细面板。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/QrU9UOamQciCf2PrBSgVHw/zh-cn_image_0000002644940846.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=1E503845B1AC7E9F233E63BBBD8CD573E01D2D90BA4D4CA1FC67AA160F7A6DC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Npw7iZdvRWSlr66NY7EWYg/zh-cn_image_0000002644940846.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=5BA4ABC743CDAC36EE13FDBCAF56039746C0E46214FEFEF81EB5EC7D3A2F10B7)
 
 
 3. CacheTest对象实例面板中，点击对象名后跳转按钮，跳转对应代码行。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/TTRq_CviRfCFr_p9g2C8Ag/zh-cn_image_0000002675100555.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=622799E226BE73F1E4D61C8DB2A57973C24A09988519F860371BF23485691569)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/qkWiFCYsSLaCOJzU5gyjNQ/zh-cn_image_0000002675100555.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=A59864F296876F9B41827EF297783963952CCCF812CA1F2679C9603262B614C3)
 
 
 4. 跳转代码后分析，CacheTest对象存在静态属性cache，该静态属性中保存了Test对象。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/hbAokEKqR8uovYo_Ialckw/zh-cn_image_0000002675020701.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=2892B967F1F23B075A29A5F486087434C1CA4832E6831178A08E28F25F9DFBDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/O44j23clQ32DT5XCplWpqA/zh-cn_image_0000002675020701.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=17F4029FE55C1902C7A8E6847D307DC7E2366EF41FBEF7573DD416F37DE1F684)
 
 
 5. 结合业务代码分析，MessageCenterPage组件创建时会保存一个Test对象到CacheTest中，但组件销毁时未清理该缓存导致内存泄漏。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/BnxoT-9CTPSka6n_FKT0gg/zh-cn_image_0000002645100752.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=7A4CF5A0029D26EDA202B7B987BFD51705282DC2EB7760666D0450CD437CC9D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/OhCi53A4Qb-iMOFd7I1Xqw/zh-cn_image_0000002645100752.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=AC91B3AC1874B43954253F841A175F609F3AE5DD137F552DAB14BAF6402E3813)
 
 
 6. 修改代码，在页面销毁时清除缓存。修改后重新复现操作**7次**，并抓快照验证，Test对象创建数量正常。但分析发现Proxy对象数量异常，创建70个未销毁。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/U5MEIDsxT4SIzT5vyzinow/zh-cn_image_0000002644940848.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=F6694862B6C891E27C1176AC50E155328A713C06622A5CF32C9C41C178E2F062)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/4zLS8W_dT0Swl2Xfj8hSpQ/zh-cn_image_0000002644940848.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=2BFAD6F4EB9D17A1D2B316542948838312B1EAA9621FB2FB7D1DAFCD6F93FFE9)
 
 
 7. 参考“步骤3：追踪引用链”，找到最短引用链，发现该Proxy对象的Distance为1。说明其为GC Root直接持有的对象，被Native侧直接持有未释放，即JS对象被Local Handle/Global Handle引用导致内存泄漏。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/0gB-inaqR52XUkbZQ_pCHQ/zh-cn_image_0000002675100557.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=273AF5B193AD55936FB5CD515127057864D2D9BCFBC7CF572EB60FC63D6B70F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/V4ebuY3_QNC2DzUMaiOslQ/zh-cn_image_0000002675100557.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=96F0544392F303D9B01288AE2C09EDE872DB7BCF28EE722A585766533FABE7E6)
 
 
 8. 通过Proxy对象的Distance为1的References，确认内存泄漏是由JS对象被Global Handle引用导致。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/U9mvgur7QA6akA-_Ah_x6w/zh-cn_image_0000002675020703.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=444871EB2A318DCD3785DD91662F8C9FA1523C0C2F799EE1AA11E5BD3FD3A7AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/6FXzl55iRh60RXyQjFWUzQ/zh-cn_image_0000002675020703.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=6086C97E04A029BB34C56C366B033347C65604B14B9B7AC968B2A1A231FD34E9)
 
 - 分析Local Handle/Global Handle类型持有导致泄漏问题
 
@@ -239,33 +239,33 @@ ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmon
 - 进入Profiler模块：在主界面下方菜单栏，找到并点击Profiler选项卡。
 - 选择应用进程：运行应用，并在“区域2”选择目标设备和应用进程。
 - 创建Allocation录制模板：选择“Allocation”并点击Create Session创建录制模板。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/1wyxJPvdTACzApg5hAssbw/zh-cn_image_0000002645100754.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=317A14EEAB6A2723611739609AF3B1252D4056820A99003F34941208646A5AD8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/M8mHGRvUSziH8Xu8UCUw2w/zh-cn_image_0000002645100754.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=48F762271BB68F6A9D605315BD7D26D5DA6D704BCA13CCDCACA98A1718DFE707)
 
 - 配置录制参数
 配置模式：选择详情模式（即关闭Statistics Mode）。当前仅详情模式支持进行ArkTS和Native的关联分析。
 - 配置开关：勾选“Local Handle”和“Global Handle”，这是关键配置。这将使Allocation专门捕获与JS-NAPI句柄相关的内存分配事件。如果底层镜像不支持该功能，则会提示“当前镜像版本不支持，请升级镜像”。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/dbp47WmkSYaUEaZhq2N_hQ/zh-cn_image_0000002644940852.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=BB5A9975E273E163428F71E6AA502158023A3A1AD59C46B2A9598113347D15FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/bSrlYIZKREiS_9qbhzFO6A/zh-cn_image_0000002644940852.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=3FB91D10754B0614B4167D6C0498C82510BF37DB4C276BF0EBD81CA14AB6D143)
 
 - 配置泳道范围：勾选ArkTS Snapshot泳道。这将使Allocation在录制结尾时自动抓取一份Snapshot快照用于关联分析。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/XhP7T0AHS2OdcdOVhXfDgA/zh-cn_image_0000002675100559.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=6FADFD74B696CF375F08869000DAAA72CF2704DBBD662A2EA22D017090AE5D5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/d7tNbKaqTIKvfTdjNr8qTg/zh-cn_image_0000002675100559.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=B0481A6BC19FCC1A01CB9C95C53E2CA9BB8244AC24808AD1229CD88DDC19AECE)
 
 
  - 启动录制：勾选了“[Local Handle](#table17319174010236)”开关后，如果是在应用本生命周期内首次录制local handle数据，会触发弹窗请求重启应用以便录制对应信息，此时点击OK允许重启即可。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/yHQwBWxrRGSv5qRTI5Y8zQ/zh-cn_image_0000002675020705.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=80EA3B5C67D1BD39050F4F1E5D5D6250A660928EDDDEF32A661B29C2734A4DE7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/gZQGeqSRSOq6rWshTEeyrQ/zh-cn_image_0000002675020705.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=79E03E40601A2412660F2B7990BDFCAA30CB4255A23C5CD68B5B9F7636023491)
 
 - 运行应用程序：运行目标应用，执行相关被怀疑引入内存泄漏的业务操作，持续一段时间以增加内存压力和捕获更多数据。
 - 停止录制：自动触发抓取一份Snapshot快照用于关联分析。点击快照，查找到疑似泄漏对象Proxy 。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/JxxTSTtCSF2Md69FmceG5A/zh-cn_image_0000002645100756.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=AED106862A3536DBF3977C639173A6C0214E88DCBDC3C111517487BD3E207695)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/mKtzfsepQTqJ4fY_adw6EQ/zh-cn_image_0000002645100756.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=2AA06A0AF49F26AB2C62FD20597F3EEF715D4682BBC35C08727143D4BE8B3C73)
 
 
  
 **2. 配置Allocation录制模板并捕获数据**
  
 - 定位可疑ArkTS对象：选中一个怀疑被泄漏的ArkTS对象实例（或对象类型），查看扩展标签页。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/nTGTZjCMTEOIcDH115SMHw/zh-cn_image_0000002644940854.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=DFF14318D7DA441BDD4E7445324D58081CC3F70D7A3D106DD23F886F85ABB86A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/xJuUA_IzSqOO1uCtPY5Qmg/zh-cn_image_0000002644940854.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=427508A1274363C7E31EEACCD2F6A5104427140873FFC66F754B2672A1E7DAA2)
 
 - 查看Native List：若某个ArkTS对象的distance值为1，则可以通过扩展标签页中的Native List标签页，查看所有当前与该JS对象关联的Native句柄引用，以确认该JS对象是被Local Handle或Global Handle引用的对象。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/fiIAs7wKQkm0kX96s0jXxA/zh-cn_image_0000002675100561.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=DA31348716D17ED77646D43D6B887ED2EF65F395FAB568CED62798E62C335B6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/Q3OLegflQSGR9UMetZy7CA/zh-cn_image_0000002675100561.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=088706A7605DE74DD99104ED6A3E3CBF06CEF1FB0D58E04D9B86A56F43B5B827)
 
 - 关键信息：1. 句柄类型：调用栈底层的符号ArkGlobalHandle或ArkLocalHandle判断泄漏类型。
 
@@ -289,7 +289,7 @@ ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmon
 4. 检查libuv异步调用等场景，句柄作用域是否正确添加Handle Scope。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/bsCxuu3xSByqx2yXjD1kKQ/zh-cn_image_0000002675020709.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=121C9FC4BE8494B02355AFA496057BDA02BB9A10D46BACB65DF6EC8D8AAB1741)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/CevNwemMS2uiLPPGlGwuUg/zh-cn_image_0000002675020709.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=22B7E24655B35A9E16F506B3E9B9FEAD407B94BA167675B61E4C77F5BBE02ACA)
 
 
  
@@ -306,11 +306,11 @@ ArkTS运行时采用[HPP GC](https://developer.huawei.com/consumer/cn/doc/harmon
 4. 再次抓取快照对比，多次操作后业务对象实例数量无明显增长。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/tHnjUYMsQsKwLeZwP1QsNw/zh-cn_image_0000002645100758.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=822B0EDBDC137EF5E69019663BD663A71B693566B94E29BA9E58CDBD9C30F46B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/XNmdNruDSPaB2U2nkq96Gw/zh-cn_image_0000002645100758.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=DBFC5388EF1843B0CB8DF6311C9570DB5F7D65FDF27C777C6D21C9684BC4351E)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/uwy6zTJBRfm3VGAi-nYCbA/zh-cn_image_0000002644940856.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=D96C3EC47F29634D154D97B78E0CD76DB4597AA3316E4EFDF522AEC3FEB85F97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/uEIlh2MtTlCklvHMENsx3Q/zh-cn_image_0000002644940856.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=2785127D03A2944EF3768DAE300BBFF8D61B867F47215FF08ACCA4C5A4EE5174)
 
  
  

@@ -127,13 +127,13 @@ export function <span style="color: rgb(0,0,255);">getGenerateProperties</span><
  使用SM4和AES的报错截图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/xpaxH7_STx6PXZMsutnpuQ/zh-cn_image_0000002658969105.png?HW-CC-KV=V1&HW-CC-Date=20260723T013415Z&HW-CC-Expire=86400&HW-CC-Sign=9FDCF7853F1B2592A4AFFE348A05F2EF38C288B7D67389E91CAF06FCDB36E0CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/xpaxH7_STx6PXZMsutnpuQ/zh-cn_image_0000002658969105.png?HW-CC-KV=V1&HW-CC-Date=20260730T072544Z&HW-CC-Expire=86400&HW-CC-Sign=0FAEE4C698F56071CD21685EFA78F9A9E062E3500F8E638284D1F48508AF3FDB)
 
 
   使用RSA算法输出正常：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/0wJ5SwOOS9-56m0iSGYwRA/zh-cn_image_0000002658849155.png?HW-CC-KV=V1&HW-CC-Date=20260723T013415Z&HW-CC-Expire=86400&HW-CC-Sign=C3C5A75FF3FB59F53D33C610B9C0BC52804A8DF6F08E3F335104DC2A3FBB9E8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/0wJ5SwOOS9-56m0iSGYwRA/zh-cn_image_0000002658849155.png?HW-CC-KV=V1&HW-CC-Date=20260730T072544Z&HW-CC-Expire=86400&HW-CC-Sign=9912BEF2EC00A7ED7FB84B757CFC393085ED4C6C4D0306E4E3618BFA67CCFFFB)
 
 
  

@@ -13,7 +13,7 @@ window模块提供的对截屏事件的监听，不仅在应用内截屏会触�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/C5ddtYrIR56knabzM49_3g/zh-cn_image_0000002658841303.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012838Z&HW-CC-Expire=86400&HW-CC-Sign=C9E05C62F5570ECDA32AE44195DAF2508DB8E979B79BB07BBD1DE5A4EDA1F614)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/C5ddtYrIR56knabzM49_3g/zh-cn_image_0000002658841303.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072419Z&HW-CC-Expire=86400&HW-CC-Sign=6029DAD256F52B294F6B295358C3D650B174CE698FBFDF7FB23BE481FDFFAF4F)
 
  
  

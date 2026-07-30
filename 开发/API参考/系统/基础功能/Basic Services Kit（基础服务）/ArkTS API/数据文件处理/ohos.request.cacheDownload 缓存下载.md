@@ -1,6 +1,6 @@
 # @ohos.request.cacheDownload (缓存下载)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request-cachedownload
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -78,6 +78,45 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
+#### TimeoutOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+任务超时配置选项。包括检查网络可用的超时时间和完成HTTP请求的超时时间。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用
+
+**系统能力：** SystemCapability.Request.FileTransferAgent
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| networkCheckTimeout | number | 否 | 是 | 检查网络可用的超时时间，单位为秒。默认值为20，最小值为0，最大值为20。 检查网络需要权限：ohos.permission.GET_NETWORK_INFO，无权限时网络检查失败直到超时。 |
+| httpTotalTimeout | number | 否 | 是 | 完成HTTP请求的超时时间，单位为秒。默认值为60，最小值为1。 |
+
+
+
+
+#### RetryOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+任务重试配置选项。设置任务的最大重试次数。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用
+
+**系统能力：** SystemCapability.Request.FileTransferAgent
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| maxRetryCount | number | 否 | 是 | 任务失败时的最大重试次数。默认值为1，最小值为0，最大值为10。 |
+
+
+
+
 #### CacheDownloadOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -92,6 +131,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 | sslType21+ | SslType | 否 | 是 | 使用安全通信协议TLS或TLCP，默认使用TLS。当前TLS和TLCP均不支持双向认证。 |
 | caPath21+ | string | 否 | 是 | CA证书路径。目前仅支持.pem格式证书，默认使用系统预设的CA证书。 |
 | cacheStrategy23+ | CacheStrategy | 否 | 是 | 使用缓存刷新策略FORCE或LAZY，默认使用FORCE。 |
+| retry | RetryOptions | 否 | 是 | 任务的重试配置。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| timeout | TimeoutOptions | 否 | 是 | 任务的超时配置。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
 
 
 
@@ -228,6 +269,11 @@ let options: cacheDownload.CacheDownloadOptions = {
   sslType: cacheDownload.SslType.TLS,
   caPath: '/path/to/ca.pem',
   cacheStrategy: cacheDownload.CacheStrategy.FORCE,
+  retry: { maxRetryCount: 1 },
+  timeout: {
+    networkCheckTimeout: 20,
+    httpTotalTimeout: 60,
+  }
 };
 
 try {
@@ -707,5 +753,80 @@ try {
   cacheDownload.download("https://www.example.com", {});
 } catch (err) {
   console.error(`Failed to download the resource. err code: ${err.code}, err message: ${err.message}`);
+}
+```
+
+
+
+#### cacheDownload.setGlobalRetryOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setGlobalRetryOptions(options?: RetryOptions): void
+
+设置全局的任务重试配置。当任务未设置特定的重试配置时此配置生效。重试配置优先级：任务设置 > 全局设置 > 默认设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用
+
+**系统能力：** SystemCapability.Request.FileTransferAgent
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | RetryOptions | 否 | 任务重试配置。 |
+
+
+**示例：**
+
+```text
+try {
+  // 设置全局的任务最大重试次数
+  cacheDownload.setGlobalRetryOptions({
+    maxRetryCount: 1
+  });
+  cacheDownload.download("https://www.example.com", {});
+} catch (err) {
+  console.error(`Failed to download the resource. err code: ${err?.code}, err message: ${err?.message}`);
+}
+```
+
+
+
+#### cacheDownload.setGlobalTimeoutOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setGlobalTimeoutOptions(options?: TimeoutOptions): void
+
+设置全局的任务超时配置。当任务未设置特定的超时配置时此配置生效。超时配置优先级：任务设置 > 全局设置 > 默认设置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用
+
+**系统能力：** SystemCapability.Request.FileTransferAgent
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | TimeoutOptions | 否 | 任务超时配置。 |
+
+
+**示例：**
+
+```text
+try {
+  // 设置全局任务超时配置
+  cacheDownload.setGlobalTimeoutOptions({
+    networkCheckTimeout: 20,
+    httpTotalTimeout: 60,
+  })
+  cacheDownload.download("https://www.example.com", {});
+} catch (err) {
+  console.error(`Failed to download the resource. err code: ${err?.code}, err message: ${err?.message}`);
 }
 ```

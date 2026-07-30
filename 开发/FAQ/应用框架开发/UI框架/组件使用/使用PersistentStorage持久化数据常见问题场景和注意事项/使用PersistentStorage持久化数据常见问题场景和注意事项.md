@@ -140,7 +140,7 @@ struct SceneOne {
  场景一实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/vyz52ymQQaG8NnEOg2EkEQ/zh-cn_image_0000002628567246.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012656Z&HW-CC-Expire=86400&HW-CC-Sign=BA614ED75C710437CABD933C75B15C6440025731EF4429BF84E9DCE5AA45FA70)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/vyz52ymQQaG8NnEOg2EkEQ/zh-cn_image_0000002628567246.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072339Z&HW-CC-Expire=86400&HW-CC-Sign=AC71DFED24E876822F57F56106F20DEC786D3FE57FADFD112AFA5CADDC177FE6)
 
 - 场景二：如何解决PersistentStorage无法获取持久化的数据的问题？PersistentStorage和UI实例相关联，持久化操作需要在UI实例初始化成功后（即[loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#loadcontent9)传入的回调被调用时）才可以被调用，由于问题代码中PersistentStorage早于该时机调用，所以会导致持久化失败。详情参考官网行业常见问题：[PersistentStorage无法获取持久化的数据如何解决](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-900)。
 - 场景三：如何解决PersistentStorage持久化数据无法删除的问题？当有页面使用@StorageLink的装饰器注册了监听时，可能存在无法删除的情况，详情参考官网行业常见问题：[PersistentStorage持久化数据无法删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-752)。

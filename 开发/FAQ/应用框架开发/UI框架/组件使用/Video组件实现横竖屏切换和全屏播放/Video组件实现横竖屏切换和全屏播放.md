@@ -1,6 +1,6 @@
 # Video组件实现横竖屏切换和全屏播放
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-657
 
@@ -180,6 +180,6 @@ struct <span style="color: rgb(0,0,255);">TabsView </span><span style="color: rg
 <span style="color: rgb(255,0,170);">}</span>
 ```
  
-Q：应用采取[组件安全区布局方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects#section202081847174413)实现全屏时，Video组件配置expandSafeArea属性有什么限制？
+Q：应用采取[组件安全区布局方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects#组件安全区方案)实现全屏时，Video组件配置expandSafeArea属性有什么限制？
  
 A：[Video组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)在使用expandSafeArea扩展安全区域时，组件视频显示内容区域不支持扩展。

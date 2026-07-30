@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行生命周期相关开发
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-life-cycle
 
@@ -67,12 +67,13 @@ cpp 部分代码：
  
 ```cpp
 // OH_JSVM_OpenHandleScope、OH_JSVM_CloseHandleScope的三种样例方法
-static JSVM_Value HandleScopeFor(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value HandleScopeFor(JSVM_Env env, JSVM_CallbackInfo info)
+{
     // 在for循环中频繁调用JSVM接口创建js对象时，要加handle_scope及时释放不再使用的资源。
     // 下面例子中，每次循环结束局部变量res的生命周期已结束，因此加scope及时释放其持有的js对象，防止内存泄漏
-    constexpr uint32_t DIFF_VALUE_TEN_THOUSAND = 10000;
+    constexpr uint32_t DIFF_VALUE_HUNDRED_THOUSAND = 10000;
     JSVM_Value checked = nullptr;
-    for (int i = 0; i < DIFF_VALUE_TEN_THOUSAND; i++) {
+    for (int i = 0; i < DIFF_VALUE_HUNDRED_THOUSAND; i++) {
         JSVM_HandleScope scope = nullptr;
         JSVM_Status status = OH_JSVM_OpenHandleScope(env, &scope);
         if (status != JSVM_OK || scope == nullptr) {
@@ -103,7 +104,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"HandleScopeFor", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 
-const char *srcCallNative = "HandleScopeFor()";
+const char *SRC_CALL_NATIVE = "HandleScopeFor()";
 ```
  
 预期输出
@@ -169,7 +170,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"escapableHandleScopeTest", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 
-const char *srcCallNative = "escapableHandleScopeTest()";
+const char *SRC_CALL_NATIVE = "escapableHandleScopeTest()";
 ```
  
 预期输出
@@ -204,7 +205,7 @@ static JSVM_Value UseReference(JSVM_Env env, JSVM_CallbackInfo info)
     JSVM_Value value = nullptr;
     OH_JSVM_CreateStringUtf8(env, "UseReference", JSVM_AUTO_LENGTH, &value);
     OH_JSVM_SetNamedProperty(env, obj, "name", value);
-    
+
     JSVM_Ref g_ref = nullptr;
     // 创建对JavaScript对象的引用
     JSVM_Status status = OH_JSVM_CreateReference(env, obj, 1, &g_ref);
@@ -213,16 +214,17 @@ static JSVM_Value UseReference(JSVM_Env env, JSVM_CallbackInfo info)
     }
 
     // 增加传入引用的引用计数并返回生成的引用计数
-    uint32_t result = 0u;
+    uint32_t result = 0;
     OH_JSVM_ReferenceRef(env, g_ref, &result);
     OH_LOG_INFO(LOG_APP, "JSVM OH_JSVM_ReferenceRef, count = %{public}d.", result);
-    if (result != 2) {
+    const int resultValue = 2;
+    if (result != resultValue) {
         OH_LOG_ERROR(LOG_APP, "JSVM OH_JSVM_ReferenceRef: failed");
         return nullptr;
     }
 
     // 减少传入引用的引用计数并返回生成的引用计数
-    uint32_t num = 0u;
+    uint32_t num = 0;
     OH_JSVM_ReferenceUnref(env, g_ref, &num);
     OH_LOG_INFO(LOG_APP, "JSVM OH_JSVM_ReferenceUnref, count = %{public}d.", num);
     if (num != 1) {
@@ -259,7 +261,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"useReference", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 
-const char *srcCallNative = "useReference()";
+const char *SRC_CALL_NATIVE = "useReference()";
 ```
  
 预期结果：
@@ -281,7 +283,8 @@ Finalizer 方法被注册后无法取消，如果在调用 OH_JSVM_DestroyEnv �
 cpp 部分代码：
  
 ```cpp
-static int AddFinalizer(JSVM_VM vm, JSVM_Env env) {
+static int AddFinalizer(JSVM_VM vm, JSVM_Env env)
+{
     // 打开 handlescope
     JSVM_HandleScope handleScope;
     CHECK_RET(OH_JSVM_OpenHandleScope(env, &handleScope));
@@ -305,7 +308,8 @@ static int AddFinalizer(JSVM_VM vm, JSVM_Env env) {
     return 0;
 }
 
-static JSVM_Value RunDemo(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value RunDemo(JSVM_Env env, JSVM_CallbackInfo info)
+{
     JSVM_VM vm;
     OH_JSVM_GetVM(env, &vm);
     if (AddFinalizer(vm, env) != 0) {
@@ -326,7 +330,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
 };
 
 // 样例测试js
-const char *srcCallNative = R"JS(RunDemo();)JS";
+const char *SRC_CALL_NATIVE = R"JS(RunDemo();)JS";
 ```
  
 预期结果：

@@ -1,6 +1,6 @@
 # Native内存泄漏导致应用闪退
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-11
 
@@ -18,7 +18,7 @@ memleak-native-[process_name]-[pid]-sample.txt。
 - memleak-native-[process_name]-[pid]-smaps.txt。
 - memleak-native-[process_name]-[pid]-[timestamp].txt。
 
- - Native内存泄漏[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#section8486193719219)中说明了日志文件中每个字段的具体含义。
+ - Native内存泄漏[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#native内存泄漏日志规格)中说明了日志文件中每个字段的具体含义。
 - DevEco Profiler提供了基础的内存场景分析Allocation，可以使用Allocation来分析应用或元服务在运行时的内存分配及使用情况，识别和定位内存泄漏、内存抖动以及内存溢出等问题，对应用或元服务的内存使用进行优化，参考文档[内存分析及优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-allocations-memory)。
 
  

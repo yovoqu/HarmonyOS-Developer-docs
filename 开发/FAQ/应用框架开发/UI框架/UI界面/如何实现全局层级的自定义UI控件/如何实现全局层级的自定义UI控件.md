@@ -428,4 +428,4 @@ struct BuilderComponent {
 实现效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/skbtsio9S66CmsXsx3YjUA/zh-cn_image_0000002628554166.png?HW-CC-KV=V1&HW-CC-Date=20260723T013231Z&HW-CC-Expire=86400&HW-CC-Sign=B60F1A20C52548D65D1E18CF0F4B7BF42FF36BB05C22F484D62C6F21E7BB8742)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/skbtsio9S66CmsXsx3YjUA/zh-cn_image_0000002628554166.png?HW-CC-KV=V1&HW-CC-Date=20260730T072517Z&HW-CC-Expire=86400&HW-CC-Sign=15ECEFCE85885C0E7A886689AF375621154A08C1A4AE637DD4152DF77728675B)

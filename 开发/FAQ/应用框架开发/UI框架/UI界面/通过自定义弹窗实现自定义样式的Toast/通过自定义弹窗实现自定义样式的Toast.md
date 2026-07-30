@@ -13,7 +13,7 @@ HarmonyOS的Toast接口，不支持设定圆角样式。如何实现类似其他
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/MnsOToPCRf6FOeRY_LoQFg/zh-cn_image_0000002628555228.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013023Z&HW-CC-Expire=86400&HW-CC-Sign=E20A1683E584DC796ACA2EC1CD50F5A0E812711DFDDC5B7C6EBC1C359AC71B0D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/MnsOToPCRf6FOeRY_LoQFg/zh-cn_image_0000002628555228.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072444Z&HW-CC-Expire=86400&HW-CC-Sign=3ED0ED3F20F29D313BDB0D0B2EB874C306F1F8DB0D73722BE94B63FF095C5327)
 
  
  

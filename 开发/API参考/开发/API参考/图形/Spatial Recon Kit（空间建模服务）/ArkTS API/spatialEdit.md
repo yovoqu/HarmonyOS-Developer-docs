@@ -1,8 +1,9 @@
 # spatialEdit
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialedit
+**支持设备：** Phone | PC/2in1 | Tablet
 
 spatialEdit模块提供了编辑3DGS（3D Gaussian Splatting）模型的能力，支持选择、变换、上色和删除高斯点等操作。
  
@@ -15,6 +16,8 @@ spatialEdit模块提供了编辑3DGS（3D Gaussian Splatting）模型的能力�
 
 #### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { spatialEdit } from '@kit.SpatialReconKit';
 ```
@@ -22,6 +25,8 @@ import { spatialEdit } from '@kit.SpatialReconKit';
   
 
 #### PaintMode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义颜色混合模式的枚举类型。
  
@@ -42,6 +47,8 @@ import { spatialEdit } from '@kit.SpatialReconKit';
 
 #### GSEdit
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 3DGS模型编辑句柄类，提供对高斯模型的各种编辑操作。
  
 **系统能力：** SystemCapability.Graphics.SpatialEdit
@@ -53,6 +60,8 @@ import { spatialEdit } from '@kit.SpatialReconKit';
   
 
 #### editGSNode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 static editGSNode(node: spatialRender.GSNode): GSEdit | undefined
  
@@ -102,6 +111,8 @@ function EditGSNode() : void {
 
 #### selectBy2DBox
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 selectBy2DBox(rect: Rect): void
  
 在视口坐标中选择2D矩形区域内的高斯点（添加到当前选区）。
@@ -145,6 +156,8 @@ function SelectBy2DBox() : void {
   
 
 #### selectBy3DBox
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 selectBy3DBox(aabb: Aabb): void
  
@@ -193,6 +206,8 @@ function SelectBy3DBox() : void {
 
 #### selectByIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 selectByIndex(indices: number[]): void
  
 通过索引选择高斯点（添加到当前选区）。
@@ -239,6 +254,8 @@ function SelectByIndex() : void {
   
 
 #### selectBy2DMask
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 selectBy2DMask(mask: image.PixelMap): void
  
@@ -293,6 +310,8 @@ function SelectBy2DMask(context : Context) : void {
 
 #### invertSelection
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 invertSelection(): void
  
 反选当前选区。
@@ -332,6 +351,8 @@ function InvertSelection() : void {
 
 #### clearSelection
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 clearSelection(): void
  
 清除当前选区。
@@ -370,6 +391,8 @@ function ClearSelection() : void {
   
 
 #### transform
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 transform(matrix: Mat4x4): void
  
@@ -430,6 +453,8 @@ function Transform() : void {
 
 #### paint
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 paint(color: Color, mode: PaintMode): void
  
 使用指定混合模式为当前选区上色。
@@ -483,6 +508,8 @@ function Paint() : void {
 
 #### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 remove(): void
  
 删除当前选区中的高斯点。
@@ -521,6 +548,8 @@ function Remove() : void {
   
 
 #### undo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 undo(): void
  
@@ -561,7 +590,63 @@ function undo() : void {
  
   
 
+#### getRecommended3DBox
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getRecommended3DBox(ori: Vec3, dir: Vec3): Aabb
+ 
+获取对象沿特定射线的推荐3D轴对齐边界框。
+ 
+**系统能力：** SystemCapability.Graphics.SpatialEdit
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| ori | Vec3 | 是 | 射线的起点坐标。 |
+| dir | Vec3 | 是 | 射线的方向向量。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Aabb | 射线检测到的物体的3D轴对齐包围盒（AABB）。 |
+ 
+ 
+**示例：**
+ 
+```text
+import { spatialRender, spatialEdit } from '@kit.SpatialReconKit';
+import { Scene, SceneResourceFactory, Aabb, Vec3 } from '@kit.ArkGraphics3D';
+
+function getRecommended3DBox() : void {
+  // 加载3DGS插件
+  Scene.getDefaultRenderContext()?.loadPlugin(spatialRender.GSPlugin.PLUGIN_ID);
+  // 加载场景
+  Scene.load().then(async (scene: Scene) => {
+    let rf: SceneResourceFactory = scene.getResourceFactory();
+    // 获取GSNode实例
+    let gsNode: spatialRender.GSNode = await rf.createNode({ name: "gs", path: "//gs" })
+    // 获取GSEdit实例
+    let editor: spatialEdit.GSEdit = spatialEdit.GSEdit.editGSNode(gsNode);
+
+    let rayOrigin: Vec3 = { x : 0 , y : 0 , z : 0 };
+    let rayDirection: Vec3 = { x : 1 , y : 1 , z : 1 };
+    // 获取射线相交物体的包围盒
+    let aabb: Aabb = editor.getRecommended3DBox(rayOrigin, rayDirection);
+  });
+}
+```
+ 
+  
+
 #### saveToPLY
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 saveToPLY(uri: string): Promise&lt;boolean&gt;
  
@@ -617,6 +702,58 @@ function SaveToPLY(context: Context) : void {
     } else {
       console.error("保存失败");
     }
+  });
+}
+```
+ 
+  
+
+#### extract3DMainBody
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+extract3DMainBody(point: Vec2): Promise&lt;boolean&gt;
+ 
+根据按压的点集提取3D主体,调用完成后，抽取结果会覆盖内存中的GSNode数据，使用Promise异步回调。
+ 
+**系统能力：** SystemCapability.Graphics.SpatialEdit
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| point | Vec2 | 是 | 屏幕位置坐标，用于指定提取主体的位置。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;boolean&gt; | Promise对象，是否成功提取主体，true表示成功，false表示失败。 |
+ 
+ 
+**示例：**
+ 
+```text
+import { spatialRender, spatialEdit } from '@kit.SpatialReconKit';
+import { Scene, SceneResourceFactory, Vec2 } from '@kit.ArkGraphics3D';
+
+function extract3DMainBody() : void {
+  // 加载3DGS插件
+  Scene.getDefaultRenderContext()?.loadPlugin(spatialRender.GSPlugin.PLUGIN_ID);
+  // 加载场景
+  Scene.load().then(async (scene: Scene) => {
+    let rf: SceneResourceFactory = scene.getResourceFactory();
+    // 获取GSNode实例
+    let gsNode: spatialRender.GSNode = await rf.createNode({ name: "gs", path: "//gs" });
+    // 获取GSEdit实例
+    let editor: spatialEdit.GSEdit = spatialEdit.GSEdit.editGSNode(gsNode);
+
+    let point: Vec2 = { x: 0.5, y: 0.5 };
+    // 提取该位置的3D主体
+    let result: boolean = await editor.extract3DMainBody(point);
   });
 }
 ```

@@ -1,6 +1,6 @@
 # ProcessingConfiguration：定制处理行为
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customprocessconfig
 
@@ -30,7 +30,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
   
 ```text
 const session = rcp.createSession();
-const request = new rcp.Request('https://www.example.com');
+const request = new rcp.Request('https://www.example.com'); // 请替换为实际的网址
 
 // 定义处理配置，用于验证响应状态码是否为200
 const processing: rcp.ProcessingConfiguration = {
@@ -53,13 +53,16 @@ session.fetch(request).then((response: rcp.Response) => {
   // 如果 processing.validateResponse 返回值是true，则会执行以下流程。
   if (response) {
     console.info(`Response received with status code: ${response.statusCode}`);
+    // ...
   } else {
     console.error('No response received');
+    // ...
   }
   session.close();
 }).catch((err: BusinessError) => {
   // 如果 processing.validateResponse 返回值是false，则会执行以下流程。
   console.error(`The error code is ${err.code}, error data is ${err.data}`);
+  // ...
   session.close();
 });
 ```

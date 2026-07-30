@@ -10,12 +10,12 @@ SVG图片在DevEco Studio和浏览器中打开显示为黄色，但是在测试�
  
  
 - DevEco Studio中预览为黄色：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/Xmd0UcF0TEaCqYRYj2-G5Q/zh-cn_image_0000002628408094.png?HW-CC-KV=V1&HW-CC-Date=20260723T013915Z&HW-CC-Expire=86400&HW-CC-Sign=09FA996A96328F96D7020787A2CA101B38447215CF97843BAF7BEDB75FEB807D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/Xmd0UcF0TEaCqYRYj2-G5Q/zh-cn_image_0000002628408094.png?HW-CC-KV=V1&HW-CC-Date=20260730T072712Z&HW-CC-Expire=86400&HW-CC-Sign=1D42EF9899D74D56E6A9B3BA3A6C1A25ABAAABD2D63FA9201F6B33CDAFED0323)
 
 
  
 - DevEco Studio的Previewer中渲染为红色：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/L84FQ5JGRVyIv5vTjs-tuA/zh-cn_image_0000002628567994.png?HW-CC-KV=V1&HW-CC-Date=20260723T013915Z&HW-CC-Expire=86400&HW-CC-Sign=CFD18CAEC33C22D26A0223B3D2D4DF5CE06052AB490B2A4831628F6F4BE2F2BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/L84FQ5JGRVyIv5vTjs-tuA/zh-cn_image_0000002628567994.png?HW-CC-KV=V1&HW-CC-Date=20260730T072712Z&HW-CC-Expire=86400&HW-CC-Sign=7B8764A62B4442BE832155275018C40E7112B78C3CD87B424EC7F1006722EC4C)
 
 
   
@@ -38,7 +38,7 @@ SVG图片在DevEco Studio和浏览器中打开显示为黄色，但是在测试�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/il31FXeVR8ymGRBbGn8fFg/zh-cn_image_0000002658927315.png?HW-CC-KV=V1&HW-CC-Date=20260723T013915Z&HW-CC-Expire=86400&HW-CC-Sign=9A668BB54DA461A4F144676F82C521E4EFF9DF8CE1F2DF6EFB9CB57152286B3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/il31FXeVR8ymGRBbGn8fFg/zh-cn_image_0000002658927315.png?HW-CC-KV=V1&HW-CC-Date=20260730T072712Z&HW-CC-Expire=86400&HW-CC-Sign=29C910F4EAE7127F1A59F8723E2EA252F5356AF0A97F8EB6CF04E8A4B8BEDDC2)
 
  
  

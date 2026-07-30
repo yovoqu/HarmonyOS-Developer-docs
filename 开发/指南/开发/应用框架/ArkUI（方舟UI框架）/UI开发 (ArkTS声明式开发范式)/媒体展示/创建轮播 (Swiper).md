@@ -1,6 +1,6 @@
 # 创建轮播 (Swiper)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-looping
 
@@ -348,35 +348,34 @@ Swiper支持在一个页面内同时显示多个子组件，通过[displayCount]
 
 ```ArkTS
 Swiper() {
-    Text('0')
-      .width(250)
-      .height(250)
-      .backgroundColor(Color.Gray)
-      .textAlign(TextAlign.Center)
-      .fontSize(30)
-    Text('1')
-      .width(250)
-      .height(250)
-      .backgroundColor(Color.Green)
-      .textAlign(TextAlign.Center)
-      .fontSize(30)
-    Text('2')
-      .width(250)
-      .height(250)
-      .backgroundColor(Color.Pink)
-      .textAlign(TextAlign.Center)
-      .fontSize(30)
-    Text('3')
-      .width(250)
-      .height(250)
-      .backgroundColor(Color.Yellow)
-      .textAlign(TextAlign.Center)
-      .fontSize(30)
-  }
-// ···
-  .indicator(true)
-  .displayCount(2)
+  Text('0')
+    .width(250)
+    .height(250)
+    .backgroundColor(Color.Gray)
+    .textAlign(TextAlign.Center)
+    .fontSize(30)
+  Text('1')
+    .width(250)
+    .height(250)
+    .backgroundColor(Color.Green)
+    .textAlign(TextAlign.Center)
+    .fontSize(30)
+  Text('2')
+    .width(250)
+    .height(250)
+    .backgroundColor(Color.Pink)
+    .textAlign(TextAlign.Center)
+    .fontSize(30)
+  Text('3')
+    .width(250)
+    .height(250)
+    .backgroundColor(Color.Yellow)
+    .textAlign(TextAlign.Center)
+    .fontSize(30)
 }
+// ...
+.indicator(true)
+.displayCount(2)
 ```
 
 

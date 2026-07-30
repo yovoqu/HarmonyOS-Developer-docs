@@ -1,6 +1,6 @@
 # native_audio_converter.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-converter-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-声明输入音频格式、输出音频格式底层数据结构和格式转换接口的定义。
+声明输入音频格式、输出音频格式底层数据结构和格式转换接口。
  
 **引用文件：** <ohaudiosuite/native_audio_converter.h>
  
@@ -156,8 +156,8 @@ OH_AudioConverter_Result OH_AudioConverter_Create(const OH_AudioConverter_Format
   
 | 参数项 | 描述 |
 | --- | --- |
-| const OH_AudioConverter_Format* inputFormat | 配置指向输入音频格式的指针。 |
-| const OH_AudioConverter_Format* outputFormat | 配置指向输出音频格式的指针。 |
+| const OH_AudioConverter_Format* inputFormat | 指向输入音频格式的指针。 |
+| const OH_AudioConverter_Format* outputFormat | 指向输出音频格式的指针。 |
 | OH_AudioConverter** converter | 指向可用的音频转换器的指针。 |
  
  
@@ -220,7 +220,7 @@ typedef int32_t (*OH_AudioConverter_RequestDataCallback)(void* userData, const v
 | --- | --- |
 | void* userData | 传递给回调函数的用户自定义数据。 |
 | const void** outInputData | 指向回调函数设置的指向输入音频数据缓冲区的指针。 |
-| OH_AudioConverter_InputStatus* outStatus | 通过回调函数设置，以通知转换器数据流状态是否可用。 |
+| OH_AudioConverter_InputStatus* outStatus | 通过回调函数设置，用于通知转换器输入数据的状态。 |
  
  
 **返回：**

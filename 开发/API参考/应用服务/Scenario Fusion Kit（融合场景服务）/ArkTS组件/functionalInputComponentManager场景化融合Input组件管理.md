@@ -1,17 +1,11 @@
 # functionalInputComponentManager(场景化融合Input组件管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalinputcomponentmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供FunctionalInput组件的逻辑管理，辅助HarmonyOS应用和元服务通过FunctionalInput组件完成快速拉起选择地区页面，供用户选择地区信息的功能。
- 
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
-**元服务API：** 从版本5.1.0(18)开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
  
 **起始版本：** 5.1.0(18)
   
@@ -178,7 +172,7 @@ struct Index {
             inputType: functionalInputComponentManager.InputType.SELECT_DISTRICT,
             textInputValue: {
               text: this.inputContent,
-              placeholder: '省、市、区、街道地址',
+              placeholder: '省、市、区、街道地址'
             },
             // 调整TextInput样式。
             inputAttributeModifier: new TextInputModifier()
@@ -195,7 +189,7 @@ struct Index {
               .onClick(() => {
                 this.inputContent = '';
               })
-              .fontSize(32),
+              .fontSize(32)
           },
           // 当InputType为SELECT_DISTRICT时，回调必须为onSelectDistrict。
           controller: new functionalInputComponentManager.FunctionalInputController().onSelectDistrict((err,

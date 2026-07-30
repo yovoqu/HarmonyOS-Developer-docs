@@ -15,9 +15,9 @@
 - [aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)函数在创建自定义组件的新实例后，在执行其build()函数之前执行，早于[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件的渲染。
 - [preloadItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#preloaditems12)是控制器[TabsController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabscontroller)的一个方法，能够控制Tabs预加载指定子节点。调用该接口后会一次性加载所有指定的子节点，预加载到不存在的索引时就会报错。
 - Router路由与导航Navigation各自的生命周期不同，具体情况如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/kBuBkw9bTdCm6ziTs8Iq1A/zh-cn_image_0000002658928745.png?HW-CC-KV=V1&HW-CC-Date=20260723T013016Z&HW-CC-Expire=86400&HW-CC-Sign=C43CFED077E998EA4C70CC3B511F58977724714496B7CB3EDCCDA4A64676FEAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/kBuBkw9bTdCm6ziTs8Iq1A/zh-cn_image_0000002658928745.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=C3552964F569C8ADBA1EFB8DB77A3529C5F4A91E660039FF029939BEA75091AB)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/Zs-NAF35T5aKPqgNKn5y2A/zh-cn_image_0000002658808797.png?HW-CC-KV=V1&HW-CC-Date=20260723T013016Z&HW-CC-Expire=86400&HW-CC-Sign=E480B278239FF174CDCCB4DA89FB1926BEDD647B5EA323C7A589A0076B6DC6CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/Zs-NAF35T5aKPqgNKn5y2A/zh-cn_image_0000002658808797.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=510943CD14C6FE498EA5468D369E92FEB27FFC2FD8445BEEC07867FC6B96A1D7)
 
 
  

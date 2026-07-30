@@ -1,12 +1,12 @@
 # UIAbility组件与UI的数据同步
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-data-sync-with-ui
 
 基于当前的应用模型，可以通过以下几种方式来实现[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件与UI之间的数据同步。
 
- - [使用EventHub进行数据通信](#使用eventhub进行数据通信)：在[基类Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)中提供了[EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)对象，可以通过发布订阅方式来实现事件的传递。在事件传递前，订阅者需要先进行订阅，当发布者发布事件时，订阅者将接收到事件并进行相应处理。
+ - [使用EventHub进行数据通信](#使用eventhub进行数据通信)：在基类[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)中提供了[EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)对象，可以通过发布订阅方式来实现事件的传递。在事件传递前，订阅者需要先进行订阅，当发布者发布事件时，订阅者将接收到事件并进行相应处理。
  - [使用AppStorage/LocalStorage进行数据同步](#使用appstoragelocalstorage进行数据同步)：ArkUI提供了[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)和[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)两种应用级别的状态管理方案，可用于实现应用级别和UIAbility级别的数据同步。
 
 
@@ -15,7 +15,7 @@
 
 [EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)为[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件提供了事件机制，使它们能够进行订阅、取消订阅和触发事件等数据通信能力。
 
-在[基类Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)中，提供了EventHub对象，可用于在UIAbility组件实例内通信。使用EventHub实现UIAbility与UI之间的数据通信需要先获取EventHub对象，本章节将以此为例进行说明。
+在基类[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)中，提供了EventHub对象，可用于在UIAbility组件实例内通信。使用EventHub实现UIAbility与UI之间的数据通信需要先获取EventHub对象，本章节将以此为例进行说明。
 1. 在UIAbility中调用[eventHub.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub#eventhubon)方法注册一个自定义事件“event1”，eventHub.on()有如下两种调用方式，使用其中一种即可。
 
   
@@ -119,7 +119,7 @@ struct EventHubPage {
   
 ```ArkTS
 // ···
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 // ···
 
 export default class EntryAbility extends UIAbility {

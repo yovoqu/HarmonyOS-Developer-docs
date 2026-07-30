@@ -13,7 +13,7 @@
 #### 背景知识
 
 - 应用启动流程，应用启动大致分为6个阶段：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/A7DtsEkEScu8H7lSDSsASg/zh-cn_image_0000002628476146.png?HW-CC-KV=V1&HW-CC-Date=20260723T012348Z&HW-CC-Expire=86400&HW-CC-Sign=18645F26AF2FFECF3A8257877F702D3F1913A83F75327EAF32BA70C3E8FABC26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/A7DtsEkEScu8H7lSDSsASg/zh-cn_image_0000002628476146.png?HW-CC-KV=V1&HW-CC-Date=20260730T072247Z&HW-CC-Expire=86400&HW-CC-Sign=A93CDAC3A08014293FDB329BAAD77A539505BD29C94D2046970ACB8DBE248502)
 
 
 1. AbilityManagerService请求AppSpawn创建应用进程。

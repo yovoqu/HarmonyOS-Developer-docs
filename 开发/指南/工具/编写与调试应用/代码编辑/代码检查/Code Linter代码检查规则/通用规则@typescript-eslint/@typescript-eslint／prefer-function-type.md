@@ -1,10 +1,12 @@
 # @typescript-eslint/prefer-function-type
 
-更新时间：2026-06-24 07:08:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-function-type
 
 强制使用函数类型而不是带有签名的对象类型。
+ 
+
  
 
 #### 规则配置

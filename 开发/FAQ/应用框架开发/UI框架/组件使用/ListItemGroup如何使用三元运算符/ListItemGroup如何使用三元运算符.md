@@ -13,7 +13,7 @@ ListItemGroup如何使用三元运算符，渲染不同的组件？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/WvGzHW18TXeRZoR-RwQ-QA/zh-cn_image_0000002658794589.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012606Z&HW-CC-Expire=86400&HW-CC-Sign=EB04636F63E34B663CEE4916A5419B25C495C73DB21C6B2487772B218160B304)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/WvGzHW18TXeRZoR-RwQ-QA/zh-cn_image_0000002658794589.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=503F42C5A9A3B58403EB9E33D1A4323E3E9FB6376ACDE41B4ABA5A9D51766E08)
 
  
  

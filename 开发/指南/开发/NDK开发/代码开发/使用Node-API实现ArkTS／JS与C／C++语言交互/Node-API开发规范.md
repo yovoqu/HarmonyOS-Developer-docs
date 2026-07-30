@@ -1,6 +1,6 @@
 # Node-API开发规范
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-guidelines
 
@@ -309,7 +309,7 @@ napi_create_arraybuffer等同于JS代码中的new ArrayBuffer(size)，其生成�
 
 #### 数据转换
 
-**【建议】** 尽可能的减少数据转换次数，避免不必要的复制。
+**【建议】** 尽可能地减少数据转换次数，避免不必要的复制。
  
 - **减少数据转换次数：** 频繁的数据转换可能会导致性能下降，可以通过批量处理数据或者使用更高效的数据结构来优化性能。
 - **避免不必要的数据复制：** 在进行数据转换时，可以使用Node-API提供的接口来直接访问原始数据，而不是创建新的副本。
@@ -386,13 +386,13 @@ extern "C" __attribute__((constructor)) void RegisterModule()
 图一
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/TOeHDCT1S8qGFDudhm6x1Q/zh-cn_image_0000002617709499.png?HW-CC-KV=V1&HW-CC-Date=20260604T012926Z&HW-CC-Expire=86400&HW-CC-Sign=722F53818C323CFF0E4633CCE2CDA9AC29A91ED8EC4F7FB3B513EA9F70CBE14D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/FVl3S_kcS42lF4vDV8OOqA/zh-cn_image_0000002685927785.png?HW-CC-KV=V1&HW-CC-Date=20260730T072019Z&HW-CC-Expire=86400&HW-CC-Sign=78EF8AC75A79F087E3F4A3670886146303CFADD3E9DCC651C4C662A609728A51)
 
  
 图二
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/iJgZgzHZRr6CTlAy1lFVhg/zh-cn_image_0000002587109914.png?HW-CC-KV=V1&HW-CC-Date=20260604T012926Z&HW-CC-Expire=86400&HW-CC-Sign=ACB864C72D41200AA8F77475F8F6C01579BDFC52221664F932538D5B7AB455ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/2xHXF_8sSZKtY4xiI60gjw/zh-cn_image_0000002656008106.png?HW-CC-KV=V1&HW-CC-Date=20260730T072019Z&HW-CC-Expire=86400&HW-CC-Sign=CEF958504791D49EB0AA8234396E4425AA7D09B941E6277194DF3BB533643726)
 
  
 **正确示例**：
@@ -463,7 +463,7 @@ extern "C" void napi_onLoad()
  
   
 
-#### 正确的使用napi_create_external系列接口创建的JS Object
+#### 正确地使用napi_create_external系列接口创建的JS Object
 
 **【规则】** napi_create_external系列接口创建出来的JS对象仅允许在当前线程传递和使用，跨线程传递（如使用worker的post_message）将会导致应用crash。若需跨线程传递绑定有Native对象的JS对象，请使用napi_coerce_to_native_binding_object接口绑定JS对象和Native对象。具体API说明详见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-object#napi_create_external)。
  

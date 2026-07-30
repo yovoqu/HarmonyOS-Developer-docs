@@ -1,6 +1,6 @@
 # oh_value_object.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-value-object-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,6 +23,16 @@
  
   
 
+#### OH_VObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示支持int64、double、text等多种数据类型的值对象。
+ 
+**起始版本：** 10
+ 
+  
+
 #### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,4 +45,4 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| OH_VObject | OH_VObject | 表示允许的数据字段类型。 |
+| OH_VObject | OH_VObject | 表示支持int64、double、text等多种数据类型的值对象。 |

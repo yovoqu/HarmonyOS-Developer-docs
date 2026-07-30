@@ -1,6 +1,6 @@
 # hiprofiler
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiprofiler
 
@@ -169,7 +169,7 @@ hdc shell "bm dump -n com.example.myapplication | grep appProvisionType"
 
 | 参数名字 | 类型 | 参数含义 | 详细介绍 |
 | --- | --- | --- | --- |
-| fp_unwind | bool | true表示使用fp回栈方式进行回栈； false表示使用dwarf回栈方式进行回栈。 | fp回栈是利用了x29寄存器保存的fp指针，函数的fp指针始终指向父函数（调用方）的fp指针，调优服务根据这一特点进行回栈，根据ip计算相对PC，然后查找maps对应区间来进行符号化。 由于现在编译器越来越优化，出现寄存器重用或者编译禁用fp，会导致fp方式回不出相应的栈；混合栈情况下，fp不会记录多重混合，于是便需要dwarf回栈方式做更精确的回栈。 dwarf回栈是根据pc寄存器在map表中查找对应的map信息，由于dwarf是逐级解析调用栈，所以其性能会比fp有劣化。 注意：fp回栈暂不支持调优非aarch64架构的设备。 |
+| fp_unwind | bool | true表示使用fp回栈方式进行回栈； false表示使用dwarf回栈方式进行回栈。 | FP回栈机制依赖于x29寄存器保存的帧指针（FP），该指针始终指向调用方函数的FP。调优服务正是基于这一特性，通过FP链回溯调用栈，并根据指令指针（IP）计算出相对于程序计数器（PC）的偏移量，随后查找maps文件中的对应内存区间以完成符号化。 随着编译器优化级别的提升，寄存器重用或编译时禁用FP等优化手段，往往导致FP回栈无法准确还原调用栈。此外，在涉及混合栈的场景下，FP机制也无法完整记录多重混合的调用信息。因此，需要引入DWARF回栈方式，以实现更精确的调用栈回溯。 DWARF回栈是根据pc寄存器在map表中查找对应的map信息，由于DWARF是逐级解析调用栈，所以其性能会比FP有劣化。 注意：FP回栈暂不支持调优非aarch64架构的设备。 |
 | statistics_interval | int | 统计间隔，表示将一个统计周期内的栈进行汇总，单位：s。 | 为实现长时间轻量化采集，提供统计模式抓栈。如果更关注调优时的性能，只需要知道每个调用栈出现的次数和总大小，不需要知道每一次具体时间，可以使用统计模式。 |
 | process_name | string | 需要进行内存调优的进程名 | 和/proc/节点下的进程名一致。 |
 | startup_mode | bool | 是否抓取进程启动阶段内存。默认不抓取启动阶段内存。 | 记录进程孵化启动到调优结束这个期间内堆内存分配的信息。 |
@@ -232,26 +232,187 @@ hdc shell "bm dump -n com.example.myapplication | grep appProvisionType"
 
 开启fp回栈+跨语言回栈（其中绿色部分为js栈）：
 
+> [!NOTE]
+> fp_unwind参数需要设置为true。 js_stack_report参数需要设置为1，否则无法回溯出js栈。
 
-![](assets/hiprofiler/file-20260514131431989-11.png)
 
-
-开启dwarf回栈和跨语言回栈（可以展示出native -> js ->native的栈）：
+```bash
+$ hiprofiler_cmd \
+  -c - \
+  -o /data/local/tmp/hiprofiler_data.htrace \
+  -t 60 \
+  -s \
+  -k \
+<<CONFIG
+ request_id: 1
+ session_config {
+  buffers {
+   pages: 16384
+  }
+ }
+ plugin_configs {
+  plugin_name: "nativehook"
+  sample_interval: 5000
+  config_data {
+   save_file: false
+   smb_pages: 16384
+   max_stack_depth: 20
+   process_name: "com.example.insight_test_stage"
+   string_compressed: true
+   fp_unwind: true
+   blocked: true
+   callframe_compress: true
+   record_accurately: true
+   offline_symbolization: true
+   startup_mode: false
+   js_stack_report: 1
+   max_js_stack_depth: 20
+  }
+ }
+CONFIG
+```
 
 
 ![](assets/hiprofiler/file-20260514131431989-12.png)
 
 
+开启dwarf回栈和跨语言回栈（可以展示出native -> js ->native的栈）：
+
+> [!NOTE]
+> fp_unwind参数需要设置为false。 js_stack_report参数需要设置为1，否则无法回溯出js栈。
+
+
+```bash
+$ hiprofiler_cmd \
+  -c - \
+  -o /data/local/tmp/hiprofiler_data.htrace \
+  -t 60 \
+  -s \
+  -k \
+<<CONFIG
+ request_id: 1
+ session_config {
+  buffers {
+   pages: 16384
+  }
+ }
+ plugin_configs {
+  plugin_name: "nativehook"
+  sample_interval: 5000
+  config_data {
+   save_file: false
+   smb_pages: 16384
+   max_stack_depth: 20
+   process_name: "com.example.insight_test_stage"
+   string_compressed: true
+   fp_unwind: false
+   blocked: true
+   callframe_compress: true
+   record_accurately: true
+   offline_symbolization: true
+   startup_mode: false
+   js_stack_report: 1
+   max_js_stack_depth: 20
+  }
+ }
+CONFIG
+```
+
+
+![](assets/hiprofiler/file-20260514131431989-14.png)
+
+
 开启统计模式，在此模式下，栈数据会周期性展示：
 
+> [!NOTE]
+> statistics_interval参数必须设置一个大于0的值，表示每隔多少秒进行一次统计。设置为10，表示每10秒进行一次统计。
 
-![](assets/hiprofiler/file-20260514131431989-13.png)
+
+```bash
+$ hiprofiler_cmd \
+  -c - \
+  -o /data/local/tmp/hiprofiler_data.htrace \
+  -t 60 \
+  -s \
+  -k \
+<<CONFIG
+ request_id: 1
+ session_config {
+  buffers {
+   pages: 16384
+  }
+ }
+ plugin_configs {
+  plugin_name: "nativehook"
+  sample_interval: 5000
+  config_data {
+   save_file: false
+   smb_pages: 16384
+   max_stack_depth: 20
+   process_name: "com.example.insight_test_stage"
+   string_compressed: true
+   fp_unwind: true
+   blocked: true
+   callframe_compress: true
+   record_accurately: true
+   offline_symbolization: true
+   startup_mode: false
+   statistics_interval: 10
+   js_stack_report: 1
+   max_js_stack_depth: 20
+  }
+ }
+CONFIG
+```
+
+
+![](assets/hiprofiler/file-20260514131431989-2.png)
 
 
 开启非统计模式，在此模式下，栈数据不会周期性展示：
 
+> [!NOTE]
+> statistics_interval必须设置为0或者不设置。
 
-![](assets/hiprofiler/file-20260514131431989-14.png)
+
+```bash
+$ hiprofiler_cmd \
+  -c - \
+  -o /data/local/tmp/hiprofiler_data.htrace \
+  -t 60 \
+  -s \
+  -k \
+<<CONFIG
+ request_id: 1
+ session_config {
+  buffers {
+   pages: 16384
+  }
+ }
+ plugin_configs {
+  plugin_name: "nativehook"
+  sample_interval: 5000
+  config_data {
+   save_file: false
+   smb_pages: 16384
+   max_stack_depth: 20
+   process_name: "com.example.insight_test_stage"
+   string_compressed: true
+   fp_unwind: false
+   blocked: true
+   callframe_compress: true
+   record_accurately: true
+   offline_symbolization: true
+   startup_mode: false
+   statistics_interval: 0
+   max_js_stack_depth: 20
+  }
+ }
+CONFIG
+```
+
+
+![](assets/hiprofiler/file-20260514131431989-4.png)
 
 
 
@@ -313,7 +474,7 @@ CONFIG
 点击binder transaction右边的箭头，可以跳转到binder对端的进程或线程。
 
 
-![](assets/hiprofiler/file-20260514131431989-15.png)
+![](assets/hiprofiler/file-20260514131431989-5.png)
 
 
 
@@ -357,7 +518,7 @@ CONFIG
 
 
 
-![](assets/hiprofiler/file-20260514131431989-2.png)
+![](assets/hiprofiler/file-20260514131431989-6.png)
 
 
 Active和Inactive的区别在于内存空间中是否包含最近被使用过的数据。当物理内存不足，需要释放正在使用的内存空间时，会优先释放Inactive的内存空间。
@@ -428,13 +589,13 @@ CONFIG
 此命令读取系统的内存的基本统计信息。执行命令后，通过hdc file recv /data/local/tmp/hiprofiler_data.htrace命令将文件导出到当前目录，然后通过smartperf打开并解析。结果示例如下图：
 
 
-![](assets/hiprofiler/file-20260514131431989-3.png)
+![](assets/hiprofiler/file-20260514131431989-7.png)
 
 
 通过DevEco Studio 的工具获得内存的数据：
 
 
-![](assets/hiprofiler/file-20260514131431989-4.png)
+![](assets/hiprofiler/file-20260514131431989-8.png)
 
 
 通过DevEco->profiler->Allocation工具，选择Memory泳道，可以使用profiler的memory plugin功能。上图展示了框选时间段的进程smaps内存信息。
@@ -454,7 +615,7 @@ CONFIG
 **结果分析**
 
 
-![](assets/hiprofiler/file-20260514131431989-5.png)
+![](assets/hiprofiler/file-20260514131431989-9.png)
 
 
 通过DevEco->profiler->real time monitor工具，可以获取相关进程能耗数据。
@@ -529,7 +690,7 @@ CONFIG
 此命令读取cpu的基本统计信息。执行命令后，通过hdc file recv /data/local/tmp/hiprofiler_data.htrace命令将文件导出到当前目录，然后通过smartperf打开并解析。结果示例如下图：
 
 
-![](assets/hiprofiler/file-20260514131431989-6.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/kvT8JmcBR5Gxa6alooU4lA/zh-cn_image_0000002656007126.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=B444A972FB2F16885CDD4DF7527BC9838BB659F2CD38F6EADA402591B623D4DC)
 
 
 
@@ -588,7 +749,7 @@ CONFIG
 此命令读取disk io的基本统计信息。执行命令后，通过hdc file recv /data/local/tmp/hiprofiler_data.htrace将文件导出到当前目录，然后通过smartperf打开并解析。结果示例如下图：
 
 
-![](assets/hiprofiler/file-20260514131431989-7.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/AVS6IukrTsyg3Fq9JYqIfg/zh-cn_image_0000002655847206.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=303CCE6C134AD78735B781D4D38898BCFFFB59D9972FD8BA6D5D3DB05C27B56E)
 
 
 
@@ -610,7 +771,7 @@ CONFIG
 该插件暂时不支持smartperf工具方式的trace数据解析，只支持DevEco Studio模式下的trace数据解析。如下图所示：
 
 
-![](assets/hiprofiler/file-20260514131431989-8.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/q3MOBzF5TYutm5B9a-6Mbg/zh-cn_image_0000002686086635.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=8C5F1E0C0D7D30CE28253273C54C4D4244FF6612285AB2FD10BAF2E7924654E8)
 
 
 
@@ -660,7 +821,7 @@ CONFIG
 此命令示例抓取所有hisystem event订阅事件信息。执行命令后，通过hdc file recv /data/local/tmp/hiprofiler_data.htrace将文件导出到当前目录，然后通过smartperf打开并解析。结果示例如下图：
 
 
-![](assets/hiprofiler/file-20260514131431989-9.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/LpFOXlXFSqupzRb-BkwSAg/zh-cn_image_0000002685926807.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=97BB588E836F8CF2D9D49551F2210D60C8657974355998E66D0D6EABD8FD8E90)
 
 
 
@@ -679,7 +840,7 @@ CONFIG
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/ImdrKkayStWKXpZVILn0gg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012150Z&HW-CC-Expire=86400&HW-CC-Sign=1BFC829A9BD8EED25A6E385C6EC62F793C5D848CA6452AB4AC807A26912D375F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/BTskKxrDRVKx_xwp8XCfHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=F47E86956B148699A0EF9CA1C06F73AEECB76536A049D712416B38FC9A24D478)
 
 
 startup_process_name和restart_process_name不能同时为空。
@@ -727,10 +888,10 @@ plugin_configs {
 CONFIG
 ```
 
-此命令示例抓取整机网络数据信息。执行命令后，通过hdc file recv /data/local/tmp/hiprofiler_data.htrace将文件导出到当前模板，然后通过smartperf打开并解析。结果示例如下图：
+此命令示例抓取整机网络数据信息。执行命令后，通过hdc file recv /data/local/tmp/hiprofiler_data.htrace将文件导出到当前目录，然后通过smartperf打开并解析。结果示例如下图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/FiJJsVpUSUuSot0WlDDlYQ/zh-cn_image_0000002647586674.png?HW-CC-KV=V1&HW-CC-Date=20260723T012150Z&HW-CC-Expire=86400&HW-CC-Sign=E4DD346D6890877E7A5D1FE6AFFFBF762366F233618B274B57DCADF7A99B40AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/5AiR6KZoR6eIY3EFIQ_vsg/zh-cn_image_0000002656007128.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=0E3CCBE46B9A28BDDEC3EA2B05115904932BB6DCB2CA77328612F6C466954814)
 
 
 
@@ -1044,6 +1205,52 @@ $ hiprofiler_cmd stop
 
 
 
+#### 使用文件缓存模式
+
+从API version 24开始支持使用文件缓存模式，可通过如下方式对com.example.insight_test_stage进程进行内存录制。
+
+> [!NOTE]
+> 使用文件缓存模式时，use_file_cache_mode必须设置为true。
+
+
+```bash
+$ hiprofiler_cmd \
+  -c - \
+  -o /data/local/tmp/hiprofiler_data.htrace \
+  -t 60 \
+  -s \
+  -k \
+<<CONFIG
+ request_id: 1
+ session_config {
+  buffers {
+   pages: 16384
+  }
+ }
+ plugin_configs {
+  plugin_name: "nativehook"
+  sample_interval: 5000
+  config_data {
+   save_file: false
+   smb_pages: 16384
+   max_stack_depth: 20
+   process_name: "com.example.insight_test_stage"
+   string_compressed: true
+   fp_unwind: false
+   blocked: true
+   callframe_compress: true
+   record_accurately: true
+   offline_symbolization: true
+   startup_mode: false
+   max_js_stack_depth: 20
+   use_file_cache_mode: true
+  }
+ }
+CONFIG
+```
+
+
+
 #### 常见问题
 
 
@@ -1055,7 +1262,7 @@ $ hiprofiler_cmd stop
 使用hiprofiler_cmd命令时，显示Service not started。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/jxmQVQQrTq-uX1shr2M1PA/zh-cn_image_0000002677826315.png?HW-CC-KV=V1&HW-CC-Date=20260723T012150Z&HW-CC-Expire=86400&HW-CC-Sign=EB84E59BBAB873D8932EB7396125F35AFD3F6928821BA764CF6F8851C9357311)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/HO5tzfBpTh2Gy7tYPT6PMA/zh-cn_image_0000002655847208.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=7650F3EE14D1204182F8A94C0300DDF87F2216F692BCFB87D79FA354F43FF6C8)
 
 
 **可能原因&解决方法**

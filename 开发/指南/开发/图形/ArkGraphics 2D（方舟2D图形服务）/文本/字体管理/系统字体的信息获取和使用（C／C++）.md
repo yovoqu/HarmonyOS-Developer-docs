@@ -1,6 +1,6 @@
 # 系统字体的信息获取和使用（C/C++）
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/system-font-c
 
@@ -213,7 +213,7 @@ OH_Drawing_DisableFontCollectionSystemFont(fontCollection);
 6. 创建文本样式对象，使用注册成功的自定义字体。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/At6eir-VSeCBXbIOFIYXYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012153Z&HW-CC-Expire=86400&HW-CC-Sign=0FBE7F7B581C296E124C036BBAAF0A7880825F19C892302329CD34F08F6E9497)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/dFeTSMYOR-aJXpof5o6YHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071949Z&HW-CC-Expire=86400&HW-CC-Sign=C10E56C87DC20636CC78B53E6806CCDAF8FEC8888B68CB3F8A011588BBC53767)
  
 
   若不设置字体，文本会默认使用系统字体，而系统字体禁用后若不设置使用自定义字体，文本将无法正常显示。
@@ -225,6 +225,7 @@ OH_Drawing_TextStyle *textStyle = OH_Drawing_CreateTextStyle();
 // 情况一：如果此时设置使用了自定义字体，文本会正常显示
 // 该路径是待注册的自定义字体文件在应用设备下的路径，确保该自定义字体文件已正确放置在该路径下
 // 后续使用自定义字体时，需使用到该字体家族名
+// 情况二：如果此时不调用OH_Drawing_SetTextStyleFontFamilies或传入空参，文本会默认使用系统默认字体，而此时系统字体已被禁用，因此文本将无法显示
 const char* fontFamily = "HarmonyOS_Sans";
 const char* fontPath = "/system/fonts/HarmonyOS_Sans.ttf";
 // 返回0为成功，1为文件不存在，2为打开文件失败，3为读取文件失败，4为寻找文件失败，5为获取大小失败，9文件损坏
@@ -232,14 +233,6 @@ int errorCode = OH_Drawing_RegisterFont(fontCollection, fontFamily, fontPath);
 DRAWING_LOGI("errorCode = %{public}d", errorCode);
 const char *myFontFamilies[] = {"HarmonyOS_Sans"}; // 确保已成功注册自定义字体，填入自定义字体的字体家族名
 OH_Drawing_SetTextStyleFontFamilies(textStyle, 1, myFontFamilies);
-
-// 情况二：如果此时使用了系统字体，文本将无法显示
-// const char *myFontFamilies[] = {"HarmonyOS_Sans"};
-// OH_Drawing_SetTextStyleFontFamilies(textStyle, 1, myFontFamilies);
-
-// 情况三：如果此时不设置使用字体，文本会默认使用系统默认字体，而此时系统字体已被禁用，因此文本将无法显示
-// const char *myFontFamilies[] = {"HarmonyOS_Sans"};
-// OH_Drawing_SetTextStyleFontFamilies(textStyle, 1, myFontFamilies);
 ```
 
 7. 生成最终的段落文本，以便实现最终的文本绘制和显示。

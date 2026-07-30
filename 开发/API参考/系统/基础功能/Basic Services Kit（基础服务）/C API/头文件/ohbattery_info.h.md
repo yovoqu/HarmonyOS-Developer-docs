@@ -1,6 +1,6 @@
 # ohbattery_info.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohbattery-info-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -46,7 +46,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t OH_BatteryInfo_GetCapacity() | 返回当前电池容量。 |
+| int32_t OH_BatteryInfo_GetCapacity() | 返回当前电池容量百分比。 |
 | BatteryInfo_BatteryPluggedType OH_BatteryInfo_GetPluggedType() | 返回当前插入的类型。 |
  
  
@@ -91,7 +91,7 @@ enum BatteryInfo_BatteryPluggedType
 | PLUGGED_TYPE_AC = 1 | 电源是交流充电。 |
 | PLUGGED_TYPE_USB = 2 | 电源是USB DC充电。 |
 | PLUGGED_TYPE_WIRELESS = 3 | 电源为无线充电。 |
-| PLUGGED_TYPE_BUTT = 4 | 预留枚举 |
+| PLUGGED_TYPE_BUTT = 4 | 未知类型。 |
  
  
   

@@ -1,6 +1,6 @@
 # 使用Web组件的PDF文档预览能力
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview
 
@@ -10,6 +10,7 @@
 
 ```json
 "requestPermissions":[
+  // ...
   {
     "name" : "ohos.permission.INTERNET"
   }
@@ -96,7 +97,7 @@ Web({
 
 #### 通过配置PDF文件预览参数，控制打开预览时页面状态
 
-当前支持如下参数:
+当前支持如下参数：
 
 | 语法 | 描述 |
 | --- | --- |
@@ -108,7 +109,7 @@ Web({
 | pdfbackgroundcolor=color | 从HarmonyOS 6.0系统版本开始，支持指定PDF文档背景色，color为标准的六位十六进制RGB（取值范围为000000~ffffff，例如白色为：ffffff）。 |
 
 
-URL示例:
+URL示例：
 
 ```text
 https://example.com/test.pdf#nameddest=Chapter6

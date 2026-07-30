@@ -58,7 +58,7 @@ struct <span style="color: rgb(0,0,255);">CallPhoneTest </span><span style="colo
 - **方案二**：在module.json5可以移除未使用的设备类型。由于DevEco Studio默认创建的项目会包含phone，tablet，2in1三种设备类型。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/Zl-OxdNuR5uAqvvMjsKl0A/zh-cn_image_0000002628773306.png?HW-CC-KV=V1&HW-CC-Date=20260723T013501Z&HW-CC-Expire=86400&HW-CC-Sign=5A64226A7D000A29F5586D5138A72D1517745BD067FDD2FF204B1FB0C741CB9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/Zl-OxdNuR5uAqvvMjsKl0A/zh-cn_image_0000002628773306.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=5E5D67EAE0564107A724661F8ED7371E5C0CC8D86ABF1823F58362773D0AF273)
 
 
   tablet和2in1不具备SystemCapability.Applications.Contacts能力。

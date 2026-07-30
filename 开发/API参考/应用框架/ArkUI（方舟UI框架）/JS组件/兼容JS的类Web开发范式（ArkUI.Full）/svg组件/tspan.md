@@ -1,6 +1,6 @@
 # tspan
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-tspan
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -26,6 +26,12 @@
 
 支持[tspan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-tspan)。
  
+  
+
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持以下表格中的属性。
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
@@ -65,7 +71,7 @@
       <tspan dx="-5" fill-opacity="0.2">first span.</tspan>
       <tspan dx="5" fill="red" font-size="25" fill-opacity="0.4">second span.</tspan>
       <tspan dy="-5" fill="#D2691E" font-size="35" rotate="-10" fill-opacity="0.6">third span.</tspan>
-      <tspan fill="#blue" font-size="40" rotate="10" fill-opacity="0.8" stroke="#00FF00" stroke-width="1px">forth span.</tspan>
+      <tspan fill="blue" font-size="40" rotate="10" fill-opacity="0.8" stroke="#00FF00" stroke-width="1px">fourth span.</tspan>
     </text>
   </svg>
 </div>
@@ -185,4 +191,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/CxvZKAGRRg6Q0PPMoEhwvg/zh-cn_image_0000002656470313.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=0EDCCA1038BC391B409CCA7CB65EEABBECE2E2F2BD25A48E5BD17C51FE4D9D59)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/95_OptVoTUK7T7Yk8J5syA/zh-cn_image_0000002655849156.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071525Z&HW-CC-Expire=86400&HW-CC-Sign=13DBDDC43D2831C90DE2EF26493A8C1088FFE70007598543D25398E7B9914E10)

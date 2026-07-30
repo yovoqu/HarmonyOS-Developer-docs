@@ -1,6 +1,6 @@
 # AtomicServiceTabs
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicetabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -84,7 +84,7 @@ AtomicServiceTabs({
 | layoutMode18+ | LayoutMode | 否 | @Prop | 设置底部页签的图片、文字排布的方式，默认值为LayoutMode.VERTICAL。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | barBackgroundColor | ResourceColor | 否 | @Prop | 设置TabBar的背景颜色，默认值为透明。 |
 | index | number | 否 | @Prop | 设置当前显示页签的索引，索引值从0开始。默认值为0。 |
-| barOverlap | boolean | 否 | @Prop | 设置TabBar是否背景变模糊并叠加在TabContent之上。true表示TabBar背景变模糊并叠加在TabContent之上。默认值：true。 |
+| barOverlap | boolean | 否 | @Prop | 设置TabBar是否背景变模糊并叠加在TabContent之上。true表示TabBar背景变模糊并叠加在TabContent之上。默认值为true。 |
 | controller | TabsController | 否 | - | Tabs组件的控制器，用于控制Tabs组件进行页签切换。默认值为new TabsController()。 |
 | onChange | Callback&lt;number&gt; | 否 | - | Tabs页签切换后触发的事件。默认值为空。 |
 | onTabBarClick | Callback&lt;number&gt; | 否 | - | Tabs页签点击后触发的事件。默认值为空。 |
@@ -111,6 +111,8 @@ type TabContentBuilder = () => void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+页签容器。
+ 
   
 
 #### constructor
@@ -141,6 +143,8 @@ TabBarOptions的构造函数。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+设置页签栏位置，默认值为TabBarPosition.BOTTOM。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -436,4 +440,4 @@ struct AtomicserviceTabs  {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/C9RcY5q8SEGJTxLa4SkKeQ/zh-cn_image_0000002647588384.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=B840181B37328B9E0E7DA3771F05D4BD2BA7C72930683F2E0287094A9F6C360F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/TFzKKFA5SUaMcAAWHThkqg/zh-cn_image_0000002685928573.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071516Z&HW-CC-Expire=86400&HW-CC-Sign=DDC0CA1D07A55F1AFE19810908536A1B5271D5E04E3E1A43D51794355B6A135C)

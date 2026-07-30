@@ -1,6 +1,6 @@
 # 关闭会话（C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netclose-c
 
@@ -38,8 +38,10 @@
   
 ```text
 #include "RemoteCommunicationKit/rcp.h"
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdlib>
+#include <cstring>
+#include <cstdio>
+#include <thread>
 ```
 
 2. CMakeLists.txt中添加以下lib。（具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-preparations#c-api开发准备)）。
@@ -49,42 +51,27 @@
 librcp_c.so
 ```
 
-3. 创建会话，会话发起请求后关闭会话。“http://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
+3. 创建会话，会话发起请求后关闭会话。“https://www.example.com”请根据实际情况替换为想要请求的URL地址。等待响应返回后，销毁request并关闭session。
 
   
 ```text
-void ResponseCallback(void *usrCtx, Rcp_Response *response, uint32_t errCode) {
-    (void *)usrCtx;
-    if (response != NULL) {
-        printf("Response status: %d\n", response->statusCode);
-    } else {
-        printf("Fetch failed: errCode: %u\n", errCode);
-    }
-    if (response != NULL) {
-        response->destroyResponse(response);
-    }
-}
-
-int main() {
-    const char *kHttpServerAddress = "http://www.example.com";
-    Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
-    request->method = RCP_METHOD_GET;
-    uint32_t errCode = 0;
-    // 创建session
-    Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
-    // 配置请求回调
-    Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
-    // 发起fetch请求
-    errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
-    // 等待fetch结果，仅是等待异步调用完成，开发者可根据自己实际场景处理回调。
-    usleep(1000 * 1000 * 3);
-    printf("Fetch completed, errCode: %u\n", errCode);
-    // 在退出前取消可能还在执行的requests
-    errCode = HMS_Rcp_CancelSession(session);
-    // 关闭session
-    errCode = HMS_Rcp_CloseSession(&session);
-    // 清理request
-    HMS_Rcp_DestroyRequest(request);
-    return 0;
-}
+const char *kHttpServerAddress = "http://www.example.com";
+Rcp_Request *request = HMS_Rcp_CreateRequest(kHttpServerAddress);
+request->method = RCP_METHOD_GET;
+uint32_t errCode = 0;
+// 创建session
+Rcp_Session *session = HMS_Rcp_CreateSession(NULL, &errCode);
+// 配置请求回调
+Rcp_ResponseCallbackObject responseCallback = {ResponseCallback, NULL};
+// 发起fetch请求
+errCode = HMS_Rcp_Fetch(session, request, &responseCallback);
+// 在退出前取消可能还在执行的requests
+errCode = HMS_Rcp_CancelSession(session);
+// 关闭session
+errCode = HMS_Rcp_CloseSession(&session);
+napi_value value = nullptr;
+napi_create_int32(env, errCode, &value);
+napi_resolve_deferred(env, ctx->deferred, value);
+// 清理request
+HMS_Rcp_DestroyRequest(request);
 ```

@@ -134,7 +134,7 @@ export struct MainPage {
 Q：在项目中引入ijkplayer实现录屏功能，引入ijkplayer本地HAR包后，编译时提示useNormalizedOHMUrl is not true，将该属性设置为true时，再打开项目时，整个项目直接出现白屏，无法进入到首页。报错信息如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/8XfbqsF4TOanDbuTjAqkyg/zh-cn_image_0000002659138347.png?HW-CC-KV=V1&HW-CC-Date=20260723T012441Z&HW-CC-Expire=86400&HW-CC-Sign=8EA50392AB2BEE86407D7D04967B21404687B9327802EFD4BF4CBE1CF71C4828)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/8XfbqsF4TOanDbuTjAqkyg/zh-cn_image_0000002659138347.png?HW-CC-KV=V1&HW-CC-Date=20260730T072305Z&HW-CC-Expire=86400&HW-CC-Sign=8BBDBC293CEF049B28DDE25220D0B5A6C39E05C7D7DABBD7DDAA177FD41D6857)
 
  
 A：根据报错信息分析得出是Worker路径不对，Worker使用有这样一个限制，当开启useNormalizedOHMUrl（在工程目录中与entry同级别的应用级build-profile.json5文件中，将strictMode属性下的useNormalizedOHMUrl字段配置为true）或HAR包被打包成三方包使用时，HAR包中使用Worker仅支持通过相对路径的加载形式创建。可参考Worker线程文件路径注意事项。

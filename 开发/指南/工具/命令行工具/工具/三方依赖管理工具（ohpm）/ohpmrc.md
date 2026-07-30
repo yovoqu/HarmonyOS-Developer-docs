@@ -1,6 +1,6 @@
 # ohpmrc
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc
 
@@ -128,8 +128,6 @@ https://contentcenter-drcn.dbankcdn.cn/   //该域名用于文件资源下载，
 ```text
 ca_files=D:\_.openharmony.cn.crt,D:\update.hicloud.crt
 ```
-
-
 
 
 #### Mac系统获取CA证书
@@ -716,7 +714,7 @@ ohpm客户端从5.1.1开始新增开关配置enable_unified_lockfile字段。启
 启用enable_unified_lockfile=true后，项目级统一管理lockfile锁文件，针对模块间存在重复依赖的场景，显著减少ohpm install耗时，优化构建流程。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/rEhPsY2QSgekze_vOWdRew/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012115Z&HW-CC-Expire=86400&HW-CC-Sign=5CC1712D43DBC112158EF2676F45CCAB1A01BE78C50273F76EAEDDAB080D9C4D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/l_X1xJRVRv-TOB9QkYpy_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071813Z&HW-CC-Expire=86400&HW-CC-Sign=B54D822636DAFBC6C10B01969CE64A184AF3AAFD3AFD940F46FB3363CD9BA31B)
 
 
 启用enable_unified_lockfile=true后，原分散在各模块下的.hsp依赖安装目录将统一迁移至项目根目录。在流水线上开启此特性时，需搭配配套的hvigor使用。
@@ -738,7 +736,7 @@ ohpm客户端从5.3.1开始新增开关配置enable_lock_inner_pkg_version字段
 如下图所示，蓝色箭头标识最终要安装的依赖，安装的依赖D@1.0.0来自依赖B@1.0.0（依赖名称和依赖版本相同的依赖会被定性为相同依赖，最终安装哪个由依赖构建先后顺序决定）, 因B@1.0.0并没有安装，但oh-package-lock.json5中锁定了依赖D的版本，在二次安装时会爆出D的依赖路径不存在错误，此时需要将该开关设置为false。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/IZ1ApIZwQbm5d1uC2eadHg/zh-cn_image_0000002624994243.png?HW-CC-KV=V1&HW-CC-Date=20260723T012115Z&HW-CC-Expire=86400&HW-CC-Sign=B8DCDD745C54D661AA0CAFA860DC1D4312837E15101B79AAEEB3943AB417465B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/y7ry0lbBQb66e2CcitHZLA/zh-cn_image_0000002677996945.png?HW-CC-KV=V1&HW-CC-Date=20260730T071813Z&HW-CC-Expire=86400&HW-CC-Sign=28D62827D1C1494D6F2B4E6D9C4016C0698819E984D29A5DC4B06E59D3AF1012)
 
 
 **oh-package-lock.json5示例**
@@ -991,8 +989,6 @@ metadata/
       -- all.json // 全部元数据
       -- xx.json  // 固定版本的元数据
 ```
-
-
 
 
 

@@ -13,13 +13,13 @@
 不设置阻尼效果动画正常：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/0NcNW5XzQBOjrCq6H2L1OA/zh-cn_image_0000002659061907.png?HW-CC-KV=V1&HW-CC-Date=20260723T012822Z&HW-CC-Expire=86400&HW-CC-Sign=01D4F0AE4251101D00F980BF006C3E3931639B7EABC6C2A74A85B69223D33B36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/0NcNW5XzQBOjrCq6H2L1OA/zh-cn_image_0000002659061907.png?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=6B5599776F883B7772472B55C01AEB2DBFAE73D3DC60CC2F481178DB4B08D66B)
 
  
 设置阻尼效果动画异常：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/rGuu5N0bRuqMmscOANumEg/zh-cn_image_0000002628822560.png?HW-CC-KV=V1&HW-CC-Date=20260723T012822Z&HW-CC-Expire=86400&HW-CC-Sign=2829A028ECDE5BB774BB62BFE08D68F8C90FA68FE3ABA100057E735EED438FF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/rGuu5N0bRuqMmscOANumEg/zh-cn_image_0000002628822560.png?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=65242726435237E2C447D31FE741210A8F322DD644913142DB2C81F3C46F9D8F)
 
  
 问题代码示例参考如下：
@@ -201,7 +201,7 @@ struct <span style="color: rgb(0,0,255);">RefreshExample </span><span style="col
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/YAxgNXaZTu6cRFRDNoMp2Q/zh-cn_image_0000002659021865.png?HW-CC-KV=V1&HW-CC-Date=20260723T012822Z&HW-CC-Expire=86400&HW-CC-Sign=EC9069D889FF71B90C2A41C75D0240B75858DF72853579135956FEF7526F724B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/YAxgNXaZTu6cRFRDNoMp2Q/zh-cn_image_0000002659021865.png?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=57B7F937960862A23C4BBD2B2ECFCCF6E0E480BC42765C7E57B474D378702D7C)
 
  
  

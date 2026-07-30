@@ -1,6 +1,6 @@
 # OH_AudioStreamInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiostreaminfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_AudioStreamInfo {...} OH_AudioStreamInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义音频流信息，用于描述基本音频格式。
+定义音频流信息结构体，用于描述基本音频格式。
  
 **起始版本：** 19
  
@@ -36,7 +36,7 @@ typedef struct OH_AudioStreamInfo {...} OH_AudioStreamInfo
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t samplingRate | 音频流采样率。 |
+| int32_t samplingRate | 音频流采样率。单位为赫兹（Hz）。 |
 | OH_AudioChannelLayout channelLayout | 音频流声道布局。 |
 | OH_AudioStream_EncodingType encodingType | 音频流编码类型。 |
 | OH_AudioStream_SampleFormat sampleFormat | 音频流采样格式。 |

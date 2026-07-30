@@ -60,7 +60,7 @@ struct <span style="color: rgb(0,0,255);">TextInputExample </span><span style="c
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/MqH0Gp9uS-uSbeHj2Mw0ug/zh-cn_image_0000002658917661.png?HW-CC-KV=V1&HW-CC-Date=20260723T012618Z&HW-CC-Expire=86400&HW-CC-Sign=F48CB8F4AFBC551721C1C17BC23BEC88B8FA675EEBC661829C29A57F5BC59B6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/MqH0Gp9uS-uSbeHj2Mw0ug/zh-cn_image_0000002658917661.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=C7F991033CEDDC33B65AA654459723C5C6AA944424D78296C71462FDD77446B7)
 
 - **方案二**：使用TextArea组件，组件不设置高度时，会自适应内容高度，从而实现placeholder多行显示。
 ```text
@@ -95,7 +95,7 @@ struct <span style="color: rgb(0,0,255);">TextInputExample2 </span><span style="
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/DlFATeRMRq6Iefch7ekpLA/zh-cn_image_0000002628398434.png?HW-CC-KV=V1&HW-CC-Date=20260723T012618Z&HW-CC-Expire=86400&HW-CC-Sign=5531958A21E80AFDC0DEEFC564FAA350974C7E4BB8E0C564F662E6967D4F75BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/DlFATeRMRq6Iefch7ekpLA/zh-cn_image_0000002628398434.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=A4C06ED8E2AB6F6ED1CC41343F4EEC1EF76EF4147D42CB63E845CDE6A861D843)
 
 - **方案三**：placeholder文本大小默认为16fp，可通过placeholderFont将placeholder文本大小设置小一点，如10fp。
 ```text
@@ -130,7 +130,7 @@ struct <span style="color: rgb(0,0,255);">TextInputExample3 </span><span style="
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/uy1i3LaORd6dPMAbv_YcBA/zh-cn_image_0000002658797717.png?HW-CC-KV=V1&HW-CC-Date=20260723T012618Z&HW-CC-Expire=86400&HW-CC-Sign=4E7E14CEAAD5CD002519C1BB20A5EF6777083799C01D89A336015EAA581DDF79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/uy1i3LaORd6dPMAbv_YcBA/zh-cn_image_0000002658797717.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=527BE5CF83661A44FB5E252055C88E7DD2D263EAD1AA8573AD5EDBD3245C0BD1)
 
 - **方案四**：可设置TextInput的[style](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#style9)为Inline，文本选中底板高度与输入框高度相同，在输入时可显示全部placeholder文本。
 ```text
@@ -167,7 +167,7 @@ struct <span style="color: rgb(0,0,255);">TextInputExample4 </span><span style="
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/4e-VJS15Qc-jhYAHbRLYhg/zh-cn_image_0000002628558352.png?HW-CC-KV=V1&HW-CC-Date=20260723T012618Z&HW-CC-Expire=86400&HW-CC-Sign=3783D3175B97FC64ACED76E92A40DAFC203D167DB784886B0086D23BA025C028)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/4e-VJS15Qc-jhYAHbRLYhg/zh-cn_image_0000002628558352.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=29898367E1997E746CBE099712BB78EEB879CF6247E2DE080979637BBDD4FEC5)
 
 
  

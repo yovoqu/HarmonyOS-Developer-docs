@@ -29,7 +29,7 @@
 对日志进行联合分析，通过时间戳对齐hilog应用事件与HCI底层事件。根据hilog日志中开启广播[ble.startAdvertising](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#blestartadvertising)的时间为11:32:26.209，找到HCI日志中对应的开启广播命令，并从右侧的详情页分析广播具体的字段以及内容。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/oaxcazIvQ7umMGp06TZK9Q/zh-cn_image_0000002658852665.png?HW-CC-KV=V1&HW-CC-Date=20260723T013459Z&HW-CC-Expire=86400&HW-CC-Sign=BDC4C3DB209EC5B7B658AF914604AE458839131CC37BA795D5154AE58EBAD8A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/oaxcazIvQ7umMGp06TZK9Q/zh-cn_image_0000002658852665.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=B7A9E4DC041B612741E20D146A18F1D5C243AAA727940B8A55A38A891654E080)
 
  
  
@@ -37,7 +37,7 @@
 #### 分析结论
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/ImkC84s3QierC22xwaBQCQ/zh-cn_image_0000002628773304.png?HW-CC-KV=V1&HW-CC-Date=20260723T013459Z&HW-CC-Expire=86400&HW-CC-Sign=0FE89D326CF344CFE4DE021EA68FF50B9B8E2DDC56F832A69A821D998AF8B877)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/ImkC84s3QierC22xwaBQCQ/zh-cn_image_0000002628773304.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=B7D835BBA24A54FFD797D6F7790C22F3B0AAE9C3F1019460F710B98BEB657D74)
 
  
 左侧代码可以参考ble.startAdvertising中的示例，从图中的对应关系可以分析BLE广播报文数据内容[AdvertiseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#advertisedata)，其中可以关注以下四点：

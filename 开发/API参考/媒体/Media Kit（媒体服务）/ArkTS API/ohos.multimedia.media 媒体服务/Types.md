@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -271,7 +271,7 @@ type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 
 | 'paused' | 录制暂停。此时可以调用AVRecorder.resume()方法继续录制，进入started状态。也可以调用AVRecorder.stop()方法结束录制，进入stopped状态。 |
 | 'stopped' | 录制停止。此时可以调用AVRecorder.prepare()方法设置录制参数，重新进入prepared状态。 |
 | 'released' | 录制资源释放。此时不能再进行任何操作。在任何其他状态下，均可以通过调用AVRecorder.release()方法进入released状态。 |
-| 'error' | 错误状态。当AVRecorder实例发生不可逆错误，会转换至当前状态。切换至error状态时会伴随AVRecorder.on('error')事件，该事件会上报详细错误原因。在error状态时，用户需要调用AVRecorder.reset()方法重置AVRecorder实例，或者调用AVRecorder.release()方法释放资源。 |
+| 'error' | 错误状态。当AVRecorder实例发生不可逆错误，会转换至当前状态。切换至error状态时会伴随AVRecorder.on('error')，该事件会上报详细错误原因。在error状态时，用户需要调用AVRecorder.reset()方法重置AVRecorder实例，或者调用AVRecorder.release()方法释放资源。 |
 
 
 
@@ -307,7 +307,7 @@ type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number
 由应用实现此回调函数，应用需处理传入的资源打开请求，并返回所打开资源对应的唯一句柄。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jLHHSnagTf2xkHdv4zpkGg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020252Z&HW-CC-Expire=86400&HW-CC-Sign=5B5519517868E518036BDC1DD73A1C9EA874F11F2164AB3CD9923C54CE6FF9D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/Z023RHKtRASSHx7DOcTFwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071709Z&HW-CC-Expire=86400&HW-CC-Sign=2DD1AA013384109A7ADE4DD6F4CD0609C01FEBB4952343CBCD9E4E9387A0EC0D)
 
 
 客户端在处理完请求后应立刻返回。
@@ -361,7 +361,7 @@ type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLengt
 由应用实现此回调函数，应用需记录读取请求，并在数据充足时通过对应的MediaSourceLoadingRequest对象的[respondData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasourceloadingrequest#responddata18)方法推送数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/rehKmo44STS9Guflj4TmEg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020252Z&HW-CC-Expire=86400&HW-CC-Sign=EAA705EB51C3C018A46DF56961031AD8E2DF023E072630A472356B118D49CB7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/8OO2v4RpQJihBvR-zvgn6w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071709Z&HW-CC-Expire=86400&HW-CC-Sign=41850A992FE07CBB91136D907144B4E4DCBBC786A26E4D882B47004BA4859C58)
 
 
 客户端在处理完请求后应立刻返回。
@@ -401,7 +401,7 @@ type SourceCloseCallback = (uuid: number) => void
 由应用实现此回调函数，应用应释放相关资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/lXSExXfTRm-qYwqPOA2HoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020252Z&HW-CC-Expire=86400&HW-CC-Sign=340CD947057BF0F61FBBDD803FCAFCD0FA29AA1A716B6562CB0FDA36B2500110)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/dpiiMqjUQhimYV4ix9NfnQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071709Z&HW-CC-Expire=86400&HW-CC-Sign=03698E4F36437140AB3FEA02B80AA01C8AA556FE16F492E3D9BCF0139986FE7D)
 
 
 客户端在处理完请求后应立刻返回。
@@ -499,3 +499,126 @@ type VideoPlayState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | '
 | 'paused' | 视频暂停播放。 |
 | 'stopped' | 视频播放停止。 |
 | 'error' | 错误状态。 |
+
+
+
+
+#### AVDownloadTaskState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type AVDownloadTaskState = 'init' | 'queued' | 'running' | 'completed' | 'paused' | 'removing' | 'error'
+
+离线下载任务状态枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+| 类型 | 说明 |
+| --- | --- |
+| 'init' | 下载任务初始化。 |
+| 'queued' | 下载任务排队等待。 |
+| 'running' | 下载任务正在运行。 |
+| 'completed' | 下载任务已完成。 |
+| 'paused' | 下载任务已暂停。 |
+| 'removing' | 下载任务正在移除。 |
+| 'error' | 下载任务出错。 |
+
+
+
+
+#### OnAVDownloadTaskStateHandle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type OnAVDownloadTaskStateHandle = (taskId: string, state: AVDownloadTaskState) => void
+
+离线下载任务状态变化事件回调方法。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| taskId | string | 是 | 状态变化的离线下载任务ID。 |
+| state | AVDownloadTaskState | 是 | 任务的新状态。 |
+
+
+
+
+#### OnAVDownloadProgressChangeHandle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type OnAVDownloadProgressChangeHandle = (taskId: string, progress: number) => void
+
+离线下载任务进度变化事件回调方法。当下载进度相比上次变化超过1%，且距上次触发时间超过500ms时，触发该事件。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| taskId | string | 是 | 离线下载任务ID。 |
+| progress | number | 是 | 下载进度值。 取值范围：[0.0, 1.0] 若值为-1，表示资源大小未知。 |
+
+
+
+
+#### OnAdsEventLoadingErrorHandle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type OnAdsEventLoadingErrorHandle = (adsId: string, reason: BusinessError) => void
+
+广告媒体资源加载失败事件回调方法。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| adsId | string | 是 | 加载失败的广告资源ID。 |
+| reason | BusinessError | 是 | 加载失败的原因。 |
+
+
+
+
+#### OnAdsEventAdsStartedHandle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type OnAdsEventAdsStartedHandle = (adsId: string, duration: number) => void
+
+广告内容播放开始事件回调方法。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| adsId | string | 是 | 正在播放的广告资源ID。 |
+| duration | number | 是 | 广告的播放时长，单位为毫秒。 取值限定为整数。 |

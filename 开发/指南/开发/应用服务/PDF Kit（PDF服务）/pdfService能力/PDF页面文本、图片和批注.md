@@ -1,6 +1,6 @@
 # PDF页面文本、图片和批注
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-add-txt-img-annot
 
@@ -40,10 +40,10 @@
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { Font } from '@kit.ArkUI';
-
+// ...
 @Entry
 @Component
-struct PdfPage {
+struct ContentEditPage {
   private pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
   private context = this.getUIContext().getHostContext() as Context;
 
@@ -55,45 +55,47 @@ struct PdfPage {
 
   build() {
     Column() {
-      // 添加文本
-      Button('addText').onClick(async () => {
-        let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
-        let str = 'This is add text object!';
-        let fontInfo = new pdfService.FontInfo();
-        // 确保字体路径存在
-        let font: Font = new Font()
-        fontInfo.fontPath = font.getFontByName('HarmonyOS Sans')?.path;
-        fontInfo.fontName = '';
-        let style: pdfService.TextStyle = { textColor: 0x000000, textSize: 30, fontInfo: fontInfo };
-        page.addTextObject(str, 10, 10, style);
-        let outPdfPath = this.context.filesDir + '/testAddText.pdf';
-        let result = this.pdfDocument.saveDocument(outPdfPath);
-        hilog.info(0x0000, 'PdfPage', 'addText %{public}s!', result ? 'success' : 'fail');
-      })
-      // 删除文本
-      Button('delText').onClick(async () => {
-        let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
-        let graphicsObjects = page.getGraphicsObjects();
-        // 找到第一个要删除的文本
-        let index = graphicsObjects.findIndex(item => item.type === pdfService.GraphicsObjectType.OBJECT_TEXT);
-        if (index > -1) {
-          // 删除第一个文本
-          page.deleteGraphicsObject(graphicsObjects[index]);
-        }
-        let outPdfPath = this.context.filesDir + '/testDelText.pdf';
-        let result = this.pdfDocument.saveDocument(outPdfPath);
-        hilog.info(0x0000, 'PdfPage', 'delText %{public}s!', result ? 'success' : 'fail');
-      })
-      // 添加图片
-      Button('addImage').onClick(async () => {
-        let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
-        // 插入图片，确保resfile目录有img.jpg图片
-        let imagePath = this.context.resourceDir + '/img.jpg';
-        page.addImageObject(imagePath, 100, 100, 100, 120);
-        let outPdfPath = this.context.filesDir + '/testAddImage.pdf';
-        let result = this.pdfDocument.saveDocument(outPdfPath);
-        hilog.info(0x0000, 'PdfPage', 'addImage %{public}s!', result ? 'success' : 'fail');
-      })
+      // ...
+        // 添加文本
+        Button('addText').onClick(async () => {
+          let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
+          let str = 'This is add text object!';
+          let fontInfo = new pdfService.FontInfo();
+          // 确保字体路径存在
+          let font: Font = new Font()
+          fontInfo.fontPath = font.getFontByName('HarmonyOS Sans')?.path;
+          fontInfo.fontName = '';
+          let style: pdfService.TextStyle = { textColor: 0x000000, textSize: 30, fontInfo: fontInfo };
+          page.addTextObject(str, 10, 10, style);
+          let outPdfPath = this.context.filesDir + '/testAddText.pdf';
+          let result = this.pdfDocument.saveDocument(outPdfPath);
+          hilog.info(0x0000, 'ContentEditPage', 'addText %{public}s!', result ? 'success' : 'fail');
+        })
+        // 删除文本
+        Button('delText').onClick(async () => {
+          let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
+          let graphicsObjects = page.getGraphicsObjects();
+          // 找到第一个要删除的文本
+          let index = graphicsObjects.findIndex(item => item.type === pdfService.GraphicsObjectType.OBJECT_TEXT);
+          if (index > -1) {
+            // 删除第一个文本
+            page.deleteGraphicsObject(graphicsObjects[index]);
+          }
+          let outPdfPath = this.context.filesDir + '/testDelText.pdf';
+          let result = this.pdfDocument.saveDocument(outPdfPath);
+          hilog.info(0x0000, 'ContentEditPage', 'delText %{public}s!', result ? 'success' : 'fail');
+        })
+        // 添加图片
+        Button('addImage').onClick(async () => {
+          let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
+          // 插入图片，确保resfile目录有img.jpg图片
+          let imagePath = this.context.resourceDir + '/img.jpg';
+          page.addImageObject(imagePath, 100, 100, 100, 120);
+          let outPdfPath = this.context.filesDir + '/testAddImage.pdf';
+          let result = this.pdfDocument.saveDocument(outPdfPath);
+          hilog.info(0x0000, 'ContentEditPage', 'addImage %{public}s!', result ? 'success' : 'fail');
+        })
+        // ...
     }
   }
 }

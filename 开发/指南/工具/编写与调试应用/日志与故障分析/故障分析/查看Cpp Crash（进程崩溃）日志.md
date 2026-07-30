@@ -1,6 +1,6 @@
 # 查看Cpp Crash（进程崩溃）日志
 
-更新时间：2026-05-09 03:27:00
+更新时间：2026-07-29 07:25:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-faultlog-cppcrash
 
@@ -9,10 +9,10 @@
 ![](assets/查看Cpp%20Crash（进程崩溃）日志/file-20260514133025674-0.png)
 
 2. 点击**Fault Analysis**页签，会展示结构化的日志信息。
-页面上方的字段对应了FaultLog中的字段，具体对应关系请查看[字段说明](#section4735122283511)。
+页面上方的字段对应了FaultLog中的字段，具体对应关系请参考[字段说明](#section4735122283511)。
 3. 页面下方包含Stacks和Logs两个页签。
 **Stacks**：展示线程的堆栈信息，具体请参考[查看堆栈信息](#section145813141354)。
-4. **Logs**：展示FaultLog中的HiLog日志，具体请查看[查看HiLog日志](#section656352444818)。
+4. **Logs**：展示FaultLog中的HiLog日志，具体请参考[查看HiLog日志](#section656352444818)。
  
 
 #### 字段说明
@@ -40,7 +40,7 @@
 Stacks页面包含了FaultLog中的堆栈信息，并以线程为单元进行折叠，点击展开按钮，可以展开对应线程。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/uaa8gciVRJuLSZWvhcBntw/zh-cn_image_0000002602186263.png?HW-CC-KV=V1&HW-CC-Date=20260528T030549Z&HW-CC-Expire=86400&HW-CC-Sign=BC6267631048AC1E83F670999F6267E70FB8FDF140F0946523B942F3D1ED0950)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/uioCLfyZT4Ks9-K3TEgUfg/zh-cn_image_0000002678156559.png?HW-CC-KV=V1&HW-CC-Date=20260730T071818Z&HW-CC-Expire=86400&HW-CC-Sign=575BDBC37EAA1A616B5A42FACCE228646BA3D6FFDA00EEE4B85C969866A3A1A3)
 
  
 图中标注1的勾选框是展开应用堆栈，标注2的勾选框是展开系统堆栈，两个勾选框一共组成了四种状态，具体如下表。
@@ -60,4 +60,4 @@ Stacks页面包含了FaultLog中的堆栈信息，并以线程为单元进行折
 Logs页面展示了FaultLog中的HiLog日志，支持日志级别的过滤和搜索。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/IbOH2DChRMyf_izbWcgp7A/zh-cn_image_0000002602186265.png?HW-CC-KV=V1&HW-CC-Date=20260528T030549Z&HW-CC-Expire=86400&HW-CC-Sign=01999458AB3D8B023F1ADDBE04EEF52EB430FD05EBAF61753CDA02AC8EA06D75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/OLAIcTmZRma37G6VhCOTmg/zh-cn_image_0000002677996709.png?HW-CC-KV=V1&HW-CC-Date=20260730T071818Z&HW-CC-Expire=86400&HW-CC-Sign=733576306FF21E4E37983F86DC6B49572BAD1C4F890CC312386AA2015BF8A474)

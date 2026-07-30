@@ -1,6 +1,6 @@
 # Enterprise Space Kit简介
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-introduction
 
@@ -14,13 +14,13 @@ Enterprise Space Kit（企业数字空间服务）为企业[MDM](https://develop
 **空间互传：** 企业数字空间专属应用，支持跨空间文件共享。企业可自主管控数据流转，保障数据安全，实现高效共创。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/v74GZ5xBRx2kwQdbssHQuw/zh-cn_image_0000002656348921.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020924Z&HW-CC-Expire=86400&HW-CC-Sign=55533AF9DFCFED762F4CCB4C71B5D8085E46F8A5DA231AC34CEA7EBFCBEB33A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/om_OlPatRWigToGnLY7VHA/zh-cn_image_0000002655847636.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072001Z&HW-CC-Expire=86400&HW-CC-Sign=0311E3CD9385EC6C24E1ABEA3032AE92347B952FC53E03028C8BC13343A815A7)
 
  
 **空间切换：** 通过四指横滑、快捷键等多种便捷方式在两个空间之间丝滑切换，切换时身份、网络、数据整体切换。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/mbBjBB6eTh-2b8tu8vRn6g/zh-cn_image_0000002626229508.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020924Z&HW-CC-Expire=86400&HW-CC-Sign=60CD63225CF8A3E895720D70F8D455923AB069672E74829CBA9CCE6549BFC73C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/QUHUe5BLSamzUH-SmTWVEA/zh-cn_image_0000002686087065.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072001Z&HW-CC-Expire=86400&HW-CC-Sign=EA06408522BB6B253984E48E7822BE90AE174FAEA7CA7D15262114017B51C4E5)
 
  
 **空间开启：** 企业可通过HEM或MDM开启企业数字空间。HEM开启的具体操作步骤请参考[PC企业版配置](https://developer.huawei.com/business/cn/doc/HEM/hem_user-guide_add-reseller_management-devices-ot-0000002307766441#section1177603005511)。
@@ -38,6 +38,7 @@ Enterprise Space Kit提供以下功能，满足在企业数字空间的开发需
 - [进程访问限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-process-access-restriction)：提供设置系统服务进程不可访问后台用户数据，获取、新增和删除不可访问后台用户数据的系统服务进程列表等能力。
 - [深度冻结策略](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-lockdown-exemptionapps)：提供设置和查询深度冻结豁免名单的能力。
 - [企业账号认证](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-workspace-authentication)：提供企业认证和获取企业应用令牌的能力。
+- [跨空间消息提醒](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-cross-space-notification)：提供配置跨空间消息提醒的能力。
 
  
   

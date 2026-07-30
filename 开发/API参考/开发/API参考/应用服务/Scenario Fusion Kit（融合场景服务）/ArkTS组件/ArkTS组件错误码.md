@@ -1,6 +1,6 @@
 # ArkTS组件错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -46,7 +46,7 @@ Internal error.
  
 **处理步骤**
  
-检查是否是网络问题，如果是服务动态授权码Button报错，查看是否对子场景进行了邮件申请，详见[参考文档](https://developer.huawei.com/consumer/cn/doc/atomic-guides/push-as-timeline#section18702113217305)。
+检查是否是网络问题，如果是服务动态授权码Button报错，查看是否对子场景进行了申请，详见[接入指导](https://developer.huawei.com/consumer/cn/doc/atomic-guides/push-as-timeline#section18702113217305)。
  
   
 
@@ -100,7 +100,7 @@ Not atomic service.
 
 **错误信息**
  
-Invalid share parameter value. Possible causes: 1. The uniformDataType parameter verification failed; 2. Invalid content parameter format. [since 26.0.0]
+Invalid share parameter value. Possible causes: 1. The uniformDataType parameter verification failed; 2. Invalid content parameter format.
  
 **错误描述**
  

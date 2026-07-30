@@ -1,6 +1,6 @@
 # 分布式数据对象跨设备数据同步 (ArkTS)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-distributed-data-object
 
@@ -12,7 +12,7 @@
 
 分布式数据对象即实现了对“变量”的“全局”访问。向应用开发者提供内存对象的创建、查询、删除、修改、订阅等基本数据对象的管理能力，同时具备分布式能力。为开发者在分布式应用场景下提供简单易用的JS接口，轻松实现多设备间同应用的数据协同，同时设备间可以监听对象的状态和数据变更。满足超级终端场景下，相同应用多设备间的数据对象协同需求。与传统方式相比，分布式数据对象大大减少了开发者的工作量。
 
-目前分布式数据对象只能在[跨端迁移](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-data)和[通过跨设备Call调用实现多端协同](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-cross-device-interaction)的场景中使用。
+目前分布式数据对象只能在[跨端迁移](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-data#section1842122135815)和[通过跨设备Call调用实现多端协同](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-cross-device-interaction)的场景中使用。
 
 
 
@@ -129,7 +129,7 @@ dataObject['parents']['mom'] = "amy"; // 不支持的修改
 
 #### 约束限制
 
- - 目前分布式数据对象只能在[跨端迁移](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-data)和[通过跨设备Call调用实现多端协同](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-cross-device-interaction)的场景中使用。跨端迁移场景下，每个分布式数据对象大小不超过150KB；多端协同场景下，每个分布式数据对象大小不超过500KB。
+ - 目前分布式数据对象只能在[跨端迁移](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-data#section1842122135815)和[通过跨设备Call调用实现多端协同](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-cross-device-interaction)的场景中使用。跨端迁移场景下，每个分布式数据对象大小不超过150KB；多端协同场景下，每个分布式数据对象大小不超过500KB。
  - 分布式数据对象的数据同步发生在同一个应用程序下，且同sessionId之间。
  - 设备A修改1KB数据，设备B收到变更通知，50ms内完成。
  - 单个应用程序最多只能创建16个分布式数据对象实例。

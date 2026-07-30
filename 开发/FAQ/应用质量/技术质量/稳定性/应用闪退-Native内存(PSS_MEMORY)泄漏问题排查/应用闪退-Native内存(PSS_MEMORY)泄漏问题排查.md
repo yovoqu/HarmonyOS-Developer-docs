@@ -1,6 +1,6 @@
 # 应用闪退-Native内存(PSS_MEMORY)泄漏问题排查
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-71
 
@@ -14,7 +14,7 @@
 
 - 内存泄漏是指程序在申请分配内存后，由于疏忽或错误未能释放已经不再使用的内存空间，导致这部分内存无法被后续的程序使用。随着时间推移，未释放的内存会逐渐累积，最终可能导致系统性能下降甚至崩溃。
 - native内存泄漏是一种资源泄漏类型，其检测机制为以应用进程平均动态峰值内存作为基线，当动态内存峰值超过基线值2倍时，判定泄漏，同时触发管控。
-- 参考文档[日志获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#section166893320117)，native内存泄漏会生成三个故障日志文件以供分析：
+- 参考文档[日志获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#日志获取)，native内存泄漏会生成三个故障日志文件以供分析：
 memleak-native-[process_name]-[pid]-sample.txt：内存采样日志文件，用于观察内存增长趋势，确认泄漏情况。
 - memleak-native-[process_name]-[pid]-smaps.txt：内存维测日志文件，记录了一些内存相关的统计信息，用于不同泄漏问题的维测。
 - memleak-native-[process_name]-[pid]-[timestamp].txt：内存栈文件，检测到泄漏后抓取15min内的进程内存trace，用于分析内存分配时的调用栈。
@@ -177,7 +177,7 @@ size       allocated         nmalloc         ndalloc
 
 
 4. 使用HiSmartPref分析内存栈文件memleak-native-[process_name]-[pid]-[timestamp].txt，拖拽导入，框选All Heap，选择Created & Existing，找到最大size的调用栈，分析业务代码确认泄漏点。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/phInqDe2QTS7lpE9fo2SjA/zh-cn_image_0000002628554906.png?HW-CC-KV=V1&HW-CC-Date=20260723T012405Z&HW-CC-Expire=86400&HW-CC-Sign=2F8C83736CE06F878FE57AD5C2D8A207E68AFEDC2471D69C992F6226A391CAE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/oU71ag5bSByIAJBqLXq8dw/zh-cn_image_0000002628554906.png?HW-CC-KV=V1&HW-CC-Date=20260730T072252Z&HW-CC-Expire=86400&HW-CC-Sign=E041AEEBA5A067AA86EEE5935B9E80AFF4A876DB2399669BD25D44BBC8284E63)
 
 
  - 场景二：ashmem泄漏。
@@ -192,7 +192,7 @@ com.hx.example	12448	  616	328359	 12448	      dev/ashmem/Create PixelMap   1258
 
 
 2. 使用HiSmartPref分析内存栈文件memleak-native-[process_name]-[pid]-[timestamp].txt，拖拽导入，框选All Anonymous VM，选择Created & Existing，找到最大Virtual_size的调用栈，分析业务代码确认泄漏点。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/PJaAQwJsSTOXILkVe44Dgw/zh-cn_image_0000002628395006.png?HW-CC-KV=V1&HW-CC-Date=20260723T012405Z&HW-CC-Expire=86400&HW-CC-Sign=C40DC2AADCDA6925C8FDEAE2D6769279622E61EAA3B004B8D3FF90402BB795CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/IZDK2UfvQwKdX5QL33lZaA/zh-cn_image_0000002628395006.png?HW-CC-KV=V1&HW-CC-Date=20260730T072252Z&HW-CC-Expire=86400&HW-CC-Sign=3011D37B705E5E5EEDE36650B9F524F2D402E49C8CA45DC0347842E9074D3A4C)
 
 
  

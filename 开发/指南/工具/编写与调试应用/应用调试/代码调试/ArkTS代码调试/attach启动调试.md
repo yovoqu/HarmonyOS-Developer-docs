@@ -1,6 +1,6 @@
 # attach启动调试
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-attach
 
@@ -11,7 +11,7 @@ Attach Debugger和Debug的区别在于，Attach Debugger to Process可以先运�
 
 #### 前提条件
 
-当前设备上被attach的应用代码和本地代码一致，且已提前进行构建生成必要的sourceMap文件。
+当前设备上被attach的应用代码和本地代码一致，且已提前构建生成必要的sourceMap文件。
  
  
 
@@ -62,4 +62,4 @@ attach不支持的场景：
 5. 点击**OK**开始attach调试。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/mZ13nLP-QDaOz98tX1dcVQ/zh-cn_image_0000002625074449.png?HW-CC-KV=V1&HW-CC-Date=20260723T012119Z&HW-CC-Expire=86400&HW-CC-Sign=4EB741762778017F4D7AB0A861B70C6ABC71A161839E6B318C341EE5FE6BD810)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/Nm6bgHwBSuy3I6F8bQRRkQ/zh-cn_image_0000002647917188.png?HW-CC-KV=V1&HW-CC-Date=20260730T071817Z&HW-CC-Expire=86400&HW-CC-Sign=E2E1CA622492EE8E002FBFCA8444CB68BCFEBFE3EABD4E641F104EC18F7792CC)

@@ -1,6 +1,6 @@
 # faceComparator（人脸比对）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-facecomparator-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -34,7 +34,7 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pixelMap | image.PixelMap | 是 | 否 | 待识别的图片。 具体规格请参考约束与限制。 |
+| pixelMap | image.PixelMap | 是 | 否 | 待识别的图片，必须为颜色数据格式RGBA_8888的PixelMap类型。对于图片的要求请参见约束与限制。 |
 
 
 
@@ -54,7 +54,7 @@ import { faceComparator } from '@kit.CoreVisionKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isSamePerson | boolean | 是 | 否 | 是否是同一个人，true代表为同一个人，false不是同一个人。 |
-| similarity | number | 是 | 否 | 相似度，取值范围是0~1的浮点数。值越大说明相似程度越高。 |
+| similarity | number | 是 | 否 | 相似度，取值范围是0~1的浮点数。值越大说明相似程度越高，其中1表示完全一致。 |
 
 
 
@@ -220,8 +220,8 @@ compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise&lt;FaceC
 | --- | --- |
 | 200 | Run timed out, please try again later. |
 | 401 | The parameter check failed. |
-| 1008400001 | Failed to run, please try again. |
-| 1008400002 | The service is abnormal. |
+| 1008400001 | Failed to run face comparator, please try again. |
+| 1008400002 | The face comparator service is abnormal. |
 
 
 **示例：**

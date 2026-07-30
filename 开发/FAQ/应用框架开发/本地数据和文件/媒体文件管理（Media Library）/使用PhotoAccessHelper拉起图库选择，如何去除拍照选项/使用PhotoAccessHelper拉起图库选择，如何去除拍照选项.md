@@ -9,7 +9,7 @@
 使用PhotoPicker拉起图库选择器，应该如何去除拍照选项只保留视频和图片的选择。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/QvkoM9VzRHKnUekJFv4oFg/zh-cn_image_0000002629059036.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=3D236FB77B883E094526E4E587CD11BBA11571DE8E15E2F3E74B060AD008F897)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/QvkoM9VzRHKnUekJFv4oFg/zh-cn_image_0000002629059036.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=D1DDDF1D957E333F2C9ECF52AA91AA6718E3855455F02D4F099ABFEE1D7945BF)
 
  
  

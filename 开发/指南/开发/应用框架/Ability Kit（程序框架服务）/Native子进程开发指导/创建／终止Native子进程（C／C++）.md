@@ -1,6 +1,6 @@
 # 创建/终止Native子进程（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/capi-nativechildprocess-development-guideline
 
@@ -174,7 +174,9 @@ static void OnNativeChildProcessStarted(int errCode, OHIPCRemoteProxy *remotePro
 ```cpp
 #include <IPCKit/ipc_kit.h>
 #include <AbilityKit/native_child_process.h>
-// ···
+// ...
+int32_t g_result = -1;
+// ...
 static void OnNativeChildProcessStarted(int errCode, OHIPCRemoteProxy *remoteProxy)
 {
     if (errCode != NCP_NO_ERROR) {
@@ -187,7 +189,6 @@ static void OnNativeChildProcessStarted(int errCode, OHIPCRemoteProxy *remotePro
     // 耗时操作建议转移到独立线程去处理，避免长时间阻塞回调线程
     // IPC对象使用完毕后，需要调用OH_IPCRemoteProxy_Destroy方法释放
     // ...
-    // ···
 }
 
 void CreateNativeChildProcess()

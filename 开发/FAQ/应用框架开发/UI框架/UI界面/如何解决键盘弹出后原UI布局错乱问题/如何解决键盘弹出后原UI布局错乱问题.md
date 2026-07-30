@@ -11,9 +11,9 @@
 左图为初始状态，右图为错乱的场景：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/XkueyXxxRtO60iE6yYPRew/zh-cn_image_0000002658849129.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=81A61038213204962B49E55C342377C2643228F15E6185891B5D7BD5F2799B5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/XkueyXxxRtO60iE6yYPRew/zh-cn_image_0000002658849129.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=0283DF4D8F71A64AB131CD1D074ECBDA22B2E993335442704A7DE94D319F91CB)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/cZTKKzqvRJySwOcNPT4CHg/zh-cn_image_0000002628609864.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=E63C3FBFCB5B8E6E06C7E862F9D80457C4A3EB5DAD79259DD2382D026938A991)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/cZTKKzqvRJySwOcNPT4CHg/zh-cn_image_0000002628609864.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=966A2057BDD3F026E1C63268D66980567B70C5F3F356D77D64467CC2A8314EFD)
 
  
  
@@ -37,7 +37,7 @@
   效果如下：顶部自定义组件未被顶出屏幕，底部TextArea和其他组件被键盘顶起，List组件高度被压缩。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/dxyd6FAYS6m8Ahd4GDfBHA/zh-cn_image_0000002628769762.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=77D2738A916F8C1B9904C8E6396713C2B2773C1242461CD323AAC4644A0D7AAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/dxyd6FAYS6m8Ahd4GDfBHA/zh-cn_image_0000002628769762.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=9613A0341494874CD8174DD9559712FDCDDF0144BB6EDBC599B9093EF1848465)
 
 - 场景二：键盘弹出时控制组件是否避让。当不需要被顶起的组件被键盘顶起时，可通过expandSafeArea使该组件不避让键盘。需要注意，在KeyboardAvoidMode.RESIZE模式下，expandSafeArea属性不生效。
 
@@ -50,14 +50,14 @@
   右图中，List设置了键盘避让，此时最下方的TextInput组件输入时，该输入组件被键盘遮挡。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/uljBnUuSSMCe04V2RXt_Mw/zh-cn_image_0000002658969079.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=AD178B5F3A346B3162A59770AC8E503F3F5D301386E5064D3EED5708B3E69F76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/uljBnUuSSMCe04V2RXt_Mw/zh-cn_image_0000002658969079.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=04605A0FB8E86E6ED03E5AFB3CBDE1C0C5AC4FE4B081417411185794283C909E)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/jZu-WZvhS3mMoMkUXvzaiA/zh-cn_image_0000002658849131.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=7426E6347CA6B98F0DF9C54C275503FC17DB5F28877CF10BE2BA1284E66E74E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/jZu-WZvhS3mMoMkUXvzaiA/zh-cn_image_0000002658849131.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=242334FA6ED6758E381E20222AEBF0B99FC1FDBD96E8211076975754B24F8E8D)
 
 - 场景三：通过监听键盘高度或安全区域高度变化，自定义处理UI布局。自定义处理UI布局时，注意容器组件的高度是否为固定高度，推荐使用layoutWeight属性自适应容器或组件高度。当页面释放时，注意关闭键盘事件监听。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/E4r_ttWESYCXggtYCsJWGQ/zh-cn_image_0000002628609868.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=B60C9C501788C6B8FCE917E6CD30699E55D90C6099A92001F8AED0A3ADEBC435)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/E4r_ttWESYCXggtYCsJWGQ/zh-cn_image_0000002628609868.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=DAA44643BB8095F8BDBFF500A790A0EF421780AF1075ECE15407040A78DBA688)
 
 
  

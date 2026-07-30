@@ -1,6 +1,6 @@
 # data_asset.h
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-data-asset-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -632,7 +632,7 @@ Data_Asset **OH_Data_Asset_CreateMultiple(uint32_t count)
   
 | 参数项 | 描述 |
 | --- | --- |
-| uint32_t count | 代表创建的资产类型数据的数量。 |
+| uint32_t count | 表示要创建的Data_Asset类型实例的数量。 |
  
  
 **返回：**

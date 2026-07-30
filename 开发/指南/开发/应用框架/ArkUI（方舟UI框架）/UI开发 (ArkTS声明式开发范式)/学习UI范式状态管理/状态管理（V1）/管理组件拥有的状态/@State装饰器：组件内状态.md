@@ -1,12 +1,12 @@
 # @State装饰器：组件内状态
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state
 
 被状态变量装饰器装饰的变量称为状态变量，使普通变量具备状态属性。当状态变量改变时，会触发其直接绑定的UI组件渲染更新。
 
-在状态变量相关装饰器中，@State是最基础的装饰器，也是大部分状态变量的数据源。
+在状态变量相关装饰器中，[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-state#state)是最基础的装饰器，也是大部分状态变量的数据源。
 
 在阅读@State文档前，建议开发者对状态管理框架有基本的了解。建议提前阅读：[状态管理概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
 
@@ -157,9 +157,9 @@ this.title.name.value = 'ArkUI';
 @State count: number = 10;
 ```
 
-2. @State不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
+2. @State不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
 
-  从API version 23开始，添加对@State装饰Function类型变量的校验，编译期会报错。
+  从API version 23开始，在应用编译时添加了相关校验，@State装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@State装饰器。
 3. 父组件传入undefined时，@State装饰的变量仍使用本地默认值进行初始化。
 
   

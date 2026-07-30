@@ -1,6 +1,6 @@
 # dialog开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-dialog
 
@@ -59,7 +59,7 @@ button{
 ```text
 // xxx.js
 export default {
-  //Touch to open the dialog box.
+  // Click to open the dialog box.
   openDialog(){
     this.$element('dialogId').show()
   },
@@ -299,13 +299,11 @@ export default {
       message: 'Event setting canceled.'
     })
   },
-//    Touch OK to save the data.
+  // Click OK to save the data.
   setSchedule(e) {
-    if (e.text === '') {
-      this.schedule = info
-    } else {
-      this.schedule = info
-      var addItem =  {schedule: this.schedule,}
+    this.schedule = info
+    if (e.text !== '') {
+      var addItem = {schedule: this.schedule}
       this.scheduleList.push(addItem)
     }
     this.$element('dateDialog').close()
@@ -314,4 +312,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/tk4UfDtARAKi5bp16DuIJA/zh-cn_image_0000002611833985.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030428Z&HW-CC-Expire=86400&HW-CC-Sign=7A4032A903A4FF97E7021D44141C63917961DE83736E7F54A9B9369F242568A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/xG3F0zX_RCqCACc-RVfGbA/zh-cn_image_0000002686086095.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=FC1FA91B8AA37A39714B60DA10C10CD8C80F77A3631E8325E6AB91A8857BB57F)

@@ -1,6 +1,6 @@
 # 解决LazyForEach懒加载数据UI渲染失败的问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-770
 
@@ -74,7 +74,7 @@ List() {
 #### 场景三：没有重建数据项导致渲染失败。
 
 - **原因：** 在数据变化时，需重建数据项，更新index索引。
-- **修改方式：** 构造reloadData方法，在改变数据项后调用，重建后面的数据项。详细可参考：[渲染结果非预期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#渲染结果非预期)。
+- **修改方式：** 构造reloadData方法，在改变数据项后调用，重建后面的数据项。详细可参考：[渲染结果非预期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#删除节点后渲染结果非预期)。
 
  
 完整代码示例如下：

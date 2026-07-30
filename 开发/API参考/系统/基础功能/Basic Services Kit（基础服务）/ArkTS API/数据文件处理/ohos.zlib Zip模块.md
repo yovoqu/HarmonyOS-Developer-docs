@@ -1,6 +1,6 @@
 # @ohos.zlib (Zip模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-zlib
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -274,7 +274,7 @@ try {
 
 decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback&lt;void&gt;): void
 
-解压文件，解压的结果。使用callback异步回调。
+解压文件，解压的结果使用callback异步回调。
 
 > [!NOTE]
 > 为了避免路径穿越，从API version 13开始，inFile和outFile传入的参数不允许包含“../”，否则会返回900001、900002错误码。 传入的压缩包内部文件或者文件夹名称不能包含“../”，否则会返回900003错误码。
@@ -289,7 +289,7 @@ decompressFile(inFile: string, outFile: string, options: Options, callback: Asyn
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | inFile | string | 是 | 指定的待解压缩文件的文件路径，文件后缀需要以.zip结尾。文件路径必须为沙箱路径，沙箱路径可以通过context获取，可参考FA模型，Stage模型。如果待解压的.zip文件中包含中文的文件名或目录名，需使用UTF8进行编码，避免解压时文件名或目录名出现中文乱码。 |
-| outFile | string | 是 | 指定的解压后的文件夹路径，文件夹目录路径需要在系统中存在，不存在则会解压失败。路径必须为沙箱路径，沙箱路径可以通过context获取，具体方法可参考application/context（Stage模型）或 app/context（FA模型）。如果待解压的文件或文件夹在解压后的路径下已经存在，则会直接覆盖同名文件或同名文件夹中的同名文件。多个线程同时解压文件时，outFile不能相同。 |
+| outFile | string | 是 | 指定的解压后的文件夹路径，文件夹目录路径需要在系统中存在，不存在则会解压失败。路径必须为沙箱路径，沙箱路径可以通过context获取，具体方法可参考Context (Stage模型的上下文基类)或 Context (FA模型的上下文基类)。如果待解压的文件或文件夹在解压后的路径下已经存在，则会直接覆盖同名文件或同名文件夹中的同名文件。多个线程同时解压文件时，outFile不能相同。 |
 | options | Options | 是 | 解压的配置参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 异步获取解压结果之后的回调。成功返回null，失败返回错误码。 |
 
@@ -303,7 +303,7 @@ decompressFile(inFile: string, outFile: string, options: Options, callback: Asyn
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 900001 | The input source file is invalid. |
 | 900002 | The input destination file is invalid. |
-| 900003 | The input source file is not in ZIP format or is damaged. |
+| 900003 | The input source file is not in ZIP format or is damaged. 适用版本：10+ |
 
 
 **示例：**
@@ -357,7 +357,7 @@ decompressFile(inFile: string, outFile: string, options?: Options): Promise&lt;v
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | inFile | string | 是 | 指定的待解压缩文件的文件路径，文件后缀需要以.zip结尾。文件路径必须为沙箱路径，沙箱路径可以通过context获取，可参考FA模型，Stage模型。如果待解压的.zip文件中包含中文的文件名或目录名，需使用UTF8进行编码，避免解压时文件名或目录名出现中文乱码。 |
-| outFile | string | 是 | 指定的解压后的文件夹路径，文件夹目录路径需要在系统中存在，不存在则会解压失败。路径必须为沙箱路径，沙箱路径可以通过context获取，具体方法可参考application/context（Stage模型）或 app/context（FA模型）。如果待解压的文件或文件夹在解压后的路径下已经存在，则会直接覆盖同名文件或同名文件夹中的同名文件。多个线程同时解压文件时，outFile不能相同。 |
+| outFile | string | 是 | 指定的解压后的文件夹路径，文件夹目录路径需要在系统中存在，不存在则会解压失败。路径必须为沙箱路径，沙箱路径可以通过context获取，具体方法可参考Context (Stage模型的上下文基类)或 Context (FA模型的上下文基类)。如果待解压的文件或文件夹在解压后的路径下已经存在，则会直接覆盖同名文件或同名文件夹中的同名文件。多个线程同时解压文件时，outFile不能相同。 |
 | options | Options | 否 | 解压时的配置参数。 |
 
 
@@ -377,7 +377,7 @@ decompressFile(inFile: string, outFile: string, options?: Options): Promise&lt;v
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 900001 | The input source file is invalid. |
 | 900002 | The input destination file is invalid. |
-| 900003 | The input source file is not in ZIP format or is damaged. |
+| 900003 | The input source file is not in ZIP format or is damaged. 适用版本：10+ |
 
 
 **示例：**
@@ -428,7 +428,7 @@ decompressFile(inFile: string, outFile: string, callback: AsyncCallback&lt;void&
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | inFile | string | 是 | 指定的待解压缩文件的文件路径，文件后缀需要以.zip结尾。文件路径必须为沙箱路径，沙箱路径可以通过context获取，可参考FA模型，Stage模型。如果待解压的.zip文件中包含中文的文件名或目录名，需使用UTF8进行编码，避免解压时文件名或目录名出现中文乱码。 |
-| outFile | string | 是 | 指定的解压后的文件夹路径，文件夹目录路径需要在系统中存在，不存在则会解压失败。路径必须为沙箱路径，沙箱路径可以通过context获取，具体方法可参考application/context（Stage模型）或 app/context（FA模型）。如果待解压的文件或文件夹在解压后的路径下已经存在，则会直接覆盖同名文件或同名文件夹中的同名文件。多个线程同时解压文件时，outFile不能相同。 |
+| outFile | string | 是 | 指定的解压后的文件夹路径，文件夹目录路径需要在系统中存在，不存在则会解压失败。路径必须为沙箱路径，沙箱路径可以通过context获取，具体方法可参考Context (Stage模型的上下文基类)或 Context (FA模型的上下文基类)。如果待解压的文件或文件夹在解压后的路径下已经存在，则会直接覆盖同名文件或同名文件夹中的同名文件。多个线程同时解压文件时，outFile不能相同。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 异步获取解压结果之后的回调。成功返回null，失败返回错误码。 |
 
 
@@ -1559,7 +1559,7 @@ inflateValidate(strm: ZStream, check: number): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | check | number | 是 | 预期的校验和。 |
 
 
@@ -1626,7 +1626,7 @@ inflateSyncPoint(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -1692,7 +1692,7 @@ inflateSync(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -1791,7 +1791,7 @@ inflateResetKeep(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -1857,7 +1857,7 @@ inflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise&lt;ReturnS
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | dictionary | ArrayBuffer | 是 | 字典数据。 |
 
 
@@ -1962,7 +1962,7 @@ inflateReset2(strm: ZStream, windowBits: number): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | windowBits | number | 是 | 控制内存窗口的大小，并指定数据的格式（zlib、gzip、raw deflate）。取值如下： zlib格式：[1, 15]。 gzip格式：大于15。 raw deflate格式：[-15, -1]。 |
 
 
@@ -2029,7 +2029,7 @@ inflateReset(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -2095,7 +2095,7 @@ inflatePrime(strm: ZStream, bits: number, value: number): Promise&lt;ReturnStatu
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | bits | number | 是 | 指定要写入比特缓冲区的比特数。 |
 | value | number | 是 | 用于填充比特缓冲区的比特值。 |
 
@@ -2163,7 +2163,7 @@ inflateMark(strm: ZStream): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -2228,7 +2228,7 @@ inflateInit2(strm: ZStream, windowBits: number): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | windowBits | number | 是 | 控制内存窗口的大小，并指定数据的格式（zlib、gzip、raw deflate）。取值如下： zlib格式：[1, 15]。 gzip格式：大于15。 raw deflate格式：[-15, -1]。 |
 
 
@@ -2291,7 +2291,7 @@ inflateInit(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -2352,7 +2352,7 @@ inflateGetHeader(strm: ZStream, header: GzHeader): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | header | GzHeader | 是 | 从压缩数据流中提取的gzip头信息。 |
 
 
@@ -2419,7 +2419,7 @@ inflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise&lt;Diction
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | dictionary | ArrayBuffer | 是 | 接收解压缩字典的实际内容。 |
 
 
@@ -2486,7 +2486,7 @@ inflateEnd(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -2557,7 +2557,7 @@ inflateCopy(source: Zip): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | Zip | 是 | 参考Zip定义。 |
+| source | Zip | 是 | 压缩或解压缩的对象实例。 |
 
 
 **返回值：**
@@ -2624,7 +2624,7 @@ inflateCodesUsed(strm: ZStream): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -2689,7 +2689,7 @@ inflateBackInit(strm: ZStream, windowBits: number, window: ArrayBuffer): Promise
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | windowBits | number | 是 | 控制内存窗口的大小，并指定数据的格式（zlib、gzip、raw deflate）。取值如下： zlib格式：[1, 15]。 gzip格式：大于15。 raw deflate格式：[-15, -1]。 |
 | window | ArrayBuffer | 是 | 预设的窗口缓冲区。 |
 
@@ -2733,7 +2733,7 @@ inflateBackInit()函数分配的所有内存都被释放。使用Promise异步�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -2775,7 +2775,7 @@ inflateBack(strm: ZStream, backIn: InflateBackInputCallback, inDesc: object, bac
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | backIn | InflateBackInputCallback | 是 | 一种函数，用于从末尾解压缩数据，以从输入源读取原始压缩数据。 |
 | inDesc | object | 是 | 通用对象。 |
 | backOut | InflateBackOutputCallback | 是 | 将解压缩的数据写入目标输出。 |
@@ -3012,8 +3012,8 @@ inflate(strm: ZStream, flush: CompressFlushMode): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
-| flush | CompressFlushMode | 是 | 参考CompressFlushMode定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
+| flush | CompressFlushMode | 是 | 压缩或解压过程中的数据刷新策略。 |
 
 
 **返回值：**
@@ -3106,7 +3106,7 @@ deflateInit(strm: ZStream, level: CompressLevel): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | level | CompressLevel | 是 | 参考CompressLevel枚举定义。 |
 
 
@@ -3173,9 +3173,9 @@ deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, window
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | level | CompressLevel | 是 | 参考CompressLevel枚举定义。 |
-| method | CompressMethod | 是 | 参考CompressMethod枚举定义。 |
+| method | CompressMethod | 是 | 压缩算法的枚举类型，指定使用DEFLATED压缩方法。 |
 | windowBits | number | 是 | 控制内存窗口的大小，并指定数据的格式（zlib、gzip、raw deflate）。取值如下： zlib格式：[1, 15]。 gzip格式：大于15。 raw deflate格式：[-15, -1]。 |
 | memLevel | MemLevel | 是 | 参考MemLevel枚举定义。 |
 | strategy | CompressStrategy | 是 | 参考CompressStrategy枚举定义。 |
@@ -3245,8 +3245,8 @@ deflate(strm: ZStream, flush: CompressFlushMode): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
-| flush | CompressFlushMode | 是 | 参考CompressFlushMode定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
+| flush | CompressFlushMode | 是 | 压缩或解压过程中的数据刷新策略。 |
 
 
 **返回值：**
@@ -3318,7 +3318,7 @@ deflateEnd(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -3394,7 +3394,7 @@ deflateBound(strm: ZStream, sourceLength: number): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | sourceLength | number | 是 | 源数据长度。 |
 
 
@@ -3465,7 +3465,7 @@ deflateSetHeader(strm: ZStream, head: GzHeader): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | head | GzHeader | 是 | 从压缩数据流中提取的gzip头信息。 |
 
 
@@ -3538,7 +3538,7 @@ deflateCopy(source: Zip): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | Zip | 是 | 参考Zip定义。 |
+| source | Zip | 是 | 压缩或解压缩的对象实例。 |
 
 
 **返回值：**
@@ -3609,7 +3609,7 @@ deflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise&lt;ReturnS
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | dictionary | ArrayBuffer | 是 | 字典数据。 |
 
 
@@ -3681,7 +3681,7 @@ deflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise&lt;Diction
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | dictionary | ArrayBuffer | 是 | 接收压缩字典的实际内容。 |
 
 
@@ -3758,7 +3758,7 @@ deflateTune(strm: ZStream, goodLength: number, maxLazy: number, niceLength: numb
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | goodLength | number | 是 | 匹配的长度阈值。 |
 | maxLazy | number | 是 | 压缩算法在构建哈夫曼树时的延迟匹配策略，取值范围为0到4的整数。1到4，值越大，算法越‘懒’，匹配过程越慢，但可能生成更优的压缩结果。0：禁用懒惰匹配，算法会尽快构建哈夫曼树，压缩速度快，但压缩率低。 |
 | niceLength | number | 是 | 适合的延迟长度阈值。 |
@@ -3833,7 +3833,7 @@ deflateReset(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -3904,7 +3904,7 @@ deflateResetKeep(strm: ZStream): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -3975,7 +3975,7 @@ deflatePending(strm: ZStream): Promise&lt;DeflatePendingOutputInfo&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 
 
 **返回值：**
@@ -4046,7 +4046,7 @@ deflateParams(strm: ZStream, level: CompressLevel, strategy: CompressStrategy): 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | level | CompressLevel | 是 | 参考CompressLevel枚举定义。 |
 | strategy | CompressStrategy | 是 | 参考CompressStrategy枚举定义。 |
 
@@ -4119,7 +4119,7 @@ deflatePrime(strm: ZStream, bits: number, value: number): Promise&lt;ReturnStatu
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strm | ZStream | 是 | 参考ZStream定义。 |
+| strm | ZStream | 是 | zlib压缩解压的数据流管理对象。 |
 | bits | number | 是 | 要插入的位数，取值范围在0~16。 |
 | value | number | 是 | 与位数相对应的位值。 |
 
@@ -4389,7 +4389,7 @@ PathSeparatorStrategy作为[Options](#options)的一个属性，用于指定解�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| status | ReturnStatus | 否 | 否 | 参考ReturnStatus枚举定义。 |
+| status | ReturnStatus | 否 | 否 | 压缩或解压函数执行结果的枚举类型，包含成功状态和各种错误码。 |
 | destLen | number | 否 | 否 | 目标缓冲区的总长度。 |
 
 
@@ -4405,7 +4405,7 @@ PathSeparatorStrategy作为[Options](#options)的一个属性，用于指定解�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| status | ReturnStatus | 否 | 否 | 参考ReturnStatus枚举定义。 |
+| status | ReturnStatus | 否 | 否 | 压缩或解压函数执行结果的枚举类型，包含成功状态和各种错误码。 |
 | dictionaryLength | number | 否 | 否 | 字典的长度。 |
 
 
@@ -4421,7 +4421,7 @@ PathSeparatorStrategy作为[Options](#options)的一个属性，用于指定解�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| status | ReturnStatus | 否 | 否 | 参考ReturnStatus枚举定义。 |
+| status | ReturnStatus | 否 | 否 | 压缩或解压函数执行结果的枚举类型，包含成功状态和各种错误码。 |
 | destLength | number | 否 | 否 | 目标缓冲区的长度。 |
 | sourceLength | number | 否 | 否 | 源缓冲区的长度。 |
 
@@ -4438,7 +4438,7 @@ PathSeparatorStrategy作为[Options](#options)的一个属性，用于指定解�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| status | ReturnStatus | 否 | 否 | 参考ReturnStatus枚举定义。 |
+| status | ReturnStatus | 否 | 否 | 压缩或解压函数执行结果的枚举类型，包含成功状态和各种错误码。 |
 | pending | number | 否 | 否 | 已生成的输出字节数。 |
 | bits | number | 否 | 否 | 已生成的输出位数。 |
 
@@ -5211,7 +5211,7 @@ gzflush(flush: CompressFlushMode): Promise&lt;ReturnStatus&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| flush | CompressFlushMode | 是 | 控制刷新操作的行为，参考CompressFlushMode枚举的定义。 |
+| flush | CompressFlushMode | 是 | 压缩或解压过程中的数据刷新策略。 |
 
 
 **返回值：**
@@ -5911,7 +5911,7 @@ gzseek(offset: number, whence: OffsetReferencePoint): Promise&lt;number&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | offset | number | 是 | 目标偏移位置。 |
-| whence | OffsetReferencePoint | 是 | 定义偏移的参考点，参考OffsetReferencePoint枚举定义。 |
+| whence | OffsetReferencePoint | 是 | 文件查找起始位置的枚举类型。 |
 
 
 **返回值：**
@@ -6522,7 +6522,7 @@ struct Index {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| status | ReturnStatus | 否 | 否 | 返回zlib文件状态码，参考ReturnStatus的定义。 |
+| status | ReturnStatus | 否 | 否 | 压缩或解压函数执行结果的枚举类型，包含成功状态和各种错误码。 |
 | statusMsg | string | 否 | 否 | zlib文件上发生的最后一个状态的状态消息。 |
 
 

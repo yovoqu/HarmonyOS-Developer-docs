@@ -1,6 +1,6 @@
 # HarmonyOS按需加载实现方法和常见问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-24 01:16:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-79
 
@@ -38,7 +38,7 @@
 当动态模块为HSP时，基础功能Entry包的oh-package.json5中需要[添加依赖项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-dependencies)。添加HSP模块的动态依赖方式可参考[如何配置oh-package.json5动态依赖](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-48)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/apRKa0SIQ2u1nSUYUSoLVg/zh-cn_image_0000002658913849.png?HW-CC-KV=V1&HW-CC-Date=20260723T013843Z&HW-CC-Expire=86400&HW-CC-Sign=26F83F026BF0D32054DF59D9E03216DFD617BB0E491FA58A850AA5139927E3B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/Uj8X8m1LSkGlaxNCMcj4Qg/zh-cn_image_0000002648285864.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=61DFEB7D272834E1F15C9F0B5A8D21F76592451344E67841514122AB27CEB038)
 
  
 **步骤二：按需加载下载安装扩展功能包。**
@@ -52,9 +52,10 @@
  
 - 对于动态模块为Feature类型的HAP，可以通过UIAbility中的[startAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability)方法拉起动态模块HAP包中的页面。
 - 当动态模块为HSP时，可通过基础功能Entry包HAP[动态import](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-dynamic-import) HSP模块名或动态import HSP模块名文件路径的方式调用HSP中的方法或组件。
+> [!NOTE]
+> 完整按需加载动态HSP可参考： 产品特性按需分发(ArkTS) 。
 
- 
-完整按需加载动态HSP可参考：[产品特性按需分发(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_arkts)。
+
  
  
 
@@ -64,12 +65,16 @@ Q：按需加载[接入调试功能](https://developer.huawei.com/consumer/cn/do
  
 A：Device File Browser可访问的文件夹有五种类型：[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)、一般暂存区目录、日志目录、设备公共目录、媒体库目录。
  1. 按下图点击切换Device File Browser沙箱视图。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/r_vwGP4tSlaALxz7fqR6UQ/zh-cn_image_0000002658793909.png?HW-CC-KV=V1&HW-CC-Date=20260723T013843Z&HW-CC-Expire=86400&HW-CC-Sign=DF92D2E5C78148D7062B556E0D7291B68AE6C4E464DE5C26B4E420291EC740B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/BkImVmZ1QCyt2X4JfEnj8g/zh-cn_image_0000002648286216.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=8EB05C0EDE1DF86F0BA8FB39909BBE9C31438906EDDD317E303EF7B2CA60D984)
 
-2. 在/&lt;PACKAGENAME&gt;/data/app/el2/base/cache/moduleinstall/&lt;ModuleName&gt;下添加对应的动态模块。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/Y6qOtbLtTFm32SzxRVT0Eg/zh-cn_image_0000002628394640.png?HW-CC-KV=V1&HW-CC-Date=20260723T013843Z&HW-CC-Expire=86400&HW-CC-Sign=7CF3AE2B9225CF41F7C841D8921E17452F32DB4DFD38AA8B07D26BA01D57C8F1)
+2. 在//data/app/el2/base/cache/moduleinstall/下添加对应的动态模块。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/i30uGTa9SiC80OOFgmc9yA/zh-cn_image_0000002648126326.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=EABDFB49AB6CFD32790DC303F469E64EC266A588C12E6C097D948A3843879521)
 
  
 Q：应用未上架如何测试按需加载功能？
  
 A：推荐使用[邀请测试](https://developer.huawei.com/consumer/cn/doc/app/agc-help-invite-test-0000002270829393)。
+ 
+Q：预装场景下，如果deliveryWithInstall配置为true，代码中是否不能引入@kit.AppGalleryKit？
+ 
+A：没有这个限制。预装场景下系统会识别需要安装的文件，按需加载特性可以正常使用。

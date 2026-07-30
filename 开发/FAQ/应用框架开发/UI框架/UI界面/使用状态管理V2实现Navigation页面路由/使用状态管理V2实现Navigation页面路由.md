@@ -231,7 +231,7 @@ struct AppStorageV2ChildPage {
 以上示例效果图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/j6Qa6nbNToq4DlyD_Jy0OQ/zh-cn_image_0000002659060263.png?HW-CC-KV=V1&HW-CC-Date=20260723T013251Z&HW-CC-Expire=86400&HW-CC-Sign=A49B8F5C58F989A296589905C5F9A2DF1ABD9D773225C94705D3EB5A7265DA3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/j6Qa6nbNToq4DlyD_Jy0OQ/zh-cn_image_0000002659060263.png?HW-CC-KV=V1&HW-CC-Date=20260730T072521Z&HW-CC-Expire=86400&HW-CC-Sign=A7D89CBE49F95CA3EC4F1DB9B5C71B0DF500BECA550595A765CC25DFDA958903)
 
  
 

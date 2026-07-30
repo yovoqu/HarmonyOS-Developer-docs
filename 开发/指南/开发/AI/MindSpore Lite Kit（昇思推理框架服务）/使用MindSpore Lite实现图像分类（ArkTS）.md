@@ -1,6 +1,6 @@
-# 使用MindSpore Lite实现图像分类（ArkTS）
+# 使用MindSpore Lite实现图像分类 (ArkTS)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-js
 
@@ -31,6 +31,7 @@
 | 接口名 | 描述 |
 | --- | --- |
 | loadModelFromFile(model: string, context?: Context): Promise&lt;Model&gt; | 从路径加载模型。 |
+| loadModelFromBuffer(model: ArrayBuffer, context?: Context): Promise&lt;Model&gt; | 从内存加载模型。 |
 | getInputs(): MSTensor[] | 获取模型的输入。 |
 | predict(inputs: MSTensor[]): Promise<MSTensor[]> | 推理模型。 |
 | getData(): ArrayBuffer | 获取张量的数据。 |
@@ -131,7 +132,7 @@ export default async function modelPredict(
 
 #### 实现图像输入和预处理，并执行推理
 1. 此处以获取相册图片为例，调用[@ohos.file.picker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker) 实现相册图片文件的选择。
-2. 根据模型的输入尺寸，调用[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image) （实现图片处理）、[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs) （实现基础文件操作） API对选择图片进行裁剪、获取图片buffer数据，并进行标准化处理。
+2. 根据模型的输入尺寸，调用[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image)（实现图片处理）、[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)（实现基础文件操作）API对选择图片进行裁剪、获取图片buffer数据，并进行标准化处理。
 3. 加载模型文件，调用推理函数，对相册选择的图片进行推理，并对推理结果进行处理。
 
   

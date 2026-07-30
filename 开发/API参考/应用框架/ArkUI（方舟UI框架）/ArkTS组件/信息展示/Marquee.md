@@ -1,14 +1,14 @@
 # Marquee
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-marquee
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-跑马灯组件，用于滚动展示一段单行文本。仅当文本内容宽度大于等于跑马灯组件宽度时滚动，当文本内容宽度小于跑马灯组件宽度时不滚动。
+跑马灯组件，用于滚动展示一段单行文本，支持自定义滚动速度、方向、循环次数等。仅当文本内容宽度大于等于跑马灯组件宽度时滚动，否则不滚动。适用于需要在有限空间内展示较长文本的场景，如新闻标题滚动、通知公告、广告轮播等，可以有效节省界面空间并吸引用户注意。
 
 > [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 为了不影响滚动帧率，建议在滚动类组件中Marquee的个数不超过4个，或者使用 Text 组件的 TextOverflow.MARQUEE 替代。 对于Marquee组件动态帧率的场景，可以使用 MarqueeDynamicSyncScene 接口实现。 在文本宽度小于跑马灯组件宽度时，使用 属性动画 实现滚动。
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 为了不影响滚动帧率，建议在滚动类组件中Marquee的个数不超过4个，或者使用 Text 组件的 TextOverflow.MARQUEE 替代。 对于Marquee组件动态帧率的场景，可以使用 MarqueeDynamicSyncScene 接口实现。 在文本宽度小于跑马灯组件宽度时，使用 属性动画 实现滚动。
 
 
 
@@ -59,13 +59,13 @@ Marquee初始化参数。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| start8+ | boolean | 否 | 否 | 控制跑马灯是否进入播放状态。 true：播放；false：不播放。 说明： 有限的滚动次数播放完毕后，不可以通过改变start重置滚动次数重新开始播放。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| step8+ | number | 否 | 是 | 滚动动画的文本步长。当step大于Marquee的文本宽度时，取默认值。 默认值：6 单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| loop8+ | number | 否 | 是 | 设置重复滚动的次数，小于等于零时无限循环。 默认值：-1 说明： ArkTS卡片上该参数设置任意值都仅在可见时滚动一次。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fromStart8+ | boolean | 否 | 是 | 设置文本从头开始滚动或反向滚动。 true：表示从头开始滚动 false：表示反向滚动。 默认值：true 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| start8+ | boolean | 否 | 否 | 控制跑马灯是否进入播放状态。 true：播放；false：不播放。 说明： 当loop参数设置为大于0的有限次数且播放完毕后，不可以通过改变start参数重置滚动次数重新开始播放。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| step8+ | number | 否 | 是 | 滚动动画的文本步长。 取值范围：[0, 文本宽度]，当step大于Marquee的文本宽度时，取默认值。 默认值：6 单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| loop8+ | number | 否 | 是 | 设置重复滚动的次数，小于等于零时无限循环。 默认值：-1 说明： ArkTS卡片上该参数设置任意值都仅在可见时滚动一次。当设置为大于0的有限次数且播放完毕后，不可以通过改变start参数重置滚动次数重新开始播放。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fromStart8+ | boolean | 否 | 是 | 设置文本的滚动方向。 true：表示文本从头部位置开始正向滚动；false：表示文本反向滚动。 默认值：true 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | src8+ | string | 否 | 否 | 需要滚动的文本。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | spacing23+ | LengthMetrics | 否 | 是 | 两轮跑马灯之间的间距。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。 默认值：跑马灯组件宽度。 卡片能力： 从API version 23开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| delay23+ | number | 否 | 是 | 设置每次滚动的时间间隔。 默认值：0 取值范围：[0, +∞)，设置的值小于0时等价于设置0。 单位：毫秒 卡片能力： 从API version 23开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| delay23+ | number | 否 | 是 | 设置两轮滚动之间的延迟时间。 默认值：0 取值范围：[0, +∞)，设置的值小于0时等价于设置0。 单位：毫秒 卡片能力： 从API version 23开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -84,7 +84,7 @@ Marquee初始化参数。
 
 fontColor(value: ResourceColor)
 
-设置字体颜色。
+设置字体颜色。未通过该接口设置时，默认字体颜色为'#e6182431'，表示深灰色（不透明度约为90%），Wearable设备上默认字体颜色为'#c5ffffff'，表示白色（不透明度约为77%）。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -96,7 +96,7 @@ fontColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 字体颜色。 Wearable设备上默认值为：'#c5ffffff'，显示为淡蓝色，其他设备默认值为：'#e6182431'，显示为黑色。 |
+| value | ResourceColor | 是 | 字体颜色。 |
 
 
 
@@ -119,7 +119,7 @@ fontSize(value: Length)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 字体大小。fontSize为number类型时，使用fp单位。字体默认大小16fp。不支持设置百分比字符串。 |
+| value | Length | 是 | 字体大小。fontSize为number类型时，使用fp单位。字体默认大小16fp。不支持设置百分比字符串。 Wearable设备上默认值：15fp 说明： 配合allowScale属性使用时，需设置为fp单位。 |
 
 
 
@@ -130,7 +130,7 @@ fontSize(value: Length)
 
 fontWeight(value: number | FontWeight | string)
 
-设置文本的字体粗细，设置过大可能会在不同字体下有截断。
+设置文本的字体粗细，设置过大可能会在不同字体下有截断。未通过该接口设置时，默认字体粗细为FontWeight.Normal（正常粗细，对应数值400）。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -142,7 +142,7 @@ fontWeight(value: number | FontWeight | string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| FontWeight \| string | 是 | 文本的字体粗细，number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal |
+| value | number \| FontWeight \| string | 是 | 文本的字体粗细 number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。 传入超出取值范围的值时取默认值。传入不符合间隔要求的值时，若设置fontWeightConfigs的enableVariableFontWeight为true，使用传入值；若设置为false，使用默认值。 |
 
 
 
@@ -176,7 +176,7 @@ fontFamily(value: string | Resource)
 
 allowScale(value: boolean)
 
-设置是否允许文本缩放。
+设置是否允许文本缩放。未通过该接口设置时，默认不允许文本缩放。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -188,7 +188,7 @@ allowScale(value: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 是否允许文本缩放。 true：允许文本缩放；false：不允许文本缩放。 默认值：false 说明： 仅当fontSize为fp单位时生效。 |
+| value | boolean | 是 | 是否允许文本缩放。 true：允许文本缩放；false：不允许文本缩放。 说明： 仅当fontSize为fp单位时生效。 |
 
 
 
@@ -199,7 +199,13 @@ allowScale(value: boolean)
 
 marqueeUpdateStrategy(value: MarqueeUpdateStrategy)
 
-跑马灯组件属性更新后，跑马灯的滚动策略。(当跑马灯为播放状态，且文本内容宽度超过跑马灯组件宽度时，该属性生效。)
+跑马灯组件属性更新后，跑马灯的滚动策略。(当跑马灯为播放状态，且文本内容宽度大于等于跑马灯组件宽度时，该属性生效。)未通过该接口设置时，默认使用MarqueeUpdateStrategy.DEFAULT。
+
+使用场景：
+
+ - MarqueeUpdateStrategy.DEFAULT：适用于内容更新后希望以默认策略重新开始滚动展示的场景。
+ - MarqueeUpdateStrategy.PRESERVE_POSITION：适用于内容动态更新时希望保持当前滚动位置继续滚动的场景，如实时时钟、股价等动态内容展示。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -211,7 +217,7 @@ marqueeUpdateStrategy(value: MarqueeUpdateStrategy)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | MarqueeUpdateStrategy | 是 | 跑马灯组件属性更新后，跑马灯的滚动策略。 默认值: MarqueeUpdateStrategy.DEFAULT |
+| value | MarqueeUpdateStrategy | 是 | 跑马灯组件属性更新后，跑马灯的滚动策略。 |
 
 
 
@@ -251,7 +257,7 @@ onStart(event: () => void)
 
 onBounce(event: () => void)
 
-完成一次滚动时触发，若循环次数不为1，则该事件会多次触发。
+完成一次完整滚动时触发，若循环次数不为1，则该事件会多次触发。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -263,7 +269,7 @@ onBounce(event: () => void)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | () => void | 是 | 完成一次滚动时触发的回调。 |
+| event | () => void | 是 | 完成一次完整滚动时触发的回调。 |
 
 
 
@@ -328,7 +334,7 @@ onStop(event: Callback&lt;void&gt;| undefined)
 
 #### 示例1（跑马灯内容动态更新）
 
-该示例通过设置[MarqueeOptions](#marqueeoptions18对象说明)的start、step、loop、fromStart、src、spacing、delay属性和[marqueeUpdateStrategy](#marqueeupdatestrategy12)展示了跑马灯内容动态更新时运行的效果。
+该示例展示了跑马灯内容动态更新时的运行效果，主要涉及start、step、loop、fromStart、src等属性以及[marqueeUpdateStrategy](#marqueeupdatestrategy12)属性的设置。
 
 从API version 23开始，[MarqueeOptions](#marqueeoptions18对象说明)新增spacing、delay属性。
 
@@ -347,12 +353,12 @@ struct MarqueeExample {
   private loop: number = Number.POSITIVE_INFINITY;
   controller: TextClockController = new TextClockController();
 
-  convert2time(value: number): string {
+  convertToTime(value: number): string {
     let date = new Date(Number(value + '000'));
     let hours = date.getHours().toString().padStart(2, '0');
     let minutes = date.getMinutes().toString().padStart(2, '0');
     let seconds = date.getSeconds().toString().padStart(2, '0');
-    return hours + ":" + minutes + ":" + seconds;
+    return hours + ':' + minutes + ':' + seconds;
   }
 
   build() {
@@ -387,7 +393,7 @@ struct MarqueeExample {
         })
       Button('Start')
         .onClick(() => {
-          this.start = true
+          this.start = true;
           // 启动文本时钟
           this.controller.start();
         })
@@ -399,7 +405,7 @@ struct MarqueeExample {
       TextClock({ timeZoneOffset: -8, controller: this.controller })
         .format('hms')
         .onDateChange((value: number) => {
-          this.src = this.convert2time(value);
+          this.src = this.convertToTime(value);
         })
         .margin('20vp')
         .fontSize('30fp')
@@ -411,14 +417,14 @@ struct MarqueeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/5kDt-uMESC6oiI0mVwoV1w/zh-cn_image_0000002647588188.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=2E93BED07F76F1CA663A225BF07AE6D93B059C20642201F5F0EAC738714DC348)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/t0bqy7DvSGKDhjhnddBIjA/zh-cn_image_0000002656008734.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071508Z&HW-CC-Expire=86400&HW-CC-Sign=25212BF794B8659369C9CAB8AE5A5A7F5946A062B878C6085EFF9796D15ED044)
 
 
 
 
 #### 示例2（设置跑马灯停止回调）
 
-该示例通过变更跑马灯状态来触发跑马灯的onStop回调，触发onStop回调后使停止计数器numberSTOP的值加1。
+该示例通过变更跑马灯状态来触发onStop回调，回调触发后使停止计数器numberStop的值加1。
 
 从API版本26.0.0开始，新增[onStop](#onstop)接口。
 
@@ -427,13 +433,13 @@ struct MarqueeExample {
 @Entry
 @Component
 struct MarqueeStop4 {
-  @State change :boolean = true;
-  @State isString: String = '正向滚动';
+  @State change: boolean = true;
+  @State scrollDirection: String = '正向滚动';
   @State marqueeText: string =
     'This is the text with the text overflow set marquee This is the text with the text overflow set marquee This is the text with the text overflow set marquee';
-  @State numberSTART: number = 0;
-  @State numberBOUNCE: number = 0;
-  @State numberSTOP: number = 0;
+  @State numberStart: number = 0;
+  @State numberBounce: number = 0;
+  @State numberStop: number = 0;
 
   build() {
     Scroll() {
@@ -441,17 +447,17 @@ struct MarqueeStop4 {
         Row() {
           Column() {
             Text('Start')
-            Text(this.numberSTART.toString())
+            Text(this.numberStart.toString())
           }.margin(10)
 
           Column() {
             Text('Bounce')
-            Text(this.numberBOUNCE.toString())
+            Text(this.numberBounce.toString())
           }.margin(10)
 
           Column() {
             Text('Stop')
-            Text(this.numberSTOP.toString())
+            Text(this.numberStop.toString())
           }.margin(10)
         }.margin(20)
 
@@ -466,23 +472,23 @@ struct MarqueeStop4 {
           .margin(20)
           .onStart(() => {
             // '收到状态: START';
-            this.numberSTART++;
+            this.numberStart++;
           })
           .onBounce(() => {
             // '收到状态: BOUNCE';
-            this.numberBOUNCE++;
+            this.numberBounce++;
           })
           .onStop(() => {
             // '收到状态: STOP';
-            this.numberSTOP++;
+            this.numberStop++;
           })
-        Button(this.isString.toString()).onClick(() => {
+        Button(this.scrollDirection.toString()).onClick(() => {
           if (this.change) {
-            this.change = false
-            this.isString = '反向滚动';
+            this.change = false;
+            this.scrollDirection = '反向滚动';
           } else {
-            this.change = true
-            this.isString = '正向滚动';
+            this.change = true;
+            this.scrollDirection = '正向滚动';
           }
         }).margin(20)
       }.height(600).width('100%').padding({ left: 35, right: 35, top: 35 })
@@ -492,4 +498,4 @@ struct MarqueeStop4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/a2Dc--rnRvSgnTEzrMESvQ/zh-cn_image_0000002677827829.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=57394B8428CD456017FCCC0EA1FFD537A5A91D0485C6BE1A766A061200DE5AD5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/JvaMgfUCQ8qoZITJatw0Sg/zh-cn_image_0000002655848812.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071508Z&HW-CC-Expire=86400&HW-CC-Sign=51F06B24DA8AC2BEC45ECF0B0CC831A2FCE066099C94E567B8CBA474C445C18E)

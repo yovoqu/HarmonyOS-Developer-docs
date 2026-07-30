@@ -13,7 +13,7 @@ PC应用如何实现鼠标悬停在组件上时，组件UI效果变更？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/hC5wTvM6T6CXMLIWueaSSA/zh-cn_image_0000002628395472.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013110Z&HW-CC-Expire=86400&HW-CC-Sign=BEEC0D73DA960F2D62AB829859B9154BE73D1346E57A32DC54DA28CD157598AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/hC5wTvM6T6CXMLIWueaSSA/zh-cn_image_0000002628395472.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=B351F9FF07DDB419CAFC6E0E5FEE63B66A71F193EBB3AECED0C6661CA155ED0D)
 
  
  

@@ -1,6 +1,6 @@
 # walletTransitCard（交通卡能力）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-wallettransitcard
 **支持设备：** Phone
@@ -69,10 +69,10 @@ import { walletTransitCard } from '@kit.WalletKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -104,7 +104,7 @@ getCardMetadataInDevice(specifiedDeviceType: DeviceType, callerToken?: string): 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | specifiedDeviceType | DeviceType | 是 | 指定设备的枚举值。 |
-| callerToken | string | 否 | 小程序在微信、支付宝等中的鉴权token，要求使用JWT格式生成。 |
+| callerToken | string | 否 | 小程序在微信、支付宝等中的鉴权token，要求使用JWT格式生成。微信、支付宝小程序必填，其他业务不填。 |
  
  
 **返回值：**
@@ -128,8 +128,8 @@ getCardMetadataInDevice(specifiedDeviceType: DeviceType, callerToken?: string): 
 | 1010200010 | Network connection error. |
 | 1010200013 | Operation failed because of an internal error. |
 | 1010200014 | The Wallet APIs can be called by the device owner only. |
-| 1010210701 | Failed to verify the caller token. |
-| 1010210702 | Failed to get the metadata of the cards. |
+| 1010210701 | Failed to verify the caller token. 适用版本：5.0.1(13)+ |
+| 1010210702 | Failed to get the metadata of the cards. 适用版本：5.0.1(13)+ |
  
  
 **示例：**
@@ -142,18 +142,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
+  // 设备类型
+  private deviceType = walletTransitCard.DeviceType.DEVICE_PHONE;
 
-  async getCardMetadataInDevice() {
-    this.transitCardClient.getCardMetadataInDevice(walletTransitCard.DeviceType.DEVICE_PHONE).then((result) => {
+  getCardMetadataInDevice() {
+    this.transitCardClient.getCardMetadataInDevice(this.deviceType).then((result) => {
+      // 接口调用成功
       console.info(`Succeeded in getting cardMetadataInDevice`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to get CardMetadataInDevice, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -212,7 +216,7 @@ getTransitCardInfo(logicalCardNumber: string, specifiedDeviceId: string, callerT
 | 1010210101 | The card status is not correct. |
 | 1010210119 | Failed to read the card data. |
 | 1010200014 | The Wallet APIs can be called by the device owner only. |
-| 1010210102 | Failed to verify the caller token. |
+| 1010210102 | Failed to verify the caller token. 适用版本：5.0.1(13)+ |
  
  
 **示例：**
@@ -225,24 +229,26 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
+  // getCardMetadataInDevice接口返回的已开通交通卡卡号
+  private logicalCardNumber = '';
+  // getCardMetadataInDevice接口返回的设备号
+  private specifiedDeviceId = '';
+  // 用于微信、支付宝等应用中的认证鉴权的JWT令牌
+  private callerToken= '';
 
-  async getTransitCardInfo() {
-    // number of the enabled traffic card returned by the getCardMetadataInDevice interface
-    const logicalCardNumber = 'logicalCardNumber';
-    // the specifiedDeviceId returned by the getCardMetadataInDevice interface
-    const specifiedDeviceId = 'specifiedDeviceId';
-    // JWT token for authentication in applications such as WeChat and Alipay
-    const callerToken= 'callerToken';
-    this.transitCardClient.getTransitCardInfo(logicalCardNumber, specifiedDeviceId, callerToken).then((result) => {
+  getTransitCardInfo() {
+    this.transitCardClient.getTransitCardInfo(this.logicalCardNumber, this.specifiedDeviceId, this.callerToken).then((result) => {
+      // 接口调用成功
       console.info(`Succeeded in getting TransitCardInfo`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to get TransitCardInfo, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -319,21 +325,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct Index {
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
+  // getCardMetadataInDevice接口返回的issuerId
+  private issuerId = '';
+  // getCardMetadataInDevice接口返回的设备号
+  private specifiedDeviceId = '';
 
-  async canAddTransitCard() {
-    // the issuerId returned by the getCardMetadataInDevice interface
-    const issuerId = 'issuerId';
-    // the specifiedDeviceId returned by the getCardMetadataInDevice interface
-    const specifiedDeviceId = 'specifiedDeviceId';
-    this.transitCardClient.canAddTransitCard(issuerId, specifiedDeviceId).then((result) => {
+  canAddTransitCard() {
+    this.transitCardClient.canAddTransitCard(this.issuerId, this.specifiedDeviceId).then((result) => {
+      // 接口调用成功
       console.info(`Succeeded in canning AddTransitCard`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to can AddTransitCard, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -346,7 +353,7 @@ struct Index {
 
 setupWalletEnvironment(): Promise&lt;void&gt;
  
-设置Wallet应用程序的environment。当开发者从另一个api得到1010200003错误代码时，你应该调用这个api来设置Wallet应用。
+初始化钱包开通交通卡的同意协议或是登录账号，引导用户跳转钱包完成应用初始化。
  
 使用Promise异步回调。
  
@@ -364,7 +371,7 @@ setupWalletEnvironment(): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -390,18 +397,20 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
 
-  async setupWalletEnvironment() {
+  setupWalletEnvironment() {
     this.transitCardClient.setupWalletEnvironment().then(() => {
+      // 接口调用成功
       console.info(`Succeeded in setting up WalletEnvironment`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to setup WalletEnvironment, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -458,7 +467,7 @@ addTransitCard(addCardOpaqueData: string, serverOrderId: string): Promise&lt;Car
 | 1010200016 | This card is not available for the current country or region. |
 | 1010200017 | The Wallet app was closed by the user. |
 | 1010210319 | Failed to add the card. |
-| 1010210302 | Failed to confirm the order. The order can be refunded to end the card addition process. |
+| 1010210302 | Failed to confirm the order. The order can be refunded to end the card addition process. 适用版本：5.0.1(13)+ |
  
  
 **示例：**
@@ -471,22 +480,24 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
+  // 开发者应用内支付后生成的订单号，由开发者实现
+  private serverOrderId = '';
+  // canAddTransitCard接口返回的addCardOpaqueData
+  private addCardOpaqueData = '';
 
-  async addTransitCard() {
-    // order ID generated after payment in a developer's app, which is implemented by the developer
-    let serverOrderId = 'serverOrderId';
-    // the addCardOpaqueData returned by the canAddTransitCard interface
-    let addCardOpaqueData = 'addCardOpaqueData';
-    this.transitCardClient.addTransitCard(addCardOpaqueData, serverOrderId).then((result) => {
+  addTransitCard() {
+    this.transitCardClient.addTransitCard(this.addCardOpaqueData, this.serverOrderId).then((result) => {
+      // 接口调用成功
       console.info(`Succeeded in adding TransitCard`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to add TransitCard, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -526,7 +537,7 @@ rechargeTransitCard(logicalCardNumber: string, specifiedDeviceId: string, server
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象，返回新的交通卡余额。 |
+| Promise&lt;number&gt; | Promise对象，返回新的交通卡余额，单位：分。 |
  
  
 **错误码：**
@@ -546,7 +557,7 @@ rechargeTransitCard(logicalCardNumber: string, specifiedDeviceId: string, server
 | 1010210402 | The status of the specified card is incorrect. |
 | 1010210419 | Failed to recharge the card. |
 | 1010200014 | The Wallet APIs can be called by the device owner only. |
-| 1010210403 | Failed to confirm the order. The order can be refunded to end the recharging process. |
+| 1010210403 | Failed to confirm the order. The order can be refunded to end the recharging process. 适用版本：5.0.1(13)+ |
  
  
 **示例：**
@@ -559,24 +570,26 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
-
-  async rechargeTransitCard() {
-    // number of the enabled traffic card returned by the getCardMetadataInDevice interface
-    const logicalCardNumber = 'logicalCardNumber';
-    // the specifiedDeviceId returned by the getCardMetadataInDevice interface
-    const specifiedDeviceId = 'specifiedDeviceId';
-    // order ID generated after payment in a developer's app, which is implemented by the developer
-    const serverOrderId = 'serverOrderId';
-    this.transitCardClient.rechargeTransitCard(logicalCardNumber, specifiedDeviceId, serverOrderId).then((result) => {
+  // getCardMetadataInDevice接口返回的已开通交通卡卡号
+  private logicalCardNumber = '';
+  // getCardMetadataInDevice接口返回的设备号
+  private specifiedDeviceId = '';
+  // 开发者应用内支付后生成的订单号，由开发者实现
+  private serverOrderId = '';
+  
+  rechargeTransitCard() {
+    this.transitCardClient.rechargeTransitCard(this.logicalCardNumber, this.specifiedDeviceId, this.serverOrderId).then((result) => {
+      // 接口调用成功
       console.info(`Succeeded in recharging TransitCard`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to recharge TransitCard, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -616,7 +629,7 @@ updateTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -634,7 +647,7 @@ updateTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
 | 1010200013 | Operation failed because of an internal error. |
 | 1010210501 | The specified card does not exist. |
 | 1010210502 | The status of the specified card is incorrect. |
-| 1010210503 | Failed to confirm the order. |
+| 1010210503 | Failed to confirm the order. 适用版本：5.0.1(13)+ |
 | 1010210519 | Failed to update the card data. |
 | 1010200014 | The Wallet APIs can be called by the device owner only. |
  
@@ -649,24 +662,26 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
-
-  async updateTransitCard() {
-    // number of the enabled traffic card returned by the getCardMetadataInDevice interface
-    const logicalCardNumber = 'logicalCardNumber';
-    // the specifiedDeviceId returned by the getCardMetadataInDevice interface
-    const specifiedDeviceId = 'specifiedDeviceId';
-    // order ID generated after payment in a developer's app, which is implemented by the developer
-    const serverOrderId = 'serverOrderId';
-    this.transitCardClient.updateTransitCard(logicalCardNumber, specifiedDeviceId, serverOrderId).then(() => {
+  // getCardMetadataInDevice接口返回的已开通交通卡卡号
+  private logicalCardNumber = '';
+  // getCardMetadataInDevice接口返回的设备号
+  private specifiedDeviceId = '';
+  // 开发者应用内支付后生成的订单号，由开发者实现
+  private serverOrderId = '';
+  
+  updateTransitCard() {
+    this.transitCardClient.updateTransitCard(this.logicalCardNumber, this.specifiedDeviceId, this.serverOrderId).then(() => {
+      // 接口调用成功
       console.info(`Succeeded in updating TransitCard`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to update TransitCard, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -699,14 +714,14 @@ deleteTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
 | --- | --- | --- | --- |
 | logicalCardNumber | string | 是 | 指定卡的卡号，要求使用getCardMetadataInDevice返回的CardMetadataInDevice中的CardMetadata对应的logicalCardNumber。 |
 | specifiedDeviceId | string | 是 | 卡所在的设备ID，要求使用getCardMetadataInDevice返回的CardMetadataInDevice对应的deviceId。 |
-| serverOrderId | string | 是 | 删卡订单id，要求是服务提供商的后端服务器上为删卡业务生成的订单id。 |
+| serverOrderId | string | 是 | 删卡订单ID，要求是服务提供商的后端服务器上为删卡业务生成的订单ID。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -724,7 +739,7 @@ deleteTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
 | 1010200013 | Operation failed because of an internal error. |
 | 1010210619 | Failed to delete the card. |
 | 1010200014 | The Wallet APIs can be called by the device owner only. |
-| 1010210601 | Failed to confirm the order. |
+| 1010210601 | Failed to confirm the order. 适用版本：5.0.1(13)+ |
  
  
 **示例：**
@@ -737,24 +752,26 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
+  // 初始化，需要传入应用的UIAbilityContext和callerId
   private transitCardClient: walletTransitCard.TransitCardClient = new walletTransitCard.TransitCardClient(this.getUIContext().getHostContext() as common.UIAbilityContext, 'callerId');
-
-  async deleteTransitCard() {
-    // number of the enabled traffic card returned by the getCardMetadataInDevice interface
-    const logicalCardNumber = 'logicalCardNumber';
-    // the specifiedDeviceId returned by the getCardMetadataInDevice interface
-    const specifiedDeviceId = 'specifiedDeviceId';
-    // order ID generated after payment in a developer's app, which is implemented by the developer
-    const serverOrderId = 'serverOrderId';
-    this.transitCardClient.deleteTransitCard(logicalCardNumber, specifiedDeviceId, serverOrderId).then(() => {
+  // getCardMetadataInDevice接口返回的已开通交通卡卡号
+  private logicalCardNumber = '';
+  // getCardMetadataInDevice接口返回的设备号
+  private specifiedDeviceId = '';
+  // 开发者应用内支付后生成的订单号，由开发者实现
+  private serverOrderId = '';
+  
+  deleteTransitCard() {
+    this.transitCardClient.deleteTransitCard(this.logicalCardNumber, this.specifiedDeviceId, this.serverOrderId).then(() => {
+      // 接口调用成功
       console.info(`Succeeded in deleting TransitCard`);
     }).catch((err: BusinessError) => {
+      // 接口调用失败
       console.error(`Failed to delete TransitCard, code:${err.code}, message:${err.message}`);
     })
   }
 
   build() {
-    // your application UI
   }
 }
 ```
@@ -777,11 +794,11 @@ struct Index {
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| issuerId | string | 否 | 否 | 交通卡产品的id |
+| issuerId | string | 否 | 否 | 交通卡产品的ID。 |
 | aid | string | 否 | 否 | SE芯片中卡的小程序应用程序ID。 |
 | logicalCardNumber | string | 否 | 是 | 卡的序列号。仅当设备中存在转接卡时会存在。 |
-| cardNumber | string | 否 | 是 | 显示卡号（30个字符以内），如果该卡存在于设备中则会返回 |
-| balance | number | 否 | 是 | 卡的余额（如果设备中存在卡） |
+| cardNumber | string | 否 | 是 | 显示卡号（30个字符以内），如果该卡存在于设备中则会返回。 |
+| balance | number | 否 | 是 | 卡的余额（如果设备中存在卡），单位：分。 |
  
  
   
@@ -803,8 +820,8 @@ struct Index {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 设备ID，开发者使用。 |
-| deviceType | DeviceType | 否 | 否 | 设备的类型 |
-| displayName | string | 否 | 否 | 要显示的设备名称 |
+| deviceType | DeviceType | 否 | 否 | 设备的类型。 |
+| displayName | string | 否 | 否 | 要显示的设备名称。 |
 | cardMetadata | CardMetadata[] | 否 | 否 | 设备支持的卡的数据。 |
  
  
@@ -826,8 +843,8 @@ struct Index {
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| cardNumber | string | 否 | 否 | 显示卡号 |
-| customCardData | string | 否 | 是 | 服务提供商的自定义卡数据。json数据结构如下。 - balance：卡余额，单位分。 - expireDate：卡片过期时间。 - metroStatus：地铁刷卡进出站状态，其他交通卡不涉及。 - 1：已进站 - 2：已出站 - 3：未知 - records：交易记录，包括充值和消费两种类型。records包括以下字段。 - type：记录类型 。1：充值 ；2：消费 - amount：交易金额。单位：分。 - transDate：交易时间。 - transactionNo：交易序号。 |
+| cardNumber | string | 否 | 否 | 显示卡号。 |
+| customCardData | string | 否 | 是 | 服务提供商的自定义卡数据。json数据结构如下。 - balance：卡余额，单位：分。 - expireDate：卡片过期时间。 - metroStatus：地铁刷卡进出站状态，其他交通卡不涉及。 - 1：已进站 - 2：已出站 - 3：未知 - records：交易记录，包括充值和消费两种类型。records包括以下字段。 - type：记录类型 。1：充值 ；2：消费 - amount：交易金额。单位：分。 - transDate：交易时间。 - transactionNo：交易序号。 |
  
  
   

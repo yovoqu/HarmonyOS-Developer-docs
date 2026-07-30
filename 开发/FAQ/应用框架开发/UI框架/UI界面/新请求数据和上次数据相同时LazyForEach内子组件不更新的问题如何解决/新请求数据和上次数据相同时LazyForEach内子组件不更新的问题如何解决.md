@@ -210,10 +210,10 @@ export class <span style="color: rgb(0,0,255);">CommonDataSource</span><span sty
 示例运行说明：
  
 - 首次运行的代码的结果如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/raAVrcFARs6XZbQ7UHgIJA/zh-cn_image_0000002628821232.png?HW-CC-KV=V1&HW-CC-Date=20260723T013013Z&HW-CC-Expire=86400&HW-CC-Sign=2120A32D0A777D51354F1B1DACEECFF18139E0F7B7B42A94AE24D092324DFD06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/raAVrcFARs6XZbQ7UHgIJA/zh-cn_image_0000002628821232.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=0012A1B8C8DB5E517939BBBB21C135EEA0A92E3B407CAD4E3CE1AA2321E999C3)
 
 - 点击“分组1 code1”和“分组1 code2”，对应属性发生变化。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/wiDJKmygS_Cv_F19uWfV-w/zh-cn_image_0000002659020541.png?HW-CC-KV=V1&HW-CC-Date=20260723T013013Z&HW-CC-Expire=86400&HW-CC-Sign=42DC0EFFC38AEC327F40C0E78FFA9BBA5F7CD4249B70CD2C8754198B4A0F233D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/wiDJKmygS_Cv_F19uWfV-w/zh-cn_image_0000002659020541.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=5E36202657CD1B9833B293D068A0D91082E6A7B15E0FD1233D95D4CCC303894A)
 
 - 接下来，点击“重新请求数据”，返回的数据和原始数据相同，对应的“分组1 code1ss”和“分组1 code2ss”应该恢复到原始状态，如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/oRK51UhgSs2QFAOkXFhbdw/zh-cn_image_0000002628661342.png?HW-CC-KV=V1&HW-CC-Date=20260723T013013Z&HW-CC-Expire=86400&HW-CC-Sign=5403F07143F6ADC04DB73461C68CABCF3E6DAAE7DD2F175A88345F981EA86657)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/oRK51UhgSs2QFAOkXFhbdw/zh-cn_image_0000002628661342.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=627748CB9AFD46FE1A974D2970ADCFEF51E1FA4308B0158E49CF919EAA67DDE0)

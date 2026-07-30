@@ -1,6 +1,6 @@
 # SOTER
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -89,7 +89,7 @@ getVersionSync(): string
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -130,7 +130,7 @@ getVersion(): Promise&lt;string&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -186,7 +186,7 @@ hasAppSecureKeySync(keyType: KeyType): boolean
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -239,7 +239,7 @@ hasAppSecureKey(keyType: KeyType): Promise&lt;boolean&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -299,7 +299,7 @@ generateAppSecureKeySync(keyType: KeyType): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -352,7 +352,7 @@ generateAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -412,7 +412,7 @@ getAppSecureKeySync(keyType: KeyType): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -465,7 +465,7 @@ getAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -526,7 +526,7 @@ hasAuthKeySync(keyAlias: string, keyType: KeyType): boolean
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -581,7 +581,7 @@ hasAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;boolean&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -643,7 +643,7 @@ generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -699,7 +699,7 @@ generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -761,7 +761,7 @@ getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -817,7 +817,7 @@ getAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -878,7 +878,7 @@ generateChallengeSync(keyAlias: string): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -931,7 +931,7 @@ generateChallenge(keyAlias: string): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -993,7 +993,7 @@ SOTER免密认证，同步返回签名的报文。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1049,7 +1049,7 @@ SOTER免密认证，使用Promise异步回调返回签名的报文。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1103,7 +1103,7 @@ deleteAuthKeySync(keyAlias: string): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1154,7 +1154,7 @@ deleteAuthKey(keyAlias: string): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1198,7 +1198,7 @@ deleteAppSecureKeySync(): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1240,7 +1240,7 @@ deleteAppSecureKey(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

@@ -1,6 +1,6 @@
 # advertising（星闪广播能力）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-advertising
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -223,7 +223,7 @@ startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -320,7 +320,7 @@ stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 | 201 | Permission denied. |
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
 
@@ -364,7 +364,7 @@ on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeI
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为'advertisingStateChange'，表示星闪广播状态事件。 当调用sle.startAdvertising、sle.stopAdvertising时，均会触发该事件。 |
+| type | string | 是 | 事件回调类型，支持的事件为'advertisingStateChange'，表示星闪广播状态事件。 当调用advertising.startAdvertising、advertising.stopAdvertising时，均会触发该事件。 |
 | callback | Callback&lt;AdvertisingStateChangeInfo&gt; | 是 | 回调函数，返回广播状态变化数据。 |
 
 

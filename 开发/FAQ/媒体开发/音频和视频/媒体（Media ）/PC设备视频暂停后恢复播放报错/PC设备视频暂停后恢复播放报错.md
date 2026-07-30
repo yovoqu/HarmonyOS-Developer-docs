@@ -9,7 +9,7 @@
 PC设备视频正常播放时，点击暂停后，再点击播放报错。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/A4KRnMxyR1G091HhkWnVgQ/zh-cn_image_0000002628552644.png?HW-CC-KV=V1&HW-CC-Date=20260723T013624Z&HW-CC-Expire=86400&HW-CC-Sign=BA433274FEE7D85841D4BC73CAC588B4AA4F2ECCCC9EA7C2328139022D02A408)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/A4KRnMxyR1G091HhkWnVgQ/zh-cn_image_0000002628552644.png?HW-CC-KV=V1&HW-CC-Date=20260730T072627Z&HW-CC-Expire=86400&HW-CC-Sign=3993C28994483BB61451974764A9F70E6AFE84E7244D7B30CBF0F3ADB57C335B)
 
  
  
@@ -19,7 +19,7 @@ PC设备视频正常播放时，点击暂停后，再点击播放报错。
 [AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)可以播放音视频，播控流程需要符合状态机逻辑，播放状态变化示意图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/6z4Cy1f1S1-C13L5_9lNzQ/zh-cn_image_0000002658911963.png?HW-CC-KV=V1&HW-CC-Date=20260723T013624Z&HW-CC-Expire=86400&HW-CC-Sign=CC38445B167DE092B45BFD65D488775221DE4071C72366E6DBC543DE6B86FF76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/6z4Cy1f1S1-C13L5_9lNzQ/zh-cn_image_0000002658911963.png?HW-CC-KV=V1&HW-CC-Date=20260730T072627Z&HW-CC-Expire=86400&HW-CC-Sign=DE6AF671B95EFED4C37BC65818302D7279986DC14FF3321D640660F48D7C1652)
 
  
  

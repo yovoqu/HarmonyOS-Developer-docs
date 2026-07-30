@@ -1,6 +1,6 @@
 # SideBarContainer
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-sidebarcontainer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,9 +55,10 @@ SideBarContainer( type?: SideBarContainerType )
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Embed | 0 | 侧边栏嵌入到组件内，和内容区并列显示。适用于需要同时展示侧边栏和内容区的场景。 整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。 组件尺寸小于minContentWidth + minSideBarWidth，并且未设置showSideBar时，侧边栏自动隐藏。 设置了showSideBar属性时，以showSideBar属性设置的值为准。 未设置minSideBarWidth或minContentWidth时，采用对应接口的默认值进行计算。 组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Embed | 0 | 侧边栏嵌入到组件内，和内容区并列显示。适用于需要同时展示侧边栏和内容区的场景。 整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。 组件尺寸小于minContentWidth + minSideBarWidth，并且未设置showSideBar时，默认不显示侧边栏。 设置了showSideBar属性时，以showSideBar属性设置的值为准。 未设置minSideBarWidth或minContentWidth时，采用对应接口的默认值进行计算。 组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Overlay | 1 | 侧边栏浮在内容区上面，不会影响内容区的大小。适用于需要临时展示侧边栏的场景。 组件尺寸小于minContentWidth时，内容区会被截断显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | AUTO10+ | 2 | 组件尺寸大于等于minSideBarWidth + minContentWidth时，采用Embed模式显示。 组件尺寸小于minSideBarWidth + minContentWidth时，采用Overlay模式显示。适用于需要响应式布局或多设备适配的场景。 未设置minSideBarWidth或minContentWidth时，会使用未设置接口的默认值进行计算，若计算的值小于600vp，则使用600vp作为模式切换的临界值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| DISPLACE | 3 | 侧边栏和内容区并列显示，内容区超出部分移出组件外。侧边栏展开时，内容区显示灰色蒙层（颜色为#33000000）并被禁用事件，点击内容区可收起侧边栏。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -78,7 +79,7 @@ showSideBar(value: boolean)
 
 设置是否显示侧边栏。设置该属性值后会触发侧边栏的显示/隐藏动画。
 
-当showSideBar属性未设置时，依据组件大小进行自动显示：小于minSideBarWidth + minContentWidth时默认不显示侧边栏，大于等于时默认显示侧边栏。
+当showSideBar属性未设置时，依据组件大小进行自动显示：小于[minSideBarWidth](#minsidebarwidth) + [minContentWidth](#mincontentwidth10)时默认不显示侧边栏，大于等于时默认显示侧边栏。
 
 从API version 10开始，该属性支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
 
@@ -111,7 +112,7 @@ controlButton(value: ButtonStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ButtonStyle | 是 | 侧边栏控制按钮的属性，用于配置控制按钮的位置、大小和图标。 |
+| value | ButtonStyle | 是 | 侧边栏控制按钮的样式，用于配置控制按钮的位置、大小和图标。 |
 
 
 
@@ -122,7 +123,7 @@ controlButton(value: ButtonStyle)
 
 showControlButton(value: boolean)
 
-设置是否显示控制按钮。控制按钮用于控制showSideBar属性的切换，点击可显示或隐藏侧边栏。
+设置是否显示控制按钮。控制按钮用于控制showSideBar属性的切换，点击可显示或隐藏侧边栏，并更新showSideBar属性值。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -205,7 +206,7 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 侧边栏最小宽度。 默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
+| value | number | 是 | 侧边栏最小宽度。 默认值：API version 9及以下版本默认值为200vp，API version 10及以上版本的默认值为240vp。 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
 
 
 
@@ -228,7 +229,7 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 侧边栏最小宽度。 默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
+| value | Length | 是 | 侧边栏最小宽度。 默认值：API version 9及以下版本默认值为200vp，API version 10及以上版本的默认值为240vp。 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
 
 
 
@@ -251,7 +252,7 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 设置侧边栏最大宽度。 默认值：280vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。 |
+| value | number | 是 | 侧边栏最大宽度。 默认值：280vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。 |
 
 
 
@@ -274,7 +275,7 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置侧边栏最大宽度。 默认值：280vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。 |
+| value | Length | 是 | 侧边栏最大宽度。 默认值：280vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。 |
 
 
 
@@ -383,6 +384,35 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 
+#### showSideBarWithGesture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+showSideBarWithGesture(value: boolean)
+
+设置是否支持通过手势滑动来显示或隐藏侧边栏。未通过该接口设置时，不支持通过手势滑动显示或隐藏侧边栏。
+
+> [!NOTE]
+> 手势滑动生效范围为侧边栏+内容区（不含分割线），滑动距离达到100vp时改变侧边栏显示或隐藏状态，最大可滑动距离等于侧边栏宽度。 当侧边栏位于容器左侧时： 侧边栏隐藏时可向右滑动展开侧边栏。 侧边栏显示时可向左滑动关闭侧边栏。 当侧边栏位于容器右侧时： 侧边栏隐藏时可向左滑动展开侧边栏。 侧边栏显示时可向右滑动关闭侧边栏。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | boolean | 是 | 设置是否支持通过手势滑动显示或隐藏侧边栏。 true：支持手势滑动控制。 false：不支持手势滑动控制。 默认值：false |
+
+
+
+
 #### ButtonStyle对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -454,7 +484,7 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 设置分割线的样式。
 
 > [!NOTE]
-> 针对侧边栏子组件设置 width ， height 时，宽高都不生效。 针对侧边栏内容区设置 width ， height 时，宽高都不生效，默认占满SideBarContainer的剩余空间。 当 showSideBar 属性未设置时，依据组件大小进行自动显示： 小于 minSideBarWidth + minContentWidth ：默认不显示侧边栏。 大于等于minSideBarWidth + minContentWidth：默认显示侧边栏。
+> 针对侧边栏子组件设置 width ， height 时，宽高都不生效。 针对侧边栏内容区设置 width ， height 时，宽高都不生效，默认占满SideBarContainer的剩余空间。 当 showSideBar 属性未设置时，依据组件大小进行自动显示： 小于 minSideBarWidth + minContentWidth ：默认不显示侧边栏。 大于等于 minSideBarWidth + minContentWidth ：默认显示侧边栏。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -502,7 +532,7 @@ onChange(callback: (value: boolean) => void)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | true表示显示，false表示隐藏。 |
+| value | boolean | 是 | 侧边栏的显示状态。true表示显示，false表示隐藏。 |
 
 
 
@@ -570,4 +600,4 @@ struct SideBarContainerExample {
 ```
 
 
-![](assets/SideBarContainer/file-2026070810314948c71cd0.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/zRX8sgdsQeOj2vJGSwlINA/zh-cn_image_0000002655848474.png?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=203BCC72E40E2193EB48BCE014050AD3F499B07A8C9A4A15281D1F463F529F81)

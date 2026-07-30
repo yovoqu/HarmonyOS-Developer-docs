@@ -1,6 +1,6 @@
 # OH_LowPowerAudioSink
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpoweraudiosink-oh-lowpoweraudiosink
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -14,7 +14,7 @@ typedef struct OH_LowPowerAudioSink OH_LowPowerAudioSink
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-LowPowerAudioSink的声明。
+OH_LowPowerAudioSink是低功耗音频输出场景中使用的数据结构，开发者通过该结构体实现低功耗音频输出功能。
  
 **起始版本：** 20
  

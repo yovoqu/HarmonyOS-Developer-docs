@@ -1,6 +1,6 @@
 # 组件内转场 (transition)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 组件内转场主要通过transition属性配置转场参数，在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除时，提升用户体验。组件内转场详细的使用方法请参考[转场动画开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-enter-exit-transition)。
 
 > [!NOTE]
-> 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 当前有两种方式触发组件的transition： 当组件插入或删除时（如if条件改变、ForEach新增删除组件），会递归的触发所有新插入/删除的组件的transition效果。 当组件 visibility 属性在可见和不可见（Visibility.Hidden或Visibility.None）之间改变时，只触发该组件的transition效果。在Visibility.Visible与Visibility.None之间切换时，若直接设置为Visibility.None，会导致组件布局大小为0，此时无法观察到transition效果。而当在动画中修改visibility属性为Visibility.None时，组件布局为0是带动画的，将呈现transition与布局动画的叠加效果，形成双动画的复合表现。具体效果可参考 示例4 。
+> 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 当前有两种方式触发组件的transition： 当组件插入或删除时（如if条件改变、ForEach新增删除组件），会递归地触发所有新插入/删除的组件的transition效果。 当组件 visibility 属性在可见和不可见（Visibility.Hidden或Visibility.None）之间改变时，只触发该组件的transition效果。在Visibility.Visible与Visibility.None之间切换时，若直接设置为Visibility.None，会导致组件布局大小为0，此时无法观察到transition效果。而当在动画中修改visibility属性为Visibility.None时，组件布局为0是带动画的，将呈现transition与布局动画的叠加效果，形成双动画的复合表现。具体效果可参考 示例4 。
 
 
 
@@ -130,7 +130,7 @@ TransitionEffect以函数的形式指定转场效果。提供了以下接口：
 
 
 > [!NOTE]
-> TransitionEffect可通过combine函数实现多个转场效果的组合，可以为每个效果分别指定animation参数，且前一效果的animation的参数也可适用于后一效果。例如，TransitionEffect.OPACITY.animation({duration: 1000}).combine(TransitionEffect.translate({x: 100}))，则时长为1000ms的动画参数对OPACITY和translate均生效。 动画参数的生效顺序为：本TransitionEffect指定的animation参数 > 前面的TransitionEffect指定的animation参数 > 触发该组件出现消失的animateTo中的动画参数。 如果未使用animateTo触发转场动画且TransitionEffect中也无animation参数，则该组件直接出现或者消失。 TransitionEffect中指定的属性值如与默认值相同，则该属性不会产生转场动画。如TransitionEffect.opacity(1).animation({duration:1000})，由于opacity默认值也为1，未产生透明度动画，该组件直接出现或者消失。 更详细的关于scale、rotate效果的介绍可参考 图形变换 。 如果在动画范围( animateTo 、 animation )内触发组件的上下树或可见性( visibility )改变，而根组件没有配置transition，会给该组件加上默认透明度转场，即TransitionEffect.OPACITY，动画参数跟随所处动画环境的参数。如不需要可通过主动配置TransitionEffect.IDENTITY来禁用，使该组件直接出现或消失。 当通过删除整棵子树的方式触发消失转场，如需看到完整的消失转场过程，需要保证被删除子树的根组件的有充足的消失转场时间，见示例3。
+> TransitionEffect可通过combine函数实现多个转场效果的组合，可以为每个效果分别指定animation参数，且前一效果的animation的参数也可适用于后一效果。例如，TransitionEffect.OPACITY.animation({duration: 1000}).combine(TransitionEffect.translate({x: 100}))，则时长为1000ms的动画参数对OPACITY和translate均生效。 动画参数的生效顺序为：本TransitionEffect指定的animation参数 > 前面的TransitionEffect指定的animation参数 > 触发该组件出现消失的animateTo中的动画参数。 如果未使用animateTo触发转场动画且TransitionEffect中也无animation参数，则该组件直接出现或者消失。 TransitionEffect中指定的属性值如与默认值相同，则该属性不会产生转场动画。如TransitionEffect.opacity(1).animation({duration:1000})，由于opacity默认值也为1，未产生透明度动画，该组件直接出现或者消失。 更详细的关于scale、rotate效果的介绍可参考 图形变换 。 如果在动画范围( animateTo 、 animation )内触发组件的上下树或可见性( visibility )改变，而该子树的根组件没有配置transition，会给该组件加上默认透明度转场，即TransitionEffect.OPACITY，动画参数跟随所处动画环境的参数。如不需要可通过主动配置TransitionEffect.IDENTITY来禁用，使该组件直接出现或消失。 当通过删除整棵子树的方式触发消失转场，如需看到完整的消失转场过程，需要保证被删除子树的根组件有充足的消失转场时间，见示例3。
 
 
 
@@ -187,7 +187,7 @@ rotate(options: RotateOptions): TransitionEffect<"rotate">
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | RotateOptions | 是 | 组件转场时的旋转效果，为插入时起点和删除时终点的值。 -x：横向的旋转向量分量。 -y：纵向的旋转向量分量。 -z：竖向的旋转向量分量。 - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。 - 中心点为(0, 0)代表组件的左上角。 -centerZ指z轴锚点，即3D旋转中心点的z轴分量，centerZ默认值是0。 -perspective指视距，不支持perspective属性做转场动画。 |
+| options | RotateOptions | 是 | 组件转场时的旋转效果，为插入时起点和删除时终点的值。 -angle：旋转角度，单位为度（°），决定绕旋转轴的旋转幅度。 -x：横向的旋转向量分量。 -y：纵向的旋转向量分量。 -z：竖向的旋转向量分量。 - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，数值类型单位为vp。，即默认以组件的中心点为旋转中心点。 - 中心点为(0, 0)代表组件的左上角。 -centerZ指z轴锚点，即3D旋转中心点的z轴分量，centerZ默认值是0。 -perspective指视距，不支持perspective属性做转场动画。 |
 
 
 **返回值：**
@@ -219,7 +219,7 @@ scale(options: ScaleOptions): TransitionEffect<"scale">
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ScaleOptions | 是 | 组件转场时的缩放效果，为插入时起点和删除时终点的值。设置的缩放值在组件当前的scale属性上进行乘法叠加，如组件当前scale值为0.8，当转场缩放值设置为0.5时，组件入场动画的缩放值将从0.8×0.5=0.4开始执行。 -x：横向放大倍数（或缩小比例）。 -y：纵向放大倍数（或缩小比例）。 -z：当前为二维显示，该参数无效。 - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。 - 中心点为(0, 0)代表组件的左上角。 说明： 设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。 |
+| options | ScaleOptions | 是 | 组件转场时的缩放效果，为插入时起点和删除时终点的值。设置的缩放值在组件当前的scale属性上进行乘法叠加，如组件当前scale值为0.8，当转场缩放值设置为0.5时，组件入场动画的缩放值将从0.8×0.5=0.4开始执行。 - x：横向放大倍数（或缩小比例）。 - y：纵向放大倍数（或缩小比例）。 - z：当前为二维显示，该参数无效。 - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。 - 中心点为(0, 0)代表组件的左上角。 说明： 设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。 |
 
 
 **返回值：**
@@ -301,7 +301,7 @@ move(edge: TransitionEdge): TransitionEffect<"move">
 
 asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect<"asymmetric">
 
-设置非对称的转场效果，即出现、消失为两套独立不同的动画，效果不互为逆过程。具体效果可参考[示例2](#示例2使用不同接口实现图片出现消失)。
+设置非对称的转场效果，即出现、消失为两套独立不同的动画，效果不互为逆过程。适用于需要出现和消失采用不同动画策略的场景。具体效果可参考[示例2](#示例2使用不同接口实现图片出现消失)。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -349,7 +349,7 @@ constructor(type: Type, effect: Effect)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | Type | 是 | 转场类型。 |
-| effect | Effect | 是 | 转场参数。 |
+| effect | Effect | 是 | 转场效果配置，用于指定具体的转场动画效果，包括透明度、平移、旋转、缩放等转场效果的参数设置。 |
 
 
 
@@ -381,7 +381,7 @@ combine(transitionEffect: TransitionEffect): TransitionEffect
 
 | 类型 | 说明 |
 | --- | --- |
-| TransitionEffect | 组合过渡效应。 |
+| TransitionEffect | 组合过渡效果。 |
 
 
 
@@ -406,7 +406,7 @@ animation(value: AnimateParam): TransitionEffect
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | AnimateParam | 是 | 动画参数。 该参数只用来指定动画参数，其入参AnimateParam的onFinish回调不生效。 如果通过combine进行TransitionEffect的组合，前一TransitionEffect的动画参数也可用于后一TransitionEffect。 |
+| value | AnimateParam | 是 | 动画参数。 该参数仅用于指定动画参数，其入参AnimateParam的onFinish回调不生效。 如果通过combine进行TransitionEffect的组合，前一TransitionEffect的动画参数也可用于后一TransitionEffect。 |
 
 
 **返回值：**
@@ -442,7 +442,7 @@ type TransitionFinishCallback = (transitionIn: boolean) => void
 
 
 > [!NOTE]
-> 当通过触发一棵子树的上下树，进而递归的触发出现消失转场时，只能保证根组件的消失动画结束回调能被调用。如果子组件的消失动画结束回调时间晚于根组件的消失动画结束回调，由于整棵子树已被销毁，子组件的结束回调不会被调用。 当同一组件的最后一个同类型（即出现或者消失）的动画结束后，才会调用结束回调。即如果反复触发出现消失动画（例如通过Visibility触发），只有最后一次的出现消失的结束回调才会被调用。
+> 当通过触发一棵子树的上下树，进而递归地触发出现消失转场时，只能保证根组件的消失动画结束回调能被调用。如果子组件的消失动画结束回调时间晚于根组件的消失动画结束回调，由于整棵子树已被销毁，子组件的结束回调不会被调用。 当同一组件的最后一个同类型（即出现或者消失）的动画结束后，才会调用结束回调。即如果反复触发出现消失动画（例如通过Visibility触发），只有最后一次的出现消失的结束回调才会被调用。
 
 
 
@@ -461,8 +461,8 @@ TransitionOptions通过指定结构体内的参数来指定转场效果。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | TransitionType | 否 | 是 | 指定该转场样式生效的场景。 默认值：TransitionType.All 说明： 不指定type时默认为TransitionType.All，即插入删除都生效。 |
-| opacity | number | 否 | 是 | 设置组件转场时的透明度效果，为插入时起点和删除时终点的值。 取值范围： [0, 1] 说明： 设置小于0的非法值时，按0处理；设置大于1的非法值时，按1处理。 |
+| type | TransitionType | 否 | 是 | 指定该转场效果生效的场景。 默认值：TransitionType.All 说明： 不指定type时默认为TransitionType.All，即插入删除都生效。 |
+| opacity | number | 否 | 是 | 设置组件转场时的透明度效果，为插入时起点和删除时终点的值。当需要实现淡入淡出过渡效果时设置此属性；不设置此属性时，若同时未设置其他转场效果，默认产生透明度转场效果（相当于opacity为0），若已设置其他转场效果，则不产生透明度转场效果。 取值范围： [0, 1] 说明： 设置小于0的非法值时，按0处理；设置大于1的非法值时，按1处理。 |
 | translate | TranslateOptions | 否 | 是 | 设置组件转场时的平移效果，为插入时起点和删除时终点的值。 -x：横向的平移距离。 -y：纵向的平移距离。 -z：竖向的平移距离。 |
 | scale | ScaleOptions | 否 | 是 | 设置组件转场时的缩放效果，为插入时起点和删除时终点的值。 -x：横向放大倍数（或缩小比例）。 -y：纵向放大倍数（或缩小比例）。 -z：当前为二维显示，该参数无效 。 - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。 - 中心点为(0, 0)代表组件的左上角。 说明： 设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。 |
 | rotate | RotateOptions | 否 | 是 | 设置组件转场时的旋转效果，为插入时起点和删除时终点的值。 -x：横向的旋转向量分量。 -y：纵向的旋转向量分量。 -z：竖向的旋转向量分量。 - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。 - 中心点为(0, 0)代表组件的左上角。 |
@@ -522,7 +522,7 @@ struct TransitionEffectExample1 {
 示意图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/FBusro4uRqSIyqWlv6JYYg/zh-cn_image_0000002677668101.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=F978928E0850DA1776101EC8220F963FFDE0686F4C9C2B2744F99ED852CA886F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/N41EApPcQ96E8Zg_feYJxQ/zh-cn_image_0000002655848910.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=B490B3995106B99D9C4E643D988606C64542ABBE3470F1870205EE5266142A88)
 
 
 
@@ -589,7 +589,7 @@ struct TransitionEffectExample2 {
 示意图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/1XSRdzRmT_yXTFshJhOjmw/zh-cn_image_0000002647748218.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=CB6C69FE3243432AFE9AFE0DC8CE808CD047FC6FEC2E738F08AAF1D073BBCE52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/tLhW16NxQey6R8yi2D_ngQ/zh-cn_image_0000002686088341.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=AD74751557AFB80FE08CF9B69EF05F1541E9B6A2F76F59AC37DDBE63915883EE)
 
 
 
@@ -624,7 +624,7 @@ struct TransitionEffectExample3 {
         Column() {
           Row() {
             // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。
-            Image($r('app.media.testImg')).width(150).height(150).id("image1")
+            Image($r('app.media.testImg')).width(150).height(150).id('image1')
               .transition(TransitionEffect.OPACITY.animation({ duration: 1000 }))
           }
 
@@ -633,11 +633,11 @@ struct TransitionEffectExample3 {
             .width(150)
             .height(150)
             .margin({ top: 50 })
-            .id("image2")
+            .id('image2')
             .transition(TransitionEffect.scale({ x: 0, y: 0 }).animation({ duration: 1000 }))
-          Text("view").margin({ top: 50 })
+          Text('view').margin({ top: 50 })
         }
-        .id("column1")
+        .id('column1')
         .transition(TransitionEffect.opacity(0.99).animation({ duration: 1000 }),
           // 结束回调设置在消失的第一层节点上，确保能有消失的结束回调
           (transitionIn: boolean) => {
@@ -653,7 +653,7 @@ struct TransitionEffectExample3 {
 示意图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/sGsFw_IwRfW6l8z9vv7JRg/zh-cn_image_0000002647588310.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=CCB67146F52ECC5E0426C1E986019AE9CFF5AACBF49E031FF80E8BD77726A92D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/ykFtQRqMQRy3gzOoBDaJ5w/zh-cn_image_0000002685928509.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=5B0E47BBF2F17DA3D2C53DE0C5EDDE9FE463DA080EDD2C843B4A4BD4274654D2)
 
 
 
@@ -675,7 +675,7 @@ struct TransitionVisibilityExample {
         .onClick(() => {
           this.getUIContext()?.animateTo({ duration: 1000 }, () => {
             this.isVisible = !this.isVisible;
-          })
+          });
         })
       Column() {
         Text('Hello World')
@@ -696,4 +696,4 @@ struct TransitionVisibilityExample {
 示意图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/iXZ7qXn7SpuBAJYzkjnmGQ/zh-cn_image_0000002677827949.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=67504924F14E5F82DF743ADA211E5AEB93AA175A129C53DD8677853B4E8191B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/s0F7ZbFURHuIGOXHmE2HDw/zh-cn_image_0000002656008832.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=1C60FE649A1EDD7BCBD4E766388BB35A34AD1E999D8E5D3CB2DF0D82D712032F)

@@ -57,7 +57,7 @@ struct Center1 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/CPIRjD56RH6mxGCdppR4-w/zh-cn_image_0000002658926449.png?HW-CC-KV=V1&HW-CC-Date=20260723T012653Z&HW-CC-Expire=86400&HW-CC-Sign=BB72635FEE7B7CD26BB8D2FDEC0C23F0782261C346B2C4EACE7C81F4A5F414A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/CPIRjD56RH6mxGCdppR4-w/zh-cn_image_0000002658926449.png?HW-CC-KV=V1&HW-CC-Date=20260730T072339Z&HW-CC-Expire=86400&HW-CC-Sign=DC96A8D5157CE8EFAD81D2EC89ABD3861194BDE91890D529B274B1B8973FF432)
 
 
 2. 自定义Select内容区。通过将原本的Select按钮设置为纯透明，在Select组件之上添加Row组件设置相同的宽高（[onSizeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-size-change-event#onsizechange)事件获取原Select宽高），对Row设置hitTestBehavior(HitTestMode.None)让事件可透传到Select（子组件也需添加）。自定义Row组件中的内容，实现Select组件按钮内容居中的效果。
@@ -123,7 +123,7 @@ struct Center2 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/mRHYCQc-Rjy4JgFa2OW_SA/zh-cn_image_0000002628407238.png?HW-CC-KV=V1&HW-CC-Date=20260723T012653Z&HW-CC-Expire=86400&HW-CC-Sign=786F8D996D8DF74FCECAFAD32AAF834E4C32C4F6FADD22D56E19B752AF27D800)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/mRHYCQc-Rjy4JgFa2OW_SA/zh-cn_image_0000002628407238.png?HW-CC-KV=V1&HW-CC-Date=20260730T072339Z&HW-CC-Expire=86400&HW-CC-Sign=47C1308EDC03302862CD215E8187C2245A7C28046C8B6FAB6C416CF0380FD9D4)
 
 - **场景三**：API20以后也可以通过textModifier和arrowModifier自定义内容样式，把文本和下拉箭头改为透明。再通过Row自定义内容在原Select组件上层，参考场景二的第二种方式将Text改为TextArea。在输入框onChange事件中匹配内容对应的索引，并修改Select中的索引，让输入内容可以修改下拉框中的选项。实现既可输入内容也能在下拉菜单中选择。
 ```text
@@ -204,7 +204,7 @@ struct TextInputSelect {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/CV-5O8VxScusqf2Mz3RnCQ/zh-cn_image_0000002658806501.png?HW-CC-KV=V1&HW-CC-Date=20260723T012653Z&HW-CC-Expire=86400&HW-CC-Sign=903DD422AD3FFADFCC0D94EF4E2710216C28AB40DBCE8F831F9A2263539A1A5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/CV-5O8VxScusqf2Mz3RnCQ/zh-cn_image_0000002658806501.png?HW-CC-KV=V1&HW-CC-Date=20260730T072339Z&HW-CC-Expire=86400&HW-CC-Sign=2C0C1273DADCEA3EA3FBAF7AD7C1791C52A077F700F2DE70C42AB9143E9DADF0)
 
 
  

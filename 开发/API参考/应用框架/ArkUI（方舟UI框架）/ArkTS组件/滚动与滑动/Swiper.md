@@ -1,11 +1,11 @@
 # Swiper
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-滑块视图容器，提供子组件滑动轮播显示的能力。
+滑块视图容器，提供子组件滑动轮播显示的能力。适用于轮播图展示、图片浏览、引导页、卡片轮播等场景。
 
 > [!NOTE]
 > 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 Swiper组件通过内置的 PanGesture 拖动手势实现滑动轮播效果，将 disableSwipe 属性设为true时，会禁用该手势监听，从而阻止滑动操作。 Swiper中复用 NodeContainer 时，禁止递归流程中子节点更新父节点状态变量。
@@ -92,7 +92,7 @@ autoPlay(value: boolean)
 
 设置子组件是否自动播放。轮播方向为索引从小到大。
 
-[loop](#loop)为false时，自动轮播到最后一页时停止轮播。手势切换后不是最后一页时继续播放。当Swiper不可见时会停止轮播。
+[loop](#loop)为false时，自动轮播到最后一页时停止轮播。手势切换完成后，如果当前页面不是最后一页，自动轮播将继续播放。当Swiper不可见时会停止轮播。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
@@ -115,13 +115,15 @@ autoPlay(value: boolean)
 
 autoPlay(autoPlay: boolean, options: AutoPlayOptions)
 
-设置子组件是否自动播放。options入参控制手指或者鼠标等按下屏幕时子组件是否停止自动播放。
+设置子组件是否自动播放。options入参控制手指或鼠标按下屏幕时子组件是否停止自动播放。
 
 当[loop](#loop)设置为false时，自动轮播将在到达最后一页时停止。在通过手势切换且未处于最后一页的情况下，轮播将继续进行。Swiper在不可见时，轮播也将停止。
 
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -174,6 +176,8 @@ indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicato
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -191,13 +195,15 @@ indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicato
 
 nestedScroll(value: SwiperNestedScrollMode)
 
-设置Swiper组件和父组件的嵌套滚动模式。[loop](#loop)为true时Swiper组件没有边缘，不会触发父组件嵌套滚动。
+设置Swiper组件和父组件的嵌套滚动模式。当Swiper嵌套在滚动容器（如List、Scroll）中时，需要根据业务需求选择合适的嵌套滚动模式。[loop](#loop)为true时Swiper组件没有边缘，不会触发父组件嵌套滚动。
 
 > [!NOTE]
 > 由于Swiper的抛滑动画逻辑和其它滚动类组件不同（Swiper一次只能滑动一页，抛滑时做翻页动画），当Swiper内嵌套其它滚动组件时，如果Swiper的翻页动画已经启动，将无法接受子节点上传的滚动偏移量。这时Swiper的翻页动画和子节点的边缘效果动画会同时执行。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -216,7 +222,7 @@ nestedScroll(value: SwiperNestedScrollMode)
 
 loop(value: boolean)
 
-设置是否开启循环。在LazyForEach懒循环加载模式下，加载的组件数量建议大于5个。
+设置是否开启循环。在LazyForEach懒循环加载模式下，加载的组件数量建议大于5个。预加载的组件数量不足时，可能会导致快速切换时出现空白或卡顿。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
@@ -274,7 +280,7 @@ interval(value: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 自动播放时播放的时间间隔。当该值小于duration属性值时，翻页完成后会立即开始下一次轮播。 默认值：3000 单位：毫秒 取值范围：[0, +∞)，设置小于0的值时，按照默认值处理。 |
+| value | number | 是 | 自动播放时播放的时间间隔。当该值小于duration属性值时，翻页完成后会立即开始下一次轮播。 默认值：3000 单位：ms 取值范围：[0, +∞)，设置小于0的值时，按照默认值处理。 |
 
 
 
@@ -299,7 +305,7 @@ curve默认曲线为[interpolatingSpring](https://developer.huawei.com/consumer/
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 子组件切换的动画时长。 默认值：400 单位：毫秒 取值范围：[0, +∞)，设置小于0的值时，按照默认值处理。 |
+| value | number | 是 | 子组件切换的动画时长。 默认值：400 单位：ms 取值范围：[0, +∞)，设置小于0的值时，按照默认值处理。 |
 
 
 
@@ -381,7 +387,7 @@ itemSpace(value: number | string)
 
 cachedCount(value: number)
 
-设置预加载子组件个数，以当前页面为基准，加载当前显示页面的前后个数。前面item删除，后面会向前补位。例如cachedCount=1时，会将当前显示的页面的前面一页和后面一页的子组件都预加载。如果设置为按组翻页，即displayCount的swipeByGroup参数设为true，预加载时会以组为基本单位。例如cachedCount=1，swipeByGroup=true时，会将当前组的前面一组和后面一组的子组件都预加载。
+设置预加载子组件个数，以当前页面为基准，加载当前显示页面的前后个数。前面item删除，后面会向前补位。例如cachedCount=1时，会将当前显示页面在索引序号上相邻的前一页和后一页的子组件都预加载。如果设置为按组翻页，即displayCount的swipeByGroup参数设为true，预加载时会以组为基本单位。例如cachedCount=1，swipeByGroup=true时，会将当前组的前面一组和后面一组的子组件都预加载。
 
 > [!NOTE]
 > 在连续滑动场景中，一屏显示一个Swiper子组件时，通常将cachedCount值设置为1或2即可。最佳实践请参考 优化Swiper组件加载慢丢帧问题-缓存数据项 。 只在 LazyForEach 和开启了virtualScroll开关的 Repeat 中生效，生效后超出显示及缓存范围的子节点会被释放。
@@ -411,12 +417,14 @@ cachedCount(count: number, isShown: boolean)
 设置预加载子组件个数。
 
 > [!NOTE]
-> isShown值为true，且设置的count过大时，如果前后预加载范围内可加载的节点不足，循环场景下同一个可加载节点只会布局在一侧。
+> 只在 LazyForEach 和开启了virtualScroll开关的 Repeat 中生效，生效后超出缓存范围的子节点会被释放。 isShown值为true，且设置的count过大时，如果前后预加载范围内可加载的节点不足，循环场景下同一个可加载节点只会布局在一侧。
 
 
 **卡片能力：** 从API version 15开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -454,8 +462,8 @@ cachedCount(count: number, options: CachedCountOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| count | number | 是 | 预加载子组件个数。 取值范围：[0, +∞)，设置小于0的值时，按照1处理。 |
-| options | CachedCountOptions | 是 | 预加载子组件的配置选项。 |
+| count | number | 是 | 预加载子组件个数。 默认值：1 取值范围：[0, +∞)，设置小于0的值时，按照1处理。 |
+| options | CachedCountOptions | 是 | 预加载子组件的配置选项。对象属性包括：isShown（预加载范围内的节点是否进行绘制）和independent（是否按实际子组件个数计算）。 |
 
 
 
@@ -466,7 +474,7 @@ cachedCount(count: number, options: CachedCountOptions)
 
 disableSwipe(value: boolean)
 
-设置禁用组件滑动切换功能。
+设置禁用组件滑动切换功能。适用于仅通过按钮或导航点控制翻页的场景，或需要限制用户滑动操作的场景。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
@@ -524,7 +532,7 @@ displayCount(value: number | string | SwiperAutoFill, swipeByGroup?: boolean)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number \| string \| SwiperAutoFill10+ | 是 | 视窗内显示的子元素个数。 默认值：1 取值范围：(0, +∞)，设置小于等于0的值时，按照默认值处理。 |
-| swipeByGroup11+ | boolean | 否 | 是否按组进行翻页。如果设为true，在翻页时会按组进行翻页，每组内子元素的数量为displayCount value的值；如果为false，则为默认翻页行为，即按照子元素进行翻页。 默认值：false |
+| swipeByGroup11+ | boolean | 否 | 是否按组进行翻页。如果设为true，在翻页时会按组进行翻页，每组内子元素的数量为displayCount value的值；如果为false，则为默认翻页行为，即按照子元素进行翻页。 默认值：false 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -551,13 +559,15 @@ displayCount(value: number | string | SwiperAutoFill | ItemFillPolicy, swipeByGr
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| SwiperAutoFill \| ItemFillPolicy | 是 | 视窗内显示的子元素个数。 取值范围：(0, +∞)，设置小于等于0的值时，按照1处理。 |
+| value | number \| string \| SwiperAutoFill \| ItemFillPolicy | 是 | 视窗内显示的子元素个数。 默认值：1 取值范围：(0, +∞)，设置小于等于0的值时，按照1处理。 |
 | swipeByGroup | boolean | 否 | 是否按组进行翻页。如果设为true，在翻页时会按组进行翻页，每组内子元素的数量为displayCount的值；如果为false，则为默认翻页行为，即按照子元素进行翻页。 默认值：false |
 
 
@@ -580,6 +590,8 @@ displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean)
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -636,6 +648,8 @@ nextMargin(value: Length, ignoreBlank?:boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -668,6 +682,8 @@ prevMargin(value: Length, ignoreBlank?:boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -686,9 +702,11 @@ prevMargin(value: Length, ignoreBlank?:boolean)
 
 indicatorInteractive(value: boolean)
 
-设置组件导航点是否可交互。
+设置导航点是否可交互。适用于需要通过其他方式（如按钮）控制翻页，或需要禁止用户通过导航点点击翻页的场景。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -712,6 +730,8 @@ pageFlipMode(mode: Optional&lt;PageFlipMode&gt;)
 **卡片能力：** 从API version 15开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -737,6 +757,8 @@ maintainVisibleContentPosition(enabled: boolean)
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -782,10 +804,10 @@ Swiper在主轴上的尺寸大小模式枚举。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Stretch(deprecated) | 0 | Swiper滑动一页的宽度为Swiper组件自身的宽度。 说明：从API version 7开始支持，从API version 10开始废弃，建议使用STRETCH替代。 卡片能力： 从API version 7开始，该接口支持在ArkTS卡片中使用。 |
-| AutoLinear(deprecated) | 1 | Swiper滑动一页的宽度为子组件宽度中的最大值。此枚举表现形式与displayCount中使用string类型，将值设置为auto表现一致，具体可参考displayCount说明。 说明：从API version 7开始支持，从API version 10开始废弃，建议使用AUTO_LINEAR替代。 卡片能力： 从API version 7开始，该接口支持在ArkTS卡片中使用。 |
-| STRETCH10+ | 0 | Swiper滑动一页的宽度为Swiper组件自身的宽度。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| AUTO_LINEAR(deprecated) | 1 | Swiper滑动一页的宽度为视窗内最左侧子组件的宽度。此枚举表现形式与displayCount中使用string类型，将值设置为auto表现一致，具体可参考displayCount说明。 说明：从API version 10开始支持，从API version 12开始废弃，建议使用Scroller.scrollTo替代。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Stretch(deprecated) | 0 | Swiper滑动一页的宽度为Swiper组件自身的宽度。 说明： 从API version 7开始支持，从API version 10开始废弃，建议使用STRETCH替代。 卡片能力： 从API version 7开始，该接口支持在ArkTS卡片中使用。 |
+| AutoLinear(deprecated) | 1 | Swiper滑动一页的宽度为子组件宽度中的最大值。此枚举表现形式与displayCount中使用string类型，将值设置为auto表现一致，具体可参考displayCount说明。 说明： 从API version 7开始支持，从API version 10开始废弃，建议使用AUTO_LINEAR替代。 卡片能力： 从API version 7开始，该接口支持在ArkTS卡片中使用。 |
+| STRETCH10+ | 0 | Swiper滑动一页的宽度为Swiper组件自身的宽度。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| AUTO_LINEAR(deprecated) | 1 | Swiper滑动一页的宽度为视窗内最左侧子组件的宽度。此枚举表现形式与displayCount中使用string类型，将值设置为auto表现一致，具体可参考displayCount说明。 说明： 从API version 10开始支持，从API version 12开始废弃，建议使用Scroller.scrollTo替代。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -797,6 +819,8 @@ Swiper在主轴上的尺寸大小模式枚举。
 Swiper组件和父组件的嵌套滚动模式枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -876,11 +900,17 @@ showPrevious()
 
 changeIndex(index: number, useAnimation?: boolean)
 
-翻至指定页面。
+翻至指定页面。翻页带动效切换过程，时长通过Swiper的[duration](#duration)属性设置。
+
+> [!NOTE]
+> 该接口本身提供了不带动画跳转页面的能力（useAnimation设置为false），不建议使用changeIndex接口启动动画后，直接使用finishAnimation接口打断来实现页面不带动画跳转。
+
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -900,7 +930,7 @@ changeIndex(index: number, useAnimation?: boolean)
 
 changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean)
 
-翻页至指定页面。
+翻页至指定页面。翻页带动效切换过程，时长通过Swiper的[duration](#duration)属性设置。
 
 > [!NOTE]
 > 该接口本身提供了不带动画跳转页面的能力（animationMode设置为false或者SwiperAnimationMode.NO_ANIMATION），不建议使用changeIndex接口启动动画后，直接使用finishAnimation接口打断来实现页面不带动画跳转。
@@ -910,6 +940,8 @@ changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean)
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -917,7 +949,7 @@ changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定页面在Swiper中的索引值。 说明： 设置的值小于0或大于最大页面索引时，取0。 |
-| animationMode | SwiperAnimationMode \| boolean | 否 | 设置翻页至指定页面时的动效模式。 默认值：SwiperAnimationMode.NO_ANIMATION 说明： 当传入true时有动效，等同于SwiperAnimationMode.DEFAULT_ANIMATION；当传入false时无动效，等同于SwiperAnimationMode.NO_ANIMATION。 |
+| animationMode | SwiperAnimationMode \| boolean | 否 | 设置翻页到指定页面的动效模式。 默认值：SwiperAnimationMode.NO_ANIMATION 说明： 当传入true时有动效，等同于SwiperAnimationMode.DEFAULT_ANIMATION；当传入false时无动效，等同于SwiperAnimationMode.NO_ANIMATION。 |
 
 
 
@@ -964,6 +996,8 @@ preloadItems(indices: Optional<Array&lt;number&gt;>): Promise&lt;void&gt;
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1046,7 +1080,7 @@ fakeDragBy(offset: number): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 是 | 需要模拟拖拽的拖拽距离。 正数表示向布局起点拖拽；负数表示向布局终点方向拖拽。 |
+| offset | number | 是 | 需要模拟拖拽的拖拽距离。 正数表示向主轴起点方向拖拽（横向布局时向左，纵向布局时向上）；负数表示向主轴终点方向拖拽（横向布局时向右，纵向布局时向下）。 单位：vp 取值范围：(-∞, +∞) |
 
 
 **返回值：**
@@ -1122,6 +1156,8 @@ Swiper组件翻页至指定页面的动效模式。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -1137,11 +1173,13 @@ Swiper组件翻页至指定页面的动效模式。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-设置导航点距离Swiper组件距离。由于导航点有默认交互区域，交互区域高度为32vp，所以无法让显示部分完全贴底。若想实现完全贴底，可以使用[IndicatorComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-swiper-components-indicator#indicatorcomponent)组件，更灵活地调整位置。
+设置导航点与Swiper组件的距离。由于导航点有默认交互区域，交互区域高度为32vp，所以无法让显示部分完全贴底。若想实现完全贴底，可以使用[IndicatorComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-swiper-components-indicator#indicatorcomponent)组件，更灵活地调整位置。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1159,6 +1197,8 @@ left(value: Length): T
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1172,7 +1212,7 @@ left(value: Length): T
 
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前导航点指示器。 |
+| T | 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。 |
 
 
 
@@ -1189,6 +1229,8 @@ top(value: Length): T
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1202,7 +1244,7 @@ top(value: Length): T
 
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前导航点指示器。 |
+| T | 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。 |
 
 
 
@@ -1219,20 +1261,22 @@ right(value: Length): T
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置导航点右侧相对于Swiper的位置。 未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。 设置为0时：按照0位置布局计算。 优先级：低于left属性。 取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围 时，取最近的边界值。 单位参考Length类型的说明。 |
+| value | Length | 是 | 设置导航点右侧相对于Swiper的位置。 未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。 设置为0时：按照0位置布局计算。 优先级：低于left属性。 取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围时，取最近的边界值。 单位参考Length类型的说明。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前导航点指示器。 |
+| T | 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。 |
 
 
 
@@ -1249,6 +1293,8 @@ bottom(value: Length): T
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1262,7 +1308,7 @@ bottom(value: Length): T
 
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前导航点指示器。 |
+| T | 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。 |
 
 
 
@@ -1279,6 +1325,8 @@ bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1286,14 +1334,14 @@ bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bottom | LengthMetrics \| Length | 是 | 设置导航点底部相对于Swiper的位置。 未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置bottom=0一致。 设置为0时：按照0位置布局计算。 优先级：低于top属性。 取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。 单位参考Length类型的说明。 |
-| ignoreSize | boolean | 是 | 设置是否忽略导航点本身大小，默认false。 设为true时可以将导航点更靠近Swiper底部，使用方法可以参考示例9演示导航点space与bottom。 说明：当导航点为DigitIndicator的类型时，不生效的场景如下： • 当vertical 设置为false，且bottom > 0。 • 当vertical 设置为true时： 1、bottom > 0 时。 2、bottom设为undefined。 3、isSidebarMiddle设置为false时。 |
+| ignoreSize | boolean | 是 | 设置是否忽略导航点本身大小，默认false。 设置为true时，忽略导航点大小，可以将导航点更靠近Swiper底部；设置为false时，不忽略导航点大小，导航点按默认大小布局。使用方法可以参考示例9演示导航点space与bottom。 说明：当导航点为DigitIndicator的类型时，不生效的场景如下： • 当vertical 设置为false，且bottom > 0。 • 当vertical 设置为true时： 1、bottom > 0 时。 2、bottom设为undefined。 3、isSidebarMiddle设置为false时。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前导航点指示器。 |
+| T | 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。 |
 
 
 
@@ -1310,6 +1358,8 @@ start(value: LengthMetrics): T
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1323,7 +1373,7 @@ start(value: LengthMetrics): T
 
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前导航点指示器。 |
+| T | 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。 |
 
 
 
@@ -1340,6 +1390,8 @@ end(value: LengthMetrics): T
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1353,7 +1405,7 @@ end(value: LengthMetrics): T
 
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回当前导航点指示器。 |
+| T | 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。 |
 
 
 
@@ -1370,13 +1422,15 @@ static dot(): DotIndicator
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 圆点指示器。 |
+| DotIndicator | 圆点指示器对象，用于设置Swiper组件的圆点导航样式。 |
 
 
 
@@ -1393,13 +1447,15 @@ static digit(): DigitIndicator
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DigitIndicator | 数字指示器。 |
+| DigitIndicator | 数字指示器对象，用于设置Swiper组件的数字导航样式。 |
 
 
 
@@ -1413,6 +1469,8 @@ static digit(): DigitIndicator
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1434,6 +1492,8 @@ DotIndicator的构造函数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -1450,20 +1510,22 @@ Swiper组件圆点导航指示器的宽。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置Swiper组件圆点导航指示器的宽，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞) |
+| value | Length | 是 | 设置Swiper组件圆点导航指示器的宽，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞)，超出范围时按照默认值处理。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1480,20 +1542,22 @@ Swiper组件圆点导航指示器的高。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置Swiper组件圆点导航指示器的高，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞) |
+| value | Length | 是 | 设置Swiper组件圆点导航指示器的高，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞)，超出范围时按照默认值处理。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1510,20 +1574,22 @@ selectedItemWidth(value: Length): DotIndicator
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置选中Swiper组件圆点导航指示器的宽，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞) |
+| value | Length | 是 | 设置选中Swiper组件圆点导航指示器的宽，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞)，超出范围时按照默认值处理。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1540,20 +1606,22 @@ selectedItemHeight(value: Length): DotIndicator
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置选中Swiper组件圆点导航指示器的高，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞) |
+| value | Length | 是 | 设置选中Swiper组件圆点导航指示器的高，不支持设置百分比。 默认值：6 单位：vp 取值范围：(0, +∞)，超出范围时按照默认值处理。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1570,20 +1638,22 @@ mask(value: boolean): DotIndicator
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 设置是否显示Swiper组件圆点导航指示器的蒙版样式。true为显示Swiper组件圆点导航指示器的蒙版样式，false为不显示。 默认值：false |
+| value | boolean | 是 | 设置是否显示Swiper组件圆点导航指示器的蒙版样式。为true时显示Swiper组件圆点导航指示器的蒙版样式，为false时不显示。 默认值：false |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1600,6 +1670,8 @@ Swiper组件圆点导航指示器的颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1613,7 +1685,7 @@ Swiper组件圆点导航指示器的颜色。
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1630,6 +1702,8 @@ selectedColor(value: ResourceColor): DotIndicator
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1643,7 +1717,7 @@ selectedColor(value: ResourceColor): DotIndicator
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1658,20 +1732,22 @@ maxDisplayCount(maxDisplayCount: number): DotIndicator
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| maxDisplayCount | number | 是 | 设置圆点导航点指示器样式下，导航点显示个数最大值，当实际导航点个数大于最大导航点个数时，会生效超长效果样式，样式如示例5所示。 默认值：这个属性没有默认值，如果设置异常值那等同于没有超长显示效果。 取值范围：[6, 9] 说明： 1、超长显示场景，目前暂时不支持交互功能（包括：手指点击拖拽、鼠标操作等）。 2、在超长显示场景下，中间页面对应的选中导航点的位置，并不是完全固定的，取决于之前的翻页操作序列。 3、当前仅支持displayCount为1的场景。 |
+| maxDisplayCount | number | 是 | 设置圆点导航点指示器样式下，导航点显示个数最大值，当实际导航点个数大于最大导航点个数时，会生效超长效果样式，样式如示例5所示。 取值范围：[6, 9]，超出范围时等同于没有超长显示效果。 说明： 1、超长显示场景，API版本26.0.0之前不支持交互功能（包括：手指点击拖拽、鼠标操作），从API版本26.0.0开始支持手指点击拖拽的交互功能，不支持鼠标操作的交互功能。 2、在超长显示场景下，中间页面对应的选中导航点的位置，并不是完全固定的，取决于之前的翻页操作序列。 3、当前仅支持displayCount为1的场景。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1688,20 +1764,56 @@ space(space: LengthMetrics): DotIndicator
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| space | LengthMetrics | 是 | 设置圆点导航点间距，不支持设置百分比。 默认值：PC/2in1设备上为10，其他设备为8。 单位：vp 取值范围：[0, +∞) |
+| space | LengthMetrics | 是 | 设置圆点导航点间距，不支持设置百分比。 默认值：PC/2in1设备上为10，其他设备为8。 单位：vp 取值范围：[0, +∞)，设置小于0的值时按照默认值处理。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| DotIndicator | 返回当前圆点指示器。 |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
+
+
+
+
+#### indicatorIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+indicatorIcon(iconList: Array&lt;IndicatorIconInfo&gt;): DotIndicator
+
+设置Swiper圆点导航点的图标。
+
+**起始版本：** 26.0.0
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| iconList | Array&lt;IndicatorIconInfo&gt; | 是 | 设置圆点导航点图标。数组元素对象包含index（导航点索引）和icon（图标内容）两个属性。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| DotIndicator | 返回当前圆点指示器，用于支持链式调用配置其他圆点样式属性。 |
 
 
 
@@ -1715,6 +1827,8 @@ space(space: LengthMetrics): DotIndicator
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1736,6 +1850,8 @@ Swiper组件数字导航点的字体颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1749,7 +1865,7 @@ Swiper组件数字导航点的字体颜色。
 
 | 类型 | 说明 |
 | --- | --- |
-| DigitIndicator | 返回当前数字指示器。 |
+| DigitIndicator | 返回当前数字指示器，用于支持链式调用配置其他数字样式属性。 |
 
 
 
@@ -1766,6 +1882,8 @@ selectedFontColor(value: ResourceColor): DigitIndicator
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1779,7 +1897,7 @@ selectedFontColor(value: ResourceColor): DigitIndicator
 
 | 类型 | 说明 |
 | --- | --- |
-| DigitIndicator | 返回当前数字指示器。 |
+| DigitIndicator | 返回当前数字指示器，用于支持链式调用配置其他数字样式属性。 |
 
 
 
@@ -1790,11 +1908,13 @@ selectedFontColor(value: ResourceColor): DigitIndicator
 
 digitFont(value: Font): DigitIndicator
 
-Swiper组件数字导航点的字体样式。
+Swiper组件数字导航点的字体样式。按组翻页时，数字导航点显示的子节点数量不包括占位节点。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1809,7 +1929,7 @@ Swiper组件数字导航点的字体样式。
 
 | 类型 | 说明 |
 | --- | --- |
-| DigitIndicator | 返回当前数字指示器。 |
+| DigitIndicator | 返回当前数字指示器，用于支持链式调用配置其他数字样式属性。 |
 
 
 
@@ -1825,6 +1945,8 @@ selectedDigitFont(value: Font): DigitIndicator
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1843,7 +1965,7 @@ selectedDigitFont(value: Font): DigitIndicator
 
 | 类型 | 说明 |
 | --- | --- |
-| DigitIndicator | 返回当前数字指示器。 |
+| DigitIndicator | 返回当前数字指示器，用于支持链式调用配置其他数字样式属性。 |
 
 
 
@@ -1860,6 +1982,8 @@ DigitIndicator的构造函数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -1871,6 +1995,8 @@ DigitIndicator的构造函数。
 左右箭头属性。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1896,11 +2022,13 @@ DigitIndicator的构造函数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| minSize | VP | 否 | 否 | 设置元素显示最小宽度。 默认值：0 |
+| minSize | VP | 否 | 否 | 设置元素显示最小宽度，用于根据Swiper当前宽度和minSize值自动计算并更改一页内元素显示个数。当需要根据Swiper组件宽度自适应调整一页内元素显示个数时，建议设置此参数以获得更好的响应式布局效果。 默认值：0 取值范围：(0, +∞)，设置小于等于0的值时，Swiper显示1列。 |
 
 
 
@@ -1914,6 +2042,8 @@ DigitIndicator的构造函数。
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1941,7 +2071,35 @@ DigitIndicator的构造函数。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isShown | boolean | 否 | 是 | 预加载范围内的节点是否进行绘制。 设置为true时，预加载范围内的节点进行绘制。 设置为false时，预加载范围内的节点不进行绘制。 默认值：false |
-| independent | boolean | 否 | 是 | cachedCount是否按组计算。 设置为true时，cachedCount按实际子组件个数计算，不按组计算。 设置为false时，如果displayCount.swipeByGroup=true，则cachedCount按组计算，否则按实际子组件个数计算。 默认值：false |
+| independent | boolean | 否 | 是 | cachedCount是否按实际子组件个数计算。 设置为true时，cachedCount按实际子组件个数计算，不按组计算。 设置为false时，如果displayCount.swipeByGroup=true，则cachedCount按组计算，否则按实际子组件个数计算。 默认值：false |
+
+
+
+
+#### IndicatorIconInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+圆点导航点图标配置。
+
+> [!NOTE]
+> 仅支持通过SymbolGlyphModifier对象的 fontColor 属性修改图标颜色。
+
+
+**起始版本：** 26.0.0
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| index | number | 否 | 否 | 配置图标的导航点索引。 取值范围：[0, swiper子组件的数量-1] 说明： 设置的值大于最大页面索引时，图标不显示。 |
+| icon | ResourceStr \| SymbolGlyphModifier | 否 | 否 | 配置的图标内容。 说明： 未设置有效图标时，显示圆点导航点。 |
 
 
 
@@ -1965,7 +2123,7 @@ onChange(event: Callback&lt;number&gt;)
 Swiper组件结合LazyForEach使用时，不能在onChange事件里触发子页面UI的刷新。
 
 > [!NOTE]
-> 如果是动画引起的索引变化，回调在动画结束时触发。
+> 如果是动画引起的索引变化，回调在动画结束时触发。 与onSelected的区别：onSelected在选中状态改变时立即触发，onChange在动画结束后触发。
 
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -2049,13 +2207,15 @@ onGestureSwipe(event: OnSwiperGestureSwipeCallback)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | OnSwiperGestureSwipeCallback | 是 | 在页面跟手滑动过程中，逐帧触发的回调。onGestureSwipe回调触发时机在onTouch之后，如果需要在离手后执行操作建议使用onAnimationStart。 |
+| event | OnSwiperGestureSwipeCallback | 是 | 在页面跟手滑动过程中，逐帧触发的回调。onGestureSwipe回调触发时机在onTouch之后，如果需要在手指离开屏幕后动画开始时执行操作，建议使用onAnimationStart。 |
 
 
 
@@ -2070,7 +2230,7 @@ customContentTransition(transition: SwiperContentAnimatedTransition)
 
 使用说明：
 
-1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper前后端显示同一页面时，该接口不生效。
+1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper视窗的前后两端区域显示同一页面时，该接口不生效。
 
 2、在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发[SwiperContentTransitionProxy](#swipercontenttransitionproxy12)回调。例如，当视窗内有下标为0、1的两个页面时，会每帧触发两次index值分别为0和1的回调。
 
@@ -2078,7 +2238,11 @@ customContentTransition(transition: SwiperContentAnimatedTransition)
 
 4、在页面跟手滑动和离手后执行切换动画的过程中，默认动画（页面滑动）依然会发生，若希望页面不滑动，可以设置主轴方向上负的位移（translate属性）来抵消页面滑动。例如：当displayCount属性值为2，视窗内有下标为0、1的两个页面时，页面水平滑动过程中，可以逐帧设置第0页的translate属性在x轴上的值为-position * mainAxisLength来抵消第0页的位移，设置第1页的translate属性在x轴上的值为-(position - 1) * mainAxisLength来抵消第1页的位移。
 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2086,7 +2250,7 @@ customContentTransition(transition: SwiperContentAnimatedTransition)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| transition | SwiperContentAnimatedTransition | 是 | Swiper自定义切换动画相关信息。 |
+| transition | SwiperContentAnimatedTransition | 是 | Swiper自定义切换动画相关信息。对象属性包括：timeout（超时时间）和transition（自定义切换动画具体内容回调）。 |
 
 
 
@@ -2101,13 +2265,15 @@ onContentDidScroll(handler: ContentDidScrollCallback)
 
 使用说明：
 
-1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper前后端显示同一页面时，该接口不生效。
+1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper视窗的前后两端区域显示同一页面时，该接口不生效。
 
 2、在页面滑动过程中，会对视窗内所有页面逐帧触发[ContentDidScrollCallback](#contentdidscrollcallback12)回调。例如，当视窗内有下标为0、1的两个页面时，会每帧触发两次index值分别为0和1的回调。
 
 3、设置displayCount属性的swipeByGroup参数为true时，若同组中至少有一个页面在视窗内时，则会对同组中所有页面触发回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2128,9 +2294,15 @@ onSelected(event: Callback&lt;number&gt;)
 
 当选中元素改变时触发该回调，返回值为当前选中的元素的索引值。
 
+> [!NOTE]
+> onSelected回调中不可修改swiper的index属性，不可调用SwiperController.changeIndex()、SwiperController.showNext()和SwiperController.showPrevious()方法。 与onChange的区别：onSelected在选中状态改变时立即触发，onChange在动画结束后触发。
+
+
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2158,6 +2330,8 @@ onUnselected(event: Callback&lt;number&gt;)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2189,13 +2363,15 @@ Swiper滑动行为拦截事件，在滑动前触发。Swiper会依据该事件�
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| handler | ContentWillScrollCallback | 是 | Swiper滑动时触发的回调。 |
+| handler | ContentWillScrollCallback | 是 | Swiper滑动时触发的回调，返回true表示允许滑动，false表示不允许滑动。 |
 
 
 
@@ -2211,6 +2387,8 @@ Swiper滑动状态变化事件回调，在跟手滑动、离手动画、停止�
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2234,6 +2412,8 @@ type OnSwiperAnimationStartCallback = (index: number, targetIndex: number, extra
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2260,6 +2440,8 @@ type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEv
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2282,6 +2464,8 @@ type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEv
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2303,6 +2487,8 @@ type ContentDidScrollCallback = (selectedIndex: number, index: number, position:
 Swiper滑动时触发的回调，参数可参考[SwiperContentTransitionProxy](#swipercontenttransitionproxy12)中的说明。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2329,6 +2515,8 @@ Swiper即将滑动前触发的回调，返回值表示是否允许此次滑动�
 **卡片能力：** 从API version 15开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2358,13 +2546,15 @@ Swiper即将滑动前触发的回调，返回值表示是否允许此次滑动�
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | currentIndex | number | 否 | 否 | 当前页面对应的index。在一次跟手滑动过程中，只要手指未离开屏幕，该值将保持不变，即使该页面已完全移出视窗，如在涉及多个页面的场景中。 |
 | comingIndex | number | 否 | 否 | 滑动方向上即将显示的页面index。 |
-| offset | number | 否 | 否 | 此次滑动的位移，带有符号，正负分别指示不同的翻页方向。正数表示从index=1向index=0翻页，负数表示从index=0向index=1翻页。 在手指滑动的场景中，该值为滑动事件中每帧传递下来的偏移量。在滚动鼠标滚轮和使用键盘方向键导航的场景中，该值代表即将翻页的距离。 |
+| offset | number | 否 | 否 | 此次滑动的位移，带有符号，正负分别指示不同的翻页方向。单位：vp 正数表示从index=1向index=0翻页，负数表示从index=0向index=1翻页。 在手指滑动的场景中，该值为滑动事件中每帧传递下来的偏移量。在滚动鼠标滚轮和使用键盘方向键导航的场景中，该值代表即将翻页的距离。 |
 
 
 
@@ -2377,13 +2567,15 @@ Swiper组件动画相关信息集合。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| currentOffset | number | 否 | 否 | Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移。单位VP，默认值为0。 |
-| targetOffset | number | 否 | 否 | Swiper动画目标元素在主轴方向上，相对于Swiper起始位置的位移。单位VP，默认值为0。 |
-| velocity | number | 否 | 否 | Swiper离手动画开始时的离手速度。单位VP/S，默认值为0。 |
+| currentOffset | number | 否 | 否 | Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移。单位vp，默认值为0。 |
+| targetOffset | number | 否 | 否 | Swiper动画目标元素在主轴方向上，相对于Swiper起始位置的位移。单位vp，默认值为0。 |
+| velocity | number | 否 | 否 | Swiper离手动画开始时的离手速度。单位vp/s，默认值为0。 |
 
 
 
@@ -2394,13 +2586,17 @@ Swiper组件动画相关信息集合。
 
 Swiper自定义切换动画相关信息。
 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| timeout | number | 否 | 是 | Swiper自定义切换动画超时时间。从页面执行默认动画（页面滑动）至移出视窗外的第一帧开始计时，如果到达该时间后，开发者仍未调用SwiperContentTransitionProxy的finishTransition接口通知Swiper组件此页面的自定义动画已结束，那么组件就会认为此页面的自定义动画已结束，立即将该页面节点下渲染树。单位ms，默认值为0。 |
+| timeout | number | 否 | 是 | Swiper自定义切换动画超时时间。从页面执行默认动画（页面滑动）至移出视窗外的第一帧开始计时，如果到达该时间后，开发者仍未调用SwiperContentTransitionProxy的finishTransition接口通知Swiper组件此页面的自定义动画已结束，那么组件就会认为此页面的自定义动画已结束，立即将该页面节点下渲染树。单位：ms 默认值：0 取值范围：[0, +∞)，设置小于0的值时按照默认值处理。 |
 | transition | Callback&lt;SwiperContentTransitionProxy&gt; | 否 | 否 | 自定义切换动画具体内容。 |
 
 
@@ -2412,13 +2608,27 @@ Swiper自定义切换动画相关信息。
 
 Swiper自定义切换动画执行过程中，返回给开发者的proxy对象。开发者可通过该对象获取自定义动画视窗内的页面信息，同时，也可以通过调用该对象的finishTransition接口通知Swiper组件页面自定义动画已结束。
 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
 
 #### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2442,7 +2652,11 @@ finishTransition(): void
 
 通知Swiper组件，此页面的自定义动画已结束。
 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2567,22 +2781,22 @@ struct SwiperExample {
         console.info(index.toString());
       })
       .onScrollStateChanged((event: ScrollState) => {
-        console.info("event: " + event);
+        console.info('event: ' + event);
       })
       .onGestureSwipe((index: number, extraInfo: SwiperAnimationEvent) => {
-        console.info("index: " + index);
-        console.info("current offset: " + extraInfo.currentOffset);
+        console.info('index: ' + index);
+        console.info('current offset: ' + extraInfo.currentOffset);
       })
       .onAnimationStart((index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => {
-        console.info("index: " + index);
-        console.info("targetIndex: " + targetIndex);
-        console.info("current offset: " + extraInfo.currentOffset);
-        console.info("target offset: " + extraInfo.targetOffset);
-        console.info("velocity: " + extraInfo.velocity);
+        console.info('index: ' + index);
+        console.info('targetIndex: ' + targetIndex);
+        console.info('current offset: ' + extraInfo.currentOffset);
+        console.info('target offset: ' + extraInfo.targetOffset);
+        console.info('velocity: ' + extraInfo.velocity);
       })
       .onAnimationEnd((index: number, extraInfo: SwiperAnimationEvent) => {
-        console.info("index: " + index);
-        console.info("current offset: " + extraInfo.currentOffset);
+        console.info('index: ' + index);
+        console.info('current offset: ' + extraInfo.currentOffset);
       })
 
       Row({ space: 12 }) {
@@ -2619,7 +2833,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-20260708103148be695c29.gif)
+![](assets/Swiper/file-20260708103149c26f61c1.gif)
 
 
 
@@ -2710,7 +2924,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-20260708103148eccf4fdf.jpg)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/IwuuolVOQOan-ZY8dKTktA/zh-cn_image_0000002685928111.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=4F881B6D01680C2CC7B04428599234765418A00C6EB5F438041948FF1AED592C)
 
 
 
@@ -2804,7 +3018,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-20260708103148f040b675.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/m6_8cpe5Q8-kyznD93ibIQ/zh-cn_image_0000002656008432.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=CDE50C539E94D8CF6669E7B50568D52D48B0469B2875AEEA18B8A3E897099C65)
 
 
 
@@ -2936,7 +3150,7 @@ struct SwiperCustomAnimationExample {
       })
       .onContentDidScroll((selectedIndex: number, index: number, position: number, mainAxisLength: number) => {
         // 监听Swiper页面滑动事件，在该回调中可以实现自定义导航点切换动画等
-        console.info("onContentDidScroll selectedIndex: " + selectedIndex + ", index: " + index + ", position: " + position + ", mainAxisLength: " + mainAxisLength);
+        console.info('onContentDidScroll selectedIndex: ' + selectedIndex + ', index: ' + index + ', position: ' + position + ', mainAxisLength: ' + mainAxisLength);
       })
     }.width('100%')
   }
@@ -2944,7 +3158,7 @@ struct SwiperCustomAnimationExample {
 ```
 
 
-![](assets/Swiper/file-20260708103149c26f61c1.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/C9gsnwcuSlWD2ckWMdb5Nw/zh-cn_image_0000002655848512.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=BCAD770DD5F88DFE68ABE2B364DA08CF5F331759D19089832DC507734DEC9C6B)
 
 
 
@@ -3044,7 +3258,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/Ac6I7pv9SieunK572AiSRw/zh-cn_image_0000002677827547.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=899346124438EF5AE4CE8470CB8F5E7C0FEE6CC494955AF7A31FDBA670603320)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/AERu-64uTNuilWqBT4byFQ/zh-cn_image_0000002686087941.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=CAEA99B9DB78C500C9E4B4504ABA7735AF53BDD5615E22867C49C1241D0F430E)
 
 
 
@@ -3086,10 +3300,10 @@ struct SwiperPreloadItems {
                 console.info('preloadItems [2, 3] success.');
               })
               .catch((error: BusinessError) => {
-                console.error('preloadItems [2, 3] failed, error code: ' + error.code + ', error message: ' + error.message);
+                console.error(`Failed to preload items [2, 3]. Code: ${error.code}, message: ${error.message}`);
               })
           } catch (error) {
-            console.error('preloadItems [2, 3] failed, error code: ' + error.code + ', error message: ' + error.message);
+            console.error(`Failed to preload items [2, 3]. Code: ${error.code}, message: ${error.message}`);
           }
 
         })
@@ -3191,6 +3405,7 @@ struct TabsSwiperExample {
           TabContent().tabBar(this.tabBuilder(index, '页签 ' + this.list[index]))
         })
       }
+      // 点击页签时，同步更新选中索引并切换Swiper到对应页面
       .onTabBarClick((index: number) => {
         this.currentIndex = index;
         this.swiperController.changeIndex(index, true);
@@ -3219,7 +3434,7 @@ struct TabsSwiperExample {
       .loop(false)
       // 选中/切换轮播项时触发
       .onSelected((index: number) => {
-        console.info("onSelected:" + index);
+        console.info('onSelected:' + index);
         // 同步选中索引到currentIndex（更新页签选中态）
         this.currentIndex = index;
         // 控制Tabs切换到对应索引页签
@@ -3231,7 +3446,7 @@ struct TabsSwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/WPdwv4Z6SJ2mtIS8VUhRNA/zh-cn_image_0000002677667699.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=048E88B4EC23901D1DDDABF850ADE1279034CC7804E51F91B76B979B50409B70)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/1XPDC-XQQKSiRzQR3SRbcw/zh-cn_image_0000002685928113.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=186213F28C12EBD6CFFDA22D5C8960F581E6927C59E9FC27ED9050A52EF136F4)
 
 
 
@@ -3324,7 +3539,7 @@ struct SwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/YT6TqfroR6qPZaASrwkz2A/zh-cn_image_0000002647747818.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=0D1F23BB1351AD89F0A42D8BAACC71B37E3C0A8D046B30EA1C65885A0CB459B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/M4UYdJoLSyisAVw6Uv4vKQ/zh-cn_image_0000002656008434.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=90EB2E4E5238FEE64B12264CBB61A4AE5B29E02F3E76C4C1DD0B019B8590ADCA)
 
 
 
@@ -3432,7 +3647,7 @@ struct SwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/LLRPam4UQ-yzKCn6ZO2cIw/zh-cn_image_0000002647587908.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=C25D8445C7EC63F685DE27AADDDE34773F6AAB4ABB0FEDFE2889BA1425DDD8F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/EHCfkBvgRHW00IxAXWb55Q/zh-cn_image_0000002655848514.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=0ECD5D5EBD0D85DF46D9064851948E1F671E1C511701FD6AA34DC3B0034E23DA)
 
 
 
@@ -3500,13 +3715,13 @@ struct SwiperExample {
 Swiper宽度属于[sm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)及更小的断点区间时显示1列。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/OsXJ6trBQB-qoYMZd_jb6Q/zh-cn_image_0000002677827549.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=54438B63AF1B2CDA4A884B0EEE0EC28D1E8398E3C5966F5C7EA9FF78F4D645C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/YyNS04EEStum1sie3KXOEw/zh-cn_image_0000002686087943.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=D8EAAD10184D3D53BA6861B5E97D75EAE16949148A169BD98E3D88BE3CB69CC0)
 
 
 Swiper宽度属于[md](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)断点区间时显示2列。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/YWMROSQyS6G6UjQjRdzO9A/zh-cn_image_0000002677667701.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=B5FF8129EB20F339190DA2CF4671710A48A13F76D376226FEAE19A47F237A48A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/p_-M5oFPSbalvawo1H9LoQ/zh-cn_image_0000002685928115.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=B4047A2F695BB9AED7025D0C0E0076D2CC5E5613FFAF6307616853B80E6F8CA4)
 
 
 
@@ -3574,4 +3789,55 @@ struct SwiperFakeDragExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/WjLEi3noQtufmX8AbAj4NA/zh-cn_image_0000002647747820.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=DF846F5C517A5C65CBD1546431F8351D96A4D6F602643C6BD4D64071B085E123)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/AX287xuKQlWMa9nl-ibFqw/zh-cn_image_0000002656008438.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=C3534174C440D5C22EA7F5B9528E374206232ED7832E9A909EA8E32CFB9CBFA3)
+
+
+
+
+#### 示例12（配置Swiper组件导航点图标）
+
+该示例通过设置indicatorIcon接口，展示了Swiper组件如何配置导航点图标。
+
+从API版本26.0.0开始，新增[indicatorIcon](#indicatoricon)接口。
+
+```ArkTS
+// swiperIndicatorIcon.ets
+import { SymbolGlyphModifier } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct SwiperIndicatorIconExample {
+  private symbolModifier1: SymbolGlyphModifier = new SymbolGlyphModifier($r('sys.symbol.ohos_wifi'));
+  @State arr: string[] = ['0', '1'];
+
+  build() {
+    Scroll() {
+      Column({ space: 20 }) {
+        Swiper() {
+          ForEach(this.arr, (item: string) => {
+            Text(item)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height('100%')
+              .backgroundColor(0xAFEEEE)
+          })
+        }
+        .width('90%')
+        .height('50%')
+        .indicator( // 设置圆点导航点样式
+          new DotIndicator()
+            .itemWidth(20)
+            .itemHeight(20)
+            .selectedItemWidth(20)
+            .selectedItemHeight(20)
+            .indicatorIcon([{ index: 0, icon: this.symbolModifier1 },
+              { index: 1, icon: $r('sys.media.ohos_ic_public_albums') }])) // 设置导航点图标
+      }
+      .width('100%')
+    }
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/DQNZKlIbReSbFVhDW1IXUA/zh-cn_image_0000002655848516.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=150CC4415EE8E2D7CFF9C8F83162980D3F1C44C679BE00C2C87C11F776E13232)

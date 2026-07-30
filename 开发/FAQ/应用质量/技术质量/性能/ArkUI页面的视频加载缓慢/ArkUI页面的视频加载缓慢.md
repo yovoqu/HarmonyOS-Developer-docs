@@ -1,6 +1,6 @@
 # ArkUI页面的视频加载缓慢
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-12
 
@@ -14,7 +14,7 @@
 
 - [Video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)：可用于播放视频文件的组件。
 - 视频码率：在单位时间内，视频文件传输的数据量，也叫视频的数据速率，通常用bps（位每秒）、Kbps（千位每秒）或Mbps（兆位每秒）来表示。
-- 视频起播水线：为了保证视频流畅播放设置的缓冲区阈值。当视频缓冲区的已下载数据量达到起播水线值时，才会开始播放视频，有助于减少视频播放初期可能出现的卡顿现象。起播水线取值与下载速率与视频码率有关，如果下载速率大于或等于视频码率，起播水线取值为0.3*码率，如果下载速率小于视频码率，起播水线取值为5*码率，具体可看[缓冲区工作过程](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-online-video-playback-lags-practice#section1411814743015)。
+- 视频起播水线：为了保证视频流畅播放设置的缓冲区阈值。当视频缓冲区的已下载数据量达到起播水线值时，才会开始播放视频，有助于减少视频播放初期可能出现的卡顿现象。起播水线取值与下载速率与视频码率有关，如果下载速率大于或等于视频码率，起播水线取值为0.3*码率，如果下载速率小于视频码率，起播水线取值为5*码率，具体可看[缓冲区工作过程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/online-video-playback-lags-optimize#缓冲区工作过程)。
 - ArkUI Inspector：DevEco Studio提供的[布局分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arkui-inspector)工具，可用于查看应用在真机上的UI显示效果，能够快速分析定位状态变量、组件嵌套层次、UI界面布局存在的问题等。
 - DevEco Profiler：集成在DevEco Studio中的性能调优工具，提供场景化的性能调优功能体验，可以检测应用的性能指标、录制Trace信息，通过分析Trace数据能够发现代码中的性能瓶颈，进而优化性能，相关内容可看[DevEco Profiler调优工具简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler)。视频加载关键Trace点如下：
 
@@ -43,23 +43,23 @@
 
 以某应用视频加载时间长问题为例，定位过程如下：
  1. 使用ArkUI Inspector抓取应用页面布局，得知应用使用Video组件进行视频播放。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/ztN_JBUZSvG31KsMQgL6UQ/zh-cn_image_0000002628395104.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=3D057EA5D160838FCA5B6246A1E65D656F587001586379D97375DB290DE98875)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/2ACrCZ1IShWfQkYjRssVfQ/zh-cn_image_0000002628395104.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=63C420E8ECE4DBA48588D977A49D1889F47908CF293AFE901EA4E729D6F03EEA)
 
 2. 使用Profiler Frame抓取视频加载播放过程的应用Trace信息，然后搜索应用收到手指离开屏幕的事件、Video组件创建、播放器准备、播放器播放相关Trace点。
 - 应用收到手指离开屏幕：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/hegzFrVeRuSb0a01eIGMpw/zh-cn_image_0000002658914323.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=DB71A37DA65CBFB338AFF4C9345BD4253499892F7127F149087E84DEE6C3D39C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/f6152ko8Shyu09GgYK76JA/zh-cn_image_0000002658914323.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=5385A008CFC6D63BF0B14D3F4124C05C278A24003854AAB1C7D71DBBF81F450C)
 
 
 3. Video组件创建：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/nvC5S7nUSLKHWp7XUNFIeg/zh-cn_image_0000002658794371.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=0FB60F1AA8506B965A505532E5C6B1F362971934B55E4AEC886F3869432379C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/-2Z2-1fWThWA_CeJgWkohQ/zh-cn_image_0000002658794371.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=D0EC70A3DCA2C52121790658A50032950ADE4A042FAC781D221F9911ECE5D0C6)
 
 
 4. 播放器准备：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/NvHJMN8pQYaLxq0fkyULrA/zh-cn_image_0000002628555006.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=9D13AE6D1C503B167E758109C940B1E17BB1F994C70B6F201DB2361191728B02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/LbnVnNESRsuA6EWVEcc0OQ/zh-cn_image_0000002628555006.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=42062C14B6F009740D6E40F36CE078B0A099DAD226763A3D6920D5B917624687)
 
 
 5. 播放器播放：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/bfygrqw-QZarcd57_gdHdg/zh-cn_image_0000002628395106.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=39DE3DCA68958A5FF5A73BA6E71AD7FCCA559DC9DC9ED708D0360F2BA53A44B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wv_O0GxtRKGF8TP33e3wBA/zh-cn_image_0000002628395106.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=D3022E29E9512375BC642311582EA2B6EDE27023A91BD61D80BC18B8AFBEE49E)
 
 
 1. 计算上述Trace关键字之间的时间，分析其中耗时最多的部分，具体情况如下：
@@ -72,19 +72,19 @@
 | 10s | 41ms | 314ms | 25ms |
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/u5zFWqJsR_u-LPZT9NKLIg/zh-cn_image_0000002658914325.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=8A50046EF13A282F573B37005C115285A82F31A8563005E21B23029C6A44765B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/Z50GyKK1RG6kkQWsCO6_xA/zh-cn_image_0000002658914325.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=D87468F2CC8EFC0D1D60B96854E06BCE59D9588904268CD38D3237E4C5BCBCC9)
 
 
   查看上图中应用收到手指离开屏幕事件到Video组件创建阶段，应用主线程并无长时间Running的情况，在Video组件创建前可以看到状态变量有刷新，怀疑应用刷新该状态变量后会触发Video组件创建，而状态变量刷新可能与http请求有关。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/hj1BH1O6RWuZNrbY0vhspg/zh-cn_image_0000002658794373.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=68604F344CFCB4169BE191A98F002435CA65FACDB5F043F114EDBA771959BE44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/AUON1SnTRdywDq3zBk6e4A/zh-cn_image_0000002658794373.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=E69594B895C4B4912802A8FD09B66C4D7A7C526D96D20090864EC0A49E9BC497)
 
 
   排查应用H:HttpRequest泳道信息发现应用有进行http请求，耗时接近10s，由此可知应用在加载视频前会进行http请求，从服务器获取数据后刷新组件的状态变量，创建Video组件开始播放视频。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/u_8q3u2JQsSm3ttNlrlITg/zh-cn_image_0000002628555008.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=4F833632A106CE7A4546E8B17118D4C346DE2441CE0D0379A8C8880120A99A1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/5-L6Y5iqQLqip7oa2rKUEw/zh-cn_image_0000002628555008.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=65707B9504297986762D7378CE13AA17A7B03471100DC9BED4F1745DD7CF4DC2)
 
 
   搜索应用包名/NETSTACK日志关键字，查看http请求时的相关耗时参数，发现此处http请求耗时集中在firstRecv部分，应用服务器响应应用请求时，处理耗时较多。
@@ -104,7 +104,7 @@
 | 394ms | 18.1ms | 12.4s | 44.4ms |
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/qPi4-AvtTU6UTqqi5xXztQ/zh-cn_image_0000002628395108.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=35516EB59B59E689281E5659A93F745122A09BA05D3B732F4EDABC9A10D04FDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/QcbN3H_BQhKFJBkaC0ei3w/zh-cn_image_0000002628395108.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=88A48C493186DD6CD770672BF7DFB8722D97511955B7089CF694439A44C00F91)
 
 
   在日志中搜索BUFFERING_START PAUSE|BUFFERING_END PLAYING|HTTP Buffer is enough|bitrate =找到视频缓冲的起始点、结束点、起播水线、数据下载速度和视频码率，如下图中看到视频缓冲的时间为11.415s（BUFFERING_START PAUSE和BUFFERING_END PLAYING时间间隔），起播水线为5773077字节，下载速度为4209738bit/s，视频码率为9236923bps。

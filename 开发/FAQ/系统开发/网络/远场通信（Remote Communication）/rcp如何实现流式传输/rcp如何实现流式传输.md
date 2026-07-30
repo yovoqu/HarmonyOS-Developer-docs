@@ -1,6 +1,6 @@
 # rcp如何实现流式传输
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-17
 
@@ -12,8 +12,8 @@
 
 #### 背景知识
 
-- [OnDataReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section9264115918536)：接收到HTTP body时的回调，如果服务端的数据类型为数据流，实现实时接收功能。
-- [INetworkInputQueue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section882732713562)：通过创建一个缓存队列，将数据写入缓存队列中，实现实时上传数据的功能。
+- [OnDataReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#ondatareceive)：接收到HTTP body时的回调，如果服务端的数据类型为数据流，实现实时接收功能。
+- [INetworkInputQueue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#inetworkinputqueue)：通过创建一个缓存队列，将数据写入缓存队列中，实现实时上传数据的功能。
 
  
  
@@ -65,7 +65,7 @@ const interval = setInterval(() => {
  无需准备完整数据才能上传，可以将部分待上传数据写入缓存区，缓存区数据立即实时上传更新，使用抓包工具抓包效果如下。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/dywmMuduS5edAtAGbaEfUQ/zh-cn_image_0000002658971705.png?HW-CC-KV=V1&HW-CC-Date=20260723T013448Z&HW-CC-Expire=86400&HW-CC-Sign=D53CF260E844A41E5BABC4757A9CE1CB0965409A6DF0C052C0456D8F44BA1098)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/xOAtnrVVS9ikZze3eje1Zw/zh-cn_image_0000002658971705.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=2B5D1E6173E820E0AAB361861759A3D4B38ED1DD9BFA0F4BC49E013B56B262A7)
 
 - **场景2：实时数据流获取**实时数据流获取能力经常应用于大模型对话场景，将本地用户数据向服务端对应大模型API接口发起post请求后，实时获取数据流数据，实现流式输出效果。
 
@@ -131,7 +131,7 @@ try {
  日志打印如下，OnDataReceive类型函数不停接收来自服务器的数据，并打印如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/NYm4HyDzS1y_vOQq6SJOfw/zh-cn_image_0000002628612494.png?HW-CC-KV=V1&HW-CC-Date=20260723T013448Z&HW-CC-Expire=86400&HW-CC-Sign=0070743378A714FB1348F047BA614C5B08B42E324CEF4129C5D17422E470F227)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/_ILtoaGtREayPrGborMhGQ/zh-cn_image_0000002628612494.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=FB2FC14A38F1BFBECEC7B023097F64399FEBEB72FB4F8B62653E326EDC318F2B)
 
 
  
@@ -463,6 +463,6 @@ struct StreamDataTransfer {
 
 #### 常见FAQ
 
-Q：是否可以使用[Stream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section17454218451)文件流实现边写边上传。
+Q：是否可以使用[Stream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#stream)文件流实现边写边上传。
  
 A：不可以，使用文件流的方式上传时，rcp模块会读取文件流的数据，占用了IO操作，无法同时满足写数据的操作，因此不能。

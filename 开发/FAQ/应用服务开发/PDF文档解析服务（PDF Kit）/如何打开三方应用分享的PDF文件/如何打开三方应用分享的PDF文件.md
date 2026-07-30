@@ -1,6 +1,6 @@
 # 如何打开三方应用分享的PDF文件
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-6
 
@@ -85,99 +85,99 @@
 
 2. 获取三方应用分享的内容。由于存在应用沙箱隔离，被分享的目标应用无法直接操作宿主应用沙箱中的文件，需拷贝文件至本应用沙箱。
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">UIAbility</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Want </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">systemShare </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ShareKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { UIAbility, Want } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { window } from '@kit.ArkUI';
+import { systemShare } from '@kit.ShareKit';
+import { fileIo } from '@kit.CoreFileKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-const <span style="color: rgb(0,0,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x0000</span><span style="color: rgb(181,106,1);">;</span>
+const DOMAIN = 0x0000;
 
-export default class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">onCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Want</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onCreate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleSharedData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+export default class EntryAbility extends UIAbility {
+  onCreate(want: Want): void {
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
+    this.handleSharedData(want);
+  }
 
-  <span style="color: rgb(0,0,255);">onNewWant</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Want</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleSharedData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onNewWant(want: Want): void {
+    this.handleSharedData(want);
+  }
 
-  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onWindowStageCreate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    <span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to load the content. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Succeeded in loading the content.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    windowStage.loadContent('pages/Index', (err) => {
+      if (err.code) {
+        hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
+        return;
+      }
+      hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">handleSharedData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Want</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSharedData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SharedData</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getRecords</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">record</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SharedRecord</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">record</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            return<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
+  handleSharedData(want: Want) {
+    systemShare.getSharedData(want)
+      .then((data: systemShare.SharedData) => {
+        data?.getRecords()?.forEach((record: systemShare.SharedRecord) => {
+          if (!record.uri) {
+            return;
+          }
 
-          try <span style="color: rgb(255,0,170);">{</span>
-            <em>// </em><em><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">，缓存至应用沙箱</span></em>
-            const <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">record</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_ONLY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            const <span style="color: rgb(0,0,255);">destPath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cacheDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
-            const <span style="color: rgb(0,0,255);">outFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">destPath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            const <span style="color: rgb(0,0,255);">shareFilePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">outFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFileSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">outFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">outFile</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SHARE_FILE_PATH'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">shareFilePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to parse share data. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to getSharedData. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+          try {
+            <em>// </em><em>获取uri，缓存至应用沙箱</em>
+            const file = fileIo.openSync(record.uri, fileIo.OpenMode.READ_ONLY);
+            const destPath = this.context.cacheDir + '/' + file.name;
+            const outFile = fileIo.openSync(destPath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
+            const shareFilePath = outFile.path;
+            fileIo.copyFileSync(file.fd, outFile.fd);
+            fileIo.closeSync(file);
+            fileIo.closeSync(outFile);
+            AppStorage.setOrCreate('SHARE_FILE_PATH', shareFilePath);
+          } catch (error) {
+            console.error(`Failed to parse share data. Code: ${error.code}, message: ${error.message}`);
+          }
+        });
+      })
+      .catch((error: BusinessError) => {
+        console.error(`Failed to getSharedData. Code: ${error.code}, message: ${error.message}`);
+      });
+  }
+};
 ```
 
 3. 使用PdfView预览PDF文件。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">PdfView</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">pdfViewManager </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PDFKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { pdfService, PdfView, pdfViewManager } from '@kit.PDFKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">!;</span>
-  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  context = this.getUIContext().getHostContext()!;
+  private controller: pdfViewManager.PdfController = new pdfViewManager.PdfController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">预览</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          const <span style="color: rgb(0,0,255);">path </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SHARE_FILE_PATH'</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-          const <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  build() {
+    Column() {
+      Button('预览')
+        .onClick(() => {
+          const path = AppStorage.get('SHARE_FILE_PATH') as string;
+          const pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
+          pdfDocument.loadDocument(path);
+          this.controller.loadDocument(path);
+        })
 
-      <span style="color: rgb(0,0,255);">PdfView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">pageFit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FIT_WIDTH</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">showScroll</span><span style="color: rgb(181,106,1);">: </span>true
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pdfview_app_view'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      PdfView({
+        controller: this.controller,
+        pageFit: pdfService.PageFit.FIT_WIDTH,
+        showScroll: true
+      })
+        .id('pdfview_app_view')
+        .layoutWeight(1)
+    }
+    .height('100%')
+    .width('100%')
+  }
+}
 ```
 
  

@@ -1,14 +1,14 @@
 # CalendarPicker
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-日历选择器组件，提供下拉日历弹窗，可以让用户选择日期。
+日历选择器组件，提供下拉日历弹窗，用户可快速选择日期。适用于需要用户选择具体日期的场景，如预订系统、日程安排、日期筛选等，提供直观的日历视图，提升用户日期输入体验。
  
 > [!NOTE]
-> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
+> 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
 
   
 
@@ -40,7 +40,7 @@ CalendarPicker(options?: CalendarOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | CalendarOptions | 否 | 配置日历选择器组件的参数。 |
+| options | CalendarOptions | 否 | 配置日历选择器组件的参数。未设置该参数时使用默认配置。 |
  
  
   
@@ -74,7 +74,7 @@ edgeAlign(alignType: CalendarAlign, offset?: Offset)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | alignType | CalendarAlign | 是 | 对齐方式的类型。 默认值：CalendarAlign.END |
-| offset | Offset | 否 | 按照对齐方式对齐后，选择器相对入口组件的偏移量。 默认值：{dx: 0, dy: 0} |
+| offset | Offset | 否 | 按照对齐方式对齐后，选择器相对入口组件的偏移量。 默认值：{dx: 0, dy: 0} 单位：vp |
  
  
   
@@ -100,7 +100,7 @@ edgeAlign(alignType: Optional&lt;CalendarAlign&gt;, offset?: Offset)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | alignType | Optional&lt;CalendarAlign&gt; | 是 | 对齐方式的类型。 默认值：CalendarAlign.END 当alignType的值为undefined时，使用默认值。 |
-| offset | Offset | 否 | 按照对齐方式对齐后，选择器相对入口组件的偏移量。 默认值：{dx: 0, dy: 0} |
+| offset | Offset | 否 | 按照对齐方式对齐后，选择器相对入口组件的偏移量。 默认值：{dx: 0, dy: 0} 单位：vp |
  
  
   
@@ -111,7 +111,7 @@ edgeAlign(alignType: Optional&lt;CalendarAlign&gt;, offset?: Offset)
 
 textStyle(value: PickerTextStyle)
  
-入口区的文本颜色、字号、字体粗细。
+设置入口区的文本颜色、字号、字体粗细。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -136,7 +136,7 @@ textStyle(value: PickerTextStyle)
 
 textStyle(style: Optional&lt;PickerTextStyle&gt;)
  
-入口区的文本颜色、字号、字体粗细。与[textStyle](#textstyle)相比，style参数新增了对undefined类型的支持。
+设置入口区的文本颜色、字号、字体粗细。与[textStyle](#textstyle)相比，style参数新增了对undefined类型的支持。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -208,7 +208,7 @@ onChange(callback: Callback&lt;Date&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;Date&gt; | 是 | 选中的日期值。 |
+| callback | Callback&lt;Date&gt; | 是 | 日期选择时触发的回调函数。回调参数为Date类型的选中日期值，开发者可在回调函数中获取用户选中的日期并进行相应处理。 |
  
  
   
@@ -237,7 +237,7 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Optional<Callback&lt;Date&gt;> | 是 | 选中的日期值。 当callback的值为undefined时，不使用回调函数。 |
+| callback | Optional<Callback&lt;Date&gt;> | 是 | 日期选择时触发的回调函数，回调参数为选中的日期值。 当callback的值为undefined时，不使用回调函数。 |
  
  
   
@@ -256,15 +256,17 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| hintRadius | number \| Resource | 否 | 是 | 设置日期选中态底板的圆角半径。 取值范围：[0.0, 16.0] 单位：vp 默认值：16.0，即底板样式为圆形。 说明： 当hintRadius为0.0时表示底板样式为直角矩形；当hintRadius为(0.0, 16.0)时，底板样式为圆角矩形；当hintRadius为负数或大于16.0时，恢复为默认值16.0。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| selected | Date | 否 | 是 | 设置选中项的日期。选中的日期未设置或日期格式不符合规范则为默认值。 默认值：当前系统日期。 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| start18+ | Date | 否 | 是 | 设置开始日期。 默认值：Date('0001-01-01') 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| end18+ | Date | 否 | 是 | 设置结束日期。 默认值：Date('5000-12-31') 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| disabledDateRange19+ | DateRange[] | 否 | 是 | 设置禁用日期区间。 说明： 1. 若日期区间内的开始日期或结束日期未设置或设置为异常值，则该日期区间无效。 2. 若在日期区间内，结束日期早于开始日期，则该日期区间无效。 3. 当在入口区选定某日期，通过上下箭头调整日期进行增加或减少操作时，若遇到禁用日期，系统将自动跳过整个禁用区间。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| hintRadius | number \| Resource | 否 | 是 | 设置日期选中态底板样式。 取值范围：[0.0, 16.0] 单位：vp 默认值：16.0，即底板样式为圆形。 说明： 当hintRadius为0.0时表示底板样式为直角矩形；当hintRadius为(0.0, 16.0)时，底板样式为圆角矩形；当hintRadius为16.0时，底板样式为圆形；当hintRadius为负数或大于16.0时，恢复为默认值16.0。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| selected | Date | 否 | 是 | 设置选中项的日期。当需要预设选中日期时传入此参数，不需要预设时使用当前系统日期。选中的日期未设置或日期格式不符合规范则为默认值。选中日期与start、end参数的配合关系见start和end设置规则。 默认值：当前系统日期。 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| start18+ | Date | 否 | 是 | 设置开始日期。 默认值：Date('0001-01-01') 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 说明： 若start日期晚于end日期，则start日期、end日期都设置无效，选中日期为默认值。详见start和end设置规则。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| end18+ | Date | 否 | 是 | 设置结束日期。 默认值：Date('5000-12-31') 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 说明： 若start日期晚于end日期，则start日期、end日期都设置无效，选中日期为默认值。详见start和end设置规则。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| disabledDateRange19+ | DateRange[] | 否 | 是 | 设置禁用日期区间。不传此参数时不禁用任何日期。 说明： 1. 若日期区间内的开始日期或结束日期未设置或设置为异常值，则该日期区间无效。 2. 若在日期区间内，结束日期早于开始日期，则该日期区间无效。 3. 当在入口区选定某日期，通过上下箭头调整日期进行增加或减少操作时，若遇到禁用日期，系统将自动跳过整个禁用区间。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
  
  
-**start和end设置规则：**
   
+
+#### start和end设置规则
+ 
 | 场景 | 说明 |
 | --- | --- |
 | start日期晚于end日期 | start日期、end日期都设置无效，选中日期为默认值 |
@@ -272,7 +274,7 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
 | 选中日期晚于end日期 | 选中日期为end日期 |
 | start日期晚于当前系统日期，选中日期未设置 | 选中日期为start日期 |
 | end日期早于当前系统日期，选中日期未设置 | 选中日期为end日期 |
-| 日期格式不符合规范，如‘1999-13-32’ | start日期或end日期设置无效，选中日期取默认值 |
+| 日期格式不符合规范，如1999-13-32 | start日期或end日期设置无效，选中日期取默认值 |
  
  
   
@@ -322,7 +324,7 @@ struct CalendarPickerExample {
       Column() {
         CalendarPicker({ hintRadius: 10, selected: this.selectedDate })
           .edgeAlign(CalendarAlign.END)
-          .textStyle({ color: "#ff182431", font: { size: 20, weight: FontWeight.Normal } })
+          .textStyle({ color: '#ff182431', font: { size: 20, weight: FontWeight.Normal } })
           .margin(10)
           .onChange((value) => {
             console.info(`CalendarPicker onChange: ${value.toString()}`);
@@ -361,7 +363,7 @@ struct CalendarPickerExample {
       Column() {
         CalendarPicker({ hintRadius: 10, selected: this.selectedDate, start: this.startDate, end: this.endDate })
           .edgeAlign(CalendarAlign.END)
-          .textStyle({ color: "#ff182431", font: { size: 20, weight: FontWeight.Normal } })
+          .textStyle({ color: '#ff182431', font: { size: 20, weight: FontWeight.Normal } })
           .margin(10)
           .onChange((value) => {
             console.info(`CalendarPicker onChange: ${value.toString()}`);
@@ -373,7 +375,7 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/x0sXjLmwQ6-hE9Zs_xhIqA/zh-cn_image_0000002647587974.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=1134E1DE3D79D813EACD025CB88400994B34DFDA41BE13086CEC1DFAEB22AE4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/eJotM_4wRGCR9GDHsrxycA/zh-cn_image_0000002655848588.png?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=4B8FB3DD6833ABF8339FFC50FAED97B9575B551DCBA4E522E50EBBD5240195C3)
 
  
   
@@ -411,4 +413,4 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/lvFwDHogRz6rmsr-aAwaBA/zh-cn_image_0000002677827615.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=607B83BDAEA99DC02F65DA924A381FE1C467A231B072A83C93189DFB33353950)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/HG_HnMfITn2zplAKaBiQog/zh-cn_image_0000002686088015.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=31DDE15D5BE9C2C60BFBF0017417AEE906A683698366778498B4DEE55C13E0EB)

@@ -1,6 +1,6 @@
 # SSAP客户端
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-ssap-client-connect
 
@@ -36,21 +36,23 @@
 
   
 ```text
-import { ssap } from '@kit.NearLinkKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { scan, ssap, dataTransfer, constant, remoteDevice } from '@kit.NearLinkKit';
 ```
 
 2. 创建ssap客户端实例。其中参数addr是通过[扫描流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-start-scan)获取的远端设备地址。
 
   
 ```json
-let addr: string = '00:11:22:33:AA:FF'; // 扫描获取到的远端设备地址
 let client: ssap.Client;
+@State chosenDeviceAddr: string = '00:11:22:33:AA:FF';
 try {
-  client = ssap.createClient(addr);
-  console.info('client: ' + JSON.stringify(client));
+  client = ssap.createClient(chosenDeviceAddr);
+  hilog.info(this.domainId, this.logTag, `client: ${JSON.stringify(client)}`);
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -58,13 +60,15 @@ try {
 
   
 ```json
-let onReceiveConnectionChangeEvent:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
-  console.info('data:' + JSON.stringify(data));
+let connectionStateChangeCallback:(data: ssap.ConnectionChangeState) => void =
+  (data: ssap.ConnectionChangeState) => {
+  hilog.info(this.domainId, this.logTag, `Connection state: ${JSON.stringify(data)}`);
 };
 try {
-  client.on('connectionStateChange', onReceiveConnectionChangeEvent);
+  client.on('connectionStateChange', connectionStateChangeCallback);
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -72,13 +76,15 @@ try {
 
   
 ```json
-let onReceivePropertyChangeEvent:(data: ssap.Property) => void = (data: ssap.Property) => {
-  console.info('data:' + JSON.stringify(data));
+let propertyChangeCallback:(data: ssap.Property) => void = (data: ssap.Property) => {
+  hilog.info(this.domainId, this.logTag, `Property changed: ${JSON.stringify(data)}`);
+  // ...
 };
 try {
-  client.on('propertyChange', onReceivePropertyChangeEvent);
+  client.on('propertyChange', propertyChangeCallback);
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -88,12 +94,13 @@ try {
 ```text
 try {
   client.connect().then(() => {
-    console.info('connect success');
-  }).catch ((err: BusinessError) => {
-    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+    hilog.info(this.domainId, this.logTag, `Connect success`);
+  }).catch((err: BusinessError) => {
+    hilog.error(this.domainId, this.logTag, `errCode: ${err.code}, errMessage: ${err.message}`);
   });
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -103,12 +110,15 @@ try {
 ```json
 try {
   client.getServices().then((result: Array<ssap.Service>) => {
-    console.info('getServices successfully:' + JSON.stringify(result));
-  }).catch ((err: BusinessError) => {
-    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+    // ...
+    hilog.info(this.domainId, this.logTag, `Get services successfully: ${JSON.stringify(result)}`);
+    // ...
+  }).catch((err: BusinessError) => {
+    hilog.error(this.domainId, this.logTag, `errCode: ${err.code}, errMessage: ${err.message}`);
   });
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -116,23 +126,28 @@ try {
 
   
 ```json
+const SERVICE_UUID: string = 'FFFFFFFF-1234-5678-ABCD-000000001234';
+const PROPERTY_UUID: string = 'FFFFFFFF-1234-5678-ABCD-000000001234';
+
+let arrayBufferProperty = new ArrayBuffer(1);
+let properV = new Uint8Array(arrayBufferProperty);
+properV[0] = 1;
+let property: ssap.Property = {
+  serviceUuid: SERVICE_UUID,
+  propertyUuid: PROPERTY_UUID,
+  value: arrayBufferProperty
+};
+// ...
 try {
-  // 创建property,实际开发时需要通过getServices接口从服务端获取
-  let arrayBufferC = new ArrayBuffer(1);
-  let properV = new Uint8Array(arrayBufferC);
-  properV[0] = 1;
-  let property: ssap.Property = {
-    serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-    propertyUuid: '37bea880-fc70-11ea-b720-000000001234',
-    value: arrayBufferC
-  };
   client.readProperty(property).then((result: ssap.Property) => {
-    console.info('readProperty successfully:' + JSON.stringify(result));
-  }).catch ((err: BusinessError) => {
-    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+    hilog.info(this.domainId, this.logTag, `Read property successfully: ${JSON.stringify(result)}`);
+    // ...
+  }).catch((err: BusinessError) => {
+    hilog.error(this.domainId, this.logTag, `errCode: ${err.code}, errMessage: ${err.message}`);
   });
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -141,22 +156,17 @@ try {
   
 ```text
 try {
-  let arrayBufferC = new ArrayBuffer(1);
-  // 期望写入的property值
-  let properV = new Uint8Array(arrayBufferC);
-  properV[0] = 1;
-  let property: ssap.Property = {
-    serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-    propertyUuid: '37bea880-fc70-11ea-b720-000000001234',
-    value: arrayBufferC
-  };
+  let properValue = new Uint8Array(arrayBufferProperty);
+  properValue[0] = 1;
   client.writeProperty(property, ssap.PropertyWriteType.WRITE_NO_RESPONSE).then(() => {
-    console.info('writeProperty success');
-  }).catch ((err: BusinessError) => {
-    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+    hilog.info(this.domainId, this.logTag, `Write property success`);
+    // ...
+  }).catch((err: BusinessError) => {
+    hilog.error(this.domainId, this.logTag, `errCode: ${err.code}, errMessage: ${err.message}`);
   });
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -167,21 +177,15 @@ try {
   
 ```text
 try {
-  let arrayBufferC = new ArrayBuffer(1);
-  let properV = new Uint8Array(arrayBufferC);
-  properV[0] = 1;
-  let property: ssap.Property = {
-    serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-    propertyUuid: '37bea880-fc70-11ea-b720-000000001234',
-    value: arrayBufferC
-  };
   client.setPropertyNotification(property, true).then(() => {
-    console.info('setPropertyNotification success');
-  }).catch ((err: BusinessError) => {
-    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+    hilog.info(this.domainId, this.logTag, `setPropertyNotification success`);
+    // ...
+  }).catch((err: BusinessError) => {
+    hilog.error(this.domainId, this.logTag, `errCode: ${err.code}, errMessage: ${err.message}`);
   });
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 

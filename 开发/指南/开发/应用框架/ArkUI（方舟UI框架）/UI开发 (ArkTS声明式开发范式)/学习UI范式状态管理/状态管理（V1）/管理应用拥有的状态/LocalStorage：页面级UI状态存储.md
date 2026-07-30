@@ -1,12 +1,12 @@
 # LocalStorage：页面级UI状态存储
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage
 
 LocalStorage是页面级的UI状态存储，通过@Entry装饰器接收的参数可以在页面内共享同一个LocalStorage实例。LocalStorage支持[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-overview)实例内多个页面间状态共享。
 
-本文仅介绍LocalStorage使用场景和相关的装饰器：@LocalStorageProp和@LocalStorageLink。
+本文仅介绍LocalStorage使用场景和相关的装饰器：[@LocalStorageProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-localstorageprop#localstorageprop)和[@LocalStorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-localstoragelink#localstoragelink)。
 
 在阅读本文档前，需要开发者对状态管理框架有基本的了解。建议提前阅读：[状态管理概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)。
 
@@ -192,9 +192,9 @@ storage.setOrCreate('PropA', 48);
 @LocalStorageLink('PropA') localStorageLink: number = 2;
 ```
 
-2. @LocalStorageProp与@LocalStorageLink不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
+2. @LocalStorageProp与@LocalStorageLink不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
 
-  从API version 23开始，添加对@LocalStorageProp与@LocalStorageLink装饰Function类型变量的校验，编译期会报错。
+  从API version 23开始，在应用编译时添加了相关校验，@LocalStorageProp与@LocalStorageLink装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@LocalStorageProp或@LocalStorageLink装饰器。
 3. LocalStorage创建后，命名属性的类型不可更改。后续调用Set时必须使用相同类型的值。
 4. LocalStorage是页面级存储，[getSharedLocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getsharedlocalstorage12)接口仅能获取当前Stage通过[windowStage.loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#loadcontent9)传入的LocalStorage实例，否则返回undefined。例子可见[将LocalStorage实例从UIAbility共享到一个或多个页面](#将localstorage实例从uiability共享到一个或多个页面)。
 
@@ -256,15 +256,20 @@ struct Child {
     Column({ space: 15 }) {
       // 更改将同步至LocalStorage中的'PropA'以及Parent.parentLinkNumber
       Button(`Child from LocalStorage ${this.childLinkNumber}`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.childLinkNumber += 1;
         })
       // 更改将同步至LocalStorage中的'PropB'以及Parent.parentLinkObject.code
       Button(`Child from LocalStorage ${this.childLinkObject.code}`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.childLinkObject.code += 1;
         })
     }
+    .width('100%')
   }
 }
 
@@ -281,20 +286,29 @@ struct Parent {
     Column({ space: 15 }) {
       // 由于LocalStorage中PropA已经被初始化，因此this.parentLinkNumber的值为47
       Button(`Parent from LocalStorage ${this.parentLinkNumber}`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.parentLinkNumber += 1;
         })
       // 由于LocalStorage中PropB已经被初始化，因此this.parentLinkObject.code的值为50
       Button(`Parent from LocalStorage ${this.parentLinkObject.code}`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.parentLinkObject.code += 1;
         })
       // @Component子组件自动获得对Parent LocalStorage实例的访问权限
       Child()
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/LocalStorage：页面级UI状态存储/file-20260525091526264-004.png)
+
 
 
 
@@ -322,11 +336,14 @@ struct ParentOne {
     Column({ space: 15 }) {
       // 点击后从47开始加1，只改变当前组件显示的storagePropOne ，不会同步到LocalStorage中
       Button(`ParentOne from LocalStorage ${this.storagePropOne}`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.storagePropOne += 1;
         })
       ChildOne()
     }
+    .width('100%')
   }
 }
 
@@ -339,10 +356,17 @@ struct ChildOne {
     Column({ space: 15 }) {
       // 当ParentOne改变时，当前storagePropTwo不会改变，显示47
       Text(`ChildOne from LocalStorage ${this.storagePropTwo}`)
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ZK2BfYyISHm5ARPIBBy_Pg/zh-cn_image_0000002656005878.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=F8E81FA3FAFDEB9208A2A90F9C8575928CB5BA5E4E3D32A9B785DA36CF2DD67C)
+
 
 
 
@@ -366,18 +390,26 @@ struct ParentTwo {
   build() {
     Column() {
       Text(`incr @LocalStorageLink variable`)
-      // 点击“incr @LocalStorageLink variable”，this.storageLink加1，改变同步回storage，全局变量linkToPropA也会同步改变
-
+        .fontSize(15)
+        .margin(10)
+        // 点击“incr @LocalStorageLink variable”，this.storageLink加1，改变同步回storage，全局变量linkToPropA也会同步改变
         .onClick(() => {
           this.storageLink += 1;
         })
 
       // 并不建议在组件内使用全局变量linkToPropA.get()，因为可能会有生命周期不同引起的错误。
       Text(`@LocalStorageLink: ${this.storageLink} - linkToPropA: ${linkToPropA.get()}`)
+        .fontSize(15)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/0DiHo0XxQjmHaPp0cMkZ_A/zh-cn_image_0000002655845958.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=EFC328E0329E451D82765CCDC756AC84A91C493A734730E3B42C6F997505463E)
+
 
 
 
@@ -414,6 +446,7 @@ struct ChildFour {
         .width(50)
         .height(60)
         .fontSize(12)
+        .margin(10)
       Text(`playCountLink ${this.playCountLink}: inc by 1`)
         .onClick(() => {
           this.playCountLink += 1;
@@ -421,6 +454,7 @@ struct ChildFour {
         .width(200)
         .height(60)
         .fontSize(12)
+        .margin(10)
     }
     .width(300)
     .height(60)
@@ -439,6 +473,7 @@ struct ParentFour {
           .width(50)
           .height(60)
           .fontSize(12)
+          .margin(10)
         Text(`playCount ${this.playCount} dec by 1`)
           .onClick(() => {
             this.playCount -= 1;
@@ -446,6 +481,7 @@ struct ParentFour {
           .width(250)
           .height(60)
           .fontSize(12)
+          .margin(10)
       }
       .width(300)
       .height(60)
@@ -455,6 +491,7 @@ struct ParentFour {
           .width(50)
           .height(60)
           .fontSize(12)
+          .margin(10)
         Text(`countStorage ${this.playCount} incr by 1`)
           .onClick(() => {
             storageFour.set<number | undefined>('countStorage', Number(storageFour.get<number>('countStorage')) + 1);
@@ -462,6 +499,7 @@ struct ParentFour {
           .width(250)
           .height(60)
           .fontSize(12)
+          .margin(10)
       }
       .width(300)
       .height(60)
@@ -473,10 +511,16 @@ struct ParentFour {
         .width(300)
         .height(60)
         .fontSize(12)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/YyJdyZm-TwO-jIF5VgBGOw/zh-cn_image_0000002686085387.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=ABF4C52B21D2185AF715988A4072D04ADEC41BD573FFF983BDE778BE0C70FF01)
+
 
 
 
@@ -530,7 +574,10 @@ struct PageFiveShare {
           Text(`${this.propA}`)
             .fontSize(50)
             .fontWeight(FontWeight.Bold)
+            .margin(10)
           Button('To Page')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               this.pageStack.pushPathByName('Page', null);
             })
@@ -562,13 +609,18 @@ struct PageFiveShareChange {
           Text(`${this.propA}`)
             .fontSize(50)
             .fontWeight(FontWeight.Bold)
+            .margin(10)
 
           Button('Change propA')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               this.propA = 100;
             })
 
           Button('Back PageFiveShare')
+            .width(300)
+            .margin(10)
             .onClick(() => {
               this.pathStack.pop();
             })
@@ -599,6 +651,10 @@ struct PageFiveShareChange {
   ]
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Fy_hukH3TSu7Rk_zb8vhXg/zh-cn_image_0000002685925559.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=8BE722930B7D3ECCF39E31CCA3DAE7707ECD11CA163DF358D9B25FA62CAB603E)
+
 
 > [!NOTE]
 > 对于开发者更建议使用这个方式来构建LocalStorage的实例，并且在创建LocalStorage实例的时候就写入默认值，因为默认值可以作为运行异常的备份，也可以用作页面的单元测试。
@@ -640,6 +696,7 @@ struct TestIndex {
         Text(this.propA)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
+          .margin(10)
         // 使用LocalStorage实例localStorageTwo
         ChildSix({ count: this.count }, localStorageTwo)
       }
@@ -660,9 +717,14 @@ struct ChildSix {
     Text(this.propB)
       .fontSize(50)
       .fontWeight(FontWeight.Bold)
+      .margin(10)
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/wYHUkdNsRLm_Mrtt6P9-1g/zh-cn_image_0000002656005880.png?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=AADF7F04B0D461D8281523ECE4346B054DE5AF63EE26F1832B62E4D28431EDFE)
+
 1. 当自定义组件没有定义属性时，可以只传入一个LocalStorage实例作为入参。
 
   
@@ -704,6 +766,8 @@ struct ChildOne {
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/85DtCj7VS9qc4OHAI1wQQw/zh-cn_image_0000002655845960.png?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=67F4475923F418A3332A1A19BDEF1919B02891B9A36973505903EEE39ED8A080)
 
 2. 当定义的属性不需要从父组件初始化变量时，第一个参数需要传{}。
 
@@ -750,6 +814,8 @@ struct Child {
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/0oL_JPgVSviK7AQ8UAZFmw/zh-cn_image_0000002686085389.png?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=D86BA2E552056A6E03A9CDD6832D01B93024CAED68020CE76BAA5C64C4FEA114)
 
 
 
@@ -825,6 +891,8 @@ struct PageOneStack {
         NavigationContentMsgStack()
         // 显示绑定的LocalStorage中'PropA'对应的值'propA'
         Text(`${this.propA}`)
+          .fontSize(20)
+          .margin(10)
         Button('Next Page', { stateEffect: true, type: ButtonType.Capsule })
           .width('80%')
           .height(40)
@@ -852,6 +920,8 @@ struct PageTwoStack {
         NavigationContentMsgStack()
         // 如果绑定的LocalStorage中没有'PropB',显示本地初始化的值'Hello World'
         Text(`${this.propB}`)
+          .fontSize(20)
+          .margin(10)
         Button('Next Page', { stateEffect: true, type: ButtonType.Capsule })
           .width('80%')
           .height(40)
@@ -881,6 +951,8 @@ struct PageThreeStack {
 
         // 如果绑定的LocalStorage中没有'PropC',显示本地初始化的值'pageThreeStack'
         Text(`${this.propC}`)
+          .fontSize(20)
+          .margin(10)
         Button('Next Page', { stateEffect: true, type: ButtonType.Capsule })
           .width('80%')
           .height(40)
@@ -907,10 +979,16 @@ struct NavigationContentMsgStack {
       Text(`${this.propA}`)
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/pX-hXWkTQeOzC-HhbmGicw/zh-cn_image_0000002685925561.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=E4A8BFF888165F3C48DC7B70304C351F099F25C5A57291EE41A0020B27B9F285)
+
 
 
 
@@ -928,18 +1006,23 @@ struct LocalStorageLinkComponent {
   build() {
     Column() {
       Text('@LocalStorageLink API Initialization, @LocalStorageLink Value')
+        .fontSize(20)
+        .margin(10)
       Text(`${this.linkA}`)
         .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.linkA ? this.linkA = null : this.linkA = 1;
         })
       Text(`${this.linkB}`)
         .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.linkB ? this.linkB = undefined : this.linkB = 1;
         })
     }
     .borderWidth(3).borderColor(Color.Green)
+    .width('95%')
   }
 }
 
@@ -951,19 +1034,24 @@ struct LocalStoragePropComponent {
   build() {
     Column() {
       Text('@LocalStorageProp API Initialization, @LocalStorageProp Value')
+        .fontSize(20)
+        .margin(10)
       Text(`${this.propA}`)
         .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.propA ? this.propA = null : this.propA = 1;
         })
       Text(`${this.propB}`)
         .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.propB ? this.propB = undefined : this.propB = 1;
         })
     }
     .borderWidth(3)
     .borderColor(Color.Yellow)
+    .width('95%')
   }
 }
 
@@ -984,6 +1072,10 @@ struct LinkIndex {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/pRmfCOPNQ-mOdQkty4kuAA/zh-cn_image_0000002656005882.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=965F3682CB8C088F96FF7A82D272B9989B7C2FD4529EB99249A41EC695DDD07D)
+
 
 
 
@@ -1033,9 +1125,14 @@ struct Index {
         .width(300)
         .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/u1IRJi2gTw6kvyGVstsiDA/zh-cn_image_0000002655845962.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=E9D1A27CBC9106638B1AE27CD384DA7445F3B34E26A7B80795B61885C8C30B16)
+
 
 
 
@@ -1057,21 +1154,25 @@ struct LocalDateSample {
     Column() {
       // 更新Date类型变量，触发UI刷新
       Button('set selectedDate to 2023-07-08')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate = new Date('2023-07-08');
         })
       Button('increase the year by 1')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate.setFullYear(this.selectedDate.getFullYear() + 1);
         })
       Button('increase the month by 1')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate.setMonth(this.selectedDate.getMonth() + 1);
         })
       Button('increase the day by 1')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate.setDate(this.selectedDate.getDate() + 1);
@@ -1085,6 +1186,10 @@ struct LocalDateSample {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/6ko0YseASOGdxYEul6wWVA/zh-cn_image_0000002686085391.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=00CB732E362BAC00E2D46924E9060E02961F9669325C0A984EF975B18A626B41)
+
 
 
 
@@ -1106,26 +1211,45 @@ struct LocalMapSample {
     Row() {
       Column() {
         ForEach(Array.from(this.message.entries()), (item: [number, string]) => {
-          Text(`${item[0]}`).fontSize(30)
-          Text(`${item[1]}`).fontSize(30)
+          Text(`${item[0]}`)
+            .fontSize(30)
+            .margin(10)
+          Text(`${item[1]}`)
+            .fontSize(30)
+            .margin(10)
           Divider()
         })
         // 初始化Map类型变量，触发UI刷新
-        Button('init map').onClick(() => {
-          this.message = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
-        })
-        Button('set new one').onClick(() => {
-          this.message.set(4, 'd');
-        })
-        Button('clear').onClick(() => {
-          this.message.clear();
-        })
-        Button('replace the existing one').onClick(() => {
-          this.message.set(0, 'aa');
-        })
-        Button('delete the existing one').onClick(() => {
-          this.message.delete(0);
-        })
+        Button('init map')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+          })
+        Button('set new one')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message.set(4, 'd');
+          })
+        Button('clear')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message.clear();
+          })
+        Button('replace the existing one')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message.set(0, 'aa');
+          })
+        Button('delete the existing one')
+          .width(300)
+          .margin(10)
+          .onClick(() => {
+            this.message.delete(0);
+          })
       }
       .width('100%')
     }
@@ -1133,6 +1257,10 @@ struct LocalMapSample {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/FMs19QWGSiC854YODZv7RQ/zh-cn_image_0000002685925563.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=9E43AF8B6AF7CA036479E8EA37683CD51A12B68390BFB8E98749BF730108DAB4)
+
 
 
 
@@ -1156,22 +1284,31 @@ struct LocalSetSample {
         ForEach(Array.from(this.memberSet.entries()), (item: [number, number]) => {
           Text(`${item[0]}`)
             .fontSize(30)
+            .margin(10)
           Divider()
         })
         // 初始化Set类型变量，触发UI刷新
         Button('init set')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.memberSet = new Set([0, 1, 2, 3, 4]);
           })
         Button('set new one')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.memberSet.add(5);
           })
         Button('clear')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.memberSet.clear();
           })
         Button('delete the first one')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.memberSet.delete(0);
           })
@@ -1182,6 +1319,10 @@ struct LocalSetSample {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/xZlFbnKXR72_me42nWGoAw/zh-cn_image_0000002656005884.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=AEF2E6BF5E67AE8DD1E70DD0516D0FE4461F0AF3F3D1854807AE3B891EF314BF)
+
 
 
 
@@ -1209,12 +1350,20 @@ struct Test {
   build() {
     Column() {
       Text(`count value: ${this.count}`)
+        .fontSize(20)
+        .margin(10)
       Button('change')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 自定义组件外改变状态变量，触发UI刷新
           model.call('count', this.count + 1);
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/q0-3WrYRSmqwlji0P8KzTQ/zh-cn_image_0000002655845964.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=F028C946CF086F59ACB3D7AFF7781D67370001ED871EADC3D60CD3427AD9FD9C)

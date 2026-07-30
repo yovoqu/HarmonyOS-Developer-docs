@@ -1,6 +1,6 @@
 # 人脸跟踪（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-face
 
@@ -50,12 +50,13 @@
 
 创建一个UI界面，使用XComponent组件用于显示相机预览画面，并定时触发每一帧绘制。
 
-```ArkTS
-// 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARFace.ets
+```text
 import { display } from '@kit.ArkUI';
-import { resourceManager } from '@kit.LocalizationKit';
 import { systemDateTime } from '@kit.BasicServicesKit';
+import { resourceManager } from '@kit.LocalizationKit';
 import arEngineDemo from 'libentry.so';
+import { logger } from '../utils/Logger';
+
 
 @Builder
 export function ARFaceBuilder() {
@@ -66,15 +67,16 @@ export function ARFaceBuilder() {
 struct ARFace {
   pageInfos: NavPathStack = new NavPathStack();
   @State context: Context = this.getUIContext().getHostContext() as Context;
+  @State rotation: number = 0;
   private xComponentId = 'ARFace';
+  private idStr: string = systemDateTime.getTime(false).toString() + this.xComponentId;
   private resMgr: resourceManager.ResourceManager = this.context.resourceManager;
   private interval: number = -1;
-  @State rotation: number = display.getDefaultDisplaySync().rotation;
-
+  // ...
   build() {
     NavDestination() {
       RelativeContainer() {
-        XComponent({ id: this.xComponentId, type: XComponentType.SURFACE, libraryname: 'entry' })
+        XComponent({ id: this.idStr, type: XComponentType.SURFACE, libraryname: 'entry' })
           .width('100%')
           .height('100%')
           .alignRules({
@@ -82,12 +84,14 @@ struct ARFace {
             middle: { anchor: '__container__', align: HorizontalAlign.Center }
           })
           .onLoad(() => {
+            logger.debug('XComponent onLoad ' + this.idStr);
             this.interval = setInterval(() => {
-              // 调用更新Native API来更新AR Engine每帧的计算结果
-              arEngineDemo.update(this.xComponentId);
-            }, 33) // // 将帧速率设置为30fps（每33ms刷新一次帧）
+              // Call the update Native API to update the calculation result of each frame by AR Engine.
+              arEngineDemo.update(this.idStr);
+            }, 33) // Set the frame rate to 30 fps (with the frame refreshed every 33 ms).
           })
           .onDestroy(() => {
+            logger.debug('XComponent onDestroy ' + this.idStr);
             clearInterval(this.interval);
           })
 
@@ -96,16 +100,19 @@ struct ARFace {
     .onAppear(() => {
       arEngineDemo.init(this.resMgr);
       let config: Int32Array = new Int32Array([1, this.rotation]);
-      arEngineDemo.start(this.xComponentId, config);
+      arEngineDemo.start(this.idStr, config);
     })
     .onWillDisappear(() => {
-      arEngineDemo.stop(this.xComponentId);
+      logger.debug('aboutToDisappear ' + this.idStr);
+      arEngineDemo.stop(this.idStr);
     })
     .onShown(() => {
-      arEngineDemo.show(this.xComponentId);
+      logger.debug('onPageShow ' + this.idStr);
+      arEngineDemo.show(this.idStr);
     })
     .onHidden(() => {
-      arEngineDemo.hide(this.xComponentId);
+      logger.debug('onPageHide ' + this.idStr);
+      arEngineDemo.hide(this.idStr);
     })
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
@@ -130,20 +137,19 @@ struct ARFace {
 使用人脸识别与跟踪能力时请使用[HMS_AREngine_ARSession_Create_Human_Perception](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create_human_perception)创建AR会话。
 
 ```text
-AREngine_ARSession *arSession = nullptr;
 // 创建AR会话。
 HMS_AREngine_ARSession_Create_Human_Perception(nullptr, nullptr, &arSession);
 AREngine_ARConfig *arConfig = nullptr;
 // 创建AR会话配置器。
-HMS_AREngine_ARConfig_Create(arSession, &arConfig);
+HMS_AREngine_ARConfig_Create(mArSession, &arConfig);
 // 设置ARType为FACE开启人脸跟踪模式。
-HMS_AREngine_ARConfig_SetARType(arSession, arConfig, ARENGINE_TYPE_FACE);
+HMS_AREngine_ARConfig_SetARType(mArSession, arConfig, ARENGINE_TYPE_FACE);
 // （可选）设置为前置相机
-HMS_AREngine_ARConfig_SetCameraLensFacing(arSession, arConfig, ARENGINE_CAMERA_FACING_FRONT);
+HMS_AREngine_ARConfig_SetCameraLensFacing(mArSession, arConfig, ARENGINE_CAMERA_FACING_FRONT);
 // （可选）设置为多人脸模式
-HMS_AREngine_ARConfig_SetMultiFaceMode(arSession, arConfig, ARENGINE_MULTIFACE_ENABLE);
+HMS_AREngine_ARConfig_SetMultiFaceMode(mArSession, arConfig, ARENGINE_MULTIFACE_ENABLE);
 // 配置器设置给AR会话。
-HMS_AREngine_ARSession_Configure(arSession, arConfig);
+HMS_AREngine_ARSession_Configure(mArSession, arConfig);
 ```
 
 
@@ -154,10 +160,11 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
   
 ```text
 AREngine_ARTrackableList *faceList = nullptr;
-HMS_AREngine_ARTrackableList_Create(arSession, &faceList);
-// 调用HMS_AREngine_ARSession_GetAllTrackables函数，检测当前环境中的所有人脸，并将结果存放在faceList中。
+// 创建trackable list获取所有face
+CHECK(HMS_AREngine_ARTrackableList_Create(arSession, &faceList));
+
 AREngine_ARTrackableType faceTrackedType = ARENGINE_TRACKABLE_FACE;
-HMS_AREngine_ARSession_GetAllTrackables(arSession, faceTrackedType, faceList);
+CHECK(HMS_AREngine_ARSession_GetAllTrackables(arSession, faceTrackedType, faceList));
 ```
 
 2. 调用[HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize)函数获取可追踪对象数量，结果存放在faceListSize中。
@@ -165,8 +172,7 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, faceTrackedType, faceList);
   
 ```text
 int32_t faceListSize = 0;
-HMS_AREngine_ARTrackableList_GetSize(arSession, faceList, &faceListSize);
-// 未设置多人脸模式时，最多同时跟踪1个人脸信息，设置后最多同时跟踪3个人脸信息
+CHECK(HMS_AREngine_ARTrackableList_GetSize(arSession, faceList, &faceListSize));
 ```
 
 3. 转化为人脸信息对象[AREngine_ARFace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arface)。
@@ -174,10 +180,10 @@ HMS_AREngine_ARTrackableList_GetSize(arSession, faceList, &faceListSize);
   
 ```text
 for (int i = 0; i < faceListSize; ++i) {
-    // 遍历所有人脸信息对象，根据您的应用进行处理。
     AREngine_ARTrackable *arTrackable = nullptr;
-    HMS_AREngine_ARTrackableList_AcquireItem(arSession, faceList, i, &arTrackable);
-    AREngine_ARFace *arFace = reinterpret_cast<AREngine_ARFace*>(arTrackable);
+    CHECK(HMS_AREngine_ARTrackableList_AcquireItem(arSession, faceList, i, &arTrackable));
+    AREngine_ARFace *ARFace = reinterpret_cast<AREngine_ARFace *>(arTrackable);
+    // ...
 }
 ```
 
@@ -200,9 +206,8 @@ HMS_AREngine_ARFace_GetCenterPose(arSession, arFace, facePose);
 
   
 ```text
-float *viewMatrix = new float[16];
-int size = 16;
-auto result = HMS_AREngine_ARFace_AcquireViewMatrix(arSession, arFace, viewMatrix, size);
+Eigen::Matrix4f faceViewMat;
+CHECK(HMS_AREngine_ARFace_AcquireViewMatrix(arSession, ARFace, faceViewMat.data(), COL_MAJOR_4X4_NUM));
 ```
 
 3. 获取当前人脸的几何信息。
@@ -211,59 +216,50 @@ auto result = HMS_AREngine_ARFace_AcquireViewMatrix(arSession, arFace, viewMatri
 
   
 ```text
-AREngine_ARFaceGeometry* arFaceGeometry = nullptr;
-HMS_AREngine_ARFace_AcquireGeometry(arSession, arFace, &arFaceGeometry);
+AREngine_ARFaceGeometry *geometry = nullptr;
+// 获得当前face的人脸集合信息指针
+CHECK(HMS_AREngine_ARFace_AcquireGeometry(arSession, ARFace, &geometry));
 ```
 
 4. 获取人脸的几何信息中的三角形顶点。
 
   
 ```text
-// 调用HMS_AREngine_ARFaceGeometry_GetTriangleCount函数，获取人脸几何信息中的三角形数量
-int triangleCount = 0;
-HMS_AREngine_ARFaceGeometry_GetTriangleCount(arSession, arFaceGeometry, &triangleCount);
-// 调用HMS_AREngine_ARFaceGeometry_GetVerticesSize函数，获取人脸几何信息中的三角形顶点数量
-int verticesSize = 0;
-HMS_AREngine_ARFaceGeometry_GetVerticesSize(arSession, arFaceGeometry, &verticesSize);
-// 调用HMS_AREngine_ARFaceGeometry_AcquireVertices函数，获取人脸几何信息中的三角形顶点集合
+int32_t meshVerticesSize = 0;
+HMS_AREngine_ARFaceGeometry_GetVerticesSize(session, firstFace, &meshVerticesSize);
+LOGD("HMS_AREngine_ARFaceGeometry_GetVerticesSize size=%{public}d", meshVerticesSize);
 const float *meshVertices = nullptr;
-HMS_AREngine_ARFaceGeometry_AcquireVertices(arSession, arFaceGeometry, &meshVertices);
+auto ret = HMS_AREngine_ARFaceGeometry_AcquireVertices(session, firstFace, &meshVertices);
+LOGD("HMS_AREngine_ARSceneMesh_AcquireVertexList result=%{public}d", ret);
 ```
 
 5. 获取人脸的几何信息中的三角形面片。
 
   
 ```text
-// 调用HMS_AREngine_ARFaceGeometry_GetIndicesSize函数，获取三角形面片对应顶点的索引个数，每三个顶点索引表示一个三角形面片
-int indicesSize = 0;
-HMS_AREngine_ARFaceGeometry_GetIndicesSize(arSession, arFaceGeometry, &indicesSize);
-// 调用HMS_AREngine_ARFaceGeometry_AcquireIndices函数，获取三角形面片对应顶点的索引列表
-int32_t *meshTriangleIndices = nullptr;
-HMS_AREngine_ARFaceGeometry_AcquireIndices(arSession, arFaceGeometry, &meshTriangleIndices);
+int32_t indexSize = 0;
+HMS_AREngine_ARFaceGeometry_GetIndicesSize(session, firstFace, &indexSize);
+const int32_t *meshTriangleIndices = nullptr;
+ret = HMS_AREngine_ARFaceGeometry_AcquireIndices(session, firstFace, &meshTriangleIndices);
 ```
 
 6. 获取人脸的几何信息中的三角形面片的语义标签。
 
   
 ```text
-// 调用HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize函数，获取三角形面片语义标签数量
-int triangleLabelsSize = 0;
-HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize(arSession, arFaceGeometry, &triangleLabelsSize);
-// 调用HMS_AREngine_ARFaceGeometry_AcquireTriangleLabels函数，获取三角形面片语义标签集合
+ret = HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize(session, firstFace, &mTrianglesNum);
 const AREngine_ARAnimojiTriangleLabel* triangleLabels = nullptr;
-HMS_AREngine_ARFaceGeometry_AcquireTriangleLabels(arSession, arFaceGeometry, &triangleLabels);
+ret = HMS_AREngine_ARFaceGeometry_AcquireTriangleLabels(session, firstFace, &triangleLabels);
 ```
 
 7. 获取人脸几何信息中的UV纹理坐标。
 
   
 ```text
-// 调用HMS_AREngine_ARFaceGeometry_GetTexCoordSize函数，获取UV纹理坐标数量
 int texCoordSize = 0;
-HMS_AREngine_ARFaceGeometry_GetTexCoordSize(arSession, arFaceGeometry, &texCoordSize);
-// 调用HMS_AREngine_ARFaceGeometry_AcquireTexCoord函数，获取UV纹理坐标集合
+ret = HMS_AREngine_ARFaceGeometry_GetTexCoordSize(session, firstFace, &texCoordSize);
 const float* texCoords = nullptr;
-HMS_AREngine_ARFaceGeometry_AcquireTexCoord(arSession, arFaceGeometry, &texCoords);
+ret = HMS_AREngine_ARFaceGeometry_AcquireTexCoord(session, firstFace, &texCoords);
 ```
 
 8. 获取当前人脸的微表情信息。

@@ -1,6 +1,6 @@
 # NFC服务执行Tag业务逻辑报错
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-41
 
@@ -53,6 +53,6 @@ Tag running state is abnormal in service
 
 #### 常见FAQ
 
-Q：使用多个SDK开发，在每个SDK中均使用[tag.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)订阅NFC Tag读卡事件，只有最后一次监听生效，如何让每个SDK都能处理NFC数据？
+Q：使用多个SDK开发，在每个SDK中均使用[tag.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagonreadermode11)订阅NFC Tag读卡事件，只有最后一次监听生效，如何让每个SDK都能处理NFC数据？
  
 A：将SDK中NFC处理函数导出，在entry中使用tag.on注册NFC监听，并在回调函数中依次调用SDK的函数处理NFC数据。

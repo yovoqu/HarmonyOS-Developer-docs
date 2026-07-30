@@ -1,6 +1,6 @@
 # Navigation页面路由
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-jump
 
@@ -506,7 +506,7 @@ struct NavigationDemo {
       }
       .width('100%')
       .mode(NavigationMode.Auto)
-      // $r('app.string.settings')需要替换为开发者所需的字符串资源文件,资源文件中的value值为“设置”
+      // $r('app.string.settings')需要替换为开发者所需的字符串资源文件，资源文件中的value值为“设置”
       .title($r('app.string.settings')) // 设置标题文字
     }
     .size({ width: '100%', height: '100%' })
@@ -540,7 +540,7 @@ export struct PageOne {
   build() {
     NavDestination() {
       Column() {
-        // $r('app.string.settingPage')需要替换为开发者所需的字符串资源文件,资源文件中的value值为“设置页面”
+        // $r('app.string.settingPage')需要替换为开发者所需的字符串资源文件，资源文件中的value值为“设置页面”
         Text(`${this.name}${this.context!.resourceManager.getStringSync($r('app.string.settingPage').id)}`)
           .width('100%')
           .fontSize(20)
@@ -559,7 +559,7 @@ export struct PageOne {
           .fontColor(0x666666)
           .textAlign(TextAlign.Center)
           .padding({ top: 45 })
-        // $r('app.string.return')需要替换为开发者所需的字符串资源文件,资源文件中的value值为“返回”
+        // $r('app.string.return')需要替换为开发者所需的字符串资源文件，资源文件中的value值为“返回”
         Button($r('app.string.return'))
           .width('50%')
           .height(40)
@@ -644,7 +644,7 @@ export struct PageTwo {
             }
             .width('100%')
             .onClick(() => {
-              // $r('app.string.pageSettingParam')需要替换为开发者所需的字符串资源文件,资源文件中的value值为“页面设置参数”
+              // $r('app.string.pageSettingParam')需要替换为开发者所需的字符串资源文件，资源文件中的value值为“页面设置参数”
               this.navPathStack.pushPathByName(`${item}`,
                 this.context!.resourceManager.getStringSync($r('app.string.pageSettingParam').id));
             })
@@ -728,4 +728,4 @@ export struct PageTwo {
 2. 工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置{"routerMap": "$profile:router_map"}。
 
 
-![](assets/Navigation页面路由/file-2026070810395232f12a1c.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wLRobGW9RSKod1napWnXxw/zh-cn_image_0000002686085547.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071844Z&HW-CC-Expire=86400&HW-CC-Sign=6611D9772D182E501DB858944C8BA408B48AE51EA27EB3DC444898DA8752A40B)

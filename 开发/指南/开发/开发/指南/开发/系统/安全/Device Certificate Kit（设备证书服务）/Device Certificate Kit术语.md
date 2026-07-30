@@ -1,6 +1,6 @@
 # Device Certificate Kit术语
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/device-certificate-glossary
 
@@ -84,6 +84,6 @@
  
   
 
-#### Signature Verification； 验签
+#### Signature Verification；验签
 
 用公钥对签名密文进行解密，得到文本的摘要，然后使用与发送方同样的方法对文本计算摘要值，再与解密得到的摘要做对比，二者一致则说明文本没有被篡改过。

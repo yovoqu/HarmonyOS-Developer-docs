@@ -9,7 +9,7 @@
 在Web组件中使用loadData方式加载富文本失败。问题效果如下图，开始是下方展示example网页，点击loadData按钮后无法展示富文本内容。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/IeV4Z-QgQF2sO_s5cvhrWw/zh-cn_image_0000002628899176.png?HW-CC-KV=V1&HW-CC-Date=20260723T013355Z&HW-CC-Expire=86400&HW-CC-Sign=8F29230C167118915390BADDF3C8F7970BDA714431867C470E2D94FB05B5AACC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/IeV4Z-QgQF2sO_s5cvhrWw/zh-cn_image_0000002628899176.png?HW-CC-KV=V1&HW-CC-Date=20260730T072538Z&HW-CC-Expire=86400&HW-CC-Sign=51EF4E019C7ED34CDF628E7FE86941206FB5064FAE1E839D1EF63F3910A51B4E)
 
  
 问题代码如下：
@@ -182,4 +182,4 @@ struct WebComponent1 {
 整改后效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/vO4H-0ETSSuxCR4ZtZCVRg/zh-cn_image_0000002659258403.png?HW-CC-KV=V1&HW-CC-Date=20260723T013355Z&HW-CC-Expire=86400&HW-CC-Sign=DAB0B7F7527E9C7AF139D3238490FEDAF435485F97B95B60971D0D50EC877201)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/vO4H-0ETSSuxCR4ZtZCVRg/zh-cn_image_0000002659258403.png?HW-CC-KV=V1&HW-CC-Date=20260730T072538Z&HW-CC-Expire=86400&HW-CC-Sign=6FAC7BD92A343F0299A691FE431EBA3762BE2394F31F393E0E343E3C4D944159)

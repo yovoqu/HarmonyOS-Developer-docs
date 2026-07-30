@@ -1,6 +1,6 @@
 # native_color_space_manager.h
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-color-space-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,8 +35,8 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| ColorSpacePrimaries | ColorSpacePrimaries | 提供色彩原色结构体声明。 |
-| WhitePointArray | WhitePointArray | 提供白点数组结构体，白点是指在当前色域中表示白色的坐标。 |
+| ColorSpacePrimaries | ColorSpacePrimaries | 提供色彩原色结构体声明，用于存储色彩空间的红绿蓝三原色和白点的坐标信息。 |
+| WhitePointArray | WhitePointArray | 提供白点数组结构体，白点是在当前色域中表示白色的坐标。 |
 | OH_NativeColorSpaceManager | OH_NativeColorSpaceManager | 提供OH_NativeColorSpaceManager结构体声明。 |
  
  
@@ -61,7 +61,7 @@
 | --- | --- |
 | OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpaceName colorSpaceName) | 通过colorSpaceName创建OH_NativeColorSpaceManager实例。 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。 |
 | OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma(ColorSpacePrimaries primaries, float gamma) | 通过原色和伽马值创建OH_NativeColorSpaceManager实例。 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。 |
-| void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 销毁OH_NativeColorSpaceManager实例。 |
+| void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 销毁OH_NativeColorSpaceManager实例。当不再需要OH_NativeColorSpaceManager实例时，需要调用此函数进行销毁以释放内存。 |
 | int OH_NativeColorSpaceManager_GetColorSpaceName(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 获取色彩空间名称。 |
 | WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 获取白点。 |
 | float OH_NativeColorSpaceManager_GetGamma(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 获取伽马值。 |
@@ -121,6 +121,8 @@ enum ColorSpaceName
 | DISPLAY_P3_SRGB = DISPLAY_P3 | 表示色彩原色为P3_D65，传输特性为SRGB，色彩范围为Full的色彩空间。 |
 | DISPLAY_P3_HLG = P3_HLG | 表示色彩原色为P3_D65，传输特性为HLG，色彩范围为Full的色彩空间。 |
 | DISPLAY_P3_PQ = P3_PQ | 表示色彩原色为P3_D65，传输特性为PQ，色彩范围为Full的色彩空间。 |
+| BT2020_LOG_FULL = 27 | 表示色彩原色为BT2020，传输特性为PRIV_LOG，色彩范围为Full的色彩空间。 起始版本： 26.0.0 |
+| BT2020_LOG_LIMIT = 28 | 表示色彩原色为BT2020，传输特性为PRIV_LOG，色彩范围为LIMIT的色彩空间。 起始版本： 26.0.0 |
 | CUSTOM = 5 | 表示自定义色彩空间。 |
  
  
@@ -189,7 +191,7 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGam
 | 参数项 | 描述 |
 | --- | --- |
 | ColorSpacePrimaries primaries | 表示创建OH_NativeColorSpaceManager的色彩原色。 |
-| float gamma | 表示创建OH_NativeColorSpaceManager的伽马值，伽马值为一个浮点数，用于校正亮度范围。 伽马值通常为正值，负值会使弱光区域更亮，强光区域变暗，伽马值为0表示线性色彩空间。 |
+| float gamma | 表示创建OH_NativeColorSpaceManager的伽马值，伽马值为一个浮点数，用于校正亮度范围。 伽马值通常为正值，负值会使弱光区域更亮，强光区域变暗，伽马值为1.0表示线性色彩空间。 |
  
  
 **返回：**
@@ -211,7 +213,7 @@ void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorS
  
 **描述**
  
-销毁OH_NativeColorSpaceManager实例。
+销毁OH_NativeColorSpaceManager实例。当不再需要OH_NativeColorSpaceManager实例时，需要调用此函数进行销毁以释放内存。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
  

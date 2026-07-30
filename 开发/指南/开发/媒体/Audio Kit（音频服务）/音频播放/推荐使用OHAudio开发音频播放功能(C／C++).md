@@ -1,6 +1,6 @@
 # 推荐使用OHAudio开发音频播放功能(C/C++)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback
 
@@ -127,7 +127,7 @@ OH_AudioStreamBuilder_SetRendererInfo(builder, AUDIOSTREAM_USAGE_MUSIC);
 
 5. 回调函数结束后，音频服务会把缓冲中数据放入队列里等待播放，因此请勿在回调外再次更改缓冲中的数据。对于最后一帧，如果数据不够填满缓冲长度，开发者需要使用剩余数据拼接空数据的方式，将缓冲填满，避免缓冲内的历史脏数据对播放效果产生不良的影响。
 
-6. 从API version 12开始可通过[OH_AudioStreamBuilder_SetFrameSizeInCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setframesizeincallback)设置audioDataSize的大小。
+6. 从API version 12开始可通过[OH_AudioStreamBuilder_SetFrameSizeInCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setframesizeincallback)设置audioDataSize。
 
 7. 构造播放音频流。
 
@@ -183,7 +183,8 @@ OH_AudioStreamBuilder_Destroy(builder);
 
   
 ```cpp
-float volume = 0.1f;
+static float volume = 0.1f;
+volume = volume > 0.5f ? 0.1f : 0.8f;
 
 // 设置当前音频流音量值。
 OH_AudioRenderer_SetVolume(audioRenderer, volume);
@@ -225,7 +226,7 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 当声道布局与声道数不匹配时，创建音频流会失败。建议在设置声道布局时，确认下发的声道布局信息是否正确。
 
-如果不知道准确的声道布局信息，或者开发者需要使用默认声道布局，可以不调用设置声道布局接口，或者下发CH_LAYOUT_UNKNOWN，以使用基于声道数的默认声道布局。
+如果不知道准确的声道布局信息，或者开发者需要使用默认声道布局，可以不调用设置声道布局接口，或者设置为CH_LAYOUT_UNKNOWN，以使用基于声道数的默认声道布局。
 
 对于HOA（高阶立体环绕声）格式的音频，想要获得正确的渲染和播放效果，必须指定声道布局信息。
 
@@ -269,7 +270,7 @@ int32_t MyOnWriteDataWithMetadata_New(
 
 #### 注意事项
 
-从API version 12开始**不再推荐**使用[OH_AudioRenderer_Callbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct)的方式设置音频回调函数。若必须使用，需要注意在设置音频回调函数时，通过下面两种方式中的任意一种来设置音频回调函数，避免不可预期的行为。
+从API version 12开始**不再推荐**使用[OH_AudioRenderer_Callbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct)的方式设置音频回调函数。若必须使用，需注意通过下面两种方式中的任意一种进行配置，避免不可预期的行为。
 
  - 方式1：请确保[OH_AudioRenderer_Callbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct)的每一个回调都被**自定义的回调方法**或**空指针**初始化。
 

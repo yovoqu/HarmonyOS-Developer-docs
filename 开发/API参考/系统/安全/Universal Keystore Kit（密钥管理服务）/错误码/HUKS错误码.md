@@ -1,6 +1,6 @@
 # HUKS错误码
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-huks
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -128,15 +128,15 @@ IPC通信失败。
 
 **错误信息**
 
-Crypto engine error or Ukey driver error.
+Crypto engine error or UKey driver error.
 
 **错误描述**
 
-算法库操作失败或者Ukey驱动失败。
+算法库操作失败或者UKey驱动失败。
 
 **可能原因**
 
-该错误码表示算法库操作失败或者Ukey驱动失败，可能原因如下。
+该错误码表示算法库操作失败或者UKey驱动失败，可能原因如下。
 1. 算法库加解密错误，可能是密文数据不对。
 2. 密钥参数不正确。
 
@@ -165,7 +165,7 @@ This credential is invalidated permanently.
 2. 该密钥设置了新录入生物特征失效的用户认证访问控制属性，由于录入过新的指纹或人脸导致该密钥失败。
 
 **处理步骤**
-1. 确认日志是哪种方式导致的认证不通过。
+1. 确认日志中记录的认证失败方式。
 2. 如果使用了正确参数，但是失效控制导致认证不通过，则该密钥已经无法使用。
 
 
@@ -206,7 +206,7 @@ This authentication token timed out.
 
 **可能原因**
 
-该密钥设置了用户认证访问控制属性，由于使用时间窗timeout导致无法通过认证。
+该密钥设置了用户认证访问控制属性，并指定了认证超时时间（timeout）。由于密钥init操作后未在timeout时间窗内完成用户认证，认证令牌超时失效，导致当前密钥会话失效。
 
 **处理步骤**
 
@@ -228,7 +228,7 @@ The number of key operation sessions has reached the limit.
 
 **可能原因**
 
-同时使用huks进行密钥会话操作的调用方（同应用或者跨应用）过多，已经达到上限（15个）。
+HUKS密钥操作会话数已达上限（15个），无法处理更多同应用或跨应用的调用请求。
 
 **处理步骤**
 1. 检查同应用内部是否同时存在多个密钥会话操作（init），存在则修改避免同时调用。
@@ -362,13 +362,35 @@ Failed to obtain the information via UserIAM.
 
 
 
+#### 12000016 设备密码未设置
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+**错误信息**
+
+A device password is required but not set.
+
+**错误描述**
+
+设备密码未设置。
+
+**可能原因**
+
+该密钥配置了依赖设备密码的用户访问认证属性，但设备密码未配置，导致无法操作。
+
+**处理步骤**
+
+先设置设备密码，再进行密钥操作。
+
+
+
 #### 12000017 同名密钥已存在
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 **错误信息**
 
-The key with same alias already exists.
+The key with the same alias already exists.
 
 **错误描述**
 
@@ -422,7 +444,7 @@ The provider is already registered.
 
 **可能原因**
 
-注册的provider已存在。
+重复注册同名provider，或之前注册的provider未注销。
 
 **处理步骤**
 
@@ -452,37 +474,37 @@ The provider operation failed.
 
 
 
-#### 12000021 Ukey PIN码被锁
+#### 12000021 UKey PIN码被锁定
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 **错误信息**
 
-The Ukey PIN is locked.
+The UKey PIN is locked.
 
 **错误描述**
 
-Ukey PIN码被锁。
+UKey PIN码被锁定。
 
 **可能原因**
 
-PIN码输入错误次数过多导致被锁。
+PIN码输入错误次数过多导致被锁定。
 
 **处理步骤**
 
-咨询相关银行，解锁Ukey。
+咨询相关银行，解锁UKey。
 
 
 
-#### 12000022 Ukey PIN码错误
+#### 12000022 UKey PIN码错误
 
 **错误信息**
 
-The Ukey PIN is incorrect.
+The UKey PIN is incorrect.
 
 **错误描述**
 
-Ukey PIN码错误。
+UKey PIN码错误。
 
 **可能原因**
 
@@ -494,17 +516,17 @@ PIN码输入错误。
 
 
 
-#### 12000023 Ukey PIN码未认证
+#### 12000023 UKey PIN码未认证
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 **错误信息**
 
-The Ukey PIN is not authenticated.
+The UKey PIN is not authenticated.
 
 **错误描述**
 
-Ukey PIN码未认证。
+UKey PIN码未认证。
 
 **可能原因**
 
@@ -512,7 +534,7 @@ Ukey PIN码未认证。
 
 **处理步骤**
 
-执行操作需要进行PIN码认证，但实际PIN码尚未认证。
+先完成UKey PIN码认证，再执行需要认证的操作。
 
 
 
@@ -522,7 +544,7 @@ Ukey PIN码未认证。
 
 **错误信息**
 
-The provider or Ukey is busy.
+The provider or UKey is busy.
 
 **错误描述**
 
@@ -534,7 +556,7 @@ The provider or Ukey is busy.
 
 **处理步骤**
 
-再次重试或者插拔Ukey后重试。
+再次重试或者插拔UKey后重试。
 
 
 
@@ -557,3 +579,131 @@ The resource exceeds the limit.
 **处理步骤**
 
 检查是否有未释放资源，释放已有资源后重试。
+
+
+
+#### 12000026 安全元件故障
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+**错误信息**
+
+the secure element is not available.
+
+**错误描述**
+
+安全元件故障。
+
+**可能原因**
+
+安全元件故障。
+
+**处理步骤**
+1. 稍等片刻后重试，或重启设备后重试。
+2. 如以上操作均无法解决故障，将错误码与日志提交到社区进行反馈。
+
+
+
+#### 12000027 网络不可用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+The Internet is unavailable.
+
+**错误描述**
+
+网络不可用。
+
+**可能原因**
+
+设备网络连接不可用。
+
+**处理步骤**
+1. 检查设备网络连接是否正常。
+2. 恢复网络连接后重试。
+
+
+
+#### HUKS调用失败返回401
+
+错误码401是[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)，标识参数检查失败。
+
+使用HUKS时出现401错误码，可能由以下情况导致：
+
+
+
+#### 数据长度不满足要求
+
+**可能原因**
+1. 对称加密算法的数据长度不正确。
+2. 非对称加密算法的数据长度不正确。
+3. 签名算法的数据长度不正确。
+
+**解决措施**
+1. 确保对称加密算法数据长度满足要求：加密算法AES/ECB/NoPadding、AES/CBC/NoPadding要求明文长度是16字节的整数倍，AES/GCM要求[HUKS_TAG_AE_TAG](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)长度为16字节，AES/CCM要求NONCE长度是7~13字节，[HUKS_TAG_AE_TAG_LEN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)长度要求4~16且为2的整数倍字节。
+2. 确保非对称加密算法数据长度满足要求：加密算法RSA/ECB/NoPadding要求明文长度等于密钥长度，RSA/ECB/PKCS1v1.5要求明文长度小于等于密钥长度-11字节，RSA/ECB/OAEP要求明文长度小于等于密钥长度-2*摘要长度-2。
+3. 确保签名算法数据长度满足要求：签名算法RSA/NoPadding/NoDigest要求消息长度等于密钥长度。
+
+
+
+#### 密钥长度、格式不符合要求
+
+**可能原因**
+
+明文导入或者加密导入的密钥长度不正确或者格式不正确。
+
+**解决措施**
+
+导入密钥的格式需要符合HUKS规范，查看[开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)。
+
+
+
+#### 传入参数不一致
+
+**可能原因**
+
+前后传入的参数不一致，例如算法、分组模式、摘要、密钥长度等常用参数。
+
+例如生成密钥时传入算法参数为AES，加密时传入的算法参数是RSA。
+
+**解决措施**
+
+检查前后传入的参数是否不一致。
+
+
+
+#### 传入参数重复
+
+**可能原因**
+
+HuksOption中的paramset传入重复的参数。
+
+**解决措施**
+
+检查是否传入重复的参数。
+
+
+
+#### 二次访问控制设置失败
+
+**可能原因**
+1. 二次访问控制操作中获取认证类型、挑战值类型、访问类型、认证token失败或者认证类型无效、挑战值类型无效、访问类型无效、认证token无效。
+2. 二次访问控制设置[HUKS_TAG_AUTH_TIMEOUT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)值过大。
+
+**解决措施**
+1. 根据开发指导检查二次访问控制的各种参数类型是否正确。
+2. 二次访问控制的[HUKS_TAG_AUTH_TIMEOUT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)参数有最大限制6小时，超过这个限制会报错。
+
+
+
+#### 安全签名类型传入无效值
+
+**可能原因**
+
+安全签名类型[HUKS_TAG_KEY_SECURE_SIGN_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)传入无效的值。
+
+**解决措施**
+
+安全签名类型[HUKS_TAG_KEY_SECURE_SIGN_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)只支持[HUKS_SECURE_SIGN_WITH_AUTHINFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，其它均为无效类型。

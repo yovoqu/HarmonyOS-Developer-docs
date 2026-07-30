@@ -1,6 +1,6 @@
 # ArkUI_AccessibleRect
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessiblerect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_AccessibleRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-节点所在坐标位置。
+节点在屏幕中的矩形区域坐标位置。该结构体用于描述无障碍节点的边界矩形，通过左上角和右下角的坐标定义节点在屏幕上的可视区域，支持无障碍服务获取节点的位置和大小信息。
  
 **起始版本：** 13
  

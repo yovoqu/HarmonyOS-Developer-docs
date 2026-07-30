@@ -1,6 +1,6 @@
 # @ohos.bundle.bundleManager (应用程序包管理模块)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -84,6 +84,7 @@ import { bundleManager } from '@kit.AbilityKit';
 | PARTNER_AGENT23+ | 36 | PartnerAgentExtensionAbility：基于蓝牙通信技术，提供设备发现与设备下线的通知功能。 模型约束：此接口仅可在Stage模型下使用。 |
 | AGENT24+ | 37 | AgentExtensionAbility：提供智能体扩展能力，包括智能体服务的创建、销毁、连接、断开的生命周期回调接口，以及接收客户端所发送数据和安全认证的回调接口。 模型约束：此接口仅可在Stage模型下使用。 |
 | AGENT_UI24+ | 38 | AgentUIExtensionAbility：为开发者提供接入端侧Agent UI界面显示能力。 模型约束：此接口仅可在Stage模型下使用。 |
+| MODULAR_OBJECT | 39 | modular_object_extension_ability：提供模块化对象扩展能力，可以将应用自身功能封装为独立的功能模块，开放给其他应用使用。 模型约束：此接口仅可在Stage模型下使用。 起始版本： 26.0.0 |
 | UNSPECIFIED | 255 | 不指定类型。 |
 | CALLER_INFO_QUERY19+ | 25 | CallerInfoQueryExtensionAbility：为开发者提供来去电信息查询能力。 |
 
@@ -1620,7 +1621,7 @@ getAppCloneIdentity(uid: number): Promise&lt;AppCloneIdentity&gt;;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AppCloneIdentity&gt; | Promise对象，返回AppCloneIdentity数组。 |
+| Promise&lt;AppCloneIdentity&gt; | Promise对象，返回AppCloneIdentity信息。 |
 
 
 **错误码：**
@@ -2004,8 +2005,6 @@ try {
     hilog.error(0x0000, 'testTag', 'getApplicationLabel failed: %{public}d  %{public}s', err.code, err.message);
   });
 } catch (err) {
-  let code = (err as BusinessError).code;
-  let message = (err as BusinessError).message;
   hilog.error(0x0000, 'testTag', 'getApplicationLabel failed: error %{public}d  %{public}s', err.code, err.message);
 }
 ```
@@ -2076,6 +2075,120 @@ try {
 
 
 
+#### bundleManager.setAlternateIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setAlternateIcon(alternateIconName: string): Promise&lt;void&gt;;
+
+根据给定的备用图标名称设置调用方自身的备用图标。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.BundleManager.BundleFramework.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| alternateIconName | string | 是 | 要设置的备用图标名称。备用图标名称须在app.json5中alternateIcons标签的name字段内。 alternateIconName为空时表示取消备用图标。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17700308 | The alternateIconName must match the name field under alternateIcons in the app.json5 file. |
+| 17700309 | No alternate icon is enabled. |
+| 17700310 | Failed to set the alternate icon. |
+
+
+**示例：**
+
+```text
+import { bundleManager } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+// alternateIconName需要替换为要设置的备用图标名称
+let alternateIconName: string = 'com.ohos.demo';
+
+try {
+  bundleManager.setAlternateIcon(alternateIconName).then((data) => {
+    hilog.info(0x0000, 'testTag', 'setAlternateIcon successfully');
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'setAlternateIcon failed. Cause: %{public}s', err.message);
+  });
+} catch (err) {
+  let message = (err as BusinessError).message;
+  hilog.error(0x0000, 'testTag', 'setAlternateIcon failed. Cause: %{public}s', message);
+}
+```
+
+
+
+#### bundleManager.getAlternateIcons
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getAlternateIcons(): Promise<Array&lt;AlternateIconInfo&gt;>
+
+查询当前应用在app.json5中[alternateIcons标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#alternateicons标签)配置的备用图标信息。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.BundleManager.BundleFramework.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;AlternateIconInfo&gt;> | Promise对象，返回当前应用的备用图标信息列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17700311 | Failed to obtain the alternate icon. |
+
+
+**示例：**
+
+```json
+import { bundleManager } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+try {
+  bundleManager.getAlternateIcons().then((data) => {
+    hilog.info(0x0000, 'testTag', 'getAlternateIcons successfully. Data: %{public}s', JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'getAlternateIcons failed. Cause: %{public}s', err.message);
+  });
+} catch (err) {
+  let message = (err as BusinessError).message;
+  hilog.error(0x0000, 'testTag', 'getAlternateIcons failed. Cause: %{public}s', message);
+}
+```
+
+
+
 #### ApplicationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2124,7 +2237,7 @@ type Metadata = _Metadata
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力**: SystemCapability.BundleManager.BundleFramework.Core
+**系统能力：** SystemCapability.BundleManager.BundleFramework.Core
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2386,7 +2499,7 @@ ElementName信息。
 
 type Skill = _Skill.Skill
 
-skill信息。
+Skill信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2394,7 +2507,7 @@ skill信息。
 
 | 类型 | 说明 |
 | --- | --- |
-| _Skill.Skill | skill信息。 |
+| _Skill.Skill | Skill信息。 |
 
 
 
@@ -2431,3 +2544,24 @@ type AppCloneIdentity = _BundleInfo.AppCloneIdentity
 | 类型 | 说明 |
 | --- | --- |
 | _BundleInfo.AppCloneIdentity | 应用包的身份信息。 |
+
+
+
+
+#### AlternateIconInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type AlternateIconInfo = _BundleInfo.AlternateIconInfo
+
+应用备用图标信息。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.BundleManager.BundleFramework.Core
+
+| 类型 | 说明 |
+| --- | --- |
+| _BundleInfo.AlternateIconInfo | 应用的备用图标信息。 |

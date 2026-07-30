@@ -27,4 +27,4 @@ mediatool工具为系统自带工具，不需要安装，内置在/bin文件夹�
 方案二：通过DevEco Studio导出。
  1. 选择【图库】中的照片，点击分享-复制，然后打开【文件管理】后根据提示，粘贴到我的手机-Download路径下。
 2. 打开DevEco Studio的Device File Browser，在/storage/media/100/local/files/Docs/Download路径下即可看到对应的图片，右键另存为保存到电脑上。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/JhIflkVhR_SoNtHNxO8qqw/zh-cn_image_0000002628569626.png?HW-CC-KV=V1&HW-CC-Date=20260723T014011Z&HW-CC-Expire=86400&HW-CC-Sign=804B6080FB67481EC4E45A2D66533BACE8030CCE36F6BC2E222AAD270459BEEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/JhIflkVhR_SoNtHNxO8qqw/zh-cn_image_0000002628569626.png?HW-CC-KV=V1&HW-CC-Date=20260730T072725Z&HW-CC-Expire=86400&HW-CC-Sign=02C85BB976E80AB1A65E3D8DA42836088BD1BC105E4F970A03B0F72A3C84C09C)

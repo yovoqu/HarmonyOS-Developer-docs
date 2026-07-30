@@ -1,6 +1,6 @@
 # Cloud Foundation Kit术语
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-glossary
 
@@ -94,7 +94,7 @@ Cloud Foundation Kit提供的云端文件存储服务，支持上传、下载、
 
   
 
-#### Pagination Query；分页查询
+#### Paginated Query；分页查询
 
 使用云数据库limit限定查询数据，返回数据的起始位置和数量，实现数据分页展示。
  

@@ -1,6 +1,6 @@
 # 如何解决preferences中报错15501002问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-57
 
@@ -50,7 +50,7 @@ Error message:The data group id is not valid
 
 #### 分析结论
 
-dataGroupId必须向应用市场[申请](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ime-kit-security#section4219152220459)获取，自定义无效。上述代码中使用了自定义的dataGroupId，所以运行后代码报错。
+dataGroupId必须向应用市场[申请](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ime-kit-security#共享沙箱介绍)获取，自定义无效。上述代码中使用了自定义的dataGroupId，所以运行后代码报错。
  
  
 

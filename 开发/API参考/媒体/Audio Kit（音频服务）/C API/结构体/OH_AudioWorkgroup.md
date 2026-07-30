@@ -1,12 +1,12 @@
 # OH_AudioWorkgroup
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audioworkgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef struct OH_AudioWorkgroup OH_AudioWorkgroup
+typedef struct OH_AudioWorkgroup OH_AudioWorkgroup;
 ```
   
 
@@ -14,7 +14,7 @@ typedef struct OH_AudioWorkgroup OH_AudioWorkgroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明音频工作组。将音频关键线程进行分组管理。
+声明音频工作组。用于对关键音频线程进行分组管理。
  
 **起始版本：** 20
  

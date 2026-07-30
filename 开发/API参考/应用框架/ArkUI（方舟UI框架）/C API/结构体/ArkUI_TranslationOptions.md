@@ -1,6 +1,6 @@
 # ArkUI_TranslationOptions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-translationoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_TranslationOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义组件转场时的平移效果对象。
+定义组件转场时平移效果的配置选项，用于设置组件在转场过程中横向、纵向和深度方向的平移距离。
  
 **起始版本：** 12
  

@@ -1,6 +1,6 @@
 # ExceptionPrompt
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-exceptionprompt
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,7 +69,7 @@ PromptOptions定义options的类型。
 | --- | --- | --- | --- | --- |
 | icon | ResourceStr | 否 | 是 | 指定当前异常提示的异常图标样式。 默认不设置或设置为undefined，异常图标不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | symbolStyle18+ | SymbolGlyphModifier | 否 | 是 | 指定当前异常提示的异常Symbol图标样式，优先级大于icon。 默认不设置或设置为undefined，Symbol图标不显示。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| tip | ResourceStr | 否 | 是 | 指定当前异常提示的文字提示内容。 支持默认内置四种状态文字资源如下： 1.无网络状态：显示网络未连接：引用ohos_network_not_connected。 2.网络差状态：显示网络连接不稳定，请点击重试：引用ohos_network_connected_unstable。 3.连不上服务器状态：显示无法连接到服务器，请点击重试：引用ohos_unstable_connect_server。 4.有网但是获取不到内容状态：显示无法获取位置，请点击重试：引用ohos_custom_network_tips_left。 默认不设置或设置为undefined，文字提示内容不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| tip | ResourceStr | 否 | 是 | 指定当前异常提示的文字提示内容。 支持默认内置四种状态文字资源如下： 1.无网络状态：显示网络未连接：引用ohos_network_not_connected。 2.网络差状态：显示网络连接不稳定，请点击重试：引用ohos_network_connected_unstable。 3.连不上服务器状态：显示无法连接到服务器，请点击重试：引用ohos_unstable_connect_server。 4.有网但是获取不到位置状态：显示无法获取位置，请点击重试：引用ohos_custom_network_tips_left。 默认不设置或设置为undefined，文字提示内容不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | marginType | MarginType | 否 | 否 | 指定当前异常提示的边距样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | actionText | ResourceStr | 否 | 是 | 指定当前异常提示的右侧图标按钮的文字内容。 默认不设置或设置为undefined，文字内容不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | marginTop | Dimension | 否 | 否 | 指定当前异常提示的距离顶部的位置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -210,16 +210,6 @@ struct CustomDialogExample {
 @Entry
 @Component
 struct Index1 {
-  @State ButtonText: string = '';
-  @State MAP_HEIGHT: string = '30%';
-  @State duration: number = 2500;
-  @State tips: string = '';
-  @State actionText: string = '';
-  controller: TextInputController = new TextInputController();
-  cancel: () => void = () => {
-  };
-  confirm: () => void = () => {
-  };
   @State options: PromptOptions = {
     icon: $r('sys.media.ohos_ic_public_fail'),
     tip: '',
@@ -324,4 +314,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/5Bm8_MLsQ3yjKw5h7_lVfQ/zh-cn_image_0000002659102209.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=EBFB0175F6CABA99215C39A07CB5D461A411D06A4629FC1919D334928A7A96F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/TjXzfBFwSPmA-KMG-Xeaiw/zh-cn_image_0000002685928605.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=1EA22D38DFDC1EFDAA71519580B8689E1E2321B571F81BA544B0C58470C94F2E)

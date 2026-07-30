@@ -1,6 +1,6 @@
 # @ohos.app.ability.DriverExtensionAbility (驱动程序扩展能力)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability
 **支持设备：** PC/2in1
@@ -9,6 +9,14 @@ DriverExtensionAbility模块提供驱动相关扩展能力，提供驱动创建�
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
+
+
+#### 约束限制
+
+**支持设备：** PC/2in1
+
+为保障系统安全性和稳定性，防止 DriverExtensionAbility滥用系统资源，系统对其能力进行管控，不支持部分模块的引用，详情请参考[附录](#附录)。
 
 
 
@@ -291,3 +299,82 @@ DriverExtensionAbility的上下文环境。
 | 类型 | 说明 |
 | --- | --- |
 | _DriverExtensionContext | DriverExtensionAbility的上下文环境，继承自ExtensionContext，其具体使用方法可参考DriverExtensionContext。 |
+
+
+
+
+#### 附录
+
+**支持设备：** PC/2in1
+
+DriverExtensionAbility不支持以下模块的引用。
+
+| Kit | 模块 |
+| --- | --- |
+| Ability Kit（程序框架服务） | @ohos.abilityAccessCtrl (程序访问控制管理) |
+| Ability Kit（程序框架服务） | @ohos.ability.particleAbility (ParticleAbility模块) |
+| Ability Kit（程序框架服务） | @ohos.app.ability.abilityManager (Ability信息管理) |
+| Ability Kit（程序框架服务） | @ohos.app.ability.appManager (应用管理) |
+| Ability Kit（程序框架服务） | @ohos.application.appManager (appManager) |
+| Ability Kit（程序框架服务） | @ohos.bundle (Bundle模块) |
+| Ability Kit（程序框架服务） | @ohos.bundle.bundleManager (应用程序包管理模块) |
+| Ability Kit（程序框架服务） | @ohos.bundle.defaultAppManager (默认应用管理) |
+| Ability Kit（程序框架服务） | @ohos.bundle.launcherBundleManager (launcherBundleManager模块) |
+| Ability Kit（程序框架服务） | Context (Stage模型的上下文基类) |
+| Ability Kit（程序框架服务） | @ohos.continuation.continuationManager (流转/协同管理) |
+| ArkData（方舟数据管理） | @ohos.data.distributedData (分布式数据管理) |
+| ArkData（方舟数据管理） | @ohos.data.distributedDataObject (分布式数据对象) |
+| ArkData（方舟数据管理） | @ohos.data.distributedKVStore (分布式键值数据库) |
+| ArkData（方舟数据管理） | @ohos.data.rdb (关系型数据库) |
+| ArkUI（方舟UI框架） | @ohos.screenshot (屏幕截图) |
+| Background Tasks Kit（后台任务开发服务） | @ohos.reminderAgent (后台代理提醒) |
+| Background Tasks Kit（后台任务开发服务） | @ohos.reminderAgentManager (后台代理提醒) |
+| Background Tasks Kit（后台任务开发服务） | @ohos.resourceschedule.backgroundTaskManager (后台任务管理) |
+| Background Tasks Kit（后台任务开发服务） | @ohos.backgroundTaskManager (后台任务管理) |
+| Background Tasks Kit（后台任务开发服务） | @ohos.bundleState (设备使用信息统计) |
+| Basic Services Kit（基础服务） | @ohos.account.appAccount (应用账号管理) |
+| Basic Services Kit（基础服务） | @ohos.account.distributedAccount (分布式账号管理) |
+| Basic Services Kit（基础服务） | @ohos.account.osAccount (系统账号管理) |
+| Basic Services Kit（基础服务） | @ohos.deviceInfo (设备信息) |
+| Basic Services Kit（基础服务） | @ohos.power (系统电源管理) |
+| Basic Services Kit（基础服务） | @ohos.request (上传下载) |
+| Basic Services Kit（基础服务） | @ohos.runningLock (RunningLock锁) |
+| Basic Services Kit（基础服务） | @ohos.settings (设置数据项名称) |
+| Basic Services Kit（基础服务） | @ohos.systemTime (系统时间、时区) |
+| Basic Services Kit（基础服务） | @ohos.wallpaper (壁纸) |
+| Connectivity Kit（短距通信服务） | @ohos.bluetooth (蓝牙) |
+| Connectivity Kit（短距通信服务） | @ohos.bluetoothManager (蓝牙) |
+| Connectivity Kit（短距通信服务） | @ohos.connectedTag (有源标签) |
+| Connectivity Kit（短距通信服务） | @ohos.nfc.cardEmulation (标准NFC-cardEmulation) |
+| Connectivity Kit（短距通信服务） | @ohos.nfc.controller (标准NFC) |
+| Connectivity Kit（短距通信服务） | @ohos.nfc.tag (标准NFC-Tag) |
+| Connectivity Kit（短距通信服务） | @ohos.wifi (WLAN) |
+| Connectivity Kit（短距通信服务） | @ohos.wifiext (WLAN扩展接口) |
+| Connectivity Kit（短距通信服务） | @ohos.wifiManager (WLAN) |
+| Connectivity Kit（短距通信服务） | @ohos.wifiManagerExt (WLAN扩展接口) |
+| Contacts Kit（联系人服务） | @ohos.contact (联系人) |
+| Core File Kit（文件基础服务） | @ohos.file.storageStatistics (应用空间统计) |
+| Form Kit（卡片开发服务） | @ohos.application.formError (formError) |
+| IME Kit（输入法开发服务） | @ohos.inputMethod (输入法框架) |
+| Location Kit | @ohos.geolocation (位置服务) |
+| Location Kit | @ohos.geoLocationManager (位置服务) |
+| MDM Kit（企业设备管理服务） | @ohos.enterprise.adminManager（admin权限管理） |
+| MDM Kit（企业设备管理服务） | @ohos.enterprise.deviceInfo（设备信息管理） |
+| MultimediaKit | @ohos.multimedia.mediaLibrary (媒体库管理) |
+| Network Kit（网络服务） | @ohos.net.connection (网络连接管理) |
+| Network Kit（网络服务） | @ohos.net.ethernet (以太网连接管理) |
+| Network Kit（网络服务） | @ohos.net.http (数据请求) |
+| Network Kit（网络服务） | @ohos.net.sharing (网络共享管理) |
+| Network Kit（网络服务） | @ohos.net.socket (Socket连接) |
+| Network Kit（网络服务） | @ohos.net.webSocket (WebSocket连接) |
+| Notification Kit（用户通知服务） | @ohos.notification (Notification模块) |
+| Notification Kit（用户通知服务） | @ohos.notificationManager (NotificationManager模块) |
+| Performance Analysis Kit（性能分析服务） | @ohos.hidebug (Debug调试) |
+| Sensor Service Kit（传感器服务） | @ohos.sensor (传感器) |
+| Sensor Service Kit（传感器服务） | @ohos.vibrator (振动) |
+| Telephony Kit（蜂窝通信服务） | @ohos.telephony.call (拨打电话) |
+| Telephony Kit（蜂窝通信服务） | @ohos.telephony.data (蜂窝数据) |
+| Telephony Kit（蜂窝通信服务） | @ohos.telephony.observer (observer) |
+| Telephony Kit（蜂窝通信服务） | @ohos.telephony.radio (网络搜索) |
+| Telephony Kit（蜂窝通信服务） | @ohos.telephony.sim (SIM卡管理) |
+| Telephony Kit（蜂窝通信服务） | @ohos.telephony.sms (短信服务) |

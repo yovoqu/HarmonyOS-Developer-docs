@@ -1,10 +1,10 @@
 # @Styles装饰器：定义组件重用样式
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style
 
-如果每个组件的样式都需要单独设置，在开发过程中会出现大量代码在进行重复样式设置，虽然可以复制粘贴，但为了代码简洁性和后续方便维护，我们推出了可以提炼公共样式进行复用的装饰器@Styles。
+如果每个组件的样式都需要单独设置，在开发过程中会出现大量代码在进行重复样式设置，虽然可以复制粘贴，但为了代码简洁性和后续方便维护，我们推出了可以提炼公共样式进行复用的装饰器[@Styles](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-styles#styles)。
 
 @Styles装饰器可以将多条样式设置提炼成一个方法，直接在组件声明的位置调用。通过@Styles装饰器可以快速定义并复用自定义样式。
 
@@ -43,6 +43,7 @@ struct FancyUse {
 
   build() {
     Column() {
+      // 通过fancy给Button提供样式设置
       Button('change height')
         .fancy()
     }
@@ -53,7 +54,7 @@ struct FancyUse {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/RPqKPISWR7exHZ9kaRIOow/zh-cn_image_0000002626228046.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=878A456B403A9FCDCD6F954BEF59AA351652D8EEAED487C61F17DA645CBEEBBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/utE3HiARRWWMta1ID8WlBQ/zh-cn_image_0000002655845910.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071839Z&HW-CC-Expire=86400&HW-CC-Sign=CA12398D592FCE8D53E6CEB5469FCEA8178115566516337DEC24E300B4961B9E)
 
 
 
@@ -150,4 +151,4 @@ struct GlobalFancy {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/i0a_joIhQ5SlnphWfsdT1A/zh-cn_image_0000002626068138.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=ED92C80593FD3E9B8B02ADED65541F0BD83805F7C6602A5189ACDAA9AA4FA151)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/64WV5iJdTY21zgBiGDOeag/zh-cn_image_0000002686085339.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071839Z&HW-CC-Expire=86400&HW-CC-Sign=944DA8EBC52ED0FDDF9623804FA4E07CCFBC60C25354EC725BC7B94789F9D00D)

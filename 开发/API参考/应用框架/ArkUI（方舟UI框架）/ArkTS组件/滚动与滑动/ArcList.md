@@ -1,11 +1,11 @@
 # ArcList
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-弧形列表包含一系列列表项。适合连续、多行呈现同类数据，例如图片和文本。
+弧形列表由沿弧形排列的一系列列表项组成，适用于圆形屏幕设备。适合连续、多行呈现同类数据，例如图片和文本。
 
 > [!NOTE]
 > 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
@@ -62,7 +62,7 @@ ArcList(options?: ArkListOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ArkListOptions | 否 | 为ArcList提供可选参数。 |
+| options | ArkListOptions | 否 | 弧形列表的配置项，用于设置初始加载位置、滚动控制器和头部组件。 |
 
 
 
@@ -71,7 +71,7 @@ ArcList(options?: ArkListOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性（不支持[滚动组件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#属性)）：
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
@@ -81,7 +81,7 @@ ArcList(options?: ArkListOptions)
 
 digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
-设置表冠响应事件灵敏度。
+设置表冠响应灵敏度。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -102,7 +102,7 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 space(space: Optional&lt;LengthMetrics&gt;)
 
-设置列表子项之间的距离。
+设置列表子项之间的间距。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -146,8 +146,6 @@ cachedCount(count: Optional&lt;number&gt;)
 
 设置列表中ArcListItem的预加载数量，懒加载场景只会预加载ArcList显示区域外上下各cachedCount行的ArcListItem，非懒加载场景会全部加载。懒加载、非懒加载都只布局ArcList显示区域+ArcList显示区域外上下各cachedCount行的ArcListItem。
 
-ArcList设置cachedCount后，显示区域外上下各会预加载并布局cachedCount行ArcListItem。
-
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
@@ -156,7 +154,7 @@ ArcList设置cachedCount后，显示区域外上下各会预加载并布局cache
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| count | Optional&lt;number&gt; | 是 | ArcListItem的预加载数量。 默认值：根据屏幕内显示的节点个数设置，最大值为16。 取值范围：[0, +∞) |
+| count | Optional&lt;number&gt; | 是 | ArcListItem的预加载数量。 默认值：根据屏幕内显示的节点个数设置，最大值为16。 取值范围：[0, +∞) 设置为负数时，按1处理。 |
 
 
 
@@ -171,6 +169,8 @@ chainAnimation(enable: Optional&lt;boolean&gt;)
 
 链式联动效果：ArcList内的ArcListItem间隔一定距离，在基本的滑动交互行为下，主动对象驱动从动对象进行联动，驱动效果遵循弹簧物理动效。
 
+链式动效生效需要满足前提条件：ArcList边缘效果为[EdgeEffect.Spring](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#edgeeffect)类型。
+
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
@@ -179,7 +179,7 @@ chainAnimation(enable: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | Optional&lt;boolean&gt; | 是 | 是否启用链式联动动效。 默认值：false，不启用链式联动。true，启用链式联动。 |
+| enable | Optional&lt;boolean&gt; | 是 | 是否启用链式联动动效。仅当边缘效果为EdgeEffect.Spring时，链式联动动效才会生效。 默认值：false，不启用链式联动。true，启用链式联动。 |
 
 
 
@@ -232,7 +232,7 @@ fadingEdge(enable: Optional&lt;boolean&gt;)
 
 friction(friction: Optional&lt;number&gt;)
 
-设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程。设置为小于等于0的值时，按默认值处理。
+设置摩擦系数，手动滑动滚动区域时生效，仅影响惯性滚动过程。设置为小于等于0的值时，按默认值处理。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -242,7 +242,7 @@ friction(friction: Optional&lt;number&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| friction | Optional&lt;number&gt; | 是 | 摩擦系数。 默认值：0.8 取值范围：(0, +∞) |
+| friction | Optional&lt;number&gt; | 是 | 摩擦系数，手动滑动滚动区域时生效，仅影响惯性滚动过程。设置为小于等于0的值时，按默认值处理。 默认值：0.8 取值范围：(0, +∞) |
 
 
 
@@ -253,7 +253,7 @@ friction(friction: Optional&lt;number&gt;)
 
 scrollBarWidth(width: Optional&lt;LengthMetrics&gt;)
 
-设置滚动条的宽度。宽度设置后，滚动条按压状态宽度为设置的宽度值。
+设置ArcList滚动条在按压态下的宽度。未设置时，按压态宽度为LengthMetrics.vp(24)。非按压态宽度固定为LengthMetrics.vp(4)，不受该属性影响。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -263,7 +263,7 @@ scrollBarWidth(width: Optional&lt;LengthMetrics&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | Optional&lt;LengthMetrics&gt; | 是 | 滚动条的宽度。 默认值：LengthMetrics.vp(24) 最小值：LengthMetrics.vp(4) 单位：vp |
+| width | Optional&lt;LengthMetrics&gt; | 是 | ArcList滚动条在按压态下的宽度。 默认值：LengthMetrics.vp(24) 非按压态宽度：LengthMetrics.vp(4) 设置为负值、undefined等异常值时，按滚动条的普通态宽度处理。 单位：vp |
 
 
 
@@ -305,7 +305,7 @@ flingSpeedLimit(speed: Optional&lt;number&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| speed | Optional&lt;number&gt; | 是 | 惯性滚动动效开始时的最大初始速度。 默认值：9000 单位：vp/s 取值范围：(0, +∞) |
+| speed | Optional&lt;number&gt; | 是 | 惯性滚动动效开始时的最大初始速度。设置为小于等于0的值时，按默认值处理。 默认值：9000 单位：vp/s 取值范围：(0, +∞) |
 
 
 
@@ -326,7 +326,7 @@ childrenMainSize(size: Optional&lt;ChildrenMainSize&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| size | Optional&lt;ChildrenMainSize&gt; | 是 | 通过ChildrenMainSize对象向ArcList组件精确提供所有子组件在主轴方向的大小信息，能够确保ArcList组件在子组件主轴尺寸不统一、子组件的增删变动、以及使用scrollToIndex等场景时，仍能保持其滑动位置的准确性。进而保证了scrollTo能够精准跳转至指定位置，currentOffset或offset准确反映当前的滑动位置，且内置滚动条能够实现平滑移动，避免任何跳跃或突变，从API version 23开始，新增offset接口。 说明： 提供的主轴方向大小必须与子组件实际在主轴方向的大小一致，子组件在主轴方向大小发生变化或进行增删操作时，必须通过调用ChildrenMainSize对象的方法来及时通知ArcList组件。 |
+| size | Optional&lt;ChildrenMainSize&gt; | 是 | 通过ChildrenMainSize对象向ArcList组件精确提供所有子组件在主轴方向的大小信息，能够确保ArcList组件在子组件主轴尺寸不统一、子组件的增删变动、以及使用scrollToIndex等场景时，仍能保持其滑动位置的准确性。进而保证了scrollTo能够精准跳转至指定位置，currentOffset或offset准确反映当前的滑动位置，且内置滚动条能够实现平滑移动，避免任何跳跃或突变。从API version 23开始，新增offset接口。 说明： 提供的主轴方向大小必须与子组件实际在主轴方向的大小一致，否则可能导致ArcList组件显示异常。子组件在主轴方向大小发生变化或进行增删操作时，必须通过调用ChildrenMainSize对象的方法在变更后通知ArcList组件，否则可能导致ArcList组件显示异常。 |
 
 
 
@@ -345,7 +345,7 @@ onScrollIndex(handler: Optional&lt;ArcScrollIndexHandler&gt;)
 
 当子组件划入或划出ArcList的显示区域时，将触发此事件。在ArcList初始化时，此事件会被触发一次。当ArcList显示区域内的首个或末个子组件的索引值发生变化，或是显示区域中心的子组件发生变动时，同样会触发此事件。
 
-ArcList的边缘效果为弹簧效果时，在ArcList划动到边缘继续划动和松手回弹过程不会触发onScrollIndex事件。
+ArcList的边缘效果为弹簧效果时，在ArcList滑动到边缘后继续滑动以及松手回弹的过程中，不会触发onScrollIndex事件。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -391,7 +391,7 @@ onReachEnd(handler: Optional&lt;VoidCallback&gt;)
 
 列表到达末尾位置时触发。
 
-ArcList边缘效果为弹簧效果时，划动经过末尾位置时触发一次该事件，回弹回末尾位置时再触发一次该事件。
+ArcList边缘效果为弹簧效果时，滑动经过末尾位置时触发一次该事件，回弹返回末尾位置时再触发一次该事件。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -507,8 +507,8 @@ onDidScroll(handler: Optional&lt;OnScrollCallback&gt;)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | initialIndex | number | 否 | 是 | 设置当前ArcList初次加载时视窗起始位置显示的item的索引值。 默认值：0 说明： 设置为负数或超过了当前ArcList最后一个item的索引值时视为无效取值，无效取值按默认值显示。 |
-| scroller | Scroller | 否 | 是 | 可滚动组件的控制器。与ArcList绑定后，可以通过它控制ArcList的滚动。 说明： 不允许和其他滚动类组件，如：ArcList、List、Grid、Scroll和WaterFlow绑定同一个滚动控制对象。 |
-| header | ComponentContent | 否 | 是 | 支持标题设置。 |
+| scroller | Scroller | 否 | 是 | 可滚动组件的控制器。与ArcList绑定后，可以通过它控制ArcList的滚动。不设置时不绑定滚动控制器。 说明： 不允许和其他滚动类组件，如：List、Grid、Scroll和WaterFlow绑定同一个滚动控制对象。 |
+| header | ComponentContent | 否 | 是 | ArcList的头部组件，用于在列表顶部显示标题或自定义内容。不设置时不显示头部组件。 |
 
 
 
@@ -544,8 +544,7 @@ type ArcScrollIndexHandler = (start: number, end: number, center: number) => voi
 
 ```ArkTS
 // xxx.ets
-import { ComponentContent, LengthMetrics } from '@kit.ArkUI';
-import { UIContext, CircleShape } from '@kit.ArkUI';
+import { ComponentContent, LengthMetrics, UIContext, CircleShape } from '@kit.ArkUI';
 // 从API version 22开始，无需手动导入ArcListAttribute和ArcListItemAttribute。具体请参考ArcList、ArcListItem的导入模块说明。
 import { ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute } from '@kit.ArkUI';
 
@@ -562,16 +561,16 @@ function buildText() {
 @Entry
 @Component
 struct Index {
-  @State  private numItems: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  @State private numItems: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   private watchSize: string = '466px'; // Wearable默认宽高：466*466
   private listSize: string = '414px'; // item宽度
 
   context: UIContext = this.getUIContext();
-  tabBar1: ComponentContent<Object> = new ComponentContent(this.context, wrapBuilder(buildText));
+  headerContent: ComponentContent<Object> = new ComponentContent(this.context, wrapBuilder(buildText));
 
   @Builder
-  buildList2() {
+  buildList() {
     Stack() {
       Column() {
       }
@@ -581,7 +580,7 @@ struct Index {
       .clipShape(new CircleShape({ width: '100%', height: '100%' }))
       .backgroundColor(Color.White)
 
-      ArcList({ initialIndex: 0, header: this.tabBar1 }) {
+      ArcList({ initialIndex: 0, header: this.headerContent }) {
         ForEach(this.numItems, (item: number, index: number) => {
           ArcListItem() {
             Button('' + item, { type: ButtonType.Capsule })
@@ -609,7 +608,7 @@ struct Index {
 
   build() {
     Column() {
-      this.buildList2()
+      this.buildList()
     }
     .width('100%')
     .height('100%')
@@ -620,4 +619,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/IjhGl68PR3qufWpKoq6xAw/zh-cn_image_0000002647747794.png?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=1230970BA21198BFDA9512BA9594D09AA43D3814CF22B375D0FEE3B45C92CDD4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/ikDWd4c-S_mnHSQTnglWkw/zh-cn_image_0000002685928089.png?HW-CC-KV=V1&HW-CC-Date=20260730T071500Z&HW-CC-Expire=86400&HW-CC-Sign=49707EB5B6C7FC477D0C147818C95893DD7EDCA5AAFB4622E2D5114C47C42A24)

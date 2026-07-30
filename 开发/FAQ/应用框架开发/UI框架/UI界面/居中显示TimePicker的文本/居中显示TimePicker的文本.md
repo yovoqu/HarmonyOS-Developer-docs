@@ -9,7 +9,7 @@
 在使用TimePicker组件时，小时和分钟文本的默认间距及对齐方式如下图所示。请问如何调整设置以减小两者之间的间距并使文本居中显示？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/-zQIfxFySgCp0u7HwknZpw/zh-cn_image_0000002658791799.png?HW-CC-KV=V1&HW-CC-Date=20260723T013107Z&HW-CC-Expire=86400&HW-CC-Sign=88022592A68EDF1C51FE195B116463FF5ADB1818EAFFC09E6BE21B091A521088)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/-zQIfxFySgCp0u7HwknZpw/zh-cn_image_0000002658791799.png?HW-CC-KV=V1&HW-CC-Date=20260730T072453Z&HW-CC-Expire=86400&HW-CC-Sign=54B0043711642B30B3921B4377D9C73ED1E2D1B32427AD3CA9CDCA97A53B4415)
 
  
  
@@ -17,7 +17,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/eTeRSz-aQLacFjgo7vq7sA/zh-cn_image_0000002628552422.png?HW-CC-KV=V1&HW-CC-Date=20260723T013107Z&HW-CC-Expire=86400&HW-CC-Sign=9A6F471ABA034C4C3D05B759D0EC0EE557C0E50611D4E636734E47705AB22E01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/eTeRSz-aQLacFjgo7vq7sA/zh-cn_image_0000002628552422.png?HW-CC-KV=V1&HW-CC-Date=20260730T072453Z&HW-CC-Expire=86400&HW-CC-Sign=F299863E9C4DBC6BE57855ABC51C476E5C067ECFFA7B30F2995B4427B419EB1C)
 
  
  

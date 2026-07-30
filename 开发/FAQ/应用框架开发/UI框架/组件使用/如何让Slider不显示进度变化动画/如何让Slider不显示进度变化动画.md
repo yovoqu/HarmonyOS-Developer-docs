@@ -13,7 +13,7 @@ Slider在点击和长按某个位置时，如何让进度直接展示，不显�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/ZkkJTh5jR_6ArUusJmuy_Q/zh-cn_image_0000002658804037.png?HW-CC-KV=V1&HW-CC-Date=20260723T012642Z&HW-CC-Expire=86400&HW-CC-Sign=41721F183E9E3B4D1F92494186B9C563640EDDB66DD5F13322B911E65E5CBE22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/ZkkJTh5jR_6ArUusJmuy_Q/zh-cn_image_0000002658804037.png?HW-CC-KV=V1&HW-CC-Date=20260730T072336Z&HW-CC-Expire=86400&HW-CC-Sign=7FF1A33CF1495C92F1E33C041B4A050809E525DCE7B87583B91051CA439BC18B)
 
  
  

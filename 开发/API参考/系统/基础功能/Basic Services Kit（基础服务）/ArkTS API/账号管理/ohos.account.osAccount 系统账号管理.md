@@ -1,6 +1,6 @@
 # @ohos.account.osAccount (系统账号管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -225,7 +225,7 @@ checkOsAccountActivated(localId: number, callback: AsyncCallback&lt;boolean&gt;)
 判断指定系统账号是否处于激活状态。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -261,6 +261,7 @@ checkOsAccountActivated(localId: number, callback: AsyncCallback&lt;boolean&gt;)
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.checkOsAccountActivated(localId, (err: BusinessError, isActivated: boolean) => {
@@ -287,7 +288,7 @@ checkOsAccountActivated(localId: number): Promise&lt;boolean&gt;
 判断指定系统账号是否处于激活状态。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -329,6 +330,7 @@ checkOsAccountActivated(localId: number): Promise&lt;boolean&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.checkOsAccountActivated(localId).then((isActivated: boolean) => {
@@ -380,7 +382,7 @@ isOsAccountConstraintEnabled(constraint: string): Promise&lt;boolean&gt;
 
 **示例：**
 
-判断ID为100的系统账号是否有禁止使用Wi-Fi的约束。
+判断当前系统账号是否有禁止使用Wi-Fi的约束。
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -410,7 +412,7 @@ checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: A
 判断指定系统账号是否具有指定约束。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -447,6 +449,7 @@ checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: A
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 let constraint: string = 'constraint.wifi';
 try {
@@ -474,7 +477,7 @@ checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise&lt
 判断指定系统账号是否具有指定约束。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -517,6 +520,7 @@ checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise&lt
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 let constraint: string = 'constraint.wifi';
 try {
@@ -634,7 +638,7 @@ try {
 
 isOsAccountUnlocked(): Promise&lt;boolean&gt;
 
-检查当前系统账号是否已认证解锁。使用Promise异步回调。
+检查当前系统账号是否已解锁。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.OsAccount
 
@@ -642,7 +646,7 @@ isOsAccountUnlocked(): Promise&lt;boolean&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。 |
+| Promise&lt;boolean&gt; | Promise对象。返回true表示当前账号已解锁；返回false表示当前账号未解锁。 |
 
 
 **错误码：**
@@ -683,7 +687,7 @@ checkOsAccountVerified(callback: AsyncCallback&lt;boolean&gt;): void
 检查当前系统账号是否已认证解锁。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。建议使用 isOsAccountUnlocked 替代。
+> 从API version 9开始支持，从API version 11开始废弃，建议使用 isOsAccountUnlocked 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -735,7 +739,7 @@ checkOsAccountVerified(): Promise&lt;boolean&gt;
 检查当前系统账号是否已认证解锁。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。建议使用 isOsAccountUnlocked 替代。
+> 从API version 9开始支持，从API version 11开始废弃，建议使用 isOsAccountUnlocked 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -785,7 +789,7 @@ checkOsAccountVerified(localId: number, callback: AsyncCallback&lt;boolean&gt;):
 检查指定系统账号是否已验证。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -797,7 +801,7 @@ checkOsAccountVerified(localId: number, callback: AsyncCallback&lt;boolean&gt;):
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | localId | number | 是 | 系统账号ID。 |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回true表示指定账号已认证解锁；返回false表示指定账号未认证解锁。 |
 
 
 **错误码：**
@@ -819,6 +823,7 @@ checkOsAccountVerified(localId: number, callback: AsyncCallback&lt;boolean&gt;):
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.checkOsAccountVerified(localId, (err: BusinessError, isVerified: boolean) => {
@@ -845,7 +850,7 @@ checkOsAccountVerified(localId: number): Promise&lt;boolean&gt;
 检查指定系统账号是否已验证。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -885,6 +890,7 @@ checkOsAccountVerified(localId: number): Promise&lt;boolean&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.checkOsAccountVerified(localId).then((isVerified: boolean) => {
@@ -1133,13 +1139,15 @@ getOsAccountLocalIdForUid(uid: number, callback: AsyncCallback&lt;number&gt;): v
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// uid为进程uid，请通过应用信息获取
 let uid: number = 12345678;
 try {
   accountManager.getOsAccountLocalIdForUid(uid, (err: BusinessError, localId: number) => {
     if (err) {
       console.error(`getOsAccountLocalIdForUid failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('getOsAccountLocalIdForUid successfully, localId: ' + localId);
     }
-    console.info('getOsAccountLocalIdForUid successfully, localId: ' + localId);
   });
 } catch (e) {
   const err = e as BusinessError;
@@ -1192,6 +1200,7 @@ getOsAccountLocalIdForUid(uid: number): Promise&lt;number&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// uid为进程uid，请通过应用信息获取
 let uid: number = 12345678;
 try {
   accountManager.getOsAccountLocalIdForUid(uid).then((localId: number) => {
@@ -1249,6 +1258,7 @@ getOsAccountLocalIdForUidSync(uid: number): number
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// uid为进程uid，请通过应用信息获取
 let uid: number = 12345678;
 try {
   let localId : number = accountManager.getOsAccountLocalIdForUidSync(uid);
@@ -1344,6 +1354,7 @@ getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallb
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 12300001 | The system service works abnormally. |
 | 12300002 | Invalid domainInfo. |
+| 12300003 | Domain account not found. |
 
 
 **示例：**
@@ -1405,6 +1416,7 @@ getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise&lt;number&g
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 12300001 | The system service works abnormally. |
 | 12300002 | Invalid domainInfo. |
+| 12300003 | Domain account not found. |
 
 
 **示例：**
@@ -1437,7 +1449,7 @@ getOsAccountConstraints(localId: number, callback: AsyncCallback<Array&lt;string
 获取指定系统账号的全部约束。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -1473,6 +1485,7 @@ getOsAccountConstraints(localId: number, callback: AsyncCallback<Array&lt;string
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.getOsAccountConstraints(localId, (err: BusinessError, constraints: string[]) => {
@@ -1499,7 +1512,7 @@ getOsAccountConstraints(localId: number): Promise<Array&lt;string&gt;>
 获取指定系统账号的全部约束。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -1541,6 +1554,7 @@ getOsAccountConstraints(localId: number): Promise<Array&lt;string&gt;>
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.getOsAccountConstraints(localId).then((constraints: string[]) => {
@@ -1663,7 +1677,7 @@ getCurrentOsAccount(callback: AsyncCallback&lt;OsAccountInfo&gt;): void
 查询当前进程所属的系统账号的信息。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.GET_LOCAL_ACCOUNTS10+，以上权限仅系统应用可申请。
@@ -1719,7 +1733,7 @@ getCurrentOsAccount(): Promise&lt;OsAccountInfo&gt;
 查询当前进程所属的系统账号的信息。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
+> 从API version 9开始支持，从API version 11开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.GET_LOCAL_ACCOUNTS10+，以上权限仅系统应用可申请。
@@ -1997,6 +2011,7 @@ getOsAccountLocalIdForSerialNumber(serialNumber: number, callback: AsyncCallback
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// serialNumber为账号SN码，可通过getSerialNumberForOsAccountLocalId接口获取
 let serialNumber: number = 12345;
 try {
   accountManager.getOsAccountLocalIdForSerialNumber(serialNumber, (err: BusinessError, localId: number)=>{
@@ -2058,6 +2073,7 @@ getOsAccountLocalIdForSerialNumber(serialNumber: number): Promise&lt;number&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// serialNumber为账号SN码，可通过getSerialNumberForOsAccountLocalId接口获取
 let serialNumber: number = 12345;
 try {
   accountManager.getOsAccountLocalIdForSerialNumber(serialNumber).then((localId: number) => {
@@ -2111,6 +2127,7 @@ getSerialNumberForOsAccountLocalId(localId: number, callback: AsyncCallback&lt;n
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.getSerialNumberForOsAccountLocalId(localId, (err: BusinessError, serialNumber: number)=>{
@@ -2172,6 +2189,7 @@ getSerialNumberForOsAccountLocalId(localId: number): Promise&lt;number&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 try {
   accountManager.getSerialNumberForOsAccountLocalId(localId).then((serialNumber: number) => {
@@ -2196,7 +2214,7 @@ isMultiOsAccountEnable(callback: AsyncCallback&lt;boolean&gt;): void
 判断是否支持多系统账号。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 checkMultiOsAccountEnabled 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 checkMultiOsAccountEnabled 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2234,7 +2252,7 @@ isMultiOsAccountEnable(): Promise&lt;boolean&gt;
 判断是否支持多系统账号。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 checkMultiOsAccountEnabled 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 checkMultiOsAccountEnabled 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2270,7 +2288,7 @@ isOsAccountActived(localId: number, callback: AsyncCallback&lt;boolean&gt;): voi
 判断指定系统账号是否处于激活状态。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -2293,6 +2311,7 @@ isOsAccountActived(localId: number, callback: AsyncCallback&lt;boolean&gt;): voi
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.isOsAccountActived(localId, (err: BusinessError, isActived: boolean) => {
   if (err) {
@@ -2314,7 +2333,7 @@ isOsAccountActived(localId: number): Promise&lt;boolean&gt;
 判断指定系统账号是否处于激活状态。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -2343,6 +2362,7 @@ isOsAccountActived(localId: number): Promise&lt;boolean&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.isOsAccountActived(localId).then((isActived: boolean) => {
   console.info('isOsAccountActived successfully, isActived: ' + isActived);
@@ -2362,7 +2382,7 @@ isOsAccountConstraintEnable(localId: number, constraint: string, callback: Async
 判断指定系统账号是否具有指定约束。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -2386,6 +2406,7 @@ isOsAccountConstraintEnable(localId: number, constraint: string, callback: Async
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 let constraint: string = 'constraint.wifi';
 accountManager.isOsAccountConstraintEnable(localId, constraint, (err: BusinessError, isEnabled: boolean) => {
@@ -2408,7 +2429,7 @@ isOsAccountConstraintEnable(localId: number, constraint: string): Promise&lt;boo
 判断指定系统账号是否具有指定约束。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -2438,6 +2459,7 @@ isOsAccountConstraintEnable(localId: number, constraint: string): Promise&lt;boo
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 let constraint: string = 'constraint.wifi';
 accountManager.isOsAccountConstraintEnable(localId, constraint).then((isEnabled: boolean) => {
@@ -2458,7 +2480,7 @@ isTestOsAccount(callback: AsyncCallback&lt;boolean&gt;): void
 检查当前系统账号是否为测试账号。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 checkOsAccountTestable 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 checkOsAccountTestable 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2496,7 +2518,7 @@ isTestOsAccount(): Promise&lt;boolean&gt;
 检查当前系统账号是否为测试账号。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 checkOsAccountTestable 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 checkOsAccountTestable 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2532,7 +2554,7 @@ isOsAccountVerified(callback: AsyncCallback&lt;boolean&gt;): void
 检查当前系统账号是否已验证。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 checkOsAccountVerified 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 checkOsAccountVerified 替代。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -2543,7 +2565,7 @@ isOsAccountVerified(callback: AsyncCallback&lt;boolean&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回true表示指定账号已验证；返回false表示指定账号未验证。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回true表示当前账号已验证；返回false表示当前账号未验证。 |
 
 
 **示例：**
@@ -2572,7 +2594,7 @@ isOsAccountVerified(localId: number, callback: AsyncCallback&lt;boolean&gt;): vo
 检查指定系统账号是否已验证。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -2593,6 +2615,7 @@ isOsAccountVerified(localId: number, callback: AsyncCallback&lt;boolean&gt;): vo
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.isOsAccountVerified(localId, (err: BusinessError, isVerified: boolean) => {
   if (err) {
@@ -2614,7 +2637,7 @@ isOsAccountVerified(localId?: number): Promise&lt;boolean&gt;
 检查指定系统账号是否已验证。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS或ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS，以上权限仅系统应用可申请。
@@ -2659,7 +2682,7 @@ getCreatedOsAccountsCount(callback: AsyncCallback&lt;number&gt;): void
 获取已创建的系统账号数量。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountCount 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountCount 替代。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -2699,7 +2722,7 @@ getCreatedOsAccountsCount(): Promise&lt;number&gt;
 获取已创建的系统账号数量。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountCount 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountCount 替代。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -2737,7 +2760,7 @@ getOsAccountLocalIdFromProcess(callback: AsyncCallback&lt;number&gt;): void
 获取当前进程所属的系统账号ID。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalId 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalId 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2775,7 +2798,7 @@ getOsAccountLocalIdFromProcess(): Promise&lt;number&gt;
 获取当前进程所属的系统账号ID。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalId 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalId 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2811,7 +2834,7 @@ getOsAccountLocalIdFromUid(uid: number, callback: AsyncCallback&lt;number&gt;): 
 根据uid查询对应的系统账号ID。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalIdForUid 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalIdForUid 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2853,7 +2876,7 @@ getOsAccountLocalIdFromUid(uid: number): Promise&lt;number&gt;
 根据uid查询对应的系统账号ID。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalIdForUid 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalIdForUid 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -2899,7 +2922,7 @@ getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo, callback: AsyncCall
 根据域账号信息，获取与其关联的系统账号的账号ID。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalIdForDomain 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalIdForDomain 替代。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -2941,7 +2964,7 @@ getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo): Promise&lt;number&
 根据域账号信息，获取与其关联的系统账号的账号ID。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalIdForDomain 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalIdForDomain 替代。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -2987,7 +3010,7 @@ getOsAccountAllConstraints(localId: number, callback: AsyncCallback<Array&lt;str
 获取指定系统账号的全部约束。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -3010,6 +3033,7 @@ getOsAccountAllConstraints(localId: number, callback: AsyncCallback<Array&lt;str
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.getOsAccountAllConstraints(localId, (err: BusinessError, constraints: string[])=>{
   if (err) {
@@ -3031,7 +3055,7 @@ getOsAccountAllConstraints(localId: number): Promise<Array&lt;string&gt;>
 获取指定系统账号的全部约束。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -3060,6 +3084,7 @@ getOsAccountAllConstraints(localId: number): Promise<Array&lt;string&gt;>
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.getOsAccountAllConstraints(localId).then((constraints: string[]) => {
   console.info('getOsAccountAllConstraints, constraints: ' + constraints);
@@ -3079,7 +3104,7 @@ queryActivatedOsAccountIds(callback: AsyncCallback<Array&lt;number&gt;>): void
 查询当前处于激活状态的系统账号的ID列表。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getActivatedOsAccountLocalIds 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getActivatedOsAccountLocalIds 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3118,7 +3143,7 @@ accountManager.queryActivatedOsAccountIds((err: BusinessError, idArray: number[]
 queryActivatedOsAccountIds(): Promise<Array&lt;number&gt;>
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getActivatedOsAccountLocalIds 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getActivatedOsAccountLocalIds 替代。
 
 
 查询当前处于激活状态的系统账号的ID列表。使用Promise异步回调。
@@ -3156,7 +3181,7 @@ queryCurrentOsAccount(callback: AsyncCallback&lt;OsAccountInfo&gt;): void
 查询当前进程所属的系统账号的信息。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -3196,7 +3221,7 @@ queryCurrentOsAccount(): Promise&lt;OsAccountInfo&gt;
 查询当前进程所属的系统账号的信息。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
+> 从API version 7开始支持，从API version 9开始废弃，替代方法仅向系统应用开放。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS，该权限仅系统应用可申请。
@@ -3234,7 +3259,7 @@ getOsAccountTypeFromProcess(callback: AsyncCallback&lt;OsAccountType&gt;): void
 查询当前进程所属的系统账号的账号类型。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountType 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountType 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3272,7 +3297,7 @@ getOsAccountTypeFromProcess(): Promise&lt;OsAccountType&gt;
 查询当前进程所属的系统账号的账号类型。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 getOsAccountType 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getOsAccountType 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3308,7 +3333,7 @@ getDistributedVirtualDeviceId(callback: AsyncCallback&lt;string&gt;): void
 获取分布式虚拟设备ID。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 queryDistributedVirtualDeviceId 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 queryDistributedVirtualDeviceId 替代。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS（仅系统应用可申请）或 ohos.permission.DISTRIBUTED_DATASYNC
@@ -3348,7 +3373,7 @@ getDistributedVirtualDeviceId(): Promise&lt;string&gt;
 获取分布式虚拟设备ID。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用 queryDistributedVirtualDeviceId 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 queryDistributedVirtualDeviceId 替代。
 
 
 **需要权限：** ohos.permission.MANAGE_LOCAL_ACCOUNTS（仅系统应用可申请）或ohos.permission.DISTRIBUTED_DATASYNC
@@ -3386,7 +3411,7 @@ getOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback&
 通过SN码查询与其关联的系统账号的账号ID。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalIdForSerialNumber 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalIdForSerialNumber 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3428,7 +3453,7 @@ getOsAccountLocalIdBySerialNumber(serialNumber: number): Promise&lt;number&gt;
 通过SN码查询与其关联的系统账号的账号ID。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getOsAccountLocalIdForSerialNumber 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getOsAccountLocalIdForSerialNumber 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3474,7 +3499,7 @@ getSerialNumberByOsAccountLocalId(localId: number, callback: AsyncCallback&lt;nu
 通过系统账号ID获取与该系统账号关联的SN码。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getSerialNumberForOsAccountLocalId 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getSerialNumberForOsAccountLocalId 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3495,6 +3520,7 @@ getSerialNumberByOsAccountLocalId(localId: number, callback: AsyncCallback&lt;nu
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.getSerialNumberByOsAccountLocalId(localId, (err: BusinessError, serialNumber: number)=>{
   if (err) {
@@ -3516,7 +3542,7 @@ getSerialNumberByOsAccountLocalId(localId: number): Promise&lt;number&gt;
 通过系统账号ID获取与该系统账号关联的SN码。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用 getSerialNumberForOsAccountLocalId 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getSerialNumberForOsAccountLocalId 替代。
 
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3543,6 +3569,7 @@ getSerialNumberByOsAccountLocalId(localId: number): Promise&lt;number&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.getSerialNumberByOsAccountLocalId(localId).then((serialNumber: number) => {
   console.info('getSerialNumberByOsAccountLocalId serialNumber: ' + serialNumber);
@@ -3675,7 +3702,7 @@ getForegroundOsAccountLocalId(): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。返回前台系统账号的ID。 |
+| Promise&lt;number&gt; | Promise对象，返回前台系统账号的ID。 |
 
 
 **错误码：**
@@ -3730,7 +3757,7 @@ getOsAccountDomainInfo(localId: number): Promise&lt;DomainAccountInfo&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;DomainAccountInfo&gt; | Promise对象。返回与指定系统账号关联的域账号信息。 |
+| Promise&lt;DomainAccountInfo&gt; | Promise对象，返回与指定系统账号关联的域账号信息。 |
 
 
 **错误码：**
@@ -3751,6 +3778,7 @@ getOsAccountDomainInfo(localId: number): Promise&lt;DomainAccountInfo&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+// localId为系统账号ID，请通过getOsAccountLocalId接口获取
 let localId: number = 100;
 accountManager.getOsAccountDomainInfo(localId).then((domainAccountInfo: osAccount.DomainAccountInfo) => {
   if (domainAccountInfo === null) {
@@ -3798,7 +3826,7 @@ updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccou
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -3880,7 +3908,7 @@ try {
 | domain | string | 否 | 否 | 域名。 |
 | accountName | string | 否 | 否 | 域账号名。 |
 | serverConfigId18+ | string | 否 | 是 | 域账号配置ID，默认为空字符串。 |
-| additionalInfo | Record<string, Object> | 否 | 是 | 域账号附加信息。 起始版本： 26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
+| additionalInfo | Record<string, Object> | 否 | 是 | 域账号附加信息，默认为空。 起始版本： 26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
 
 
 
@@ -3926,7 +3954,7 @@ static addServerConfig(parameters: Record<string, Object>): Promise&lt;DomainSer
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameters | Record<string, Object> | 是 | 表示域服务器配置参数。 |
+| parameters | Record<string, Object> | 是 | 表示域服务器配置参数，用于配置域服务器的连接信息。参数对象包含服务器地址、端口等配置项。 |
 
 
 **返回值：**
@@ -3993,7 +4021,7 @@ static removeServerConfig(configId: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -4047,7 +4075,7 @@ static updateServerConfig(configId: string, parameters: Record<string, Object>):
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | configId | string | 是 | 表示服务器配置标识。 |
-| parameters | Record<string, Object> | 是 | 表示域服务器配置参数。 |
+| parameters | Record<string, Object> | 是 | 表示域服务器配置参数，用于配置域服务器的连接信息。参数对象包含服务器地址、端口等配置项。 |
 
 
 **返回值：**

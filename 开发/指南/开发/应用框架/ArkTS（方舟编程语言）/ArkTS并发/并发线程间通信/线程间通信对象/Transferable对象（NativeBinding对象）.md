@@ -1,6 +1,6 @@
 # Transferable对象 (NativeBinding对象)
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transferabled-object
 
@@ -15,9 +15,7 @@ Transferable对象，也称为NativeBinding对象，是指绑定C++对象的JS�
 ![](assets/Transferable对象（NativeBinding对象）/file-20260514130434231-0.png)
 
 
-常见的共享模式NativeBinding对象包括：应用上下文（ApplicationContext）、窗口上下文（WindowContext）、组件上下文（AbilityContext或ComponentContext）等Context类型对象。这些上下文对象封装了应用程序组件的上下文信息，提供了访问系统服务和资源的能力，使得应用程序组件可以与系统进行交互。获取Context信息的方法可以参考[获取上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)。
-
-示例可参考[使用TaskPool进行频繁数据库操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/batch-database-operations-guide#使用taskpool进行频繁数据库操作)。
+常见的共享模式NativeBinding对象包括：应用上下文（[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)）、窗口上下文（WindowContext）、组件上下文（AbilityContext或ComponentContext）等Context类型对象。这些上下文对象封装了应用程序组件的上下文信息，提供了访问系统服务和资源的能力，使得应用程序组件可以与系统进行交互。获取Context信息的方法可以参考[获取上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)。跨线程共享使用上下文的示例可参考[使用TaskPool进行频繁数据库操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/batch-database-operations-guide#使用taskpool进行频繁数据库操作)。
 
 
 
@@ -47,21 +45,26 @@ struct Index {
 
   private async loadImageFromThread(): Promise<void> {
     const resourceMgr = this.uiContext?.getHostContext()?.resourceManager;
-    // 此处‘startIcon.png’为media下复制到rawfile文件夹中，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
+    // 此处‘startIcon.png’为media下复制到工程中的resources/rawfile文件夹中，请开发者自行替换，
+    // 否则imageSource创建失败会导致后续无法正常执行（日志中会打印Failed to get RawFd）。
     await resourceMgr?.getRawFd('startIcon.png').then(async rawFileDescriptor => {
       await taskpool.execute(loadPixelMap, rawFileDescriptor).then(pixelMap => {
         if (pixelMap) {
           this.pixelMap = pixelMap as PixelMap;
+          this.message = 'success';
           console.info('Succeeded in creating pixelMap.');
           // 主线程释放pixelMap。由于子线程返回pixelMap时已调用setTransferDetached，所以此处能够立即释放pixelMap。
           this.pixelMap.release();
         } else {
+          this.message = 'failed';
           console.error('Failed to create pixelMap.');
         }
       }).catch((e: BusinessError) => {
-        console.error('taskpool execute loadPixelMap failed. Code: ' + e.code + ', message: ' + e.message);
+        this.message = 'failed';
+           console.error(`taskpool execute loadPixelMap failed. Code: ${e.code}, message: ${e.message}`);
       });
     }).catch(() => {
+      this.message = 'failed';
       console.error(`Failed to get RawFd`);
     });
   }
@@ -77,12 +80,7 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-          this.loadImageFromThread().then(() => {
-            this.message = 'success';
-          }).catch((e: BusinessError) => {
-            this.message = 'failed';
-            console.error('taskpool execute loadImageFromThread failed. Code: ' + e.code + ', message: ' + e.message);
-          })
+          this.loadImageFromThread();
         })
     }
     .height('100%')

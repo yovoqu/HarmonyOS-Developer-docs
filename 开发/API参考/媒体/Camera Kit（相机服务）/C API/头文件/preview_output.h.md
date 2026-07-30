@@ -1,6 +1,6 @@
 # preview_output.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-preview-output-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -67,6 +67,8 @@
 | Camera_ErrorCode OH_PreviewOutput_IsBandwidthCompressionSupported(Camera_PreviewOutput* previewOutput, bool* isSupported) | - | 检查是否支持预览带宽压缩（指通过编码减少数据量，降低其在传输链路中的带宽占用）。 |
 | Camera_ErrorCode OH_PreviewOutput_EnableBandwidthCompression(Camera_PreviewOutput* previewOutput, bool enabled) | - | 使能预览带宽压缩。 该接口只能在使用OH_CaptureSession_CommitConfig()接口之前调用，否则会影响预览流出流格式。 |
 | Camera_ErrorCode OH_PreviewOutput_AddDeferredSurface(const Camera_PreviewOutput* previewOutput, const char* surfaceId) | - | 配置延迟预览的Surface。 |
+| bool OH_PreviewOutput_IsLogViewAssistSupported(const Camera_PreviewOutput* previewOutput) | - | 检查是否支持辅助监看功能。 |
+| Camera_ErrorCode OH_PreviewOutput_SetLogViewAssistEnable(Camera_PreviewOutput* previewOutput, bool enable) | - | 使能辅助监看功能。 该接口只能在使用OH_CaptureSession_CommitConfig()接口之后调用。 |
 
 
 
@@ -677,3 +679,66 @@ Camera_ErrorCode OH_PreviewOutput_AddDeferredSurface(const Camera_PreviewOutput*
 | 类型 | 说明 |
 | --- | --- |
 | Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 |
+
+
+
+
+#### OH_PreviewOutput_IsLogViewAssistSupported()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+bool OH_PreviewOutput_IsLogViewAssistSupported(const Camera_PreviewOutput* previewOutput)
+```
+
+**描述**
+
+检查是否支持辅助监看功能。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_PreviewOutput* previewOutput | 预览输出实例。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| bool | 是否支持辅助监看的结果。true表示支持，false表示不支持。 |
+
+
+
+
+#### OH_PreviewOutput_SetLogViewAssistEnable()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PreviewOutput_SetLogViewAssistEnable(Camera_PreviewOutput* previewOutput, bool enable)
+```
+
+**描述**
+
+使能辅助监看功能。
+
+该接口只能在使用[OH_CaptureSession_CommitConfig()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_commitconfig)接口之后调用。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_PreviewOutput* previewOutput | 指向当前要使能辅助监看的预览输出实例的指针。 |
+| bool enable | 是否使能预览辅助监看。true表示使能，false表示不使能。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_ERROR_CAPABILITY_NOT_SUPPORTED：表示设备当前不支持该能力。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SESSION_NOT_CONFIG：相机会话未配置。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |

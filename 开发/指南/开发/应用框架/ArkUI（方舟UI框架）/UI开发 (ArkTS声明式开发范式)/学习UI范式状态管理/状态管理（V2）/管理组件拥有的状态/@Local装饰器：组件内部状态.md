@@ -1,10 +1,10 @@
 # @Local装饰器：组件内部状态
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local
 
-为了实现对@ComponentV2装饰的自定义组件中变量变化的观测，开发者可以使用@Local装饰器装饰变量。
+为了实现对@ComponentV2装饰的自定义组件中变量变化的观测，开发者可以使用[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-local#local)装饰器装饰变量。
 
 在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)。常见问题请参考[组件内状态变量常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component)。
 
@@ -705,7 +705,7 @@ struct Index {
 
 在下面的场景中，[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)暂不支持直接在状态管理V2中使用。
 
-```ArkTS
+```text
 @Entry
 @ComponentV2
 struct Index {
@@ -749,7 +749,7 @@ struct Index {
 
 从API version 22开始，可以使用[applySync接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)实现预期的显示效果。
 
-```ArkTS
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry

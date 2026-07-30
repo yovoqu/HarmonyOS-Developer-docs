@@ -1,6 +1,6 @@
 # Interface (OISQuery)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-oisquery
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -47,7 +47,7 @@ isOISModeSupported(mode: OISMode): boolean
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 当前设备是否支持指定的OIS模式。返回true表示支持指，返回false表示不支持。 |
+| boolean | 当前设备是否支持指定的OIS模式。返回true表示支持，返回false表示不支持。 |
  
  
 **错误码：**

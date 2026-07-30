@@ -58,7 +58,7 @@ struct <span style="color: rgb(0,0,255);">CombinedSpanExampleOne </span><span st
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/AzzYjzhPRp-ZtPbw8zbrRg/zh-cn_image_0000002628394514.png?HW-CC-KV=V1&HW-CC-Date=20260723T012549Z&HW-CC-Expire=86400&HW-CC-Sign=16E452826315E16321C635047ABDDF5407D68EB963C13BB10BFE946A578E7E16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/AzzYjzhPRp-ZtPbw8zbrRg/zh-cn_image_0000002628394514.png?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=74E9C1646AB7750FCA8DC36B51B385DB77D365E03F9AEC7CBE9278E93026C075)
 
 - 针对效果二：先获取当前屏幕宽度，再计算指定文本的宽度，将两者对比判断是否需要换行，如果需要换行，则插入一个换行符来实现。
 ```text
@@ -127,7 +127,7 @@ struct <span style="color: rgb(0,0,255);">CombinedSpanExampleTwo </span><span st
   换行效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/oqfIi_2zTxqqi98QxzwQkg/zh-cn_image_0000002658793781.png?HW-CC-KV=V1&HW-CC-Date=20260723T012549Z&HW-CC-Expire=86400&HW-CC-Sign=6FDC372923FA1CC42E538CCF7BBDD7B2A4F209C910AF79E941D44FFA389DB39C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/oqfIi_2zTxqqi98QxzwQkg/zh-cn_image_0000002658793781.png?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=67384402223535A84A3CA19AAA712DEA94D3B981EE289E9AE9F2F138E6D53031)
 
 
   当changeLine方法传入的文本（message）和msg加起来不超过一行时，不会进行换行。
@@ -135,7 +135,7 @@ struct <span style="color: rgb(0,0,255);">CombinedSpanExampleTwo </span><span st
   不换行效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/OEz5CWX7STm2tfHJmdUBnA/zh-cn_image_0000002628554404.png?HW-CC-KV=V1&HW-CC-Date=20260723T012549Z&HW-CC-Expire=86400&HW-CC-Sign=F4DA365172C4677E4DE3379B6CA078281F4EC3C12F6A25676658D817D053AAB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/OEz5CWX7STm2tfHJmdUBnA/zh-cn_image_0000002628554404.png?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=C5A6C341F9995839D13938C79807AB52BB13FE76982FB5E1F471C1256910CE50)
 
 
  - **场景二**：将以上两个效果结合在一起实现。使用substring()方法截取指定长度字符，通过三元运算符来动态截断文本换行并添加省略号实现以上两个效果。
@@ -179,7 +179,7 @@ struct <span style="color: rgb(0,0,255);">CombinedSpanExampleThree </span><span 
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/7x1WMC49Tw6tc-_SPDmt8Q/zh-cn_image_0000002658913729.png?HW-CC-KV=V1&HW-CC-Date=20260723T012549Z&HW-CC-Expire=86400&HW-CC-Sign=A1E3A81A0E890AF0D9B81B3D84BD055E52AD0C10F0EA24A84AD8F38B407A2150)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/7x1WMC49Tw6tc-_SPDmt8Q/zh-cn_image_0000002658913729.png?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=5FB3C6183405383503AC5849C0B9283077AE9D458A1FF52EDB9CBDE1266EBB6D)
 
 
  

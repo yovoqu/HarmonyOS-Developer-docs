@@ -15,7 +15,7 @@
 应用在访问数据或者执行操作时，需要评估该行为是否需要应用具备相关的权限。如果确认需要目标权限，则需要在应用安装包中申请目标权限，开发者可以依据下述流程图判断是否可以申请[受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/b900YoHdQnG0aa81wG_IBQ/zh-cn_image_0000002628631568.png?HW-CC-KV=V1&HW-CC-Date=20260723T012456Z&HW-CC-Expire=86400&HW-CC-Sign=0E7C79FBD54776651FF08D3079D45E06CBC998CED8F57AAEBDEAF5DCF707428F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/b900YoHdQnG0aa81wG_IBQ/zh-cn_image_0000002628631568.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=805AEE7E7E78295B8A3EA3127D66BE09D7CA1A3167A00DBBBE5050D6C627F236)
 
  
  

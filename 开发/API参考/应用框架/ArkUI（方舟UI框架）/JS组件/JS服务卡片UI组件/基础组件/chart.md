@@ -1,6 +1,6 @@
 # chart
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-chart
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -29,7 +29,7 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | type | string | line | 否 | 设置图表类型（不支持动态修改），可选项有： - bar：柱状图。 - line：线形图。 - gauge：量规图。 - progress：进度类圆形图表。 - loading：加载类圆形图表。 - rainbow：占比类圆形图表。 |
-| options | ChartOptions | - | 否 | 图表参数设置，用于设置x轴、y轴的最小值、最大值、刻度数、是否显示，线条宽度、是否平滑等。（不支持动态修改）,量规图不生效。 |
+| options | ChartOptions | - | 否 | 图表参数设置，用于设置x轴、y轴的最小值、最大值、刻度数、是否显示，线条宽度、是否平滑等。（不支持动态修改），量规图不生效。 |
 | datasets | Array&lt;ChartDataset&gt; | - | 否 | 数据集合，用于设置多条数据集及其背景色，量规图不生效。 |
 | segments | DataSegment \| Array&lt;DataSegment&gt; | - | 否 | 进度类、加载类和占比类圆形图表使用的数据结构。 DataSegment针对进度类和加载类圆形图表使用，Array&lt;DataSegment&gt;针对占比类图表使用，DataSegment最多9个。 |
 | effects | boolean | true | 否 | 是否开启占比类、进度类圆形图表特效。 默认值：true，表示开启占比类、进度类圆形图表特效。 |
@@ -382,4 +382,4 @@
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/-mySa6lpQiWpwoK7_2dCjg/zh-cn_image_0000002647748666.png?HW-CC-KV=V1&HW-CC-Date=20260723T012003Z&HW-CC-Expire=86400&HW-CC-Sign=787F0A8EB498E1C883CD25FD9B5900A1C6640472BDAFF757474B6FC22F3BE549)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/BPwhG7nmQRubR6pQQP-RdQ/zh-cn_image_0000002686088769.png?HW-CC-KV=V1&HW-CC-Date=20260730T071528Z&HW-CC-Expire=86400&HW-CC-Sign=44C1564307CFEC05F59C366D390ACA94414DD04AC96A005129DC1807B261F53B)

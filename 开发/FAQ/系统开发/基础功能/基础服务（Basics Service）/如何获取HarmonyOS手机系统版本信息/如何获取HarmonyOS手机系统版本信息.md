@@ -62,4 +62,4 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(1
 可从日志中获取系统版本号信息：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/GJNNT1W4TTimWewtlFYnsQ/zh-cn_image_0000002628773844.png?HW-CC-KV=V1&HW-CC-Date=20260723T013515Z&HW-CC-Expire=86400&HW-CC-Sign=307F423D9B7046AEC38D28F73D0DD297DA4E11BC1B3E0331D6E411B6C102852C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/GJNNT1W4TTimWewtlFYnsQ/zh-cn_image_0000002628773844.png?HW-CC-KV=V1&HW-CC-Date=20260730T072604Z&HW-CC-Expire=86400&HW-CC-Sign=FD0B3B2AD088CF0C23795D9CDC0BA6167634C5398568EFBE474284373A572E57)

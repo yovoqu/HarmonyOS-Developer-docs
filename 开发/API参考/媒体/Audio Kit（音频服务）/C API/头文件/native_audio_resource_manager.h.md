@@ -1,6 +1,6 @@
 # native_audio_resource_manager.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-resource-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -84,7 +84,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioResourceManager(OH_AudioResourceMa
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioResourceManager **resourceManager | 指向OH_AudioResourceManager用于接收创建的音频资源管理器实例。 |
+| OH_AudioResourceManager **resourceManager | 指向OH_AudioResourceManager指针的地址，用于接收创建的音频资源管理器实例。 |
  
  
 **返回：**
@@ -116,7 +116,7 @@ OH_AudioCommon_Result OH_AudioResourceManager_CreateWorkgroup(OH_AudioResourceMa
 | --- | --- |
 | OH_AudioResourceManager *resourceManager | 指向OH_AudioManager_GetAudioResourceManager创建的音频资源管理器实例OH_AudioResourceManager。 |
 | const char *name | 要创建的音频工作组的名称。 |
-| OH_AudioWorkgroup **group | 指向OH_AudioWorkgroup用于接收返回的音频工作组实例的指针。 |
+| OH_AudioWorkgroup **group | 指向OH_AudioWorkgroup指针的地址，用于接收返回的音频工作组实例的指针。 |
  
  
 **返回：**
@@ -240,8 +240,8 @@ OH_AudioCommon_Result OH_AudioWorkgroup_Start(OH_AudioWorkgroup *group, uint64_t
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AudioWorkgroup *group | 指向OH_AudioResourceManager_CreateWorkgroup创建的音频工作组实例OH_AudioWorkgroup。 |
-| uint64_t startTime | 当前音频工作组启动的时间点。 |
-| uint64_t deadlineTime | 当前音频工作组预期完成的时间。 |
+| uint64_t startTime | 当前音频工作组启动的时间点，单位为毫秒（ms）。 |
+| uint64_t deadlineTime | 当前音频工作组预期完成的时间，单位为毫秒（ms）。 |
  
  
 **返回：**

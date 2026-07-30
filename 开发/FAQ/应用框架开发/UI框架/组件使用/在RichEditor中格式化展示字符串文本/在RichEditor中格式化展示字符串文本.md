@@ -95,4 +95,4 @@ struct RichEditorExample {
 效果图为：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/78RHwfmeTCih0BrCtFi0cg/zh-cn_image_0000002670073033.png?HW-CC-KV=V1&HW-CC-Date=20260723T012741Z&HW-CC-Expire=86400&HW-CC-Sign=6C364E493381FF5D042B95A4D32F9B3A248E81F04D8AC53410F1861C207826A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/78RHwfmeTCih0BrCtFi0cg/zh-cn_image_0000002670073033.png?HW-CC-KV=V1&HW-CC-Date=20260730T072357Z&HW-CC-Expire=86400&HW-CC-Sign=AF4AD63B5D42E1D9560064669315BDB2135EB05444DB6C2D47C647E08F3E0B7B)

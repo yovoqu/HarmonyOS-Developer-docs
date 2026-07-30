@@ -1,6 +1,6 @@
 # Node.js
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-develop-function-nodejs
 
@@ -99,47 +99,40 @@ try {
 
  
 ```json
-/**
- * Describe the basic method of Cloud Functions
- */
-
 let myHandler = function (event, context, callback, logger) {
-  // example of display environment variables
-  let env1 = context.env.env1;
 
-  // example of display logs
-  logger.info("Test info log");
-  logger.warn("Test warn log");
-  logger.debug("Test debug log");
-  logger.error("Test error log");
+    let env1 = context.env.env1;
+    logger.info("Test info log");
+    logger.warn("Test warn log");
+    logger.debug("Test debug log");
+    logger.error("Test error log");
 
-  logger.info("--------Start-------");
-  try {
-    let startTime = new Date().getTime();
-    let endTime = startTime;
-    let interval = 0;
-    startTime = process.uptime() * 1000;
+    logger.info("--------Start-------");
+    try {
+        let startTime = new Date().getTime();
+        let endTime = startTime;
+        let interval = 0;
+        startTime = process.uptime() * 1000;
 
-    // print input parameters and environment variables
-    logger.info("request: " + JSON.stringify(event.request));
-    logger.info("env1: " + env1);
+        logger.info("request: " + JSON.stringify(event.request));
+        logger.info("env1: " + env1);
 
-    endTime = process.uptime() * 1000;
-    interval = endTime - startTime;
-    logger.info("intervalTime: " + interval);
-    logger.info("--------Finished-------");
+        endTime = process.uptime() * 1000;
+        interval = endTime - startTime;
+        logger.info("intervalTime: " + interval);
+        logger.info("--------Finished-------");
 
-    let res = new context.HTTPResponse(context.env, {
-      "res-type": "context.env",
-      "faas-content-type": "json"
-    }, "application/json", "200");
-    res.body = { "intervalTime": interval };
-    callback(res);
-  } catch (error) {
-    logger.error("--------Error-------");
-    logger.error("error: " + error);
-    callback(error);
-  }
+        let res = new context.HTTPResponse(context.env, {
+            "res-type": "context.env",
+            "faas-content-type": "json"
+        }, "application/json", "200");
+        res.body = { "intervalTime": interval };
+        callback(res);
+    } catch (error) {
+        logger.error("--------Error-------");
+        logger.error("error: " + error);
+        callback(error);
+    }
 };
 
 module.exports.myHandler = myHandler;
@@ -162,4 +155,4 @@ my-function.zip
 可通过npm工具的相关命令，安装与管理依赖。例如npm install xxx命令（执行路径无限制）可将依赖xxx自动安装到根目录的node_modules文件夹下。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/csZiQBKgTrC48UanqUGPIw/zh-cn_image_0000002611834771.png?HW-CC-KV=V1&HW-CC-Date=20260528T030049Z&HW-CC-Expire=86400&HW-CC-Sign=8B1A7C5C089B4F05BDAC427FEB16390B159220E2D45B15F16416BDCDAADB5F25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/gcB_7OtZRcOFU_ectTs48Q/zh-cn_image_0000002685927197.png?HW-CC-KV=V1&HW-CC-Date=20260730T071959Z&HW-CC-Expire=86400&HW-CC-Sign=40004105665C2A9F540FB8CC41E2BF4BB0E4FAA8C9909637AF62A00A9EEAA52C)

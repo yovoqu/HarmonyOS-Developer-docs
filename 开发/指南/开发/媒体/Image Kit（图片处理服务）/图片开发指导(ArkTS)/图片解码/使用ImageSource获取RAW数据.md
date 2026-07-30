@@ -1,6 +1,6 @@
 # 使用ImageSource获取RAW数据
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-raw-data
 
@@ -130,29 +130,28 @@ const imageSource: image.ImageSource = image.createImageSource(rawFileDescriptor
 
   
 ```ArkTS
-async  createImageRawData(imageSource: image.ImageSource | undefined) : Promise<image.ImageRawData | undefined> {
+async createImageRawData(imageSource: image.ImageSource | undefined) : Promise<image.ImageRawData | undefined> {
   if (!imageSource) {
     console.error('imageSource is undefined.');
     return undefined;
   }
-  await imageSource.createImageRawData().then((data: image.ImageRawData) => {
-    let array: Uint16Array = new Uint16Array();
+  try {
+    const data = await imageSource.createImageRawData();
     if (data.bitsPerPixel == 16 && data.buffer) {
-      array = new Uint16Array(data.buffer);
+      let array: Uint16Array = new Uint16Array(data.buffer);
+      let length = array.byteLength.valueOf();
+      console.info(`uint16Array length: ${length}`);
+      let value: string = '';
+      for (let i = 0; i < array.length && i < 10; i++) {
+        value += array[i] + ', ';
+      }
+      console.info(`get dng rawdata is:${value}.`);
     }
-    let length = array.byteLength.valueOf();
-    console.info(`uint16Array length: ${length}`);
-    let value: string = '';
-    for (let i = 0; i < array.length && i < 10; i++) {
-      value += array[i] + ', ';
-    }
-    console.info(`get dng rawdata is:${value}.`);
-    return data
-  }).catch((err: BusinessError) => {
+    return data;
+  } catch (err) {
     console.error(`get dng rawdata failed.err: ${JSON.stringify(err)}`);
     return undefined;
-  })
-  return undefined;
+  }
 }
 ```
 
@@ -162,10 +161,21 @@ async  createImageRawData(imageSource: image.ImageSource | undefined) : Promise<
 
   
 ```ArkTS
-async release(pixelMap: image.PixelMap | undefined, imageSource: image.ImageSource | undefined) {
-  await pixelMap?.release();
-  pixelMap = undefined;
-  await imageSource?.release();
-  imageSource = undefined;
+async release() {
+  try {
+    await this.pixelMap?.release();
+  } catch (error) {
+    console.error(`Failed to release PixelMap: ${error}.`);
+  } finally {
+    this.pixelMap = undefined;
+  }
+
+  try {
+    await this.imageSource?.release();
+  } catch (error) {
+    console.error(`Failed to release ImageSource: ${error}.`);
+  } finally {
+    this.imageSource = undefined;
+  }
 }
 ```

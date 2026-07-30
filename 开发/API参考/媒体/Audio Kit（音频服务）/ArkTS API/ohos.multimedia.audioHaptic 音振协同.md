@@ -1,6 +1,6 @@
 # @ohos.multimedia.audioHaptic (音振协同)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -88,7 +88,7 @@ let audioHapticManagerInstance: audioHaptic.AudioHapticManager = audioHaptic.get
 描述音振文件描述符。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/tAvJ4Br7R1a7j3f0QFKsyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020210Z&HW-CC-Expire=86400&HW-CC-Sign=4FF82AD82F70EB79BEB8DBABB18E5E6190CC845EF3350A36261C4CB438A882BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/2qiHyW1GROKAgh0k7xD6Zw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071651Z&HW-CC-Expire=86400&HW-CC-Sign=94BA0721CD0EA3792EEB521EDCF18E1269C06B0873A59E0BE5D5EB88E03BCEC6)
 
 
 开发者需要确保fd是可用的文件描述符，且offset和length的值都是正确的。
@@ -123,7 +123,7 @@ registerSource(audioUri: string, hapticUri: string): Promise&lt;number&gt;
 通过Uri注册音频和振动资源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/oFxZw07VQtO3w6R8xLWsfA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020210Z&HW-CC-Expire=86400&HW-CC-Sign=8EB20BA204F0ED370E59B7D2A8FB1F67905BA3E6EEC4EC40D127C80594A8A87E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/ddiY7RJJSwaqb72peqvnfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071651Z&HW-CC-Expire=86400&HW-CC-Sign=1BD23D62692F3BBDE991644EBFB7FD3DD9E9A5D2F6A686F638365C1197592744)
 
 
 单个应用最多支持同时注册128个资源，超过之后将会注册失败（返回注册的资源ID为负数）。推荐应用合理控制注册资源数量，对于不再需要使用的资源，建议及时取消注册。
@@ -184,7 +184,7 @@ registerSourceFromFd(audioFd: AudioHapticFileDescriptor, hapticFd: AudioHapticFi
 通过文件描述符注册音频和振动资源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/MN-2HVX9STOtVPW_Tkahmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020210Z&HW-CC-Expire=86400&HW-CC-Sign=CA5E0E3AC67CC14079BEA651C7F6C2BD052090D228D77C9B778C8DE0E27F0E3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/wQHE_7OnRxS6H5_Mfk0wYw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071651Z&HW-CC-Expire=86400&HW-CC-Sign=2B234B8000200501E92BAEA13FACE116C5A903AFF2FA6E1EAE681A0C29A8DBC6)
 
 
 单个应用最多支持同时注册128个资源，超过之后将会注册失败（返回注册的资源ID为负数）。推荐应用合理控制注册资源数量，对于不再需要使用的资源，建议及时取消注册。
@@ -251,7 +251,7 @@ unregisterSource(id: number): Promise&lt;void&gt;
 取消注册音频和振动资源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/nS-YhJpVRAal44tBtST6aQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020210Z&HW-CC-Expire=86400&HW-CC-Sign=EDE677E09BF2F84AC63BB4AC30D86130D7502D99F2689DC875B71C4826DED6C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/XiSVdyjqSNyV5Hc70P9epQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071651Z&HW-CC-Expire=86400&HW-CC-Sign=87C9298130FEB17B285314261B8272B4676A9D1A6B3B92280B2EB220C3BB7053)
 
 
 对于不再需要使用的资源，建议应用及时取消注册，避免出现资源泄漏或资源数量超上限等问题。
@@ -645,7 +645,7 @@ setVolume(volume: number): Promise&lt;void&gt;
 设置音振播放器的音量。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/mXoCoUroRpK0vZcdxfA2hg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020210Z&HW-CC-Expire=86400&HW-CC-Sign=594071E88E570187B7EEC1C2B3D2B15AD638ABC0CE125CD97D25A3477A866AD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/g1c-iznURme_BvfExgr3dA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071651Z&HW-CC-Expire=86400&HW-CC-Sign=12D414D942A14745572C8D5DB85E9CD44E3148D48B55816EAACA3D37DE946ADF)
 
 
 该方法需在音振播放器释放前调用。
@@ -702,10 +702,10 @@ setLoop(loop: boolean): Promise&lt;void&gt;
 设置音振播放器循环播放。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/yWqRnQdlTeOuq9e35DprjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020210Z&HW-CC-Expire=86400&HW-CC-Sign=6A59F3494EFCA5DE6F0DC8A80D312BF24E5DC726F2F8C01B7403FFBBAAE87630)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/BSUr9I4QQm2DmhZWm-IHlQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071651Z&HW-CC-Expire=86400&HW-CC-Sign=374D608B95FB7E387DE4F49C07DD53D6D6E40EE99D0CFF356DCCD9C91512FE64)
 
 
-该方法需在音振播放器销毁前调用。
+该方法需在音振播放器释放前调用。
 
 
 

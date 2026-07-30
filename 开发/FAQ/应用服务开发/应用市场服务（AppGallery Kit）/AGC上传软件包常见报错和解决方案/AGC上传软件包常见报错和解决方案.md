@@ -1,6 +1,6 @@
 # AGC上传软件包常见报错和解决方案
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-86
 
@@ -10,7 +10,7 @@
  
 - 常见的错误码：
 上传软件包，提示软件包无效缺少依赖的包，错误码9。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/v6gHTGbZQ0mWfhtbBgj-jQ/zh-cn_image_0000002628394646.png?HW-CC-KV=V1&HW-CC-Date=20260723T013845Z&HW-CC-Expire=86400&HW-CC-Sign=41C2A935DA7AFFA5C46CF49B700842452C675461001BBCA9C2B7E763466CE7C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/iR6b6hlnT162VnCIJs91AA/zh-cn_image_0000002628394646.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=F8838B43169305C819D79A50148F9DA80B04CF0784BA20739A823E8CEA277650)
 
 - 上传软件包，提示非法软件包，错误码991。
 - 使用Profile打包，上传软件包报错误码993。
@@ -48,7 +48,7 @@
 - 检查签名和证书是否匹配，可以重新生成p12文件还有p7b和cer文件，然后再打包上传。
 - hap包的名字与pack.info中name值不同。
 - 在File > Project Structure > Project > Signing Configs窗口中，取消勾选“Automatically generate signature”（如果是HarmonyOS应用，请勾选“Support HarmonyOS”）然后配置工程的签名信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/GtPwWQfsRl6F1wKUfUu29g/zh-cn_image_0000002628554538.png?HW-CC-KV=V1&HW-CC-Date=20260723T013845Z&HW-CC-Expire=86400&HW-CC-Sign=57F8424BF5D34A551C304CD0B2DA86D19CDBA291A8E2DFA39BEE702844DD59B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/X60BRpPDSwKAMfKxRCW6Bw/zh-cn_image_0000002628554538.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=D3FE8A5E5E3EEAA3E99BDE4D7B9BFC632305EB37A09EDFE4FABC5AFB1F6A260F)
 
 
  - [错误码993](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section411361491513)，表示Profile文件非法，出现此错误涉及多种原因，请根据[官网步骤](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section411361491513)排查。若排查后依旧报错，可能有以下原因：
@@ -122,7 +122,7 @@ A：检查AppGallery Connect[配置支持设备](https://developer.huawei.com/co
  
 Q：应用经检测含有【h.COLLECTOR.ClipboardLeaker.15[PUA]这类应用收集用户剪贴板数据，监听到剪贴板数据变化后，在用户无感知且未授权的情况下，将剪贴板数据通过网络或其他途径上传到远程服务器】病毒，不符合华为应用市场《审核指南》第2.19项。
  
-A：[审核指南](https://developer.huawei.com/consumer/cn/doc/app/50104-02)识别为病毒是因为无条件外发。目前的整改方向需要调整为识别出特定格式才可以调接口或者在调接口前弹窗获取用户授权并且让用户知道自己的数据被使用的场景。
+A：[审核指南](https://developer.huawei.com/consumer/cn/doc/app/50104)识别为病毒是因为无条件外发。目前的整改方向需要调整为识别出特定格式才可以调接口或者在调接口前弹窗获取用户授权并且让用户知道自己的数据被使用的场景。
  
 Q：软件包上传后页面一直转圈卡住，该如何处理，是否影响软件包上传？
  

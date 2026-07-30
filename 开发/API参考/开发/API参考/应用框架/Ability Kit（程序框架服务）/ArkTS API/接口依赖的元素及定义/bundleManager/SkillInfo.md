@@ -1,6 +1,6 @@
 # SkillInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -47,6 +47,8 @@ import { skillManager } from '@kit.AbilityKit';
 | srcEntries | Array&lt;string&gt; | 是 | 是 | 实现技能的代码文件路径列表。当应用调用skillManager接口，传入的SkillInfoFlag不包含GET_SKILL_INFO_WITH_SRC_ENTRIES时，该字段将返回默认值为undefined，开发者使用时需要进行有效值判断以防代码异常。 |
 | permissions | Array&lt;string&gt; | 是 | 是 | 调用该技能所需要的权限列表。当应用调用skillManager接口，传入的SkillInfoFlag不包含GET_SKILL_INFO_WITH_PERMISSIONS时，该字段将返回默认值为undefined，开发者使用时需要进行有效值判断以防代码异常。 |
 | requestPermissions | Array&lt;string&gt; | 是 | 是 | 技能所在的模块申请的权限。当应用调用skillManager接口，传入的SkillInfoFlag不包含GET_SKILL_INFO_WITH_REQUEST_PERMISSIONS时，该字段将返回默认值为undefined，开发者使用时需要进行有效值判断以防代码异常。 |
+| version | string | 是 | 是 | 技能的版本号，格式为主版本号.次版本号.补丁版本号。 |
+| visibility | string | 是 | 是 | 技能的可见性，支持的取值如下： - "private"：私有，仅当前应用可见。 - "system"：系统级，系统应用和当前应用可见。 - "public"：公开，所有应用都可见。 |
 
 
 

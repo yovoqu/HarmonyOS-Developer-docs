@@ -1,6 +1,6 @@
 # 通用查询(ArkTS)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-general-query-arkts
 
@@ -10,7 +10,7 @@
 #### 开发步骤
 
 **获取属性**
-1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。
+1. 通过证书管理系统能力提供的[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。
 2. 构造输入参数propertyId和可选输入参数[param](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoparam)。
 3. 调用[getProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetproperty)获取属性信息。
 
@@ -38,7 +38,7 @@ async function getProperty(): Promise<Array<huksExternalCrypto.HuksExternalCrypt
   const extProperties: Array<huksExternalCrypto.HuksExternalCryptoParam> = [];
 
   // 3. 调用getProperty获取属性信息
-  console.info(`promise: await huksExternalCrypto getProperty`);
+  console.info('promise: await huksExternalCrypto getProperty.');
   try {
     await huksExternalCrypto.getProperty(testResourceId, propertyId, extProperties)
       .then((data) => {

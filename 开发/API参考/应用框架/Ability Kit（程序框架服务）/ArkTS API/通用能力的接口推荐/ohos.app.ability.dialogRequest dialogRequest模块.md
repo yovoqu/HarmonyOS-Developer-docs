@@ -1,6 +1,6 @@
 # @ohos.app.ability.dialogRequest (dialogRequest模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-dialogrequest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -126,7 +126,7 @@ export default class EntryAbility extends UIAbility {
     try {
       let requestCallback = dialogRequest.getRequestCallback(want);
     } catch(err) {
-      console.error(`getRequestInfo err= ${JSON.stringify(err)}`);
+      console.error(`getRequestCallback  err= ${JSON.stringify(err)}`);
     }
   }
 }
@@ -222,7 +222,7 @@ export default class EntryAbility extends UIAbility {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| result | ResultCode | 否 | 否 | 表示结果码。 |
+| result | ResultCode | 否 | 否 | 表示结果码，用于判断请求是否成功。 |
 | want10+ | Want | 否 | 是 | 表示Want类型信息，如ability名称，包名等。 |
 
 

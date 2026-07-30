@@ -1,6 +1,6 @@
 # OH_Huks_Blob
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,4 +37,4 @@ struct OH_Huks_Blob {...}
 | 名称 | 描述 |
 | --- | --- |
 | uint32_t size | 数据大小。 |
-| uint8_t *data | 指向数据内存的指针。 |
+| uint8_t *data | 指向数据的指针。 |

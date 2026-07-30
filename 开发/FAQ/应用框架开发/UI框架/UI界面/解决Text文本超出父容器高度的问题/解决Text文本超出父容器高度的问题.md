@@ -30,7 +30,7 @@ struct Index {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/c5V7jfBxSImsL2CduNqqcQ/zh-cn_image_0000002628395802.png?HW-CC-KV=V1&HW-CC-Date=20260723T013113Z&HW-CC-Expire=86400&HW-CC-Sign=D882BE7AF0B29E9FC1180ACBE4A192508F3127C8DEB8AD0D9931DE0001177B6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/c5V7jfBxSImsL2CduNqqcQ/zh-cn_image_0000002628395802.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=8A225BF3795DD1DC32CE9ACAAD47212294923D3A97796B5F81DBCACEBB854CCA)
 
  
  
@@ -91,7 +91,7 @@ struct MeasureTextPage {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/ZuPtB43DRFKyMToyJgOkmA/zh-cn_image_0000002658795067.png?HW-CC-KV=V1&HW-CC-Date=20260723T013113Z&HW-CC-Expire=86400&HW-CC-Sign=91A389087E5920998D56567A0B3D76D240271450823BA3D0CCD0904797CD55B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/ZuPtB43DRFKyMToyJgOkmA/zh-cn_image_0000002658795067.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=CB6F97E127AFCB7CD469B7AEF149E3345F27F81148536D52A4CF747C7319757C)
 
 - **方案二**：使用TextArea代替Text组件，当TextArea的文本内容超过组件范围时会自动生成滑动条。
 

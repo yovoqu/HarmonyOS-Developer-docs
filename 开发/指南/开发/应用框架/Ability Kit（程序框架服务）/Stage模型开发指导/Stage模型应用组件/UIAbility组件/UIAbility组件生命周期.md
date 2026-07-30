@@ -1,6 +1,6 @@
 # UIAbility组件生命周期
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle
 
@@ -74,19 +74,20 @@ export default class EntryAbility extends UIAbility {
 
 
 ```ArkTS
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-// ···
+// ...
 
 const DOMAIN = 0x0000;
 
 export default class EntryAbility extends UIAbility {
-
-  // ···
+  // ...
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // ···
+    // ...
+
+    // ...
     // 设置WindowStage的事件订阅（获焦/失焦、切到前台/切到后台、前台可交互/前台不可交互）
     try {
       windowStage.on('windowStageEvent', (data) => {
@@ -121,11 +122,11 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN, 'testTag', `%{public}s`, `Ability onWindowStageCreate`);
     // 设置UI加载
     windowStage.loadContent('pages/Index', (err) => {
-      // ···
+      // ...
     });
   }
 
-// ···
+  // ...
 }
 ```
 
@@ -138,7 +139,7 @@ export default class EntryAbility extends UIAbility {
 例如，应用已获得地理位置权限。在UI显示之前，开发者可以在onForeground()回调中开启定位功能，从而获取到当前的位置信息。
 
 ```ArkTS
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 // ···
 
 export default class EntryAbility extends UIAbility {
@@ -161,7 +162,7 @@ export default class EntryAbility extends UIAbility {
 onBackground()执行时间较短，无法提供足够的时间做一些耗时动作。请勿在该方法中执行保存用户数据或执行数据库事务等耗时操作。
 
 ```ArkTS
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 // ···
 
 export default class EntryAbility extends UIAbility {
@@ -182,7 +183,7 @@ export default class EntryAbility extends UIAbility {
 在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例销毁之前，系统触发[onWindowStageWillDestroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagewilldestroy12)回调。该回调在WindowStage销毁前执行，此时WindowStage可以使用。开发者可以在该回调中释放通过WindowStage获取的资源、注销WindowStage事件订阅等。
 
 ```ArkTS
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -225,7 +226,7 @@ export default class EntryAbility extends UIAbility {
 在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例销毁之前，系统触发[onWindowStageDestroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagedestroy)回调，开发者可以在该回调中释放UI资源。该回调在WindowStage销毁后执行，此时WindowStage不可以使用。
 
 ```ArkTS
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 // ···
 
@@ -259,7 +260,7 @@ export default class EntryAbility extends UIAbility {
 
 
 ```ArkTS
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 // ···
 
 export default class EntryAbility extends UIAbility {

@@ -13,7 +13,7 @@ Circle组件是绘制圆形的组件，如何使用Circle组件实现物体自�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/JJwNQj5eShGiocqTdTDiFg/zh-cn_image_0000002628557802.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012618Z&HW-CC-Expire=86400&HW-CC-Sign=B4561A58CDC7B3CCB1E2D6FA7C0577728A1526644F1D98F6C4EED78355FB9ADE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/JJwNQj5eShGiocqTdTDiFg/zh-cn_image_0000002628557802.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=B49742017C381C9901F649F18075319149D69CD5D590EDD0A84B000FF2D39001)
 
  
  

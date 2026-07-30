@@ -1,6 +1,6 @@
 # Class (MediaAssetChangeRequest)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -418,7 +418,7 @@ getAsset(): PhotoAsset
 获取当前资产变更请求中的资产。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/3R4jng7KQLi5zpKb3n0dHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=A0E8CA84244D7E15E1A1322AC67FE5FFA88436AEE5B8EDC6B04572DE14440B72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/SbvL99nISWm80wCYY3NayQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=597F3CF8F310699E9486A2366F3BEA5BC234B299FFEEC23DD12954968EBD5A9A)
 
 
 对于创建资产的变更请求，在调用接口[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)的提交生效之前，该接口会返回null。
@@ -545,7 +545,7 @@ getWriteCacheHandler(): Promise&lt;number&gt;
 获取临时文件写句柄。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/osAlI3cHQ2y5qscqODW9wQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=CBE84CB06A196CC60DD18CD8368FFA9AAEFB4547AE2402C853C66DFB218C6863)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/Isi7wND4Q-6wMC7XgrG52A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=0E4B2CC098CB6628113249C5B73BE61F2F8EB9A595D5291F7855EC62CEFFFAF6)
 
 
 对于同一个资产变更请求，不支持在成功获取临时文件写句柄后，重复调用该接口。
@@ -571,7 +571,7 @@ getWriteCacheHandler(): Promise&lt;number&gt;
 | --- | --- |
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-| 14000011 | System inner fail. |
+| 14000011 | System inner fail. Possible causes: 1. The database is corrupted; 2. The file system is abnormal; 3. The IPC request timed out. |
 | 14000016 | Operation Not Support. |
 
 
@@ -610,7 +610,7 @@ addResource(type: ResourceType, fileUri: string): void
 通过文件URI从应用沙箱添加资源，待添加资源的数据来源可参考[@ohos.file.fileuri (文件URI)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/DOH3kQv2SDyxurK-pYBqkA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=7AC2C69014B451B1E8A998DE82EFC0611C599122E83016380D8AEC1A66C0B164)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/X6PZ8cs3RHiVLFg6IkY_xQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=EEBBD4D0A9D449EBE2EDF79CDEC29882D02481029B3E57BB1D71F9DB44584C57)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -674,7 +674,7 @@ addResource(type: ResourceType, data: ArrayBuffer): void
 通过ArrayBuffer数据添加资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/hMQHBxU1SdOhTpvRUMwQbg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=F1A4798DBFFB8F45D0A57076A7287EC0FD65EC1E966D5B74914AE03A59B3A158)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/VsoH6-xBT3WzDcZemWQeHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=BEEA3DD8480AB63519CFF8499E3F46BA54C5E914542E869AEE4A17BF7D797044)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -908,6 +908,63 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
     console.info('apply setOrientation successfully');
   }).catch((err: BusinessError) => {
     console.error(`apply setOrientation failed with error: ${err.code}, ${err.message}`);
+  });
+}
+```
+
+
+
+#### setFavorite
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setFavorite(favoriteState: boolean): void
+
+将文件设置为收藏文件。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| favoriteState | boolean | 是 | 是否设置为收藏文件，true表示设置为收藏文件；false表示取消收藏。 |
+
+
+**错误码：**
+
+接口抛出错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 14000011 | System inner fail. |
+
+
+**示例：**
+
+phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
+
+```text
+import { dataSharePredicates } from '@kit.ArkData';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
+  console.info('setFavoriteDemo');
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
+  let fetchOption: photoAccessHelper.FetchOptions = {
+    fetchColumns: [],
+    predicates: predicates
+  };
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
+  let asset = await fetchResult.getFirstObject();
+  let assetChangeRequest: photoAccessHelper.MediaAssetChangeRequest = new photoAccessHelper.MediaAssetChangeRequest(asset);
+  assetChangeRequest.setFavorite(true);
+  phAccessHelper.applyChanges(assetChangeRequest).then(() => {
+    console.info('apply setFavorite successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`apply setFavorite failed with error: ${err.code}, ${err.message}`);
   });
 }
 ```

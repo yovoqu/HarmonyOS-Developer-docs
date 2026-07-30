@@ -1,6 +1,6 @@
 # OH_VBucket
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-vbucket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -78,7 +78,7 @@ int (*putText)(OH_VBucket *bucket, const char *field, const char *value)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_VBucket *bucket | 表示指向OH_VBucket实例的指针。 |
-| const char *field | 数据库表中的列名，不能为空。 |
+| const char *field | 数据库表中的列名，不能为空指针。 |
 | const char *value | 数据库表中指定列名对应的值。 |
  
  

@@ -1,14 +1,14 @@
 # Toggle
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-组件提供勾选框样式、状态按钮样式和开关样式。
+组件提供勾选框样式、状态按钮样式和开关样式，适用于需要快速切换状态或进行单选确认的场景，能够有效提升交互体验与界面的直观性。
 
 > [!TIP]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 从API版本26.0.0开始，Toggle组件支持系统材质效果。Toggle组件使用通用系统材质属性 systemMaterial 时，不同 ToggleType 类型的效果不同： ToggleType.Checkbox：当前未适配系统材质效果，设置系统材质不会出现系统材质相关的动效和视觉效果。 ToggleType.Switch：传入材质参数时，使用组件内部预设的视觉参数，传入的材质参数仅作为开启系统材质的开关标记，不影响实际视觉效果。主要影响Toggle的滑块大小、滑块样式、阴影等视觉属性。设置 switchPointColor 后会出现点光源效果，点光源颜色跟随switchPointColor的设置。传入undefined时，系统材质不生效，表现为原先的Toggle样式。 ToggleType.Button：设置系统材质的效果与 Button 组件设置系统材质的效果相同，主要影响背景颜色、边框、阴影等视觉属性。
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API版本26.0.0开始，Toggle组件支持系统材质效果。Toggle组件使用通用系统材质属性 systemMaterial 时，不同 ToggleType 类型的效果不同： ToggleType.Checkbox：当前未适配系统材质效果，设置系统材质不会出现系统材质相关的动效和视觉效果。 ToggleType.Switch：传入材质参数时，使用组件内部预设的视觉参数，传入的材质参数仅作为开启系统材质的开关标记，不影响实际视觉效果。主要影响Toggle的滑块大小、滑块样式、阴影等视觉属性。设置 switchPointColor 后会出现点光源效果，点光源颜色跟随switchPointColor的设置。传入undefined时，系统材质不生效，表现为原先的Toggle样式。 ToggleType.Button：设置系统材质的效果与 Button 组件设置系统材质的效果相同，主要影响背景颜色、边框、阴影等视觉属性。
 
 
 
@@ -45,7 +45,7 @@ Toggle(options: ToggleOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Toggle的信息。
+Toggle组件的配置信息。
 
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -85,8 +85,8 @@ Toggle的样式。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Checkbox | 0 | 提供单选框样式。 说明： API version 11开始，Checkbox默认样式由圆角方形变为圆形。 通用属性margin的默认值为： { top: '14px', right: '14px', bottom: '14px', left: '14px' }。 默认尺寸为： {width:'20vp', height:'20vp'}。 |
-| Switch | 1 | 提供开关样式。 说明： 通用属性margin默认值为： { top: '6px', right: '14px', bottom: '6px', left: '14px' }。 默认尺寸为： {width:'36vp', height:'20vp'}。 |
+| Checkbox | 0 | 提供勾选框样式。 说明： API version 11开始，Checkbox默认样式由圆角方形变为圆形。 通用属性margin的默认值为： { top: '14px', right: '14px', bottom: '14px', left: '14px' }。 默认尺寸为： {width:'20vp', height:'20vp'}。 |
+| Switch | 1 | 提供开关样式。 说明： 通用属性margin的默认值为： { top: '6px', right: '14px', bottom: '6px', left: '14px' }。 默认尺寸为： {width:'36vp', height:'20vp'}。 |
 | Button | 2 | 提供状态按钮样式。如子组件设置文本，文本内容将显示在按钮内。默认高度为28vp，宽度无默认值。 |
 
 
@@ -107,6 +107,10 @@ Toggle的样式。
 selectedColor(value: ResourceColor)
 
 设置组件在打开状态下的背景颜色。
+
+> [!TIP]
+> 设置systemMaterial系统材质时对背景色的影响，请参考组件开篇说明。
+
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -154,6 +158,10 @@ switchStyle(value: SwitchStyle)
 
 设置Switch类型的样式。仅当type为ToggleType.Switch生效。
 
+> [!TIP]
+> 与systemMaterial系统材质同时设置时，请参考组件开篇说明及通用系统材质属性文档。
+
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -197,6 +205,10 @@ contentModifier(modifier: ContentModifier&lt;ToggleConfiguration&gt;)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Switch类型的样式。
+
+> [!TIP]
+> 与systemMaterial系统材质同时设置时，请参考组件开篇说明及通用系统材质属性文档。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -261,7 +273,7 @@ onChange(callback: (isOn: boolean) => void)
 | --- | --- | --- | --- | --- |
 | isOn | boolean | 否 | 否 | 开关是否打开。 true：开关打开；false：开关关闭。 默认值：false |
 | enabled | boolean | 否 | 否 | 是否可以切换状态。 true：可以切换状态；false：不可以切换状态。 默认值：true |
-| triggerChange | Callback&lt;boolean&gt; | 否 | 否 | 触发switch选中状态变化。 true：状态从关切换为开；false：状态从开切换为关。 |
+| triggerChange | Callback&lt;boolean&gt; | 否 | 否 | 用于触发Toggle开关状态变化的回调函数，通常在自定义ContentModifier中通过编程方式改变开关状态。调用此回调并传入true可将开关状态设置为打开，传入false可将开关状态设置为关闭。 |
 
 
 
@@ -341,7 +353,7 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/esG42KU1SBqvyv_HI4vksg/zh-cn_image_0000002628862432.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=CE9DD7BF95DEEC2490FE7C56AD43D86283C567C96BA58B8B72CB955DC376B8C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/A0QvWIFkQTirTy4gnEy6Yg/zh-cn_image_0000002656008496.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=6BCA0AA8FE6F31DB2FC888608FF70E782A937B1CEA7C4EDA22899A984397E39B)
 
 
 
@@ -387,7 +399,7 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/ChEj99UDSIGNTn-zVFAAmA/zh-cn_image_0000002659221745.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=18B5EA3D5482E833FD48C9E028206D95FBA6E87AA4C917A012EF92047506B9F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/RGOWz6TqQd6hc5IRcP8SXQ/zh-cn_image_0000002655848574.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=82B10FBBF9CB66E811C7C6DD8B6D2CF24244D2E3E26884936A2C1FA727E95347)
 
 
 
@@ -398,8 +410,11 @@ struct ToggleExample {
 
 ```ArkTS
 // xxx.ets
+// 自定义Switch样式修改器，实现ContentModifier接口定制Toggle内容区
 class MySwitchStyle implements ContentModifier<ToggleConfiguration> {
+  // 开关打开时的背景颜色
   selectedColor: Color = Color.White;
+  // 用于按钮显示的文本
   lamp: string = 'string';
 
   constructor(selectedColor: Color, lamp: string) {
@@ -435,6 +450,7 @@ function buildSwitch(config: ToggleConfiguration) {
 struct Index {
   build() {
     Column({ space: 50 }) {
+      // 使用自定义样式修改器定制Toggle内容，并通过onChange监听状态变化
       Toggle({ type: ToggleType.Switch })
         .enabled(true)
         .contentModifier(new MySwitchStyle(Color.Yellow, '灯'))
@@ -447,7 +463,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/9tH-UNFSQJmuTu1hetLX2A/zh-cn_image_0000002628702556.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=7330EF22C4EB9E648CCEDB76E64E764F4080594D63D14A10EE1FCDD2C75187F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/HaGn-T9NQoOz8TmOLT_BwA/zh-cn_image_0000002686088003.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=BBEA946895B234FFBE3591561C71086D9757A1D30671BCA600DD0F6B7CAA2C02)
 
 
 
@@ -493,4 +509,4 @@ struct ToggleMaterialTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/5Omx2KQ6SBarlLOF7YGjyQ/zh-cn_image_0000002659101783.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=2D4CB03FE65B15A210D7C7CEB02FC01C7A03241C65315A03CC155C104C3A4725)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/Iku-pwc7RpyrdlyX4sCjNA/zh-cn_image_0000002685928175.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=040A7949CE4A5D2583F228F04623D6A39137AEB5900AA7A4A79C92E501E8F1E1)

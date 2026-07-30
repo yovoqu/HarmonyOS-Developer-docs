@@ -1,6 +1,6 @@
 # @ohos.app.ability.childProcessManager (子进程管理)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-childprocessmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -444,6 +444,112 @@ struct Index {
                 })
             } catch (err) {
               console.error(`startChildProcess error, errorCode: ${err.code}, errorMsg:${err.message}`);
+            }
+          });
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+
+
+#### childProcessManager.isArkChildProcessSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isArkChildProcessSupported(): boolean
+
+查询是否允许调用者在此设备上创建[ArkTS子进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#arkts子进程)。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 是否允许调用者创建ArkTS子进程。 true：允许创建ArkTS子进程。 false：不允许创建ArkTS子进程。 默认值：false。 |
+
+
+**示例：**
+
+```text
+import { childProcessManager } from '@kit.AbilityKit';
+
+@Entry
+@Component
+struct Index {
+  build() {
+    Row() {
+      Column() {
+        Text('Click')
+          .fontSize(30)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            try {
+              let isSupport: boolean = childProcessManager.isArkChildProcessSupported();
+              console.info(`isArkChildProcessSupported: ${isSupport}`);
+            } catch (err) {
+              console.error(`isArkChildProcessSupported error, errorCode: ${err.code}, errorMsg: ${err.message}`);
+            }
+          });
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+
+
+#### childProcessManager.isNativeChildProcessSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isNativeChildProcessSupported(): boolean
+
+查询是否允许调用者在此设备上创建[Native子进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#native子进程)。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 是否允许调用者创建Native子进程。 true：允许创建Native子进程。 false：不允许创建Native子进程。 默认值：false。 |
+
+
+**示例：**
+
+```text
+import { childProcessManager } from '@kit.AbilityKit';
+
+@Entry
+@Component
+struct Index {
+  build() {
+    Row() {
+      Column() {
+        Text('Click')
+          .fontSize(30)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            try {
+              let isSupport: boolean = childProcessManager.isNativeChildProcessSupported();
+              console.info(`isNativeChildProcessSupported: ${isSupport}`);
+            } catch (err) {
+              console.error(`isNativeChildProcessSupported error, errorCode: ${err.code}, errorMsg: ${err.message}`);
             }
           });
       }

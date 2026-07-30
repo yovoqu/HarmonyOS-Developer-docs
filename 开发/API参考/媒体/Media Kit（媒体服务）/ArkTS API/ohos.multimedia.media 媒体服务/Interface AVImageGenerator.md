@@ -1,6 +1,6 @@
 # Interface (AVImageGenerator)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avimagegenerator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,7 +69,7 @@ fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapPa
 
 **示例：**
 
-```json
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 import { media } from '@kit.MediaKit';
@@ -88,19 +88,21 @@ let param: media.PixelMapParams = {
 };
 
 // 获取缩略图。
-media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenerator) => {
+media.createAVImageGenerator(async (err: BusinessError, generator: media.AVImageGenerator) => {
   if (generator) {
     avImageGenerator = generator;
     console.info(`Succeeded in creating AVImageGenerator`);
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+    generator.fdSrc = await context.resourceManager.getRawFd('H264_AAC.mp4');
     avImageGenerator.fetchFrameByTime(timeUs, queryOption, param, (error: BusinessError, pixelMap) => {
       if (error) {
-        console.error(`Failed to fetch FrameByTime, err = ${JSON.stringify(error)}`);
+        console.error(`Failed to fetch FrameByTime, code: ${error.code}, message: ${error.message}`);
         return;
       }
       pixel_map = pixelMap;
     });
   } else {
-    console.error(`Failed to create AVImageGenerator, error message:${err.message}`);
+    console.error(`Failed to create AVImageGenerator, code: ${err.code}, message: ${err.message}`);
   }
 });
 ```
@@ -164,17 +166,19 @@ let param: media.PixelMapParams = {
 };
 
 // 获取缩略图。
-media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenerator) => {
+media.createAVImageGenerator(async (err: BusinessError, generator: media.AVImageGenerator) => {
   if (generator) {
     avImageGenerator = generator;
     console.info(`Succeeded in creating AVImageGenerator`);
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+    generator.fdSrc = await context.resourceManager.getRawFd('H264_AAC.mp4');
     avImageGenerator.fetchFrameByTime(timeUs, queryOption, param).then((pixelMap: image.PixelMap) => {
       pixel_map = pixelMap;
     }).catch((error: BusinessError) => {
-      console.error(`Failed to fetch FrameByTime, error message:${error.message}`);
+      console.error(`Failed to fetch FrameByTime, code: ${error.code}, message: ${error.message}`);
     });
   } else {
-    console.error(`Failed to create AVImageGenerator, error message:${err.message}`);
+    console.error(`Failed to create AVImageGenerator, code: ${err.code}, message: ${err.message}`);
   }
 });
 ```
@@ -234,17 +238,19 @@ let outputSize: media.OutputSize = {
   height: 300,
 };
 // 获取缩略图。
-media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenerator) => {
+media.createAVImageGenerator(async (err: BusinessError, generator: media.AVImageGenerator) => {
   if (generator) {
     avImageGenerator = generator;
     console.info(`Succeeded in creating AVImageGenerator`);
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+    generator.fdSrc = await context.resourceManager.getRawFd('H264_AAC.mp4');
     avImageGenerator.fetchScaledFrameByTime(timeUs, queryOption, outputSize).then((pixelMap: image.PixelMap) => {
       pixel_map = pixelMap;
     }).catch((error: BusinessError) => {
-      console.error(`Failed to fetch ScaledFrameByTime, error message:${error.message}`);
+      console.error(`Failed to fetch ScaledFrameByTime, code: ${error.code}, message: ${error.message}`);
     });
   } else {
-    console.error(`Failed to create AVImageGenerator, error message:${err.message}`);
+    console.error(`Failed to create AVImageGenerator, code: ${err.code}, message: ${err.message}`);
   }
 });
 ```
@@ -279,7 +285,7 @@ release(callback: AsyncCallback&lt;void&gt;): void
 
 **示例：**
 
-```json
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
@@ -292,13 +298,13 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
     console.info(`Succeeded in creating AVImageGenerator`);
     avImageGenerator.release((error: BusinessError) => {
       if (error) {
-        console.error(`Failed to release, err = ${JSON.stringify(error)}`);
+        console.error(`Failed to release, code: ${error.code}, message: ${error.message}`);
         return;
       }
       console.info(`Succeeded in releasing`);
     });
   } else {
-    console.error(`Failed to create AVImageGenerator, error message:${err.message}`);
+    console.error(`Failed to create AVImageGenerator, code: ${err.code}, message: ${err.message}`);
   }
 });
 ```
@@ -347,10 +353,10 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
     avImageGenerator.release().then(() => {
       console.info(`Succeeded in releasing.`);
     }).catch((error: BusinessError) => {
-      console.error(`Failed to release, error message:${error.message}`);
+      console.error(`Failed to release, code: ${error.code}, message: ${error.message}`);
     });
   } else {
-    console.error(`Failed to create AVImageGenerator, error message:${err.message}`);
+    console.error(`Failed to create AVImageGenerator, code: ${err.code}, message: ${err.message}`);
   }
 });
 ```

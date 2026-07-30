@@ -1,6 +1,6 @@
 # UIAbility组件基本用法
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage
 
@@ -17,7 +17,7 @@
 应用中的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)在启动过程中，需要指定启动页面，否则应用启动后会因为没有默认加载页面而导致白屏。可以在UIAbility的[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)生命周期回调中，通过[WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage)对象的[loadContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#loadcontent9)方法设置启动页面。
 
 ```ArkTS
-import { UIAbility } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 // ···
 
@@ -167,7 +167,7 @@ struct BasicUsage {
 
 #### 获取UIAbility拉起方的信息
 
-拉起方（UIAbilityA）通过startAbility启动目标方（UIAbilityB）时，UIAbilityB可以通过[parameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)参数获取UIAbilityA的Pid、BundleName和AbilityName等信息。
+拉起方（UIAbilityA）通过startAbility启动目标方（UIAbilityB）时，UIAbilityB可以通过[@ohos.app.ability.Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)中parameters参数获取UIAbilityA的Pid、BundleName和AbilityName等信息。
 1. 通过点击UIAbilityA中的"拉起UIAbilityB"按钮，拉起UIAbilityB。
 
   

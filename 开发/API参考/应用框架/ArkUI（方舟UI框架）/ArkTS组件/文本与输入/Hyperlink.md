@@ -1,14 +1,14 @@
 # Hyperlink
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-hyperlink
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-超链接组件，组件宽高范围内点击实现跳转。
+超链接组件，支持文本和图片两种展示形式，在组件宽高范围内点击可实现跳转到指定网页。适用于应用内打开外部网页链接的场景，该组件仅支持与系统浏览器配合使用。
 
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅支持与系统浏览器配合使用。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件仅支持与系统浏览器配合使用。
 
 
 
@@ -16,7 +16,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-跳转的目标应用使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+跳转到目标网页需要使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
 
 
@@ -43,7 +43,7 @@ Hyperlink(address: string | Resource, content?: string | Resource)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | address | string \| Resource | 是 | Hyperlink组件跳转的网页地址。 |
-| content | string \| Resource | 否 | Hyperlink组件中超链接显示文本。 默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值链接地址。 说明： 组件内有子组件时，不显示超链接文本。 |
+| content | string \| Resource | 否 | Hyperlink组件中超链接显示文本。 默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值。 说明： 组件内有子组件时，不显示超链接文本。 |
 
 
 
@@ -109,4 +109,4 @@ struct HyperlinkExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/FV4TVsDYSpm4ZcpBzHElxA/zh-cn_image_0000002659221879.png?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=4B98D8A84E7E949047307C32F5774DBD83B40DE65464D97B5AD373956B6F786D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/n6yqlyA4S62fqAIK9_Ipvg/zh-cn_image_0000002686088147.png?HW-CC-KV=V1&HW-CC-Date=20260730T071506Z&HW-CC-Expire=86400&HW-CC-Sign=844D07D3402FAE838AEB5C817030121E74DB5FB99FC1B82524DBF51022C2DCED)

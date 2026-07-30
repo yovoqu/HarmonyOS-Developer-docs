@@ -1,6 +1,6 @@
 # CPU活动分析
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-cpu
 
@@ -12,7 +12,7 @@
 CPU模板支持的泳道包括：Energy、CPU Core、Process。本文介绍CPU Core、Process泳道，Energy泳道的详细信息请参考[能耗诊断：Energy分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-energy)。
  
 > [!NOTE]
-> 任务分析前，需创建CPU分析任务并录制相关数据，操作方法可参考 性能问题定位：深度录制 ，或在会话区选择 Open File ，导入历史数据。
+> 任务分析前，需创建CPU分析任务并录制相关数据，操作方法可参考 性能问题定位：深度录制 ，或在 会话区 选择 Open File ，导入历史数据。
 
  
 
@@ -80,7 +80,7 @@ CPU模板支持的泳道包括：Energy、CPU Core、Process。本文介绍CPU C
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/itPT-9bAQceDBpJgx9EumQ/zh-cn_image_0000002624994169.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=7CE700996C40555697C6802899B60A9E9877633B1A18BCC3DB9708701C1CDA82)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/936Fcrf9RtiQGjm4AyPZzg/zh-cn_image_0000002677996803.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=0BE4BB1A5ECF9BE217CA7189D8A704D29B48ECDC587CA349553147746F70C172)
 
 
  
@@ -96,7 +96,7 @@ CPU模板支持的泳道包括：Energy、CPU Core、Process。本文介绍CPU C
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/6ZqDxWNSSqeB4nY47C0Cow/zh-cn_image_0000002624994167.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=A476567B87DAD9B62DB8E9273664380D99E98E884D2806612998703881CACF5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/JkavMdZcRnmcoNszlxHZjA/zh-cn_image_0000002678156647.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=587520E09BD9DB9C043C839F8F49CCA7598F9CCB9C99BAB9D57530BE82E860F4)
 
 - 框选多个Trace片段，可查看到Trace统计信息列表，包括Trace名称、此类Trace的总耗时、单个Trace的平均耗时、以及该时间段内该类Trace的触发次数等。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/5gzlr-RwT-ya0FtiGYXtIw/zh-cn_image_0000002624994173.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=56DA3AFA92D4EB1EFE7498583BA9D63B1AE362308B15486410EFA89844383499)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/DVtWPgJGRjiUHL1215NJZw/zh-cn_image_0000002677996797.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=0178242EEE6F6598DE63AFF2462A3A8799C5A958904630B49EADEAA7062E9CE1)

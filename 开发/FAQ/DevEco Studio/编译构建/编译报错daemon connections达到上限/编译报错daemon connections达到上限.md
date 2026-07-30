@@ -37,7 +37,7 @@ hvigor ERROR: hvigor daemon: The number of hvigor daemon connections has reached
 取消使用守护进程，在IDE的设置中，点击File > Settings > Build, Execution, Deployment > Build Tools > Hvigor，取消勾选字段Enable the Daemon for tasks。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/hXOhcUBrT6aKrYYA55T4Eg/zh-cn_image_0000002628409286.png?HW-CC-KV=V1&HW-CC-Date=20260723T013924Z&HW-CC-Expire=86400&HW-CC-Sign=C1831E3FA4627F521B7C5B95ED8ECFCDC1F536DE4BAD98374F466858F9E365A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/hXOhcUBrT6aKrYYA55T4Eg/zh-cn_image_0000002628409286.png?HW-CC-KV=V1&HW-CC-Date=20260730T072715Z&HW-CC-Expire=86400&HW-CC-Sign=BA47991BA7F4CBF823C0B81CD46AAF84C57425C291FD64ABFD57D920F61D9814)
 
  
  
@@ -47,7 +47,7 @@ hvigor ERROR: hvigor daemon: The number of hvigor daemon connections has reached
 Q：热部署没成功就点击运行，会报如下错误：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/6wbG_qubRIicrjUeB2RKWQ/zh-cn_image_0000002658808557.png?HW-CC-KV=V1&HW-CC-Date=20260723T013924Z&HW-CC-Expire=86400&HW-CC-Sign=2A10E14DCA33FC2DAC77953EC9CE8433A5C6BBAFA3F8B81208D9794725762849)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/6wbG_qubRIicrjUeB2RKWQ/zh-cn_image_0000002658808557.png?HW-CC-KV=V1&HW-CC-Date=20260730T072715Z&HW-CC-Expire=86400&HW-CC-Sign=FBF26B78537C6BC3FA7879B8398FBCBBBD5266651EB2F3EB37549B1B3BC44CB0)
 
  
 这种报错除了重启IDE还能怎么解决？

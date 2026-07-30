@@ -1,10 +1,10 @@
-# 清除Ukey PIN码认证状态(ArkTS)
+# 清除UKey PIN码认证状态(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-clear-pin-auth-state-arkts
 
-从API版本26.0.0开始，huksExternalCrypto提供清除Ukey PIN码认证状态功能接口。应用在密钥操作完成后或需要重置认证状态时，可以调用该接口清除指定资源的PIN码认证状态。具体的场景介绍及规格，请参考[Ukey PIN码认证介绍及规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-pin-authentication-management-overview)。
+从API版本26.0.0开始，huksExternalCrypto提供清除UKey PIN码认证状态功能接口。应用在密钥操作完成后或需要重置认证状态时，可以调用该接口清除指定资源的PIN码认证状态。具体的场景介绍及规格，请参考[UKey PIN码认证介绍及规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-pin-authentication-management-overview)。
 
 
 #### 开发步骤

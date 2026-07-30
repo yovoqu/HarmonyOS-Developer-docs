@@ -73,10 +73,10 @@ export class ImageModifier implements AttributeModifier<ImageAttribute> {
 系统API版本小于API 14：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/E3_a5plyS_CmlVYoInbEIg/zh-cn_image_0000002628569782.png?HW-CC-KV=V1&HW-CC-Date=20260723T012708Z&HW-CC-Expire=86400&HW-CC-Sign=E4F151E43B20BEAFF690036086A4387842EE1BB1F79ED3FD31E4828E8F35FAD4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/E3_a5plyS_CmlVYoInbEIg/zh-cn_image_0000002628569782.png?HW-CC-KV=V1&HW-CC-Date=20260730T072343Z&HW-CC-Expire=86400&HW-CC-Sign=A592EB0C2A1097C39F807F2767996A71AA050C9D4190CD87A4334B0CDEDF926C)
 
  
 系统API版本大于API 14：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/9UnMBnl2SYyIVU1wgt_lqA/zh-cn_image_0000002628409878.png?HW-CC-KV=V1&HW-CC-Date=20260723T012708Z&HW-CC-Expire=86400&HW-CC-Sign=EDAAECCBF8C685CA3E100F370237B68D4FC35AB4B54A69558245E65674AF65AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/9UnMBnl2SYyIVU1wgt_lqA/zh-cn_image_0000002628409878.png?HW-CC-KV=V1&HW-CC-Date=20260730T072343Z&HW-CC-Expire=86400&HW-CC-Sign=6887E3F430FB6DA87418B97033E6B8A3BBE587449B448E659679032252464554)

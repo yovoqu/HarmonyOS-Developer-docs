@@ -24,7 +24,7 @@ emitter中接收传过来的ArrayBuffer，使用console.log方式打印ArrayBuff
 使用debug调试发现，ArrayBuffer数据正常发送，且正常接收到，使用console.log(${JSON.stringify(arrayBuffer)})二进制流时，显示异常。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ntUbGTUtTUKiDF4vd4IVyg/zh-cn_image_0000002628899070.png?HW-CC-KV=V1&HW-CC-Date=20260723T012431Z&HW-CC-Expire=86400&HW-CC-Sign=BE046AFF997B72BBEFE5B3A0DD2873D7942D0B0BA25291D7AAAA0E04B7CC2301)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ntUbGTUtTUKiDF4vd4IVyg/zh-cn_image_0000002628899070.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=036FB08DC016D19597C12196A0A80F0B2232127029E74C55B9359400F149492B)
 
  
  

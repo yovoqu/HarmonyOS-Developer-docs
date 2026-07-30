@@ -1,13 +1,13 @@
 # FunctionComponent（功能组件）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-function-component
 **支持设备：** Phone | Tablet
 
 Agent Framework Kit（智能体框架服务）提供了拉起指定智能体的能力。
  
-应用在[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/)上线智能体后，向用户提供应用+智能体组合的服务，让用户可以在适当的场景下通过Agent Framework Kit的UI控件能力主动拉起智能体。开发智能体请参考[开发Agent](https://developer.huawei.com/consumer/cn/doc/service/developing-intelligent-agents-0000002435989592)。
+应用在[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/)上线智能体后，向用户提供应用+智能体组合的服务，让用户可以在适当的场景下通过Agent Framework Kit的UI控件能力主动拉起智能体。配置智能体请参考[开发Agent](https://developer.huawei.com/consumer/cn/doc/service/developing-intelligent-agents-0000002435989592)。
  
 **起始版本：** 6.0.0(20)
   
@@ -40,12 +40,12 @@ Agent功能组件，可以实现拉起智能体功能。
  
 **参数：**
   
-| 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
+| 名称 | 类型 | 只读 | 必填 | 说明 |
 | --- | --- | --- | --- | --- |
-| agentId | string | 是 | - | Agent ID，Agent的唯一标识，开发Agent时获取。智能体创建成功后，可在智能体配置页面的网址链接中获取。 长度限制1~64个字符。 |
-| onError | ErrorCallback | 是 | - | 错误回调函数。 |
-| options | FunctionOptions | 否 | - | Function组件初始化可选参数。 |
-| controller | FunctionController | 否 | - | Function组件控制器。默认为undefined。 |
+| agentId | string | 是 | 是 | Agent ID，Agent的唯一标识，开发Agent时获取。智能体创建成功后，可在智能体配置页面的网址链接中获取。 长度限制1~64个字符。 |
+| onError | ErrorCallback | 是 | 是 | 错误回调函数。返回的错误码及说明如下所示 |
+| options | FunctionOptions | 是 | 否 | Function组件初始化可选参数。 |
+| controller | FunctionController | 是 | 否 | Function组件控制器。默认为undefined。 |
  
  
 > [!NOTE]
@@ -54,7 +54,7 @@ Agent功能组件，可以实现拉起智能体功能。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-agent-framework)。
+以下错误码为onError回调函数返回的，详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-agent-framework)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -98,7 +98,7 @@ struct FunctionExample {
 
 **支持设备：** Phone | Tablet
 
-Agent Framework Kit控件通用控制器。
+Agent Framework Kit控件通用控制器。集成了开发者与Agent功能组件交互的通用方法，该类为控制器基类，可被其它更高阶的控制器继承。
  
 **元服务API：** 从版本6.0.1(21)开始，该接口支持在元服务中使用。
  
@@ -138,7 +138,7 @@ isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise&lt;bo
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，agentId是否有效，Agent功能是否正常。 true：agentId有效且Agent功能支持。 false：agentId无效或者Agent功能不支持。 |
+| Promise&lt;boolean&gt; | Promise对象，返回true表示agentId有效且Agent功能支持，返回false表示agentId无效或者Agent功能不支持。 |
  
  
 **错误码：**
@@ -226,7 +226,7 @@ on(type: 'agentDialogOpened', callback: Callback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 值为'agentDialogOpened'，监听智能体对话框打开事件。 |
-| callback | Callback&lt;void&gt; | 是 | callback回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
+| callback | Callback&lt;void&gt; | 是 | 回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
  
  
 **示例：**
@@ -298,7 +298,7 @@ off(type: 'agentDialogOpened', callback?: Callback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 值为 'agentDialogOpened'，取消智能体对话框打开事件的监听。 |
-| callback | Callback&lt;void&gt; | 否 | 需要取消注册的回调函数，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
+| callback | Callback&lt;void&gt; | 否 | 回调函数，需要取消注册的回调函数，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
  
  
 **示例：**
@@ -370,7 +370,7 @@ on(type: 'agentDialogClosed', callback: Callback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 值为'agentDialogClosed'，监听智能体对话框关闭事件。 |
-| callback | Callback&lt;void&gt; | 是 | callback回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
+| callback | Callback&lt;void&gt; | 是 | 回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
  
  
 **示例：**
@@ -442,7 +442,7 @@ off(type: 'agentDialogClosed', callback?: Callback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 值为 'agentDialogClosed'，取消智能体对话框关闭事件的监听。 |
-| callback | Callback&lt;void&gt; | 否 | 需要取消注册的回调函数，需与订阅时传入的回调函数是同一个。若不传入此参数，则取消注册所有的回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
+| callback | Callback&lt;void&gt; | 否 | 回调函数，需要取消注册的回调函数，需与订阅时传入的回调函数是同一个。若不传入此参数，则取消注册所有的回调函数。当具体的操作成功，err为undefined，否则为错误对象。 |
  
  
 **示例：**
@@ -513,7 +513,7 @@ Function组件控制器，用于与Function组件控制交互。预留接口，�
 
 **支持设备：** Phone | Tablet
 
-组件可选参数的基础对象。
+Agent组件可选参数的基础对象。集成了Agent组件的共用参数，用于开发者自定义组件属性，可被其它高阶参数继承。
  
 **元服务API：** 从版本6.0.1(21)开始，该接口支持在元服务中使用。
  
@@ -528,8 +528,8 @@ Function组件控制器，用于与Function组件控制交互。预留接口，�
 | 参数名 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | title | string | 否 | 是 | 表示AgentFramework组件的标题。默认值为空。 FunctionOptions.buttonType按钮类型为ButtonType.CIRCLE时不体现。 当前只显示指定大小，宽度超过8个中文字符会进行省略。 字体大于1.75倍时默认最大显示两行。 |
-| titleFontSize | number | 否 | 是 | 表示AgentFramework组件标题的字体大小。取值范围为[14, 16]，默认值为16。取值在范围外取默认值。 |
-| iconSize | number | 否 | 是 | 表示AgentFramework组件图标的大小。取值范围为[16, 24]。 - 按钮类型为CIRCLE时，默认值为24。 - 按钮类型为CAPSULE时，默认值为20。 取值在范围外取默认值。 |
+| titleFontSize | number | 否 | 是 | 表示AgentFramework组件标题的字体大小。取值范围为[14, 16]vp，默认值为16vp。取值在范围外取默认值。 |
+| iconSize | number | 否 | 是 | 表示AgentFramework组件图标的大小。取值范围为[16, 24]vp。 - 按钮类型为CIRCLE时，默认值为24vp。 - 按钮类型为CAPSULE时，默认值为20vp。 取值在范围外取默认值。 |
 | iconColors | ResourceColor[] | 否 | 是 | 表示图标颜色，当前仅支持设置一种颜色，不设置时，为默认渐变色图标。 |
  
  
@@ -539,7 +539,7 @@ Function组件控制器，用于与Function组件控制交互。预留接口，�
 
 **支持设备：** Phone | Tablet
 
-功能组件选项的定义。继承自[BaseOptions](#baseoptions)。
+FunctionComponent功能组件的初始化参数，继承自[BaseOptions](#baseoptions)，开发者可通过该参数自定义FunctionComponent的属性。
  
 **元服务API：** 从版本6.0.1(21)开始，该接口支持在元服务中使用。
  

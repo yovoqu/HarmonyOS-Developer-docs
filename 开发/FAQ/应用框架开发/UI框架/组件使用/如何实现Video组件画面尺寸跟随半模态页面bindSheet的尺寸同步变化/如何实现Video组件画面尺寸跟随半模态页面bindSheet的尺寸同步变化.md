@@ -131,7 +131,7 @@ export struct VideoBindSheet {
   效果图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/6L665a91TXm7rwZr0u0ATg/zh-cn_image_0000002658841301.png?HW-CC-KV=V1&HW-CC-Date=20260723T012740Z&HW-CC-Expire=86400&HW-CC-Sign=D077DD2FA217AB5E76F2512E6757F67682F49EB69877C1D7DC42A75C008EABD0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/6L665a91TXm7rwZr0u0ATg/zh-cn_image_0000002658841301.png?HW-CC-KV=V1&HW-CC-Date=20260730T072356Z&HW-CC-Expire=86400&HW-CC-Sign=1D39F53107507079E9F6FF577754E79CFA9C14C71F2A2443B27EF832C4D418B4)
 
 - 方案二、Navigation配合NavDestinationMode.DIALOG。可以通过以下步骤实现：1. 根页面使用Navigation容器，并设置为单栏模式。后续步骤需要记录弹窗高度且在页面级UI存储，使用LocalStorage创建新实例并初始化，Entry页面添加storage。
 
@@ -356,4 +356,4 @@ struct PersonPage {
   效果图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/QAKJ6OozRL2ufTWq94wz_Q/zh-cn_image_0000002628602034.png?HW-CC-KV=V1&HW-CC-Date=20260723T012740Z&HW-CC-Expire=86400&HW-CC-Sign=C147F389D0DD56C789DD5744059E37DE6DFCA0DE562D478D38892EA2576188FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/QAKJ6OozRL2ufTWq94wz_Q/zh-cn_image_0000002628602034.png?HW-CC-KV=V1&HW-CC-Date=20260730T072356Z&HW-CC-Expire=86400&HW-CC-Sign=C420254491EC332960EAC779E6044B92249FFF71BDEE3A95978DA98FF61DEC12)

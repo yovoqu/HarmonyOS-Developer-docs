@@ -1,6 +1,6 @@
 # getTarget接口：获取状态管理框架代理前的原始对象
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-gettarget
 
@@ -70,19 +70,28 @@ struct GetTargetObject {
   build() {
     Column() {
       Text(`info.name: ${this.info.name}`)
+        .fontSize(20)
+        .margin(10)
       Button('Change Proxy Object Properties')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.name = 'Alice'; // Text组件能够刷新
         })
       Button('Change Original Object Properties')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           let rawInfo: Info = UIUtils.getTarget(this.info);
           rawInfo.name = 'Bob'; // Text组件不能刷新
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/aaHUckp3RcOMykC6DeA5Bg/zh-cn_image_0000002686085453.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=C96CEF9ADBF5A3C754ECE3A0EDB422BA33FB67BDEF5C94323ED5B1493B343B3B)
 
 
 
@@ -135,11 +144,20 @@ struct GetTargetNoChange {
   build() {
     Column() {
       Text(`this.observedObject === observedClass: ${this.observedObject === observedClass}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`this.nonObservedObject === nonObservedClass: ${this.nonObservedObject === nonObservedClass}`) // false
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/tKggvOMyRTGoY7v-soW04g/zh-cn_image_0000002685925625.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=C99A750C81AC49C3F5C0ABC25786C2F8A5D2151509007E76BBE943CBE9969402)
+
 
 使用UIUtils.getTarget接口可以获取代理前的原始对象。
 
@@ -172,20 +190,37 @@ struct GetTargetAgent {
     Column() {
       Text(`this.observedObject === observedClass: ${this.observedObject ===
         observedClass}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.nonObservedObject) === nonObservedClass: ${UIUtils.getTarget(this.nonObservedObject) ===
         nonObservedClass}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.numberList) === globalNumberList: ${UIUtils.getTarget(this.numberList) ===
         globalNumberList}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.sampleMap) === globalSampleMap: ${UIUtils.getTarget(this.sampleMap) ===
         globalSampleMap}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.sampleSet) === globalSampleSet: ${UIUtils.getTarget(this.sampleSet) ===
         globalSampleSet}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.sampleDate) === globalSampleDate: ${UIUtils.getTarget(this.sampleDate) ===
         globalSampleDate}`) // true
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/Yjv74-V-T0-3BzRJZj5IWg/zh-cn_image_0000002656005946.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=8DFC01F2D00BA7786440C2F335A46D5D6A0EF162C9D5061DBB00BB79B26AA074)
+
 
 
 
@@ -215,11 +250,20 @@ struct GetAgentObject {
   build() {
     Column() {
       Text(`this.observedObject === globalObservedObject ${this.observedObject === globalObservedObject}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`this.numberList === globalNumberList ${this.numberList === globalNumberList}`) // false
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/D_Zs3C79QoW2BLmJctQ-fg/zh-cn_image_0000002655846026.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=0D76F1E42C36641AE51628CF0AF284457A485856185B2B6238714CFA3975FBAD)
+
 
 使用UIUtils.getTarget接口可以获取代理前的原始对象。
 
@@ -247,18 +291,33 @@ struct GetBeforeAgent {
     Column() {
       Text(`this.observedObject === globalObservedObject ${this.observedObject ===
         globalObservedObject}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.numberList) === globalNumberList: ${UIUtils.getTarget(this.numberList) ===
         globalNumberList}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.sampleMap) === globalSampleMap: ${UIUtils.getTarget(this.sampleMap) ===
         globalSampleMap}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.sampleSet) === globalSampleSet: ${UIUtils.getTarget(this.sampleSet) ===
         globalSampleSet}`) // true
+        .fontSize(20)
+        .margin(10)
       Text(`UIUtils.getTarget(this.sampleDate) === globalSampleDate: ${UIUtils.getTarget(this.sampleDate) ===
         globalSampleDate}`) // true
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/-a2YV09mSsK58SBjdtNzZw/zh-cn_image_0000002686085455.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=E41CDD5F8D7B190CD2219BF44034B883FD87BE1D21E88EC0F3707528565ABBCF)
+
 
 状态管理V2装饰器会为装饰的变量生成getter和setter方法，同时为原有变量名添加"__ob_"的前缀。出于性能考虑，getTarget接口不会对V2装饰器生成的前缀进行处理，因此向getTarget接口传入@ObservedV2装饰的类对象实例时，返回的对象依旧为对象本身，且被@Trace装饰的属性名仍有"__ob_"前缀。
 

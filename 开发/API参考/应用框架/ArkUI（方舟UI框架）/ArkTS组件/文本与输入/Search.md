@@ -1,14 +1,14 @@
 # Search
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-搜索框组件，适用于浏览器的搜索内容输入框等应用场景。
+搜索框组件，支持搜索图标、清除按钮、搜索按钮、placeholder提示文本、自定义键盘等功能配置，适用于浏览器的搜索内容输入框、应用内搜索等场景。
 
 > [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅支持单文本样式，若需实现富文本样式，建议使用 RichEditor 组件。
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件仅支持单文本样式，若需实现富文本样式，建议使用 RichEditor 组件。
 
 
 
@@ -34,7 +34,7 @@ Search(options?: SearchOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | SearchOptions | 否 | 搜索框组件初始化选项 |
+| options | SearchOptions | 否 | 搜索框组件初始化选项。当需要设置搜索框的初始值、提示文本、图标或控制器时传入此参数，不传入时使用默认配置。 |
 
 
 
@@ -57,10 +57,10 @@ Search初始化参数。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value8+ | ResourceStr | 否 | 是 | 设置当前显示的搜索文本内容。 从API version 10开始，该参数支持$$双向绑定变量。 从API version 18开始，该参数支持!!双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 从API version 20开始，支持Resource类型。 |
-| placeholder8+ | ResourceStr | 否 | 是 | 设置无输入时的提示文本。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| icon8+ | string | 否 | 是 | 设置搜索图标路径，默认使用系统搜索图标。 说明： icon的数据源支持使用相对路径显示图片和网络图片。 - 支持的图片格式包括png、jpg、bmp、svg、gif、pixelmap和heif。 - 支持Base64字符串。格式data:image/[png\|jpeg\|bmp\|webp\|heif];base64,[base64 data], 其中[base64 data]为Base64字符串数据。 如果与属性searchIcon同时设置，则searchIcon优先。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| controller8+ | SearchController | 否 | 是 | 设置Search组件控制器。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| value8+ | ResourceStr | 否 | 是 | 设置当前显示的搜索文本内容。当需要设置搜索框的初始文本内容时传入此参数，不传入时搜索框为空。 从API version 10开始，该参数支持$$双向绑定变量。 从API version 18开始，该参数支持!!双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 从API version 20开始，支持Resource类型。 |
+| placeholder8+ | ResourceStr | 否 | 是 | 设置无输入时的提示文本。当需要自定义提示文本时传入此参数，不传入时不显示提示文本。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon8+ | string | 否 | 是 | 设置搜索图标路径，默认使用系统搜索图标。 说明： icon的数据源支持使用相对路径显示图片和网络图片。 - 支持的图片格式包括png、jpg、bmp、svg、gif、pixelmap和heif。 - 支持Base64字符串。格式data:image/[png\|jpeg\|bmp\|webp\|heif];base64,[base64 data], 其中[base64 data]为Base64字符串数据。 如果与属性searchIcon同时设置，则searchIcon优先。 Wearable设备上默认图标大小为16vp。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controller8+ | SearchController | 否 | 是 | 设置Search组件控制器。当需要通过控制器操作搜索框（如设置光标位置、停止编辑等）时传入此参数，不传入时无法使用控制器相关方法。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -105,7 +105,7 @@ Wearable设备上默认字体大小为18fp。
 
 placeholderColor(value: ResourceColor)
 
-设置placeholder文本颜色，Wearable设备上默认值为'#99ffffff'。
+设置placeholder文本颜色。未通过该接口设置时，默认placeholder文本颜色为'#99182431'（深灰色，不透明度约为60%），Wearable设备上默认为'#99ffffff'（白色，不透明度约为60%）。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -115,7 +115,7 @@ placeholderColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | placeholder文本颜色。 默认值：'#99182431'。 |
+| value | ResourceColor | 是 | placeholder文本颜色。 |
 
 
 
@@ -128,6 +128,12 @@ placeholderFont(value?: Font)
 
 设置placeholder文本样式，包括字体大小、字体粗细、字体族、字体风格。
 
+Wearable设备上默认字体大小为18fp。
+
+> [!NOTE]
+> 可以使用 loadFontSync 注册自定义字体。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -136,11 +142,7 @@ placeholderFont(value?: Font)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Font | 否 | placeholder文本样式。 |
-
-
-> [!NOTE]
-> 可以使用 loadFontSync 注册自定义字体。
+| value | Font | 否 | placeholder文本样式。不传入时使用系统默认字体样式。 |
 
 
 
@@ -155,6 +157,10 @@ textFont(value?: Font)
 
 Wearable设备上默认字体大小为18fp。
 
+> [!NOTE]
+> 可以使用 loadFontSync 注册自定义字体。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -163,7 +169,7 @@ Wearable设备上默认字体大小为18fp。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Font | 否 | 搜索框内输入文本样式。 |
+| value | Font | 否 | 搜索框内输入文本样式。不传入时使用系统默认字体样式。 |
 
 
 
@@ -174,7 +180,11 @@ Wearable设备上默认字体大小为18fp。
 
 textAlign(value: TextAlign)
 
-设置文本在搜索框中的对齐方式。目前支持的对齐方式有：TextAlign.Start、TextAlign.Center、TextAlign.End、TextAlign.LEFT、TextAlign.RIGHT。TextAlign.JUSTIFY的对齐方式按照TextAlign.Start处理。
+设置文本在搜索框中的对齐方式。目前支持的对齐方式有：TextAlign.Start、TextAlign.Center、TextAlign.End、TextAlign.LEFT、TextAlign.RIGHT。TextAlign.JUSTIFY的对齐方式按照TextAlign.Start处理。未通过该接口设置时，默认对齐方式为TextAlign.Start。
+
+> [!NOTE]
+> textAlign只能调整文本整体的布局，不影响字符的显示顺序。若需要调整字符的显示顺序，请参考 镜像状态字符对齐 。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -184,11 +194,7 @@ textAlign(value: TextAlign)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextAlign | 是 | 文本在搜索框中的对齐方式。 默认值：TextAlign.Start |
-
-
-> [!NOTE]
-> textAlign只能调整文本整体的布局，不影响字符的显示顺序。若需要调整字符的显示顺序，请参考 镜像状态字符对齐 。
+| value | TextAlign | 是 | 文本在搜索框中的对齐方式。 |
 
 
 
@@ -216,13 +222,69 @@ textDirection(direction: TextDirection | undefined)
 
 
 
+#### strokeJoinStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined)
+
+设置文本描边拐角样式，仅在使用strokeWidth设置文本描边时生效。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| strokeJoinStyle | StrokeJoinStyle \| undefined | 是 | 文本描边拐角样式。 值为undefined时，按照StrokeJoinStyle.MITER_JOIN处理，请参考StrokeJoinStyle，文本拐角处表现为锐角。 |
+
+
+
+
+#### shaderStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+shaderStyle(shader: ShaderStyle | undefined)
+
+设置文本着色器效果，如线性渐变、径向渐变效果等。未通过该接口设置时，默认无渐变效果。
+
+> [!NOTE]
+> 当同时设置shaderStyle和 strokeWidth 时，shaderStyle不生效。 当同时设置shaderStyle和 fontColor 时，fontColor不生效。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| shader | ShaderStyle \| undefined | 是 | 文本着色器效果。 说明： 当同时设置shaderStyle和strokeWidth时，shaderStyle不生效。 当同时设置shaderStyle和fontColor时，fontColor不生效。 值为undefined时，无渐变效果。 |
+
+
+
+
 #### copyOption9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copyOption(value: CopyOptions)
 
-设置输入的文本是否可复制。设置CopyOptions.None时，当前Search中的文字无法被复制、剪切、翻译、分享、搜索和帮写，支持粘贴和全选。
+设置输入的文本是否可复制。未通过该接口设置时，默认支持设备内复制（CopyOptions.LocalDevice）。
+
+设置CopyOptions.None时，当前Search中的文字无法被复制、剪切、翻译、分享、搜索和帮写，支持粘贴和全选。
 
 设置CopyOptions.None时，不允许拖拽。
 
@@ -234,7 +296,7 @@ copyOption(value: CopyOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | CopyOptions | 是 | 输入的文本是否可复制。 默认值：CopyOptions.LocalDevice，支持设备内复制。 |
+| value | CopyOptions | 是 | 输入的文本是否可复制。 说明： 当copyOption不为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，enableSelectedDataDetector功能不生效。 |
 
 
 
@@ -245,7 +307,7 @@ copyOption(value: CopyOptions)
 
 searchIcon(value: IconOptions | SymbolGlyphModifier)
 
-设置左侧搜索图标样式。
+设置左侧搜索图标样式。如果与参数icon同时设置，本属性优先生效。
 
 Wearable设备上默认图标大小为16vp。
 
@@ -259,7 +321,7 @@ Wearable设备上默认图标大小为16vp。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | IconOptions \| SymbolGlyphModifier | 是 | 左侧搜索图标样式。 浅色模式默认值： { size: '16vp', color: '#99000000', src: ' ' } 深色模式默认值： { size: '16vp', color: '#99ffffff', src: ' ' } |
+| value | IconOptions \| SymbolGlyphModifier | 是 | 左侧搜索图标样式。如果与参数icon同时设置，本属性优先生效。 浅色模式默认值： { size: '16vp', color: '#99000000', src: ' ' } 深色模式默认值： { size: '16vp', color: '#99ffffff', src: ' ' } |
 
 
 
@@ -270,9 +332,7 @@ Wearable设备上默认图标大小为16vp。
 
 cancelButton(value: CancelButtonOptions | CancelButtonSymbolOptions)
 
-设置右侧清除按钮样式。示例请参考[示例2（设置搜索和删除图标）](#示例2设置搜索和删除图标)和[示例11（设置symbol类型清除按钮）](#示例11设置symbol类型清除按钮)。
-
-Wearable设备上默认图标大小为18fp。
+设置右侧清除按钮样式。示例请参考[示例2（设置搜索和删除图标）](#示例2设置搜索和删除图标)和[示例11（设置symbol类型清除按钮）](#示例11设置symbol类型清除按钮)。未通过该接口设置时，默认清除按钮样式为CancelButtonStyle.INPUT（输入样式），图标大小为16vp（Wearable设备上默认图标大小为18fp），颜色为'#99ffffff'（白色，不透明度约为60%）。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -284,7 +344,7 @@ Wearable设备上默认图标大小为18fp。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | CancelButtonOptions \| CancelButtonSymbolOptions | 是 | 右侧清除按钮样式。 默认值： { style: CancelButtonStyle.INPUT, icon: { size: '16vp', color: '#99ffffff', src: ' ' } } 当style为CancelButtonStyle.CONSTANT时，默认显示清除样式。 |
+| value | CancelButtonOptions \| CancelButtonSymbolOptions | 是 | 右侧清除按钮样式。当style为CancelButtonStyle.CONSTANT时，默认显示清除样式。 |
 
 
 
@@ -295,7 +355,11 @@ Wearable设备上默认图标大小为18fp。
 
 fontColor(value: ResourceColor)
 
-设置输入文本的字体颜色。fontSize、fontStyle、fontWeight和fontFamily在[textFont](#textfont)属性中设置。
+设置输入文本的字体颜色。未通过该接口设置时，默认输入文本的字体颜色为'#FF182431'（深灰色），Wearable设备上默认为'#dbffffff'（白色，不透明度约为86%）。fontSize、fontStyle、fontWeight和fontFamily在[textFont](#textfont)属性中设置。
+
+> [!NOTE]
+> 当同时设置fontColor和 shaderStyle 时，fontColor不生效。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -307,7 +371,7 @@ fontColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 输入文本的字体颜色。 默认值：'#FF182431' Wearable设备上默认值为：'#dbffffff' |
+| value | ResourceColor | 是 | 输入文本的字体颜色。 说明： 当同时设置fontColor和shaderStyle时，fontColor设置不生效。 |
 
 
 
@@ -318,7 +382,11 @@ fontColor(value: ResourceColor)
 
 caretStyle(value: CaretStyle)
 
-设置光标样式。
+设置光标样式。未通过该接口设置时，默认光标宽度为2.0vp，颜色为'#007DFF'（蓝色）。
+
+> [!NOTE]
+> 从API version 12开始，此接口支持设置文本手柄颜色，光标和文本手柄颜色保持一致。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -330,11 +398,7 @@ caretStyle(value: CaretStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | CaretStyle | 是 | 光标样式。 默认值： { width: '2.0vp', color: '#007DFF' } |
-
-
-> [!NOTE]
-> 从API version 12开始，此接口支持设置文本手柄颜色，光标和文本手柄颜色保持一致。
+| value | CaretStyle | 是 | 光标样式。 |
 
 
 
@@ -345,7 +409,7 @@ caretStyle(value: CaretStyle)
 
 enableKeyboardOnFocus(value: boolean)
 
-设置Search通过点击以外的方式获焦时，是否主动拉起软键盘。
+设置Search通过点击以外的方式获焦时，是否主动拉起软键盘。未通过该接口设置时，默认主动拉起软键盘。
 
 从API version 10开始，获焦默认绑定输入法。
 
@@ -359,7 +423,7 @@ enableKeyboardOnFocus(value: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | Search获焦时，是否主动拉起软键盘。 true表示主动拉起，false表示不主动拉起。 默认值：true |
+| value | boolean | 是 | Search获焦时，是否主动拉起软键盘。 true表示主动拉起，false表示不主动拉起。 |
 
 
 
@@ -370,7 +434,7 @@ enableKeyboardOnFocus(value: boolean)
 
 selectionMenuHidden(value: boolean)
 
-设置是否不弹出系统文本选择菜单。
+设置是否不弹出系统文本选择菜单。未通过该接口设置时，默认弹出系统文本选择菜单。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -382,7 +446,7 @@ selectionMenuHidden(value: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 是否不弹出系统文本选择菜单。 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，不弹出系统文本选择菜单。 设置为false时，弹出系统文本选择菜单。 默认值：false |
+| value | boolean | 是 | 是否不弹出系统文本选择菜单。 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，不弹出系统文本选择菜单。 设置为false时，弹出系统文本选择菜单。 |
 
 
 
@@ -399,7 +463,7 @@ customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: Ke
 
 自定义键盘的高度可以通过自定义组件根节点的height属性设置，宽度不可设置，使用系统默认值。
 
-自定义键盘采用覆盖原始界面的方式呈现，当没有开启避让模式或者输入框不需要避让的场景不会对应用原始界面产生压缩或者上提。
+自定义键盘采用覆盖原始界面的方式呈现。当未开启避让模式或输入框不需要避让时，不会对应用原始界面产生压缩或上提。
 
 自定义键盘无法获取焦点，但是会拦截手势事件。
 
@@ -424,7 +488,7 @@ customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: Ke
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | CustomBuilder \| ComponentContent22+ \| undefined22+ | 是 | 自定义键盘。设定值为undefined时，关闭自定义键盘。 |
-| options12+ | KeyboardOptions | 否 | 设置自定义键盘是否支持避让功能。 |
+| options12+ | KeyboardOptions | 否 | 设置自定义键盘是否支持避让功能。不传入时使用默认配置。 |
 
 
 
@@ -435,9 +499,13 @@ customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: Ke
 
 type(value: SearchType)
 
-设置输入框类型。
+设置输入框类型。未通过该接口设置时，默认输入框类型为SearchType.NORMAL（基本输入模式，无特殊限制）。
 
 不同的SearchType会拉起对应类型的键盘，同时限制输入。
+
+> [!NOTE]
+> 如果同时设置了 inputFilter 属性且输入的字符不为空字符，type接口附带的文本过滤效果将失效，以inputFilter的过滤规则为准。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -449,7 +517,7 @@ type(value: SearchType)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SearchType | 是 | 输入框类型。 默认值：SearchType.NORMAL |
+| value | SearchType | 是 | 输入框类型。 当同时设置了inputFilter且输入的字符不为空字符时，type接口附带的文本过滤效果失效。 |
 
 
 
@@ -472,7 +540,7 @@ maxLength(value: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 文本的最大输入字符数。 当value<0时，按照默认值处理，不设限制。 |
+| value | number | 是 | 文本的最大输入字符数。取值范围：[0, +∞)。当value<0时，按照默认值处理，不设限制。 |
 
 
 
@@ -483,7 +551,7 @@ maxLength(value: number)
 
 enterKeyType(value: EnterKeyType)
 
-设置输入法回车键类型。
+设置输入法回车键类型。未通过该接口设置时，默认输入法回车键类型为EnterKeyType.Search。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -495,7 +563,7 @@ enterKeyType(value: EnterKeyType)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | EnterKeyType | 是 | 输入法回车键类型。 默认值：EnterKeyType.Search |
+| value | EnterKeyType | 是 | 输入法回车键类型。 |
 
 
 
@@ -506,11 +574,9 @@ enterKeyType(value: EnterKeyType)
 
 enableSelectedDataDetector(enable: boolean | undefined)
 
-设置是否对选中文本进行实体识别。该接口依赖设备底层应具有文本识别能力，否则设置不会生效。
+设置是否对选中文本进行实体识别。该接口依赖设备底层应具有文本识别能力，否则设置不会生效。未通过该接口设置时，默认开启选中文本实体识别，并识别所有类型的实体，默认启用AI菜单功能。
 
-当enableSelectedDataDetector设置为true时，默认识别所有类型的实体。
-
-启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。默认启用AI菜单功能。
+启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。
 
 AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的url（打开链接）、email（新建邮件）、phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
 
@@ -528,7 +594,7 @@ AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean \| undefined | 是 | 开启选中文本实体识别。 true：开启识别，false：关闭识别。默认值为：true。 |
+| enable | boolean \| undefined | 是 | 开启选中文本实体识别。 true：开启识别，false：关闭识别。 |
 
 
 
@@ -541,6 +607,10 @@ lineHeight(value: number | string | Resource)
 
 设置文本的文本行高，设置值不大于0时，不限制文本行高，自适应字体大小，number类型时单位为fp。
 
+> [!NOTE]
+> 特殊字符字体高度远超出同行的其他字符高度时，文本框出现截断、遮挡、内容相对位置发生变化等不符合预期的显示异常，需要开发者调整组件高度、行高等属性，修改对应的页面布局。
+
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -551,11 +621,7 @@ lineHeight(value: number | string | Resource)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 文本的文本行高。 |
-
-
-> [!NOTE]
-> 特殊字符字体高度远超出同行的其他字符高度时，文本框出现截断、遮挡、内容相对位置发生变化等不符合预期的显示异常，需要开发者调整组件高度、行高等属性，修改对应的页面布局。
+| value | number \| string \| Resource | 是 | 文本的文本行高。 number类型时单位为fp，string类型支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。 |
 
 
 
@@ -566,7 +632,11 @@ lineHeight(value: number | string | Resource)
 
 decoration(value: TextDecorationOptions)
 
-设置文本装饰线类型样式及其颜色。
+设置文本装饰线类型样式及其颜色。未通过该接口设置时，默认装饰线类型为TextDecorationType.None（无装饰线），颜色为Color.Black（黑色），样式为TextDecorationStyle.SOLID（实线），粗细缩放为1.0。
+
+> [!NOTE]
+> 当文字的下边缘轮廓与装饰线位置相交时，会触发下划线避让规则，下划线将在这些字符处避让文字。常见”gjyqp”等英文字符。 当文本装饰线的颜色设置为Color.Transparent时，装饰线颜色设置为跟随每行第一个字的字体颜色。当文本装饰线的颜色设置为透明色16进制对应值”#00FFFFFF”时，装饰线颜色设置为透明色。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -578,11 +648,7 @@ decoration(value: TextDecorationOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextDecorationOptions | 是 | 文本装饰线对象。 默认值：{ type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID, thicknessScale: 1.0 } |
-
-
-> [!NOTE]
-> 当文字的下边缘轮廓与装饰线位置相交时，会触发下划线避让规则，下划线将在这些字符处避让文字。常见“gjyqp”等英文字符。 当文本装饰线的颜色设置为Color.Transparent时，装饰线颜色设置为跟随每行第一个字的字体颜色。当文本装饰线的颜色设置为透明色16进制对应值“#00FFFFFF”时，装饰线颜色设置为透明色。
+| value | TextDecorationOptions | 是 | 文本装饰线对象。 |
 
 
 
@@ -622,9 +688,9 @@ fontFeature(value: string)
 
 设置文字特性效果，比如数字等宽的特性。
 
-格式为：normal | <feature-tag-value>
+格式为：normal | <feature-tag-value>。
 
-<feature-tag-value>的格式为：&lt;string&gt; [ &lt;integer&gt; | on | off ]
+<feature-tag-value>的格式为：&lt;string&gt; [ &lt;integer&gt; | on | off ]。
 
 <feature-tag-value>的个数可以有多个，中间用','隔开。
 
@@ -640,12 +706,12 @@ fontFeature(value: string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string | 是 | 文字特性效果。 |
+| value | string | 是 | 文字特性效果，用于设置OpenType字体的高级排版能力，如连字、数字等宽等。 格式为："ss01" on。更多支持的属性详见fontFeature属性列表。 |
 
 
 Font Feature当前支持的属性参见[fontFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontfeature12)属性列表。
 
-设置Font Feature属性，Font Feature是OpenType字体的高级排版能力，如支持连字、数字等宽等特性，一般用在自定义字体中，其能力需要字体本身支持。
+设置Font Feature属性。Font Feature是OpenType字体的高级排版能力（如连字、数字等宽等特性），一般用于自定义字体，且需要字体本身支持该能力。
 
 更多Font Feature能力介绍可参考https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop和https://sparanoid.com/lab/opentype-features/。
 
@@ -669,7 +735,7 @@ selectedBackgroundColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 文本选中底板颜色。 |
+| value | ResourceColor | 是 | 文本选中底板颜色。如果未设置不透明度，默认为20%不透明度。 |
 
 
 
@@ -680,7 +746,7 @@ selectedBackgroundColor(value: ResourceColor)
 
 inputFilter(value: ResourceStr, error?: Callback< string >)
 
-通过正则表达式设置输入过滤器。匹配表达式的输入允许显示，不匹配的输入将被过滤。
+通过正则表达式设置输入过滤器。匹配表达式的输入允许显示，不匹配的输入将被过滤。适用于限制用户输入格式的场景，如仅允许输入字母、数字或特定字符等。
 
 单字符输入场景仅支持单字符匹配，多字符输入场景支持字符串匹配，例如粘贴。
 
@@ -696,8 +762,8 @@ inputFilter(value: ResourceStr, error?: Callback< string >)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceStr | 是 | 正则表达式。 |
-| error | Callback< string > | 否 | 正则匹配失败时，返回被过滤的内容。 |
+| value | ResourceStr | 是 | 输入过滤器的正则表达式。匹配该表达式的输入允许显示，不匹配的输入将被过滤。 |
+| error | Callback&lt;string&gt; | 否 | 正则匹配失败时，返回被过滤的内容。不传入时不触发该回调。 |
 
 
 
@@ -708,7 +774,7 @@ inputFilter(value: ResourceStr, error?: Callback< string >)
 
 textIndent(value: Dimension)
 
-设置首行文本缩进。
+设置首行文本缩进。未通过该接口设置时，默认首行文本缩进为0。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -720,7 +786,7 @@ textIndent(value: Dimension)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Dimension | 是 | 首行文本缩进。 默认值：0 单位：vp 取值范围：大于等于0。设置负数时，按默认值处理。 |
+| value | Dimension | 是 | 首行文本缩进。 单位：vp 取值范围：大于等于0。设置负数时，按默认值处理。 |
 
 
 
@@ -789,7 +855,7 @@ maxFontSize小于等于0或者maxFontSize小于minFontSize时，自适应字号�
 
 halfLeading(halfLeading: Optional&lt;boolean&gt;)
 
-设置文本在行内垂直居中，将行间距平分至行的顶部与底部。
+设置文本在行内垂直居中，将行间距平分至行的顶部与底部。适用于多行文本排版中需要精确控制文本垂直居中对齐的场景，如文本与图标混排、多语言混排等。未通过该接口设置时，默认不平分行间距。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -801,7 +867,7 @@ halfLeading(halfLeading: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| halfLeading | Optional&lt;boolean&gt; | 是 | 设置文本是否垂直居中。 true表示将行间距平分至行的顶部与底部，false则不平分。 默认值：false |
+| halfLeading | Optional&lt;boolean&gt; | 是 | 设置文本是否垂直居中。 true表示将行间距平分至行的顶部与底部，false则不平分。 |
 
 
 
@@ -824,7 +890,7 @@ minFontScale(scale: Optional<number | Resource>)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | Optional<number \| Resource> | 是 | 文本最小的字体缩放倍数，支持undefined类型。 取值范围：[0, 1] 说明： 设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。 使用前需在工程中配置configuration.json文件和app.json5文件，具体详见示例19（设置最小字体范围与最大字体范围）。 |
+| scale | Optional<number \| Resource> | 是 | 文本最小的字体缩放倍数，支持undefined类型。 取值范围：[0, 1] 说明： 设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。设置undefined时维持原值，异常值默认不生效。 使用前需在工程中配置configuration.json文件和app.json5文件，具体详见示例19（设置最小字体范围与最大字体范围）。 |
 
 
 
@@ -847,7 +913,7 @@ maxFontScale(scale: Optional<number | Resource>)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | Optional<number \| Resource> | 是 | 文本最大的字体缩放倍数，支持undefined类型。 取值范围：[1, +∞) 说明： 设置的值小于1时，按值为1处理。异常值默认不生效。 设置maxFontScale属性后，search组件内容最多放大到2倍。 使用前需在工程中配置configuration.json文件和app.json5文件，具体详见示例19（设置最小字体范围与最大字体范围）。 |
+| scale | Optional<number \| Resource> | 是 | 文本最大的字体缩放倍数，支持undefined类型。 取值范围：[1, +∞) 说明： 设置的值小于1时，按值为1处理。设置undefined时维持原值，异常值默认不生效。 设置maxFontScale属性后，search组件内容最多放大到2倍。 使用前需在工程中配置configuration.json文件和app.json5文件，具体详见示例19（设置最小字体范围与最大字体范围）。 |
 
 
 
@@ -872,7 +938,7 @@ editMenuOptions(editMenu: EditMenuOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| editMenu | EditMenuOptions | 是 | 扩展菜单选项。 |
+| editMenu | EditMenuOptions | 是 | 扩展菜单选项，用于设置自定义菜单扩展项的文本内容、图标和回调方法。当需要在文本选择菜单中添加自定义选项时使用此参数。 |
 
 
 
@@ -883,9 +949,13 @@ editMenuOptions(editMenu: EditMenuOptions)
 
 enablePreviewText(enable: boolean)
 
-设置是否开启输入预上屏。
+设置是否开启输入预上屏。未通过该接口设置时，默认开启输入预上屏。
 
 预上屏内容定义为文字暂存态，目前不支持文字拦截功能。
+
+> [!NOTE]
+> “预上屏”描述的是一种文字暂存状态。需要在输入法中开启预上屏功能，在输入文本过程中，未确认输入候选词时，文本框中显示标记文本。例如，通过拼音输入中文时，未确定候选词之前，在输入框中显示拼音字母，该状态称为文字预上屏。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -897,11 +967,7 @@ enablePreviewText(enable: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean | 是 | 是否开启输入预上屏。 true表示开启输入预上屏，false表示不开启输入预上屏。 默认值：true |
-
-
-> [!NOTE]
-> “预上屏”描述的是一种文字暂存状态。需要在输入法中开启预上屏功能，在输入文本过程中，未确认输入候选词时，文本框中显示标记文本。例如，通过拼音输入中文时，未确定候选词之前，在输入框中显示拼音字母，该状态称为文字预上屏。
+| enable | boolean | 是 | 是否开启输入预上屏。 true表示开启输入预上屏，false表示不开启输入预上屏。 |
 
 
 
@@ -912,15 +978,15 @@ enablePreviewText(enable: boolean)
 
 enableHapticFeedback(isEnabled: boolean)
 
-设置是否开启触控反馈。
+设置是否开启触控反馈。未通过该接口设置时，默认开启触控反馈。
 
 开启触控反馈时，需要在工程的[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置requestPermissions字段以开启振动权限，配置如下：
 
 ```json
 "requestPermissions": [
- {
-    "name": "ohos.permission.VIBRATE",
- }
+  {
+    "name": "ohos.permission.VIBRATE"
+  }
 ]
 ```
 
@@ -934,7 +1000,7 @@ enableHapticFeedback(isEnabled: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isEnabled | boolean | 是 | 是否开启触控反馈。 true表示开启触控反馈，false表示不开启触控反馈。 默认值：true |
+| isEnabled | boolean | 是 | 是否开启触控反馈。 true表示开启触控反馈，false表示不开启触控反馈。 |
 
 
 
@@ -945,7 +1011,7 @@ enableHapticFeedback(isEnabled: boolean)
 
 autoCapitalizationMode(mode: AutoCapitalizationMode)
 
-设置自动大小写模式的文本模式，只提供接口能力，具体实现以输入法应用为主。
+设置自动大小写模式的文本模式，只提供接口能力，具体实现以输入法应用为主。未通过该接口设置时，默认不产生大小写转换效果，具体实现以输入法应用为主。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -957,7 +1023,7 @@ autoCapitalizationMode(mode: AutoCapitalizationMode)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | AutoCapitalizationMode | 是 | 自动大小写模式，默认状态无效。 |
+| mode | AutoCapitalizationMode | 是 | 自动大小写模式，用于设置输入法的大小写转换规则，具体实现以输入法应用为主。 |
 
 
 
@@ -968,7 +1034,7 @@ autoCapitalizationMode(mode: AutoCapitalizationMode)
 
 keyboardAppearance(appearance: Optional&lt;KeyboardAppearance&gt;)
 
-设置输入框拉起的键盘样式，需要输入法适配后生效。具体参考[输入法应用沉浸模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-immersive-mode-guide)。
+设置输入框拉起的键盘样式，需要输入法适配后生效。未通过该接口设置时，默认键盘样式为KeyboardAppearance.NONE_IMMERSIVE（非沉浸模式）。具体参考[输入法应用沉浸模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-immersive-mode-guide)。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -980,7 +1046,7 @@ keyboardAppearance(appearance: Optional&lt;KeyboardAppearance&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appearance | Optional&lt;KeyboardAppearance&gt; | 是 | 键盘样式。 默认值：KeyboardAppearance.NONE_IMMERSIVE |
+| appearance | Optional&lt;KeyboardAppearance&gt; | 是 | 键盘样式。 |
 
 
 
@@ -991,7 +1057,11 @@ keyboardAppearance(appearance: Optional&lt;KeyboardAppearance&gt;)
 
 strokeWidth(width: Optional&lt;LengthMetrics&gt;)
 
-设置文本描边的宽度。
+设置文本描边的宽度。未通过该接口设置时，默认值为0，不做描边处理。
+
+> [!NOTE]
+> 当同时设置strokeWidth和 shaderStyle 时，shaderStyle不生效。
+
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1003,7 +1073,7 @@ strokeWidth(width: Optional&lt;LengthMetrics&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | Optional&lt;LengthMetrics&gt; | 是 | 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。 若设置值小于0，显示实心字；若大于0，显示空心字。 默认值为0，不做描边处理。 |
+| width | Optional&lt;LengthMetrics&gt; | 是 | 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。 若设置值小于0，显示实心字；若大于0，显示空心字。 说明： 当同时设置strokeWidth和shaderStyle时，shaderStyle不生效。 strokeJoinStyle仅在使用strokeWidth设置文本描边时生效。 |
 
 
 
@@ -1026,7 +1096,7 @@ strokeColor(color: Optional&lt;ResourceColor&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | Optional&lt;ResourceColor&gt; | 是 | 描边颜色。默认值为字体颜色，设置异常值时取默认值。 |
+| color | Optional&lt;ResourceColor&gt; | 是 | 描边颜色。未通过该接口设置时，默认描边颜色为字体颜色，设置异常值时取默认值。需配合strokeWidth设置描边宽度后生效。 |
 
 
 
@@ -1037,7 +1107,7 @@ strokeColor(color: Optional&lt;ResourceColor&gt;)
 
 stopBackPress(isStopped: Optional&lt;boolean&gt;)
 
-设置是否阻止返回键传递。
+设置是否阻止返回键事件向上传递。设置为true时，拦截返回键事件，不触发系统的默认返回行为；设置为false时，返回键事件正常向上传递。适用于需要自定义返回键行为的场景，如在搜索过程中阻止返回键直接退出以避免误操作，或需要弹出确认提示后再退出等场景。未通过该接口设置时，默认阻止返回键。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -1049,7 +1119,7 @@ stopBackPress(isStopped: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isStopped | Optional&lt;boolean&gt; | 是 | 是否阻止返回键。 true表示阻止，false表示不阻止。 默认值：true。异常值取默认值。 |
+| isStopped | Optional&lt;boolean&gt; | 是 | 是否阻止返回键。 true表示阻止，false表示不阻止。 异常值取默认值。 |
 
 
 
@@ -1060,7 +1130,7 @@ stopBackPress(isStopped: Optional&lt;boolean&gt;)
 
 enableAutoSpacing(enabled: Optional&lt;boolean&gt;)
 
-设置是否开启中文与西文的自动间距。
+设置是否开启中文与西文的自动间距。未通过该接口设置时，默认不开启中文与西文的自动间距。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1072,7 +1142,7 @@ enableAutoSpacing(enabled: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | Optional&lt;boolean&gt; | 是 | 是否开启中文与西文的自动间距。 true为开启自动间距，false为不开启。 默认值：false |
+| enabled | Optional&lt;boolean&gt; | 是 | 是否开启中文与西文的自动间距。 true为开启自动间距，false为不开启。 |
 
 
 
@@ -1118,7 +1188,7 @@ dividerColor(color: Optional&lt;ColorMetrics&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | Optional&lt;ColorMetrics&gt; | 是 | 设置分割线颜色。 默认使用系统的主题色：浅色模式下为0x33000000，显示为浅黑色，深色模式下为0x33FFFFFF，显示为浅白色。 |
+| color | Optional&lt;ColorMetrics&gt; | 是 | 设置分割线颜色。 默认使用系统的主题色：浅色模式下为0x33000000，表示黑色（20%不透明度），深色模式下为0x33FFFFFF，表示白色（20%不透明度）。 |
 
 
 
@@ -1129,7 +1199,7 @@ dividerColor(color: Optional&lt;ColorMetrics&gt;)
 
 compressLeadingPunctuation(enabled: Optional&lt;boolean&gt;)
 
-设置是否开启行首标点符号压缩。
+设置是否开启行首标点符号压缩。开启后，行首标点符号左侧的间距将被压缩，适用于追求排版美观的中文、日文等CJK文本场景。
 
 > [!NOTE]
 > 行首标点符号默认不压缩。 支持压缩的标点符号，请参考 ParagraphStyle 的行首压缩的标点范围。
@@ -1191,7 +1261,7 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | Optional&lt;boolean&gt; | 是 | 行高是否基于文字实际高度自适应。 true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。 |
+| enabled | Optional&lt;boolean&gt; | 是 | 行高是否基于文字实际高度自适应。 此接口仅当行高小于文字实际高度时生效。 true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。 |
 
 
 
@@ -1208,9 +1278,9 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| size | Length | 否 | 是 | 图标尺寸，不支持百分比。 |
-| color | ResourceColor | 否 | 是 | 图标颜色。 |
-| src | ResourceStr | 否 | 是 | 图标/图片源。 |
+| size | Length | 否 | 是 | 图标尺寸，不传入单位时默认单位为vp，不支持百分比。传入百分比时，不生效。 |
+| color | ResourceColor | 否 | 是 | 图标颜色。不传入时使用默认颜色（浅色模式为'#99182431'，表示深灰色，60%不透明度，深色模式为'#99ffffff'，表示白色，60%不透明度）。 |
+| src | ResourceStr | 否 | 是 | 图标/图片源。不传入时使用系统默认图标。 |
 
 
 
@@ -1225,7 +1295,7 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fontSize | Length | 否 | 是 | 文本按钮字体大小，不支持百分比。元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fontSize | Length | 否 | 是 | 文本按钮字体大小，不传入单位时默认单位为vp，不支持百分比。传入百分比时，不生效。 默认值：跟随主题。元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | fontColor | ResourceColor | 否 | 是 | 文本按钮字体颜色。元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | autoDisable18+ | Boolean | 否 | 是 | Search无文本内容时按钮置灰且不可点击。 默认值：false true表示开启按钮置灰功能，false表示不开启。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
@@ -1242,11 +1312,11 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-| 名称 | 说明 |
-| --- | --- |
-| CONSTANT | 清除按钮常显样式。 |
-| INVISIBLE | 清除按钮常隐样式。 |
-| INPUT | 清除按钮输入样式。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| CONSTANT | - | 清除按钮常显样式。 |
+| INVISIBLE | - | 清除按钮常隐样式。 |
+| INPUT | - | 清除按钮输入样式。 |
 
 
 
@@ -1266,8 +1336,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 | NORMAL | 0 | 基本输入模式，无特殊限制。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | NUMBER | 2 | 纯数字输入模式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | PHONE_NUMBER | 3 | 电话号码输入模式。 支持输入数字、空格、+ 、-、*、#、(、)，长度不限。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| EMAIL | 5 | 邮箱地址输入模式。 支持数字，字母，下划线、小数点、!、#、$、%、&、'、*、+、-、/、=、?、^、`、{、\|、}、~，以及@字符（只能存在一个@字符）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| NUMBER_DECIMAL12+ | 12 | 带小数点的数字输入模式。 支持数字，小数点（只能存在一个小数点）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| EMAIL | 5 | 邮箱地址输入模式。 支持数字、字母、下划线、小数点、!、#、$、%、&、'、*、+、-、/、=、?、^、`、{、\|、}、~以及@字符（只能存在一个@字符）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| NUMBER_DECIMAL12+ | 12 | 带小数点的数字输入模式。 支持数字、小数点（只能存在一个小数点）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | URL12+ | 13 | 带URL的输入模式，无特殊限制。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | ONE_TIME_CODE20+ | 14 | 验证码输入模式，无特殊限制。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
@@ -1286,8 +1356,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| style | CancelButtonStyle | 否 | 是 | 右侧清除按钮显示状态。 |
-| icon | IconOptions | 否 | 是 | 右侧清除按钮图标。 |
+| style | CancelButtonStyle | 否 | 是 | 右侧清除按钮显示状态。默认值：CancelButtonStyle.INPUT。 |
+| icon | IconOptions | 否 | 是 | 右侧清除按钮图标。不传入时使用默认清除图标样式。 |
 
 
 
@@ -1304,8 +1374,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| style | CancelButtonStyle | 否 | 是 | 右侧清除按钮显示状态。 |
-| icon | SymbolGlyphModifier | 否 | 是 | 右侧清除按钮Symbol图标。 |
+| style | CancelButtonStyle | 否 | 是 | 右侧清除按钮显示状态。默认值：CancelButtonStyle.INPUT。 |
+| icon | SymbolGlyphModifier | 否 | 是 | 右侧清除按钮Symbol图标。不传入时使用默认清除图标样式。 |
 
 
 
@@ -1393,6 +1463,10 @@ onCopy(callback:Callback&lt;string&gt;)
 
 进行复制操作时，触发该回调。
 
+> [!NOTE]
+> onWillCopy先于onCopy触发。onWillCopy回调返回true时允许复制操作继续执行，返回false时拦截复制操作且不触发onCopy。两者可同时使用。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -1413,6 +1487,10 @@ onCopy(callback:Callback&lt;string&gt;)
 onWillCopy(callback: Callback<string, boolean>)
 
 在进行复制操作前，触发该回调。
+
+> [!NOTE]
+> onWillCopy先于onCopy触发。onWillCopy回调返回true时允许复制操作继续执行，返回false时拦截复制操作且不触发onCopy。两者可同时使用。
+
 
 **起始版本：** 26.0.0
 
@@ -1439,6 +1517,10 @@ onCut(callback:Callback&lt;string&gt;)
 
 进行剪切操作时，触发该回调。
 
+> [!NOTE]
+> onWillCut先于onCut触发。onWillCut回调返回true时允许剪切操作继续执行，返回false时拦截剪切操作且不触发onCut。两者可同时使用。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -1459,6 +1541,10 @@ onCut(callback:Callback&lt;string&gt;)
 onWillCut(callback: Callback<string, boolean>)
 
 在进行剪切操作前，触发该回调。
+
+> [!NOTE]
+> onWillCut先于onCut触发。onWillCut回调返回true时允许剪切操作继续执行，返回false时拦截剪切操作且不触发onCut。两者可同时使用。
+
 
 **起始版本：** 26.0.0
 
@@ -1493,7 +1579,7 @@ onPaste(callback:OnPasteCallback )
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | OnPasteCallback | 是 | 粘贴回调。 |
+| callback | OnPasteCallback | 是 | 粘贴回调，其返回值为粘贴的文本内容。 |
 
 
 
@@ -1539,7 +1625,7 @@ onContentScroll(callback: OnContentScrollCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | OnContentScrollCallback | 是 | 文本内容滚动回调。 |
+| callback | OnContentScrollCallback | 是 | 文本内容滚动回调，回调参数包括totalOffsetX（水平滚动偏移量）和totalOffsetY（垂直滚动偏移量）。 |
 
 
 
@@ -1644,6 +1730,10 @@ onDidDelete(callback: Callback&lt;DeleteValue&gt;)
 
 在删除完成时，触发该回调。
 
+> [!NOTE]
+> 点击清除按钮不触发onDidDelete回调。
+
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1655,10 +1745,6 @@ onDidDelete(callback: Callback&lt;DeleteValue&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;DeleteValue&gt; | 是 | 在删除完成时调用的回调。 仅支持系统输入法输入的场景。 |
-
-
-> [!NOTE]
-> 点击清除按钮不触发onDidDelete回调。
 
 
 
@@ -1794,6 +1880,10 @@ setTextSelection(selectionStart: number, selectionEnd: number, options?: Selecti
 
 组件在获焦状态下，调用该接口设置文本选择区域并高亮显示，且只有在selectionStart小于selectionEnd时，文字才会被选取并高亮显示。
 
+> [!NOTE]
+> 如果selectionStart或selectionEnd被赋值为undefined时，当作0处理。 如果selectionMenuHidden被赋值为true或设备为2in1时，即使options被赋值为MenuPolicy.SHOW，调用setTextSelection也不弹出菜单。 如果选中的文本含有emoji表情时，表情的起始位置包含在设置的文本选中区域内就会被选中。
+
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1804,13 +1894,9 @@ setTextSelection(selectionStart: number, selectionEnd: number, options?: Selecti
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| selectionStart | number | 是 | 文本选择区域起始位置，文本框中文字的起始位置为0。 当selectionStart小于0时、按照0处理；当selectionStart大于文字最大长度时、按照文字最大长度处理。 |
+| selectionStart | number | 是 | 文本选择区域起始位置，文本框中文字的起始位置为0。 当selectionStart小于0时，按照0处理；当selectionStart大于文字最大长度时，按照文字最大长度处理。 |
 | selectionEnd | number | 是 | 文本选择区域结束位置。 当selectionEnd小于0时、按照0处理；当selectionEnd大于文字最大长度时、按照文字最大长度处理。 |
 | options | SelectionOptions | 否 | 选中文字时的配置。 默认值：MenuPolicy.DEFAULT。 |
-
-
-> [!NOTE]
-> 如果selectionStart或selectionEnd被赋值为undefined时，当作0处理。 如果selectionMenuHidden被赋值为true或设备为2in1时，即使options被赋值为MenuPolicy.SHOW，调用setTextSelection也不弹出菜单。 如果选中的文本含有emoji表情时，表情的起始位置包含在设置的文本选中区域内就会被选中。
 
 
 
@@ -1834,7 +1920,7 @@ type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | searchContent | string | 是 | 当前搜索框中输入的文本内容。 |
-| event | SubmitEvent | 否 | 提交事件。 |
+| event | SubmitEvent | 否 | 提交事件对象，可用于保持Search编辑状态。不传入时无法保持编辑状态。 |
 
 
 
@@ -1885,6 +1971,7 @@ struct SearchExample {
         })
       Button('Get CaretOffset')
         .onClick(() => {
+          // 获取光标位置信息
           this.positionInfo = this.controller.getCaretOffset();
         })
     }.width('100%')
@@ -1893,7 +1980,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-20.png)
+![](assets/Search/file-20260514164039525-29.gif)
 
 
 
@@ -1944,7 +2031,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-21.png)
+![](assets/Search/file-20260514164039525-3.gif)
 
 
 
@@ -1958,6 +2045,7 @@ struct SearchExample {
 ```ArkTS
 // xxx.ets
 import { ComponentContent } from '@kit.ArkUI';
+
 class BuilderParams {
   inputValue: string;
   controller: SearchController;
@@ -1967,6 +2055,7 @@ class BuilderParams {
     this.controller = controller;
   }
 }
+
 @Builder
 function CustomKeyboardBuilder(builderParams: BuilderParams) {
   Column() {
@@ -1980,7 +2069,7 @@ function CustomKeyboardBuilder(builderParams: BuilderParams) {
     Grid() {
       ForEach([1, 2, 3, 4, 5, 6, 7, 8, 9, '*', 0, '#'], (item: number | string) => {
         GridItem() {
-          Button(item + "")
+          Button(item + '')
             .width(110).onClick(() => {
             builderParams.inputValue += item;
           })
@@ -1989,6 +2078,7 @@ function CustomKeyboardBuilder(builderParams: BuilderParams) {
     }.maxCount(3).columnsGap(10).rowsGap(10).padding(5)
   }.backgroundColor(Color.Gray)
 }
+
 @Entry
 @Component
 struct SearchExample {
@@ -2000,18 +2090,20 @@ struct SearchExample {
 
   aboutToAppear(): void {
     // 创建ComponentContent
-    this.componentContent = new ComponentContent(this.getUIContext(), wrapBuilder(CustomKeyboardBuilder), this.builderParam);
+    this.componentContent =
+      new ComponentContent(this.getUIContext(), wrapBuilder(CustomKeyboardBuilder), this.builderParam);
   }
-  build(){
+
+  build() {
     Column() {
       Text('Builder').margin(10).border({ width: 1 })
       Search({ controller: this.builderParam.controller, value: this.builderParam.inputValue })
-        .customKeyboard(this.componentContent, { supportAvoidance: this.supportAvoidance })
+        .customKeyboard(CustomKeyboardBuilder(this.builderParam), { supportAvoidance: this.supportAvoidance })
         .margin(10).border({ width: 1 }).height('48vp')
 
       Text('ComponentContent').margin(10).border({ width: 1 })
       Search({ controller: this.builderParam.controller, value: this.builderParam.inputValue })
-        .customKeyboard(CustomKeyboardBuilder(this.builderParam), { supportAvoidance: this.supportAvoidance })
+        .customKeyboard(this.componentContent, { supportAvoidance: this.supportAvoidance })
         .margin(10).border({ width: 1 }).height('48vp')
     }
   }
@@ -2019,7 +2111,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-22.jpg)
+![](assets/Search/file-20260514164039525-4.png)
 
 
 
@@ -2057,7 +2149,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-23.jpg)
+![](assets/Search/file-20260514164039525-5.png)
 
 
 
@@ -2109,7 +2201,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-24.gif)
+![](assets/Search/file-20260514164039525-6.gif)
 
 
 
@@ -2130,10 +2222,10 @@ struct SearchExample {
     Column(){
       Search({value: this.text1})
         .margin({top:200})
-        .fontFeature("\"ss01\" on")
+        .fontFeature('"ss01" on')
       Search({value: this.text2})
         .margin({top:10})
-        .fontFeature("\"ss01\" off")
+        .fontFeature('"ss01" off')
     }
     .width("90%")
     .margin("5%")
@@ -2142,7 +2234,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-25.gif)
+![](assets/Search/file-20260514164039525-7.png)
 
 
 
@@ -2220,7 +2312,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-26.png)
+![](assets/Search/file-20260514164039525-8.png)
 
 
 
@@ -2254,7 +2346,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-27.gif)
+![](assets/Search/file-20260514164039525-9.png)
 
 
 
@@ -2266,16 +2358,16 @@ struct SearchExample {
 ```ArkTS
 // xxx.ets
 class ChangeState {
-  changeContent: string = "";
+  changeContent: string = '';
   changePreviewOffset: number | undefined = 0;
-  changePreviewValue: string | undefined = "";
+  changePreviewValue: string | undefined = '';
   changeTextChangeRangeBeforeX: number | undefined = 0;
   changeTextChangeRangeBeforeY: number | undefined = 0;
   changeTextChangeRangeAfterX: number | undefined = 0;
   changeTextChangeRangeAfterY: number | undefined = 0;
-  changeTextChangeOldContent: string | undefined = "";
-  changeTextChangechangePreviewOffset: number | undefined = 0;
-  changeTextChangechangePreviewValue: string | undefined = "";
+  changeTextChangeOldContent: string | undefined = '';
+  changeTextChangeOldPreviewOffset: number | undefined = 0;
+  changeTextChangeOldPreviewValue: string | undefined = '';
 
   SetInfo(info: EditableTextChangeValue) {
     this.changeContent = info.content;
@@ -2286,16 +2378,16 @@ class ChangeState {
     this.changeTextChangeRangeAfterX = info.options?.rangeAfter.start;
     this.changeTextChangeRangeAfterY = info.options?.rangeAfter.end;
     this.changeTextChangeOldContent = info.options?.oldContent;
-    this.changeTextChangechangePreviewOffset = info.options?.oldPreviewText.offset;
-    this.changeTextChangechangePreviewValue = info.options?.oldPreviewText.value;
+    this.changeTextChangeOldPreviewOffset = info.options?.oldPreviewText.offset;
+    this.changeTextChangeOldPreviewValue = info.options?.oldPreviewText.value;
   }
 }
 
 @Entry
 @Component
 struct SearchExample {
-  @State insertValue: string = "";
-  @State deleteValue: string = "";
+  @State insertValue: string = '';
+  @State deleteValue: string = '';
   @State insertOffset: number = 0;
   @State deleteOffset: number = 0;
   @State deleteDirection: number = 0;
@@ -2305,7 +2397,7 @@ struct SearchExample {
   build() {
     Row() {
       Column() {
-        Search({ value: "Search支持插入回调文本" })
+        Search({ value: 'Search支持插入回调文本' })
           .height(60)
           .onWillInsert((info: InsertValue) => {
             this.insertValue = info.insertValue;
@@ -2319,22 +2411,22 @@ struct SearchExample {
             this.insertOffset = info.insertOffset;
           })
 
-        Text("insertValue:" + this.insertValue + "  insertOffset:" + this.insertOffset).height(20)
+        Text('insertValue:' + this.insertValue + '  insertOffset:' + this.insertOffset).height(20)
 
         Blank(30)
 
-        Text("context:" + this.changeState1.changeContent).height(20)
-        Text("previewText-offset:" + this.changeState1.changePreviewOffset).height(20)
-        Text("previewText-value:" + this.changeState1.changePreviewValue).height(20)
-        Text("options-rangeBefore-start:" + this.changeState1.changeTextChangeRangeBeforeX).height(20)
-        Text("options-rangeBefore-end:" + this.changeState1.changeTextChangeRangeBeforeY).height(20)
-        Text("options-rangeAfter-start:" + this.changeState1.changeTextChangeRangeAfterX).height(20)
-        Text("options-rangeAfter-end:" + this.changeState1.changeTextChangeRangeAfterY).height(20)
-        Text("options-oldContent:" + this.changeState1.changeTextChangeOldContent).height(20)
-        Text("options-oldPreviewText-offset:" + this.changeState1.changeTextChangechangePreviewOffset).height(20)
-        Text("options-oldPreviewText-value:" + this.changeState1.changeTextChangechangePreviewValue).height(20)
+        Text('context:' + this.changeState1.changeContent).height(20)
+        Text('previewText-offset:' + this.changeState1.changePreviewOffset).height(20)
+        Text('previewText-value:' + this.changeState1.changePreviewValue).height(20)
+        Text('options-rangeBefore-start:' + this.changeState1.changeTextChangeRangeBeforeX).height(20)
+        Text('options-rangeBefore-end:' + this.changeState1.changeTextChangeRangeBeforeY).height(20)
+        Text('options-rangeAfter-start:' + this.changeState1.changeTextChangeRangeAfterX).height(20)
+        Text('options-rangeAfter-end:' + this.changeState1.changeTextChangeRangeAfterY).height(20)
+        Text('options-oldContent:' + this.changeState1.changeTextChangeOldContent).height(20)
+        Text('options-oldPreviewText-offset:' + this.changeState1.changeTextChangeOldPreviewOffset).height(20)
+        Text('options-oldPreviewText-value:' + this.changeState1.changeTextChangeOldPreviewValue).height(20)
 
-        Search({ value: "Search支持删除回调文本b" })
+        Search({ value: 'Search支持删除回调文本b' })
           .height(60)
           .onWillDelete((info: DeleteValue) => {
             this.deleteValue = info.deleteValue;
@@ -2342,6 +2434,7 @@ struct SearchExample {
             return true;
           })
           .onWillChange((info: EditableTextChangeValue) => {
+            // 处理文本变化相关信息
             this.changeState2.SetInfo(info);
             return true;
           })
@@ -2350,21 +2443,21 @@ struct SearchExample {
             this.deleteDirection = info.direction;
           })
 
-        Text("deleteValue:" + this.deleteValue + "  deleteOffset:" + this.deleteOffset).height(20)
-        Text("deleteDirection:" + (this.deleteDirection == 0 ? "BACKWARD" : "FORWARD")).height(20)
+        Text('deleteValue:' + this.deleteValue + '  deleteOffset:' + this.deleteOffset).height(20)
+        Text('deleteDirection:' + (this.deleteDirection == 0 ? 'BACKWARD' : 'FORWARD')).height(20)
 
         Blank(30)
 
-        Text("context:" + this.changeState2.changeContent).height(20)
-        Text("previewText-offset:" + this.changeState2.changePreviewOffset).height(20)
-        Text("previewText-value:" + this.changeState2.changePreviewValue).height(20)
-        Text("options-rangeBefore-start:" + this.changeState2.changeTextChangeRangeBeforeX).height(20)
-        Text("options-rangeBefore-end:" + this.changeState2.changeTextChangeRangeBeforeY).height(20)
-        Text("options-rangeAfter-start:" + this.changeState2.changeTextChangeRangeAfterX).height(20)
-        Text("options-rangeAfter-end:" + this.changeState2.changeTextChangeRangeAfterY).height(20)
-        Text("options-oldContent:" + this.changeState2.changeTextChangeOldContent).height(20)
-        Text("options-oldPreviewText-offset:" + this.changeState2.changeTextChangechangePreviewOffset).height(20)
-        Text("options-oldPreviewText-value:" + this.changeState2.changeTextChangechangePreviewValue).height(20)
+        Text('context:' + this.changeState2.changeContent).height(20)
+        Text('previewText-offset:' + this.changeState2.changePreviewOffset).height(20)
+        Text('previewText-value:' + this.changeState2.changePreviewValue).height(20)
+        Text('options-rangeBefore-start:' + this.changeState2.changeTextChangeRangeBeforeX).height(20)
+        Text('options-rangeBefore-end:' + this.changeState2.changeTextChangeRangeBeforeY).height(20)
+        Text('options-rangeAfter-start:' + this.changeState2.changeTextChangeRangeAfterX).height(20)
+        Text('options-rangeAfter-end:' + this.changeState2.changeTextChangeRangeAfterY).height(20)
+        Text('options-oldContent:' + this.changeState2.changeTextChangeOldContent).height(20)
+        Text('options-oldPreviewText-offset:' + this.changeState2.changeTextChangeOldPreviewOffset).height(20)
+        Text('options-oldPreviewText-value:' + this.changeState2.changeTextChangeOldPreviewValue).height(20)
 
       }.width('100%')
     }
@@ -2374,7 +2467,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-28.png)
+![](assets/Search/file-20260525091220700-001.gif)
 
 
 
@@ -2391,23 +2484,28 @@ struct SearchExample {
   @State text: string = 'Search editMenuOptions';
   @State endIndex: number = 0;
   onCreateMenu = (menuItems: Array<TextMenuItem>) => {
+    // 创建第一个自定义菜单项，用于菜单扩展
     // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
     let item1: TextMenuItem = {
       content: 'create1',
       icon: $r('app.media.startIcon'),
       id: TextMenuItemId.of('create1'),
     };
+    // 创建第二个自定义菜单项
     let item2: TextMenuItem = {
       content: 'create2',
       id: TextMenuItemId.of('create2'),
       icon: $r('app.media.startIcon'),
     };
+    // 将自定义菜单项添加到菜单列表：item1添加到末尾，item2添加到开头
     menuItems.push(item1);
     menuItems.unshift(item2);
+    // 查找并移除系统AI写作菜单项
     let targetIndex = menuItems.findIndex(item => item.id.equals(TextMenuItemId.AI_WRITER));
     if (targetIndex !== -1) {
       menuItems.splice(targetIndex, 1); // 从目标索引删除1个元素
     }
+    // 移除自动填充菜单项
     // 从API version 23开始支持TextMenuItemId.autoFill
     targetIndex = menuItems.findIndex(item => item.id.equals(TextMenuItemId.autoFill));
     if (targetIndex !== -1) {
@@ -2436,11 +2534,13 @@ struct SearchExample {
   }
   // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
   onPrepareMenu = (menuItems: Array<TextMenuItem>) => {
+    // 创建动态菜单项，内容包含当前选择结束位置
     let item1: TextMenuItem = {
       content: 'prepare1_' + this.endIndex,
       icon: $r('app.media.startIcon'),
       id: TextMenuItemId.of('prepare1'),
     };
+    // 将动态菜单项添加到菜单列表开头
     menuItems.unshift(item1);
     return menuItems;
   }
@@ -2467,7 +2567,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-29.gif)
+![](assets/Search/file-20260525091220700-002.gif)
 
 
 
@@ -2511,7 +2611,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-3.gif)
+![](assets/Search/file-20260525091220700-003.gif)
 
 
 
@@ -2584,7 +2684,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-4.png)
+![](assets/Search/file-20260525091220700-004.gif)
 
 
 
@@ -2618,7 +2718,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-5.png)
+![](assets/Search/file-20260525091220700-005.png)
 
 
 
@@ -2657,7 +2757,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-6.gif)
+![](assets/Search/file-20260525091220701-006.png)
 
 
 
@@ -2689,7 +2789,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-7.png)
+![](assets/Search/file-20260525091220701-007.gif)
 
 
 
@@ -2726,7 +2826,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-8.png)
+![](assets/Search/file-20260525091220701-008.png)
 
 
 
@@ -2771,7 +2871,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260514164039525-9.png)
+![](assets/Search/file-20260525091220701-009.png)
 
 
 
@@ -2808,7 +2908,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220700-001.gif)
+![](assets/Search/file-20260525091220701-010.png)
 
 
 
@@ -2884,9 +2984,9 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220700-002.gif)
+![](assets/Search/file-20260525091220702-011.png)
  
-![](assets/Search/file-20260525091220700-003.gif)
+![](assets/Search/file-20260525091220702-012.gif)
 
 
 
@@ -2894,6 +2994,8 @@ struct SearchExample {
 #### 示例20（设置文本描边）
 
 从API version 20开始，该示例通过[strokeWidth](#strokewidth20)和[strokeColor](#strokecolor20)属性设置文本的描边宽度及颜色。
+
+从API版本26.0.0开始，新增[strokeJoinStyle](#strokejoinstyle)接口，支持设置文本描边拐角样式。
 
 ```ArkTS
 // xxx.ets
@@ -2928,6 +3030,7 @@ struct SearchExample {
           .minFontSize(40)
           .maxFontSize(40)
           .strokeWidth(LengthMetrics.px(3.0))
+          .strokeJoinStyle(StrokeJoinStyle.MITER_JOIN)
           .strokeColor(Color.Red)
       }.height('90%')
     }
@@ -2938,7 +3041,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220700-004.gif)
+![](assets/Search/file-20260525091220702-013.gif)
 
 
 
@@ -2969,7 +3072,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220700-005.png)
+![](assets/Search/file-20260525091220702-014.gif)
 
 
 
@@ -3020,6 +3123,7 @@ struct SearchExample {
   controller: SearchController = new SearchController();
 
   aboutToAppear() {
+    // 设置placeholder富文本样式
     this.controller.setStyledPlaceholder(this.styledString)
   }
 
@@ -3041,7 +3145,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220701-006.png)
+![](assets/Search/file-20260525091220702-015.gif)
 
 
 
@@ -3059,10 +3163,11 @@ struct SearchExample {
     Column() {
       Search({ value: '拉起输入法前执行onWillAttachIME回调' })
         .onWillAttachIME((client: IMEClient) => {
+          // 设置输入法扩展信息，包含Search组件的自定义属性
           client.setExtraConfig({
             customSettings: {
-              name: "Search", // 自定义属性
-              id: client.nodeId // 自定义属性
+              name: "Search", // 自定义属性：组件名称
+              id: client.nodeId // 自定义属性：节点ID
             }
           })
         })
@@ -3113,7 +3218,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220701-007.gif)
+![](assets/Search/file-20260525091220702-016.gif)
 
 
 
@@ -3146,7 +3251,7 @@ struct Index {
 ```
 
 
-![](assets/Search/file-20260525091220701-008.png)
+![](assets/Search/file-20260525091220702-017.png)
 
 
 
@@ -3217,7 +3322,7 @@ struct Index {
 ```
 
 
-![](assets/Search/file-20260525091220701-009.png)
+![](assets/Search/file-20260525091220702-018.gif)
 
 
 
@@ -3248,7 +3353,7 @@ struct SearchTest {
 ```
 
 
-![](assets/Search/file-20260525091220701-010.png)
+![](assets/Search/file-20260525091220703-019.png)
 
 
 
@@ -3278,7 +3383,7 @@ struct Page {
 ```
 
 
-![](assets/Search/file-20260525091220702-011.png)
+![](assets/Search/file-20260525091220703-020.png)
 
 
 
@@ -3326,7 +3431,7 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220702-012.gif)
+![](assets/Search/file-20260525091220703-021.png)
 
 
 
@@ -3359,12 +3464,86 @@ struct SearchExample {
 ```
 
 
-![](assets/Search/file-20260525091220702-013.gif)
+![](assets/Search/file-20260525091220703-022.png)
 
 
 
 
-#### 示例31（设置文本选择的AI菜单）
+#### 示例31（设置文本着色器效果）
+
+该示例通过[shaderStyle](#shaderstyle)接口实现对Search组件内文本着色效果。
+
+从API版本26.0.0开始，新增shaderStyle接口。
+
+```text
+@Entry
+@Component
+struct ShaderColorStyle {
+  @State message: string = 'Hello World';
+  @State linearGradientOptions1: LinearGradientOptions =
+    {
+      angle: 45,
+      colors: [[Color.Red, 0.0], [Color.Blue, 0.3], [Color.Green, 0.5]]
+    };
+  @State linearGradientOptions2: LinearGradientOptions =
+    {
+      direction: GradientDirection.LeftTop,
+      colors: [[Color.Red, 0.0], [Color.Blue, 0.3], [Color.Green, 0.5]],
+      repeating: true,
+    };
+  @State radialGradientOptions: RadialGradientOptions =
+    {
+      center: [50, 50],
+      radius: 20,
+      colors: [[Color.Red, 0.0], [Color.Blue, 0.3], [Color.Green, 0.5]],
+      repeating: true,
+    };
+  @State colorShaderStyle: ColorShaderStyle =
+    {
+      color: Color.Blue
+    };
+  build() {
+    Column({ space: 5 }) {
+      Text('angle为45°的线性渐变').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      Search({ value: this.message })
+        .minFontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.linearGradientOptions1)
+      Text('direction为LeftTop的线性渐变').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      Search({ value: this.message })
+        .minFontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.linearGradientOptions2)
+      Text('径向渐变').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      Search({ value: this.message })
+        .minFontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.radialGradientOptions)
+      Text('纯色').fontSize(18).width('90%')
+        .margin({ top: 40, left: 40 })
+      Search({ value: this.message })
+        .minFontSize(20)
+        .width('80%')
+        .height(40)
+        .shaderStyle(this.colorShaderStyle)
+    }
+  }
+}
+```
+
+
+![](assets/Search/file-20260525091220703-023.jpg)
+
+
+
+
+#### 示例32（设置文本选择的AI菜单）
 
 该示例通过[enableSelectedDataDetector](#enableselecteddatadetector22)，配置文本选择AI菜单功能。
 
@@ -3373,7 +3552,7 @@ struct SearchExample {
 ```text
 @Entry
 @Component
-struct Demo31 {
+struct SearchExample {
   exampleText: string = '示例网址：www.example.com';
 
   build() {
@@ -3392,4 +3571,4 @@ struct Demo31 {
 ```
 
 
-![](assets/Search/file-20260525091220702-014.gif)
+![](assets/Search/file-20260525091220703-024.jpg)

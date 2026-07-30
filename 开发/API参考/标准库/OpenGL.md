@@ -1,6 +1,6 @@
 # OpenGL
 
-更新时间：2026-03-26 01:02:50
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/opengl
 
@@ -112,7 +112,7 @@ libEGL.so
 
 #### 相关参考
 
-针对OpenGL的使用和相关开发，需要同步了解NDK的开发过程，以及XComponent组件等的使用。具体可参考:
+针对OpenGL的使用和相关开发，需要同步了解NDK的开发过程，以及XComponent组件等的使用。具体可参考：
 
  - [NDK开发参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-development-overview)
  - [Node-API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi)

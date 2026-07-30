@@ -1,6 +1,6 @@
 # Interface (MapEventManager)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -2235,7 +2235,7 @@ on(type: 'indoorMapEnter', callback: Callback&lt;IndoorMapInfo&gt;): void
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.1.1(19)
  
@@ -2279,9 +2279,9 @@ off(type: 'indoorMapEnter', callback?: Callback&lt;IndoorMapInfo&gt;): void
  
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
  
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
- 
 **系统能力：** SystemCapability.Map.Core
+ 
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.1.1(19)
  
@@ -2330,7 +2330,7 @@ on(type: 'indoorMapExit', callback: Callback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.1.1(19)
  
@@ -2376,7 +2376,7 @@ off(type: 'indoorMapExit', callback?: Callback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.1.1(19)
  

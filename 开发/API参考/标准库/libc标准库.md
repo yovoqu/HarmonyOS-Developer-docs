@@ -1,6 +1,6 @@
 # libc标准库
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl
 
@@ -38,9 +38,9 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
 
 #### 支持的能力
 
-提供兼容C99、C11、POSIX标准的头文件，以及库函数接口，但不是完全兼容；支持armv7a、arm64、x86_64三种架构的支持；
+提供兼容C99、C11、POSIX标准的头文件，以及库函数接口，但不是完全兼容；目前提供armv7a、arm64、x86_64三种架构的支持；
  
-为了更好的适配HarmonyOS设备的高性能、低内存、高安全、轻量化、支持多种形态设备的基本特征；在musl开源库的基础上进行了优化，增强，对不适用嵌入式设备的接口进行了裁剪。
+为了更好地适配HarmonyOS设备的高性能、低内存、高安全、轻量化、支持多种形态设备的基本特征；在musl开源库的基础上进行了优化，增强，对不适用嵌入式设备的接口进行了裁剪。
  
   
 
@@ -56,7 +56,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
 #### APIAVAILABLE 兼容性版本保护
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/XN1_YHhpSXq1yh6SUB1PTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020408Z&HW-CC-Expire=86400&HW-CC-Sign=61E539D27DF8FFEAF7F41B9FE3B8DF01C01B5AED96AA4DCACA405C24633C7092)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/IU3qFjGhQteg3YopfZe1ug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071748Z&HW-CC-Expire=86400&HW-CC-Sign=97D4CC90FAD8E2C8FA89F175B7190520CDEC7759BFE488517D7812139280A668)
  
  
 使用APIAVAILABLE特性，需要对强符号、弱符号、弱库等机制非常熟悉，而且要严格按照指导书步骤操作，否则可能存在运行期崩溃现象。
@@ -76,7 +76,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
  
 | 接口名称 | 说明 |
 | --- | --- |
-| epoll_create | 在HarmonyOS5.0 上 该接口逻辑与1.2.3版本保持一致，不会对入参进行判断，不区分入参小于等于0的情况，预计下版本更新此接口逻辑与社区1.2.5保持一致，增加入参逻辑判断，入参小于等于0时创建失败，并返回错误码EINVAL。 |
+| epoll_create | 当前 HarmonyOS musl 仓中的 epoll_create 未对 size 入参进行有效性校验，不区分 size 是否小于等于 0。实际表现为：当 size <= 0 时，调用仍可能创建 epoll实例成功。该行为与 musl 社区 v1.2.5 及之后版本存在差异。musl 社区要求 size 必须大于 0，接口表现为：当 size <= 0 时，epoll_create 应创建失败，返回 -1，并设置 errno 为 EINVAL。开发者如需兼容 musl 社区 v1.2.5+ 行为，建议在调用 epoll_create 前自行保证 size > 0，或优先使用 epoll_create1。 |
  
  
   
@@ -86,12 +86,12 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
 musl支持的字符集编码格式，以及受支持的别名。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/O5e8E76DRb229mU5xiG91Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020408Z&HW-CC-Expire=86400&HW-CC-Sign=263B5496C145A186213851AC329E9A9739C58770DB44DEB0BC8B35FBCADBCB53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/w5ftu44IQSWxMZzFmtVqow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071748Z&HW-CC-Expire=86400&HW-CC-Sign=C764AFFE11DB133BF3DC1459CC9EFB2AB61E31A00BA17D4E93AA39B3183595ED)
  
  
 在进行字符集编码格式转换时，请使用正确的源字符集编码格式，且目标字符集编码格式必须支持这些受转换的字符，否则转换失败。
  
-在musl里不支持将源字符集编码格式转换成这五种目标字符集编码格式：gb18030，gbk，gb2312，big5和euckr。
+在musl里不支持将源字符集编码格式转换成这两种目标字符集编码格式：big5,euckr。
   
 
   
@@ -151,7 +151,7 @@ musl支持的字符集编码格式，以及受支持的别名。
  
   
 
-#### musl不支持接口列表。
+#### musl不支持接口列表
 
 [native api中没有导出的符号列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl-peculiar-symbol)
  

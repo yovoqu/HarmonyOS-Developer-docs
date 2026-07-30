@@ -13,7 +13,7 @@
 #### 背景知识
 
 - 富文本在如今的互联网应用软件或者页面中十分常见，它能够为文字添加图片、链接、字体样式等，使得文字的阅读更加生动有趣。在常见的博客、社交媒体平台软件上都多有使用：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/gVeOtO40RhCNQSAqdLkjaA/zh-cn_image_0000002628596110.png?HW-CC-KV=V1&HW-CC-Date=20260723T012722Z&HW-CC-Expire=86400&HW-CC-Sign=541A2AB42C90E584A858EA271503281D0C55CB79C760ED1B6575D2B7B82249B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/gVeOtO40RhCNQSAqdLkjaA/zh-cn_image_0000002628596110.png?HW-CC-KV=V1&HW-CC-Date=20260730T072349Z&HW-CC-Expire=86400&HW-CC-Sign=BB8041483A2A09E271248D7068CAB23F0ADCE96A4D3A50578024CBE3C881C89D)
 
 - 由于富文本内容通常需要跨平台去显示，所以大多数情况下开发者都会选择HTML来作为存储的格式，来减少重复开发的工作，所以HarmonyOS我们可以选择能够加载HTML文档的组件来展示富文本文档内容。在HarmonyOS目前能够解析HTML富文本显示的组件有[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-richeditor)、[RichText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext)和[Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-overview)，这里主要聚焦纯显示的场景，一般就是从[RichText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext)和[Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-overview)两个组件中选择，而由于[RichText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext)可自定义程度较低、功能不够丰富而且比较消耗内存资源，在List这种重复使用RichText组件的场景下，会出现卡顿、滑动响应慢等现象。所以在List中循环展示富文本内容时，会选择[Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-overview)来进行展示。
 - 除了HarmonyOS组件外，还可以自行开发组件通过直接解析HTML文档再调用Text等基础文本组件组装进行展示，可以高度自定义功能，但是需要投入大量开发资源，在此不展开说明。

@@ -1,23 +1,23 @@
 # 开通Device Security服务
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice
 
 在开通Device Security服务前，请先参考“[应用开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-overview)”完成基本准备工作，再继续进行以下开发活动。
  
 > [!NOTE]
-> Device Security包括应用设备状态检测、安全检测、可信应用服务、业务风险检测能力、数字盾服务，开发者请根据实际使用场景，选择开启某个或者多个能力开关。
+> Device Security包括应用设备状态检测、安全检测、可信应用服务、业务风险检测、数字盾服务，开发者请根据实际使用场景，选择开启某个或者多个能力开关。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站，选择开发与服务。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/oK-3vYkPTbm_Y4Ft_NV1RA/zh-cn_image_0000002626069028.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=15E2F8F9A2F6214361183D095876845BAC596E8212D35D329E0A43FFE564D884)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/OlvZ6grWS1G7DX0im72ubg/zh-cn_image_0000002685926625.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=06FC7B6CBCCD913C359A94FDF1606E43E48F3A66DCA5B80C9C5EAFEB10B6CCAE)
 
 2. 在项目列表中找到需要开通Device Security服务的项目。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/QjYqILhNTZmSIsRP5tr2gw/zh-cn_image_0000002656468305.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=31BF9005DAE0C5E9968C8D34AC8195B467E6E5B826C8D5058BB3ADBD49035ABB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/yzW_isk9RTmoFJ6FzXI4Dw/zh-cn_image_0000002656006946.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=196C8D72D41DF9E6B3E584715563DA3109F16C5CEE783183929AC8B5B7CE9D07)
 
 3. 选择“开放能力管理”Tab页，找到需要使用的功能，点击左侧的按钮，开通相应的功能。
 
@@ -25,12 +25,12 @@
 **应用设备状态检测**：勾选“应用设备状态检测”并点击“保存”，接入“应用设备状态检测”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/IpRIs1tzRD2ViOIEQPKDUA/zh-cn_image_0000002656348353.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=1BB4B82C52566287AF4B8CAE4A7D3E91BCEEE8C1CDC1319B74D0B9CA01206A56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/ZN52zYggQwG2BywtlOtmJg/zh-cn_image_0000002655847026.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=4A663AE265B9DDC76E4BF7C3B462DEFCF6AF48762891B9A223C8A0CE85240F5D)
 
 4. **安全检测**：勾选“安全检测服务”并点击“保存”，接入“安全检测服务”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/Wpga6YDmTBaUgStXxyptuQ/zh-cn_image_0000002626228940.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=3B2DE5AC6656928D54222CC192B118D455D9C80BCAFD8B356E60D484810D2E74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/i2-Yt1aKSPG06XonB9NPCQ/zh-cn_image_0000002686086455.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=21784ED94B636D87406F3CBE5387CA8034BBCB8642D4D0C327DFBBD01F09DF7C)
 
 5. **可信应用服务**：勾选“可信应用服务”并点击“保存”，接入“可信应用服务”。
 
@@ -40,7 +40,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/fNM59B7fRMGjUefHcWGYbw/zh-cn_image_0000002626069030.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=719929C2DE2F9799E0450E3DBC63C2989EC3BAB9DFE605576DD3ADCD019683E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/5l9PjQ5BROqPhPJvY_H91A/zh-cn_image_0000002685926627.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=EF25D5475C73E385CEB6CD05C97C776E15407031A9CF67DB946827A87F455E0B)
 
 6. **业务风险检测-涉诈剧本检测**：点击“涉诈剧本检测”右侧申请按钮，接入“涉诈剧本检测”，审核通过后勾选对应服务并点击“保存”该服务配置。
 
@@ -49,13 +49,13 @@
   ② 点击“涉诈剧本检测”右侧申请按钮，接入“涉诈剧本检测”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/XJZGp2W1RcapU0Awi4cdGA/zh-cn_image_0000002656468307.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=643B1312B26E0C1A0967017E02FF5300F08C0A0B941D6E0577092E17BD6AF06E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/6IS_GmpsRM2xccLf-kKAZg/zh-cn_image_0000002656006948.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=4BAA0C72E339F43A76E43963716DB5BF3406311BD9914D3BB4488E152DA3ED53)
 
 
   ③ 参考“申请原因”中的模板，提供申请必需的相关信息，包含Developer ID、公司名称、应用名称、使用场景、使用该服务的合法基础（应用使用该服务时需在其隐私声明中进行个人数据声明及用途说明，详细参考[个人数据处理说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-personal-data)，并将合法基础的相关证明上传至申请附件），然后点击“提交”按钮。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/y9s4VAknRIGrze0CG7QmMg/zh-cn_image_0000002656348355.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=E771E8F1DEA9C35565BDAF3B98947374795DA4C6A8FCC90D85252B16AA55E207)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/xSnYKwJmScOkh1oqJtwlwQ/zh-cn_image_0000002655847028.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=296CA41DA948A3B12A9BBA8C9E0B38E9116603EF266DD2B3688AA75757C4745F)
 
 
   
@@ -67,7 +67,7 @@
   ① 点击“数字盾服务”右侧申请按钮，接入“数字盾服务”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/OkGoo6raRrKbDAdmxEBBVw/zh-cn_image_0000002626228942.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=3E228D359BBC6A9E09C18FA5836F1896C292F42C68A546570C69D2138277566F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/0ap1h454Q1mOsTVIj9GiUg/zh-cn_image_0000002686086457.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=E2F123D35C6C1C67CF000272E617BD47E49A097C53447A3CF14E75F01952820F)
 
 
   
@@ -81,13 +81,13 @@
   ① 点击“星盾机密风控引擎”右侧申请按钮，接入“星盾机密风控引擎”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/UDTf86R6SjuRp0jn2k7Wjw/zh-cn_image_0000002626069032.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=10DC5A0A73FB4A314F3A32E7149F876C28F4F2480ADE37CAB0FEC6BDB2AA06FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/p9lhWeVuRvSDffsbaHftbw/zh-cn_image_0000002685926629.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=E69ACD1C252A82B0121BC41B2AEC334BC0E1E1084EC534CC80D332008184E02C)
 
 
   ② 参考“申请原因”中的模板，提供申请必需的相关信息，包含公司名称、应用用户规模、使用场景及用途，然后点击“提交”按钮。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/amnLgoGgQXeVhhRNH-tvDw/zh-cn_image_0000002656468309.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=12F3CD59C892AB36D34715CD9CAA2BBCE555A3A5E596C569BF49B171B6BDD08C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/5IFfRIiYQhiU0DNUnuHshA/zh-cn_image_0000002656006950.png?HW-CC-KV=V1&HW-CC-Date=20260730T071914Z&HW-CC-Expire=86400&HW-CC-Sign=1235910E0CF0D6268287B458880F8947ED78D3BF7F3D23BB46CDA8C0B17B27E3)
 
 
   

@@ -1,6 +1,6 @@
-# 添加图像效果（C/C++）
+# 添加图像效果 (C/C++)
 
-更新时间：2026-03-27 08:08:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/effectkit-filter-c
 

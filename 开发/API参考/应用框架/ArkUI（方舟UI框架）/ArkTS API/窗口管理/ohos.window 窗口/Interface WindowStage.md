@@ -1,6 +1,6 @@
 # Interface (WindowStage)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -255,6 +255,7 @@ createSubWindow(name: string, callback: AsyncCallback&lt;Window&gt;): void
 | --- | --- |
 | 401 | Parameter error. Possible cause: Incorrect parameter types. |
 | 1300002 | This window state is abnormal. Possible cause: The subWindow has been created and can not be created again. |
+| 1300005 | This window stage is abnormal. 适用版本：9 |
 
 
 **示例：**
@@ -334,6 +335,7 @@ createSubWindow(name: string): Promise&lt;Window&gt;
 | --- | --- |
 | 401 | Parameter error. Possible cause: Incorrect parameter types. |
 | 1300002 | This window state is abnormal. Possible cause: The subWindow has been created and can not be created again. |
+| 1300005 | This window stage is abnormal. 适用版本：9 |
 
 
 **示例：**
@@ -474,7 +476,8 @@ getSubWindow(callback: AsyncCallback<Array&lt;Window&gt;>): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 1300002 | This window state is abnormal. |
+| 1300002 | This window state is abnormal. 适用版本：10+ |
+| 1300005 | This window stage is abnormal. 适用版本：9 |
 
 
 **示例：**
@@ -533,7 +536,8 @@ getSubWindow(): Promise<Array&lt;Window&gt;>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 1300002 | This window state is abnormal. |
+| 1300002 | This window state is abnormal. 适用版本：10+ |
+| 1300005 | This window stage is abnormal. 适用版本：9 |
 
 
 **示例：**
@@ -596,6 +600,7 @@ loadContent(path: string, storage: LocalStorage, callback: AsyncCallback&lt;void
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Invalid path parameter. |
 | 1300002 | This window state is abnormal. Possible cause: The window is not created or destroyed. |
+| 1300005 | This window stage is abnormal. 适用版本：9 |
 
 
 **示例：**
@@ -671,6 +676,7 @@ loadContent(path: string, storage?: LocalStorage): Promise&lt;void&gt;
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Invalid path parameter. |
 | 1300002 | This window state is abnormal. Possible cause: The window is not created or destroyed. |
+| 1300005 | This window stage is abnormal. 适用版本：9 |
 
 
 **示例：**
@@ -738,6 +744,7 @@ loadContent(path: string, callback: AsyncCallback&lt;void&gt;): void
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Invalid path parameter. |
 | 1300002 | This window state is abnormal. Possible cause: The window is not created or destroyed. |
+| 1300005 | This window stage is abnormal. 适用版本：9 |
 
 
 **示例：**
@@ -1052,9 +1059,9 @@ export struct Index {
 
 releaseUIContent(): Promise&lt;void&gt;
 
-销毁WindowStage的主窗页面内容，使用Promise异步回调。
+销毁WindowStage的主窗口页面内容，使用Promise异步回调。
 
-如果应用在前台时调用该接口，页面内容不会立即销毁，会等到应用退后台后再销毁。在主窗没有加载页面内容时调用该接口不生效不报错。
+如果应用在前台时调用该接口，页面内容不会立即销毁，会等到应用退后台后再销毁。在主窗口没有加载页面内容时调用该接口不生效不报错。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1123,7 +1130,7 @@ export default class EntryAbility extends UIAbility {
 
 on(eventType: 'windowStageEvent', callback: Callback&lt;WindowStageEventType&gt;): void
 
-开启WindowStage生命周期变化的监听。
+开启WindowStage生命周期变化的监听。对于状态间的顺序有要求的情况下，推荐使用[on('windowStageLifecycleEvent')](#onwindowstagelifecycleevent20)接口。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1198,7 +1205,7 @@ off(eventType: 'windowStageEvent', callback?: Callback&lt;WindowStageEventType&g
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageEvent'，即WindowStage生命周期变化事件。 |
-| callback | Callback&lt;WindowStageEventType&gt; | 否 | 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。 |
+| callback | Callback&lt;WindowStageEventType&gt; | 否 | 回调函数，用于指定要注销的监听。若传入参数，则关闭该监听。若未传入参数，则关闭该WindowStage所有生命周期变化的监听。 |
 
 
 **错误码：**
@@ -1345,7 +1352,7 @@ off(eventType: 'windowStageLifecycleEvent', callback?: Callback&lt;WindowStageLi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageLifecycleEvent'，即WindowStage生命周期变化事件。 |
-| callback | Callback&lt;WindowStageLifecycleEventType&gt; | 否 | 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。 |
+| callback | Callback&lt;WindowStageLifecycleEventType&gt; | 否 | 回调函数，用于指定要注销的监听。若传入参数，则关闭该监听。若未传入参数，则关闭该WindowStage所有生命周期变化的监听。 |
 
 
 **错误码：**
@@ -1488,7 +1495,7 @@ off(eventType: 'windowStageClose', callback?: Callback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageClose'，即关闭主窗口关闭事件的监听。 |
-| callback | Callback&lt;void&gt; | 否 | 回调函数。当点击主窗口右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。回调函数内部逻辑需要有boolean类型的返回值，该返回值决定当前主窗是否继续关闭，true表示不关闭，false表示关闭。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有主窗口关闭的监听。 |
+| callback | Callback&lt;void&gt; | 否 | 回调函数，用于指定要注销的监听。如果传入参数，则关闭该监听。如果未传入参数，则关闭主窗口所有关闭事件的监听。 |
 
 
 **错误码：**
@@ -1760,7 +1767,7 @@ setWindowModal(isModal: boolean): Promise&lt;void&gt;
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 | 1300002 | This window state is abnormal. Possible cause: The window is not created or destroyed. |
 | 1300003 | This window manager service works abnormally. |
-| 1300005 | This window stage is abnormal. |
+| 1300005 | This window stage is abnormal. Possible cause: The window is not created or destroyed. 适用版本：20+ |
 
 
 **示例：**
@@ -2067,7 +2074,7 @@ isWindowRectAutoSave(): Promise&lt;boolean&gt;
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 | 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Internal task error. |
-| 1300003 | This window manager service works abnormally. |
+| 1300003 | This window manager service works abnormally. 适用版本：20+ |
 
 
 **示例：**
@@ -2141,7 +2148,7 @@ setImageForRecent(imageResource: number | image.PixelMap, value: ImageFit): Prom
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required or a non-system application calls the API. |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
-| 1300002 | This window state is abnormal. |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed. 2. The WindowStage is running in the background. 3. Internal task error. |
 | 1300003 | This window manager service works abnormally. |
 | 1300016 | Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length. |
 

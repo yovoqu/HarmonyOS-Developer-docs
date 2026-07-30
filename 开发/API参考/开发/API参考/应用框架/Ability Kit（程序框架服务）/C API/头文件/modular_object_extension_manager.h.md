@@ -1,6 +1,6 @@
 # modular_object_extension_manager.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-modular-object-extension-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -433,3 +433,65 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModObjExtensionInfoByIndex(OH_Abil
 | 类型 | 说明 |
 | --- | --- |
 | AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID allExtensionInfos或extensionInfo为空， 或index大于等于集合中ModularObjectExtensionAbility信息数量。 |
+ 
+ 
+  
+
+#### OH_AbilityRuntime_ConnectModularObjectExtensionAbility()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+AbilityRuntime_ErrorCode OH_AbilityRuntime_ConnectModularObjectExtensionAbility(AbilityBase_Want *want, OH_AbilityRuntime_ConnectOptions *connectOptions, int64_t *connectionId)
+```
+ 
+**描述**
+ 
+连接ModularObjectExtensionAbility。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| AbilityBase_Want *want | 连接ModularObjectExtensionAbility需要的Want信息。详细内容参考AbilityBase_Want。 |
+| OH_AbilityRuntime_ConnectOptions *connectOptions | 连接选项。详细内容参考OH_AbilityRuntime_ConnectOptions。 |
+| int64_t *connectionId | 指向int64_t的指针，用于接收连接ID。可以在后续调用OH_AbilityRuntime_DisconnectModularObjectExtensionAbility时使用。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID 传入参数无效。 ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED 设备不支持连接ModularObjectExtensionAbility。 ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY 目标Ability不存在。 ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE Ability类型不正确。 ABILITY_RUNTIME_ERROR_CODE_VISIBILITY_VERIFICATION_FAILED 无法启动不可见组件。 ABILITY_RUNTIME_ERROR_CODE_STATIC_CFG_PERMISSION 指定进程无相应权限。 ABILITY_RUNTIME_ERROR_CODE_CROSS_USER_OPERATION 不允许跨用户操作。 ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED 众测应用已过期。 ABILITY_RUNTIME_ERROR_CODE_INTERNAL 内部错误。 ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY 调用方进程不在前台。 ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED 同名Ability的实例数超过20个。 ABILITY_RUNTIME_ERROR_CODE_NO_RUNNING_ABILITIES_WITH_UI 目标应用无正在运行的UIAbility或UIExtensionAbility。 ABILITY_RUNTIME_ERROR_CODE_UPPER_RATE_LIMIT API调用频率过高，超过每秒20次。 ABILITY_RUNTIME_ERROR_CODE_UPPER_CONNECTION_NUMBER_LIMIT 同一进程最多连接5个同名的Ability。 ABILITY_RUNTIME_ERROR_CODE_CROSS_APP_IN_PROCESS 在OH_ABILITY_RUNTIME_LAUNCH_MODE_IN_PROCESS模式下，调用方与目标Ability不在同一应用。 |
+ 
+ 
+  
+
+#### OH_AbilityRuntime_DisconnectModularObjectExtensionAbility()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+AbilityRuntime_ErrorCode OH_AbilityRuntime_DisconnectModularObjectExtensionAbility(int64_t connectionId)
+```
+ 
+**描述**
+ 
+断开与ModularObjectExtensionAbility的连接。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| int64_t connectionId | 表示连接ID。由OH_AbilityRuntime_ConnectModularObjectExtensionAbility返回。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID 传入参数无效。 ABILITY_RUNTIME_ERROR_CODE_INTERNAL 内部错误。 |

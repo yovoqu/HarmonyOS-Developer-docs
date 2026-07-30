@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（文本输入类组件相关属性）
 
-更新时间：2026-06-27 10:02:54（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-textinputcategory
 
@@ -11,7 +11,7 @@ enum ArkUI_NodeAttributeType
 
 #### 概述
 
-定义ArkUI在Native侧可以设置的文本输入类组件相关属性样式集合，包含TextInput、TextArea组件属性设置。
+定义ArkUI在Native侧可以设置的文本输入类组件相关属性样式集合，包含TextInput、TextArea组件属性设置。该属性集合支持光标样式、占位文本、输入过滤、自动填充、文本选中、计数器等多种样式与交互配置，适用于表单输入、搜索框、密码输入、多行文本编辑等场景，便于开发者统一管理文本输入组件的外观与行为。
  
 **起始版本：** 12
  
@@ -37,7 +37,7 @@ NODE_TEXT_INPUT_PLACEHOLDER = MAX_NODE_SCOPE_NUM * ARKUI_NODE_TEXT_INPUT = 7000
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 默认提示文本的内容。 |
+| .string | 默认提示文本的内容。当需要在输入框显示提示信息引导用户输入时设置此属性，例如“请输入用户名”、“请输入密码”等。不设置时输入框无提示文本。 |
  
  
 **返回：**
@@ -65,7 +65,7 @@ NODE_TEXT_INPUT_TEXT = 7001
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 默认文本的内容。 |
+| .string | 输入框的默认文本内容，用于设置输入框初始显示的文本。当需要在输入框中预置文本时设置此属性，例如表单默认值、编辑初始内容等。不设置时输入框为空。 |
  
  
 **返回：**
@@ -121,7 +121,7 @@ NODE_TEXT_INPUT_CARET_STYLE = 7003
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 光标宽度数值，单位为vp。 |
+| .value[0].f32 | 光标宽度数值，单位为vp。取值范围：[0, +∞)。 |
  
  
 **返回：**
@@ -149,7 +149,7 @@ NODE_TEXT_INPUT_SHOW_UNDERLINE = 7004
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | false表示不展示下划线，true表示展示下划线。 |
+| .value[0].i32 | 0表示不展示下划线，1表示展示下划线。默认值0。 |
  
  
 **返回：**
@@ -177,14 +177,14 @@ NODE_TEXT_INPUT_MAX_LENGTH = 7005
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 最大文本数的数字，无单位。 |
+| .value[0].i32 | 最大文本数，无单位。取值范围：[0, +∞)。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 最大文本数的数字。 |
+| .value[0].i32 | 最大文本数，无单位。 |
  
  
   
@@ -205,14 +205,14 @@ NODE_TEXT_INPUT_ENTER_KEY_TYPE = 7006
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 回车键类型枚举ArkUI_EnterKeyType，默认值为ARKUI_ENTER_KEY_TYPE_DONE。 |
+| .value[0].i32 | 回车键类型，具体枚举值请参考ArkUI_EnterKeyType。默认值ARKUI_ENTER_KEY_TYPE_DONE，显示为完成样式。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 回车键类型枚举ArkUI_EnterKeyType。 |
+| .value[0].i32 | 回车键类型枚举ArkUI_EnterKeyType，用于确定输入框回车键的显示样式。 |
  
  
   
@@ -261,10 +261,10 @@ NODE_TEXT_INPUT_PLACEHOLDER_FONT = 7008
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0]?.f32 | 可选字体大小数值，默认值16.0，单位为fp。 |
-| .value[1]?.i32 | 可选字体样式ArkUI_FontStyle，默认值为ARKUI_FONT_STYLE_NORMAL。 |
-| .value[2]?.i32 | 可选字体粗细样式ArkUI_FontWeight，默认值为ARKUI_FONT_WEIGHT_NORMAL。 |
-| ?.string | 字体族内容，多个字体族之间使用逗号分隔，形如“字重；字体族1，字体族2”。 |
+| .value[0]?.f32 | 可选字体大小数值，默认值16.0，单位为fp。取值范围：[0, +∞)。传入负数时不生效。 |
+| .value[1]?.i32 | 可选字体样式，具体枚举值请参考ArkUI_FontStyle。默认值为ARKUI_FONT_STYLE_NORMAL，表示标准字体样式。 |
+| .value[2]?.i32 | 可选字体粗细样式，具体枚举值请参考ArkUI_FontWeight。默认值ARKUI_FONT_WEIGHT_NORMAL，表示正常字体粗细。 |
+| ?.string | 字体族内容，多个字体族之间使用逗号分隔，形如“字重；字体族1，字体族2”。不传入时使用系统默认字体族。 |
  
  
 **返回：**
@@ -295,7 +295,7 @@ NODE_TEXT_INPUT_ENABLE_KEYBOARD_ON_FOCUS = 7009
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | false表示聚焦不拉起输入法，true表示拉起。 |
+| .value[0].i32 | 0表示聚焦不拉起输入法，1表示拉起，默认值为1。 |
  
  
 **返回：**
@@ -323,14 +323,14 @@ NODE_TEXT_INPUT_TYPE = 7010
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 输入框类型枚举ArkUI_TextInputType，默认值为ARKUI_TEXTINPUT_TYPE_NORMAL。 |
+| .value[0].i32 | 输入框类型，具体枚举值请参考ArkUI_TextInputType。默认值为ARKUI_TEXTINPUT_TYPE_NORMAL，表示基本输入模式。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 输入框类型枚举ArkUI_TextInputType。 |
+| .value[0].i32 | 输入框类型枚举ArkUI_TextInputType，用于确定输入框的输入内容和键盘样式。 |
  
  
   
@@ -379,7 +379,7 @@ NODE_TEXT_INPUT_SHOW_PASSWORD_ICON = 7012
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | false表示不显示图标，true表示显示图标，默认值为false。 |
+| .value[0].i32 | 0表示不显示图标，1表示显示图标，默认值为0。 |
  
  
 **返回：**
@@ -407,14 +407,14 @@ NODE_TEXT_INPUT_EDITING = 7013
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | false表示退出编辑态，true表示维持现状。 |
+| .value[0].i32 | 0表示退出编辑态，1表示维持现状。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | false表示退出编辑态，true表示维持现状。 |
+| .value[0].i32 | 0表示退出编辑态，1表示维持现状。 |
  
  
   
@@ -435,10 +435,10 @@ NODE_TEXT_INPUT_CANCEL_BUTTON = 7014
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 按钮样式ArkUI_CancelButtonStyle，默认值为ARKUI_CANCELBUTTON_STYLE_INPUT。 |
-| .value[1]?.f32 | 图标大小数值，单位为vp。 |
-| .value[2]?.u32 | 按钮图标颜色数值，0xargb格式，形如 0xFFFF0000 表示红色。 |
-| ?.string | 按钮图标地址，入参内容为图片本地地址，例如 /pages/icon.png。 |
+| .value[0].i32 | 按钮样式，具体枚举值请参考ArkUI_CancelButtonStyle。默认值为ARKUI_CANCELBUTTON_STYLE_INPUT，表示清除按钮输入样式。 |
+| .value[1]?.f32 | 图标大小数值，单位为vp。取值范围：[0, +∞)。传入负数时不生效。不传入时使用系统默认图标大小。 |
+| .value[2]?.u32 | 按钮图标颜色数值，0xargb格式，形如 0xFFFF0000 表示红色。不传入时使用系统默认图标颜色。 |
+| ?.string | 按钮图标地址，入参内容为图片本地地址，例如 /pages/icon.png。不传入时使用系统默认清除图标。 |
  
  
 **返回：**
@@ -459,7 +459,7 @@ NODE_TEXT_INPUT_CANCEL_BUTTON = 7014
 NODE_TEXT_INPUT_TEXT_SELECTION = 7015
 ```
  
-单行文本设置文本选中并高亮的区域，支持属性设置，属性重置和属性获取接口。
+组件在获焦状态下，设置文本选中并高亮的区域，支持属性设置，属性重置和属性获取接口。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -469,8 +469,8 @@ NODE_TEXT_INPUT_TEXT_SELECTION = 7015
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 选中文本的起始位置。 |
-| .value[1].i32 | 选中文本的终止位置。 |
+| .value[0].i32 | 选中文本的起始位置，取值范围[0, 文本长度]，需小于终止位置才生效。 |
+| .value[1].i32 | 选中文本的终止位置，取值范围[0, 文本长度]。 |
  
  
 **返回：**
@@ -489,7 +489,7 @@ NODE_TEXT_INPUT_TEXT_SELECTION = 7015
 NODE_TEXT_INPUT_UNDERLINE_COLOR = 7016
 ```
  
-开启下划线时，支持配置下划线颜色。主题配置的默认下划线颜色为'0x33182431'。
+开启下划线时，支持配置下划线颜色。需先设置NODE_TEXT_INPUT_SHOW_UNDERLINE属性为1以开启下划线后，本属性设置才生效。主题配置的默认下划线颜色为0x33182431，表示深灰色，不透明度为20%。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -499,20 +499,20 @@ NODE_TEXT_INPUT_UNDERLINE_COLOR = 7016
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].u32 | typing，必填，键入时下划线颜色，0xargb类型。 |
-| .value[1].u32 | normal，必填，非特殊状态时下划线颜色，0xargb类型。 |
-| .value[2].u32 | error，必填，错误时下划线颜色，0xargb类型。 |
-| .value[3].u32 | disable，必填，禁用时下划线颜色，0xargb类型。 |
+| .value[0].u32 | typing下划线颜色，必填，表示键入时的下划线颜色，0xargb类型。 |
+| .value[1].u32 | normal下划线颜色，必填，表示非特殊状态时下划线颜色，0xargb类型。 |
+| .value[2].u32 | error下划线颜色，必填，表示错误时下划线颜色，0xargb类型。 |
+| .value[3].u32 | disable下划线颜色，必填，表示禁用时下划线颜色，0xargb类型。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].u32 | typing，键入时下划线颜色，0xargb类型。 |
-| .value[1].u32 | normal，非特殊状态时下划线颜色，0xargb类型。 |
-| .value[2].u32 | error，错误时下划线颜色，0xargb类型。 |
-| .value[3].u32 | disable，禁用时下划线颜色，0xargb类型。 |
+| .value[0].u32 | typing下划线颜色，表示键入时的下划线颜色，0xargb类型。 |
+| .value[1].u32 | normal下划线颜色，表示非特殊状态时下划线颜色，0xargb类型。 |
+| .value[2].u32 | error下划线颜色，表示错误时下划线颜色，0xargb类型。 |
+| .value[3].u32 | disable下划线颜色，表示禁用时下划线颜色，0xargb类型。 |
  
  
   
@@ -533,14 +533,14 @@ NODE_TEXT_INPUT_ENABLE_AUTO_FILL = 7017
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动填充，默认值true。 true表示启用，false表示不启用。 |
+| .value[0].i32 | 是否启用自动填充，默认值1。 0表示不启用，1表示启用。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动填充。 |
+| .value[0].i32 | 是否启用自动填充。1表示启用，0表示不启用。 |
  
  
   
@@ -561,14 +561,14 @@ NODE_TEXT_INPUT_CONTENT_TYPE = 7018
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_TextInputContentType。 |
+| .value[0].i32 | 参数类型ArkUI_TextInputContentType，用于自动填充场景指定内容类型。具体枚举值及适用场景请参考ArkUI_TextInputContentType枚举说明。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_TextInputContentType。 |
+| .value[0].i32 | 自动填充内容类型枚举ArkUI_TextInputContentType，用于确定自动填充的内容类型。 |
  
  
   
@@ -589,7 +589,7 @@ NODE_TEXT_INPUT_PASSWORD_RULES = 7019
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 定义生成密码的规则。 |
+| .string | 定义生成密码的规则，用于在触发自动填充时透传给密码保险箱以控制新密码的生成。 |
  
  
 **返回：**
@@ -617,14 +617,14 @@ NODE_TEXT_INPUT_SELECT_ALL = 7020
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否全选文本，默认值：false。 true表示会全选文本，false表示不会全选文本。 |
+| .value[0].i32 | 是否全选文本，默认值：0。 1表示会全选文本，0表示不会全选文本。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否全选文本。 |
+| .value[0].i32 | 是否全选文本。1表示会全选文本，0表示不会全选文本。 |
  
  
   
@@ -645,7 +645,7 @@ NODE_TEXT_INPUT_INPUT_FILTER = 7021
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 正则表达式。 |
+| .string | 正则表达式，用于过滤用户输入内容。匹配表达式的输入允许显示，不匹配的输入将被过滤。当需要限制用户只能输入特定格式的字符时设置此属性，例如"^[a-zA-Z]+$"表示只允许字母，"^[0-9]+$"表示只允许数字。不设置时允许所有字符输入。 |
  
  
 **返回：**
@@ -663,7 +663,7 @@ NODE_TEXT_INPUT_INPUT_FILTER = 7021
 NODE_TEXT_INPUT_STYLE = 7022
 ```
  
-设置输入框为默认风格或内联输入风格。内联输入风格只支持输入框类型的枚举[ArkUI_TextInputType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_textinputtype)设置为ARKUI_TEXTINPUT_TYPE_NORMAL。
+设置输入框为默认风格或内联输入风格。内联输入风格是一种无边框的嵌入式输入样式，输入框直接融入页面内容中。内联输入风格只支持输入框类型的枚举[ArkUI_TextInputType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-input-h#arkui_textinputtype)设置为ARKUI_TEXTINPUT_TYPE_NORMAL。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -673,14 +673,14 @@ NODE_TEXT_INPUT_STYLE = 7022
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_TextInputStyle。默认值为ARKUI_TEXTINPUT_STYLE_DEFAULT。 |
+| .value[0].i32 | 参数类型ArkUI_TextInputStyle。内联输入风格只支持输入框类型ArkUI_TextInputType设置为ARKUI_TEXTINPUT_TYPE_NORMAL。默认值为ARKUI_TEXTINPUT_STYLE_DEFAULT。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_TextInputStyle。 |
+| .value[0].i32 | 输入框样式枚举ArkUI_TextInputStyle，用于确定输入框的显示样式。 |
  
  
   
@@ -705,7 +705,7 @@ NODE_TEXT_INPUT_CARET_OFFSET = 7023
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 从字符串开始到光标所在位置的字符长度。 |
+| .value[0].i32 | 从字符串开始到光标所在位置的字符长度，取值范围[0, 文本长度]。超出范围时自动修正为边界值。 |
  
  
 **返回：**
@@ -713,8 +713,8 @@ NODE_TEXT_INPUT_CARET_OFFSET = 7023
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 光标所在位置的索引值。 |
-| .value[1].f32 | 光标相对输入框的x坐标位值。 |
-| .value[2].f32 | 光标相对输入框的y坐标位值。 |
+| .value[1].f32 | 光标相对输入框的x坐标值，单位为px。 |
+| .value[2].f32 | 光标相对输入框的y坐标值，单位为px。 |
  
  
   
@@ -735,10 +735,10 @@ NODE_TEXT_INPUT_CONTENT_RECT = 7024
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 水平方向横坐标。 |
-| .value[1].f32 | 竖直方向纵坐标。 |
-| .value[2].f32 | 内容宽度大小。 |
-| .value[3].f32 | 内容高度大小。 |
+| .value[0].f32 | 水平方向横坐标，单位为px。 |
+| .value[1].f32 | 竖直方向纵坐标，单位为px。 |
+| .value[2].f32 | 内容宽度大小，单位为px。 |
+| .value[3].f32 | 内容高度大小，单位为px。 |
  
  
   
@@ -780,14 +780,14 @@ NODE_TEXT_INPUT_SELECTION_MENU_HIDDEN = 7026
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。默认值false。 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，隐藏系统文本选择菜单。 设置为false时，显示系统文本选择菜单。 |
+| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。默认值0。 设置为1时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，隐藏系统文本选择菜单。 设置为0时，显示系统文本选择菜单。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。 |
+| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。1表示不弹出菜单，0表示弹出菜单。 |
  
  
   
@@ -808,14 +808,14 @@ NODE_TEXT_INPUT_BLUR_ON_SUBMIT = 7027
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否失焦。默认值true。 false表示触发回车键后不失焦，true表示触发回车键后失焦。 |
+| .value[0].i32 | 触发回车键后是否失焦。默认值1。 0表示不失焦，1表示失焦。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否失焦。 |
+| .value[0].i32 | 触发回车键后是否失焦。1表示失焦，0表示不失焦。 |
  
  
   
@@ -837,7 +837,7 @@ NODE_TEXT_INPUT_CUSTOM_KEYBOARD = 7028
 | 参数项 | 描述 |
 | --- | --- |
 | .object | 自定义键盘，参数类型ArkUI_NodeHandle。 |
-| .value[0]?.i32 | 设置自定义键盘是否支持避让功能，默认值false。 true表示支持避让，false表示不支持避让。 |
+| .value[0]?.i32 | 设置自定义键盘是否支持避让功能，默认值0。 1表示支持避让，0表示不支持避让。 |
  
  
 **返回：**
@@ -845,7 +845,7 @@ NODE_TEXT_INPUT_CUSTOM_KEYBOARD = 7028
 | 类型 | 说明 |
 | --- | --- |
 | .object | 自定义键盘，参数类型ArkUI_NodeHandle。 |
-| .value[0].i32 | 设置自定义键盘是否支持避让功能。 |
+| .value[0].i32 | 设置自定义键盘是否支持避让功能。0表示不支持避让，1表示支持避让。 |
  
  
   
@@ -866,14 +866,14 @@ NODE_TEXT_INPUT_WORD_BREAK = 7029
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_WordBreak。默认值ARKUI_WORD_BREAK_BREAK_WORD。 |
+| .value[0].i32 | 参数类型ArkUI_WordBreak。仅在内联输入风格编辑态生效。默认值ARKUI_WORD_BREAK_BREAK_WORD。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_WordBreak。 |
+| .value[0].i32 | 文本断行规则枚举ArkUI_WordBreak，用于确定文本的断行方式。 |
  
  
   
@@ -894,14 +894,14 @@ NODE_TEXT_INPUT_SHOW_KEYBOARD_ON_FOCUS = 7030
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否弹出键盘。false表示获取焦点时不弹出键盘，true表示获取焦点时弹出键盘。 |
+| .value[0].i32 | 是否弹出键盘。默认值1。 0表示获取焦点时不弹出键盘，1表示获取焦点时弹出键盘。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否弹出键盘。 |
+| .value[0].i32 | 是否弹出键盘。1表示弹出键盘，0表示不弹出键盘。 |
  
  
   
@@ -922,7 +922,7 @@ NODE_TEXT_INPUT_NUMBER_OF_LINES = 7031
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置numberOfLines的值。 |
+| .value[0].i32 | 设置行数，取值范围[1, +∞)，用于通过该属性计算TextInput组件的高度。例如：设置为3时，组件将默认显示足够容纳3行文本内容的高度。 |
  
  
 **返回：**
@@ -970,6 +970,8 @@ NODE_TEXT_INPUT_ENABLE_PREVIEW_TEXT = 7033
  
 设置[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)组件是否开启输入预上屏。接口支持设置，重置以及获取该属性。
  
+“预上屏”描述的是一种文字暂存状态。需要在输入法中开启预上屏功能，在输入文本过程中，未确认输入候选词时，文本框中显示标记文本。例如，通过拼音输入中文时，未确定候选词之前，在输入框中显示拼音字母，该状态称为文字预上屏。
+ 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
 **起始版本：** 15
@@ -978,14 +980,14 @@ NODE_TEXT_INPUT_ENABLE_PREVIEW_TEXT = 7033
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置是否开启输入预上屏。默认值true。 false表示不开启输入预上屏，true表示开启输入预上屏。 |
+| .value[0].i32 | 设置是否开启输入预上屏。默认值1。 0表示不开启输入预上屏，1表示开启输入预上屏。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 获取是否开启输入预上屏。 |
+| .value[0].i32 | 获取是否开启输入预上屏。0表示不开启输入预上屏，1表示开启输入预上屏。 |
  
  
   
@@ -1006,14 +1008,14 @@ NODE_TEXT_INPUT_HALF_LEADING = 7034
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置文本是否将行间距平分至行的顶部与底部。默认值false。 true表示将行间距平分至行的顶部与底部，false表示不平分。 |
+| .value[0].i32 | 设置文本是否将行间距平分至行的顶部与底部。默认值0。 1表示将行间距平分至行的顶部与底部，0表示不平分。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 设置文本是否将行间距平分至行的顶部与底部。 |
+| .value[0].i32 | 文本行间距是否平分至行的顶部与底部。1表示平分，0表示不平分。 |
  
  
   
@@ -1034,14 +1036,14 @@ NODE_TEXT_INPUT_KEYBOARD_APPEARANCE = 7035
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 键盘样式，参数类型ArkUI_KeyboardAppearance。 |
+| .value[0].i32 | 键盘样式，参数类型ArkUI_KeyboardAppearance。具体枚举值请参考ArkUI_KeyboardAppearance枚举说明。默认值ARKUI_KEYBOARD_APPEARANCE_NONE_IMMERSIVE，不使用沉浸式样式。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 键盘样式，参数类型ArkUI_KeyboardAppearance。默认值ARKUI_KEYBOARD_APPEARANCE_NONE_IMMERSIVE。 |
+| .value[0].i32 | 键盘样式，参数类型ArkUI_KeyboardAppearance。具体枚举值请参考ArkUI_KeyboardAppearance枚举说明。默认值ARKUI_KEYBOARD_APPEARANCE_NONE_IMMERSIVE。 |
  
  
   
@@ -1052,7 +1054,7 @@ NODE_TEXT_INPUT_KEYBOARD_APPEARANCE = 7035
 NODE_TEXT_INPUT_ENABLE_FILL_ANIMATION = 7036
 ```
  
-设置是否启用自动填充动效。
+设置是否启用自动填充动效。仅当输入框类型[ArkUI_TextInputType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-input-h#arkui_textinputtype)设置为ARKUI_TEXTINPUT_TYPE_PASSWORD、ARKUI_TEXTINPUT_TYPE_NUMBER_PASSWORD或ARKUI_TEXTINPUT_TYPE_NEW_PASSWORD时，该动效才生效。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -1062,14 +1064,14 @@ NODE_TEXT_INPUT_ENABLE_FILL_ANIMATION = 7036
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动填充动效。 true表示启用，false表示不启用。 默认值true。 |
+| .value[0].i32 | 是否启用自动填充动效。启用之后，仅输入框类型的枚举ArkUI_TextInputType设置为ARKUI_TEXTINPUT_TYPE_PASSWORD、ARKUI_TEXTINPUT_TYPE_NUMBER_PASSWORD或ARKUI_TEXTINPUT_TYPE_NEW_PASSWORD的输入框在进行自动填充时动效可生效。 1表示启用，0表示不启用。 默认值1。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动填充动效。启用之后，仅输入框类型的枚举ArkUI_TextInputType设置为ARKUI_TEXTINPUT_TYPE_PASSWORD、ARKUI_TEXTINPUT_TYPE_NUMBER_PASSWORD或ARKUI_TEXTINPUT_TYPE_NEW_PASSWORD的输入框在进行自动填充时动效可生效。 |
+| .value[0].i32 | 是否启用自动填充动效。0表示不启用，1表示启用。启用之后，仅输入框类型的枚举ArkUI_TextInputType设置为ARKUI_TEXTINPUT_TYPE_PASSWORD、ARKUI_TEXTINPUT_TYPE_NUMBER_PASSWORD或ARKUI_TEXTINPUT_TYPE_NEW_PASSWORD的输入框在进行自动填充时动效可生效。 |
  
  
   
@@ -1090,14 +1092,14 @@ NODE_TEXT_INPUT_LINE_HEIGHT = 7037
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 文本的高度的数字。默认值是自适应字体大小。设置为undefined时，文本的高度设置为5。 |
+| .value[0].i32 | 文本的高度，单位fp。默认值是自适应字体大小。不传入该参数时，文本的高度设置为5fp。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 文本的高度的数字。 |
+| .value[0].i32 | 文本的高度，单位fp。 |
  
  
   
@@ -1108,7 +1110,7 @@ NODE_TEXT_INPUT_LINE_HEIGHT = 7037
 NODE_TEXT_INPUT_ENABLE_SELECTED_DATA_DETECTOR = 7038
 ```
  
-开启选中词文本识别。
+开启选中词文本识别，支持识别选中文本中的电话号码、邮箱地址、网址链接等实体信息，便于用户快捷拨打电话、发送邮件或打开链接。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -1118,14 +1120,14 @@ NODE_TEXT_INPUT_ENABLE_SELECTED_DATA_DETECTOR = 7038
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 开启选中词文本识别，true表示开启识别，false表示关闭识别。默认值：true。 |
+| .value[0].i32 | 开启选中词文本识别，1表示开启识别，0表示关闭识别。默认值：1。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否开启选中词文本识别。 |
+| .value[0].i32 | 是否开启选中词文本识别。1表示已开启识别，0表示已关闭识别。 |
  
  
   
@@ -1146,9 +1148,9 @@ NODE_TEXT_INPUT_SHOW_COUNTER = 7040
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否开启计数器。值为true表示开启计数器，值为false表示不开启计数器。 |
-| .value[1]?.f32 | 可输入字符数占最大字符限制的百分比值，超过此值时显示计数器，取值范围[1, 100]，小数时向下取整，若超出取值范围，则接口属性设置不生效。 |
-| .value[2]?.i32 | 输入字符超出限制时高亮边框，true表示高亮边框，false表示为不高亮边框。 |
+| .value[0].i32 | 是否开启计数器。值为1表示开启计数器，值为0表示不开启计数器。 |
+| .value[1]?.f32 | 可输入字符数占最大字符限制的百分比值，超过此值时显示计数器，取值范围[1, 100]，小数时向下取整，若超出取值范围，则接口属性设置不生效。默认值-1，即始终显示计数器。 |
+| .value[2]?.i32 | 输入字符超出限制时高亮边框，1表示高亮边框，0表示不高亮边框。默认值1。 |
 | .object | 计数器配置，配置属性为文本输入框未达到最大字符数时计数器的颜色以及超出最大字符数时计数器的颜色。参数类型为 ArkUI_ShowCounterConfig。 |
  
  
@@ -1156,9 +1158,9 @@ NODE_TEXT_INPUT_SHOW_COUNTER = 7040
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否开启计数器。 |
+| .value[0].i32 | 是否开启计数器。0表示不开启计数器，1表示开启计数器。 |
 | .value[1].f32 | 可输入字符数占最大字符限制的百分比值，超过此值时显示计数器，取值范围[1, 100]。 |
-| .value[2].i32 | 输入字符超出限制时高亮边框，true表示高亮边框，false表示为不高亮边框，默认高亮。 |
+| .value[2].i32 | 输入字符超出限制时高亮边框。0表示不高亮边框，1表示高亮边框。 |
 | .object | 计数器配置，配置属性为文本输入框未达到最大字符数时计数器的颜色以及超出最大字符数时计数器的颜色。参数类型为ArkUI_ShowCounterConfig。 |
  
  
@@ -1200,7 +1202,14 @@ NODE_TEXT_INPUT_ELLIPSIS_MODE = 7042
  
 设置单行文本输入框中文本省略位置，支持属性设置，属性重置，属性获取接口。
  
-作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+此属性存在以下配置依赖：
+ 
+- 此属性只有在NODE_TEXT_INPUT_TEXT_OVERFLOW设置为ARKUI_TEXT_OVERFLOW_ELLIPSIS时才生效
+- 当TEXT_OVERFLOW设置为ARKUI_TEXT_OVERFLOW_CLIP时，ELLIPSIS_MODE的设置不会生效
+- 建议先设置TEXT_OVERFLOW为ELLIPSIS，再设置ELLIPSIS_MODE指定省略位置
+
+  作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+
  
 **起始版本：** 24
  
@@ -1208,14 +1217,14 @@ NODE_TEXT_INPUT_ELLIPSIS_MODE = 7042
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_EllipsisMode。默认值为ARKUI_ELLIPSIS_MODE_END。 |
+| .value[0].i32 | 参数类型ArkUI_EllipsisMode。具体枚举值请参考ArkUI_EllipsisMode枚举说明。默认值为ARKUI_ELLIPSIS_MODE_END。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_EllipsisMode。 |
+| .value[0].i32 | 文本省略位置枚举ArkUI_EllipsisMode，用于确定文本超长时的省略位置。 |
  
  
   
@@ -1226,7 +1235,9 @@ NODE_TEXT_INPUT_ELLIPSIS_MODE = 7042
 NODE_TEXT_INPUT_ORPHAN_CHAR_OPTIMIZATION = 7043
 ```
  
-设置TextInput文本排版时是否使能孤字优化，设置后通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
+设置TextInput文本排版时是否使能孤字优化。使能后通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局，调整换行点以尽可能避免孤立字符。
+ 
+注意：该特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-common-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -1236,14 +1247,14 @@ NODE_TEXT_INPUT_ORPHAN_CHAR_OPTIMIZATION = 7043
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否使能，true表示使能，false表示不使能。默认值false。 |
+| .value[0].i32 | 是否使能孤字优化。该特性需在ArkUI_WordBreak属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。1表示使能，0表示不使能。默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否使能孤字优化。 |
+| .value[0].i32 | 是否使能孤字优化。0表示不使能，1表示使能。 |
  
  
   
@@ -1264,14 +1275,14 @@ NODE_TEXT_INPUT_COMPRESS_LEADING_PUNCTUATION = 7044
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否打开行首标点压缩开关。 true表示开启行首标点压缩，false表示关闭行首标点压缩。默认值false。 |
+| .value[0].i32 | 是否打开行首标点压缩开关。 1表示开启行首标点压缩，0表示关闭行首标点压缩。默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否打开行首标点压缩开关。 |
+| .value[0].i32 | 是否打开行首标点压缩开关。0表示关闭行首标点压缩，1表示开启行首标点压缩。 |
  
  
   
@@ -1292,14 +1303,14 @@ NODE_TEXT_INPUT_INCLUDE_FONT_PADDING = 7045
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置输入框内文字是否在首行顶部和尾行底部增加间距以避免文字截断。true表示开启增加间距，false表示关闭增加间距。默认值：false。 |
+| .value[0].i32 | 设置输入框内文字是否在首行顶部和尾行底部增加间距以避免文字截断。1表示开启增加间距，0表示关闭增加间距。默认值：0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否在首行顶部和尾行底部增加间距。true表示增加间距，false表示不增加间距。 |
+| .value[0].i32 | 是否在首行顶部和尾行底部增加间距。0表示不增加间距，1表示增加间距。 |
  
  
   
@@ -1310,7 +1321,7 @@ NODE_TEXT_INPUT_INCLUDE_FONT_PADDING = 7045
 NODE_TEXT_INPUT_FALLBACK_LINE_SPACING = 7046
 ```
  
-针对多行文字叠加，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。
+针对多行文本显示场景，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -1320,14 +1331,14 @@ NODE_TEXT_INPUT_FALLBACK_LINE_SPACING = 7046
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 支持行高基于文字实际高度自适应。true表示开启自适应，false表示关闭自适应。默认值：false。 |
+| .value[0].i32 | 支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。1表示开启自适应，0表示关闭自适应。默认值：0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否开启行高基于文字实际高度自适应。true表示开启自适应，false表示关闭自适应。 |
+| .value[0].i32 | 是否开启行高基于文字实际高度自适应。0表示关闭自适应，1表示开启自适应。 |
  
  
   
@@ -1388,6 +1399,76 @@ NODE_TEXT_INPUT_SELECTED_DRAG_PREVIEW_STYLE = 7048
  
   
 
+#### NODE_TEXT_INPUT_LINEAR_GRADIENT
+
+```text
+NODE_TEXT_INPUT_LINEAR_GRADIENT = 7051
+```
+ 
+设置文本输入框内文本线性渐变效果，支持属性设置，属性重置和属性获取接口。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 线性渐变的起始角度，单位为deg。当线性渐变的方向为ArkUI_LinearGradientDirection的ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM时，线性渐变的起始角度属性生效，否则按线性渐变的方向属性为主要布局方式。取值范围为(-∞,+∞)，0点方向顺时针旋转为正向角度，当超过360时，是按照360取余处理，默认值：180。 |
+| .value[1].i32 | 线性渐变的方向，取值为ArkUI_LinearGradientDirection枚举。设置除ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM之外的方向后，起始角度不生效。默认值：ARKUI_LINEAR_GRADIENT_DIRECTION_LEFT_BOTTOM。 |
+| .value[2].i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色，参数类型为ArkUI_ColorStop。 - colors：渐变色颜色数组，元素为0xargb格式，形如0xFFFF0000表示红色。 - stops：指定颜色所处位置的数组，取值范围[0,1.0]，0表示容器开始处，1.0表示结尾处。建议递增设置。 - size：颜色个数，若小于colors数组长度则仅生效前size个颜色。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].f32 | 线性渐变的起始角度，单位为deg。当线性渐变的方向为ArkUI_LinearGradientDirection的ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM时，线性渐变的起始角度为设置值，其他情况均为默认值0。 |
+| .value[1].i32 | 线性渐变的方向。对应取值及含义请参考ArkUI_LinearGradientDirection。 |
+| .value[2].i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色。参数类型为ArkUI_ColorStop。 colors：渐变色颜色数组，数组元素为0xargb格式，形如0xFFFF0000表示红色。 stops：stops表示指定颜色所处位置的数组，数组元素取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。 size：生效后渐变色的颜色个数。 |
+ 
+ 
+  
+
+#### NODE_TEXT_INPUT_RADIAL_GRADIENT
+
+```text
+NODE_TEXT_INPUT_RADIAL_GRADIENT = 7052
+```
+ 
+设置文本输入框的文本径向渐变效果，支持属性设置，属性重置和属性获取接口。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0]?.f32 | 径向渐变的中心点X轴坐标，即相对于当前文本输入框左上角的X轴坐标，单位为vp。默认值为文本输入框宽度的一半。 |
+| .value[1]?.f32 | 径向渐变的中心点Y轴坐标，即相对于当前文本输入框左上角的Y轴坐标，单位为vp。默认值为文本输入框高度的一半。 |
+| .value[2]?.f32 | 径向渐变的半径，单位为vp。取值范围[0, +∞)，默认值0。传入负数时不生效。 |
+| .value[3]?.i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色。参数类型为ArkUI_ColorStop。 colors：渐变色数组，元素为0xargb格式，形如0xFFFF0000表示红色。 stops：指定颜色所处位置的数组，取值范围[0,1.0]，0表示容器开始处，1.0表示结尾处。建议递增设置，若后一元素小于前一元素，则按等于前一元素的值处理。 size：颜色个数，若小于colors数组长度则仅生效前size个颜色，不建议设置异常值。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0]?.f32 | 径向渐变的中心点X轴坐标，即相对于当前文本输入框左上角的X轴坐标，单位为vp。 |
+| .value[1]?.f32 | 径向渐变的中心点Y轴坐标，即相对于当前文本输入框左上角的Y轴坐标，单位为vp。 |
+| .value[2]?.f32 | 径向渐变的半径，单位为vp，默认值0。 |
+| .value[3]?.i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色。参数类型为ArkUI_ColorStop。 colors：渐变色颜色数组，数组元素为0xargb格式，形如0xFFFF0000表示红色。 stops：stops表示指定颜色所处位置的数组，数组元素取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。 size：生效后渐变色的颜色个数。 |
+ 
+ 
+  
+
 #### NODE_TEXT_INPUT_TEXT_OVERFLOW
 
 ```text
@@ -1432,7 +1513,7 @@ NODE_TEXT_INPUT_DECORATION = 7050
   
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 装饰样式配置项，为可选参数。参数类型为OH_ArkUI_DecorationStyleOptions。 |
+| .object | 装饰样式配置项，为可选参数。参数类型为OH_ArkUI_DecorationStyleOptions。不传入时不添加装饰线。 |
  
  
 **返回：**
@@ -1440,6 +1521,34 @@ NODE_TEXT_INPUT_DECORATION = 7050
 | 类型 | 说明 |
 | --- | --- |
 | .object | 装饰样式配置项。参数类型为OH_ArkUI_DecorationStyleOptions。 |
+ 
+ 
+  
+
+#### NODE_TEXT_INPUT_PUNCTUATION_OVERFLOW
+
+```text
+NODE_TEXT_INPUT_PUNCTUATION_OVERFLOW = 7053
+```
+ 
+设置TextInput组件是否启用行尾标点符号悬挂，支持属性设置，属性重置和属性获取。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否启用行尾标点符号悬挂。1表示启用标点符号悬挂，0表示不启用标点符号悬挂。默认值为0。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否启用行尾标点符号悬挂。0表示不启用标点符号悬挂，1表示启用标点符号悬挂。 |
  
  
   
@@ -1460,7 +1569,7 @@ NODE_TEXT_AREA_PLACEHOLDER = MAX_NODE_SCOPE_NUM * ARKUI_NODE_TEXT_AREA = 8000
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 默认提示文本的内容。 |
+| .string | 默认提示文本的内容。当需要在输入框显示提示信息引导用户输入时设置此属性，例如“请输入用户名”、“请输入内容”等。不设置时输入框无提示文本。 |
  
  
 **返回：**
@@ -1516,7 +1625,7 @@ NODE_TEXT_AREA_MAX_LENGTH = 8002
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 最大文本数的数字。 |
+| .value[0].i32 | 最大文本数数值。取值范围[0, +∞)。 |
  
  
 **返回：**
@@ -1572,10 +1681,10 @@ NODE_TEXT_AREA_PLACEHOLDER_FONT = 8004
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0]?.f32 | 可选字体大小数值，默认值16.0，单位为fp。 |
-| .value[1]?.i32 | 可选字体样式ArkUI_FontStyle，默认值为ARKUI_FONT_STYLE_NORMAL。 |
-| .value[2]?.i32 | 可选字体粗细样式ArkUI_FontWeight，默认值为ARKUI_FONT_WEIGHT_NORMAL。 |
-| ?.string | 字体族内容，多个字体族之间使用逗号分隔，形如“字重；字体族1，字体族2”。 |
+| .value[0]?.f32 | 可选字体大小数值，默认值16.0，单位为fp。取值范围[0, +∞)。 |
+| .value[1]?.i32 | 可选字体样式ArkUI_FontStyle。具体样式值请参考ArkUI_FontStyle枚举。默认值为ARKUI_FONT_STYLE_NORMAL，表示标准字体样式。 |
+| .value[2]?.i32 | 可选字体粗细样式ArkUI_FontWeight。具体字重值请参考ArkUI_FontWeight枚举。默认值为ARKUI_FONT_WEIGHT_NORMAL，表示正常字体粗细。 |
+| ?.string | 字体族内容，多个字体族之间使用逗号分隔，形如“字重；字体族1，字体族2”。不传入时使用系统默认字体族。 |
  
  
 **返回：**
@@ -1634,14 +1743,14 @@ NODE_TEXT_AREA_EDITING = 8006
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | false表示退出编辑态，true表示维持现状。 |
+| .value[0].i32 | 0表示退出编辑态，1表示维持现状。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | false表示退出编辑态，true表示维持现状。 |
+| .value[0].i32 | 0表示退出编辑态，1表示维持现状。 |
  
  
   
@@ -1662,14 +1771,14 @@ NODE_TEXT_AREA_TYPE = 8007
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 输入框类型枚举ArkUI_TextAreaType，默认值为ARKUI_TEXTAREA_TYPE_NORMAL。 |
+| .value[0].i32 | 输入框类型枚举ArkUI_TextAreaType。具体值请参考ArkUI_TextAreaType枚举。默认值为ARKUI_TEXTAREA_TYPE_NORMAL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 输入框类型枚举ArkUI_TextAreaType。 |
+| .value[0].i32 | 输入框类型枚举ArkUI_TextAreaType，用于确定多行文本输入框的类型。 |
  
  
   
@@ -1690,9 +1799,9 @@ NODE_TEXT_AREA_SHOW_COUNTER = 8008
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否开启计数器，值为true时为开启。默认值false。 |
-| .value[1]?.f32 | 可输入字符数占最大字符限制的百分比值，超过此值时显示计数器，取值范围[1, 100]，小数时向下取整，若超出取值范围，则接口属性设置不生效。 |
-| .value[2]?.i32 | 输入字符超出限制时是否高亮边框。true表示高亮边框，false表示不高亮边框。默认值true。 |
+| .value[0].i32 | 是否开启计数器，值为1时为开启。默认值0。 |
+| .value[1]?.f32 | 可输入字符数占最大字符限制的百分比值，超过此值时显示计数器，取值范围[1, 100]，小数时向下取整，若超出取值范围，则接口属性设置不生效。默认值-1，即始终显示计数器。 |
+| .value[2]?.i32 | 输入字符超出限制时是否高亮边框。1表示高亮边框，0表示不高亮边框。默认值1。 |
 | .object | 计数器配置，配置属性为文本输入框未达到最大字符数时计数器的颜色以及超出最大字符数时计数器的颜色。参数类型为ArkUI_ShowCounterConfig。 |
  
  
@@ -1700,9 +1809,9 @@ NODE_TEXT_AREA_SHOW_COUNTER = 8008
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否开启计数器，值为true时开启。 |
+| .value[0].i32 | 是否开启计数器。0表示不开启计数器，1表示开启计数器。 |
 | .value[1].f32 | 可输入字符数占最大字符限制的百分比值，超过此值时显示计数器，取值范围[1, 100]。 |
-| .value[2].i32 | 输入字符超出限制时是否高亮边框，值为true时高亮边框。 |
+| .value[2].i32 | 输入字符超出限制时是否高亮边框。0表示不高亮边框，1表示高亮边框。 |
 | .object | 计数器配置，配置属性为文本输入框未达到最大字符数时计数器的颜色以及超出最大字符数时计数器的颜色。参数类型为ArkUI_ShowCounterConfig。 |
  
  
@@ -1724,14 +1833,14 @@ NODE_TEXT_AREA_SELECTION_MENU_HIDDEN = 8009
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。默认值false。 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，隐藏系统文本选择菜单。 设置为false时，显示系统文本选择菜单。 |
+| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。 设置为1时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，隐藏系统文本选择菜单。 设置为0时，显示系统文本选择菜单。 默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。 |
+| .value[0].i32 | 长按、双击输入框或者右键输入框时，是否不弹出文本选择菜单。0表示显示系统文本选择菜单，1表示隐藏系统文本选择菜单。 |
  
  
   
@@ -1752,14 +1861,14 @@ NODE_TEXT_AREA_BLUR_ON_SUBMIT = 8010
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否失焦。false表示触发回车键后不失焦，true表示触发回车键后失焦。 |
+| .value[0].i32 | 触发回车键后是否失焦。 0表示触发回车键后不失焦，1表示触发回车键后失焦。 默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否失焦。 |
+| .value[0].i32 | 触发回车键后是否失焦。0表示触发回车键后不失焦，1表示触发回车键后失焦。 |
  
  
   
@@ -1780,7 +1889,7 @@ NODE_TEXT_AREA_INPUT_FILTER = 8011
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 正则表达式。 |
+| .string | 正则表达式，用于过滤用户输入内容。匹配表达式的输入允许显示，不匹配的输入将被过滤。当需要限制用户只能输入特定格式的字符时设置此属性，例如“^[a-zA-Z]+$”表示只允许字母，“^[0-9]+$”表示只允许数字。不设置时允许所有字符输入。 |
  
  
 **返回：**
@@ -1836,14 +1945,14 @@ NODE_TEXT_AREA_ENTER_KEY_TYPE = 8013
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 回车键类型枚举ArkUI_EnterKeyType，默认值为ARKUI_ENTER_KEY_TYPE_DONE。 |
+| .value[0].i32 | 回车键类型，具体枚举值参考ArkUI_EnterKeyType。默认值ARKUI_ENTER_KEY_TYPE_DONE，显示为完成样式。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 回车键类型枚举ArkUI_EnterKeyType。 |
+| .value[0].i32 | 回车键类型枚举ArkUI_EnterKeyType，用于确定输入框回车键的显示样式。 |
  
  
   
@@ -1864,7 +1973,7 @@ NODE_TEXT_AREA_ENABLE_KEYBOARD_ON_FOCUS = 8014
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | false表示聚焦不拉起输入法，true表示拉起，默认值为true。 |
+| .value[0].i32 | 0表示聚焦不拉起输入法，1表示拉起。默认值为1。 |
  
  
 **返回：**
@@ -1896,7 +2005,7 @@ NODE_TEXT_AREA_CARET_OFFSET = 8015
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 从字符串开始到光标所在位置的字符长度。 |
+| .value[0].i32 | 从字符串开始到光标所在位置的字符长度，取值范围[0, 文本长度]。超出范围时自动修正为边界值。 |
  
  
 **返回：**
@@ -1904,8 +2013,8 @@ NODE_TEXT_AREA_CARET_OFFSET = 8015
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 光标所在位置的索引值。 |
-| .value[1].f32 | 光标相对输入框的x坐标位值。 |
-| .value[2].f32 | 光标相对输入框的y坐标位值。 |
+| .value[1].f32 | 光标相对输入框的x坐标值，单位为px。 |
+| .value[2].f32 | 光标相对输入框的y坐标值，单位为px。 |
  
  
   
@@ -1926,10 +2035,10 @@ NODE_TEXT_AREA_CONTENT_RECT = 8016
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 水平方向横坐标。 |
-| .value[1].f32 | 竖直方向纵坐标。 |
-| .value[2].f32 | 内容宽度大小。 |
-| .value[3].f32 | 内容高度大小。 |
+| .value[0].f32 | 水平方向横坐标，单位为px。 |
+| .value[1].f32 | 竖直方向纵坐标，单位为px。 |
+| .value[2].f32 | 内容宽度大小，单位为px。 |
+| .value[3].f32 | 内容高度大小，单位为px。 |
  
  
   
@@ -1971,8 +2080,8 @@ NODE_TEXT_AREA_TEXT_SELECTION = 8018
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 选中文本的起始位置。 |
-| .value[1].i32 | 选中文本的终止位置。 |
+| .value[0].i32 | 选中文本的起始位置，取值范围[0, 文本长度]，需小于终止位置才生效。 |
+| .value[1].i32 | 选中文本的终止位置，取值范围[0, 文本长度]。 |
  
  
 **返回：**
@@ -2001,14 +2110,14 @@ NODE_TEXT_AREA_ENABLE_AUTO_FILL = 8019
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动填充，默认值true。 true表示启用，false表示不启用。 |
+| .value[0].i32 | 是否启用自动填充。 1表示启用，0表示不启用。 默认值1。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动填充。 |
+| .value[0].i32 | 是否启用自动填充。1表示已启用，0表示未启用。 |
  
  
   
@@ -2029,14 +2138,14 @@ NODE_TEXT_AREA_CONTENT_TYPE = 8020
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_TextInputContentType。 |
+| .value[0].i32 | 参数类型ArkUI_TextInputContentType。用于指定自动填充的内容类型，以便系统提供更准确的自动填充建议。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_TextInputContentType。 |
+| .value[0].i32 | 参数类型ArkUI_TextInputContentType。用于指定自动填充的内容类型，以便系统提供更准确的自动填充建议。 |
  
  
   
@@ -2057,14 +2166,14 @@ NODE_TEXT_AREA_SHOW_KEYBOARD_ON_FOCUS = 8021
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否弹出键盘。默认值true。 false表示获取焦点时不弹出键盘，true表示获取焦点时弹出键盘。 |
+| .value[0].i32 | 获取焦点时是否弹出键盘。 1表示弹出键盘，0表示不弹出键盘。 默认值1。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否弹出键盘。 |
+| .value[0].i32 | 获取焦点时是否弹出键盘。1表示弹出键盘，0表示不弹出键盘。 |
  
  
   
@@ -2085,7 +2194,7 @@ NODE_TEXT_AREA_NUMBER_OF_LINES = 8022
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置numberOfLines的值。 |
+| .value[0].i32 | 设置行数，取值范围[1, +∞)。用于通过该属性计算TextArea组件的高度。例如：设置为3时，组件将默认显示足够容纳3行文本内容的高度。 |
  
  
 **返回：**
@@ -2113,14 +2222,14 @@ NODE_TEXT_AREA_LETTER_SPACING = 8023
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 设置letterSpacing的值，默认单位fp。 |
+| .value[0].f32 | 设置letterSpacing的值，取值范围(-∞, +∞)，单位为fp。当取值为负值时，文字会被压缩。负值过小时会将组件内容区大小压缩为0，导致内容无法显示。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 获取letterSpacing的值，默认单位fp。 |
+| .value[0].f32 | 获取letterSpacing的值，取值范围(-∞, +∞)，单位为fp。 |
  
  
   
@@ -2133,6 +2242,8 @@ NODE_TEXT_AREA_ENABLE_PREVIEW_TEXT = 8024
  
 设置TextArea组件是否开启输入预上屏。接口支持设置，重置以及获取该属性。
  
+“预上屏”描述的是一种文字暂存状态。需要在输入法中开启预上屏功能，在输入文本过程中，未确认输入候选词时，文本框中显示标记文本。例如，通过拼音输入中文时，未确定候选词之前，在输入框中显示拼音字母，该状态称为文字预上屏。
+ 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
 **起始版本：** 15
@@ -2141,14 +2252,14 @@ NODE_TEXT_AREA_ENABLE_PREVIEW_TEXT = 8024
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置是否开启输入预上屏。false表示不开启输入预上屏，true表示开启输入预上屏。 |
+| .value[0].i32 | 设置是否开启输入预上屏。 0表示不开启输入预上屏，1表示开启输入预上屏。 默认值1。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 获取是否开启输入预上屏。 |
+| .value[0].i32 | 是否开启输入预上屏。1表示已开启，0表示未开启。 |
  
  
   
@@ -2169,14 +2280,14 @@ NODE_TEXT_AREA_HALF_LEADING = 8025
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置文本是否将行间距平分至行的顶部与底部。默认值false。 true表示将行间距平分至行的顶部与底部，false表示不平分。 |
+| .value[0].i32 | 设置文本是否将行间距平分至行的顶部与底部。 1表示将行间距平分至行的顶部与底部，0表示不平分。 默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 设置文本是否将行间距平分至行的顶部与底部。 |
+| .value[0].i32 | 文本行间距是否平分至行的顶部与底部。1表示平分，0表示不平分。 |
  
  
   
@@ -2197,7 +2308,7 @@ NODE_TEXT_AREA_KEYBOARD_APPEARANCE = 8026
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 键盘样式，参数类型ArkUI_KeyboardAppearance。 |
+| .value[0].i32 | 键盘样式，参数类型ArkUI_KeyboardAppearance。具体枚举值请参考ArkUI_KeyboardAppearance枚举说明。默认值ARKUI_KEYBOARD_APPEARANCE_NONE_IMMERSIVE。 |
  
  
 **返回：**
@@ -2225,14 +2336,14 @@ NODE_TEXT_AREA_MAX_LINES = 8027
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 内联输入风格编辑态时文本可显示的最大行数。内联模式下，默认值是3， 非内联模式下，默认值是+∞，不限制最大行数。设置为undefined时，最大行数设置为5。 |
+| .value[0].i32 | 内联输入风格编辑态时文本可显示的最大行数。取值范围[1, +∞)。 内联模式下，默认值是3，非内联模式下，默认值是+∞，不限制最大行数。 不传入该参数时，使用默认值。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 最大行数的数字。 |
+| .value[0].i32 | 最大行数。 |
  
  
   
@@ -2253,14 +2364,14 @@ NODE_TEXT_AREA_LINE_SPACING = 8028
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 文本的行间距的数字。默认值是0，单位fp。设置为undefined时，行间距设置为5。 |
+| .value[0].i32 | 文本的行间距，取值范围[0, +∞)，单位为fp。默认值是0。超出范围时自动修正为边界值。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 文本的行间距的数字，单位fp。 |
+| .value[0].i32 | 文本的行间距，单位fp。 |
  
  
   
@@ -2281,14 +2392,14 @@ NODE_TEXT_AREA_MIN_LINES = 8029
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 最小行数的数字。 |
+| .value[0].f32 | 最小行数，取值范围[1, +∞)。传入0或负数时参数不生效。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 最小行数的数字。 |
+| .value[0].f32 | 最小行数，取值范围[1, +∞)。 |
  
  
   
@@ -2309,14 +2420,14 @@ NODE_TEXT_AREA_MAX_LINES_WITH_SCROLL = 8030
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 支持滚动时的最大行数的数字。 |
+| .value[0].f32 | 支持滚动时的最大行数。取值范围[1, +∞)。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 支持滚动时的最大行数的数字。 |
+| .value[0].f32 | 支持滚动时的最大行数。取值范围[1, +∞)。 |
  
  
   
@@ -2337,14 +2448,14 @@ NODE_TEXT_AREA_LINE_HEIGHT = 8031
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 文本的高度的数字。默认值是自适应字体大小，单位fp。设置为undefined时，文本的高度设置为5。 |
+| .value[0].i32 | 文本的高度。默认值是自适应字体大小，单位fp。不传入该参数时，文本的高度设置为5fp。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 文本的高度的数字，单位fp。 |
+| .value[0].i32 | 文本的高度，单位fp。 |
  
  
   
@@ -2365,7 +2476,7 @@ NODE_TEXT_AREA_BAR_STATE = 8032
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 文本控制滚动条状态。参数类型为ArkUI_BarState。默认值为ARKUI_BAR_STATE_AUTO。 |
+| .value[0].i32 | 文本控制滚动条状态，具体枚举值请参考ArkUI_BarState。默认值为ARKUI_BAR_STATE_AUTO，按需显示滚动条（在触摸时显示滚动条，2秒后自动消失）。 |
  
  
 **返回：**
@@ -2383,7 +2494,7 @@ NODE_TEXT_AREA_BAR_STATE = 8032
 NODE_TEXT_AREA_ENABLE_SELECTED_DATA_DETECTOR = 8033
 ```
  
-开启选中词文本识别。
+开启选中词文本识别，支持识别选中文本中的电话号码、邮箱地址、网址链接等实体信息，便于用户快捷拨打电话、发送邮件或打开链接。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -2393,14 +2504,14 @@ NODE_TEXT_AREA_ENABLE_SELECTED_DATA_DETECTOR = 8033
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 开启选中词文本识别，true表示开启识别，false表示关闭识别。默认值：true。 |
+| .value[0].i32 | 开启选中词文本识别。1表示开启识别，0表示关闭识别。默认值：1。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否开启选中词文本识别。 |
+| .value[0].i32 | 是否开启选中词文本识别。0表示关闭识别，1表示开启识别。 |
  
  
   
@@ -2428,7 +2539,7 @@ NODE_TEXT_AREA_SCROLL_BAR_COLOR = 8035
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].u32 | 滚动条颜色数值。 |
+| .value[0].u32 | 滚动条颜色数值，0xargb格式。 |
  
  
   
@@ -2450,15 +2561,14 @@ NODE_TEXT_AREA_CUSTOM_KEYBOARD = 8036
 | 参数项 | 描述 |
 | --- | --- |
 | .object | 自定义键盘，参数类型ArkUI_NodeHandle。 |
-| .value[0]?.i32 | 设置自定义键盘是否支持避让功能。 true表示支持避让，false表示不支持避让。 默认值：false。 |
+| .value[0]?.i32 | 设置自定义键盘是否支持避让功能。 1表示支持避让，0表示不支持避让。 默认值：0。 |
+| 返回： |  |
  
- 
-**返回：**
   
 | 类型 | 说明 |
 | --- | --- |
 | .object | 自定义键盘，参数类型ArkUI_NodeHandle。 |
-| .value[0].i32 | 设置自定义键盘是否支持避让功能。 |
+| .value[0].i32 | 自定义键盘是否支持避让功能。1表示支持避让，0表示不支持避让。 |
  
  
   
@@ -2499,7 +2609,14 @@ NODE_TEXT_AREA_ELLIPSIS_MODE = 8038
  
 设置多行文本输入框中文本省略位置，支持属性设置，属性重置，属性获取接口。
  
-作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+此属性存在以下配置依赖：
+ 
+- 此属性只有在NODE_TEXT_AREA_TEXT_OVERFLOW设置为ARKUI_TEXT_OVERFLOW_ELLIPSIS时才生效
+- 当TEXT_OVERFLOW设置为ARKUI_TEXT_OVERFLOW_CLIP时，ELLIPSIS_MODE的设置不会生效
+- 建议先设置TEXT_OVERFLOW为ELLIPSIS，再设置ELLIPSIS_MODE指定省略位置
+
+  作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+
  
 **起始版本：** 24
  
@@ -2507,14 +2624,14 @@ NODE_TEXT_AREA_ELLIPSIS_MODE = 8038
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_EllipsisMode。默认值为ARKUI_ELLIPSIS_MODE_END。 |
+| .value[0].i32 | 参数类型ArkUI_EllipsisMode。具体枚举值请参考ArkUI_EllipsisMode枚举说明。默认值为ARKUI_ELLIPSIS_MODE_END。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_EllipsisMode。 |
+| .value[0].i32 | 文本省略位置枚举ArkUI_EllipsisMode，用于确定文本超长时的省略位置。 |
  
  
   
@@ -2525,7 +2642,7 @@ NODE_TEXT_AREA_ELLIPSIS_MODE = 8038
 NODE_TEXT_AREA_ORPHAN_CHAR_OPTIMIZATION = 8039
 ```
  
-设置TextArea文本排版时是否使能孤字优化，设置后通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
+设置TextArea文本排版时是否使能孤字优化，设置后通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-common-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -2535,14 +2652,14 @@ NODE_TEXT_AREA_ORPHAN_CHAR_OPTIMIZATION = 8039
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否使能，true表示使能，false表示不使能。默认值false。 |
+| .value[0].i32 | 是否使能孤字优化。该特性需在ArkUI_WordBreak属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。1表示使能，0表示不使能。默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否使能孤字优化。 |
+| .value[0].i32 | 是否使能孤字优化。1表示已使能，0表示未使能。 |
  
  
   
@@ -2563,14 +2680,14 @@ NODE_TEXT_AREA_COMPRESS_LEADING_PUNCTUATION = 8040
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否打开行首标点压缩开关。 true表示开启行首标点压缩，false表示关闭行首标点压缩。默认值false。 |
+| .value[0].i32 | 是否打开行首标点压缩开关。 1表示开启行首标点压缩，0表示关闭行首标点压缩。默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否打开行首标点压缩开关。 |
+| .value[0].i32 | 行首标点压缩开关状态。1表示已开启，0表示已关闭。 |
  
  
   
@@ -2591,14 +2708,14 @@ NODE_TEXT_AREA_INCLUDE_FONT_PADDING = 8041
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 设置输入框内文字是否在首行和尾行增加间距以避免文字截断。true表示开启增加间距，false表示关闭增加间距。默认值：false。 |
+| .value[0].i32 | 设置输入框内文字是否在首行和尾行增加间距以避免文字截断。1表示开启增加间距，0表示关闭增加间距。默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 输入框内文字是否在首行和尾行增加间距。true表示增加间距，false表示不增加间距。 |
+| .value[0].i32 | 输入框内文字是否在首行和尾行增加间距。0表示不增加间距，1表示增加间距。 |
  
  
   
@@ -2609,7 +2726,7 @@ NODE_TEXT_AREA_INCLUDE_FONT_PADDING = 8041
 NODE_TEXT_AREA_FALLBACK_LINE_SPACING = 8042
 ```
  
-针对多行文字叠加，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。
+针对多行文本显示场景，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -2619,14 +2736,14 @@ NODE_TEXT_AREA_FALLBACK_LINE_SPACING = 8042
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 支持行高基于文字实际高度自适应。true表示开启自适应，false表示关闭自适应。默认值：false。 |
+| .value[0].i32 | 支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。1表示开启自适应，0表示关闭自适应。默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否开启行高基于文字实际高度自适应。true表示开启自适应，false表示关闭自适应。 |
+| .value[0].i32 | 是否开启行高基于文字实际高度自适应。0表示关闭自适应，1表示开启自适应。 |
  
  
   
@@ -2637,7 +2754,7 @@ NODE_TEXT_AREA_FALLBACK_LINE_SPACING = 8042
 NODE_TEXT_AREA_HORIZONTAL_SCROLLING = 8043
 ```
  
-设置多行输入框在文本宽度超过输入框内容区宽度时是否启用水平滚动。默认值为false，文本会被输入框自动换行。
+设置多行输入框在文本宽度超过输入框内容区宽度时是否启用水平滚动。默认不启用水平滚动，文本会被输入框自动换行。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -2647,14 +2764,14 @@ NODE_TEXT_AREA_HORIZONTAL_SCROLLING = 8043
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否启用水平滚动。true表示启用水平滚动，false表示不启用水平滚动。 |
+| .value[0].i32 | 是否启用水平滚动。1表示启用水平滚动，0表示不启用水平滚动。默认值0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否启用水平滚动。 |
+| .value[0].i32 | 是否启用水平滚动。1表示已启用，0表示未启用。 |
  
  
   
@@ -2759,7 +2876,7 @@ NODE_TEXT_AREA_DECORATION = 8047
   
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 装饰样式配置项，为可选参数。参数类型为OH_ArkUI_DecorationStyleOptions。 |
+| .object | 装饰样式配置项，为可选参数。参数类型为OH_ArkUI_DecorationStyleOptions。不传入时不添加装饰线。 |
  
  
 **返回：**
@@ -2767,3 +2884,101 @@ NODE_TEXT_AREA_DECORATION = 8047
 | 类型 | 说明 |
 | --- | --- |
 | .object | 装饰样式配置项。参数类型为OH_ArkUI_DecorationStyleOptions。 |
+ 
+ 
+  
+
+#### NODE_TEXT_AREA_LINEAR_GRADIENT
+
+```text
+NODE_TEXT_AREA_LINEAR_GRADIENT = 8048
+```
+ 
+设置多行文本输入框的文本线性渐变效果，支持属性设置，属性重置和属性获取接口。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 线性渐变的起始角度，单位为deg。当线性渐变的方向为ArkUI_LinearGradientDirection的ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM时，线性渐变的起始角度属性生效，否则按线性渐变的方向属性为主要布局方式。取值范围为(-∞,+∞)，0点方向顺时针旋转为正向角度，当超过360时，是按照360取余处理，默认值：180。 |
+| .value[1].i32 | 线性渐变的方向。取值为ArkUI_LinearGradientDirection中的枚举。设置除ArkUI_LinearGradientDirection的ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM之外的线性渐变方向后，线性渐变的起始角度不生效。默认值：ArkUI_LinearGradientDirection的ARKUI_LINEAR_GRADIENT_DIRECTION_LEFT_BOTTOM |
+| .value[2].i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色。参数类型为ArkUI_ColorStop。 colors：渐变色颜色数组，数组元素为0xargb格式，形如0xFFFF0000表示红色。 stops：stops表示指定颜色所处位置的数组，数组元素取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。想要实现多个颜色渐变效果时，数组元素建议递增设置，如后一个数组元素比前一个数组元素小的话，按照等于前一个数组元素的值处理。 size：颜色个数，若小于colors数组长度则仅生效前size个颜色，不建议设置大于colors数组长度或小于等于0的值以及异常值。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].f32 | 线性渐变的起始角度，单位为deg。当线性渐变的方向为ArkUI_LinearGradientDirection的ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM时，线性渐变的起始角度为设置值，其他情况均为默认值0。 |
+| .value[1].i32 | 线性渐变的方向。对应取值及含义请参考ArkUI_LinearGradientDirection。 |
+| .value[2].i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色。参数类型为ArkUI_ColorStop。 colors：渐变色颜色数组，数组元素为0xargb格式，形如0xFFFF0000表示红色。 stops：stops表示指定颜色所处位置的数组，数组元素取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。 size：生效后渐变色的颜色个数。 |
+ 
+ 
+  
+
+#### NODE_TEXT_AREA_RADIAL_GRADIENT
+
+```text
+NODE_TEXT_AREA_RADIAL_GRADIENT = 8049
+```
+ 
+设置多行文本输入框的文本径向渐变效果，支持属性设置，属性重置和属性获取接口。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0]?.f32 | 径向渐变的中心点X轴坐标，即相对于当前多行输入框左上角的X轴坐标，单位为vp。默认值为多行输入框宽度的一半。 |
+| .value[1]?.f32 | 径向渐变的中心点Y轴坐标，即相对于当前多行输入框左上角的Y轴坐标，单位为vp。默认值为多行输入框高度的一半。 |
+| .value[2]?.f32 | 径向渐变的半径，取值范围[0, +∞)，默认值0。传入负数时不生效。 |
+| .value[3]?.i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色。参数类型为ArkUI_ColorStop。 colors：渐变色颜色数组，数组元素为0xargb格式，形如0xFFFF0000表示红色。 stops：stops表示指定颜色所处位置的数组，数组元素取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。想要实现多个颜色渐变效果时，数组元素建议递增设置，如后一个数组元素比前一个数组元素小的话，按照等于前一个数组元素的值处理。 size：颜色个数，若小于colors数组长度则仅生效前size个颜色，不建议设置大于colors数组长度或小于等于0的值以及异常值。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0]?.f32 | 径向渐变的中心点X轴坐标，即相对于当前多行输入框左上角的X轴坐标，单位为vp。 |
+| .value[1]?.f32 | 径向渐变的中心点Y轴坐标，即相对于当前多行输入框左上角的Y轴坐标，单位为vp。 |
+| .value[2]?.f32 | 径向渐变的半径，单位为vp，默认值0。 |
+| .value[3]?.i32 | 渐变的颜色是否重复着色，0表示不重复着色，1表示重复着色。默认值：0。 |
+| .object | 指定位置处的渐变色颜色。参数类型为ArkUI_ColorStop。 colors：渐变色颜色数组，数组元素为0xargb格式，形如0xFFFF0000表示红色。 stops：stops表示指定颜色所处位置的数组，数组元素取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。 size：生效后渐变色的颜色个数。 |
+ 
+ 
+  
+
+#### NODE_TEXT_AREA_PUNCTUATION_OVERFLOW
+
+```text
+NODE_TEXT_AREA_PUNCTUATION_OVERFLOW = 8050
+```
+ 
+设置TextArea组件是否启用行尾标点符号悬挂，支持属性设置，属性重置和属性获取。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否启用行尾标点符号悬挂。1表示启用标点符号悬挂，0表示不启用标点符号悬挂。默认值0。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否启用行尾标点符号悬挂。1表示已启用，0表示未启用。 |

@@ -1,6 +1,6 @@
 # 创建异步线程执行AVTranscoder视频转码(ArkTS)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avtranscoder-practice
 
@@ -405,7 +405,7 @@ async function doSome(context: common.Context) {
 }
 ```
 
-4. 监听转码的Complete回调，在转码结束的时候向主线程发送消息。
+4. 监听转码的complete回调，在转码结束的时候向主线程发送消息。
 
   
 ```text

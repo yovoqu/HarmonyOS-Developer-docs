@@ -1,6 +1,6 @@
 # @ohos.calendarManager (日程管理能力)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-calendarmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -181,7 +181,7 @@ createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback&lt;Cale
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -249,7 +249,7 @@ createCalendar(calendarAccount: CalendarAccount): Promise&lt;Calendar&gt;
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -306,7 +306,7 @@ deleteCalendar(calendar: Calendar, callback: AsyncCallback&lt;void&gt;): void
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -383,7 +383,7 @@ deleteCalendar(calendar: Calendar): Promise&lt;void&gt;
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -452,7 +452,7 @@ getCalendar(callback: AsyncCallback&lt;Calendar&gt;): void
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -508,8 +508,8 @@ getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback&lt;Calenda
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900003 | The specified account was not found. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900003 | The specified account was not found. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -581,8 +581,8 @@ getCalendar(calendarAccount?: CalendarAccount): Promise&lt;Calendar&gt;
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900003 | The specified account was not found. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900003 | The specified account was not found. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -633,7 +633,7 @@ getAllCalendars(callback: AsyncCallback<Calendar[]>): void
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -689,12 +689,13 @@ getAllCalendars(): Promise<Calendar[]>
 | 201 | Permission denied. |
 | 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 801 | Capability not supported. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
 
 ```json
+import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
@@ -745,7 +746,6 @@ editEvent(event: Event): Promise&lt;number&gt;
 **示例**：
 
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
@@ -819,8 +819,8 @@ addEvent(event: Event, callback: AsyncCallback&lt;number&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -893,8 +893,8 @@ addEvent(event: Event): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -959,8 +959,8 @@ addEvents(events: Event[], callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -1040,8 +1040,8 @@ addEvents(events: Event[]): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -1532,8 +1532,8 @@ API version 20之前，默认查询字段包括id、type、title、startTime、e
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -1594,8 +1594,8 @@ getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCa
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -1693,8 +1693,8 @@ getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -1805,7 +1805,7 @@ setConfig(config: CalendarConfig, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 23900001 | Parameter value error. |
+| 23900001 | Parameter value error. 适用版本：23+ |
 
 
 **示例**：
@@ -1872,7 +1872,7 @@ setConfig(config: CalendarConfig): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 23900001 | Parameter value error. |
+| 23900001 | Parameter value error. 适用版本：23+ |
 
 
 **示例**：
@@ -1987,8 +1987,8 @@ queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyo
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied. |
-| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. |
+| 201 | Permission denied. 适用版本：23+ |
+| 23900004 | Internal program errors. Possible causes: 1. dataShare database execution error; 2. null pointer error; 3. Data parsing error. 适用版本：23+ |
 
 
 **示例**：
@@ -2029,6 +2029,101 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
     });
   }
 });
+```
+
+
+
+#### openEventEditPage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+openEventEditPage(id: number): Promise&lt;void&gt;
+
+通过日程id获取Calendar下符合查看或编辑条件的日程实例，使用Promise异步回调。
+
+使用该接口，系统日历可以进行查看和编辑日程。
+
+**起始版本**：26.0.0
+
+**模型约束**： 此接口仅可在Stage模型下使用。
+
+**系统能力**： SystemCapability.Applications.CalendarData
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| id | number | 是 | 传入的日程id为整数，表示日历中已存在的日程id，是日程的唯一标识符。 |
+
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码详细介绍请参考[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 23900001 | Parameter value error. |
+| 23900005 | This event cannot be edited. |
+
+
+**示例**：
+
+```json
+// EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
+import { BusinessError } from '@kit.BasicServicesKit';
+import { calendarMgr } from '../entryability/EntryAbility';
+import { calendarManager } from '@kit.CalendarKit';
+
+let calendar: calendarManager.Calendar | undefined = undefined;
+const date = new Date();
+const event: calendarManager.Event = {
+    title: 'MyEvent',
+    type: calendarManager.EventType.NORMAL,
+    startTime: date.getTime(),
+    endTime: date.getTime() + 60 * 60 * 1000
+  };
+calendarMgr?.getCalendar(async (err: BusinessError, data: calendarManager.Calendar) => {
+    if (err) {
+      // 检查权限是否已成功申请。
+      console.error(`Failed to get calendar, Code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+      calendar = data;
+      let eventId: number = 0;
+      await calendar?.addEvent(event).then((dataId: number) => {
+        console.info(`Succeeded in adding event id-> ${dataId}`);
+        eventId = dataId;
+      }).catch((err: BusinessError) => {
+        // 检查权限是否已成功申请或者参数是否正确。
+        console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+        return;
+      });
+      // 根据id进行查询
+      const filterId = calendarManager.EventFilter.filterById([eventId]);
+      calendar?.getEvents(filterId).then((data: calendarManager.Event[]) => {
+        console.info(`Succeeded in getting event: ${JSON.stringify(data)}`);
+      }).catch((err: BusinessError) => {
+        // 检查参数是否正确或者传入的id是否存在或者权限是否有限制
+        console.error(`Failed to get event, Code is ${err.code}, message is ${err.message}`);
+        return;
+      });
+      calendar?.openEventEditPage(eventId).then(() => {
+        console.info(`Succeeded in opening EventEditPage`);
+      }).catch((err: BusinessError) => {
+        // 检查传入的id是否存在或者权限是否有限制或者日程是否支持编辑
+        console.error(`Failed to open eventeditpage, Code is ${err.code}, message is ${err.message}`);
+      });
+    }
+ });
 ```
 
 

@@ -169,7 +169,7 @@ export struct DefaultPage {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/4r9fWdc1TRWKEo1z7sbb9Q/zh-cn_image_0000002658955337.png?HW-CC-KV=V1&HW-CC-Date=20260723T013031Z&HW-CC-Expire=86400&HW-CC-Sign=5DA1AC27A46D2A67B09F7A1B6D06AD2D7597E87D79EFD6FA415E2963322F7E4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/4r9fWdc1TRWKEo1z7sbb9Q/zh-cn_image_0000002658955337.png?HW-CC-KV=V1&HW-CC-Date=20260730T072446Z&HW-CC-Expire=86400&HW-CC-Sign=0F1E5395050D9E1245B61E0D7AF2440D190AAC2665E288290FFA946808BA6D94)
 
 - **方案二：采用API20中的splitPlaceholder属性。**详情参考：[示例14](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例14设置navigation双栏模式)。
 

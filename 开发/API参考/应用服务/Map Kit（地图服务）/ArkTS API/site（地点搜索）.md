@@ -1,6 +1,6 @@
 # site（地点搜索）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -192,7 +192,7 @@ nearbySearch(nearbySearchParams: NearbySearchParams): Promise&lt;NearbySearchRes
 **示例：**
 
 ```text
-let params: site.NearbySearchParams = {
+let params: site.Nea| cityId | string | 否 | 是 rbySearchParams = {
   location: {
     latitude:51.50811219132287,
     longitude:-0.07594896472392065
@@ -809,7 +809,7 @@ SearchByTextParams定义了搜索关键字的参数。
 | radius | number | 否 | 是 | Location的搜索半径，单位：m。取值范围：[1, 50000]，默认50000米。小数点后数字忽略。异常值返回错误码401。 |
 | poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见HwLocationType。 |
 | countryCodes | Array&lt;string&gt; | 否 | 是 | 在指定的国家内搜索，采用ISO 3166-1 alpha-2。 最多传5个国家或地区码。 |
-| cityId | string | 否 | 是 | 在指定的城市内搜索，参数的长度范围：[1, 32]。 说明： - 支持中国大陆和港澳的中文城市名。 - 对中国大陆城市及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见城市码及区划代码表。 - 支持传入16-18位数字cityId。 |
+| cityId | string | 否 | 是 | 城市ID，用于在指定的城市内搜索，参数的长度范围：[1, 32]。 说明： - 支持中国大陆和港澳的中文城市名。 - 对中国境内及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见城市码及区划代码表。 - 支持传入16-18位数字cityId。 - 通过调用searchByText、nearbySearch、queryAutoComplete、searchById、geocode和reverseGeocode等接口可以获取cityId。 |
 | isCityLimit | boolean | 否 | 是 | 搜索结果是否强限制在指定城市内，默认值：false，需配合cityId参数使用，若未传cityId按默认值false处理。 - true：强限制在指定城市内 - false：不强限制在指定城市内 |
 | language | string | 否 | 是 | 返回结果的语言类型，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
 | pageSize | number | 否 | 是 | 每页返回的记录数。取值范围：[1, 20]，默认值为20。 |
@@ -865,7 +865,7 @@ SearchByTextParams定义了搜索关键字的参数。
 | location | mapCommon.LatLng | 否 | 是 | 搜索结果的经纬度。 |
 | radius | number | 否 | 是 | Location的搜索半径，单位：m。取值范围：[1, 50000]，默认值为50000米。小数点后数字忽略。异常值返回错误码401。 |
 | poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见HwLocationType。 |
-| cityId | string | 否 | 是 | 在指定的城市内搜索，参数的长度范围：[1, 32]。 说明： - 支持中国大陆和港澳的中文城市名。 - 对中国大陆城市及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见城市码及区划代码表。 - 支持传入16-18位数字cityId。 |
+| cityId | string | 否 | 是 | 城市ID，用于在指定的城市内搜索，参数的长度范围：[1, 32]。 说明： - 支持中国大陆和港澳的中文城市名。 - 对中国境内及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见城市码及区划代码表。 - 支持传入16-18位数字cityId。 - 通过调用searchByText、nearbySearch、queryAutoComplete、searchById、geocode和reverseGeocode等接口可以获取cityId。 |
 | isCityLimit | boolean | 否 | 是 | 搜索结果是否强限制在指定城市内，默认值：false，需配合cityId参数使用，若未传cityId按默认值false处理。 - true：强限制在指定城市内 - false：不强限制在指定城市内 |
 | language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
 | isChildren | boolean | 否 | 是 | 是否返回子节点，默认为false。 - true：如果有子节点信息，则返回子节点的全量信息 - false：不返回 |

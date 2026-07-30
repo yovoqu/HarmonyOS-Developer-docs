@@ -1,6 +1,6 @@
 # remoteDevice（对端设备的连接能力）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-remote-device
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -209,7 +209,7 @@ startPairing(): Promise&lt;void&gt;
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -266,7 +266,7 @@ getPairingState(): PairingState
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -320,7 +320,7 @@ getDeviceName(): string
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -335,7 +335,7 @@ let device: remoteDevice.RemoteDevice;
 try {
   device = remoteDevice.createRemoteDevice(addr);
   let name: string = device.getDeviceName();
-  console.info('state:' + JSON.stringify(name));
+  console.info('name:' + JSON.stringify(name));
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
@@ -374,7 +374,7 @@ getDeviceClass(): DeviceClass
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -428,7 +428,7 @@ getConnectionState(): ConnectionState
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -482,7 +482,7 @@ getAcbState(): AcbState
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  
@@ -536,7 +536,7 @@ getDeviceInformation(): DeviceInformation
 | --- | --- |
 | 201 | Permission denied. |
 | 801 | Capability not supported. |
-| 1009700003 | Nearlink is off. |
+| 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
  
  

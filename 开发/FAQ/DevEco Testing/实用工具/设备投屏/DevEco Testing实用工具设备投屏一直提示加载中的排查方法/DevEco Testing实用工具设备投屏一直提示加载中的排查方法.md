@@ -27,7 +27,7 @@ hdc shell ls /data/local/tmp
 执行结果如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/Fe9EMLwhQEK__rrQGV48sw/zh-cn_image_0000002658923403.png?HW-CC-KV=V1&HW-CC-Date=20260723T014026Z&HW-CC-Expire=86400&HW-CC-Sign=8249E896045D6281FCC710A72D7CD75A6659E8F5D9544872D578C081F70F5E04)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/Fe9EMLwhQEK__rrQGV48sw/zh-cn_image_0000002658923403.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=F5A537A8DD07CC2D2D0FB1AE8DBD33F5EB55D6A4B032D82BFEA6C09DFF17549A)
 
  
  
@@ -51,7 +51,7 @@ hdc shell rm -r /data/local/tmp/latestScreen.jpeg
 4. 如果问题仍未解决，将右上角的流畅模式切换成标准模式。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/SWuouiKjQYS0cMNsFxFORg/zh-cn_image_0000002658803455.png?HW-CC-KV=V1&HW-CC-Date=20260723T014026Z&HW-CC-Expire=86400&HW-CC-Sign=A3F3BD2D183570E6C5AAE01D631E49D8DDDDF4CBB83B6E3819FEECF4430EF585)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/SWuouiKjQYS0cMNsFxFORg/zh-cn_image_0000002658803455.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=9D6279A39595722D9022AC56BB1CDBF30F27F68F16514009E1D55368D0FC6616)
 
  
  
@@ -62,10 +62,10 @@ Q：DevEco Testing更换版本后无法连接设备，如何解决？
  
 A：
  1. 本地hdc list targets可识别，但DevEco Testing中无法识别，可以先尝试关闭DevEco Testing，然后本地执行hdc kill，再重新启动查看是否已识别。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/43vfrSklSliuRWYab8_npg/zh-cn_image_0000002628404192.png?HW-CC-KV=V1&HW-CC-Date=20260723T014026Z&HW-CC-Expire=86400&HW-CC-Sign=8BA39D2448569A515F2EE4AA38AC295EDEDF81D14016B1C9107BA1196314523F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/43vfrSklSliuRWYab8_npg/zh-cn_image_0000002628404192.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=E1D400C7772E6DCAB3584F5F2793BC3587AEC53D398DBC076C5785FB7DFF1510)
 
 2. 若仍未解决请参考[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)获取最新版本的hdc至安装路径D:\DevEco Testing\app\resources\bin下（安装路径D盘时），替换hdc.exe、libusb_shared.dll文件，并将DevEco Testing安装路径下hdc地址配置到系统环境变量中，重启即可恢复。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/hWOC1vOtThOu4MgC19Ageg/zh-cn_image_0000002628564096.png?HW-CC-KV=V1&HW-CC-Date=20260723T014026Z&HW-CC-Expire=86400&HW-CC-Sign=2EB2C8D5171480D2330F318A0A05551DF5497379E9680738C4E72FFFDFD2B42D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/hWOC1vOtThOu4MgC19Ageg/zh-cn_image_0000002628564096.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=5FD5B14E405050DB75FFD585A843CF4C7848DC79D3034C0716B1ABFA77067EA4)
 
  
 Q：DevEco Testing更换版本后流畅模式提示“设备无法使用视频流进行投屏，请切换至普通模式进行投屏”，切换后显示一直加载中，无法投屏。

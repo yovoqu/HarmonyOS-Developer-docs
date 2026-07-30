@@ -1,13 +1,15 @@
 # UX测试
 
-更新时间：2026-06-12 11:57:30
+更新时间：2026-07-28 11:15:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ux-testing
 
 #### 多设备布局对比测试
 
  
-**环境准备**
+
+#### 环境准备
+
  
 **远程模拟器预置**
  
@@ -58,7 +60,7 @@ Mac需要在hdc安装目录下打开命令行，运行**./hdc list targets**命�
 启动windows命令行，输入**ipconfig /all**命令，获取模拟器所在PC的IP。
  
 
-![](assets/UX测试/file-20260708103710869ffb4f.png)
+![](assets/UX测试/file-20260708103710864a2979.png)
 
  
 **Mac**
@@ -66,7 +68,7 @@ Mac需要在hdc安装目录下打开命令行，运行**./hdc list targets**命�
 启动Mac命令行，输入**ifconfig**命令，获取模拟器所在PC的IP。
  
 
-![](assets/UX测试/file-20260708103710864a2979.png)
+![](assets/UX测试/file-20260708103710869ffb4f.png)
 
  
 **远程模拟器启动hdc服务**
@@ -74,45 +76,47 @@ Mac需要在hdc安装目录下打开命令行，运行**./hdc list targets**命�
 外部需要通过hdc服务对模拟器进行远程访问，服务器启动命令为hdc kill && hdc -s IP:8710 -e IP -m（其中IP为模拟器所在PC的IP，下同）。
  
 
-![](assets/UX测试/file-20260708103711dd55a6ed.png)
+![](assets/UX测试/file-202607081037113065990e.png)
 
  
 若未配置hdc环境变量，需要先切换到hdc文件目录（hdc安装目录获取参考hdc工具配置），Windows命令为 .\hdc kill && .\hdc -s ip:8710 -e ip -m。
  
 
-![](assets/UX测试/file-202607081037113065990e.png)
+![](assets/UX测试/file-20260708103711dd55a6ed.png)
 
  
 Mac需要在hdc安装目录下打开命令行，运行命令 ./hdc kill && ./hdc -s ip:8710 -e ip -m启动服务。
- 
-
-![](assets/UX测试/file-20260708103712bf75d6aa.png)
-
- 
-
-![](assets/UX测试/file-20260708103712e7f448b4.png)
- 
-
-服务启动后，在本机执行 hdc list targets 命令会查询不到已启动的设备；可在其他PC通过 hdc -s IP:8710 list targets查询设备。
  
 
 ![](assets/UX测试/file-202607081037120defa08e.png)
 
  
 
+![](assets/UX测试/file-20260708103712bf75d6aa.png)
+ 
+
+服务启动后，在本机执行 hdc list targets 命令会查询不到已启动的设备；可在其他PC通过 hdc -s IP:8710 list targets查询设备。
+ 
+
+![](assets/UX测试/file-20260708103712e7f448b4.png)
+
  
 
  
-DevEco Testing连接远程模拟器
+
  
 
-![](assets/UX测试/file-20260708103713b12a04d9.png)
+#### DevEco Testing连接远程模拟器
+
+ 
+
+![](assets/UX测试/file-202607081037136849782b.png)
 
  
 步骤 1：安装DevEco Testing后，左边菜单栏选择“设置”，开启支持模拟器。
  
 
-![](assets/UX测试/file-202607081037136849782b.png)
+![](assets/UX测试/file-20260708103713b12a04d9.png)
 
  
 步骤 2：选择“远程设备管理”，输入远程设备信息，并建立连接。
@@ -135,12 +139,16 @@ DevEco Testing连接远程模拟器
  
 
  
+
+#### 开始使用多设备布局对比测试
+
+ 
 **创建任务**
  
 步骤 1：与远程模拟器建立连接后，左边菜单栏选择“测试服务”，选择“多设备布局对比测试”，点击服务卡片，即进入任务创建界面。
  
 
-![](assets/UX测试/file-202607081037156a772401.png)
+![](assets/UX测试/file-202607081037158aba2170.png)
 
  
 步骤 2：进入任务创建界面，配置任务参数。
@@ -164,7 +172,7 @@ DevEco Testing连接远程模拟器
 **测试执行**
  
 
-![](assets/UX测试/file-202607081037158aba2170.png)
+![](assets/UX测试/file-202607081037159c5b0727.png)
 
  
 创建任务后，将会跳转到执行页，测试过程中，在测试页面可以看到累计发现问题汇总、当前页面问题汇总、测试进度，点击查看详情可以实时查看。执行页实时展示测试进度、预计执行时间、预计剩余时间、设备实时投屏、累计发现问题汇总和当前页面问题汇总等信息。
@@ -176,7 +184,7 @@ DevEco Testing连接远程模拟器
 在执行页点击右上角“查看详情”按钮跳转到问题详情页，该页面实时展示检测设备已检测信息，包括累计问题数、检测项（包括检测中和待检测）。通过点击设备信息切换不同设备的检测信息详情。点击各检测项的“不通过数|通过数”对应值可查看该检测项详细检测结果。
  
 
-![](assets/UX测试/file-202607081037159c5b0727.png)
+![](assets/UX测试/file-20260708103716578a26f3.png)
 
  
 
@@ -206,17 +214,17 @@ DevEco Testing连接远程模拟器
 检测机型页面包含被测设备的基础信息、问题汇总和问题详情等信息。
  
 
-![](assets/UX测试/file-20260708103716578a26f3.png)
+![](assets/UX测试/file-20260708103717cb35de5d.png)
 
  
 
-![](assets/UX测试/file-20260708103717cb35de5d.png)
+![](assets/UX测试/file-2026070810371867d56515.png)
 
  
 检测不通过或检测异常的规则项，点击查看详情即可查看异常问题详情，包含检测项概览、测试截图、问题列表、详细的问题描述、问题等级和修复指南等信息。
  
 
-![](assets/UX测试/file-2026070810371867d56515.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/h-nXrKQYRRS0x4THCb9gNA/zh-cn_image_0000002663932185.png?HW-CC-KV=V1&HW-CC-Date=20260730T072032Z&HW-CC-Expire=86400&HW-CC-Sign=84180E0A4BC2F26665E63231D989E824899AB7ADE6C60DFB027C08F4946861A3)
 
  
 多设备对比页用于展示同一页面在不同设备上的布局效果。当页面检测未通过时，图片下方将显示当前页面的问题详情。同时运行三个及以上设备时，即使某个设备未能匹配上，也会正常展示该页面数据，未匹配上设备显示为空白。

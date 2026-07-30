@@ -1,6 +1,6 @@
 # 使用AVPlayer播放视频(C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avplayer-for-video-playback
 
@@ -10,13 +10,13 @@
 
 在进行应用开发的过程中，开发者可以通过AVPlayer的信息监听回调函数[OH_AVPlayerOnInfoCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#oh_avplayeroninfocallback)和错误监听回调函数[OH_AVPlayerOnErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#oh_avplayeronerrorcallback)主动获取播放过程信息。如果应用在视频播放器处于错误状态时执行操作，系统可能会抛出异常或生成其他未定义的行为。
 
-**图1** 播放状态变化示意图
+**播放状态变化示意图：**
 
 
 ![](assets/使用AVPlayer播放视频(C／C++)/file-20260514131551566-0.png)
 
 
-状态的详细说明请参考[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate)。当播放处于prepared / playing / paused / completed状态时，播放引擎处于工作状态，这需要占用系统较多的运行内存。当客户端暂时不使用播放器时，调用reset()或release()回收内存资源，做好资源利用。
+状态的详细说明请参考[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate)。当播放处于AV_PREPARED/AV_PLAYING/AV_PAUSED/AV_COMPLETED状态时，播放引擎处于工作状态，这需要占用系统较多的运行内存。当客户端暂时不使用播放器时，调用reset()或release()回收内存资源，做好资源利用。
 
 
 #### 开发建议
@@ -62,21 +62,21 @@ target_link_libraries(sample PUBLIC libhilog_ndk.z.so)
 
 详细的API说明请参考[AVPlayer API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer)。
 1. 创建AVPlayer实例：调用[OH_AVPlayer_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_create)，AVPlayer初始化为[AV_IDLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate)状态。
-2. 设置回调监听函数：使用[OH_AVPlayer_SetOnInfoCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setoninfocallback)、[OH_AVPlayer_SetOnErrorCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setonerrorcallback)接口设置信息监听回调函数和错误监听回调函数，搭配全流程场景使用。支持的监听事件包括：
+2. 设置回调监听函数：使用[OH_AVPlayer_SetOnInfoCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setoninfocallback)、[OH_AVPlayer_SetOnErrorCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setonerrorcallback)接口设置信息监听回调函数和错误监听回调函数，搭配全流程场景使用。支持的监听回调函数包括：
 
-| 事件类型 | 说明 |
+| 回调函数类型 | 说明 |
 
 | --- | --- |
 
-| OH_AVPlayerOnInfoCallback | 必要事件，监听播放器的过程信息。 需要播放器在AV_IDLE状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的OH_AVPlayerOnInfoCallback事件。 |
+| OH_AVPlayerOnInfoCallback | 必要回调函数，监听播放器的过程信息。 需要播放器在AV_IDLE状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的信息事件。 |
 
-| OH_AVPlayerOnErrorCallback | 必要事件，监听播放器的错误信息。 需要播放器在AV_IDLE状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的OH_AVPlayerOnErrorCallback事件。 |
+| OH_AVPlayerOnErrorCallback | 必要回调函数，监听播放器的错误信息。 需要播放器在AV_IDLE状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的信息事件。 |
 
   应用使用[OH_AVPlayer_SetOnInfoCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setoninfocallback)、[OH_AVPlayer_SetOnErrorCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setonerrorcallback)接口设置信息监听回调函数和错误监听回调函数，可以获取更多信息，还可以通过设置 userData 区分不同播放实例。
 3. 设置资源：调用[OH_AVPlayer_SetURLSource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_seturlsource)，设置属性url，AVPlayer进入[AV_INITIALIZED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate)状态。
 4. （可选）设置音频流类型：调用[OH_AVPlayer_SetAudioRendererInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setaudiorendererinfo)，设置AVPlayer音频流类型。
 5. （可选）设置音频打断模式：调用[OH_AVPlayer_SetAudioInterruptMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setaudiointerruptmode)，设置AVPlayer音频流打断模式。
-6. 设置播放画面窗口：调用[OH_AVPlayer_SetVideoSurface()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setvideosurface)设置播放画面窗口。此函数必须在SetSource之后，Prepare之前调用。
+6. 设置播放画面窗口：调用[OH_AVPlayer_SetVideoSurface()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setvideosurface)设置播放画面窗口。此函数必须在OH_AVPlayer_SetURLSource()之后，OH_AVPlayer_Prepare()之前调用。
 7. 准备播放：调用[OH_AVPlayer_Prepare()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_prepare)，AVPlayer进入[AV_PREPARED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate)状态，此时可以获取时长，设置音量。
 8. （可选）设置音频音效模式：调用[OH_AVPlayer_SetAudioEffectMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setaudioeffectmode)，设置AVPlayer音频音效模式。
 9. 视频播控：播放[OH_AVPlayer_Play()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_play)，暂停[OH_AVPlayer_Pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_pause)，跳转[OH_AVPlayer_Seek()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_seek)，停止[OH_AVPlayer_Stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_stop)等操作。

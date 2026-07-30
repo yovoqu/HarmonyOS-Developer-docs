@@ -1,6 +1,6 @@
 # ArkUI_NativeDialog
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ struct ArkUI_NativeDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供ArkUI在Native侧的自定义弹窗控制器对象定义。
+提供ArkUI在Native侧的自定义弹窗控制器对象定义，用于在Native层创建和管理自定义弹窗，支持弹窗的显示、关闭、属性配置等功能，适用于需要通过C/C++代码控制ArkUI弹窗生命周期的场景。具体控制接口请参见[ArkUI_NativeDialogAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialogapi-1)、[ArkUI_NativeDialogAPI_2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialogapi-2)和[ArkUI_NativeDialogAPI_3](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialogapi-3)。
  
 **起始版本：** 12
  

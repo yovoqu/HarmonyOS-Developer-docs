@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.touchEvent (触屏输入事件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-touchevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,7 +69,7 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-触屏来源的设备类型，当前仅支持触摸屏、触控板类型上报。
+触屏来源的设备类型，当前支持触屏、手写笔、触控板类型上报。
  
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
   

@@ -1,6 +1,6 @@
 # ohpm-repo batch_download
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-batch-download
 
@@ -23,9 +23,11 @@ ohpm-repo batch_download <pkg_list>
 
 #### 功能描述
 
-根据提供的包名列表用于批量下载ohpm-repo或OpenHarmony三方库中心仓的包文件，并导出zip文件。
+根据提供的包名列表批量下载ohpm-repo或OpenHarmony三方库中心仓的包文件，并导出zip文件。
  
-说明：执行[export_pkginfo 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-pkginfo)生成的pkgInfo_xxx.json文件中记录着ohpm-repo或OpenHarmony三方库中心仓中所有已上架的包，若仅需要批量下载部分包文件，可以手动修改pkgInfo_xxx.json文件，命令只会批量下载pkgInfo_xxx.json文件中指定的包，包如果有其他依赖，所依赖的包也会一并下载。
+> [!NOTE]
+> 执行 export_pkginfo 命令 生成的pkgInfo_xxx.json文件中记录着ohpm-repo或OpenHarmony三方库中心仓中所有已上架的包，若仅需要批量下载部分包文件，可以修改pkgInfo_xxx.json文件，命令只会批量下载pkgInfo_xxx.json文件中指定的包，包如果有其他依赖，所依赖的包也会一并下载。
+
  
  
 
@@ -103,8 +105,6 @@ PS D:\> ohpm-repo batch_download D:\pkgInfo_1754733375315.json
 > 1、生成的zip文件以仓库名作为目录，每个仓库目录中存在包文件和pkgInfo.json文件，pkgInfo.json文件记录每个包的 文件名 、 包名 、 组织 、 上传者 和 Tag标签 ，用于在批量上传时准确指定ohpm-repo的数据库中某个用户为某个包的真实上传用户，同时将包的Tag标签一起上传。 2、命令执行中，如果某个包的用户在ohpm-repo中不存在，将默认指定该包的上传用户为管理员用户或者组织的管理员用户。 3、ohpm-repo从5.3.0开始支持多仓库配置，当从OpenHarmony三方库中心仓下载包，生成的包zip文件，目录名为ohpm，在后续执行 batch_publish 命令时，默认导入ohpm-repo仓库名为ohpm的仓库中。
 
  
-
- 
 ```json
 batch_download_1754735610304.zip目录结构
 +---ohpm
@@ -167,4 +167,4 @@ PS D:\> ohpm-repo batch_download D:\pkgInfo_1754734313921.json --public-registry
 ```
  
 > [!NOTE]
-> 如果ohpm-repo实例的数据存储类型为filedb，请执行ohpm-repo restart命令重启ohpm-repo服务，以便刷新ohpm-repo网站页面中的数据。该操作会影响正在使用ohpm-repo服务的用户，请提前告知。 生成的zip文件中以仓库名作为目录，每个仓库目录中存在pkgInfo.json文件，其中记录了每个包的 文件名 、 包名 、 组织 、 上传者和 Tag标签 ，用于在批量上传时准确指定ohpm-repo的数据库中某个用户为某个包的真实上传用户，同时将包的Tag标签一起上传。 当执行batch_download命令时，某个中心仓包的组织为A，若为其指定ohpm-repo的数据库中某用户为其真实上传用户，ohpm-repo实例中不存在A组织，则该包的真实上传用户将设定为空，并且提醒用户手动创建A组织。之后执行批量上传时同样会提醒该包的A组织在ohpm-repo实例中不存在，需要先手动创建A组织。如果需要自动添加组织，使用batch_publish命令的可选参数--force，将会选取一个管理员用户作为A组织负责人，自动创建A组织后进行该包的上传。
+> 如果ohpm-repo实例的数据存储类型为filedb，请执行ohpm-repo restart命令重启ohpm-repo服务，以便刷新ohpm-repo网站页面中的数据。该操作会影响正在使用ohpm-repo服务的用户，请提前告知。 生成的zip文件中以仓库名作为目录，每个仓库目录中存在pkgInfo.json文件，其中记录了每个包的 文件名 、 包名 、 组织 、 上传者 和 Tag标签 ，用于在批量上传时准确指定ohpm-repo的数据库中某个用户为某个包的真实上传用户，同时将包的Tag标签一起上传。 当执行batch_download命令时，某个中心仓包的组织为A，若为其指定ohpm-repo的数据库中某用户为其真实上传用户，ohpm-repo实例中不存在A组织，则该包的真实上传用户将设定为空，并且提醒用户手动创建A组织。之后执行批量上传时同样会提醒该包的A组织在ohpm-repo实例中不存在，需要先手动创建A组织。如果需要自动添加组织，使用batch_publish命令的可选参数--force，将会选取一个管理员用户作为A组织负责人，自动创建A组织后进行该包的上传。

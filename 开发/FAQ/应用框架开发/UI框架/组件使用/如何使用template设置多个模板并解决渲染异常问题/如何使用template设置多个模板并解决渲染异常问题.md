@@ -1,6 +1,6 @@
 # 如何使用template设置多个模板并解决渲染异常问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-606
 
@@ -139,7 +139,7 @@ struct <span style="color: rgb(0,0,255);">RepeatPage </span><span style="color: 
 #### 解决方案
 
 场景一：模板数量多的情况。
- 1. Repeat的渲染模板（template）能力，需要通过.templateId()方法为每个数据项指定模板类型，并在.template()中定义对应的渲染逻辑。不同模板类型对应不同的子组件结构，Repeat会根据类型自动复用相同模板的组件节点。详细参考：[循环渲染能力说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#循环渲染能力说明)。
+ 1. Repeat的渲染模板（template）能力，需要通过.templateId()方法为每个数据项指定模板类型，并在.template()中定义对应的渲染逻辑。不同模板类型对应不同的子组件结构，Repeat会根据类型自动复用相同模板的组件节点。详细参考：[循环渲染能力说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#节点更新复用能力说明)。
 2. 若模板数量多时，不希望重复设置template定义多个模板，避免代码重复。可以考虑把结构相似的子组件放在一个template中处理，将数据项相关信息（例如item，index等）作为参数传给@Builder函数，在@Builder内使用visibility、if/else条件渲染等方式进行处理。例如通过visibility控制子组件内部组件的显示隐藏：
 ```text
 <span style="color: rgb(181,106,1);">@Entry</span>
@@ -232,7 +232,7 @@ struct <span style="color: rgb(0,0,255);">TemplatePageOne </span><span style="co
  
 场景二：刷新数据源，数据项未按照设定模板进行渲染。
  1. template渲染模板能力需要启用虚拟滚动（virtualScroll）。
-2. 当未开启virtualScroll()时，Repeat会一次性渲染全部数据项对应的组件，template的复用失效。详细参考：[关闭懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#关闭懒加载)。
+2. 当未开启virtualScroll()时，Repeat会一次性渲染全部数据项对应的组件，template的复用失效。详细参考：[关闭懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#懒加载能力说明)。
 3. 所以刷新数据源后，虽然template type变化，但是template的复用失效，仍显示首次渲染的模板。需要手动设置.virtualScroll()，完整示例如下：
 ```text
 <span style="color: rgb(181,106,1);">@Entry</span>

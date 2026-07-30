@@ -23,7 +23,7 @@
 以构建har包为例，准备两个入口文件Index.ets和Index123.ets，目前oh-package.json5的入口文件为Index.ets。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/lZMzUqp5RpiKRqtpXbZNTA/zh-cn_image_0000002628409280.png?HW-CC-KV=V1&HW-CC-Date=20260723T013919Z&HW-CC-Expire=86400&HW-CC-Sign=65F608F120F8874B831F8535CDAD40F81D5A52B0AEBF291EE298773B15FC4D2D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/lZMzUqp5RpiKRqtpXbZNTA/zh-cn_image_0000002628409280.png?HW-CC-KV=V1&HW-CC-Date=20260730T072713Z&HW-CC-Expire=86400&HW-CC-Sign=AD795267460AB966343E0E71D45E5D102976CB807814BB6A9885CC47B925F9A4)
 
  
 在har模块的hvigorfile.ts文件中添加如下内容：
@@ -83,4 +83,4 @@ export function customPluginFunction(): HvigorPlugin  {
 构建har包，可以看到入口文件已被替换成Index123.ets。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/Ed4j_tqUTASjSLDhvqPFAQ/zh-cn_image_0000002658808551.png?HW-CC-KV=V1&HW-CC-Date=20260723T013919Z&HW-CC-Expire=86400&HW-CC-Sign=B74903D8819B68294BC51E286BCCC9D07D9C2ECFBF96F50051F417EB9579AC35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/Ed4j_tqUTASjSLDhvqPFAQ/zh-cn_image_0000002658808551.png?HW-CC-KV=V1&HW-CC-Date=20260730T072713Z&HW-CC-Expire=86400&HW-CC-Sign=471178248A8D64B3AAC321A9B74CCCCA18199AE84E1A523DB48D1833B8B4070C)

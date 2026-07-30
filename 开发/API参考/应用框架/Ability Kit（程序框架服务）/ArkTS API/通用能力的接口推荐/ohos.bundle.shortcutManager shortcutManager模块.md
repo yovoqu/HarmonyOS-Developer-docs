@@ -1,6 +1,6 @@
 # @ohos.bundle.shortcutManager (shortcutManager模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-shortcutmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,7 +53,7 @@ setShortcutVisibleForSelf(id: string, visible: boolean) : Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17700070 | The specified shortcut id is illegal. |
+| 17700070 | The specified shortcut id is not exist. |
 
 
 **示例：**

@@ -1,6 +1,6 @@
 # OH_AudioVolumeManager
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiovolumemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_AudioVolumeManager OH_AudioVolumeManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明音频音量管理器。音频音量管理器提供多种函数，供开发人员获取系统音量信息。
+声明音频音量管理器。该结构体提供相关接口，供开发者获取系统音量信息。
  
 **起始版本：** 20
  

@@ -1,6 +1,6 @@
 # ForEach：循环渲染
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach
 
@@ -507,7 +507,7 @@ struct ArticleCardChangeChild {
           .margin({ bottom: 8 })
 
         Row() {
-          // 此处app.media.iconLiked'，'app.media.iconUnLiked'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
+          // 此处'app.media.iconLiked'，'app.media.iconUnLiked'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
           Image(this.article.isLiked ? $r('app.media.iconLiked') : $r('app.media.iconUnLiked'))
             .width(24)
             .height(24)
@@ -713,7 +713,7 @@ struct ReducedRenderingPerformance {
       }
       .onClick(() => {
         this.simpleList.splice(1, 0, 'new item');
-        hilog.info(DOMAIN, 'testTag', '[onClick]: simpleList is [${this.simpleList.join(', ')}]');
+        hilog.info(DOMAIN, 'testTag', `[onClick]: simpleList is [${this.simpleList.join(', ')}]`);
       })
 
       ForEach(this.simpleList, (item: string) => {
@@ -732,7 +732,7 @@ struct ReducedChildItem {
   @Prop item: string;
 
   aboutToAppear() {
-    hilog.info(DOMAIN, TAG, '[aboutToAppear]: item is ${this.item}');
+    hilog.info(DOMAIN, TAG, `[aboutToAppear]: item is ${this.item}`);
   }
 
   build() {
@@ -873,7 +873,7 @@ struct ArticleCardChangeData {
           .margin({ bottom: 8 })
 
         Row() {
-          // 此处app.media.iconLiked'，'app.media.iconUnLiked'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
+          // 此处'app.media.iconLiked'，'app.media.iconUnLiked'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
           Image(this.article.isLiked ? $r('app.media.iconLiked') : $r('app.media.iconUnLiked'))
             .width(24)
             .height(24)
@@ -966,7 +966,7 @@ struct NonNecessaryMemory {
 **图15** 自定义键值生成函数下的内存占用
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/38L0M7uVQSKvKerlVjU5lA/zh-cn_image_0000002626068206.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=DB67A3F08F615DADD9B9E9D92F8ABA0E8429D81CBE24809338DDC960CBE57D9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/ONImEH5GRBS_30jSHDdUCg/zh-cn_image_0000002685925677.png?HW-CC-KV=V1&HW-CC-Date=20260730T071843Z&HW-CC-Expire=86400&HW-CC-Sign=618ECA948F8B13CC2B1FE61DC3B54B070F46D369624545C8A22E512478432CF1)
 
 
 
@@ -1022,7 +1022,7 @@ struct GenerationKeyChildItem {
 开发者定义keyGenerator函数，应用正常启动：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/ivTXIQoYQ9iAzyunvwddbw/zh-cn_image_0000002656467481.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=87F838A6E221CFA27418C8A1B6C4AF77B1D3606AD51BE5AD47F88F705F4F7FE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/JPGZ2eK0S32hVnx6aYGcgg/zh-cn_image_0000002656005998.png?HW-CC-KV=V1&HW-CC-Date=20260730T071843Z&HW-CC-Expire=86400&HW-CC-Sign=6CE063E04E33222E322000631ACCAC00766649CB26D051951C124028271D8BBE)
 
 
 使用默认的键值生成函数，应用发生jscrash：

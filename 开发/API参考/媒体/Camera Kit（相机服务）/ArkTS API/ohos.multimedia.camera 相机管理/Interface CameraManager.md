@@ -1,6 +1,6 @@
 # Interface (CameraManager)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1212,11 +1212,11 @@ function isTorchLevelControlSupported(cameraManager: camera.CameraManager): bool
 
 
 
-#### SetTorchModeOnWithLevel
+#### setTorchModeOnWithLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-SetTorchModeOnWithLevel(torchLevel: number): void
+setTorchModeOnWithLevel(torchLevel: number): void
 
 手电筒设置指定亮度级别。
 
@@ -1224,7 +1224,7 @@ SetTorchModeOnWithLevel(torchLevel: number): void
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**元服务API：** 从API version 26开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 

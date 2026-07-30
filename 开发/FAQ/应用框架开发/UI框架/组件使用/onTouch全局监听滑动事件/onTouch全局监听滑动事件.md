@@ -9,7 +9,7 @@
 如何全局监听滑动事件，控制紫色子组件的显示隐藏，实现下图的功能？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/Jnm9yZEJSZqz-ev9pSYL2w/zh-cn_image_0000002658911371.png?HW-CC-KV=V1&HW-CC-Date=20260723T012534Z&HW-CC-Expire=86400&HW-CC-Sign=EFE8A42259878279BC6B290DC533E0C3F05FC2A78042379CB0D944693DBD3605)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/Jnm9yZEJSZqz-ev9pSYL2w/zh-cn_image_0000002658911371.png?HW-CC-KV=V1&HW-CC-Date=20260730T072319Z&HW-CC-Expire=86400&HW-CC-Sign=B3E087FF9ECC06461AFE07DA2ABE803505B92C862B0E179B30E76D3EDD8B3F27)
 
  
  
@@ -247,4 +247,4 @@ export function getPage1RouterMap(): void {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/1XcF4SbMT8CC366hlnYlfA/zh-cn_image_0000002628392154.png?HW-CC-KV=V1&HW-CC-Date=20260723T012534Z&HW-CC-Expire=86400&HW-CC-Sign=252191545E98C1D36A9C2531999531CF1059C74F73FF5FCC16FA86972C889024)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/1XcF4SbMT8CC366hlnYlfA/zh-cn_image_0000002628392154.png?HW-CC-KV=V1&HW-CC-Date=20260730T072319Z&HW-CC-Expire=86400&HW-CC-Sign=77EC615BFFD9A063B6C4AAF88960E35062734215C179D596BBB41A9D1CC7A797)

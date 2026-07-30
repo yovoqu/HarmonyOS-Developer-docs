@@ -1,11 +1,11 @@
 # Class (MarqueeDynamicSyncScene)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-marqueedynamicsyncscene
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供Marquee组件相关帧率的配置。
+提供Marquee组件动态帧率的配置能力，支持在Marquee组件运行动画时动态调节帧率，优化性能和功耗，适用于需要在跑马灯场景中平衡动画流畅度和系统资源消耗的场景。
  
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 14开始支持。 MarqueeDynamicSyncScene继承自 DynamicSyncScene ，对应 Marquee 的动态帧率场景。
@@ -24,7 +24,7 @@
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | MarqueeDynamicSyncSceneType | 是 | 否 | Marquee的动态帧率场景。 |
+| type | MarqueeDynamicSyncSceneType | 是 | 否 | Marquee的动态帧率场景类型。用于指定Marquee组件的动态帧率场景模式，不同场景类型对应不同的帧率调节策略，详见MarqueeDynamicSyncSceneType。 |
  
  
 **示例：**
@@ -42,14 +42,14 @@ struct MarqueeExample {
   private step: number = 10;
   private loop: number = Number.POSITIVE_INFINITY;
   controller: TextClockController = new TextClockController();
-  convert2time(value: number): string {
-    let date = new Date(Number(value+'000'));
+  convertToTime(value: number): string {
+    let date = new Date(Number(value + '000'));
     let hours = date.getHours().toString().padStart(2, '0');
     let minutes = date.getMinutes().toString().padStart(2, '0');
     let seconds = date.getSeconds().toString().padStart(2, '0');
-    return hours+ ":" + minutes + ":" + seconds;
+    return hours + ':' + minutes + ':' + seconds;
   }
-  @State ANIMATION: ExpectedFrameRateRange = { min: 0, max: 120, expected: 30 };
+  @State frameRateRange: ExpectedFrameRateRange = { min: 0, max: 120, expected: 30 };
   private scenes: MarqueeDynamicSyncScene[] = [];
 
   build() {
@@ -77,9 +77,9 @@ struct MarqueeExample {
         .onClick(() => {
           this.start = true;
           this.controller.start();
-          this.scenes.forEach((scenes: MarqueeDynamicSyncScene) => {
-            if (scenes.type == MarqueeDynamicSyncSceneType.ANIMATION) {
-              scenes.setFrameRateRange(this.ANIMATION);
+          this.scenes.forEach((scene: MarqueeDynamicSyncScene) => {
+            if (scene.type == MarqueeDynamicSyncSceneType.ANIMATION) {
+              scene.setFrameRateRange(this.frameRateRange);
             }
           });
         })
@@ -91,7 +91,7 @@ struct MarqueeExample {
       TextClock({ timeZoneOffset: -8, controller: this.controller })
         .format('hms')
         .onDateChange((value: number) => {
-          this.src = this.convert2time(value);
+          this.src = this.convertToTime(value);
         })
         .margin(20)
         .fontSize(30)

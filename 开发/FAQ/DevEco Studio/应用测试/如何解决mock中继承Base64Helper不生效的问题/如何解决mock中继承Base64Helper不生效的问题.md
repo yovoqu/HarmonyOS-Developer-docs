@@ -53,7 +53,7 @@ export default function <span style="color: rgb(0,0,255);">localUnitTest</span><
 运行报错如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/wtkWrTbfTKyLeVlLxbjdAg/zh-cn_image_0000002658808815.png?HW-CC-KV=V1&HW-CC-Date=20260723T013958Z&HW-CC-Expire=86400&HW-CC-Sign=E218FF472C28D309ED4A2C2ABFFD2E010127458194375730FCEC95D1EB7192C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/wtkWrTbfTKyLeVlLxbjdAg/zh-cn_image_0000002658808815.png?HW-CC-KV=V1&HW-CC-Date=20260730T072721Z&HW-CC-Expire=86400&HW-CC-Sign=090E6AE8C3E720D871A81F9CCA045B59F87F4476CF7283647B4007536CC761F3)
 
  
  
@@ -70,13 +70,13 @@ export default function <span style="color: rgb(0,0,255);">localUnitTest</span><
  1. 确认mock文件的导出方式和被mock接口的导出方式一致。查看被mock接口的导出方式，可以用Ctrl+鼠标左键点击被mock的接口。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/i5etq4F7S8uAXh7qXE9NHA/zh-cn_image_0000002628409548.png?HW-CC-KV=V1&HW-CC-Date=20260723T013958Z&HW-CC-Expire=86400&HW-CC-Sign=FABB99FDD60EC67C707754B651E07A6384B041A8D3B08AA681192CF71121BB7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/i5etq4F7S8uAXh7qXE9NHA/zh-cn_image_0000002628409548.png?HW-CC-KV=V1&HW-CC-Date=20260730T072721Z&HW-CC-Expire=86400&HW-CC-Sign=D92BA6CB0497A006300102C49A3261122F3974B9813FFA13E55D2967DC944F3F)
 
 
   查看mock文件的导出方式。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/VExXDQuJSCSYZVctRgxvmw/zh-cn_image_0000002628569446.png?HW-CC-KV=V1&HW-CC-Date=20260723T013958Z&HW-CC-Expire=86400&HW-CC-Sign=D5EB47D22F9CDBEFE44AD39DB7EEE8016931AA7986E02E86FBBB7A3D0319C9C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/VExXDQuJSCSYZVctRgxvmw/zh-cn_image_0000002628569446.png?HW-CC-KV=V1&HW-CC-Date=20260730T072721Z&HW-CC-Expire=86400&HW-CC-Sign=8DDFB71A03FBB2BC8D39D143905ED79EDDAAD226464D18AA0589253E992CDBB2)
 
  
  

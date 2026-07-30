@@ -1,6 +1,6 @@
 # native_deviceinfo.h
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-deviceinfo-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| AVSession_OutputDeviceInfo | - | 目标设备信息的定义。 |
+| AVSession_OutputDeviceInfo | AVSession_OutputDeviceInfo | 目标设备信息的定义。 |
 | AVSession_DeviceInfo | AVSession_DeviceInfo | 设备信息的声明。该实例用于获取更多的设备信息及其详细属性。 |
  
  

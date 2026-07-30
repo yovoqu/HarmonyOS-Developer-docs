@@ -272,7 +272,7 @@ struct SceneOneOptionTwo {
 场景一实现效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/5NxiSQbJRrOxRPQuY_Fauw/zh-cn_image_0000002628569612.png?HW-CC-KV=V1&HW-CC-Date=20260723T012704Z&HW-CC-Expire=86400&HW-CC-Sign=41212BC9ED48D934ED67A994DC4F9EAE139FD3EFAF18D1137B6F05A8B28FD475)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/5NxiSQbJRrOxRPQuY_Fauw/zh-cn_image_0000002628569612.png?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=5F9BE45AC2AB59BCB41E781FAD9A5205D1AB893539105D36A3B72FF786281CD9)
 
  - 场景二：使用bindSheet时，如何实现弹窗和页面间的双向数据绑定？该场景下于场景一中的方案二基本一致，只需要注意builder的使用传递规则即可，完整示例代码如下：
 
@@ -340,7 +340,7 @@ struct SceneTwo {
  场景二实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/iibnXt-WRaKnlzMS2ywD_g/zh-cn_image_0000002628409712.png?HW-CC-KV=V1&HW-CC-Date=20260723T012704Z&HW-CC-Expire=86400&HW-CC-Sign=F51F8016EDB955AC6CC5659D53A65ADBC4437B2931C65A1F6ABF98883D9C83BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/iibnXt-WRaKnlzMS2ywD_g/zh-cn_image_0000002628409712.png?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=6664BA2BBFA3BD985C55541441D4C5EF9790FC3D9E1C18AC0947E466C7610215)
 
 - 场景三：使用@CustomDialog时，如何实现弹窗和页面间的双向数据绑定？详情可参考官方文档：[示例6（使用@Link和@Consume监听数据变化）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#示例6使用link和consume监听数据变化)。
 

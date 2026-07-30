@@ -1,6 +1,6 @@
 # ohprint.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -19,7 +19,7 @@
 
 **起始版本：** 12
 
-**相关模块：** [OH_Print](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print)
+**相关模块：** [Print](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print)
 
 
 
@@ -725,7 +725,7 @@ Print_ErrorCode OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallba
 
 | 类型 | 说明 |
 | --- | --- |
-| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务能力。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 |
 
 
 

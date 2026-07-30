@@ -1,11 +1,11 @@
 # 共享元素转场 (sharedTransition)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-shared-elements
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-可以通过设置组件的sharedTransition属性将该元素标记为共享元素并设置对应的共享元素转场动效。sharedTransition仅发生在[@ohos.router (页面路由)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)跳转时。
+共享元素转场（sharedTransition）用于在页面跳转时实现共享元素的平滑过渡动画，使同一元素在不同页面间保持视觉连续性，提升用户体验和转场流畅度。可以通过设置组件的sharedTransition属性将该元素标记为共享元素并设置对应的共享元素转场动效。sharedTransition仅发生在[@ohos.router (页面路由)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)跳转时。
  
 > [!NOTE]
 > 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
@@ -86,7 +86,7 @@ struct SharedTransitionExample {
         .sharedTransition('sharedImage', { duration: 800, curve: Curve.Linear, delay: 100 })
     }.width('100%').height('100%').alignItems(HorizontalAlign.Start)
     .onClick(() => {
-      this.getUIContext().getRouter().pushUrl({ url: 'pages/PageB' })
+      this.getUIContext().getRouter().pushUrl({ url: 'pages/PageB' });
     })
   }
 
@@ -118,4 +118,4 @@ struct PageBExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/VUDP-m7VR-G43SR5J6K8gQ/zh-cn_image_0000002677668103.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=6227341E47A84651A778B80F3E2C5342A93497EF61229EBA545C115034B23BF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/IWx09UFOQNeYa3hQseePhQ/zh-cn_image_0000002655848912.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=B6C4ADE5503FC5746A4E765E004895929502F6762953F50835C11EAE3FD2863D)

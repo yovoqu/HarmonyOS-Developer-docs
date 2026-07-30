@@ -1,6 +1,6 @@
 # 使用JSVM-API接口从外部内存创建ArrayBuffer
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-external-arraybuffer
 
@@ -8,7 +8,7 @@
 
 ArrayBuffer是JavaScript中的一种数据类型，用于表示通用的、固定长度的原始二进制数据缓冲区。提供了一种在JavaScript中有效地表示和操作原始二进制数据的方式。
 
-在某些场景下，应用已有一块外部内存（如从文件映射、硬件缓冲区、或其他Native模块分配的内存），希望将其包装为JavaScript的ArrayBuffer对象，以便在JS层进行读写操作。从API版本26.0.0开始，JSVM-API提供了[OH_JSVM_CreateArrayBufferFromExternalMemory](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-h#oh_jsvm_createarraybufferfromexternalmemory)接口来满足这类场景。
+在某些场景下，如应用已有一块外部内存（如从文件映射、硬件缓冲区、或其他Native模块分配的内存），希望将其包装为JavaScript的ArrayBuffer对象，以便在JS层进行读写操作。从API版本26.0.0开始，JSVM-API提供了[OH_JSVM_CreateArrayBufferFromExternalMemory](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-h#oh_jsvm_createarraybufferfromexternalmemory)接口来满足这类场景。
 
 
 

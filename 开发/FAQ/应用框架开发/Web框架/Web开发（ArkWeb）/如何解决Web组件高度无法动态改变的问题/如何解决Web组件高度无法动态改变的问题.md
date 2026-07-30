@@ -10,7 +10,7 @@
  
 - 预期效果：系统输入法弹出后，Web组件的渲染区域缩小到屏幕上半部分，并且在Web组件和输入法之间有预留的动态避让区（通过Blank组件实现）。
 - 实际效果：系统输入法弹出后，虽然组件树中感知到动态避让区（Blank组件）高度为413vp，但实际并没有绘制出动态避让区，且Web组件的渲染区域并未缩小到屏幕上半部分，如下图。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/4FAD7T_uSwGfZg1OHm-fuw/zh-cn_image_0000002628899134.png?HW-CC-KV=V1&HW-CC-Date=20260723T013338Z&HW-CC-Expire=86400&HW-CC-Sign=11911643DC6AE8D0B755D6DC6FF8634D5121970F898112048509EF80DE8C2E02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/4FAD7T_uSwGfZg1OHm-fuw/zh-cn_image_0000002628899134.png?HW-CC-KV=V1&HW-CC-Date=20260730T072532Z&HW-CC-Expire=86400&HW-CC-Sign=22E70EE64587C7E73DB686AD0AD58221AEDB3966B9CCE94F6C11A6F944188DF1)
 
 
   期望通过监听键盘高度来实现Web组件高度动态改变。

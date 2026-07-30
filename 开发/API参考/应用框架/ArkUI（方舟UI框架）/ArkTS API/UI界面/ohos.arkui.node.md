@@ -1,11 +1,11 @@
 # @ohos.arkui.node (自定义节点)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-node
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Node将自定义节点的二级模块API组织在一起，方便开发者进行导出使用。
+Node将自定义节点的二级模块API组织在一起，方便开发者导出使用。自定义节点支持开发者灵活地创建、挂载和管理组件树节点，适用于需要动态构建、复用和扩展UI组件的场景。
  
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 当前不支持在预览器中使用自定义节点。
@@ -16,7 +16,7 @@ Node将自定义节点的二级模块API组织在一起，方便开发者进行�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)模块提供能够挂载系统组件的自定义节点BuilderNode。不建议将BuilderNode作为子节点挂载到其他自定义节点上。
+[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)模块提供能够挂载系统组件的自定义节点BuilderNode，适用于需要在自定义节点中嵌入并复用系统组件的场景。不建议将BuilderNode作为子节点挂载到其他自定义节点上。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -26,7 +26,7 @@ Node将自定义节点的二级模块API组织在一起，方便开发者进行�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)模块提供自定义节点FrameNode，表示组件树的实体节点。[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)可通过[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)持有的FrameNode将其挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上，也可通过FrameNode获取[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)，挂载到其他FrameNode上。
+[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)模块提供自定义节点FrameNode，表示组件树的实体节点，适用于需要直接操作和管理组件树实体节点的场景。[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)可通过[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)持有的FrameNode挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上，也可通过FrameNode获取[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)，并将RenderNode挂载到其他FrameNode上。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -36,7 +36,7 @@ Node将自定义节点的二级模块API组织在一起，方便开发者进行�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)模块提供NodeController，用于实现自定义节点的创建、显示、更新等操作，并负责将自定义节点挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上。
+[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)模块提供NodeController，用于实现自定义节点的创建、显示、更新等操作，并负责将自定义节点挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上，适用于需要动态管理自定义节点生命周期及显示状态的场景。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -46,7 +46,7 @@ Node将自定义节点的二级模块API组织在一起，方便开发者进行�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[Graphics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics)模块：提供自定义节点相关属性设置的定义。
+[Graphics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics)模块提供自定义节点属性设置的定义，用于对自定义节点的图形外观和渲染属性进行配置，适用于需要精细控制节点绘制效果的场景。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -56,7 +56,7 @@ Node将自定义节点的二级模块API组织在一起，方便开发者进行�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)模块提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。
+[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)模块提供自绘制渲染节点RenderNode，支持开发者进行自定义绘制，适用于需要自绘制图形内容（如自定义图表、游戏画面、手绘动画等）的场景。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -66,7 +66,7 @@ Node将自定义节点的二级模块API组织在一起，方便开发者进行�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[XComponentNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-xcomponentnode)模块提供XComponent节点XComponentNode，表示组件树中的XComponent组件，用于EGL/OpenGLES和媒体数据写入，并支持动态修改节点渲染类型。
+[XComponentNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-xcomponentnode)模块提供XComponent节点XComponentNode，表示组件树中的XComponent组件，用于EGL/OpenGLES和媒体数据写入，并支持动态修改节点渲染类型，适用于需要在自定义节点中嵌入图形渲染或媒体数据处理的场景。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -75,9 +75,6 @@ Node将自定义节点的二级模块API组织在一起，方便开发者进行�
 #### UIContext获取方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-1.使用ohos.window中的[getUIContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getuicontext10)方法获取UIContext实例。
- 
-2.可以通过自定义组件内置方法[getUIContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getuicontext)获取。
- 
-3.可以在[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)的[makeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#makenode)回调方法中获取。
+1. 使用ohos.window中的[getUIContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getuicontext10)方法获取UIContext实例。
+2. 通过自定义组件内置方法[getUIContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getuicontext)获取UIContext实例。
+3. 在[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)的[makeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#makenode)回调方法中通过回调入参获取UIContext实例。

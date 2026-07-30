@@ -1,9 +1,9 @@
 # ArkTS API错误码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate
-**支持设备：** Phone | Tablet | PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 > [!NOTE]
 > 以下仅介绍Graphics Accelerate Kit特有错误码，通用错误码请参考 通用错误码 。
@@ -12,7 +12,7 @@
 
 #### 1016600000 当前API不允许在资源加速ExtensionAbility中调用
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -44,7 +44,7 @@ The API call from an ExtensionAbility is not allowed.
 
 #### 1016600001 下载任务的域名不在域名白名单中
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -68,7 +68,7 @@ The domain name of the download task is not in the domain name trustlist.
 
 #### 1016600002 暂停/恢复/获取下载任务时任务ID或组ID不存在
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -90,7 +90,7 @@ The task ID or group ID entered during operations such as pause, resume, and fet
 
 #### 1016600003 当前任务状态不支持当前操作
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -112,7 +112,7 @@ The current task status does not support the current operator.
 
 #### 1016600004 任务队列已满
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -174,7 +174,7 @@ An exception occurs in the callback extension js.
 
 #### 1016600094 资源加速服务异常
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -196,7 +196,7 @@ Task service ability error.
 
 #### 1016600401 资源加速参数错误
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -283,3 +283,129 @@ Parameter error.
 **处理步骤**
 
 检查输入参数是否符合要求，确保无误后再次尝试。
+
+
+
+#### 1009503001 游戏伴随服务正在初始化
+
+**错误信息**
+
+The game buddy service is initializing, please retry later.
+
+**错误描述**
+
+游戏伴随服务正在初始化，请稍后重试。
+
+**可能原因**
+
+感知游戏启动后，会拉起游戏伴随服务，才会触发初始化流程。
+
+**处理步骤**
+
+请退出当前启动的游戏进程，等待一段时间后重新进入游戏，若仍无法启动游戏伴随服务，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=201704444384569052&level3=601723606112598571)提交问题，华为工程师会及时处理。
+
+
+
+#### 1009503002 游戏伴随服务不支持当前游戏或没有游戏运行
+
+**支持设备：** Phone | Tablet | TV
+
+**错误信息**
+
+No game is running, or the current game is not supported by the game buddy service. Please launch a supported game first.
+
+**错误描述**
+
+当前没有游戏在运行或者游戏伴随服务不支持该游戏，请首先启动游戏伴随服务支持的游戏。
+
+**可能原因**
+
+当前没有游戏在运行或者游戏伴随服务不支持该游戏。
+
+**处理步骤**
+
+请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=201704444384569052&level3=601723606112598571)提交问题，华为工程师会及时处理。
+
+
+
+#### 1009503003 游戏伴随服务启动音频采集失败
+
+**支持设备：** Phone | Tablet | TV
+
+**错误信息**
+
+The game buddy service fails to start audio capture. Please perform audio capture directly or try again later.
+
+**错误描述**
+
+游戏伴随服务启动音频采集失败，请尝试直接获取音频采集器，或者稍后重试。
+
+**可能原因**
+
+音频采集接口启动失败。
+
+**处理步骤**
+
+请尝试通过[AudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer)音频采集接口获取音频采集器，或者稍后重试。
+
+
+
+#### 1009503004 头像分辨率过大或过小
+
+**支持设备：** Phone | Tablet | TV
+
+**错误信息**
+
+Invalid avatar resolution. Please set the image resolution between 30x30 and 200x200 pixels.
+
+**错误描述**
+
+头像图片分辨率过大或过小，请将图片分辨率调整为30x30至200x200像素。
+
+**可能原因**
+
+头像图片分辨率过大或过小。
+
+**处理步骤**
+
+请将图片分辨率调整为30x30至200x200像素。
+
+
+
+#### 1009503005 游戏处于后台，不支持截图
+
+**错误信息**
+
+Screenshots are not supported while the game is running in the background. Please try again later.
+
+**错误描述**
+
+当前游戏处于后台，不支持对游戏截图，请稍后重试。
+
+**可能原因**
+
+当前游戏处于后台，不支持对游戏截图，请稍后重试。
+
+**处理步骤**
+
+请将游戏置于前台。
+
+
+
+#### 1009503006 游戏截图频率过高
+
+**错误信息**
+
+Screenshot frequency too high. This API can only be called once per second. Please try again later.
+
+**错误描述**
+
+游戏截图频率过高，每秒最多只能调用一次，请稍后重试。
+
+**可能原因**
+
+游戏截图频率过高，每秒最多只能调用一次。
+
+**处理步骤**
+
+请降低游戏截图频率，建议一秒调用一次。

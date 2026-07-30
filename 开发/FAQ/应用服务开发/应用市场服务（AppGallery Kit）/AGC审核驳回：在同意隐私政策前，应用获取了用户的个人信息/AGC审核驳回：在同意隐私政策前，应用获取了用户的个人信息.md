@@ -1,6 +1,6 @@
 # AGC审核驳回：在同意隐私政策前，应用获取了用户的个人信息
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-24 01:16:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-33
 
@@ -29,7 +29,7 @@
 在HarmonyOS开发中，系统和用户授权的权限需要开发者完成以下准备操作：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/QN-mw0g3RuC91-FsI2X1JQ/zh-cn_image_0000002658793877.png?HW-CC-KV=V1&HW-CC-Date=20260723T013830Z&HW-CC-Expire=86400&HW-CC-Sign=1059DBB21AABBF0AFF14F0BAE0E5061BE2AF144BADA4DB14A6AC2338CF8829F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/D9d6VRvGRECTAdyFB7BZ8A/zh-cn_image_0000002678026887.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=2BC732438BAC43E02E246578EC0872DD51D7805BECD022F95745D6D29E00EE50)
 
  1. **权限声明**：开发者需在应用的配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中声明所需的系统授权权限。
 1. **隐私声明**：
@@ -57,6 +57,14 @@ A：由于弹窗将隐私政策的勾选遮盖，导致无法确认其默认勾�
 方案一：将弹窗底部抬高，避免遮挡隐私政策的勾选。
  
 方案二：弹窗的同意状态不与隐私政策的勾选关联，让用户手动选择隐私政策的勾选。
+ 
+Q：应用审核提示OAID违规使用，未申请隐私权限的场景获取了OAID，但代码review和hilog均未发现违规使用，如何定位？
+ 
+A：可以通过以下步骤排查：
+ 1. 全局搜索：在项目代码中全局搜索getOAID、AdvertisingIdClient、APP_TRACKING_CONSENT等关键词，确认所有调用点。
+2. 审查第三方SDK初始化：将所有第三方SDK的初始化代码，全部延迟到用户点击隐私协议"同意"按钮之后执行。
+3. 模拟审核环境：在手机设置中，将应用权限全部关闭，然后在不点击隐私弹窗的情况下，直接运行应用，通过hilog观察是否有OAID相关的错误或调用日志。
+4. 使用Profiler工具：使用DevEco Studio的Profiler工具，抓取应用启动时的函数调用栈，查看是否有非预期的OAID获取行为。通过以上步骤，通常可以定位到是哪个模块在用户授权前触发了OAID获取。如果排查后仍无法定位，建议提供完整的hilog日志（包含时间戳和进程ID）给技术支持，以便进一步分析。
  
  
 

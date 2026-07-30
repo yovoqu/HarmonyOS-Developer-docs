@@ -1,6 +1,6 @@
 # SafetyDetect（安全检测）
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -26,7 +26,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 系统完整性检测的请求参数。
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -36,7 +36,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| nonce | string | 否 | 否 | 开发者应用传入的一个随机生成的nonce值，用于防重放攻击，在检测结果中会包含该值。 |
+| nonce | string | 否 | 否 | 开发者应用传入的一个随机生成的nonce值，用于防重放攻击，每个请求应具有唯一性，在检测结果中会包含该值。nonce必须是长度16至66字节之间，有效值为base64编码范围。 |
 
 
 
@@ -47,7 +47,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 系统完整性检测返回值。
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -68,7 +68,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 URL检测请求参数。
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -78,7 +78,7 @@ URL检测请求参数。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| urls | Array&lt;string&gt; | 否 | 否 | 被检测的URL列表。 |
+| urls | Array&lt;string&gt; | 否 | 否 | 被检测的URL列表。URL数量最多10个并且每个URL长度不大于4096字节。 |
 
 
 
@@ -89,7 +89,7 @@ URL检测请求参数。
 
 URL检测返回值。
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -99,7 +99,7 @@ URL检测返回值。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| results | Array&lt;UrlCheckResult&gt; | 否 | 否 | URL检测返回的检测结果。 |
+| results | Array&lt;UrlCheckResult&gt; | 否 | 否 | URL检测返回的检测结果。每个结果包含被检查的URL及其威胁类型。 |
 
 
 
@@ -110,7 +110,7 @@ URL检测返回值。
 
 URL检测结果详情。
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -132,7 +132,7 @@ URL检测结果详情。
 
 枚举URL威胁类型。
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -150,7 +150,7 @@ URL检测结果详情。
 
 
 
-#### checkSysIntegrity
+#### safetyDetect.checkSysIntegrity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -159,14 +159,14 @@ checkSysIntegrity(req: SysIntegrityRequest): Promise&lt;SysIntegrityResponse&gt;
 获取本设备的系统完整性的在线检测结果。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/LEPDE5BKS7CZlLcFA0MYXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020057Z&HW-CC-Expire=86400&HW-CC-Sign=7E0D84AFD3819C3A6D2BB45C3076F6297839551DB2F077C6AD0FB90652FDFD3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/VDRTZ4B6TrOYixYph6TndA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071610Z&HW-CC-Expire=86400&HW-CC-Sign=92CED557E4C70719F8B35C3A30E45A4363D1B6AAF82B509CBFB8142C3EFF7115)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
 
 
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -196,14 +196,14 @@ checkSysIntegrity(req: SysIntegrityRequest): Promise&lt;SysIntegrityResponse&gt;
 | --- | --- |
 | 201 | Permission denied. |
 | 401 | Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | API is not supported. |
+| 801 | API is not supported. 适用版本：5.1.0(18)+ |
 | 1010800001 | Internal error. |
 | 1010800002 | The network is unreachable. |
 | 1010800003 | Access cloud server fail. |
-| 1010800005 | The number of calls exceeds the parallel threshold. |
-| 1010800006 | The invoking frequency exceeds the threshold. |
-| 1010800007 | Operation timeout. |
-| 1010800008 | The cloud service traffic exceeds the threshold. |
+| 1010800005 | The number of calls exceeds the parallel threshold. 适用版本：5.1.0(18)+ |
+| 1010800006 | The invoking frequency exceeds the threshold. 适用版本：5.1.0(18)+ |
+| 1010800007 | Operation timeout. 适用版本：5.1.0(18)+ |
+| 1010800008 | The cloud service traffic exceeds the threshold. 适用版本：5.1.0(18)+ |
 
 
 **示例：**
@@ -213,7 +213,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = "SafetyDetectJsTest";
+const TAG = 'SafetyDetectJsTest';
 
 // 请求系统完整性检测，并处理结果
 let req : safetyDetect.SysIntegrityRequest = {
@@ -231,7 +231,7 @@ try {
 
 
 
-#### checkUrlThreat
+#### safetyDetect.checkUrlThreat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -240,14 +240,14 @@ checkUrlThreat(req: UrlCheckRequest): Promise&lt;UrlCheckResponse&gt;
 检测URL是否为恶意网址。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/M4QVdg7lQDK2r6q1cTtIvw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020057Z&HW-CC-Expire=86400&HW-CC-Sign=A6FE794B3D987399C16CF025E7AB087C7D52D594E3B001B072BC55F37AEACDF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/5bLc_lmrTyiSpGk3fUbmbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071610Z&HW-CC-Expire=86400&HW-CC-Sign=61F1FFDB998AA6BB7F41F0EA74C17C9A64BF2E53BCF2B2440FB781D03ACE243C)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
 
 
 
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -277,14 +277,14 @@ checkUrlThreat(req: UrlCheckRequest): Promise&lt;UrlCheckResponse&gt;
 | --- | --- |
 | 201 | Permission denied. |
 | 401 | Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | API is not supported. |
+| 801 | API is not supported. 适用版本：5.1.0(18)+ |
 | 1010800001 | Internal error. |
 | 1010800002 | The network is unreachable. |
 | 1010800003 | Access cloud server fail. |
-| 1010800005 | The number of calls exceeds the parallel threshold. |
-| 1010800006 | The invoking frequency exceeds the threshold. |
-| 1010800007 | Operation timeout. |
-| 1010800008 | The cloud service traffic exceeds the threshold. |
+| 1010800005 | The number of calls exceeds the parallel threshold. 适用版本：5.1.0(18)+ |
+| 1010800006 | The invoking frequency exceeds the threshold. 适用版本：5.1.0(18)+ |
+| 1010800007 | Operation timeout. 适用版本：5.1.0(18)+ |
+| 1010800008 | The cloud service traffic exceeds the threshold. 适用版本：5.1.0(18)+ |
 
 
 **示例：**
@@ -294,7 +294,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = "SafetyDetectJsTest";
+const TAG = 'SafetyDetectJsTest';
 
 // 请求URL检测，并处理结果
 let req : safetyDetect.UrlCheckRequest = {
@@ -312,7 +312,7 @@ try {
 
 
 
-#### checkSysIntegrityOnLocal
+#### safetyDetect.checkSysIntegrityOnLocal
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -320,7 +320,7 @@ checkSysIntegrityOnLocal(): Promise&lt;string&gt;
 
 获取本设备的系统完整性的本地检测结果。使用Promise异步回调。
 
-**元服务API：** 从版本5.1.0(18)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.1.0(18)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -332,8 +332,39 @@ checkSysIntegrityOnLocal(): Promise&lt;string&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，返回JSON格式的系统完整性检测结果。JSON内容详见本地系统完整性检测开发步骤。 |
+| Promise&lt;string&gt; | Promise对象，返回JSON格式的本地系统完整性检测结果，格式详见本地系统完整性检测结果JSON结构说明。 |
 
+
+**本地系统完整性检测结果JSON结构说明：**
+
+| 字段名 | 类型 | 说明 |
+| --- | --- | --- |
+| basicIntegrity | boolean | 本地系统完整性检测的结果。true表示检测结果完整，false表示存在风险。 |
+| detail | Array&lt;string&gt; | 可选字段，当basicIntegrity结果为false时，该字段将提供存在风险的原因。取值见detail字段取值说明。 |
+
+
+**detail字段取值说明：**
+
+| 值 | 说明 |
+| --- | --- |
+| jailbreak | 设备被越狱。 |
+| emulator | 非真实设备。 |
+| attack | 设备被攻击。 |
+| unlock | 设备被解锁。 |
+
+
+**示例（返回值）：**
+
+```json
+{
+  "basicIntegrity": false,
+  "detail": [
+    "attack",
+    "jailbreak",
+    "emulator"
+  ]
+}
+```
 
 **错误码：**
 
@@ -356,7 +387,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = "SafetyDetectJsTest";
+const TAG = 'SafetyDetectJsTest';
 
 // 请求本地系统完整性检测，并处理结果
 try {
@@ -371,7 +402,7 @@ try {
 
 
 
-#### checkSysIntegrityEnhanced
+#### safetyDetect.checkSysIntegrityEnhanced
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -380,14 +411,14 @@ checkSysIntegrityEnhanced(req: SysIntegrityRequest): Promise&lt;SysIntegrityResp
 获取本设备的系统完整性的在线增强检测结果。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/fHmTYoS0TriLVX8bwPfZ6g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020057Z&HW-CC-Expire=86400&HW-CC-Sign=A2A846623240C17E4EE5E95969C40ED5B7B3C8031F75DD4660D9DBC6B0A2574D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/P3IGoQXhTB-kTfaNKBDtxg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071610Z&HW-CC-Expire=86400&HW-CC-Sign=E5D4687578A05FBCBDC6BD4716C9478BB4A7565CCA75A9D5518E3B7337C4BD67)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
 
 
 
-**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本6.0.0(20)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -433,7 +464,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = "SafetyDetectJsTest";
+const TAG = 'SafetyDetectJsTest';
 
 // 请求系统完整性增强检测，并处理结果
 let req : safetyDetect.SysIntegrityRequest = {
@@ -457,7 +488,7 @@ try {
 
 枚举风险因子类型。
 
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -492,7 +523,7 @@ try {
 
 风险因子查询请求参数。
 
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -504,7 +535,7 @@ try {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| nonce | string | 否 | 否 | 开发者应用传入的一个随机生成的nonce值，用于防重放攻击。nonce长度必须为16到66字节。 |
+| nonce | string | 否 | 否 | 开发者应用传入的一个随机生成的nonce值，用于防重放攻击，每个请求应具有唯一性，在检测结果中会包含该值。nonce必须是长度16至66字节之间，有效值为base64编码范围。 |
 | queries | Array&lt;FactorQuery&gt; | 否 | 否 | 要查询的风险因子列表。最大长度为20且不能为空。 |
 
 
@@ -516,7 +547,7 @@ try {
 
 风险因子查询项。
 
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -539,7 +570,7 @@ try {
 
 风险因子查询返回值。
 
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -556,7 +587,7 @@ try {
 
 
 
-#### queryRiskFactors
+#### safetyDetect.queryRiskFactors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -564,7 +595,7 @@ queryRiskFactors(req: RiskFactorRequest): Promise&lt;RiskFactorResponse&gt;
 
 查询系统级风险因子数据。使用Promise异步回调。
 
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
@@ -595,11 +626,11 @@ queryRiskFactors(req: RiskFactorRequest): Promise&lt;RiskFactorResponse&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | API is not supported. |
-| 1010800001 | Internal error. |
 | 1010800004 | Verify capability fail. |
 | 1010800005 | The number of calls exceeds the parallel threshold. |
 | 1010800006 | The invoking frequency exceeds the threshold. |
 | 1010800007 | Operation timeout. |
+| 1010800011 | Failed to query the risk factor. |
 
 
 **示例：**
@@ -609,7 +640,7 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = "SafetyDetectJsTest";
+const TAG = 'SafetyDetectJsTest';
 
 // 请求风控因子数据，并处理结果
 const request: safetyDetect.RiskFactorRequest = {

@@ -1,6 +1,6 @@
 # sceneMap（场景化控件）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-scenemap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -137,7 +137,7 @@ chooseLocation(context: common.UIAbilityContext, options: LocationChoosingOption
 | 1002600002 | Failed to connect to the Map Kit server. |
 | 1002600003 | App authentication failed. |
 | 1002600004 | The Map permission is not enabled. |
-| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. 适用版本：5.1.0(18)+ |
 
 
 **示例：**
@@ -211,7 +211,7 @@ selectDistrict(context: common.Context, options: DistrictSelectOptions): Promise
 | 1002600003 | App authentication failed. |
 | 1002600004 | The Map permission is not enabled. |
 | 1002600012 | The country code is not supported. |
-| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. 适用版本：5.1.0(18)+ |
 
 
 **示例：**

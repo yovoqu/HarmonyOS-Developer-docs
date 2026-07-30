@@ -67,10 +67,10 @@ struct ToggleExample {
 浅色模式效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/dEwUsuBfT9C4-EdMT8UHmg/zh-cn_image_0000002628569428.png?HW-CC-KV=V1&HW-CC-Date=20260723T013010Z&HW-CC-Expire=86400&HW-CC-Sign=356322504A044D4D514C94AA94DD81D976685424F72AAF5F4D6121C0DD3546B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/dEwUsuBfT9C4-EdMT8UHmg/zh-cn_image_0000002628569428.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=F2340326BC657E9C0766E18560DFAB9D7B7CBA88A4B838ADCE601751C692091B)
 
  
 深色模式效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fT3Cc3T9RXul72bkn9doKQ/zh-cn_image_0000002628409528.png?HW-CC-KV=V1&HW-CC-Date=20260723T013010Z&HW-CC-Expire=86400&HW-CC-Sign=EE5FB3627D48A5D6ED17DB546B81CFA1EF72D3FC059EC3BF6FA2617A8284130A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fT3Cc3T9RXul72bkn9doKQ/zh-cn_image_0000002628409528.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=F442801815901A4407115AAA7BBD9DB95B8314DBD144918B2DE224046DC0BA78)

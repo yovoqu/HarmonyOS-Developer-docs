@@ -1,11 +1,11 @@
 # @ohos.graphics.sendableColorSpaceManager (可共享的色彩管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendablecolorspacemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供管理抽象化色域对象的一些基础能力，包括可共享的色彩管理的创建与可共享的色域基础属性的获取等。
+本模块提供管理抽象化色域对象的基础能力，包括可共享的色彩管理的创建与可共享的色域基础属性的获取等。适用于需要在多线程间传递色域信息的场景，能够解决跨线程色彩管理对象无法共享的问题，提高色彩处理的效率和一致性。
 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -28,7 +28,7 @@ import { sendableColorSpaceManager } from '@kit.ArkGraphics2D';
 
 type ISendable = lang.ISendable
 
-为与当前模块的接口规范保持一致，重新定义了ISendable类型。
+为与当前模块的接口规范保持一致，定义了ISendable类型别名。
 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
 
@@ -45,7 +45,7 @@ type ISendable = lang.ISendable
 
 create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager
 
-创建标准可共享的色彩管理。
+创建标准可共享的色彩管理实例。
 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
 
@@ -69,7 +69,7 @@ create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible cause: 1.Incorrect parameter type. 2.Parameter verification failed. |
+| 401 | Parameter error. Possible cause: 1. Incorrect parameter type. 2. Parameter verification failed. |
 | 18600001 | The parameter value is abnormal. |
 
 
@@ -78,6 +78,7 @@ create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager
 ```text
 import { colorSpaceManager, sendableColorSpaceManager } from '@kit.ArkGraphics2D';
 let colorSpace: sendableColorSpaceManager.ColorSpaceManager;
+// 创建标准SRGB色域的色彩管理实例
 colorSpace = sendableColorSpaceManager.create(colorSpaceManager.ColorSpace.SRGB);
 ```
 
@@ -114,7 +115,7 @@ create(primaries: colorSpaceManager.ColorSpacePrimaries, gamma: number): ColorSp
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible cause: 1.Incorrect parameter type. 2.Parameter verification failed. |
+| 401 | Parameter error. Possible cause: 1. Incorrect parameter type. 2. Parameter verification failed. |
 | 18600001 | The parameter value is abnormal. |
 
 
@@ -123,6 +124,7 @@ create(primaries: colorSpaceManager.ColorSpacePrimaries, gamma: number): ColorSp
 ```text
 import { colorSpaceManager, sendableColorSpaceManager } from '@kit.ArkGraphics2D';
 let colorSpace: sendableColorSpaceManager.ColorSpaceManager;
+// 定义色域标准三原色参数
 let primaries: colorSpaceManager.ColorSpacePrimaries = {
   redX: 0.1,
   redY: 0.1,
@@ -133,7 +135,9 @@ let primaries: colorSpaceManager.ColorSpacePrimaries = {
   whitePointX: 0.4,
   whitePointY: 0.4
 };
+// 定义色域gamma值
 let gamma: number = 2.2;
+// 创建自定义可共享的色彩管理实例
 colorSpace = sendableColorSpaceManager.create(primaries, gamma);
 ```
 
@@ -143,7 +147,7 @@ colorSpace = sendableColorSpaceManager.create(primaries, gamma);
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-当前可共享的色彩管理实例。
+当前可共享的色彩管理实例。ColorSpaceManager是用于管理和操作色域对象的核心类，提供了获取色域类型、白点值、gamma值等功能，并支持在ArkTS并发实例间传递。
 
 下列API示例中都需先使用[create()](#sendablecolorspacemanagercreate)获取到ColorSpaceManager实例，再通过此实例调用对应方法。
 
@@ -178,6 +182,7 @@ getColorSpaceName(): colorSpaceManager.ColorSpace
 **示例：**
 
 ```text
+// 获取色域类型
 let spaceName: colorSpaceManager.ColorSpace = colorSpace.getColorSpaceName();
 ```
 
@@ -189,7 +194,7 @@ let spaceName: colorSpaceManager.ColorSpace = colorSpace.getColorSpaceName();
 
 getWhitePoint(): collections.Array&lt;number&gt;
 
-获取色域白点值。
+获取色域白点值，返回色度坐标[x, y]，表示色彩空间中白色点的坐标位置。
 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
 
@@ -213,6 +218,7 @@ getWhitePoint(): collections.Array&lt;number&gt;
 
 ```text
 import { collections } from '@kit.ArkTS';
+// 获取色域白点值[x, y]
 let point: collections.Array<number> = colorSpace.getWhitePoint();
 ```
 
@@ -247,5 +253,6 @@ getGamma(): number
 **示例：**
 
 ```text
+// 获取色域gamma值
 let gamma: number = colorSpace.getGamma();
 ```

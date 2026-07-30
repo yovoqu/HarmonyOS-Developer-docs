@@ -11,19 +11,19 @@
 AGC添加公钥指纹：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/1QZrsjbvTKKvKAGNI3YmUg/zh-cn_image_0000002658793855.png?HW-CC-KV=V1&HW-CC-Date=20260723T013827Z&HW-CC-Expire=86400&HW-CC-Sign=C83B4D3E7943108BDD78AA42F3AEEAFB6B05827EF002DE8F640262D3A9166F88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/UzVh3oP8QaaVX6D6edRKeQ/zh-cn_image_0000002658793855.png?HW-CC-KV=V1&HW-CC-Date=20260730T072658Z&HW-CC-Expire=86400&HW-CC-Sign=9D955118A799D3D7C12AA659EBA3655E92962CDE6A46C913CEA9E5BE8E506E6A)
 
  
 证书管理页面：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/Xi_uspuaRzexVXXfVFO5yA/zh-cn_image_0000002628394584.png?HW-CC-KV=V1&HW-CC-Date=20260723T013827Z&HW-CC-Expire=86400&HW-CC-Sign=8C4388F334308236059B2778BFFEF52135CBB325B413D7A7B3C8482FB163CBAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/tfdDohyzQ9aelmVGEr97ow/zh-cn_image_0000002628394584.png?HW-CC-KV=V1&HW-CC-Date=20260730T072658Z&HW-CC-Expire=86400&HW-CC-Sign=3928FFBE76F7A12947D6BAE87415E5BD1B761253EF5CE87BDCD8F289E9B448BD)
 
  
 证书里的指纹信息：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/AHqF2yJRS82TpGQpUmwhEw/zh-cn_image_0000002628554474.png?HW-CC-KV=V1&HW-CC-Date=20260723T013827Z&HW-CC-Expire=86400&HW-CC-Sign=32CBE1AA169979DFEAE3557E0B036A465E49962B6C3CB2952754E0FFA9A91E86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/l0kZVtBiRrKye4_ISqfHwA/zh-cn_image_0000002628554474.png?HW-CC-KV=V1&HW-CC-Date=20260730T072658Z&HW-CC-Expire=86400&HW-CC-Sign=DB8AE8CC179D24968185B3ADA2D6B1457124E07E0727F1967EEEC3E846E11F04)
 
  
 在AGC中通过添加“公钥指纹(HarmonyOS API 9及以上)”入口添加的指纹信息为什么和下载下来的.cer文件指纹信息不一致？

@@ -1,10 +1,10 @@
 # 一键登录获取华为账号绑定号码和UnionID/OpenID（不推荐）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-user-info-quicklogin-getid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/-TfodQu8TvePXPXGabNnUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012044Z&HW-CC-Expire=86400&HW-CC-Sign=F9B6D91A88247AE828EA477B254D5D9E83983912A50D1EFADE3E69AADDAD1447)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/4poZzh2fSFS-_Z0Tm3gE3A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071727Z&HW-CC-Expire=86400&HW-CC-Sign=42D496553C586E78210DA1E09A47E3C727DDD299078A43CAD571E1534BBBA055)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -150,7 +150,7 @@ Content-Type: application/json;charset=utf-8
     "unionID": "MDF9pBd6xxxxA8iaG4ZNPTw*****3fyXzG9WgUcmY8XibBvQ",
     // 华为账号绑定号码，使用该手机号完成一键登录的功能（返回数据实际为明文）
     "loginMobileNumber": "191******08",
-    // 通过一键登录功能获取的华为账号绑定号码的实时有效性， 0表示需要进一步验证有效性， 1表示可以直接使用
+    // 通过一键登录功能获取的华为账号绑定号码的实时有效性，0表示需要进一步验证有效性，1表示可以直接使用
     "loginMobileValid": 1,
     // 不带国际冠码与国际电话区号的手机号码（返回数据实际为明文）
     "purePhoneNumber": "191******08",

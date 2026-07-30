@@ -9,12 +9,12 @@
 - 场景一：页面切换时，顶部按钮的突出显示未跟随页面滑动进行切换。问题现象如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/iH_El-S6SNmrJkvXs5EnZQ/zh-cn_image_0000002628769748.png?HW-CC-KV=V1&HW-CC-Date=20260723T012906Z&HW-CC-Expire=86400&HW-CC-Sign=E41B0520EA8CCF026ADC6BD96D08DCBD8815FCA1CD8E7CDCC1C82ED8A3ED6062)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/iH_El-S6SNmrJkvXs5EnZQ/zh-cn_image_0000002628769748.png?HW-CC-KV=V1&HW-CC-Date=20260730T072427Z&HW-CC-Expire=86400&HW-CC-Sign=F1621FEF77DE3F349CC31A55FD984696EB46B0BC5CCBFDC9F90AF48A0AD7CBFD)
 
 - 场景二：拖动顶部页签按钮进行滑动切换时，Tabs页面未同步切换。问题现象如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/EVAO5lPvRa-_CdZ4OnWJ1A/zh-cn_image_0000002658969069.png?HW-CC-KV=V1&HW-CC-Date=20260723T012906Z&HW-CC-Expire=86400&HW-CC-Sign=E423F6E9716BD020D16C4DC2F9D8401593C939BBEB916E9EAB7ED5E6491FA5AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/EVAO5lPvRa-_CdZ4OnWJ1A/zh-cn_image_0000002658969069.png?HW-CC-KV=V1&HW-CC-Date=20260730T072427Z&HW-CC-Expire=86400&HW-CC-Sign=82D074C78002DEA1A134B988F5F2AF96CCE25F43518E58C9C2A208711C186ED4)
 
 
  
@@ -33,7 +33,7 @@
 通过[DevEco Testing](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deveco-testing)的UIViewer工具查看页面结构。确认顶部页签按钮不是Tabs组件本身的TabBar。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/qvkHIgJ7SaGQR7rLZgKeVA/zh-cn_image_0000002658849113.png?HW-CC-KV=V1&HW-CC-Date=20260723T012906Z&HW-CC-Expire=86400&HW-CC-Sign=188E974BE70495EDDBF3D037776CE5F0EE679FB398698C661F05388617BC6C41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/qvkHIgJ7SaGQR7rLZgKeVA/zh-cn_image_0000002658849113.png?HW-CC-KV=V1&HW-CC-Date=20260730T072427Z&HW-CC-Expire=86400&HW-CC-Sign=838A59E757F55CC901742C2D56ED2DEA55F1973C73A9812BB58DA065A0782194)
 
 - 场景一：查看Tabs组件绑定的onChange/onAnimationStart事件。确认页面切换时事件中只改变了currentIndex，但没有更新分段按钮的选中项绑定的segmentIndex变量，导致页面切换时，顶部页签未跟随切换。问题代码如下：
 ```text
@@ -275,4 +275,4 @@ struct TabPage {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/4Oqk8-LxTTOGzrm_Q6gARw/zh-cn_image_0000002628609854.png?HW-CC-KV=V1&HW-CC-Date=20260723T012906Z&HW-CC-Expire=86400&HW-CC-Sign=76C12EC731ED2EAA02C7064CF4BBD82298A95A0415A73B141CAC953A6CCEC071)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/4Oqk8-LxTTOGzrm_Q6gARw/zh-cn_image_0000002628609854.png?HW-CC-KV=V1&HW-CC-Date=20260730T072427Z&HW-CC-Expire=86400&HW-CC-Sign=42FED57DAB2F9A5B7B807C6D8CD3D7D9F7F0919FB575B3CCBC5CD4940CF481AC)

@@ -1,6 +1,6 @@
 # 使用ChaCha20对称密钥加解密(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-chacha20-encrypt-decrypt-ndk
 
@@ -34,7 +34,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
   
 > [!NOTE]
-> 由于已使用update传入数据，此处data传入null。 doFinal输出结果可能为null，在访问具体数据前，需要先判断结果是否为null，避免产生异常。
+> 由于已使用update传入数据，此处data传入null。 final输出结果可能为null，在访问具体数据前，需要先判断结果是否为null，避免产生异常。
 
 6. 调用[OH_CryptoSymKeyGenerator_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_destroy)、[OH_CryptoSymCipher_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-cipher-h#oh_cryptosymcipher_destroy)、[OH_CryptoSymCipherParams_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-cipher-h#oh_cryptosymcipherparams_destroy)销毁各对象。
 

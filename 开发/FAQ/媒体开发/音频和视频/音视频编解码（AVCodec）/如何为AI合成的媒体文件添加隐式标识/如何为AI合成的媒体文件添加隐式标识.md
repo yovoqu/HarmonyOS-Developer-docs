@@ -1,6 +1,6 @@
 # 如何为AI合成的媒体文件添加隐式标识
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-24
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - 文件元数据指的是按照特定编码格式嵌入到文件头部的描述性信息，用于记录文件来源、属性、用途、版权等信息。
-- 依照《人工智能生成合成内容标识方法》的规定，服务提供者需要在生成合成内容的文件元数据中添加隐式标识。具体可参考：[添加生成合成内容文件元数据隐式标识的具体方法是什么](https://developer.huawei.com/consumer/cn/doc/app/50111-10#h1-1755913342929-0)。
+- 依照《人工智能生成合成内容标识方法》的规定，服务提供者需要在生成合成内容的文件元数据中添加隐式标识。具体可参考：[添加生成合成内容文件元数据隐式标识的具体方法是什么](https://developer.huawei.com/consumer/cn/doc/app/50111-10#section3871118114720)。
 - [@ohos/mp4parser(V2.0.7)](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmp4parser)是用于编辑音视频文件的三方库，可以调用ffmpeg命令完成音视频文件的编辑，比如新增或者修改音视频文件的元数据。
 - EXIF（Exchangeable image file format）是专门为数码相机的照片设定的文件格式，可以记录数码照片的属性信息和拍摄数据。[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)的[modifyImageProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#modifyimageproperty11)可以修改图片文件的EXIF，为图片增加文件元数据信息。
 

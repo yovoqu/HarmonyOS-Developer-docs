@@ -1,6 +1,6 @@
 # PDF文档转换成的图片如何重命名
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-8
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [convertToImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section1029783924311)：转换PDF文档为图片。
-- [fs.renameSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsrenamesync)：以同步方法重命名文件或目录。
+- [fs.renameSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiorenamesync)：以同步方法重命名文件或目录。
 
  
  
@@ -24,115 +24,115 @@ convertToImage将PDF文档转换成图片，每一页对应一张图片，图片
  
 以将生成的图片重命名为{{PDF文件名(不带后缀)}}_{{数字顺序}}.png为例，示例代码如下：
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo </span>as <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ListFileOptions </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">pdfViewManager </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PDFKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { common } from '@kit.AbilityKit';
+import { fileIo as fs, ListFileOptions } from '@kit.CoreFileKit';
+import { pdfService, pdfViewManager } from '@kit.PDFKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PdfPreview </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct PdfPreview {
+  private controller: pdfViewManager.PdfController = new pdfViewManager.PdfController();
+  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+  @State filePath: string = '';
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">dir</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保在工程目录</span><span style="color: rgb(128,128,128);">src/main/resources/rawfile</span><span style="color: rgb(128,128,128);">里存在</span><span style="color: rgb(128,128,128);">test.pdf</span><span style="color: rgb(128,128,128);">文档</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/test.pdf'</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">res </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">accessSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContentSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rawfile/test.pdf'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(0,0,255);">fdSand</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-      try <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">fdSand </span><span style="color: rgb(181,106,1);">=</span>
-          <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WRITE_ONLY </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TRUNC</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fdSand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'fs.openSync fdSand failed error is : '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>finally <span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fdSand </span><span style="color: rgb(181,106,1);">!== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fdSand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    }</span>
-    <span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'loadResult is '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARSE_SUCCESS </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPageZoom</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)()</span><span style="color: rgb(181,106,1);">;</span>
+  aboutToAppear(): void {
+    let dir: string = this.context.filesDir;
+   <em> // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档</em>
+    this.filePath = dir + '/test.pdf';
+    let res = fs.accessSync(this.filePath);
+    if (!res) {
+      let content: Uint8Array = this.context.resourceManager.getRawFileContentSync('rawfile/test.pdf');
+      let fdSand: fs.File | null = null;
+      try {
+        fdSand =
+          fs.openSync(this.filePath, fs.OpenMode.WRITE_ONLY | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
+        fs.writeSync(fdSand.fd, content.buffer);
+      } catch (e) {
+        console.error('fs.openSync fdSand failed error is : ', JSON.stringify(e));
+      } finally {
+        if (fdSand !== null) {
+          fs.closeSync(fdSand.fd);
+        }
+      }
+    }
+    (async () => {
+      let loadResult: pdfService.ParseResult = await this.controller.loadDocument(this.filePath);
+      console.log('loadResult is ', loadResult);
+      if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
+        this.controller.setPageZoom(1);
+      }
+    })();
 
-  <span style="color: rgb(255,0,170);">}</span>
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">生成图片并重命名</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件名</span><span style="color: rgb(128,128,128);">(</span><span style="color: rgb(128,128,128);">不带后缀</span><span style="color: rgb(128,128,128);">)</span><span style="color: rgb(128,128,128);">，作为存放生成的图片的文件夹</span>
-          let <span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_ONLY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">pdfFileNameWithoutSuf </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">document </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">loadResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">document</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARSE_SUCCESS </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">pdfImgDir</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">pdfFileNameWithoutSuf</span><span style="color: rgb(181,106,1);">;</span>
-              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">accessSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfImgDir</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mkdirSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfImgDir</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-              <span style="color: rgb(0,0,255);">document</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertToImage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfImgDir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ImageFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PNG</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">生成图片后遍历出路径下所有图片</span>
-              let <span style="color: rgb(0,0,255);">listFileOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ListFileOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">recursion</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">listNum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-                <span style="color: rgb(0,0,255);">filter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">suffix</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'.png'</span><span style="color: rgb(0,0,255);">]</span>
-                <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">filenames </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listFileSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfImgDir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">listFileOption</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取图片原名，拼接好新名后调用</span><span style="color: rgb(128,128,128);">fs.renameSync</span><span style="color: rgb(128,128,128);">重命名图片</span>
-              for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                let <span style="color: rgb(0,0,255);">oldDir </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfImgDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">filenames</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-                let <span style="color: rgb(0,0,255);">curFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-                try <span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">curFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">oldDir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_ONLY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                  let <span style="color: rgb(0,0,255);">curFileName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">curFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
-                  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">curFileName</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfFileNameWithoutSuf</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                    let <span style="color: rgb(0,0,255);">newDir </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfImgDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">pdfFileNameWithoutSuf </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'_' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">curFileName</span><span style="color: rgb(181,106,1);">;</span>
-                    <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">renameSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">oldDir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">newDir</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">                } </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'fs.openSync curFile failed error is : '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">} </span>finally <span style="color: rgb(255,0,170);">{</span>
-                  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">curFile </span><span style="color: rgb(181,106,1);">!== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                    <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">curFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">                }</span>
-<span style="color: rgb(255,0,170);">              }</span>
-<span style="color: rgb(255,0,170);">            }</span>
-<span style="color: rgb(255,0,170);">          } </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'fs.openSync file failed error is : '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>finally <span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">!== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'10%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column({ space: 5 }) {
+      Row() {
+        Button('生成图片并重命名').onClick(async () => {
+        <em>  // 获取PDF文件名(不带后缀)，作为存放生成的图片的文件夹</em>
+          let file: fs.File | null = null;
+          try {
+            file = fs.openSync(this.filePath, fs.OpenMode.READ_ONLY);
+            let pdfFileNameWithoutSuf = file.name.slice(0, file.name.length - 4);
+            let document = new pdfService.PdfDocument();
+            let loadResult = document.loadDocument(this.filePath, '');
+            if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
+              let pdfImgDir: string = this.context.filesDir + '/' + pdfFileNameWithoutSuf;
+              if (!fs.accessSync(pdfImgDir)) {
+                fs.mkdirSync(pdfImgDir);
+              }
+              document.convertToImage(pdfImgDir, pdfService.ImageFormat.PNG);
+             <em> // 生成图片后遍历出路径下所有图片</em>
+              let listFileOption: ListFileOptions = {
+                recursion: false,
+                listNum: 0,
+                filter: {
+                  suffix: ['.png']
+                }
+              };
+              let filenames = fs.listFileSync(pdfImgDir, listFileOption);
+            <em>  // 获取图片原名，拼接好新名后调用fs.renameSync重命名图片</em>
+              for (let i = 0; i < filenames.length; i++) {
+                let oldDir = pdfImgDir + '/' + filenames[i];
+                let curFile: fs.File | null = null;
+                try {
+                  curFile = fs.openSync(oldDir, fs.OpenMode.READ_ONLY);
+                  let curFileName = curFile.name;
+                  if (curFileName.indexOf(pdfFileNameWithoutSuf) < 0) {
+                    let newDir = pdfImgDir + '/' + pdfFileNameWithoutSuf + '_' + curFileName;
+                    fs.renameSync(oldDir, newDir);
+                  }
+                } catch (e) {
+                  console.error('fs.openSync curFile failed error is : ', JSON.stringify(e));
+                } finally {
+                  if (curFile !== null) {
+                    fs.closeSync(curFile.fd);
+                  }
+                }
+              }
+            }
+          } catch (e) {
+            console.error('fs.openSync file failed error is : ', JSON.stringify(e));
+          } finally {
+            if (file !== null) {
+              fs.closeSync(file.fd);
+            }
+          }
+        })
+      }
+      .height('10%')
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
 ```
  
  
 可使用[Device File Browser](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer#section165192211111)查看重命名效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/nsbUeKfNT7ywQeTAnKz_7g/zh-cn_image_0000002658793613.png?HW-CC-KV=V1&HW-CC-Date=20260723T013702Z&HW-CC-Expire=86400&HW-CC-Sign=423A8C1255E1D255BF77356D15D54507B0C43C15F9CD59AB3F9B066C7DEB9058)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/KsqBgPyzRR-R5EAThNBVZA/zh-cn_image_0000002658793613.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=53DB7C95E3E04318E98F529B4716009B5A6509F2279A26DCE79C1D19E5C4C04B)
 
 > [!NOTE]
 > convertToImage将PDF文档转换成图片是耗时任务，若PDF文件过大，需要放到子线程里执行。 若有多个PDF文件需要转图片，由于convertToImage生成的图片以数字顺序命名，若放在同一个目录下会存在图片文件覆盖问题，可以按PDF文件名新建目录存放生成的图片，重命名后再移动到同一个目录下。

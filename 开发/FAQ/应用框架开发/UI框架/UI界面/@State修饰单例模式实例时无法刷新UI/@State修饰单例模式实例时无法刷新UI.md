@@ -11,7 +11,7 @@
 效果演示如下：在Page2中改变颜色后，返回Index页面，颜色没有同步刷新。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/jOYxSf0iS_WMHFSNf6Rnjw/zh-cn_image_0000002628392114.png?HW-CC-KV=V1&HW-CC-Date=20260723T012957Z&HW-CC-Expire=86400&HW-CC-Sign=D43A6929F546292D09AD6955E9BB8E60A6C03457273F35423E6A7FE0A76AB091)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/jOYxSf0iS_WMHFSNf6Rnjw/zh-cn_image_0000002628392114.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=D98F96C06BA90BE390CE5CAD94E70B3E4B6598210E6B3026A1FB7F850EBF9E94)
 
  
 问题代码如下：
@@ -98,7 +98,7 @@ export class VoiceReadHelper {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/j554BvMuSCmy8fa8g5CMew/zh-cn_image_0000002658791395.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012957Z&HW-CC-Expire=86400&HW-CC-Sign=E9003F75C579726AF69A16BFF9151326312D0B95D80DFE5AB6B402F966DCF555)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/j554BvMuSCmy8fa8g5CMew/zh-cn_image_0000002658791395.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=52119E076358268D4AFFCB7053CD2A93B209B544FC918CB50441903407757B13)
 
  
  

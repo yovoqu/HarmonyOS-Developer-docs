@@ -31,7 +31,7 @@ I C02B89/audio_server/AudioRenderSink: [SetSinkMuteForSwitchDevice]set primary m
 I C02B89/audio_server/AudioRenderSink: [SetSinkMuteForSwitchDevice]set voip mute 0 <em>// 取消静音操作</em>
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Evt4nCtiQpu3snbrUrEIGw/zh-cn_image_0000002658792059.png?HW-CC-KV=V1&HW-CC-Date=20260723T013637Z&HW-CC-Expire=86400&HW-CC-Sign=8355E96EF83E00C5F1D75607E46E582A18E72A0DB67412BA689DA28ECA965F34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Evt4nCtiQpu3snbrUrEIGw/zh-cn_image_0000002658792059.png?HW-CC-KV=V1&HW-CC-Date=20260730T072631Z&HW-CC-Expire=86400&HW-CC-Sign=093B0B9226A253C1698C0A7EB51C487468FBCE41A783DC6050373A10B01C0399)
 
 
  

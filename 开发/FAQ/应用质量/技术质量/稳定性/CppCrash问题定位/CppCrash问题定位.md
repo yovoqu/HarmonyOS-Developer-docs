@@ -1,6 +1,6 @@
 # CppCrash问题定位
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-10
 
@@ -359,7 +359,7 @@ Tid:31380, Name:com.hx.example
 - 异常信息是：terminating due to uncaught exception of type XXXX。使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码进行分析，在抛出异常的位置使用try-catch捕获并处理异常。
 - 异常信息是：CFI check failed. Function Address:XXXX0IStandardAudioManagerListener。请确保OH_AudioRenderer_Callbacks的每一个回调都被自定义的回调方法或空指针初始化。详情参考[OH_AudioRenderer_Callbacks_Struct](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct)。
 - 异常信息是：ecma_vm cannot run in multi-thread! thread:XXXX currentThread:XXXX。启用[方舟多线程检测](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ark-runtime-detection#section7199344111510)，运行或调试当前应用，当程序出现多线程安全问题时，会弹出Crash log信息。点击信息中的链接，可以跳转至引起多线程安全问题的代码处。
-- 异常信息是：resolveBufferCallback get hsp buffer failed, hsp path:/data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit/ets/modules.abc, errorMsg:hap path error: /data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit.hsp。在使用钱包服务前需要判断当前设备是否支持NFC能力，将NFC能力加入[自定义syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#加入自定义syscap)中。
+- 异常信息是：resolveBufferCallback get hsp buffer failed, hsp path:/data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit/ets/modules.abc, errorMsg:hap path error: /data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit.hsp。在使用钱包服务前需要判断当前设备是否支持NFC能力，将NFC能力加入[自定义syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)中。
 - 异常信息是：Assertion failed: xxx (xxx)。检查代码运行时的断言条件，修复业务逻辑异常。
 
   例：Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)。业务逻辑中避免调用正在关闭的句柄。

@@ -1,6 +1,6 @@
 # 复杂文本绘制与显示（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-text-c
 
@@ -322,14 +322,14 @@ OH_Drawing_TypographyCreate *handler = OH_Drawing_CreateTypographyHandler(typoSt
 OH_Drawing_TypographyHandlerPushTextStyle(handler, txtStyleWithFeature);
 // 将文本添加到 handler 中
 OH_Drawing_TypographyHandlerAddText(handler, text);
-// 销毁之前创建的 TextStyle
+// 弹出之前添加的 TextStyle
 OH_Drawing_TypographyHandlerPopTextStyle(handler);
 
 // 后续加入的不带字体特征的文本样式
 OH_Drawing_TypographyHandlerPushTextStyle(handler, txtStyleNoFeature);
 // 将文本添加到 handler 中
 OH_Drawing_TypographyHandlerAddText(handler, text);
-// 销毁之前创建的 TextStyle
+// 弹出之前添加的 TextStyle
 OH_Drawing_TypographyHandlerPopTextStyle(handler);
 
 OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
@@ -599,7 +599,7 @@ OH_Drawing_DestroyTypography(typographyNoPlaceholder);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/QA5Krb74SVinplrBZdioWQ/zh-cn_image_0000002656468673.png?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=EAFA722D5560FD6F2944DA1F400915D12A4FE38AEA6681738EE4286E475B8904)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/NPrCEn-XTv-sVttRe7hNDw/zh-cn_image_0000002686086863.png?HW-CC-KV=V1&HW-CC-Date=20260730T071950Z&HW-CC-Expire=86400&HW-CC-Sign=3BF0ECE0BC9E4A581810FBC3EBC1EFABB34CDAB2C28B675C5FD61B3574BA05C3)
 
 
 
@@ -725,6 +725,8 @@ OH_Drawing_TypographyLayout(typography, maxWidth);
 OH_Drawing_TypographyPaint(typography, cCanvas_, 0, DIV_TEN(width_));
 
 // 释放对象
+OH_Drawing_PointDestroy(startPt);
+OH_Drawing_PointDestroy(endPt);
 OH_Drawing_DestroyFontCollection(fc);
 OH_Drawing_ShaderEffectDestroy(colorShaderEffect);
 OH_Drawing_BrushDestroy(brush);
@@ -735,7 +737,7 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/QxxcSnNcR3aT9DkP3_Bpfg/zh-cn_image_0000002626069398.png?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=6979AD1F3F637974DE849A7CF2F9979AF12784F22762AA8F530048B23815F842)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/ICHBMzNgQca2mD_KUxvBoA/zh-cn_image_0000002655847436.png?HW-CC-KV=V1&HW-CC-Date=20260730T071950Z&HW-CC-Expire=86400&HW-CC-Sign=51EDE2F2F76B0A9B5BFE25C57BDCDD111459B23E902BE6E7230159F182A5C452)
 
 
 
@@ -785,7 +787,7 @@ OH_Drawing_DestroyTypography(typography);
 效果如下（黑框仅为展示文本绘制区域，实际不绘制）：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/pz1pT18ARWaCufkIO6QiGA/zh-cn_image_0000002656348703.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=2E4B9362937BC2AD46F4013A9F0D8B0AD0F16FABD6C38EBDF9765C26C81FE75E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/AsY3XTJrQ_u1-xYQSTL5gg/zh-cn_image_0000002685927017.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071950Z&HW-CC-Expire=86400&HW-CC-Sign=31B740D19C2530C9BF12BAD779BC108170E3FD50528807B31E68BF44E5605023)
 
 
 
@@ -839,7 +841,7 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/IPu535iYQv-SPYHszDQkJw/zh-cn_image_0000002656468657.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=A95C5D831C93CD601985C63EEF515C4CFBD835E26C3BCFDD868C52C0DEEB20C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/2e4iy9GzSSCZ1QZfpZcDsg/zh-cn_image_0000002655847418.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071950Z&HW-CC-Expire=86400&HW-CC-Sign=4253281367189CBBF8B6B64453BFB460CCB64774145DB1D82189A6F567CFB6EA)
 
 
 
@@ -1158,8 +1160,7 @@ OH_Drawing_SetTypographyTextAutoSpace(typoStyle, true);
 // 设置段落最大行数为3行
 OH_Drawing_SetTypographyTextMaxLines(typoStyle, 3);
 // 设置省略号模式为尾部省略号
-OH_Drawing_SetTypographyStyleAttributeInt(typoStyle,
-    OH_Drawing_TypographyStyleAttributeId::TYPOGRAPHY_STYLE_ATTR_I_ELLIPSIS_MODAL, ELLIPSIS_MODAL_TAIL);
+OH_Drawing_SetTypographyStyleAttributeInt(typoStyle, TYPOGRAPHY_STYLE_ATTR_I_ELLIPSIS_MODAL, ELLIPSIS_MODAL_TAIL);
 // 设置省略号文本
 OH_Drawing_SetTypographyTextEllipsis(typoStyle, "...");
 // 设置对齐方式为居中对齐
@@ -1185,8 +1186,7 @@ OH_Drawing_TextShadow *shadow = OH_Drawing_CreateTextShadow();
 // 设置阴影偏移量为(5, 5)
 OH_Drawing_Point *offset = OH_Drawing_PointCreate(5, 5);
 // 定义阴影模糊半径为4
-double blurRadius = 4;
-OH_Drawing_SetTextShadow(shadow, OH_Drawing_ColorSetArgb(0xFF, 0xFF, 0x00, 0xFF), offset, blurRadius);
+OH_Drawing_SetTextShadow(shadow, OH_Drawing_ColorSetArgb(0xFF, 0xFF, 0x00, 0xFF), offset, 4);
 
 // 拷贝阴影对象
 OH_Drawing_TextShadow *shadowCopy = OH_Drawing_CopyTextShadow(shadow);
@@ -1236,7 +1236,10 @@ OH_Drawing_DestroyTypographyStyle(typographyStyleCopy);
 OH_Drawing_DestroyTextStyle(textStyleCopy);
 OH_Drawing_DestroyTypographyHandler(handlerCopy);
 OH_Drawing_DestroyTypography(typographyCopy);
+OH_Drawing_PointDestroy(offset);
+OH_Drawing_DestroyTextShadow(shadow);
+OH_Drawing_DestroyTextShadow(shadowCopy);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/LY5WQHTOQgmRH1iummjktg/zh-cn_image_0000002656348729.png?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=C73A8E3287E0FFE4120B9B41B3585DAFEDA9736BC79971C0D0CC4E195FA0B0D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/IDEuRBdBQIiwjCdjF2S0aQ/zh-cn_image_0000002685927043.png?HW-CC-KV=V1&HW-CC-Date=20260730T071950Z&HW-CC-Expire=86400&HW-CC-Sign=7B88D6F6637F4014116290D82085DDCBB7E9DA77367A499D8E8B21CB2E277FEC)

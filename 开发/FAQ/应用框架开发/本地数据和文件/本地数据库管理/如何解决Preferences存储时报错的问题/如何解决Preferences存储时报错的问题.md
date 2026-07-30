@@ -19,7 +19,7 @@ Parameter error.The type of value must be less then 16 * 1024 * 1024 bytes.
 Preferences的[运作机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences#运作机制)如下图所示，用户程序通过ArkTS接口读写对应的数据文件。开发者可以将持久化文件的内容加载到Preferences实例，每个文件唯一对应到一个Preferences实例，系统会通过静态容器将该实例存储在内存中，直到主动从内存中移除该实例或者删除该文件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/zqD7lV3_TYuAPzgkhR0wnQ/zh-cn_image_0000002659258293.png?HW-CC-KV=V1&HW-CC-Date=20260723T013300Z&HW-CC-Expire=86400&HW-CC-Sign=FE195E38D691E2F3D4335598E1D4488B743CA100203ACEA64D3DFD3F4B0D7698)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/zqD7lV3_TYuAPzgkhR0wnQ/zh-cn_image_0000002659258293.png?HW-CC-KV=V1&HW-CC-Date=20260730T072522Z&HW-CC-Expire=86400&HW-CC-Sign=77A8FB7003192B180CF25C4BD47E2AB1516319BBBBC6D3F88D268E4437667E32)
 
  
 Preferences在使用过程中会存在以下[约束限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences#约束限制)：包括[通用限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences#首选项通用限制)、[XML模式约束限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences#xml模式约束限制)以及[GSKV模式约束限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences#gskv模式约束限制)。

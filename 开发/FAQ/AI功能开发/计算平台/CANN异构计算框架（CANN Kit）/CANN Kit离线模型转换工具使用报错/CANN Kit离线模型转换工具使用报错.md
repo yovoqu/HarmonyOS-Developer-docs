@@ -1,6 +1,6 @@
 # CANN Kit离线模型转换工具使用报错
 
-更新时间：2026-07-22 12:10:30
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-1
 
@@ -71,7 +71,7 @@ A：此问题有多种原因：
  
 Q：离线模型转换是否对环境有要求，比如系统版本和python版本是否有限制？
  
-A：有要求，请按照[系统要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-lightweight-tool-overview#section38291317533)搭建环境。
+A：有要求，请按照[系统要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-lightweight-tool-overview#系统要求)搭建环境。
  
 Q：模型转换工具tools_omg报错：E/AI_FMK (2834577): onnx_graph_parser.cpp ParserGraph(785)::"Pre-check has errors."。
  

@@ -1,6 +1,6 @@
 # 富文本编辑（RichEditor）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-richeditor
 
@@ -8,7 +8,7 @@ RichEditor是支持图文混排和文本交互式编辑的组件，通常用于�
 
 对于仅需图文展示而不需要编辑的场景，建议使用[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件。
 
-对于需要大量展示Html格式内容的场景，建议使用[RichText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext)组件。
+对于需要大量展示HTML格式内容的场景，建议使用[RichText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext)组件。
 
 
 #### 组件构成
@@ -46,7 +46,7 @@ RichEditor是支持图文混排和文本交互式编辑的组件，通常用于�
 ```ArkTS
 @Entry
 @Component
-export struct CreateRichEditor {
+struct CreateRichEditor {
   // ...
   fontStyle: TextStyle = new TextStyle({
     fontColor: Color.Pink
@@ -101,7 +101,7 @@ export struct CreateRichEditor {
 ```ArkTS
 @Entry
 @Component
-export struct CreateRichEditor {
+struct CreateRichEditor {
   controllerNoStyledString: RichEditorController = new RichEditorController();
   optionsNoStyledString: RichEditorOptions = { controller: this.controllerNoStyledString };
   // ...
@@ -160,42 +160,42 @@ export struct CreateRichEditor {
 如果组件是获焦状态并且光标在闪烁，那么通过addTextSpan添加文本内容后，光标位置会更新，在新添加文本内容的右侧闪烁。
 
 ```ArkTS
-@Entry
-@Component
-export struct AddTextContent {
-  controller: RichEditorController = new RichEditorController();
-  options: RichEditorOptions = { controller: this.controller };
+controller: RichEditorController = new RichEditorController();
+options: RichEditorOptions = { controller: this.controller };
 
-  build() {
-    // ...
-            RichEditor(this.options)
-              .onReady(() => {
-                // 请将$r('app.string.AddTextContent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处添加text。"
-                this.controller.addTextSpan(resource.resourceToString($r('app.string.AddTextContent_Text_1')), {
-                  style: {
-                    fontColor: Color.Black,
-                    fontSize: 15
-                  }
-                })
-              })
-              .border({ width: 1, color: Color.Gray })
-              .constraintSize({
-                maxHeight: 100
-              })
-              .width(300)
-              .margin(10)
-            // 请将$r('app.string.AddTextContent_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"addTextSpan"
-            Button($r('app.string.AddTextContent_Button_1'), {
-              buttonStyle: ButtonStyleMode.NORMAL
-            })
-              .height(30)
-              .fontSize(13)
-              .onClick(() => {
-                // 请将$r('app.string.AddTextContent_Text_2')替换为实际资源文件，在本示例中该资源文件的value值为"新添加一段文字。"
-                this.controller.addTextSpan(resource.resourceToString($r('app.string.AddTextContent_Text_2')))
-              })
-            // ...
-  }
+build() {
+  // ...
+    Column({ space: 3 }) {
+      RichEditor(this.options)
+        .onReady(() => {
+          // 请将$r('app.string.AddTextContent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处添加text。"
+          this.controller.addTextSpan($r('app.string.AddTextContent_Text_1'), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
+          })
+        })
+        .border({ width: 1, color: Color.Gray })
+        .constraintSize({
+          maxHeight: 100
+        })
+        .width(300)
+        .margin(10)
+      Row() {
+        // 请将$r('app.string.AddTextContent_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"addTextSpan"
+        Button($r('app.string.AddTextContent_Button_1'), {
+          buttonStyle: ButtonStyleMode.NORMAL
+        })
+        .height(30)
+        .fontSize(13)
+        .onClick(() => {
+          // 请将$r('app.string.AddTextContent_Text_2')替换为实际资源文件，在本示例中该资源文件的value值为"新添加一段文字。"
+          this.controller.addTextSpan($r('app.string.AddTextContent_Text_2'))
+        })
+      }.justifyContent(FlexAlign.Center).width('100%')
+    }
+  // ...
 }
 ```
 
@@ -216,33 +216,40 @@ export struct AddTextContent {
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-         RichEditor(this.options)
-            .onReady(() => {
-              // 请将$r('app.string.AddImageContent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处添加image。"
-              this.controller.addTextSpan(resource.resourceToString($r('app.string.AddImageContent_Text_1')), {
-                style: {
-                  fontColor: Color.Black,
-                  fontSize: 15
-                }
-              })
-            })
-            .width(300)
-            .height(100)
-          // 请将$r('app.string.AddImageContent_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"addImageSpan"
-          Button($r('app.string.AddImageContent_Button_1'), {
-            buttonStyle: ButtonStyleMode.NORMAL
+build() {
+  // ...
+    Column({ space: 12 }) {
+      RichEditor(this.options)
+        .onReady(() => {
+          // 请将$r('app.string.AddImageContent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处添加image。"
+          this.controller.addTextSpan($r('app.string.AddImageContent_Text_1'), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-            .height(30)
-            .fontSize(13)
-            .onClick(() => {
-              // 请将$r('app.media.xxx')替换为实际资源文件
-              this.controller.addImageSpan($r('app.media.startIcon'), {
-                imageStyle: {
-                  size: ['57px', '57px']
-                }
-              })
+        })
+        .width(300)
+        .height(100)
+      Row() {
+        // 请将$r('app.string.AddImageContent_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"addImageSpan"
+        Button($r('app.string.AddImageContent_Button_1'), {
+          buttonStyle: ButtonStyleMode.NORMAL
+        })
+          .height(30)
+          .fontSize(13)
+          .onClick(() => {
+            // 请将$r('app.media.xxx')替换为实际资源文件
+            this.controller.addImageSpan($r('app.media.startIcon'), {
+              imageStyle: {
+                size: ['57px', '57px']
+              }
             })
+          })
+      }.justifyContent(FlexAlign.Center).width('100%')
+    }
+  // ...
+}
 ```
 
 
@@ -334,33 +341,41 @@ Symbol内容暂不支持手势、复制、拖拽处理。
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-          RichEditor(this.options)
-            .onReady(() => {
-              // 请将$r('app.string.AddSymbolSpanContent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处添加symbol。"
-              this.controller.addTextSpan(resource.resourceToString($r('app.string.AddSymbolSpanContent_Text_1')), {
-                style: {
-                  fontColor: Color.Black,
-                  fontSize: 15
-                }
-              })
-            })
-            .width(300)
-            .height(100)
-          // 请将$r('app.string.AddSymbolSpanContent_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"addSymbolSpan"
-          Button($r('app.string.AddSymbolSpanContent_Button_1'), {
-            buttonStyle: ButtonStyleMode.NORMAL
+
+build() {
+  // ...
+    Column({ space: 12 }) {
+      RichEditor(this.options)
+        .onReady(() => {
+          // 请将$r('app.string.AddSymbolSpanContent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处添加symbol"
+          this.controller.addTextSpan($r('app.string.AddSymbolSpanContent_Text_1'), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-            .height(30)
-            .fontSize(13)
-            .onClick(() => {
-              // 请将$r('sys.symbol.basketball_fill')替换为开发者所需的资源文件
-              this.controller.addSymbolSpan($r('sys.symbol.basketball_fill'), {
-                style: {
-                  fontSize: 30
-                }
-              })
+        })
+        .width(300)
+        .height(100)
+      Row() {
+        // 请将$r('app.string.AddSymbolSpanContent_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"addSymbolSpan"
+        Button($r('app.string.AddSymbolSpanContent_Button_1'), {
+          buttonStyle: ButtonStyleMode.NORMAL
+        })
+          .height(30)
+          .fontSize(13)
+          .onClick(() => {
+            // 请将$r('sys.symbol.basketball_fill')替换为开发者所需的资源文件
+            this.controller.addSymbolSpan($r('sys.symbol.basketball_fill'), {
+              style: {
+                fontSize: 30
+              }
             })
+          })
+      }.justifyContent(FlexAlign.Center).width('100%')
+    }
+  // ...
+}
 ```
 
 
@@ -382,34 +397,40 @@ options: RichEditorOptions = { controller: this.controller };
 此接口适用于已有的内容样式获取与检查，例如在模板应用场景下，可利用此接口获取文本样式。此外，它还适用于内容解析与处理，例如在文本分析应用中，此接口能够获取特定范围内的文本信息。
 
 ```ArkTS
-controller: RichEditorController = new RichEditorController();
-options: RichEditorOptions = { controller: this.controller };
-infoShowController: RichEditorController = new RichEditorController();
-infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
-// 创建两个富文本组件
-// ...
-          RichEditor(this.options)
-            .onReady(() => {
-              this.controller.addTextSpan(
-                // 请将$r('app.string.GetGraphicInfoInComponent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮获取此处span信息。"
-                resource.resourceToString($r('app.string.GetGraphicInfoInComponent_Text_1')), {
-                style: {
-                  fontColor: Color.Black,
-                  fontSize: 15
-                }
-              })
+@Entry
+@Component
+struct GetGraphicInfoInComponent {
+  controller: RichEditorController = new RichEditorController();
+  options: RichEditorOptions = { controller: this.controller };
+  infoShowController: RichEditorController = new RichEditorController();
+  infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
+  // 创建两个富文本组件
+  build() {
+    // ...
+      Column({ space: 3 }) {
+        RichEditor(this.options)
+          .onReady(() => {
+            this.controller.addTextSpan(
+              // 请将$r('app.string.GetGraphicInfoInComponent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮获取此处span信息。"
+              $r('app.string.GetGraphicInfoInComponent_Text_1'), {
+              style: {
+                fontColor: Color.Black,
+                fontSize: 15
+              }
             })
-            .width(300)
-            .height(50)
-          // 请将$r('app.string.GetGraphicInfoInComponent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮获取此处span信息。"
-          Text($r('app.string.GetGraphicInfoInComponent_Text_1')).fontSize(10).fontColor(Color.Gray).width(300);
-          RichEditor(this.infoShowOptions)
-            .width(300)
-            .height(50)
+          })
+          .width(300)
+          .height(50)
+        // 请将$r('app.string.GetGraphicInfoInComponent_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮获取此处span信息。"
+        Text($r('app.string.GetGraphicInfoInComponent_Text_1')).fontSize(10).fontColor(Color.Gray).width(300);
+        RichEditor(this.infoShowOptions)
+          .width(300)
+          .height(50)
+        Row() {
           // 请将$r('app.string.GetGraphicInfoInComponent_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"getSpans"
           Button($r('app.string.GetGraphicInfoInComponent_Button_1'), {
             buttonStyle: ButtonStyleMode.NORMAL
-            })
+          })
             .height(30)
             .fontSize(13)
             .onClick(() => {
@@ -420,6 +441,11 @@ infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
                 }
               })
             })
+        }.justifyContent(FlexAlign.Center).width('100%')
+      }
+      // ...
+  }
+}
 ```
 
 
@@ -437,20 +463,30 @@ infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-      RichEditor(this.options)
-        // 请将$r('app.string.SetAttributes_Text_6')替换为实际资源文件，在本示例中该资源文件的value值为"此处为提示文本..."
-        .placeholder(resource.resourceToString($r('app.string.SetAttributes_Text_6')), {
-          fontColor: Color.Gray,
-          font: {
-            size: 15,
-            weight: FontWeight.Normal,
-            family: 'HarmonyOS Sans',
-            style: FontStyle.Normal
-          }
-        })
-        .width(300)
-        .height(50)
+
+build() {
+  Column() {
+    // ...
+    RichEditor(this.options)
+      // 请将$r('app.string.SetAttributes_Text_6')替换为实际资源文件，在本示例中该资源文件的value值为"此处为提示文本..."
+      .placeholder(resource.resourceToString($r('app.string.SetAttributes_Text_6')), {
+        fontColor: Color.Gray,
+        font: {
+          size: 15,
+          weight: FontWeight.Normal,
+          family: 'HarmonyOS Sans',
+          style: FontStyle.Normal
+        }
+      })
+      .width(300)
+      .height(50)
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -466,11 +502,21 @@ options: RichEditorOptions = { controller: this.controller };
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-      RichEditor(this.options)
-        // 请将$r('app.string.SetAttributes_Text_8')替换为实际资源文件，在本示例中该资源文件的value值为"组件设置了最大字符数：7"
-        .placeholder(resource.resourceToString($r('app.string.SetAttributes_Text_8')))
-        .maxLength(7)
+
+build() {
+  Column() {
+    // ...
+    RichEditor(this.options)
+      // 请将$r('app.string.SetAttributes_Text_8')替换为实际资源文件，在本示例中该资源文件的value值为"组件设置了最大字符数：7"
+      .placeholder(resource.resourceToString($r('app.string.SetAttributes_Text_8')))
+      .maxLength(7)
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -499,45 +545,57 @@ options: RichEditorOptions = { controller: this.controller };
 
 infoShowController: RichEditorController = new RichEditorController();
 infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
-// ...
-        RichEditor(this.options)
-          .onReady(() => {
-            // 请将$r('app.string.AddEvent_Text_5')替换为实际资源文件，在本示例中该资源文件的value值为"组件内图文变化前，触发回调。\n图文变化后，触发回调。"
-            this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_5')), {
-              style: {
-                fontColor: Color.Black,
-                fontSize: 15
-              }
-            })
+
+build() {
+  Column() {
+    // ...
+    Column({ space: 3 }) {
+      RichEditor(this.options)
+        .onReady(() => {
+          // 请将$r('app.string.AddEvent_Text_5')替换为实际资源文件，在本示例中该资源文件的value值为"组件内图文变化前，触发回调。\n图文变化后，触发回调。"
+          this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_5')), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-          .onWillChange((value: RichEditorChangeValue) => {
-            // 请将$r('app.string.AddEvent_Text_6')替换为实际资源文件，在本示例中该资源文件的value值为"组件内图文变化前，触发回调：\"
-            this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_6')) +
-            JSON.stringify(value), {
-              style: {
-                fontColor: Color.Gray,
-                fontSize: 10
-              }
-            })
-            return true;
+        })
+        .onWillChange((value: RichEditorChangeValue) => {
+          // 请将$r('app.string.AddEvent_Text_6')替换为实际资源文件，在本示例中该资源文件的value值为"组件内图文变化前，触发回调：\"
+          this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_6')) +
+          JSON.stringify(value), {
+            style: {
+              fontColor: Color.Gray,
+              fontSize: 10
+            }
           })
-          .onDidChange((rangeBefore: TextRange, rangeAfter: TextRange) => {
-            // 请将$r('app.string.AddEvent_Text_7')替换为实际资源文件，在本示例中该资源文件的value值为"\n图文变化后，触发回调：\n rangeBefore"
-            this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_7')) +
-            JSON.stringify(rangeBefore) + '\nrangeAfter: ' + JSON.stringify(rangeAfter), {
-              style: {
-                fontColor: Color.Gray,
-                fontSize: 10
-              }
-            })
+          return true;
+        })
+        .onDidChange((rangeBefore: TextRange, rangeAfter: TextRange) => {
+          // 请将$r('app.string.AddEvent_Text_7')替换为实际资源文件，在本示例中该资源文件的value值为"\n图文变化后，触发回调：\n rangeBefore"
+          this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_7')) +
+          JSON.stringify(rangeBefore) + '\nrangeAfter: ' + JSON.stringify(rangeAfter), {
+            style: {
+              fontColor: Color.Gray,
+              fontSize: 10
+            }
           })
-          .width(300)
-          .height(50);
-        // 请将$r('app.string.AddEvent_Text_4')替换为实际资源文件，在本示例中该资源文件的value值为"查看回调内容："
-        Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300);
-        RichEditor(this.infoShowOptions)
-          .width(300)
-          .height(70);
+        })
+        .width(300)
+        .height(50);
+      // 请将$r('app.string.AddEvent_Text_4')替换为实际资源文件，在本示例中该资源文件的value值为"查看回调内容："
+      Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300);
+      RichEditor(this.infoShowOptions)
+        .width(300)
+        .height(70);
+    }
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -562,42 +620,56 @@ options: RichEditorOptions = { controller: this.controller };
 
 infoShowController: RichEditorController = new RichEditorController();
 infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
-// ...
-        // 请将$r('app.string.xxx')替换为开发者所需的资源文件
-        RichEditor(this.options)
-          .onReady(() => {
-            this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_8')), {
-              style: {
-                fontColor: Color.Black,
-                fontSize: 15
-              }
-            })
+
+build() {
+  Column() {
+    // ...
+    Column({ space: 3 }) {
+      // 请将$r('app.string.xxx')替换为开发者所需的资源文件
+      RichEditor(this.options)
+        .onReady(() => {
+          this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_8')), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-          .aboutToIMEInput((value: RichEditorInsertValue) => {
-            this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_9')) +
-            JSON.stringify(value), {
-              style: {
-                fontColor: Color.Gray,
-                fontSize: 10
-              }
-            })
-            return true;
+        })
+        .aboutToIMEInput((value: RichEditorInsertValue) => {
+          this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_9')) +
+          JSON.stringify(value), {
+            style: {
+              fontColor: Color.Gray,
+              fontSize: 10
+            }
           })
-          .onDidIMEInput((value: TextRange) => {
-            this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_10')) +
-            JSON.stringify(value), {
-              style: {
-                fontColor: Color.Gray,
-                fontSize: 10
-              }
-            })
+          return true;
+        })
+        .onDidIMEInput((value: TextRange) => {
+          this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_10')) +
+          JSON.stringify(value), {
+            style: {
+              fontColor: Color.Gray,
+              fontSize: 10
+            }
           })
-          .width(300)
-          .height(50)
-        Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300)
-        RichEditor(this.infoShowOptions)
-          .width(300)
-          .height(70)
+        })
+        .width(300)
+        .height(50)
+      Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300)
+      RichEditor(this.infoShowOptions)
+        .width(300)
+        .height(70)
+
+    }
+    // ...
+  }
+  .alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -660,38 +732,37 @@ struct on_cut_copy_paste {
 
   build() {
     Column() {
-      ComponentCard({
-        // 请将$r('app.string.Add_Event_title_5')替换为实际资源文件，在本示例中该资源文件的value值为"添加完成粘贴前可触发的回调"
-        title: $r('app.string.Add_Event_title_5'),
-        // 请将$r('app.string.Add_Event_title_5_desc')替换为实际资源文件，在本示例中该资源文件的value值为"通过onPaste回调，来添加粘贴前要处理的流程"
-        description: $r('app.string.Add_Event_title_5_desc')
-      }) {
-        Column({ space: 3 }) {
-          RichEditor(this.options)
-            .onReady(() => {
-              // 请将$r('app.string.AddEvent_Text_11')替换为实际资源文件，在本示例中该资源文件的value值为"对此处文本进行复制粘贴操作可触发对应回调。"
-              this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_11')),
-                { style: { fontColor: Color.Black, fontSize: 15 } })
-            })
-            .onPaste((event) => {
-              // 请将$r('app.string.AddEvent_Text_12')替换为实际资源文件，在本示例中该资源文件的value值为"触发onPaste回调\n"
-              this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_12')),
-                { style: { fontColor: Color.Gray, fontSize: 10 } })
-              if (event != undefined && event.preventDefault) {
-                event.preventDefault();
-              }
-              this.PopDataFromPasteboard()
-            })
-            .width(300)
-            .height(50);
-          // 请将$r('app.string.AddEvent_Text_4')替换为实际资源文件，在本示例中该资源文件的value值为"查看回调内容："
-          Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300);
-          RichEditor(this.infoShowOptions)
-            .width(300)
-            .height(70);
-        }.width('100%').alignItems(HorizontalAlign.Start);
-      }
-    }
+      // ...
+      Column({ space: 3 }) {
+        RichEditor(this.options)
+          .onReady(() => {
+            // 请将$r('app.string.AddEvent_Text_11')替换为实际资源文件，在本示例中该资源文件的value值为"对此处文本进行复制粘贴操作可触发对应回调。"
+            this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_11')),
+              { style: { fontColor: Color.Black, fontSize: 15 } })
+          })
+          .onPaste((event) => {
+            // 请将$r('app.string.AddEvent_Text_12')替换为实际资源文件，在本示例中该资源文件的value值为"触发onPaste回调\n"
+            this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_12')),
+              { style: { fontColor: Color.Gray, fontSize: 10 } })
+            if (event != undefined && event.preventDefault) {
+              event.preventDefault();
+            }
+            this.PopDataFromPasteboard()
+          })
+          .width(300)
+          .height(50);
+        // 请将$r('app.string.AddEvent_Text_4')替换为实际资源文件，在本示例中该资源文件的value值为"查看回调内容："
+        Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300);
+        RichEditor(this.infoShowOptions)
+          .width(300)
+          .height(70);
+      }.width('100%').alignItems(HorizontalAlign.Start);
+      // ...
+    }.alignItems(HorizontalAlign.Start)
+    .backgroundColor('#fff')
+    .borderRadius(12)
+    .padding(12)
+    .width('100%')
   }
 }
 ```
@@ -712,31 +783,43 @@ options: RichEditorOptions = { controller: this.controller };
 
 infoShowController: RichEditorController = new RichEditorController();
 infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
-// ...
-        RichEditor(this.options)
-          .onReady(() => {
-            // 请将$r('app.string.AddEvent_Text_13')替换为实际资源文件，在本示例中该资源文件的value值为"对此处文本进行复制粘贴操作可触发对应回调。"
-            this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_13')), {
-              style: {
-                fontColor: Color.Black,
-                fontSize: 15
-              }
-            })
+
+build() {
+  Column() {
+    // ...
+    Column({ space: 3 }) {
+      RichEditor(this.options)
+        .onReady(() => {
+          // 请将$r('app.string.AddEvent_Text_13')替换为实际资源文件，在本示例中该资源文件的value值为"对此处文本进行复制粘贴操作可触发对应回调。"
+          this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_13')), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-          .onCut(() => {
-            // 请将$r('app.string.AddEvent_Text_14')替换为实际资源文件，在本示例中该资源文件的value值为"触发onCut回调\n"
-            this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_14')), {
-              style: {
-                fontColor: Color.Gray,
-                fontSize: 10
-              }
-            })
+        })
+        .onCut(() => {
+          // 请将$r('app.string.AddEvent_Text_14')替换为实际资源文件，在本示例中该资源文件的value值为"触发onCut回调\n"
+          this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_14')), {
+            style: {
+              fontColor: Color.Gray,
+              fontSize: 10
+            }
           })
-          .width(300)
-          .height(70)
-        RichEditor(this.infoShowOptions)
-          .width(300)
-          .height(70)
+        })
+        .width(300)
+        .height(70)
+      RichEditor(this.infoShowOptions)
+        .width(300)
+        .height(70)
+    }
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -755,31 +838,43 @@ options: RichEditorOptions = { controller: this.controller };
 
 infoShowController: RichEditorController = new RichEditorController();
 infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
-// ...
-        RichEditor(this.options)
-          .onReady(() => {
-            // 请将$r('app.string.AddEvent_Text_15')替换为实际资源文件，在本示例中该资源文件的value值为"对此处文本进行复制粘贴操作可触发对应回调。"
-            this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_15')), {
-              style: {
-                fontColor: Color.Black,
-                fontSize: 15
-              }
-            })
+
+build() {
+  Column() {
+    // ...
+    Column({ space: 3 }) {
+      RichEditor(this.options)
+        .onReady(() => {
+          // 请将$r('app.string.AddEvent_Text_15')替换为实际资源文件，在本示例中该资源文件的value值为"对此处文本进行复制粘贴操作可触发对应回调。"
+          this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_15')), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-          .onCopy(() => {
-            // 请将$r('app.string.AddEvent_Text_16')替换为实际资源文件，在本示例中该资源文件的value值为"触发onCopy回调\n"
-            this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_16')), {
-              style: {
-                fontColor: Color.Gray,
-                fontSize: 10
-              }
-            })
+        })
+        .onCopy(() => {
+          // 请将$r('app.string.AddEvent_Text_16')替换为实际资源文件，在本示例中该资源文件的value值为"触发onCopy回调\n"
+          this.infoShowController.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_16')), {
+            style: {
+              fontColor: Color.Gray,
+              fontSize: 10
+            }
           })
-          .width(300)
-          .height(50)
-        RichEditor(this.infoShowOptions)
-          .width(300)
-          .height(70)
+        })
+        .width(300)
+        .height(50)
+      RichEditor(this.infoShowOptions)
+        .width(300)
+        .height(70)
+    }
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -805,20 +900,30 @@ infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-      RichEditor(this.options)
-        .onReady(() => {
-          // 请将$r('app.string.SetAttributes_Text_5')替换为实际资源文件，在本示例中该资源文件的value值为"组件设置了光标手柄颜色。"
-          this.controller.addTextSpan(resource.resourceToString($r('app.string.SetAttributes_Text_5')), {
-            style: {
-              fontColor: Color.Black,
-              fontSize: 15
-            }
-          })
+
+build() {
+  Column() {
+    // ...
+    RichEditor(this.options)
+      .onReady(() => {
+        // 请将$r('app.string.SetAttributes_Text_5')替换为实际资源文件，在本示例中该资源文件的value值为"组件设置了光标手柄颜色。"
+        this.controller.addTextSpan(resource.resourceToString($r('app.string.SetAttributes_Text_5')), {
+          style: {
+            fontColor: Color.Black,
+            fontSize: 15
+          }
         })
-        .caretColor(Color.Orange)
-        .width(300)
-        .height(300)
+      })
+      .caretColor(Color.Orange)
+      .width(300)
+      .height(300)
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -839,32 +944,40 @@ options: RichEditorOptions = { controller: this.controller };
 
 infoShowController: RichEditorController = new RichEditorController();
 infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
-// ...
-        // 请将$r('app.string.xxx')替换为实际资源文件
-        RichEditor(this.options)
-          .onReady(() => {
-            this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_2')), {
-              style: {
-                fontColor: Color.Black,
-                fontSize: 15
-              }
-            })
+
+build() {
+  Column() {
+    // ...
+    Column({ space: 3 }) {
+      // 请将$r('app.string.xxx')替换为实际资源文件
+      RichEditor(this.options)
+        .onReady(() => {
+          this.controller.addTextSpan(resource.resourceToString($r('app.string.AddEvent_Text_2')), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-          .onSelectionChange((value: RichEditorRange) => {
-            this.infoShowController.addTextSpan('\n' + resource.resourceToString($r('app.string.AddEvent_Text_3')) +
-            value.start + ',' + value.end + ')', {
-              style: {
-                fontColor: Color.Gray,
-                fontSize: 10
-              }
-            })
+        })
+        .onSelectionChange((value: RichEditorRange) => {
+          this.infoShowController.addTextSpan('\n' + resource.resourceToString($r('app.string.AddEvent_Text_3')) +
+          value.start + ',' + value.end + ')', {
+            style: {
+              fontColor: Color.Gray,
+              fontSize: 10
+            }
           })
-          .width(300)
-          .height(50)
-        Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300)
-        RichEditor(this.infoShowOptions)
-          .width(300)
-          .height(70)
+        })
+        .width(300)
+        .height(50)
+      Text(resource.resourceToString($r('app.string.AddEvent_Text_4'))).fontSize(10).fontColor(Color.Gray).width(300)
+      RichEditor(this.infoShowOptions)
+        .width(300)
+        .height(70)
+    }
+    // ...
+  }
+}
 ```
 
 
@@ -884,28 +997,36 @@ infoShowOptions: RichEditorOptions = { controller: this.infoShowController };
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-          RichEditor(this.options)
-            .onReady(() => {
-              // 请将$r('app.string.BackplaneHighlighting_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处选中0-2位置的文本。"
-              this.controller.addTextSpan(resource.resourceToString($r('app.string.BackplaneHighlighting_Text_1')), {
-                style: {
-                  fontColor: Color.Black,
-                  fontSize: 15
-                }
-              })
-            })
-            .width(300)
-            .height(60)
-          // 请将$r('app.string.BackplaneHighlighting_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"setSelection(0,2)"
-          Button($r('app.string.BackplaneHighlighting_Button_1'), {
-            buttonStyle: ButtonStyleMode.NORMAL
+
+build() {
+  // ...
+    Column({ space: 12 }) {
+      RichEditor(this.options)
+        .onReady(() => {
+          // 请将$r('app.string.BackplaneHighlighting_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮在此处选中0-2位置的文本。"
+          this.controller.addTextSpan($r('app.string.BackplaneHighlighting_Text_1'), {
+            style: {
+              fontColor: Color.Black,
+              fontSize: 15
+            }
           })
-            .height(30)
-            .fontSize(13)
-            .onClick(() => {
-              this.controller.setSelection(0, 2)
-            })
+        })
+        .width(300)
+        .height(60)
+      Row() {
+        // 请将$r('app.string.BackplaneHighlighting_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"setSelection(0,2)"
+        Button($r('app.string.BackplaneHighlighting_Button_1'), {
+          buttonStyle: ButtonStyleMode.NORMAL
+        })
+          .height(30)
+          .fontSize(13)
+          .onClick(() => {
+            this.controller.setSelection(0, 2)
+          })
+      }.justifyContent(FlexAlign.Center).width('100%')
+    }
+  // ...
+}
 ```
 
 
@@ -1029,7 +1150,7 @@ import { TextMenuController } from '@kit.ArkUI';
 
 @Entry
 @Component
-export struct DisableSystemServiceMenu {
+struct DisableSystemServiceMenu {
   controller: RichEditorController = new RichEditorController();
   options: RichEditorOptions = { controller: this.controller };
 
@@ -1045,27 +1166,29 @@ export struct DisableSystemServiceMenu {
 
   build() {
     // ...
-          RichEditor(this.options).onReady(() => {
-            // 请将$r('app.string.Demo_richEditor')替换为实际资源文件，在本示例中该资源文件的value值为"这是一个RichEditor"
-            this.controller.addTextSpan($r('app.string.Demo_richEditor'),
+      Column({ space: 12 }) {
+        RichEditor(this.options).onReady(() => {
+          // 请将$r('app.string.Demo_richEditor')替换为实际资源文件，在本示例中该资源文件的value值为"这是一个RichEditor"
+          this.controller.addTextSpan($r('app.string.Demo_richEditor'),
+            {
+              style:
               {
-                style:
-                {
-                  fontSize: 30
-                }
-              })
-          })
-            .height(60)
-            .editMenuOptions({
-              onCreateMenu: (menuItems: Array<TextMenuItem>) => {
-                // menuItems不包含被屏蔽的系统菜单项
-                return menuItems;
-              },
-              onMenuItemClick: (menuItem: TextMenuItem, textRange: TextRange) => {
-                return false;
+                fontSize: 30
               }
             })
-          // ...
+        })
+          .height(60)
+          .editMenuOptions({
+            onCreateMenu: (menuItems: Array<TextMenuItem>) => {
+              // menuItems不包含被屏蔽的系统菜单项
+              return menuItems;
+            },
+            onMenuItemClick: (menuItem: TextMenuItem, textRange: TextRange) => {
+              return false;
+            }
+          })
+      }
+    // ...
   }
 }
 ```
@@ -1081,10 +1204,9 @@ export struct DisableSystemServiceMenu {
 ```ArkTS
 import { TextMenuController } from '@kit.ArkUI';
 
-
 @Entry
 @Component
-export struct DisableMenuItem {
+struct DisableMenuItem {
   controller: RichEditorController = new RichEditorController();
   options: RichEditorOptions = { controller: this.controller };
 
@@ -1100,26 +1222,28 @@ export struct DisableMenuItem {
 
   build() {
     // ...
-          RichEditor(this.options)
-            .onReady(() => {
-              // 请将$r('app.string.Demo_richEditor')替换为实际资源文件，在本示例中该资源文件的value值为"这是一个RichEditor"
-              this.controller.addTextSpan($r('app.string.Demo_richEditor'), {
-                style: {
-                  fontSize: 30
-                }
-              })
-            })
-            .height(60)
-            .editMenuOptions({
-              onCreateMenu: (menuItems: Array<TextMenuItem>) => {
-                // menuItems不包含搜索和翻译
-                return menuItems;
-              },
-              onMenuItemClick: (menuItem: TextMenuItem, textRange: TextRange) => {
-                return false;
+      Column({ space: 12 }) {
+        RichEditor(this.options)
+          .onReady(() => {
+            // 请将$r('app.string.Demo_richEditor')替换为实际资源文件，在本示例中该资源文件的value值为"这是一个RichEditor"
+            this.controller.addTextSpan($r('app.string.Demo_richEditor'), {
+              style: {
+                fontSize: 30
               }
             })
-          // ...
+          })
+          .height(60)
+          .editMenuOptions({
+            onCreateMenu: (menuItems: Array<TextMenuItem>) => {
+              // menuItems不包含搜索和翻译
+              return menuItems;
+            },
+            onMenuItemClick: (menuItem: TextMenuItem, textRange: TextRange) => {
+              return false;
+            }
+          })
+      }
+    // ...
   }
 }
 ```
@@ -1146,32 +1270,31 @@ private theme: SelectionMenuTheme = defaultTheme;
 
 build() {
   Column() {
-    ComponentCard({
-      // 请将$r('app.string.Set_Attributes_title_1')替换为实际资源文件，在本示例中该资源文件的value值为"设置自定义选择菜单"
-      title: $r('app.string.Set_Attributes_title_1'),
-      // 请将$r('app.string.Set_Attributes_title_1_desc')替换为实际资源文件，在本示例中该资源文件的value值为"通过bindSelectionMenu设置自定义选择菜单"
-      description: $r('app.string.Set_Attributes_title_1_desc'),
-    }) {
-      RichEditor(this.options)
-        .onReady(() => {
-          // 请将$r('app.string.SetAttributes_Text_4')替换为实际资源文件，在本示例中该资源文件的value值为"组件设置了自定义菜单，长按可触发。"
-          this.controller.addTextSpan(resource.resourceToString($r('app.string.SetAttributes_Text_4')), {
-            style: {
-              fontColor: Color.Black,
-              fontSize: 18
-            }
-          })
-        })
-        .bindSelectionMenu(RichEditorSpanType.TEXT, this.SystemMenu, ResponseType.LongPress, {
-          onDisappear: () => {
-            this.sliderShow = false
+    // ...
+    RichEditor(this.options)
+      .onReady(() => {
+        // 请将$r('app.string.SetAttributes_Text_4')替换为实际资源文件，在本示例中该资源文件的value值为"组件设置了自定义菜单，长按可触发。"
+        this.controller.addTextSpan(resource.resourceToString($r('app.string.SetAttributes_Text_4')), {
+          style: {
+            fontColor: Color.Black,
+            fontSize: 18
           }
         })
-        // 绑定自定义菜单
-        .width(300)
-        .height(300)
-    }
-  }
+      })
+      .bindSelectionMenu(RichEditorSpanType.TEXT, this.SystemMenu, ResponseType.LongPress, {
+        onDisappear: () => {
+          this.sliderShow = false
+        }
+      })
+      // 绑定自定义菜单
+      .width(300)
+      .height(300)
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
 }
 
 @Builder
@@ -1278,22 +1401,30 @@ build() {
 此接口可用于个性化的写作体验，例如可以使用此接口让输入的不同层级标题自动应用相应格式（如一级、二级标题）。
 
 ```ArkTS
-controller: RichEditorController = new RichEditorController();
-options: RichEditorOptions = { controller: this.controller };
-// ...
-          RichEditor(this.options)
-            .onReady(() => {
-              // 请将$r('app.string.SetUserPresetTextStyles_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮，改变预设文本样式。"
-              this.controller.addTextSpan(resource.resourceToString($r('app.string.SetUserPresetTextStyles_Text_1')),
-                {
-                  style: {
-                    fontColor: Color.Black,
-                    fontSize: 15
-                  }
-                })
-            })
-            .width(300)
-            .height(60)
+@Entry
+@Component
+struct SetUserPresetTextStyles {
+
+  controller: RichEditorController = new RichEditorController();
+  options: RichEditorOptions = { controller: this.controller };
+
+  build() {
+    // ...
+      Column({ space: 12 }) {
+        RichEditor(this.options)
+          .onReady(() => {
+            // 请将$r('app.string.SetUserPresetTextStyles_Text_1')替换为实际资源文件，在本示例中该资源文件的value值为"点击按钮，改变预设文本样式。"
+            this.controller.addTextSpan($r('app.string.SetUserPresetTextStyles_Text_1'),
+              {
+                style: {
+                  fontColor: Color.Black,
+                  fontSize: 15
+                }
+              })
+          })
+          .width(300)
+          .height(60)
+        Row() {
           // 请将$r('app.string.SetUserPresetTextStyles_Button_1')替换为实际资源文件，在本示例中该资源文件的value值为"setTypingStyle"
           Button($r('app.string.SetUserPresetTextStyles_Button_1'), {
             buttonStyle: ButtonStyleMode.NORMAL
@@ -1312,6 +1443,11 @@ options: RichEditorOptions = { controller: this.controller };
                 }
               })
             })
+        }.justifyContent(FlexAlign.Center).width('100%')
+      }
+      // ...
+  }
+}
 ```
 
 
@@ -1329,22 +1465,32 @@ options: RichEditorOptions = { controller: this.controller };
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-      RichEditor(this.options)
-        .onReady(() => {
-          // 请将$r('app.string.Demo_oneText')替换为实际资源文件，在本示例中该资源文件的value值为"一段预置的文本"
-          this.controller.addTextSpan($r('app.string.Demo_oneText'), {
-            style: {
-              fontSize: 25,
-              decoration: {
-                type: TextDecorationType.LineThrough,
-                color: Color.Blue,
-                // 设置装饰线粗细比例为6
-                thicknessScale: 6
-              }
+
+build() {
+  Column() {
+    // ...
+    RichEditor(this.options)
+      .onReady(() => {
+        // 请将$r('app.string.Demo_oneText')替换为实际资源文件，在本示例中该资源文件的value值为"一段预置的文本"
+        this.controller.addTextSpan($r('app.string.Demo_oneText'), {
+          style: {
+            fontSize: 25,
+            decoration: {
+              type: TextDecorationType.LineThrough,
+              color: Color.Blue,
+              // 设置装饰线粗细比例为6
+              thicknessScale: 6
             }
-          })
+          }
         })
+      })
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -1416,28 +1562,38 @@ Button($r('app.string.Demo_SetStyledStringButton'))
 ```ArkTS
 controller: RichEditorController = new RichEditorController();
 options: RichEditorOptions = { controller: this.controller };
-// ...
-      RichEditor(this.options)
-        .onReady(() => {
-          // 请将$r('app.media.startIcon')替换为实际资源文件
-          this.controller.addImageSpan($r('app.media.startIcon'), {
-            imageStyle: {
-              size: [100, 100]
-            }
-          })
-          // 请将$r('app.string.Demo_verticalAlignString')替换为实际资源文件，在本示例中该资源文件的value值为"这是一段富文本，展示了文本垂直居中的效果。"
-          this.controller.addTextSpan($r('app.string.Demo_verticalAlignString'), {
-            style: {
-              fontColor: Color.Pink,
-              fontSize: '32'
-            },
-            paragraphStyle: {
-              textAlign: TextAlign.Start,
-              textVerticalAlign: TextVerticalAlign.CENTER,
-              leadingMargin: 16
-            }
-          })
+
+build() {
+  Column() {
+    // ...
+    RichEditor(this.options)
+      .onReady(() => {
+        // 请将$r('app.media.startIcon')替换为实际资源文件
+        this.controller.addImageSpan($r('app.media.startIcon'), {
+          imageStyle: {
+            size: [100, 100]
+          }
         })
+        // 请将$r('app.string.Demo_verticalAlignString')替换为实际资源文件，在本示例中该资源文件的value值为"这是一段富文本，展示了文本垂直居中的效果。"
+        this.controller.addTextSpan($r('app.string.Demo_verticalAlignString'), {
+          style: {
+            fontColor: Color.Pink,
+            fontSize: '32'
+          },
+          paragraphStyle: {
+            textAlign: TextAlign.Start,
+            textVerticalAlign: TextVerticalAlign.CENTER,
+            leadingMargin: 16
+          }
+        })
+      })
+    // ...
+  }.alignItems(HorizontalAlign.Start)
+  .backgroundColor('#fff')
+  .borderRadius(12)
+  .padding(12)
+  .width('100%')
+}
 ```
 
 
@@ -1453,9 +1609,17 @@ options: RichEditorOptions = { controller: this.controller };
 此接口优化文本排版，提升组件内文本的可读性。设置自动间距后，中文与西文间产生适当空隙，便于区分不同语种，减少视觉干扰。
 
 ```ArkTS
-controller: RichEditorController = new RichEditorController();
-options: RichEditorOptions = { controller: this.controller };
-// ...
+@Component
+struct EnableAutoSpacing {
+  controller: RichEditorController = new RichEditorController();
+  options: RichEditorOptions = { controller: this.controller };
+  @State
+  enableAutoSpace:boolean = false;
+
+  build() {
+    Column() {
+      // ...
+      Column({ space: 3 }) {
         RichEditor(this.options)
           .onReady(() => {
             // 请将$r('app.string.Demo_autoSpacingString')替换为实际资源文件，在本示例中该资源文件的value值为"中西文Auto Spacing自动间距"
@@ -1469,6 +1633,21 @@ options: RichEditorOptions = { controller: this.controller };
               })
           })
           .enableAutoSpacing(this.enableAutoSpace)
+        // 请将$r('app.string.Demo_autoSpacingButton')替换为实际资源文件，在本示例中该资源文件的value值为"开启中西文自动间距"
+        Button($r('app.string.Demo_autoSpacingButton'))
+          .fontSize(20)
+          .onClick(() => {
+            this.enableAutoSpace = true;
+          })
+      }
+      // ...
+    }.alignItems(HorizontalAlign.Start)
+    .backgroundColor('#fff')
+    .borderRadius(12)
+    .padding(12)
+    .width('100%')
+  }
+}
 ```
 
 

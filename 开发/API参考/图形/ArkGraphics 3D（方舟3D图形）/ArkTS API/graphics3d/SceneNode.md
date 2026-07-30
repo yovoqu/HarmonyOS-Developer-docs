@@ -1,11 +1,11 @@
 # SceneNode
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供3D图形中场景资源节点的类型及操作方法。SceneNode是3D场景的基础构建单元，它允许开发者通过层级结构管理场景中的对象，实现高效的场景组织与交互控制。
+本模块提供ArkGraphics 3D中场景资源节点的类型及操作方法。SceneNode是3D场景的基础构建单元，它允许开发者通过层级结构管理场景中的对象，实现高效的场景组织与交互控制。
  
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持，后续版本的新增接口，采用上角标标记接口的起始版本。
@@ -154,7 +154,7 @@ function layerMask(): void {
 
 append(item: T): void
  
-追加一个对象到容器。
+追加一个对象到容器。如果追加的对象已存在于容器中，容器会先移除该对象再插入，因此数量不会增加。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
  
@@ -195,7 +195,7 @@ function append(): void {
 
 insertAfter(item: T, sibling: T | null): void
  
-在兄弟节点后面插入对象。
+在兄弟节点后面插入对象。如果插入的对象已存在于容器中，容器会先移除该对象再插入，因此数量不会增加。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
  
@@ -204,7 +204,7 @@ insertAfter(item: T, sibling: T | null): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | item | T | 是 | 要插入节点。 |
-| sibling | T \| null | 是 | 兄弟节点。 |
+| sibling | T \| null | 是 | 兄弟节点。当为null时，表示插入到容器的开头位置。 |
  
  
 **示例：**
@@ -307,8 +307,10 @@ function get(): void {
   scene.then(async (result: Scene) => {
     if (result) {
       let node : Node | null = result.getNodeByPath("rootNode/Scene/");
-      // 从children中get 0号节点
-      result.root?.children.get(0)?.children.insertAfter(node, null);
+      if (node) {
+        // 从children中get 0号节点
+        result.root?.children.get(0)?.children.insertAfter(node, null);
+      }
     }
   }).catch((error: Error) => {
     console.error('Scene load failed:', error);
@@ -396,7 +398,7 @@ function count(): void {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-3D场景由树状层次结构的节点组成，其中每个节点都实现了Node接口。继承自[SceneResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources#sceneresource-1)。
+3D场景由树状层次结构的节点组成，其中每个节点都实现了Node接口。继承自[SceneResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources#sceneresource)。
  
   
 
@@ -517,7 +519,7 @@ function printNodeTreeInRelativePath(node: Node | null): void {
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DIRECTIONAL | 1 | 平行光类型。 |
-| SPOT | 2 | 点光源类型。 |
+| SPOT | 2 | 聚光灯类型。 |
  
  
   
@@ -534,7 +536,7 @@ function printNodeTreeInRelativePath(node: Node | null): void {
 | --- | --- | --- | --- | --- |
 | lightType | LightType | 是 | 否 | 光源类型。 |
 | color | Color | 否 | 否 | 颜色。 |
-| intensity | number | 否 | 否 | 光照密度，单位为坎德拉（cd），取值范围是大于0的实数。 |
+| intensity | number | 否 | 否 | 光照强度，单位为坎德拉（cd），取值范围是大于0的实数。 |
 | shadowEnabled | boolean | 否 | 否 | 是否使能阴影。true表示添加阴影，false表示没有阴影效果。 |
 | enabled | boolean | 否 | 否 | 是否使能光源。true表示使用光源，false表示不使用。 |
  
@@ -558,7 +560,7 @@ function printNodeTreeInRelativePath(node: Node | null): void {
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/3yrAbAvxQAO6dlsS3_WoeA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012043Z&HW-CC-Expire=86400&HW-CC-Sign=AD933B9701CB6E3192E59E9A5715D3B797C8A02CD186E4E10FDCCBFC92423514)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/WnC5VlRzTF6mBZ7WkYH0eg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071723Z&HW-CC-Expire=86400&HW-CC-Sign=E4993F6320ECFB6B9D9C85B4D068643CDFE8DB7FB8A4C717ED7A0ECB950FDB7D)
  
  
 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
@@ -593,7 +595,7 @@ function printNodeTreeInRelativePath(node: Node | null): void {
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fov | number | 否 | 否 | 视场，单位为弧度（rad），取值在0到π弧度之间。 |
+| fov | number | 否 | 否 | 视场，单位为弧度（rad），取值范围为(0, π)。 |
 | nearPlane | number | 否 | 否 | 近平面，单位为世界坐标系下的场景单位（比如cm、m、km等），取值大于0。 |
 | farPlane | number | 否 | 否 | 远平面，单位为世界坐标系下的场景单位（比如cm、m、km等），取值大于nearPlane。 |
 | enabled | boolean | 否 | 否 | 是否使能相机。true表示使用相机，false表示不使用相机。 |
@@ -668,7 +670,7 @@ function Sub(l: Vec3, r: Vec3): Vec3 {
 }
 // 向量点积，返回l和r的内积
 function Dot(l: Vec3, r: Vec3): number {
-  return l.x * r.x + l.y * r.y + r.z * l.z;
+  return l.x * r.x + l.y * r.y + l.z * r.z;
 }
 // 向量归一化，返回l的单位向量
 function Normalize(l: Vec3): Vec3 {
@@ -737,7 +739,7 @@ function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
         y: m2.x - m0.z,
         z: m0.y - m1.x,
         w: t
-      }
+      };
     }
   }
   node.position = eye;

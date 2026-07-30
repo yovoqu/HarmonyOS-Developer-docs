@@ -1,14 +1,14 @@
 # DynamicLayout
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-动态布局容器组件，支持在运行时动态切换不同的布局算法，不改变子组件的状态。
+动态布局容器组件，支持在运行时动态切换不同的布局算法，不改变子组件的状态。使用DynamicLayout可以提升布局灵活性，简化界面适配和多视图切换的开发流程。适用于响应式布局（适配不同屏幕尺寸）、多视图模式切换（如列表/网格/瀑布流切换）、用户自定义布局等场景。
 
 > [!NOTE]
-> 该组件从API version 24开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
+> 该组件从API version 24开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -28,11 +28,11 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 动态布局容器。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
-
 **卡片能力：** 从API version 24开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -40,7 +40,7 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| algorithm | LayoutAlgorithm | 是 | 指定动态布局容器的布局算法。取非法值时，按照StackLayoutAlgorithm布局子组件，子组件堆叠排列。 |
+| algorithm | LayoutAlgorithm | 是 | 指定动态布局容器的布局算法。支持使用RowLayoutAlgorithm（水平线性布局，适用于水平排列场景）、ColumnLayoutAlgorithm（垂直线性布局，适用于垂直排列场景）、StackLayoutAlgorithm（堆叠布局，适用于层叠覆盖场景）、GridLayoutAlgorithm（网格布局，适用于规整网格场景）和CustomLayoutAlgorithm（自定义布局，适用于复杂特殊布局场景）等布局算法实例，详见LayoutAlgorithm。取非法值（如null、undefined或无效的布局算法对象）时，按照StackLayoutAlgorithm布局子组件，子组件堆叠排列。 |
 
 
 
@@ -52,7 +52,7 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 > [!NOTE]
-> 当布局算法为 RowLayoutAlgorithm 或 ColumnLayoutAlgorithm 时，子组件设置 Flex布局 属性生效。 当布局算法为 StackLayoutAlgorithm 时，子组件设置 layoutGravity 属性生效。 当布局算法为 CustomLayoutAlgorithm 时，DynamicLayout组件 FrameNode 的 setMeasuredSize 方法优先级高于 尺寸设置 和 边框 属性，子组件 FrameNode 的 measure 和 layout 方法优先级高于 ignoreLayoutSafeArea 属性。
+> 当布局算法为 RowLayoutAlgorithm 或 ColumnLayoutAlgorithm 时，子组件设置 Flex布局 属性生效，设置 layoutGravity 属性不生效。 当布局算法为 StackLayoutAlgorithm 时，子组件设置 layoutGravity 属性生效，设置 Flex布局 属性不生效。 当布局算法为 CustomLayoutAlgorithm 时，DynamicLayout组件 FrameNode 的 setMeasuredSize 方法优先级高于 尺寸设置 和 边框 属性，子组件 FrameNode 的 measure 和 layout 方法优先级高于 ignoreLayoutSafeArea 属性。 当布局算法为 GridLayoutAlgorithm 时，子组件设置 Flex布局 属性不生效，设置 layoutGravity 属性不生效，子组件通过GridLayoutAlgorithm参数控制位置。
 
 
 
@@ -73,7 +73,7 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 #### 示例1（自定义布局算法实现瀑布流布局）
 
-该示例展示如何重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)、[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)函数，实现瀑布流布局展示商品列表的功能。
+该示例展示如何重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)、[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)函数，实现瀑布流布局展示商品列表的功能。瀑布流布局通过测量阶段计算子组件高度并记录每列累计高度，在布局阶段将子组件分配到当前高度最小的列，实现自动填充效果。
 
 从API version 24开始，新增onMeasure、onLayout。
 
@@ -251,7 +251,11 @@ interface Product {
 
 #### 示例2（切换布局算法）
 
-该示例通过改变[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰的[LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1)类型变量，实现动态切换DynamicLayout组件布局算法的功能。示例展示如何切换布局算法为水平线性布局算法[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)、垂直线性布局算法[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)、堆叠布局算法[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)和网格布局算法[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)。
+该示例通过改变[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰的[LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1)类型变量，实现动态切换DynamicLayout组件布局算法的功能。示例展示如何切换布局算法为[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)（水平线性布局）、[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)（垂直线性布局）、[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)（堆叠布局）和[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)（网格布局）。
+
+> [!NOTE]
+> 示例中预置的layoutGravity属性仅在Stack布局算法下生效，在Row/Column布局算法下该属性不生效。
+
 
 从API version 24开始，新增RowLayoutAlgorithm、ColumnLayoutAlgorithm、StackLayoutAlgorithm、GridLayoutAlgorithm。
 
@@ -365,7 +369,7 @@ struct LayoutSwitchExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/BEy7BFPrS4q5Bwzh9785qw/zh-cn_image_0000002659101683.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=7871D69E45B73BF13C9FC57B346482FF275F82538423C934819193AEB1815FDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/RByBlpNyQkm1mt503waTew/zh-cn_image_0000002686087897.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=721AFE1A03129F52E396339C56DD586E1302C43CDA2C0F66283154B3393FD40D)
 
 
 
@@ -427,6 +431,7 @@ struct PropertyChangeExample {
         Button('两端对齐')
           .fontSize(14)
           .onClick(() => {
+            // 修改justifyContent属性为两端对齐
             this.algorithm.justifyContent = FlexAlign.SpaceBetween;
           })
       }
@@ -438,4 +443,4 @@ struct PropertyChangeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/afNg2zMsSHWNCppxLbG90A/zh-cn_image_0000002628862334.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=00F961101DAC8034E698DF34A3E1067E31C691AE3E7FE0B56169757B0449A7B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/gAqIGD1YQi6ReBYCOIv47g/zh-cn_image_0000002685928069.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=1B9D7034B8537FBCC94DC7FCFD6BCC03E48B725DB67958621B4D8342D74E3F49)

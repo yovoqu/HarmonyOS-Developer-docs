@@ -118,14 +118,14 @@ export default <span style="color: rgb(255,0,170);">{</span>
 ```
 
 3. 在未构建前，可以看到目前rawfile文件夹中没有文件：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/Rp1ZxWuHTACzXbCVqPSMjg/zh-cn_image_0000002658928503.png?HW-CC-KV=V1&HW-CC-Date=20260723T013922Z&HW-CC-Expire=86400&HW-CC-Sign=2FBBB7378824BF3821C43DA76D6764D23820FFDED8007D80B894037FDCCFA7D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/Rp1ZxWuHTACzXbCVqPSMjg/zh-cn_image_0000002658928503.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=5486F659F5B46CACD39694DC2D63303ED028E6F4E601CB7E78F42A13CBCC608D)
 
 4. 在构建打包之后，可以看到rawfile文件夹中多出来了一个文件，而且通过查看APP包的内容也能看到Entry模块打出来的Hap包的rawfile文件夹中，包含了之前下载好的文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/GLIKrEaPSVS8a3PyiKM48w/zh-cn_image_0000002628409284.png?HW-CC-KV=V1&HW-CC-Date=20260723T013922Z&HW-CC-Expire=86400&HW-CC-Sign=60E8113E4FFEDFC3C5D41BC338ADE0A7A18A7B3E6BA74FAB68387C9132EEB09D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/GLIKrEaPSVS8a3PyiKM48w/zh-cn_image_0000002628409284.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=6884C91907969F7231ACFE8DB45AA078495C5F3FFAD42833B20FA29CC2828C45)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/XwHbce8XQne90GfgQVac9w/zh-cn_image_0000002658808555.png?HW-CC-KV=V1&HW-CC-Date=20260723T013922Z&HW-CC-Expire=86400&HW-CC-Sign=67F4C40E97475A1D1F4FB658A8F2CE42494845FFB8BC332327A6D203A937029C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/XwHbce8XQne90GfgQVac9w/zh-cn_image_0000002658808555.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=66970E9D8525B1096A210163851F712C5D728932496A4394FB868FD306E70AED)
 
 
   以上运行结果说明脚本执行成功，可以通过自定义构建任务获取云端文件新增或更新到rawfile文件夹中。

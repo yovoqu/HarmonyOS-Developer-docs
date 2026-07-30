@@ -1,6 +1,6 @@
 # ArkUI_NativeDialogAPI_1
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialogapi-1
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@ ArkUI提供的Native侧自定义弹窗接口集合。
 | int32_t (*removeContent)(ArkUI_NativeDialogHandle handle) | 卸载自定义弹窗内容。 |
 | int32_t (*setContentAlignment)(ArkUI_NativeDialogHandle handle, int32_t alignment, float offsetX, float offsetY) | 设置自定义弹窗对齐方式。 |
 | int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle) | 重置setContentAlignment方法设置的属性，使用系统默认的对齐方式。 |
-| int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal) | 设置自定义弹窗是否开启模态样式的弹窗。 |
+| int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal) | 设置自定义弹窗是否开启模态窗口模式。 |
 | int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel) | 设置自定义弹窗是否允许通过点击遮罩层退出。 |
 | int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const ArkUI_Rect* maskRect) | 设置自定义弹窗遮罩属性。 |
 | int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgroundColor) | 设置弹窗背景色。 |
@@ -99,7 +99,7 @@ void (*dispose)(ArkUI_NativeDialogHandle handle)
 
 **描述：**
 
-销毁自定义弹窗。
+销毁自定义弹窗。与[create](#create)配对使用，用于释放create创建的弹窗资源。调用后handle会被释放，不能再继续使用该handle，如需再次使用弹窗，需要重新调用[create](#create)创建。
 
 | 参数项 | 描述 |
 | --- | --- |
@@ -218,7 +218,7 @@ int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle)
 
 **描述：**
 
-重置setContentAlignment方法设置的属性，使用系统默认的对齐方式，默认值：ARKUI_ALIGNMENT_TOP_START，参考[ArkUI_Alignment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_alignment)。
+重置setContentAlignment方法设置的属性，使用系统默认的对齐方式，默认值：ARKUI_ALIGNMENT_TOP_START，参考[ArkUI_Alignment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-layout-h#arkui_alignment)。
 
 > [!NOTE]
 > resetContentAlignment方法需要在调用 show 方法之前调用。
@@ -250,7 +250,7 @@ int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal)
 
 **描述：**
 
-设置自定义弹窗是否开启模态样式的弹窗。
+设置自定义弹窗是否开启模态窗口模式。
 
 > [!NOTE]
 > setModalMode方法需要在调用 show 方法之前调用。
@@ -261,7 +261,7 @@ int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal)
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| bool isModal | 设置是否开启模态窗口，模态窗口有蒙层，非模态窗口无蒙层。为true时开启模态窗口，为false时不开启模态窗口。 |
+| bool isModal | 设置是否开启模态窗口。模态窗口有遮罩层，非模态窗口无遮罩层。true表示开启模态窗口，false表示不开启模态窗口。 |
 
 
 **返回：**
@@ -294,7 +294,7 @@ int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel)
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| bool autoCancel | 设置是否允许通过点击遮罩层退出，true表示关闭弹窗，false表示不关闭弹窗。 |
+| bool autoCancel | 设置是否允许通过点击遮罩层退出。true表示允许关闭弹窗，false表示不允许关闭弹窗。 |
 
 
 **返回：**
@@ -327,8 +327,8 @@ int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const Ar
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| uint32_t maskColor | 设置遮罩颜色，0xargb格式。 |
-| const ArkUI_Rect* maskRect | 遮蔽层区域范围的指针，遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。参数类型ArkUI_Rect。 |
+| uint32_t maskColor | 设置遮罩颜色，0xARGB格式。 |
+| const ArkUI_Rect* maskRect | 遮罩层区域范围的指针，遮罩层区域内的事件不透传，在遮罩层区域外的事件透传。参数类型ArkUI_Rect。 |
 
 
 **返回：**
@@ -361,7 +361,7 @@ int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgrou
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| uint32_t backgroundColor | 设置弹窗背景颜色，0xargb格式。 |
+| uint32_t backgroundColor | 设置弹窗背景颜色，0xARGB格式。 |
 
 
 **返回：**
@@ -378,7 +378,7 @@ int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgrou
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float topRight,float bottomLeft, float bottomRight)
+int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float topRight, float bottomLeft, float bottomRight)
 ```
 
 **描述：**
@@ -396,7 +396,7 @@ int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | float topLeft | 设置弹窗背板左上角圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
 | float topRight | 设置弹窗背板右上角圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
-| float bottomLeft | 设置弹窗背板左下圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
+| float bottomLeft | 设置弹窗背板左下角圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
 | float bottomRight | 设置弹窗背板右下角圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
 
 
@@ -463,7 +463,7 @@ int32_t (*enableCustomStyle)(ArkUI_NativeDialogHandle handle, bool enableCustomS
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| bool enableCustomStyle | 弹窗容器样式是否可以自定义。 默认值：false true：弹窗容器样式不能自定义，宽度自适应子节点，圆角为0，弹窗背景色透明；false：弹窗容器样式可以自定义，高度自适应子节点，宽度由栅格系统定义，圆角半径24vp，PC/2in1设备避让屏幕边缘以及窗口标题栏。 |
+| bool enableCustomStyle | 弹窗容器样式是否可以自定义。 默认值：false true：弹窗容器样式可以自定义，宽度自适应子节点，圆角为0，弹窗背景色透明；false：弹窗容器样式不能自定义，高度自适应子节点，宽度由栅格系统定义，圆角半径24vp，PC/2in1设备避让屏幕边缘以及窗口标题栏。 |
 
 
 **返回：**
@@ -496,7 +496,7 @@ int32_t (*enableCustomAnimation)(ArkUI_NativeDialogHandle handle, bool enableCus
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| bool enableCustomAnimation | true:使用自定义动画，关闭系统默认动画；false:使用系统默认动画。 |
+| bool enableCustomAnimation | 是否使用自定义弹窗动画。true：使用自定义动画，关闭系统默认动画；false：使用系统默认动画。默认值：false。 |
 
 
 **返回：**
@@ -558,7 +558,7 @@ int32_t (*show)(ArkUI_NativeDialogHandle handle, bool showInSubWindow)
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
-| bool showInSubWindow | 是否在子窗口显示弹窗。true表示在子窗显示弹窗。false表示不在子窗显示弹窗。 |
+| bool showInSubWindow | 设置是否在子窗口显示弹窗。true表示在子窗口显示弹窗，false表示在主窗口显示弹窗。默认值：false。 |
 
 
 **返回：**
@@ -580,7 +580,7 @@ int32_t (*close)(ArkUI_NativeDialogHandle handle)
 
 **描述：**
 
-关闭自定义弹窗，如已关闭，则不生效。该接口后台执行是异步的，在关闭动画执行完成后弹窗节点才会下树。如需关闭后再次打开弹窗，请在延迟300ms以后再执行。
+关闭自定义弹窗。该接口后台执行是异步的，在关闭动画执行完成后弹窗节点才会下树。如果弹窗已关闭，调用该接口不会再执行关闭操作。如需关闭后再次打开弹窗，请在延迟300ms以后再执行。
 
 **参数：**
 
@@ -608,7 +608,7 @@ int32_t (*registerOnWillDismissWithUserData)(ArkUI_NativeDialogHandle handle, vo
 
 **描述：**
 
-注册系统关闭自定义弹窗的监听事件。
+注册系统关闭自定义弹窗的监听事件。与[registerOnWillDismiss](#registeronwilldismiss)的差异：本方法使用void* userData和回调函数指针（回调入参为ArkUI_DialogDismissEvent，可通过OH_ArkUI_DialogDismissEvent_SetShouldBlockDismiss设置是否拦截关闭），适用于需要携带自定义数据指针的场景；registerOnWillDismiss使用ArkUI_OnWillDismissEvent类型的事件处理器，通过回调返回值决定是否拦截关闭。
 
 **参数：**
 
@@ -616,7 +616,7 @@ int32_t (*registerOnWillDismissWithUserData)(ArkUI_NativeDialogHandle handle, vo
 | --- | --- |
 | ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | void* userData | 用户自定义数据指针。 |
-| callback | 监听自定义弹窗关闭的回调事件。 - event: 回调函数的入参，捕获关闭原因。 |
+| void (callback)(ArkUI_DialogDismissEvent event) | 监听自定义弹窗关闭的回调事件。 - event: 回调函数的入参，捕获关闭原因。 |
 
 
 **返回：**

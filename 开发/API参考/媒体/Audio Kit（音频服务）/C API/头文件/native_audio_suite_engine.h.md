@@ -1,6 +1,6 @@
 # native_audio_suite_engine.h
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -37,7 +37,7 @@
 | --- | --- | --- |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_Create(OH_AudioSuiteEngine** audioSuiteEngine) | - | 创建音频编创引擎。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_Destroy(OH_AudioSuiteEngine* audioSuiteEngine) | - | 销毁音频编创引擎句柄。 |
-| OH_AudioSuite_Result OH_AudioSuiteEngine_CreatePipeline(OH_AudioSuiteEngine* audioSuiteEngine, OH_AudioSuitePipeline** audioSuitePipeline, OH_AudioSuite_PipelineWorkMode workMode) | - | 在当前音频编创引擎中创建1个管线。管线是引擎内负责音频编创的执行单元，1个引擎可创建多个管线。 支持最多创建10条管线，其中至多有1条实时预览管线。 每个管线必须至少包含1个输入节点，有且只有1个输出节点。 当管线在OH_AudioSuite_PipelineWorkMode.AUDIOSUITE_PIPELINE_EDIT_MODE模式下工作时，支持所有的效果节点。 在API version 23之前，当管线在OH_AudioSuite_PipelineWorkMode.AUDIOSUITE_PIPELINE_REALTIME_MODE模式下工作时，仅支持OH_AudioNode_Type.EFFECT_NODE_TYPE_EQUALIZER效果节点； 在API version 23及以后，当管线在OH_AudioSuite_PipelineWorkMode.AUDIOSUITE_PIPELINE_REALTIME_MODE模式下工作时，支持所有效果节点。 |
+| OH_AudioSuite_Result OH_AudioSuiteEngine_CreatePipeline(OH_AudioSuiteEngine* audioSuiteEngine, OH_AudioSuitePipeline** audioSuitePipeline, OH_AudioSuite_PipelineWorkMode workMode) | - | 在当前音频编创引擎中创建1个管线。管线是引擎内负责音频编创的执行单元，1个引擎可创建多个管线。 支持最多创建10条管线。在API版本26.0.0之前，实时预览管线最多创建1条；在API版本26.0.0及以后，不再对实时预览管线的数量做单独限制，但管线的总数仍不得超过10条。 每个管线必须至少包含1个输入节点，有且只有1个输出节点。 当管线在OH_AudioSuite_PipelineWorkMode.AUDIOSUITE_PIPELINE_EDIT_MODE模式下工作时，支持所有的效果节点。 在API version 23之前，当管线在OH_AudioSuite_PipelineWorkMode.AUDIOSUITE_PIPELINE_REALTIME_MODE模式下工作时，仅支持OH_AudioNode_Type.EFFECT_NODE_TYPE_EQUALIZER效果节点； 在API version 23及以后，当管线在OH_AudioSuite_PipelineWorkMode.AUDIOSUITE_PIPELINE_REALTIME_MODE模式下工作时，支持所有效果节点。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_DestroyPipeline(OH_AudioSuitePipeline* audioSuitePipeline) | - | 销毁音频编创管线句柄。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_StartPipeline(OH_AudioSuitePipeline* audioSuitePipeline) | - | 开始运行该管线，管线会进入OH_AudioSuite_PipelineState.AUDIOSUITE_PIPELINE_RUNNING运行状态。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_StopPipeline(OH_AudioSuitePipeline* audioSuitePipeline) | - | 停止运行该管线，管线会进入OH_AudioSuite_PipelineState.AUDIOSUITE_PIPELINE_STOPPED停止状态。该函数不会改变管线中节点之间的连接关系，管线一旦被停止，OH_AudioSuiteEngine_RenderFrame就不能再进行音频处理。 |
@@ -49,7 +49,7 @@
 | OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_Reset(OH_AudioNodeBuilder* builder) | - | 重置一个音频编创节点构造器，同时将之前使用接口设置参数重置。若需复用构建器创建属性不同的新节点，必须调用此接口清除所有属性（如节点类型等）。 |
 | OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetNodeType(OH_AudioNodeBuilder* builder, OH_AudioNode_Type type) | - | 设置当前节点构造器需要构造的节点类型。创建节点时会根据类型验证其他参数，所有节点类型的创建均需设置此属性。 |
 | OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetFormat(OH_AudioNodeBuilder* builder, OH_AudioFormat audioFormat) | - | 配置输入/输出节点的音频格式。其余节点不配置，且只能在创建节点之前使用。对于输入节点，此函数可使应用指定写入数据的音频格式； 对于输出节点，此函数可使应用指定其期望获取数据的音频格式； 对于其他类型的节点则不支持调用此函数进行音频格式设置。 |
-| typedef int32_t (*OH_InputNode_RequestDataCallback)(OH_AudioNode* audioNode, void* userData, void* audioData, int32_t audioDataSize, bool* finished) | OH_InputNode_RequestDataCallback | 配置输入节点的请求数据回调函数。 |
+| typedef int32_t (*OH_InputNode_RequestDataCallback)(OH_AudioNode* audioNode, void* userData, void* audioData, int32_t audioDataSize, bool* finished) | OH_InputNode_RequestDataCallback | 定义输入节点请求数据的回调函数。 |
 | OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetRequestDataCallback(OH_AudioNodeBuilder* builder, OH_InputNode_RequestDataCallback callback, void* userData) | - | 配置当前输入节点构造器的写入音频数据回调函数。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_CreateNode(OH_AudioSuitePipeline* audioSuitePipeline, OH_AudioNodeBuilder* builder, OH_AudioNode** audioNode) | - | 根据音频编创构造器在音频管线中构造一个音频节点。当执行此函数，系统会基于builder中设置的节点类型校验参数的合法性。 应用可以通过返回值确定错误发生的原因。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_DestroyNode(OH_AudioNode* audioNode) | - | 销毁一个音频编创节点。节点是否可以被销毁取决于它所属管线的状态，如果管线不处于OH_AudioSuite_PipelineState.AUDIOSUITE_PIPELINE_STOPPED停止状态，而节点处于管线处理路径中，将销毁失败。 |
@@ -57,7 +57,7 @@
 | OH_AudioSuite_Result OH_AudioSuiteEngine_BypassEffectNode(OH_AudioNode* audioNode, bool bypass) | - | 设置当前节点的效果使能状态（仅效果节点支持）。当bypass为true时，效果节点仅透传数据，不进行任何效果处理。 当bypass为false时，效果节点进行对应的效果处理。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_SetAudioFormat(OH_AudioNode* audioNode, OH_AudioFormat *audioFormat) | - | 配置输入/输出节点的音频格式，在创建节点之后使用，只有输入和输出节点能够设置。输入节点指定音源格式，输出节点指定目标格式。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_ConnectNodes(OH_AudioNode* sourceAudioNode, OH_AudioNode* destAudioNode) | - | 连接两个节点，数据流走向从sourceAudioNode到destAudioNode。连接节点将改变管道拓扑，可能导致部分数据丢失，建议在引擎停止状态下执行此操作。 节点连接顺序：输入节点 -> 效果节点 -> 输出节点。 |
-| OH_AudioSuite_Result OH_AudioSuiteEngine_DisconnectNodes(OH_AudioNode* sourceAudioNode, OH_AudioNode* destAudioNode) | - | 断开连接两个节点。此操作将改变管道拓扑并可能导致数据丢失，建议在引擎停止状态下执行。 |
+| OH_AudioSuite_Result OH_AudioSuiteEngine_DisconnectNodes(OH_AudioNode* sourceAudioNode, OH_AudioNode* destAudioNode) | - | 断开两个节点的连接。此操作将改变管道拓扑并可能导致数据丢失，建议在引擎停止状态下执行。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_SetEqualizerFrequencyBandGains(OH_AudioNode* audioNode, OH_EqualizerFrequencyBandGains frequencyBandGains) | - | 设置当前均衡器节点的频段增益效果。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_GetEqualizerFrequencyBandGains(OH_AudioNode* audioNode, OH_EqualizerFrequencyBandGains* frequencyBandGains) | - | 获取当前均衡器节点的频段增益效果。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_SetSoundFieldType(OH_AudioNode* audioNode, OH_SoundFieldType soundFieldType) | - | 设置声场效果节点的配置参数。 |
@@ -79,6 +79,7 @@
 | OH_AudioSuite_Result OH_AudioSuiteEngine_GetPureVoiceChangeOption(OH_AudioNode* audioNode, OH_AudioSuite_PureVoiceChangeOption* option) | - | 获取传统变声节点的配置参数。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_SetGeneralVoiceChangeType(OH_AudioNode* audioNode, OH_AudioSuite_GeneralVoiceChangeType type) | - | 设置通用变声节点的配置参数。 |
 | OH_AudioSuite_Result OH_AudioSuiteEngine_GetGeneralVoiceChangeType(OH_AudioNode* audioNode, OH_AudioSuite_GeneralVoiceChangeType* type) | - | 获取通用变声节点的配置参数。 |
+| OH_AudioSuite_Result OH_AudioSuite_PrintInfo(OH_AudioSuiteEngine* audioSuiteEngine, OH_AudioSuitePipeline* audioSuitePipeline, int fd) | - | 打印AudioSuite运行时快照。 |
  
  
   
@@ -165,7 +166,7 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_CreatePipeline(OH_AudioSuiteEngine* aud
  
 在当前音频编创引擎中创建1个管线。管线是引擎内负责音频编创的执行单元，1个引擎可创建多个管线。
  
- 支持最多创建10条管线，其中至多有1条实时预览管线。
+ 支持最多创建10条管线。在API版本26.0.0之前，实时预览管线最多创建1条；在API版本26.0.0及以后，不再对实时预览管线的数量做单独限制，但管线的总数仍不得超过10条。
  
  每个管线必须至少包含1个输入节点，有且只有1个输出节点。
  
@@ -254,7 +255,7 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_StartPipeline(OH_AudioSuitePipeline* au
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数audioSuitePipeline为空指针。 AUDIOSUITE_ERROR_PIPELINE_NOT_EXIST：管线不存在或已经被销毁。 AUDIOSUITE_ERROR_INVALID_STATE：管线已在运行或节点连接异常。 可能的原因如下： 1. 管线已经在运行状态； 2. 当前管线中不存在输出类型节点； 3. 起始节点不是输入类型节点。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
+| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数audioSuitePipeline为空指针。 AUDIOSUITE_ERROR_PIPELINE_NOT_EXIST：管线不存在或已经被销毁。 AUDIOSUITE_ERROR_INVALID_STATE：管线已在运行或节点连接异常。 可能的原因如下： 1. 管线已经在运行状态； 2. 当前管线中不存在输出类型节点； 3. 起始节点不是输入类型节点。 4. HOA输入节点未连接HOA空间渲染节点，或HOA空间渲染节点的前置节点不是HOA输入节点。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
  
  
   
@@ -333,7 +334,7 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_RenderFrame(OH_AudioSuitePipeline* audi
 应用调用此接口获取管线处理后的音频数据（针对单输出效果节点）。
  
 > [!NOTE]
-> 应用程序需调用此接口获取经过效果处理后的音频数据。 调用后，管线会从输出节点向前依次拉取数据、应用效果处理， 最终将处理后的数据填充到应用程序传入的audioData指针中。 系统会尝试按requestFrameSize请求的大小填充数据，实际处理的数据大小通过responseSize返回给应用程序。 当应用程序为所有输入节点准备好数据并通过回调提交最后一次数据时，应在回调中设置finish标志位。 当管线中所有输入都传递了finish标志后，处理完成后会通过finishedFlag通知应用程序。 若finishedFlag为true，应用程序不应再调用此接口。
+> 应用程序需调用此接口获取经过效果处理后的音频数据。 调用后，管线会从输出节点向前依次拉取数据、应用效果处理， 最终将处理后的数据填充到应用程序传入的audioData指针中。 系统会尝试按requestFrameSize请求的大小填充数据，实际处理的数据大小通过responseSize返回给应用程序。 当应用程序为所有输入节点准备好数据并通过回调提交最后一次数据时，应在回调中设置完成标志。 当管线中所有输入都传递了完成标志后，接口处理完成后会通过finishedFlag通知应用程序。 若finishedFlag为true，应用程序不应再调用此接口。
 
  
 **起始版本：** 22
@@ -557,7 +558,7 @@ typedef int32_t (*OH_InputNode_RequestDataCallback)(OH_AudioNode* audioNode, voi
  
 **描述**
  
-配置输入节点的请求数据回调函数。
+定义输入节点请求数据的回调函数。
  
 > [!NOTE]
 > 用户把需要处理的PCM音频数据写入到audioData，OHAudioSuite从audioData拿到数据进行音频编创。 应用程序在此回调中向audioData写入不超过audioDataSize大小的数据。 当所有数据通过回调传递给管线后，应用程序应在最后一次回调中将finished设为true，此后管线不再调用此接口。 只有输入节点需要配置，其余节点不配置。
@@ -773,7 +774,7 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetAudioFormat(OH_AudioNode* audioNode,
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数audioNode或audioFormat为空指针。 AUDIOSUITE_ERROR_NODE_NOT_EXIST：节点不存在或者当前节点已经被销毁。 AUDIOSUITE_ERROR_UNSUPPORTED_OPERATION：audioNode是效果节点。 AUDIOSUITE_ERROR_INVALID_STATE：管线不在停止状态。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
+| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数audioNode或audioFormat为空指针。 AUDIOSUITE_ERROR_NODE_NOT_EXIST：节点不存在或者当前节点已经被销毁。 AUDIOSUITE_ERROR_UNSUPPORTED_OPERATION：audioNode是效果节点。 AUDIOSUITE_ERROR_UNSUPPORTED_FORMAT：（API版本26.0.0新增）参数audioFormat为不支持的格式。 AUDIOSUITE_ERROR_INVALID_STATE：管线不在停止状态。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
  
  
   
@@ -806,7 +807,7 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_ConnectNodes(OH_AudioNode* sourceAudioN
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数sourceAudioNode或destAudioNode为空指针。 AUDIOSUITE_ERROR_NODE_NOT_EXIST：节点不存在或者当前节点已经被销毁。 AUDIOSUITE_ERROR_UNSUPPORTED_CONNECT：节点之间不支持连接。 可能的原因如下： 1. 参数sourceAudioNode类型为输出类型节点； 2. 参数destAudioNode为类型为输入类型节点； 3. 参数sourceAudioNode和destAudioNode为同一个节点； 4. 参数sourceAudioNode为音源分离类型，但是destAudioNode类型不为输出类型接节点； 5. 参数sourceAudioNode和destAudioNode不为同一个管线中的节点； 6. 管线状态为运行状态，但是destAudioNode不为mix类型节点； 7. 管线状态为运行状态，destAudioNode为mix类型节点，但是sourceAudioNode节点未连接输入类型节点。 AUDIOSUITE_ERROR_INVALID_STATE：管线为无效状态。例如，无法找到输出节点。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
+| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数sourceAudioNode或destAudioNode为空指针。 AUDIOSUITE_ERROR_NODE_NOT_EXIST：节点不存在或者当前节点已经被销毁。 AUDIOSUITE_ERROR_UNSUPPORTED_CONNECT：节点之间不支持连接。 可能的原因如下： 1. 参数sourceAudioNode类型为输出类型节点； 2. 参数destAudioNode类型为输入类型节点； 3. 参数sourceAudioNode和destAudioNode为同一个节点； 4. 参数sourceAudioNode为音源分离类型，但是destAudioNode类型不为输出类型节点； 5. 参数sourceAudioNode和destAudioNode不为同一个管线中的节点； 6. 管线状态为运行状态，但是destAudioNode不为mix类型节点； 7. 管线状态为运行状态，destAudioNode为mix类型节点，但是sourceAudioNode节点未连接输入类型节点。 AUDIOSUITE_ERROR_INVALID_STATE：管线为无效状态。例如，无法找到输出节点。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
  
  
   
@@ -821,7 +822,7 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_DisconnectNodes(OH_AudioNode* sourceAud
  
 **描述**
  
-断开连接两个节点。此操作将改变管道拓扑并可能导致数据丢失，建议在引擎停止状态下执行。
+断开两个节点的连接。此操作将改变管道拓扑并可能导致数据丢失，建议在引擎停止状态下执行。
  
 **起始版本：** 22
  
@@ -1491,3 +1492,35 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetGeneralVoiceChangeType(OH_AudioNode*
 | 类型 | 说明 |
 | --- | --- |
 | OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_NODE_NOT_EXIST：节点不存在或者当前节点已经被销毁。 AUDIOSUITE_ERROR_UNSUPPORTED_OPERATION：audioNode节点类型为非通用变声效果节点。 AUDIOSUITE_ERROR_INVALID_PARAM：参数无效。例如，audioNode为空指针。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
+ 
+ 
+  
+
+#### OH_AudioSuite_PrintInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+OH_AudioSuite_Result OH_AudioSuite_PrintInfo(OH_AudioSuiteEngine* audioSuiteEngine, OH_AudioSuitePipeline* audioSuitePipeline, int fd)
+```
+ 
+**描述**
+ 
+打印AudioSuite运行时快照。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_AudioSuiteEngine* audioSuiteEngine | 指向需要显示运行时快照的AudioSuiteEngine的指针。 |
+| OH_AudioSuitePipeline* audioSuitePipeline | 指向需要显示运行时快照的AudioSuitePipeline的指针。 如果audioSuitePipeline为空，输出所有管道（引擎下的所有管道/节点）。否则，仅输出此流程和节点的快照。 |
+| int fd | 文件句柄，表示快照信息存储的位置。 如果fd小于0，快照信息存储在日志中。否则，快照将以追加模式存储在由fd句柄指向的文件中。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数为nullptr或无效值。 AUDIOSUITE_ERROR_SYSTEM：系统存在其他异常。 |

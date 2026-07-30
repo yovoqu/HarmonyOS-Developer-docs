@@ -1,6 +1,6 @@
 # Class (MapComponentController)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -204,7 +204,7 @@ let animateResult = await this.mapController.animateCameraStatus(cameraUpdate, 1
 
 animateCameraWithMarker(update: CameraUpdate, marker: Marker, duration: number): Promise&lt;AnimateResult&gt;
 
-在指定的持续时间内以动画的形式更新相机状态，并更新指定的marker。使用Promise异步回调。相机移动过程中不能被打断，否则[AnimateResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animateresult)的参数isCanceled返回值为true。
+在指定的持续时间内以动画的形式更新相机状态，并更新指定的marker。使用Promise异步回调。如果相机移动过程中被打断，则[AnimateResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animateresult)的参数isCanceled返回值为true。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -879,7 +879,7 @@ setMyLocationStyle(style: mapCommon.MyLocationStyle): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | mapCommon.MyLocationStyle | 是 | 用户的位置样式，异常值不处理。 说明： 如果displayType（定位图标的展示样式）使用FOLLOW_ROTATE（连续定位模式）需应用申请传感器权限：ohos.permission.ACCELEROMETER，具体可参考声明权限。 |
+| style | mapCommon.MyLocationStyle | 是 | 用户的位置样式，异常值不处理。 |
 
 
 **返回值：**
@@ -1667,7 +1667,7 @@ addMarker(options: mapCommon.MarkerOptions): Promise&lt;Marker&gt;
 | --- | --- |
 | 401 | Invalid input parameter. |
 | 1002601001 | The object to be operated does not exist. |
-| 1002601005 | Failed to generate the icon of the customized component. 说明： 从6.0.0(20)版本开始。 |
+| 1002601005 | Failed to generate the icon of the customized component. 适用版本：6.0.0(20)+ |
 
 
 **示例：**
@@ -3541,6 +3541,57 @@ this.mapController.setSphereEnabled(true, 1000, true);
 
 
 
+#### setSphereMapEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+setSphereMapEnabled(enabled: boolean, params?: mapCommon.SphereParams): Promise&lt;void&gt;
+
+设置3D地图开关。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 26.0.0
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | boolean | 是 | 以动画形式切换2D或3D地球，异常值不处理。取值范围： - true：开启3D地球 - false：开启2D地球 |
+| params | mapCommon.SphereParams | 否 | 球体属性。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**示例：**
+
+```text
+let mSphereOptions: mapCommon.SphereParams =
+  {
+    // 开启球体太阳光
+    sunLightEnabled: true,
+    // 开启球体城市光
+    cityLightEnabled: true,
+    // 设置动画时长为1000ms
+    animateDuration: 1000,
+    // 图片需存放在resources/base/media目录下
+    backgroundImage: $r('app.media.bg_compress'),
+    coverageImage: $r('app.media.coverage_icon')
+  };
+await this.mapController.setSphereMapEnabled(true, mSphereOptions);
+```
+
+
+
 #### addHeatmap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -3585,6 +3636,7 @@ addHeatmap(params: mapCommon.HeatmapParams): Promise&lt;Heatmap&gt;
 
 ```text
 let data: mapCommon.WeightedLatLng[] = [];
+// 生成500个随机坐标点，用于热力图数据
 for (let i = 0; i < 500; i++) {
   data.push({
     point: {
@@ -5726,7 +5778,7 @@ setIndoorMapEnabled(enabled: boolean): void
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 5.1.1(19)
 
@@ -5769,7 +5821,7 @@ isIndoorMapEnabled(): boolean
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 5.1.1(19)
 
@@ -5811,7 +5863,7 @@ switchIndoorMapFloor(buildingId: string, floorName: string): void
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 5.1.1(19)
 
@@ -5854,7 +5906,7 @@ setFloorControlsPosition(point: mapCommon.MapPoint): void
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 在6.0.0(20)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+**设备行为差异：** 在6.0.0(20)及之后版本该接口在phone、tablet和PC/2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 
@@ -5943,4 +5995,99 @@ setApproveNumberEnabled(enabled: boolean): void
 
 ```text
 this.mapController?.setApproveNumberEnabled(true);
+```
+
+
+
+#### addSignalLine
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+addSignalLine(signalParams: mapCommon.MapSignalParams): Promise&lt;MapSignalLine&gt;
+
+添加信号路线到地图，使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| signalParams | mapCommon.MapSignalParams | 是 | 信号路线管理对象。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;MapSignalLine&gt; | Promise对象，返回信号路线管理对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1002600001 | System internal error. |
+| 1002600017 | The app lacks permission for the map signal prediction capability. |
+| 1002600018 | signalId in the signal route already exists. |
+| 1002600019 | The route length exceeds the maximum limit of 200 km. |
+| 1002600020 | Invalid carrier. |
+| 1002600021 | The route signal is unpredictable. |
+
+
+**示例：**
+
+```text
+let mapSignalParams: mapCommon.MapSignalParams = {
+  signalId: 'signalId1'
+};
+mapSignalParams.points =
+  [{ longitude: 118.553695, latitude: 32.050789 },
+    { longitude: 118.553738, latitude: 32.050884 },
+    { longitude: 118.548506, latitude: 32.048543 },
+    { longitude: 118.548413, latitude: 32.048374 },
+    { longitude: 118.547185, latitude: 32.048252 },
+    { longitude: 118.546939, latitude: 32.048296 }]
+// 添加信号路线
+let mapSignalLine1 = await mapController.addSignalLine(mapSignalParams);
+```
+
+
+
+#### removeSignalLineCache
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+removeSignalLineCache(signalLineId?: string): void
+
+移除地图的信号路线数据缓存。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| signalLineId | string | 否 | 信号路线ID。 若为空值，则清空所有地图的信号路线数据缓存。 |
+
+
+**示例：**
+
+```text
+// 删除信号路线ID为signalId1的缓存
+this.mapController?.removeSignalLineCache('signalId1');
 ```

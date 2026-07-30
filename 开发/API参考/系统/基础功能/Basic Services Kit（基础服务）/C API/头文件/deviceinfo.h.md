@@ -1,6 +1,6 @@
 # deviceinfo.h
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-deviceinfo-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -642,7 +642,7 @@ const char *OH_GetDistributionOSVersion(void)
   
 | 类型 | 说明 |
 | --- | --- |
-| const char* | ISV发行版系统版本号。 如果没有指定ISV，它将返回与OH_GetOSFullName相同的值。 |
+| const char* | ISV发行版系统版本号。 如果没有指定ISV，它将返回与OH_GetSdkApiVersion相同的值。 |
  
  
   

@@ -13,7 +13,7 @@ RichEditor点击输入框后会自动获取焦点，然后弹出软键盘；那�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dMUTUV8YQV63ysbdBumblQ/zh-cn_image_0000002658787901.png?HW-CC-KV=V1&HW-CC-Date=20260723T012527Z&HW-CC-Expire=86400&HW-CC-Sign=015DC5466EC1A940126BF31BE735541CD3ECEB33FB3D7369462AF4B800B30753)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dMUTUV8YQV63ysbdBumblQ/zh-cn_image_0000002658787901.png?HW-CC-KV=V1&HW-CC-Date=20260730T072317Z&HW-CC-Expire=86400&HW-CC-Sign=EED3C379C39FCA80A0F9AD29B44D4C48B575456E0F1672FEE4C575BED362EBA3)
 
  
  

@@ -1,6 +1,6 @@
 # OH_Huks_KeyMaterial25519
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-keymaterial25519
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,7 +37,7 @@ struct OH_Huks_KeyMaterial25519 {...}
 | 名称 | 描述 |
 | --- | --- |
 | enum OH_Huks_KeyAlg keyAlg | 密钥的算法类型。 |
-| uint32_t keySize | 25519类型密钥的长度。 |
-| uint32_t pubKeySize | 公钥的长度。 |
-| uint32_t priKeySize | 私钥的长度。 |
+| uint32_t keySize | 25519类型密钥的长度，单位：Bit。 |
+| uint32_t pubKeySize | 公钥的长度，单位：Byte。 |
+| uint32_t priKeySize | 私钥的长度，单位：Byte。 |
 | uint32_t reserved | 预留字段。建议开发者赋值为0。 |

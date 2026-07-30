@@ -11,7 +11,7 @@
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/MA1U6KZvT5WL5ELzUq1fIg/zh-cn_image_0000002658849111.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=62409BDA73AA0D2B5E0C186331E1B588D9B20B2B57AC4F1FECFD3924A8E4FFFA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/MA1U6KZvT5WL5ELzUq1fIg/zh-cn_image_0000002658849111.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=ACBED01AF7AD6563A28F64E6BFDE420F35AF7B9A3018C5DEE275BACC87FB6EC2)
 
  
  
@@ -58,7 +58,7 @@ struct ImageScalingDemo {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/a19wmy04T9C-XCF94w2krA/zh-cn_image_0000002628609852.png?HW-CC-KV=V1&HW-CC-Date=20260723T013018Z&HW-CC-Expire=86400&HW-CC-Sign=6258DE407C914DDF2B226A3756735B0D56916B32D62252740F98F3FE2E51A782)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/a19wmy04T9C-XCF94w2krA/zh-cn_image_0000002628609852.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=7EC68263918CE4B0780F63637CE6C1FAFFC817612C87CBDF3A98A28CADA1D7A6)
 
  
  

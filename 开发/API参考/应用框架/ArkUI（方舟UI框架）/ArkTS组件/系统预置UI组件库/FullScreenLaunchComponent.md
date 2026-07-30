@@ -1,6 +1,6 @@
 # FullScreenLaunchComponent
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-fullscreenlaunchcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -83,6 +83,10 @@ FullScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, option
 本示例展示组件使用方法和扩展的元服务。实际运行时请使用开发者自己的元服务appId。
 
 FullScreenLaunchComponent组件需要由使用方调用。在提供方完成本地的安装后，即可实现在使用方应用或者元服务中全屏嵌入式拉起提供方的效果。
+
+> [!NOTE]
+> 由于嵌入式元服务运行在独立进程，其崩溃异常不会直接暴露在宿主的日志中。本地调试时可通过以下方式查看真实报错栈： 打开DevEco Studio的HiLog面板。 将左上角的模式切换为User logs of selected app。 在右侧进程列表中，选择被拉起的元服务进程（被拉起元服务的包名，且后缀带有embeddable字样）。
+
 
 **使用方**
 

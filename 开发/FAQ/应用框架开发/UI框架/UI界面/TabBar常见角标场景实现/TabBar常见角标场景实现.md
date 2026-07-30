@@ -149,7 +149,7 @@ struct <span style="color: rgb(0,0,255);">DotsBadge </span><span style="color: r
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/M0FNKhQeS6ih1eLeL0JMVw/zh-cn_image_0000002628564716.png?HW-CC-KV=V1&HW-CC-Date=20260723T013216Z&HW-CC-Expire=86400&HW-CC-Sign=F29C223AA8E3CCB9B084EEDC4D2C25FBC47149C770A8DA8E9EC8C29A12470AC6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/M0FNKhQeS6ih1eLeL0JMVw/zh-cn_image_0000002628564716.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=CA0849777764A9C59A24524F6F13C8DEF6EC82C33AE3E11911DE9F311FD66157)
 
 
 2. Badge组件实现字符类型角标。
@@ -250,7 +250,7 @@ struct <span style="color: rgb(0,0,255);">StringBadge </span><span style="color:
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/2R6fyfmUQ9O5-ijxokLXtg/zh-cn_image_0000002658924021.png?HW-CC-KV=V1&HW-CC-Date=20260723T013216Z&HW-CC-Expire=86400&HW-CC-Sign=404DB2D2486CFF810A50E60BBF499D5455D948D6BF370C1CF5F1E1E362FDF7CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/2R6fyfmUQ9O5-ijxokLXtg/zh-cn_image_0000002658924021.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=818DD01F700458FE4C075E3856AA2E1BBD1413E220A24E5B36B2F2D29CE02EBA)
 
 
 3. Badge组件实现数字类型角标。
@@ -351,7 +351,7 @@ struct <span style="color: rgb(0,0,255);">NumberBadge </span><span style="color:
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/zQRkOuRHR6qSDDjYqYx8FA/zh-cn_image_0000002628404812.png?HW-CC-KV=V1&HW-CC-Date=20260723T013216Z&HW-CC-Expire=86400&HW-CC-Sign=CA491D765F87AF70A4FBC6ADDDAE49ACCFB6D5096785DFF595414C5BDBE9CC25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/zQRkOuRHR6qSDDjYqYx8FA/zh-cn_image_0000002628404812.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=EA00DB0C1F9F967B721542EDDA81208063F63EE0321DB38416CE32326549BE3A)
 
 - **场景二**：实现点击清除角标的功能。上述三种类型的角标均可通过点击清除，接下来将以红点型角标为例，详细介绍其实现方式。
 
@@ -704,7 +704,7 @@ struct <span style="color: rgb(0,0,255);">DotsBadgeDisappear3 </span><span style
  上述三种方案效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/5QjC9o7lT-Kgw71Oms4xfg/zh-cn_image_0000002658804081.png?HW-CC-KV=V1&HW-CC-Date=20260723T013216Z&HW-CC-Expire=86400&HW-CC-Sign=8BD9587BECBD6F1BCA7C54C26DE49B1D100FFE0912814BF377D87209F576FE88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/5QjC9o7lT-Kgw71Oms4xfg/zh-cn_image_0000002658804081.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=ED7C69C33C1B1958589458C4C82AA4933A49A43C47F8390CD2F0DA51D1B10150)
 
 
  - **场景三**：实现角标数据更新功能。
@@ -888,7 +888,7 @@ struct <span style="color: rgb(0,0,255);">UpdateNumberBadge1 </span><span style=
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/VsjBjmWqQuGQDEew1qi9RQ/zh-cn_image_0000002628564718.png?HW-CC-KV=V1&HW-CC-Date=20260723T013216Z&HW-CC-Expire=86400&HW-CC-Sign=4F114300CE6B5EDD5E85B43A9DF5ABC24540B64CA9FC772DD38A909216A71DA1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/VsjBjmWqQuGQDEew1qi9RQ/zh-cn_image_0000002628564718.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=6694C067C7B4207B3143D65DFE7F369BEC781FE8EB66891BEDC754CC31F854D5)
 
 - **方案二**：使用@ObservedV2和@Trace对数据模型直接观测。该方案与场景二方案三的实现方式类似，不再赘述。
 
@@ -997,6 +997,6 @@ struct <span style="color: rgb(0,0,255);">DotsCustom </span><span style="color: 
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/HPTWNwFVQNGK_ziwg772VQ/zh-cn_image_0000002658924025.png?HW-CC-KV=V1&HW-CC-Date=20260723T013216Z&HW-CC-Expire=86400&HW-CC-Sign=7BE10DFF643282B2F42B9A3B83720CB9FC78F404B292BBB9E8E4C5E5C9E5F9BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/HPTWNwFVQNGK_ziwg772VQ/zh-cn_image_0000002658924025.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=921CE566D8DE6CCCAC81C9923EF5B4C5B6522049055E0EE9D68094FF172D8231)
 
 - 场景二、三：实现角标清除与更新。自定义角标的清除与数据更新功能，实现方式与Badge组件类似，此处不再赘述。

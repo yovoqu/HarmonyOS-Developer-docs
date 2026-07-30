@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行虚拟机快照相关开发
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-create-snapshot
 
@@ -39,7 +39,7 @@ JavaScript虚拟机（JSVM）的快照创建功能，将当前运行时的JavaSc
  
 cpp部分代码：
  
-**注意事项**: 需要在OH_JSVM_Init的时候，将JSVM对外部的依赖注册到initOptions.externalReferences中。
+**注意事项**：需要在OH_JSVM_Init的时候，将JSVM对外部的依赖注册到initOptions.externalReferences中。
  
 ```cpp
 #include "napi/native_api.h"

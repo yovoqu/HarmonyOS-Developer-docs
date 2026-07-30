@@ -1,6 +1,6 @@
 # GestureEvent手势事件坐标之间的区别
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-737
 
@@ -13,14 +13,14 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/v6r4EcgfTsyAykCsqDXSiw/zh-cn_image_0000002658914551.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012607Z&HW-CC-Expire=86400&HW-CC-Sign=5864298DAEA525A898B1149E5FEC81DA549E7FD9EB005DB6F794AFC43A3EBD69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/evrOQ1vAQtupymKtQUd6hw/zh-cn_image_0000002658914551.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072327Z&HW-CC-Expire=86400&HW-CC-Sign=7432B12C80FE9E6C6903AB6F3A2E038D7D5D452778592BA113D78C36DDC21390)
 
  
  
 
 #### 背景知识
 
-- [添加手势响应](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rkts-interaction-development-guide-support-gesture)：当用户的操作符合某个手势的特征时，系统会将其识别为该手势，这一过程称为手势识别。为了响应某一个手势，需在组件上添加对应的手势对象，以便系统可以收集并进行处理。
+- [添加手势响应](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-development-guide-support-gesture)：当用户的操作符合某个手势的特征时，系统会将其识别为该手势，这一过程称为手势识别。为了响应某一个手势，需在组件上添加对应的手势对象，以便系统可以收集并进行处理。
 - [GestureEvent对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gestureevent对象说明)：继承于[BaseEvent对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-customize-judge#baseevent8)，是HarmonyOS中用于表示手势事件的数据类型对象。这个对象包含了处理手势事件所需的信息，例如事件类型、目标信息等。
 
  

@@ -1,6 +1,6 @@
 # @ohos.enterprise.securityManager（安全管理）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-securitymanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -392,6 +392,7 @@ setPasswordPolicy(admin: Want, policy: PasswordPolicy): void
 | --- | --- |
 | 9200001 | The application is not an administrator application of the device. |
 | 9200002 | The administrator application does not have permission to manage the device. |
+| 9200007 | The system ability works abnormally. |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -412,6 +413,7 @@ let policy: securityManager.PasswordPolicy = {
   complexityRegex: '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[a-zA-Z\\d!@#$%^&*]{8,}$',
   validityPeriod: 1,
   additionalDescription: '至少八个字符，至少一个大写字母，一个小写字母，一个数字和一个特殊字符',
+  passwordAlgs: securityManager.PasswordAlgs.SCRYPT_HKDF_SM4,
 };
 try {
   securityManager.setPasswordPolicy(wantTemp, policy);
@@ -427,7 +429,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getPasswordPolicy(admin: Want): PasswordPolicy
+getPasswordPolicy(admin: Want | null): PasswordPolicy
 
 获取设备锁屏口令策略。
 
@@ -441,7 +443,7 @@ getPasswordPolicy(admin: Want): PasswordPolicy
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
 
 
 **返回值：**
@@ -680,7 +682,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getAppClipboardPolicy(admin: Want, tokenId?: number): string
+getAppClipboardPolicy(admin: Want | null, tokenId?: number): string
 
 获取设备剪贴板策略。
 
@@ -694,7 +696,7 @@ getAppClipboardPolicy(admin: Want, tokenId?: number): string
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
 | tokenId | number | 否 | 目标应用的身份标识。可通过bundleManager.getApplicationInfo获取accessTokenId。 |
 
 
@@ -734,7 +736,7 @@ try {
   let result: string = securityManager.getAppClipboardPolicy(wantTemp, tokenId);
   console.info(`Succeeded in getting clipboard policy, result : ${result}`);
 } catch(err) {
-  console.error(`Failed to set clipboard policy. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to get clipboard policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
@@ -805,7 +807,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string
+getAppClipboardPolicy(admin: Want | null, bundleName: string, accountId: number): string
 
 获取指定用户下指定应用的设备剪贴板策略。
 
@@ -819,7 +821,7 @@ getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): strin
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
 | bundleName | string | 是 | 被设置剪贴板策略的应用包名。 |
 | accountId | number | 是 | 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
 
@@ -860,7 +862,7 @@ try {
   let result: string = securityManager.getAppClipboardPolicy(wantTemp, bundleName, accountId);
   console.info(`Succeeded in getting clipboard policy, result : ${result}`);
 } catch(err) {
-  console.error(`Failed to set clipboard policy. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to get clipboard policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
@@ -892,7 +894,7 @@ setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelM
 | --- | --- | --- | --- |
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 | bundleName | string | 是 | 被设置水印的应用包名。 |
-| source | string \| image.PixelMap | 是 | string表示图像路径，图像路径为应用沙箱路径(应用沙箱路径和真实路径的对应关系可参见：应用沙箱路径和真实物理路径的对应关系)等应用有权限访问的路径。 image.PixelMap表示图像对象，图像像素占用大小不得超过500KB。 图像像素占用大小计算公式：图像宽度(像素)×图像高度 (像素)×每个像素占用的字节数（通常为4）。例如：一张 100x100 的图片，图像像素占用大小为100×100×4=40000字节。 |
+| source | string \| image.PixelMap | 是 | string表示图像路径，图像路径为应用沙箱路径(应用沙箱路径和真实路径的对应关系可参见：应用沙箱路径和真实物理路径的对应关系)等应用有权限访问的路径。 image.PixelMap表示图像对象。 图像像素占用大小不得超过500KB。 图像像素占用大小计算公式：图像宽度(像素)×图像高度 (像素)×每个像素占用的字节数（通常为4）。例如：一张 100x100 的图片，图像像素占用大小为100×100×4=40000字节。 |
 | accountId | number | 是 | 用户ID。accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
 
 
@@ -925,7 +927,7 @@ let source: string = '/data/storage/el1/base/test.png';
 let accountId: number = 100;
 try {
   securityManager.setWatermarkImage(wantTemp, bundleName, source, accountId);
-  console.info(`Succeeded in setting set watermarkImage policy.`);
+  console.info(`Succeeded in setting watermarkImage policy.`);
 } catch(err) {
   console.error(`Failed to set watermarkImage policy. Code: ${err.code}, message: ${err.message}`);
 }
@@ -939,7 +941,7 @@ try {
 
 cancelWatermarkImage(admin: Want, bundleName: string, accountId: number): void
 
-取消指定用户的水印策略。
+取消指定用户的水印策略。当应用不再需要水印保护或需要更换水印时，企业可调用此接口取消水印策略。当使用[企业数字空间](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-introduction)时，只能在当前用户下取消当前用户的水印。即可以在100用户下取消100用户的水印，不可以在100用户下取消101用户的水印。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
 
@@ -984,7 +986,7 @@ let bundleName: string = 'com.example.myapplication';
 let accountId: number = 100;
 try {
   securityManager.cancelWatermarkImage(wantTemp, bundleName, accountId);
-  console.info(`Succeeded in setting cancel watermarkImage policy.`);
+  console.info(`Succeeded in cancelling watermarkImage policy.`);
 } catch(err) {
   console.error(`Failed to cancel watermarkImage policy. Code: ${err.code}, message: ${err.message}`);
 }
@@ -1177,6 +1179,7 @@ setExternalSourceExtensionsPolicy(admin: Want, policy: common.ManagedPolicy): vo
 | 9200010 | A conflict policy has been configured. |
 | 9200012 | Parameter verification failed. |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
 
 **示例：**
@@ -1204,7 +1207,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy
+getExternalSourceExtensionsPolicy(admin: Want | null): common.ManagedPolicy
 
 获取外部来源扩展程序的管控策略。
 
@@ -1220,7 +1223,7 @@ getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
 
 
 **返回值：**
@@ -1239,6 +1242,7 @@ getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy
 | 9200001 | The application is not an administrator application of the device. |
 | 9200002 | The administrator application does not have permission to manage the device. |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
 
 **示例：**
@@ -1367,7 +1371,21 @@ try {
 
 uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: number): void
 
-卸载企业应用重签名证书。
+卸载企业应用重签名证书。卸载企业重签名证书后，使用该证书签名的应用在设备重启前正常运行，设备重启后无法运行。
+
+使用场景：
+
+1.安装新证书：调用[installEnterpriseReSignatureCertificate](#securitymanagerinstallenterpriseresignaturecertificate24)接口安装新证书后，经新证书重签名的应用可正常运行。如果旧签名证书对应的应用为超级设备管理应用，需先取消激活后才能卸载证书，否则卸载证书后该应用无法卸载且无法运行。
+
+2.恢复误删证书：调用[installEnterpriseReSignatureCertificate](#securitymanagerinstallenterpriseresignaturecertificate24)接口重新安装误删除的证书后，已重签名的应用可正常运行，不受影响。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/Z9pQlVryTxexP_Rmi0Lzjw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071639Z&HW-CC-Expire=86400&HW-CC-Sign=FB71A27E05778DCF09FC74C027C702C3839FB28289CB8D72C9F082BE206B2B18)
+
+
+删除证书常见证书过期和证书泄露场景，建议开发者在实现该功能时，强提示管理员谨慎删除证书，并确保删除证书前加载新的重签名证书，并完成所有应用更新切换到新的重签名证书，否则重启后历史安装的应用将无法运行。
+
+
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
 
@@ -1505,7 +1523,7 @@ imageSource.createPixelMap().then((pixelMap: image.PixelMap) => {
 
 cancelScreenWatermarkImage(admin: Want): void
 
-取消屏幕水印策略，对所有用户生效。
+取消屏幕水印策略，对所有用户生效。取消成功后，设备屏幕上的水印消失。当设备不再需要屏幕水印保护时，企业可调用此接口取消水印策略。只有设置屏幕水印的用户才能取消该水印，例如用户100设置的屏幕水印，用户101无法取消。
 
 **起始版本**：26.0.0
 
@@ -1554,6 +1572,554 @@ try {
 
 
 
+#### securityManager.setDisallowedPermission
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setDisallowedPermission(admin: Want, permission: string, disallow: boolean, accountId: number): void
+
+禁用指定用户下的指定权限，禁用后指定用户下的所有应用申请和使用指定权限时默认拒绝。
+
+> [!NOTE]
+> 1.只能禁用 权限APL等级 为normal或system_basic的权限，否则返回错误码9201045。 2.单个用户下最多可以禁用200个权限。 3.权限禁用后，仅影响应用（系统应用和普通应用）使用对应的权限，不影响系统SA使用对应的权限。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** 针对同一个权限设置[从严管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则1从严管控)，不同权限设置[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| permission | string | 是 | 权限名称。 |
+| disallow | boolean | 是 | 是否禁用。true表示禁用，false表示取消禁用。 |
+| accountId | number | 是 | 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 9201045 | This permission cannot be disallowed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let permission: string = 'ohos.permission.CAMERA';
+let disallow: boolean = true;
+let accountId: number = 100;
+try {
+  securityManager.setDisallowedPermission(wantTemp, permission, disallow, accountId);
+  console.info(`Succeeded in setting disallowed permission.`);
+} catch(err) {
+  console.error(`Failed to set disallowed permission. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### securityManager.getDisallowedPermissions
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getDisallowedPermissions(admin: Want | null, accountId: number): Array&lt;string&gt;
+
+获取指定用户下禁用的权限列表。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。当admin为null时，表示获取所有企业设备管理应用下发的禁用权限列表，返回合并后的结果。 |
+| accountId | number | 是 | 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;string&gt; | 返回禁用的权限列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```json
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let accountId: number = 100;
+try {
+  let result: Array<string> = securityManager.getDisallowedPermissions(wantTemp, accountId);
+  console.info(`Succeeded in getting disallowed permissions, result : ${JSON.stringify(result)}`);
+} catch(err) {
+  console.error(`Failed to get disallowed permissions. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### securityManager.addAllowedPermissionBundle
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+addAllowedPermissionBundle(admin: Want, permission: string, applicationInstance: common.ApplicationInstance): void
+
+将应用添加至权限使用例外名单，例外名单中的应用不受[setDisallowedPermission](#securitymanagersetdisallowedpermission)设置的权限禁用策略限制。
+
+> [!NOTE]
+> 1.必须先通过 setDisallowedPermission 接口禁用权限后，才能添加应用到权限使用例外名单，否则返回错误码9201044。 2.应用实际未申请指定权限时，不可将应用添加到权限使用例外名单中。例如相机权限被禁用时，A应用实际未申请相机权限，则不能添加A应用到相机权限使用例外名单中，返回错误码9200012。可以通过 bm dump 命令查询应用是否申请指定权限。 3.当指定权限通过 setDisallowedPermission 接口取消禁用后，该权限对应的权限使用例外名单会同步清理。 4.所有用户下单个权限最多可以设置1024个应用到权限使用例外名单。 5.系统应用和普通应用都可以添加。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| permission | string | 是 | 权限名称。 |
+| applicationInstance | common.ApplicationInstance | 是 | 需添加到权限使用例外名单的应用实例信息。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 9201015 | The application is not installed. |
+| 9201044 | This permission is not disallowed. Applications cannot be added to or removed from the trustlist. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { securityManager, common } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let permission: string = 'ohos.permission.CAMERA';
+let disallow: boolean = true;
+let accountId: number = 100;
+// 该应用已经申请了ohos.permission.CAMERA权限
+let appInstance: common.ApplicationInstance = {
+  appIdentifier: '123456789',
+  appIndex: 0,
+  accountId: 100
+};
+try {
+  // 禁用ohos.permission.CAMERA权限
+  securityManager.setDisallowedPermission(wantTemp, permission, disallow, accountId);
+  // 设置指定应用可以继续使用ohos.permission.CAMERA权限
+  securityManager.addAllowedPermissionBundle(wantTemp, permission, appInstance);
+  console.info(`Succeeded in adding allowed permission bundle.`);
+} catch(err) {
+  console.error(`Failed to add allowed permission bundle. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### securityManager.removeAllowedPermissionBundle
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+removeAllowedPermissionBundle(admin: Want, permission: string, applicationInstance: common.ApplicationInstance): void
+
+从权限使用例外名单中移除指定应用，移除后该应用不能继续使用对应的权限。
+
+> [!NOTE]
+> 必须先通过 setDisallowedPermission 接口禁用权限后，才能从权限使用例外名单移除应用，否则返回错误码9201044。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| permission | string | 是 | 权限名称。 |
+| applicationInstance | common.ApplicationInstance | 是 | 需从权限使用例外名单移除的应用实例信息。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 9201044 | This permission is not disallowed. Applications cannot be added to or removed from the trustlist. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { securityManager, common } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let permission: string = 'ohos.permission.CAMERA';
+let appInstance: common.ApplicationInstance = {
+  appIdentifier: '736498586',
+  appIndex: 0,
+  accountId: 100
+};
+try {
+  securityManager.removeAllowedPermissionBundle(wantTemp, permission, appInstance);
+  console.info(`Succeeded in removing allowed permission bundle.`);
+} catch(err) {
+  console.error(`Failed to remove allowed permission bundle. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### securityManager.getAllowedPermissionBundles
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getAllowedPermissionBundles(admin: Want | null, permission: string, accountId: number): Array<common.ApplicationInstance>
+
+获取权限使用例外名单的应用列表。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。当admin为null时，表示获取所有企业设备管理应用下发的权限使用例外应用名单，返回合并后的结果。 |
+| permission | string | 是 | 权限名称。 |
+| accountId | number | 是 | 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array<common.ApplicationInstance> | 返回权限使用例外名单列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```json
+import { securityManager, common } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let permission: string = 'ohos.permission.CAMERA';
+let accountId: number = 100;
+try {
+  let result: Array<common.ApplicationInstance> = securityManager.getAllowedPermissionBundles(wantTemp, permission, accountId);
+  console.info(`Succeeded in getting allowed permission bundles, result : ${JSON.stringify(result)}`);
+} catch(err) {
+  console.error(`Failed to get allowed permission bundles. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### securityManager.setWatermarkImage
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number, properties:WatermarkProperties): void
+
+为指定用户的指定应用设置水印策略。当前只支持最多保存100个策略。
+
+> [!NOTE]
+> 本接口适用于企业场景下为三方应用设置水印，降低企业信息泄露风险。不建议为系统应用设置水印（如：桌面应用），可能存在未知异常。 当水印属性 properties 行列参数的取值范围是[1, 255]内的整数。若传入小于1或大于255的值，接口会返回错误码9200012。 当水印属性行数和列数都为1时，居中显示单个水印图片。当水印属性行数为m，列数为n时，按m行n列的网格布局排列显示m*n个水印图片。当水印属性行列参数过大，导致网格布局无法适应窗口大小时，水印会以窗口左上角为原点，以平铺方式重复覆盖整个应用窗口界面，水印图片超出界面右侧、下侧的部分会被裁剪（例如屏幕宽高是1260*2720，水印图片宽高是100*100，若设置的行数超过27，或设置的列数超过12，水印会以平铺方式重复覆盖整个应用窗口界面）。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [独占](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则2独占)，同一个用户下的同一个应用的水印独占。不同用户、不同应用的水印[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| bundleName | string | 是 | 被设置水印的应用包名。 |
+| source | string \| image.PixelMap | 是 | string表示图像路径，图像路径为应用沙箱路径(应用沙箱路径和真实路径的对应关系可参见：应用沙箱路径和真实物理路径的对应关系)等应用有权限访问的路径。 image.PixelMap表示图像对象。 图像像素占用大小不得超过500KB。 图像像素占用大小计算公式：图像宽度(像素)×图像高度 (像素)×每个像素占用的字节数（通常为4）。例如：一张 100x100 的图片，图像像素占用大小为100×100×4=40000字节。 |
+| accountId | number | 是 | 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+| properties | WatermarkProperties | 是 | 配置水印的行列数。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let bundleName: string = 'com.example.myapplication';
+let source: string = '/data/storage/el1/base/test.png';
+let accountId: number = 100;
+// 需根据实际情况进行替换。示例代码水印属性行数和列数都设为1，会居中显示单个水印图片
+let properties: securityManager.WatermarkProperties = {
+  intervalsRow: 1,
+  intervalsCol: 1
+}
+try {
+  securityManager.setWatermarkImage(wantTemp, bundleName, source, accountId, properties);
+  console.info(`Succeeded in setting watermarkImage policy.`);
+} catch(err) {
+  console.error(`Failed to set watermarkImage policy. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let bundleName: string = 'com.example.myapplication';
+let source: string = '/data/storage/el1/base/test.png';
+let accountId: number = 100;
+// 需根据实际情况进行替换。设备屏幕宽高是1260*2720，水印图片宽高是100*100，示例代码水印属性行数为27，列数为12，按27行12列的网格布局排列显示27*12个水印图片
+let properties: securityManager.WatermarkProperties = {
+  intervalsRow: 27,
+  intervalsCol: 12
+}
+try {
+  securityManager.setWatermarkImage(wantTemp, bundleName, source, accountId, properties);
+  console.info(`Succeeded in setting watermarkImage policy.`);
+} catch(err) {
+  console.error(`Failed to set watermarkImage policy. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let bundleName: string = 'com.example.myapplication';
+let source: string = '/data/storage/el1/base/test.png';
+let accountId: number = 100;
+// 需根据实际情况进行替换。设备屏幕宽高是1260*2720，水印图片宽高是100*100，示例代码水印属性行数为28，列数为12，28 * 100 > 2720，网格布局无法适应窗口大小，水印会以窗口左上角为原点，以平铺方式重复覆盖整个应用窗口界面，超出界面右侧、下侧的水印图片会被裁剪
+let properties: securityManager.WatermarkProperties = {
+  intervalsRow: 28,
+  intervalsCol: 12
+}
+try {
+  securityManager.setWatermarkImage(wantTemp, bundleName, source, accountId, properties);
+  console.info(`Succeeded in setting watermarkImage policy.`);
+} catch(err) {
+  console.error(`Failed to set watermarkImage policy. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### securityManager.getWatermarkImageApps
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getWatermarkImageApps(admin: Want, accountId: number): Array&lt;string&gt;
+
+获取指定用户下已设置水印的应用程序包名列表。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| accountId | number | 是 | 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;string&gt; | 返回已设置水印的应用程序包名列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```json
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let accountId: number = 100;
+try {
+  let result: Array<string> = securityManager.getWatermarkImageApps(wantTemp, accountId);
+  console.info(`Succeeded in getting watermark image apps, result : ${JSON.stringify(result)}`);
+} catch(err) {
+  console.error(`Failed to get watermark image apps. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
 #### CertBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1583,6 +2149,7 @@ try {
 | complexityRegex | string | 否 | 是 | 口令复杂度正则表达式。 |
 | validityPeriod | number | 否 | 是 | 密码有效期（单位：毫秒）。 |
 | additionalDescription | string | 否 | 是 | 口令复杂度描述文本，例如：密码中必须包含字母、数字、特殊字符，至少8个字符，最多30个字符。 |
+| passwordAlgs | PasswordAlgs | 否 | 是 | 处理口令数据使用的加密算法。设置后，PC/2in1设备上将原始口令处理成口令凭据会使用该参数指定的加密算法，其他设备无效果。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1639,3 +2206,43 @@ try {
 | DEFAULT | 1 | 默认由用户授予。 |
 | GRANTED | 0 | 已静默授予。 |
 | DENIED | -1 | 已静默拒绝。 |
+
+
+
+
+#### WatermarkProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+水印属性。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| intervalsRow | number | 否 | 否 | 显示水印的行数。 |
+| intervalsCol | number | 否 | 否 | 显示水印的列数。 |
+
+
+
+
+#### PasswordAlgs
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+处理口令数据使用的加密算法。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| SCRYPT_HKDF_AES | 0 | SCRYPT-HKDF-AES组合加密算法。 |
+| SCRYPT_HKDF_SM4 | 1 | SCRYPT-HKDF-SM4组合加密算法。 |

@@ -1,6 +1,6 @@
 # PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-16
 
@@ -74,16 +74,16 @@ private controller: pdfViewManager.PdfController = new pdfViewManager.PdfControl
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/qyqhSuYPRKq4a7IBdc0hMA/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260723T013705Z&HW-CC-Expire=86400&HW-CC-Sign=DF74EC385B8D5B10D93E3CC3790947E11887F6A1CDD3DFFA2D974A46E1975D27)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/qfNvUrEzS7u9lyNNHbXfwg/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=04E59CB1D0A28D4F6D28CF1B5E095DF118B478EB2F3B300BAB3461793FFD5304)
 
  
  
 
 #### 背景知识
 
-- 在PDF中可以添加[SquareAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section3231520103410)标注并设置背景填充颜色。
-- PDF服务添加批注方法[addAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section8253013193814)。
-- pdfService提供了很多种添加批注的类，但是目前没有直接添加边框的方法，可以使用[LineAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section19125125519345)线型标注信息类来实现添加边框的效果。
+- 在PDF中可以添加[SquareAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#squareannotationinfo)标注并设置背景填充颜色。
+- PDF服务添加批注方法[addAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#addannotation)。
+- pdfService提供了很多种添加批注的类，但是目前没有直接添加边框的方法，可以使用[LineAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#lineannotationinfo)线型标注信息类来实现添加边框的效果。
 
  
  
@@ -92,7 +92,7 @@ private controller: pdfViewManager.PdfController = new pdfViewManager.PdfControl
 
 首先点击**保存到沙箱**按钮(通过[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fswritesync)写入)，保存的沙箱地址为'/data/storage/el2/base/haps/entry/temp/test.pdf'，保存成功**Hello World**信息变更为**添加沙箱成功**；点击**加载pdf**按钮（案例中pdf原文件123.pdf存放在resources/rawfile目录下），展示pdf文件信息。
  
-解决方案一：设置[pdfService.PdfBorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section5949183733615)属性值来设置填充区域颜色。（点击**解决方案一**按钮实现）
+解决方案一：设置[pdfService.PdfBorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#pdfborder)属性值来设置填充区域颜色。（点击**解决方案一**按钮实现）
  
 解决方案二：使用LineAnnotationInfo画出边框的四条边，计算好位置即可实现边框效果。需要注意的是，lineColor的规格是BGR，例如0xFF0000是蓝色而非红色。（点击**解决方案二**按钮实现）
  
@@ -319,10 +319,10 @@ struct PDFPage {
 方案一效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/iGVeuhpDRiOIHTLbc3zRtA/zh-cn_image_0000002658913571.png?HW-CC-KV=V1&HW-CC-Date=20260723T013705Z&HW-CC-Expire=86400&HW-CC-Sign=DC4F1FCCAF74E105988CD28F2F3A5B15DA674FC44201894595E56FA2EA7EFC3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/aZaM-mBzRsSNsz7Ip7zMxw/zh-cn_image_0000002658913571.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=BC0B4FB9B7E3A19213A4B0E55C9C07DFD82C21D610E9B80615204ABCC724FDB3)
 
  
 方案二效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/x11uIQ5jQEiW8hze3ZMfdw/zh-cn_image_0000002628394360.png?HW-CC-KV=V1&HW-CC-Date=20260723T013705Z&HW-CC-Expire=86400&HW-CC-Sign=CA99D731E7341966845E4BD51CC1303E86A37902DDAE6EB5FE163D56F9B7425A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/dcNJu3XkRWqd1P_R7H1EOQ/zh-cn_image_0000002628394360.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=953D018010AFFE45C6B5BB4EAA15FDF3B3E1A179E10B9A11C1C21E50C997E90A)

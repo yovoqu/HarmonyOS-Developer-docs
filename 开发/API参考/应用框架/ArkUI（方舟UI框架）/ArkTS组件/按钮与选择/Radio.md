@@ -1,11 +1,11 @@
 # Radio
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-radio
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-单选框，提供相应的用户交互选择项。
+单选框，提供单选类型的用户交互选择项。
 
 > [!NOTE]
 > API version 12开始，Radio选中默认样式由RadioIndicatorType.DOT变为RadioIndicatorType.TICK。 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件默认有 margin 间距，默认值为：{ top: '14px', right: '14px', bottom: '14px', left: '14px' }。
@@ -54,9 +54,9 @@ Radio(options: RadioOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | string | 否 | 否 | 当前单选框的值。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| group | string | 否 | 否 | 当前单选框的所属群组名称，相同group的Radio只能有一个被选中。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| group | string | 否 | 否 | 当前单选框的所属群组名称，相同group的单选框只能有一个被选中。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | indicatorType12+ | RadioIndicatorType | 否 | 是 | 配置单选框的选中样式。未设置时按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置单选框的选中样式为自定义组件。自定义组件与Radio组件为中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置单选框的选中样式为自定义组件。自定义组件与Radio组件以中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -291,7 +291,7 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isChecked | boolean | 是 | 单选框的状态。 值为true时，表示从未选中变为选中。值为false时，表示从选中变为未选中。 |
+| isChecked | boolean | 是 | 单选框状态变化后的新选中状态。 值为true时，表示从未选中变为选中。值为false时，表示从选中变为未选中。 |
 
 
 
@@ -300,7 +300,7 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-单选框的颜色。
+单选框的样式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -333,7 +333,7 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 | --- | --- | --- | --- | --- |
 | value | string | 否 | 否 | 当前单选框的值。 |
 | checked | boolean | 否 | 否 | 设置单选框的选中状态。 默认值：false 值为true时，单选框被选中。值为false时，单选框不被选中。 |
-| triggerChange | Callback&lt;boolean&gt; | 否 | 否 | 触发单选框选中状态变化。 值为true时，表示从未选中变为选中。值为false时，表示从选中变为未选中。 |
+| triggerChange | Callback&lt;boolean&gt; | 否 | 否 | 用于触发单选框选中状态变化的回调函数。 调用时传入true将单选框设置为选中状态，传入false设置为未选中状态。 |
 
 
 
@@ -346,7 +346,7 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 #### 示例1 （设置底板颜色）
 
-该示例通过配置checkedBackgroundColor实现自定义单选框的底板颜色。
+该示例通过配置checkedBackgroundColor以自定义单选框的底板颜色。
 
 ```ArkTS
 // xxx.ets
@@ -404,7 +404,7 @@ struct RadioExample {
 
 #### 示例2 （设置选中样式）
 
-该示例通过配置indicatorType、indicatorBuilder实现自定义选中样式。
+该示例通过配置indicatorType和indicatorBuilder以自定义选中样式。
 
 ```ArkTS
 // xxx.ets
@@ -414,7 +414,7 @@ struct RadioExample {
   @Builder
   indicatorBuilder() {
     // $r('app.media.star')需要替换为开发者所需的图像资源文件。
-    Image($r("app.media.star"))
+    Image($r('app.media.star'))
   }
   build() {
     Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
@@ -494,9 +494,9 @@ function buildRadio(config: RadioConfiguration) {
       .backgroundColor('#2787D9')
       .onClick(() => {
         if (config.checked) {
-          config.triggerChange(false);
+          config.triggerChange(false); // 触发单选框选中状态变化，设置为未选中
         } else {
-          config.triggerChange(true);
+          config.triggerChange(true); // 触发单选框选中状态变化，设置为选中
         }
       })
   }
@@ -504,7 +504,7 @@ function buildRadio(config: RadioConfiguration) {
 
 @Entry
 @Component
-struct refreshExample {
+struct RadioExample {
   build() {
     Column({ space: 50 }) {
       Row() {
@@ -528,4 +528,4 @@ struct refreshExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/aVuDyaPMSZOn5IBMXbyfvw/zh-cn_image_0000002659221769.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=065D17152F2E940438E016748961527CD2A6717805828B18FBA76EAA383B68A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/Z3hCSuMeThe6CUxQU1Djpg/zh-cn_image_0000002685928199.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=4989AD4F2D1D2B005C4B2E58BC608EA40CE0BE482DB2AD5E4A5E6D6D9E17D9FE)

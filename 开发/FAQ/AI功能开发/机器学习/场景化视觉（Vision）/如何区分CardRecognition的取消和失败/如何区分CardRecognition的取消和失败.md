@@ -1,6 +1,6 @@
 # 如何区分CardRecognition的取消和失败
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-3
 
@@ -103,7 +103,7 @@ A：现阶段的API都是需要传CardSide的，默认身份证为人像面。
  
 Q：关于Vision Kit的活体识别、身份证识别和银行卡识别，这些功能是否可以在Next系统上使用，以及目前的免费使用期限和后续收费详情。
  
-A：Vision Kit是Next系统下的功能模块，其使用受到相关[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-introduction#section156120533610)，视觉服务目前实施试用期免费的计费政策，试用期至2026年12月31日，后续有新的收费政策时，会在官网提前通知。
+A：Vision Kit是Next系统下的功能模块，其使用受到相关[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-introduction#约束与限制)，视觉服务目前实施试用期免费的计费政策，试用期至2026年12月31日，后续有新的收费政策时，会在官网提前通知。
  
 Q：使用[卡证识别控件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition)，在识别银行卡卡号和有效期在背面的主题卡（含异形卡）会出现卡顿、识别错误等情况，且不能识别竖版银行卡片。
  

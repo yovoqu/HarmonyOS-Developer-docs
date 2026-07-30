@@ -1,6 +1,6 @@
 # @ohos.app.ability.autoFillManager (自动填充框架)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-autofillmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@ autoFillManager模块为应用提供账号、密码、地址、电话号码等�
 不同于页面切换时触发的系统自动保存功能，该功能需要由用户手动触发。例如用户在网站上输入了账号密码，并点击“保存”按钮，才能触发相应的自动保存操作。
 
 > [!NOTE]
-> 本模块首批接口从API version 11 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 11 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 
@@ -24,11 +24,67 @@ import { autoFillManager } from '@kit.AbilityKit';
 
 
 
+#### OnFillSuccessFn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type OnFillSuccessFn = (viewData: ViewData) => void
+
+当填充请求成功时，会触发该回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| viewData | ViewData | 是 | 自动填充的视图数据信息。 |
+
+
+
+
+#### OnFillFailureFn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type OnFillFailureFn = (result: FillFailureResult) => void
+
+当填充请求失败时，会触发该回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| result | FillFailureResult | 是 | 表示自动填充失败结果。 |
+
+
+
+
 #### AutoSaveCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当保存请求完成时所触发的回调接口。
+
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 
 
@@ -44,9 +100,11 @@ onSuccess(): void
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **示例：**
 
-参见[AutoSaveCallback.onFailure](#onfailure)。
+参见[autoFillManager.requestAutoSave](#autofillmanagerrequestautosave)。
 
 
 
@@ -62,40 +120,85 @@ onFailure(): void
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **示例：**
 
-```ArkTS
-// Index.ets, 含有账号、密码框等组件的页面
-import { autoFillManager } from '@kit.AbilityKit';
-import { UIContext } from '@kit.ArkUI';
-import { BusinessError } from '@kit.BasicServicesKit';
+参见[autoFillManager.requestAutoSave](#autofillmanagerrequestautosave)。
 
-let uiContext = AppStorage.get<UIContext>("uiContext");
-let callback: autoFillManager.AutoSaveCallback = {
-  onSuccess: () => {
-    console.info(`save request on success.`);
-  },
-  onFailure: () => {
-    console.error(`save request on failure.`);
-  }
-};
 
-@Entry
-@Component
-struct Index {
-  build() {
-    Button('requestAutoSave')
-      .onClick(() => {
-        try {
-          // 发起保存请求
-          autoFillManager.requestAutoSave(uiContext, callback);
-        } catch (error) {
-          console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
-        }
-      })
-  }
-}
-```
+
+#### AutoFillCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+当填充请求完成时所触发的回调接口。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+
+
+#### onSuccess
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onSuccess: OnFillSuccessFn
+
+当填充请求成功时，该回调被调用。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OnFillSuccessFn | 当填充请求成功时，会触发该回调。 |
+
+
+**示例：**
+
+参见[autoFillManager.requestAutoFill](#autofillmanagerrequestautofill)。
+
+
+
+#### onFailure
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onFailure: OnFillFailureFn
+
+当填充请求失败时，会触发该回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OnFillFailureFn | 当填充请求失败时，会触发该回调。 |
+
+
+**示例：**
+
+参见[autoFillManager.requestAutoFill](#autofillmanagerrequestautofill)。
 
 > [!NOTE]
 > 示例中从AppStorage中取得的UiContext为预先在EntryAbility（拉起此页面的Ability）中OnWindowStageCreate生命周期获得，并存储到AppStorage中，具体可参考 requestAutoSave 。
@@ -116,6 +219,8 @@ requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -182,38 +287,422 @@ import { autoFillManager } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
+let uiContext = AppStorage.get<UIContext>('uiContext');
+let callback: autoFillManager.AutoSaveCallback = {
+  onSuccess: () => {
+    console.info(`save request on success.`);
+  },
+  onFailure: () => {
+    console.error(`save request on failure.`);
+  }
+};
+
 @Entry
 @Component
 struct Index {
+  @State userName: string = "";
+  @State password: string = "";
+  private uiContext: UIContext = this.getUIContext();
   build() {
-    Row() {
-      Column() {
-        Text('Hello World')
-          .fontSize(50)
-          .fontWeight(FontWeight.Bold)
+    GridRow({ gutter: { y: 20 } }) {
+      GridCol({ span: 20 }) {
+        TextInput({ placeholder: 'Enter userName', text: this.userName })
+          .type(InputType.USER_NAME)
+          .width('90%')
+          .onChange((value: string) => {
+            this.userName = value
+          })
       }
-
-      Button('requestAutoSave')
-        .onClick(() => {
-          let uiContext = AppStorage.get<UIContext>("uiContext");
-          console.info("uiContext: ", JSON.stringify(uiContext));
-          try {
-            // 发起保存请求
-            autoFillManager.requestAutoSave(uiContext, {
-              onSuccess: () => {
-                console.info(`save request on success.`);
-              },
-              onFailure: () => {
-                console.error(`save request on failure.`);
-              }
-            });
-          } catch (error) {
-            console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
-          }
-        })
-        .width('100%')
+      GridCol({ span: 20 }) {
+        TextInput({ placeholder: 'Enter password', text: this.password })
+          .type(InputType.Password)
+          .width('90%')
+          .onChange((value: string) => {
+            this.password = value
+          })
+      }
+      GridCol({ span: 20 }) {
+        Button('requestAutoSave')
+          .onClick(() => {
+            try {
+              // 发起保存请求
+              autoFillManager.requestAutoSave(this.uiContext, callback);
+            } catch (error) {
+              console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
+            }
+          })
+      }
     }
-    .height('100%')
   }
 }
 ```
+
+
+
+#### autoFillManager.requestAutoSave
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+requestAutoSave(context: UIContext, request: SaveRequest, callback?: AutoSaveCallback): void
+
+请求保存表单数据。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | UIContext | 是 | 将在其中执行保存操作的UI上下文。 |
+| request | SaveRequest | 是 | 自动保存请求信息。 |
+| callback | AutoSaveCallback | 否 | 当保存请求完成时所触发的回调接口。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 16000050 | Internal error. |
+
+
+**示例：**
+
+```ArkTS
+// Index.ets
+import { autoFillManager } from '@kit.AbilityKit';
+import { UIContext } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+// request需按照实际工程配置
+let request: autoFillManager.SaveRequest = {
+  viewData: {
+    bundleName: "com.example.testBundleName",
+    pageUrl: "testPageUrl",
+    pageNodeInfos: [
+      {
+        id: 1,
+        autoFillType: autoFillManager.AutoFillType.USER_NAME,
+        value: "testValue1",
+        placeholder: "testPlaceholder1",
+        rect: {
+          left: 1,
+          top: 1,
+          width: 1,
+          height: 1,
+        },
+        isFocus: false
+      },
+      {
+        id: 2,
+        autoFillType: autoFillManager.AutoFillType.PASSWORD,
+        value: "testValue2",
+        placeholder: "testPlaceholder2",
+        rect: {
+          left: 1,
+          top: 1,
+          width: 1,
+          height: 1,
+        },
+        isFocus: false
+      }
+    ],
+    pageRect: {
+      left: 1,
+      top: 1,
+      width: 1,
+      height: 1
+    }
+  }
+}
+let callback: autoFillManager.AutoSaveCallback = {
+  onSuccess: () => {
+    console.info(`save request on success.`);
+  },
+  onFailure: () => {
+    console.error(`save request on failure.`);
+  }
+};
+
+@Entry
+@Component
+struct Index {
+  private uiContext: UIContext = this.getUIContext();
+  build() {
+    GridRow({ gutter: { y: 20 } }) {
+      GridCol({ span: 20 }) {
+        Button('requestAutoSave')
+          .onClick(() => {
+            try {
+              // 发起保存请求
+              autoFillManager.requestAutoSave(this.uiContext, request, callback);
+            } catch (error) {
+              console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
+            }
+          })
+      }
+    }
+  }
+}
+```
+
+
+
+#### autoFillManager.requestAutoFill
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+requestAutoFill(context: UIContext, request: FillRequest, callback?: AutoFillCallback): void
+
+请求填充表单数据。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | UIContext | 是 | 将在其中执行填充操作的UI上下文。 |
+| request | FillRequest | 是 | 自动填充请求信息。 |
+| callback | AutoFillCallback | 否 | 当填充请求完成时所触发的回调接口。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 16000050 | Internal error. |
+
+
+**示例：**
+
+```ArkTS
+// Index.ets
+import { autoFillManager } from '@kit.AbilityKit';
+import { UIContext } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+// request需按照实际工程配置
+let request: autoFillManager.FillRequest = {
+  type: autoFillManager.AutoFillType.USER_NAME,
+  viewData: {
+    bundleName: "com.example.testBundleName",
+    pageUrl: "testPageUrl",
+    pageNodeInfos: [
+      {
+        id: 1,
+        autoFillType: autoFillManager.AutoFillType.USER_NAME,
+        value: "testValue1",
+        placeholder: "testPlaceholder1",
+        rect: {
+          left: 1,
+          top: 1,
+          width: 1,
+          height: 1,
+        },
+        isFocus: false
+      },
+      {
+        id: 2,
+        autoFillType: autoFillManager.AutoFillType.PASSWORD,
+        value: "testValue2",
+        placeholder: "testPlaceholder2",
+        rect: {
+          left: 1,
+          top: 1,
+          width: 1,
+          height: 1,
+        },
+        isFocus: false
+      }
+    ],
+    pageRect: {
+      left: 1,
+      top: 1,
+      width: 1,
+      height: 1
+    }
+  }
+}
+let callback: autoFillManager.AutoFillCallback = {
+  onSuccess: (viewData: autoFillManager.ViewData) => {
+    console.info(`fill request on success, viewData: ${JSON.stringify(viewData)}`);
+  },
+  onFailure: (result: autoFillManager.FillFailureResult) => {
+    console.error(`fill request on failure, result: ${JSON.stringify(result)}`);
+  }
+};
+
+@Entry
+@Component
+struct Index {
+  private uiContext: UIContext = this.getUIContext();
+  build() {
+    GridRow({ gutter: { y: 20 } }) {
+      GridCol({ span: 20 }) {
+        Button('requestAutoFill')
+          .onClick(() => {
+            try {
+              // 发起填充请求
+              autoFillManager.requestAutoFill(this.uiContext, request, callback);
+            } catch (error) {
+              console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
+            }
+          })
+      }
+    }
+  }
+}
+```
+
+
+
+#### ViewData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type ViewData = _ViewData.default
+
+自动填充的视图数据信息。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| _ViewData.default | 表示自动填充的视图数据信息。 |
+
+
+
+
+#### PageNodeInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type PageNodeInfo = _PageNodeInfo.default
+
+自动填充的页面节点信息。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| _PageNodeInfo.default | 表示自动填充的页面节点信息。 |
+
+
+
+
+#### FillRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type FillRequest = _AutoFillRequest.FillRequest
+
+自动填充的请求信息。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| _AutoFillRequest.FillRequest | 表示自动填充的请求信息。 |
+
+
+
+
+#### SaveRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type SaveRequest = _AutoFillRequest.SaveRequest
+
+自动保存的请求信息。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| _AutoFillRequest.SaveRequest | 表示自动保存的请求信息。 |
+
+
+
+
+#### AutoFillRect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type AutoFillRect = _AutoFillRect.default
+
+用于自动填充的矩形区域。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| _AutoFillRect.default | 表示用于自动填充的矩形区域。 |
+
+
+
+
+#### FillFailureResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type FillFailureResult = _FillFailureResult
+
+自动填充失败结果。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| _FillFailureResult | 表示自动填充失败结果。 |

@@ -79,7 +79,7 @@ struct CanvasClearRect {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/6sHJ8yvXTnOPFnsN15GY9Q/zh-cn_image_0000002628565454.png?HW-CC-KV=V1&HW-CC-Date=20260723T013225Z&HW-CC-Expire=86400&HW-CC-Sign=FDF30A91DBE541527EB1445AFAD6EF6114742C9E34B9D0DB64D664845C07384B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/6sHJ8yvXTnOPFnsN15GY9Q/zh-cn_image_0000002628565454.png?HW-CC-KV=V1&HW-CC-Date=20260730T072516Z&HW-CC-Expire=86400&HW-CC-Sign=6E20AB768631230C61EE6F4FA2D9B3F22BA8A28C944C5AD847574CB6371FE1DD)
 
 - **方式二**：利用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#reset12)方法重置画布状态，清空绘制路径，代码示例如下：
 ```text
@@ -129,7 +129,7 @@ struct CanvasReset {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/gPhGqc3IR76cUfCC1GgSQg/zh-cn_image_0000002658924761.png?HW-CC-KV=V1&HW-CC-Date=20260723T013225Z&HW-CC-Expire=86400&HW-CC-Sign=3B6C87D6FBBA41F00779B26ADB45B5B39335BF98055C2B5F50E25FD71A3989BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/gPhGqc3IR76cUfCC1GgSQg/zh-cn_image_0000002658924761.png?HW-CC-KV=V1&HW-CC-Date=20260730T072516Z&HW-CC-Expire=86400&HW-CC-Sign=FAFE0678EF3059D11558B8D34608641BB119DA711E34EF0AECBFC44C2DD57822)
 
 - **方式三**：利用[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)装饰器监听状态变量，当数据刷新时，触发重新绘制逻辑，示例参考：[Canvas绘制内容如何动态更新](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-225)。
 - **方式四**：利用@Monitor装饰器监听嵌套Class对象属性的变化，代码示例如下：
@@ -188,7 +188,7 @@ struct CanvasMonitor {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/TPt5l8Z0RteXQSoTYYAwIQ/zh-cn_image_0000002628405556.png?HW-CC-KV=V1&HW-CC-Date=20260723T013225Z&HW-CC-Expire=86400&HW-CC-Sign=005A815E7EB214E6D82872506039525C9EEC7E8CABDED7347130D9C4EC7A40D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/TPt5l8Z0RteXQSoTYYAwIQ/zh-cn_image_0000002628405556.png?HW-CC-KV=V1&HW-CC-Date=20260730T072516Z&HW-CC-Expire=86400&HW-CC-Sign=D360EB5DADDCEC1F1F74600E1B09CE37E37391487D0303F389A1DA5FED45927A)
 
 
  - **场景二**：Canvas绘制防止丢失。Canvas的onReady方法在Canvas组件初始化完成或者发生大小变化时会触发。比如折叠屏展开场景、横竖屏切换场景以及动态扩展Canvas组件宽高场景，可能会触发onReady方法，这时在onReady方法之外绘制的内容就会丢失，需要恢复绘制，共有2种实现方式，对比如下：
@@ -247,7 +247,7 @@ struct CanvasOnAreaChange {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/vSoI6FsZRTGd1FjKCxlbqA/zh-cn_image_0000002658804829.png?HW-CC-KV=V1&HW-CC-Date=20260723T013225Z&HW-CC-Expire=86400&HW-CC-Sign=1485AE2A55C54464BD35F6C55CDBB0449834D0759926E753FDBC5A69C48E87D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/vSoI6FsZRTGd1FjKCxlbqA/zh-cn_image_0000002658804829.png?HW-CC-KV=V1&HW-CC-Date=20260730T072516Z&HW-CC-Expire=86400&HW-CC-Sign=3C200E97B488BDCCA363152CD672CA211D93503E7F53AAE939C1D30E5286EC64)
 
 
  

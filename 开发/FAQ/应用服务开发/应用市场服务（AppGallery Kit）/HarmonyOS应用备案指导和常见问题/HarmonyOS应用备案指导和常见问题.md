@@ -1,6 +1,6 @@
 # HarmonyOS应用备案指导和常见问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-32
 
@@ -23,7 +23,7 @@
 - APP主办者需要在接入商备案系统提交备案材料，由接入商代为备案。常见的接入商有：华为云、阿里云、腾讯云、移动云、天翼云、联通云等。关于如何选择接入商具体还需要根据您所选择的服务器提供商而定。一般来说服务器选择的是哪家接入商，备案可以在同一个接入商网站完成。
 
 2. 一般通用的流程如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/0h90pguVRtyvMWEGQq9slw/zh-cn_image_0000002658793873.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=772B800058F61EF144F43614F0A0F757C46F7D6F9D403650E8ABB53B85C6574F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/6whrkXLlRkmeLY87_BTAFg/zh-cn_image_0000002658793873.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=7045A9821AF1F24BD8D043F8592216D5BE139B12B42E29897F10706C4F067746)
 
 
 3. 具体根据不同接入商备案流程不一致，可以参考各大接入商具体流程：[华为云备案指引](https://support.huaweicloud.com/usermanual-icp/zh-cn_topic_0000002127712329.html)。
@@ -42,19 +42,19 @@
 登录AppGallery Connect，点击“证书、APP ID和Profile”，在页面左侧点击“证书”，下载需要备案的HarmonyOS应用/元服务开发者证书。
 
 5. 使用文本编辑器（如记事本）打开已下载的证书，可以看到直接下载的证书链有3段，分别：根证书、中间证书和服务器证书。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/jNFVtMnIRBmsdWjJTMBC7w/zh-cn_image_0000002628394604.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=47E0AEA3C75090BF5AC723CD40CC8D0E27AB3EFA51ABCD6153142D984005E123)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/YU2ys1oiRG2aEiAUPGhv0g/zh-cn_image_0000002628394604.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=7B3DED97EFC2CAB57BA7784012D55B3B60A5C177DD075F54699088A3FAE6006F)
 
 
 6. 删除根证书和中间证书，保留服务器证书后，点击保存。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/oVwKu4nfRYO6i0PlP8csbQ/zh-cn_image_0000002628554492.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=AC922AD7AE393452BD9CE3C23BF1C0BAAEBE444E19EFC83617DA304C1C8D8270)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/MABcSC2YTma-r4xcfWaBow/zh-cn_image_0000002628554492.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=ABEC36E67E6A532DC07BE5DA07A92490E69FE4837CAADC67281A80F5DC21DE94)
 
 
 7. 双击打开已保存的证书，点击“详细信息-公钥”，获取APP的公钥信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/3_eYO5TUQIiQrpkE5tUOZw/zh-cn_image_0000002658913817.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=B871FD25DD1A7A8FCCE2C14D6D99A7383F836F266DB5722A767620D525FA0281)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/rgaTMzQzT96mW--n0xwF_A/zh-cn_image_0000002658913817.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=696921A6BC3A85102A5BBF50ED4D65E09A75FF508388F5B3F4930858EAB7CE2B)
 
 
 8. 双击打开已保存的证书点击“详细信息-指纹”，获取APP的sha1签名信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/ngz6lDXITv-7H6QaShlbLg/zh-cn_image_0000002658793875.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=27AE3BE0282DD1617958A3807D3E619D94E118EFC7C44962CED9FDCA2AB9A8EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/zP0in0wdT7qW-JPKAGo71w/zh-cn_image_0000002658793875.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=33468D1A32776191C40110FFFFF89B39DAE996CB10C5AA9D3F49EB36D6CB6558)
 
 
 9. 如何校验应用已经完成备案？
@@ -62,14 +62,14 @@
 
 10. 短信通知。备案完成后一般也会通过短信通知给备案信息填写时提供的主办者手机号。
 
-11. 工信部网站查询。可以登录[备案管理系统](https://beian.miit.gov.cn/)查询备案查询备案号和域名等信息。
+11. 工信部网站查询。可以登录[备案管理系统](https://beian.miit.gov.cn/)查询备案号和域名等信息。
 
 12. AGC网站备案校验。登录AGC网站，左侧导航栏选择“应用上架>版本信息”，右侧页面进入“备案信息”区域，根据备案信息如实填写后，点击“校验证件号”查询。
 
 13. 上架备案信息如何填写？上架备案信息涉及的信息如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/P5eytfQZSgeLbpSrxZ9QYQ/zh-cn_image_0000002628394606.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=401D2D2530DEE992A98C3DDAFF0020B0441A3D106D7862965CF5C967BF8C86EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/7I8IdT6oSf2K_mleSRxOrA/zh-cn_image_0000002628394606.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=BBC82DE4FCC012F4290FEF138141B41FE483082C7305C44FC5A95A8FE96AB28D)
 
 
 14. 应用需要备案：APP服务器在中国大陆，且APP需要上架应用市场。
@@ -91,7 +91,7 @@
 20. 应用不需要备案：APP服务器不在中国大陆（境外应用）。备案信息勾选“您的APP服务器不在中国大陆”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/C9m25JLbQeiZb2BcfLrajw/zh-cn_image_0000002628554494.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=1551C0F743028B9E7A6C1E4E43B6DD27D335E6D8535A93A9A6404B9B54609BA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/APTHZ1eRQ_6478KpKnjxSA/zh-cn_image_0000002628554494.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=1CEE30B439A0C55362E8554BCDA82DC8715BBE57BDD4DA14FCDF3AB909A40BE0)
 
 
   境外应用定义：由境外主体运营且服务器仅放置在境外的移动互联网应用程序。
@@ -99,7 +99,7 @@
 21. 应用不需要备案：单机应用。备案信息勾选“您的APP为单机APP”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/t0kr0m1iT9axXMSfdfp5Lw/zh-cn_image_0000002658913819.png?HW-CC-KV=V1&HW-CC-Date=20260723T013829Z&HW-CC-Expire=86400&HW-CC-Sign=EF62A1E3850BCF4370E2DEABE887ED4D9E7DE6467F1C1E3284737A88A23593FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/GsYQUvEPTvS5CWHdNwgnVA/zh-cn_image_0000002658913819.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=D54EEACEED41BF21ABA67A930E967E02947C53E16A572EACEC262CBB23A7A4A0)
 
 
   单机应用定义：未通过连接公共互联网提供互联网信息服务的移动应用程序。
@@ -164,7 +164,7 @@
 
   Q：APP需要在设置或者介绍等显著位置标注备案号吗？
 
-  A：应工信部要求APP主办者应当在APP显著位置标明其备案编号，并在备案编号下方按要求链接备案系统网址，供公众查询核对，参考[工信部发布开展移动互联网应用程序备案工作的通知](https://developer.huawei.com/consumer/cn/doc/app/50138#h2-1694160255183-0)，如果没有标识备案编号，会导致应用上架审核不通过，已上架应用下架等。
+  A：应工信部要求APP主办者应当在APP显著位置标明其备案编号，并在备案编号下方按要求链接备案系统网址，供公众查询核对，参考[工信部发布开展移动互联网应用程序备案工作的通知](https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2023/art_920db564162e4312916a01bed6540ad8.html)，如果没有标识备案编号，会导致应用上架审核不通过，已上架应用下架等。
 
   Q：备案需要多少时间？
 

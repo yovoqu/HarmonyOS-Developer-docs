@@ -1,9 +1,9 @@
 # Advertisement (请求的广告内容)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块为请求的广告内容。
  
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { advertising } from '@kit.AdsKit';
@@ -24,7 +24,7 @@ import { advertising } from '@kit.AdsKit';
 
 #### Advertisement
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+**支持设备：** Phone | PC/2in1 | Tablet
 
 请求的广告内容。
  

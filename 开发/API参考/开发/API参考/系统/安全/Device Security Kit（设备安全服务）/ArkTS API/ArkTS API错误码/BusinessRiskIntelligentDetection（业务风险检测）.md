@@ -1,6 +1,6 @@
 # BusinessRiskIntelligentDetection（业务风险检测）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-brid
 **支持设备：** Phone | Tablet
@@ -16,7 +16,10 @@
 
 **错误信息**
 
-Internal error.
+ - Internal error.
+ - Internal error. API call limit exceeded.
+ - Internal error. Internal interface invocation exception.
+
 
 **错误描述**
 
@@ -82,7 +85,7 @@ Access cloud server fail.
 
 **错误信息**
 
-Verify cloud capability fail.
+Verify capability fail.
 
 **错误描述**
 

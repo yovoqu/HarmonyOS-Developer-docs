@@ -72,7 +72,7 @@ struct <span style="color: rgb(0,0,255);">StackLayout </span><span style="color:
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/g8LN1OEzSO2koWYXnn2q_A/zh-cn_image_0000002628392488.png?HW-CC-KV=V1&HW-CC-Date=20260723T012536Z&HW-CC-Expire=86400&HW-CC-Sign=8966E6AD83E60DEDC53C348875ABF74DF6CB083387CFE78402605AA2D4886D2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/g8LN1OEzSO2koWYXnn2q_A/zh-cn_image_0000002628392488.png?HW-CC-KV=V1&HW-CC-Date=20260730T072319Z&HW-CC-Expire=86400&HW-CC-Sign=8D27397F553A04A241E2AB24261CD60EF60AE49B7C06AABA5A59ECF3D70F5F4C)
 
 - **方案二**：需要精确地控制单个子组件的位置，可以使用[offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-shape#offset)和[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#position)去做具体的调整。其中，offset控制子组件相对于自身原始位置的偏移，position控制子组件在父组件中的绝对位置。
 
@@ -107,4 +107,4 @@ struct <span style="color: rgb(0,0,255);">StackExample </span><span style="color
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/G3xzfkPpQh6p_BAOIoX5SA/zh-cn_image_0000002658911709.png?HW-CC-KV=V1&HW-CC-Date=20260723T012536Z&HW-CC-Expire=86400&HW-CC-Sign=B9A0CCCBEC4F58DE5A3CB502F8DCCF86D4E333D08F83A86FA01CEAFD8EB2A010)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/G3xzfkPpQh6p_BAOIoX5SA/zh-cn_image_0000002658911709.png?HW-CC-KV=V1&HW-CC-Date=20260730T072319Z&HW-CC-Expire=86400&HW-CC-Sign=B7AD46F9773123535287FC615151A6601ED5DDB45EC8F5CDB3A032F0E2F217C4)

@@ -136,4 +136,4 @@ struct <span style="color: rgb(0,0,255);">CustomDialogCloseDemo </span><span sty
 实现效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/W1jMZWTMQ6S9rr3-jUIfTQ/zh-cn_image_0000002628401218.png?HW-CC-KV=V1&HW-CC-Date=20260723T013120Z&HW-CC-Expire=86400&HW-CC-Sign=4D82532CBE541E633D1C3B857328343D350D809625B572808E844F7AC11A6B11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/W1jMZWTMQ6S9rr3-jUIfTQ/zh-cn_image_0000002628401218.png?HW-CC-KV=V1&HW-CC-Date=20260730T072456Z&HW-CC-Expire=86400&HW-CC-Sign=02B35AA9C46351C7FAE2E168A29B5C5795A67DC5241DEE74B13980FBB3DB5364)

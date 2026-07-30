@@ -1,6 +1,6 @@
 # 控制窗口外观 (ArkTS)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appearance
 
@@ -196,11 +196,11 @@ struct SliderDemo {
 
 
 > [!NOTE]
-> 未调用 setWindowContainerColor() 或 setWindowContainerModalColor() 接口设置窗口内容区域背景色时，内容区域背景色默认跟随系统颜色模式：浅色模式下为'#FFF0F0F0'，深色模式下为'#FF1A1A1A'。 需要在 loadContent() 或 setUIContent() 调用生效后才能设置背景色。
+> 未调用 setWindowContainerColor() 或 setWindowContainerModalColor() 接口设置窗口容器区域背景色时，容器区域背景色默认跟随系统颜色模式：浅色模式下为'#FFF0F0F0'，深色模式下为'#FF1A1A1A'。 需要在 loadContent() 或 setUIContent() 调用生效后才能设置背景色。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/FEr-nVd2QWeOf7J1rY9P2Q/zh-cn_image_0000002677825941.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012202Z&HW-CC-Expire=86400&HW-CC-Sign=01D3D7F898345403F22619C1949172B22DA46F82B789A46F2E9DF8A88E785835)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/HJKKAMG_RlOuPtTyJ7O84g/zh-cn_image_0000002656006712.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072028Z&HW-CC-Expire=86400&HW-CC-Sign=08F771DD102DE7EE21ADA991821DE8A28CB5C942006F56749587C6FD0AC7CFD7)
 
 
 示例代码如下：

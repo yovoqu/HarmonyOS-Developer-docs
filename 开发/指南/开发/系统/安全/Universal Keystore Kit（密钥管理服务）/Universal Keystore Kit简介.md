@@ -1,6 +1,6 @@
 # Universal Keystore Kit简介
 
-更新时间：2026-04-17 08:12:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-overview
 
@@ -24,7 +24,7 @@ HUKS管理的密钥可以由业务/应用导入或调用HUKS的接口生成。�
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/BTYQMfSUTDmkhDYRkq5oxQ/zh-cn_image_0000002611754427.png?HW-CC-KV=V1&HW-CC-Date=20260528T030251Z&HW-CC-Expire=86400&HW-CC-Sign=ABFC8B4203C1BB98B8EE9414486C61F6D285EB3F36CFBBDA3475CE002F4072B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/_x4pcCrRQeSn-7UfOAJQOQ/zh-cn_image_0000002686086489.png?HW-CC-KV=V1&HW-CC-Date=20260730T071920Z&HW-CC-Expire=86400&HW-CC-Sign=DBB21505485A0A75A2CC5A0924501AAE1CC8AA9D3AC0251EA5F209F81600115E)
 
  
   
@@ -52,6 +52,7 @@ HUKS为开发者提供了密钥全生命周期的管理能力，其核心功能�
 | 加密/解密 | 使用密钥将数据加密为攻击者无法理解的密文，或使用密钥将数据解密为业务可用的明文。 |
 | 签名/验签 | 用于认证消息内容以及消息发送者身份的真实性。 |
 | 密钥协商 | 两个或多个实体通过协商，共同建立会话密钥。 |
+| 密钥封装 | 通过非对称密钥在两方之间安全建立共享密钥，支持后量子密码算法。 |
 | 密钥派生 | 从一个现有密钥派生出一个或多个新密钥。 |
 | 访问控制 | 确保存储在HUKS中的密钥，不会被越权访问。 |
  

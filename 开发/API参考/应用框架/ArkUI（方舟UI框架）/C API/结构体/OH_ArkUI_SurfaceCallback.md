@@ -1,6 +1,6 @@
 # OH_ArkUI_SurfaceCallback
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfacecallback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_ArkUI_SurfaceCallback OH_ArkUI_SurfaceCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义Surface生命周期回调函数。
+定义Surface生命周期回调结构体。当XComponent的Surface创建、销毁或尺寸发生变化时，会触发对应的回调。开发者可在回调中获取Surface指针并执行自定义渲染（如OpenGL ES渲染、Vulkan渲染或视频解码渲染等场景）。
  
 **起始版本：** 19
  

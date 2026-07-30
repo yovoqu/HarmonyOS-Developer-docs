@@ -1,6 +1,6 @@
 # 使用Web组件上传文件
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-file-upload
 
@@ -352,7 +352,7 @@ struct Index {
 
 从API version 23开始，在OnShowFileSelectorEvent的FileSelectorParam中新增接口getSuggestedName()、getDefaultPath()、getDescriptions()、isAcceptAllOptionExcluded()。
 
-新增接口对上传保存文件能力进行了增强，以对标W3C能力，用于支持用户获取到HTML前端通过showSaveFilePicker、showOpenFilePicker、showDirectoryPicker等方法传递的option参数(参考下方加载的html文件)里的数据。
+新增接口对上传保存文件能力进行了增强，以对标W3C能力，用于支持用户获取到HTML前端通过showSaveFilePicker、showOpenFilePicker、showDirectoryPicker等方法传递的option参数（参考下方加载的html文件）里的数据。
 
 API version 23 新增支持如下option中的成员：
 
@@ -499,7 +499,7 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/LJqI9O4eTFOnYZFbi6e5wg/zh-cn_image_0000002677666119.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012140Z&HW-CC-Expire=86400&HW-CC-Sign=997FF794C90A0F6264381B1FC32F0F5816930D2AD061888012E7808E30FB1AA1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/3OndBC-vTSSa8OnopRkJAg/zh-cn_image_0000002686086251.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071900Z&HW-CC-Expire=86400&HW-CC-Sign=525EDCE746B2AE594D654DCE99EB9C17FACF602AD6FEE3F2C6DE740867F92D24)
 
 
 样例以HTML中的showSaveFilePicker()配合ArkTS中documentViewPicker.save()方法为例。

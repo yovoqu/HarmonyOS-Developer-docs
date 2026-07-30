@@ -1,6 +1,6 @@
 # jsvm_types.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-types-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -511,8 +511,8 @@ enum JSVM_CacheType
 
 | 枚举项 | 描述 |
 | --- | --- |
-| JSVM_CACHE_TYPE_JS | JS 缓存, 由接口 OH_JSVM_CreateCodeCache 生成。 |
-| JSVM_CACHE_TYPE_WASM | WebAssembly 缓存, 由接口 OH_JSVM_CreateWasmCache 生成。 |
+| JSVM_CACHE_TYPE_JS | JS 缓存，由接口 OH_JSVM_CreateCodeCache 生成。 |
+| JSVM_CACHE_TYPE_WASM | WebAssembly 缓存，由接口 OH_JSVM_CreateWasmCache 生成。 |
 
 
 
@@ -555,12 +555,12 @@ JSVM 内部 Trace 事件的类别。
 
 | 枚举项 | 描述 |
 | --- | --- |
-| JSVM_TRACE_VM | 采集 JSVM 主要接口调用, 例如执行 js 脚本。 |
-| JSVM_TRACE_COMPILE | 采集编译相关的接口调用, 例如后台编译。 |
-| JSVM_TRACE_EXECUTE | 采集与运行状态相关的接口调用, 例如中断与微任务。 |
+| JSVM_TRACE_VM | 采集 JSVM 主要接口调用，例如执行 js 脚本。 |
+| JSVM_TRACE_COMPILE | 采集编译相关的接口调用，例如后台编译。 |
+| JSVM_TRACE_EXECUTE | 采集与运行状态相关的接口调用，例如中断与微任务。 |
 | JSVM_TRACE_RUNTIME | 采集外部函数调用相关信息。 |
 | JSVM_TRACE_STACK_TRACE | 采集 JSVM 中堆栈相关信息。 |
-| JSVM_TRACE_WASM | 采集主要的 WASM 相关接口调用, 例如编译与实例化 WASM 模块。 |
+| JSVM_TRACE_WASM | 采集主要的 WASM 相关接口调用，例如编译与实例化 WASM 模块。 |
 | JSVM_TRACE_WASM_DETAILED | 采集更多更细节的 WASM 相关接口调用，例如后台编译、跳板编译。 |
 
 
@@ -771,7 +771,7 @@ typedef void(JSVM_CDECL* JSVM_FinalizeArrayBuffer)(JSVM_Env env,void* finalizeDa
 **描述**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/3CFv6KwdSDikLznqujyJ3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020405Z&HW-CC-Expire=86400&HW-CC-Sign=207B0F2D02D35451EB2A6DDF031BBB297E456214D181DB86C87B89C11FFADCE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/_2LFGCK2Tsqe0jSfCBJ0-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071748Z&HW-CC-Expire=86400&HW-CC-Sign=E48BB23AC26C770F2F957E9C45DB0FE0302321E06C436E5F0C9F70F515419A53)
 
 
 此接口是实验性接口，需定义JSVM_EXPERIMENTAL宏后方可使用。

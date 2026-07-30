@@ -1,6 +1,6 @@
 # IFAA
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-ifaa-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -45,7 +45,7 @@ getVersionSync(): number
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -56,7 +56,7 @@ getVersionSync(): number
  
 ```text
 let res: number = ifaa.getVersionSync();
-console.info('Succeeded in doing getVersionSync. version:', result);
+console.info('Succeeded in doing getVersionSync. version:', res);
 // 开发者处理res
 ```
  
@@ -94,7 +94,7 @@ getAnonymousIdSync(userToken: Uint8Array): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -110,7 +110,7 @@ getAnonymousIdSync(userToken: Uint8Array): Uint8Array
 // 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。
 let arg = new Uint8Array([0]);
 let getAnonIdResult: Uint8Array = ifaa.getAnonymousIdSync(arg);
-console.info('Succeeded in doing getAnonymousIdSync. anonymousId:', result);
+console.info('Succeeded in doing getAnonymousIdSync. anonymousId:', getAnonIdResult);
 // 开发者处理getAnonIdResult ....
 ```
  
@@ -148,7 +148,7 @@ getAnonymousId(userToken: Uint8Array): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -202,7 +202,7 @@ getAnonymousId(userToken: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;)
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -264,7 +264,7 @@ queryStatusSync(userToken: Uint8Array): boolean
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -321,7 +321,7 @@ queryStatus(userToken: Uint8Array): Promise&lt;boolean&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -339,9 +339,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。
 let arg = new Uint8Array([0]);
 let promise: Promise<boolean> = ifaa.queryStatus(arg);
-promise.then(result => {
-  console.info('Succeeded in doing queryStatus. status:', result);
-  // 开发者处理result
+promise.then(queryStatusResult => {
+  console.info('Succeeded in doing queryStatus. status:', queryStatusResult);
+  // 开发者处理queryStatusResult
 }).catch((err: BusinessError) => {
   console.error(`Failed to call queryStatus. Code: ${err.code}, message: ${err.message}`);
 });
@@ -375,7 +375,7 @@ queryStatus(userToken: Uint8Array, callback: AsyncCallback&lt;boolean&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -437,7 +437,7 @@ register(registerData: Uint8Array): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -491,7 +491,7 @@ register(registerData: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;): v
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -545,7 +545,7 @@ preAuthSync(): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -589,7 +589,7 @@ preAuth(): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -639,7 +639,7 @@ preAuth(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -700,7 +700,7 @@ IFAA免密认证，同步返回结果。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -757,7 +757,7 @@ IFAA免密认证，使用Promise异步回调。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -814,7 +814,7 @@ IFAA免密认证，使用Callback异步回调。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -871,7 +871,7 @@ deregisterSync(deregisterData: Uint8Array): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -923,7 +923,7 @@ deregister(deregisterData: Uint8Array): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -976,7 +976,7 @@ deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void&gt;): voi
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1030,7 +1030,7 @@ getProtocolVersionSync(): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1072,7 +1072,7 @@ getProtocolVersion(): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1122,7 +1122,7 @@ getProtocolVersion(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1175,7 +1175,7 @@ getSupportedCertTypesSync(): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1219,7 +1219,7 @@ getSupportedCertTypes(): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1269,7 +1269,7 @@ getSupportedCertTypes(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

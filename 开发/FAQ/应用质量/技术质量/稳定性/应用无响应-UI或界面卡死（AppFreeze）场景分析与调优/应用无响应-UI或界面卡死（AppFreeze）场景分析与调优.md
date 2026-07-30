@@ -1,6 +1,6 @@
 # 应用无响应-UI或界面卡死（AppFreeze）场景分析与调优
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-64
 
@@ -20,13 +20,13 @@ AppFreeze主要包含以下两种核心检测机制：
 - 检测原理：系统会周期性地检测应用主线程的任务执行情况。watchdog（看门狗）线程向主线程发送检测任务或检查时间戳。如果主线程正在执行的任务耗时过长，导致在**6秒**内无法处理完当前任务或无法响应看门狗的检测，系统判定主线程卡死。
 
 2. 触发流程：通常在主线程卡顿达到3秒时，系统会抓取一次瞬时日志（Warning）；若卡顿持续达到6秒，则触发AppFreeze（Event），杀死进程并生成最终故障日志。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/ueXL5PhmQg63quM-KrbQ8w/zh-cn_image_0000002658914221.png?HW-CC-KV=V1&HW-CC-Date=20260723T012403Z&HW-CC-Expire=86400&HW-CC-Sign=7BB9199AA175A9F3AB8C8E4733763BCE105C1874E3816A0809D7884CD692D63A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/F_SXUJ8fTUiFWQ9iDWY1dw/zh-cn_image_0000002658914221.png?HW-CC-KV=V1&HW-CC-Date=20260730T072251Z&HW-CC-Expire=86400&HW-CC-Sign=C4A051BB49E3234C4BFD90E4A5D47F8771B6FB579DACF0B1088769FDFF41D3C1)
 
 
-3. [APP_INPUT_BLOCK 用户输入响应超时](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#app_input_block-用户输入响应超时)。**检测原理**：当用户对设备进行操作（如点击屏幕、按键）时，多模输入服务（Multimodal Input Service）会将事件派发给应用。如果应用的主线程在收到输入事件后，超过**5秒**仍未反馈处理结果（即未完成事件分发回调），系统认为该应用无法响应用户输入，触发输入阻塞故障。
+3. [APP_INPUT_BLOCK 用户输入响应超时](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志差异性信息)。**检测原理**：当用户对设备进行操作（如点击屏幕、按键）时，多模输入服务（Multimodal Input Service）会将事件派发给应用。如果应用的主线程在收到输入事件后，超过**5秒**仍未反馈处理结果（即未完成事件分发回调），系统认为该应用无法响应用户输入，触发输入阻塞故障。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/lQCbQNs1S9-6nvxAo4cL9A/zh-cn_image_0000002658794265.png?HW-CC-KV=V1&HW-CC-Date=20260723T012403Z&HW-CC-Expire=86400&HW-CC-Sign=DC31436C934353B6F10737FAF6DF580EAD63C62A3094509A87C65AF798A8BB7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/RMgHusZeRkyb6fkMfU83ZQ/zh-cn_image_0000002658794265.png?HW-CC-KV=V1&HW-CC-Date=20260730T072251Z&HW-CC-Expire=86400&HW-CC-Sign=5631C808202FB59532798A05D76A32AC770DE18AEEA3B756DFB2D115D8E61EB1)
 
 
   

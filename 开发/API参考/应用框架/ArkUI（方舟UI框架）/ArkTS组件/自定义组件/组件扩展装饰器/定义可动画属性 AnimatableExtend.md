@@ -1,6 +1,6 @@
-# 定义可动画属性 (@AnimatableExtend)
+# @AnimatableExtend：定义可动画属性
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatable-extend
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,7 +53,7 @@
 
 plus(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
  
-定义数据类型的加法运算规则。
+定义该数据类型的加法运算规则。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -63,7 +63,7 @@ plus(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rhs | AnimatableArithmetic&lt;T&gt; | 是 | 加法运算的对象。 |
+| rhs | AnimatableArithmetic&lt;T&gt; | 是 | 与自身进行加法运算的另一个数据对象。 |
  
  
 **返回值：**
@@ -91,7 +91,7 @@ subtract(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rhs | AnimatableArithmetic&lt;T&gt; | 是 | 减法运算的对象。 |
+| rhs | AnimatableArithmetic&lt;T&gt; | 是 | 与自身进行减法运算的另一个数据对象。 |
  
  
 **返回值：**
@@ -147,7 +147,7 @@ equals(rhs: AnimatableArithmetic&lt;T&gt;): boolean
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rhs | AnimatableArithmetic&lt;T&gt; | 是 | 和自身比较相等的另一个数据对象。 |
+| rhs | AnimatableArithmetic&lt;T&gt; | 是 | 与当前对象判断是否相等的另一个数据对象。 |
  
  
 **返回值：**
@@ -211,8 +211,8 @@ class Point {
   y: number
 
   constructor(x: number, y: number) {
-    this.x = x
-    this.y = y
+    this.x = x;
+    this.y = y;
   }
 
   plus(rhs: Point): Point {
@@ -304,7 +304,7 @@ struct AnimatablePropertyExample {
     Column() {
       Polyline()
         .animatablePoints(this.points)
-        .animation({ duration: 1000, curve: Curve.Ease })// 设置动画参数
+        .animation({ duration: 1000, curve: Curve.Ease }) // 设置动画参数
         .size({ height: 220, width: 300 })
         .fill(Color.Green)
         .stroke(Color.Red)
@@ -327,4 +327,4 @@ struct AnimatablePropertyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/saO_5GRcR_C1o6ZFph33Bg/zh-cn_image_0000002659222159.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=70CBDFF53BB1BCB03F0FA2CD6B6690F037F31B73E9CEF7DD1D03A39F559E28E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/asdHt_T0QFGhd2l-B-2oKA/zh-cn_image_0000002656008900.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071517Z&HW-CC-Expire=86400&HW-CC-Sign=3B9437906B44FD529A580ECBC99DF6270FA5374C097F8F46B8E4B834486DE69D)

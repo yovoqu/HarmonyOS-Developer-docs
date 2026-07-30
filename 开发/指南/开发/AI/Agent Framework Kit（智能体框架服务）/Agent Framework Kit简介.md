@@ -1,6 +1,6 @@
 # Agent Framework Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hmaf-introduction
 
@@ -8,7 +8,7 @@ Agent Framework Kit（智能体框架服务）提供了拉起指定智能体的�
  
 应用在[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/)上线智能体后，向用户提供应用+智能体组合的服务，让用户可以在适当的场景下通过Agent Framework Kit的UI控件能力主动拉起智能体。
  
-Agent Framework Kit主要包含Function组件。
+Agent Framework Kit主要包含Function组件和A2A（Agent to Agent）协议模块。Function组件提供拉起指定智能体的能力。A2A协议模块用于智能体之间的通信，支持任务管理、消息传递和产物生成等功能。
   
 
 #### Kit场景介绍
@@ -20,6 +20,7 @@ Agent Framework Kit主要包含Function组件。
 
 ![](assets/Agent%20Framework%20Kit简介/file-20260514132227988-1.png)
 
+- 通过A2A模块，在应用中智能体可以作为客户端或服务端与其它应用中的智能体进行交互。例如，当一个应用内的智能体需要调用小艺智能体完成某项任务时，可以通过 A2A 协议发起请求，实现跨应用的智能体协作。同样地，当某个智能体需要向其他应用提供服务时，也可以通过 A2A 协议作为服务端响应请求，从而实现更丰富的智能体联动能力。
 
  
   

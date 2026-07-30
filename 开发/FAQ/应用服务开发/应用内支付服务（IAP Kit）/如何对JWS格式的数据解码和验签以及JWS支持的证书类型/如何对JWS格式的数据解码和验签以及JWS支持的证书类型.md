@@ -1,6 +1,6 @@
 # 如何对JWS格式的数据解码和验签以及JWS支持的证书类型
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-8
 
@@ -20,7 +20,7 @@
 
 3. 证书校验通过则从叶子证书获取到PublicKey。
 
-4. 使用Header指定的算法和获取到的PublicKey进行JWT验签，服务端验签参考文档：[JWS解码和验签示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-verifying-signature#section139121421071)。
+4. 使用Header指定的算法和获取到的PublicKey进行JWT验签，服务端验签参考文档：[JWS解码和验签示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-verifying-signature#jws解码和验签示例)。
 
  
  

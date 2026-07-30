@@ -1,6 +1,6 @@
 # 激励广告回调中无法弹出Toast弹窗
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-2
 
@@ -23,8 +23,8 @@ case AdStatus.VIDEO_PLAY_END:
 
 #### 背景知识
 
-- [事件订阅](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher-service-reward#section395845163219)：开发者需要在App中订阅com.huawei.hms.pps.action.PPS_REWARD_STATUS_CHANGED事件来监听激励广告页面变化并接收奖励信息，需要在每次展示广告前调用。
-- [advertising.showAd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#showad)：展示全屏广告。
+- [事件订阅](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher-service-reward#事件订阅)：开发者需要在App中订阅com.huawei.hms.pps.action.PPS_REWARD_STATUS_CHANGED事件来监听激励广告页面变化并接收奖励信息，需要在每次展示广告前调用。
+- [advertising.showAd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#advertisingshowad)：展示全屏广告。
 - 不安全窗口：包括非系统全局悬浮窗、宿主创建的非系统子窗口、宿主创建的非系统Dialog窗口。
 - [模态UIExtension创建默认行为变更](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b071#模态uiextension创建默认行为变更)：通过各个应用或者kit提供的开放能力创建出来的模态UIExtension，可能被三方应用组件或窗口遮挡，造成安全风险。
 

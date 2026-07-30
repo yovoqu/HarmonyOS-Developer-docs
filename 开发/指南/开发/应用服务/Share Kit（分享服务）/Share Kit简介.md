@@ -1,6 +1,6 @@
 # Share Kit简介
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-introduction
 
@@ -14,7 +14,7 @@ Share Kit（分享服务）为应用提供文本、图片、视频等内容跨�
 
 如果应用需要显示在分享面板，则需要构建数据处理能力并按照配置要求在应用配置文件中声明，社交类应用可以通过[意图框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-introduction)接口捐献联系人信息，可以让用户一步分享到应用内的指定用户。
 
-Share Kit（分享服务）提供的[SampleCode示例工程](https://gitcode.com/harmonyos_samples/share-kit_-sample-code_-clientdemo_-arkts)体现了系统分享接入模式、文本/图片等分享示例、碰一碰分享示例及卡片模板，可参考该工程进行应用的相关内容开发。
+Share Kit提供的[SampleCode示例工程](https://gitcode.com/harmonyos_samples/share-kit_-sample-code_-clientdemo_-arkts)体现了系统分享接入模式、文本/图片等分享示例、碰一碰分享示例及卡片模板，可参考该工程进行应用的相关内容开发。
 
 **图1** 手机分享面板效果图
 

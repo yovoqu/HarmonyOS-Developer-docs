@@ -1,6 +1,6 @@
 # ArkUI_AccessibleGridItemInfo
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessiblegriditeminfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_AccessibleGridItemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于配置特定组件（[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)、[Select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select)、[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)组件）的属性值。
+用于描述网格组件内某个网格项的无障碍属性。该结构体用于向无障碍服务提供网格项的位置、跨度、选中状态等信息，支持无障碍服务获取网格项的布局信息。
  
 **起始版本：** 13
  
@@ -38,7 +38,7 @@ typedef struct {...} ArkUI_AccessibleGridItemInfo
 | --- | --- |
 | bool heading | 是否是标题。true表示是标题，false表示不是标题。 |
 | bool selected | 是否被选中。true表示被选中，false表示未被选中。 |
-| int32_t columnIndex | 列下标。取值范围为大于0的整数。 |
-| int32_t rowIndex | 行下标。取值范围为大于0的整数。 |
-| int32_t columnSpan | 列跨度。取值范围为大于0的整数。 |
-| int32_t rowSpan | 行跨度。取值范围为大于0的整数。 |
+| int32_t columnIndex | 列下标。取值范围为大于等于0的整数。传入0或负数时该字段不生效。 |
+| int32_t rowIndex | 行下标。取值范围为大于等于0的整数。传入0或负数时该字段不生效。 |
+| int32_t columnSpan | 列跨度。取值范围为大于0的整数。传入0或负数时该字段不生效。 |
+| int32_t rowSpan | 行跨度。取值范围为大于0的整数。传入0或负数时该字段不生效。 |

@@ -1,6 +1,6 @@
 # ArkUI_AnimatorOption
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-animatoroption
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_AnimatorOption ArkUI_AnimatorOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义animator动画参数对象。
+定义animator动画参数对象，用于创建animator动画时配置动画属性参数。
  
 **起始版本：** 12
  

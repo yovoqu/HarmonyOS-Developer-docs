@@ -1,6 +1,6 @@
 # ColorSpacePrimaries
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-colorspaceprimaries
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ColorSpacePrimaries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供色彩原色结构体声明。
+提供色彩原色结构体声明，用于存储色彩空间的红绿蓝三原色和白点的坐标信息。
  
 **起始版本：** 13
  

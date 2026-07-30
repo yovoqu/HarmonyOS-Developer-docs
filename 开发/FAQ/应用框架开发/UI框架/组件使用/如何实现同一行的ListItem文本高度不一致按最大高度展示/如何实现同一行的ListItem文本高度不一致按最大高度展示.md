@@ -11,7 +11,7 @@
 问题图预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/uIjKX91rRZOf6R2uDe8LVQ/zh-cn_image_0000002628392150.png?HW-CC-KV=V1&HW-CC-Date=20260723T012533Z&HW-CC-Expire=86400&HW-CC-Sign=E940FB22518DB6939D44F59C4E036759C9A8E498265A6F40D80072F1683223A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/uIjKX91rRZOf6R2uDe8LVQ/zh-cn_image_0000002628392150.png?HW-CC-KV=V1&HW-CC-Date=20260730T072319Z&HW-CC-Expire=86400&HW-CC-Sign=4048F4DD1147EC9A0F08769012C2CBDEF4CC54A967CD68E574C258B22DCFF248)
 
  
  
@@ -110,7 +110,7 @@ struct Index {
  修正效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/mQr62QeMS0mLmPQLtmohnw/zh-cn_image_0000002658791433.png?HW-CC-KV=V1&HW-CC-Date=20260723T012533Z&HW-CC-Expire=86400&HW-CC-Sign=312B314CA031242E1D9036CFB7A6158A3AAC1D46DB386E0CE463A0830CCB03FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/mQr62QeMS0mLmPQLtmohnw/zh-cn_image_0000002658791433.png?HW-CC-KV=V1&HW-CC-Date=20260730T072319Z&HW-CC-Expire=86400&HW-CC-Sign=C896248DF8BC3BFF9F8357399E008D15B4B2AA8B4BCF66B2E68B74C74FA13673)
 
 - **方案二**：通过onAreaChange获取各ListItem高度并判断行内最大高度，通过状态变量变化和if/else条件语句，刷新页面布局，将组件高度设置为行内最大高度。1. 计算每个ListItem的高度，并判断同一行中所有ListItem的最大高度。
 ```text
@@ -317,7 +317,7 @@ struct Page {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/mYNezj4ERNOZvcRnuZJ2wg/zh-cn_image_0000002628552046.png?HW-CC-KV=V1&HW-CC-Date=20260723T012533Z&HW-CC-Expire=86400&HW-CC-Sign=17A5A36E3586BC5CE5E20914403B754BF06BD007A70D2644201EC36821E879FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/mYNezj4ERNOZvcRnuZJ2wg/zh-cn_image_0000002628552046.png?HW-CC-KV=V1&HW-CC-Date=20260730T072319Z&HW-CC-Expire=86400&HW-CC-Sign=9DBE667454A948E0694A637C46FB9AD6A5FC33F9E5D92740EBFD7D6A3AA1B859)
 
 
  

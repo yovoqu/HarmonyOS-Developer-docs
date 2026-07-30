@@ -1,6 +1,6 @@
 # OH_ArkUI_SurfaceHolder
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_ArkUI_SurfaceHolder OH_ArkUI_SurfaceHolder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供封装的OH_ArkUI_SurfaceHolder实例。
+OH_ArkUI_SurfaceHolder用于封装和管理Native XComponent的Surface，提供对底层渲染表面的访问与操作能力。可通过[OH_ArkUI_SurfaceHolder_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h#oh_arkui_surfaceholder_create)接口创建实例，适用于在Native侧需要进行自定义渲染或与图形/媒体组件对接的场景。
  
 **起始版本：** 19
  

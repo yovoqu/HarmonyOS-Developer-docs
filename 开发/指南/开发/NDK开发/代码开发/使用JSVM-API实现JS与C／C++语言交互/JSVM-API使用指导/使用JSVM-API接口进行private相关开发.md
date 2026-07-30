@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行private相关开发
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-private
 
@@ -21,7 +21,7 @@ JSVM-API提供创建private key的能力，并支持在对象上使用该key进�
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_CreateDataReference | 在JSVM中创建一个带有指定引用计数的数据引用。 |
-| OH_JSVM_GetReferenceData | 检查指定的引用是否有效, 返回该引用关联的JavaScript数据, 无效result设置为NULL。 |
+| OH_JSVM_GetReferenceData | 检查指定的引用是否有效，返回该引用关联的JavaScript数据，无效result设置为NULL。 |
 | OH_JSVM_CreatePrivate | 创建一个js private key对象。 |
 | OH_JSVM_SetPrivate | 为传入的object设置一个private属性。 |
 | OH_JSVM_GetPrivate | 获取传入的object中private key对应的private属性。 |

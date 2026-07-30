@@ -1,6 +1,6 @@
 # @ohos.net.webSocket (WebSocket连接)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -80,7 +80,7 @@ connect(url: string, callback: AsyncCallback&lt;boolean&gt;): void
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/tnaqw_gITKSgF2I0sKywNA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=6D214F2559C76C676142467FBACAE59F522D0C98E98EB022700D568FB351491F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/bge92T_KR2eRPp3ppD121g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071625Z&HW-CC-Expire=86400&HW-CC-Sign=50A910634E60DA37AA35961ED70429980BA85921230123FCD7EA616C1F640C9B)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。从API version 26开始，URL地址长度限制由2048修改为8196。
@@ -148,7 +148,7 @@ connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback&l
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/gX56hRE8Q6OOS9C4hBzCxA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=05419E599E05B7532E71D04C499A1B497E8C81170CE1C51E61FF30B67779F39D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/CofUZJKtTDC8YYzHK1adSw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071625Z&HW-CC-Expire=86400&HW-CC-Sign=6700619BEF309ADB1764DBB25F79AED9BBFAFFA88D824FF830E7C1771A48CEBE)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。从API version 26开始，URL地址长度限制由2048修改为8196。
@@ -241,7 +241,7 @@ connect(url: string, options?: WebSocketRequestOptions): Promise&lt;boolean&gt;
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/ZWolKH6_SKiVquNFrakNQw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=F8763A05FA4CFD9B24C757F9DBE46CCC055648641EBD242A8A2D46CE4181A170)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/c6mDIswPSZmzHiaj24pYIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071625Z&HW-CC-Expire=86400&HW-CC-Sign=7F7B93175C6AB5EDB3924F5AFE0DC4CD3BB9E88D579C9360523A34A074AE0EA1)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。从API version 26开始，URL地址长度限制由2048修改为8196。
@@ -717,9 +717,9 @@ import { BusinessError, Callback } from '@kit.BasicServicesKit';
 let ws = webSocket.createWebSocket();
 ws.on('openInfo', (err: BusinessError, value: webSocket.WebSocketOpenInfo) => {
   if (value?.protocol != undefined) {
-    console.info(`on openInfo exists protocol: status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+    console.info(`on openInfo exist protocol: status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
   } else {
-    console.info(`on openInfo, status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+    console.info(`on openInfo , status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
   }
 });
 ```
@@ -761,9 +761,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let ws = webSocket.createWebSocket();
 let callback1 = (err: BusinessError, value: webSocket.WebSocketOpenInfo) => {
   if (value?.protocol != undefined) {
-    console.info(`on openInfo exists protocol: status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+    console.info(`on openInfo exist protocol: status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
   } else {
-    console.info(`on openInfo, status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+    console.info(`on openInfo , status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
   }
 }
 ws.on('openInfo', callback1);
@@ -1798,7 +1798,8 @@ localServer.off('error');
 | skipServerCertVerification20+ | boolean | 否 | 是 | 是否跳过服务器证书验证。true表示跳过服务器证书验证，false表示不跳过服务器证书验证。默认为false。 |
 | pingInterval21+ | number | 否 | 是 | 自定义心跳检测时间，默认为30s。每pingInterval周期会发起心跳检测，设置为0则表示关闭心跳检测。最大值：30000s，最小值：0s。 |
 | pongTimeout21+ | number | 否 | 是 | 自定义发起心跳检测后，超时断开时间，默认为30s。发起心跳检测后若pongTimeout时间未响应则断开连接。最大值：30000s，最小值：0s。pongTimeout须小于等于pingInterval。 |
-| minSupportTlsProtocol | TlsProtocol | 否 | 是 | 自定义支持的最低TLS协议版本。例如：设置该参数为TLS_V_1_1，则客户端可支持TLS协议版本有TLS 1.1、TLS 1.2、TLS 1.3。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| minSupportTlsProtocol | TlsProtocol | 否 | 是 | 自定义支持的最低TLS协议版本。例如：设置该参数为TLS_V_1_1，则客户端可支持TLS协议版本有TLS1.1、TLS1.2、TLS1.3。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| supportOriginPort | boolean | 否 | 是 | Origin是WebSocket握手请求中的HTTP请求头字段，用于标识请求来源，服务端可据此进行来源校验。该参数用于控制Origin字段是否携带自定义端口号。默认值为false。设置为true时： - 调用connect接口后，若其第一个参数url中指定的协议为ws，且显式指定的端口号不是80，则Origin字段中会携带对应的端口；其他情况不携带端口号。 - 调用connect接口后，若其第一个参数url中指定的协议为wss，且显式指定的端口号不是443，则Origin字段中会携带对应的端口号；其他情况不携带端口号。 设置为false时，Origin字段不会携带端口号。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -2024,7 +2025,7 @@ TLS协议类型。
 
 **起始版本：** 26.0.0
 
-**系统能力**：SystemCapability.Communication.NetStack
+**系统能力：** SystemCapability.Communication.NetStack
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -2052,6 +2053,6 @@ WebSocket连接成功后的详细信息。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| status | number | 否 | 否 | 服务器返回的状态码。例如：101表示建链成功并升级为WebSocket协议。 |
+| status | number | 否 | 否 | 服务器返回的状态码。例如：101表示建链成功并升级为websocket协议。 |
 | message | string | 否 | 否 | 服务器返回的状态信息。与status字段对应，例如：status=101时，该字段返回"Switching Protocols"。 |
 | protocol | string | 否 | 是 | 服务器返回的协商后的协议。 |

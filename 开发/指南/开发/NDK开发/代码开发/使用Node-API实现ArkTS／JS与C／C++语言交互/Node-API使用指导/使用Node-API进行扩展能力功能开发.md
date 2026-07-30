@@ -1,6 +1,6 @@
 # 使用Node-API进行扩展能力功能开发
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-extension
 
@@ -823,7 +823,7 @@ hilog.info(0x0000, 'testTag', ' Node-API aboutSerialize: %{public}d', testNapi.a
 
 **napi_call_threadsafe_function_with_priority**
  
-[使用Node-API接口从异步线程向ArkTS线程投递指定优先级和入队方式的的任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-call-threadsafe-function-with-priority)
+[使用Node-API接口从异步线程向ArkTS线程投递指定优先级和入队方式的任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-call-threadsafe-function-with-priority)
  
   
 

@@ -90,7 +90,7 @@ struct Index {
  运行效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/1hmczSkeRzmFLhYC04YAkw/zh-cn_image_0000002628766890.png?HW-CC-KV=V1&HW-CC-Date=20260723T012803Z&HW-CC-Expire=86400&HW-CC-Sign=6A814D0DA25D27A6E4D6AB46ADFB9E75A77B7820135E39456FD0C958320F5ECC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/1hmczSkeRzmFLhYC04YAkw/zh-cn_image_0000002628766890.png?HW-CC-KV=V1&HW-CC-Date=20260730T072408Z&HW-CC-Expire=86400&HW-CC-Sign=3B8B2FC9E2826A589B6562989779B84AFE8A17AF116642DD7C6B7097B18915F0)
 
 - 问题三：TextTimer组件后台停止前台恢复可以通过计时器控制器的指令实现。将控制器导出，在EntryAbility.ets文件中使用。当应用进入后台触发onBackground时使用pause指令停止计时器，进入前台时根据上一次后台前计时器的状态判断是否调用start指令让计时器继续计时。参考代码如下：
 
@@ -154,7 +154,7 @@ struct Page2 {
  运行效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/64z6YEa1SuKUYM0jsfduNw/zh-cn_image_0000002658966221.png?HW-CC-KV=V1&HW-CC-Date=20260723T012803Z&HW-CC-Expire=86400&HW-CC-Sign=BAAA94C1CCCD0CB0D82AE1369F9EAE8C1F92BA9389F5AC6A7ADA28AAF96B8393)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/64z6YEa1SuKUYM0jsfduNw/zh-cn_image_0000002658966221.png?HW-CC-KV=V1&HW-CC-Date=20260730T072408Z&HW-CC-Expire=86400&HW-CC-Sign=A5BB3858A18541578F5DB9F18C640E3FA34511CF208105C4B8511070CB998B85)
 
 
  

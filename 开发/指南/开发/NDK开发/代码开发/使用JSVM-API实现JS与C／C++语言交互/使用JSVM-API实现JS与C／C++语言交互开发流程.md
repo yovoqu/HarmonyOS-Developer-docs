@@ -1,6 +1,6 @@
 # 使用JSVM-API实现JS与C/C++语言交互开发流程
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process
 
@@ -65,8 +65,8 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libjsvm.so libhilog_ndk.z.so
 
 - 新建entry/src/main/cpp/hello.cpp，实现Native侧的runTest接口。具体代码如下：
 
-  
-```cpp
+ 
+```text
 #include "napi/native_api.h"
 #include "hilog/log.h"
 #include "ark_runtime/jsvm.h"
@@ -213,8 +213,6 @@ static napi_module demoModule = {
 
 extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_module_register(&demoModule); }
 ```
-
-
  
   
 

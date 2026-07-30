@@ -1,6 +1,6 @@
 # 绘制几何图形 (Shape)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-geometric-shape-drawing
 
@@ -204,7 +204,7 @@ struct ViewPort3 {
 
 绘制组件支持通过各种属性更改组件样式。
 
- - 通过[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#fill)可以设置组件填充区域颜色。
+ - 通过[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#fill)可以设置组件填充区域颜色。
 
   
 ```ArkTS
@@ -218,7 +218,7 @@ Path()
 
 ![](assets/绘制几何图形%20(Shape)/file-20260514130648675-13.jpg)
 
- - 通过[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#stroke)可以设置组件边框颜色。
+ - 通过[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#stroke)可以设置组件边框颜色。
 
   
 ```ArkTS
@@ -232,7 +232,7 @@ Path()
 
 ![](assets/绘制几何图形%20(Shape)/file-20260514130648675-14.jpg)
 
- - 通过[strokeOpacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#strokeopacity)可以设置边框透明度。
+ - 通过[strokeOpacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#strokeopacity)可以设置边框透明度。
 
   
 ```ArkTS
@@ -248,7 +248,7 @@ Path()
 
 ![](assets/绘制几何图形%20(Shape)/file-20260514130648675-2.jpg)
 
- - 通过[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokelinejoin)可以设置线条拐角绘制样式。拐角绘制样式分为Bevel(使用斜角连接路径段)、Miter(使用尖角连接路径段)、Round(使用圆角连接路径段)。
+ - 通过[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#strokelinejoin)可以设置线条拐角绘制样式。拐角绘制样式分为Bevel(使用斜角连接路径段)、Miter(使用尖角连接路径段)、Round(使用圆角连接路径段)。
 
   
 ```ArkTS
@@ -265,11 +265,11 @@ Polyline()
 
 ![](assets/绘制几何图形%20(Shape)/file-20260514130648675-3.jpg)
 
- - 通过[strokeMiterLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokemiterlimit)设置斜接长度与边框宽度比值的极限值。
+ - 通过[strokeMiterLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#strokemiterlimit)设置斜接长度与边框宽度比值的极限值。
 
-  斜接长度表示外边框外边交点到内边交点的距离，边框宽度即[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokewidth)属性的值。
+  斜接长度表示外边框外边交点到内边交点的距离，边框宽度即[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#strokewidth)属性的值。
 
-  strokeMiterLimit取值需大于等于1，且在[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokelinejoin)属性取值LineJoinStyle.Miter时生效。
+  strokeMiterLimit取值需大于等于1，且在[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#strokelinejoin)属性取值LineJoinStyle.Miter时生效。
 
   
 ```ArkTS
@@ -297,7 +297,7 @@ Polyline()
 
 ![](assets/绘制几何图形%20(Shape)/file-20260514130648675-4.jpg)
 
- - 通过[antiAlias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle#antialias)设置是否开启抗锯齿，默认值为true（开启抗锯齿）。
+ - 通过[antiAlias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common#antialias)设置是否开启抗锯齿，默认值为true（开启抗锯齿）。
 
   
 ```ArkTS
@@ -590,4 +590,4 @@ struct CircleExample {
 ```
 
 
-![](assets/绘制几何图形%20(Shape)/file-20260708103928d49895ba.jpg)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/UfroyUPCTfOPrx4W8MsBgA/zh-cn_image_0000002656006392.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071848Z&HW-CC-Expire=86400&HW-CC-Sign=9C5F3E780732DE070CE9878CFA9A03B7237912C90CFECAA8E0D238FF8AAB5316)

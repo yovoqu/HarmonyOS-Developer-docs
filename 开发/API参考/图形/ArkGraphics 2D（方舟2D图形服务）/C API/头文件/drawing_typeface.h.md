@@ -1,6 +1,6 @@
 # drawing_typeface.h
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-typeface-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,6 +12,8 @@
 文件中定义了与字形相关的功能函数。
  
 不同的平台有自己的默认字形，也可以从ttf文件解析出三方指定字形，如宋体、黑体字形等。
+ 
+本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
  
 **引用文件：** <native_drawing/drawing_typeface.h>
  

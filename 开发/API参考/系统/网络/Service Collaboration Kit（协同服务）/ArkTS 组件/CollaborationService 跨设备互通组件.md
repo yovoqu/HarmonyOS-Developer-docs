@@ -1,6 +1,6 @@
 # CollaborationService (跨设备互通组件)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -257,7 +257,7 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
 **状态码：**
 
-以下部分错误状态的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration)。
+以下部分错误状态的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration)。
 
 | 状态码ID | 错误信息 |
 | --- | --- |

@@ -1,6 +1,6 @@
 # Navigator
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-navigator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,7 +57,7 @@ Navigator(value?: {target: string, type?: NavigationType})
 Navigator()
  
 > [!NOTE]
-> 从API version 7开始支持，从API version 13开始废弃，建议使用 Navigation 替代。
+> 从API version 7开始支持，从API version 13开始废弃，建议使用NavigationAttribute替代。NavigationAttribute为 Navigation 组件的属性。
 
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -277,4 +277,4 @@ struct BackExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5l_Ot0guQOWj5JBhHmK6bQ/zh-cn_image_0000002628703042.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014357Z&HW-CC-Expire=86400&HW-CC-Sign=3B3FB2172487AC7CDA8E828DD22C7D509ADAF20230BA0E3756AEBAD961E76AF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/npAI1ZnWR2me7oNVfjEFdQ/zh-cn_image_0000002656008994.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071522Z&HW-CC-Expire=86400&HW-CC-Sign=E46F19477D0C87E0254D0696E744E37B3714051DE11480052F3642BBA33776B9)

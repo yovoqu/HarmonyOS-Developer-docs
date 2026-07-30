@@ -1,6 +1,6 @@
 # UI测试框架如何获取控件并进行操作
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-38
 
@@ -17,7 +17,7 @@
  
 
 #### 解决方案
-1. [创建HarmonyOS工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section11644183711342)，在工程目录\entry\src\main\ets\pages\Index.ets中编写被测页面。
+1. [创建HarmonyOS工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section181328285169)，在工程目录\entry\src\main\ets\pages\Index.ets中编写被测页面。
 ```text
 @Entry
 @Component
@@ -135,7 +135,7 @@ A：控件树中类型为空串的结点代表当前的屏幕信息，类型为r
 Q：UiTest中Component提供控件属性获取，但是只能获取id、文本信息、类型等少数属性，无法获取对齐方式AlignType、输入类型InputType等更多属性，如何获取这些属性？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/_nmGKaJYRkeCK8secwaUnQ/zh-cn_image_0000002658808909.png?HW-CC-KV=V1&HW-CC-Date=20260723T014007Z&HW-CC-Expire=86400&HW-CC-Sign=565E42A70BA52828074FB75C492ABBDE54F20B11A6CD64EC81A1632F2E4201CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/uot6P5jTQa6hNgeJd43NQg/zh-cn_image_0000002658808909.png?HW-CC-KV=V1&HW-CC-Date=20260730T072723Z&HW-CC-Expire=86400&HW-CC-Sign=28FB7B77065EB142E814275004F5897FCF2B407C9B41C4ACAB26B2290B7420E6)
 
  
 A：使用[getInspectorInfo](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/apis-arkui/js-apis-arkui-frameNode.md#getinspectorinfo12)获取节点的结构信息，获取的信息和DevEco Studio内置ArkUI Inspector工具里面的一致（getInspectorInfo接口用于获取所有节点的信息，作为调试接口使用，频繁调用会导致性能下降）。

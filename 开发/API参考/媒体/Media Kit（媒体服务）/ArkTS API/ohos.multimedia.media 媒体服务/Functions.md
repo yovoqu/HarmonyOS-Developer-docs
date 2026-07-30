@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -959,4 +959,156 @@ createAudioRecorder(): AudioRecorder
 
 ```text
 let audioRecorder: media.AudioRecorder = media.createAudioRecorder();
+```
+
+
+
+#### media.createAVAdsController
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createAVAdsController(player: AVPlayer): Promise<AVAdsController | undefined>
+
+创建一个与播放器实例关联的广告播放控制器。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| player | AVPlayer | 是 | 已创建的播放器实例。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<AVAdsController \| undefined> | Promise对象。成功时返回广告播放控制器实例，失败时返回undefined。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400108 | The player object corresponding to player does not exist or is invalid. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+async function test() {
+  let player: media.AVPlayer = await media.createAVPlayer();
+  media.createAVAdsController(player).then((adsController: media.AVAdsController | undefined) => {
+    if (adsController) {
+      console.info('Succeeded in creating AVAdsController');
+    } else {
+      console.error('Failed to create AVAdsController');
+    }
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to create AVAdsController, error: ${error}`);
+  });
+}
+```
+
+
+
+#### media.createMediaSourceWithDirectory
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createMediaSourceWithDirectory(path: string): Promise<MediaSource | undefined>
+
+根据指定目录路径创建一个媒体源对象。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| path | string | 是 | 用于创建媒体源的目录路径信息。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<MediaSource \| undefined> | Promise对象。成功时返回MediaSource实例，失败时返回undefined。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5411007 | The directory specified by the path parameter does not exist or unaccessed. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+async function test() {
+  media.createMediaSourceWithDirectory("/data/storage/el2/base/media/cache/").then((mediaSource: media.MediaSource | undefined) => {
+    if (mediaSource) {
+      console.info('Succeeded in creating MediaSource with directory');
+    } else {
+      console.error('Failed to create MediaSource with directory');
+    }
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to create MediaSource with directory, error: ${error}`);
+  });
+}
+```
+
+
+
+#### media.createAVDownloaderManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createAVDownloaderManager(): Promise&lt;AVDownloaderManager&gt;
+
+创建一个离线下载任务管理器实例。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;AVDownloaderManager&gt; | Promise对象。返回离线下载任务管理器实例。 |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+async function test() {
+  media.createAVDownloaderManager().then((downloaderManager: media.AVDownloaderManager) => {
+    console.info('Succeeded in creating AVDownloaderManager');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to create AVDownloaderManager, error: ${error}`);
+  });
+}
 ```

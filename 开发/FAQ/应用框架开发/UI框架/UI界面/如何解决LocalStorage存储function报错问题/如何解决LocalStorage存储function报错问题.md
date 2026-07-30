@@ -97,4 +97,4 @@ export struct <span style="color: rgb(0,0,255);">LocalStorageDemo </span><span s
 运行截图如下：成功调用LocalStorage中存储的类对象的函数来打印数据。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/Rnc9X2JTSiqZceAQrXHGoQ/zh-cn_image_0000002658835373.png?HW-CC-KV=V1&HW-CC-Date=20260723T013017Z&HW-CC-Expire=86400&HW-CC-Sign=872CB6A12BF9D14CBF499434C7A8B591F37851C07F3B610099B0F03437E40E26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/Rnc9X2JTSiqZceAQrXHGoQ/zh-cn_image_0000002658835373.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=BB60328E1F783C1C972445545D79DEB5C11A9B433C78699563B9E8489008B7AF)

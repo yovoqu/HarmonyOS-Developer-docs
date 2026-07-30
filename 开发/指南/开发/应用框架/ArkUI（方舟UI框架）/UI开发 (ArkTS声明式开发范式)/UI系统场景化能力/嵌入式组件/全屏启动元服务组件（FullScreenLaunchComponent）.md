@@ -1,6 +1,6 @@
 # 全屏启动元服务组件（FullScreenLaunchComponent）
 
-更新时间：2026-04-17 08:12:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-fullscreencomponent
 
@@ -25,7 +25,7 @@ FullScreenLaunchComponent允许开发者以全屏方式拉起元服务，使得�
 
 #### 实现原理
 
-FullScreenLaunchComponent提供的一种全屏启动元服务的能力。需要拉起元服务时，拉起方向AMS查询拉起方是否授权使用方可以嵌入式运行元服务。已授权时，使用方全屏嵌入式运行元服务；未授权时，使用方跳出式拉起元服务。
+FullScreenLaunchComponent提供的一种全屏启动元服务的能力。需要拉起元服务时，拉起方向AMS查询被拉起方是否授权使用方可以嵌入式运行元服务。已授权时，使用方全屏嵌入式运行元服务；未授权时，使用方跳出式拉起元服务。
 
 跳出式运行元服务是指，非组件化的方式拉起EmbeddableUIAbility，交互体验接近独立窗口。
 

@@ -1,6 +1,6 @@
 # 使用Text组件
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-use-text-component
 
@@ -35,13 +35,19 @@ Manager::nodeAPI_->setAttribute(text, NODE_HEIGHT, &textHeightItem);
 
 #### 设置文本内容
 
-通过[NODE_TEXT_CONTENT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-text#node_text_content)属性设置Text组件的基本文本内容。
+ - 通过[NODE_TEXT_CONTENT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-text#node_text_content)属性设置Text组件的基本文本内容。
 
+  
 ```cpp
 const char *textContent = "this is text 2 this is text 2 this is text 2!!!! ";
 ArkUI_AttributeItem contentItem = {.string = textContent};
 Manager::nodeAPI_->setAttribute(text2, NODE_TEXT_CONTENT, &contentItem);
 ```
+
+ - 通过[NODE_TEXT_CONTENT_WITH_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-text#node_text_content_with_styled_string)属性设置文本内容。
+
+  StyledString提供了更高级的文本排版功能，支持为文本的不同部分设置不同样式，包括字体大小、颜色、占位符等。关于StyledString的详细使用方法，请参考[使用属性字符串](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-styled-string)文档。
+
 
 
 
@@ -178,7 +184,7 @@ Manager::nodeAPI_->setAttribute(text3, NODE_TEXT_WORD_BREAK, &wordBreakItem);
 
 从API version 22开始，Text组件支持使用倍数模式设置行高。
 
-**表5** 行高属性
+**表4** 行高属性
 
 | 属性 | 说明 |
 | --- | --- |
@@ -211,7 +217,7 @@ Manager::nodeAPI_->setAttribute(text9, NODE_TEXT_LINE_HEIGHT_MULTIPLE, &item);
 
 通过如下属性设置文本溢出时的省略模式。
 
-**表6** 文本省略属性
+**表5** 文本省略属性
 
 | 属性 | 说明 |
 | --- | --- |
@@ -243,7 +249,7 @@ Manager::nodeAPI_->setAttribute(text20, NODE_TEXT_ELLIPSIS_MODE, &ellipsisModeIt
 
 通过如下属性设置每行结尾空格是否优化。从API version 20开始，Text组件支持设置每行结尾空格是否优化处理。
 
-**表8** 每行结尾空格处理属性
+**表6** 每行结尾空格处理属性
 
 | 属性 | 说明 |
 | --- | --- |
@@ -287,6 +293,25 @@ Manager::nodeAPI_->setAttribute(text11, NODE_TEXT_COMPRESS_LEADING_PUNCTUATION, 
 ```
 
 
+
+
+
+#### 设置文本尾部缩进
+
+通过如下属性设置文本尾部缩进。从API版本26.0.0开始，Text组件支持设置文本尾部缩进。
+
+**表8** 文本尾部缩进属性
+
+| 属性 | 说明 |
+| --- | --- |
+| NODE_TEXT_TAIL_INDENTS | 设置文本尾部缩进。 |
+
+
+```text
+ArkUI_NumberValue multiValues[] = { { .f32 = 0.0f }, { .f32 = 50.0f }, { .f32 = 100.0f } };
+ArkUI_AttributeItem tailIndentItem2 = { .value = multiValues, .size = 3 };
+Manager::nodeAPI_->setAttribute(text2, NODE_TEXT_TAIL_INDENTS, &tailIndentItem2);
+```
 
 
 
@@ -371,12 +396,6 @@ void setText6(ArkUI_NodeHandle &text6)
     Manager::nodeAPI_->addChild(text6, imageSpan);
 }
 ```
-
-
-
-#### 使用StyledString
-
-StyledString提供了更高级的文本排版功能，支持为文本的不同部分设置不同样式，包括字体大小、颜色、占位符等。关于StyledString的详细使用方法，请参考[使用属性字符串](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-styled-string)文档。
 
 
 

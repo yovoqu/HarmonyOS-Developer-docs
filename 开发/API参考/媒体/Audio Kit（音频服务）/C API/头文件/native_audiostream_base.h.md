@@ -1,6 +1,6 @@
 # native_audiostream_base.h
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -268,7 +268,7 @@ enum OH_AudioStream_DirectPlaybackMode
 | --- | --- |
 | AUDIOSTREAM_DIRECT_PLAYBACK_NOT_SUPPORTED = 0 | 该模式代表不支持direct通路播放。 |
 | AUDIOSTREAM_DIRECT_PLAYBACK_BITSTREAM_SUPPORTED = 1 | 该模式代表支持不解码的direct通路播放。 |
-| AUDIOSTREAM_DIRECT_PLAYBACK_PCM_SUPPORTED = 2 | 该模式代表支持pcm编码的direct通路播放。 |
+| AUDIOSTREAM_DIRECT_PLAYBACK_PCM_SUPPORTED = 2 | 该模式代表支持PCM编码的direct通路播放。 |
  
  
   
@@ -349,6 +349,7 @@ enum OH_AudioStream_SourceType
 | AUDIOSTREAM_SOURCE_TYPE_CAMCORDER = 13 | 录像。 起始版本： 13 |
 | AUDIOSTREAM_SOURCE_TYPE_UNPROCESSED = 14 | 麦克风纯净录音（系统不做任何算法处理）。 起始版本： 14 |
 | AUDIOSTREAM_SOURCE_TYPE_LIVE = 17 | 直播。 起始版本： 20 |
+| AUDIOSTREAM_SOURCE_TYPE_VOICE_DOWNLINK = 22 | 蜂窝通话下行录音（通话中对方声音）。使用此输入流的音频采集器应在蜂窝通话开始后创建。使用OH_AudioStreamBuilder_GenerateCapturer创建采集流时需要ohos.permission.CAPTURE_PLAYBACK_DOWNLINK权限，否则函数将返回错误。 起始版本： 26.0.0 |
  
  
   

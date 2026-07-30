@@ -1,11 +1,11 @@
 # SceneType
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供3D图形中常用的数据类型。
+本模块提供ArkGraphics 3D中常用的数据类型。
  
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持，后续版本的新增接口，采用上角标标记接口的起始版本。
@@ -59,7 +59,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, RenderingPipelineType,
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-四维向量，通常用于表示4D空间中的点、方向或向量变换，由x、y、z和w四个分量组成，增加第四个分量为各种计算和变换增加了规整性和便捷性。
+四维向量，通常用于表示4D空间中的点、方向或向量变换，由x、y、z和w四个分量组成。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
   
@@ -316,7 +316,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, RenderingPipelineType,
 以radius=0.5，height=1，segmentCount=20为例，生成圆柱体的网格以及UV布局如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/jWEKZ1bURrG7q8iP_3h8ag/zh-cn_image_0000002677669019.png?HW-CC-KV=V1&HW-CC-Date=20260723T012043Z&HW-CC-Expire=86400&HW-CC-Sign=E294427BB5866FB503895A96AEE57E761CB45546A330D525F19D7B984E8711B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/Y1I6KV0sQES_2BgXhpAH9A/zh-cn_image_0000002656009730.png?HW-CC-KV=V1&HW-CC-Date=20260730T071724Z&HW-CC-Expire=86400&HW-CC-Sign=E258D0FDECD7CACFB06DC297AC9A2C56FE1BD3773BA984D10F67260C06FE67F6)
 
  
   
@@ -325,7 +325,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, RenderingPipelineType,
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-相机矩阵，它是一个将三维世界坐标映射到二维图像坐标的数学工具。
+4x4矩阵类型，可用于坐标变换。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
   

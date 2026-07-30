@@ -1,6 +1,6 @@
 # JS语法参考
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-framework-syntax-js
 
@@ -354,9 +354,9 @@ export default {
   childClicked () {
     this.isShow = !this.isShow;
     console.info('child component get parent text');
-    console.info('${this.$parent().text}');
+    console.info(`${this.$parent().text}`);
     console.info('child component get root text');
-    console.info('${this.$root().text}');
+    console.info(`${this.$root().text}`);
   },
 }
 ```

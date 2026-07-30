@@ -1,6 +1,6 @@
 # Map Kit如何知道地图进行了缩放
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-13
 
@@ -18,7 +18,7 @@
 
 #### 解决方案
 
-通过[on(type: 'cameraChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager#section1488710318220)监听地图相机状态变化事件，回调里通过zoom是否变化来判断是否有缩放行为。zoom获取方式为：this.mapController?.getCameraPosition().zoom。
+通过[on(type: 'cameraChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager#oncamerachange)监听地图相机状态变化事件，回调里通过zoom是否变化来判断是否有缩放行为。zoom获取方式为：this.mapController?.getCameraPosition().zoom。
  
 ```text
 import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">map</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">mapCommon</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">MapComponent </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.MapKit'</span><span style="color: rgb(181,106,1);">;</span>

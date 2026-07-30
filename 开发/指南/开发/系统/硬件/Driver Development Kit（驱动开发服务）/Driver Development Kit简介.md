@@ -1,6 +1,6 @@
 # Driver Development Kit简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/driverdevelopment-overview
 
@@ -99,6 +99,8 @@ HDF扩展驱动框架为扩展外设驱动开发，提供稳定统一的外设�
 
 本Kit不支持模拟器。
 
+针对 DriverExtensionAbility接口调用限制，详细请参考 API 中的[约束限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability#约束限制)。
+
 
 
 #### 关联模块
@@ -141,8 +143,8 @@ HDF扩展驱动框架为扩展外设驱动开发，提供稳定统一的外设�
 4.在DriverExtensionAbility中API访问安全管控说明
 
  - 系统支持基于ExtensionAbility构建场景化扩展Ability，DriverExtensionAbility为支持开发用户态扩展驱动的一类Ability。
- - 在DriverExtensionAbility中仅支持访问DDK（[docs/zh-cn/application-dev/reference/apis-driverdevelopment-kit · HarmonyOS/docs - AtomGit | GitCode](https://gitcode.com/openharmony/docs/tree/master/zh-cn/application-dev/reference/apis-driverdevelopment-kit)）API，实现对非标外设进行访问控制和数据通信。
- - 基于驱动开发安全约束及驱动开发业务场景，在DriverExtensionAbility中不支持访问其它ArkTS API，以防止恶意行为和数据泄漏。
+ - 在DriverExtensionAbility中仅支持访问DDK（Driver Development Kit）API，实现对非标外设进行访问控制和数据通信。
+ - 基于驱动开发安全约束及驱动开发业务场景，在DriverExtensionAbility中不支持访问其它ArkTS API，以防止恶意行为和数据泄露。
  - DriverExtensionAbility受限访问ArkTS API方案说明：       
 ArkTS API受限原理：在初始化和创建Extension进程时，会根据Extension配置的受限访问ArkTS API名单加载系统模块。在运行时，如果在DriverExtensionAbility中调用受限ArkTS API，由于初始化和创建阶段未加载相应系统模块，API会调用失败。
 

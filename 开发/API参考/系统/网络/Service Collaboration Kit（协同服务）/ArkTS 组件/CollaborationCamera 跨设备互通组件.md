@@ -1,6 +1,6 @@
 # CollaborationCamera (跨设备互通组件)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationcamera
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -155,7 +155,7 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration)。
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

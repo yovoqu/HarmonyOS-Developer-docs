@@ -82,10 +82,10 @@ struct CookieGive {
  
 其中关键步骤是：
  1. 首先点击configCookieSync1后再通过fetchCookieSync获取Cookie，日志如下则说明Cookie设置成功。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/6HUukIR1R9Wq_9_-nHzE3A/zh-cn_image_0000002659138443.png?HW-CC-KV=V1&HW-CC-Date=20260723T013355Z&HW-CC-Expire=86400&HW-CC-Sign=27683BB57015D697F4847534A4B452336FB6F3E6FD86FC463D36F436BA851E28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/6HUukIR1R9Wq_9_-nHzE3A/zh-cn_image_0000002659138443.png?HW-CC-KV=V1&HW-CC-Date=20260730T072538Z&HW-CC-Expire=86400&HW-CC-Sign=C3E0A10DFA27BCED1477B45443EC8EDD8580DF73C808F0E80530F974555A8B45)
 
 2. 然后点击configCookieSync2后再通过fetchCookieSync获取Cookie，日志如下则说明Cookie清除成功。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/_ksxfAyvRbye6RUi6FEhdQ/zh-cn_image_0000002629059100.png?HW-CC-KV=V1&HW-CC-Date=20260723T013355Z&HW-CC-Expire=86400&HW-CC-Sign=C3E3641745BF60FFAD0539E767096349B3C6B2D6FEFB562BB14BE2CA93677878)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/_ksxfAyvRbye6RUi6FEhdQ/zh-cn_image_0000002629059100.png?HW-CC-KV=V1&HW-CC-Date=20260730T072538Z&HW-CC-Expire=86400&HW-CC-Sign=EC2EAB04945B5F366113F5E408C3D417A337943B8913BB2CE48FC9E865E68198)
 
  
  

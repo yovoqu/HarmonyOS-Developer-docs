@@ -1,6 +1,6 @@
 # @ohos.resourceManager (资源管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -5428,7 +5428,7 @@ getOverrideResourceManager(configuration?: Configuration): ResourceManager
 
 获取可以加载差异化资源的资源管理对象，使用同步方式返回。
 
-普通的资源管理对象获取的资源的配置（语言、深浅色、分辨率、横竖屏等）是由系统决定的，而通过该接口返回的对象，应用可以获取符合指定配置的资源，即差异化资源，比如在浅色模式时可以获取深色资源。
+普通的资源管理对象获取的资源的配置（语言、深浅色、分辨率、横竖屏等）是由系统决定的，而通过该接口返回的对象，应用可以获取符合指定配置的资源，即差异化资源，比如在浅色模式时可以获取深色资源。差异化资源仅限于应用自身资源和系统资源，不包括主题资源。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 

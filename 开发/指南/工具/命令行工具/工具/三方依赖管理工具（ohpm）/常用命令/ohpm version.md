@@ -1,6 +1,6 @@
 # ohpm version
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-version
 
@@ -33,7 +33,7 @@ ohpm version [options] [<newversion> | major | minor | patch]
 
 #### newversion
 
-newversion 参数应为一个合法的语义化版本，命令会将当前模块版本改写为 newversion 并打印在标准输出中。
+newversion参数应为一个合法的语义化版本，命令会将当前模块版本改写为newversion并打印在标准输出中。
  
  
 

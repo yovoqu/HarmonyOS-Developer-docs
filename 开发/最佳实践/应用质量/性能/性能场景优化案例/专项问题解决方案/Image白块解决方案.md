@@ -1,6 +1,6 @@
 # Image白块解决方案
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-07-28 03:34:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution
 
@@ -22,7 +22,7 @@
 
  
 > [!NOTE]
-> 1. 开发者在使用Image加载较大的网络图片时，网络下载推荐使用 HTTP 工具提前预下载。 2. 在预下载之后，开发者可根据业务自行选择数据处理方式，如将预下载后得到的ArrayBuffer转成BASE64、使用应用沙箱提前缓存、直接转PixelMap、或是业务上自行处理ArrayBuffer等多种方式灵活处理数据后，传给Image组件。
+> 1. 开发者在使用Image加载较大的网络图片时，网络下载推荐使用HTTP工具提前预下载，参考链接： 使用HTTP访问网络 。 2. 在预下载之后，开发者可根据业务自行选择数据处理方式，如将预下载后得到的ArrayBuffer转成BASE64、使用应用沙箱提前缓存、直接转PixelMap、或是业务上自行处理ArrayBuffer等多种方式灵活处理数据后，传给Image组件。
 
  
 当子页面需要加载很大的网络图片时，可以在父页面提前将网络数据预下载到应用沙箱中，子组件加载时从沙箱中读取，减少白块出现时长。
@@ -59,7 +59,7 @@ export struct PageOne {
         // Positive example: At this time, the Image has obtained the network image that has been loaded in advance,
         // reducing the time for white blocks to appear.
         Image(this.imageData)
-          .objectFit(ImageFit.Auto)
+          .objectFit(ImageFit.Cover)
           .width('100%')
           .height('100%')
       }
@@ -80,18 +80,21 @@ export struct PageOne {
 
 #### 【优化后】：通过预下载的方式
 
-子页面PageOne中需展示一张较大的网络图片，在父组件的aboutToAppear()中提前发起网络请求，并做判断文件是否存在，已下载的不再重复请求，存储在应用沙箱中。当父页面点击按钮跳转子页面PageOne，此时触发pixMap请求读取应用沙箱中已缓存解码的网络图片并存储在LocalStorage中，通过在子页面的Image中传入被@StorageLink修饰的变量imageData进行数据刷新，图片送显。
+子页面PageOne中需展示一张较大的网络图片，在父组件的aboutToAppear()中提前发起网络请求，并做判断文件是否存在，已下载的不再重复请求，存储在应用沙箱中。当父页面点击按钮跳转子页面PageOne，此时触发读取应用沙箱中已缓存解码的网络图片请求并存储，通过在子页面的Image中传入被[@LocalStorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#localstoragelink)修饰的变量imageData进行数据刷新，图片送显。
  
-图2 **使用预下载的方式，由开发者灵活地处理网络图片，减少白块出现时长**
+图2 **使用预下载的方式，由开发者灵活地处理网络图片，减少白块出现时长
+
 ![](assets/Image白块解决方案/file-20260515115040984-3.png)
 
-1. 在父组件里aboutToAppear()中提前发起网络请求，当父页面点击按钮跳转子页面PageOne，此时触发pixMap请求读取应用沙箱中已缓存解码的网络图片并存储在localStorage中。非首次点击时，不再重复调用getPixMap()，避免每次点击都从沙箱里读取文件。
+ 
+1. 在父组件里aboutToAppear()中提前发起网络请求，当父页面点击按钮跳转子页面PageOne，此时触发读取应用沙箱中已缓存解码的网络图片请求并存储。非首次点击时，不再重复调用getPixMap()，避免每次点击都从沙箱里读取文件。
 ```ArkTS
 import { fileIo } from '@kit.CoreFileKit';
 import { image } from '@kit.ImageKit';
 import { common } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 import { httpRequest } from '../utils/NetRequest';
-import Logger from '../utils/Logger';
 
 // Obtain the path of the application file
 const uiContext: UIContext | undefined = AppStorage.get('uiContext');
@@ -106,12 +109,14 @@ const TAG: string = '[GetPixMapFunc]';
 @Component
 struct MainPage {
   @State childNavStack: NavPathStack = new NavPathStack();
+  @StorageProp('topRectHeight') topRectHeight: number = 0;
   @LocalStorageLink('imageData') imageData: PixelMap | undefined = undefined;
 
-  getPixMap() { // Read files from the application sandbox
+  async getPixMap(): Promise<void> { // Read files from the application sandbox
     try {
-      let file: fileIo.File = fileIo.openSync(fileUrl, fileIo.OpenMode.READ_WRITE); // Open the file in a synchronous manner
-      const imageSource: image.ImageSource = image.createImageSource(file.fd);
+      let file: fileIo.File =
+        fileIo.openSync(fileUrl, fileIo.OpenMode.READ_WRITE); // Open the file in a synchronous manner
+      const imageSource = image.createImageSource(file.fd);
       const options: image.InitializationOptions = {
         'alphaType': 0, // transparency
         'editable': false, // Editable or not
@@ -119,17 +124,25 @@ struct MainPage {
         'scaleMode': 1, // Abbreviated value
         'size': { height: 100, width: 100 }
       };
-      fileIo.close(file)
-      imageSource.createPixelMap(options).then((pixelMap: PixelMap) => {
-        this.imageData = pixelMap;
+      fileIo.close(file).catch((error: BusinessError) => {
+        hilog.error(0x0000, TAG, `File close error! errCode = ${error.code}, errMessage = ${error.message}.`);
       });
-    } catch (e) {
-      Logger.error(TAG, 'Resource loading error, file or does not exist!');
+      this.imageData = await imageSource.createPixelMap(options);
+      imageSource.release();
+    } catch (error) {
+      let err = error as BusinessError;
+      hilog.error(0x0000, TAG,
+        `Resource loading error, file or does not exist! errCode = ${err.code}, errMessage = ${err.message}.`);
     }
   }
 
   aboutToAppear(): void {
     httpRequest(); // Initiate a network request ahead of the parent component
+  }
+
+  aboutToDisappear(): void {
+    this.imageData?.release();
+    this.imageData = undefined;
   }
 
   build() {
@@ -152,6 +165,9 @@ struct MainPage {
       .justifyContent(FlexAlign.End)
     }
     .backgroundColor(Color.Transparent)
+    .padding({
+      top: this.getUIContext().px2vp(this.topRectHeight)
+    })
     .title('ParentNavigation')
   }
 }
@@ -163,6 +179,7 @@ import { http } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 // Obtain the path of the application file
 const uiContext: UIContext | undefined = AppStorage.get('uiContext');
@@ -170,12 +187,12 @@ let context: common.UIAbilityContext = uiContext?.getHostContext() as common.UIA
 let filesDir: string = context.filesDir;
 let fileUrl: string = filesDir + '/xxx.png'; // The image's network address suffix needs to be replaced by the real url.
 
-export async function httpRequest() {
+export async function httpRequest(): Promise<void> {
   fileIo.access(fileUrl, fileIo.AccessModeType.READ).then((res) => { // Check whether files exist
-    if (!res) { // If the address does not exist in the sandbox, re-request the network image resource
+    if (!res) { // If the address does not exist in the sandbox, request the network image resource
       http.createHttp()
-        // Please fill in a specific network image address here, example: https://img.picui.cn/free/2024/09/09/66deb127cf1c0.png
-        // If you fill in the real address, you need to replace the global fileUrl with the real address suffix.
+      // Please fill in a specific network image address here.
+      // If you fill in the real address, you need to replace the global fileUrl with the real address suffix.
         .request('https://example.com/xxx.png',
           (error: BusinessError, data: http.HttpResponse) => {
             if (error) {
@@ -191,18 +208,27 @@ export async function httpRequest() {
           }
         )
     }
-  })
+  }).catch((error: BusinessError) => {
+    hilog.error(0x0000, '[PreHttpRequest]',
+      `file does not exist. errCode = ${error.code}, errMessage = ${error.message}.`);
+  }
+  )
 }
 
 // Write to the sandbox
 async function readWriteFileWithStream(imageData: ArrayBuffer): Promise<void> {
-  let outputStream: fileIo.Stream = fileIo.createStreamSync(fileUrl, 'w+');
-  await outputStream.write(imageData);
-  outputStream.closeSync();
+  try {
+    let outputStream: fileIo.Stream = fileIo.createStreamSync(fileUrl, 'w+');
+    await outputStream.write(imageData);
+    outputStream.closeSync();
+  } catch (error) {
+    let err = error as BusinessError;
+    hilog.error(0x0000, '[PreHttpRequest]', `write file failed. errCode = ${err.code}, errMessage = ${err.message}.`);
+  }
 }
 ```
 
-3. 在子组件中通过在子页面的Image中传入被@StorageLink修饰的变量imageData进行数据刷新，图片送显。
+3. 在子组件中通过在子页面的Image中传入被[@LocalStorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#localstoragelink)修饰的变量imageData进行数据刷新，图片送显。
 ```ArkTS
 @Builder
 export function PageOneBuilder() {
@@ -221,7 +247,7 @@ export struct PageOne {
         // Positive example: At this time, the Image has obtained the network image that has been loaded in advance,
         // reducing the time for white blocks to appear.
         Image(this.imageData)
-          .objectFit(ImageFit.Auto)
+          .objectFit(ImageFit.Cover)
           .width('100%')
           .height('100%')
       }
@@ -246,18 +272,21 @@ export struct PageOne {
  
 分析阶段的起点为父页面点击按钮开始计时即trace的H:DispatchTouchEvent，结束点为子页面图片渲染的首帧出现即H:CreateImagePixelMap标签后的第一个Vsync，记录白块出现时间为1.3s，其中以H:HttpRequestInner的标签起始为起点到H:DownloadImageSuccess标签结束为终点记录时间，即为网络下载耗时1.2s，因此使用Image直接加载网络图片时，出现长时间Image白块，其原因是需要等待网络下载资源完成。
  
-图3 **直接使用Image加载网络数据**
+**图3 **直接使用Image加载网络数据
+
 ![](assets/Image白块解决方案/file-20260525085643692-001.png)
 
+ 
  
 【优化后】
  
 分析阶段的起点为父页面点击按钮开始计时即trace的H:DispatchTouchEvent，结束点为子页面图片渲染的首帧出现即H:CreateImagePixelMap标签后的第一个Vsync，记录白块出现时间为32.6ms，其中记录H:HttpRequestInner的标签耗时即为提前网络下载的耗时1.16s，对比白块时长可知提前预下载可以减少白块出现时长。
  
-图4 **使用预下载的方式
+**图4 **使用预下载的方式
 
 ![](assets/Image白块解决方案/file-20260525085643692-002.png)
 
+ 
  
 > [!NOTE]
 > 网络下载耗时实际受到网络波动影响，优化前后的网络下载耗时数据总体差异在1s内，提供的性能数值仅供参考。
@@ -293,4 +322,4 @@ export struct PageOne {
 
 #### 示例代码
 
-- [Image白块解决指导](https://gitcode.com/harmonyos_samples/BestPracticeSnippets/tree/master/PreHttpRequestUseFiles)
+- [Image白块解决指导](https://gitcode.com/HarmonyOS_Samples/PreHttpRequestUseFiles/tree/master)

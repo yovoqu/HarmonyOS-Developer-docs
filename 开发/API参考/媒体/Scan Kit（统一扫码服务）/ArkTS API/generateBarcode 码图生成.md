@@ -1,15 +1,20 @@
 # generateBarcode (码图生成)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-generatebarcode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块支持通过文本或字节数组生成码图。目前已支持的码制式为EAN-8、EAN-13、UPC-A、UPC-E、Codabar、Code 39、Code 93、Code 128、ITF-14、QR Code、Data Matrix、PDF417、Aztec。暂不支持MULTIFUNCTIONAL CODE生成。
+#### 模块概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+generateBarcode模块支持通过文本或字节数组生成码图。目前已支持的码类型为EAN-8、EAN-13、UPC-A、UPC-E、Codabar、Code 39、Code 93、Code 128、ITF-14、QR Code、Data Matrix、PDF417、Aztec。暂不支持MULTIFUNCTIONAL CODE生成。
  
-为了方便开发者接入，我们提供了详细的样例工程供参考，推荐参考[示例工程](https://gitcode.com/HarmonyOS_Samples/scankit-samplecode-clientdemo-arkts)接入。
+为便于开发者快速上手，建议参考官方提供的[示例工程](https://gitcode.com/HarmonyOS_Samples/scankit-samplecode-clientdemo-arkts)。
  
 **起始版本：** 4.1.0(11)
+ 
   
 
 #### 导入模块
@@ -26,11 +31,11 @@ import { generateBarcode } from '@kit.ScanKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-纠错率枚举。
+纠错率枚举。纠错率越高，码图在物理损伤（如损坏、污损、遮挡等场景）下的可识别性越强，但相应会导致图案复杂度提升和尺寸增大；反之，低纠错率则呈现更简洁的码图但抗损能力较弱。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
  
@@ -54,7 +59,7 @@ import { generateBarcode } from '@kit.ScanKit';
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
  
@@ -62,7 +67,7 @@ import { generateBarcode } from '@kit.ScanKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scanType | scanCore.ScanType | 否 | 否 | 码类型。 |
+| scanType | scanCore.ScanType | 否 | 否 | 指定要生成的码类型。 |
 | width | number | 否 | 否 | 码图宽，单位：px。取值范围：[200, 4096]。 |
 | height | number | 否 | 否 | 码图高，单位：px。取值范围：[200, 4096]。 |
 | margin | number | 否 | 是 | 最小边距（生成码图的边距大于等于该值），单位：px，默认值为1，取值范围：[1, 10]。 |
@@ -85,16 +90,16 @@ let options: generateBarcode.CreateOptions = {
   scanType: scanCore.ScanType.QR_CODE,
   width: 200,
   height: 200,
-  backgroundColor: 0xFFFFFF,
-  pixelMapColor: 0x000000,
   margin: 1,
-  level: generateBarcode.ErrorCorrectionLevel.LEVEL_H
+  level: generateBarcode.ErrorCorrectionLevel.LEVEL_H,
+  backgroundColor: 0xFFFFFF,
+  pixelMapColor: 0x000000
 };
 ```
  
   
 
-#### generateBarcode.createBarcode
+#### createBarcode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +109,7 @@ createBarcode(content: string, options: CreateOptions): Promise<image.PixelMap>
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
  
@@ -127,11 +132,11 @@ createBarcode(content: string, options: CreateOptions): Promise<image.PixelMap>
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 1000500001 | Internal error. |
  
  
@@ -168,21 +173,21 @@ generateBarcode.createBarcode(content, options).then((data: image.PixelMap) => {
 | QR Code | 支持中文，不超过512字符长度，如果内容过长会导致码复杂，影响识别。 |
 | Aztec | 支持中文，不超过512字符长度，如果内容过长会导致码复杂，影响识别。 |
 | PDF417 | 支持中文，不超过512字符长度，如果内容过长会导致码复杂，影响识别。 |
-| Data Matrix | 不超过512字符长度，如果内容过长会导致码复杂，影响识别。 |
+| Data Matrix | 不支持中文，不超过512字符长度，如果内容过长会导致码复杂，影响识别。 |
 | UPC-A | 支持11位数字输入，只支持数字，生成包含12位数字的码图，包含最后一位校验数字。 |
 | UPC-E | 支持7位数字输入，只支持数字，首位需要是0或1，生成包含8位数字的码图，包含最后一位校验数字。 |
 | ITF-14 | 支持80位以内数字输入，并且需要是偶数位，只支持数字，生成包含偶数位数字的码图，如果内容过长会导致码复杂，影响识别。 |
 | EAN-8 | 支持7位数字输入，只支持数字，生成包含8位数字的码图，包含最后一位校验数字。 |
 | EAN-13 | 支持12位数字输入，只支持数字，首位不可以是0，生成包含13位数字的码图，包含最后一位校验数字。 |
-| Code 39 | 不超过80字节长度，字符集可以是数字、大小写字母和- . $ / + % * SPACE英文格式符号（请注意：一个小写字母占用2个字节）。 |
-| Code 93 | 不超过80字节长度，字符集可以是数字、大小写字母和- . $ / + % * SPACE英文格式符号（请注意：一个小写字母占用2个字节）。 |
-| Code 128 | 不超过80字节长度，字符集可以是数字、大小写字母和- . $ / + % * SPACE英文格式符号（请注意：一个小写字母占用1个字节）。 |
-| Codabar | 不超过512字符长度，起始/终止符可以是ABCD中的任一个（特殊情况下，TN*E也会编码成ABCD，推荐使用ABCD）。其他字符可以是数字和- . $ / : +英文格式符号。 |
+| Code 39 | 不超过80字节长度，如果内容过长会导致码复杂，影响识别。字符集可以是数字、大小写字母和- . $ / + % * SPACE英文格式符号（请注意：一个小写字母占用2个字节）。 |
+| Code 93 | 不超过80字节长度，如果内容过长会导致码复杂，影响识别。字符集可以是数字、大小写字母和- . $ / + % * SPACE英文格式符号（请注意：一个小写字母占用2个字节）。 |
+| Code 128 | 不超过80字节长度，如果内容过长会导致码复杂，影响识别。字符集可以是数字、大小写字母和- . $ / + % * SPACE英文格式符号（请注意：一个小写字母占用1个字节）。 |
+| Codabar | 不超过512字符长度，如果内容过长会导致码复杂，影响识别。起始/终止符可以是ABCD中的任一个（特殊情况下，TN*E也会编码成ABCD，推荐使用ABCD）。其他字符可以是数字和- . $ / : +英文格式符号。 |
  
  
   
 
-#### generateBarcode.createBarcode
+#### createBarcode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +197,7 @@ createBarcode(content: string, options: CreateOptions, callback: AsyncCallback<i
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
  
@@ -202,18 +207,18 @@ createBarcode(content: string, options: CreateOptions, callback: AsyncCallback<i
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | string | 是 | 码内容字符串。参数限制请参见generateBarcode.createBarcode的表1-content参数限制条件。 |
+| content | string | 是 | 码内容字符串。参数限制请参见createBarcode的表1-content参数限制条件。 |
 | options | CreateOptions | 是 | 码图生成的配置参数。 |
 | callback | AsyncCallback<image.PixelMap> | 是 | 回调函数。当码图生成成功，err为undefined，data为生成的码图对象image.PixelMap；否则为错误对象。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 1000500001 | Internal error. |
  
  
@@ -247,7 +252,7 @@ generateBarcode.createBarcode(content, options, (err: BusinessError, data: image
  
   
 
-#### generateBarcode.createBarcode
+#### createBarcode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +262,7 @@ createBarcode(content: ArrayBuffer, options: CreateOptions): Promise<image.Pixel
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
  
@@ -280,11 +285,11 @@ createBarcode(content: ArrayBuffer, options: CreateOptions): Promise<image.Pixel
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 1000500001 | Internal error. |
  
  
@@ -338,7 +343,7 @@ struct Index {
   
 | 纠错水平 | 参数内容限制 |
 | --- | --- |
-| LEVEL_L | 字节数组长度限制建议不超过2048。 |
-| LEVEL_M | 字节数组长度限制建议不超过2048。 |
-| LEVEL_Q | 字节数组长度限制建议不超过1536。 |
-| LEVEL_H | 字节数组长度限制建议不超过1024。 |
+| LEVEL_L | 字节数组长度限制建议不超过2048，如果内容过长会导致码复杂，影响识别。 |
+| LEVEL_M | 字节数组长度限制建议不超过2048，如果内容过长会导致码复杂，影响识别。 |
+| LEVEL_Q | 字节数组长度限制建议不超过1536， 如果内容过长会导致码复杂，影响识别。 |
+| LEVEL_H | 字节数组长度限制建议不超过1024， 如果内容过长会导致码复杂，影响识别。 |

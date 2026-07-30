@@ -1,6 +1,6 @@
 # OH_NativeXComponent_HistoricalPoint
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-historicalpoint
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,9 +42,9 @@ typedef struct {...} OH_NativeXComponent_HistoricalPoint
 | float x | 触摸点相对于XComponent组件左边缘的x坐标。 |
 | float y | 触摸点相对于XComponent组件上边缘的y坐标。 |
 | OH_NativeXComponent_TouchEventType type | 触摸事件的触摸类型。 |
-| double size | 指垫和屏幕之间的接触面积。 |
-| float force | 当前触摸事件的压力。 |
+| double size | 指垫和屏幕之间的接触面积。该值为归一化的接触面积，取值范围：0.0~1.0。 |
+| float force | 当前触摸事件的压力。取值范围：0.0~1.0，0.0表示无压力，1.0表示最大压力。 |
 | int64_t timeStamp | 当前触摸事件的时间戳。触发事件时距离系统启动的时间间隔，单位纳秒。 |
-| float titlX | 平面X-Y上的投影与当前触摸事件的Z轴之间的角度。 |
-| float titlY | 当前触摸事件在平面Y-Z和轴Z上的投影之间的角度。 |
+| float titlX | 平面X-Y上的投影与当前触摸事件的Z轴之间的角度，单位：弧度。 |
+| float titlY | 平面Y-Z上的投影与当前触摸事件的Z轴之间的角度，单位：弧度。 |
 | OH_NativeXComponent_TouchEvent_SourceTool sourceTool | 当前触摸事件的源工具。 |

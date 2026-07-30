@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行WebAssembly模块相关开发
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-wasm
 
@@ -54,11 +54,11 @@ JSVM-API WebAssembly 接口提供了 WebAssembly 字节码编译、WebAssembly �
 cpp 部分代码：
  
 ```cpp
-// hello.cpp
 #include "napi/native_api.h"
+#include "hilog/log.h"
 #include "ark_runtime/jsvm.h"
-#include <hilog/log.h>
 #include <vector>
+// ...
 
 #ifndef CHECK_STATUS
 #define CHECK_STATUS(cond)                           \
@@ -70,7 +70,8 @@ cpp 部分代码：
 #endif
 
 // 判断一个 JSVM_Value 是否是 wasm module
-static bool IsWasmModuleObject(JSVM_Env env, JSVM_Value value) {
+static bool IsWasmModuleObject(JSVM_Env env, JSVM_Value value)
+{
     bool result = false;
     JSVM_Status status = OH_JSVM_IsWasmModuleObject(env, value, &result);
     CHECK_STATUS(status == JSVM_OK);
@@ -78,7 +79,8 @@ static bool IsWasmModuleObject(JSVM_Env env, JSVM_Value value) {
 }
 
 // 由 C 字符串创建 JSVM string
-static JSVM_Value CreateString(JSVM_Env env, const char *str) {
+static JSVM_Value CreateString(JSVM_Env env, const char *str)
+{
     JSVM_Value jsvmStr;
     JSVM_Status status = OH_JSVM_CreateStringUtf8(env, str, JSVM_AUTO_LENGTH, &jsvmStr);
     CHECK_STATUS(status == JSVM_OK);
@@ -86,7 +88,8 @@ static JSVM_Value CreateString(JSVM_Env env, const char *str) {
 }
 
 // 由 C int32_t 创建 JSVM number
-static JSVM_Value CreateInt32(JSVM_Env env, int32_t val) {
+static JSVM_Value CreateInt32(JSVM_Env env, int32_t val)
+{
     JSVM_Value jsvmInt32;
     JSVM_Status status = OH_JSVM_CreateInt32(env, val, &jsvmInt32);
     CHECK_STATUS(status == JSVM_OK);
@@ -94,7 +97,8 @@ static JSVM_Value CreateInt32(JSVM_Env env, int32_t val) {
 }
 
 // 对 wasm module 进行实例化
-static JSVM_Value InstantiateWasmModule(JSVM_Env env, JSVM_Value wasmModule) {
+static JSVM_Value InstantiateWasmModule(JSVM_Env env, JSVM_Value wasmModule)
+{
     JSVM_Status status = JSVM_OK;
     JSVM_Value globalThis;
     status = OH_JSVM_GetGlobal(env, &globalThis);
@@ -116,16 +120,17 @@ static JSVM_Value InstantiateWasmModule(JSVM_Env env, JSVM_Value wasmModule) {
 }
 
 // 获取 wasm 字节码 (add 模块)
-static std::vector<uint8_t> GetAddWasmBuffer() {
+static std::vector<uint8_t> GetAddWasmBuffer()
+{
     /* 以下 wasmBuffer 对应的 wasm 字节码文本格式如下所示，只包含了一个函数 add
-       (module
-         (func $add (param $lhs i32) (param $rhs i32) (result i32)
-           local.get $lhs
-           local.get $rhs
-           i32.add
-         )
-         (export "add" (func $add))
-       )
+     * (module
+     *   (func $add (param $lhs i32) (param $rhs i32) (result i32)
+     *     local.get $lhs
+     *     local.get $rhs
+     *     i32.add
+     *   )
+     *   (export "add" (func $add))
+     * )
      */
     std::vector<uint8_t> wasmBuffer = {0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00, 0x01, 0x07, 0x01,
                                        0x60, 0x02, 0x7f, 0x7f, 0x01, 0x7f, 0x03, 0x02, 0x01, 0x00, 0x07,
@@ -135,7 +140,8 @@ static std::vector<uint8_t> GetAddWasmBuffer() {
 }
 
 // 验证 wasm instance 功能 (add 模块)
-static void VerifyAddWasmInstance(JSVM_Env env, JSVM_Value wasmInstance) {
+static void VerifyAddWasmInstance(JSVM_Env env, JSVM_Value wasmInstance)
+{
     JSVM_Status status = JSVM_OK;
     // 从 wasm instance 获取 exports.add 函数
     JSVM_Value exports;
@@ -153,7 +159,8 @@ static void VerifyAddWasmInstance(JSVM_Env env, JSVM_Value wasmInstance) {
     JSVM_Value two = CreateInt32(env, 2);
     JSVM_Value argv[] = {one, two};
     JSVM_Value result;
-    status = OH_JSVM_CallFunction(env, undefined, add, 2, argv, &result);
+    const int argumentCount = 2;
+    status = OH_JSVM_CallFunction(env, undefined, add, argumentCount, argv, &result);
     CHECK_STATUS(status == JSVM_OK);
     int32_t resultInt32 = 0;
     OH_JSVM_GetValueInt32(env, result, &resultInt32);
@@ -161,7 +168,8 @@ static void VerifyAddWasmInstance(JSVM_Env env, JSVM_Value wasmInstance) {
 }
 
 // WebAssembly demo 主函数
-static JSVM_Value WasmDemo(JSVM_Env env, JSVM_CallbackInfo info) {
+static JSVM_Value WasmDemo(JSVM_Env env, JSVM_CallbackInfo info)
+{
     JSVM_Status status = JSVM_OK;
     std::vector<uint8_t> wasmBuffer = GetAddWasmBuffer();
     uint8_t *wasmBytecode = wasmBuffer.data();
@@ -204,7 +212,7 @@ static JSVM_Value WasmDemo(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_Value wasmModule2;
     status = OH_JSVM_CompileWasmModule(env, wasmBytecode, wasmBytecodeLength, cacheBuffer.data(), cacheBuffer.size(),
                                        &cacheRejected, &wasmModule2);
-   
+
     // 传入的 wasm cache 如果是匹配的，且内部校验通过 (如版本)，则会接受 cache
     CHECK_STATUS(!cacheRejected);
     CHECK_STATUS(IsWasmModuleObject(env, wasmModule2));
@@ -218,6 +226,7 @@ static JSVM_Value WasmDemo(JSVM_Env env, JSVM_CallbackInfo info) {
 
     JSVM_Value result;
     OH_JSVM_GetBoolean(env, true, &result);
+    OH_LOG_INFO(LOG_APP, "JSVM resultInt: %{public}d", result);
     return result;
 }
 
@@ -232,7 +241,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
 };
 
 // 样例测试js
-const char *srcCallNative = R"JS(wasmDemo())JS";
+const char *SRC_CALL_NATIVE = R"JS(wasmDemo())JS";
 ```
  
 预期输出：无报错

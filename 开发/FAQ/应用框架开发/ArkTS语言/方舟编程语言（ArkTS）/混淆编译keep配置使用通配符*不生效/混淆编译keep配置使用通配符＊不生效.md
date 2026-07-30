@@ -1,6 +1,6 @@
 # 混淆编译keep配置使用通配符*不生效
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-163
 
@@ -25,8 +25,8 @@
 
 #### 背景知识
 
-- [-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-file-name)指定要保留的文件/文件夹的名称（不需要写文件后缀），支持使用名称类通配符。[-keep](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep)保留指定相对路径filepath中的所有名称（例如变量名、类名、属性名等）不被混淆，./与../为相对于混淆配置文件所在目录，支持使用路径类通配符。
-- [名称类通配符和路径类通配符](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项支持的通配符)：
+- [-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-file-name)指定要保留的文件/文件夹的名称（不需要写文件后缀），支持使用名称类通配符。[-keep](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep)保留指定相对路径filepath中的所有名称（例如变量名、类名、属性名等）不被混淆，./与../为相对于混淆配置文件所在目录，支持使用路径类通配符。
+- [名称类通配符和路径类通配符](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#保留选项支持的通配符)：
 
   
 | 通配符 | 含义 | 名称类使用示例 | 路径类使用示例 |
@@ -43,17 +43,17 @@
 1. [开启源码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#开启源码混淆)后，分别不使用保留选项（-keep-file-name和-keep）和使用保留选项，使用release模式构建hap包后，[查看混淆效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#查看混淆效果)得到以下结果：不使用保留选项：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/SbXMDH3BS4SiPkLcJsJntw/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260723T012431Z&HW-CC-Expire=86400&HW-CC-Sign=F2DF908455018140853D7F1B6FA675AD89F60C32C3660B76432485EA7C2C850F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/JdY1L5_tTfqNRJUlDH8mYw/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=4EC0F00E907D1EC454601DF105E9F29857514190FD5AA17F3E0A7F13EE147B14)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/S3F5FqMVQoafg092VkfdOA/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260723T012431Z&HW-CC-Expire=86400&HW-CC-Sign=B42473C804B53506EA31656845EBBAB79FA32E1BBABBEF31C30CA96E882302FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/sVTOA-RITHGyhjqbxy1F7Q/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=F99FEEF32FB975355581CB6AB357B016BA269208607661B2A50D295B6694D0E9)
 
 
   使用保留选项：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/Poqr0JbAQiipLa4toCM-6Q/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260723T012431Z&HW-CC-Expire=86400&HW-CC-Sign=92A9D2BCB884447581560136712BE45B7B618EA1AE96091131F29EF11FB4D1A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/-_OW7-DzT1Ozfhsi1JsIVg/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=CF0BA9228446E101EC48B3A4E7EF93270E3BD577E1D0EC358B52B5FD3644D532)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/2s-p-WVeTtCEOV2Q6ldWcw/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260723T012431Z&HW-CC-Expire=86400&HW-CC-Sign=6BD214B413F635A35A031B548EEC63FA8B5F206CD2DF9247A53B051DA4342744)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/gYB2XRUQTDuEDOlrFzxFGg/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=EA48DB3F46EA94E076A4E79F3B7674F4EA422E95DB4A1B4D8D09319E67F57F58)
 
 
   对比两者，使用保留选项后，文件夹及文件名被混淆，而变量名、类名、属性名未被混淆，即-keep生效，而-keep-file-name未生效。

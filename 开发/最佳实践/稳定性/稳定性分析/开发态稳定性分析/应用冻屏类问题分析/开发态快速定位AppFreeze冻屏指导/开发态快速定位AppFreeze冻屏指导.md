@@ -50,7 +50,7 @@
 通过DevEco Studio的底部FaultLog模块或触发冻屏现象时DevEco Studio右下提示框直接跳转至FaultLog。如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/iDU79GYkR9i65NX7hEe2Fg/zh-cn_image_0000002644940872.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=21DED6D6D5863A5DD140FDDCCC7902CD0E6B2F906C6BC8DC03DBE79BAE931467)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/ZW1wNb7OQqq1Ih8JELw-sw/zh-cn_image_0000002644940872.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=B3A9F06204AD49CFC2D202721CA6EBEE4EAB6E666D58D71B71135224EBEBABA0)
 
  
 2.** 查看信息分析故障类型**
@@ -58,7 +58,7 @@
 进入Fault Analysis页签查看Freeze type。如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/dx4ZVa5FQ72JaAn1BBFkuQ/zh-cn_image_0000002675100579.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=698F6EB7C2FFCC9624E8E0A8DA2AE6263C6F943453199A167DF71E77A67CDD8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/eFMGuZTfQKCR1wNeh9l-hw/zh-cn_image_0000002675100579.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=18E5EF531EB986431D79E0F7ACDD0FC8B37803F404C90795EF84FF990396177C)
 
  
 - THREAD_BLOCK_6S：应用主线程冻屏超时（前台6秒，后台21秒）。
@@ -81,7 +81,7 @@
 冻屏问题的标准化排查流程如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/mtmUfun1S6mlp7YaclfiqA/zh-cn_image_0000002675020727.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=97D94FB69D85897F8461258133EAD94FAC241DAF1A93413401354DA5C46DDB32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/LQGCLcz7Qp2mTwwkWjS-mg/zh-cn_image_0000002675020727.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=D0CB0F61A851005C2679AFF88F6162030495EE4961227194794C3CB27EDB3A07)
 
  
 
@@ -115,7 +115,7 @@
   如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/3iHh4PhiQzK9iRX3I5tCsg/zh-cn_image_0000002645100776.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=077D78BF0709BFA0E96F37C6A980FA3A0047B7049C1751CBE8DC9C977D8AC5BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/egXmTV3tR72sOfotVwIbag/zh-cn_image_0000002645100776.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=D55422AFB7532D307245A64D7C637B86BA730AF6C71871EADC75062E738DA22D)
 
 3. **查看****Fault Analysis**
 
@@ -126,25 +126,25 @@
   如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/u_fXKTbSRXyaxiCnADNQGg/zh-cn_image_0000002644940874.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=DE1124264F33B70FBF7973DFABCA8C3EB6237D089EA0E1D21CD83047CEE6A41E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/0ZqyrksOS-qqTatwtvk10g/zh-cn_image_0000002644940874.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=CD3F2D62E736B0C7506CB04E74EFAB879E365E9EBCB393A468A4E06CCEB56D2B)
 
 
   **对比3秒（Warning）和6秒（Error）的堆栈**
 
   
 3秒和6秒的栈不一致：说明线程仍在执行业务代码，可能是任务过重导致主线程繁忙，需结合采样栈进一步确认。如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/DoNyiGZsTieTCt-3bqnVEg/zh-cn_image_0000002675100581.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=03B7C5EA876EF2BF550766475749287AEACFE43AD39C53ED38665347B8475C53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/w0Mqv4drSICAp2DJHTWtvg/zh-cn_image_0000002675100581.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=6D188D97AD5D121872ECF8657A18D4025FD70976CFC71CCA60DAF118AF2DF3AC)
 
 4. **分析Sampling Stack**
 
   Sampling Stack页签展示应用堆栈（绿色标识）和系统堆栈（蓝色标识）。如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/OdBDwobfRf6FUu2KWLj4uA/zh-cn_image_0000002675020729.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=0C5657252B9792CEBACA6F3DC58CC31999E5EDE0787496C4A26C79FD83BD0FEB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/OfPWDNKjT3WnvSNd9jMhIw/zh-cn_image_0000002675020729.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=6E7BB5F1CA7D8BF055453BC227FD0EB38B4D0BA3F2793D9C8835B64C278E8106)
 
 
   点击切换图表类型按钮，可切换到堆栈火焰图，并通过不同颜色标识堆栈类型。其中红色代表异常堆栈，图中异常堆栈指向业务Page，结合前面步骤3s/6s堆栈不一致的场景，此时需要定位Page中导致主线程繁忙的业务逻辑。如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/9i6OtGGKTsWOW03cGk0O5g/zh-cn_image_0000002645100778.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=57C8F58E6326EE501F3D4A032FFAD477D4650685F690EC86379CA0536BD20C1F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/9_ASV4ucTMyxdK4noD7zqA/zh-cn_image_0000002645100778.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=D89E494FD26587C435D08C22097C0D87B1778EBA9D2D14F901348D66159746C3)
 
 
   开发者检查对应业务代码后，可发现两处导致主线程繁忙的严重问题。
@@ -156,11 +156,11 @@
   如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/Uu0LtTXsQRGuMYYGfQCVrQ/zh-cn_image_0000002644940876.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=C40A6D79922911239E29D0D81240BBAC97C9698E85AC9763AE87C66B72F7C6DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/N3xv4-FdTf2t4hnMengZbA/zh-cn_image_0000002644940876.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=32FCFAA4286CC6CCBBF1D82F98617CB580E54DB51099886C87CF9AA60288776F)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/Dq9fOM-5QhCyAPPIZrmxUw/zh-cn_image_0000002675100583.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=0E4F30AEFBB3BDDCB6A9C51908EA9BAABD8951C1A7036FC6343010D873323DBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/v4a_NSYtRyWVozjLXcEgkg/zh-cn_image_0000002675100583.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=898A792F24B847C843C7B0D3351A656D7682CBCCC4D855D341BB19B995CC3D92)
 
  
  
@@ -176,7 +176,7 @@
 如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/7vsk28YaSUqTYBAE2bDDdA/zh-cn_image_0000002675020731.png?HW-CC-KV=V1&HW-CC-Date=20260723T014109Z&HW-CC-Expire=86400&HW-CC-Sign=0A82FEB60CC8747B075F4AAFC9F754D142F9D5E596B6E239E589B37955E8D91E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/f8mB7lxcTOSbIB049EsyeQ/zh-cn_image_0000002675020731.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=C120C2DD9375CFD4B6E2B001DD26F8F074AA4B2D113185E6C38BD4AF6F9B4536)
 
  
  

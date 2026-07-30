@@ -1,6 +1,6 @@
 # FIDO2_AuthenticatorAttestationResponse
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_attestation_response
 
@@ -10,7 +10,9 @@
  
 **起始版本：** 6.0.0(20)
  
-**相关模块：** [FIDO2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+**相关模块：** [FIDO2（通行密钥服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+ 
+**所在头文件：** [fido2_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication_capi_header_fido2)
  
   
 
@@ -22,7 +24,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| Uint8Buff attestationObject | 声明对象。 |
+| Uint8Buff attestationObject | 注册凭证的响应报文中，用于向服务器证明新生成密钥对合法性的数据结构。 |
 | Uint8Buff clientDataJson | 获取客户端数据，表示WebAuthn依赖方和客户端的上下文绑定，包含类型、挑战值及源等数据。 |
 | Uint8Buff publicKey | 注册时生成的公钥数据，包含公钥算法类型和密钥参数，用于服务器保存并后续验证认证签名。 |
 | Uint8Buff authenticatorData | 认证器数据，包含依赖方ID哈希、用户存在/已验证标志位、签名计数器、凭证数据等信息，用于验证认证响应的合法性。 |
@@ -44,7 +46,7 @@ Uint8Buff FIDO2_AuthenticatorAttestationResponse::attestationObject
  
 **描述**
  
-声明对象。
+注册凭证的响应报文中，用于向服务器证明新生成密钥对合法性的数据结构。
  
   
 

@@ -1,6 +1,6 @@
 # slot插槽
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-custom-slot
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-自定义组件中通过slot标签来承载父组件中定义的内容，使用slot标签可以更加灵活的控制自定义组件的内容元素，使用方式如下：
+自定义组件中通过slot标签来承载父组件中定义的内容，使用slot标签可以更加灵活地控制自定义组件的内容元素，使用方式如下：
  
 ```text
 <!-- comp.hml -->

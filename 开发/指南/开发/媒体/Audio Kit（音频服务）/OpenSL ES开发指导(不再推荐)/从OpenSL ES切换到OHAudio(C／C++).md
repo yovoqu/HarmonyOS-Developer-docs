@@ -1,10 +1,10 @@
 # 从OpenSL ES切换到OHAudio(C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/replace-opensles-by-ohaudio
 
-由于OpenSL ES无法满足音频系统的能力拓展，建议开发者使用OHAudio替代OpenSL ES开发音频业务。本文将介绍如何从使用OpenSL ES接口开发音频业务，切换为使用OHAudio接口。
+由于OpenSL ES无法满足音频系统的能力扩展，建议开发者使用OHAudio替代OpenSL ES开发音频业务。本文将介绍如何从使用OpenSL ES接口开发音频业务，切换为使用OHAudio接口。
   
 
 #### 支持的功能差异
@@ -101,7 +101,7 @@ OH_AudioStreamBuilder_GenerateRenderer(builder, &audioRenderer);
 
 OpenSL ES:
  
-基于Object获取状态切换Interface，使用Interface接口切换状态，只有SL_PLAYSTATE_STOPPED、SL_PLAYSTATE_PAUSED、SL_PLAYSTATE_PLAYING三种状态。
+基于Object获取状态切换Interface，使用该接口切换状态，只有SL_PLAYSTATE_STOPPED、SL_PLAYSTATE_PAUSED、SL_PLAYSTATE_PLAYING三种状态。
  
 ```text
 // 基于播放对象，获取播放操作Interface。
@@ -155,7 +155,7 @@ void *pContext;
  
 OHAudio:
  
-统一使用回调模式，在构造时注册数据输入回调，实现自定义的数据填充函数，在播放过程中会跟随系统调度和时延配置情况，自动在合适时机触发数据请求回调。
+统一使用回调模式，在构造时注册数据写入回调，实现自定义的数据填充函数，在播放过程中会跟随系统调度和时延配置情况，自动在合适时机触发数据请求回调。
  
 ```text
 static int32_t MyOnWriteData(

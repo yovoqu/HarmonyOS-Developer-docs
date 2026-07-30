@@ -1,14 +1,14 @@
 # SwipeGesture
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-swipegesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于触发快滑手势，滑动速度需大于速度阈值，默认最小速度为100vp/s。
+用于触发快滑手势，适用于快速翻页、轮播图切换、列表项快速切换等需要识别快速滑动操作的场景，滑动速度需大于速度阈值，默认最小速度为100vp/s。
  
 > [!NOTE]
-> 从API version 8开始支持。后续版本如有新增内容，将采用上角标单独标记该内容的起始版本。
+> 从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -34,7 +34,7 @@ SwipeGesture(value?: { fingers?: number; direction?: SwipeDirection; speed?: num
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | { fingers?: number; direction?: SwipeDirection; speed?: number } | 否 | 设置快滑事件参数。 - fingers：触发快滑的最少手指数。 默认值：1 取值范围：[1, 10] - direction：触发快滑手势的滑动方向。 默认值：SwipeDirection.All - speed：识别快滑的最小速度。 默认值：100VP/s 取值范围：(0, +∞) 说明： 当滑动速度的值小于等于0时，会被转化为默认值。 |
+| value | { fingers?: number; direction?: SwipeDirection; speed?: number } | 否 | 设置快滑事件参数。 - fingers：触发快滑的最少手指数。 默认值：1 取值范围：[1, 10] 当设置的值超出取值范围时，按默认值处理。 - direction：触发快滑手势的滑动方向。 默认值：SwipeDirection.All - speed：识别快滑的最小速度。 默认值：100VP/s 取值范围：(0, +∞) 说明： 当滑动速度的值小于等于0时，会被转化为默认值。 |
  
  
   
@@ -57,7 +57,7 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | SwipeGestureHandlerOptions | 否 | 快滑事件处理器配置参数。 |
+| options | SwipeGestureHandlerOptions | 否 | 快滑事件处理器配置参数。当需要自定义触发快滑的最少手指数、滑动方向、最小识别速度或是否检查触摸屏幕的手指数量时传入；不传入时使用快滑手势处理器默认配置。 |
  
  
   
@@ -98,7 +98,7 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
 
 onAction(event: (event: GestureEvent) => void)
  
-Swipe手势识别成功时触发回调。
+快滑手势识别成功时触发回调。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -108,7 +108,7 @@ Swipe手势识别成功时触发回调。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | (event: GestureEvent) => void | 是 | 手势事件回调函数。 |
+| event | (event: GestureEvent) => void | 是 | 手势事件回调函数。在GestureEvent的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空，建议开发者优先使用fingerInfos。 |
  
  
   
@@ -130,8 +130,8 @@ struct SwipeGestureExample {
   build() {
     Column() {
       Column() {
-        Text("SwipeGesture speed\n" + this.speed)
-        Text("SwipeGesture angle\n" + this.rotateAngle)
+        Text('SwipeGesture speed\n' + this.speed)
+        Text('SwipeGesture angle\n' + this.rotateAngle)
       }
       .border({ width: 3 })
       .width(300)
@@ -143,15 +143,15 @@ struct SwipeGestureExample {
       SwipeGesture({ direction: SwipeDirection.Vertical })
         .onAction((event: GestureEvent) => {
           if (event) {
-            this.speed = event.speed
-            this.rotateAngle = event.angle
+            this.speed = event.speed;
+            this.rotateAngle = event.angle;
           }
         })
       )
-    }.width('100%')
+    }.width('100%');
   }
 }
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/UVpNA_b0T_mFYb5SWncGYQ/zh-cn_image_0000002628862316.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=E97EA4DBD2877430961EEA66CC302A3DB8720258D786B8D13FFD8B00D36010F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/RhIDMOedTP-bANTozTRkzg/zh-cn_image_0000002685928051.png?HW-CC-KV=V1&HW-CC-Date=20260730T071458Z&HW-CC-Expire=86400&HW-CC-Sign=B8685F69420F88182061F9591679CE8102685BCDFCAA4FA4555EAB8055733944)

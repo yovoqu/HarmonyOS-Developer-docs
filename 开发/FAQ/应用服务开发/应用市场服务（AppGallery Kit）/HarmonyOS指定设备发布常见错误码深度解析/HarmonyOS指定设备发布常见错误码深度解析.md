@@ -48,7 +48,7 @@
 - 搜索关键词"type""，指定设备分发的类型为release，若是其他值（如debug），需要重新打包。示例如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/8-4lL0LuTqi5ndzW-qKpDw/zh-cn_image_0000002640108094.png?HW-CC-KV=V1&HW-CC-Date=20260723T013847Z&HW-CC-Expire=86400&HW-CC-Sign=CEE1352BC82D3CBCF8758296A9B8A2105F09C212DEDFDDDA16A8520F326A0343)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/OuEHxJJfQ0SY_j8YWFF81g/zh-cn_image_0000002640108094.png?HW-CC-KV=V1&HW-CC-Date=20260730T072704Z&HW-CC-Expire=86400&HW-CC-Sign=54C447CCEA5E37AE79B202A1BBB6FF4EC7AFA24ABFE941A67FAAD022322C7535)
 
 
  - **错误码10000：DeepLink格式错误；**解决方案：

@@ -1,6 +1,6 @@
 # PrivacyManagerService
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper-privacymanagerservice
 
@@ -38,7 +38,7 @@ Usage:
 
 #### 获取敏感权限使用记录信息
 
-支持通过应用进程的tokenid，查看敏感权限使用记录的信息，可以通过下列命令实现。
+支持通过应用进程的tokenId，查看敏感权限使用记录的信息，可以通过下列命令实现。
  
 ```bash
 hidumper -s PrivacyManagerService -a '-t <tokenId>'

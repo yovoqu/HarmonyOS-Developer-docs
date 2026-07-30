@@ -1,6 +1,6 @@
 # 检测环境中的平面（C/C++）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane
 
@@ -34,7 +34,8 @@
   
 ```text
 AREngine_ARTrackableList *planeList = nullptr;
-HMS_AREngine_ARTrackableList_Create(arSession, &planeList);
+// Create a list of trackable objects.
+CHECK(HMS_AREngine_ARTrackableList_Create(arSession, &planeList));
 ```
 
 2. 设置可跟踪对象类型为ARENGINE_TRACKABLE_PLANE。
@@ -52,7 +53,7 @@ AREngine_ARTrackableType planeTrackedType = ARENGINE_TRACKABLE_PLANE;
 调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数，检测当前环境中的所有平面，并将结果存放在planeList中。
 
 ```text
-HMS_AREngine_ARSession_GetAllTrackables(arSession, planeTrackedType, planeList);
+CHECK(HMS_AREngine_ARSession_GetAllTrackables(arSession, planeTrackedType, planeList));
 ```
 
 
@@ -63,7 +64,8 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, planeTrackedType, planeList);
 
 ```text
 int32_t planeListSize = 0;
-HMS_AREngine_ARTrackableList_GetSize(arSession, planeList, &planeListSize);
+// Obtain the number of trackable objects in the list.
+CHECK(HMS_AREngine_ARTrackableList_GetSize(arSession, planeList, &planeListSize));
 ```
 
 在应用环境中，可能存在0个、1个或多个平面。
@@ -90,8 +92,9 @@ for (int i = 0; i < planeListSize; ++i) {
 
 ```text
 AREngine_ARTrackable *arTrackable = nullptr;
-HMS_AREngine_ARTrackableList_AcquireItem(arSession, planeList, i, &arTrackable);
-AREngine_ARPlane *arPlane = reinterpret_cast<AREngine_ARPlane*>(arTrackable);
+// Obtain the object at a specified index from the trackable object list.
+CHECK(HMS_AREngine_ARTrackableList_AcquireItem(arSession, planeList, i, &arTrackable));
+AREngine_ARPlane *arPlane = reinterpret_cast<AREngine_ARPlane *>(arTrackable);
 ```
 
 > [!NOTE]

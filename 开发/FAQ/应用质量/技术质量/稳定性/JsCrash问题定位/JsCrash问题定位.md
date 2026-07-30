@@ -1,6 +1,6 @@
 # JsCrash问题定位
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-13
 
@@ -17,7 +17,7 @@
 - BusinessError-业务错误，代码主动抛出：通常是一个自定义的错误对象，用于表示在业务逻辑中发生的错误。
 - [@Provide和@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)，应用于与后代组件的双向数据同步，可以在多层级的父子组件之间传递，一个@Provide父组件可以被多个@Consume子组件或者@Consume孙子组件使用。@Provide和@Consume可以通过相同的变量名或者相同的变量别名绑定。
 - 内存溢出(Out Of Memory，简称OOM)是指应用系统中存在无法回收的内存或使用的内存过多，最终使得程序运行要用到的内存大于能提供的最大内存。
-- [Heap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gc-introduction#heap结构及其配置参数)中分为不同的空间，当某个空间的内存达到上限后再次分配内存时会产生OOM问题。
+- [Heap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gc-introduction#heap)中分为不同的空间，当某个空间的内存达到上限后再次分配内存时会产生OOM问题。
 - 可以通过[Snapshot分析模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-snapshot)去定位OOM问题。
 - 由于隐私安全政策，已上架应用市场的应用不支持使用Snapshot分析模板。
 
@@ -344,7 +344,7 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
-14. 异常信息是：Already closed，错误码为14800014，数据库或结果集已关闭。The RdbStore or ResultSet is already closed，RdbStore或者ResultSet对象已调用close接口关闭或者没有打开成功，相关接口无法使用。详情参考[14800014 数据库或结果集关闭](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb#section14800014-数据库或结果集关闭)。
+14. 异常信息是：Already closed，错误码为14800014，数据库或结果集已关闭。The RdbStore or ResultSet is already closed，RdbStore或者ResultSet对象已调用close接口关闭或者没有打开成功，相关接口无法使用。详情参考[14800014 数据库或结果集关闭](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb#section14800014-目标实例已关闭)。
 ```text
 Reason:Error
 Error name:Error

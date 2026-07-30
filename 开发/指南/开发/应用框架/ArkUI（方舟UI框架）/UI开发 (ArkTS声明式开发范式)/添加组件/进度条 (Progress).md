@@ -1,6 +1,6 @@
 # 进度条 (Progress)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-progress-indicator
 
@@ -15,10 +15,10 @@ Progress通过调用接口来创建，接口调用方式如下：
 Progress(options: {value: number, total?: number, type?: ProgressType})
 ```
 
-其中，value用于设置初始进度值，total用于设置进度总长度，type用于设置Progress样式。
+其中，value用于设置当前进度值，total用于设置进度总长度，type用于设置Progress样式。
 
 ```text
-Progress({ value: 24, total: 100, type: ProgressType.Linear }) // 创建一个进度总长为100，初始进度值为24的线性进度条
+Progress({ value: 24, total: 100, type: ProgressType.Linear }) // 创建一个进度总长为100，当前进度值为24的线性进度条
 ```
 
 
@@ -50,7 +50,7 @@ Progress({ value: 20, total: 100, type: ProgressType.Linear }).width(50).height(
 
   
 ```ArkTS
-// 从左往右，1号环形进度条，默认前景色为蓝色渐变，默认strokeWidth进度条宽度为2.0vp
+// 从左往右，1号环形进度条，默认前景色为蓝色渐变，默认strokeWidth进度条宽度为4.0vp
 Progress({ value: 40, total: 150, type: ProgressType.Ring }).width(100).height(100)
 // 从左往右，2号环形进度条
 Progress({ value: 40, total: 150, type: ProgressType.Ring }).width(100).height(100)
@@ -103,7 +103,7 @@ Progress({ value: 20, total: 150, type: ProgressType.Capsule }).width(50).height
 Progress({ value: 50, total: 150, type: ProgressType.Capsule }).width(50).height(100).color(Color.Blue).backgroundColor(Color.Black)
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/ZZ6eqFWZSUuCvvMm9rof_w/zh-cn_image_0000002656467759.png?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=D2BB0A49D89FC5CC609143F29379E3A892516AC9414B7DF3FAFD05CAFEF9156C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/TIm7BPSDQaKYGSAvSezKLQ/zh-cn_image_0000002656006322.png?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=D64B7085E6350788C4D715FE3A60F1A4FEB6D8AB167C41A3C07A0F06FF1C0CC7)
 
 
 
@@ -138,4 +138,4 @@ struct ProgressCase1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/mAQqMpbmQAuOWYMKbn1fug/zh-cn_image_0000002656347807.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=C27E2EC65DC00C74C439859BFC84E500DE8672B16C50B0232E2474E40ABD794D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/Ncn5a2tfST6h9U3BcSMs0A/zh-cn_image_0000002655846402.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=0A9B9E4318F82B5FBE56AE108240537ED8C364F3D5CC0F8C91A3C9F197E2C1E2)

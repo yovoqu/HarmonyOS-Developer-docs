@@ -1,16 +1,16 @@
 # @ohos.WorkSchedulerExtensionAbility (延迟任务调度回调)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供延迟任务回调能力。开发者可重写模块接口，在延迟任务触发时，系统可通过本模块接口回调应用，在回调里处理任务逻辑。
- 
+
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
-  
+
 
 #### 导入模块
 
@@ -19,66 +19,84 @@
 ```text
 import { WorkSchedulerExtensionAbility } from '@kit.BackgroundTasksKit';
 ```
- 
-  
+
+
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+为保障系统安全性和稳定性，防止WorkSchedulerExtensionAbility滥用系统资源，系统对其能力进行管控，不支持以下模块的引用：
+
+[@ohos.resourceschedule.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager)
+
+[@ohos.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-backgroundtaskmanager)
+
+[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)
+
+[@ohos.multimedia.audio (音频管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio)
+
+[@ohos.multimedia.media (媒体服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)
+
+
 
 #### WorkSchedulerExtensionContext10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext
- 
+
 WorkSchedulerExtensionContext是WorkSchedulerExtensionAbility的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
- 
+
 **系统能力：** SystemCapability.ResourceSchedule.WorkScheduler
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | _WorkSchedulerExtensionContext | WorkSchedulerExtension的上下文环境。 |
- 
- 
-  
+
+
+
 
 #### WorkSchedulerExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 延迟任务回调，当满足调度条件或调度结束时，系统会回调应用WorkSchedulerExtensionAbility中[onWorkStart()](#onworkstart)或[onWorkStop()](#onworkstop)的方法。
- 
-  
+
+
 
 #### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ResourceSchedule.WorkScheduler
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | context10+ | WorkSchedulerExtensionContext | 否 | 否 | WorkSchedulerExtension的上下文环境，继承自ExtensionContext。 |
- 
- 
-  
+
+
+
 
 #### onWorkStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWorkStart(work: workScheduler.WorkInfo): void
- 
+
 开始延迟任务调度回调。
- 
+
 **系统能力：** SystemCapability.ResourceSchedule.WorkScheduler
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | work | workScheduler.WorkInfo | 是 | 要添加到执行队列的任务。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { workScheduler } from '@kit.BackgroundTasksKit';
 import { WorkSchedulerExtensionAbility } from '@kit.BackgroundTasksKit';
@@ -90,28 +108,28 @@ export default class MyWorkSchedulerExtensionAbility extends WorkSchedulerExtens
   }
 }
 ```
- 
-  
+
+
 
 #### onWorkStop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWorkStop(work: workScheduler.WorkInfo): void
- 
+
 结束延迟任务调度回调。当延迟任务2分钟超时或应用调用[stopWork](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerstopwork)接口取消任务时，触发该回调。
- 
+
 **系统能力：** SystemCapability.ResourceSchedule.WorkScheduler
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | work | workScheduler.WorkInfo | 是 | 执行队列中要结束回调的任务。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { workScheduler } from '@kit.BackgroundTasksKit';
 import { WorkSchedulerExtensionAbility } from '@kit.BackgroundTasksKit';

@@ -1,6 +1,6 @@
 # Native api中导出的ICU4C符号列表
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/icu4c-symbol
 
@@ -552,3 +552,10 @@
 | FUNC | utf8_back1SafeBody | 22 |
 | FUNC | utf8_prevCharSafeBody | 22 |
 | FUNC | utrans_transIncrementalUChars | 22 |
+| FUNC | UCNV_FROM_U_CALLBACK_STOP | 26.0.0 |
+| FUNC | UCNV_TO_U_CALLBACK_STOP | 26.0.0 |
+| FUNC | UCNV_FROM_U_CALLBACK_SKIP | 26.0.0 |
+| FUNC | UCNV_FROM_U_CALLBACK_SUBSTITUTE | 26.0.0 |
+| FUNC | UCNV_FROM_U_CALLBACK_ESCAPE | 26.0.0 |
+| FUNC | UCNV_TO_U_CALLBACK_SKIP | 26.0.0 |
+| FUNC | UCNV_TO_U_CALLBACK_SUBSTITUTE | 26.0.0 |

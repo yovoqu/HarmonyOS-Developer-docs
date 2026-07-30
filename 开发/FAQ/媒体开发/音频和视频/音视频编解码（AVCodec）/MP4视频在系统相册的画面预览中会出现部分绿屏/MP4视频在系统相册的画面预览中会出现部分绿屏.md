@@ -19,7 +19,7 @@ stss box（Sync Sample Atom）：标识媒体流中的关键帧，提供了随�
 stss box具体内容如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/N6eqCNobSw-40duphac8Gw/zh-cn_image_0000002628552688.png?HW-CC-KV=V1&HW-CC-Date=20260723T013645Z&HW-CC-Expire=86400&HW-CC-Sign=C74860419557DCB6CE6FB9CCF7F87B977578DAFF903BA3A3762F04C525F6230F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/N6eqCNobSw-40duphac8Gw/zh-cn_image_0000002628552688.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=D34713928BC53C5FE1DF327ACB7B4166A5B4E219D21CBD3692F09673B4C215E3)
 
  
  
@@ -27,7 +27,7 @@ stss box具体内容如下：
 #### 问题定位
 1. 排查MP4文件资源及其关键帧信息是否正常。
 2. 排查MP4文件的stss box信息是否正常。使用MP4解析工具查看stss box信息，正常MP4文件的stss box信息如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/TmEvP7JWQT2iiWGmZJ7YNg/zh-cn_image_0000002658912005.png?HW-CC-KV=V1&HW-CC-Date=20260723T013645Z&HW-CC-Expire=86400&HW-CC-Sign=D6868AB5B035AE92E564B9546EF83751BEAAFEBCE6B2E100B677207338DCB09C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/TmEvP7JWQT2iiWGmZJ7YNg/zh-cn_image_0000002658912005.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=1114D67838AE5325AD7729E4ED42FA3909769E8F88F201454AEAA09145AE6E63)
 
 3. 排查业务代码里封装媒体数据的逻辑中，关键帧是否正常标记。
  
@@ -36,7 +36,7 @@ stss box具体内容如下：
 #### 分析结论
 1. MP4文件资源正常播放，但解析该资源发现仅有一个关键帧信息。
 2. 解析MP4文件资源，发现缺失stss box信息，具体信息如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/H6UydzOsQPqj2T3AGv_HEQ/zh-cn_image_0000002628392798.png?HW-CC-KV=V1&HW-CC-Date=20260723T013645Z&HW-CC-Expire=86400&HW-CC-Sign=C509BB4D7B1D4A4C08D405782F941521C4DB1A25E5A14B3E13AB629D04B04B21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/H6UydzOsQPqj2T3AGv_HEQ/zh-cn_image_0000002628392798.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=A779045E15AC496B1FE0F884F8E8CDEB32FEE9E7FDCD03B6A2E3D0E0D4C3850F)
 
 
   缺失stss表中的数据信息导致预览组件seek就近位置的帧。实际上seek到一个非关键帧的位置，解码失败导致预览出现绿屏。

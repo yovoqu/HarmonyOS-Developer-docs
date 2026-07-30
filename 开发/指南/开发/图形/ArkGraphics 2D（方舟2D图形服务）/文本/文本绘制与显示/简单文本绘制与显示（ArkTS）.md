@@ -1,6 +1,6 @@
 # 简单文本绘制与显示（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/simple-text-arkts
 
@@ -32,7 +32,7 @@ let canvas = context.canvas;
 
   
 ```ArkTS
-// 获取文本样式
+// 初始化文本样式
 let myTextStyle: text.TextStyle = {
   // 文本颜色
   color: {
@@ -60,11 +60,11 @@ let myParagraphStyle: text.ParagraphStyle = {
   
 ```ArkTS
 let fontCollection = text.FontCollection.getGlobalInstance();
-let ParagraphGraphBuilder = new text.ParagraphBuilder(myParagraphStyle, fontCollection);
+let paragraphBuilder = new text.ParagraphBuilder(myParagraphStyle, fontCollection);
 // 更新文本样式
-ParagraphGraphBuilder.pushStyle(myTextStyle);
+paragraphBuilder.pushStyle(myTextStyle);
 // 添加文本
-ParagraphGraphBuilder.addText("Hello World");
+paragraphBuilder.addText("Hello World");
 ```
 
 5. 排版段落并进行文本绘制。
@@ -72,7 +72,7 @@ ParagraphGraphBuilder.addText("Hello World");
   
 ```ArkTS
 // 生成段落
-let paragraph = ParagraphGraphBuilder.build();
+let paragraph = paragraphBuilder.build();
 // 布局
 paragraph.layoutSync(1250);
 // 绘制文本

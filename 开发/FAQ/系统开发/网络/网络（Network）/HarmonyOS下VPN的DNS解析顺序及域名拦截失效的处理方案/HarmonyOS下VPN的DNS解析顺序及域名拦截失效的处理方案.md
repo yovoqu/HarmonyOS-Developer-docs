@@ -1,6 +1,6 @@
 # HarmonyOS下VPN的DNS解析顺序及域名拦截失效的处理方案
 
-更新时间：2026-07-02 07:18:00
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-126
 
@@ -17,7 +17,7 @@
 #### 背景知识
 
 - DNS（Domain Name System）：域名系统，是互联网的一项服务，它作为将域名转换为IP地址的系统，是网络基础设施的重要组成部分。
-- [DOH（DNS over HTTPS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customdnsconfig#section5676104731714)：配置HTTPS上的DNS（DOH）设置，以加密的HTTPS协议进行DNS解析请求，避免原始DNS协议中用户的DNS解析请求被窃听或者修改的问题，来达到保护用户隐私的目的。
+- [DOH（DNS over HTTPS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#dnsoverhttpsconfiguration)：配置HTTPS上的DNS（DOH）设置，以加密的HTTPS协议进行DNS解析请求，避免原始DNS协议中用户的DNS解析请求被窃听或者修改的问题，来达到保护用户隐私的目的。
 
  
  
@@ -28,7 +28,7 @@
  
 问题一：VPN连接期间DNS解析顺序及rcp自定义DNS的影响。
  
-在VPN连接期间，VPN旨在创建一个封闭的网络环境，所有尝试访问网络的请求默认将使用VPN提供的DNS服务器进行解析。当应用使用rcp给单个请求配置了[DOH（DNS over HTTPS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customdnsconfig#section5676104731714)，该单个请求会按照其特定配置解析，这属于应用自身的定制化行为，通常不会影响到系统整体VPN的DNS解析状态。
+在VPN连接期间，VPN旨在创建一个封闭的网络环境，所有尝试访问网络的请求默认将使用VPN提供的DNS服务器进行解析。当应用使用rcp给单个请求配置了[DOH（DNS over HTTPS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#dnsoverhttpsconfiguration)，该单个请求会按照其特定配置解析，这属于应用自身的定制化行为，通常不会影响到系统整体VPN的DNS解析状态。
  
 问题二：华为浏览器绕过VPN DNS导致域名封禁失效的处理方案。
  

@@ -1,6 +1,6 @@
 # DeviceVerify（应用设备状态检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-deviceverify-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -27,6 +27,14 @@ import { deviceCertificate } from '@kit.DeviceSecurityKit';
 getDeviceToken(): Promise&lt;string&gt;
  
 获取本设备的DeviceToken。使用Promise异步回调。
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/rIMe9U3PS_iAEK9ub091UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071610Z&HW-CC-Expire=86400&HW-CC-Sign=0C0766C0A4135CA926976F587C2FD08712B4A9CE1BA4006ADEB668FBB98C78C6)
+ 
+ 
+该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
+  
+
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  

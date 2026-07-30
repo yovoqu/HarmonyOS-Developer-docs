@@ -69,32 +69,32 @@
 - **场景一**：以某应用Flutter页面滑动卡顿为例，定位过程如下：
 
 1. 使用Profiler Frame分析能力抓取该过程的Trace信息，根据H:touchEventDispatch泳道的Trace点找到页面滑动的过程，并点击Frame泳道下的子泳道Display Vsync可看到该过程的屏幕刷新率为119，Flutter页面各线程的单帧处理时间需控制在8.3ms以内，否则会出现滑动卡顿的问题。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/hrGu9pQqS6qkqeKJ2PWwow/zh-cn_image_0000002658914251.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=64EAFFB7B438E4189824340962C96E550407A4324C5FA400715E6830BDDB8C40)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/hrGu9pQqS6qkqeKJ2PWwow/zh-cn_image_0000002658914251.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=CC11E0255BDD60A8884CC149B237F2F85BC2CD8CACE341D6E30A12FCDA924C6A)
 
 
 2. 查看页面滑动附近ui线程的Trace信息，发现ui线程在进行绘制时耗时较长，平均一帧绘制耗时达到39ms左右，远远超出了8.3ms。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/uTm1J9jOSh-EBDKBmF9DoA/zh-cn_image_0000002658794299.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=886C969B93D01A0EBD2576BA92782E77EB763F9F2645DCF4F9F3E6A6874CC93B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/uTm1J9jOSh-EBDKBmF9DoA/zh-cn_image_0000002658794299.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=A9AA56EFCD2DD0553845C1CCDAFEA0A2C2951C3BB42F083BC6A1BAF29EB82967)
 
 
 3. 在Callstack泳道的ui[65405]子泳道中查看ui线程单帧绘制时的调用栈，发现耗时主要集中在libapp.so文件，该文件是由应用Dart业务代码打包生成的，因此此处耗时与应用业务逻辑有关。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/OKOi5wrBQM2QMs_LXMzvsg/zh-cn_image_0000002628554936.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=D45E520F4563AEB5CA90E0812B612695F91285C70031C315DFC41551ADF81623)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/OKOi5wrBQM2QMs_LXMzvsg/zh-cn_image_0000002628554936.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=3945ADEBC836881605933D72F215D5B81125FC63C754CB42180EA85316F45D23)
 
 - **场景二**：以某应用Flutter页面滑动丢帧为例，定位过程如下：
 
 1. 使用Profiler Frame分析能力抓取该过程的Trace信息，根据H:oh_flutter_1Surface和VSyncGenerator泳道找到页面滑动丢帧的具体位置。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/L6x65b8bQBykEnng8N3ROA/zh-cn_image_0000002628395036.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=30272177F4162DA85EB7085A7DD2F127DEEFE21F98E2720CA900661F8D663C5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/L6x65b8bQBykEnng8N3ROA/zh-cn_image_0000002628395036.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=E9FB9B6C534FA2A5353DC860AD72871A1113EC2E70C4BF78D04FFD2CD951DED9)
 
 
 2. 在应用包名泳道中找到ui、raster线程，在render_service泳道中找到render_service、RSUniRenderThre子泳道。依次排列后可以看到信号传递过程，发现中间存在丢帧现象。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/lwwzWZiBTkS3rHPCFE36rg/zh-cn_image_0000002658914253.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=E030095381F5F50C359D2F3533FAFD2A9FADF83A735B2CF097A3504979CFB09C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/lwwzWZiBTkS3rHPCFE36rg/zh-cn_image_0000002658914253.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=310DE44354407545055CF1F1EF18C3AF6F6707DEDCE7C1C348E83C9BEBBE2BF6)
 
 
 3. 向下继续找到ui、raster对应的泳道，可以看到由位置1到位置2，ui线程和raster线程总计耗时超过10ms，120Hz情况下两帧间隔8.33ms，因此导致在位置2处没有发送信号。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/7a4snbehQIqpJaOY8igurA/zh-cn_image_0000002658794301.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=2BE6A8E145033D295280B5C334076C1E6B361B4BB93AADE4DB18D6D4BC9C0F8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/7a4snbehQIqpJaOY8igurA/zh-cn_image_0000002658794301.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=0109062E3512ECDC4970F6F336448C795839C730F379F893E5B7427B0B9EA8EA)
 
 
 4. 在Callstack泳道的ui[47556]以及raster[47557]子泳道中查看ui和raster线程单帧绘制时的调用栈，发现耗时主要集中在libflutter.so文件中。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/u2DliD4LRM2OMDQse0iUSg/zh-cn_image_0000002628554938.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=FB47C282E5C174F959F1FC831659595CEEE989D1B1DFB4137D2A3407D7891926)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/u2DliD4LRM2OMDQse0iUSg/zh-cn_image_0000002628554938.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=7575F4CE464949A56DCB83A7A9C5BBBEA9EA62D272662880151379D6BB765EC2)
 
 
  

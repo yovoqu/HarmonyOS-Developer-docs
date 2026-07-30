@@ -97,7 +97,7 @@ struct ListSwiper {
  代码运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/atWodRI1QzKD-_SUFlcDvw/zh-cn_image_0000002628599030.png?HW-CC-KV=V1&HW-CC-Date=20260723T012731Z&HW-CC-Expire=86400&HW-CC-Sign=824E22438123185BB01EE078F07A068697E57A23B123D7F05CB72072F16C9876)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/atWodRI1QzKD-_SUFlcDvw/zh-cn_image_0000002628599030.png?HW-CC-KV=V1&HW-CC-Date=20260730T072352Z&HW-CC-Expire=86400&HW-CC-Sign=C76491A9D540D93B0329DB63AB4F41FBBA2EB68BBFA00CEE1946BF6B809E4B6A)
 
 - Swiper滑动一页的宽度为子组件宽度中的最大值：SwiperDisplayMode枚举说明中表示AUTO_LINEAR类型（Swiper滑动一页的宽度为视窗内最左侧子组件的宽度）从API10开始支持，从API12开始不再维护，建议使用Scroller.scrollTo代替。目前未能完全使用Scroll替代Swiper功能，仅提供两种场景的实现方式。
 - 方式一：通过使用scrollTo，搭配gesture手势，只能实现手动轮播，且循环衔接效果差。代码如下：
@@ -194,7 +194,7 @@ struct ListSwiper1 {
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/9pJZHwRVT1-6FeePpqlRaw/zh-cn_image_0000002628758928.png?HW-CC-KV=V1&HW-CC-Date=20260723T012731Z&HW-CC-Expire=86400&HW-CC-Sign=86DD6E343232E882C6F8ECE03D99126E58BF79724AEF19E468FEBE637CE604B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/9pJZHwRVT1-6FeePpqlRaw/zh-cn_image_0000002628758928.png?HW-CC-KV=V1&HW-CC-Date=20260730T072352Z&HW-CC-Expire=86400&HW-CC-Sign=4BE30B6515E91B7BDE687CEAAEB6C257966D673A1DB83496B30C42BF6E540F49)
 
 - 方式二：通过scrollBy可以实现自动循环轮播但未能同时实现手动轮播，[scrollBy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollby9)为滑动指定距离。代码如下：
 
@@ -279,4 +279,4 @@ struct ListSwiper2 {
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/467wZqcRTI-VgyzIP1L9Cw/zh-cn_image_0000002658958253.png?HW-CC-KV=V1&HW-CC-Date=20260723T012731Z&HW-CC-Expire=86400&HW-CC-Sign=1F002242D814D28333AAD47E870A6FA1FF3373D012F9D7AEAE188DEE0B8EDBBF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/467wZqcRTI-VgyzIP1L9Cw/zh-cn_image_0000002658958253.png?HW-CC-KV=V1&HW-CC-Date=20260730T072352Z&HW-CC-Expire=86400&HW-CC-Sign=C651C7A24A6BA61FC0D41B2F53260D702F05747FC480A3ADE36B188C2EC6B66B)

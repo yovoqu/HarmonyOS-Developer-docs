@@ -1,6 +1,6 @@
 # Tips控制
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,7 +21,7 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
 为组件绑定Tips悬浮气泡。
  
 > [!TIP]
-> 当绑定bindTips的组件设置通用属性 enable 为false时，仍支持弹出悬浮气泡。
+> 当绑定bindTips的组件设置通用属性 enabled 为false时，仍支持弹出悬浮气泡。
 
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -32,7 +32,7 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| message | TipsMessageType | 是 | 弹窗信息内容。 |
+| message | TipsMessageType | 是 | 悬浮气泡信息内容。 |
 | options | TipsOptions | 否 | 配置悬浮气泡的参数。 默认值： { appearingTime: 700, disappearingTime: 300, appearingTimeWithContinuousOperation: 300, disappearingTimeWithContinuousOperation: 0, enableArrow: true, arrowPointPosition: ArrowPointPosition.CENTER, arrowWidth: 16,arrowHeight: 8, showAtAnchor: TipsAnchorType.TARGET } |
  
  
@@ -64,7 +64,7 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
 | arrowWidth | Dimension | 否 | 是 | 设置气泡箭头宽度。若所设置的宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。 默认值：16 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | arrowHeight | Dimension | 否 | 是 | 设置气泡箭头高度。 默认值：8 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | showAtAnchor20+ | TipsAnchorType | 否 | 是 | 设置Tips跟随类型。 默认值：TipsAnchorType.TARGET 说明： Tips的跟随类型为TipsAnchorType.CURSOR时，Tips不显示箭头。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：undefined，会清除由该接口设置的材质效果。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，当设置系统材质时，上述接口不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置悬浮气泡的系统材质。 默认值：undefined，会清除由该接口设置的材质效果。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，当设置系统材质时，上述接口不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
  
  
   
@@ -75,7 +75,7 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
 
 type TipsMessageType = ResourceStr | StyledString
  
-悬浮气泡弹窗信息。
+悬浮气泡信息类型。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
  
@@ -123,7 +123,7 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/ctfPEVY6SneXkVnd8Ar21w/zh-cn_image_0000002677827451.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=B84BB871ED52DF351489A666A7AF128BBA9470EE7E0E598ABFD02F950FBB1BBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/HHl-7tKmT3eflFlPI0aJ5A/zh-cn_image_0000002655848414.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071456Z&HW-CC-Expire=86400&HW-CC-Sign=072998FC073A067E6B08C8D25E1C7EDA2535487E7BE01DB0D2D1110D05D47B8F)
 
  
   
@@ -167,7 +167,7 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/fMpT7kK6Td6Y5pjyv0hx_g/zh-cn_image_0000002677667603.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=A92D7A14FD9F4885BF56F5D5E4707CDF9FD90F00BA7B62DF3FCC43878A226953)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/lmMMjoh5Sh6ctvOY6aM48Q/zh-cn_image_0000002686087843.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071456Z&HW-CC-Expire=86400&HW-CC-Sign=150F9C7B7F8AD6D1BA699362819D2D080B507EC244469D138F74C18DC171BB02)
 
  
   
@@ -206,10 +206,10 @@ struct TipsExample {
 未设置系统材质时：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/mbs5SR4ZQXCtJGFWsnbKXQ/zh-cn_image_0000002647585994.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=83ADC05CE7B82355F787DA45B6A47681F8AD498A47AAD6D0022E27B85256C028)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/NaqlC7fGSDW3aYsod8yXYw/zh-cn_image_0000002656006378.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071456Z&HW-CC-Expire=86400&HW-CC-Sign=37AB9998AC84740D4F1C611101BC2F062ADBFEDAB6BE51ED12C66865B93E3EEA)
 
  
 设置系统材质后：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/I-NBGJNCTruKUJRZte1lwg/zh-cn_image_0000002677825635.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=274669A2568FCF6715A7C6D8A79BD777B29B28342CF922B9F23BE9EA04E747D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/YywNva2dQv2QxpQOYWrevw/zh-cn_image_0000002655846458.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071456Z&HW-CC-Expire=86400&HW-CC-Sign=AE3474C0403FA8AB7C7D6BCB4ADD1305276C194A45092061386FD66D904CBA60)

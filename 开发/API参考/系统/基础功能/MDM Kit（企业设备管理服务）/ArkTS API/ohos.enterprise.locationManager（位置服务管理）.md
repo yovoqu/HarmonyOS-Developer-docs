@@ -1,6 +1,6 @@
 # @ohos.enterprise.locationManager（位置服务管理）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-locationmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -72,7 +72,7 @@ let wantTemp: Want = {
 
 try {
   locationManager.setLocationPolicy(wantTemp, locationManager.LocationPolicy.DISALLOW_LOCATION_SERVICE);
-  console.info(`Succeeded in setting location patch tag.`);
+  console.info(`Succeeded in setting location policy.`);
 } catch(err) {
   console.error(`Failed to set location policy. Code: ${err.code}, message: ${err.message}`);
 }
@@ -84,7 +84,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getLocationPolicy(admin: Want): LocationPolicy
+getLocationPolicy(admin: Want | null): LocationPolicy
 
 查询位置服务管理策略。
 
@@ -98,7 +98,7 @@ getLocationPolicy(admin: Want): LocationPolicy
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
 
 
 **返回值：**

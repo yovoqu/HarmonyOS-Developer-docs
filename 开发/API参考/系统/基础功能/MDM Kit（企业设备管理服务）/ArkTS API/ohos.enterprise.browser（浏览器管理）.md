@@ -1,6 +1,6 @@
 # @ohos.enterprise.browser（浏览器管理）
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-browser
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -93,7 +93,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-getPoliciesSync(admin: Want, appId: string): string
+getPoliciesSync(admin: Want | null, appId: string): string
 
 通过appid获取指定浏览器设置的策略。此策略仅对使用了华为webview的浏览器生效。
 
@@ -105,8 +105,8 @@ getPoliciesSync(admin: Want, appId: string): string
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| appId | string | 是 | 应用ID，用于指定浏览器。 |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。 |
+| appId | string | 是 | 应用ID，用于指定浏览器。详情信息可参考什么是appId。 |
 
 
 **返回值：**
@@ -290,7 +290,7 @@ try {
 
 getSelfManagedBrowserPolicyVersion(): string
 
-获取指定浏览器的浏览器策略版本。
+获取当前设备浏览器策略版本。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 

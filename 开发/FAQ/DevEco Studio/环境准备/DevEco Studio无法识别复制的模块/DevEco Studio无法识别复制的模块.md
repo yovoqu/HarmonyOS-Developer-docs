@@ -1,6 +1,6 @@
 # DevEco Studio无法识别复制的模块
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-28
 
@@ -20,7 +20,7 @@
 
 #### 解决方案
 
-- 如果是通过import形式导入模块，可以参考文档：[导入Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-add-new-module#section13771399184)。具体步骤如下：1. 在菜单栏单击File > New > Import... > Import Module。
+- 如果是通过import形式导入模块，可以参考文档：[导入Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-import-module)。具体步骤如下：1. 在菜单栏单击File > New > Import... > Import Module。
 
 2. 选择导入的模块。在指定路径下，选择导入的模块，单击OK。导入的模块可以为文件夹，也可以为zip格式。
 

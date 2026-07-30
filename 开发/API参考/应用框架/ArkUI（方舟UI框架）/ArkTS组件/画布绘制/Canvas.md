@@ -1,6 +1,6 @@
 # Canvas
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供画布组件，用于自定义绘制图形。
  
 > [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -35,7 +35,7 @@ Canvas(params: CanvasParams)
 使用CanvasParams创建不缓存指令的Canvas组件。创建Canvas组件时，最大面积不超过10000px*10000px，超过最大面积则无法正常创建。Canvas组件未设置固定尺寸时，默认扩展至其最大可用尺寸。
  
 > [!NOTE]
-> 使用本接口创建的Canvas组件将在 onReady 23+ 回调的入参中返回一个 DrawingRenderingContext 12+ 对象，可用于在该Canvas组件上进行绘制。 使用这个接口创建的Canvas组件在组件不可见时将不响应绘制指令。 不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置 visibility 属性为隐藏等，不包括组件被其他组件或是其他窗口遮挡导致不可见的场景。
+> 使用本接口创建的Canvas组件将在 onReady 23+ 回调的入参中返回一个 DrawingRenderingContext 12+ 对象，可用于在该Canvas组件上进行绘制。 使用本接口创建的Canvas组件在组件不可见时将不响应绘制指令。 不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置 visibility 属性为隐藏等，不包括组件被其他组件或是其他窗口遮挡导致不可见的场景。
 
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
@@ -48,7 +48,7 @@ Canvas(params: CanvasParams)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | CanvasParams | 是 | Canvas组件的构造参数。 |
+| params | CanvasParams | 是 | Canvas组件的构造参数，用于创建不缓存指令的Canvas组件。配置参数详见CanvasParams。 |
  
  
   
@@ -60,6 +60,8 @@ Canvas(params: CanvasParams)
 Canvas(context?: CanvasRenderingContext2D | DrawingRenderingContext)
  
 创建Canvas组件时，最大面积不超过10000px*10000px，超过最大面积则无法正常创建。
+ 
+使用本接口创建的Canvas组件在组件不可见时将不响应绘制指令。不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置[visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-visibility#visibility)属性为隐藏等，不包括组件被其他组件或是其他窗口遮挡导致不可见的场景。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -82,7 +84,9 @@ Canvas(context?: CanvasRenderingContext2D | DrawingRenderingContext)
 
 Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions)
  
-创建Canvas组件，支持设置CanvasRenderingContext2D对象或DrawingRenderingContext对象，支持设置AI分析选项。
+创建Canvas组件时，最大面积不超过10000px*10000px，超过最大面积则无法正常创建。支持设置CanvasRenderingContext2D对象或DrawingRenderingContext对象，支持设置AI分析选项。
+ 
+使用本接口创建的Canvas组件在组件不可见时将不响应绘制指令。不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置[visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-visibility#visibility)属性为隐藏等，不包括组件被其他组件或是其他窗口遮挡导致不可见的场景。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -114,8 +118,8 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| unit | LengthMetricsUnit | 否 | 是 | 用于描述Canvas绘制时所采用的单位模式。 仅可在创建Canvas时设置，后续不可修改。 默认值：LengthMetricsUnit.DEFAULT |
-| imageAIOptions | ImageAIOptions | 否 | 是 | 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。 |
+| unit | LengthMetricsUnit | 否 | 是 | 用于描述Canvas绘制时所采用的单位模式，不同单位模式会影响绘制时的坐标和尺寸计算方式，具体说明见LengthMetricsUnit。 仅可在创建Canvas时设置，后续不可修改。 默认值：LengthMetricsUnit.DEFAULT |
+| imageAIOptions | ImageAIOptions | 否 | 是 | 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。 异常值null和undefined按不开启AI分析功能处理。 默认值：不开启AI分析功能。 |
  
  
   
@@ -132,11 +136,13 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+enableAnalyzer(enable: boolean)
+ 
 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
  
-需要搭配[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)中的[StartImageAnalyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#startimageanalyzer12)和[StopImageAnalyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stopimageanalyzer12)一起使用。
+需要搭配[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)中的[startImageAnalyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#startimageanalyzer12)和[stopImageAnalyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stopimageanalyzer12)一起使用。
  
-不能和[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)属性同时使用，两者同时设置时overlay中CustomBuilder属性将失效。该特性依赖设备能力。
+不能和[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)属性同时使用，两者同时设置时overlay中CustomBuilder属性将失效。该特性依赖设备能力，可通过[ImageAnalyzerController.getImageAnalyzerSupportTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#getimageanalyzersupporttypes12)接口查询设备支持的分析类型。
  
 > [!NOTE]
 > 从API version 20开始，该接口支持在 attributeModifier 中调用。
@@ -152,7 +158,7 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean | 是 | 组件支持AI分析，需要组件内容支持主体识别、文字识别或对象查找。 设置为true时，组件可进行AI分析，设置为false时，组件不可进行AI分析。 异常值null和undefined按默认值处理。 默认值：false |
+| enable | boolean | 是 | 设置组件是否开启AI分析功能，开启时需要组件内容支持主体识别、文字识别或对象查找。 设置为true时，组件可进行AI分析，设置为false时，组件不可进行AI分析。 异常值null和undefined按false处理。 默认值：false |
  
  
   
@@ -296,7 +302,7 @@ struct CanvasExample {
 该示例展示了如何使用[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置Canvas组件的[enableAnalyzer](#enableanalyzer12)属性和[onReady](#onready)方法。
  
 > [!NOTE]
-> 此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中 copyCodeResource 相关介绍。
+> 此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需启用相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中 copyCodeResource 相关介绍。
 
  
 ```ArkTS
@@ -313,7 +319,7 @@ class MyCanvasModifier implements AttributeModifier<CanvasAttribute> {
       let image = new ImageBitmap("common/img.png")
       this.context.drawImage(image, 0, 0, 200, 200)
     })
-    // 设置开启组件AI分析功能，点击start后，长按触发AI识别功能
+    // 设置开启组件AI分析功能，点击start按钮调用startImageAnalyzer方法启动AI分析
     instance.enableAnalyzer(true)
   }
 }
@@ -430,4 +436,4 @@ struct CanvasExample {
 ```
  
  
-![](assets/Canvas/file-20260708103136806c781e.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/2GEFjH_YR_mU9LF0CupnoA/zh-cn_image_0000002686088259.png?HW-CC-KV=V1&HW-CC-Date=20260730T071509Z&HW-CC-Expire=86400&HW-CC-Sign=E9A0DE2648084018B89591CEDC43CB2492BE141B1FD9CC7C74D8D49978887541)

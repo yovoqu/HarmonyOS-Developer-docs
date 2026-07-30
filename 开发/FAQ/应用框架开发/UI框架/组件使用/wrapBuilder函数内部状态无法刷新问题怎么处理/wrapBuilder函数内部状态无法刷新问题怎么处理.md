@@ -116,7 +116,7 @@ struct <span style="color: rgb(0,0,255);">WrappedBuilderDemoPage </span><span st
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/VzIm6iSJT6Ci2sz6YHIwbA/zh-cn_image_0000002628399754.png?HW-CC-KV=V1&HW-CC-Date=20260723T012630Z&HW-CC-Expire=86400&HW-CC-Sign=B2EA09A358A27A778CFB43DD2944150017B62C3893A7347C61431EF40809ADF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/VzIm6iSJT6Ci2sz6YHIwbA/zh-cn_image_0000002628399754.png?HW-CC-KV=V1&HW-CC-Date=20260730T072333Z&HW-CC-Expire=86400&HW-CC-Sign=97CFA06733D708B4E5E5F969BC937C4F21BFB0E179DA19EFE6A0EB85E8E5FBD1)
 
 2. 当存在两个或两个以上的参数时，按值传递UI不会刷新。即使通过对象字面量形式传递，值的改变也不会触发UI刷新。所以通常将多个需要传递的参数封装成一个对象，同时保证只传递这一个对象，UI可正常刷新。Builder代码示例如下：
 
@@ -223,4 +223,4 @@ struct <span style="color: rgb(0,0,255);">WrappedBuilderDemoPageTwo </span><span
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/S4MOkcjDRX67WbHl9PEZjA/zh-cn_image_0000002658799023.png?HW-CC-KV=V1&HW-CC-Date=20260723T012630Z&HW-CC-Expire=86400&HW-CC-Sign=85B3DCC99F98CE12AFB2CC066F665654270FBD359177DCBA003151D77CF390E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/S4MOkcjDRX67WbHl9PEZjA/zh-cn_image_0000002658799023.png?HW-CC-KV=V1&HW-CC-Date=20260730T072333Z&HW-CC-Expire=86400&HW-CC-Sign=1D8CC8BBA6BD1DAD83032728452B7D40A68F80A2F67732281AF8799F0427E670)

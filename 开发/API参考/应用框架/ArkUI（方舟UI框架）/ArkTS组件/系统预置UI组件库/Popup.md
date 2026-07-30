@@ -1,11 +1,11 @@
 # Popup
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Popup是用于显示特定样式气泡。
+Popup是用于显示特定样式气泡的组件，支持图标、文本和按钮的灵活组合，适用于通知提示、信息确认、警告提示等场景。通过可定制的样式选项，能够快速实现一致的气泡交互体验。
  
 > [!NOTE]
 > 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 建议结合 Popup控制 中的自定义气泡功能。
@@ -46,7 +46,7 @@ Popup(options: PopupOptions): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | PopupOptions | 是 | 定义Popup组件的类型。 |
+| options | PopupOptions | 是 | Popup组件的配置参数。 |
  
  
   
@@ -61,14 +61,14 @@ PopupOptions定义Popup的具体样式参数。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | PopupIconOptions | 否 | 是 | 设置popup图标。 说明： 当width和height设置异常值或0时不显示。 默认不显示图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| title | PopupTextOptions | 否 | 是 | 设置popup标题文本。 默认不显示标题文本。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| message | PopupTextOptions | 否 | 否 | 设置popup内容文本。 说明： message不支持设置fontWeight。 默认不显示内容文本。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| showClose | boolean \| Resource | 否 | 是 | 设置popup关闭按钮。 true：显示关闭按钮；false：不显示关闭按钮。 Resource：显示对应的图标。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onClose | () => void | 否 | 是 | 设置popup关闭按钮回调函数。 默认不设置关闭按钮回调函数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| buttons | [PopupButtonOptions?,PopupButtonOptions?] | 否 | 是 | 设置popup操作按钮，按钮最多设置两个。 默认不显示按钮。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| direction12+ | Direction | 否 | 是 | 布局方向。 默认值：Direction.Auto 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| maxWidth18+ | Dimension | 否 | 是 | 设置popup的最大宽度，通过此接口popup可以自定义宽度显示。 说明： 1. 在使用引用资源类型时，规定其参数类型要与属性方法本身类型一致。 2. maxWidth是数字类型，支持float和integer，例如\$r('app.float.maxWidth')、\$r('app.integer.maxWidth')。 3. 当类型为Resource时，如果未设置单位，默认单位为px。 默认值：400vp 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| icon | PopupIconOptions | 否 | 是 | 设置Popup图标。 说明： 当width和height设置异常值或0时不显示。 默认不显示图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| title | PopupTextOptions | 否 | 是 | 设置Popup标题文本。 默认不显示标题文本。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| message | PopupTextOptions | 否 | 否 | 设置Popup内容文本。 说明： message不支持设置fontWeight。 默认不显示内容文本。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| showClose | boolean \| Resource | 否 | 是 | 设置Popup关闭按钮。 true：显示关闭按钮；false：不显示关闭按钮。 Resource：显示对应的图标。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onClose | () => void | 否 | 是 | 设置Popup关闭按钮回调函数。 默认不设置关闭按钮回调函数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| buttons | [PopupButtonOptions?,PopupButtonOptions?] | 否 | 是 | 设置Popup操作按钮，按钮最多设置两个。 默认不显示按钮。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| direction12+ | Direction | 否 | 是 | 设置Popup内容的布局方向，可用枚举值见Direction。 默认值：Direction.Auto 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| maxWidth18+ | Dimension | 否 | 是 | 设置Popup的最大宽度，支持自定义宽度显示。 说明： 1. 在使用引用资源类型时，规定其参数类型要与maxWidth属性本身的类型一致。 2. maxWidth是Dimension类型，支持数字类型和百分比字符串类型。数字类型支持float和integer，例如\$r('app.float.maxWidth')、\$r('app.integer.maxWidth')；百分比字符串例如'50%'。 3. 当类型为Resource时，如果未设置单位，默认单位为px。 默认值：400vp 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
  
  
   
@@ -107,7 +107,7 @@ PopupButtonOptions定义按钮的相关属性和事件。
 | --- | --- | --- | --- | --- |
 | text | ResourceStr | 否 | 否 | 设置按钮内容。 |
 | action | () => void | 否 | 是 | 设置按钮click回调。 默认不执行任何操作。 |
-| fontSize | number \| string \| Resource | 否 | 是 | 设置按钮文本字体大小。 默认值：\$r('sys.float.ohos_id_text_size_button2') string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。 为number类型时单位：fp。 设置值为异常值时取默认值。 |
+| fontSize | number \| string \| Resource | 否 | 是 | 设置按钮文本字体大小。 默认值：\$r('sys.float.ohos_id_text_size_button2') string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。 number：取值范围(0,+∞)。为number类型时单位：fp。 设置值为异常值时取默认值。 |
 | fontColor | ResourceColor | 否 | 是 | 设置按钮文本字体颜色。 默认值：\$r('sys.color.ohos_id_color_text_primary_activated') |
  
  
@@ -126,10 +126,10 @@ PopupIconOptions定义图标的属性。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | image | ResourceStr | 否 | 否 | 设置图标内容。 |
-| width | Dimension | 否 | 是 | 设置图标宽度。 默认值：32VP |
-| height | Dimension | 否 | 是 | 设置图标高度。 默认值：32VP |
+| width | Dimension | 否 | 是 | 设置图标宽度。单位：vp。 默认值：32vp |
+| height | Dimension | 否 | 是 | 设置图标高度。单位：vp。 默认值：32vp |
 | fillColor | ResourceColor | 否 | 是 | 设置图标填充颜色。仅针对svg图源生效。 默认不改变图标颜色。 |
-| borderRadius | Length \| BorderRadiuses | 否 | 是 | 设置图标圆角。 默认值：\$r('sys.float.ohos_id_corner_radius_default_s') |
+| borderRadius | Length \| BorderRadiuses | 否 | 是 | 设置图标圆角。单位：vp。 默认值：\$r('sys.float.ohos_id_corner_radius_default_s') |
  
  
   
@@ -164,14 +164,14 @@ struct PopupExample {
           fillColor: Color.White,
           borderRadius: 16
         } as PopupIconOptions,
-        // PopupTextOptions类型设置文字内容
+        // PopupTextOptions 类型设置文字内容
         title: {
           text: 'This is a popup with PopupOptions',
           fontSize: 20,
           fontColor: Color.Black,
           fontWeight: FontWeight.Normal
         } as PopupTextOptions,
-        // PopupTextOptions类型设置文字内容
+        // PopupTextOptions 类型设置文字内容
         message: {
           text: 'This is the message',
           fontSize: 15,
@@ -181,7 +181,7 @@ struct PopupExample {
         onClose: () => {
           console.info('close Button click');
         },
-        // PopupButtonOptions类型设置按钮内容
+        // PopupButtonOptions 类型设置按钮内容
         buttons: [{
           text: 'confirm',
           action: () => {
@@ -214,7 +214,7 @@ struct PopupExample {
  
   
 
-#### 示例 2（设置镜像效果）
+#### 示例2（设置镜像效果）
 
 该示例通过配置direction参数实现Popup的镜像布局效果。
  
@@ -231,7 +231,7 @@ struct PopupPage {
     Column() {
       // popup 自定义高级组件
       Popup({
-        // PopupIconOptions 类型设置图标内容
+        // PopupIconOptions类型设置图标内容
         direction: this.currentDirection,
         icon: {
           // $r('app.media.icon')需要替换为开发者所需的图像资源文件。
@@ -304,7 +304,6 @@ import { Popup, PopupTextOptions, PopupButtonOptions, PopupIconOptions } from '@
 @Entry
 @Component
 struct PopupPage {
-  @State currentDirection: Direction = Direction.Rtl;
 
   build() {
     Row() {
@@ -312,7 +311,7 @@ struct PopupPage {
       Popup({
         // 设置自定义宽度
         maxWidth: '50%',
-        // PopupIconOptions 类型设置图标内容
+        // PopupIconOptions类型设置图标内容
         icon: {
           // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
           image: $r('app.media.startIcon'),
@@ -321,7 +320,7 @@ struct PopupPage {
           fillColor: Color.White,
           borderRadius: 16,
         } as PopupIconOptions,
-        // PopupTextOptions类型设置文字内容
+        // PopupTextOptions 类型设置文字内容
         message: {
           text: 'This is the message,This is the message,This is the message,This is the message',
           fontSize: 15,
@@ -331,7 +330,7 @@ struct PopupPage {
         onClose: () => {
           console.info('close Button click');
         },
-        // PopupButtonOptions类型设置按钮内容
+        // PopupButtonOptions 类型设置按钮内容
         buttons: [{
           text: 'confirm',
           action: () => {

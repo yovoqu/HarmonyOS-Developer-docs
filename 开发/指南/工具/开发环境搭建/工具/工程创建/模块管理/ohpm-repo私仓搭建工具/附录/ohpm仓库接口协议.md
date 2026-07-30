@@ -1,6 +1,6 @@
 # ohpm仓库接口协议
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-interface-protocol
 
@@ -62,13 +62,13 @@ authorization: NjJmNjFhODI3N2ZlNDUwMzlhYmUwNjQxZjQ3ZTNhZDU=
 | --- | --- | --- | --- |
 | authorization | string | 是 | 填写只读或者读写AccessToken，选填项，当ohpm-repo配置不支持匿名访问时必须填写。 |
 | x-ohpm-metadata-type | string | 否 | 当值为"install+v1"，返回所有精简元数据。 |
-| x-ohpm-metadata-special-version | string | 否 | ohpm-repo 5.5.1版本新增。 用于返回指定版本的元数据，值支持确定版本号、latest版本号、tag版本号，示例如下。
+| x-ohpm-metadata-special-version | string | 否 | ohpm-repo 5.5.1版本新增。 用于返回固定版本的元数据，值支持固定版本号、latest版本号、tag版本号，示例如下。
 ```text
-确定版本号： "3.0.0" 
+固定版本号： "3.0.0" 
 latest版本号："latest"
 tag版本号："tag:t310"
 ```
- 与x-ohpm-metadata-type一起使用时，返回指定版本的精简元数据。 |
+ 如未配置或者配置上述三种情况之外的值，返回所有元数据。 |
  
  
 **响应失败示例**（以请求一个应用内的HAR包 @test/package1 为例）**：**
@@ -1089,7 +1089,7 @@ body的item是一个json对象，包含十二个字段，描述如下：
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/3QSpf8JMR9uUU71enJ8qHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020700Z&HW-CC-Expire=86400&HW-CC-Sign=A1A90B9AFA60D720BA452187B2BBA0DA45C0AC179C048272372B95C4C3B9E40B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/LlOqNkXWRIuW65C-soerLQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071812Z&HW-CC-Expire=86400&HW-CC-Sign=7E0F5C8997DC565C4BBC82A743EAC4A0F3321CCDEA579A5AFD72E4D20E68A13B)
  
 
 由于[流式上传接口](#section08863329310)在ohpm 5.0.1版本才开始支持，当ohpm调用该接口时，若返回的响应状态码为404时，ohpm客户端会再次调用[上传接口](#section444511511524)上传。为了保证与ohpm客户端的兼容性，请确保当访问仓库不存在的接口仓库的响应状态码为404。

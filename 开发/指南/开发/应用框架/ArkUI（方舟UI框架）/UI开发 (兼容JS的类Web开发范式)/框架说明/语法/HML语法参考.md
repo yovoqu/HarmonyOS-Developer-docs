@@ -1,6 +1,6 @@
 # HML语法参考
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-framework-syntax-hml
 
@@ -161,7 +161,7 @@ export default {
 ```text
 <!-- xxx.hml -->
 <div>
-   <!-- 使用事件冒泡模式绑定事件回调函数。5+ -->;
+   <!-- 使用事件冒泡模式绑定事件回调函数。5+ -->
     <div on:touchstart.bubble="touchstartfunc" style="background-color: red; width: 10%; height: 100%"></div>
     <div on:touchstart="touchstartfunc" style="background-color: orange; width: 10%; height: 100%"></div>
     <!-- 绑定事件回调函数，但阻止事件向上传递。5+ -->
@@ -282,7 +282,7 @@ tid属性主要用来加速for循环的重渲染，旨在列表中的数据有�
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/P1b9KD_xR5mqioTn9pqsCA/zh-cn_image_0000002611833973.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030425Z&HW-CC-Expire=86400&HW-CC-Sign=AFD26E6C8F75C4ADE102E86DCEED5350AC07594934BFD8EAABB015A4D600B1CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/DAAlqWC2RF-6jFsOGpyj4Q/zh-cn_image_0000002686086083.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=1E0D7DEF899CD22537105D21FF3796D2379E6A47CA8EB2F3BC85F3913451CAA4)
 
 
 
@@ -332,7 +332,7 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/lz--4QGISxS-KFGW0tsNDA/zh-cn_image_0000002581274226.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030425Z&HW-CC-Expire=86400&HW-CC-Sign=A3EA59624B5F1D114C71BE65BFFBEF9495076DA82B362AEA0AF355453F56EB92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/wej15YePRHOuRisX_GX-nw/zh-cn_image_0000002685926255.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=2B843C20E19D0E97057EBB4946839C17FD034C3AF9754EB54351840060F911F0)
 
 
 优化渲染：show方法。当show为true时，节点正常渲染；当为false时，仅仅设置display样式为none。
@@ -375,7 +375,7 @@ export default {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/C17g0xMfRoKXOQryF-Y3cA/zh-cn_image_0000002611754081.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030425Z&HW-CC-Expire=86400&HW-CC-Sign=62967C2AD36E68D3EE685A7580F0CA2B070108D3FA85CFC5ED1A0097A9E6EF22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/NId4R23rS_a4DJo7nPMFWg/zh-cn_image_0000002656006576.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=D8BFBCCA350842B29C57139EA7DC4B90FE69DEB29AF328F715ACFC6537CFEA58)
 
 
 
@@ -413,7 +413,7 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/tbUDudZpSneD9VcHciHRhw/zh-cn_image_0000002581434146.png?HW-CC-KV=V1&HW-CC-Date=20260528T030425Z&HW-CC-Expire=86400&HW-CC-Sign=8B1575E81858B068387568BD1EFE4D2FB5205C94A7F3B6079D19C40CB46A2565)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/GkFp7PuDQxG-Eo1TG6HHdg/zh-cn_image_0000002655846656.png?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=EEC1A5F6AF837B9902DBAFA5207363AE033836CF9AF11B6AC931A9799F9C2D2B)
 
 
 

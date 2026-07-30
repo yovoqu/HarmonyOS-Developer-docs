@@ -1,6 +1,6 @@
 # InterstitialDialogAction
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-interstitialdialogaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,6 +35,14 @@ import { InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset } from
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
+ 
+  
+
+#### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
  
   
 
@@ -99,11 +107,11 @@ closeDialog(): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+设置弹框特有的属性以及提供给用户自定义的点击触发动作。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-设置弹框特有的属性以及提供给用户自定义的点击触发动作。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -127,11 +135,11 @@ closeDialog(): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+设置关闭按钮的色调样式，默认设置关闭按钮为亮色调。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-设置关闭按钮的色调样式，默认设置关闭按钮为亮色调。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -145,11 +153,11 @@ closeDialog(): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+设置主副标题之间的上下相对位置，默认设置为主标题在副标题之上。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-设置主副标题之间的上下相对位置，默认设置为主标题在副标题之上。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -163,25 +171,17 @@ closeDialog(): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+设置不同情景模式下弹框距离底部的距离，判断依据为是否存在菜单栏，默认显示为不存在菜单栏情况下的距离。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-设置不同情景模式下弹框距离底部的距离，判断依据为是否存在菜单栏，默认显示为不存在菜单栏情况下的距离。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| OFFSET_FOR_BAR | 0 | 存在菜单栏情况下与窗口底部的距离。 默认值，设置后弹框距离底部88vp。 |
-| OFFSET_FOR_NONE | 1 | 不存在菜单栏情况下与窗口底部的距离。 设置后弹框距离底部44vp。 |
+| OFFSET_FOR_BAR | 0 | 存在菜单栏情况下与窗口底部的距离。 设置后弹框距离底部88vp。 |
+| OFFSET_FOR_NONE | 1 | 不存在菜单栏情况下与窗口底部的距离。 默认值，设置后弹框距离底部44vp。 |
  
- 
-  
-
-#### 事件
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
  
   
 
@@ -446,4 +446,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/VPiC4Gh9R4asMnJbeek-1Q/zh-cn_image_0000002677668177.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=E451A0D888513E341C04734EBB19E14C2AEED632E268C333550C0266665D5E9D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/dKASqSMPS8CF3xqzpcovlw/zh-cn_image_0000002655848974.png?HW-CC-KV=V1&HW-CC-Date=20260730T071516Z&HW-CC-Expire=86400&HW-CC-Sign=53DC0319E50584D0886FC6AD9BE77F31208AB08692F43E3F2DBC973B361988B2)

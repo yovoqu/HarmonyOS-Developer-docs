@@ -1,6 +1,6 @@
 # Asset_SyncResult
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-assettype-asset-syncresult
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,6 +36,6 @@ typedef struct {...} Asset_SyncResult
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t resultCode | 关键资产同步的结果码。 |
+| int32_t resultCode | 关键资产同步的结果码。同步成功时结果码为0，同步失败时结果码参考Asset_ResultCode。 |
 | uint32_t totalCount | 触发同步的关键资产总数。 |
 | uint32_t failedCount | 关键资产同步失败的数量。 |

@@ -1,6 +1,6 @@
 # 视频解码如何传入SPS，PPS数据
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-21
 
@@ -21,7 +21,7 @@ SPS和PPS都为H264编码中的重要数据信息。
 H264原始码流是由若干NALU组成的结构，如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/AeCYYtknTSOx7FOxbSiYFA/zh-cn_image_0000002658791637.png?HW-CC-KV=V1&HW-CC-Date=20260723T013647Z&HW-CC-Expire=86400&HW-CC-Sign=DEAD7EC94B6BB54A6B748B755917B93369889286E14E826C7E9D72319F373CC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/7Rgl6J79RMmnom5Yji7RRw/zh-cn_image_0000002658791637.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=B56348DEB5280534AAC9E9A4F6F277EB4AAF75970D65A196B97C4312992E2A5D)
 
  
 - NALU（Network Abstraction Layer Units）：网络抽象层。每个NAL单元是一个有一定语法元素的可变长字节字符串，包括一个字节的NAL Header（用来表示数据类型），以及若干整数字节的原始字节序列负荷（RBSP）。在实际的H264数据帧中，往往帧前面带有00 00 00 01或00 00 01的分隔符，其后跟随NAL单元数据。一个NAL单元可以携带一个编码片，I帧、P帧、B帧、一个序列参数集（SPS）、或一个图像参数集（PPS）。
@@ -93,7 +93,7 @@ A：解码的首帧输入同时包含了SPS和PPS数据，可以将首帧buffer�
  
 Q：OH_VideoDecoder解码器输入的h264和h265的码流是AnnexB还是Avcc或者Hvcc？
  
-A：视频解码输入码流仅支持AnnexB格式，且支持的AnnexB格式支持多slice，要求同一帧的多个slice一次送入解码器。详细可参考：视频解码的[限制约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#限制约束)。
+A：视频解码输入码流仅支持AnnexB格式，且支持的AnnexB格式支持多slice，要求同一帧的多个slice一次送入解码器。详细可参考：视频解码的[限制约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#注意事项)。
  
 Q：输入EOS packet，再调用视频解码器OH_VideoDecoder_Flush，然后调用OH_VideoDecoder_Start，此时概率性收到解码器的EOS output回调，按照预期，OH_VideoDecoder_Flush之后会失效所有input & output buffer，这是不是OH_VideoDecoder_Flush接口的bug?
  

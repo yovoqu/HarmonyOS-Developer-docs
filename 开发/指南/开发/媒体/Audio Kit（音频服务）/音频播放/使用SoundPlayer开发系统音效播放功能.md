@@ -1,10 +1,10 @@
 # 使用SoundPlayer开发系统音效播放功能
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-soundplayer-for-playback
 
-从API version 23开始，支持系统音效播放。
+从API版本23开始，支持系统音效播放。
 
 SoundPlayer提供系统音效播放功能，适用于拍照或录像提示音，比如在开始拍照、开始录像或结束录像时播放提示音。
 
@@ -24,7 +24,7 @@ SoundPlayer提供系统音效播放功能，适用于拍照或录像提示音，
 
 #### 开发步骤
 
-以下各步骤示例为片段代码，可通过点击示例代码右下方的链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/SystemSoundPlayer)。
+以下各步骤示例为片段代码，可通过点击示例代码右下方的链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/SystemSoundPlayer)。
 1. 在调用SystemSoundPlayer的接口前，需要先通过[createSystemSoundPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-systemsoundmanager#systemsoundmanagercreatesystemsoundplayer)创建实例。
 
   

@@ -1,6 +1,6 @@
 # NetConn_ProbeResultInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netconnection-netconn-proberesultinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,4 +37,4 @@ typedef struct NetConn_ProbeResultInfo {...} NetConn_ProbeResultInfo
 | 名称 | 描述 |
 | --- | --- |
 | uint8_t lossRate | 丢包率，百分制，值100表示100%丢包；50表示50%丢包。 |
-| uint32_t rtt[NETCONN_MAX_RTT_NUM] | 时延结果，包含最小、最大、平均、标准差。 |
+| uint32_t rttNETCONN_MAX_RTT_NUM | 时延结果（单位：ms），包含最小、最大、平均、标准差。 |

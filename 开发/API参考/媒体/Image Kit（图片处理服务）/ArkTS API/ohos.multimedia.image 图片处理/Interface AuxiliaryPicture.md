@@ -1,6 +1,6 @@
 # Interface (AuxiliaryPicture)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-auxiliarypicture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -47,7 +47,7 @@ writePixelsFromBuffer(data: ArrayBuffer): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -59,7 +59,7 @@ writePixelsFromBuffer(data: ArrayBuffer): Promise&lt;void&gt;
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 
 
-**示例:**
+**示例：**
 
 ```text
 async function WritePixelsFromBuffer(context: Context) {
@@ -118,7 +118,7 @@ async function ReadPixelsToBuffer(context: Context) {
   let auxPictureObj: image.AuxiliaryPicture | null = pictureObj.getAuxiliaryPicture(image.AuxiliaryPictureType.GAINMAP);
   if(auxPictureObj != null) {
     await auxPictureObj.readPixelsToBuffer().then((pixelsBuffer: ArrayBuffer) => {
-      console.info('Succeeded in reading pixels to buffer.' );
+      console.info('Succeeded in reading pixels to buffer success.' );
     }).catch((error: BusinessError) => {
       console.error(`Failed to read pixels to buffer. error.code: ${error.code}, error.message: ${error.message}`);
     });

@@ -1,6 +1,6 @@
 # Interface (Marker)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -435,7 +435,7 @@ setIcon(icon: string | image.PixelMap | Resource): Promise&lt;void&gt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| icon | string \| image.PixelMap \| Resource | 是 | 标记的图标，异常值不处理。 - 图片格式支持jpg、jpeg、png、gif、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,&lt;图片的Base64字节编码值&gt;） 说明： 从5.0.0(12)版本开始，icon属性支持Resource和image.PixelMap类型。 |
+| icon | string \| image.PixelMap \| Resource | 是 | 标记的图标，异常值不处理。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,&lt;图片的Base64字节编码值&gt;） 说明： 从5.0.0(12)版本开始，icon属性支持Resource和image.PixelMap类型。 |
  
  
 **返回值：**
@@ -826,7 +826,7 @@ marker.clearAnimation();
 
 getAltitude(): number
  
-获取海拔高度。
+获取相对于地面的高度。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -840,7 +840,7 @@ getAltitude(): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 海拔高度，单位：m。 |
+| number | 相对于地面的高度，单位：m。 |
  
  
 **示例：**
@@ -857,7 +857,7 @@ let altitude: number = marker.getAltitude();
 
 setAltitude(altitude: number): void
  
-设置海拔高度。
+设置相对于地面的高度。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -871,7 +871,7 @@ setAltitude(altitude: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| altitude | number | 是 | 海拔高度，单位：m，异常值不处理。 |
+| altitude | number | 是 | 相对于地面的高度，单位：m，异常值不处理。 |
  
  
 **示例：**

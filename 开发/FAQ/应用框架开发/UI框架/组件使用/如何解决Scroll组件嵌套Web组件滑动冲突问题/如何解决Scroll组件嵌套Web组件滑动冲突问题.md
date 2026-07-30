@@ -42,7 +42,7 @@ Web组件和Scroll组件在同一页面时，会存在Web获取焦点，导致Sc
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/XXyYpdT4Q4ebLDoe5b1Aeg/zh-cn_image_0000002658911361.png?HW-CC-KV=V1&HW-CC-Date=20260723T012533Z&HW-CC-Expire=86400&HW-CC-Sign=D529D5D72DDE900A55A83C81CD337E402362E0AD058A7F498AAC5B172FF4CCA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/XXyYpdT4Q4ebLDoe5b1Aeg/zh-cn_image_0000002658911361.png?HW-CC-KV=V1&HW-CC-Date=20260730T072318Z&HW-CC-Expire=86400&HW-CC-Sign=E16E6553C208C5C662F54B3C9C2E4C86C5EFE1EF8A0F4B7C1C54C9DEB16819BD)
 
 - **方案二**：触摸事件传递。可以使用触摸测试控制来规避此种情况，请给显示在上层的节点设置hitTestBehavior为HitTestMode.Transparent。详情见[参考文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior)。
 
@@ -53,7 +53,7 @@ Web组件和Scroll组件在同一页面时，会存在Web获取焦点，导致Sc
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/2Sq-MCe2RNSWGVKI62BiOg/zh-cn_image_0000002628392144.png?HW-CC-KV=V1&HW-CC-Date=20260723T012533Z&HW-CC-Expire=86400&HW-CC-Sign=B78A8F9DB8ED78DC946492AF677EE354B7A0BF6200B56866626F5591F9583AF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/2Sq-MCe2RNSWGVKI62BiOg/zh-cn_image_0000002628392144.png?HW-CC-KV=V1&HW-CC-Date=20260730T072318Z&HW-CC-Expire=86400&HW-CC-Sign=774AC17F1D52FF17EA2306D65D864B0E8DA4A73970AD63F9897A0749F0B81AA2)
 
 - **方案三**：调整嵌套滚动模式。在嵌套滚动组件时，可以通过设置“nestedScroll”属性来控制滚动顺序。
 
@@ -67,7 +67,7 @@ Web组件和Scroll组件在同一页面时，会存在Web获取焦点，导致Sc
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/Vdr1_x9jSoeu1DbzDH5sgQ/zh-cn_image_0000002658791425.png?HW-CC-KV=V1&HW-CC-Date=20260723T012533Z&HW-CC-Expire=86400&HW-CC-Sign=1BF37F2083F9B89E5A8DE03C17BBABF5507E4C8858A1C749963480812DB2922A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/Vdr1_x9jSoeu1DbzDH5sgQ/zh-cn_image_0000002658791425.png?HW-CC-KV=V1&HW-CC-Date=20260730T072318Z&HW-CC-Expire=86400&HW-CC-Sign=EDFE6FE44FDC9755E5AEBFBA48F9D0C9D7D30F385D60CD5D0B5CEADF064BCE2D)
 
 
  

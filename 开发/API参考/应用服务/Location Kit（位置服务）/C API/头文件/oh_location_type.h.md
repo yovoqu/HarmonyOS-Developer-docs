@@ -1,6 +1,6 @@
 # oh_location_type.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-location-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -62,6 +62,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
+| bool OH_LocationInfo_IsFromMock(Location_Info* location) | - | 判断定位信息是否来自模拟位置功能。 起始版本： 26.0.0 |
 | Location_BasicInfo OH_LocationInfo_GetBasicInfo(Location_Info* location) | - | 获取位置基本信息。 |
 | Location_ResultCode OH_LocationInfo_GetAdditionalInfo(Location_Info* location, char* additionalInfo, uint32_t length) | - | 获取位置信息中的附加信息。 |
 | typedef void (*Location_InfoCallback)(Location_Info* location, void* userData) | Location_InfoCallback | 用于接收位置上报的回调函数。 |
@@ -182,6 +183,36 @@ enum Location_SourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+  
+
+#### OH_LocationInfo_IsFromMock()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+bool OH_LocationInfo_IsFromMock(Location_Info* location)
+```
+ 
+**描述**
+ 
+判断定位信息是否来自模拟位置功能。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| Location_Info* location | 指向位置信息结构体的指针。 需要传入非空指针，该指针可以在Location_InfoCallback中获取。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| bool | 返回bool类型的结果，用于指示该位置是否来自模拟位置功能。 如果值为 true，表示该位置来自模拟位置功能；如果值为false，表示该位置源自系统的真实定位结果。 |
+ 
+ 
   
 
 #### OH_LocationInfo_GetBasicInfo()

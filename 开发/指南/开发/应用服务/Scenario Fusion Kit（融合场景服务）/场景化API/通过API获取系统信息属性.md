@@ -1,6 +1,6 @@
 # 通过API获取系统信息属性
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-system-info
 
@@ -12,7 +12,7 @@ Scenario Fusion Kit提供获取系统信息属性API，调用该接口可以获�
 
 #### 约束与限制
 
-场景化API支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持Wearable和TV设备，从API版本26.0.0开始，新增支持Car设备。
+场景化API支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持Wearable和TV设备。
 
 
 

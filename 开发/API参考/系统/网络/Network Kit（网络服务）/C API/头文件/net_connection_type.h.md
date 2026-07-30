@@ -1,6 +1,6 @@
 # net_connection_type.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-connection-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -94,6 +94,7 @@
 | typedef void (*OH_NetConn_NetworkAvailable)(NetConn_NetHandle *netHandle) | OH_NetConn_NetworkAvailable | 网络可用回调。 |
 | typedef void (*OH_NetConn_NetCapabilitiesChange)(NetConn_NetHandle *netHandle,NetConn_NetCapabilities *netCapabilities) | OH_NetConn_NetCapabilitiesChange | 网络能力集变更回调。 |
 | typedef void (*OH_NetConn_NetConnectionPropertiesChange)(NetConn_NetHandle *netHandle,NetConn_ConnectionProperties *connConnetionProperties) | OH_NetConn_NetConnectionPropertiesChange | 网络连接属性变更回调。 |
+| typedef void (*OH_NetConn_GlobalHttpProxyRefreshCallback)(int32_t result, const NetConn_HttpProxy *proxy, void *userContext) | OH_NetConn_GlobalHttpProxyRefreshCallback | 全局HTTP代理重新认证结果的回调。 |
 | typedef void (*OH_NetConn_NetLost)(NetConn_NetHandle *netHandle) | OH_NetConn_NetLost | 网络断开回调。 |
 | typedef void (*OH_NetConn_NetUnavailable)(void) | OH_NetConn_NetUnavailable | 网络不可用回调，在指定的超时时间内网络未激活时触发该回调，如果未设置超时时间则不会触发该回调。 |
 | typedef void (*OH_NetConn_NetBlockStatusChange)(NetConn_NetHandle *netHandle, bool blocked) | OH_NetConn_NetBlockStatusChange | 网络阻塞状态变更回调。 |
@@ -257,6 +258,31 @@ typedef void (*OH_NetConn_AppHttpProxyChange)(NetConn_HttpProxy *proxy)
 | 参数项 | 描述 |
 | --- | --- |
 | NetConn_HttpProxy *proxy | 变化的代理配置信息,可能是空指针。 |
+ 
+ 
+  
+
+#### OH_NetConn_GlobalHttpProxyRefreshCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*OH_NetConn_GlobalHttpProxyRefreshCallback)(int32_t result, const NetConn_HttpProxy *proxy, void *userContext)
+```
+ 
+**描述**
+ 
+全局HTTP代理重新认证结果的回调。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| (int32_t result | 重新认证的结果。0表示成功，其他值表示失败。 |
+| const NetConn_HttpProxy *proxy | 当重新认证成功（result为0）时，表示刷新后的全局HTTP代理信息。如果重新认证失败（result非0）时，proxy为NULL。该proxy对象由系统持有，仅在该回调函数内部有效。调用者不得释放或修改它。如果调用者需要在回调返回后继续使用该代理信息，必须进行深拷贝。 |
+| void *userContext | 用户自定义数据。系统不会访问、拷贝或释放该数据。 |
  
  
   

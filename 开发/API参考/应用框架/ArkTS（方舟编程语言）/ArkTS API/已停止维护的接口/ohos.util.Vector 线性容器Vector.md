@@ -1,6 +1,6 @@
 # @ohos.util.Vector (线性容器Vector)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vector
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -17,7 +17,7 @@ Vector和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-refe
 
  
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 API version 9开始，该接口不再维护，推荐使用接口 '@ohos.util.ArrayList' 。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 API version 9开始，该接口不再维护，推荐使用接口 @ohos.util.ArrayList 。
 
   
 

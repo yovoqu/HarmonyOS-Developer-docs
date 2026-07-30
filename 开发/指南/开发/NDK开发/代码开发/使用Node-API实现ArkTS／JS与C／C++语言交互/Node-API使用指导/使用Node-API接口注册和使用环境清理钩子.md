@@ -1,6 +1,6 @@
 # 使用Node-API接口注册和使用环境清理钩子
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-cleanuphook
 
@@ -24,7 +24,7 @@ Node-API提供了注册和取消注册清理钩子函数的功能，以下是相
 
 #### 场景和功能介绍
 
-以下Node-API接口用于注册和取消不同类型的清理钩子。他们的使用场景如下：
+以下Node-API接口用于注册和取消不同类型的清理钩子。它们的使用场景如下：
 
 | 接口 | 描述 |
 | --- | --- |

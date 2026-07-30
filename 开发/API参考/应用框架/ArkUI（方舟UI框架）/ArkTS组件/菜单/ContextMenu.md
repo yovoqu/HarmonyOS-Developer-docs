@@ -1,6 +1,6 @@
 # ContextMenu
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-menu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -16,12 +16,12 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-static close()
+static close(): void
  
-可以通过该方法在页面范围内关闭通过[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)为组件绑定的菜单。
+在页面范围内关闭通过[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)绑定的菜单。常用于页面跳转、拖拽开始等需要主动关闭已显示菜单的交互场景。
  
 > [!NOTE]
-> 从API version 18开始废弃，建议使用 UIContext 中的 getContextMenuController 获取 ContextMenuController 实例，再通过此实例调用替代方法 close 。 从API version 12开始，可以通过使用 UIContext 中的 getContextMenuController 来明确UI的执行上下文。
+> 从API version 8开始支持。从API version 18开始废弃，建议使用 UIContext 中的 getContextMenuController 获取 ContextMenuController 实例，再通过此实例调用替代方法 close 。 两者功能相同，区别在于：ContextMenu.close()是静态方法，在多窗口场景下可能无法明确指定要关闭哪个窗口的菜单；而通过UIContext获取的ContextMenuController实例调用close()可以关联到具体的UIContext，从而明确指定操作的UI上下文，建议在API version 12及以上版本中使用UIContext方式。
 
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -34,7 +34,7 @@ static close()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该示例为ContextMenu.close关闭通过bindContextMenu属性绑定的菜单。
+该示例演示ContextMenu.close的使用方法，在拖拽开始时关闭通过bindContextMenu绑定的菜单。
  
 > [!NOTE]
 > 推荐通过使用 UIContext 中的 getContextMenuController 来明确UI的执行上下文。
@@ -68,7 +68,7 @@ struct Index {
           .textAlign(TextAlign.Center)
       }
       .bindContextMenu(this.MenuBuilder, ResponseType.LongPress)
-      .onDragStart(()=>{
+      .onDragStart(() => {
         // 拖拽时关闭菜单
         ContextMenu.close() // 建议使用 this.getUIContext().getContextMenuController().close()
       })
@@ -80,4 +80,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/g8Uy7ry2RVqeBAxk8nwlYA/zh-cn_image_0000002628702894.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=235A9911DFEE1AF84FC18079E853BD381633729CAF1D96A5D1873B65B3DAA937)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/lsEeeKaBS7OCGtx0QumhVA/zh-cn_image_0000002656008826.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071513Z&HW-CC-Expire=86400&HW-CC-Sign=0E6AB72729773F5A0C7E526D3B1F974C51BE383D1A213CC60D5E221150EB7169)

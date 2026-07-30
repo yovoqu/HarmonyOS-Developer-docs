@@ -1,6 +1,6 @@
 # drawing_image_filter.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-image-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,6 +10,8 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 声明与绘图模块中的图像滤波器对象相关的函数。
+ 
+本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
  
 **引用文件：** <native_drawing/drawing_image_filter.h>
  

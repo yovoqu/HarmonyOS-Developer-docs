@@ -1,6 +1,6 @@
 # 病毒防护服务管理(C/C++)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-vps-c
 
@@ -78,24 +78,13 @@ target_link_libraries(entry PUBLIC libace_napi.z.so ${dsm-lib})
 #include "DeviceSecurityKit/security_antivirus.h"
 ```
 
-3. EDR应用执行接口调用，分别向HarmonyOS安全防护服务中同步注册、卸载、更新信息，需要ohos.permission.REGISTER_ANTIVIRUS权限。
+3. EDR应用执行接口调用，分别向HarmonyOS安全防护服务中注册、更新、注销应用的信息，需要ohos.permission.REGISTER_ANTIVIRUS权限。
 
   
-```text
-const char *regisBundleName = GetStringFromJS(env, args[0]); // 构造注册接口入参
-int ret = HMS_SecurityAntivirus_RegisterAntivirus(regisBundleName);
-printf("HMS_SecurityAntivirus_RegisterAntivirus ret = %d \n", ret);
-
-const char *unRegisBundleName = GetStringFromJS(env, args[0]); // 构造卸载接口入参
-ret = HMS_SecurityAntivirus_UnregisterAntivirus(unRegisBundleName);
-printf("HMS_SecurityAntivirus_UnregisterAntivirus ret = %d \n", ret);
-
-SecurityAntivirus_Antivirus updateAntivirus; // 构造更新接口入参
-ret = HMS_SecurityAntivirus_UpdateAntivirus(&updateAntivirus);
-printf("HMS_SecurityAntivirus_UpdateAntivirus ret = %d \n", ret);
-```
-
-4. 零信任应用执行接口调用，查询当前所有在HarmonyOS安全防护服务中注册的三方EDR应用信息，需要ohos.permission.MANAGE_ANTIVIRUS权限。
+注册应用信息。
+4. 更新应用信息。
+5. 注销应用信息。
+6. 零信任应用执行接口调用，查询当前所有在HarmonyOS安全防护服务中注册的三方EDR应用信息，需要ohos.permission.MANAGE_ANTIVIRUS权限。
 
   
 ![](assets/病毒防护服务管理(C／C++)/file-20260514131141805-4.png)
@@ -109,43 +98,19 @@ SecurityAntivirus_Antivirus *list = nullptr; // 构造查询接口出参1
 uint32_t length = 0; // 构造查询接口出参2
 int ret = HMS_SecurityAntivirus_QueryAntivirus(&list, &length);
 printf("HMS_SecurityAntivirus_QueryAntivirus ret = %d \n", ret);
-for (uint32_t i = 0; i < length; ++i) {
-    free((char*)(list[i].bundleName)); // 释放出参内部字符串
-    free((char*)(list[i].metadata));
-}
-free(list); // 释放出参数组本身
 ```
 
-5. MDM应用执行接口调用，实现HarmonyOS安全防护服务的启停，需要ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS权限。
+7. MDM应用执行接口调用，实现HarmonyOS安全防护服务的启停，需要ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS权限。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/qbb0BbBjSEerc1SN_j8Sfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030300Z&HW-CC-Expire=86400&HW-CC-Sign=E4662E9D95DC0D3B171BBF65D9EB30B752182FD82B56768D4E08C1EE50DEFA35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/DELuigMwSs-C5QcA4Qngfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071917Z&HW-CC-Expire=86400&HW-CC-Sign=4985A5B5431347261A1E3B828B30E49A98CB092A3EB23EA65689E6FF1ABDC7D0)
  
 
   MDM应用在根据应用进程信息进行业务处理后，需要释放查询接口出入参的内存。
 
   
-```text
-SecurityAntivirus_Antivirus *list = nullptr; // 构造查询接口出参1
-uint32_t length = 0; // 构造查询接口出参2
-int ret = HMS_SecurityAntivirus_QueryPreinstalledAntivirus(&list, &length);
-printf("HMS_SecurityAntivirus_QueryPreinstalledAntivirus ret = %d \n", ret);
-for (uint32_t i = 0; i < length; ++i) {
-    free((char*)(list[i].bundleName)); // 释放出参内部字符串
-    free((char*)(list[i].metadata));
-}
-free(list); // 释放出参数组本身
-
-ret = HMS_SecurityAntivirus_EnablePreinstalledAntivirus();
-printf("HMS_SecurityAntivirus_EnablePreinstalledAntivirus ret = %d \n", ret);
-
-ret = HMS_SecurityAntivirus_DisablePreinstalledAntivirus();
-printf("HMS_SecurityAntivirus_DisablePreinstalledAntivirus ret = %d \n", ret);
-
-int32_t accountId = 0; // 构造合法的用户ID
-ret = HMS_SecurityAntivirus_EnablePreinstalledAntivirusByAccount(accountId);
-printf("HMS_SecurityAntivirus_EnablePreinstalledAntivirusByAccount ret = %d \n", ret);
-
-ret = HMS_SecurityAntivirus_DisablePreinstalledAntivirusByAccount(accountId );
-printf("HMS_SecurityAntivirus_DisablePreinstalledAntivirusByAccount ret = %d \n", ret);
-```
+查询内置杀毒注册信息。
+8. 全局启用内置杀毒。
+9. 全局禁用内置杀毒。
+10. 启用指定用户的内置杀毒。
+11. 禁用指定用户的内置杀毒。

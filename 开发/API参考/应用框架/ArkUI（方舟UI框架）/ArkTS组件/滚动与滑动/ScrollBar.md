@@ -1,11 +1,11 @@
 # ScrollBar
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-scrollbar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-滚动条组件ScrollBar，用于配合可滚动组件使用，如[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)、[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)。
+滚动条组件ScrollBar，用于配合可滚动组件使用，如[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)、[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)，提供可视化的滚动指示和控制能力，支持自定义滚动条样式。
  
 > [!NOTE]
 > 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 ScrollBar主轴方向不设置大小时，采用父组件 布局约束 中的maxSize作为主轴方向大小。如果ScrollBar的父组件存在可滚动组件，如 ArcList 、 List 、 Grid 、 Scroll 、 WaterFlow ，建议设置ScrollBar主轴方向大小，否则ScrollBar主轴方向大小可能为无穷大。
@@ -55,7 +55,7 @@ ScrollBar(value: ScrollBarOptions)
 
 enableNestedScroll(enabled: Optional&lt;boolean&gt;)
  
-设置滚动条是否嵌套滚动。
+设置滚动条是否嵌套滚动。用于多层滚动容器、嵌套列表等需要通过滚动条拖动内层可滚动组件并联动父级滚动的场景，仅当ScrollBar通过Scroller与可滚动组件绑定时生效。
  
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
  
@@ -67,11 +67,11 @@ enableNestedScroll(enabled: Optional&lt;boolean&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | Optional&lt;boolean&gt; | 是 | 是否执行嵌套滚动。设置为true执行嵌套滚动，设置为false不嵌套滚动。 默认值：false |
+| enabled | Optional&lt;boolean&gt; | 是 | 是否执行嵌套滚动。当需要在多层滚动容器之间传递滚动事件时设置为true；不需要嵌套滚动时设置为false。 默认值：false |
  
  
 > [!TIP]
-> 滚动条使能嵌套滚动时，滚动条的滚动偏移量会先发送给绑定的内层滚动组件，内层滚动组件再根据设置的嵌套滚动优先级依次传递给外层父滚动组件。 WaterFlow组件的布局模式为移动窗口式（ WaterFlowLayoutMode.SLIDING_WINDOW ）时，不支持嵌套滚动。 设置嵌套滚动模式为 PARALLEL 时，父子组件同时滚动，需要开发者在 onScrollFrameBegin 中按照所需逻辑，自行设置父子组件滚动顺序。
+> 滚动条使能嵌套滚动时，滚动条偏移量会先发送给绑定的内层滚动组件，内层滚动组件再根据设置的嵌套滚动优先级依次传递给外层父滚动组件。 WaterFlow组件的布局模式为移动窗口式（ WaterFlowLayoutMode.SLIDING_WINDOW ）时，不支持嵌套滚动。 设置嵌套滚动模式为 PARALLEL 时，父子组件同时滚动，需要开发者在 onScrollFrameBegin 中按照所需逻辑，自行设置父子组件滚动顺序。
 
  
   
@@ -82,7 +82,7 @@ enableNestedScroll(enabled: Optional&lt;boolean&gt;)
 
 scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
  
-设置滚动条滑块的颜色，仅滚动条不放置子组件时生效。
+设置滚动条的颜色，仅滚动条不放置子组件时生效。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  
@@ -94,7 +94,7 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | Optional&lt;ColorMetrics&gt; | 是 | 滚动条的颜色。 默认值：ColorMetrics.numeric(0x66182431) |
+| color | Optional&lt;ColorMetrics&gt; | 是 | 滚动条的颜色，仅滚动条不放置子组件时生效。 默认值：ColorMetrics.numeric(0x66182431) |
  
  
   
@@ -106,7 +106,7 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
 滚动条组件参数。
  
 > [!NOTE]
-> ScrollBar组件负责定义可滚动区域的行为样式，ScrollBar的子节点负责定义滚动条的行为样式。 滚动条组件与可滚动组件通过Scroller进行绑定，且只有当两者方向相同时，才能联动，ScrollBar与可滚动组件仅支持一对一绑定。 从API version 12开始，ScrollBar组件没有子节点时，支持显示默认样式的滚动条。 ScrollBar组件的显隐是通过BarState设置，组件内部会自动根据BarState设置调整opacity来控制显隐，因此ScrollBar组件设置 opacity 属性不生效。
+> ScrollBar组件用于显示并控制所绑定可滚动组件的滚动位置。设置子组件时，该子组件作为自定义滚动条滑块，并随可滚动组件的滚动位置移动。 滚动条组件与可滚动组件通过Scroller进行绑定，且只有当两者方向相同时，才能联动。一个可滚动组件可以绑定多个ScrollBar组件，一个ScrollBar组件只能绑定一个可滚动组件。 从API version 12开始，ScrollBar组件没有子节点时，支持显示默认样式的滚动条。 ScrollBar组件的显隐是通过BarState设置，组件内部会自动根据BarState设置调整opacity来控制显隐，因此ScrollBar组件设置 opacity 属性不生效。
 
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -115,9 +115,9 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scroller | Scroller | 否 | 否 | 可滚动组件的控制器。用于与可滚动组件进行绑定。 |
-| direction | ScrollBarDirection | 否 | 是 | 滚动条的方向，控制可滚动组件对应方向的滚动。 默认值：ScrollBarDirection.Vertical |
-| state | BarState | 否 | 是 | 滚动条状态。 默认值：BarState.Auto |
+| scroller | Scroller | 否 | 否 | 可滚动组件的控制器。用于与可滚动组件进行绑定，且仅当ScrollBar与可滚动组件方向相同时才能联动。一个可滚动组件可以绑定多个ScrollBar组件，一个ScrollBar组件只能绑定一个可滚动组件。 |
+| direction | ScrollBarDirection | 否 | 是 | 滚动条的方向，控制可滚动组件对应方向的滚动。可滚动内容为纵向布局时设置为ScrollBarDirection.Vertical；可滚动内容为横向布局时设置为ScrollBarDirection.Horizontal。 默认值：ScrollBarDirection.Vertical |
+| state | BarState | 否 | 是 | 滚动条状态。BarState.Auto表示按需显示，BarState.On表示常驻显示，BarState.Off表示不显示。 默认值：BarState.Auto |
  
  
   
@@ -191,7 +191,7 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/7wyPWI8xTeeyzJWP5ZVokg/zh-cn_image_0000002659101737.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=AFD91460A7D7015FC37B345912AA148D9C7FF730F86615905D10C32A4CF60291)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/m0DRGdG9QyCJx1nXhu5ubw/zh-cn_image_0000002655848528.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=4CA270003A8C806E241F9BADC545C7B3F1E8E94F3971F5A17F9B050FF1CB4CDA)
 
  
   
@@ -244,7 +244,7 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/OJuVIgNmQ9GFmHzFTj8Qwg/zh-cn_image_0000002628862388.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=E0335A67103DC4928AE464818CFAFFE80E11997F81A336682369236DE682B1B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/dzaA4erZSTSKoRC8nOsf-g/zh-cn_image_0000002686087957.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=62FEC2BC4DBEA0AB1935344F70E196F5B415CD72C786CF38D7FD31E36FF5B8F9)
 
  
   
@@ -253,10 +253,10 @@ struct ScrollBarExample {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-从API version 20开始，该示例通过[enableNestedScroll](#enablenestedscroll14)属性使ScrollBar组件支持嵌套滚动。
+从API version 14开始，可通过[enableNestedScroll](#enablenestedscroll14)属性使ScrollBar组件支持嵌套滚动。本示例同时使用从API version 20开始支持的[scrollBarColor](#scrollbarcolor20)属性设置滚动条颜色。
  
 ```text
-import { ColorMetrics } from '@kit.ArkUI'
+import { ColorMetrics, EdgeEffect, NestedScrollMode } from '@kit.ArkUI'
 
 @Entry
 @Component
@@ -322,4 +322,4 @@ struct StickyNestedScroll {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/Ibks68HATBuI19skz67nKA/zh-cn_image_0000002659221701.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=F560BB5BF3FCE2AAF6B0AE9B631D2FC390D60B8466B4AC25A727F45223826353)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/IcE68CRcTjqJCDn-SUAzTA/zh-cn_image_0000002685928129.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071501Z&HW-CC-Expire=86400&HW-CC-Sign=56EF20CAC6B33CA994A4BDD736B50D9F984AADCB63BBE2C42EE0E58BC67FF92D)

@@ -9,7 +9,7 @@
 如下图所示，当Window弹窗不关闭的时候，跳转页面，通过侧滑手势返回无法触发页面的onBackPress进行页面返回：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/t-jKFHduSUm198wkAPigrA/zh-cn_image_0000002628409708.png?HW-CC-KV=V1&HW-CC-Date=20260723T012858Z&HW-CC-Expire=86400&HW-CC-Sign=D98A360CB757C612193226E8A2877850C9C250D47775D4B9E956E1D09DBFEC66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/t-jKFHduSUm198wkAPigrA/zh-cn_image_0000002628409708.png?HW-CC-KV=V1&HW-CC-Date=20260730T072425Z&HW-CC-Expire=86400&HW-CC-Sign=F611A85B3C6E5F8AE66099B0E0586F164568787D19B22B4EC1E2B01C5B758F5F)
 
  
 问题代码示例参考如下：
@@ -83,7 +83,7 @@ export class <span style="color: rgb(0,0,255);">NYWindowDialog </span><span styl
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/EEgm4i9uQ_S6cc5a89ekNg/zh-cn_image_0000002658928929.png?HW-CC-KV=V1&HW-CC-Date=20260723T012858Z&HW-CC-Expire=86400&HW-CC-Sign=99978EE77D9AF34A85A46E1BB0E12CCE3395FD7A3B5C4C0D078D35F1154EEBB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/EEgm4i9uQ_S6cc5a89ekNg/zh-cn_image_0000002658928929.png?HW-CC-KV=V1&HW-CC-Date=20260730T072425Z&HW-CC-Expire=86400&HW-CC-Sign=903466A3A3143E002D8477BF24DB6819AF4DDC85E53CCE5F52C70EE3FE90C1D9)
 
  
  

@@ -1,6 +1,6 @@
 # 监听设备上下线（C/C++）
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/game-controller-monitor-device
 
@@ -28,7 +28,7 @@ Game Controller Kit提供设备上下线事件监听和查询在线设备信息�
 
 #### 接口说明
 
-接口详细介绍请参考[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-controller)。
+接口详细介绍请参考[GameController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller)。
 
 | 接口名 | 描述 |
 | --- | --- |

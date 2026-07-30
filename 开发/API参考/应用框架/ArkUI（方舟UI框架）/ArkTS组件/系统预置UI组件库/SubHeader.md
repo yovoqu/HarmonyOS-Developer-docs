@@ -1,11 +1,11 @@
 # SubHeader
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-subheader
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-子标题，用于列表项或内容项顶部，将该列表或内容划分为一个区块，子标题名称用来概括该区块内容。
+子标题组件，用于列表项或内容项顶部，将该列表或内容划分为一个区块，子标题名称用来概括该区块内容。支持多种样式配置，包括图标、主副标题、下拉选择器和操作按钮等，可满足不同场景下的内容分区和导航需求，提升界面的信息层次感和用户体验。适用于列表分组、内容分类展示、表单分区等场景。
  
 > [!NOTE]
 > 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果SubHeader设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SubHeader本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SubHeader设置通用属性和通用事件。
@@ -29,7 +29,7 @@ import { SubHeader } from '@kit.ArkUI';
 无
  
 > [!NOTE]
-> 不支持设置文本相关。
+> 不支持设置文本类型的子组件。
 
  
   
@@ -44,25 +44,25 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+**设备行为差异：** 该接口在Wearable设备上不支持。应用程序调用该接口时会运行异常，错误信息提示接口未定义，在其他设备中可正常调用。
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | ResourceStr | 否 | @Prop | 图标设置项。 默认值：undefined，表示不显示图标。 当使用secondaryTitle属性时，设置icon属性才会生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon | ResourceStr | 否 | @Prop | 图标资源。 默认值：undefined，表示不显示图标。 当使用secondaryTitle属性时，设置icon属性才会生效。当同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | iconSymbolOptions12+ | SymbolOptions | 否 | - | icon为SymbolGlyph时的设置项。 默认值：undefined，表示不显示图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| primaryTitle | ResourceStr | 否 | @Prop | 标题内容。 默认值：undefined，表示不显示标题。 当同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| secondaryTitle | ResourceStr | 否 | @Prop | 副标题内容。 默认值：undefined，表示不显示副标题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| select | SelectOptions | 否 | - | select内容以及事件。 默认值：undefined，表示不显示下拉框。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| primaryTitle | ResourceStr | 否 | @Prop | 主标题内容。 默认值：undefined，表示不显示标题。 当同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| secondaryTitle | ResourceStr | 否 | @Prop | 副标题内容。 默认值：undefined，表示不显示副标题。当同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| select | SelectOptions | 否 | - | 下拉框内容和事件。 默认值：undefined，表示不显示下拉框。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | operationType | OperationType | 否 | @Prop | 操作区（右侧）元素样式。 默认值：OperationType.BUTTON 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| operationItem | Array&lt;OperationOption&gt; | 否 | - | 操作区（右侧）的设置项。 默认值：undefined，表示不显示操作区。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| operationItem | Array&lt;OperationOption&gt; | 否 | - | 操作区（右侧）的设置项。当operationType为OperationType.ICON_GROUP时，最多支持配置三个图标项。 默认值：undefined，表示不显示操作区。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | operationSymbolOptions12+ | Array&lt;SymbolOptions&gt; | 否 | - | operationType为OperationType.ICON_GROUP， operationItem设置多个图标，图标为SymbolGlyph时的设置项。 默认值：undefined，表示不设置Symbol图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| primaryTitleModifier12+ | TextModifier | 否 | - | 设置标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined，表示使用系统默认样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| primaryTitleModifier12+ | TextModifier | 否 | - | 设置标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined，表示使用系统默认样式。 说明： 只有primaryTitle生效时，该参数才会生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | secondaryTitleModifier12+ | TextModifier | 否 | - | 设置副标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined，表示使用系统默认样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| titleBuilder12+ | () => void | 否 | @BuilderParam | 自定义标题区内容 默认值：undefined，表示不采用自定义标题定义标题。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| titleBuilder12+ | () => void | 否 | @BuilderParam | 自定义标题区内容。使用titleBuilder时，primaryTitle、secondaryTitle、icon等标题参数不生效。 默认值：undefined，表示不使用自定义标题。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | contentMargin12+ | LocalizedMargin | 否 | @Prop | 子标题外边距，不支持设置负数。 默认值： {start: LengthMetrics.resource( \$r('sys.float.margin_left')), end: LengthMetrics.resource( \$r('sys.float.margin_right'))} 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| contentPadding12+ | LocalizedPadding | 否 | @Prop | 子标题内边距。 默认值： 左侧为副标题或副标题加图标时： {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)}。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| titleAccessibilityText23+ | ResourceStr | 否 | @Prop | 设置标题自定义朗读内容。 默认值：undefined 值为undefined时，默认朗读组件显示的标题内容。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
-| titleId24+ | string | 否 | @Prop | 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置标题id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| contentPadding12+ | LocalizedPadding | 否 | @Prop | 子标题内边距，不支持设置负数。 默认值： 左侧为副标题或副标题加图标时： {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)}。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| titleAccessibilityText23+ | ResourceStr | 否 | @Prop | 设置标题自定义朗读内容。 默认值：undefined，表示不设置自定义朗读内容，默认朗读组件显示的标题内容。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| titleId24+ | string | 否 | @Prop | 标题标识符。需要为标题设置id时使用此参数。 默认值：undefined，表示不设置标题标识。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
  
  
   
@@ -84,7 +84,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
 | TEXT_ARROW | 0 | 文本按钮（带右箭头）。 |
 | BUTTON | 1 | 文本按钮（不带右箭头）。 |
 | ICON_GROUP | 2 | 图标按钮（最多支持配置三张图标）。 |
-| LOADING | 3 | 加载动画。 |
+| LOADING | 3 | 加载动画。当operationType为LOADING时，无需配置operationItem。 |
  
  
   
@@ -101,7 +101,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
 | --- | --- | --- | --- | --- |
 | options | Array&lt;SelectOption&gt; | 否 | 否 | 下拉选项内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | selected | number | 否 | 是 | 设置下拉菜单初始选项的索引。 取值范围：大于等于-1。 第一项的索引为0。 当不设置selected属性时，默认选择值为-1，菜单项不选中。 若设置数值小于-1，按不选中处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| value | ResourceStr | 否 | 是 | 设置下拉按钮本身的文本内容。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。从API version 20开始，支持Resource类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| value | ResourceStr | 否 | 是 | 设置下拉按钮本身的文本内容。 默认值：空字符串。 说明：文本超过列宽时会被截断。从API version 20开始，支持Resource类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onSelect | (index: number, value?: string) => void | 否 | 是 | 下拉菜单选中某一项的回调。 - index：选中项的索引。 - value：选中项的值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | defaultFocus18+ | boolean | 否 | 是 | 下拉按钮是否为默认焦点。 true：下拉按钮是默认焦点。 false：下拉按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | id24+ | string | 否 | 是 | 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置下拉按钮id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
@@ -119,7 +119,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value | ResourceStr | 否 | 否 | 文本内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| value | ResourceStr | 否 | 否 | 操作区元素内容。当operationType为TEXT_ARROW或BUTTON时，value为文本内容；当operationType为ICON_GROUP时，value为图标资源。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | action | ()=>void | 否 | 是 | 子标题右侧按钮点击事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | accessibilityLevel18+ | string | 否 | 是 | 子标题右侧按钮无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。 支持的值为： "auto"：当前组件会转换"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto" 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | accessibilityText18+ | ResourceStr | 否 | 是 | 子标题右侧按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值：类型为TEXT_ARROW和BUTTON时默认值为当前项value属性内容，其他类型默认值为“ ”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
@@ -260,7 +260,7 @@ struct SubHeaderExample {
         operationItem: [{
           value: $r('sys.media.ohos_ic_public_email'),
           action: () => {
-            Prompt.showToast({ message: 'demo' })
+            Prompt.showToast({ message: 'demo' });
           }
         }, {
           value: $r('sys.media.ohos_ic_public_email'),
@@ -387,7 +387,7 @@ struct SubHeaderExample {
 
 #### 示例6（自定义标题内容）
 
- 该示例主要演示SubHeader设置titleBuilder自定义标题内容的效果。
+ 该示例主要演示SubHeader设置titleBuilder自定义标题内容的效果。设置titleBuilder后，primaryTitle、secondaryTitle属性将不生效。
  
 ```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
@@ -497,7 +497,7 @@ struct SubHeaderExample {
         operationItem: [{
           value: '操作',
           action: () => {
-            Prompt.showToast({ message: 'demo' })
+            Prompt.showToast({ message: 'demo' });
           }
         }]
       })
@@ -510,7 +510,7 @@ struct SubHeaderExample {
         operationItem: [{
           value: '更多',
           action: () => {
-            Prompt.showToast({ message: 'demo' })
+            Prompt.showToast({ message: 'demo' });
           }
         }]
       })
@@ -547,7 +547,7 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/3vBB_uVySK-3XwX2rsfIkw/zh-cn_image_0000002659102237.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=1FF104C51A6AA51E8F65116501F2CC7020CC5A67FD5058B876E25AB216B2C1C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/jjuP4E8UQSu7Biao78rNlQ/zh-cn_image_0000002656008958.png?HW-CC-KV=V1&HW-CC-Date=20260730T071520Z&HW-CC-Expire=86400&HW-CC-Sign=EF4FAD215CEC0AB363B977FCE69FF732720BBD142E38AB257DAD33AF88956EF5)
 
  
   
@@ -575,7 +575,7 @@ struct SubHeaderExample {
           value: '操作',
           defaultFocus: true,
           action: () => {
-            Prompt.showToast({ message: 'demo' })
+            Prompt.showToast({ message: 'demo' });
           }
         }]
       })
@@ -585,4 +585,4 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/MHMMbdyNQymYJTeNjpXN7Q/zh-cn_image_0000002628862890.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=4A0C406186C44C5C965D3539A8F79534B84171B421E944D022C4C0E18487F523)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/kUUHYNFmRiqvM_97NdYuzg/zh-cn_image_0000002655849038.png?HW-CC-KV=V1&HW-CC-Date=20260730T071520Z&HW-CC-Expire=86400&HW-CC-Sign=B49E7EEB3CC9D8B3FA4670580F007A7367E2295B067BDA167D3D597B229E99FA)

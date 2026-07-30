@@ -58,4 +58,4 @@ struct VerticalDemo {
 ```
 
 - 方案二：通过设置Text组件宽度width与字号一致的方式实现，可参考[如何实现文本竖向排列](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-91)。效果如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/x49-xND9QSa7ohmsIVdfSQ/zh-cn_image_0000002628569422.png?HW-CC-KV=V1&HW-CC-Date=20260723T012700Z&HW-CC-Expire=86400&HW-CC-Sign=3BA2931A245BF554BA00D0FFB0D15A9894D9BDA26C117E8D9D8759DE592CF656)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/x49-xND9QSa7ohmsIVdfSQ/zh-cn_image_0000002628569422.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=E6ACC74949E90073DC94211F76A564F044DBC599CBF75EED598E41A8DD3053F4)

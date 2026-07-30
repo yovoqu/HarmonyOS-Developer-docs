@@ -20,7 +20,7 @@
 
 #### 问题定位
 1. 检查PersistentStorage存储的Token信息是否持久化在本地。检查“/data/app/el2/100/base/包名/haps/entry/files/persistent_storage”文件，发现Token信息已经持久化。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/euXSAGAjRIWAbUyB6QsMBg/zh-cn_image_0000002659138355.png?HW-CC-KV=V1&HW-CC-Date=20260723T013302Z&HW-CC-Expire=86400&HW-CC-Sign=03763589736974D8E52E9AEDD13E9B1E6BFA07E870EA0EB3727A8F4269A115E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/euXSAGAjRIWAbUyB6QsMBg/zh-cn_image_0000002659138355.png?HW-CC-KV=V1&HW-CC-Date=20260730T072523Z&HW-CC-Expire=86400&HW-CC-Sign=866594299FED32EE1703E1AA0A77FF15A26F6C0B10B52C2547DB6AA1947D4F1E)
 
 2. 检查EntryAbility中获取Token信息是否有值。经过断点调试，发现该值为空。
  

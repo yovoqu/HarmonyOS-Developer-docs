@@ -1,6 +1,6 @@
 # menu开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-menu
 
@@ -151,10 +151,9 @@ option{
 
 ```text
 // xxx.js
-import promptAction from '@ohos.promptAction';
 export default {
   cancel() {
-    promptAction.showToast({
+    this.getUIContext().getPromptAction().showToast({
       message: "cancel"
     })
   },
@@ -165,4 +164,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/MGMfhgZgQMK6ALTC69Xmeg/zh-cn_image_0000002611754127.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=DE0580E6B39B5FC4C4A7D5D1A90F592C7D1EF123EFA8338422F7334707C321F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/RB6-U1R9T0Ccq-SB1xZ9wQ/zh-cn_image_0000002685926301.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071857Z&HW-CC-Expire=86400&HW-CC-Sign=072A8737739070546DC3ADB003AC5209CD55BB57C94EE3CED5AFA9F4B61B7A3B)

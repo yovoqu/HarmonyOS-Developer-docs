@@ -1,6 +1,6 @@
 # Interface (ConcatArray)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-concatarray
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -78,7 +78,7 @@ readonly [index: number]: T
 **示例：**
 
 ```text
-let concatArray : collections.ConcatArray<number> = new collections.Array<number>(1, 2, 4);
+let concatArray: collections.ConcatArray<number> = new collections.Array<number>(1, 2, 4);
 console.info("Element at index 1: ", concatArray[1]);
 ```
 
@@ -113,7 +113,7 @@ join(separator?: string): string
 **示例：**
 
 ```text
-let concatArray : collections.ConcatArray<string> = new collections.Array<string>('a', 'b', 'c');
+let concatArray: collections.ConcatArray<string> = new collections.Array<string>('a', 'b', 'c');
 let joinedString = concatArray.join('-'); // 返回 "a-b-c"
 ```
 
@@ -149,6 +149,6 @@ slice(start?: number, end?: number): ConcatArray&lt;T&gt;
 **示例：**
 
 ```text
-let concatArray : collections.ConcatArray<number> = new collections.Array<number>(1, 2, 3, 4, 5);
-let slicedArray = concatArray.slice(1, 3); // 返回[2, 3]，原Array保持不变
+let concatArray: collections.ConcatArray<number> = new collections.Array<number>(1, 2, 3, 4, 5);
+let slicedArray = concatArray.slice(1, 3); // 返回[2, 3]，原ConcatArray保持不变
 ```

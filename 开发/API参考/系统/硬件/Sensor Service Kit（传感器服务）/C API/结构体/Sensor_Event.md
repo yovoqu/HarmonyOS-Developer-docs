@@ -1,6 +1,6 @@
 # Sensor_Event
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sensor-sensor-event
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct Sensor_Event Sensor_Event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义传感器数据信息。
+定义传感器事件的数据结构，包含传感器类型、时间戳和传感器数据等信息。
  
 **起始版本：** 11
  

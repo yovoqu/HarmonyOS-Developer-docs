@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -16,7 +16,7 @@
 
 type ISendable = lang.ISendable
  
-ISendable是所有Sendable类型（除null和undefined）的父类型。自身没有任何必须的方法和属性。
+ISendable是所有Sendable类型（除null和undefined）的父类型。自身没有任何必需的方法和属性。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  

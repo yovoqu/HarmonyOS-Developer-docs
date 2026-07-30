@@ -1,6 +1,6 @@
 # sleep.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sleep-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明sleep和yield的C接口。
+声明[ffrt_usleep](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sleep-h#ffrt_usleep)和[ffrt_yield](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sleep-h#ffrt_yield)的C接口。
  
 **引用文件：** <ffrt/sleep.h>
  
@@ -35,8 +35,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| FFRT_C_API int ffrt_usleep(uint64_t usec) | 睡眠调用线程固定的时间。 |
-| FFRT_C_API void ffrt_yield(void) | 当前任务主动放权，让其他任务有机会调度执行。 |
+| FFRT_C_API int ffrt_usleep(uint64_t usec) | 将调用线程挂起指定的时长。若usec超过支持的最大值则按最大值截断。 |
+| FFRT_C_API void ffrt_yield(void) | 将控制权让出给其他任务，使其有机会被执行。 |
  
  
   
@@ -57,7 +57,7 @@ FFRT_C_API int ffrt_usleep(uint64_t usec)
  
 **描述**
  
-睡眠调用线程固定的时间。
+将调用线程挂起指定的时长。若usec超过支持的最大值则按最大值截断。
  
 **起始版本：** 10
  
@@ -65,14 +65,14 @@ FFRT_C_API int ffrt_usleep(uint64_t usec)
   
 | 参数项 | 描述 |
 | --- | --- |
-| uint64_t usec | 睡眠时间，单位是微秒。 |
+| uint64_t usec | 调用线程被挂起的时长，单位是微秒。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| FFRT_C_API int | 执行成功时返回ffrt_success， 执行失败时返回ffrt_error。 |
+| FFRT_C_API int | ffrt_success。该函数不会失败。 |
  
  
   
@@ -87,6 +87,6 @@ FFRT_C_API void ffrt_yield(void)
  
 **描述**
  
-当前任务主动放权，让其他任务有机会调度执行。
+将控制权让出给其他任务，使其有机会被执行。
  
 **起始版本：** 10

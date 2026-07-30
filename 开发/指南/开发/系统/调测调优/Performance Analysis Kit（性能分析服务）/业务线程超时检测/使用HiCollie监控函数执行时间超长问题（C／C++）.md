@@ -1,6 +1,6 @@
 # 使用HiCollie监控函数执行时间超长问题（C/C++）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-settimer-guidelines-ndk
 
@@ -35,7 +35,7 @@
 #### 开发步骤
 
 下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie NDK接口。
-1. 新建Native C++工程，目录结构如下：
+1. 在DevEco Studio中，新建Native C++工程，目录结构如下：
 
   
 ```ArkTS
@@ -55,7 +55,7 @@ entry:
           - Index.ets
 ```
 
-2. 编辑“CMakeLists.txt”文件，添加源文件及动态库。
+2. 编辑工程中的“entry > src > main > cpp > CMakeLists.txt”文件，添加源文件及动态库。
 
   
 ```text
@@ -63,7 +63,7 @@ entry:
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libohhicollie.so)
 ```
 
-3. 编辑“napi_init.cpp”文件，导入依赖头文件、定义LOG_TAG与测试方法以及注册TestHiCollieTimerNdk为ArkTS接口。
+3. 编辑工程中的“entry > src > main > cpp > napi_init.cpp”文件，导入依赖头文件、定义LOG_TAG与测试方法以及注册TestHiCollieTimerNdk为ArkTS接口。
 
   引入头文件及定义LOG_TAG。
 
@@ -113,14 +113,14 @@ static napi_value TestHiCollieTimerNdk(napi_env env, napi_callback_info info)
 { "TestHiCollieTimerNdk", nullptr, TestHiCollieTimerNdk, nullptr, nullptr, nullptr, napi_default, nullptr },
 ```
 
-4. 编辑“index.d.ts”文件，定义ArkTS接口。
+4. 编辑工程中的“entry > src > main > cpp > types > libentry > Index.ets”文件，定义ArkTS接口。
 
   
 ```ts
 export const TestHiCollieTimerNdk: () => void;
 ```
 
-5. 编辑“Index.ets”文件。
+5. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件。
 
   引入调用C接口的头文件。
 

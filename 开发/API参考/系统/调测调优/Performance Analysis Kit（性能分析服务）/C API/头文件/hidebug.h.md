@@ -1,6 +1,6 @@
 # hidebug.h
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -65,6 +65,10 @@
 | typedef bool (*OH_HiDebug_MemDumpListener)(int32_t fd, OH_HiDebug_MemListenerType tag, bool mayReportToOEM, const char* arg) | OH_HiDebug_MemDumpListener | 内存导出监听的回调函数。开发者通过应用中的文件描述符（FD）来写入内存数据，从而可利用hidumper命令导出数据。 |
 | HiDebug_ErrorCode OH_HiDebug_RegisterMemDumpListener(const char* name, OH_HiDebug_MemDumpListener listener) | - | 注册内存导出监听。当应用的内存占用较高，或通过hidumper命令手动导出内存信息时，系统会主动调用已注册的回调函数。 第三方应用框架或开发者可借此将应用内部内存信息转储到hidumper中，或通过商业灰度上传至OEM厂商。 对应的注销函数为：OH_HiDebug_UnregisterMemDumpListener。 |
 | HiDebug_ErrorCode OH_HiDebug_UnregisterMemDumpListener(const char* name) | - | 注销已经注册成功的内存导出监听。 |
+| uint64_t OH_HiDebug_AcquireAsyncContext() | - | Profiler辅助接口，获取一个AsyncContext供后续使用。对应的释放函数为：OH_HiDebug_ReleaseAsyncContext。 |
+| void OH_HiDebug_PushAsyncContext(uint64_t ctx) | - | Profiler辅助接口，将AsyncContext压入运行上下文栈表。 |
+| void OH_HiDebug_PopAsyncContext(uint64_t ctx) | - | Profiler辅助接口，将AsyncContext从运行上下文栈表中弹出。 |
+| void OH_HiDebug_ReleaseAsyncContext(uint64_t ctx) | - | Profiler辅助接口，将AsyncContext释放给系统。 |
 
 
 
@@ -312,7 +316,7 @@ HiDebug_ErrorCode OH_HiDebug_StopAppTraceCapture()
 
 | 类型 | 说明 |
 | --- | --- |
-| HiDebug_ErrorCode | 0 - 成功。 11400104 - 系统内部错误。 11400105 - 当前没有trace正在运行 |
+| HiDebug_ErrorCode | 0 - 成功。 11400104 - 系统内部错误。 11400105 - 当前没有trace正在运行。 |
 
 
 
@@ -449,7 +453,7 @@ HiDebug_ErrorCode OH_HiDebug_SymbolicAddress(HiDebug_Backtrace_Object object, vo
 通过给定的pc地址获取详细的符号信息，该函数非异步信号安全。不能在异步信号处理函数中使用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/2haumbqXTc-sXW7jO6SkmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=F7C8DA2EAF52A5798AFFE808C77C25DCC7E79ADC6436F18157E19AD2B705B0D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/SZfmZasDSlSpFqod2ydweQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071647Z&HW-CC-Expire=86400&HW-CC-Sign=56DAAF7412AB7ABA1DF533BF9FD4804D5B5CCB9EB3FFF62116ACB6E729DABA2C)
 
 
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -490,7 +494,7 @@ HiDebug_Backtrace_Object OH_HiDebug_CreateBacktraceObject(void)
 创建一个用于栈回溯及栈解析的对象，该函数非异步信号安全。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/PNOMxElNTampUOSBtbTqGw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=039AE422F16EC23D3DB2ADD0CD66F3FCB06BB7FF93C3A08A88E6D9A1A5D95B3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/-Mh4T99hQ1i66tnzmM4tCQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071647Z&HW-CC-Expire=86400&HW-CC-Sign=242005794488105196D50CD781075E86D7A4731CF3F4CCF603D8BF076294CE21)
 
 
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -544,7 +548,7 @@ HiDebug_ErrorCode OH_HiDebug_SetMallocDispatchTable(struct HiDebug_MallocDispatc
 通过设置基础库C库中的MallocDispatch表，将原始内存操作函数（例如：malloc/free/calloc/realloc/mmap/munmap）临时替换为开发者自定义的内存操作函数。MallocDispatch表是基础库C库中封装malloc/calloc/realloc/free等内存操作函数的结构体，HiDebug_MallocDispatch只是MallocDispatch结构体的一部分。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/Oenig6UbRl6iX0Mepdyy4g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=F458FD8F48730A2497D42EC6A2510E5DCDB67AD34C04F191EA56824096F5E21F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/9923FCBYQgKT4athtp3C5Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071647Z&HW-CC-Expire=86400&HW-CC-Sign=4A08BCE65C96EE4F660CCF502187C7FB63FD1481F8F9E50B5D51455399A78366)
 
 
 禁止在自定义内存操作函数中直接调用libc标准库中的malloc/free/calloc/realloc/mmap/munmap等内存操作函数，否则会导致死锁。
@@ -628,7 +632,7 @@ HiDebug_ErrorCode OH_HiDebug_GetGraphicsMemorySummary(uint32_t interval, HiDebug
 
 | 参数项 | 描述 |
 | --- | --- |
-| uint32_t interval | 当显存数据缓存值存在时间超过设定间隔interval（单位：秒）时，接口会获取最新的显存数据并更新缓存；否则，接口将直接返回缓存值。 interval的取值范围为[2，3600]，若传入的interval超出取值范围时，将使用300作为默认值。 |
+| uint32_t interval | 当显存数据缓存值存在时间超过设定间隔interval（单位：秒）时，接口会获取最新的显存数据并更新缓存；否则，接口将直接返回缓存值。 interval的取值范围为[2, 3600]，若传入的interval超出取值范围时，将使用300作为默认值。 |
 | HiDebug_GraphicsMemorySummary *summary | 表示指向HiDebug_GraphicsMemorySummary的指针。 |
 
 
@@ -766,7 +770,7 @@ HiDebug_ErrorCode OH_HiDebug_StartProfiler(OH_HiDebug_ResourceType type, OH_HiDe
 若采集异常，则文件路径为NULL。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/mTK5tZu-TJGGZo1-qCJnLA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=AD3C38DA648C46EF94F78F201FB30F455F961AB1752D5CDFC0D0C0D853710E90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/98hAUh5KSIOtPOjy8oXtRg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071647Z&HW-CC-Expire=86400&HW-CC-Sign=A9BBB63A2309B19480C7C1B2B9A43EF5DF761D9E2BFFCFA5B4D1844672F5742A)
 
 1. 当前接口每24小时可调用10次；
 2. 采集资源的目标进程仅支持调用接口进程本身；
@@ -914,3 +918,103 @@ HiDebug_ErrorCode OH_HiDebug_UnregisterMemDumpListener(const char* name)
 | 类型 | 说明 |
 | --- | --- |
 | HiDebug_ErrorCode | 返回结果码： HIDEBUG_SUCCESS：操作成功。 HIDEBUG_INVALID_ARGUMENT：无效参数。 |
+
+
+
+
+#### OH_HiDebug_AcquireAsyncContext()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+uint64_t OH_HiDebug_AcquireAsyncContext()
+```
+
+**描述**
+
+Profiler辅助接口，获取一个AsyncContext供后续使用。对应的释放函数为：[OH_HiDebug_ReleaseAsyncContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-h#oh_hidebug_releaseasynccontext)。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/7YHdTYckSXuoHtKUMCmhNw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071647Z&HW-CC-Expire=86400&HW-CC-Sign=56A4F3547B87895DC08D00ECBDF51AA46F69D4D61D4147439553CC92A34C69F7)
+
+
+该接口仅支持ARM64架构，且仅可在debug版本应用中使用。
+
+
+
+**起始版本：** 26.0.0
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| uint64_t | AsyncContext，异步线程上下文信息。 |
+
+
+
+
+#### OH_HiDebug_PushAsyncContext()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_HiDebug_PushAsyncContext(uint64_t ctx)
+```
+
+**描述**
+
+Profiler辅助接口，将AsyncContext压入运行上下文栈表。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| uint64_t ctx | 由OH_HiDebug_AcquireAsyncContext()获取的异步线程上下文。 |
+
+
+
+
+#### OH_HiDebug_PopAsyncContext()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_HiDebug_PopAsyncContext(uint64_t ctx)
+```
+
+**描述**
+
+Profiler辅助接口，将AsyncContext从运行上下文栈表中弹出。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| uint64_t ctx | 由OH_HiDebug_AcquireAsyncContext()获取的异步线程上下文。 |
+
+
+
+
+#### OH_HiDebug_ReleaseAsyncContext()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_HiDebug_ReleaseAsyncContext(uint64_t ctx)
+```
+
+**描述**
+
+Profiler辅助接口，将AsyncContext释放给系统。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| uint64_t ctx | 由OH_HiDebug_AcquireAsyncContext()获取的异步线程上下文。 |

@@ -20,15 +20,15 @@ Wireshark是全球主流的开源跨平台网络数据包分析工具，核心�
 
 #### 解决方案
 1. 下载并安装Wireshark软件；电脑开启热点，手机连接电脑热点，保证手机的请求转发到电脑；通过ipconfig命令查看对应的网络接口，示例中网络对应的本地连接10如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/9yCGuqpqSsOW9nJGoa0f1Q/zh-cn_image_0000002658850167.png?HW-CC-KV=V1&HW-CC-Date=20260723T013434Z&HW-CC-Expire=86400&HW-CC-Sign=88BACBEC6402538F6CCB41A6C6C60E7C108E2F75C3A80FDDBED3BA7CA9A01377)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/9yCGuqpqSsOW9nJGoa0f1Q/zh-cn_image_0000002658850167.png?HW-CC-KV=V1&HW-CC-Date=20260730T072550Z&HW-CC-Expire=86400&HW-CC-Sign=498022FFDC36F2AE9EE008A256CD8E58D04AF252CF8135C4A47E3DA95189A16E)
 
 2. 根据当前手机连接的局域网设置捕获的网络接口；具体设置的路径为捕获-选项-勾选具体的网络接口，例如本次选择的是本地连接10。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/mjYeoHNnT-Kt0kqQxzdQ9A/zh-cn_image_0000002628610908.png?HW-CC-KV=V1&HW-CC-Date=20260723T013434Z&HW-CC-Expire=86400&HW-CC-Sign=9698DE76758D1571B5285AD0E82EC75E1007F619F5DDDF1EDEC3048FC068155F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/mjYeoHNnT-Kt0kqQxzdQ9A/zh-cn_image_0000002628610908.png?HW-CC-KV=V1&HW-CC-Date=20260730T072550Z&HW-CC-Expire=86400&HW-CC-Sign=2BFD5AD8CFBCB00DC99341D246EC2EBCBED047EA8177F9AA58F50644CED847D8)
 
 3. 点击开始捕获分组。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/U7yTb33hSMiTg5gSWBteYQ/zh-cn_image_0000002628770802.png?HW-CC-KV=V1&HW-CC-Date=20260723T013434Z&HW-CC-Expire=86400&HW-CC-Sign=6C8A6CBD51F1B80A744B308ADD3FFB587B856D2C07D946377EE30E4E43D500CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/U7yTb33hSMiTg5gSWBteYQ/zh-cn_image_0000002628770802.png?HW-CC-KV=V1&HW-CC-Date=20260730T072550Z&HW-CC-Expire=86400&HW-CC-Sign=8FFF3146EA2A7B4B2C8924C34F36E1E590D08EAF271A1C43C0E938C278C4D059)
 
 4. 操作App复现问题，可以查看Wireshark的包列表区和包内容细节区。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/yjfUDioQToSX9cy6UZAC1g/zh-cn_image_0000002658970125.png?HW-CC-KV=V1&HW-CC-Date=20260723T013434Z&HW-CC-Expire=86400&HW-CC-Sign=464C105837A08D29F3E1AB60A9E7EBA0BB5574E167F86C79205DC3AFDCA97129)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/yjfUDioQToSX9cy6UZAC1g/zh-cn_image_0000002658970125.png?HW-CC-KV=V1&HW-CC-Date=20260730T072550Z&HW-CC-Expire=86400&HW-CC-Sign=946EFE6943BC338D64A2AB75FFD878BCFF60A4605705BADAA9E5C23691C7EA35)
 
 5. 保存生成的tcpdump包文件；具体路径为文件-保存（另存为），即可生成后缀名为pcapng的文件。

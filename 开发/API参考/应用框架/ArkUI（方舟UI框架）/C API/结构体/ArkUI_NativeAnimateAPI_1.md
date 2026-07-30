@@ -1,6 +1,6 @@
 # ArkUI_NativeAnimateAPI_1
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativeanimateapi-1
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,10 +36,10 @@ ArkUI提供的Native侧动画接口集合。
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t (*animateTo)(ArkUI_ContextHandle context, ArkUI_AnimateOption* option, ArkUI_ContextCallback* update,ArkUI_AnimateCompleteCallback* complete) | 显式动画接口。 |
-| int32_t (*keyframeAnimateTo)(ArkUI_ContextHandle context, ArkUI_KeyframeAnimateOption* option) | 关键帧动画接口。 |
-| ArkUI_AnimatorHandle (*createAnimator)(ArkUI_ContextHandle context, ArkUI_AnimatorOption* option) | 创建animator动画对象。 |
-| void (*disposeAnimator)(ArkUI_AnimatorHandle animatorHandle) | 销毁animator动画对象。 |
+| int32_t (*animateTo)(ArkUI_ContextHandle context, ArkUI_AnimateOption* option, ArkUI_ContextCallback* update,ArkUI_AnimateCompleteCallback* complete) | 触发显式动画。 |
+| int32_t (*keyframeAnimateTo)(ArkUI_ContextHandle context, ArkUI_KeyframeAnimateOption* option) | 触发关键帧动画。 |
+| ArkUI_AnimatorHandle (*createAnimator)(ArkUI_ContextHandle context, ArkUI_AnimatorOption* option) | 创建animator动画对象并返回其指针（调用者获取对象所有权）。 |
+| void (*disposeAnimator)(ArkUI_AnimatorHandle animatorHandle) | 销毁传入指针所指向的animator动画对象，并释放其内存，销毁后不可再使用该指针。 |
  
  
   
@@ -55,21 +55,21 @@ ArkUI提供的Native侧动画接口集合。
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int32_t (*animateTo)(ArkUI_ContextHandle context, ArkUI_AnimateOption* option, ArkUI_ContextCallback* update,ArkUI_AnimateCompleteCallback* complete)
+int32_t (*animateTo)(ArkUI_ContextHandle context, ArkUI_AnimateOption* option, ArkUI_ContextCallback* update, ArkUI_AnimateCompleteCallback* complete)
 ```
  
 **描述：**
  
-显式动画接口。
+执行显式动画过渡效果。
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ContextHandle context | UIContext实例。 |
-| ArkUI_AnimateOption* option | 设置动画效果相关参数。 |
-| ArkUI_ContextCallback* update | 指定动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。 说明：在闭包函数中要设置的组件属性，必须在其之前设置过。 |
-| ArkUI_AnimateCompleteCallback* complete | 设置动画播放完成回调参数。 |
+| ArkUI_ContextHandle context | UI上下文实例，用于指定动画所在的UI上下文环境。 |
+| ArkUI_AnimateOption* option | 动画效果配置参数。 |
+| ArkUI_ContextCallback* update | 指定动效的闭包函数。在闭包函数中产生的状态变化，系统会自动插入过渡动画。 说明：在闭包函数中要设置的组件属性，必须在调用animateTo之前已在组件上设置过。 |
+| ArkUI_AnimateCompleteCallback* complete | 动画播放完成回调函数。传参为NULL时不设置完成回调通知。 |
  
  
 **返回：**
@@ -97,7 +97,7 @@ int32_t (*keyframeAnimateTo)(ArkUI_ContextHandle context, ArkUI_KeyframeAnimateO
   
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ContextHandle context | UIContext实例。 |
+| ArkUI_ContextHandle context | UI上下文实例，用于指定关键帧动画所在的UI上下文环境。 |
 | ArkUI_KeyframeAnimateOption* option | 关键帧动画参数。 |
  
  
@@ -126,7 +126,7 @@ ArkUI_AnimatorHandle (*createAnimator)(ArkUI_ContextHandle context, ArkUI_Animat
   
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ContextHandle context | UIContext实例。 |
+| ArkUI_ContextHandle context | UI上下文实例，用于指定动画所在的UI上下文环境。 |
 | ArkUI_AnimatorOption* option | animator动画参数。 |
  
  
@@ -134,7 +134,7 @@ ArkUI_AnimatorHandle (*createAnimator)(ArkUI_ContextHandle context, ArkUI_Animat
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_AnimatorHandle | animator动画对象指针。函数参数异常时返回NULL。 |
+| ArkUI_AnimatorHandle | animator动画对象指针，用于后续对动画对象进行控制。函数参数异常时返回NULL。 |
  
  
   

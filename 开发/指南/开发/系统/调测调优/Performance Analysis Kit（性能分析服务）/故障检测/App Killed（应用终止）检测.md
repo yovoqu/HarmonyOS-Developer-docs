@@ -1,6 +1,6 @@
 # App Killed（应用终止）检测
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appkilled-guidelines
 
@@ -18,7 +18,7 @@
 3. 应用开发者主动调用exit系统调用时，不会生成栈等维测日志。
 4. 应用发生主线程堵塞，导致界面冻结，通常会生成APP_FREEZE日志。
 5. 资源使用过度将导致系统对应用进行管控，并提供详细的维测信息。例如，应用发生内存泄漏时，通常会生成资源泄漏类的维测日志。开发者可以通过HiAppEvent订阅RESOURCE_OVERLIMIT获取对应的事件和日志。
-6. 系统对应用进行管控时，部分场景无法提供详细的维测信息，比如LowMemoryKiller、应用的RSS内存超过4G、快速泄漏等。
+6. 系统对应用进行管控时，部分场景无法提供详细的维测信息，比如LowMemoryKiller、应用的RSS内存超过4GB、快速泄漏等。
 
 本节主要覆盖在场景5和6中因SIGKILL信号导致的应用终止。
 
@@ -122,7 +122,7 @@
 
 | OomKiller | 整机低内存，触发了内核管控，按照一定策略终止应用。 | 尝试降低应用自身的内存占用，以减少被整机管控策略选中的概率。 | 否 | 否 |
 
-| CpaKiller | DRM（Digital Right Management）业务申请内存但是内存不足时，会按照一定策略终止进程以回收内存。 | 尝试降低应用自身的内存占用，以减少被整机管控策略选中的概率。 | 否 | 否 |
+| CpaKiller | DRM（Digital Rights Management）业务申请内存但是内存不足时，会按照一定策略终止进程以回收内存。 | 尝试降低应用自身的内存占用，以减少被整机管控策略选中的概率。 | 否 | 否 |
 
 | KillApplication | 应用主动退出。 | 无需处理。 | 否 | 否 |
 

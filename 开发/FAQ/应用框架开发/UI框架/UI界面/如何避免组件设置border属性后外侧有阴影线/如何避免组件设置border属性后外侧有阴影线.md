@@ -37,7 +37,7 @@ struct <span style="color: rgb(0,0,255);">NavigationPage </span><span style="col
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/vu-bRrwDR8GDOphpxUq4Wg/zh-cn_image_0000002658959239.png?HW-CC-KV=V1&HW-CC-Date=20260723T013053Z&HW-CC-Expire=86400&HW-CC-Sign=F1A60FDAE1D392B3AAA3EC7A01EA6CA371A73F4D44267D7791F7635F203A76D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/vu-bRrwDR8GDOphpxUq4Wg/zh-cn_image_0000002658959239.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=99A63ADC75607F64FBF60D987E4F8BEC99AAC3643C9EA2CB6CA9F277036AB74C)
 
  
  
@@ -114,7 +114,7 @@ struct <span style="color: rgb(0,0,255);">BottomWithBar </span><span style="colo
  效果预览:
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/V2r79OxBSJewWN3Dh44vfw/zh-cn_image_0000002658839287.png?HW-CC-KV=V1&HW-CC-Date=20260723T013053Z&HW-CC-Expire=86400&HW-CC-Sign=B98FE075045C394D95F9912344CB657A95DF2C2D5A696865637773C570B0C383)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/V2r79OxBSJewWN3Dh44vfw/zh-cn_image_0000002658839287.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=C351E95D1DFF45740BB0890E31F3A4260612400EEB4CBBE046D3AAE7049F8B53)
 
 
  

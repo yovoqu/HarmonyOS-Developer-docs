@@ -1,6 +1,6 @@
 # JS卡片开发指导（Stage模型）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-ui-widget-development
 
@@ -18,7 +18,7 @@ FormExtensionAbility类拥有如下API接口，具体的API介绍详见[@ohos.ap
 | onUpdateForm(formId: string, wantParams?: Record<string, Object>): void | 卡片提供方接收更新卡片的通知接口。 |
 | onChangeFormVisibility(newStatus: Record<string, number>): void | 卡片提供方接收修改可见性的通知接口。 |
 | onFormEvent(formId: string, message: string): void | 卡片提供方接收处理卡片事件的通知接口。 |
-| onRemoveForm(formId: string): void | 卡片提供方接收销毁卡片的通知接口。 |
+| onRemoveForm(formId: string): void | 卡片提供方接收删除卡片的通知接口。 |
 | onConfigurationUpdate(newConfig: Configuration): void | 当系统配置更新时调用。 |
 
 
@@ -26,7 +26,7 @@ formProvider类部分API接口如下，具体的API介绍详见[@ohos.app.form.f
 
 | 接口名 | 描述 |
 | --- | --- |
-| setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&lt;void&gt;): void | 设置指定卡片的下一次更新时间，使用callback异步回调。 |
+| setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&lt;void&gt;): void | 设置指定卡片的下一次刷新时间，使用callback异步回调。 |
 | setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt; | 设置指定卡片的下一次更新时间，使用Promise异步回调。 |
 | updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback&lt;void&gt;): void | 更新指定的卡片，使用callback异步回调。 |
 | updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise&lt;void&gt; | 更新指定的卡片，使用Promise异步回调。 |
@@ -90,10 +90,11 @@ let storeFormInfo =
       const storage: preferences.Preferences = await preferences.getPreferences(context, DATA_STORAGE_PATH);
       // put form info
       await storage.put(formId, JSON.stringify(formInfo));
-      hilog.info(DOMAIN_NUMBER, TAG, `storeFormInfo, put form info successfully, formId: ${formId}`);
+      hilog.info(DOMAIN_NUMBER, TAG, `[EntryFormAbility] storeFormInfo, put form info successfully, formId: ${formId}`);
       await storage.flush();
     } catch (err) {
-      hilog.error(DOMAIN_NUMBER, TAG, `failed to storeFormInfo, code: ${err.code}, message: ${err.message}`);
+      hilog.error(DOMAIN_NUMBER, TAG, `[EntryFormAbility] failed to storeFormInfo,
+      err: ${JSON.stringify(err as BusinessError)}`);
     }
   }
 let deleteFormInfo = async (formId: string, context: common.FormExtensionContext): Promise<void> => {
@@ -101,10 +102,11 @@ let deleteFormInfo = async (formId: string, context: common.FormExtensionContext
     const storage: preferences.Preferences = await preferences.getPreferences(context, DATA_STORAGE_PATH);
     // del form info
     await storage.delete(formId);
-    hilog.info(DOMAIN_NUMBER, TAG, `deleteFormInfo, del form info successfully, formId: ${formId}`);
+    hilog.info(DOMAIN_NUMBER, TAG, `[EntryFormAbility] deleteFormInfo, del form info successfully, formId: ${formId}`);
     await storage.flush();
   } catch (err) {
-    hilog.error(DOMAIN_NUMBER, TAG, `failed to deleteFormInfo, code: ${err.code}, message: ${err.message}`);
+    hilog.error(DOMAIN_NUMBER, TAG, `[EntryFormAbility] failed to deleteFormInfo,
+      err: ${JSON.stringify(err as BusinessError)}`);
   }
 };
 
@@ -131,27 +133,27 @@ export default class JsCardFormAbility extends FormExtensionAbility {
 
   onRemoveForm(formId: string): void {
     // 删除卡片实例数据
-    hilog.info(DOMAIN_NUMBER, TAG, 'onRemoveForm');
+    hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onRemoveForm');
     // 删除之前持久化的卡片实例数据
     deleteFormInfo(formId, this.context);
   }
 
   onUpdateForm(formId: string): void {
     // 若卡片支持定时更新/定点更新/卡片使用方主动请求更新功能，则卡片提供方需要重写该方法以支持数据更新
-    hilog.info(DOMAIN_NUMBER, TAG, 'onUpdateForm');
+    hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onUpdateForm');
     let obj: Record<string, string> = {
       'title': 'titleOnUpdate',
       'detail': 'detailOnUpdate'
     };
     let formData: formBindingData.FormBindingData = formBindingData.createFormBindingData(obj);
     formProvider.updateForm(formId, formData).catch((error: BusinessError) => {
-      hilog.info(DOMAIN_NUMBER, TAG, 'updateForm, error:' + JSON.stringify(error));
+      hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] updateForm, error:' + JSON.stringify(error));
     });
   }
 
   onFormEvent(formId: string, message: string): void {
     // 若卡片支持触发事件，则需要重写该方法并实现对事件的触发
-    hilog.info(DOMAIN_NUMBER, TAG, 'onFormEvent');
+    hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onFormEvent');
     // 获取message事件中传递的detail参数
     let msg: Record<string, string> = JSON.parse(message);
     if (msg.detail === 'message detail') {
@@ -217,7 +219,7 @@ export default class JsCardFormAbility extends FormExtensionAbility {
 
 | isDefault | 表示该卡片是否为默认卡片，每个UIAbility有且只有一个默认卡片。 - true：默认卡片。 - false：非默认卡片。 | 布尔值 | 否 |
 
-| colorMode(deprecated) | 表示卡片的主题样式，取值范围如下： - auto：跟随系统的颜色模式值选取主题。 - dark：深色主题。 - light：浅色主题。 说明： 1. 从API version 12开始支持该配置项，从API version 20开始废弃该配置项，卡片主题样式统一跟随系统的颜色模式。 | 字符串 | 可缺省，缺省值为“auto”。 |
+| colorMode(deprecated) | 表示卡片的颜色模式，取值范围如下： - auto：跟随系统的颜色模式值选取主题。 - dark：深色主题。 - light：浅色主题。 说明： 1. 从API version 12开始支持该配置项，从API version 20开始废弃该配置项，卡片主题样式统一跟随系统的颜色模式。 | 字符串 | 可缺省，缺省值为“auto”。 |
 
 | supportDimensions | 表示卡片支持的外观规格，取值范围： - 1 * 1：表示1行1列的一宫格。 - 1 * 2：表示1行2列的二宫格。 - 2 * 2：表示2行2列的四宫格。 - 2 * 4：表示2行4列的八宫格。 - 2 * 3：表示2行3列的六宫格。 - 3 * 3：表示3行3列的九宫格。 - 4 * 4：表示4行4列的十六宫格。 - 6 * 4：表示6行4列的二十四宫格。 说明： 2 * 3和 3 * 3仅支持手表设备， 1 * 1只支持在锁屏上使用。 | 字符串数组 | 否 |
 
@@ -288,10 +290,11 @@ let storeFormInfo =
       const storage: preferences.Preferences = await preferences.getPreferences(context, DATA_STORAGE_PATH);
       // put form info
       await storage.put(formId, JSON.stringify(formInfo));
-      hilog.info(DOMAIN_NUMBER, TAG, `storeFormInfo, put form info successfully, formId: ${formId}`);
+      hilog.info(DOMAIN_NUMBER, TAG, `[EntryFormAbility] storeFormInfo, put form info successfully, formId: ${formId}`);
       await storage.flush();
     } catch (err) {
-      hilog.error(DOMAIN_NUMBER, TAG, `failed to storeFormInfo, code: ${err.code}, message: ${err.message}`);
+      hilog.error(DOMAIN_NUMBER, TAG, `[EntryFormAbility] failed to storeFormInfo,
+      err: ${JSON.stringify(err as BusinessError)}`);
     }
   }
 // ...
@@ -333,10 +336,11 @@ let deleteFormInfo = async (formId: string, context: common.FormExtensionContext
     const storage: preferences.Preferences = await preferences.getPreferences(context, DATA_STORAGE_PATH);
     // del form info
     await storage.delete(formId);
-    hilog.info(DOMAIN_NUMBER, TAG, `deleteFormInfo, del form info successfully, formId: ${formId}`);
+    hilog.info(DOMAIN_NUMBER, TAG, `[EntryFormAbility] deleteFormInfo, del form info successfully, formId: ${formId}`);
     await storage.flush();
   } catch (err) {
-    hilog.error(DOMAIN_NUMBER, TAG, `failed to deleteFormInfo, code: ${err.code}, message: ${err.message}`);
+    hilog.error(DOMAIN_NUMBER, TAG, `[EntryFormAbility] failed to deleteFormInfo,
+      err: ${JSON.stringify(err as BusinessError)}`);
   }
 };
 
@@ -345,7 +349,7 @@ export default class JsCardFormAbility extends FormExtensionAbility {
   // ...
   onRemoveForm(formId: string): void {
     // 删除卡片实例数据
-    hilog.info(DOMAIN_NUMBER, TAG, 'onRemoveForm');
+    hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onRemoveForm');
     // 删除之前持久化的卡片实例数据
     deleteFormInfo(formId, this.context);
   }
@@ -383,14 +387,14 @@ export default class JsCardFormAbility extends FormExtensionAbility {
   // ...
   onUpdateForm(formId: string): void {
     // 若卡片支持定时更新/定点更新/卡片使用方主动请求更新功能，则卡片提供方需要重写该方法以支持数据更新
-    hilog.info(DOMAIN_NUMBER, TAG, 'onUpdateForm');
+    hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onUpdateForm');
     let obj: Record<string, string> = {
       'title': 'titleOnUpdate',
       'detail': 'detailOnUpdate'
     };
     let formData: formBindingData.FormBindingData = formBindingData.createFormBindingData(obj);
     formProvider.updateForm(formId, formData).catch((error: BusinessError) => {
-      hilog.info(DOMAIN_NUMBER, TAG, 'updateForm, error:' + JSON.stringify(error));
+      hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] updateForm, error:' + JSON.stringify(error));
     });
   }
 
@@ -697,7 +701,7 @@ export default class JsCardFormAbility extends FormExtensionAbility {
   // ...
   onFormEvent(formId: string, message: string): void {
     // 若卡片支持触发事件，则需要重写该方法并实现对事件的触发
-    hilog.info(DOMAIN_NUMBER, TAG, 'onFormEvent');
+    hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onFormEvent');
     // 获取message事件中传递的detail参数
     let msg: Record<string, string> = JSON.parse(message);
     if (msg.detail === 'message detail') {

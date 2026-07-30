@@ -1,14 +1,14 @@
 # Column
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-沿垂直方向布局的容器。
+沿垂直方向布局的容器。适用于需要将多个子组件按垂直方向依次排列的场景，如列表项、表单项、卡片内容等。支持设置子组件间距、对齐方式等属性，能够快速实现垂直方向的线性布局。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 Column未设置高度或宽度时，在主轴或交叉轴方向上自适应子组件大小。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 Column未设置高度或宽度时，在主轴（垂直方向）或交叉轴（水平方向）方向上自适应子组件大小。
 
   
 
@@ -48,7 +48,7 @@ Column(options?: ColumnOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options18+ | ColumnOptions | 否 | 纵向布局元素的配置选项，可设置子组件的垂直方向间距。 模型约束： 此接口仅可在Stage模型下使用。 |
+| options18+ | ColumnOptions | 否 | Column组件的间距配置选项。通过space属性设置纵向布局元素垂直方向间距。当需要为子组件设置固定垂直间距时传入此参数；省略时不设置子组件间距。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -60,6 +60,10 @@ Column(options?: ColumnOptions)
 Column(options?: ColumnOptions | ColumnOptionsV2)
  
 创建垂直方向线性布局容器，可以设置子组件的间距。
+ 
+> [!NOTE]
+> 在复杂界面中使用多组件嵌套时，若布局组件的嵌套层数过深或嵌套的组件数量过多，将会产生额外开销。建议通过移除冗余节点、利用布局边界减少布局计算、合理采用渲染控制语法及布局组件方法来优化性能。最佳实践请参考 布局优化指导 。
+
  
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
@@ -73,7 +77,7 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ColumnOptions \| ColumnOptionsV2 | 否 | 纵向布局元素的配置选项，可设置子组件的垂直方向间距。 |
+| options | ColumnOptions \| ColumnOptionsV2 | 否 | Column组件的间距配置选项。通过space属性设置纵向布局元素垂直方向间距，space支持设置number、string或Resource类型。当需要为子组件设置固定垂直间距时传入此参数；省略时不设置子组件间距。 |
  
  
   
@@ -98,7 +102,7 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| space7+ | string \| number | 否 | 是 | 纵向布局元素垂直方向间距。 space为负数或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时，space不生效。 默认值：0 非法值：按默认值处理。 单位：vp 说明： space取值是大于等于0的数字，或者可以转换为数字的字符串。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| space7+ | string \| number | 否 | 是 | 纵向布局元素垂直方向间距。 space为负数或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时，space不生效。 取值范围：[0, +∞) 默认值：0 非法值：按默认值处理。 单位：vp 说明： space取值是大于等于0的数字，或者可以转换为非负数字的字符串。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
  
  
   
@@ -119,7 +123,7 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| space | SpaceType | 否 | 是 | 纵向布局元素垂直方向间距。 space为负数或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时，space不生效。 默认值：0 单位：vp 非法值：按默认值处理。 说明： space取值是大于等于0的数字，或者可以转换为数字的字符串，或者可以转换为数字的Resource类型数据。 |
+| space | SpaceType | 否 | 是 | 设置纵向布局元素垂直方向间距。 space为负数或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时，space不生效。 取值范围：[0, +∞) 默认值：0 单位：vp 非法值：按默认值处理。 说明： space取值是大于等于0的数字，或者可以转换为非负数字的字符串，或者可以转换为数字的Resource类型数据。 |
  
  
   
@@ -142,8 +146,8 @@ Column组件构造函数中space支持的数据类型，取值类型为下表类
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 表示类型为数字，可取任意值。 |
-| string | 表示值类型为字符串，可取任意值。 |
+| number | 表示类型为数字，取值为大于等于0的数字。取负数或非法值时，按默认值0处理。 |
+| string | 表示值类型为字符串，取值为可以转换为非负数字的字符串。取负数或不可转换的字符串时，按默认值0处理。 |
 | Resource | 表示值为资源引用类型，取值为从系统资源或者应用资源中引入的数据值。 |
  
  
@@ -198,7 +202,7 @@ justifyContent(value: FlexAlign)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | FlexAlign | 是 | 子组件在垂直方向上的对齐格式。 默认值：FlexAlign.Start |
+| value | FlexAlign | 是 | 子组件在垂直方向上的对齐格式。 默认值：FlexAlign.Start 说明： 若子组件不设置flexShrink，FlexAlign.Center和FlexAlign.End可能失效，详见下方说明。设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时，space属性不生效。 |
  
  
 > [!NOTE]
@@ -227,7 +231,7 @@ reverse(isReversed: Optional&lt;boolean&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isReversed | Optional&lt;boolean&gt; | 是 | 子组件在垂直方向上的排列是否反转。 默认值：true，设置true表示子组件在垂直方向上反转排列，设置false表示子组件在垂直方向上正序排列。 |
+| isReversed | Optional&lt;boolean&gt; | 是 | 子组件在垂直方向上的排列是否反转。 默认值：true。设置true表示子组件在垂直方向上反转排列，设置false表示子组件在垂直方向上正序排列。 |
  
  
 > [!NOTE]
@@ -326,7 +330,7 @@ struct ColumnExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/0HKTydk7QtG8ZBWt6pFeBg/zh-cn_image_0000002659101675.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=9440504B8FCC2A1698A26FE253AD4DA674791637A0407D86CFC438A2E3909B58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/xiWYuYjtRa-feu7ukI4U7A/zh-cn_image_0000002686087889.png?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=F57B48DDE93D32B3BF9EE79D8B093A32A65F8D6ACD222E8FD673DAB9233A3AC1)
 
  
   
@@ -360,4 +364,4 @@ struct ColumnReverseSample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/qz2AVTYbQ-yWfskK5j_ViQ/zh-cn_image_0000002628862326.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=94C3385780A4BC9859C7122AE76221F0A7FD4566A9292A58036DD33FC54B81D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/ShcIY_G8Q3qT0MkHoXxnTA/zh-cn_image_0000002685928061.png?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=BF32839BFDF7EBB2068F1FEBE94044E8C80071F658B3C257F3567129FB3EB793)

@@ -1,11 +1,11 @@
 # WithTheme
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-theme
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-WithTheme组件用于设置应用局部页面自定义主题风格，可设置子组件深浅色模式和自定义配色。
+WithTheme组件用于设置应用局部页面自定义主题风格，可设置子组件深浅色模式和自定义配色。当全局主题无法满足局部区域独立风格需求时，可使用该组件在不影响其他区域的前提下实现局部换肤或独立主题风格的定制。
 
 > [!NOTE]
 > 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 WithTheme支持的系统组件如下： TextInput 、 Search 、 Button 、 Badge 、 Swiper 、 Text 、 Select 、 Menu 、 TimePicker 、 DatePicker 、 TextPicker 、 Checkbox 、 CheckboxGroup 、 Radio 、 Slider 、 Progress 、 QRCode 、 Toggle 、 TextClock 、 PatternLock 、 Divider 。从API版本26.0.0开始，新增 CalendarPicker 、 UIPickerComponent 、 TextArea 、 属性字符串 、 Gauge 、 DataPanel 、 RichEditor 、 MenuItem 、 MenuItemGroup 、 Image 、 ImageAnimator 、 Counter 、 bindSheet 、 LoadingProgress 。 WithTheme相关使用指导请参考 设置应用内主题换肤 。
@@ -36,7 +36,7 @@ WithTheme(options: WithThemeOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | WithThemeOptions | 是 | 设置作用域内组件配色。 |
+| options | WithThemeOptions | 是 | 用于配置WithTheme作用域内组件的主题配色和深浅色模式，支持范围见上方说明中的组件列表。 |
 
 
 
@@ -61,7 +61,7 @@ WithTheme(options: WithThemeOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-设置WithTheme作用域内组件缺省样式及深浅色模式。
+用于设置WithTheme作用域内组件主题配色及深浅色模式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -69,8 +69,8 @@ WithTheme(options: WithThemeOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| theme | CustomTheme | 否 | 是 | 用于自定义WithTheme作用域内组件缺省配色。 默认值：undefined，缺省样式跟随系统token默认样式。 |
-| colorMode | ThemeColorMode | 否 | 是 | 用于指定WithTheme作用域内组件配色深浅色模式。 默认值：ThemeColorMode.SYSTEM |
+| theme | CustomTheme | 否 | 是 | 用于设置WithTheme作用域内组件的自定义主题配色。 默认值：undefined，默认配色跟随系统token默认样式。 |
+| colorMode | ThemeColorMode | 否 | 是 | 用于指定WithTheme作用域内组件配色的深浅色模式。取值原则：ThemeColorMode.SYSTEM跟随系统深浅色设置，ThemeColorMode.DARK强制使用深色模式，ThemeColorMode.LIGHT强制使用浅色模式。设置深浅色模式时需要添加dark.json资源文件才能生效。 默认值：ThemeColorMode.SYSTEM |
 
 
 
@@ -81,7 +81,7 @@ WithTheme(options: WithThemeOptions)
 
 type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme
 
-自定义配色。
+用于自定义WithTheme作用域内组件的配色方案，具体配色项通过CustomColors接口配置。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -89,7 +89,7 @@ type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme
 
 | 类型 | 说明 |
 | --- | --- |
-| import('../api/@ohos.arkui.theme').CustomTheme | 自定义WithTheme作用域内组件缺省配色。 |
+| import('../api/@ohos.arkui.theme').CustomTheme | 自定义WithTheme作用域内组件默认主题配色。 |
 
 
 
@@ -98,7 +98,7 @@ type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-设置局部深浅色时，需要添加dark.json资源文件，深浅色模式才会生效。
+设置局部深浅色模式时，需要添加dark.json资源文件，深浅色模式才会生效。
 
 
 ![](assets/WithTheme/file-20260514164145232-1.png)
@@ -106,7 +106,7 @@ type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme
 
 dark.json数据示例：
 
-```text
+```json
 {
     "color": [
       {
@@ -181,7 +181,7 @@ struct Index {
 
 
 
-#### 示例2（自定义WithTheme作用域内组件缺省配色）
+#### 示例2（自定义WithTheme作用域内组件默认配色）
 
 ```text
 // 自定义WithTheme作用域内组件缺省配色
@@ -206,10 +206,10 @@ class RedColors implements CustomColors {
 }
 
 class PageCustomTheme implements CustomTheme {
-  colors?: CustomColors
+  colors?: CustomColors;
 
   constructor(colors: CustomColors) {
-    this.colors = colors
+    this.colors = colors;
   }
 }
 
@@ -222,13 +222,13 @@ struct IndexPage {
     undefined, // System
     new PageCustomTheme(new GreenColors()),
     new PageCustomTheme(new RedColors())
-  ]
+  ];
   @State themeIndex: number = 0;
 
   build() {
     Column() {
       Column({ space: '8vp' }) {
-        Text(`未使用WithTheme`)
+        Text('未使用WithTheme')
         // 点击按钮切换局部换肤
         Button(`切换theme配色：${this.themeNames[this.themeIndex]}`)
           .onClick(() => {
@@ -250,7 +250,7 @@ struct IndexPage {
       WithTheme({ theme: this.themeArray[this.themeIndex] }) {
         // WithTheme作用域
         Column({ space: '8vp' }) {
-          Text(`使用WithTheme`)
+          Text('使用WithTheme')
           Button('Button.style(NORMAL) with Custom Theme')
             .buttonStyle(ButtonStyleMode.NORMAL)
           Button('Button.style(EMP..ED) with Custom Theme')
@@ -266,4 +266,4 @@ struct IndexPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/nQM2PTj1T7mElgRnYngN4g/zh-cn_image_0000002628702952.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=7F22AEA96560EA6AAB792B4A0FD7E359B0D2F691CA2849B9C6E4DD4327E36987)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/mCrIxIUfRiKG4HKlfDvqaQ/zh-cn_image_0000002655848964.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071516Z&HW-CC-Expire=86400&HW-CC-Sign=05B39FCEE20D16968EDC30AD38C4A2B442E713F39B2FF038CF1E1C0B6496CC9E)

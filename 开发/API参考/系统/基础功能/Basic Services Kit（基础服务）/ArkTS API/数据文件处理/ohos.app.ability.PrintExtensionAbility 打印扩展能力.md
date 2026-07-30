@@ -1,6 +1,6 @@
 # @ohos.app.ability.PrintExtensionAbility (打印扩展能力)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-printextensionability
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -19,6 +19,19 @@
 ```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 ```
+
+
+
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+**系统能力：** SystemCapability.Print.PrintFramework
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| context | PrintExtensionContext | 否 | 否 | 打印服务扩展能力上下文。 起始版本： 26.0.0 |
+
 
 
 

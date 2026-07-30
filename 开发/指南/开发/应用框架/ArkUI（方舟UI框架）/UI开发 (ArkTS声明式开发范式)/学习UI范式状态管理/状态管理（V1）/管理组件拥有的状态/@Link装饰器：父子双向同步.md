@@ -1,10 +1,10 @@
 # @Link装饰器：父子双向同步
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link
 
-子组件中被@Link装饰的变量与其父组件中对应的数据源建立双向数据绑定。
+子组件中被[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-link#link)装饰的变量与其父组件中对应的数据源建立双向数据绑定。
 
 在阅读@Link文档前，建议先熟悉[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)的基本用法。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
 
@@ -169,6 +169,8 @@ struct LinkChild {
 
   build() {
     Text(this.test.value)
+      .fontSize(20)
+      .margin(10)
   }
 }
 
@@ -182,6 +184,7 @@ struct LinkExample {
       // 在父组件中，使用@State装饰的info变量初始化LinkChild组件的test变量
       LinkChild({test: this.info})
     }
+    .width('100%')
   }
 }
 ```
@@ -245,9 +248,9 @@ struct LinkExample2 {
 
 ![](assets/@Link装饰器：父子双向同步/file-20260525091526176-002.gif)
 
-5. @Link不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
+5. @Link不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
 
-  从API version 23开始，添加对@Link装饰Function类型变量的校验，编译期会报错。
+  从API version 23开始，在应用编译时添加了相关校验，@Link装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@Link装饰器。
 
 
 
@@ -433,27 +436,47 @@ struct MapSampleChild {
   build() {
     Column() {
       ForEach(Array.from(this.value.entries()), (item: [number, string]) => {
-        Text(`${item[0]}`).fontSize(30)
-        Text(`${item[1]}`).fontSize(30)
+        Text(`${item[0]}`)
+          .fontSize(30)
+          .margin(10)
+        Text(`${item[1]}`)
+          .fontSize(30)
+          .margin(10)
         Divider()
       })
       // 子组件的Map类型可以同步回父组件
-      Button('child init map').onClick(() => {
-        this.value = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
-      })
-      Button('child set new one').onClick(() => {
-        this.value.set(4, 'd');
-      })
-      Button('child clear').onClick(() => {
-        this.value.clear();
-      })
-      Button('child replace the first one').onClick(() => {
-        this.value.set(0, 'aa');
-      })
-      Button('child delete the first one').onClick(() => {
-        this.value.delete(0);
-      })
+      Button('child init map')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.value = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+        })
+      Button('child set new one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.value.set(4, 'd');
+        })
+      Button('child clear')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.value.clear();
+        })
+      Button('child replace the first one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.value.set(0, 'aa');
+        })
+      Button('child delete the first one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.value.delete(0);
+        })
     }
+    .width('100%')
   }
 }
 
@@ -476,6 +499,10 @@ struct MapSample {
 ```
 
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/KT43TBYTTPeWMfUI6XaUSA/zh-cn_image_0000002686085359.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=BA5569B0D24A202203209477933DBDC3719734FD85C5D0D151F7C25575BE1CC4)
+
+
+
 
 #### 装饰Set类型变量
 
@@ -493,22 +520,36 @@ struct SetSampleChild {
   build() {
     Column() {
       ForEach(Array.from(this.message.entries()), (item: [number, number]) => {
-        Text(`${item[0]}`).fontSize(30)
+        Text(`${item[0]}`)
+          .fontSize(30)
+          .margin(10)
         Divider()
       })
       // 子组件的Set类型可以同步回父组件
-      Button('init set').onClick(() => {
-        this.message = new Set([0, 1, 2, 3, 4]);
-      })
-      Button('set new one').onClick(() => {
-        this.message.add(5);
-      })
-      Button('clear').onClick(() => {
-        this.message.clear();
-      })
-      Button('delete the first one').onClick(() => {
-        this.message.delete(0);
-      })
+      Button('init set')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message = new Set([0, 1, 2, 3, 4]);
+        })
+      Button('set new one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.add(5);
+        })
+      Button('clear')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.clear();
+        })
+      Button('delete the first one')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.delete(0);
+        })
     }
     .width('100%')
   }
@@ -533,6 +574,10 @@ struct SetSample {
 ```
 
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/7TBS7Vn2RwKN5NofhhoxGQ/zh-cn_image_0000002685925531.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6ABA8A165DDAC2D24E3935562AB2643FCE8E8C6E55BAA9EF91666BD95CDAFFFE)
+
+
+
 
 #### 装饰Date类型变量
 
@@ -547,10 +592,13 @@ struct DateComponent {
     Column() {
       // 子组件的Date类型可以同步回父组件
       Button(`child increase the year by 1`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.selectedDate.setFullYear(this.selectedDate.getFullYear() + 1);
         })
       Button('child update the new date')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.selectedDate = new Date('2023-09-09');
@@ -561,6 +609,7 @@ struct DateComponent {
         selected: this.selectedDate
       })
     }
+    .width('100%')
   }
 }
 
@@ -572,11 +621,13 @@ struct ParentComponent {
   build() {
     Column() {
       Button('parent increase the month by 1')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.parentSelectedDate.setMonth(this.parentSelectedDate.getMonth() + 1);
         })
       Button('parent update the new date')
+        .width(300)
         .margin(10)
         .onClick(() => {
           this.parentSelectedDate = new Date('2023-07-07');
@@ -589,9 +640,14 @@ struct ParentComponent {
 
       DateComponent({ selectedDate:this.parentSelectedDate })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/uMtLOWD-SHWv5q63QQEcaQ/zh-cn_image_0000002656005852.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=E3E8DF6B102CC6E26511931E0F63F675B9CCC79F02C7E64F2B9FEBB2524BA35A)
+
 
 
 
@@ -610,8 +666,12 @@ struct ChangeVariables {
   build() {
     Column() {
       Text(`sourceNumber of the parent component:` + this.sourceNumber)
+        .fontSize(20)
+        .margin(10)
       ChangeVariablesChild({ sourceNumber: this.sourceNumber })
       Button('Change sourceNumber in Parent Component')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.sourceNumber++;
         })
@@ -634,15 +694,26 @@ struct ChangeVariablesChild {
   build() {
     Column() {
       Text(this.memberMessage)
+        .fontSize(20)
+        .margin(10)
       Text(`sourceNumber of the child component:` + this.sourceNumber.toString())
+        .fontSize(20)
+        .margin(10)
       Button('Change memberMessage in Child Component')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.memberMessage = 'Hello memberMessage';
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/p1UlOjqaRbSnH2bjgz5gQg/zh-cn_image_0000002655845932.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=9E7EB4F12B88A55202FF74DF1F6FA126A31F780ABB050D69EEA240BB02787C70)
+
 
 
 
@@ -658,18 +729,22 @@ struct UnionChild {
 
   build() {
     Column() {
-
       Button('Child change name to Bob')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.name = 'Bob';
         })
 
       Button('Child change name to undefined')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.name = undefined;
         })
 
-    }.width('100%')
+    }
+    .width('100%')
   }
 }
 
@@ -680,20 +755,30 @@ struct UnionTypes {
 
   build() {
     Column() {
-      Text(`The name is  ${this.name}`).fontSize(30)
+      Text(`The name is  ${this.name}`)
+        .fontSize(20)
+        .margin(10)
 
       UnionChild({ name: this.name })
 
       Button('Parents change name to Peter')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.name = 'Peter';
         })
 
       Button('Parents change name to undefined')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.name = undefined;
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/YtUUku2DTUGBcxq0e456Tw/zh-cn_image_0000002686085361.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=D874E2BED0A3C28058C4557CE592D0783B4CAD65FE3E8C70AC7872B09185BD70)

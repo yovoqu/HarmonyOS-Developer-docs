@@ -1,6 +1,6 @@
 # picker开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-picker
 
@@ -174,7 +174,7 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/dgWZBv3CQ0Ko6zdb1btpYA/zh-cn_image_0000002581274256.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=252C90C51DAF0627911A61AA11EDCD14153F97797E6B1F6609037A5F6FD63C89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/WV10z979Q22ACZsZZwsVSQ/zh-cn_image_0000002686086113.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=2F8E21F011198DAD15E34B13583726DDA1371E2856EC43494630BA9F552FE13C)
 
 
 
@@ -280,7 +280,7 @@ export default {
   },
   setPos(e) {
     this.pos = e.newValue
-    if (e.newValue === 'Non-research center') {
+    if (e.newValue === 'Company') {
       this.showbuild = false
     } else {
       this.showbuild = true
@@ -305,4 +305,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Fxb4XPJ3Tm2nEUo8PgNbWg/zh-cn_image_0000002611754111.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=D06C61F030C14FB3DC2294EE70984D5E2D99616DD1EE407B71AEF64B1B3EA5FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/yN6f9G5OS3SQzvb73oIHkg/zh-cn_image_0000002685926285.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=04FDBD74AC2B62D4B2CB314569FC35345BC1742BA0E237E5C2CCDACB203BDD99)

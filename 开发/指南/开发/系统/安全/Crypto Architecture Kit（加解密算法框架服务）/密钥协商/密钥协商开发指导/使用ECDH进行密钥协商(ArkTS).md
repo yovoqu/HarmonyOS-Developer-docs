@@ -1,6 +1,6 @@
 # 使用ECDH进行密钥协商(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-agreement-using-ecdh
 
@@ -56,7 +56,7 @@ async function ecdhAwait() {
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-function ecdhAwait() {
+function ecdhSync() {
   // 假设此公私钥对数据为外部传入
   let pubKeyArray =
     new Uint8Array([48, 89, 48, 19, 6, 7, 42, 134, 72, 206, 61, 2, 1, 6, 8, 42, 134, 72, 206, 61, 3, 1, 7, 3, 66, 0, 4,

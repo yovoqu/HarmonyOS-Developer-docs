@@ -1,14 +1,14 @@
 # @ohos.PiPWindow (画中画窗口)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该模块提供画中画基础功能，包括判断当前系统是否支持画中画功能，以及创建画中画控制器用于启动或停止画中画等。适用于视频播放、视频通话或视频会议场景下，以小窗（画中画）模式呈现内容。
+该模块提供画中画基础功能，包括判断当前系统是否支持画中画功能，以及创建画中画控制器用于启动或停止画中画等。支持用户在进行其他操作时以小窗形式继续观看视频内容，提升多任务处理效率。适用于视频播放、视频通话或视频会议场景。
 
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 在HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用画中画功能，其他设备不可用；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用画中画功能，其他设备不可用。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
 
 
 
@@ -44,8 +44,8 @@ isPiPEnabled(): boolean
 **示例：**
 
 ```text
-let enable: boolean = PiPWindow.isPiPEnabled();
-console.info('isPiPEnabled: ' + enable);
+let enable: boolean = PiPWindow.isPiPEnabled(); // 获取当前系统是否支持画中画功能
+console.info('isPiPEnabled:' + enable);
 ```
 
 
@@ -82,7 +82,7 @@ create(config: PiPConfiguration): Promise&lt;PiPController&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Params error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
 
@@ -168,7 +168,7 @@ struct Index {
     };
 
     createPiP() {
-        let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config);
+        let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config);  // 创建画中画控制器
         promise.then((data: PiPWindow.PiPController) => {
             this.pipController = data;
             console.info(`Succeeded in creating pip controller. Data:${data}`);
@@ -224,7 +224,7 @@ create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise&lt;P
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Params error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
 
@@ -254,10 +254,10 @@ struct Index {
         type: XComponentType.SURFACE,
         controller: this.xComponentController
     }
-    private xComponent = typeNode.createNode(this.context, 'XComponent', this.options);
+    private xComponent = typeNode.createNode(this.context, 'XComponent', this.options); // 创建XComponent节点用于渲染画中画内容
 
     createPiP() {
-        let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config, this.xComponent);
+        let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config, this.xComponent); // 使用typeNode创建画中画控制器
         promise.then((data: PiPWindow.PiPController) => {
             this.pipController = data;
             console.info(`Succeeded in creating pip controller. Data:${data}`);
@@ -292,15 +292,15 @@ struct Index {
 | --- | --- | --- | --- | --- |
 | context | BaseContext | 否 | 否 | 表示上下文环境。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | componentController | XComponentController | 否 | 否 | 表示原始XComponent控制器。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| navigationId | string | 否 | 是 | navigation控件ID，不传值则默认不需要缓存页面。 1、UIAbility使用Navigation管理页面时，需要设置Navigation控件的id属性，并将该id设置给画中画控制器，确保还原场景下能够从画中画窗口恢复到原页面。 2、UIAbility使用Router管理页面时，无需设置navigationId。 3、UIAbility只有单页面时，无需设置navigationId，还原场景下也能够从画中画窗口恢复到原页面。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| handleId22+ | number | 否 | 是 | navigation控件下的子页面ID，点击"恢复全屏窗口"按钮后，恢复到指定的页面。只适用于UIAbility使用Navigation管理页面的场景，可以设置为Navigation下的子页面ID。默认为-1，恢复Navigation栈顶页面。推荐使用方法getUniqueId()获取页面ID。使用Navigation模块内页面路由时，推荐使用系统路由表，否则可能会出现getUniqueId()获取页面ID不准确的情况。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| navigationId | string | 否 | 是 | navigation控件ID，不传值则默认不需要缓存页面。 1、UIAbility（应用组件）使用Navigation管理页面时，需要设置Navigation控件的id属性，并将该id设置给画中画控制器，确保还原场景下能够从画中画窗口恢复到原页面。 2、UIAbility使用Router管理页面时，无需设置navigationId。 3、UIAbility只有单页面时，无需设置navigationId，还原场景下也能够从画中画窗口恢复到原页面。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| handleId22+ | number | 否 | 是 | navigation控件下的子页面ID，点击"恢复全屏窗口"按钮后，恢复到指定的页面。只适用于UIAbility（应用组件）使用Navigation管理页面的场景，可以设置为Navigation下的子页面ID。默认为-1，恢复Navigation栈顶页面。推荐使用方法getUniqueId()获取页面ID。使用Navigation模块内页面路由时，推荐使用系统路由表，否则可能会出现getUniqueId()获取页面ID不准确的情况。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | templateType | PiPTemplateType | 否 | 是 | 模板类型，用以区分视频播放、视频通话、视频会议或视频直播，不传值则默认为视频播放模板。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| contentWidth | number | 否 | 是 | 原始内容宽度，单位为px。用于确定画中画窗口比例。当使用typeNode的方式创建PiPController时（即使用PiPWindow.create()传入contentNode参数），不传值则默认为1920。当不使用typeNode的方式创建PiPController时（即使用PiPWindow.create()不传入contentNode参数），不传值则默认为XComponent组件的宽度。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| contentHeight | number | 否 | 是 | 原始内容高度，单位为px。用于确定画中画窗口比例。当使用typeNode的方式创建PiPController时（即使用PiPWindow.create()传入contentNode参数），不传值则默认为1080。当不使用typeNode的方式创建PiPController时（即使用PiPWindow.create()不传入contentNode参数），不传值则默认为XComponent组件的高度。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| contentWidth | number | 否 | 是 | 原始内容宽度，单位为px，取值范围为正整数。用于确定画中画窗口比例。当使用typeNode的方式创建PiPController时（即使用PiPWindow.create()传入contentNode参数），不传值则默认为1920。当不使用typeNode的方式创建PiPController时（即使用PiPWindow.create()不传入contentNode参数），不传值则默认为XComponent组件的宽度。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| contentHeight | number | 否 | 是 | 原始内容高度，单位为px，取值范围为正整数。用于确定画中画窗口比例。当使用typeNode的方式创建PiPController时（即使用PiPWindow.create()传入contentNode参数），不传值则默认为1080。当不使用typeNode的方式创建PiPController时（即使用PiPWindow.create()不传入contentNode参数），不传值则默认为XComponent组件的高度。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | controlGroups12+ | Array&lt;PiPControlGroup&gt; | 否 | 是 | 画中画控制面板的可选控件组列表，应用可以对此进行配置以决定是否显示。应用未配置时，面板显示基础控件（如视频播放控件组的播放/暂停控件）；应用选择配置时，则最多可以选择三个控件，超出三个create接口抛出401错误码。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| customUIController12+ | NodeController | 否 | 是 | 自定义UI控制器，用于实现在画中画界面的自定义UI功能。此参数不填时，默认不使用自定义UI功能 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| customUIController12+ | NodeController | 否 | 是 | 自定义UI控制器，用于实现在画中画界面的自定义UI功能。此参数不填时，默认不使用自定义UI功能。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | localStorage17+ | LocalStorage | 否 | 是 | 页面级别的UI状态存储单元。多实例下可用来跟踪主窗实例的UI状态存储对象，不传值则无法通过画中画窗口获取主窗的UI状态存储对象。 元服务API： 从API version 17开始，该接口支持在元服务中使用。 |
-| defaultWindowSizeType19+ | number | 否 | 是 | 当前应用第一次拉起画中画的窗口大小。 0：代表不设置大小。按照上个应用的画中画关闭前的大小启动； 1：代表小窗； 2：代表大窗； 不传值则为默认值0。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| defaultWindowSizeType19+ | number | 否 | 是 | 当前应用第一次拉起画中画的窗口大小，取值范围为[0, 2]，且只能为整数。 0：代表不设置大小。按照上个应用的画中画关闭前的大小启动； 1：代表小窗； 2：代表大窗； 不传值则为默认值0。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | cornerAdsorptionEnabled22+ | boolean | 否 | 是 | 是否开启画中画四角吸附功能。当开启画中画四角吸附功能后，屏幕将被划分为四个热区：以屏幕的上下中线和左右中线为界，形成左上、右上、左下、右下四个区域。画中画拉起时会根据上次画中画消失的位置出现在屏幕对应的角落，用户拖动窗口时可自由移动，松手后则会自动吸附在屏幕边缘。 true：表示开启画中画四角吸附功能。 false：表示关闭画中画四角吸附功能。 不传值则为默认值true。 设备行为差异： 该接口在Phone、Tablet设备上可正常调用，在其他设备上不生效。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 
 
@@ -337,7 +337,7 @@ struct Index {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| windowId | number | 否 | 否 | 画中画窗口ID。 |
+| windowId | number | 否 | 否 | 画中画窗口ID，用于唯一标识当前画中画窗口实例。 |
 | size | PiPWindowSize | 否 | 否 | 画中画窗口大小。 |
 
 
@@ -604,10 +604,10 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| PLAY | 1 | 播放。 |
-| PAUSE | 0 | 暂停。 |
-| OPEN | 1 | 打开。 |
-| CLOSE | 0 | 关闭。 |
+| PLAY | 1 | 播放状态。用于VIDEO_PLAY_PAUSE控件，表示视频处于播放状态。 |
+| PAUSE | 0 | 暂停状态。用于VIDEO_PLAY_PAUSE控件，表示视频处于暂停状态。 |
+| OPEN | 1 | 打开状态。用于MICROPHONE_SWITCH、CAMERA_SWITCH和MUTE_SWITCH控件，表示麦克风、摄像头或静音功能处于打开状态。 |
+| CLOSE | 0 | 关闭状态。用于MICROPHONE_SWITCH、CAMERA_SWITCH和MUTE_SWITCH控件，表示麦克风、摄像头或静音功能处于关闭状态。 |
 
 
 
@@ -725,7 +725,7 @@ startPiP(): Promise&lt;void&gt;
 
 ```text
 // 开发者可根据pipController的定义方式自行实现pipController的调用
-let promise : Promise<void> = this.pipController.startPiP();
+let promise : Promise<void> = this.pipController.startPiP(); // 启动画中画
 promise.then(() => {
   console.info(`Succeeded in starting pip.`);
 }).catch((err: BusinessError) => {
@@ -768,7 +768,7 @@ stopPiP(): Promise&lt;void&gt;
 **示例：**
 
 ```text
-let promise : Promise<void> = this.pipController.stopPiP();
+let promise : Promise<void> = this.pipController.stopPiP(); // 停止画中画
 promise.then(() => {
   console.info(`Succeeded in stopping pip.`);
 }).catch((err: BusinessError) => {
@@ -784,7 +784,9 @@ promise.then(() => {
 
 setAutoStartEnabled(enable: boolean): void
 
-设置拉起画中画的应用主窗退后台时是否自动启动画中画，默认不自动拉起。
+设置在拉起画中画的应用主窗退后台时是否自动启动画中画，默认不自动拉起。
+
+在开启自动拉起的情况下，当应用主窗为[智慧多窗悬浮窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro#悬浮窗)状态且被收入侧边栏时，应用主窗虽退后台，但不会自动拉起画中画。
 
 在使用XComponent方案实现画中画功能并结合Navigation进行路由管理时，首次调用setAutoStartEnabled(true)方法，系统会缓存当前应用传入的NavigationId的栈顶信息。
 
@@ -803,7 +805,7 @@ setAutoStartEnabled(enable: boolean): void
 
 ```text
 let enable: boolean = true;
-this.pipController.setAutoStartEnabled(enable);
+this.pipController.setAutoStartEnabled(enable); // 设置应用主窗退后台时自动启动画中画
 ```
 
 
@@ -820,12 +822,14 @@ updateContentSize(width: number, height: number): void
 
 **系统能力：** SystemCapability.Window.SessionManager
 
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV设备中可正常调用；在Car设备中，调用此接口不报错也不生效。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | number | 是 | 表示媒体内容宽度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。 |
-| height | number | 是 | 表示媒体内容高度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。 |
+| width | number | 是 | 表示媒体内容宽度，必须为大于0的整数，单位为px，用于更新画中画窗口比例。 |
+| height | number | 是 | 表示媒体内容高度，必须为大于0的整数，单位为px，用于更新画中画窗口比例。 |
 
 
 **错误码：**
@@ -842,7 +846,7 @@ updateContentSize(width: number, height: number): void
 ```text
 let width: number = 540; // 假设当前内容宽度变为540px。
 let height: number = 960; // 假设当前内容高度变为960px。
-this.pipController.updateContentSize(width, height);
+this.pipController.updateContentSize(width, height); // 更新画中画窗口内容尺寸
 ```
 
 
@@ -881,7 +885,7 @@ updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): v
 ```text
 let controlType: PiPWindow.PiPControlType = PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。
 let status: PiPWindow.PiPControlStatus = PiPWindow.PiPControlStatus.PLAY; // 视频播放控制面板中播放/暂停控件为播放状态。
-this.pipController.updatePiPControlStatus(controlType, status);
+this.pipController.updatePiPControlStatus(controlType, status); // 更新控制面板控件状态
 ```
 
 
@@ -928,13 +932,13 @@ updateContentNode(contentNode: typeNode.XComponent): Promise&lt;void&gt;
 ```text
 import { typeNode, UIContext } from '@kit.ArkUI';
 
-let context: UIContext | undefined = undefined; // 可传入UIContext或在布局中通过this.getUIContext()为context赋有效值
+let context: UIContext = this.getUIContext(); // 通过this.getUIContext()获取UIContext
 
 try {
-  let contentNode = typeNode.createNode(context, "XComponent");
-  this.pipController.updateContentNode(contentNode);
+  let contentNode = typeNode.createNode(context, "XComponent"); // 创建XComponent节点用于渲染画中画内容
+  this.pipController.updateContentNode(contentNode); // 更新画中画节点内容
 } catch (exception) {
-  console.error(`Failed to update content node. Cause: ${exception.code}, message: ${exception.message}`);
+  console.error(`Failed to update content node. Code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
@@ -946,7 +950,7 @@ try {
 
 setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void
 
-更新控制面板控件使能状态。
+更新控制面板控件使能状态，用于启用或禁用控件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -974,7 +978,7 @@ setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void
 ```text
 let controlType: PiPWindow.PiPControlType = PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。
 let enabled: boolean = false; // 视频播放控制面板中播放/暂停控件为禁用状态。
-this.pipController.setPiPControlEnabled(controlType, enabled);
+this.pipController.setPiPControlEnabled(controlType, enabled); // 设置控制面板控件使能状态
 ```
 
 
@@ -1013,15 +1017,17 @@ getPiPWindowInfo(): Promise&lt;PiPWindowInfo&gt;
 ```json
 let pipWindowInfo: PiPWindow.PiPWindowInfo | undefined = undefined;
 try {
+  // 获取画中画窗口信息
   let promise : Promise<PiPWindow.PiPWindowInfo> = this.pipController.getPiPWindowInfo();
   promise.then((data) => {
+    // 保存获取到的画中画窗口信息
     pipWindowInfo = data;
     console.info('Success in get pip window info. Info: ' + JSON.stringify(data));
   }).catch((err: BusinessError) => {
-    console.error(`Failed to get pip window info. Cause code: ${err.code}, message: ${err.message}`);
+    console.error(`Failed to get pip window info. Code: ${err.code}, message: ${err.message}`);
   });
 } catch (exception) {
-  console.error(`Failed to get pip window info. Cause code: ${exception.code}, message: ${exception.message}`);
+  console.error(`Failed to get pip window info. Code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
@@ -1063,15 +1069,17 @@ getPiPSettingSwitch(): Promise&lt;boolean&gt;
 ```json
 let pipSwitchStatus: boolean | undefined = undefined;
 try {
+  // 获取自动启动画中画开关状态
   let promise : Promise<boolean> = this.pipController.getPiPSettingSwitch();
   promise.then((data) => {
+    // 保存获取到的开关状态
     pipSwitchStatus = data;
     console.info('Succeeded in getting pip switch status. switchStatus: ' + JSON.stringify(data));
   }).catch((err: BusinessError) => {
-    console.error(`Failed to get pip switch status. Cause code: ${err.code}, message: ${err.message}`);
+    console.error(`Failed to get pip switch status. Code: ${err.code}, message: ${err.message}`);
   });
 } catch (exception) {
-  console.error(`Failed to get pip switch status. Cause code: ${exception.code}, message: ${exception.message}`);
+  console.error(`Failed to get pip switch status. Code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
@@ -1110,15 +1118,17 @@ isPiPActive(): Promise&lt;boolean&gt;
 ```json
 let pipActiveStatus: boolean | undefined = undefined;
 try {
+  // 获取画中画的隐藏状态
   let promise : Promise<boolean> | undefined = this.pipController?.isPiPActive();
   promise?.then((data) => {
+    // 保存获取到的画中画隐藏状态
     pipActiveStatus = data;
     console.info('Succeeded in getting pip active status. activeStatus: ' + JSON.stringify(data));
   }).catch((err: BusinessError) => {
-    console.error(`Failed to get pip active status. Cause code: ${err.code}, message: ${err.message}`);
+    console.error(`Failed to get pip active status. Code: ${err.code}, message: ${err.message}`);
   });
 } catch (exception) {
-  console.error(`Failed to get pip active status. Cause code: ${exception.code}, message: ${exception.message}`);
+  console.error(`Failed to get pip active status. Code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
@@ -1147,6 +1157,7 @@ on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): vo
 **示例：**
 
 ```text
+// 开启画中画生命周期状态变化的监听
 this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string) => {
   let curState: string = '';
   switch (state) {
@@ -1199,6 +1210,7 @@ off(type: 'stateChange'): void
 **示例：**
 
 ```text
+// 关闭画中画生命周期状态变化的监听
 this.pipController.off('stateChange');
 ```
 
@@ -1227,6 +1239,7 @@ on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): 
 **示例：**
 
 ```text
+// 开启画中画控制面板控件动作事件的监听
 this.pipController.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEventType, status?: number) => {
   switch (event) {
     case 'playbackStateChanged':
@@ -1280,6 +1293,7 @@ on(type: 'controlEvent', callback: Callback&lt;ControlEventParam&gt;): void
 **示例：**
 
 ```text
+// 开启画中画控制面板控件动作事件的监听
 this.pipController.on('controlEvent', (control) => {
   switch (control.controlType) {
     case PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE:
@@ -1332,6 +1346,7 @@ off(type: 'controlPanelActionEvent'): void
 **示例：**
 
 ```text
+// 关闭画中画控制面板控件动作事件的监听
 this.pipController.off('controlPanelActionEvent');
 ```
 
@@ -1363,6 +1378,7 @@ off(type: 'controlEvent', callback?: Callback&lt;ControlEventParam&gt;): void
 let callbackFunc = (event: PiPWindow.ControlEventParam) => {
   console.info(`receive control event: ${event.controlType}, ${event.status}`);
 }
+// 关闭画中画控制面板控件动作事件的监听
 this.pipController.off('controlEvent', callbackFunc);
 ```
 
@@ -1403,11 +1419,12 @@ on(type: 'pipWindowSizeChange', callback: Callback&lt;PiPWindowSize&gt;): void
 
 ```json
 try {
+  // 开启画中画窗口尺寸变化事件的监听
   this.pipController.on('pipWindowSizeChange', (size: PiPWindow.PiPWindowSize) => {
     console.info('Succeeded in enabling the listener for pip window size changes. size: ' + JSON.stringify(size));
   });
 } catch (exception) {
-  console.error(`Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);
+  console.error(`Failed to enable the listener for pip window size changes. Code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
@@ -1453,7 +1470,7 @@ try {
   // 通过on接口开启监听
   this.pipController.on('pipWindowSizeChange', callback);
 } catch (exception) {
-  console.error(`Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);
+  console.error(`Failed to enable the listener for pip window size changes. Code: ${exception.code}, message: ${exception.message}`);
 }
 
 try {
@@ -1462,7 +1479,7 @@ try {
   // 如果通过on开启多个callback进行监听，同时关闭所有监听：
   this.pipController.off('pipWindowSizeChange');
 } catch (exception) {
-  console.error(`Failed to disable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);
+  console.error(`Failed to disable the listener for pip window size changes. Code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
@@ -1494,6 +1511,7 @@ on(type: 'activeStatusChange', callback: Callback&lt;boolean&gt;): void
 let callback = (activeStatus: boolean) => {
   console.info(`pip window is visible: ${activeStatus}`);
 }
+// 开启画中画窗口隐藏状态变化事件的监听
 this.pipController.on('activeStatusChange', callback);
 ```
 
@@ -1525,5 +1543,6 @@ off(type: 'activeStatusChange', callback?: Callback&lt;boolean&gt;): void
 let callback = (activeStatus: boolean) => {
   console.info(`pip window is visible: ${activeStatus}`);
 }
+// 关闭画中画窗口隐藏状态变化事件的监听
 this.pipController.off('activeStatusChange', callback);
 ```

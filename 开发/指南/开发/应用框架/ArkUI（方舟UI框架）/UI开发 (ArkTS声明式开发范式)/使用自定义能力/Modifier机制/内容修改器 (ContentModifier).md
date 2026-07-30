@@ -1,6 +1,6 @@
 # 内容修改器 (ContentModifier)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-attributes-content-modifier
 
@@ -84,7 +84,7 @@ struct Index {
   build() {
     Row() {
       Column() {
-        //选中和不选中按钮
+        // 选中和不选中按钮
         // 请将$r('app.string.checkbox_status')替换为实际资源文件，在本示例中该资源文件的value值为"复选框状态"
         Checkbox({ name: this.resmg?.getStringSync($r('app.string.checkbox_status').id), group: 'checkboxGroup' })
           .select(true)

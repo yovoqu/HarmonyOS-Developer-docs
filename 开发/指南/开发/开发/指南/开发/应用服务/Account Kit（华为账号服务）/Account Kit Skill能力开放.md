@@ -1,6 +1,6 @@
 # Account Kit Skill能力开放
 
-更新时间：2026-06-18 03:32:00
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-skill
 
@@ -14,7 +14,7 @@ Account Kit接入Skills，旨在帮助开发者快速集成Account Kit开放能�
 
 - **华为账号一键登录Skill**：帮助开发者快速接入华为账号一键登录能力。其中：
 [客户端Skill](https://matrix.openharmony.cn/#/skillSquare/details?id=6a215e9b8428f219b71f84a2)负责生成 ArkTS 华为账号一键登录页面、配置工程依赖与添加权限，并实现页面跳转逻辑。
-- [服务端Skill](https://gitcode.com/HarmonyOS_Samples/accountkit-samplecode-clientdemo-arkts/tree/master/huawei-account-kit-quicklogin-server)负责生成服务端工程代码，实现授权码换取用户信息的接口。
+- [服务端Skill](https://gitcode.com/HarmonyOS_Samples/accountkit-samplecode-serverdemo/tree/Java/huawei-account-kit-quicklogin-server)负责生成服务端工程代码，实现授权码换取用户信息的接口。
 
   
  

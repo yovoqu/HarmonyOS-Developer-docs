@@ -1,6 +1,6 @@
 # 预览(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview
 
@@ -89,8 +89,8 @@ Camera_ErrorCode NDKCamera::CreatePreviewOutput(void)
         OH_LOG_ERROR(LOG_APP, "CreatePreviewOutput failed.");
         return CAMERA_INVALID_ARGUMENT;
     }
-    return ret_;
     PreviewOutputRegisterCallback();
+    return ret_;
 }
 ```
 

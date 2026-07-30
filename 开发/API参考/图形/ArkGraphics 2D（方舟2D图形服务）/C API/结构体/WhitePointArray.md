@@ -1,6 +1,6 @@
 # WhitePointArray
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-whitepointarray
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct WhitePointArray {...} WhitePointArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供白点数组结构体，白点是指在当前色域中表示白色的坐标。
+提供白点数组结构体，白点是在当前色域中表示白色的坐标。
  
 **起始版本：** 13
  
@@ -36,4 +36,4 @@ typedef struct WhitePointArray {...} WhitePointArray
  
 | 名称 | 描述 |
 | --- | --- |
-| float arr[2] | 表示白点返回数组。 |
+| float arr[2] | 表示白点坐标数组。arr[0]表示x坐标，arr[1]表示y坐标，用于在色域空间中精确定义白色基准点，影响色域的显示效果和颜色准确性。 |

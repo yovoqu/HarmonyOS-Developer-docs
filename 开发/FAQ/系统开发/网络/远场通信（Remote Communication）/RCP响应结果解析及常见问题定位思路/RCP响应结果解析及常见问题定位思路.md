@@ -1,6 +1,6 @@
 # RCP响应结果解析及常见问题定位思路
 
-更新时间：2026-07-02 07:18:00
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-16
 
@@ -18,9 +18,9 @@ Rcp {"code":errCode,"data":"errInfo xxx","extendInfo":{"httpPhase":"111100","dns
 1. **HTTPS请求过程**一次完整的HTTPS请求过程如下图所示，包括构造网络请求、DNS解析、TCP握手、TLS握手、发送HTTP请求、服务器处理并生成响应、客户端接收响应数据、TCP四次挥手。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/GYWpRYglTuSOD3dy5fWcHw/zh-cn_image_0000002661541099.png?HW-CC-KV=V1&HW-CC-Date=20260723T013447Z&HW-CC-Expire=86400&HW-CC-Sign=B821E6F36237D71636B4ECAA8A36EB22CF4AC95702BA0CF29284675C6A4C2673)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/lGnwAQLoRoyA-SIHpHcH0Q/zh-cn_image_0000002661541099.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=F49A51A6D4582232103339A78AA0FFFC481538DCDA43C095C8BE8EA055C3F5A9)
 
-- **构造网络请求**RCP模块中[Request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section10768169134510)的参数包含请求地址、请求方法、请求头、请求内容、请求cookie等，通过请求参数的设置来构造网络请求。
+- **构造网络请求**RCP模块中[Request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#request)的参数包含请求地址、请求方法、请求头、请求内容、请求cookie等，通过请求参数的设置来构造网络请求。
 
 2. **DNS解析**DNS（Domain Name System，域名系统）是将域名转换为IP地址。DNS解析的基本原理是通过分布式的层级结构，将域名逐层解析为IP地址。这个过程涉及多个DNS服务器的协同工作，其解析步骤如上图所示。
 

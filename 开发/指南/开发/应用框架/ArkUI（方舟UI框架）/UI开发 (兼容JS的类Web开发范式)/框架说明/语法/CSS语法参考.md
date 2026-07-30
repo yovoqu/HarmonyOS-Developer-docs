@@ -1,6 +1,6 @@
 # CSS语法参考
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-framework-syntax-css
 
@@ -132,7 +132,7 @@ div {
 ![](assets/CSS语法参考/file-20260514130737851-0.png)
 
 
-其中“.container text”将“标题”和“内容”设置为蓝色，而“.container > text”直接后代选择器将“标题”设置为红色。2者优先级相同，但直接后代选择器声明顺序靠后，将前者样式覆盖（优先级计算见[选择器优先级](#选择器优先级)）。
+其中“.container text”将“标题”和“内容”设置为蓝色，而“.container > text”直接后代选择器将“标题”设置为红色。两者优先级相同，但直接后代选择器声明顺序靠后，将前者样式覆盖（优先级计算见[选择器优先级](#选择器优先级)）。
 
 
 

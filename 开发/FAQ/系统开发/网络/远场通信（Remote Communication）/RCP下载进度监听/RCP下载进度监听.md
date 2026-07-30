@@ -1,6 +1,6 @@
 # RCP下载进度监听
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-14
 
@@ -13,14 +13,14 @@ RCP进行文件下载时，如何对下载进度实时监听？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/dxU4kp3eSvqxGmGaNNaHTw/zh-cn_image_0000002658851747.png?HW-CC-KV=V1&HW-CC-Date=20260723T013447Z&HW-CC-Expire=86400&HW-CC-Sign=BECBB8CCFC37BBEC50ABC1A449ADBC174C9202A13418E8E0928AA417DDCB7B8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/JTiYw05CRq-LOP658KiVsA/zh-cn_image_0000002658851747.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=DECEB25EEC126C75A71B830BB1C64F87713FA8242DEB44E2D0C5922C403D8C24)
 
  
  
 
 #### 解决方案
 
-使用[OnDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section832314187551)接口实时监听下载进度，回调函数会返回三个参数：
+使用[OnDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#ondownloadprogress)接口实时监听下载进度，回调函数会返回三个参数：
  
 - totalSize：要下载文件的总大小（number类型）。
 - transferredSize：已下载文件大小（number类型）。

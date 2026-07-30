@@ -1,13 +1,18 @@
 # scanCore (扫码公共信息)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scancore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供扫码公共信息。
+#### 模块概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+scanCore模块是Scan Kit的公共数据类型模块，提供扫码场景中使用的码类型枚举、错误码、默认界面扫码结果来源等公共数据类型定义。该模块不直接提供扫码能力，而是作为scanBarcode（默认界面扫码）、customScan（自定义界面扫码）、detectBarcode（图像识码）、generateBarcode（码图生成）功能模块的基础数据类型支撑。同时提供了isDefaultScanSupported和isCustomScanSupported两个能力查询接口，用于在调用扫码功能前检查当前设备是否支持相应能力。
  
 **起始版本：** 4.0.0(10)
+ 
   
 
 #### 导入模块
@@ -28,7 +33,7 @@ import { scanCore } from '@kit.ScanKit';
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本4.1.0(11)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.Core
  
@@ -36,24 +41,24 @@ import { scanCore } from '@kit.ScanKit';
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| FORMAT_UNKNOWN | 0 | 未知类型，用于事先不知道要扫哪种类型码的场景，此参数不可用作码图生成 |
-| AZTEC_CODE | 1 | AZTEC |
-| CODABAR_CODE | 2 | CODABAR |
-| CODE39_CODE | 3 | CODE 39 |
-| CODE93_CODE | 4 | CODE 93 |
-| CODE128_CODE | 5 | CODE 128 |
-| DATAMATRIX_CODE | 6 | DATA MATRIX |
-| EAN8_CODE | 7 | EAN-8 |
-| EAN13_CODE | 8 | EAN-13 |
-| ITF14_CODE | 9 | ITF-14 |
-| PDF417_CODE | 10 | PDF417 |
-| QR_CODE | 11 | QR CODE |
-| UPC_A_CODE | 12 | UPC-A |
-| UPC_E_CODE | 13 | UPC-E |
-| MULTIFUNCTIONAL_CODE | 14 | MULTIFUNCTIONAL CODE，暂不支持码图生成 |
-| ONE_D_CODE | 100 | 条形码，包含：CODABAR、CODE 39、CODE 93、CODE 128、EAN-8、EAN-13、ITF-14、UPC-A、UPC-E，此参数不可用作码图生成 |
-| TWO_D_CODE | 101 | 二维码，包含：AZTEC、DATA MATRIX、PDF417、QR CODE、MULTIFUNCTIONAL CODE，此参数不可用作码图生成 |
-| ALL | 1001 | 以上所有类型，此参数不可用作码图生成 |
+| FORMAT_UNKNOWN | 0 | 未知类型，用于事先不知道要扫哪种类型码的场景，此参数不可用作码图生成。 |
+| AZTEC_CODE | 1 | 码类型：Aztec。 |
+| CODABAR_CODE | 2 | 码类型：Codabar。 |
+| CODE39_CODE | 3 | 码类型：Code 39。 |
+| CODE93_CODE | 4 | 码类型：Code 93。 |
+| CODE128_CODE | 5 | 码类型：Code 128。 |
+| DATAMATRIX_CODE | 6 | 码类型：Data Matrix。 |
+| EAN8_CODE | 7 | 码类型：EAN-8。 |
+| EAN13_CODE | 8 | 码类型：EAN-13。 |
+| ITF14_CODE | 9 | 码类型：ITF-14。 |
+| PDF417_CODE | 10 | 码类型：PDF417。 |
+| QR_CODE | 11 | 码类型：QR Code。 |
+| UPC_A_CODE | 12 | 码类型：UPC-A。 |
+| UPC_E_CODE | 13 | 码类型：UPC-E。 |
+| MULTIFUNCTIONAL_CODE | 14 | 码类型：MULTIFUNCTIONAL CODE，暂不支持码图生成。 |
+| ONE_D_CODE | 100 | 条形码集合类型，包含：Codabar、Code 39、Code 93、Code 128、EAN-8、EAN-13、ITF-14、UPC-A、UPC-E，此参数不可用作码图生成。 |
+| TWO_D_CODE | 101 | 二维码集合类型，包含：Aztec、Data Matrix、PDF417、QR Code、MULTIFUNCTIONAL CODE，此参数不可用作码图生成。 |
+| ALL | 1001 | 以上所有类型，此参数不可用作码图生成。 |
  
  
   
@@ -72,8 +77,8 @@ import { scanCore } from '@kit.ScanKit';
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| INTERNAL_ERROR | 1000500001 | Internal error. 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| SCAN_SERVICE_CANCELED | 1000500002 | The user canceled the barcode scanning. 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 5.0.0(12) |
+| INTERNAL_ERROR | 1000500001 | 内部错误。详细介绍参见1000500001 内部错误。 元服务API： 从API版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| SCAN_SERVICE_CANCELED | 1000500002 | 用户取消扫码。详细介绍请参见1000500002 用户取消扫码。 元服务API： 从API版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 5.0.0(12) |
  
  
   
@@ -82,11 +87,11 @@ import { scanCore } from '@kit.ScanKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-枚举，扫码结果来源。
+枚举，扫码结果来源，表示默认界面扫码结果来源是相机预览流还是相册图片。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从版本6.0.2(22)开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本6.0.2(22)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.Core
  
@@ -94,8 +99,8 @@ import { scanCore } from '@kit.ScanKit';
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| CAMERA | 0 | 表示相机流扫码。 |
-| PHOTO | 1 | 表示照片扫码。 |
+| CAMERA | 0 | 默认界面扫码结果来源是相机预览流。 |
+| PHOTO | 1 | 默认界面扫码结果来源是相册图片。 |
  
  
   

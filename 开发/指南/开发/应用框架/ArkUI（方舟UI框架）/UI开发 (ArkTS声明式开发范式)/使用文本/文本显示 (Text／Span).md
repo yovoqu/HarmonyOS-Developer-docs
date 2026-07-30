@@ -1,6 +1,6 @@
 # 文本显示 (Text/Span)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-text-display
 
@@ -522,7 +522,7 @@ Text($r('app.string.CustomTextStyle_textContent_incopy'))
 
 ![](assets/文本显示%20(Text／Span)/file-20260514130615782-21.gif)
 
- - 通过[fontFamily](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontfamily)属性设置字体列表。应用当前支持'HarmonyOS Sans'字体和[注册自定义字体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-font)。
+ - 通过[fontFamily](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontfamily)属性设置文本字体族。应用当前支持'HarmonyOS Sans'字体和[注册自定义字体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-font)。
 
   
 ```ArkTS
@@ -686,7 +686,7 @@ struct EnableAutoSpacing {
 ```ArkTS
 @Entry
 @Component
-struct ShaderStyle {
+struct ShaderStyleDemo {
   @State message: string = 'Hello World';
   @State linearGradientOptions: LinearGradientOptions =
     {

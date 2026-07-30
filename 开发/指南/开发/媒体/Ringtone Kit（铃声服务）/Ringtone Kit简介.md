@@ -1,6 +1,6 @@
 # Ringtone Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-introduction
 
@@ -9,7 +9,7 @@ Ringtone Kit（铃声服务）是一个用于设置铃声的工具库。通过�
 
 #### 场景介绍
 
-Ringtone Kit支持将音频文件设置成多种铃声类型，满足各类铃声需求场景。
+Ringtone Kit支持将音视频文件设置成多种铃声类型，满足各类铃声需求场景。
  
 - 多种铃声类型：可设置来电铃声、通知铃声、信息铃声、闹钟铃声。
 - 支持双卡铃声：可对双卡分别设置不同来电铃声和信息铃声。

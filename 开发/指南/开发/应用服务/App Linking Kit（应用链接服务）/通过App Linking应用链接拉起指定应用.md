@@ -1,6 +1,6 @@
 # 通过App Linking应用链接拉起指定应用
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-linking-startupapp
 
@@ -125,14 +125,14 @@
   例如：开发者在4月7日17:21创建了应用链接，系统会在4月8日17:30去域名服务器上重新获取配置文件，然后进行交集校验，更新发布状态。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/dJt75NRcRLGvsasRk91iEQ/zh-cn_image_0000002611754835.png?HW-CC-KV=V1&HW-CC-Date=20260528T030050Z&HW-CC-Expire=86400&HW-CC-Sign=1C8CD306C3D9D0BEA8E99C2567434D5418F75E995E6F431FD294E3D760E4CEF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/P3VH8YSyRi2zWWejjH561w/zh-cn_image_0000002655847554.png?HW-CC-KV=V1&HW-CC-Date=20260730T071958Z&HW-CC-Expire=86400&HW-CC-Sign=977703FBDFB1ACDF3035428EB40A294666FC7684AC5F9D11321CC6CC8BF7C030)
 
 
   
 - 如果域名的配置文件中存在本项目中的应用，则发布成功，点击“查看”可显示该域名关联的应用信息。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/Z4VoYhLlQ0eNGNxZtGFGZg/zh-cn_image_0000002581434898.png?HW-CC-KV=V1&HW-CC-Date=20260528T030050Z&HW-CC-Expire=86400&HW-CC-Sign=8FC0B269F550D008900B61A03A7191EF45A80E93A25413B94BE4705784A8E627)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/kbkZNnEfQ_CkomZvBbZXig/zh-cn_image_0000002686086983.png?HW-CC-KV=V1&HW-CC-Date=20260730T071958Z&HW-CC-Expire=86400&HW-CC-Sign=AF70F6255CB9CFBE07CBDA333918A13DF70E7A3DF5F3FCBDF4CE8052DA029F19)
 
 
 6. 如果还在校验中，则状态为“发布中”。
@@ -140,7 +140,7 @@
 7. 如果配置文件中没有包含任何本项目中的应用，则发布失败，点击“查看”可显示发布失败原因。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/T-rGy67_ScStXNF604L9dw/zh-cn_image_0000002611834729.png?HW-CC-KV=V1&HW-CC-Date=20260528T030050Z&HW-CC-Expire=86400&HW-CC-Sign=9FD07F082B5D084438CBFF66D1D51131D494223CF77FD61D226290B434477C59)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/RaOg1wqGQcah-cLGrX0Clg/zh-cn_image_0000002685927155.png?HW-CC-KV=V1&HW-CC-Date=20260730T071958Z&HW-CC-Expire=86400&HW-CC-Sign=BA23DB8286F68C2E614F1DEBD8C3C6B90789346AFAB1FC2240C557F01E8858AB)
 
 
   
@@ -226,26 +226,31 @@
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { url } from '@kit.ArkTS';
+// ...
+
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    // ...
     // 从want中获取传入的链接信息。
-    // 如传入的url为：https://www.example.com/programs?action=showall
+    // 如传入的url为：https://example.drcn.agconnect.link/AIYx?action=showall，开发者可根据自己的业务需求进行后续的处理。
     let uri = want?.uri;
     if (uri) {
       // 从链接中解析query参数，拿到参数后，开发者可根据自己的业务需求进行后续的处理。
       try {
-        let urlObject = url.URL.parseURL(want?.uri);
+        let urlObject = url.URL.parseURL(uri);
         let action = urlObject.params.get('action');
         // 例如，当action为showall时，展示所有的节目。
-        if (action === "showall"){
+        if (action === 'showall') {
           // ...
         }
         // ...
       } catch (error) {
-        hilog.error(0x0000, 'testTag', `Failed to parse url.`);
+        hilog.error(0x0000, 'testTag', 'Failed to parse url.');
       }
+      // ...
     }
   }
+  // ...
 }
 ```
  
@@ -321,31 +326,39 @@ export class GlobalContext {
 
   
 ```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 import { GlobalContext } from '../common/GlobalContext';
+// ...
 
 @Entry
 @Component
 struct Index {
+  // ...
+
   build() {
-    Button('start link', { type: ButtonType.Capsule, stateEffect: true })
-      .width('87%')
-      .height('5%')
-      .margin({ bottom: '12vp' })
-      .onClick(() => {
-        let context = GlobalContext.getContext();
-        let link: string = "https://www.example.com/programs?action=showall";
-        // 仅以App Linking的方式打开应用
-        context.openLink(link, { appLinkingOnly: true })
-          .then(() => {
-            hilog.info(0x0000, 'testTag', `Succeeded in opening link.`);
-          })
-          .catch((error: BusinessError) => {
-            hilog.error(0x0000, 'testTag', `Failed to open link, code: ${error.code}, message: ${error.message}`);
-          })
-      })
+    // ...
+
+      Button('start link', { type: ButtonType.Capsule, stateEffect: true })
+        .width('100%')
+        .height(40)
+        .margin({ top: '20vp' })
+        .onClick(() => {
+          let context = GlobalContext.getContext();
+          let link: string = 'https://www.example.com/programs?action=showall';
+          // 仅以App Linking的方式打开应用
+          context.openLink(link, { appLinkingOnly: true })
+            .then(() => {
+              hilog.info(0x0000, 'testTag', `Succeeded in opening link.`);
+            })
+            .catch((error: BusinessError) => {
+              hilog.error(0x0000, 'testTag', `Failed to open link, code: ${error.code}, message: ${error.message}`);
+            })
+        })
+      // ...
   }
+
+  // ...
 }
 ```
 
@@ -365,7 +378,7 @@ ArkWeb深度集成了App Linking的能力，当用户在系统浏览器或者集
 通过系统级扫码入口扫描App Linking应用链接对应的二维码，然后查看跳转效果。以“扫码直达”服务的美团单车场景为例。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/DI7pCN5_QyuEmsLzZDtkfg/zh-cn_image_0000002581274982.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030050Z&HW-CC-Expire=86400&HW-CC-Sign=AAA4DE1DD82D0032A996CAF8C9650759DF2EF7B4E7E9A514CD2A5BCE24990812)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/pg1AY63mTHe8AmMhSrexSw/zh-cn_image_0000002656007476.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071958Z&HW-CC-Expire=86400&HW-CC-Sign=C2C2736980B6EECCD2998B92795196445D9C98A42E766CFF8961D264EEC44EAD)
 
  
   

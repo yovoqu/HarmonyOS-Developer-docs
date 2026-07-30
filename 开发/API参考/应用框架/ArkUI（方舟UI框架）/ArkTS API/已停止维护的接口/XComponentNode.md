@@ -1,14 +1,14 @@
 # XComponentNode
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-xcomponentnode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供XComponent节点XComponentNode，表示组件树中的[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件，用于[EGL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/egl)/[OpenGL ES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/opengles)和媒体数据写入，并支持动态修改节点渲染类型。
+提供XComponent节点XComponentNode，表示组件树中的[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件，用于[EGL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/egl)/[OpenGL ES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/opengles)渲染和媒体数据写入，并支持动态修改节点渲染类型，适用于需要在ArkUI组件树中嵌入Native自渲染内容的场景。
 
 > [!NOTE]
-> 从API version 12开始废弃，建议使用类型为 XComponent 的typeNode的方式实现。 本模块接口仅可在Stage模型下使用。 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当前不支持在预览器中使用XComponentNode。
+> 从API version 11开始支持，从API version 12开始废弃，建议使用 XComponent 类型的typeNode替代。 本模块接口仅可在Stage模型下使用。 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当前不支持在预览器中使用XComponentNode。
 
 
 
@@ -17,7 +17,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { XComponentNode } from "@kit.ArkUI";
+import { XComponentNode } from '@kit.ArkUI';
 ```
 
 
@@ -47,10 +47,10 @@ XComponentNode的构造函数。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uiContext | UIContext | 是 | UI上下文，获取方式可参考UIContext获取方法。 |
-| options | RenderOptions | 是 | XComponentNode的构造参数。 |
-| id | string | 是 | XComponent的唯一标识，支持最大的字符串长度128。详见XComponent组件。 |
-| type | XComponentType | 是 | 用于指定XComponent组件类型。详见XComponent组件。 |
-| libraryName | string | 否 | Native层编译输出动态库名称。详见XComponent组件。 |
+| options | RenderOptions | 是 | XComponentNode的渲染配置选项，用于设置节点渲染相关参数，如理想尺寸（selfIdealSize）等。 |
+| id | string | 是 | XComponent的唯一标识，最大支持字符串长度128，超出长度时接口创建失败。详见XComponent组件。 |
+| type | XComponentType | 是 | 用于指定XComponent组件类型，取值为XComponentType枚举定义的值。详见XComponent组件。 |
+| libraryName | string | 否 | Native层编译输出动态库名称。不传该参数时，默认不加载Native动态库。详见XComponent组件。 |
 
 
 > [!NOTE]
@@ -77,7 +77,7 @@ XComponentNode加载完成时触发该回调。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | Object | 否 | 获取XComponent实例对象的context，context上挂载的方法由开发者在C++层定义。 |
+| event | Object | 否 | XComponent实例对象的事件参数，用于获取XComponent实例的context。context上挂载的方法由开发者在C++层定义，开发者可通过该context调用Native层注册的方法。 |
 
 
 
@@ -104,7 +104,7 @@ XComponentNode销毁时触发该回调。
 
 changeRenderType(type: NodeRenderType): boolean
 
-修改XComponentNode的渲染类型。
+动态修改XComponentNode的渲染类型。例如，当需要在组件上进行EGL/OpenGL ES直接绘制时可使用DISPLAY类型；当需要将渲染内容作为纹理参与合成（如实现半透明叠加效果或离屏渲染）时可切换为TEXTURE类型。
 
 > [!NOTE]
 > 从API version 11开始支持，从API version 12开始废弃，建议使用 appendChild 替代。
@@ -116,7 +116,7 @@ changeRenderType(type: NodeRenderType): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | NodeRenderType | 是 | 需要修改的渲染类型。 |
+| type | NodeRenderType | 是 | 需要修改的目标渲染类型，取值为NodeRenderType枚举定义的值。 |
 
 
 **返回值：**
@@ -133,11 +133,11 @@ changeRenderType(type: NodeRenderType): boolean
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { NodeController, FrameNode, XComponentNode, NodeRenderType, UIContext } from '@kit.ArkUI'
+import { NodeController, FrameNode, XComponentNode, NodeRenderType, XComponentType, UIContext } from '@kit.ArkUI';
 
 class XComponentNodeController extends NodeController {
   private xComponentNode: MyXComponentNode | null = null;
-  private soName: string = "tetrahedron_napi" // 该 so 由开发者通过 NAPI 编写并生成
+  private soName: string = 'tetrahedron_napi'; // 该 so 由开发者通过 NAPI 编写并生成
 
   constructor() {
     super();
@@ -146,7 +146,7 @@ class XComponentNodeController extends NodeController {
   makeNode(context: UIContext): FrameNode | null {
     this.xComponentNode = new MyXComponentNode(context, {
       selfIdealSize: { width: 200, height: 200 }
-    }, "xComponentId", XComponentType.SURFACE, this.soName);
+    }, 'xComponentId', XComponentType.SURFACE, this.soName);
     return this.xComponentNode;
   }
 
@@ -184,4 +184,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/STo805kbR-GG8JnFRij1Bw/zh-cn_image_0000002647587716.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011951Z&HW-CC-Expire=86400&HW-CC-Sign=073E00B897045D40AEE7900197A7728E57EDFC8A490C5328FD3AA963FA623B6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/QRJzuIBiSxafs6NV_ZZlkA/zh-cn_image_0000002656008238.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071451Z&HW-CC-Expire=86400&HW-CC-Sign=7626305AA6899F6E234E83C86BC6FD9587536A37D47F84DC6EC513355622895C)

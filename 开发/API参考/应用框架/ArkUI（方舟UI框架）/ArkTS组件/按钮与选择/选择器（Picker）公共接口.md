@@ -1,6 +1,6 @@
 # 选择器（Picker）公共接口
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 选择器组件公共接口。
  
 > [!NOTE]
-> 从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -16,7 +16,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-选择器组件的文本样式。
+选择器组件的文本样式，用于配置选择器中显示文本的外观属性。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -26,8 +26,8 @@
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| color | ResourceColor | 否 | 是 | 文本颜色。 |
-| font | Font | 否 | 是 | 文本样式。 |
+| color | ResourceColor | 否 | 是 | 文本颜色，用于自定义选择器中文字的颜色。当需要使用特定颜色时传入，不传入时使用系统默认文本颜色。 |
+| font | Font | 否 | 是 | 文本样式，包括字体大小、字体粗细、字体族等属性。当需要自定义选择器中文字的字体样式时传入，不传入时使用系统默认文本样式。 |
  
  
   
@@ -36,7 +36,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-选择器弹窗的按钮样式。
+选择器弹窗的按钮样式，用于配置日期选择器、时间选择器等弹窗中确认和取消按钮的显示样式、角色和行为。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -46,17 +46,17 @@
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | ButtonType | 否 | 是 | 按钮显示样式。 |
-| style | ButtonStyleMode | 否 | 是 | 按钮的样式和重要程度。 |
-| role | ButtonRole | 否 | 是 | 按钮组件的角色。 |
-| fontSize | Length | 否 | 是 | 文本显示字号。 |
-| fontColor | ResourceColor | 否 | 是 | 文本显示颜色。 |
-| fontWeight | FontWeight \| number \| string | 否 | 是 | 文本的字体粗细。number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"200"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 |
-| fontStyle | FontStyle | 否 | 是 | 文本的字体样式。 |
-| fontFamily | Resource \| string | 否 | 是 | 字体列表。默认字体'HarmonyOS Sans'，当前支持'HarmonyOS Sans'字体和注册自定义字体。 |
+| type | ButtonType | 否 | 是 | 按钮显示样式，用于设置按钮的显示类型。当需要自定义按钮显示样式时传入，不传入时使用默认按钮显示样式。 |
+| style | ButtonStyleMode | 否 | 是 | 按钮的样式和重要程度，用于设置按钮的视觉样式和交互重要级别。当需要自定义按钮样式时传入，不传入时使用默认按钮样式。 |
+| role | ButtonRole | 否 | 是 | 按钮角色，用于定义按钮在对话框中的语义角色。可选值包括Normal（正常按钮）、Error（警示按钮），详见ButtonRole枚举说明。默认值：ButtonRole.NORMAL。 |
+| fontSize | Length | 否 | 是 | 文本显示字号，用于自定义按钮文字的大小。单位：fp。 |
+| fontColor | ResourceColor | 否 | 是 | 文本显示颜色，用于自定义按钮文字的颜色。 |
+| fontWeight | FontWeight \| number \| string | 否 | 是 | 文本的字体粗细。number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"200"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。默认值：FontWeight.Normal。 |
+| fontStyle | FontStyle | 否 | 是 | 文本的字体样式，用于指定文本是否使用斜体显示。可选值包括Normal（正常样式）、Italic（斜体样式），详见FontStyle枚举说明。默认值：FontStyle.Normal。 |
+| fontFamily | Resource \| string | 否 | 是 | 字体列表，用于设置按钮文字使用的字体。支持传入单个字体名称字符串，或使用逗号分隔的多个字体名称（优先级从左到右，例如'Arial,HarmonyOS Sans'）。默认字体为'HarmonyOS Sans'，支持注册自定义字体。不传入时使用默认字体。 |
 | backgroundColor | ResourceColor | 否 | 是 | 按钮背景色。 |
-| borderRadius | Length \| BorderRadiuses | 否 | 是 | 圆角半径。 |
-| primary | boolean | 否 | 是 | 弹出弹窗后，未使用Tab键切换焦点时，Enter键是否默认由该按钮响应。 true：弹出弹窗后，未使用Tab键切换焦点时，按下Enter键会触发该按钮绑定的事件。 false：弹出弹窗后，未使用Tab键切换焦点时，按下Enter键不会触发该按钮绑定的事件。 默认值：false |
+| borderRadius | Length \| BorderRadiuses | 否 | 是 | 圆角半径，用于设置按钮的圆角大小。单位：vp。当需要自定义按钮圆角样式时传入，不传入时使用默认圆角半径。 |
+| primary | boolean | 否 | 是 | 控制弹出弹窗后，Enter键是否默认由该按钮响应。弹出弹窗后，若未使用Tab键切换焦点，primary为true的按钮将默认响应Enter键；若使用Tab键切换了焦点，则Enter键由当前获得焦点的按钮响应。 true：弹出弹窗后，未使用Tab键切换焦点时，按下Enter键会触发该按钮绑定的事件。 false：弹出弹窗后，未使用Tab键切换焦点时，按下Enter键不会触发该按钮绑定的事件。 默认值：false |
  
  
   
@@ -75,5 +75,5 @@
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| start | Date | 否 | 是 | 设置日期区间的开始日期。 |
-| end | Date | 否 | 是 | 设置日期区间的结束日期。 |
+| start | Date | 否 | 是 | 设置日期区间的开始日期，应不晚于结束日期。不传入、日期格式错误、日期超出系统支持范围或start晚于end时，该日期区间无效。 |
+| end | Date | 否 | 是 | 设置日期区间的结束日期。不传入、日期格式错误、日期超出系统支持范围或end早于start时，该日期区间无效。 |

@@ -1,6 +1,6 @@
 # @correctness/accessibility-status-missing-check
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-accessibility-status-missing-check
 

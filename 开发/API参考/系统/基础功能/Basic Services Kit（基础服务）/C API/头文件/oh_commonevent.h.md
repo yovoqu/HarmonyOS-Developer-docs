@@ -1,6 +1,6 @@
 # oh_commonevent.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,36 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义公共事件订阅与退订API接口与枚举错误码。
+本模块定义了发布、订阅/取消订阅公共事件、事件回调数据访问、有序事件控制等关键操作函数，以及错误码枚举与核心数据类型定义。
+ 
+**API 组合使用关系说明：**
+ 
+本模块存在三条明确的API调用流程：订阅流程、发布流程、有序事件处理流程。
+ 
+**组合一：订阅并处理公共事件**
+ 1. 通过OH_CommonEvent_CreateSubscribeInfo创建订阅者信息，声明需要订阅的事件名称，可选设置发布方权限与包名，用于过滤事件来源。
+2. 通过OH_CommonEvent_CreateSubscriber创建订阅者并注册接收事件回调函数，再通过OH_CommonEvent_Subscribe发起事件订阅，订阅生效后即可在回调中等待事件投递。
+3. 事件到达时，从回调参数CommonEvent_RcvData中获取事件名、code数据、data数据以及发布方包名等信息，然后进行业务逻辑处理。
+4. 不再需要订阅时，调用OH_CommonEvent_UnSubscribe取消订阅，并释放相关资源。
+ 
+**组合二：发布带附加信息的公共事件**
+ 1. 通过OH_CommonEvent_CreatePublishInfo创建公共事件属性对象，并按需设置code数据、data数据、订阅者包名、订阅者权限与附加信息等属性。
+2. 通过OH_CommonEvent_PublishWithInfo发布携带属性的事件。
+  
+若无需附加属性，可直接调用便捷接口OH_CommonEvent_Publish(event)发布事件。
+  
+**组合三：有序公共事件处理**
+ 
+有序公共事件在订阅回调内通过订阅者句柄进行控制，订阅者句柄需在创建订阅者时保存，以便在回调中使用。
+ 1. 发布公共事件时，通过OH_CommonEvent_CreatePublishInfo(true)创建有序事件属性，事件将按订阅者优先级依次投递。
+2. 订阅者可在回调中通过OH_CommonEvent_SetCodeToSubscriber、OH_CommonEvent_SetDataToSubscriber设置传递给后续订阅者的code与data数据；通过OH_CommonEvent_AbortCommonEvent可标记事件为中止状态，终止其向后续订阅者投递。
+3. 回调处理完成后，必须调用OH_CommonEvent_FinishCommonEvent结束处理，否则事件无法继续投递给后续订阅者。
+ 
+需注意本模块遵循典型的"创建—使用—释放"生命周期：
+ 
+- **订阅侧对象**：CommonEvent_SubscribeInfo→CommonEvent_Subscriber。创建后订阅生效，取消订阅后需依次销毁订阅者和订阅信息，避免内存泄漏。
+- **发布侧对象**：CommonEvent_PublishInfo与CommonEvent_Parameters。发布完成后需分别销毁，二者相互独立。
+
  
 **库：** libohcommonevent.so
  
@@ -49,7 +78,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | void | CommonEvent_Subscriber | 提供CommonEvent_Subscriber订阅者声明。 |
-| void | CommonEvent_Parameters | 提供CommonEvent_RcvData公共事件附加信息声明。 |
+| void | CommonEvent_Parameters | 提供CommonEvent_Parameters公共事件附加信息声明。 |
  
  
   
@@ -81,8 +110,8 @@
 | CommonEvent_ErrCode OH_CommonEvent_Subscribe(const CommonEvent_Subscriber* subscriber) | - | 订阅公共事件。 |
 | CommonEvent_ErrCode OH_CommonEvent_UnSubscribe(const CommonEvent_Subscriber* subscriber) | - | 退订公共事件。 |
 | const char* OH_CommonEvent_GetEventFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取当前接收的公共事件名称。 |
-| int32_t OH_CommonEvent_GetCodeFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取接收到的公共事件数据，整数类型。 |
-| const char* OH_CommonEvent_GetDataStrFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取接收到的公共事件数据，字符串类型。 |
+| int32_t OH_CommonEvent_GetCodeFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取公共事件传递的Code数据，整数类型。 |
+| const char* OH_CommonEvent_GetDataStrFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取公共事件传递的数据，字符串类型。 |
 | const char* OH_CommonEvent_GetBundleNameFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取接收到的公共事件的包名称信息。 |
 | const CommonEvent_Parameters* OH_CommonEvent_GetParametersFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取公共事件附加信息。 |
 | CommonEvent_PublishInfo* OH_CommonEvent_CreatePublishInfo(bool ordered) | - | 创建公共事件属性对象。 |
@@ -153,15 +182,14 @@ enum CommonEvent_ErrCode
 | 枚举项 | 描述 |
 | --- | --- |
 | COMMONEVENT_ERR_OK = 0 | 成功。 |
-| COMMONEVENT_ERR_PERMISSION_ERROR = 201 | 权限错误。 |
-| COMMONEVENT_ERR_INVALID_PARAMETER = 401 | 参数错误。 |
-| COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED = 1500003 | 事件发送频率过高。 起始版本： 20 |
-| COMMONEVENT_ERR_NOT_SYSTEM_SERVICE = 1500004 | 三方应用无法发送系统公共事件。 |
-| COMMONEVENT_ERR_SENDING_REQUEST_FAILED = 1500007 | IPC发送失败。 |
-| COMMONEVENT_ERR_INIT_UNDONE = 1500008 | 服务未初始化。 |
-| COMMONEVENT_ERR_OBTAIN_SYSTEM_PARAMS = 1500009 | 系统错误。 |
-| COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED = 1500010 | 订阅者数量超过限制。 |
-| COMMONEVENT_ERR_ALLOC_MEMORY_FAILED = 1500011 | 内存分配失败。 |
+| COMMONEVENT_ERR_INVALID_PARAMETER = 401 | 参数错误。参数不合法，请检查参数类型、取值范围或参数是否为空。 |
+| COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED = 1500003 | 事件发送频率过高。请检查应用是否过于频繁地发送公共事件，如发送频率超过每5毫秒20个，请降低公共事件发送频率或增加发送间隔后重新尝试。 起始版本： 20 |
+| COMMONEVENT_ERR_NOT_SYSTEM_SERVICE = 1500004 | 三方应用无法发送系统公共事件。请检查当前应用是否为系统应用，或当前服务是否为系统服务。 |
+| COMMONEVENT_ERR_SENDING_REQUEST_FAILED = 1500007 | IPC发送失败。请勿频繁建立连接，稍后重新尝试。 |
+| COMMONEVENT_ERR_INIT_UNDONE = 1500008 | 服务未初始化。请稍后重新尝试。 |
+| COMMONEVENT_ERR_OBTAIN_SYSTEM_PARAMS = 1500009 | 系统错误。请稍后重新尝试。 |
+| COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED = 1500010 | 进程内订阅者数量超过系统限制（200个）。请检查应用内是否存在订阅者未取消订阅，如存在则取消订阅后重新尝试；不存在请稍后重新尝试。 |
+| COMMONEVENT_ERR_ALLOC_MEMORY_FAILED = 1500011 | 内存分配失败。请稍后重新尝试。 |
  
  
   
@@ -213,15 +241,15 @@ CommonEvent_SubscribeInfo* OH_CommonEvent_CreateSubscribeInfo(const char* events
   
 | 参数项 | 描述 |
 | --- | --- |
-| const char* events[] | 订阅的公共事件，实际订阅的公共事件数量为eventsNum与events数组长度的最小值。 |
-| int32_t eventsNum | 订阅的公共事件数量。 |
+| const char* events[] | 订阅的公共事件，实际订阅的数量为eventsNum与events数组长度的最小值。 |
+| int32_t eventsNum | 订阅的公共事件数量，非负整数，取值为events数组长度。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| CommonEvent_SubscribeInfo* | 成功则返回订阅者信息,失败则返回NULL。 |
+| CommonEvent_SubscribeInfo* | 成功则返回订阅者信息，失败则返回NULL。该指针由内部管理，在OH_CommonEvent_DestroySubscribeInfo()时释放。 |
  
  
   
@@ -244,8 +272,8 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublisherPermission(CommonEvent_SubscribeI
   
 | 参数项 | 描述 |
 | --- | --- |
-| CommonEvent_SubscribeInfo* info | 订阅者信息。 |
-| const char* permission | 权限名称。 |
+| CommonEvent_SubscribeInfo* info | 待设置发布方权限的订阅者信息对象。 |
+| const char* permission | 权限名称。取值为系统已定义的权限名，订阅方将只能接收到具有该权限的发送方发布的事件。不设置时，可接收所有发送方发布的事件。 |
  
  
 **返回：**
@@ -275,8 +303,8 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublisherBundleName(CommonEvent_SubscribeI
   
 | 参数项 | 描述 |
 | --- | --- |
-| CommonEvent_SubscribeInfo* info | 订阅者信息。 |
-| const char* bundleName | 包名称。 |
+| CommonEvent_SubscribeInfo* info | 待设置发布方权限的订阅者信息对象。 |
+| const char* bundleName | 包名称。用于限制订阅方只接收该bundleName的发布者发布的公共事件。不设置时，可接收所有应用发布的公共事件。 |
  
  
 **返回：**
@@ -330,14 +358,14 @@ CommonEvent_Subscriber* OH_CommonEvent_CreateSubscriber(const CommonEvent_Subscr
 | 参数项 | 描述 |
 | --- | --- |
 | const CommonEvent_SubscribeInfo* info | 订阅者信息。 |
-| CommonEvent_ReceiveCallback callback | 公共事件回调函数 |
+| CommonEvent_ReceiveCallback callback | 公共事件回调函数。当公共事件订阅成功后，事件触发时通过data返回公共事件数据。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| CommonEvent_Subscriber* | 成功则返回订阅者,失败则返回NULL。 |
+| CommonEvent_Subscriber* | 成功则返回订阅者，失败则返回NULL。该指针由内部管理，在OH_CommonEvent_DestroySubscriber()时释放。 |
  
  
   
@@ -390,7 +418,7 @@ CommonEvent_ErrCode OH_CommonEvent_Subscribe(const CommonEvent_Subscriber* subsc
   
 | 类型 | 说明 |
 | --- | --- |
-| CommonEvent_ErrCode | 返回错误码。 返回COMMONEVENT_ERR_OK表示成功。 返回COMMONEVENT_ERR_INVALID_PARAMETER表示参数subscriber无效。 返回COMMONEVENT_ERR_SENDING_REQUEST_FAILED表示IPC请求发送失败。 返回COMMONEVENT_ERR_INIT_UNDONE表示公共事件服务未初始化。 返回COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED表示进程订阅者数量超过200个。 返回COMMONEVENT_ERR_ALLOC_MEMORY_FAILED系统分配内存失败。 |
+| CommonEvent_ErrCode | 返回错误码。 返回COMMONEVENT_ERR_OK表示成功。 返回COMMONEVENT_ERR_INVALID_PARAMETER表示参数subscriber无效。 返回COMMONEVENT_ERR_SENDING_REQUEST_FAILED表示IPC请求发送失败。 返回COMMONEVENT_ERR_INIT_UNDONE表示公共事件服务未初始化。 返回COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED表示进程内订阅者数量超过系统限制（200个）。 返回COMMONEVENT_ERR_ALLOC_MEMORY_FAILED表示系统分配内存失败。 |
  
  
   
@@ -435,7 +463,7 @@ const char* OH_CommonEvent_GetEventFromRcvData(const CommonEvent_RcvData* rcvDat
  
 **描述**
  
-获取当前接收的公共事件名称。
+获取接收到的公共事件名称。
  
 **起始版本：** 12
  
@@ -450,7 +478,7 @@ const char* OH_CommonEvent_GetEventFromRcvData(const CommonEvent_RcvData* rcvDat
   
 | 类型 | 说明 |
 | --- | --- |
-| const char* | 返回事件名称。 |
+| const char* | 返回公共事件名称。该指针由系统产生，回调函数CommonEvent_ReceiveCallback结束后即刻释放，不可在回调函数外部使用。 |
  
  
   
@@ -465,7 +493,7 @@ int32_t OH_CommonEvent_GetCodeFromRcvData(const CommonEvent_RcvData* rcvData)
  
 **描述**
  
-获取公共事件传递的数据，整数类型。
+获取接收到的公共事件Code数据，整数类型。
  
 **起始版本：** 12
  
@@ -480,7 +508,7 @@ int32_t OH_CommonEvent_GetCodeFromRcvData(const CommonEvent_RcvData* rcvData)
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回公共事件传递的数据，整数类型。 |
+| int32_t | 返回接收到的公共事件Code数据，整数类型。 |
  
  
   
@@ -495,7 +523,7 @@ const char* OH_CommonEvent_GetDataStrFromRcvData(const CommonEvent_RcvData* rcvD
  
 **描述**
  
-获取公共事件传递的数据，字符串类型。
+获取接收到的公共事件数据，字符串类型。
  
 **起始版本：** 12
  
@@ -510,7 +538,7 @@ const char* OH_CommonEvent_GetDataStrFromRcvData(const CommonEvent_RcvData* rcvD
   
 | 类型 | 说明 |
 | --- | --- |
-| const char* | 返回公共事件传递的数据，字符串类型。 |
+| const char* | 返回接收到的公共事件数据，字符串类型。该指针由系统产生，回调函数CommonEvent_ReceiveCallback结束后即刻释放，不可在回调函数外部使用。 |
  
  
   
@@ -540,7 +568,7 @@ const char* OH_CommonEvent_GetBundleNameFromRcvData(const CommonEvent_RcvData* r
   
 | 类型 | 说明 |
 | --- | --- |
-| const char* | 返回公共事件的包名称。 |
+| const char* | 返回公共事件的包名称。该指针由系统产生，回调函数CommonEvent_ReceiveCallback结束后即刻释放，不可在回调函数外部使用。 |
  
  
   
@@ -600,7 +628,7 @@ CommonEvent_PublishInfo* OH_CommonEvent_CreatePublishInfo(bool ordered)
   
 | 类型 | 说明 |
 | --- | --- |
-| CommonEvent_PublishInfo* | 创建的公共事件属性对象，创建失败时，返回null。 |
+| CommonEvent_PublishInfo* | 创建的公共事件属性对象，创建失败时，返回NULL。该指针由内部管理，在OH_CommonEvent_DestroyPublishInfo()时释放。 |
  
  
   
@@ -678,8 +706,8 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoPermissions(CommonEvent_Publish
 | 参数项 | 描述 |
 | --- | --- |
 | CommonEvent_PublishInfo* info | 公共事件属性对象。 |
-| const char* permissions[] | 订阅者权限名称数组，生效数量为num与permissions数组长度的最小值。 |
-| int32_t num | 权限的数量。 |
+| const char* permissions[] | 订阅者权限名称数组，只有具备这些权限的订阅者才能收到该公共事件。生效数量为num与permissions数组长度的最小值。 |
+| int32_t num | 权限名称的数量，取值为permissions数组长度。 |
  
  
 **返回：**
@@ -727,7 +755,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoCode(CommonEvent_PublishInfo* i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoData(CommonEvent_PublishInfo* info,const char* data, size_t length)
+CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoData(CommonEvent_PublishInfo* info, const char* data, size_t length)
 ```
  
 **描述**
@@ -741,8 +769,8 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoData(CommonEvent_PublishInfo* i
 | 参数项 | 描述 |
 | --- | --- |
 | CommonEvent_PublishInfo* info | 公共事件属性对象。 |
-| const char* data | 公共事件传递的数据，字符串类型，实际有效数据长度为length和data字符串长度的最小值。 |
-| size_t length | 结果数据的长度。 |
+| const char* data | 公共事件传递的数据，字符串类型，实际有效数据长度为length与data字符串长度的最小值。 |
+| size_t length | 结果数据的长度，取值为data数据字符串长度。 |
  
  
 **返回：**
@@ -803,7 +831,7 @@ CommonEvent_Parameters* OH_CommonEvent_CreateParameters()
   
 | 类型 | 说明 |
 | --- | --- |
-| CommonEvent_Parameters* | 返回公共事件附加信息，创建失败时，返回null。 |
+| CommonEvent_Parameters* | 返回公共事件附加信息，创建失败时，返回NULL。该指针由内部管理，在OH_CommonEvent_DestroyParameters()时释放。 |
  
  
   
@@ -882,7 +910,7 @@ int OH_CommonEvent_GetIntFromParameters(const CommonEvent_Parameters* para, cons
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const int defaultValue | 默认值。 |
+| const int defaultValue | 默认值，当指定key不存在时返回此默认值。 |
  
  
 **返回：**
@@ -946,7 +974,7 @@ int32_t OH_CommonEvent_GetIntArrayFromParameters(const CommonEvent_Parameters* p
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| int** array | 查询的数组。 |
+| int** array | 输出参数，用于接收查询到的int数组数据。该数组内存由函数内部分配，调用者无需预先分配。 |
  
  
 **返回：**
@@ -978,7 +1006,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetIntArrayToParameters(CommonEvent_Parameter
 | --- | --- |
 | CommonEvent_Parameters* param | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const int* value | 设置的int数组内容。 |
+| const int* value | 设置的int数组内容。实际设置的数量为num，value数组长度需大于num，否则会有越界访问风险。 |
 | size_t num | 设置的int数组内容中元素的个数。 |
  
  
@@ -1011,7 +1039,7 @@ long OH_CommonEvent_GetLongFromParameters(const CommonEvent_Parameters* para, co
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const long defaultValue | 默认值。 |
+| const long defaultValue | 默认值，当指定key不存在时返回此默认值。 |
  
  
 **返回：**
@@ -1075,7 +1103,7 @@ int32_t OH_CommonEvent_GetLongArrayFromParameters(const CommonEvent_Parameters* 
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| long** array | 查询的数组。 |
+| long** array | 输出参数，用于接收查询到的long数组数据。该数组内存由函数内部分配，调用者无需预先分配。 |
  
  
 **返回：**
@@ -1107,7 +1135,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetLongArrayToParameters(CommonEvent_Paramete
 | --- | --- |
 | CommonEvent_Parameters* param | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const long* value | 设置的long数组内容。 |
+| const long* value | 设置的long数组内容。实际设置的数量为num，value数组长度需大于num，否则会有越界访问风险。 |
 | size_t num | 设置的long数组内容中元素的个数。 |
  
  
@@ -1140,7 +1168,7 @@ bool OH_CommonEvent_GetBoolFromParameters(const CommonEvent_Parameters* para, co
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const bool defaultValue | 默认值。 |
+| const bool defaultValue | 默认值，当指定key不存在时返回此默认值。 |
  
  
 **返回：**
@@ -1204,7 +1232,7 @@ int32_t OH_CommonEvent_GetBoolArrayFromParameters(const CommonEvent_Parameters* 
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| bool** array | 查询的数组。 |
+| bool** array | 输出参数，用于接收查询到的bool数组数据。该数组内存由函数内部分配，调用者无需预先分配。 |
  
  
 **返回：**
@@ -1236,7 +1264,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetBoolArrayToParameters(CommonEvent_Paramete
 | --- | --- |
 | CommonEvent_Parameters* param | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const bool* value | 设置的布尔数组内容。 |
+| const bool* value | 设置的布尔数组内容。实际设置的数量为num，value数组长度需大于num，否则会有越界访问风险。 |
 | size_t num | 设置的布尔数组内容中元素的个数。 |
  
  
@@ -1269,7 +1297,7 @@ char OH_CommonEvent_GetCharFromParameters(const CommonEvent_Parameters* para, co
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const char defaultValue | 默认值。 |
+| const char defaultValue | 默认值，当指定key不存在时返回此默认值。 |
  
  
 **返回：**
@@ -1333,7 +1361,7 @@ int32_t OH_CommonEvent_GetCharArrayFromParameters(const CommonEvent_Parameters* 
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| char** array | 查询的数组。 |
+| char** array | 输出参数，用于接收查询到的char数组数据。该数组内存由函数内部分配，调用者无需预先分配。 |
  
  
 **返回：**
@@ -1365,7 +1393,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetCharArrayToParameters(CommonEvent_Paramete
 | --- | --- |
 | CommonEvent_Parameters* param | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const char* value | 设置的字符数组内容。 |
+| const char* value | 设置的字符数组内容。实际设置的数量为num与value数组长度的最小值。 |
 | size_t num | 设置的字符数组内容中元素的个数。 |
  
  
@@ -1383,7 +1411,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetCharArrayToParameters(CommonEvent_Paramete
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-double OH_CommonEvent_GetDoubleFromParameters(const CommonEvent_Parameters* para, const char* key,const double defaultValue)
+double OH_CommonEvent_GetDoubleFromParameters(const CommonEvent_Parameters* para, const char* key, const double defaultValue)
 ```
  
 **描述**
@@ -1398,7 +1426,7 @@ double OH_CommonEvent_GetDoubleFromParameters(const CommonEvent_Parameters* para
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const double defaultValue | 默认值。 |
+| const double defaultValue | 默认值，当指定key不存在时返回此默认值。 |
  
  
 **返回：**
@@ -1462,7 +1490,7 @@ int32_t OH_CommonEvent_GetDoubleArrayFromParameters(const CommonEvent_Parameters
 | --- | --- |
 | const CommonEvent_Parameters* para | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| double** array | 查询的数组。 |
+| double** array | 输出参数，用于接收查询到的double数组数据。该数组内存由函数内部分配，调用者无需预先分配。 |
  
  
 **返回：**
@@ -1494,7 +1522,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetDoubleArrayToParameters(CommonEvent_Parame
 | --- | --- |
 | CommonEvent_Parameters* param | 公共事件附加信息。 |
 | const char* key | 数据键。 |
-| const double* value | 设置的double数组内容。 |
+| const double* value | 设置的double数组内容。实际设置的数量为num，value数组长度需大于num，否则会有越界访问风险。 |
 | size_t num | 设置的double数组内容中元素的个数。 |
  
  
@@ -1532,7 +1560,7 @@ CommonEvent_ErrCode OH_CommonEvent_Publish(const char* event)
   
 | 类型 | 说明 |
 | --- | --- |
-| CommonEvent_ErrCode | 返回错误码。 返回COMMONEVENT_ERR_OK表示成功。 返回COMMONEVENT_ERR_INVALID_PARAMETER表示参数错误。 返回COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED表示事件发送频率过高。 返回COMMONEVENT_ERR_SENDING_REQUEST_FAILED表示IPC请求发送失败。 返回COMMONEVENT_ERR_INIT_UNDONE表示公共事件服务未初始化。 |
+| CommonEvent_ErrCode | 返回错误码。 返回COMMONEVENT_ERR_OK表示成功。 返回COMMONEVENT_ERR_INVALID_PARAMETER表示参数错误。 返回COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED表示事件发送频率过高。 返回COMMONEVENT_ERR_SENDING_REQUEST_FAILED表示IPC请求发送失败。 返回COMMONEVENT_ERR_INIT_UNDONE表示公共事件服务未初始化。 返回COMMONEVENT_ERR_NOT_SYSTEM_SERVICE表示三方应用无法发送系统公共事件。 |
  
  
   
@@ -1804,7 +1832,7 @@ const char* OH_CommonEvent_GetDataFromSubscriber(const CommonEvent_Subscriber* s
   
 | 类型 | 说明 |
 | --- | --- |
-| const char* | 返回有序公共事件传递的数据，字符串类型，无法获取时返回null。 |
+| const char* | 返回有序公共事件传递的数据，字符串类型，无法获取时返回NULL。 |
  
  
   
@@ -1828,8 +1856,8 @@ bool OH_CommonEvent_SetDataToSubscriber(CommonEvent_Subscriber* subscriber, cons
 | 参数项 | 描述 |
 | --- | --- |
 | CommonEvent_Subscriber* subscriber | 公共事件的订阅者对象。 |
-| const char* data | 有序公共事件传递的数据，字符串类型，实际有效数据长度为length与data字符串长度的较小值。 |
-| size_t length | 数据的长度。 |
+| const char* data | 有序公共事件传递的数据，字符串类型，实际有效数据长度为length与data字符串长度的最小值。 |
+| size_t length | 传递的数据字节长度，取值为data字符串长度。 |
  
  
 **返回：**

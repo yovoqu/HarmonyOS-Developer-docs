@@ -1,14 +1,14 @@
 # Video
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于播放视频文件并控制其播放状态的组件。
+Video组件用于播放视频文件并控制其播放状态，支持播放、暂停、进度控制、倍速播放、全屏切换等功能。
 
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 Video组件只提供简单的视频播放功能，无法支撑复杂的视频播控场景。复杂开发场景推荐使用 AVPlayer 播控API和 XComponent 组件开发。 Video组件在使用 expandSafeArea 扩展安全区域时，组件视频显示内容区域不支持扩展。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 Video组件只提供简单的视频播放功能，无法支撑复杂的视频播控场景。复杂开发场景推荐使用 AVPlayer 播控API和 XComponent 组件开发。 Video组件在使用 expandSafeArea 扩展安全区域时，组件视频显示内容区域不支持扩展。
 
 
 
@@ -64,11 +64,12 @@ Video(value: VideoOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | src | string \| Resource | 否 | 是 | 视频的数据源，支持本地视频和网络视频。 Resource格式可以跨包/跨模块访问资源文件，常用于访问本地视频。 - 仅支持rawfile文件下的资源，即通过$rawfile引用视频文件。 string格式可用于加载网络视频和本地视频，常用于加载网络视频。 - 支持网络视频地址，网络视频地址支持的格式见流媒体支持的格式。 - 支持file://路径前缀的字符串，即应用沙箱URI（见uriOrPath）：file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。用于读取应用沙箱路径内的资源。需要保证目录包路径下的文件有可读权限。 默认值：空字符串 异常值：按默认值处理。 说明： 视频支持的格式是：mp4、mkv、TS。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| currentProgressRate | number \| string \| PlaybackSpeed8+ | 否 | 是 | 视频播放倍速。 说明： number格式取值仅支持：0.75，1.0，1.25，1.75，2.0。从API version 22开始，新增支持取值0.5，1.5，3，0.25和0.125。 string格式支持number格式取值的字符串形式："0.75"，"1.0"，"1.25"，"1.75"，"2.0"。从API version 22开始，新增支持取值"0.5"，"1.5"，"3"，"0.25"和"0.125"。 除此之外的取值，比如"abc"或"1.5+1.5"会按照异常值处理。 默认值：1.0 \| PlaybackSpeed.Speed_Forward_1_00_X 异常值：按默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| previewUri | string \| PixelMap \| Resource | 否 | 是 | 视频未播放时的预览图片路径，默认不显示图片。 string格式可用于加载本地图片和网络图片， - 支持网络图片地址。 - 支持相对路径引用本地图片，例如：previewUri: “common/test.jpg”。当使用相对路径引用本地图片时，不支持跨包/跨模块调用。 - 支持file://路径前缀的字符串，即应用沙箱URI（见uriOrPath）：file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。用于读取应用沙箱路径内的资源。需要保证目录包路径下的文件有可读权限。 Resource格式可以跨包/跨模块访问资源文件。 - 支持rawfile文件下的资源，即通过$rawfile引用图片。 - 支持通过$r引用系统资源或者应用资源中的图片。 默认值：空字符串 异常值：按默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| controller | VideoController | 否 | 是 | 设置视频控制器，可以控制视频的播放状态。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| imageAIOptions12+ | ImageAIOptions | 否 | 是 | 设置图像AI分析选项，可配置分析类型或绑定一个分析控制器。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| posterOptions18+ | PosterOptions | 否 | 是 | 设置视频播放的首帧送显选项，可以控制视频是否支持首帧送显。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| currentProgressRate | number \| string \| PlaybackSpeed8+ | 否 | 是 | 视频播放倍速。 说明： number格式取值仅支持：0.75、1.0、1.25、1.75、2.0。从API version 22开始，新增支持取值0.5，1.5，3，0.25和0.125。从API version 26.0.0开始，支持取值范围：[0.125, 8]。 string格式支持number格式取值的字符串形式："0.75"，"1.0"，"1.25"，"1.75"，"2.0"。从API version 22开始，新增支持取值"0.5"，"1.5"，"3"，"0.25"和"0.125"。 除此之外的取值，例如"abc"或"1.5+1.5"会按照异常值处理。 默认值：1.0 \| PlaybackSpeed.Speed_Forward_1_00_X 异常值：按默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| previewUri | string \| PixelMap \| Resource | 否 | 是 | 视频未播放时的预览图片路径。 string格式可用于加载本地图片和网络图片， - 支持网络图片地址。 - 支持相对路径引用本地图片，例如：previewUri: “common/test.jpg”。当使用相对路径引用本地图片时，不支持跨包/跨模块调用。 - 支持file://路径前缀的字符串，即应用沙箱URI（见uriOrPath）：file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。用于读取应用沙箱路径内的资源。需要保证目录包路径下的文件有可读权限。 Resource格式可以跨包/跨模块访问资源文件。 - 支持rawfile文件下的资源，即通过$rawfile引用图片。 - 支持通过$r引用系统资源或者应用资源中的图片。 默认值：空字符串 异常值：按默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controller | VideoController | 否 | 是 | 设置视频控制器，可以控制视频的播放状态。当设置了controllerAsync时，controller参数设置不生效。 默认值：不设置视频控制器。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controllerAsync | VideoControllerAsync | 否 | 是 | 设置异步版本的视频控制器，可以控制视频的播放状态并通过Promise获取返回结果，当设置了controllerAsync时，controller会被忽略。 默认值：空 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| imageAIOptions12+ | ImageAIOptions | 否 | 是 | 设置图像AI分析选项，可配置分析类型或绑定一个分析控制器。配置后可启用图像AI分析功能，并通过分析控制器控制分析过程。当需要使用AI分析功能时传入此参数，不传入时默认不启用AI分析功能。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| posterOptions18+ | PosterOptions | 否 | 是 | 设置视频播放的首帧送显选项，可以控制视频是否支持首帧送显。当需要开启首帧送显功能时传入此参数，不传入时默认不启用首帧送显。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -125,7 +126,7 @@ muted(value: boolean)
 
 
 > [!NOTE]
-> Video组件在未设置静音的情况下，启播瞬间会抢占音频焦点。若用户想设置静音播放不抢占其他音频焦点，应保证静音设置在开始播放视频之前。
+> Video组件在未设置静音的情况下，开始播放时会抢占音频焦点。如需静音播放不抢占音频焦点，应在开始播放前设置静音。
 
 
 
@@ -167,11 +168,11 @@ controls(value: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 控制视频播放的控制栏是否显示。 true：控制栏显示；false：控制栏不显示。 默认值：true |
+| value | boolean | 是 | 控制视频播放的控制栏是否显示。 true：控制栏显示；false：控制栏不显示。 默认值：true 说明： 如需使用enableAnalyzer功能进行AI分析，需设置为false使用自定义控制栏。 |
 
 
 > [!NOTE]
-> Video组件自带的控制器无法自定义。若有其他需求，可隐藏自带控制器并自定义控制器的样式或功能。参考 视频播放 。
+> Video组件自带的控制栏样式无法自定义。如需自定义控制栏，可将controls属性设置为false并自行实现控制栏的样式或功能。参考 视频播放 。
 
 
 
@@ -192,7 +193,7 @@ objectFit(value: ImageFit)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ImageFit | 是 | 视频填充模式。 默认值：Cover 约束：不支持ImageFit类型中的枚举值MATRIX，若设置，则作用效果与Cover一致。 异常值：若设置异常值undefined、null，或不在ImageFit枚举范围内的值，作用效果均与Cover一致。 |
+| value | ImageFit | 是 | 视频填充模式。 默认值：ImageFit.Cover 约束：不支持ImageFit类型中的枚举值MATRIX，若设置，则作用效果与ImageFit.Cover一致。 异常值：若设置异常值undefined、null，或不在ImageFit枚举范围内的值，作用效果均与ImageFit.Cover一致。 |
 
 
 
@@ -226,9 +227,9 @@ enableAnalyzer(enable: boolean)
 
 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
 
-使能后，视频播放暂停时自动进入分析状态，开始分析当前画面帧，视频继续播放后自动退出分析状态。
+启用后，视频播放暂停时自动进入分析状态，开始分析当前画面帧，视频继续播放后自动退出分析状态。
 
-不能和[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)属性同时使用，两者同时设置时[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)中[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)属性将失效。
+不支持与[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)属性同时使用，两者同时设置时[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)中[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)属性会失效。
 
 > [!NOTE]
 > 从API version 20开始，该接口支持在 attributeModifier 中调用。
@@ -244,7 +245,7 @@ enableAnalyzer(enable: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean | 是 | 是否启用AI分析功能。 true：开启AI分析功能；false：关闭AI分析功能。 默认值：false |
+| enable | boolean | 是 | 是否启用AI分析功能。 true：开启AI分析功能；false：关闭AI分析功能。 默认值：false 说明： 不支持与overlay属性同时使用，两者同时设置时overlay中CustomBuilder属性会失效。 |
 
 
 > [!NOTE]
@@ -300,7 +301,7 @@ enableShortcutKey(enabled: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | boolean | 是 | 是否启用快捷键响应。 true：开启快捷键响应；false：关闭快捷键响应。 默认值：false 说明： enabled设置为false且Video组件的控制栏显示时，仍然可以通过左右方向键控制进度条快进或快退。 |
+| enabled | boolean | 是 | 是否启用快捷键响应。 true：开启快捷键响应；false：关闭快捷键响应。 默认值：false 说明： enabled设置为false且controls属性设置为true时，仍然可以通过左右方向键控制进度条快进或快退。 |
 
 
 
@@ -570,7 +571,7 @@ onFullscreenChange(callback: Callback&lt;FullscreenInfo&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| duration10+ | number | 否 | 否 | 当前视频的时长。 单位：秒 取值范围：[0,+∞) 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| duration10+ | number | 否 | 否 | 当前视频的时长。 单位：s 取值范围：[0,+∞) 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -593,7 +594,7 @@ onFullscreenChange(callback: Callback&lt;FullscreenInfo&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| time10+ | number | 否 | 否 | 当前视频播放的进度。 单位：秒 取值范围：[0,+∞) 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| time10+ | number | 否 | 否 | 当前视频播放的进度。 单位：s 取值范围：[0,+∞) 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -698,7 +699,7 @@ stop()
 
 reset(): void
 
-Video组件重置AVPlayer。显示当前帧，再次播放时从头开始播放。
+重置视频播放器。显示当前帧，再次播放时从头开始播放。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -717,7 +718,7 @@ setCurrentTime(value: number)
 指定视频播放的进度位置。
 
 > [!NOTE]
-> 若用户需要从视频内的某一时间点开始播放，应关闭自动播放，在视频准备完成后先跳转再播放。
+> 如需从视频内的某一时间点开始播放，应关闭自动播放，在视频准备完成后先跳转再播放。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -728,7 +729,7 @@ setCurrentTime(value: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 视频播放进度位置。 取值范围：[0, duration] 当设置value大于duration时，进度跳转至最后；当设置value小于0时，不会进行进度跳转。 单位：秒 从API version 8开始，支持设置视频的跳转模式，详见setCurrentTime8+。 |
+| value | number | 是 | 视频播放进度位置。 取值范围：[0, duration] 当设置value大于duration时，进度跳转至最后；当设置value小于0时，不会进行进度跳转。 单位：s 从API version 8开始，支持设置视频的跳转模式，详见setCurrentTime8+。 |
 
 
 
@@ -780,6 +781,10 @@ setCurrentTime(value: number, seekMode: SeekMode)
 
 指定视频播放的进度位置，并指定跳转模式。
 
+> [!NOTE]
+> 如需从视频内的某一时间点开始播放，应关闭自动播放，在视频准备完成后先跳转再播放。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -788,8 +793,235 @@ setCurrentTime(value: number, seekMode: SeekMode)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 视频播放进度位置。 取值范围：[0, duration] 当设置value大于duration时，进度跳转至最后；当设置value小于0时，不会进行进度跳转。 单位：秒 |
+| value | number | 是 | 视频播放进度位置。 取值范围：[0, duration] 当设置value大于duration时，进度跳转至最后；当设置value小于0时，不会进行进度跳转。 单位：s |
 | seekMode | SeekMode | 是 | 跳转模式。 异常值undefined、null、NaN和Infinity按PreviousKeyframe处理。 |
+
+
+
+
+#### VideoControllerAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+VideoControllerAsync是VideoController的异步版本，可以通过Promise获取部分播控命令的结果。不支持同时控制多个Video。
+
+> [!NOTE]
+> VideoControllerAsync提供命令执行结果。与VideoController相比， start 、 pause 、 stop 、 reset 等播放控制命令为异步执行，请求后立即返回不阻塞当前线程，可通过Promise的then和catch方法处理命令执行结果。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### 导入对象
+
+```text
+let controllerAsync: VideoControllerAsync = new VideoControllerAsync();
+```
+
+
+
+#### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+constructor()
+
+VideoControllerAsync的构造函数。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### start
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+start(): Promise&lt;void&gt;
+
+开始播放视频。使用Promise异步回调。
+
+视频准备完成前（未收到[onPrepared](#onprepared)回调）调用start()方法会失败。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+
+
+#### pause
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+pause(): Promise&lt;void&gt;
+
+暂停播放视频，显示当前帧，再次播放时从当前位置继续播放。使用Promise异步回调。
+
+只能在正在播放的状态下调用，其他情况下调用pause()方法会失败。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+
+
+#### stop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+stop(): Promise&lt;void&gt;
+
+停止播放视频，显示当前帧，再次播放时从头开始播放。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+
+
+#### reset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+reset(): Promise&lt;void&gt;
+
+重置视频播放器。显示当前帧，再次播放时从头开始播放。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+
+
+#### requestFullscreen
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+requestFullscreen(value: boolean)
+
+请求全屏播放。未通过该接口设置时，默认不请求全屏播放。
+
+> [!NOTE]
+> Video组件自带的全屏功能仅将视频内容设为全屏，显示默认控制器，无法显示自定义标题或控制器。如需其他功能，用户需自行实现全屏功能。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | boolean | 是 | 是否全屏（填充满应用窗口）播放。 true：请求全屏播放；false：不请求全屏播放。 |
+
+
+
+
+#### exitFullscreen
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+exitFullscreen()
+
+退出全屏播放。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### setCurrentTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setCurrentTime(value: number, seekMode?: SeekMode)
+
+指定视频播放的进度位置，可以指定跳转模式。
+
+> [!NOTE]
+> 如需从视频内的某一时间点开始播放，应关闭自动播放，在视频准备完成后先跳转再播放。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number | 是 | 视频播放进度位置。 取值范围：[0, duration] 当设置value大于duration时，进度跳转至最后；当设置value小于0时，不会进行进度跳转。 单位：s |
+| seekMode | SeekMode | 否 | 跳转模式。 异常值undefined、null、NaN和Infinity按PreviousKeyframe处理。 默认值：PreviousKeyframe |
 
 
 
@@ -806,10 +1038,10 @@ setCurrentTime(value: number, seekMode: SeekMode)
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| PreviousKeyframe | 0 | 跳转到前一个最近的关键帧。 |
-| NextKeyframe | 1 | 跳转到后一个最近的关键帧。 |
-| ClosestKeyframe | 2 | 跳转到最近的关键帧。 |
-| Accurate | 3 | 精准跳转，不论是否为关键帧。 |
+| PreviousKeyframe | 0 | 跳转到当前播放位置之前最近的关键帧。 |
+| NextKeyframe | 1 | 跳转到当前播放位置之后最近的关键帧。 |
+| ClosestKeyframe | 2 | 跳转到距离当前播放位置最近的关键帧。 |
+| Accurate | 3 | 精准跳转到指定时间点，不论是否为关键帧。精度高但可能需要解码更多帧。 |
 
 
 
@@ -822,7 +1054,7 @@ setCurrentTime(value: number, seekMode: SeekMode)
 
 #### 示例1（视频播放基础用法）
 
-基础用法包括：控制栏、预览图、自动播放、播放速度、响应快捷键（从API version 15开始，支持通过[enableShortcutKey](#enableshortcutkey15)设置组件开启快捷键响应）、控制器（开始播放、暂停播放、停止播放、重置AVPlayer、跳转等）、首帧送显（从API version 18开始，支持通过[posterOptions](#posteroptions18对象说明)设置视频播放的首帧送显选项。从API version 21开始，posterOptions支持通过[PosterOptions](#posteroptions18对象说明)的contentTransitionEffect参数来设置当前视频的预览图内容变化时的转场动效。）以及一些状态回调方法。
+基础用法包括：控制栏、预览图、自动播放、播放速度、响应快捷键（从API version 15开始，支持通过[enableShortcutKey](#enableshortcutkey15)设置组件开启快捷键响应）、控制器（开始播放、暂停播放、停止播放、重置视频播放器、跳转等）、首帧送显（从API version 18开始，支持通过[posterOptions](#posteroptions18对象说明)设置视频播放的首帧送显选项。从API version 21开始，posterOptions支持通过[PosterOptions](#posteroptions18对象说明)的contentTransitionEffect参数来设置当前视频的预览图内容变化时的转场动效。）以及一些状态回调方法。
 
 ```ArkTS
 // xxx.ets
@@ -836,6 +1068,7 @@ struct VideoCreateComponent {
   @State isAutoPlay: boolean = false;
   @State showControls: boolean = true;
   @State isShortcutKeyEnabled: boolean = false;
+  @State showFirstFrame: boolean = false;
   controller: VideoController = new VideoController();
 
   build() {
@@ -920,7 +1153,7 @@ struct VideoCreateComponent {
           this.controller.stop(); // 结束播放。
         }).margin(2)
         Button('reset').onClick(() => {
-          this.controller.reset(); // 重置AVPlayer。
+          this.controller.reset(); // 重置视频播放器。
         }).margin(2)
         Button('setTime').onClick(() => {
           this.controller.setCurrentTime(10, SeekMode.Accurate); // 精准跳转到视频的10s位置。
@@ -956,7 +1189,7 @@ interface FullscreenObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/foDJnj4mSkm0inBXGvkWMw/zh-cn_image_0000002647748034.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=85CB0A597A188352A02202B2B2D1E7E6B1755EBD5009FA4FB5BC61695084D26C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/zhzK9vTKRR-fhdiYQfbG0w/zh-cn_image_0000002655848746.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071507Z&HW-CC-Expire=86400&HW-CC-Sign=83C0F781DCFD2F352C906395FBBEDA6252FFDDA69D4D032062D60367DE55E5D3)
 
 
 
@@ -1122,7 +1355,7 @@ struct VideoObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/SAFAp4NUQZKTWBL-bxQ_aw/zh-cn_image_0000002647588124.png?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=99C32D9769A5FC96C463E742C7AEAF44B8E0E359D66A322826F40916CC0A36F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_nOF3zDrSm2wT9IFmNcXhQ/zh-cn_image_0000002686088177.png?HW-CC-KV=V1&HW-CC-Date=20260730T071507Z&HW-CC-Expire=86400&HW-CC-Sign=90EBF2702D2FD5197DCC51054AAF0269A998527CB1527EB1895B1D05EB425BD3)
 
 
 
@@ -1169,7 +1402,7 @@ struct VideoErrorComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/3DZYpwQeQ0S5O1g3C8JZPQ/zh-cn_image_0000002677827765.png?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=98548C4E0C2291F594BA262D436BDBE83DBA8F0F1F8A91C1BD0968C925C1502D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/w43krCalQEmXcUq-kdJItA/zh-cn_image_0000002685928347.png?HW-CC-KV=V1&HW-CC-Date=20260730T071507Z&HW-CC-Expire=86400&HW-CC-Sign=5E5F6984473826D1D20864E909156B4F54446DF4D8C4F11D1920F31EF7DD526D)
 
 
 
@@ -1265,7 +1498,7 @@ struct VideoModifierDemo {
           this.controller.stop(); // 结束播放
         }).margin(2)
         Button('reset').onClick(() => {
-          this.controller.reset(); // 重置AVPlayer
+          this.controller.reset(); // 重置视频播放器
         }).margin(2)
       }
 
@@ -1295,4 +1528,114 @@ interface FullscreenObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/oIdWvMnFS2mc42Pe6ZWPaA/zh-cn_image_0000002677667917.png?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=308466B8FC9F8E9B84BA9B8FBE01936853F609A7E66C7EBAF25E37A3563075D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/zOsviSpFSG2_wJR82U0pIw/zh-cn_image_0000002656008668.png?HW-CC-KV=V1&HW-CC-Date=20260730T071507Z&HW-CC-Expire=86400&HW-CC-Sign=8BF93C0AE02ED824B73AF1401D3C9B900127132FF9F9BAD3E406293C9A0C1B3C)
+
+
+
+
+#### 示例7（VideoControllerAsync用法）
+
+本示例展示VideoControllerAsync的[start](#start-1)、[pause](#pause-1)、[stop](#stop-1)、[reset](#reset)接口用法，通过Promise异步回调获取命令执行状态。
+
+从API version 26.0.0开始，新增VideoControllerAsync控制器及[start](#start-1)、[pause](#pause-1)、[stop](#stop-1)、[reset](#reset)接口。
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+@Entry
+@Component
+struct VideoControllerAsyncExample {
+  @State videoSrc: Resource = $rawfile('video1.mp4');// 替换为开发者所需的视频资源文件。
+  controller: VideoControllerAsync = new VideoControllerAsync();
+
+  build() {
+    Column() {
+      Video({
+        src: this.videoSrc,
+        controllerAsync: this.controller,
+      })
+        .width('100%')
+        .height(600)
+        .onStart(() => {
+          console.info('onStart');
+        })
+        .onPause(() => {
+          console.info('onPause');
+        })
+        .onFinish(() => {
+          console.info('onFinish');
+        })
+        .onError(() => {
+          console.error('onError');
+        })
+        .onStop(() => {
+          console.info('onStop');
+        })
+        .onPrepared((e?: PreparedInfo) => {
+          if (e != undefined) {
+            console.info(`onPrepared is ${e.duration}`);
+          }
+        })
+        .onSeeking((e?: PlaybackInfo) => {
+          if (e != undefined) {
+            console.info(`onSeeking is ${e.time}`);
+          }
+        })
+        .onSeeked((e?: PlaybackInfo) => {
+          if (e != undefined) {
+            console.info(`onSeeked is ${e.time}`);
+          }
+        })
+        .onUpdate((e?: PlaybackInfo) => {
+          if (e != undefined) {
+            console.info(`onUpdate is ${e.time}`);
+          }
+        })
+        .onFullscreenChange((e?: FullscreenInfo) => {
+          if (e != undefined) {
+            console.info(`onFullscreenChange is ${e.fullscreen}`);
+          }
+        })
+
+      Row() {
+        Button('start').onClick(() => {
+          this.controller.start() // 开始播放，返回Promise<void>。
+            .then(() => { // 可以通过then等待执行成功。
+              console.info('start success')
+            })
+            .catch((err: BusinessError) => { // catch处理执行失败的场景。
+              console.info(`start failed: ${err.message}`)
+            })
+        }).margin(2)
+        Button('pause').onClick(() => {
+          this.controller.pause() // 暂停播放。
+            .then(() => {
+              console.info('pause success')
+            })
+            .catch((err: BusinessError) => {
+              console.info(`pause failed: ${err.message}`)
+            })
+        }).margin(2)
+        Button('stop').onClick(() => {
+          this.controller.stop() // 结束播放。
+            .then(() => {
+              console.info('stop success')
+            })
+            .catch((err: BusinessError) => {
+              console.info(`stop failed: ${err.message}`)
+            })
+        }).margin(2)
+        Button('reset').onClick(() => {
+          this.controller.reset() // 重置视频播放器。
+            .then(() => {
+              console.info('reset success')
+            })
+            .catch((err: BusinessError) => {
+              console.info(`reset failed: ${err.message}`)
+            })
+        }).margin(2)
+      }
+    }
+  }
+}
+```

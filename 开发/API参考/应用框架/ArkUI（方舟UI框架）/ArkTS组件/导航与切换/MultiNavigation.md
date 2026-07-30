@@ -1,14 +1,14 @@
 # MultiNavigation
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-multinavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-MultiNavigation用于在大尺寸设备上分栏显示、进行路由跳转。
+MultiNavigation是一个支持分栏导航的组件，提供多层页面栈管理能力，通过MultiNavPathStack统一管理主页、详情页、全屏页等不同类型页面的导航栈。支持左起右清栈等智能路由策略，适用于平板、折叠屏等大尺寸设备的复杂导航场景，能够优化页面跳转体验、提升用户操作效率。
 
 > [!TIP]
-> 该组件从API version 14开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 由于MultiNavigation存在多层次的页面栈结构（主页、详情页、全屏页各自维护子栈，并由MultiNavPathStack统一管理），调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口(例如 getParent 、 setInterception 、 pushDestination 等)，可能会发生无法预期的问题。 MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
+> 该组件从API version 14开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 由于MultiNavigation存在多层次的页面栈结构（主页、详情页、全屏页各自维护子栈，并由MultiNavPathStack统一管理），调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口（例如 getParent 、 setInterception 、 pushDestination 等），可能会发生无法预期的问题。 MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
 
 
 
@@ -216,7 +216,7 @@ replacePath(info: NavPathInfo, options?: NavigationOptions): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | info | NavPathInfo | 是 | NavDestination页面的信息。 |
-| options | NavigationOptions | 否 | 页面栈操作选项。仅支持其中的animated字段。 |
+| options | NavigationOptions | 否 | 页面栈操作选项。仅支持其中的animated字段，使用其他字段将被忽略。省略时使用默认动画配置。 |
 
 
 
@@ -238,7 +238,7 @@ replacePathByName(name: string, param: Object, animated?: boolean): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | NavDestination页面名称。 |
-| param | Object | 是 | NavDestination页面详细参数。 |
+| param | Object | 是 | NavDestination页面详细参数，用于向目标页面传递自定义数据。具体字段规格请参考NavDestination相关文档。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
 
 
@@ -327,7 +327,7 @@ pop(animated?: boolean): NavPathInfo | undefined
 
 | 类型 | 说明 |
 | --- | --- |
-| NavPathInfo \| undefined | 返回栈顶NavDestination页面的信息。 |
+| NavPathInfo \| undefined | 返回栈顶NavDestination页面的信息。栈为空时返回undefined。 |
 
 
 
@@ -360,7 +360,7 @@ pop(result?: Object, animated?: boolean): NavPathInfo | undefined
 
 | 类型 | 说明 |
 | --- | --- |
-| NavPathInfo \| undefined | 返回栈顶NavDestination页面的信息。 |
+| NavPathInfo \| undefined | 返回栈顶NavDestination页面的信息。栈为空时返回undefined。 |
 
 
 
@@ -452,7 +452,7 @@ popToIndex(index: number, animated?: boolean): void
 
 popToIndex(index: number, result: Object, animated?: boolean): void
 
-回退路由栈到index指定的NavDestination页面，并触发onPop回调传入页面处理结果。
+回退路由栈到index指定的NavDestination页面，并触发onPop回调传入页面处理结果。当index无效（超出范围）时，不执行回退操作。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -522,7 +522,7 @@ moveIndexToTop(index: number, animated?: boolean): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | NavDestination页面的位置索引。 取值范围：[0, +∞) |
+| index | number | 是 | NavDestination页面的位置索引。 取值范围：[0, +∞)。超出范围时操作不生效。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
 
 
@@ -569,7 +569,7 @@ getAllPathName(): Array&lt;string&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;string&gt; | 返回栈中所有NavDestination页面的名称。 |
+| Array&lt;string&gt; | 返回栈中所有NavDestination页面的名称，数组元素按栈底到栈顶的顺序排列。 |
 
 
 
@@ -788,7 +788,7 @@ setPlaceholderPage(info: NavPathInfo): void
 设置占位页面。
 
 > [!NOTE]
-> 占位页面为特殊页面类型，当应用设置后，在一些大屏设备上会和主页默认形成左右分栏的效果，即左边主页，右边占位页。 当应用可绘制区域小于600vp、折叠屏由展开态切换为折叠态及平板横屏转竖屏等场景时，会自动将占位页出栈，只显示主页； 而当应用可绘制区域大于等于600vp、折叠屏由折叠态切换为展开态及平板竖屏转横屏等场景时，会自动补充占位页，形成分栏。
+> 占位页面为特殊页面类型，当应用设置后，在支持分栏显示的大屏设备上会和主页默认形成左右分栏的效果，即左边主页，右边占位页。 当应用可绘制区域小于600vp、折叠屏由展开态切换为折叠态及平板横屏转竖屏等场景时，会自动将占位页出栈，只显示主页； 而当应用可绘制区域大于等于600vp、折叠屏由折叠态切换为展开态及平板竖屏转横屏等场景时，会自动补充占位页，形成分栏。
 
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -965,7 +965,6 @@ export struct PageHome1 {
   controller: TextInputController = new TextInputController();
   text: string = '';
   param: Object = new Object();
-  lastBackTime: number = 0;
 
   build() {
     if (this.log()) {
@@ -1081,7 +1080,7 @@ export struct PageHome1 {
                 .margin(20)
                 .onClick(() => {
                   if (this.pageStack !== undefined && this.pageStack !== null) {
-                    // 删除栈中index为0，1，3，5的页面
+                    // 删除栈中index为0、1、3、5的页面
                     this.pageStack.removeByIndexes([0,1,3,5]);
                   }
                 })
@@ -1256,7 +1255,7 @@ export struct PageDetail1 {
                 .margin(20)
                 .onClick(() => {
                   if (this.pageStack !== undefined && this.pageStack !== null) {
-                    // 删除栈中index为0，1，3，5的页面
+                    // 删除栈中index为0、1、3、5的页面
                     this.pageStack.removeByIndexes([0,1,3,5]);
                   }
                 })
@@ -1504,6 +1503,7 @@ export struct PageDetail2 {
                 .margin(20)
                 .onClick(() => {
                   if (this.pageStack !== undefined && this.pageStack !== null) {
+                    // 弹出路由栈栈顶元素
                     this.pageStack.pop();
                   }
                 })
@@ -1661,7 +1661,7 @@ export struct PageFull1 {
                 .margin(20)
                 .onClick(() => {
                   if (this.pageStack !== undefined && this.pageStack !== null) {
-                    // 删除栈中index为0，1，3，5的页面
+                    // 删除栈中index为0、1、3、5的页面
                     this.pageStack.removeByIndexes([0, 1, 3, 5]);
                   }
                 })
@@ -1730,7 +1730,6 @@ export struct PagePlaceholder {
   @Consume('pageStack') pageStack: MultiNavPathStack;
   controller: TextInputController = new TextInputController();
   text: string = '';
-  lastBackTime: number = 0;
 
   build() {
     if (this.log()) {
@@ -1767,16 +1766,16 @@ export struct PagePlaceholder {
 分栏效果演示：
 
 
-![](assets/MultiNavigation/file-20260708103210bf2162f0.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/4bfJ0oQ8SyqCCGW500yOww/zh-cn_image_0000002656008474.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071502Z&HW-CC-Expire=86400&HW-CC-Sign=584593BA5466299C382D813EDE450987707AF758E21CE3504D871540C6829DFD)
 
 
 主页跳转详情页效果演示：
 
 
-![](assets/MultiNavigation/file-20260708103210e1f0b503.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/QT8V_UrURT-ByH9-d2PZ2g/zh-cn_image_0000002655848552.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071502Z&HW-CC-Expire=86400&HW-CC-Sign=75DA53B0DF9C45DE09C942F52052615BCB0397FC20A720FEFC81605737F1DFD0)
 
 
 全屏类型页面效果演示：
 
 
-![](assets/MultiNavigation/file-2026070810321068bb165a.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/cZlLUNT9R2iSg6fD8JWKdw/zh-cn_image_0000002686087981.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071502Z&HW-CC-Expire=86400&HW-CC-Sign=A6AE84D18C755F1BE2A285A38D44DF365BFB1372AAD45DD4B9E9FACE9B55757B)

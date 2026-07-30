@@ -1,6 +1,6 @@
 # 选择发票抬头Button
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-invoice-title
 
@@ -55,7 +55,7 @@ struct Index {
               hoverStayTime: 0,
               styleConfig: new functionalButtonComponentManager.ButtonConfig()
                 .fontSize(20)
-            },
+            }
           },
           // 当OpenType为CHOOSE_INVOICE_TITLE时，回调必须为onChooseInvoiceTitle。
           controller: new functionalButtonComponentManager.FunctionalButtonController()

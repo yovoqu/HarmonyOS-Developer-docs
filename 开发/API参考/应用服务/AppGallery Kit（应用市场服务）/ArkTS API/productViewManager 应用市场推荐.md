@@ -1,6 +1,6 @@
 # productViewManager (应用市场推荐)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-productviewmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -193,14 +193,14 @@ struct LoadProduct {
               signature: 'MEQCIEQlmZ****zKBSE8QnhLTIHZZZ****ZpRqRxHss65Ko****JgJKjdrWdkL****juEx2RmFS7da****ZRVZ8RyMyUXg=='
             };
 
-            const request: Want = {
+            const want: Want = {
               parameters: {
                 bundleName: 'com.huawei.hmsapp.books',
                 skExposure: exposureData
               }
             };
             // 展示应用详情页，下载安装目标应用
-            productViewManager.loadProduct(this.getUIContext().getHostContext() as common.UIAbilityContext, request, {
+            productViewManager.loadProduct(this.getUIContext().getHostContext() as common.UIAbilityContext, want, {
               onError: (error: BusinessError) => {
                 hilog.error(0, TAG, `loadProduct onError.code is ${error.code}, message is ${error.message}`);
               }
@@ -296,13 +296,13 @@ struct LoadProduct {
       Button("load_product")
         .onClick(() => {
           try {
-            const request: Want = {
+            const want: Want = {
               parameters: {
                 // 此处填入要加载的应用包名，例如： bundleName: "com.huawei.hmsapp.appgallery"
                 bundleName: 'com.xxx'
               }
             };
-            productViewManager.loadProduct(this.getUIContext().getHostContext() as common.UIAbilityContext, request, {
+            productViewManager.loadProduct(this.getUIContext().getHostContext() as common.UIAbilityContext, want, {
               onError: (error: BusinessError) => {
                 hilog.error(0, TAG, `loadProduct onError.code is ${error.code}, message is ${error.message}`);
               },
@@ -381,11 +381,11 @@ struct LoadService {
       Button("load_service")
         .onClick(() => {
           try {
-            const request: Want = {
+            const want: Want = {
               // 请输入元服务卡片添加至桌面的链接
               uri: 'store://appgallery.huawei.com/oper/addhome?referrer=xxxx&id=xxxx&installType=xxxx&s=xxxx'
             };
-            productViewManager.loadService(this.getUIContext().getHostContext() as common.UIAbilityContext, request, {
+            productViewManager.loadService(this.getUIContext().getHostContext() as common.UIAbilityContext, want, {
               onReceive: (data: productViewManager.ServiceViewReceiveData) => {
                 hilog.info(0, TAG, `Succeeded in loading Service onReceive.result is ${data.result}, msg is ${data.msg}`);
               },

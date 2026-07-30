@@ -1,12 +1,10 @@
 # 设置HDC认证密钥
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-set-hdc-authentication-key
 
-> [!NOTE]
-> 从6.1.1(24)版本开始，新增 HDC 认证密钥设置接口，支持用户在企业设备上开展安全调试，进一步强化设备安全性。
-
+从6.1.1(24)版本开始，新增设置[HDC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)认证密钥接口，支持用户在企业设备上开展安全调试，进一步强化设备安全性。
 
 
 #### 场景介绍
@@ -46,13 +44,22 @@ openssl rsa -in private_key_3072.pem -pubout -out public_key_3072.pem
 
   
 ```text
+import { BusinessError } from '@kit.BasicServicesKit';
 import { fileGuard } from '@kit.EnterpriseDataGuardKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-3. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[setHdcAuthenticationKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#sethdcauthenticationkey)，设置上下位机之间的HDC鉴权密钥。上位机需要下发私钥，下位机下发公钥，从而实现上位机对下位机的安全调试。
+3. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[setHdcAuthenticationKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#sethdcauthenticationkey)，设置上下位机之间的HDC认证密钥。上位机需要下发私钥，下位机下发公钥，从而实现上位机对下位机的安全调试。
 
   
 ```text
+const TAG: string = 'FileGuard_HDCAuthenticationKey';
+const DOMAIN: number = 0x0000;
+
+/**
+ * 设置上下位机间的HDC认证密钥。使用Promise异步回调。
+ * 示例仅供参考，调用时需要分别设置上位机的私钥以及下位机的公钥，才能进行HDC安全调试。
+ */
 function testSetHdcAuthenticationKey() {
   let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
   let devType: fileGuard.AuthenticateDeviceType = fileGuard.AuthenticateDeviceType.UPPER;
@@ -61,9 +68,10 @@ function testSetHdcAuthenticationKey() {
   let key: Uint8Array = new Uint8Array([0]);
 
   guard.setHdcAuthenticationKey(devType, keyType, key).then(() => {
-    console.info(`Succeeded in setting the HDC authentication key.`);
+    hilog.info(DOMAIN, TAG, `Succeeded in setting the HDC authentication key.`);
   }).catch((error: BusinessError) => {
-    console.error(`Failed to set the HDC authentication key. Code: ${error.code}, message: ${error.message}.`);
+    hilog.error(DOMAIN, TAG,
+      `Failed to set the HDC authentication key. Code: ${error.code}, message: ${error.message}.`);
   })
 }
 ```

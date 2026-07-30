@@ -1,6 +1,6 @@
 # refresh
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-refresh
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,7 +55,7 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | background-color | &lt;color&gt; | white | 否 | 设置刷新组件的背景颜色。 |
-| progress-color | &lt;color&gt; | black | 否 | 设置刷新组件的loading图标颜色。 |
+| progress-color | &lt;color&gt; | black | 否 | 设置刷新组件的进度图标颜色。 |
  
  
   
@@ -168,4 +168,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/lQ1vb3nrSgWXGh7wGu2iHQ/zh-cn_image_0000002659102287.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=E0C356C73A836D76E189DA6CD8C754B84DB8C9653ACB2F2E0BE30BF8B5229ACF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/BXKb2EFCTECeOArLnmpOzA/zh-cn_image_0000002655849092.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071523Z&HW-CC-Expire=86400&HW-CC-Sign=DCBB129FC144FA70801866E6A5406D6E228F812E47D71436C517004D1311A54E)

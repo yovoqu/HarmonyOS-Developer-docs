@@ -1,11 +1,11 @@
 # Class (FocusController)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-focuscontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供控制焦点的能力，如清除、移动和激活焦点等功能。
+提供控制焦点的能力，如清除、移动和激活焦点等功能，适用于需要管理页面或组件焦点状态、控制焦点流转的场景，可帮助开发者优化键盘等输入方式下的焦点交互体验。
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getFocusController() 方法获取FocusController实例，再通过该实例调用对应方法。
@@ -32,8 +32,7 @@ clearFocus(): void
 @Entry
 @Component
 struct ClearFocusExample {
-  @State inputValue: string = '';
-  @State btColor: Color = Color.Blue;
+  @State buttonColor: Color = Color.Blue;
 
   build() {
     Column({ space: 20 }) {
@@ -49,13 +48,13 @@ struct ClearFocusExample {
           .height(70)
           .fontColor(Color.White)
           .focusOnTouch(true)
-          .backgroundColor(this.btColor)
+          .backgroundColor(this.buttonColor)
           .defaultFocus(true)
           .onFocus(() => {
-            this.btColor = Color.Red;
+            this.buttonColor = Color.Red;
           })
           .onBlur(() => {
-            this.btColor = Color.Blue;
+            this.buttonColor = Color.Blue;
           })
         Button('clearFocus')
           .width(200)
@@ -83,7 +82,7 @@ struct ClearFocusExample {
 
 requestFocus(key: string): void
 
-通过组件的id将焦点转移到组件树对应的实体节点，当前帧生效。
+通过组件的id将焦点转移到组件树对应的实体节点，当前帧生效，适用于需要在表单校验、页面初始化或键盘操作流程中主动将焦点定位到指定组件的场景。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -130,11 +129,11 @@ struct RequestExample {
           .onBlur(() => {
             this.btColor = Color.Blue;
           })
-          .id("testButton")
+          .id('testButton')
 
         Divider()
           .vertical(false)
-          .width("80%")
+          .width('80%')
           .backgroundColor(Color.Black)
           .height(10)
 
@@ -142,7 +141,7 @@ struct RequestExample {
           .width(200)
           .height(70)
           .onClick(() => {
-            this.getUIContext().getFocusController().requestFocus("testButton");
+            this.getUIContext().getFocusController().requestFocus('testButton');
           })
 
         Button('requestFocus fail')
@@ -150,9 +149,9 @@ struct RequestExample {
           .height(70)
           .onClick(() => {
             try {
-              this.getUIContext().getFocusController().requestFocus("eee");
+              this.getUIContext().getFocusController().requestFocus('eee');
             } catch (error) {
-              console.error(`requestFocus failed code is ${error.code} message is ${error.message}`);
+              console.error(`Failed to request focus. Code: ${error.code}, message: ${error.message}`);
             }
           })
       }
@@ -230,7 +229,7 @@ struct ActivateExample {
 
 isActive(): boolean
 
-返回UI实例的焦点激活态。
+返回UI实例的焦点激活态。适用于需要根据当前焦点激活状态决定是否启用方向键走焦或更新焦点提示的场景。
 
 焦点激活态可参考[基础概念：焦点激活态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-events-focus-event#基础概念)。
 
@@ -252,8 +251,7 @@ isActive(): boolean
 ```text
 @Entry
 @Component
-struct ClearFocusExample {
-  @State inputValue: string = '';
+struct IsActiveExample {
   @State btColor: Color = Color.Blue;
 
   build() {
@@ -266,7 +264,7 @@ struct ClearFocusExample {
           .focusOnTouch(true)
           .backgroundColor(Color.Blue)
           .onClick(() => {
-            console.info("button1 onClick");
+            console.info('button1 onClick');
             this.getUIContext().getFocusController().activate(true);
             console.info(`focus status ${this.getUIContext().getFocusController().isActive()}`);
           })
@@ -278,7 +276,7 @@ struct ClearFocusExample {
           .backgroundColor(this.btColor)
           .defaultFocus(true)
           .onClick(() => {
-            console.info("button2 onClick");
+            console.info('button2 onClick');
             this.getUIContext().getFocusController().activate(false);
             console.info(`focus status ${this.getUIContext().getFocusController().isActive()}`);
           })
@@ -377,7 +375,7 @@ struct CustomDialogUser {
 
 setKeyProcessingMode(mode: KeyProcessingMode): void
 
-设置按键事件处理的优先级。
+设置按键事件处理的优先级，适用于父子组件都需要处理按键事件时，开发者需要控制按键事件优先分发策略的场景。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -393,7 +391,7 @@ setKeyProcessingMode(mode: KeyProcessingMode): void
 **示例：**
 
 ```text
-// 该示例演示了在页面加载完成后设置走焦类型的实现方式。
+// 该示例演示了在页面加载完成后设置按键事件处理优先级的实现方式。
 @Entry
 @Component
 struct Index {
@@ -405,11 +403,11 @@ struct Index {
     Row() {
       Row() {
         Button('Button1').id('Button1').onKeyEvent((event) => {
-          console.info("Button1");
+          console.info('Button1');
           return true;
         })
         Button('Button2').id('Button2').onKeyEvent((event) => {
-          console.info("Button2");
+          console.info('Button2');
           return true;
         })
       }

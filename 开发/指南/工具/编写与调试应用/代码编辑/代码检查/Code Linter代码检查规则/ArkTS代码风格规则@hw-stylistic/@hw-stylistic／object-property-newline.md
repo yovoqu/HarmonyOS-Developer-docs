@@ -1,12 +1,12 @@
 # @hw-stylistic/object-property-newline
 
-更新时间：2026-03-09 07:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_object-property-newline
 
 强制对象属性换行。该规则仅检查.ets文件类型。
  
-对象属性不超过4个时，允许在同一行，也可以每个属性都换行。对象属性超过4个时，每个属性必须都换行。
+对象属性不超过4个时，允许在同一行，也可以每个属性都换行。对象属性超过4个时，每个属性必须换行。
  
 
 #### 规则配置

@@ -1,6 +1,6 @@
 # @ohos.app.ability.application (应用工具类)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -167,7 +167,7 @@ export default class EntryAbility extends UIAbility {
 
 getApplicationContextInstance(): ApplicationContext
 
-获取应用上下文。开发者使用该接口时，无需依赖Context基类。
+获取应用上下文实例。开发者使用该接口时，无需依赖Context基类。
 
 重复调用该接口，将获取同一个ApplicationContext实例。
 

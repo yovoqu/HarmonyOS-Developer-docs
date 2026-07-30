@@ -1,11 +1,11 @@
 # EditableTitleBar
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-editabletitlebar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-编辑型标题栏，适用于多选界面或者内容的编辑界面，一般采取左叉右勾的形式。
+编辑型标题栏组件，提供标准的编辑界面标题栏实现，支持自定义左侧按钮类型（返回/取消）、头像显示、右侧菜单项、背景模糊样式等功能。适用于需要进行内容编辑、多选操作的场景，如相册多选编辑、文本编辑器、表单编辑等界面。该组件封装了编辑场景常用的UI交互模式（左叉右勾），开发者无需自行实现标题栏布局和交互逻辑，可快速构建符合设计规范的编辑界面，提升开发效率并保证UI一致性。同时支持无障碍属性配置，满足可访问性要求。
  
 > [!NOTE]
 > 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果EditableTitleBar设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到EditableTitleBar本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议EditableTitleBar设置通用属性和通用事件。
@@ -47,19 +47,19 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
 | leftIconStyle | EditableLeftIconType | 是 | - | 左侧按钮类型。 默认值：EditableLeftIconType.Back，表示返回。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | imageItem12+ | EditableTitleBarItem | 否 | - | 用于左侧头像的单个菜单项目。需要在标题栏左侧显示头像时传入此参数，不传入时取默认值，不显示头像。 默认值：undefined。 说明： 左侧头像不支持配置无障碍属性。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | title | ResourceStr | 是 | - | 标题。 默认值：''，表示标题内容为空。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| subtitle12+ | ResourceStr | 否 | - | 副标题。需要在标题下方显示补充说明信息时传入此参数，不传入时取默认值，不显示副标题。 默认值：''，表示副标题内容为空。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| subtitle12+ | ResourceStr | 否 | - | 副标题。需要在标题下方显示补充说明信息时传入此参数，不传入时不显示。 默认值：''，表示副标题内容为空。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | menuItems | Array&lt;EditableTitleBarMenuItem&gt; | 否 | - | 右侧菜单项目列表。需要在标题栏右侧显示自定义操作按钮时传入此参数，不传入时取默认值，不显示右侧菜单项目列表。 默认值：undefined。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isSaveIconRequired12+ | boolean | 是 | - | 是否需要右侧的保存按钮。 默认值：true，表示需要右侧的保存按钮。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isSaveIconRequired12+ | boolean | 是 | - | 是否需要右侧的保存按钮。true表示需要右侧的保存按钮，false表示不需要右侧的保存按钮。 默认值：true 说明： 未使用@Require装饰，构造时不强制校验参数。当isSaveIconRequired为false时，不显示保存按钮，onSave回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onSave | () => void | 否 | - | 点击保存时的事件。需要自定义保存操作逻辑时传入此参数，缺省时点击按钮无响应。 默认值：() => void。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onCancel | () => void | 否 | - | 当左侧按钮类型为 Cancel，触发取消时的事件。需要自定义返回/取消操作逻辑时传入此参数，缺省时点击左侧按钮无响应。 默认值：() => void。 从API version 12开始，当左侧按钮类型为 Back，触发返回时的事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | options12+ | EditableTitleBarOptions | 是 | - | 标题样式。 默认值： { safeAreaTypes: [SafeAreaType.SYSTEM], safeAreaEdges: [SafeAreaEdge.TOP], backgroundColor: '#00000000' }。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | contentMargin12+ | LocalizedMargin | 否 | @Prop | 标题栏外边距，不支持设置负数。 默认值： {start: LengthMetrics.resource(\$r('sys.float.margin_left')), end: LengthMetrics.resource(\$r('sys.float.margin_right'))}。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| leftIconDefaultFocus18+ | boolean | 否 | - | 左侧图标是否为默认焦点。 默认值：false，表示不是默认焦点。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| saveIconDefaultFocus18+ | boolean | 否 | - | 保存图标是否为默认焦点。 默认值：false，表示不是默认焦点。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| leftIconDefaultFocus18+ | boolean | 否 | - | 左侧图标是否为默认焦点。true表示是默认焦点，false表示不是默认焦点。 默认值：false 说明： 若同时有多个可操作区域设置为默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| saveIconDefaultFocus18+ | boolean | 否 | - | 保存图标是否为默认焦点。true表示是默认焦点，false表示不是默认焦点。 默认值：false 说明： 需要右侧保存按钮（isSaveIconRequired为true）时此属性生效。若同时有多个可操作区域设置为默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
  
  
 > [!NOTE]
-> 入参对象不可为undefined，即EditableTitleBar(undefined)。 若同时有多个可操作区域设置值默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。
+> 入参对象不可为undefined，即EditableTitleBar(undefined)。 若同时有多个可操作区域设置为默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。
 
  
   
@@ -93,14 +93,14 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | ResourceStr | 否 | 否 | 图标资源。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| symbolStyle18+ | SymbolGlyphModifier | 否 | 是 | Symbol图标资源，优先级大于value。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| label12+ | ResourceStr | 否 | 是 | 图标标签描述。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| isEnabled | boolean | 否 | 是 | 是否启用，默认启用。 isEnabled为true时，表示为启用。 isEnabled为false时，表示为禁用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| action | () => void | 否 | 是 | 标题栏右侧自定义按钮点击事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| symbolStyle18+ | SymbolGlyphModifier | 否 | 是 | Symbol图标资源，优先级大于value。不设置时使用value参数显示图标。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| label12+ | ResourceStr | 否 | 是 | 图标标签描述。不设置时不显示图标标签。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isEnabled | boolean | 否 | 是 | 是否启用。 默认值：true，表示默认启用。 isEnabled为true时，表示为启用。 isEnabled为false时，表示为禁用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| action | () => void | 否 | 是 | 标题栏右侧自定义按钮点击事件。不设置时点击按钮无响应。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | accessibilityLevel18+ | string | 否 | 是 | 标题栏右侧自定义按钮无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。 支持的值为： "auto"：当前组件会转换"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto" 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityText18+ | ResourceStr | 否 | 是 | 标题栏右侧自定义按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值：有label默认值为当前项label属性内容，没有设置label时，默认值为“ ”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityText18+ | ResourceStr | 否 | 是 | 标题栏右侧自定义按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值：未设置label属性时为“ ”；设置label属性后默认值为当前项label属性内容。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | accessibilityDescription18+ | ResourceStr | 否 | 是 | 标题栏右侧自定义按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值为“单指双击即可执行”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus18+ | boolean | 否 | 是 | 是否设置为默认获焦。 true: 获焦 false: 不获焦 默认值：false 使用defaultFocus属性时，需提前将isEnabled属性设置为true，否则defaultFocus值会被识别为false。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| defaultFocus18+ | boolean | 否 | 是 | 是否设置为默认获焦。 true: 获焦 false: 不获焦 默认值：false 使用defaultFocus属性时，需提前将isEnabled属性设置为true，否则defaultFocus设置将不生效。 说明： 若同时有多个可操作区域设置为默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
  
  
   
@@ -136,10 +136,10 @@ type EditableTitleBarItem = EditableTitleBarMenuItem
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| backgroundColor | ResourceColor | 否 | 是 | 标题栏背景色。 默认值: '#00000000' |
-| backgroundBlurStyle | BlurStyle | 否 | 是 | 标题栏背景模糊样式。 默认值: BlurStyle.NONE |
-| safeAreaTypes | Array &lt;SafeAreaType&gt; | 否 | 是 | 非必填，配置扩展安全区域的类型。 默认值: [SafeAreaType.SYSTEM] |
-| safeAreaEdges | Array &lt;SafeAreaEdge&gt; | 否 | 是 | 非必填，配置扩展安全区域的方向。 默认值: [SafeAreaEdge.TOP] |
+| backgroundColor | ResourceColor | 否 | 是 | 标题栏背景色。 默认值：'#00000000' |
+| backgroundBlurStyle | BlurStyle | 否 | 是 | 标题栏背景模糊样式。 默认值：BlurStyle.NONE |
+| safeAreaTypes | Array &lt;SafeAreaType&gt; | 否 | 是 | 配置扩展安全区域的类型。 默认值：[SafeAreaType.SYSTEM] |
+| safeAreaEdges | Array &lt;SafeAreaEdge&gt; | 否 | 是 | 配置扩展安全区域的方向。 默认值：[SafeAreaEdge.TOP] |
  
  
   
@@ -199,7 +199,7 @@ struct Index {
             }
           ],
           onSave: () => {
-            Prompt.showToast({ message: 'on save' })
+            Prompt.showToast({ message: 'on save' });
           }
         })
         Divider().height(2).color(0xCCCCCC)
@@ -217,7 +217,7 @@ struct Index {
 
 #### 示例2（头像与背景模糊标题栏）
 
-该示例主要演示EditableTitleBar设置背景模糊、头像；取消右侧保存图标及自定义标题栏外边距的效果。
+该示例主要演示EditableTitleBar设置背景模糊、头像、取消右侧保存图标及自定义标题栏外边距的效果。
  
 ```text
 import { EditableLeftIconType, EditableTitleBar, LengthMetrics, Prompt } from '@kit.ArkUI';
@@ -242,7 +242,7 @@ struct Index {
             backgroundBlurStyle: BlurStyle.COMPONENT_THICK,
           },
           onSave: () => {
-            Prompt.showToast({ message: "on save" });
+            Prompt.showToast({ message: 'on save' });
           },
         })
         Divider().height(2).color(0xCCCCCC);
@@ -273,7 +273,7 @@ struct Index {
               value: $r('sys.media.ohos_ic_public_remove'),
               isEnabled: true,
               action: () => {
-                Prompt.showToast({ message: "show toast index 1" });
+                Prompt.showToast({ message: 'show toast index 1' });
               }
             }
           ],
@@ -293,7 +293,7 @@ struct Index {
             value: $r('sys.media.ohos_ic_normal_white_grid_image'),
             isEnabled: true,
             action: () => {
-              Prompt.showToast({ message: "show toast index 2" });
+              Prompt.showToast({ message: 'show toast index 2' });
             }
           },
           // 设置标题栏外边距
@@ -304,7 +304,7 @@ struct Index {
               value: $r('sys.media.ohos_ic_public_remove'),
               isEnabled: true,
               action: () => {
-                Prompt.showToast({ message: "show toast index 3" });
+                Prompt.showToast({ message: 'show toast index 3' });
               }
             }
           ],
@@ -359,7 +359,7 @@ struct Index1 {
             value: $r('sys.media.ohos_ic_normal_white_grid_image'),
             isEnabled: true,
             action: () => {
-              Prompt.showToast({ message: "show toast index 1" });
+              Prompt.showToast({ message: 'show toast index 1' });
             }
           },
           menuItems: [
@@ -370,7 +370,7 @@ struct Index1 {
               accessibilityText: '删除',
               accessibilityDescription: '点击即可删除',
               action: () => {
-                Prompt.showToast({ message: "show toast index 2" });
+                Prompt.showToast({ message: 'show toast index 2' });
               }
             }
           ],
@@ -451,7 +451,7 @@ struct Index {
             value: $r('sys.media.ohos_ic_public_remove'),
             isEnabled: true,
             action: () => {
-              Prompt.showToast({ message: "show toast index 1" });
+              Prompt.showToast({ message: 'show toast index 1' });
             }
           },
           {
@@ -459,7 +459,7 @@ struct Index {
             isEnabled: true,
             defaultFocus: true,
             action: () => {
-              Prompt.showToast({ message: "show toast index 2" });
+              Prompt.showToast({ message: 'show toast index 2' });
             }
           }
         ],
@@ -475,7 +475,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/dOlxS6vQTdqx8euS5RuXJQ/zh-cn_image_0000002659102207.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=C20C745E5CD9786AE984ADA497B44971A3519373AB3874E68B32776EE3D89082)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/U-z5qOrqQeCa0FFtAroA-g/zh-cn_image_0000002655849000.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=416520BC4D6130E5E9C46E71BC6327881F504AA1D59C32A45A022899BE3E6F69)
 
  
   
@@ -521,7 +521,7 @@ struct Index {
             value: $r('sys.media.ohos_app_icon'),
             isEnabled: true,
             action: () => {
-              Prompt.showToast({ message: "show toast index 1" });
+              Prompt.showToast({ message: 'show toast index 1' });
             }
           },
           menuItems: [
@@ -548,4 +548,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/LbnN5YsqTU-Lrk70-bcxQA/zh-cn_image_0000002628862860.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=1ED380840B56F85B3CB34B1AA4DC2D2DE97FEC5BEBB702A4265177B3100F4654)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/4-tz-fbZQP-MXytiyi1rdQ/zh-cn_image_0000002686088431.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=971CDD6A6F10BAF5E2206AF68E154230E3A26E8AB18B4A69A24400910259AA65)

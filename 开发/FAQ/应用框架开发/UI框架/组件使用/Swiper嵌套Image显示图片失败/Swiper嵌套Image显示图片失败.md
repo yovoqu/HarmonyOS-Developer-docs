@@ -60,7 +60,7 @@ width、height为图片实际宽高。
 查看打印的数据信息：图片加载并解码后的数据。除图片实际宽高外，组件宽高和图片绘制宽高均为0。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/BrdtZeKYRrKOqQi0EJfbTA/zh-cn_image_0000002658794583.png?HW-CC-KV=V1&HW-CC-Date=20260723T012604Z&HW-CC-Expire=86400&HW-CC-Sign=3E8E2EA6E2E8C41E4A04DAD011BC37287F8B60EAE68A5DC39F797F32C4B0D15C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/BrdtZeKYRrKOqQi0EJfbTA/zh-cn_image_0000002658794583.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=0EFBA0F81FFAD5055C7D932E3C47DCEF5089DB7461295214C7601A0DD16AF2E6)
 
  
  
@@ -109,4 +109,4 @@ struct <span style="color: rgb(0,0,255);">SwiperImageDemo </span><span style="co
 查看打印的图片尺寸信息：组件宽高和图片实际绘制宽高大于0。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/ZnFXejk_S6y75VgMigt6XA/zh-cn_image_0000002628555216.png?HW-CC-KV=V1&HW-CC-Date=20260723T012604Z&HW-CC-Expire=86400&HW-CC-Sign=8538339EEFFF44B31BCC8CC6F90638CB5F31CCEF7EABA67CF40576DEBF7B6165)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/ZnFXejk_S6y75VgMigt6XA/zh-cn_image_0000002628555216.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=46B9ED1B97CEFF1F4F7010D49D283AA71B5AFD6158ADC291F153A887DB4E0528)

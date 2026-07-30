@@ -1,6 +1,6 @@
 # SVG标签解析能力增强
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-svg2-capabilities
 
@@ -8,7 +8,7 @@
 
  - 易用性提升：SVG图源颜色默认解析格式从#ARGB变更为符合SVG标准规范的#RGBA；引用的URL类型进行严格校验；Image组件的[colorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#colorfilter9)属性对整个SVG图源生效；Image组件的[fillColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#fillcolor20)属性不对SVG图源中fill = 'none'的元素填充颜色。
  - 仿射变换能力扩展：支持变换全局中心点可配置；支持rotate旋转的局部中心点；支持矩阵(matrix)转换方式；支持非法值的校验；裁剪路径内支持仿射变换操作；组合场景支持仿射变换操作。
- - 解析能力扩展：[viewBox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-svg2-capabilities#viewbox属性支持对齐和缩放规则可配置)属性支持对齐和缩放规则的自定义配置；支持裁剪路径单元的解析；支持渐变单元的解析；支持遮罩单元和遮罩内容单元的解析；支持图案单元和图案内容单元的解析；支持滤镜单元和原语单元解析。
+ - 解析能力扩展：[viewBox](#viewbox属性支持对齐和缩放规则可配置)属性支持对齐和缩放规则的自定义配置；支持裁剪路径单元的解析；支持渐变单元的解析；支持遮罩单元和遮罩内容单元的解析；支持图案单元和图案内容单元的解析；支持滤镜单元和原语单元解析。
  - 显示效果扩展：分组标签g元素中透明度opacity对整个分组下的多层子元素生效；增强g标签内clip-path裁剪路径规则的处理；pattern增强平铺效果和偏移值处理；线性渐变和径向渐变增强平移和缩放效果；mask和filter的参数异常时默认效果变更。
 
 
@@ -19,13 +19,13 @@
 
 | 元素 | 属性 | 说明 |
 | --- | --- | --- |
-| clipPath | clipPathUnits | clipPathUnits裁剪路径单元，指定裁剪路径的坐标系统基准。 clipPathUnits属性可取值： userSpaceOnUse(基于绝对坐标系)、objectBoundingBox(被应用元素的边框作为基准的坐标系)。 |
-| filter | filterUnits primitiveUnits x y width height | filterUnits滤镜单元，定义滤镜效果（如模糊、阴影）的坐标和尺寸基准。 primitiveUnits滤镜原语单元，定义滤镜内元素效果的坐标和尺寸基准。 filterUnits和primitiveUnits两个属性均可取值： userSpaceOnUse(基于绝对坐标系)、objectBoundingBox(被应用元素的边框作为基准的坐标系)。 x：滤镜区域x轴偏移分量，默认值：-10% y：滤镜区域y轴偏移分量，默认值：-10% width：滤镜区域宽，默认值：120% height：滤镜区域高，默认值：120% |
-| mask | maskUnits maskContentUnits x y width height | maskUnits遮罩单元，控制遮罩的坐标系统和内容渲染方式。 maskContentUnits遮罩内容单元，控制遮罩内元素的坐标系统和内容渲染方式。 maskUnits和maskContentUnits两个属性均可取值： userSpaceOnUse(基于绝对坐标系)、objectBoundingBox(被应用元素的边框作为基准的坐标系)。 x：遮罩区域x轴偏移分量，默认值：-10% y：遮罩区域y轴偏移分量，默认值：-10% width：遮罩区域宽，默认值：120% height：遮罩区域高，默认值：120% |
-| radialGradient | gradientUnits | gradientUnits渐变单元，决定渐变（线性/径向）的坐标参考系。 gradientUnits属性可取值： userSpaceOnUse(基于绝对坐标系)、objectBoundingBox(被应用元素的边框作为基准的坐标系)。 |
-| linearGradient | gradientUnits | gradientUnits渐变单元，决定渐变（线性/径向）的坐标参考系。 gradientUnits属性可取值： userSpaceOnUse(基于绝对坐标系)、objectBoundingBox(被应用元素的边框作为基准的坐标系)。 |
-| pattern | patternUnits patternContentUnits | patternUnits图案单元，控制图案整体（&lt;pattern&gt;）的坐标系和内容缩放。 patternContentUnits图案内容单元，控制图案内部元素的坐标系和内容缩放。 patternUnits和patternContentUnits两个属性均可取值： userSpaceOnUse(基于绝对坐标系)、objectBoundingBox(被应用元素的边框作为基准的坐标系)。 |
-| g | opacity clip-path | opacity透明度：对整个分组下的多层子元素生效。 clip-path裁剪路径：对整个分组下的多层子元素生效。 |
+| clipPath | clipPathUnits | clipPathUnits裁剪路径单元，指定裁剪路径的坐标系统基准。 clipPathUnits属性可取值： userSpaceOnUse（基于绝对坐标系）、objectBoundingBox（被应用元素的边框作为基准的坐标系）。 |
+| filter | filterUnits primitiveUnits x y width height | filterUnits滤镜单元，定义滤镜效果（如模糊、阴影）的坐标和尺寸基准。 primitiveUnits滤镜原语单元，定义滤镜内元素效果的坐标和尺寸基准。 filterUnits和primitiveUnits两个属性均可取值： userSpaceOnUse（基于绝对坐标系）、objectBoundingBox（被应用元素的边框作为基准的坐标系）。 x：滤镜区域x轴偏移分量，默认值：-10% y：滤镜区域y轴偏移分量，默认值：-10% width：滤镜区域宽，默认值：120% height：滤镜区域高，默认值：120% |
+| mask | maskUnits maskContentUnits x y width height | maskUnits遮罩单元，指定遮罩的坐标系统参考基准。 maskContentUnits遮罩内容单元，指定遮罩内元素的坐标系统参考基准。 maskUnits和maskContentUnits两个属性均可取值： userSpaceOnUse（基于绝对坐标系）、objectBoundingBox（被应用元素的边框作为基准的坐标系）。 x：遮罩区域x轴偏移分量，默认值：-10% y：遮罩区域y轴偏移分量，默认值：-10% width：遮罩区域宽，默认值：120% height：遮罩区域高，默认值：120% |
+| radialGradient | gradientUnits | gradientUnits渐变单元，决定渐变（线性/径向）的坐标参考系。 gradientUnits属性可取值： userSpaceOnUse（基于绝对坐标系）、objectBoundingBox（被应用元素的边框作为基准的坐标系）。 |
+| linearGradient | gradientUnits | gradientUnits渐变单元，决定渐变（线性/径向）的坐标参考系。 gradientUnits属性可取值： userSpaceOnUse（基于绝对坐标系）、objectBoundingBox（被应用元素的边框作为基准的坐标系）。 |
+| pattern | patternUnits patternContentUnits | patternUnits图案单元，指定图案整体（&lt;pattern&gt;）的坐标系统参考基准。 patternContentUnits图案内容单元，指定图案内部元素的坐标系统参考基准。 patternUnits和patternContentUnits两个属性均可取值： userSpaceOnUse（基于绝对坐标系）、objectBoundingBox（被应用元素的边框作为基准的坐标系）。 |
+| g | opacity clip-path | opacity透明度：对整个分组下的多层子元素生效，取值范围[0,1]，0表示完全透明，1表示完全不透明。超出范围时自动钳制到边界值。 clip-path裁剪路径：对整个分组下的多层子元素生效。 |
 | 通用 | transform | 用于对SVG元素进行2D变换（如平移、旋转、缩放、倾斜等）。 translate(x, y)‌：沿X/Y轴平移元素。 ‌ rotate(angle, [cx], [cy])‌：旋转元素（可选参数指定旋转中心）。angle参数单位为deg（度）。 ‌scale(sx, [sy])‌：缩放元素（单参数时X/Y轴等比缩放）。 ‌skewX(angle)/skewY(angle)‌：沿X/Y轴倾斜元素。 ‌ matrix(a, b, c, d, e, f)‌：通过矩阵定义复杂变换。 |
 | 通用 | transform-origin | 用于定义变换的基准点。需和transform属性配合使用。 当配置transform-origin时，按照全局中心点（transform-origin）属性指定的坐标偏移(x,y)作为变换中心点进行仿射变换。 |
 
@@ -82,7 +82,7 @@ SVG图源属性设置4位十六进制格式的颜色时，示例图源和效果�
 
 | 提升前 | 提升后 |
 | --- | --- |
-| 系统会把4位的十六进制颜色当#ARGB格式解析并显示。 例如fill="#8888"的矩形显示效果。 | 系统会把4位的十六进制颜色当#RGBA解析并显示。 例如fill="#0000"的矩形显示效果（全透明）。 |
+| 系统会把4位的十六进制颜色当#ARGB格式解析并显示。 例如fill="#0000"的矩形显示效果。 | 系统会把4位的十六进制颜色当#RGBA解析并显示。 例如fill="#0000"的矩形显示效果（全透明）。 |
 
 
 
@@ -148,8 +148,6 @@ Image组件的[colorFilter](https://developer.huawei.com/consumer/cn/doc/harmony
 @Component
 
 struct Index {
-  @State select: boolean = true
-  @State effect:ImageFit = ImageFit.Contain
   build() {
     Row() {
       Column() {
@@ -200,8 +198,6 @@ struct Index {
 @Component
 
 struct Index {
-  @State select: boolean = true
-  @State effect:ImageFit = ImageFit.Contain
   build() {
     Row() {
       Column() {
@@ -242,7 +238,7 @@ SVG支持解析transform-origin属性来配置全局中心点的能力，前后�
 | transform属性设置skewX按x轴倾斜的功能，同时配置transform-origin属性。 全局中心点值为图形元素右下角，如:'transform="skewX(30)" transform-origin="150 150"'。 |  |  |
 | transform属性设置skewY按y轴倾斜的功能，同时配置transform-origin属性。 全局中心点值为图形元素右下角，如:'transform="skewY(30)" transform-origin="150 150"'。 |  |  |
 | transform属性设置translate平移功能，同时配置transform-origin属性。 全局中心点值为图形元素右下角，如:'transform="translate(30,30)" transform-origin="150 150"'。 |  |  |
-| transform属性链式调用多个功能，同时配置transform-origin属性。 全局中心点值为图形元素右下角，如:transform='"translate(10,10) rotate(10) scale(0.5) skewX(10)" transform-origin="150 150"'。 |  |  |
+| transform属性链式调用多个功能，同时配置transform-origin属性。 全局中心点值为图形元素右下角，如:'transform="translate(10,10) rotate(10) scale(0.5) skewX(10)" transform-origin="150 150"'。 |  |  |
 
 
 
@@ -272,7 +268,7 @@ SVG支持解析transform属性的matrix矩阵转换能力。matrix允许对元�
 
 | SVG场景 | 扩展前 | 扩展后 |
 | --- | --- | --- |
-| transform属性设置matrix矩阵变换，同时配置transform-origin属性。 全局中心点值为图形元素右下角，如:'transform="matrix(0.812,0.278,0.139,0.763,5.000,5.000" transform-origin="150 150"')。 |  |  |
+| transform属性设置matrix矩阵变换，同时配置transform-origin属性。 全局中心点值为图形元素右下角，如:'transform="matrix(0.812,0.278,0.139,0.763,5.000,5.000)" transform-origin="150 150"'。 |  |  |
 
 
 
@@ -308,7 +304,7 @@ SVG支持校验transform属性非法值的能力。对于transform属性，当�
   <!-- 定义一个ID为circleClip的clipPath，使用objectBoundingBox单位 -->
   <defs>
     <clipPath id="circleClip" clipPathUnits="objectBoundingBox">
-      <!-- 圆心在对象中心，半径为0.5，即圆覆盖整个对象 -->
+      <!-- 圆心在(50,50)，半径为40，经translate(50 50)平移 -->
       <circle cx="50" cy="50" r="40" transform="translate(50 50)" />
     </clipPath>
   </defs>
@@ -396,8 +392,8 @@ SVG包含“preserveAspectRatio”属性且值为“none”，示例图源和行
 ```xml
 <svg width="200" height="100" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="50" cy="20" r="20" fill="red"/>
-  <line x1="0" y1="0" x2="0" y2="500" stroke="black" stroke-width="2" /> <!-- x 轴 -->
-  <line x1="0" y1="0" x2="500" y2="0" stroke="black" stroke-width="2" /> <!-- y 轴 -->
+  <line x1="0" y1="0" x2="0" y2="500" stroke="black" stroke-width="2" /> <!-- y 轴 -->
+  <line x1="0" y1="0" x2="500" y2="0" stroke="black" stroke-width="2" /> <!-- x 轴 -->
 </svg>
 ```
 
@@ -411,8 +407,8 @@ SVG包含“preserveAspectRatio”属性且值为“&lt;align&gt; [&lt;meetOrSli
 ```xml
 <svg width="200" height="100" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
   <circle cx="50" cy="20" r="20" fill="red"/>
-  <line x1="0" y1="0" x2="0" y2="500" stroke="black" stroke-width="2" /> <!-- x 轴 -->
-  <line x1="0" y1="0" x2="500" y2="0" stroke="black" stroke-width="2" /> <!-- y 轴 -->
+  <line x1="0" y1="0" x2="0" y2="500" stroke="black" stroke-width="2" /> <!-- y 轴 -->
+  <line x1="0" y1="0" x2="500" y2="0" stroke="black" stroke-width="2" /> <!-- x 轴 -->
 </svg>
 ```
 
@@ -473,7 +469,7 @@ SVG包含“preserveAspectRatio”属性且值为“&lt;align&gt; [&lt;meetOrSli
 > SVG图片最终显示效果受Image组件的objectFit参数值影响，为了确保SVG图形完整且正确的显示，文档中用例图片都配置了objectFit(ImageFit.Contain)，开发者需要根据实际显示效果正确配置objectFit参数。
 
 
-图源示例显示一个线性渐变从绝对坐标(10，10) 到 (180，180)的长方形范围内。
+图源示例显示一个线性渐变从绝对坐标(10, 10)到(180, 180)的长方形范围内。
 
 ```xml
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -492,7 +488,7 @@ SVG包含“preserveAspectRatio”属性且值为“&lt;align&gt; [&lt;meetOrSli
 |  |  |
 
 
-图源示例显示一个径向渐变从绝对坐标圆心 (100，90) 开始，半径为90的渐变效果。
+图源示例显示一个径向渐变从绝对坐标圆心(100, 100)开始，半径为90的渐变效果。
 
 ```xml
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -521,7 +517,7 @@ SVG包含“preserveAspectRatio”属性且值为“&lt;align&gt; [&lt;meetOrSli
 > SVG图片最终显示效果受Image组件的objectFit参数值影响，为了确保SVG图形完整且正确的显示，文档中用例图片都配置了objectFit(ImageFit.Contain)，开发者需要根据实际显示效果正确配置objectFit参数。
 
 
-图源示例显示一个五角星遮罩范围从绝对坐标 (10，10)到(200，200)，遮罩内容相对于应用矩形左上角，水平尺寸乘以图形包围盒宽度，垂直尺寸乘以图形包围盒高度。
+图源示例显示一个五角星遮罩范围从绝对坐标(10, 10)到(200, 200)，遮罩内容相对于应用矩形左上角，水平尺寸乘以图形包围盒宽度，垂直尺寸乘以图形包围盒高度。
 
 ```xml
 <svg width="220" height="220" xmlns="http://www.w3.org/2000/svg">
@@ -706,7 +702,7 @@ pattern图案支持重复平铺效果。
 
 #### pattern偏移值处理
 
-支持pattern图案在x，y参数非0时，从只显示平移后的部分图形变更为显示完整图形。
+支持pattern图案在x，y参数非0时，扩展前仅显示按偏移量平移后的局部图案（部分被裁切）；扩展后完整显示平移后的图案（不再裁切），并支持重复平铺。
 
 > [!NOTE]
 > SVG图片最终显示效果受Image组件的objectFit参数值影响，为了确保SVG图形完整且正确的显示，文档中用例图片都配置了objectFit(ImageFit.Contain)，开发者需要根据实际显示效果正确配置objectFit参数。

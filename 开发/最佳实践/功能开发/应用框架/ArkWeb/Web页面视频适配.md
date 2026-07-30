@@ -1,6 +1,6 @@
 # Web页面视频适配
 
-更新时间：2026-03-26 08:46:30
+更新时间：2026-07-28 03:34:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-adaptation-based-web
 
@@ -26,7 +26,9 @@
 
 默认情况下，网页中的视频点击全屏按钮后，会在移动设备上以竖屏形式播放视频，同时也无法兼容手势返回，对于用户而言，竖屏播放视频画面有限，更希望视频能够以横屏全屏的形式播放，同时使用手势返回后，只退出全屏播放，而不是返回到桌面，在这种情况下，就需要开发者对Web视频做全屏播放的适配。
  
-图1 **默认情况下进入视频全屏播放效果**
+图1 **默认情况下进入视频全屏播放效果
+ 
+
 ![](assets/Web页面视频适配/file-20260515114618800-0.gif)
 
  
@@ -34,7 +36,7 @@
 
 #### 实现原理
 
-图2 **Web页面适配全屏播放视频流程图**
+**图2 **Web页面适配全屏播放视频流程图**
 ![](assets/Web页面视频适配/file-20260515114618800-1.png)
 
  
@@ -76,10 +78,15 @@ Web({
 struct Index {
   // ...
   private windowClass: window.Window | null = null;
-  private context: common.UIAbilityContext = context as common.UIAbilityContext;
+  private context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
   // ...
   aboutToAppear(): void {
-    window.getLastWindow(this.context).then((windowClass) => this.windowClass = windowClass);
+    window.getLastWindow(this.context)
+      .then((windowClass) => this.windowClass = windowClass)
+      .catch((error: BusinessError<void>) => {
+        hilog.error(0x0000, 'testTag', 'Execution failed, code = %{public}d, message = %{public}s',
+          error.code, error.message);
+      });
     // ...
   }
 
@@ -90,7 +97,10 @@ struct Index {
    * @returns void - This function does not return any value.
    */
   changeOrientation(orientation: window.Orientation) {
-    this.windowClass?.setPreferredOrientation(orientation);
+    this.windowClass?.setPreferredOrientation(orientation).catch((error: BusinessError<void>) => {
+      hilog.error(0x0000, 'testTag', 'Execution failed, code = %{public}d, message = %{public}s',
+        error.code, error.message);
+    });
   }
 
   // ...
@@ -228,12 +238,12 @@ export function customPopupMenuBuilder(
 
 2. 定义isShow作为弹窗显示控制的状态变量，并为Web组件绑定popup弹窗。
 ```ArkTS
-const uiContext: UIContext | undefined = AppStorage.get('uiContext');
-let context = uiContext!.getHostContext();
 @Entry
 @Component
 struct Index {
   @State isShow: boolean = false;
+  // ...
+  private context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
   // ...
 
   build() {
@@ -255,8 +265,8 @@ struct Index {
           placement: Placement.TopLeft,
           offset: getOffset(this.webWidth, this.webHeight,
             this.pressPosX, this.pressPosY),
-          onStateChange: (e) => {
-            if (!e.isVisible) {
+          onStateChange: (event) => {
+            if (!event.isVisible) {
               this.isShow = false;
               this.result?.closeContextMenu();
             }
@@ -315,9 +325,14 @@ export function copyLink(uri: string) {
       hilog.error(0x000, Constants.TAG, JSON.stringify(err));
       return;
     }
-    context1.showToast({
-      message: $r('app.string.copy_success')
-    })
+    try {
+      uiContext?.getPromptAction().showToast({
+        message: $r('app.string.copy_success')
+      })
+    } catch (error) {
+      hilog.error(0x0000, 'testTag', 'Execution failed, code = %{public}d, message = %{public}s',
+        error.code, error.message);
+    }
   })
 }
 ```
@@ -409,7 +424,7 @@ implements ControllerManager {
         controller?.setDownloadDelegate(this.delegate);
         // ...
       } catch (error) {
-        hilog.error(0x0000, 'testTag', 'Execution failed, code = %{public}d, message = %{public}s',
+        hilog.error(0x0000, 'testTag', 'getDefaultDisplaySync failed, code = %{public}d, message = %{public}s',
           error.code, error.message);
       }
     });
@@ -468,15 +483,15 @@ this.delegate.onDownloadFailed((webDownloadItem: webview.WebDownloadItem) => {
 ```ArkTS
 // Provides an external interface for resuming downloads.
 public resume() {
-  const state = this.currentTask.getState();
-  if (state === webview.WebDownloadState.CANCELED) {
-    webview.WebDownloadManager.setDownloadDelegate(this.delegate);
-    try {
+  try {
+    const state = this.currentTask.getState();
+    if (state === webview.WebDownloadState.CANCELED) {
+      webview.WebDownloadManager.setDownloadDelegate(this.delegate);
       webview.WebDownloadManager.resumeDownload(webview.WebDownloadItem.deserialize(this.failedData));
-    } catch (error) {
-      hilog.error(0x0000, 'testTag', 'Execution failed, code = %{public}d, message = %{public}s',
-        error.code, error.message);
     }
+  } catch (error) {
+    hilog.error(0x0000, 'testTag', 'Execution failed, code = %{public}d, message = %{public}s',
+      error.code, error.message);
   }
 }
 ```
@@ -498,4 +513,4 @@ controller?.startDownload(url);
 
 #### 示例代码
 
-- [基于Web的视频处理](https://gitcode.com/harmonyos_samples/BestPracticeSnippets/tree/master/VideoProcessBaseWeb)
+- [基于Web组件实现视频处理功能](https://gitcode.com/HarmonyOS_Samples/VideoProcessBaseWeb/tree/master)

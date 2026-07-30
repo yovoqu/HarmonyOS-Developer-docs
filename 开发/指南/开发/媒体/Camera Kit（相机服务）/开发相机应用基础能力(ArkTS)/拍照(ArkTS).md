@@ -1,6 +1,6 @@
 # 拍照(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting
 
@@ -35,13 +35,15 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 ```ArkTS
-function getPhotoOutput(cameraManager: camera.CameraManager, cameraOutputCapability: camera.CameraOutputCapability): camera.PhotoOutput | undefined {
-  let photoProfilesArray: Array<camera.Profile> = cameraOutputCapability.photoProfiles;
+getPhotoOutput(cameraManager: camera.CameraManager,
+  cameraOutputCapability: camera.CameraOutputCapability): camera.PhotoOutput | undefined {
+  let photoProfilesArray: camera.Profile[] = cameraOutputCapability.photoProfiles;
   if (!photoProfilesArray || photoProfilesArray.length === 0) {
-    console.error("photoProfilesArray is null or []");
+    console.error('photoProfilesArray is null or []');
   }
   let photoOutput: camera.PhotoOutput | undefined = undefined;
   try {
+    this.photoProfileObj = photoProfilesArray[0]
     photoOutput = cameraManager.createPhotoOutput(photoProfilesArray[0]);
   } catch (error) {
     let err = error as BusinessError;
@@ -61,33 +63,48 @@ function getPhotoOutput(cameraManager: camera.CameraManager, cameraOutputCapabil
 
   
 ```ArkTS
-function setPhotoOutputCb(photoOutput: camera.PhotoOutput) {
-// 设置回调之后，调用photoOutput的capture方法，就会将拍照的buffer回传到回调中。
+setPhotoOutputCb(photoOutput: camera.PhotoOutput, context: Context) {
+  // 设置回调之后，调用photoOutput的capture方法，就会将拍照的buffer回传到回调中。
   photoOutput.on('photoAvailable', (errCode: BusinessError, photo: camera.Photo): void => {
-     console.info('getPhoto start');
-     if (errCode || photo === undefined) {
-       console.error('getPhoto failed, err: ${errCode}');
-       return;
-     }
-     let imageObj: image.Image = photo.main;
-     imageObj.getComponent(image.ComponentType.JPEG, (errCode: BusinessError, component: image.Component): void => {
-       console.info('getComponent start');
-       if (errCode || component === undefined) {
-         console.error('getComponent failed');
-         return;
-       }
-       let buffer: ArrayBuffer;
-       if (component.byteBuffer) {
-         buffer = component.byteBuffer;
-       } else {
-         console.error('byteBuffer is null');
-         return;
-       }
-       // 如需要在图库中看到所保存的图片、视频资源，请使用用户无感的安全控件创建媒体资源。
+    console.info('getPhoto start');
+    if (errCode || photo === undefined) {
+      console.error('getPhoto failed, err: ${errCode}');
+      return;
+    }
+      // 如需要在图库中看到所保存的图片、视频资源，请使用用户无感的安全控件创建媒体资源。
+      this.mediaLibSavePhotoSingle(context, photo.main)
+  });
+}
 
-      // buffer处理结束后需要释放该资源，如果未正确释放资源会导致后续拍照获取不到buffer。
-      imageObj.release();
-    });
+mediaLibSavePhotoSingle(context: Context, imageObj: image.Image) {
+  imageObj.getComponent(image.ComponentType.JPEG, async (errCode: BusinessError, component: image.Component) => {
+    if (errCode || component === undefined) {
+      Logger.error('getComponent failed');
+      return;
+    }
+    const buffer: ArrayBuffer = component.byteBuffer;
+    if (!buffer) {
+      Logger.error('byteBuffer is null');
+      return;
+    }
+    let photoType: photoAccessHelper.PhotoType = photoAccessHelper.PhotoType.IMAGE;
+    let extension: string = 'jpg';
+    let options: photoAccessHelper.CreateOptions = {
+      title: 'testPhoto'
+    }
+    let assetChangeRequest: photoAccessHelper.MediaAssetChangeRequest =
+      photoAccessHelper.MediaAssetChangeRequest.createAssetRequest(context, photoType, extension, options);
+    assetChangeRequest.addResource(photoAccessHelper.ResourceType.IMAGE_RESOURCE, buffer)
+    assetChangeRequest.saveCameraPhoto();
+    let accessHelper: photoAccessHelper.PhotoAccessHelper =
+      photoAccessHelper.getPhotoAccessHelper(context);
+    await accessHelper.applyChanges(assetChangeRequest);
+    let imageSource = image.createImageSource(buffer);
+    let pixelmap = imageSource.createPixelMapSync();
+    this.callback(pixelmap, assetChangeRequest.getAsset().uri);
+    accessHelper.release();
+    // buffer处理结束后需要释放该资源，如果未正确释放资源会导致后续拍照获取不到buffer。
+    imageObj.release();
   });
 }
 ```
@@ -98,7 +115,7 @@ function setPhotoOutputCb(photoOutput: camera.PhotoOutput) {
 
   
 ```ArkTS
-function configuringSession(photoSession: camera.PhotoSession): void {
+configuringSession(photoSession: camera.PhotoSession | camera.VideoSession): void {
   // 判断设备是否支持闪光灯。
   let flashStatus: boolean = false;
   try {
@@ -109,18 +126,18 @@ function configuringSession(photoSession: camera.PhotoSession): void {
   }
   console.info(`Returned with the flash light support status: ${flashStatus}`);
   if (flashStatus) {
-    // 判断是否支持自动闪光灯模式。
+    // 判断是否支持关闭闪光灯模式。
     let flashModeStatus: boolean = false;
     try {
-      flashModeStatus = photoSession?.isFlashModeSupported(camera.FlashMode.FLASH_MODE_AUTO);
+      flashModeStatus = photoSession?.isFlashModeSupported(camera.FlashMode.FLASH_MODE_CLOSE);
     } catch (error) {
       let err = error as BusinessError;
       console.error(`Failed to check whether the flash mode is supported. error: ${err}`);
     }
     if (flashModeStatus) {
-      // 设置自动闪光灯模式。
+      // 设置闪光灯模式关闭。
       try {
-        photoSession?.setFlashMode(camera.FlashMode.FLASH_MODE_AUTO);
+        photoSession?.setFlashMode(camera.FlashMode.FLASH_MODE_CLOSE);
       } catch (error) {
         let err = error as BusinessError;
         console.error(`Failed to set the flash mode. error: ${err}`);
@@ -145,7 +162,7 @@ function configuringSession(photoSession: camera.PhotoSession): void {
     }
   }
   // 获取相机支持的可变焦距比范围。
-  let zoomRatioRange: Array<number> = [];
+  let zoomRatioRange: number[] = [];
   try {
     zoomRatioRange = photoSession?.getZoomRatioRange();
   } catch (error) {
@@ -178,15 +195,28 @@ function configuringSession(photoSession: camera.PhotoSession): void {
 
   
 ```ArkTS
-function capture(captureLocation: camera.Location, photoOutput: camera.PhotoOutput): void {
+capture(captureLocation?: camera.Location): void {
+  let captureLocationDefault: camera.Location = {
+    latitude: 0,
+    longitude: 0,
+    altitude: 0
+  };
+  if (captureLocation != undefined) {
+    captureLocationDefault = captureLocation;
+  }
   let settings: camera.PhotoCaptureSetting = {
     quality: camera.QualityLevel.QUALITY_LEVEL_HIGH,  // 设置图片质量高。
-    rotation: camera.ImageRotation.ROTATION_0,  // 设置图片旋转角度的camera.ImageRotation.ROTATION_0是通过说明中获取拍照角度的getPhotoRotation方法获取的值进行设置。
+    // 设置图片旋转角度的camera.ImageRotation.ROTATION_0是通过说明中获取拍照角度的getPhotoRotation方法获取的值进行设置。
+    rotation: camera.ImageRotation.ROTATION_0,
     location: captureLocation,  // 设置图片地理位置。
     mirror: false  // 设置镜像使能开关(默认关)。
   };
   try {
-    photoOutput.capture(settings, (err: BusinessError) => {
+    if (this.photoOutput == undefined) {
+      console.info(`photoOutput is undefined.`);
+      return;
+    }
+    this.photoOutput.capture(settings, (err: BusinessError) => {
       if (err) {
         console.error(`Failed to capture the photo. error: ${err}`);
         return;
@@ -209,7 +239,7 @@ function capture(captureLocation: camera.Location, photoOutput: camera.PhotoOutp
 单段式拍照的体验主要由出图速度和最终图片质量衡量。因此，为满足开发者在不同场景下的差异化需求，对这两项指标的侧重也不同。例如，街头抓拍要求快速捕捉瞬间，而风景或人像拍摄则更追求极致的画质。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/LA9JrqgbSPetTiIX954G_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020906Z&HW-CC-Expire=86400&HW-CC-Sign=356D3F37B91388DEA82E2683496FC2ACCC7B5084089AFE2D63530311FB18744F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/FgKUU3fgTa6pDH8tb5sTjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071940Z&HW-CC-Expire=86400&HW-CC-Sign=45734014824DF78B99AE0E69446ECF79D28422929D59E55CA9A2F6CD265C0106)
 
 
 仅单段式拍照支持设置画质优先策略。若在分段式拍照中设置画质优先策略，该设置将无效。
@@ -420,52 +450,41 @@ async function modeSwitchToHigh(photoSession: camera.PhotoSession, photoOutput: 
 
   
 ```ArkTS
-function onPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): void {
-  photoOutput.on('captureStartWithInfo', (err: BusinessError, captureStartInfo: camera.CaptureStartInfo) => {
-    if (err !== undefined && err.code !== 0) {
-      return;
-    }
-    console.info(`photo capture started, captureId : ${captureStartInfo.captureId}`);
-  });
-}
+// 监听拍照开始
+photoOutput.on('captureStartWithInfo', (err: BusinessError, captureStartInfo: camera.CaptureStartInfo): void => {
+  Logger.info(TAG, `photoOutputCallBack captureStartWithInfo success: ${JSON.stringify(captureStartInfo)}`);
+});
 ```
 
  - 通过注册固定的captureEnd回调函数获取监听拍照结束结果，photoOutput创建成功时即可监听，该事件返回结果为拍照完全结束后的相关信息[CaptureEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#captureendinfo)。
 
   
 ```ArkTS
-function onPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void {
-  photoOutput.on('captureEnd', (err: BusinessError, captureEndInfo: camera.CaptureEndInfo) => {
-    if (err !== undefined && err.code !== 0) {
-      return;
-    }
-    console.info(`photo capture end, captureId : ${captureEndInfo.captureId}`);
-    console.info(`frameCount : ${captureEndInfo.frameCount}`);
-  });
-}
+// 监听拍照结束
+photoOutput.on('captureEnd', (err: BusinessError, captureEndInfo: camera.CaptureEndInfo): void => {
+  Logger.info(TAG, `photoOutputCallBack captureEnd captureId:
+    ${captureEndInfo.captureId}, frameCount: ${captureEndInfo.frameCount}`);
+});
 ```
 
  - 通过注册固定的captureReady回调函数获取监听可拍下一张结果，photoOutput创建成功时即可监听，当下一张可拍时触发，该事件返回结果为下一张可拍的相关信息。
 
   
 ```ArkTS
-function onPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): void {
-  photoOutput.on('captureReady', (err: BusinessError) => {
-    if (err !== undefined && err.code !== 0) {
-      return;
-    }
-    console.info(`photo capture ready`);
-  });
-}
+photoOutput.on('captureReady', (err: BusinessError) => {
+  if (err !== undefined && err.code !== 0) {
+    return;
+  }
+  console.info(`photo capture ready`);
+});
 ```
 
  - 通过注册固定的error回调函数获取监听拍照输出流的错误结果。回调返回拍照输出接口使用错误时的对应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
 
   
 ```ArkTS
-function onPhotoOutputError(photoOutput: camera.PhotoOutput): void {
-  photoOutput.on('error', (error: BusinessError) => {
-    console.error(`Photo output error code: ${error.code}`);
-  });
-}
+// 监听拍照异常
+photoOutput.on('error', (data: BusinessError): void => {
+  Logger.info(TAG, `photoOutput data: ${JSON.stringify(data)}`);
+});
 ```

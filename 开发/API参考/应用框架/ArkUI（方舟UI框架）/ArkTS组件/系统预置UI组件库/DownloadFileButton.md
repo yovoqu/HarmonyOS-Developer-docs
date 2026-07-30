@@ -1,14 +1,14 @@
 # DownloadFileButton
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-downloadfilebutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-下载文件按钮，通过点击该下载按钮，可以获取到当前应用在Download公共目录中所属的存储路径。
+下载文件按钮，在下载文件场景中提供统一样式的下载按钮。
  
 > [!NOTE]
-> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件不支持在Wearable设备上使用。
+> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
   
 
@@ -241,4 +241,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/d9kiBR8cR6CR_-3yDt2DCA/zh-cn_image_0000002628702976.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=36C274FF3278581B58E24E5435B430817325B259C9665530686C167F599EDEE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/gHsaDt8RTk-hS6MsCIBoiw/zh-cn_image_0000002656008916.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=80C3319589FAE2B0DC943E5562FE869EFF043D4A10B6F0964B82805B5F890617)

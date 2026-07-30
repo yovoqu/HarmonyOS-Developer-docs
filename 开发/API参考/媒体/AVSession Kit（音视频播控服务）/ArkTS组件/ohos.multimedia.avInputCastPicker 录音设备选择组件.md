@@ -1,9 +1,9 @@
 # @ohos.multimedia.avInputCastPicker (录音设备选择组件)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avinputcastpicker
-**支持设备：** PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供创建录音设备选择组件AVInputCastPicker的功能，提供录音设备发现与连接的统一入口。
 
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { AVInputCastPicker } from '@kit.AVSessionKit';
@@ -24,7 +24,7 @@ import { AVInputCastPicker } from '@kit.AVSessionKit';
 
 #### 属性
 
-**支持设备：** PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet
 
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
@@ -32,7 +32,7 @@ import { AVInputCastPicker } from '@kit.AVSessionKit';
 
 #### AVInputCastPicker
 
-**支持设备：** PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 AVInputCastPicker({
@@ -63,7 +63,7 @@ AVInputCastPicker({
 
 #### OnPickerStateCallback
 
-**支持设备：** PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type OnPickerStateCallback = (state: AVCastPickerState) => void
 
@@ -82,7 +82,7 @@ type OnPickerStateCallback = (state: AVCastPickerState) => void
 
 #### 事件
 
-**支持设备：** PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
@@ -90,7 +90,7 @@ type OnPickerStateCallback = (state: AVCastPickerState) => void
 
 #### 示例
 
-**支持设备：** PC/2in1
+**支持设备：** Phone | PC/2in1 | Tablet
 
 录音设备选择组件功能的示例说明参考如下。
 

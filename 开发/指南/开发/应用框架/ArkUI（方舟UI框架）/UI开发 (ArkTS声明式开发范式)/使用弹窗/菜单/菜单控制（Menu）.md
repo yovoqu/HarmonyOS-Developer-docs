@@ -1,6 +1,6 @@
 # 菜单控制（Menu）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-menu
 
@@ -96,8 +96,7 @@ export struct BuilderCustomMenuExample {
           .selected(this.select)
           .onChange((selected) => {
             hilog.info(0xFF00, 'DialogProject', 'menuItem select' + selected);
-            let str: Tmp = new Tmp();
-            str.set($r('app.media.icon'));
+            this.iconStr2 = $r('app.media.icon');
           })
         // 请将$r('app.string.menu_selection')替换为实际资源文件，在本示例中该资源文件的value值为"菜单选项"
         // 请将$r('app.media.view_list_filled')替换为实际资源文件
@@ -179,7 +178,7 @@ Button('Right-click for Menu')
 ```ArkTS
 Button('click for Menu')
   .id('click for Menu')
-  .bindMenu(this.MyMenu, { hapticFeedbackMode: HapticFeedbackMode.ENABLED})
+  .bindMenu(this.MyMenu, { hapticFeedbackMode: HapticFeedbackMode.ENABLED })
 ```
 
 
@@ -196,8 +195,8 @@ Button('click for Menu')
 @Entry
 @Component
 export struct SupportAvoidCentralAxisMenuExample {
-  @State message: string = 'Hello World';
-  // 请在resources\base\element\string.json文件中配置name为'xxx'，value为非空字符串的资源
+  // 请在resources\base\element\string.json文件中配置name为'Upper_half_screen'、'Middle_axle'、'Lower_half_screen'、'zone'、
+  // 'hoverMode_start'，value为非空字符串的资源
   @State upScreen: string =
     this.getUIContext().getHostContext()?.resourceManager.getStringByNameSync('Upper_half_screen') as string;
   @State middleAxle: string =
@@ -225,8 +224,6 @@ export struct SupportAvoidCentralAxisMenuExample {
       MenuItem({ startIcon: this.iconStr, content: $r('app.string.menu_selection') })
     }
   }
-
-  @State isShow: boolean = false;
 
   build() {
     NavDestination() {
@@ -300,15 +297,6 @@ export struct EventTransSubWindowMenuExample {
   }
 
   @Builder
-  bindMenuBuilder() {
-    Menu() {
-      MenuItem({ content: 'bindMenu item' }) {
-
-      }
-    }
-  }
-
-  @Builder
   contextMenuBuilder() {
     Menu() {
       MenuItem({ content: 'contextMenu item' }) {
@@ -377,4 +365,4 @@ export struct BindComponentMenuExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/Rh8TNOTlRnu_RLOYlWIQ0Q/zh-cn_image_0000002656347829.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020753Z&HW-CC-Expire=86400&HW-CC-Sign=3806FE5344E9CFF7076C30AEB2BEDDD3FC721E60C408D3BCD85B232CDF23E156)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/WvVLHYP2RbetC0VnqaD6rg/zh-cn_image_0000002655846424.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071848Z&HW-CC-Expire=86400&HW-CC-Sign=D89E90767F890EDBF9B68A9E90D47C77301D8FF3921FFF826AF8FADC0E66B1B2)

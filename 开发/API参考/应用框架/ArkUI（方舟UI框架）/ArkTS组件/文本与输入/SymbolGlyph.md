@@ -1,14 +1,14 @@
 # SymbolGlyph
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-显示图标小符号的组件。相关资源可参考[系统图标](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962)。
+SymbolGlyph组件用于显示系统预置的图标小符号，支持设置颜色、大小、粗细、渲染策略、动效策略等样式属性，适用于需要在应用中展示系统图标的场景，如导航栏图标、按钮图标、状态指示图标等。相比使用图片资源，SymbolGlyph具有体积小、可动态着色、支持动效等优势。相关资源可参考[系统图标](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962)。
  
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
+> 该组件从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -36,7 +36,7 @@ SymbolGlyph(value?: Resource)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Resource | 否 | SymbolGlyph组件的资源名，如 \$r('sys.symbol.ohos_wifi')。 |
+| value | Resource | 否 | SymbolGlyph组件的资源名，如 \$r('sys.symbol.ohos_wifi')。不传入时不显示图标。 |
  
  
 > [!NOTE]
@@ -75,7 +75,7 @@ fontColor(value: Array&lt;ResourceColor&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;ResourceColor&gt; | 是 | SymbolGlyph组件字体颜色。 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。 |
+| value | Array&lt;ResourceColor&gt; | 是 | SymbolGlyph组件字体颜色。 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。 不同渲染策略下颜色设置效果不同，详见SymbolRenderingStrategy枚举说明。 |
  
  
   
@@ -100,8 +100,6 @@ fontColor(value: Array<ResourceColor | ColorMetrics> | undefined)
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
@@ -119,7 +117,7 @@ fontSize(value: number | string | Resource)
  
 设置SymbolGlyph组件字体大小。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
  
-组件的图标显示大小由fontSize控制，设置width或height后，其他通用属性仅对组件的占位大小生效。
+组件的图标显示大小由fontSize控制，设置width或height后，其他通用属性仅对组件的占位大小生效。未通过该接口设置时，默认字体大小为16fp。
  
 > [!NOTE]
 > 从API version 12开始，该接口支持在 attributeModifier 中调用。
@@ -135,7 +133,7 @@ fontSize(value: number | string | Resource)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | SymbolGlyph组件字体大小。 默认值：16fp 单位：fp 不支持设置百分比字符串。 |
+| value | number \| string \| Resource | 是 | SymbolGlyph组件字体大小。 取值范围：[0, +∞) 单位：fp 不支持设置百分比字符串。 |
  
  
   
@@ -146,7 +144,7 @@ fontSize(value: number | string | Resource)
 
 fontWeight(value: number | FontWeight | string)
  
-设置SymbolGlyph组件字体粗细。number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular" 、"medium"分别对应FontWeight中相应的枚举值。
+设置SymbolGlyph组件字体粗细。未通过该接口设置时，默认字体粗细为FontWeight.Normal（正常粗细，对应数值400）。
  
 sys.symbol.ohos_lungs图标不支持设置fontWeight。
  
@@ -164,7 +162,33 @@ sys.symbol.ohos_lungs图标不支持设置fontWeight。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| FontWeight \| string | 是 | SymbolGlyph组件字体粗细。 默认值：FontWeight.Normal |
+| value | number \| FontWeight \| string | 是 | SymbolGlyph组件字体粗细。 number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。传入超出取值范围或不符合间隔要求的值时取默认值。 |
+ 
+ 
+  
+
+#### fontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs)
+ 
+设置SymbolGlyph组件图标小符号的粗细，支持通过FontWeightConfigs配置是否开启可变字重调节（启用后可设置非100整数倍的精细字重值，如220、660）、是否开启随设备的字体粗细级别自动更新字重（启用后组件字重随系统字体粗细设置自动调整）。未通过该接口设置时，默认字体粗细为FontWeight.Normal（正常粗细，对应数值400）。
+ 
+**起始版本：** 26.0.0
+ 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number \| FontWeight \| ResourceStr | 是 | SymbolGlyph组件图标小符号的粗细。 number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。 传入超出取值范围的值时取默认值。传入不符合间隔要求的值时，若设置fontWeightConfigs的enableVariableFontWeight为true，使用传入值；若设置为false，使用默认值。 |
+| fontWeightConfigs | FontWeightConfigs | 否 | 字体粗细配置。当需要启用可变字重调节（设置非100整数倍的精细字重值如220、660）或跟随设备字体粗细级别自动更新字重时传入此参数。默认值继承FontWeightConfigs。 |
  
  
   
@@ -175,7 +199,7 @@ sys.symbol.ohos_lungs图标不支持设置fontWeight。
 
 renderingStrategy(value: SymbolRenderingStrategy)
  
-设置SymbolGlyph组件渲染策略。
+设置SymbolGlyph组件渲染策略。未通过该接口设置时，默认渲染策略为SymbolRenderingStrategy.SINGLE。
  
 > [!NOTE]
 > 从API version 12开始，该接口支持在 attributeModifier 中调用。
@@ -191,7 +215,7 @@ renderingStrategy(value: SymbolRenderingStrategy)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SymbolRenderingStrategy | 是 | SymbolGlyph组件渲染策略。 默认值：SymbolRenderingStrategy.SINGLE |
+| value | SymbolRenderingStrategy | 是 | SymbolGlyph组件渲染策略。 |
  
  
 不同渲染策略效果可参考以下示意图。
@@ -208,10 +232,10 @@ renderingStrategy(value: SymbolRenderingStrategy)
 
 effectStrategy(value: SymbolEffectStrategy)
  
-设置SymbolGlyph组件动效策略。
+设置SymbolGlyph组件动效策略。未通过该接口设置时，默认动效策略为SymbolEffectStrategy.NONE。
  
-> [!NOTE]
-> 从API version 12开始，该接口支持在 attributeModifier 中调用。
+> [!TIP]
+> 从API version 12开始，该接口支持在 attributeModifier 中调用。 动效属性，仅支持使用effectStrategy属性或单个symbolEffect属性，不支持多种动效属性混合使用。 本接口仅支持NONE、SCALE、HIERARCHICAL三种预置动效类型，设置后动效自动播放。如需使用更丰富的动效类型（如出现、消失、弹跳、替换、脉冲动效等）或控制动效的播放状态和触发时机，请使用 symbolEffect 接口。两者不可同时使用，详见 symbolEffect 接口说明。
 
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -224,7 +248,7 @@ effectStrategy(value: SymbolEffectStrategy)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SymbolEffectStrategy | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffectStrategy.NONE |
+| value | SymbolEffectStrategy | 是 | SymbolGlyph组件动效策略。 |
  
  
   
@@ -235,7 +259,11 @@ effectStrategy(value: SymbolEffectStrategy)
 
 symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)
  
-设置SymbolGlyph组件动效策略及播放状态。
+设置SymbolGlyph组件动效策略及播放状态。未通过该接口设置时，默认动效为SymbolEffect对象，默认播放状态为false。
+ 
+> [!NOTE]
+> 动效属性，仅支持使用effectStrategy属性或单个symbolEffect属性，不支持多种动效属性混合使用。
+
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
@@ -247,8 +275,8 @@ symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| symbolEffect | SymbolEffect | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffect |
-| isActive | boolean | 否 | SymbolGlyph组件动效播放状态。 true表示播放，false表示不播放。 默认值：false |
+| symbolEffect | SymbolEffect | 是 | SymbolGlyph组件动效策略。 |
+| isActive | boolean | 否 | SymbolGlyph组件动效播放状态。 true表示播放，false表示不播放。 |
  
  
   
@@ -259,7 +287,7 @@ symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)
 
 symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number)
  
-设置SymbolGlyph组件动效策略及播放触发器。
+设置SymbolGlyph组件动效策略及播放触发器。未通过该接口设置时，默认动效为SymbolEffect对象，默认触发器值为-1。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
@@ -271,7 +299,7 @@ symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| symbolEffect | SymbolEffect | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffect |
+| symbolEffect | SymbolEffect | 是 | SymbolGlyph组件动效策略。 |
 | triggerValue | number | 否 | SymbolGlyph组件动效播放触发器，在数值变更时触发动效。 如果首次不希望触发动效，设置-1。 |
  
  
@@ -287,7 +315,7 @@ symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number)
 
 minFontScale(scale: Optional<number | Resource>)
  
-设置SymbolGlyph组件最小的字体缩放倍数。
+设置SymbolGlyph组件最小的字体缩放倍数。适用于需要防止图标在用户字体缩放设置过小时变得不可识别的场景，例如确保图标在任意系统字体设置下仍保持最小可读尺寸。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -297,7 +325,7 @@ minFontScale(scale: Optional<number | Resource>)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | Optional<number \| Resource> | 是 | SymbolGlyph组件最小的字体缩放倍数。 取值范围：[0, 1] 设置为0，缩放最小。 说明： 设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。 |
+| scale | Optional<number \| Resource> | 是 | SymbolGlyph组件最小的字体缩放倍数。 取值范围：[0, 1] 设置为0，缩放最小。 说明： 设置的值小于0时，按值为0处理。设置的值大于1时，按值为1处理。异常值默认不生效。 |
  
  
   
@@ -308,7 +336,7 @@ minFontScale(scale: Optional<number | Resource>)
 
 maxFontScale(scale: Optional<number | Resource>)
  
-设置SymbolGlyph组件最大的字体缩放倍数。
+设置SymbolGlyph组件最大的字体缩放倍数。适用于需要防止图标在用户字体缩放设置过大时超出布局容器或破坏界面一致性的场景，例如限制图标在小尺寸容器中的最大显示尺寸。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -318,7 +346,7 @@ maxFontScale(scale: Optional<number | Resource>)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | Optional<number \| Resource> | 是 | SymbolGlyph组件最大的字体缩放倍数。 取值范围：[1, +∞) 说明： 设置的值小于1时，按值为1处理，异常值默认不生效。 |
+| scale | Optional<number \| Resource> | 是 | SymbolGlyph组件最大的字体缩放倍数。 取值范围：[1, +∞) 说明： 设置的值小于1时，按值为1处理。 |
  
  
   
@@ -331,7 +359,7 @@ shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle)
  
 设置SymbolGlyph组件的渐变色效果。
  
-可以显示为径向渐变[RadialGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#radialgradientstyle20)或线性渐变[LinearGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#lineargradientstyle20)或纯色[ColorShaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#colorshaderstyle20)的效果，shaderStyle的优先级高于[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)和AI识别，纯色建议使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)。
+可以显示为径向渐变[RadialGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#radialgradientstyle20)或线性渐变[LinearGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#lineargradientstyle20)或纯色[ColorShaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#colorshaderstyle20)，shaderStyle的优先级高于[fontColor](#fontcolor)和AI识别，纯色建议使用[fontColor](#fontcolor)。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  
@@ -341,7 +369,7 @@ shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shader | Array<ShaderStyle \| undefined> \| ShaderStyle | 是 | 径向渐变或线性渐变或纯色。 传入ShaderStyle时，覆盖所有层；传入数组时，数据项是ShaderStyle，则应用该层；数组项是undefined，则该层使用SymbolGlyph默认颜色，未设置的层也应用默认颜色。根据传入的参数区分处理径向渐变RadialGradientStyle或线性渐变LinearGradientStyle或纯色ColorShaderStyle，最终设置到SymbolGlyph组件上显示为渐变色效果。 说明： 单位：vp 中心点请按百分比使用。如果使用的是非百分比（例如10PX），效果等同于设置1000%。 半径建议使用百分比。 百分比是基于图标大小的百分比，建议取值范围[0, 1)。 |
+| shader | Array<ShaderStyle \| undefined> \| ShaderStyle | 是 | 径向渐变或线性渐变或纯色。 传入ShaderStyle时，覆盖所有层；传入数组时，数据项是ShaderStyle，则应用该层；数组项是undefined，则该层使用SymbolGlyph默认颜色，未设置的层也应用默认颜色。根据传入的参数区分处理径向渐变RadialGradientStyle或线性渐变LinearGradientStyle或纯色ColorShaderStyle，最终设置到SymbolGlyph组件上显示为渐变色效果。 说明： 中心点请按百分比使用。如果使用的是非百分比（例如10PX），效果等同于设置1000%。 半径建议使用百分比。 百分比是基于图标大小的百分比，建议取值范围[0, 1)。 |
  
  
   
@@ -352,7 +380,7 @@ shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle)
 
 symbolShadow(shadow: Optional&lt;ShadowOptions&gt;)
  
-设置SymbolGlyph组件的阴影效果。
+设置SymbolGlyph组件的阴影效果。未通过该接口设置时，默认阴影效果为{radius：0,color：Color.Black,offsetX：0,offsetY：0}。
  
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
  
@@ -364,7 +392,7 @@ symbolShadow(shadow: Optional&lt;ShadowOptions&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shadow | Optional&lt;ShadowOptions&gt; | 是 | SymbolGlyph组件的阴影效果。 单位：vp 默认值：{ radius：0, color：Color.Black, offsetX：0, offsetY：0 } 不支持fill、type属性和color中的ColoringStrategy枚举值。 |
+| shadow | Optional&lt;ShadowOptions&gt; | 是 | SymbolGlyph组件的阴影效果。 单位：vp 不支持fill、type属性和color中的ColoringStrategy枚举值。 |
  
  
   
@@ -387,8 +415,8 @@ ScaleSymbolEffect继承自父类SymbolEffect。
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | EffectDirection | 否 | 是 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 是 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 是 | 动效方向。具体枚举值及说明请参考EffectDirection枚举说明。 默认值：EffectDirection.DOWN |
  
  
   
@@ -411,8 +439,8 @@ ScaleSymbolEffect的构造函数，缩放动效。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | EffectDirection | 否 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 动效方向。具体枚举值及说明请参考EffectDirection枚举说明。 默认值：EffectDirection.DOWN |
  
  
   
@@ -458,7 +486,7 @@ HierarchicalSymbolEffect的构造函数，层级动效。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fillStyle | EffectFillStyle | 否 | 动效模式。 默认值：EffectFillStyle.CUMULATIVE |
+| fillStyle | EffectFillStyle | 否 | 动效模式。具体枚举值及说明请参考EffectFillStyle枚举说明。 默认值：EffectFillStyle.CUMULATIVE |
  
  
   
@@ -481,7 +509,7 @@ AppearSymbolEffect继承自父类SymbolEffect。
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 是 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
  
  
   
@@ -504,7 +532,7 @@ AppearSymbolEffect的构造函数，出现动效。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
  
  
   
@@ -527,7 +555,7 @@ DisappearSymbolEffect继承自父类SymbolEffect。
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 是 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
  
  
   
@@ -550,7 +578,7 @@ DisappearSymbolEffect的构造函数，消失动效。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
  
  
   
@@ -573,8 +601,8 @@ BounceSymbolEffect继承自父类SymbolEffect。
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | EffectDirection | 否 | 是 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 是 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 是 | 动效方向。具体枚举值及说明请参考EffectDirection枚举说明。 默认值：EffectDirection.DOWN |
  
  
   
@@ -597,8 +625,8 @@ BounceSymbolEffect的构造函数，弹跳动效。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | EffectDirection | 否 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 动效方向。具体枚举值及说明请参考EffectDirection枚举说明。 默认值：EffectDirection.DOWN |
  
  
   
@@ -618,15 +646,11 @@ ReplaceSymbolEffect继承自父类SymbolEffect。
   
 
 #### 属性
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-  
+ 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| replaceType20+ | ReplaceEffectType | 否 | 是 | 替换动效类型。 默认值：ReplaceEffectType.SEQUENTIAL 卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| scope | EffectScope | 否 | 是 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| replaceType20+ | ReplaceEffectType | 否 | 是 | 替换动效类型。具体枚举值及说明请参考ReplaceEffectType枚举说明。 默认值：ReplaceEffectType.SEQUENTIAL 卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
  
  
   
@@ -649,7 +673,7 @@ ReplaceSymbolEffect的构造函数，替换动效。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 动效范围。具体枚举值及说明请参考EffectScope枚举说明。 默认值：EffectScope.LAYER |
  
  
   
@@ -850,7 +874,7 @@ struct Index {
     Column() {
       Row() {
         Column() {
-          Text("Light")
+          Text('Light')
           SymbolGlyph($r('sys.symbol.ohos_trash'))
             .fontWeight(FontWeight.Lighter)
             .fontSize(96)
@@ -925,14 +949,14 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/Yxx6o08iRtKJPaccIBgcJw/zh-cn_image_0000002677667885.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=9C8D9AFFA1AFB7AE10FFF3AAC874F24EB4BBBE37CCC62A3E8D4E000E1A27E7CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/Eg_-yiaMQ-iya7R4MdqIJw/zh-cn_image_0000002655848714.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071506Z&HW-CC-Expire=86400&HW-CC-Sign=44373DFCEAA2E0CFD12199AA6A820C527990733EE09A04845D0461906BA0B2D9)
 
  
   
 
 #### 示例2（设置动效和阴影）
 
-从API version 12开始，该示例通过[symbolEffect](#symboleffect12)属性展示了各种动效的效果以及结合[symbolShadow](#symbolshadow20)（从API version 20开始）的阴影效果。
+从API version 12开始，该示例通过[symbolEffect](#symboleffect12)属性展示了各种动效的效果以及结合[symbolShadow](#symbolshadow20)（从API version 20开始）的阴影效果。其中禁用动效和快速替换动效需要API version 20及以上版本支持。
  
 ```ArkTS
 // xxx.ets
@@ -943,7 +967,7 @@ struct Index {
   @State triggerValueReplace: number = 0;
   @State triggerValueReplace1: number = 0;
   @State triggerValueReplace2: number = 0;
-  @State renderMode: number = 1;
+  @State renderMode: SymbolRenderingStrategy = SymbolRenderingStrategy.MULTIPLE_COLOR;
 
   replaceFlag: boolean = true;
   replaceFlag1: boolean = true;
@@ -1033,14 +1057,14 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/quElQzgtQFGSPCb9XG6qlw/zh-cn_image_0000002647748004.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=900499C89647D5AE62F1016E3E7A5BF445E69FE307503A492ABF0A0550B20D72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/NWKneJDgSKuacKbZbz57sQ/zh-cn_image_0000002686088145.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071506Z&HW-CC-Expire=86400&HW-CC-Sign=2D0B5179A7E718D4DB05ABEFEC5950C0282CEF172383A3094CAB88565B2B0DFD)
 
  
   
 
 #### 示例3（设置颜色渐变）
 
-从API version 20开始，该示例通过[shaderStyle](#shaderstyle20)接口实现了symbolGlyph组件显示为渐变色的功能。
+从API version 20开始，该示例通过[shaderStyle](#shaderstyle20)接口实现了SymbolGlyph组件显示为渐变色的功能。
  
 ```text
 @Entry
@@ -1059,8 +1083,8 @@ struct Index {
   };
 
   radialGradientOptions: RadialGradientOptions = {
-    center: ["50%", "50%"],
-    radius: "20%",
+    center: ['50%', '50%'],
+    radius: '20%',
     colors: [[Color.Red, 0.0], [Color.Blue, 0.3], [Color.Green, 0.5]],
     repeating: true,
   };
@@ -1177,7 +1201,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/5FFRvanvRhShtuONANn1Yw/zh-cn_image_0000002647588094.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=010705D481BB17A5EC38204B48796837890AF747DDB990D5EB1911E3AEAE4F9D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/4HyjoXHrRHy7laAbqUBrTg/zh-cn_image_0000002685928315.jpeg?HW-CC-KV=V1&HW-CC-Date=20260730T071506Z&HW-CC-Expire=86400&HW-CC-Sign=C4034F908478C0C90610D143128B2A998D3E4B96758AA9770FD069F1AFC71205)
 
  
   
@@ -1189,9 +1213,9 @@ struct Index {
 从API版本26.0.0开始，新增支持[fontColor](#fontcolor-1)。
  
 ```ArkTS
+// xxx.ets
 import { ColorMetrics } from '@kit.ArkUI';
 
-// xxx.ets
 @Entry
 @Component
 struct Index {
@@ -1232,4 +1256,72 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/PEUNThaYTE6ZI6-xYhi_Rw/zh-cn_image_0000002677827735.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=EA0D49B667B10EF6E5BB2E913C8E675F300DEFAF1EF380D8866C94A603D18653)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/dBlYv2_ITtqDyxtH9CRAcg/zh-cn_image_0000002656008636.jpeg?HW-CC-KV=V1&HW-CC-Date=20260730T071506Z&HW-CC-Expire=86400&HW-CC-Sign=A74054F2D3420EBB191F0F5DF08B1A2AB2EB6205C39887751F69DA5BC8D84E5E)
+
+ 
+  
+
+#### 示例5（设置字体粗细）
+
+该示例通过[fontWeight](#fontweight-1)属性展示SymbolGlyph不同粗细配置下的效果：第一行图标小符号展示启用可变字重后，分别设置字重值为220和660的效果；第二行图标小符号展示在将设备的系统字体粗细设置为粗体后，分别设置跟随和不跟随设备的字体粗细级别自动更新的效果。
+ 
+从API版本26.0.0开始，新增[fontWeight](#fontweight-1)属性。
+ 
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct Index {
+  build() {
+    Column() {
+      Row() {
+        Column() {
+          Text('font weight: 220')
+          // ohos_trash为系统预置的垃圾桶小符号
+          SymbolGlyph($r('sys.symbol.ohos_trash'))
+            .fontWeight(220, { enableVariableFontWeight: true })
+            .fontSize(96)
+        }
+        Column() {
+          Text('            ')
+        }
+        Column() {
+          Text('font weight: 660')
+          // ohos_trash为系统预置的垃圾桶小符号
+          SymbolGlyph($r('sys.symbol.ohos_trash'))
+            .fontWeight(660, { enableVariableFontWeight: true })
+            .fontSize(96)
+        }
+      }
+      Row() {
+        Text('    ')
+      }
+      Row() {
+        Text('After set system text weight: Bold')
+      }
+      Row() {
+        Column() {
+          Text('device category: true')
+          // ohos_trash为系统预置的垃圾桶小符号
+          SymbolGlyph($r('sys.symbol.ohos_trash'))
+            .fontWeight(FontWeight.Normal, { enableDeviceFontWeightCategory: true })
+            .fontSize(96)
+        }
+        Column() {
+          Text('    ')
+        }
+        Column() {
+          Text('device category: false')
+          // ohos_trash为系统预置的垃圾桶小符号
+          SymbolGlyph($r('sys.symbol.ohos_trash'))
+            .fontWeight(FontWeight.Normal, { enableDeviceFontWeightCategory: false })
+            .fontSize(96)
+        }
+      }
+    }
+  }
+}
+```
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/CYAFKYoiQf-QuV9vxTntng/zh-cn_image_0000002655848716.png?HW-CC-KV=V1&HW-CC-Date=20260730T071506Z&HW-CC-Expire=86400&HW-CC-Sign=44C1701EE686C6C07B5C5D7B247DB9DD1030EAF56E2281356FD7122E02131912)

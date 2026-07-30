@@ -1,12 +1,12 @@
 # Natural Language Kit获取Entity中缺少rrule字段
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-natural-language-1
 
 #### 问题现象
 
-在5.0.1.130版本上使用[getEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-text-processing-api#section6469197174917)接口，返回回来的[jsonObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-json-object-api)少了一个rrule字段。
+在5.0.1.130版本上使用[getEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-text-processing-api#textprocessinggetentity)接口，返回回来的[jsonObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-json-object-api)少了一个rrule字段。
  
 问题代码示例参考如下：
  

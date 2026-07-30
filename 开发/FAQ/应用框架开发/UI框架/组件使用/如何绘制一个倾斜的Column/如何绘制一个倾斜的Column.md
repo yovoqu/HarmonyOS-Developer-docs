@@ -13,7 +13,7 @@ UI开发中，如何绘制一个倾斜指定角度的Column？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/n9u7Cm1LRJ-vaQq10RJOFA/zh-cn_image_0000002628752850.png?HW-CC-KV=V1&HW-CC-Date=20260723T012710Z&HW-CC-Expire=86400&HW-CC-Sign=9E53336A0E7B654BDFED823D1B285732379F326934043A03447C711908692A3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/n9u7Cm1LRJ-vaQq10RJOFA/zh-cn_image_0000002628752850.png?HW-CC-KV=V1&HW-CC-Date=20260730T072344Z&HW-CC-Expire=86400&HW-CC-Sign=C3894A3E69D27F66C912D3705F1C093107CDBBE70CAFF1B84788042373CC1683)
 
  
  

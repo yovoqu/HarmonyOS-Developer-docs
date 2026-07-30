@@ -13,7 +13,7 @@ NavPathStack能在子组件中使用或者自己封装的公共类中使用吗�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/bDEWbxwXT624J4Li6sTtOQ/zh-cn_image_0000002628395798.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013112Z&HW-CC-Expire=86400&HW-CC-Sign=B316502B0DF91ECA5A004D71578799BD7CD9631AFD630CDF7A08A786CB624491)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/bDEWbxwXT624J4Li6sTtOQ/zh-cn_image_0000002628395798.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=DEEFFD7DBF97DFE907977CA56D0DF5F4CF117B235BD3AFEAB1DB93B3DA97FE19)
 
  
  

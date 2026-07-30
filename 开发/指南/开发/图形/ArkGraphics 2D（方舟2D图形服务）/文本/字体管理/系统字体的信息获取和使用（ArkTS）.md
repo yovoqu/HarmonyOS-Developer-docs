@@ -1,6 +1,6 @@
 # 系统字体的信息获取和使用（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/system-font-arkts
 
@@ -119,29 +119,29 @@ let myParagraphStyle: text.ParagraphStyle = {
   wordBreak: text.WordBreak.NORMAL
 };
 // 获取全局字体集实例
-let fontCollection = text.FontCollection.getGlobalInstance(); //获取Arkui全局FC
+let fontCollection = text.FontCollection.getGlobalInstance();
 // 创建一个段落生成器
-let ParagraphGraphBuilder = new text.ParagraphBuilder(myParagraphStyle, fontCollection);
+let paragraphBuilder = new text.ParagraphBuilder(myParagraphStyle, fontCollection);
 ```
 
 5. 先后将textStyle1和textStyle2添加到段落样式中并添加文字。
 
   
 ```ArkTS
-let str:string = '模块描述\n';
+let str: string = '模块描述\n';
 // 添加第一种文本样式和对应文本内容
-ParagraphGraphBuilder.pushStyle(textStyle1);
-ParagraphGraphBuilder.addText(str);
+paragraphBuilder.pushStyle(textStyle1);
+paragraphBuilder.addText(str);
 // 添加第二种文本样式和对应文本内容
-ParagraphGraphBuilder.pushStyle(textStyle2);
-ParagraphGraphBuilder.addText(str);
+paragraphBuilder.pushStyle(textStyle2);
+paragraphBuilder.addText(str);
 ```
 
 6. 生成段落，用于后续绘制使用。
 
   
 ```ArkTS
-let paragraph = ParagraphGraphBuilder.build();
+let paragraph = paragraphBuilder.build();
 ```
 
 

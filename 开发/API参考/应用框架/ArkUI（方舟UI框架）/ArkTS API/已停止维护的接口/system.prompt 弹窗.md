@@ -1,6 +1,6 @@
 # @system.prompt (弹窗)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-prompt
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -172,13 +172,13 @@ export default new C()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义按钮的提示信息。
+定义按钮的显示信息。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | 定义按钮信息。 |
+| text | string | 是 | 定义按钮文本。 |
 | color | string | 是 | 定义按钮颜色。 |
  
  
@@ -194,7 +194,7 @@ export default new C()
   
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 定义数据的索引信息。 |
+| index | number | 是 | 被点击按钮的索引值。 |
  
  
   
@@ -211,9 +211,9 @@ export default new C()
 | --- | --- | --- | --- |
 | title | string | 否 | 标题文本。 |
 | message | string | 否 | 文本内容。 |
-| buttons | [Button, Button?, Button?] | 否 | 对话框中按钮的数组，结构为：{text:'button', color: '#666666'}，支持1-6个按钮。大于6个按钮时弹窗不显示。 |
+| buttons | [Button, Button?, Button?] | 否 | 对话框中按钮的数组，结构为：{text:'button', color: '#666666'}，支持1-3个按钮。大于3个按钮时弹窗不显示。 |
 | success | (data: ShowDialogSuccessResponse) => void | 否 | 接口调用成功的回调函数。 |
-| cancel | (data: string, code: string) => void | 否 | 接口调用失败的回调函数。 |
+| cancel | (data: string, code: string) => void | 否 | 接口调用取消的回调函数。 |
 | complete | (data: string) => void | 否 | 接口调用结束的回调函数。 |
  
  
@@ -230,7 +230,7 @@ export default new C()
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | title | string | 否 | 标题文本。 |
-| buttons | [Button, Button?, Button?, Button?, Button?, Button?] | 是 | 对话框中按钮的数组，结构为：{text:'button', color: '#666666'}，支持1-6个按钮。 |
-| success | (tapIndex: number, errMsg: string) => void | 否 | 弹出对话框时调用。 |
+| buttons | [Button, Button?, Button?, Button?, Button?, Button?] | 是 | 操作菜单中按钮的数组，结构为：{text:'button', color: '#666666'}，支持1-6个按钮。 |
+| success | (tapIndex: number, errMsg: string) => void | 否 | 操作菜单选择成功的回调函数。 |
 | fail | (errMsg: string) => void | 否 | 接口调用失败的回调函数。 |
-| complete | (data: string) => void | 否 | 关闭对话框时调用。 |
+| complete | (data: string) => void | 否 | 接口调用结束的回调函数。 |

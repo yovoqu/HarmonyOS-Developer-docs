@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.keyEvent (按键输入事件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -75,7 +75,7 @@ import { Action, Key, KeyEvent } from '@kit.InputKit';
 | action | Action | 否 | 否 | 按键事件类型。 |
 | key | Key | 否 | 否 | 按键。 |
 | unicodeChar | number | 否 | 否 | 按键对应的unicode字符。 |
-| keys | Key [] | 否 | 否 | 当前处于按下状态的按键列表。 |
+| keys | Key[] | 否 | 否 | 当前处于按下状态的按键列表。 |
 | ctrlKey | boolean | 否 | 否 | 当前ctrlKey是否处于按下状态。 true表示处于按下状态，false表示处于抬起状态。 |
 | altKey | boolean | 否 | 否 | 当前altKey是否处于按下状态。 true表示处于按下状态，false表示处于抬起状态。 |
 | shiftKey | boolean | 否 | 否 | 当前shiftKey是否处于按下状态。 true表示处于按下状态，false表示处于抬起状态。 |

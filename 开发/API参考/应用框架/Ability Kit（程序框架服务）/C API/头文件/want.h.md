@@ -1,6 +1,6 @@
 # want.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-want-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -214,7 +214,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantCharParam(AbilityBase_Want* want, co
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中字符串参数索引。 |
+| const char* key | Want中字符串参数键名。 |
 | const char* value | Want中字符串。 |
  
  
@@ -246,7 +246,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantCharParam(AbilityBase_Want* want, co
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中字符串参数索引。 |
+| const char* key | Want中字符串参数键名。 |
 | char* value | Want中字符串。 |
 | size_t valueSize | value字符串长度。如果valueSize小于实际需要获取的value长度，则会报ABILITY_BASE_ERROR_CODE_PARAM_INVALID错误。 |
  
@@ -279,7 +279,7 @@ AbilityBase_ErrorCode OH_AbilityBase_AddWantFd(AbilityBase_Want* want, const cha
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中字符串参数索引。 |
+| const char* key | Want中字符串参数键名。 |
 | int32_t fd | 文件描述符，可通过fileIo.open获取。 |
  
  
@@ -311,7 +311,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantFd(AbilityBase_Want* want, const cha
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中字符串参数索引。 |
+| const char* key | Want中字符串参数键名。 |
 | int32_t* fd | 文件描述符。 |
  
  
@@ -406,7 +406,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantInt32Param(AbilityBase_Want* want, c
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中int32_t类型值的参数索引。 |
+| const char* key | Want中int32_t类型值的参数键名。 |
 | int32_t value | Want中int32_t类型的值。 |
  
  
@@ -438,7 +438,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantInt32Param(AbilityBase_Want* want, c
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中int32_t类型值的参数索引。 |
+| const char* key | Want中int32_t类型值的参数键名。 |
 | int32_t* value | Want中int32_t类型的值。 |
  
  
@@ -470,7 +470,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantBoolParam(AbilityBase_Want* want, co
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中bool类型值的参数索引。 |
+| const char* key | Want中bool类型值的参数键名。 |
 | bool value | Want中bool类型的值。 |
  
  
@@ -502,7 +502,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantBoolParam(AbilityBase_Want* want, co
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中bool类型值的参数索引。 |
+| const char* key | Want中bool类型值的参数键名。 |
 | bool* value | Want中bool类型的值。 |
  
  
@@ -534,7 +534,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantDoubleParam(AbilityBase_Want* want, 
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中double类型值的参数索引。 |
+| const char* key | Want中double类型值的参数键名。 |
 | double value | Want中double类型的值。 |
  
  
@@ -566,7 +566,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantDoubleParam(AbilityBase_Want* want, 
 | 参数项 | 描述 |
 | --- | --- |
 | AbilityBase_Want* want | Want指针。 |
-| const char* key | Want中double类型值的参数索引。 |
+| const char* key | Want中double类型值的参数键名。 |
 | double* value | Want中double类型的值。 |
  
  

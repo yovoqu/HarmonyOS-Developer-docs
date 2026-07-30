@@ -11,7 +11,7 @@
 - 场景一：绘制时对画布进行矩阵变换，使用clearRect清除时未达预期，出现问题现象如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/I0v5twPbTuujrvpkn9ck5A/zh-cn_image_0000002658912555.png?HW-CC-KV=V1&HW-CC-Date=20260723T013653Z&HW-CC-Expire=86400&HW-CC-Sign=5673E65DCC486FC1383B0C23848D0F88E236079C18A2B9AFE3E5E6AB6B579416)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/I0v5twPbTuujrvpkn9ck5A/zh-cn_image_0000002658912555.png?HW-CC-KV=V1&HW-CC-Date=20260730T072635Z&HW-CC-Expire=86400&HW-CC-Sign=2B6699A8714066FFA7861108F5E089C17A3AB79C0024DB3FF6D74094068DB86C)
 
 
   问题相关代码如下：
@@ -42,7 +42,7 @@ Button('清除图形')
 - 场景二：绘制时对画布进行缩放，使用clearRect清除时未达预期，出现问题现象如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/RjtoVRlzTu6icxOtUlCZzw/zh-cn_image_0000002658792615.png?HW-CC-KV=V1&HW-CC-Date=20260723T013653Z&HW-CC-Expire=86400&HW-CC-Sign=01C07A3DF10D5C1D3EF26AD844019B3BE5E3EEAD5FDDF9B5694DC5B52B1025F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/RjtoVRlzTu6icxOtUlCZzw/zh-cn_image_0000002658792615.png?HW-CC-KV=V1&HW-CC-Date=20260730T072635Z&HW-CC-Expire=86400&HW-CC-Sign=4B1C3305F7054BD7CD8329D374E580788F3001CE9CBE84BFF813E97912845AEC)
 
 
   问题相关代码：

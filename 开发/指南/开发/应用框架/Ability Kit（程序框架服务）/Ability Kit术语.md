@@ -1,6 +1,6 @@
 # Ability Kit术语
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology
 
@@ -131,6 +131,22 @@ PageAbility是FA模型下的包含UI、提供展示UI能力的应用组件，主
 Stage模型是当前系统主推的应用模型，为应用程序提供必备的组件与运行机制。该模型提供了AbilityStage组件管理器和WindowStage窗口管理器，分别作为应用组件与窗口的“舞台”，故得名"Stage模型"。
 
 Stage模型支持多个应用组件共享同一个ArkTS引擎实例，以及应用组件间的状态共享与对象调用，可以降低内存开销、提升开发效率，适用于复杂应用的开发。
+
+
+
+#### T
+
+
+
+#### Taihe
+
+一种跨语言API编程模型，开发者通过编写IDL文件（以ohidl为扩展名）定义业务接口，并使用Taihe编译器工具自动生成目标语言的接口胶水层代码，简化开发流程。
+
+
+
+#### taihec
+
+Taihe的编译器工具，用于解析ohidl文件并生成目标代码。
 
 
 

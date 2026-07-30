@@ -1,6 +1,6 @@
 # 自定义声明式节点 (BuilderNode)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode
 
@@ -27,7 +27,7 @@
 BuilderNode仅可作为叶子节点进行使用。如有更新需要，建议通过BuilderNode中的[update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#update)方式触发更新，不建议通过BuilderNode中获取的RenderNode对节点进行修改操作。
 
 > [!NOTE]
-> BuilderNode只支持一个由 wrapBuilder 包装的 全局自定义构建函数 @Builder。 一个新建的BuilderNode在 build 之后才能通过 getFrameNode 获取到一个指向根节点的FrameNode对象，否则返回null。 如果传入的Builder的根节点为语法节点（if/else/foreach/...），需要额外生成一个FrameNode，在节点树中的显示为“BuilderProxyNode”。 如果BuilderNode通过getFrameNode将节点挂载在另一个FrameNode上，或者将其作为子节点挂载在NodeContainer节点上。则节点中使用父组件的布局约束进行布局。 如果BuilderNode的FrameNode通过 getRenderNode 形式将自己的节点挂载在RenderNode节点上，由于其FrameNode未上树，其大小默认为0，需要通过构造函数中的 selfIdealSize 显式指定布局约束大小，才能正常显示。 BuilderNode的预加载并不会减少组件的创建时间。Web组件创建的时候需要在内核中加载资源，预创建不能减少Web组件的创建的时间，但是可以让内核进行预加载，减少正式使用时候内核的加载耗时。
+> BuilderNode只支持一个由 wrapBuilder 包装的 全局自定义构建函数 @Builder。 一个新建的BuilderNode在 build 之后才能通过 getFrameNode 获取到一个指向根节点的FrameNode对象，否则返回null。 如果传入的Builder的根节点为语法节点（if/else/foreach/...），需要额外生成一个FrameNode，在节点树中的显示为“BuilderProxyNode”。 如果BuilderNode通过getFrameNode将节点挂载在另一个FrameNode上，或者将其作为子节点挂载在NodeContainer节点上。则节点中使用父组件的布局约束进行布局。 如果BuilderNode的FrameNode通过 getRenderNode 形式将自己的节点挂载在RenderNode节点上，由于其FrameNode未上树，其大小默认为0，需要通过构造函数中的 selfIdealSize 显式指定布局约束大小，才能正常显示。 BuilderNode的预加载并不会减少组件的创建时间。Web组件创建的时候需要在内核中加载资源，预创建不能减少Web组件的创建时间，但是可以让内核进行预加载，减少正式使用时候内核的加载耗时。
 
 
 
@@ -43,7 +43,7 @@ BuilderNode对象为一个模板类，需要在创建的时候指定类型。该
 通过BuilderNode的build可以实现组件树的创建。依照传入的WrappedBuilder对象创建组件树，并持有组件树的根节点。
 
 > [!NOTE]
-> 无状态的UI方法全局@Builder最多拥有一个根节点。 build方法中对应的@Builder支持一个参数作为入参。 build中对于@Builder嵌套@Builder进行使用的场景，需要保证嵌套的参数与build的中提供的入参一致。 对于@Builder嵌套@Builder进行使用的场景，如果入参类型不一致，则要求增加 BuildOptions 字段作为 build 的入参。 需要操作BuilderNode中的对象时，需要保证其引用不被回收。当BuilderNode对象被虚拟机回收之后，它的FrameNode、RenderNode对象也会与后端节点解引用。即从BuilderNode中获取的FrameNode对象不对应任何一个节点。
+> 无状态的UI方法全局@Builder最多拥有一个根节点。 build方法中对应的@Builder支持一个参数作为入参。 build中对于@Builder嵌套@Builder进行使用的场景，需要保证嵌套的参数与build中提供的入参一致。 对于@Builder嵌套@Builder进行使用的场景，如果入参类型不一致，则要求增加 BuildOptions 字段作为 build 的入参。 需要操作BuilderNode中的对象时，需要保证其引用不被回收。当BuilderNode对象被虚拟机回收之后，它的FrameNode、RenderNode对象也会与后端节点解引用。即从BuilderNode中获取的FrameNode对象不对应任何一个节点。
 
 
 创建离线节点以及组件树，结合FrameNode进行使用。
@@ -82,7 +82,7 @@ class TextNodeController extends NodeController {
 
   makeNode(context: UIContext): FrameNode | null {
     this.textNode = new BuilderNode(context);
-    this.textNode.build(wrapBuilder<[Params]>(buildText), new Params(this.message))
+    this.textNode.build(wrapBuilder<[Params]>(buildText), new Params(this.message));
     return this.textNode.getFrameNode();
   }
 }
@@ -185,8 +185,6 @@ struct RenderNodePage {
 
 
 #### 更新组件树
-
-通过BuilderNode对象的build创建组件树。依照传入的WrappedBuilder对象创建组件树，并持有组件树的根节点。
 
 自定义组件的更新遵循[状态管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)的更新机制。WrappedBuilder中直接使用的自定义组件其父组件为BuilderNode对象。因此，更新子组件即WrappedBuilder中定义的自定义组件，需要遵循状态管理的定义将相关的状态变量定义为[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)或者[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)。装饰器的选择请参照状态管理的装饰器规格结合应用开发需求进行选择。
 
@@ -421,7 +419,7 @@ struct BlueRowComponent {
       .height('200vp')
       .backgroundColor(0xFF2787D9)
       .onTouch((event: TouchEvent) => {
-        // 触摸绿色Column，蓝色Row的触摸事件不触发。
+        // 触摸绿色Column，蓝色Row的触摸事件不触发
         hilog.info(0xF811, 'testTag', '%{public}s', 'blue touched: ' + event.type);
       })
     }
@@ -446,13 +444,13 @@ struct GreenColumnComponent {
 
 @Builder
 function buildBlueRow() {
-  // Builder直接挂载自定义组件，生成BuilderProxyNode。
+  // Builder直接挂载自定义组件，生成BuilderProxyNode
   BlueRowComponent()
 }
 
 @Builder
 function buildGreenColumn() {
-  // Builder直接挂载自定义组件，生成BuilderProxyNode。
+  // Builder直接挂载自定义组件，生成BuilderProxyNode
   GreenColumnComponent()
 }
 
@@ -466,7 +464,7 @@ class MyNodeController extends NodeController {
     const greenColumnNode = new BuilderNode(uiContext);
     greenColumnNode.build(wrapBuilder(buildGreenColumn));
 
-    // greenColumnNode覆盖在blueRowNode上。
+    // greenColumnNode覆盖在blueRowNode上
     relativeContainer.appendChild(blueRowNode.getFrameNode());
     relativeContainer.appendChild(greenColumnNode.getFrameNode());
 
@@ -505,7 +503,7 @@ struct BlueRowComponent {
       .height('200vp')
       .backgroundColor(0xFF2787D9)
       .onTouch((event: TouchEvent) => {
-        // 触摸绿色Column，蓝色Row的触摸事件触发。
+        // 触摸绿色Column，蓝色Row的触摸事件触发
         hilog.info(0xF811, 'testTag', '%{public}s', 'blue touched: ' + event.type);
       })
     }
@@ -529,13 +527,13 @@ struct GreenColumnComponent {
 
 @Builder
 function buildBlueRow() {
-  // Builder直接挂载自定义组件，生成BuilderProxyNode。
+  // Builder直接挂载自定义组件，生成BuilderProxyNode
   BlueRowComponent()
 }
 
 @Builder
 function buildGreenColumn() {
-  // Builder根节点为容器组件，不会生成BuilderProxyNode，可以设置属性。
+  // Builder根节点为容器组件，不会生成BuilderProxyNode，可以设置属性
   Stack() {
     GreenColumnComponent()
   }
@@ -552,7 +550,7 @@ class MyNodeController extends NodeController {
     const greenColumnNode = new BuilderNode(uiContext);
     greenColumnNode.build(wrapBuilder(buildGreenColumn));
 
-    // greenColumnNode覆盖在blueRowNode上。
+    // greenColumnNode覆盖在blueRowNode上
     relativeContainer.appendChild(blueRowNode.getFrameNode());
     relativeContainer.appendChild(greenColumnNode.getFrameNode());
 
@@ -592,7 +590,7 @@ struct BlueRowComponent {
       .height('200vp')
       .backgroundColor(0xFF2787D9)
       .onTouch((event: TouchEvent) => {
-        // 触摸绿色Column，蓝色Row的触摸事件触发。
+        // 触摸绿色Column，蓝色Row的触摸事件触发
         hilog.info(0xF811, 'testTag', '%{public}s', 'blue touched: ' + event.type);
       })
     }
@@ -616,13 +614,13 @@ struct GreenColumnComponent {
 
 @Builder
 function buildBlueRow() {
-  // Builder直接挂载自定义组件，生成BuilderProxyNode。
+  // Builder直接挂载自定义组件，生成BuilderProxyNode
   BlueRowComponent()
 }
 
 @Builder
 function buildGreenColumn() {
-  // 给自定义组件设置属性生成__Common__节点，Builder根节点为__Common__节点，不会生成BuilderProxyNode。
+  // 给自定义组件设置属性生成__Common__节点，Builder根节点为__Common__节点，不会生成BuilderProxyNode
   GreenColumnComponent()
     .hitTestBehavior(HitTestMode.Transparent)
 }
@@ -637,7 +635,7 @@ class MyNodeController extends NodeController {
     const greenColumnNode = new BuilderNode(uiContext);
     greenColumnNode.build(wrapBuilder(buildGreenColumn));
 
-    // greenColumnNode覆盖在blueRowNode上。
+    // greenColumnNode覆盖在blueRowNode上
     relativeContainer.appendChild(blueRowNode.getFrameNode());
     relativeContainer.appendChild(greenColumnNode.getFrameNode());
 
@@ -715,8 +713,7 @@ class Params {
 function buildNode(param: Params = new Params('hello')) {
   Row() {
     Text(`C${param.item} -- `)
-    // 该自定义组件在BuilderNode中无法被正确复用
-    ChildComponent2({ item: param.item })
+    ChildComponent2({ item: param.item }) // 该自定义组件在BuilderNode中无法被正确复用
   }
 }
 
@@ -733,7 +730,7 @@ class MyNodeController extends NodeController {
   }
 }
 
-// 被回收复用的自定义组件，其状态变量会更新，而子自定义组件ChildComponent3中的状态变量也会更新，但BuilderNode会阻断这一传递过程。
+// 被回收复用的自定义组件，其状态变量会更新，而子自定义组件ChildComponent3中的状态变量也会更新，但BuilderNode会阻断这一传递过程
 @Reusable
 @Component
 struct ReusableChildComponent {
@@ -746,18 +743,19 @@ struct ReusableChildComponent {
   }
 
   aboutToRecycle(): void {
-    hilog.info(0xF811,'testTag','%{public}s',`${TEST_TAG} ReusableChildComponent aboutToRecycle ${this.item}`);
+    hilog.info(0xF811, 'testTag', '%{public}s', `${TEST_TAG} ReusableChildComponent aboutToRecycle ${this.item}`);
 
-    // 当开关为open，通过BuilderNode的reuse接口和recycle接口传递给其下的自定义组件，例如ChildComponent2，完成复用。
+    // 当开关为open，通过BuilderNode的reuse接口和recycle接口传递给其下的自定义组件，例如ChildComponent2，完成复用
     if (this.switch === 'open') {
       this.controller?.builderNode?.recycle();
     }
   }
 
   aboutToReuse(params: object): void {
-    hilog.info(0xF811,'testTag','%{public}s',`${TEST_TAG} ReusableChildComponent aboutToReuse ${JSON.stringify(params)}`);
+    hilog.info(0xF811, 'testTag', '%{public}s',
+      `${TEST_TAG} ReusableChildComponent aboutToReuse ${JSON.stringify(params)}`);
 
-    // 当开关为open，通过BuilderNode的reuse接口和recycle接口传递给其下的自定义组件，例如ChildComponent2，完成复用。
+    // 当开关为open，通过BuilderNode的reuse接口和recycle接口传递给其下的自定义组件，例如ChildComponent2，完成复用
     if (this.switch === 'open') {
       this.controller?.builderNode?.reuse(params);
     }
@@ -777,11 +775,11 @@ struct ChildComponent2 {
   @Prop item: string = 'false';
 
   aboutToReuse(params: Record<string, object>) {
-    hilog.info(0xF811,'testTag','%{public}s',`${TEST_TAG} ChildComponent2 aboutToReuse ${JSON.stringify(params)}`);
+    hilog.info(0xF811, 'testTag', '%{public}s', `${TEST_TAG} ChildComponent2 aboutToReuse ${JSON.stringify(params)}`);
   }
 
   aboutToRecycle(): void {
-    hilog.info(0xF811,'testTag','%{public}s',`${TEST_TAG} ChildComponent2 aboutToRecycle ${this.item}`);
+    hilog.info(0xF811, 'testTag', '%{public}s', `${TEST_TAG} ChildComponent2 aboutToRecycle ${this.item}`);
   }
 
   build() {
@@ -799,11 +797,11 @@ struct ChildComponent3 {
   @Prop item: string = 'false';
 
   aboutToReuse(params: Record<string, object>) {
-    hilog.info(0xF811,'testTag','%{public}s',`${TEST_TAG} ChildComponent3 aboutToReuse ${JSON.stringify(params)}`);
+    hilog.info(0xF811, 'testTag', '%{public}s', `${TEST_TAG} ChildComponent3 aboutToReuse ${JSON.stringify(params)}`);
   }
 
   aboutToRecycle(): void {
-    hilog.info(0xF811,'testTag','%{public}s',`${TEST_TAG} ChildComponent3 aboutToRecycle ${this.item}`);
+    hilog.info(0xF811, 'testTag', '%{public}s', `${TEST_TAG} ChildComponent3 aboutToRecycle ${this.item}`);
   }
 
   build() {
@@ -835,7 +833,7 @@ struct Index {
           ListItem() {
             ReusableChildComponent({
               item: item,
-              switch: 'open' // 将open改为close可观察到，BuilderNode不通过reuse和recycle接口传递复用时，BuilderNode内部的自定义组件的行为表现。
+              switch: 'open' // 将open改为close可观察到，BuilderNode不通过reuse和recycle接口传递复用时，BuilderNode内部的自定义组件的行为表现
             })
           }
         }, (item: string) => item)
@@ -897,7 +895,7 @@ class MyNodeController extends NodeController {
   }
 }
 
-// 标记了@Reusable的自定义组件，无法直接被BuilderNode挂载为子节点。
+// 标记了@Reusable的自定义组件，无法直接被BuilderNode挂载为子节点
 @Reusable
 @Component
 struct ReusableChildComponent {
@@ -918,7 +916,7 @@ struct ReusableChildComponent {
   }
 }
 
-// 未标记@Reusable的自定义组件。
+// 未标记@Reusable的自定义组件
 @Component
 struct ChildComponent2 {
   @Prop item: string = '';
@@ -956,7 +954,7 @@ struct Index {
 
 #### 通过系统环境变化更新节点
 
-使用[updateConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#updateconfiguration12)来监听[系统环境变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)事件，以触发节点的全量更新。
+使用[updateConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#updateconfiguration12)来监听系统环境变化事件，以触发节点的全量更新。系统环境变化详情参见[@ohos.app.ability.Configuration (环境变量)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)。
 
 > [!NOTE]
 > updateConfiguration接口用于通知对象进行更新，更新所使用的系统环境取决于应用当前系统环境的变化。
@@ -1017,7 +1015,7 @@ class TextNodeController extends NodeController {
   }
 
   makeNode(context: UIContext): FrameNode | null {
-    return this.textNode?.getFrameNode() ? this.textNode?.getFrameNode() : null;
+    return this.textNode?.getFrameNode() ?? null;
   }
 
   createNode(context: UIContext) {
@@ -1103,7 +1101,7 @@ struct Index {
 
 #### 跨页面复用注意事项
 
-在使用[路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)接口[router.replaceUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)、[router.back](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back)、[router.clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#clear)、[router.replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)操作页面时，若某个被缓存的BuilderNode位于即将销毁的页面内，那么在新页面中复用该BuilderNode时，可能会存在数据无法更新或新创建节点无法显示的问题。以[router.replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)为例，在以下示例代码中，当点击“router replace”按钮后，页面将切换至PageTwo，同时标志位isShowText会被设定为false。
+在使用[Class (Router)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)的接口[router.replaceUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)、[router.back](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back)、[router.clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#clear)、[router.replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)操作页面时，若某个被缓存的BuilderNode位于即将销毁的页面内，那么在新页面中复用该BuilderNode时，可能会存在数据无法更新或新创建节点无法显示的问题。以[router.replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)为例，在以下示例代码中，当点击“router replace”按钮后，页面将切换至PageTwo，同时标志位isShowText会被设定为false。
 
 ```ArkTS
 // ets/pages/RouterPage3.ets
@@ -1112,7 +1110,7 @@ import 'ets/pages/RouterPage2';
 
 @Builder
 function buildText() {
-  // @Builder中使用语法节点生成BuilderProxyNode。
+  // @Builder中使用语法节点生成BuilderProxyNode
   if (true) {
     MyComponent()
   }
@@ -1142,7 +1140,7 @@ class TextNodeController extends NodeController {
     this.rootNode = new FrameNode(context);
 
     if (AppStorage.has('textNode')) {
-      // 复用AppStorage中的BuilderNode。
+      // 复用AppStorage中的BuilderNode
       this.textNode = AppStorage.get<BuilderNode<[]>>('textNode') as BuilderNode<[]>;
       const parent = this.textNode.getFrameNode()?.getParent();
       if (parent) {
@@ -1151,7 +1149,7 @@ class TextNodeController extends NodeController {
     } else {
       this.textNode = new BuilderNode(context);
       this.textNode.build(wrapBuilder<[]>(buildText));
-      // 将创建的BuilderNode存入AppStorage。
+      // 将创建的BuilderNode存入AppStorage
       AppStorage.setOrCreate<BuilderNode<[]>>('textNode', this.textNode);
     }
     this.rootNode.appendChild(this.textNode.getFrameNode());
@@ -1175,9 +1173,9 @@ struct Index {
           .backgroundColor('#FFF0F0F0')
         Button('Router pageTwo')
           .onClick(() => {
-            // 改变AppStorage中的状态变量触发Text节点的重新创建。
+            // 改变AppStorage中的状态变量触发Text节点的重新创建
             AppStorage.setOrCreate<boolean>('isShowText', false);
-            // 将BuilderNode从AppStorage中移除。
+            // 将BuilderNode从AppStorage中移除
             AppStorage.delete('textNode');
 
             this.getUIContext().getRouter().replaceNamedRoute({ name: 'pageTwo' });
@@ -1197,7 +1195,7 @@ PageTwo的实现如下：
 
 ```ArkTS
 // ets/pages/RouterPage2.ets
-// 该页面中存在一个按钮，可跳转回主页面，回到主页面后，原有的文字消失。
+// 该页面中存在一个按钮，可跳转回主页面，回到主页面后，原有的文字消失
 import 'ets/pages/RouterPage1';
 
 @Entry({ routeName: 'pageTwo' })
@@ -1423,19 +1421,19 @@ class MyNodeController extends NodeController {
     this.builderNode = new BuilderNode<[]>(uiContext);
     this.builderNode.build(wrapBuilder<[]>(buildText));
 
-    // 挂载BuilderNode。
+    // 挂载BuilderNode
     this.rootNode.appendChild(this.builderNode.getFrameNode());
     return this.rootNode;
   }
 
   disposeBuilderNode() {
-    // 解除BuilderNode与后端实体节点的引用关系。
+    // 解除BuilderNode与后端实体节点的引用关系
     this.builderNode?.dispose();
   }
 
   isDisposed(): string {
     if (this.builderNode !== null) {
-      // 查询BuilderNode是否解除引用。
+      // 查询BuilderNode是否解除引用
       if (this.builderNode.isDisposed()) {
         return 'builderNode isDisposed is true';
       } else {
@@ -1493,7 +1491,7 @@ BuilderNode节点只有通过以下方式上下树时，才会根据该节点是
 | NodeContent | addFrameNode、removeFrameNode |
 | NodeController | makeNode |
 | RenderNode | appendChild、insertChildAfter、removeChild、clearChildren |
-| NodeAdapter | 节点通过懒加载方式上下树时 |
+| NodeAdapter | 节点通过LazyForEach方式上下树时 |
 
 
 > [!NOTE]
@@ -1839,7 +1837,7 @@ struct Page2 {
 图示如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QMkYBACbSL-2vPqJJV3ocQ/zh-cn_image_0000002626228022.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=C66455E6D76C676DE504E7DC9C97C0D49AE3C0809F52725A5E4342E575EE9FD9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/mURLpASfQjavptvuUWellw/zh-cn_image_0000002656005800.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=AD7BFA0B680412823E1956704593170AB75B2791CEA69EBECE9B32DEF9025BAF)
 
 
 ```text
@@ -1956,7 +1954,7 @@ struct buildNodeChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/vMLxIcovRZOW9JzitO45mA/zh-cn_image_0000002656347949.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=5C10C00A4D780F92ED3675B8646ACBB739AD22EB24C341686AFB86420D84E1CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/mr4dpxN0RnyJhl8SN2EWqg/zh-cn_image_0000002686086011.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=5099011AF869B44444C06E791C394A3BD7965D6D473FD6FEC0B74DC4BE36179A)
 
 
 在上面的示例中：
@@ -2155,7 +2153,7 @@ struct TextBuilder {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/3CwY4IBRRNqdM_Ho3KFDsQ/zh-cn_image_0000002626228534.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=E89D630B10FBD3013DCC4956D1F2BBF56D66A27D2729524518137C62BC5E3177)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/9lGOq032Qa6Dnz9RYaFQXQ/zh-cn_image_0000002685926183.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=2A1BC64046A93B83604D5A34D124C4A17B5FF1A3E7DD48B0BF494281C895AB32)
 
 
 在上面的示例中：
@@ -2271,7 +2269,7 @@ export struct RepeatVirtualScrollFreeze {
 @ComponentV2({ freezeWhenInactive: true })
 struct FreezeBuildNode {
   storage: Params = Params.instance();
-  @Param @Require message: string ;
+  @Param @Require message: string;
   @Param @Require bgColor: Color;
   @Monitor('storage.bgColor')
   onBgColorChange(monitor: IMonitor) {
@@ -2289,10 +2287,10 @@ struct BuildNodeChild {
   storage: Params = Params.instance();
   @Param message: string = '';
 
-  // 使用@Monitor装饰器监听storage.message的变化。
+  // 使用@Monitor装饰器监听storage.bgColor的变化。
   @Monitor('storage.bgColor')
-  onMessageChange(monitor: IMonitor) {
-    console.info(`FreezeBuildNode buildNodeChild message callback func ${this.message}`);
+  onBgColorChange(monitor: IMonitor) {
+    hilog.info(0xF811, 'testTag', '%{public}s',`FreezeBuildNode buildNodeChild bgColor change from ${monitor.value()?.before} to ${monitor.value()?.now}`);
   }
 
   build() {
@@ -2305,7 +2303,7 @@ struct BuildNodeChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/7T9MlhVISMiQOfwcXW6YOw/zh-cn_image_0000002626068626.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=6E1233B94712D1B1E92B30E747A900941BD9C04A8409BC95BAEF3ED6C427D84D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/YlV5JUM_SpathgR1MqQDVA/zh-cn_image_0000002656006504.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=A56B9320F1926E232D705D697461944591379237DAD35D055A8397715ECA1115)
 
 
 在上面的示例中：
@@ -2445,16 +2443,16 @@ struct FreezeBuildNode {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/VeiZfFaQTEWAl_GOHUiXqA/zh-cn_image_0000002656467903.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=E1B3921B1736C3C886C17E5043AC3A1DB2AE13BDD0A7A469B8C8F00B6BFC7832)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/rWeQJ3OKR2SNdvCM88brpg/zh-cn_image_0000002655846584.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=83EA5120540F146C57F94BE8AE16D707E72764B5AECF0B718A1FBE1D54E07E1E)
 
 
 在上面的示例中：
 
-1.点击change更改message的值，当前正在显示的BuilderNode下面的子组件buildNodeChild组件中@Monitor注册的方法onMessageUpdated被触发。
+1.点击change更改message的值，当前正在显示的BuilderNode下面的子组件buildNodeChild组件中@Monitor注册的方法onMessageChange被触发。
 
-2.点击tab1切换到另外的TabContent，该TabContent的状态由inactive变为active，对应的BuilderNode下面的子组件buildNodeChild组件中@Monitor注册的方法onMessageUpdated被触发。
+2.点击tab1切换到另外的TabContent，该TabContent的状态由inactive变为active，对应的BuilderNode下面的子组件buildNodeChild组件中@Monitor注册的方法onMessageChange被触发。
 
-3.再次点击change更改message的值，仅当前显示的TabContent子组件中@Monitor注册的方法onMessageUpdated被触发。其他inactive的TabContent组件不会触发@Monitor。
+3.再次点击change更改message的值，仅当前显示的TabContent子组件中@Monitor注册的方法onMessageChange被触发。其他inactive的TabContent组件不会触发@Monitor。
 
 
 
@@ -2462,7 +2460,7 @@ struct FreezeBuildNode {
 
 从API version 20开始，通过配置BuildOptions参数，BuilderNode内部自定义组件的[@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)支持接收所在页面的[@Provide](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)数据。
 
-参见[示例代码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#示例5buildernode支持内部consume接收外部的provide数据)。
+参见[示例5（BuilderNode支持内部@Consume接收外部的@Provide数据）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#示例5buildernode支持内部consume接收外部的provide数据)。
 
 
 
@@ -2470,7 +2468,7 @@ struct FreezeBuildNode {
 
 从API version 23开始，通过配置BuildOptions参数，BuilderNode内部自定义组件的[@Consumer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)支持接收所在页面的[@Provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)数据。
 
-参见[示例代码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#示例6buildernode支持内部consumer接收外部的provider数据)。
+参见[示例6（BuilderNode支持内部@Consumer接收外部的@Provider数据）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#示例6buildernode支持内部consumer接收外部的provider数据)。
 
 
 
@@ -2500,7 +2498,7 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
-      createNWeb('', windowStage.getMainWindowSync().getUIContext());
+      createNWeb('https://www.example.com', windowStage.getMainWindowSync().getUIContext());
       if (err.code) {
         hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
         return;
@@ -2525,7 +2523,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 // @Builder中为动态组件的具体组件内容。
 // Data为入参封装类。
 class Data {
-  public url: string = '';
+  public url: string = 'https://www.example.com';
   public controller: WebviewController = new webview.WebviewController();
 }
 
@@ -2573,7 +2571,7 @@ export class MyNodeController2 extends NodeController {
 
   // 当布局大小发生变化时进行回调。
   aboutToResize(size: Size) {
-    hilog.info(0xF811, 'testTag', '%{public}s', 'aboutToResize   width   : ' + size.width + ' height : ' + size.height);
+    hilog.info(0xF811, 'testTag', '%{public}s', 'aboutToResize width : ' + size.width + ' height : ' + size.height);
   }
 
   // 当controller对应的NodeContainer在Appear的时候进行回调。
@@ -2615,12 +2613,12 @@ export const createNWeb = (url: string, uiContext: UIContext) => {
   baseNode.initWeb(url, uiContext, controller);
   controllerMap.set(url, controller);
   nodeMap.set(url, baseNode);
-}
+};
 
 // 自定义获取NodeController接口。
 export const getNWeb = (url: string): MyNodeController2 | undefined => {
   return nodeMap.get(url);
-}
+};
 ```
 
 3. 通过NodeContainer使用已经预渲染的页面。
@@ -2639,7 +2637,7 @@ struct Index {
       Column() {
         // NodeContainer用于与NodeController节点绑定，rebuild会触发makeNode。
         // Page页通过NodeContainer接口绑定NodeController，实现动态组件页面显示。
-        NodeContainer(getNWeb(''))
+        NodeContainer(getNWeb('https://www.example.com'))
           .height('90%')
           .width('100%')
           .id('ArkWebPage')

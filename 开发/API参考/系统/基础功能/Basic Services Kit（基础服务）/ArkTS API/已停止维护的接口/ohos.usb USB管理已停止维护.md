@@ -1,6 +1,6 @@
 # @ohos.usb (USB管理)(已停止维护)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-usb-deprecated
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -618,7 +618,7 @@ USB设备信息。
 | devAddress | number | 是 | 设备地址。 |
 | serial | string | 是 | 序列号。 |
 | name | string | 是 | 设备名字。 |
-| manufacturerName | string | 是 | 产商信息。 |
+| manufacturerName | string | 是 | 厂商信息。 |
 | productName | string | 是 | 产品信息。 |
 | version | string | 是 | 版本。 |
 | vendorId | number | 是 | 厂商ID。 |

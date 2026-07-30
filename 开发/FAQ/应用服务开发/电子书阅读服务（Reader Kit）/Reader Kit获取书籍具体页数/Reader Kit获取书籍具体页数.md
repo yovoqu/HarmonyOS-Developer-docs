@@ -1,6 +1,6 @@
 # Reader Kit获取书籍具体页数
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-1
 
@@ -23,7 +23,7 @@
 
 #### 解决方案
 
-使用ReaderComponentController的[on('pageShow')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#section1657755491213)事件回调，并在回调函数中进行对具体页数的处理。
+使用ReaderComponentController的[on('pageShow')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#onpageshow)事件回调，并在回调函数中进行对具体页数的处理。
  
 ```json
 import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">display </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>

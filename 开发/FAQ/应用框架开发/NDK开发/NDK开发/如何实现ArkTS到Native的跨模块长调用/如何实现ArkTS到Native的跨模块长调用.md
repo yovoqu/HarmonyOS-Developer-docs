@@ -12,7 +12,7 @@
 3. har Native侧方法通过napi_load_module_with_info来加载har ArkTS侧B.ets导出的自定义接口。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/FX_zAxBRSuWzsFhuc-a8tw/zh-cn_image_0000002659258289.png?HW-CC-KV=V1&HW-CC-Date=20260723T012516Z&HW-CC-Expire=86400&HW-CC-Sign=440F611503EF281A56F30898C8DC6355CAFB11F319B39ACCDC9AF0C7C306ADBF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/FX_zAxBRSuWzsFhuc-a8tw/zh-cn_image_0000002659258289.png?HW-CC-KV=V1&HW-CC-Date=20260730T072314Z&HW-CC-Expire=86400&HW-CC-Sign=CF659C6AEDCCF6AA58A65366D4532DD480A50AC6535ED45F348A16D7CC04B4DE)
 
  
 har的ArkTS侧将函数包裹在命名空间中导出，其Native侧用napi_get_named_property加载函数，加载失败。

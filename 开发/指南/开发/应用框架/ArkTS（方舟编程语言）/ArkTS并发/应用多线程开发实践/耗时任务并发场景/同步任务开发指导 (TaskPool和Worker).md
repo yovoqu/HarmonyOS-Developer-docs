@@ -1,6 +1,6 @@
 # 同步任务开发指导 (TaskPool和Worker)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sync-task-development
 
@@ -48,8 +48,8 @@ async function mainFunc(): Promise<void> {
   let task2: taskpool.Task = new taskpool.Task(taskpoolFunc, res1);
   let res2: number = await taskpool.execute(task2) as number;
   // 步骤3: 对任务返回的结果进行操作
-  console.info('taskpool: task res1 is: ' + res1);
-  console.info('taskpool: task res2 is: ' + res2);
+  console.info(`taskpool: task res1 is: ${res1}`);
+  console.info(`taskpool: task res2 is: ${res2}`);
 }
 
 @Entry
@@ -64,7 +64,7 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(async () => {
-            mainFunc();
+            await mainFunc();
             // ...
           })
       }
@@ -102,7 +102,7 @@ struct Index {
             let w: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/MyWorker2.ts');
             w.onmessage = (e: MessageEvents): void => {
               // 接收Worker子线程的结果
-              console.info('main thread onmessage, ' + e.data.message);
+              console.info(`main thread onmessage, ${e.data.message}`);
               // 销毁Worker
               if (e.data.isTerminate) {
                 w.terminate();

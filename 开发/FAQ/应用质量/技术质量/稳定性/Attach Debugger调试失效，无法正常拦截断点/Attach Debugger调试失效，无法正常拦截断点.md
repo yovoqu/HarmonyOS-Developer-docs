@@ -31,4 +31,4 @@ Attach调试是一种在应用运行时连接到应用的调试方法，主要�
 #### 修改建议
 1. 如果出现Native调试器和ArkTS调试器两个窗口，需要等待两个窗口都加载完成，才能进行调试。
 2. 可以在调试之前编辑调试配置，在Debugger页签中设置Debug type为ArkTS/JS或Native，只启动自己需要的调试器。可参考文档：[自定义运行/调试配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-debug-configurations)。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/fwLSRtroQNOGYdOyzb2Ryw/zh-cn_image_0000002658794255.png?HW-CC-KV=V1&HW-CC-Date=20260723T012400Z&HW-CC-Expire=86400&HW-CC-Sign=917F8FA780BDFC95BF2A47CC98FEC96EE09D7B82FF7CB85C0767BB335EE7DCE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/fwLSRtroQNOGYdOyzb2Ryw/zh-cn_image_0000002658794255.png?HW-CC-KV=V1&HW-CC-Date=20260730T072250Z&HW-CC-Expire=86400&HW-CC-Sign=C8CD72C90234A38030B444F650D1FC54ACF0A8EED2C2EF0309BD3685478E6386)

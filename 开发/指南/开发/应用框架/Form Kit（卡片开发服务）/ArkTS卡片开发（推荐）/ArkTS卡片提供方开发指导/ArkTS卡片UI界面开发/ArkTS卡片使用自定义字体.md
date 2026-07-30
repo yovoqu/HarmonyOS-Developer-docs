@@ -1,6 +1,6 @@
 # ArkTS卡片使用自定义字体
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-load-custom-font
 
@@ -20,7 +20,7 @@ import { text } from '@kit.ArkGraphics2D';
 
 @Entry
 @Component
-struct LoadFontSyncCard {
+struct loadFontSyncCard {
   // 在这里使用getLocalInstance访问本地字体集实例
   private fc: text.FontCollection = text.FontCollection.getLocalInstance();
   @State content: string = '默认字体';
@@ -56,4 +56,4 @@ struct LoadFontSyncCard {
 #### 运行结果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/ANydTNPBSomt9gpa_Y4yWA/zh-cn_image_0000002647746312.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012143Z&HW-CC-Expire=86400&HW-CC-Sign=158BD425A56E71F8B724EF4AF4D4E0ADE8CAB74663609432DE899099582C145C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/fSgKyQ4jSGuxT1nvT95Ljw/zh-cn_image_0000002655846898.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071905Z&HW-CC-Expire=86400&HW-CC-Sign=F56C983D443BD158AC36C1B7D7EE0E2B35D1AE50C2F6C5EA0EB7F6D9BDC81002)

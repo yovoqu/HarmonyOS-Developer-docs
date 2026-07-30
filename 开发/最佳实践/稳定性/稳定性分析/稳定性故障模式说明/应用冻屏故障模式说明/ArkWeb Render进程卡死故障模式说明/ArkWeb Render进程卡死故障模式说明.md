@@ -62,7 +62,7 @@ Main handler dump end time: <span style="color: rgb(80,160,79);">2026</span>-<sp
 trace分析如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/EY8N57cbSimMDF8D38POuQ/zh-cn_image_0000002666120049.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=C3BE084C781BDBC2A3DC19431284CCF753A6C3012AD1E9E599CEE74E2A7FED5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/_o9om5jqS0unSL542HK2QQ/zh-cn_image_0000002666120049.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=9F311C465229C351DCE2937D4F353B3071387DE5C239263DC40AE00AC28F074F)
 
  
 在业务代码中搜索任务名称，可确定抛出任务过多的位置，从而减少抛出此类任务的数量。
@@ -93,7 +93,7 @@ trace分析如下图所示：
 本案例通过构造一个可以触发耗时JS操作的应用来进行问题说明。案例如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/fPXqqTIuSUajT2vELnDuCg/zh-cn_image_0000002635680956.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=E7FEC8422AC7CD9F4687B8C79F1B157E4949C65B7B9D75E4C6B7B81E97748E63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/1HnhaPqGR7iM3sErSPYu8Q/zh-cn_image_0000002635680956.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=9BF3F3AC1C474BE7AC4CF36DC4A2905E2593431EDEDF2E275009FCC4D8B6F125)
 
  
 **问题现象**
@@ -114,7 +114,7 @@ trace分析如下图所示：
 查看对应的JS代码可知耗时代码如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/XF5BYwRGTrCLGXwKyZKX5A/zh-cn_image_0000002635840876.png?HW-CC-KV=V1&HW-CC-Date=20260723T014108Z&HW-CC-Expire=86400&HW-CC-Sign=7A1D015491B7910828DB7011707B1ADAFEE8DB235BD9044D81C20DFAC86D1A39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/FXTHWakXQ5KS3WBW_Bf0kw/zh-cn_image_0000002635840876.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=0E376C4CE364A37784A94EEC90BDB710C65876886F2B7B91444136DE1C2579BD)
 
  
 **排查建议**

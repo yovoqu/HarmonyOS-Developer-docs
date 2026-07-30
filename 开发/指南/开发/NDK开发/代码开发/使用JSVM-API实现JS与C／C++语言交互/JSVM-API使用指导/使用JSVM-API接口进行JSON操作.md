@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行JSON操作
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-json
 
@@ -21,8 +21,8 @@
  
 | 接口 | 功能说明 |
 | --- | --- |
-| OH_JSVM_JsonParse | 解析JSON字符串，并将结果存储在JSON对象。 |
-| OH_JSVM_JsonStringify | 将对象字符串化，并将结果存储在JSVM字符串对象。 |
+| OH_JSVM_JsonParse | 解析JSON字符串，并将结果存储在JSON对象中。 |
+| OH_JSVM_JsonStringify | 将对象字符串化，并将结果存储在JSVM字符串对象中。 |
  
  
   
@@ -40,9 +40,6 @@ JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
 cpp部分代码：
  
 ```cpp
-// hello.cpp
-#include <string>
-
 // 解析JSON数字
 static JSVM_Value JsonParseNumber(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -91,12 +88,12 @@ static JSVM_CallbackStruct param[] = {
 static JSVM_CallbackStruct *method = param;
 
 JSVM_PropertyDescriptor descriptor[] = {
-    {"jsonParseNumber", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
-    {"jsonParseObject", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
+    {"jsonParseNumber", nullptr, method, nullptr, nullptr, nullptr, JSVM_DEFAULT},
+    {"jsonParseObject", nullptr, method + 1, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 
 // 待执行的js代码
-static const char *srcCallNative = R"JS(jsonParseNumber();jsonParseObject();)JS";
+static const char *STR_TASK = R"JS(jsonParseNumber();jsonParseObject();)JS";
 ```
  
   

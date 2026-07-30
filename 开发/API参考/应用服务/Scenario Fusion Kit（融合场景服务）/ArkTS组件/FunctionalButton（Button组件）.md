@@ -1,6 +1,6 @@
 # FunctionalButton（Button组件）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalbutton
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -8,12 +8,6 @@
 本模块提供FunctionalButton组件，为开发者提供场景化开发能力，包括：快速验证手机号、实时验证手机号、选择头像、打开授权设置页、打开App、选择收货地址、选择发票抬头、打开地图选点、实名信息校验、人脸核身、实况窗订阅、权限设置、服务动态授权码、元服务分享、反馈与投诉和获取手机号和风险等级。
  
 FunctionalButton需要配合[functionalButtonComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalbuttoncomponentmanager)一起使用。
- 
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
-**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
  
 **起始版本：** 4.1.0(11)
   
@@ -102,7 +96,7 @@ struct Index {
               hoverStayTime: 0,
               styleConfig: new functionalButtonComponentManager.ButtonConfig()
                 .fontSize(20)
-            },
+            }
           },
           // 当OpenType为GET_PHONE_NUMBER时，回调必须为onGetPhoneNumber。
           controller: new functionalButtonComponentManager.FunctionalButtonController()

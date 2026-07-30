@@ -1,6 +1,6 @@
 # 跨设备互通NDK开发指导
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/servicecollaboration-servicendk-guide
 
@@ -66,17 +66,24 @@
 2. 编写CMakeLists.txt。
 
   
-```text
-find_library(
-    # Sets the name of the path variable.
-    service_collaboration-lib
-    # Specifies the name of the NDK library that
-    # you want CMake to locate.
-    libservice_collaboration_ndk.z.so
-)
-target_link_libraries(entry PUBLIC
-    ${service_collaboration-lib}
-)
+```cpp
+cmake_minimum_required(VERSION 3.4.1)
+project(MyApplication)
+
+set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
+
+if(DEFINED PACKAGE_FIND_FILE)
+    include(${PACKAGE_FIND_FILE})
+endif()
+
+include_directories(${NATIVERENDER_ROOT_PATH}
+                    ${NATIVERENDER_ROOT_PATH}/include)
+link_directories(${HMOS_SDK_NATIVE}/sysroot/usr/lib/aarch64-linux-ohos)
+link_directories(${HMOS_SDK_NATIVE}/sysroot/usr/lib/aarch64-linux-ohos)
+
+add_library(entry SHARED napi_init.cpp)
+target_link_libraries(entry PUBLIC libservice_collaboration_ndk.z.so
+libace_napi.z.so)
 ```
 
 3. 实例代码调用接口，分为以下三步。
@@ -90,34 +97,34 @@ target_link_libraries(entry PUBLIC
 
   
 ```text
-#include "service_collaboration/service_collaboration_api.h"
-#include <thread>
-
 static int32_t OnEventProc(ServiceCollaborationEventCode code, uint32_t extraCode)
 {
     return 0;
 }
-static int32_t OnDataCallbackProc(
-    ServiceCollaborationEventCode code, ServiceCollaborationDataType dataType, uint32_t dataSize, char* data)
+
+static int32_t OnDataCallbackProc(ServiceCollaborationEventCode code, ServiceCollaborationDataType dataType,
+    uint32_t dataSize, char *data)
 {
     return 0;
 }
-int main(int argc, char* argv[])
+
+static napi_value HCTS_HMS_ServiceCollaboration_TestDemo(napi_env env, napi_callback_info info)
 {
     int two = 2;
     int three = 3;
     int filter = 1;
     const int size = 3;
     int shouldCancel = 0;
-    
+
     // 构建所需跨设备互通能力，并调用HMS_ServiceCollaboration_GetCollaborationDeviceInfos接口获取设备信息
     ServiceCollaborationFilterType serviceFilterTypes[size] = {TAKE_PHOTO, SCAN_DOCUMENT, IMAGE_PICKER};
-    ServiceCollaboration_CollaborationDeviceInfoSets* info = HMS_ServiceCollaboration_GetCollaborationDeviceInfos(3, serviceFilterTypes);
+    ServiceCollaboration_CollaborationDeviceInfoSets* sets = HMS_ServiceCollaboration_GetCollaborationDeviceInfos(
+        3, serviceFilterTypes);
     // 构建callback回调
     ServiceCollaboration_SelectInfo taskInfo = { TAKE_PHOTO, { 0 } };
-    for (uint32_t i = 0; i < info->size; i++) {
+    for (uint32_t i = 0; i < sets->size; i++) {
         ServiceCollaboration_CollaborationDeviceInfo *deviceInfo =
-            (ServiceCollaboration_CollaborationDeviceInfo *)&(info->deviceInfoSets[i]);
+            (ServiceCollaboration_CollaborationDeviceInfo *)&(sets->deviceInfoSets[i]);
         if (filter == 1) {
             taskInfo.serviceFilterType = TAKE_PHOTO;
         }
@@ -127,15 +134,20 @@ int main(int argc, char* argv[])
         if (filter == three) {
             taskInfo.serviceFilterType = IMAGE_PICKER;
         }
-        std::memcpy(taskInfo.deviceNetworkId, deviceInfo->deviceNetworkId, COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH-1);
+        std::memcpy(taskInfo.deviceNetworkId, deviceInfo->deviceNetworkId,
+            COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH-1);
     }
     ServiceCollaborationCallback callback = {.OnEvent = OnEventProc, .OnDataCallback = OnDataCallbackProc};
     // 传入拍照参数、callback回调并调用HMS_ServiceCollaboration_StartCollaboration接口
     uint32_t id = HMS_ServiceCollaboration_StartCollaboration(&taskInfo, &callback);
     std::this_thread::sleep_for(std::chrono::seconds(three));
+    int32_t ret = 0;
     if (shouldCancel) {
         // 三秒后主动调用HMS_ServiceCollaboration_StopCollaboration关闭跨设备互通
-        int32_t ret = HMS_ServiceCollaboration_StopCollaboration(id);
+        ret = HMS_ServiceCollaboration_StopCollaboration(id);
     }
+    napi_value code_napi_value;
+    napi_create_double(env, ret, &code_napi_value);
+    return code_napi_value;
 }
 ```

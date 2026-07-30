@@ -1,13 +1,13 @@
 # 商户号如何绑定AppID
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-5
 
 #### 问题现象
 1. 华为支付配置过程中，商户号如何与AppID进行绑定？
 2. 登录华为支付商户平台后，商户中心没有证书管理和AppID管理的选项，如何解决？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/urDarCt8RbW8sprHF0-rgg/zh-cn_image_0000002658793791.png?HW-CC-KV=V1&HW-CC-Date=20260723T013747Z&HW-CC-Expire=86400&HW-CC-Sign=08C0AA626AC17D9ECD180DB5B49EABDD7DAE3B523804740E82618E72053C9D23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/KP3GVgYTS0OszbUaFu5AFg/zh-cn_image_0000002658793791.png?HW-CC-KV=V1&HW-CC-Date=20260730T072647Z&HW-CC-Expire=86400&HW-CC-Sign=F441BAA35BBE0A2EB3D4B603057DD38FFBA82C025738B67238F544802EFCC4DB)
 
  
  
@@ -25,9 +25,9 @@
 
   
 暂不支持平台子商户及特约商户发起绑定AppID申请。
-2. 商户发起绑定AppID申请，异主体绑定需要商户与华为支付侧沟通申请开通异主体绑定权限（可参考[产品开通操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-product-configuration#section266182819316)）后才可在华为支付商户平台发起异主体AppID绑定操作。
+2. 商户发起绑定AppID申请，异主体绑定需要商户与华为支付侧沟通申请开通异主体绑定权限（可参考[产品开通操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-product-configuration#场景一产品开通操作)）后才可在华为支付商户平台发起异主体AppID绑定操作。
 3. AppID关联的营业主体与特约商户商户号或与服务商商户号关联的营业主体一致，都认为是同主体，可直接发起绑定。商户发起绑定申请后，商户应用管理员登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站才能对商户号绑定AppID进行授权（提示“主体不一致”可[参见这里](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-26)）。商户号绑定AppID的功能入口可参考官方文档：[商户号绑定AppID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-binding-appid-to-merc)。
-4. 出现此问题的原因是因为开发者是通过华为开发者联盟官网开通[商户服务](https://developer.huawei.com/consumer/cn/doc/app/open-0000001959074873)入网的商户，该方式申请的商户无法直接接入华为支付以及绑定AppID操作，需要在华为支付商户平台完成重新入网后才能接入。重新入网步骤：华为账号登录华为支付商户平台后在弹框右上角选择新商户入网申请完成后才可以[上传商户证书](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certificates-config#section325481952016)，具体如下图所示：
+4. 出现此问题的原因是因为开发者是通过华为开发者联盟官网开通[商户服务](https://developer.huawei.com/consumer/cn/doc/app/open-0000001959074873)入网的商户，该方式申请的商户无法直接接入华为支付以及绑定AppID操作，需要在华为支付商户平台完成重新入网后才能接入。重新入网步骤：华为账号登录华为支付商户平台后在弹框右上角选择新商户入网申请完成后才可以[上传商户证书](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certificates-config#上传商户证书)，具体如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/E7wITFDKSTiG7w7-O3RQUQ/zh-cn_image_0000002628394524.png?HW-CC-KV=V1&HW-CC-Date=20260723T013747Z&HW-CC-Expire=86400&HW-CC-Sign=AE0CD7969373125DDF3424985C767F46FDD3F47DF99D2A845CCDFBC9542F0C00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/PKscxk9tTsmWwaJ6LslWUA/zh-cn_image_0000002628394524.png?HW-CC-KV=V1&HW-CC-Date=20260730T072647Z&HW-CC-Expire=86400&HW-CC-Sign=4F261DB330F4BB6C7DC3D70351940BFA0DAEF3E915A5971348FEBC4553C375A7)

@@ -1,6 +1,6 @@
 # avimage_generator_base.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| OH_AVImageGenerator_QueryOptions | OH_AVImageGenerator_QueryOptions | 指定时间点与视频帧对应关系的枚举类型。 |
+| OH_AVImageGenerator_QueryOptions | OH_AVImageGenerator_QueryOptions | 指定查询视频帧时，时间点与帧对应关系选项的枚举类型。 |
  
  
   
@@ -56,7 +56,7 @@ enum OH_AVImageGenerator_QueryOptions
  
 **描述**
  
-指定时间点与视频帧对应关系的枚举类型。
+指定查询视频帧时，时间点与帧对应关系选项的枚举类型。
  
 **系统能力：** SystemCapability.Multimedia.Media.AVImageGenerator
  

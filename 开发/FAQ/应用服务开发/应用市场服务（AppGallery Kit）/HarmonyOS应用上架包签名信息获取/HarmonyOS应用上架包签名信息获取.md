@@ -1,6 +1,6 @@
 # HarmonyOS应用上架包签名信息获取
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-97
 
@@ -12,7 +12,7 @@ HarmonyOS应用打包使用的证书有调试证书和发布证书区分，上�
 
 #### 背景知识
 
-HarmonyOS应用经常需要集成一些开放能力，不管是华为开放能力还是三方能力，都需要做鉴权，鉴权的方式根据不同产品提供，一般是通过软件包的签名信息做鉴权，签名信息依赖于证书，而HarmonyOS应用打包有调试正式和发布证书区分，上架应用市场的应用必须用发布证书打包，为了保证应用上架后用户的体验，因此必须配置在架应用的签名信息。签名信息一般可通过公钥指纹和appId来承载。应用相关如：
+HarmonyOS应用经常需要集成一些开放能力，不管是华为开放能力还是三方能力，都需要做鉴权，鉴权的方式根据不同产品提供，一般是通过软件包的签名信息做鉴权，签名信息依赖于证书，而HarmonyOS应用打包有调试证书和发布证书区分，上架应用市场的应用必须用发布证书打包，为了保证应用上架后用户的体验，因此必须配置在架应用的签名信息。签名信息一般可通过公钥指纹和appId来承载。应用相关如：
  1. 华为开放能力使用[公钥指纹](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-overview#section1726913517284)鉴权，涉及的场景服务有华为账号，应用内支付，钱包服务等。具体的操作步骤可以参见[配置公钥指纹。](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933)
 2. 部分三方服务使用appId鉴权，具体的获取方式参考[bundleInfo.signatureInfo.appId。](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo#signatureinfo)正确的appId形式为："包名_签名信息"。
  
@@ -24,9 +24,9 @@ HarmonyOS应用经常需要集成一些开放能力，不管是华为开放能�
  1. 本地调试包获取appId的方式有两种：
 可以调用[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的BundleInfo应用包信息，应用包信息中包含[signatureInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo#signatureinfo)签名信息，签名信息中包含appId信息。
 2. 安装应用后通过[bm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)工具获取。参考命令：hdc shel bm dump -n {bundlename} | grep appId
-3. 上架包获取appId的方式也有两种。
+1. 上架包获取appId的方式也有两种。
 如前面简述，如果上架包使用的和本地调试包一样的p12文件，则可以参考本地调试包的方式获取appId。
-4. 发布邀请测试，从应用市场安装应用，然后通过[bm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)工具获取，该方式也可以进一步验证同一p12编译的软件包appId是一致的。
+2. 发布邀请测试，从应用市场安装应用，然后通过[bm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)工具获取，该方式也可以进一步验证同一p12编译的软件包appId是一致的。
  
  
 

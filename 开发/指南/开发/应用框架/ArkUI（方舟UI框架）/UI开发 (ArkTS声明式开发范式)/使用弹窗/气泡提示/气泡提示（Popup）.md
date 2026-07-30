@@ -1,6 +1,6 @@
 # 气泡提示（Popup）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-popup
 
@@ -522,12 +522,10 @@ export struct SupportedAvoidAxisPopupExample {
   @State hoverModeStart: string =
     this.getUIContext().getHostContext()?.resourceManager.getStringByNameSync('hoverMode_start') as string;
 
-  @State message: string = 'Hello World';
   @State index: number = 0;
   @State arrayStr: Array<string> = [this.upScreen, this.middleAxle, this.lowerScreen];
   @State enableHoverMode: boolean | undefined = true;
   @State showInSubwindow: boolean = false;
-  @State placement: Placement | undefined = undefined;
   @State isShow: boolean = false;
 
   build() {

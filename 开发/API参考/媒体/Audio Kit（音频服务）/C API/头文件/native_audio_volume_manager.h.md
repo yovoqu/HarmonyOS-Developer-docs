@@ -1,6 +1,6 @@
 # native_audio_volume_manager.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-volume-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,7 +50,7 @@
 | --- | --- | --- |
 | typedef void (*OH_AudioVolumeManager_OnStreamVolumeChangeCallback)(void *userData, OH_AudioStream_Usage usage, int32_t volumeLevel, bool updateUi) | OH_AudioVolumeManager_OnStreamVolumeChangeCallback | 音量变化回调函数的原型定义，用于传递给OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback。 |
 | typedef void (*OH_AudioVolumeManager_OnRingerModeChangeCallback)(void *userData, OH_AudioRingerMode ringerMode) | OH_AudioVolumeManager_OnRingerModeChangeCallback | 铃声模式变化回调函数的原型定义，用于传递给OH_AudioVolumeManager_RegisterRingerModeChangeCallback。 |
-| OH_AudioCommon_Result OH_AudioManager_GetAudioVolumeManager(OH_AudioVolumeManager **volumeManager) | - | 使用音量管理器相关功能，首先需要获取音量管理器实例。 |
+| OH_AudioCommon_Result OH_AudioManager_GetAudioVolumeManager(OH_AudioVolumeManager **volumeManager) | - | 获取音量管理器实例。 使用音量管理器相关功能，首先需要获取音量管理器实例。 |
 | OH_AudioCommon_Result OH_AudioVolumeManager_GetMaxVolumeByUsage(OH_AudioVolumeManager *volumeManager, OH_AudioStream_Usage usage, int32_t *maxVolumeLevel) | - | 获取指定用途类型音频流的最大音量等级。 |
 | OH_AudioCommon_Result OH_AudioVolumeManager_GetMinVolumeByUsage(OH_AudioVolumeManager *volumeManager, OH_AudioStream_Usage usage, int32_t *minVolumeLevel) | - | 获取指定用途类型音频流的最小音量等级。 |
 | OH_AudioCommon_Result OH_AudioVolumeManager_GetVolumeByUsage(OH_AudioVolumeManager *volumeManager, OH_AudioStream_Usage usage, int32_t *volumeLevel) | - | 获取指定用途类型音频流的系统音量等级。 |
@@ -130,6 +130,8 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioVolumeManager(OH_AudioVolumeManage
  
 **描述**
  
+获取音量管理器实例。
+ 
 使用音量管理器相关功能，首先需要获取音量管理器实例。
  
 **起始版本：** 20
@@ -138,7 +140,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioVolumeManager(OH_AudioVolumeManage
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager **volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager **volumeManager | 指向OH_AudioVolumeManager指针的地址，用于接收获取的音量管理器实例。 |
  
  
 **返回：**
@@ -168,7 +170,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetMaxVolumeByUsage(OH_AudioVolumeMa
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioStream_Usage usage | 用于映射特定音量类型的音频流用途类型。 |
 | int32_t *maxVolumeLevel | 用于接收返回的最大音量。 |
  
@@ -200,7 +202,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetMinVolumeByUsage(OH_AudioVolumeMa
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioStream_Usage usage | 用于映射特定音量类型的音频流用途类型。 |
 | int32_t *minVolumeLevel | 用于接收返回的最小音量。 |
  
@@ -232,7 +234,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetVolumeByUsage(OH_AudioVolumeManag
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioStream_Usage usage | 用于映射特定音量类型的音频流用途类型。 |
 | int32_t *volumeLevel | 用于接收返回的系统音量。 |
  
@@ -264,7 +266,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_IsMuteByUsage(OH_AudioVolumeManager 
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioStream_Usage usage | 用于映射特定音量类型的音频流用途类型。 |
 | bool *muted | 用于接收返回的音频流是否静音。true表示静音，false表示未静音。 |
  
@@ -296,7 +298,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback(O
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioStream_Usage usage | 监听用于映射特定音量类型的音频流用途类型。 |
 | OH_AudioVolumeManager_OnStreamVolumeChangeCallback callback | 监听的音频流音量发生时，将调用此回调函数OH_AudioVolumeManager_OnStreamVolumeChangeCallback。 |
 | void *userData | 用户自定义数据指针。 |
@@ -329,7 +331,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_UnregisterStreamVolumeChangeCallback
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioVolumeManager_OnStreamVolumeChangeCallback callback | 指向OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback传入的回调函数，用于取消注册。 |
  
  
@@ -360,7 +362,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetRingerMode(OH_AudioVolumeManager 
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioRingerMode *ringerMode | 用于接收返回的铃声模式。 |
  
  
@@ -391,7 +393,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_RegisterRingerModeChangeCallback(OH_
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioVolumeManager_OnRingerModeChangeCallback callback | 监听的铃声模式发生切换时，将调用此回调函数OH_AudioVolumeManager_OnRingerModeChangeCallback。 |
 | void *userData | 用户自定义数据指针。 |
  
@@ -423,7 +425,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_UnregisterRingerModeChangeCallback(O
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioVolumeManager *volumeManager | 指向OH_AudioVolumeManager用于接收创建的音量管理器实例。 |
+| OH_AudioVolumeManager *volumeManager | 指向通过OH_AudioManager_GetAudioVolumeManager获取的音量管理器实例。 |
 | OH_AudioVolumeManager_OnRingerModeChangeCallback callback | 指向OH_AudioVolumeManager_RegisterRingerModeChangeCallback传入的回调函数，用于取消注册。 |
  
  

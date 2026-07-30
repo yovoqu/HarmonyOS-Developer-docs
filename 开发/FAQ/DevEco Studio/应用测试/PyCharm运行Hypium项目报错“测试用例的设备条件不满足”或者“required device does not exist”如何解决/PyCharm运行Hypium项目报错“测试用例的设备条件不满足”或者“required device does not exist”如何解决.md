@@ -9,10 +9,10 @@
 cmd命令行可以连接到设备，UiViewer也可以连接设备。但是执行用例出现如下报错信息：
  
 - 提示“Test source required 1 devices, actually 0 devices were found [Suggestions]测试用例的设备条件不满足”。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/8WfeLszcQVi1aDkYmEg6iA/zh-cn_image_0000002628409554.png?HW-CC-KV=V1&HW-CC-Date=20260723T014000Z&HW-CC-Expire=86400&HW-CC-Sign=9016D22987ED285B2EC4CCA05BD1D6EECDD1169B8CDC8D3922F62AB4B16B6F98)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/8WfeLszcQVi1aDkYmEg6iA/zh-cn_image_0000002628409554.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=6CF5A44B703E6609B4E0AF3028DD5F3ABE346DE4BAA1A8281EB5F36B9EF72715)
 
 - 提示“required device does not exist”。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/JHnS85HIShSmXywYMqnqzg/zh-cn_image_0000002628569452.png?HW-CC-KV=V1&HW-CC-Date=20260723T014000Z&HW-CC-Expire=86400&HW-CC-Sign=8E5A4EB7B453C4B7EAB23E233623E657A5DFF6523EE621040EA9ADB81C7D8C53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/JHnS85HIShSmXywYMqnqzg/zh-cn_image_0000002628569452.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=5A6A681894DE4F0AD0B564C4874E926723D46AE41B91C724E7711ABB01D09073)
 
 
  
@@ -50,17 +50,17 @@ cmd命令行可以连接到设备，UiViewer也可以连接设备。但是执行
 
 - 将OHOS_HDC_SERVER_PORT环境变量删除后重启PyCharm。
 - user_config.xml文件sn不设置或者修改为当前设备sn，type类型和label类型按实际使用设备配置正确。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/KMLeCDzjRJKg9XZsffCY8A/zh-cn_image_0000002658928769.png?HW-CC-KV=V1&HW-CC-Date=20260723T014000Z&HW-CC-Expire=86400&HW-CC-Sign=E708192D564027EA515AF44999E4DFD367087A852FD51F408C58C1537350BA91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/KMLeCDzjRJKg9XZsffCY8A/zh-cn_image_0000002658928769.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=D2EF39FFAC615E401990A16203942B673CFAC48A69A02E299A5BCA4E5E1F90A8)
 
 - 用例的json文件type类型配置正确。如下图所示，该用例请求了两个设备，一个为HarmonyOS设备，一个为其他平台设备。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Y_QNd9RjQJyGVT_LBOqzzQ/zh-cn_image_0000002658808823.png?HW-CC-KV=V1&HW-CC-Date=20260723T014000Z&HW-CC-Expire=86400&HW-CC-Sign=F7BB64629B72B7CA9FF4BC159EBA389DF72F16E72AC952A1C682F2723B5C54FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Y_QNd9RjQJyGVT_LBOqzzQ/zh-cn_image_0000002658808823.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=37E89A7C16755630E1D66B87CBEF796842BDB8902AB7F365A1D078CDC11BEEDB)
 
 - 用例的json文件设备label类型配置每个设备对应的设备类型。如果用例可以在任何设备上运行，label字段不需要填。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/JmFJpMU8RlOYs5mNHdqYwQ/zh-cn_image_0000002628409556.png?HW-CC-KV=V1&HW-CC-Date=20260723T014000Z&HW-CC-Expire=86400&HW-CC-Sign=BC171D551BED27360E338168E8A537F5E4880CBA60BE9A30DCDB34E03C39D8A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/JmFJpMU8RlOYs5mNHdqYwQ/zh-cn_image_0000002628409556.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=3599F8998A405FF39F9DAC32DAE0B5C947ABAD7BE6DE6D988E8FE097ACD9C21B)
 
 
 | label类型 | 设备 |

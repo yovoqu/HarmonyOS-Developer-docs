@@ -13,7 +13,7 @@ Swiper组件在滑动时只能一次滚动一页，在需要一次滑动多个�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/FirrMhCdSSKQurRC15Xcaw/zh-cn_image_0000002658845805.png?HW-CC-KV=V1&HW-CC-Date=20260723T012759Z&HW-CC-Expire=86400&HW-CC-Sign=DFAEB380943AD604721F06F797A8D5447D002A93C1C54E00933BD7D8A079BCAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/FirrMhCdSSKQurRC15Xcaw/zh-cn_image_0000002658845805.png?HW-CC-KV=V1&HW-CC-Date=20260730T072406Z&HW-CC-Expire=86400&HW-CC-Sign=CC7D2135F2DA343C3CF4E44FE33229B61721DE82C6DEDE3B935C99900CE831B2)
 
  
  

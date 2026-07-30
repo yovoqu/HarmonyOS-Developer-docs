@@ -1,6 +1,6 @@
 # 开发Hvigor插件
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-plugin
 
@@ -139,9 +139,12 @@ registry=https://repo.huaweicloud.com/repository/npm/
   
 ```json
 "devDependencies": {
-    "@ohos/hvigor": "5.2.2"
+    "@ohos/hvigor": "6.26.2"  // 可从<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-apis">扩展构建API</a>中查看对应的版本号
 }
 ```
+
+> [!NOTE]
+> 如果依赖配置在dependencies中，会导致使用插件时报错。
 
 3. 安装依赖。
 
@@ -214,7 +217,7 @@ tsc
 如果编译时报以下错误，请检查初始化项目时是否[删除了verbatimModuleSyntax](#li88369101451)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/-zVJtudeTnS_LgBWgzP_yw/zh-cn_image_0000002625074039.png?HW-CC-KV=V1&HW-CC-Date=20260624T020718Z&HW-CC-Expire=86400&HW-CC-Sign=3046DDACFE3BFDC57072D91D8596712760407702F830CC1A66C9900297BE70B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/VQvKs6HvTKCMbR8yKgdhLQ/zh-cn_image_0000002677996477.png?HW-CC-KV=V1&HW-CC-Date=20260730T071821Z&HW-CC-Expire=86400&HW-CC-Sign=5FA0308A5EFF00930477C068F98D796E88236F03F5BCDC352FC504C7BF68955B)
 
 4. 发布npm包。
 

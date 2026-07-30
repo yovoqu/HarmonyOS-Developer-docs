@@ -1,9 +1,9 @@
 # AssetAccelerationExtensionAbility（资源加速ExtensionAbility）
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-extensionability
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块为资源包后台下载框架，为资源包后台下载提供关键的生命周期函数。在后台下载任务成功/失败/结束后支持调用相应的回调函数。本模块存在如下约束：
  
@@ -31,7 +31,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
@@ -41,7 +41,7 @@ import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
 
 #### AssetAccelerationExtensionInfo
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源加速ExtensionAbility信息。
  
@@ -61,7 +61,7 @@ import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
 
 #### ContentRequestType
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
  
@@ -84,7 +84,7 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
 
 #### AssetAccelerationExtensionAbility
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 资源加速扩展能力类。
  
@@ -98,7 +98,7 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
 
 #### 属性
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -115,7 +115,7 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
 
 #### onDownloadContentRequest
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onDownloadContentRequest(requestType: ContentRequestType, manifestUrl: string, assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo): Promise<assetDownloadManager.AssetDownloadConfig[]>
  
@@ -152,7 +152,7 @@ import { assetDownloadManager, AssetAccelerationExtensionAbility, AssetAccelerat
 // 此处以AssetAccelExtAbility继承AssetAccelerationExtensionAbility为例
 export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbility {
   async onDownloadContentRequest(requestType: ContentRequestType, manifestUrl: string,
-    assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo):
+    _assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo):
         Promise<assetDownloadManager.AssetDownloadConfig[]> {
     const context = this.context as common.ExtensionContext; // 若接口需要使用common.Context类型的上下文，可以从this.context中获取类型为common.ExtensionContext的上下文对象。
     console.info('AssetAccelDemo', `application file directory = ${context.filesDir}`);
@@ -177,7 +177,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
 #### onDownloadWithAppControl
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onDownloadWithAppControl(requestType: ContentRequestType, manifestUrl: string, assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo): Promise&lt;boolean&gt;
  
@@ -214,7 +214,7 @@ import { AssetAccelerationExtensionAbility, AssetAccelerationExtensionInfo, Cont
 // 此处以AssetAccelExtAbility继承AssetAccelerationExtensionAbility为例
 export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbility {
   async onDownloadWithAppControl(requestType: ContentRequestType, manifestUrl: string,
-    assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo): Promise<boolean> {
+    _assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo): Promise<boolean> {
     const context = this.context as common.ExtensionContext; // 若接口需要使用common.Context类型的上下文，可以从this.context中获取类型为common.ExtensionContext的上下文对象。
     console.info('AssetAccelDemo', `application file directory = ${context.filesDir}`);
     console.info('AssetAccelDemo', `onDownloadWithAppControl enter, requestType: ${requestType}, manifestUrl: ${manifestUrl}.`);
@@ -231,7 +231,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
 #### onBackgroundDownloadSucceeded
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onBackgroundDownloadSucceeded(downloadTask: assetDownloadManager.AssetDownloadTask, filePath: string): Promise&lt;void&gt;
  
@@ -279,7 +279,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
 #### onBackgroundDownloadFailed
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onBackgroundDownloadFailed(downloadTask: assetDownloadManager.AssetDownloadTask, fault: assetDownloadManager.DownloadFault): Promise&lt;void&gt;
  
@@ -327,7 +327,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
 #### onExtensionWillTerminate
 
-**支持设备：** Phone | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onExtensionWillTerminate(error?: BusinessError&lt;void&gt;): Promise&lt;void&gt;
  

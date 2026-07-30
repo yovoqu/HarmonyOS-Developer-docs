@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.pointer (鼠标光标)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pointer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -18,6 +18,7 @@
 
 ```text
 import { pointer } from '@kit.InputKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
 
@@ -75,7 +76,7 @@ struct Index {
           } catch (error) {
             console.error(`Failed to set pointer cursor visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
-        })
+        });
     }
   }
 }
@@ -396,7 +397,7 @@ struct Index {
         .onClick(() => {
           // 获取应用内最近一个窗口
           window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
-            if (error.code) {
+            if (error) {
               console.error(`Failed to obtain the top window, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               return;
             }
@@ -509,7 +510,7 @@ struct Index {
 
 getPointerStyleSync(windowId: number): PointerStyle
 
-查询指定窗口的鼠标样式类型，如向东箭头、向西箭头、向南箭头、向北箭头等。
+查询指定窗口的鼠标样式类型，如向东箭头、向西箭头、向南箭头、向北箭头等。此接口仅支持获取本应用进程内窗口的鼠标样式类型。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
@@ -649,7 +650,7 @@ setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise&lt;void&g
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | windowId | number | 是 | 窗口ID。取值范围为大于等于0的整数。 窗口ID合法并且对应窗口存在时，可以设置窗口的鼠标光标样式。 窗口ID合法但窗口不存在时，也可以设置鼠标光标样式。 设置结果可通过getPointerStyle获取。 |
-| pointerStyle | PointerStyle | 是 | 鼠标样式。 |
+| pointerStyle | PointerStyle | 是 | 鼠标样式。不能传入DEVELOPER_DEFINED_ICON作为参数。 |
 
 
 **返回值**：
@@ -718,7 +719,7 @@ struct Index {
 
 setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void
 
-设置指定窗口的鼠标样式类型，使用同步方式返回结果。
+设置指定窗口的鼠标样式类型，使用同步方式返回结果。此接口仅支持设置本应用进程内窗口的鼠标样式类型，如需通过UIExtensionAbility进程设置宿主窗口的鼠标样式类型，请参阅[setCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-cursorcontroller#setcursor12)。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
@@ -727,7 +728,7 @@ setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | windowId | number | 是 | 窗口ID。取值范围为大于等于0的整数。 窗口ID合法并且对应窗口存在时，可以设置窗口的鼠标光标样式。 窗口ID合法但窗口不存在时，也可以设置鼠标光标样式。 设置结果可通过getPointerStyleSync获取。 |
-| pointerStyle | PointerStyle | 是 | 鼠标样式。 |
+| pointerStyle | PointerStyle | 是 | 鼠标样式。不能传入DEVELOPER_DEFINED_ICON作为参数。 |
 
 
 **错误码**：
@@ -769,7 +770,7 @@ struct Index {
               pointer.setPointerStyleSync(windowId, pointer.PointerStyle.CROSS);
               console.info(`Succeeded in setting pointer style.`);
             } catch (error) {
-              console.error(`Failed to get pointer size, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
+              console.error(`Failed to set pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             }
           });
         })
@@ -864,7 +865,7 @@ struct Index {
 | MIDDLE_BTN_SOUTH_EAST | 36 | 向东南滚动 |  |
 | MIDDLE_BTN_SOUTH_WEST | 37 | 向西南滚动 |  |
 | MIDDLE_BTN_NORTH_SOUTH_WEST_EAST | 38 | 四向锥形移动 |  |
-| HORIZONTAL_TEXT_CURSOR10+ | 39 | 垂直文本选择 |  |
+| HORIZONTAL_TEXT_CURSOR10+ | 39 | 水平文本选择 |  |
 | CURSOR_CROSS10+ | 40 | 十字光标 |  |
 | CURSOR_CIRCLE10+ | 41 | 圆形光标 |  |
 | LOADING10+ | 42 | 正在载入动画光标 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |  |
@@ -937,7 +938,7 @@ struct Index {
         .onClick(() => {
           // app_icon为示例资源，请开发者根据实际需求配置资源文件。
           this.getUIContext()?.getHostContext()?.resourceManager.getMediaContent(
-            $r("app.media.app_icon").id, (error: BusinessError, svgFileData: Uint8Array) => {
+            $r('app.media.app_icon').id, (error: BusinessError, svgFileData: Uint8Array) => {
             const svgBuffer: ArrayBuffer = svgFileData.buffer.slice(0);
             let svgImageSource: image.ImageSource = image.createImageSource(svgBuffer);
             let svgDecodingOptions: image.DecodingOptions = { desiredSize: { width: 50, height: 50 } };
@@ -992,7 +993,7 @@ struct Index {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| followSystem | boolean | 否 | 否 | 是否根据系统设置调整光标大小。false表示使用自定义光标样式大小，true表示根据系统设置调整光标大小，可调整范围为：[光标资源图大小，256×256]。 |
+| followSystem | boolean | 否 | 否 | 是否根据系统设置调整光标大小。false表示使用自定义光标样式大小，true表示根据系统设置调整光标大小，可调整范围为：[光标资源图大小, 256×256]。 |
 
 
 
@@ -1015,7 +1016,7 @@ setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): P
 | --- | --- | --- | --- |
 | windowId | number | 是 | 窗口ID。取值为大于0的整数。 |
 | cursor | CustomCursor | 是 | 自定义光标资源。 |
-| config | CursorConfig | 是 | 自定义光标配置，用于配置是否根据系统设置调整光标大小。如果CursorConfig中followSystem设置为true，则光标大小的可调整范围为：[光标资源图大小，256×256]。 |
+| config | CursorConfig | 是 | 自定义光标配置，用于配置是否根据系统设置调整光标大小。如果CursorConfig中followSystem设置为true，则光标大小的可调整范围为：[光标资源图大小, 256×256]。 |
 
 
 **返回值**：
@@ -1052,7 +1053,7 @@ struct Index {
         .onClick(() => {
           // app_icon为示例资源，请开发者根据实际需求配置资源文件。
           this.getUIContext()?.getHostContext()?.resourceManager.getMediaContent(
-            $r("app.media.app_icon").id, (error: BusinessError, svgFileData: Uint8Array) => {
+            $r('app.media.app_icon').id, (error: BusinessError, svgFileData: Uint8Array) => {
             const svgBuffer: ArrayBuffer = svgFileData.buffer.slice(0);
             let svgImageSource: image.ImageSource = image.createImageSource(svgBuffer);
             let svgDecodingOptions: image.DecodingOptions = { desiredSize: { width: 50, height: 50 } };
@@ -1089,7 +1090,7 @@ struct Index {
 
 setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void
 
-设置指定窗口的自定义光标样式，使用同步方式进行设置。
+设置指定窗口的自定义光标样式，使用同步方式进行设置。此接口仅支持设置本应用进程内窗口的自定义光标样式，如需通过UIExtensionAbility进程设置宿主窗口的自定义光标样式，请参阅[setCustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-cursorcontroller#setcustomcursor)。
 
 应用窗口布局改变、热区切换、页面跳转、光标移出再回到窗口、光标在窗口不同区域移动，以上场景可能导致光标切换回系统样式，需要开发者重新设置光标样式。
 
@@ -1131,7 +1132,7 @@ struct Index {
         .onClick(() => {
           // app_icon为示例资源，请开发者根据实际需求配置资源文件。
           this.getUIContext()?.getHostContext()?.resourceManager.getMediaContent(
-            $r("app.media.app_icon").id, (error: BusinessError, svgFileData: Uint8Array) => {
+            $r('app.media.app_icon').id, (error: BusinessError, svgFileData: Uint8Array) => {
             const svgBuffer = svgFileData.buffer;
             let svgImageSource: image.ImageSource = image.createImageSource(svgBuffer);
             // 光标图片宽高

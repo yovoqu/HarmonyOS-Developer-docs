@@ -11,7 +11,7 @@ Checkbox组件在交互的过程中有默认样式，但根据界面设计需求
 - 场景一：如何自定义边框的宽度？效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uS_ewSytQOK2aM1BiWKmhg/zh-cn_image_0000002658952183.png?HW-CC-KV=V1&HW-CC-Date=20260723T012712Z&HW-CC-Expire=86400&HW-CC-Sign=67503C73C91FA83BFE4B58F88F587FD9EC6B02DF46B162AC9C23FDCD04493A16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uS_ewSytQOK2aM1BiWKmhg/zh-cn_image_0000002658952183.png?HW-CC-KV=V1&HW-CC-Date=20260730T072345Z&HW-CC-Expire=86400&HW-CC-Sign=9C0F394A06EAB5CF2D8C78DBD6BB416942A8BB41947D866964CD331A1CEA56BE)
 
 - 场景二：如何修改Checkbox未选择状态时的背景？
 
@@ -99,7 +99,7 @@ function buildCheckbox(config: CheckBoxConfiguration) {
   示例代码运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/7Z-TqdAZQtiQVcg0QNUqHw/zh-cn_image_0000002628592970.png?HW-CC-KV=V1&HW-CC-Date=20260723T012712Z&HW-CC-Expire=86400&HW-CC-Sign=9B7002F31AEE8B9B5D4A9BCF867B2D446AA63374F0F6869CD2C80FB207CDAD1C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/7Z-TqdAZQtiQVcg0QNUqHw/zh-cn_image_0000002628592970.png?HW-CC-KV=V1&HW-CC-Date=20260730T072345Z&HW-CC-Expire=86400&HW-CC-Sign=F54390F00FEE45617ECF19B81CD30C40CA656F96A4E46349CBEA559EC1724FAE)
 
 
  
@@ -168,7 +168,7 @@ function buildCheckboxTwo(config: CheckBoxConfiguration) {
   示例代码运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/nFBnrP4vRWiHUkLpXoeiAw/zh-cn_image_0000002658832225.png?HW-CC-KV=V1&HW-CC-Date=20260723T012712Z&HW-CC-Expire=86400&HW-CC-Sign=25F7D7BBF4009B64086B5736232AC7F164B4622561A120B8547B143FFAF1C675)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/nFBnrP4vRWiHUkLpXoeiAw/zh-cn_image_0000002658832225.png?HW-CC-KV=V1&HW-CC-Date=20260730T072345Z&HW-CC-Expire=86400&HW-CC-Sign=49CAEC51BA85D78429882DE5946DE333CF9018F9654564898B35E3C961993A23)
 
 
  

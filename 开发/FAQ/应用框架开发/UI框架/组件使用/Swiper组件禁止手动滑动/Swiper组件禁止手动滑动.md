@@ -9,7 +9,7 @@
 如何能禁止如下图Swiper组件的手动滑动？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/zwsz1Lx5TNCGPS-gwRYw0g/zh-cn_image_0000002628394854.png?HW-CC-KV=V1&HW-CC-Date=20260723T012559Z&HW-CC-Expire=86400&HW-CC-Sign=9577655B2ED2A87E7DAE0F041C152813D02F7A3848DFDD5F5C938B1F36C74FEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/zwsz1Lx5TNCGPS-gwRYw0g/zh-cn_image_0000002628394854.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=D046186059ABC92CC5D0F9FF7664AA02F5E8E3111FCBA803A964666894CC17BC)
 
  
  
@@ -58,7 +58,7 @@ struct DisableSwiperOne {
   效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/FlsQiHzkRRCC9Bi7H--3Wg/zh-cn_image_0000002658914073.png?HW-CC-KV=V1&HW-CC-Date=20260723T012559Z&HW-CC-Expire=86400&HW-CC-Sign=F6D64FC1DEBA3ABC14540203EA4DCF7712E338BC44277E5AB7593281A41C5D63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/FlsQiHzkRRCC9Bi7H--3Wg/zh-cn_image_0000002658914073.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=7B6C30ECCBBF7EFBBDF81050BA95DA638C8163C560A89AEA1D258609771B5D93)
 
 - 方案二：禁止手动滑动和导航点切换。通过设置enabled属性为false，使Swiper组件不可交互，不响应事件。此时Swiper组件可以通过[SwiperController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#swipercontroller)的showNext和showPrevious方法进行翻页。
 
@@ -110,4 +110,4 @@ struct DisableSwiperTwo {
  效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/GzoOxk12RBqyrjCrtaDkYg/zh-cn_image_0000002658794121.png?HW-CC-KV=V1&HW-CC-Date=20260723T012559Z&HW-CC-Expire=86400&HW-CC-Sign=2E7D110F1542074BF1DB785D75B12541B5E09C5925769209BA04E1A2AA4A2636)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/GzoOxk12RBqyrjCrtaDkYg/zh-cn_image_0000002658794121.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=924B59861A7E4667197474AF330388F9DBBAB709133443817AFEF132BBB031EC)

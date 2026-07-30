@@ -1,6 +1,6 @@
 # 媒体查询 (@ohos.mediaquery)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-media-query
 
@@ -95,7 +95,7 @@ onPortrait(mediaQueryResult:mediaquery.MediaQueryResult) {
 | and | 将多个媒体特征（Media Feature）以“与”的方式连接成一个媒体查询，只有当所有媒体特征都为true时，查询条件成立。另外，它还可以将媒体类型和媒体功能结合起来。例如：screen and (device-type: wearable) and (max-height: 600px) 表示当设备类型是智能穿戴且应用的最大高度小于等于600个像素单位时成立。 |
 | or | 将多个媒体特征以“或”的方式连接成一个媒体查询，如果存在结果为true的媒体特征，则查询条件成立。例如：screen and (max-height: 1000px) or (round-screen: true) 表示当应用高度小于等于1000个像素单位或者设备屏幕是圆形时，条件成立。 |
 | not | not操作符必须搭配screen使用，取反媒体查询结果，媒体查询结果不成立时返回true，否则返回false。例如：not screen and (min-height: 50px) and (max-height: 600px) 表示当应用高度小于50个像素单位或者大于600个像素单位时成立。 |
-| only | only操作符必须搭配screen使用, 当前效果与单独使用screen相同。例如：only screen and (height <= 50) 。 |
+| only | only操作符必须搭配screen使用，当前效果与单独使用screen相同。例如：only screen and (height <= 50) 。 |
 | comma（, ） | 将多个媒体特征以“或”的方式连接成一个媒体查询，如果存在结果为true的媒体特征，则查询条件成立。其效果等同于or运算符。例如：screen and (min-height: 1000px), (round-screen: true) 表示当应用高度大于等于1000个像素单位或者设备屏幕是圆形时，条件成立。 |
 
 

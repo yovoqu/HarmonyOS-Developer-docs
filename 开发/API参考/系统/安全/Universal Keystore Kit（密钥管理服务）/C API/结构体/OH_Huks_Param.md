@@ -1,6 +1,6 @@
 # OH_Huks_Param
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-param
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,4 +37,4 @@ struct OH_Huks_Param {...}
 | 名称 | 描述 |
 | --- | --- |
 | uint32_t tag | 标签值。 |
-| union { bool boolParam; int32_t int32Param; uint32_t uint32Param; uint64_t uint64Param; struct OH_Huks_Blob blob; } | boolParam：bool型参数。 int32Param：int32_t型参数。 uint32Param：uint32_t型参数。 uint64Param：uint64_t型参数。 blob：OH_Huks_Blob型参数。 |
+| union { bool boolParam; int32_t int32Param; uint32_t uint32Param; uint64_t uint64Param; struct OH_Huks_Blob blob; } | boolParam：布尔型参数。 int32Param：int32_t型参数。 uint32Param：uint32_t型参数。 uint64Param：uint64_t型参数。 blob：OH_Huks_Blob型参数。 |

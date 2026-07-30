@@ -1,6 +1,6 @@
 # ffrt_function_header_t
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ffrt-ffrt-function-header-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ffrt_function_header_t
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-任务执行体。
+任务执行体，用于定义任务的执行和销毁回调。exec回调在任务被调度时调用，destroy回调在任务完成后被调用以释放任务相关资源。两者共同管理FFRT任务的完整生命周期。
  
 **起始版本：** 10
  
@@ -36,6 +36,6 @@ typedef struct {...} ffrt_function_header_t
  
 | 名称 | 描述 |
 | --- | --- |
-| ffrt_function_t exec | 任务执行函数 |
-| ffrt_function_t destroy | 任务销毁函数 |
-| uint64_t reserve[2] | 保留位需要设置为0 |
+| ffrt_function_t exec | 执行任务的函数。在任务被调度时由框架调用。 |
+| ffrt_function_t destroy | 销毁任务的函数。在任务执行完毕后由框架调用以释放资源。 |
+| uint64_t reserve[2] | 保留字段。需设置为0。 |

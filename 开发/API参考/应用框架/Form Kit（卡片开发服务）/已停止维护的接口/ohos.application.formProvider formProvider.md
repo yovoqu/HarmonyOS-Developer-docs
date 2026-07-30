@@ -1,11 +1,11 @@
 # @ohos.application.formProvider (formProvider)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-formprovider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-FormProvider模块提供了卡片提供方相关接口的能力，开发者在开发卡片时，可通过该模块提供接口实现更新卡片，设置卡片更新时间，获取卡片信息，请求发布卡片等。
+FormProvider模块提供了卡片提供方相关接口的能力，开发者在开发卡片时，可通过该模块提供接口实现刷新卡片，设置卡片刷新时间，获取卡片信息，请求发布卡片等。
  
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9 开始废弃，建议使用 formProvider 替代。
@@ -28,7 +28,7 @@ import { formProvider } from '@kit.FormKit';
 
 setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&lt;void&gt;): void
  
-设置指定卡片的下一次更新时间，使用callback异步回调。
+设置指定卡片的下一次刷新时间，使用callback异步回调。
  
 **系统能力：** SystemCapability.Ability.Form
  
@@ -37,7 +37,7 @@ setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&l
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片标识。 |
-| minute | number | 是 | 指定多久之后更新。单位分钟，大于等于5。 |
+| minute | number | 是 | 指定多久之后刷新。单位分钟，大于等于5。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
  
  
@@ -63,7 +63,7 @@ formProvider.setFormNextRefreshTime(formId, 5, (error: BusinessError) => {
 
 setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;
  
-设置指定卡片的下一次更新时间，使用Promise异步回调。
+设置指定卡片的下一次刷新时间，使用Promise异步回调。
  
 **系统能力：** SystemCapability.Ability.Form
  
@@ -72,7 +72,7 @@ setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片标识。 |
-| minute | number | 是 | 指定多久之后更新。单位分钟，大于等于5。 |
+| minute | number | 是 | 指定多久之后刷新。单位分钟，大于等于5。 |
  
  
 **返回值：**

@@ -20,7 +20,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/OpqOi6hLTJupYx4UAL70eg/zh-cn_image_0000002658794587.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012605Z&HW-CC-Expire=86400&HW-CC-Sign=3D02DD3A2367E6F002A5AE794C63052B5275E309D493578BE87D5CA1087E383E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/OpqOi6hLTJupYx4UAL70eg/zh-cn_image_0000002658794587.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=09C4F89B6D1F253A5EEB430D52B9E3DF1F89CDE917E2E5E52F44BFCD869954D9)
 
  
  
@@ -41,7 +41,7 @@
 - Scroll未设置layoutWeight时：若此时没有设置Scroll组件的其它高度限制，比如.height属性，则Scroll组件会自适应内部子组件的总高度（最高为屏幕显示高度，也就是0~100%的高度）。此时若是Scroll的父组件为[Column组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)，由于Column组件默认自上而下排布，所以Scroll组件会从Column的顶部开始布局。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/umSgjkZRQFOc5bigWjbn1w/zh-cn_image_0000002628555220.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012605Z&HW-CC-Expire=86400&HW-CC-Sign=72945979A4A6FA85CF77F2006D5171940F20D900DE93F559AABE416A38244C36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/umSgjkZRQFOc5bigWjbn1w/zh-cn_image_0000002628555220.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=5D31ABD6DDD76F8CC908BF056D449733C32AA0CEE89ED03C6ECE71F49CBABCF0)
 
 
   由图片现象可知，Scroll组件没有高度限制时，高度随子组件高度变化。当Scroll背景颜色与页面背景颜色一致时，布局满足列表从顶部开始排列。但是数据过多时，由于Scroll组件高度会被子组件撑到屏幕高度的100%，若Scroll组件上方有其它兄弟组件，会导致Scroll展示不全，底部被挤出显示区。滚动列表展示不全的相关问题可参考行业常见问题：[List展示不全](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1126)。
@@ -55,7 +55,7 @@
 - Scroll设置layoutWeight时：此时相当于给了Scroll组件的高度限制，其高度为父组件除去其它子组件后的剩余高度。Scroll子组件的布局尺寸小于Scroll组件的尺寸时，其子组件默认居中排布，问题复现如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/_pjcAcQIT4e_Nsay93R-ww/zh-cn_image_0000002658914541.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012605Z&HW-CC-Expire=86400&HW-CC-Sign=401E91C10176BA3AE7E73E81FBF17BDB7D06C678A44E121A1B2BCF496F64DB8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/_pjcAcQIT4e_Nsay93R-ww/zh-cn_image_0000002658914541.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=CDD360EBDB47DDC2650D843AEEAD1C5880248FA26951BEAECD0DA2DEDA928242)
 
 
   由图片现象可知，Scroll组件设置高度限制后，当其内数据较少时，默认居中排布。

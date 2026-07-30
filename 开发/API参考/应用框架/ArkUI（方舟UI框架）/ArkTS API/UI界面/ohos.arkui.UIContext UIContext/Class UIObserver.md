@@ -1,14 +1,14 @@
 # Class (UIObserver)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供UI组件行为变化的无感监听能力。
+UIObserver提供UI组件行为变化的无感监听能力。无感监听是指开发者注册回调函数后，无需手动轮询或主动查询组件状态；当目标组件状态变化时，系统会自动触发回调并返回变化信息。UIObserver支持监听Navigation页面状态变化（NavDestination）、滚动事件、路由页面状态、屏幕像素密度变化、绘制与布局完成情况、点击事件、手势触发信息、文本变化及组件内容切换等UI行为，适用于页面生命周期监控、滚动事件处理和渲染性能优化等场景。
  
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 11开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getUIObserver() 方法获取到UIObserver对象，再通过该对象调用对应方法。 UIObserver仅能监听到本进程内的相关信息，不支持获取跨进程场景的信息。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 11开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getUIObserver() 方法获取到UIObserver对象，再通过该对象调用对应方法。 UIObserver仅能监听到本进程内的UI组件状态变化信息，不支持获取跨进程场景的信息。
 
   
 
@@ -18,7 +18,11 @@
 
 on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void
  
-监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
+监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。监听器通过注册回调函数实现，当NavDestination组件的状态发生变化（如显示、隐藏、销毁等）时，系统会自动调用已注册的回调函数，携带状态变化信息。
+ 
+> [!NOTE]
+> 必须与 off('navDestinationUpdate') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -43,8 +47,8 @@ on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>
 struct PageOne {
   build() {
     NavDestination() {
-      Text("pageOne")
-    }.title("pageOne")
+      Text('pageOne')
+    }.title('pageOne')
   }
 }
 
@@ -54,7 +58,7 @@ struct Index {
   private stack: NavPathStack = new NavPathStack();
 
   @Builder
-  PageBuilder(name: string) {
+  pageBuilder(name: string) {
     PageOne()
   }
 
@@ -73,13 +77,13 @@ struct Index {
   build() {
     Column() {
       Navigation(this.stack) {
-        Button("push").onClick(() => {
+        Button('push').onClick(() => {
           // 将PageOne的NavDestination入栈
-          this.stack.pushPath({ name: "pageOne" });
+          this.stack.pushPath({ name: 'pageOne' });
         })
       }
-      .title("Navigation")
-      .navDestination(this.PageBuilder)
+      .title('Navigation')
+      .navDestination(this.pageBuilder)
     }
     .width('100%')
     .height('100%')
@@ -106,7 +110,7 @@ off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInf
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。 |
-| callback | Callback<observer.NavDestinationInfo> | 否 | 需要取消的监听回调，不传参数时，取消所有的Navigation监听回调。 |
+| callback | Callback<observer.NavDestinationInfo> | 否 | 需要取消的监听回调。不指定具体的回调函数时，取消所有NavDestination组件状态变化的监听回调。 |
  
  
 **示例：**
@@ -122,6 +126,10 @@ off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInf
 on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<observer.NavDestinationInfo>): void
  
 通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的id监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
+ 
+> [!NOTE]
+> 必须与 off('navDestinationUpdate') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -147,8 +155,8 @@ on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callbac
 struct PageOne {
   build() {
     NavDestination() {
-      Text("pageOne")
-    }.title("pageOne")
+      Text('pageOne')
+    }.title('pageOne')
   }
 }
 
@@ -158,33 +166,33 @@ struct Index {
   private stack: NavPathStack = new NavPathStack();
 
   @Builder
-  PageBuilder(name: string) {
+  pageBuilder(name: string) {
     PageOne()
   }
 
   aboutToAppear() {
     // 添加监听，指定Navigation的id
-    this.getUIContext().getUIObserver().on('navDestinationUpdate', { navigationId: "testId" }, (info) => {
+    this.getUIContext().getUIObserver().on('navDestinationUpdate', { navigationId: 'testId' }, (info) => {
       console.info('NavDestination state update', JSON.stringify(info));
     });
   }
 
   aboutToDisappear() {
     // 取消监听，不选择回调时，取消所有监听的回调
-    this.getUIContext().getUIObserver().off('navDestinationUpdate', { navigationId: "testId" });
+    this.getUIContext().getUIObserver().off('navDestinationUpdate', { navigationId: 'testId' });
   }
 
   build() {
     Column() {
       Navigation(this.stack) {
-        Button("push").onClick(() => {
+        Button('push').onClick(() => {
           // 将PageOne的NavDestination入栈
-          this.stack.pushPath({ name: "pageOne" });
+          this.stack.pushPath({ name: 'pageOne' });
         })
       }
-      .id("testId")
-      .title("Navigation")
-      .navDestination(this.PageBuilder)
+      .id('testId')
+      .title('Navigation')
+      .navDestination(this.pageBuilder)
     }
     .width('100%')
     .height('100%')
@@ -212,7 +220,7 @@ off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callba
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。 |
 | options | { navigationId: ResourceStr } | 是 | 指定监听的Navigation的id。 |
-| callback | Callback<observer.NavDestinationInfo> | 否 | 需要取消的监听回调，不传参数时，取消该Navigation上所有的监听回调。 |
+| callback | Callback<observer.NavDestinationInfo> | 否 | 需要取消的监听回调。不指定具体的回调函数时，取消options指定的Navigation上所有NavDestination组件状态变化的监听回调。 |
  
  
 **示例：**
@@ -229,6 +237,10 @@ on(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback:
  
 通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的uniqueId监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化，uniqueId可通过[queryNavigationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#querynavigationinfo12)获取。
  
+> [!NOTE]
+> 必须与 off('navDestinationUpdateByUniqueId') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
+ 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -244,7 +256,7 @@ on(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback:
  
 **示例：**
  
-通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的uniqueId，可以触发[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
+通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的uniqueId，可以监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
  
 ```ArkTS
 // Index.ets
@@ -254,32 +266,32 @@ on(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback:
 @Component
 struct PageOne {
   private text = '';
-  private uniqueid = -1;
+  private uniqueId = -1;
   aboutToAppear() {
     // 获取Navigation的uniqueId
     let navigationUniqueId = this.queryNavigationInfo()?.uniqueId;
     if (navigationUniqueId) {
-      this.uniqueid = navigationUniqueId.valueOf();
+      this.uniqueId = navigationUniqueId.valueOf();
     }
-    this.text = JSON.stringify(this.uniqueid);
+    this.text = JSON.stringify(this.uniqueId);
     // 添加监听，指定Navigation的uniqueId
-    this.getUIContext().getUIObserver().on('navDestinationUpdateByUniqueId', this.uniqueid, (info) => {
+    this.getUIContext().getUIObserver().on('navDestinationUpdateByUniqueId', this.uniqueId, (info) => {
       console.info('NavDestination state update navigationId', JSON.stringify(info));
     });
   }
   aboutToDisappear() {
     // 取消监听，不选择回调时，取消所有监听的回调
-    this.getUIContext().getUIObserver().off('navDestinationUpdateByUniqueId', this.uniqueid);
+    this.getUIContext().getUIObserver().off('navDestinationUpdateByUniqueId', this.uniqueId);
   }
   build() {
     NavDestination() {
-      Text("pageOne")
-      Text('navigationUniqueId是:' + this.text)
+      Text('pageOne')
+      Text('navigationUniqueId是：' + this.text)
         .width('80%')
         .height(50)
         .margin(50)
         .fontSize(20)
-    }.title("pageOne")
+    }.title('pageOne')
   }
 }
 
@@ -289,21 +301,21 @@ struct Index {
   private stack: NavPathStack = new NavPathStack();
 
   @Builder
-  PageBuilder(name: string) {
+  pageBuilder(name: string) {
     PageOne()
   }
 
   build() {
     Column() {
       Navigation(this.stack) {
-        Button("push").onClick(() => {
+        Button('push').onClick(() => {
           // 将PageOne的NavDestination入栈
-          this.stack.pushPath({ name: "pageOne" });
+          this.stack.pushPath({ name: 'pageOne' });
         })
       }
-      .id("testId")
-      .title("Navigation")
-      .navDestination(this.PageBuilder)
+      .id('testId')
+      .title('Navigation')
+      .navDestination(this.pageBuilder)
     }
     .width('100%')
     .height('100%')
@@ -319,7 +331,7 @@ struct Index {
 
 off(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void
  
-取消通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的uniqueId监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的变化。
+取消通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的uniqueId监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  
@@ -331,7 +343,7 @@ off(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'navDestinationUpdateByUniqueId'，即NavDestination组件的状态变化。 |
 | navigationUniqueId | number | 是 | 指定监听的Navigation的uniqueId，可以通过queryNavigationInfo获取。 |
-| callback | Callback<observer.NavDestinationInfo> | 否 | 需要取消的监听回调，不传参数时，取消该Navigation上所有的监听回调。 |
+| callback | Callback<observer.NavDestinationInfo> | 否 | 需要取消的监听回调。不指定具体的回调函数时，取消该Navigation上所有的监听回调。 |
  
  
 **示例：**
@@ -392,7 +404,7 @@ struct Index {
                 .fontSize(16)
                 .textAlign(TextAlign.Center)
                 .margin({ top: 10 })
-            }, (item: string) => item)
+            }, (item: number) => item.toString())
           }.width('100%')
         }
         .id('testId')
@@ -454,7 +466,7 @@ off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。 |
-| callback | Callback<observer.ScrollEventInfo> | 否 | 回调函数。返回滚动事件的信息。不传参数时，取消所有滚动事件的监听回调。 |
+| callback | Callback<observer.ScrollEventInfo> | 否 | 需要取消的滚动事件监听回调。当只需要取消指定回调时传入该参数；不传参数时，取消所有滚动事件的监听回调。 |
  
  
 **示例：**
@@ -508,7 +520,7 @@ off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。 |
 | options | observer.ObserverOptions | 是 | Observer选项，包含指定监听的滚动组件的id。 |
-| callback | Callback<observer.ScrollEventInfo> | 否 | 回调函数。返回滚动事件的信息。不传参数时，取消所有滚动事件的监听回调。 |
+| callback | Callback<observer.ScrollEventInfo> | 否 | 需要取消的滚动事件监听回调。当只需要取消 options 指定滚动组件上的指定回调时传入该参数；不传参数时，取消 options 指定滚动组件上的所有滚动事件监听回调。 |
  
  
 **示例：**
@@ -523,7 +535,11 @@ off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<
 
 on(type: 'routerPageUpdate', callback: Callback<observer.RouterPageInfo>): void
  
-监听[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)中page页面的状态变化。
+监听[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)中page页面的状态变化。典型使用场景包括页面路由生命周期管理、页面跳转埋点、页面切换状态跟踪等。
+ 
+> [!NOTE]
+> 必须与 off('routerPageUpdate') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -547,7 +563,7 @@ on(type: 'routerPageUpdate', callback: Callback<observer.RouterPageInfo>): void
 struct PageOne {
   build() {
     Column() {
-      Text("pageOne")
+      Text('pageOne')
     }
   }
 }
@@ -575,9 +591,9 @@ struct Index {
 
   build() {
     Column() {
-      Button("pushUrl").onClick(() => {
+      Button('pushUrl').onClick(() => {
         // router跳转到PageOne.ets页面
-        this.getUIContext().getRouter().pushUrl({ url: 'pages/PageOne' })
+        this.getUIContext().getRouter().pushUrl({ url: 'pages/PageOne' });
       })
     }
     .width('100%')
@@ -621,6 +637,10 @@ off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): voi
 on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void
  
 监听屏幕像素密度变化。
+ 
+> [!NOTE]
+> 必须与 off('densityUpdate') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -723,7 +743,7 @@ on(type: 'willDraw', callback: Callback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'willDraw'，即是否将要绘制。 |
-| callback | Callback&lt;void&gt; | 是 | 回调函数。 |
+| callback | Callback&lt;void&gt; | 是 | 回调函数，无入参、无返回值；用于在每一帧绘制指令下发时接收通知并执行自定义处理。 |
  
  
 **示例：**
@@ -738,7 +758,7 @@ on(type: 'willDraw', callback: Callback&lt;void&gt;): void
 struct Index {
   // 定义监听回调函数
   willDrawCallback = () => {
-    console.info("willDraw指令下发");
+    console.info('willDraw指令下发');
   }
 
   build() {
@@ -804,7 +824,7 @@ on(type: 'didLayout', callback: Callback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'didLayout'，即是否布局完成。 |
-| callback | Callback&lt;void&gt; | 是 | 回调函数。 |
+| callback | Callback&lt;void&gt; | 是 | 回调函数，无入参、无返回值；用于在每一帧布局完成时接收通知并执行自定义处理。 |
  
  
 **示例：**
@@ -819,7 +839,7 @@ on(type: 'didLayout', callback: Callback&lt;void&gt;): void
 struct Index {
   // 定义监听回调函数
   didLayoutCallback = () => {
-    console.info("layout布局完成");
+    console.info('layout布局完成');
   }
 
   build() {
@@ -830,7 +850,7 @@ struct Index {
           // 添加监听
           this.getUIContext().getUIObserver().on('didLayout', this.didLayoutCallback);
         })
-      Button('解除注册注册布局完成监听')
+      Button('解除注册布局完成监听')
         .onClick(() => {
           // 取消监听
           this.getUIContext().getUIObserver().off('didLayout', this.didLayoutCallback);
@@ -876,6 +896,10 @@ on(type: 'navDestinationSwitch', callback: Callback<observer.NavDestinationSwitc
  
 监听[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的页面切换事件。
  
+> [!NOTE]
+> 必须与 off('navDestinationSwitch') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -901,13 +925,13 @@ import { uiObserver } from '@kit.ArkUI';
 struct PageOne {
   build() {
     NavDestination() {
-      Text("pageOne")
-    }.title("pageOne")
+      Text('pageOne')
+    }.title('pageOne')
   }
 }
 
 // 定义监听回调函数
-function callbackFunc(info: uiObserver.NavDestinationSwitchInfo) {
+const callbackFunc = (info: uiObserver.NavDestinationSwitchInfo) => {
   console.info(`testTag navDestinationSwitch from: ${JSON.stringify(info.from)} to: ${JSON.stringify(info.to)}`);
 }
 
@@ -917,7 +941,7 @@ struct Index {
   private stack: NavPathStack = new NavPathStack();
 
   @Builder
-  PageBuilder(name: string) {
+  pageBuilder(name: string) {
     PageOne()
   }
 
@@ -936,13 +960,13 @@ struct Index {
   build() {
     Column() {
       Navigation(this.stack) {
-        Button("push").onClick(() => {
+        Button('push').onClick(() => {
           // 将PageOne的NavDestination入栈
-          this.stack.pushPath({ name: "pageOne" });
+          this.stack.pushPath({ name: 'pageOne' });
         })
       }
       .title("Navigation")
-      .navDestination(this.PageBuilder)
+      .navDestination(this.pageBuilder)
     }
     .width('100%')
     .height('100%')
@@ -969,7 +993,7 @@ off(type: 'navDestinationSwitch', callback?: Callback<observer.NavDestinationSwi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。 |
-| callback | Callback<observer.NavDestinationSwitchInfo> | 否 | 需要被注销的回调函数。不传参数时，取消该Navigation上所有的监听回调。 |
+| callback | Callback<observer.NavDestinationSwitchInfo> | 否 | 需要被注销的回调函数。不传参数时，取消所有Navigation页面切换事件的监听回调。 |
  
  
 **示例：**
@@ -986,6 +1010,10 @@ on(type: 'navDestinationSwitch', observerOptions: observer.NavDestinationSwitchO
  
 通过监听选项监听[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的页面切换事件。
  
+> [!NOTE]
+> 必须与 off('navDestinationSwitch') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -995,7 +1023,7 @@ on(type: 'navDestinationSwitch', observerOptions: observer.NavDestinationSwitchO
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。 |
-| observerOptions | observer.NavDestinationSwitchObserverOptions | 是 | 监听选项。 |
+| observerOptions | observer.NavDestinationSwitchObserverOptions | 是 | 页面切换监听选项，用于指定需要监听的Navigation组件，例如通过navigationId指定Navigation组件的id。 |
 | callback | Callback<observer.NavDestinationSwitchInfo> | 是 | 回调函数。携带NavDestinationSwitchInfo，返回页面切换事件的信息。 |
  
  
@@ -1012,8 +1040,8 @@ import { uiObserver } from '@kit.ArkUI';
 struct PageOne {
   build() {
     NavDestination() {
-      Text("pageOne")
-    }.title("pageOne")
+      Text('pageOne')
+    }.title('pageOne')
   }
 }
 
@@ -1028,33 +1056,33 @@ struct Index {
   private stack: NavPathStack = new NavPathStack();
 
   @Builder
-  PageBuilder(name: string) {
+  pageBuilder(name: string) {
     PageOne()
   }
 
   aboutToAppear() {
     let obs = this.getUIContext().getUIObserver();
     // 添加监听，指定Navigation的id
-    obs.on('navDestinationSwitch', { navigationId: "myNavId" }, callbackFunc);
+    obs.on('navDestinationSwitch', { navigationId: 'myNavId' }, callbackFunc);
   }
 
   aboutToDisappear() {
     let obs = this.getUIContext().getUIObserver();
     // 取消监听
-    obs.off('navDestinationSwitch', { navigationId: "myNavId" }, callbackFunc);
+    obs.off('navDestinationSwitch', { navigationId: 'myNavId' }, callbackFunc);
   }
 
   build() {
     Column() {
       Navigation(this.stack) {
-        Button("push").onClick(() => {
+        Button('push').onClick(() => {
           // 将PageOne的NavDestination入栈
-          this.stack.pushPath({ name: "pageOne" });
+          this.stack.pushPath({ name: 'pageOne' });
         })
       }
       .id("myNavId")
       .title("Navigation")
-      .navDestination(this.PageBuilder)
+      .navDestination(this.pageBuilder)
     }
     .width('100%')
     .height('100%')
@@ -1081,7 +1109,7 @@ off(type: 'navDestinationSwitch', observerOptions: observer.NavDestinationSwitch
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。 |
-| observerOptions | observer.NavDestinationSwitchObserverOptions | 是 | 监听选项。 |
+| observerOptions | observer.NavDestinationSwitchObserverOptions | 是 | 页面切换监听选项，用于指定需要取消监听的Navigation组件，例如通过navigationId指定Navigation组件的id。 |
 | callback | Callback<observer.NavDestinationSwitchInfo> | 否 | 需要被注销的回调函数。不传参数时，取消该Navigation上所有的监听回调。 |
  
  
@@ -1117,23 +1145,23 @@ on(type: 'willClick', callback: GestureEventListenerCallback): void
 // Index.ets
 // 演示uiObserver.on('willClick', callback)
 // uiObserver.off('willClick', callback)
-// uiObserver.off('didClick', callback)
+// uiObserver.on('didClick', callback)
 // uiObserver.off('didClick', callback)
 
 // 定义监听回调函数
-function willClickGestureCallback(event: GestureEvent, node?: FrameNode) {
+const willClickGestureCallback = (event: GestureEvent, node?: FrameNode) => {
   console.info('Example willClickCallback GestureEvent is called');
 }
 
-function willClickCallback(event: ClickEvent, node?: FrameNode) {
+const willClickCallback = (event: ClickEvent, node?: FrameNode) => {
   console.info('Example willClickCallback ClickEvent is called');
 }
 
-function didClickGestureCallback(event: GestureEvent, node?: FrameNode) {
+const didClickGestureCallback = (event: GestureEvent, node?: FrameNode) => {
   console.info('Example didClickCallback GestureEvent is called');
 }
 
-function didClickCallback(event: ClickEvent, node?: FrameNode) {
+const didClickCallback = (event: ClickEvent, node?: FrameNode) => {
   console.info('Example didClickCallback ClickEvent is called');
 }
 
@@ -1413,7 +1441,7 @@ on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void
 import { uiObserver } from '@kit.ArkUI';
 
 // 定义监听回调函数
-function callbackFunc(info: uiObserver.TabContentInfo) {
+const callbackFunc = (info: uiObserver.TabContentInfo) => {
   console.info('tabContentUpdate', JSON.stringify(info));
 }
 
@@ -1480,7 +1508,7 @@ off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。 |
-| callback | Callback<observer.TabContentInfo> | 否 | 需要被注销的回调函数。不传参数时，取消该Tabs上所有的监听回调。 |
+| callback | Callback<observer.TabContentInfo> | 否 | 需要被注销的回调函数。不传参数时，取消所有Tabs组件上TabContent页面切换事件的监听回调。 |
  
  
 **示例：**
@@ -1588,7 +1616,7 @@ off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Call
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。 |
 | options | observer.ObserverOptions | 是 | 指定监听的Tabs组件的id。 |
-| callback | Callback<observer.TabContentInfo> | 否 | 需要被注销的回调函数。不传参数时，取消该Tabs上所有的监听回调。 |
+| callback | Callback<observer.TabContentInfo> | 否 | 需要被注销的回调函数。不传参数时，取消options指定的Tabs组件上所有TabContent页面切换事件的监听回调。 |
  
  
 **示例：**
@@ -1604,6 +1632,10 @@ off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Call
 on(type: 'tabChange', callback: Callback<observer.TabContentInfo>): void
  
 监听[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件页签的切换事件，支持多个[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件的监听。相比[on('tabContentUpdate')](#ontabcontentupdate12)，本接口支持监听Tabs组件初始化时，显示首个页签的事件。
+ 
+> [!NOTE]
+> 必须与 off('tabChange') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -1733,6 +1765,10 @@ off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void
 on(type: 'tabChange', config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void
  
 监听指定[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件的页签切换事件。相比[on('tabContentUpdate')](#ontabcontentupdate12-1)，本接口支持监听Tabs组件初始化时，显示首个页签的事件。
+ 
+> [!NOTE]
+> 必须与 off('tabChange') 方法配对使用。 在组件销毁前（如aboutToDisappear生命周期中）必须调用off方法释放监听资源。 未及时调用off方法会导致内存泄漏和资源占用。
+
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -1885,24 +1921,24 @@ struct TextUiObserver {
   observer: UIObserver = this.getUIContext().getUIObserver();
   build() {
     Column() {
-      TextArea({ text: "Hello World TextArea" })
+      TextArea({ text: 'Hello World TextArea' })
         .width(336)
         .height(56)
         .margin({bottom:5})
         .backgroundColor('#FFFFFF')
-        .id("TestId1")
-      TextInput({ text: "Hello World TextInput" })
+        .id('TestId1')
+      TextInput({ text: 'Hello World TextInput' })
         .width(336)
         .height(56)
         .margin({bottom:5})
         .backgroundColor('#FFFFFF')
-        .id("TestId2")
-      Search({ value: "Hello World Search" })
+        .id('TestId2')
+      Search({ value: 'Hello World Search' })
         .width(336)
         .height(56)
         .margin({bottom:5})
         .backgroundColor('#FFFFFF')
-        .id("TestId3")
+        .id('TestId3')
       Row() {
         // 开启全局监听
         Button('UIObserver on')
@@ -1921,14 +1957,14 @@ struct TextUiObserver {
       Row() {
         Button('UIObserver TestId1 on')
           .onClick(() => {
-            this.observer.on('textChange', { id: "TestId1" }, (info) => {
+            this.observer.on('textChange', { id: 'TestId1' }, (info) => {
               console.info('textChangeInfo', JSON.stringify(info));
             });
           })
 
         Button('UIObserver TestId1 off')
           .onClick(() => {
-            this.observer.off('textChange', { id: "TestId1" });
+            this.observer.off('textChange', { id: 'TestId1' });
           })
       }.margin({bottom:5})
       Row() {
@@ -1994,9 +2030,9 @@ off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-on(type: 'textChange', identity: observer.ObserverOptions, callback:Callback<observer.TextChangeEventInfo>): void
+on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void
  
-指定ID输入框文本变化的局部监听。
+指定id的输入框文本变化的局部监听。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -2007,7 +2043,7 @@ on(type: 'textChange', identity: observer.ObserverOptions, callback:Callback<obs
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'textChange'，表示文本输入的变化。 |
-| identity | observer.ObserverOptions | 是 | 指定监听的文本输入组件的ID。 |
+| identity | observer.ObserverOptions | 是 | 指定监听的文本输入组件的id。 |
 | callback | Callback<observer.TextChangeEventInfo> | 是 | 回调函数。返回文本变化的信息。 |
  
  
@@ -2023,7 +2059,7 @@ on(type: 'textChange', identity: observer.ObserverOptions, callback:Callback<obs
 
 off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void
  
-取消指定ID输入框文本变化的局部监听。
+取消指定ID对应输入框文本变化的局部监听。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -2034,7 +2070,7 @@ off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'textChange'，表示文本输入的变化。 |
-| identity | observer.ObserverOptions | 是 | 指定监听的文本输入组件的ID。 |
+| identity | observer.ObserverOptions | 是 | 指定监听的文本输入组件的id。 |
 | callback | Callback<observer.TextChangeEventInfo> | 否 | 需要被注销的回调函数。不传参数时，取消指定ID输入框文本变化的所有局部监听。 |
  
  
@@ -2081,27 +2117,27 @@ on(type: 'beforePanStart', callback: PanListenerCallback): void
 let TEST_TAG: string = 'node';
 
 // 定义监听回调函数
-function callbackFunc() {
+const callbackFunc = () => {
   console.info('on == beforePanStart');
 }
 
-function afterPanCallBack() {
+const afterPanCallBack = () => {
   console.info('on == afterPanStart');
 }
 
-function beforeEndCallBack() {
+const beforeEndCallBack = () => {
   console.info('on == beforeEnd');
 }
 
-function afterEndCallBack() {
+const afterEndCallBack = () => {
   console.info('on == afterEnd');
 }
 
-function beforeStartCallBack() {
+const beforeStartCallBack = () => {
   console.info('on == beforeStartCallBack');
 }
 
-function panGestureCallBack(event: GestureEvent, current: GestureRecognizer, node?: FrameNode) {
+const panGestureCallBack = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => {
   TEST_TAG = 'panGestureEvent';
   console.info('===' + TEST_TAG + '=== event.repeat is ' + event.repeat);
   console.info('===' + TEST_TAG + '=== event target is ' + event.target.id);
@@ -2143,8 +2179,8 @@ struct PanExample {
   }
 
   build() {
-    Column(){
-      Column(){
+    Column() {
+      Column() {
         Text('PanGesture :\nX: ' + this.offsetX + '\n' + 'Y: ' + this.offsetY)
       }
       .height(200)
@@ -2183,7 +2219,7 @@ struct PanExample {
 
 off(type: 'beforePanStart', callback?: PanListenerCallback): void
  
-取消[on('beforePanStart')](#onbeforepanstart19)监听Pan手势[onActionStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionstart)事件执行前的callback回调。
+取消[on('beforePanStart')](#onbeforepanstart19)监听Pan手势[onActionStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionstart)事件执行前的callback回调。支持手指滑动、鼠标滑动、鼠标滚轮和触摸板拖动，暂不支持屏幕朗读触控模式。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
  
@@ -2235,7 +2271,7 @@ on(type: 'afterPanStart', callback: PanListenerCallback): void
 
 off(type: 'afterPanStart', callback?: PanListenerCallback): void
  
-取消[on('afterPanStart')](#onafterpanstart19)监听Pan手势[onActionStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionstart)事件执行后的callback回调。
+取消[on('afterPanStart')](#onafterpanstart19)监听Pan手势[onActionStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionstart)事件执行后的callback回调。支持手指滑动、鼠标滑动、鼠标滚轮和触摸板拖动，暂不支持屏幕朗读触控模式。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
  
@@ -2287,7 +2323,7 @@ on(type: 'beforePanEnd', callback: PanListenerCallback): void
 
 off(type: 'beforePanEnd', callback?: PanListenerCallback): void
  
-取消[on('beforePanEnd')](#onbeforepanend19)监听Pan手势[onActionEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionend)事件执行前的callback回调。
+取消[on('beforePanEnd')](#onbeforepanend19)监听Pan手势[onActionEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionend)事件执行前的callback回调。支持手指滑动、鼠标滑动、鼠标滚轮和触摸板拖动，暂不支持屏幕朗读触控模式。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
  
@@ -2339,7 +2375,7 @@ on(type: 'afterPanEnd', callback: PanListenerCallback): void
 
 off(type: 'afterPanEnd', callback?: PanListenerCallback): void
  
-取消[on('afterPanEnd')](#onafterpanend19)监听Pan手势[onActionEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionend)事件执行后的callback回调。
+取消[on('afterPanEnd')](#onafterpanend19)监听Pan手势[onActionEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionend)事件执行后的callback回调。支持手指滑动、鼠标滑动、鼠标滚轮和触摸板拖动，暂不支持屏幕朗读触控模式。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
  
@@ -2365,9 +2401,9 @@ off(type: 'afterPanEnd', callback?: PanListenerCallback): void
 
 on(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void
  
-注册一个回调函数，以便在特定节点的渲染状态发生变化时调用，当注册成功时，此回调将立即执行一次。
+注册回调函数，用于监听特定节点的渲染状态变化。注册成功后，该回调会立即执行一次。
  
-注意节点数量的限制。出于性能考虑，在单个UI实例中，注册节点太多，将会抛出异常。
+注意节点数量的限制。出于性能考虑，在单个UI实例中，当注册节点数量超过节点渲染状态监听数量限制时，将会抛出161001异常，详细说明请参见下方错误码。
  
 通常，当组件被移动到屏幕外时，会收到RENDER_OUT的通知。但在某些情况下，即使组件移动到屏幕外也不会触发RENDER_OUT通知。例如，具有缓存功能的组件[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)，即使[cachedCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#cachedcount15)属性中的参数isShown配置为true，也不会触发RENDER_OUT通知。
  
@@ -2380,7 +2416,7 @@ on(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback: NodeRenderStat
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'nodeRenderState'，用于监听节点渲染状态发生改变。 |
-| nodeIdentity | NodeIdentity | 是 | 节点标识。 |
+| nodeIdentity | NodeIdentity | 是 | 需要监听渲染状态变化的目标节点标识，可通过目标组件对应FrameNode的getUniqueId等方式获取。 |
 | callback | NodeRenderStateChangeCallback | 是 | 回调函数。可以获得节点渲染状态改变事件的NodeRenderState和组件的FrameNode。 |
  
  
@@ -2451,7 +2487,7 @@ struct Index {
                       this.notice = "RENDER_OUT";
                     }
                     console.info("节点状态发生改变，当前状态：", state);
-                  })
+                  });
                 }
               })
               Button("取消监听").margin({ top: 5 }).onClick(() => {
@@ -2499,7 +2535,7 @@ struct Index {
       .margin({ top: 52 })
       .backgroundColor('#F1F3F5')
 
-      Text(`收到的通知: ${this.notice}`)
+      Text(`收到的通知：${this.notice}`)
         .fontSize(20)
         .margin(10)
     }.width('100%')
@@ -2508,7 +2544,7 @@ struct Index {
 ```
  
 
-![](assets/Class%20UIObserver/file-20260514163837719-1.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/8L8bGh6DT9SPWm27DLxcyg/zh-cn_image_0000002685927867.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071445Z&HW-CC-Expire=86400&HW-CC-Sign=A56C9704FDC6E1C2903A47F6F99926461F0238A246F23CA0F2D7B04B153B3E4B)
 
  
   
@@ -2529,8 +2565,8 @@ off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderSt
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听事件，固定为'nodeRenderState'，即节点渲染状态变化指令下发情况。 |
-| nodeIdentity | NodeIdentity | 是 | 节点标识。 |
+| type | string | 是 | 监听事件，固定为'nodeRenderState'，即节点渲染状态发生变化。 |
+| nodeIdentity | NodeIdentity | 是 | 需要取消渲染状态监听的目标节点标识，应与调用on('nodeRenderState')注册监听时传入的节点标识一致。 |
 | callback | NodeRenderStateChangeCallback | 否 | 需要被注销的回调函数。不传参数时，取消该节点所有的渲染状态变化指令下发监听回调。 |
  
  
@@ -2557,8 +2593,8 @@ addGlobalGestureListener(type: GestureListenerType, option: GestureObserverConfi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | GestureListenerType | 是 | 要监听的手势类型。 |
-| option | GestureObserverConfigs | 是 | 绑定全局监听器时的配置选项。 |
-| callback | GestureListenerCallback | 是 | 手势状态更新时的回调函数。 |
+| option | GestureObserverConfigs | 是 | 绑定全局手势监听器时的配置选项，用于指定需要监听的手势触发阶段等信息，例如通过actionPhases配置GestureActionPhase枚举值。 |
+| callback | GestureListenerCallback | 是 | 手势状态更新时的回调函数，用于接收手势触发信息；回调参数包含GestureTriggerInfo，可获取手势事件、触发阶段等信息。 |
  
  
 **示例：**
@@ -2575,7 +2611,6 @@ import { GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureLis
 @Entry
 @Component
 struct Index {
-  @State message: string = '全局手势监控';
   @State tapCount: number = 0;
   @State panCount: number = 0;
   @State longPressCount: number = 0;
@@ -2648,14 +2683,15 @@ struct Index {
 
   private removeGlobalListeners() {
     const observer = this.getUIContext().getUIObserver();
+// 0、2、1分别表示Tap、Pan和LongPress手势类型，用于移除对应的全局监听
     if (this.tapCallback) {
-      observer.removeGlobalGestureListener(0, this.tapCallback);
+      observer.removeGlobalGestureListener(GestureListenerType.TAP, this.tapCallback);
     }
     if (this.panCallback) {
-      observer.removeGlobalGestureListener(2, this.panCallback);
+      observer.removeGlobalGestureListener(GestureListenerType.PAN, this.panCallback);
     }
     if (this.longPressCallback) {
-      observer.removeGlobalGestureListener(1, this.longPressCallback);
+      observer.removeGlobalGestureListener(GestureListenerType.LONG_PRESS, this.longPressCallback);
     }
   }
 
@@ -2664,21 +2700,21 @@ struct Index {
       // 手势数据统计面板
       Row({ space: 30 }) {
         Column() {
-          Text('点击次数:').fontSize(16)
+          Text('点击次数：').fontSize(16)
           Text(`${this.tapCount}`).fontSize(24).fontColor('#FF6B81')
         }
         Column() {
-          Text('平移次数:').fontSize(16)
+          Text('平移次数：').fontSize(16)
           Text(`${this.panCount}`).fontSize(24).fontColor('#7BED9F')
         }
         Column() {
-          Text('长按次数:').fontSize(16)
+          Text('长按次数：').fontSize(16)
           Text(`${this.longPressCount}`).fontSize(24).fontColor('#70A1FF')
         }
       }
       .margin(10)
 
-      Text(`最后动作: ${this.lastAction} (${this.lastArea})`)
+      Text(`最后动作：${this.lastAction}（${this.lastArea}）`)
         .fontSize(18)
         .margin(10)
 
@@ -2692,7 +2728,7 @@ struct Index {
       .margin(10)
       .border({ width: 2, color: '#FF6B81' })
       .justifyContent(FlexAlign.Center)
-      .gesture(TapGesture().onAction((event: GestureEvent)=>{
+      .gesture(TapGesture().onAction((event: GestureEvent) => {
         // 具体实现内容
       }))
 
@@ -2726,7 +2762,7 @@ struct Index {
       .justifyContent(FlexAlign.Center)
       .gesture(
         LongPressGesture()
-          .onAction((event: GestureEvent)=>{
+          .onAction((event: GestureEvent) => {
             // 具体实现内容
           })
           .onActionEnd((event: GestureEvent) => {
@@ -2741,7 +2777,7 @@ struct Index {
 ```
  
 
-![](assets/Class%20UIObserver/file-20260525092918850-001.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/47ldHLIcScWniGW5yXH-wg/zh-cn_image_0000002656008188.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071445Z&HW-CC-Expire=86400&HW-CC-Sign=606FE5AF12C51A5A7A9E4A3606CAB31AA646B74D8CAB8CE7E7A870E17B29078F)
 
  
   
@@ -2778,7 +2814,7 @@ removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListene
 
 on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void
  
-注册窗口尺寸布局断点变化的回调函数。该方法用于监听窗口尺寸断点变化，可用于根据窗口尺寸自适应调整UI布局。使用callback异步回调。
+注册窗口尺寸布局断点变化的回调函数。该方法用于监听窗口尺寸断点变化，可用于根据窗口尺寸自适应调整UI布局。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -2789,7 +2825,7 @@ on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowS
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'windowSizeLayoutBreakpointChange'，用于监听窗口尺寸布局断点发生改变。 |
-| callback | Callback<observer.WindowSizeLayoutBreakpointInfo> | 是 | 回调函数。携带WindowSizeLayoutBreakpointinfo，包含窗口宽度和高度所在的布局断点枚举。 |
+| callback | Callback<observer.WindowSizeLayoutBreakpointInfo> | 是 | 回调函数。携带WindowSizeLayoutBreakpointInfo，包含窗口宽度和高度所在的布局断点枚举。 |
  
  
 **示例：**
@@ -2806,7 +2842,7 @@ struct Index {
   private changeOrientation(isLandscape: boolean) {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     window.getLastWindow(context).then((lastWindow) => {
-      lastWindow.setPreferredOrientation(isLandscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT)
+      lastWindow.setPreferredOrientation(isLandscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);
     });
   }
 
@@ -2835,10 +2871,10 @@ struct Index {
             .off('windowSizeLayoutBreakpointChange', this.winSizeLayoutBreakpointCallback);
         })
       Button("竖屏").onClick(() => {
-        this.changeOrientation(false)
+        this.changeOrientation(false);
       })
       Button("横屏").onClick(() => {
-        this.changeOrientation(true)
+        this.changeOrientation(true);
       })
     }
   }
@@ -2853,7 +2889,7 @@ struct Index {
 
 off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void
  
-移除之前注册的窗口尺寸布局断点变化回调函数。如果未提供回调函数参数，将移除指定上下文的所有回调函数。使用callback异步回调。
+移除之前注册的窗口尺寸布局断点变化回调函数。如果未提供回调函数参数，将移除指定上下文的所有回调函数。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -2879,7 +2915,7 @@ off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.Windo
 
 onSwiperContentUpdate(callback: Callback&lt;SwiperContentInfo&gt;): void
  
-监听Swiper内容的切换事件。使用callback异步回调。
+监听Swiper内容的切换事件。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -2899,7 +2935,7 @@ onSwiperContentUpdate(callback: Callback&lt;SwiperContentInfo&gt;): void
 import { SwiperContentInfo } from '@kit.ArkUI';
 
 // 定义监听回调函数
-function callbackFunc(info: SwiperContentInfo) {
+const callbackFunc = (info: SwiperContentInfo) => {
   console.info('swiperContentUpdate', JSON.stringify(info));
 }
 
@@ -2922,19 +2958,19 @@ struct SwiperExample {
     Column({ space: 5 }) {
       Swiper(this.swiperController) {
         Column() {
-          Text("SwiperItem1")
+          Text('SwiperItem1')
         }.width('100%').height('100%').backgroundColor('#00CB87')
 
         Column() {
-          Text("SwiperItem2")
+          Text('SwiperItem2')
         }.width('100%').height('100%').backgroundColor('#007DFF')
 
         Column() {
-          Text("SwiperItem3")
+          Text('SwiperItem3')
         }.width('100%').height('100%').backgroundColor('#FFBF00')
 
         Column() {
-          Text("SwiperItem4")
+          Text('SwiperItem4')
         }.width('100%').height('100%').backgroundColor('#E67C92')
       }
       .width(360)
@@ -2962,7 +2998,7 @@ offSwiperContentUpdate(callback?: Callback&lt;SwiperContentInfo&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;SwiperContentInfo&gt; | 否 | 需要被注销的回调函数。不传参数时，取消该Swiper上所有的监听回调。 |
+| callback | Callback&lt;SwiperContentInfo&gt; | 否 | 需要被注销的回调函数。不传参数时，取消所有Swiper组件上内容切换事件的监听回调。 |
  
  
 **示例：**
@@ -2977,7 +3013,7 @@ offSwiperContentUpdate(callback?: Callback&lt;SwiperContentInfo&gt;): void
 
 onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback&lt;SwiperContentInfo&gt;): void
  
-通过Swiper组件的id监听Swiper内容的切换事件。使用callback异步回调。
+通过Swiper组件的id监听Swiper内容的切换事件。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
  
@@ -2987,7 +3023,7 @@ onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback&lt;Sw
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | observer.ObserverOptions | 是 | 指定监听的Swiper组件信息。 |
+| config | observer.ObserverOptions | 是 | 指定监听的Swiper组件信息，用于通过id等属性标识需要监听内容切换事件的Swiper组件。 |
 | callback | Callback&lt;SwiperContentInfo&gt; | 是 | 回调函数。携带SwiperContentInfo，返回Swiper内容切换的信息。 |
  
  
@@ -3021,22 +3057,22 @@ struct SwiperExample {
     Column({ space: 5 }) {
       Swiper(this.swiperController) {
         Column() {
-          Text("SwiperItem1")
+          Text('SwiperItem1')
         }.width('100%').height('100%').backgroundColor('#00CB87')
 
         Column() {
-          Text("SwiperItem2")
+          Text('SwiperItem2')
         }.width('100%').height('100%').backgroundColor('#007DFF')
 
         Column() {
-          Text("SwiperItem3")
+          Text('SwiperItem3')
         }.width('100%').height('100%').backgroundColor('#FFBF00')
 
         Column() {
-          Text("SwiperItem4")
+          Text('SwiperItem4')
         }.width('100%').height('100%').backgroundColor('#E67C92')
       }
-      .id("swiperId")
+      .id('swiperId')
       .width(360)
       .height(300)
     }.width('100%')
@@ -3063,7 +3099,7 @@ offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback&lt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | config | observer.ObserverOptions | 是 | 指定监听的Swiper组件信息。 |
-| callback | Callback&lt;SwiperContentInfo&gt; | 否 | 需要被注销的回调函数。不传参数时，取消该Swiper上所有的监听回调。 |
+| callback | Callback&lt;SwiperContentInfo&gt; | 否 | 需要被注销的回调函数。不传参数时，取消config指定的Swiper组件上所有内容切换事件的监听回调。 |
  
  
 **示例：**
@@ -3078,7 +3114,7 @@ offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback&lt;
 
 onRouterPageSizeChange(callback: Callback<observer.RouterPageInfo>): void
  
-注册监听回调函数，当可见的Router页面大小发生变化时，会触发该回调函数。使用callback异步回调。
+注册监听回调函数，当可见的Router页面大小发生变化时，会触发该回调函数。适用于需要响应Router页面大小变化的场景，例如根据页面大小动态调整UI布局、重新计算组件尺寸、优化显示效果等。
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
  
@@ -3096,7 +3132,7 @@ onRouterPageSizeChange(callback: Callback<observer.RouterPageInfo>): void
 ```json
 import { uiObserver } from '@kit.ArkUI';
 
-function myPageRouterPageSizeCallback(info: uiObserver.RouterPageInfo): void {
+const myPageRouterPageSizeCallback = (info: uiObserver.RouterPageInfo): void => {
   console.info(`testTag pageSize changeTo ${(info && info.size) ? JSON.stringify(info.size) : 'NA'}`);
 }
 
@@ -3117,7 +3153,7 @@ struct QueryRouterPageSize {
       Button('querySize').onClick(() => {
         // 也可以主动获取页面大小信息
         let info = this.queryRouterPageInfo();
-        console.info(`testTag pageSize: ${info && info.size ? JSON.stringify(info.size) : "NA"}`)
+        console.info(`testTag pageSize: ${info && info.size ? JSON.stringify(info.size) : 'NA'}`);
       })
     }
     .width('100%')
@@ -3134,7 +3170,7 @@ struct QueryRouterPageSize {
 
 offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void
  
-移除使用onRouterPageSizeChange接口注册的监听回调函数。使用callback异步回调。
+移除使用onRouterPageSizeChange接口注册的监听回调函数。
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
  
@@ -3159,7 +3195,7 @@ offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void
 
 onNavDestinationSizeChange(callback: Callback<observer.NavDestinationInfo>): void
  
-注册监听回调函数，当可见的NavDestination大小发生变化时，会触发该回调函数。使用callback异步回调。
+注册监听回调函数，当可见的NavDestination大小发生变化时，会触发该回调函数。适用于需要响应NavDestination页面大小变化的场景，例如根据页面大小动态调整UI布局、重新计算组件尺寸、优化显示效果等。
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
  
@@ -3180,7 +3216,7 @@ import { uiObserver } from '@kit.ArkUI';
 @Component
 struct PageOneContent {
   destSizeCallback(info: uiObserver.NavDestinationInfo): void {
-    console.info(`testTag destSize changeTo ${(info && info.size) ? JSON.stringify(info.size) : "NA"}`)
+    console.info(`testTag destSize changeTo ${(info && info.size) ? JSON.stringify(info.size) : 'NA'}`);
   }
 
   aboutToAppear(): void {
@@ -3197,7 +3233,7 @@ struct PageOneContent {
       Button('queryDestSize').onClick(() => {
         // 也可以主动获取NavDestination页面大小信息
         let info = this.queryNavDestinationInfo();
-        console.info(`testTag destSize: ${(info && info.size) ? JSON.stringify(info.size) : "NA"}`)
+        console.info(`testTag destSize: ${(info && info.size) ? JSON.stringify(info.size) : 'NA'}`);
       })
     }
     .width('100%')
@@ -3225,7 +3261,7 @@ struct QueryNavDestinationSize {
   }
 
   @Builder
-  MyPageMap(name: string) {
+  myPageMap(name: string) {
     PageOne()
   }
 
@@ -3234,7 +3270,7 @@ struct QueryNavDestinationSize {
     }
     .width('100%')
     .height('100%')
-    .navDestination(this.MyPageMap)
+    .navDestination(this.myPageMap)
     .hideNavBar(true)
   }
 }
@@ -3248,7 +3284,7 @@ struct QueryNavDestinationSize {
 
 offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): void
  
-移除使用onNavDestinationSizeChange接口注册的监听回调函数。使用callback异步回调。
+移除使用onNavDestinationSizeChange接口注册的监听回调函数。
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
  
@@ -3273,7 +3309,7 @@ offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): v
 
 onNavDestinationSizeChangeByUniqueId(navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void
  
-注册监听回调函数，当属于指定Navigation的可见NavDestination的大小发生变化时，会触发该回调函数。使用callback异步回调。
+注册监听回调函数，当属于指定Navigation的可见NavDestination的大小发生变化时，会触发该回调函数。适用于存在多个Navigation组件时，需要监听特定Navigation的NavDestination大小变化的场景，例如在复杂页面中包含多个独立的Navigation容器时，通过uniqueId精确控制监听范围。
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
  
@@ -3297,7 +3333,7 @@ struct PageOneContent {
   private navUniqueId: number = 0;
 
   destSizeCallback(info: uiObserver.NavDestinationInfo): void {
-    console.info(`testTag destSize changeTo ${(info && info.size) ? JSON.stringify(info.size) : "NA"}`)
+    console.info(`testTag destSize changeTo ${(info && info.size) ? JSON.stringify(info.size) : 'NA'}`);
   }
 
   aboutToAppear(): void {
@@ -3318,7 +3354,7 @@ struct PageOneContent {
       Button('queryDestSize').onClick(() => {
         // 也可以主动获取NavDestination页面大小信息
         let info = this.queryNavDestinationInfo();
-        console.info(`testTag destSize: ${(info && info.size) ? JSON.stringify(info.size) : "NA"}`)
+        console.info(`testTag destSize: ${(info && info.size) ? JSON.stringify(info.size) : 'NA'}`);
       })
     }
     .width('100%')
@@ -3346,7 +3382,7 @@ struct QueryNavDestinationSize {
   }
 
   @Builder
-  MyPageMap(name: string) {
+  myPageMap(name: string) {
     PageOne()
   }
 
@@ -3355,7 +3391,7 @@ struct QueryNavDestinationSize {
     }
     .width('100%')
     .height('100%')
-    .navDestination(this.MyPageMap)
+    .navDestination(this.myPageMap)
     .hideNavBar(true)
   }
 }
@@ -3369,7 +3405,7 @@ struct QueryNavDestinationSize {
 
 offNavDestinationSizeChangeByUniqueId(navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void
  
-移除使用onNavDestinationSizeChangeByUniqueId接口注册的监听回调函数。使用callback异步回调。
+移除使用onNavDestinationSizeChangeByUniqueId接口注册的监听回调函数。
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
  
@@ -3379,7 +3415,7 @@ offNavDestinationSizeChangeByUniqueId(navigationUniqueId: number, callback?: Cal
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| navigationUniqueId | number | 是 | 希望监听的NavDestination所属的Navigation的唯一ID，可以通过queryNavigationInfo获取。 |
+| navigationUniqueId | number | 是 | 需要取消监听的NavDestination所属的Navigation的唯一ID，可以通过queryNavigationInfo获取。 |
 | callback | Callback<observer.NavDestinationInfo> | 否 | 需要被移除的回调函数。不传参数时，移除所有指定了相同navigationUniqueId的回调函数。 |
  
  

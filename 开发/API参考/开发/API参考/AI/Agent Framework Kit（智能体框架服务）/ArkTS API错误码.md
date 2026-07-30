@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-agent-framework
 **支持设备：** Phone | Tablet
@@ -16,7 +16,7 @@
 
 **错误信息**
  
-Parameter error.
+Invalid parameter.
  
 **错误描述**
  
@@ -117,3 +117,25 @@ Internal error.
 **处理步骤**
  
 建议到应用市场下载最新版的小艺app。
+ 
+  
+
+#### 1022420001 内存分配失败
+
+**支持设备：** Phone | Tablet
+
+**错误信息**
+ 
+Memory allocation failed.
+ 
+**错误描述**
+ 
+创建对象时内存分配失败。
+ 
+**可能原因**
+ 
+设备内存不足。
+ 
+**处理步骤**
+ 
+检查设备的内存占用，重启Agent所在的App。

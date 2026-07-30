@@ -1,11 +1,11 @@
 # NodeContainer
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-基础组件，用于挂载自定义节点（如[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)或[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)），并通过[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)动态控制节点的上树和下树。组件不支持尾随添加子节点，接受一个[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)实例接口，需与NodeController组合使用。
+基础组件，用于挂载自定义节点（如[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)或[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)中获取的根节点FrameNode），并通过[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)动态控制节点的上树和下树，适用于需要在组件树中动态插入、移除自定义节点以实现UI按需加载与节点复用的场景，可提升页面渲染效率并降低节点创建开销。组件不支持尾随添加子节点，接受一个[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)实例，需与NodeController组合使用。
  
 > [!NOTE]
 > 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 该组件下仅支持挂载自定义节点 FrameNode 或者是 BuilderNode 中获取的根节点FrameNode。 不支持挂载查询获得的系统组件代理节点，请参见 isModifiable 。 当前不支持使用 动态属性设置 。 该组件下的节点树构建时会使用UI实例 UIContext ，实例切换时可能会因实例不匹配，导致所绑定 NodeController 的 makeNode 回调方法的入参为undefined，因此该组件当前不支持跨实例的节点复用。 该组件未销毁时，不会主动触发挂载节点的下树。
@@ -49,7 +49,7 @@ NodeContainer(controller: import('../api/@ohos.arkui.node').NodeController)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
+支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)，但不支持[动态属性设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier)。
  
   
 
@@ -95,9 +95,13 @@ class MyNodeController extends NodeController {
   makeNode(uiContext: UIContext): FrameNode | null {
     if (this.rootNode === null) {
       this.rootNode = new BuilderNode(uiContext);
-      this.rootNode.build(this.wrapBuilder, { text: "This is a Text" })
+      this.rootNode.build(this.wrapBuilder, { text: 'This is a Text' })
     }
     return this.rootNode.getFrameNode();
+  }
+
+  aboutToDisappear() {
+    this.rootNode?.dispose();
   }
 }
 
@@ -109,13 +113,13 @@ struct Index {
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Start, justifyContent: FlexAlign.SpaceEvenly }) {
-      Text("This is a NodeContainer contains a text and a button ")
+      Text('This is a NodeContainer contains a text and a button ')
         .fontSize(9)
         .fontColor(0xCCCCCC)
       NodeContainer(this.baseNode)
         .borderWidth(1)
         .onClick(() => {
-          console.info("click event");
+          console.info('click event');
         })
     }
     .padding({ left: 35, right: 35, top: 35 })
@@ -126,4 +130,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/d77Nme4_QmK60zt9M7m_vw/zh-cn_image_0000002628862842.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014351Z&HW-CC-Expire=86400&HW-CC-Sign=1C3C29F3994E7ECB7439C071FBB7E5309276449480B1CBDC2FBFB80DEE97725B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/HM9ql8qKRUmEAIejSEFHVQ/zh-cn_image_0000002685928575.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071516Z&HW-CC-Expire=86400&HW-CC-Sign=595D0A285F0AEBE93826847402BE08DD44D342EA5501C93E4588715A87371239)

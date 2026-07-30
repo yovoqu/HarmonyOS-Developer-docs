@@ -1,6 +1,6 @@
 # 使用POI关键字搜索返回数据为空排查指导
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-14
 
@@ -14,10 +14,10 @@
 
 [POI搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search)提供多种查询POI信息的能力：
  
-- [关键字搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#section10316115719593)：通过指定的关键字和可选的地理范围，查询诸如旅游景点、企业和学校之类的地点。
-- [周边搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#section14659235601)：基于用户设备位置进行地点查找。
-- [自动补全](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#section1138105913)：根据输入的关键字返回预测的输入关键字和地点查询建议。
-- [地点详情](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#section977911316112)：查询某个地点更详细的信息。
+- [关键字搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#关键字搜索)：通过指定的关键字和可选的地理范围，查询诸如旅游景点、企业和学校之类的地点。
+- [周边搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#周边搜索)：基于用户设备位置进行地点查找。
+- [自动补全](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#自动补全)：根据输入的关键字返回预测的输入关键字和地点查询建议。
+- [地点详情](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search#地点详情)：查询某个地点更详细的信息。
 
  
  
@@ -92,4 +92,4 @@ A：搜索区划信息时返回最准确的一个，如搜索出关键字相关�
  
 Q：花瓣地图如何监听点击POI对象？
  
-A：建议使用[on('poiClick')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section765416113512)监听POI点击事件。支持传递多个callback异步回调。
+A：建议使用[on('poiClick')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#onpoiclick)监听POI点击事件。支持传递多个callback异步回调。

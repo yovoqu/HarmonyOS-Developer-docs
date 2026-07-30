@@ -71,7 +71,7 @@ let <span style="color: rgb(0,0,255);">conn </span><span style="color: rgb(181,1
  日志打印：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/5siwOP6TQoGkIKuufJbNVQ/zh-cn_image_0000002628610904.png?HW-CC-KV=V1&HW-CC-Date=20260723T013433Z&HW-CC-Expire=86400&HW-CC-Sign=6E61E776679ECF600F372FB90A78F09F4B46E09179EDE1D75771197582838A88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/5siwOP6TQoGkIKuufJbNVQ/zh-cn_image_0000002628610904.png?HW-CC-KV=V1&HW-CC-Date=20260730T072550Z&HW-CC-Expire=86400&HW-CC-Sign=A72D80BC3F10F8FECEA4587C56DFD4B3E68719304323491B71D23721F55B1079)
 
  
 完整样例参考：

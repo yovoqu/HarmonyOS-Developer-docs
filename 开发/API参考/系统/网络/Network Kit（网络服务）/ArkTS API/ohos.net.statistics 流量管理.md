@@ -1,6 +1,6 @@
 # @ohos.net.statistics (流量管理)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-statistics
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -649,6 +649,7 @@ getUidRxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：26.0.0+ |
 | 401 | Parameter error. |
 | 2100002 | Failed to connect to the service. |
 | 2100003 | System internal error. |
@@ -714,6 +715,7 @@ getUidRxBytes(uid: number): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：26.0.0+ |
 | 401 | Parameter error. |
 | 2100002 | Failed to connect to the service. |
 | 2100003 | System internal error. |
@@ -768,6 +770,7 @@ getUidTxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：26.0.0+ |
 | 401 | Parameter error. |
 | 2100002 | Failed to connect to the service. |
 | 2100003 | System internal error. |
@@ -833,6 +836,7 @@ getUidTxBytes(uid: number): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：26.0.0+ |
 | 401 | Parameter error. |
 | 2100002 | Failed to connect to the service. |
 | 2100003 | System internal error. |

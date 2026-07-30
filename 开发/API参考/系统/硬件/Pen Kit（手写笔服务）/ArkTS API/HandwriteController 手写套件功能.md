@@ -1,6 +1,6 @@
 # HandwriteController (手写套件功能)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecontroller
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -255,7 +255,9 @@ import {
   HandwriteController,
   HandwriteComponent,
   PenType,
-  PenHspInfo
+  PenHspInfo,
+  HiddenToolType,
+  HiddenConfig
 } from '@kit.Penkit';
 
 @Entry
@@ -290,6 +292,10 @@ struct HandWriteDemoComp {
           heightRatio: 1, // 可选属性，自定义画布大小，高度占比（0-1）。
           maxCanvasHeight: 5000, // 可选属性，自定义画布最大高度。
           scaleDisabled: false, // 可选属性，是否禁止缩放。
+          hiddenTools: {
+            hiddenOptionalTools: [HiddenToolType.PENCIL], // 可选属性，设置需要隐藏的工具类集合。
+            hiddenArcBox: false  // 可选属性，设置是否隐藏波轮菜单。
+          } as HiddenConfig, // 可选属性，隐藏不需要的手写工具。
           onInit: () => {
             // 画布初始化完成时的回调。此时可以调用接口加载和显示笔记内容。
             this.controller?.load(this.initPath);

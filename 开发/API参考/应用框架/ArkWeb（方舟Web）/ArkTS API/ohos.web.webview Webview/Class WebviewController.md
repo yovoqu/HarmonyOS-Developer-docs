@@ -1,6 +1,6 @@
 # Class (WebviewController)
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -5497,14 +5497,8 @@ setCustomUserAgent(userAgent: string): void
 
 设置自定义用户代理，会覆盖系统的用户代理。
 
-当Web组件src设置了URL时，建议在onControllerAttached回调事件中设置User-Agent，设置方式请参考示例。不建议将User-Agent设置在onLoadIntercept回调事件中，会概率性出现设置失败。
-
-当Web组件src设置为空字符串时，建议先调用setCustomUserAgent方法设置User-Agent，再通过loadUrl加载具体页面。
-
-默认User-Agent定义与使用场景请参考[User-Agent开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent)
-
 > [!NOTE]
-> 当Web组件src设置了URL，且未在onControllerAttached回调事件中设置User-Agent。再调用setCustomUserAgent方法时，可能会出现加载的页面与实际设置User-Agent不符的异常现象。
+> 当Web组件src设置了URL时，建议在 onControllerAttached 回调中设置User-Agent。不要在onLoadIntercept回调中设置，否则可能会设置失败或导致不可预期的后果。 若未在onControllerAttached回调中设置User-Agent，再调用setCustomUserAgent方法时，可能会出现加载的页面与实际设置User-Agent不符的异常现象。 当Web组件src未设置URL时，建议先调用setCustomUserAgent方法设置User-Agent，再通过loadUrl加载具体页面。 默认User-Agent定义与使用场景请参考 User-Agent开发指导
 
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -6843,7 +6837,7 @@ createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter
 
 | 类型 | 说明 |
 | --- | --- |
-| print.PrintDocumentAdapter | 返回打印文档的适配器。 |
+| print.PrintDocumentAdapter | 打印文档的适配器，用于控制打印行为和打印任务，可通过打印服务打印当前网页内容。 |
 
 
 **错误码：**
@@ -9691,6 +9685,10 @@ struct Index {
                 // 获取沙箱路径，设置pdf文件名
                 let filePath = context.filesDir + "/test.pdf";
                 let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
+                if (error) {
+                  console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+                  return;
+                }
                 fileIo.write(file.fd, result.pdfArrayBuffer().buffer).then((writeLen: number) => {
                   console.info("createPDF write data to file succeeded and size is:" + writeLen);
                 }).catch((err: BusinessError) => {
@@ -9733,7 +9731,7 @@ createPdf(configuration: PdfConfiguration): Promise&lt;PdfData&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;PdfData&gt; | Promise实例，返回网页数据流。 |
+| Promise&lt;PdfData&gt; | Promise实例，返回网页PDF数据流（PdfData对象，包含ArrayBuffer表示的PDF二进制数据）。 |
 
 
 **错误码：**
@@ -10805,7 +10803,7 @@ getBlanklessInfoWithKey(key: string): BlanklessInfo
 
 | 类型 | 说明 |
 | --- | --- |
-| BlanklessInfo | 页面首屏加载预测信息，主要包括首屏相似度预测值，首屏加载耗时预测值，应用需根据此信息来决策是否启用无白屏加载插帧。 |
+| BlanklessInfo | 页面首屏加载预测信息对象，应用需根据此信息来决策是否启用无白屏加载插帧。 |
 
 
 **错误码：**
@@ -12175,6 +12173,85 @@ struct WebComponent {
 
   build() {
     Column() {
+      Web({ src: 'https://www.example.com', controller: this.controller })
+    }
+  }
+}
+```
+
+
+
+#### executeAIPageCommand
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+executeAIPageCommand(command: string): Promise&lt;string&gt;
+
+异步执行AIPageCommand。该接口通过JSON字符串形式的command参数指定命令类型和命令参数，使用Promise异步回调。
+
+> [!NOTE]
+> 当网页不可用、命令无法执行或无结果返回时，Promise返回空字符串。 返回值非空时为JSON字符串，应用可通过JSON.parse解析后使用。
+
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| command | string | 是 | JSON格式的命令参数。不同命令的参数格式不同，查询类命令请参见AIPageCommand，交互类命令请参见AIPageInteraction。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;string&gt; | Promise对象，返回JSON格式的命令执行结果。不同命令的返回格式不同。执行失败或无返回值时，返回空字符串。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Webview错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17100001 | Init error. The WebviewController must be associated with a Web component. |
+| 17100024 | Command format error. The command parameter does not conform to the JSON format requirements. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.ets
+import { webview } from '@kit.ArkWeb';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+interface AIPageCommand {
+  method: string;
+}
+
+@Entry
+@Component
+struct WebComponent {
+  controller: webview.WebviewController = new webview.WebviewController();
+
+  build() {
+    Column() {
+      Button('executeAIPageCommand')
+        .onClick(async () => {
+          try {
+            let commandObj: AIPageCommand = { method: 'getFullDom' };
+            let command: string = JSON.stringify(commandObj);
+            let result: string = await this.controller.executeAIPageCommand(command);
+            console.info(`executeAIPageCommand result: ${result}`);
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
       Web({ src: 'https://www.example.com', controller: this.controller })
     }
   }

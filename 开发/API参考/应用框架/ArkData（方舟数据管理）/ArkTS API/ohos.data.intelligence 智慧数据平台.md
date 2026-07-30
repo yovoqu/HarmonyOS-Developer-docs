@@ -1,6 +1,6 @@
 # @ohos.data.intelligence (智慧数据平台)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-intelligence
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 智慧数据平台（ArkData Intelligence Platform，AIP）提供端侧数据智慧化构建，使应用数据向量化，通过嵌入模型将非结构化的文本、图像等多模态数据，转换成具有语义的向量。
 
 > [!NOTE]
-> 本模块首批接口从API version 15开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 考虑到数据向量化处理的计算量和资源占用较大，当前仅支持在2in1设备上使用。
+> 本模块首批接口从API version 15开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 
@@ -32,7 +32,7 @@ getTextEmbeddingModel(config: ModelConfig): Promise&lt;TextEmbedding&gt;
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 在API版本26.0.0之前，该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码；从API版本26.0.0开始，该接口在PC/2in1、Phone和Tablet设备中可正常调用，在其他设备类型中返回801错误码。
 
 **参数：**
 
@@ -83,6 +83,40 @@ intelligence.getTextEmbeddingModel(textConfig)
 
 
 
+#### intelligence.getSupportedCloudModel
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getSupportedCloudModel(): Promise<Array&lt;CloudModelInfo&gt;>
+
+获取支持的云侧模型信息。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
+
+**设备行为差异：** 该接口在PC/2in1、Phone和Tablet设备中可正常调用，在其他设备类型中返回801错误码。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;CloudModelInfo&gt;> | Promise对象，返回支持的云侧模型信息。 |
+
+
+**示例：**
+
+```text
+intelligence.getSupportedCloudModel()
+  .then((info: Array<intelligence.CloudModelInfo>) => {
+    console.info("Succeeded in getting CloudModelInfo");
+  });
+```
+
+
+
 #### intelligence.getImageEmbeddingModel
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -93,7 +127,7 @@ getImageEmbeddingModel(config: ModelConfig): Promise&lt;ImageEmbedding&gt;
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码。
 
 **参数：**
 
@@ -154,7 +188,7 @@ splitText(text: string, config: SplitConfig): Promise<Array&lt;string&gt;>
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码。
 
 **参数：**
 
@@ -217,6 +251,8 @@ intelligence.splitText(splitText, splitConfig)
 | version | ModelVersion | 否 | 否 | 模型的版本。 |
 | isNpuAvailable | boolean | 否 | 否 | 指示是否使用NPU加速向量化过程，true表示使用，false表示不使用。如果设备不支持NPU，调用加载模型会失败，并抛出错误码31300000。 |
 | cachePath | string | 否 | 是 | 如果使用NPU进行加速，则需要本地路径进行模型缓存。格式为/xxx/xxx/xxx，xxx为路径地址，例如"/data"。长度上限为512个字符。默认值为""。 |
+| modelInfo | CloudModelInfo | 否 | 是 | 云侧模型类型和版本信息，在使用文本向量模型时配置，通过getSupportedCloudModel接口获取支持的模型信息，默认值为空。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| networkPolicy | NetworkPolicy | 否 | 是 | 下载云侧模型的网络策略，在使用文本向量模型时配置，默认值为WIFI_ONLY。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -232,6 +268,46 @@ intelligence.splitText(splitText, splitConfig)
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | BASIC_MODEL | 0 | 基本嵌入模型版本。 |
+
+
+
+
+#### CloudModelInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+云侧模型的配置信息，在使用云侧文本向量模型时配置，可通过[getSupportedCloudModel](#intelligencegetsupportedcloudmodel)接口获取当前设备支持的云侧模型信息。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| modelType | string | 否 | 否 | 模型类型名称。如： “arkdata_text_embedding”：云侧文本向量模型。 |
+| modelVersionCode | string | 否 | 是 | 模型版本，默认值为空。 |
+
+
+
+
+#### NetworkPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+下载云侧模型的网络策略枚举。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| WIFI_ONLY | 0 | 仅在wifi状态下下载模型。 |
+| WIFI_AND_CELLULAR | 1 | 在wifi和蜂窝网络状态下下载模型。 |
 
 
 
@@ -279,6 +355,8 @@ type Image = string
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
+**设备行为差异：** 该接口在PC/2in1、Phone和Tablet设备中可正常调用，在其他设备类型中返回801错误码。
+
 
 
 #### loadModel
@@ -291,7 +369,7 @@ loadModel(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 在API版本26.0.0之前，该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码；从API版本26.0.0开始，该接口在PC/2in1、Phone和Tablet设备中可正常调用，在其他设备类型中返回801错误码。
 
 **返回值：**
 
@@ -336,7 +414,7 @@ releaseModel(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 在API版本26.0.0之前，该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码；从API版本26.0.0开始，该接口在PC/2in1、Phone和Tablet设备中可正常调用，在其他设备类型中返回801错误码。
 
 **返回值：**
 
@@ -383,7 +461,7 @@ getEmbedding(text: string): Promise<Array&lt;number&gt;>
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 在API版本26.0.0之前，该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码；从API版本26.0.0开始，该接口在PC/2in1、Phone和Tablet设备中可正常调用，在其他设备类型中返回801错误码。
 
 **参数：**
 
@@ -440,7 +518,7 @@ getEmbedding(batchTexts: Array&lt;string&gt;): Promise<Array<Array&lt;number&gt;
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 在API版本26.0.0之前，该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码；从API版本26.0.0开始，该接口在PC/2in1、Phone和Tablet设备中可正常调用，在其他设备类型中返回801错误码。
 
 **参数：**
 
@@ -507,7 +585,7 @@ loadModel(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码。
 
 **返回值：**
 
@@ -552,7 +630,7 @@ releaseModel(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码。
 
 **返回值：**
 
@@ -599,7 +677,7 @@ getEmbedding(image: Image): Promise<Array&lt;number&gt;>
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备类型中返回801错误码。
 
 **参数：**
 

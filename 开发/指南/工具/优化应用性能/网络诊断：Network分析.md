@@ -1,6 +1,6 @@
 # 网络诊断：Network分析
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-network
 
@@ -24,10 +24,10 @@ Network模板支持的泳道包括：Network Traffic、Network Request、User Tr
  
 点击**Network Traffic**泳道，可在下方数据区查看录制过程中发生的网络流量消耗情况。
  
-- **Summary**区域可以查看按照网络接口（Network Interfaces）维度统计每个类型的流量消耗，展示信息包含平均下行流量、下行总流量、下行数据包数、平均上行流量、上行总流量、上行数据包数。
+- **Summary**区域可以查看按照网络接口（Network Interfaces）维度统计每个类型的流量消耗，展示信息包含平均下行流量、下行总流量、下行数据包数、网络接口、平均上行流量、上行总流量、上行数据包数。
 ![](assets/网络诊断：Network分析/file-20260514133153790-1.png)
 
-- **Details**区域将展示按时间戳排序的周期上报的网络数据，每个网络数据包含上报时间戳、持续时间、下行流量、下行流量包数、网络数据类型、上行流量、上行流量包数。
+- **Details**区域将展示按时间戳排序的周期上报的网络数据，每个网络数据包含上报时间戳、持续时间、下行流量、下行流量包数、网络接口、上行流量、上行流量包数。
 ![](assets/网络诊断：Network分析/file-20260514133153790-2.png)
 
 
@@ -70,7 +70,7 @@ DevEco Profiler的Network分析任务，提供了启动过程网络问题分析�
  
  
 具体操作方法为：在任务列表中单击Network任务后的
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/cBLtoMbUSiic3YGWc9gZkQ/zh-cn_image_0000002594634306.png?HW-CC-KV=V1&HW-CC-Date=20260624T020721Z&HW-CC-Expire=86400&HW-CC-Sign=0F55302126986E347411F87625E1EAB26421B4F4E288E58C4A0AA4AF360AED7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/vXg-Wn_oQ-SjzCA7nINYvg/zh-cn_image_0000002678156159.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=4E1F5F0ED23FE7FA15ECB42BFCE165CF7D6C12F2B3FDB1E8E3D2568AB407B191)
 按钮。
  
 在分析结束后，呈现出的数据类型以及相应的处理方法，与非启动过程的分析相同。

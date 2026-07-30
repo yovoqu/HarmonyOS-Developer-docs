@@ -1,6 +1,6 @@
 # XEngine
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -32,7 +32,7 @@
 | xeg_extension_defs.h | 提供XEngine扩展特性宏定义信息。 |
 | xeg_gles_adaptive_vrs.h | XEngine自适应VRS（Variable Rate Shading，可变速率着色）特性GLES接口。使用此头文件的接口前需要通过HMS_XEG_GetString接口查询XEG_ADAPTIVE_VRS_EXTENSION_NAME扩展可用。 |
 | xeg_gles_extension.h | XEngine扩展特性查询接口（OpenGL ES）。 |
-| xeg_gles_neural_upscale.h | XEngine空域AI超分特性OpenGL ES接口，推荐超分倍率为[1.0, 1.5]。使用此头文件中的接口前需要通过HMS_XEG_GetString接口查询XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用。 |
+| xeg_gles_neural_upscale.h | XEngine空域AI超分特性OpenGL ES接口。使用此头文件中的接口前需要通过HMS_XEG_GetString接口查询XEG_NEURAL_UPSCALE_EXTENSION_NAME或者XEG_NEURAL_UPSCALE2_EXTENSION_NAME扩展是否可用。 |
 | xeg_gles_spatial_upscale.h | XEngine空域GPU超分特性OpenGL ES接口。使用此头文件的接口前需要通过HMS_XEG_GetString接口查询XEG_SPATIAL_UPSCALE_EXTENSION_NAME扩展可用。 |
 | xeg_gles_temporal_upscale.h | XEngine时域AI超分特性OpenGL ES接口。推荐超分倍率为[1.25, 2.0]，使用此头文件中的接口前需要通过HMS_XEG_GetString接口查询XEG_TEMPORAL_UPSCALE_EXTENSION_NAME扩展可用。 |
 | xeg_vulkan_adaptive_vrs.h | XEngine自适应VRS（Variable Rate Shading，可变速率着色）特性vulkan接口。使用此头文件的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_ADAPTIVE_VRS_EXTENSION_NAME扩展可用。 |
@@ -96,6 +96,7 @@
 | XEG_neural_upscale 1 | XEngine空域AI超分扩展特性宏定义。 |
 | XEG_NEURAL_UPSCALE_VERSION 1 | XEngine空域AI超分扩展特性版本号。 |
 | XEG_NEURAL_UPSCALE_EXTENSION_NAME "XEG_neural_upscale" | XEngine空域AI超分扩展特性名称。 |
+| XEG_NEURAL_UPSCALE2_EXTENSION_NAME "XEG_neural_upscale2" | XEngine空域AI超分（版本2）扩展特性名称。 |
 | XEG_temporal_upscale 1 | XEngine时域AI超分扩展特性宏定义。 |
 | XEG_TEMPORAL_UPSCALE_VERSION 1 | XEngine时域AI超分扩展特性版本号。 |
 | XEG_TEMPORAL_UPSCALE_EXTENSION_NAME "XEG_temporal_upscale" | XEngine时域AI超分扩展特性名称。 |
@@ -492,21 +493,19 @@ XEngine空域AI超分扩展特性名称。
  
   
 
-#### XEG_NEURAL_UPSCALE_INPUT_HANDLE
+#### XEG_NEURAL_UPSCALE2_EXTENSION_NAME
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-#define XEG_NEURAL_UPSCALE_INPUT_HANDLE   0x4U
+#define XEG_NEURAL_UPSCALE2_EXTENSION_NAME   "XEG_neural_upscale2"
 ```
  
 **描述**
  
-用于通过[HMS_XEG_NeuralUpscaleParameter](#hms_xeg_neuralupscaleparameter)接口设置与超分输入纹理关联的[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer) handle。
+XEngine空域AI超分（版本2）扩展特性名称。
  
-使用此宏定义设置超分输入参数时，向接口传递的param值必须是与向[HMS_XEG_RenderNeuralUpscale](#hms_xeg_renderneuralupscale)接口传递的inputTexture纹理参数对应的合法的[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer) handle，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。必选参数。
- 
-**起始版本：** 5.0.0(12)
+**起始版本：** 26.0.0
  
   
 
@@ -522,7 +521,9 @@ XEngine空域AI超分扩展特性名称。
  
 用于通过[HMS_XEG_NeuralUpscaleParameter](#hms_xeg_neuralupscaleparameter)接口设置超分的裁剪窗口参数，裁剪窗口用于确定对输入图像采样的区域。
  
-使用此宏定义设置裁剪窗口参数时，向接口传递的param值必须是长度为4的无符号整数数组，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。数组中的值依次为：x， y， width， height，其中x、y确定裁剪窗口的左下角，width、height分别确定裁剪窗口的宽和高。 可选参数，不设置裁剪窗口参数时的默认值为（0， 0， 输入纹理的宽， 输入纹理的高）。
+使用此宏定义设置裁剪窗口参数时，向接口传递的param值必须是长度为4的无符号整数数组，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。数组中的值依次为：x，y，width，height，其中x、y确定裁剪窗口的左下角，width、height分别确定裁剪窗口的宽和高。
+ 
+可选参数，不设置裁剪窗口参数时的默认值为（0， 0， 输入纹理的宽， 输入纹理的高）。
  
 **起始版本：** 5.0.0(12)
  
@@ -540,7 +541,31 @@ XEngine空域AI超分扩展特性名称。
  
 用于通过[HMS_XEG_NeuralUpscaleParameter](#hms_xeg_neuralupscaleparameter)接口设置超分的锐化度参数，锐化度的建议取值范围为[0.0, 1.0]。
  
-使用此宏定义设置超分的锐化度参数时，向接口传递的param值必须是指向一个float值的合法指针，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。 可选参数，不设置锐化度参数时的默认值为0.2。
+使用此宏定义设置超分的锐化度参数时，向接口传递的param值必须是指向一个float值的合法指针，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。
+ 
+可选参数，不设置锐化度参数时的默认值为0.2。
+ 
+**起始版本：** 5.0.0(12)
+ 
+  
+
+#### XEG_NEURAL_UPSCALE_INPUT_HANDLE
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+#define XEG_NEURAL_UPSCALE_INPUT_HANDLE   0x4U
+```
+ 
+**描述**
+ 
+用于通过[HMS_XEG_NeuralUpscaleParameter](#hms_xeg_neuralupscaleparameter)接口设置与超分输入纹理关联的[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer) handle。
+ 
+使用此宏定义设置超分输入参数时，向接口传递的param值必须是与向[HMS_XEG_RenderNeuralUpscale](#hms_xeg_renderneuralupscale)接口传递的inputTexture纹理参数对应的合法的[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer) handle，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。
+ 
+当[XEG_NEURAL_UPSCALE_EXTENSION_NAME](#xeg_neural_upscale_extension_name)扩展可用时，该参数为必选参数。
+ 
+当[XEG_NEURAL_UPSCALE2_EXTENSION_NAME](#xeg_neural_upscale2_extension_name)扩展可用时，不需要设置该参数。
  
 **起始版本：** 5.0.0(12)
  
@@ -1673,7 +1698,7 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_RENDERNEURALUPSCALE) (GLuint inputTexture)
   
 | 名称 | 描述 |
 | --- | --- |
-| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1，纹理的宽度取值范围是[448, 1728]，单位为像素，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。 |
+| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1。 当XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用时，纹理的宽度取值范围是[448, 1728]，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。 当XEG_NEURAL_UPSCALE2_EXTENSION_NAME扩展可用时，纹理的宽度取值范围建议[448, 1792]，此输入纹理不需要由OH_NativeBuffer创建。 |
  
  
   
@@ -1789,6 +1814,8 @@ typedef void(*PFN_HMS_XEG_ControlDisplaySeparationStatusCallback) (XEG_ControlDi
  
 控显分离特性监听函数的函数指针定义。
  
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
+ 
 **起始版本：** 26.0.0
  
 **参数:**
@@ -1811,6 +1838,8 @@ typedef bool(*PFN_HMS_XEG_SetControlDisplaySeparationStatusListener) (PFN_HMS_XE
 **描述**
  
 设置控显分离特性全局唯一监听函数的函数指针定义。
+ 
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
  
 **起始版本：** 26.0.0
  
@@ -1839,6 +1868,8 @@ typedef void(*PFN_HMS_XEG_RemoveControlDisplaySeparationStatusListener) ();
  
 移除控显分离特性全局唯一监听函数的函数指针定义。
  
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
+ 
 **起始版本：** 26.0.0
  
   
@@ -1854,6 +1885,8 @@ typedef bool(*PFN_HMS_XEG_SetControlDisplaySeparationActive) (bool flag);
 **描述**
  
 设置控显分离特性使能开关的函数指针定义。
+ 
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
  
 **起始版本：** 26.0.0
  
@@ -2298,6 +2331,8 @@ typedef enum XEG_ControlDisplaySeparationStatus XEG_ControlDisplaySeparationStat
  
 控显分离当前的状态信息的枚举
  
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
+ 
 **起始版本：** 26.0.0
  
   
@@ -2421,6 +2456,8 @@ enum XEG_ControlDisplaySeparationStatus
 **描述**
  
 控显分离当前的状态信息的枚举
+ 
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
  
 **起始版本：** 26.0.0
   
@@ -3273,7 +3310,7 @@ GL_APICALL void GL_APIENTRY HMS_XEG_RenderNeuralUpscale (GLuint inputTexture)
   
 | 名称 | 描述 |
 | --- | --- |
-| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1，纹理的宽度取值范围是[448, 1728]，单位为像素，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。 |
+| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1。 当XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用时，纹理的宽度取值范围是[448, 1728]，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。 当XEG_NEURAL_UPSCALE2_EXTENSION_NAME扩展可用时，纹理的宽度取值范围建议[448, 1792]，此输入纹理不需要由OH_NativeBuffer创建。 |
  
  
   
@@ -3389,6 +3426,8 @@ bool HMS_XEG_SetControlDisplaySeparationStatusListener(PFN_HMS_XEG_ControlDispla
  
 设置控显分离特性全局唯一监听函数。
  
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
+ 
 **起始版本：** 26.0.0
  
 **参数:**
@@ -3416,6 +3455,8 @@ void HMS_XEG_RemoveControlDisplaySeparationStatusListener();
  
 移除控显分离特性全局唯一监听函数。
  
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
+ 
 **起始版本：** 26.0.0
  
   
@@ -3431,6 +3472,8 @@ bool HMS_XEG_SetControlDisplaySeparationActive(bool flag);
 **描述**
  
 设置控显分离特性使能开关。
+ 
+**设备行为差异：** 该接口只在部分折叠手机上可正常使用，在其他设备中不可交互。
  
 **起始版本：** 26.0.0
  

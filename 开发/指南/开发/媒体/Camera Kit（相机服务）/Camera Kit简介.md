@@ -1,6 +1,6 @@
 # Camera Kit简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-overview
 
@@ -42,3 +42,13 @@
 
 
 ![](assets/Camera%20Kit简介/file-20260514131511783-1.png)
+
+
+
+
+#### 模拟器支持情况
+
+本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下。
+
+ - 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification)。
+ - 模拟器仅支持1280*720分辨率下的相机预览与拍照能力。

@@ -84,7 +84,7 @@ struct PageTwo {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/L1st2PbJQN2h_zwlQFeIug/zh-cn_image_0000002628559672.png?HW-CC-KV=V1&HW-CC-Date=20260723T013015Z&HW-CC-Expire=86400&HW-CC-Sign=E5FBCFB88C6BDCCC946D4908073F778E4B6681BFD2B8E4AF78AF24066B96048F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/L1st2PbJQN2h_zwlQFeIug/zh-cn_image_0000002628559672.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=9F57D3790062B9B4E1936D1961EBBFE980AC082C53414EDE4C6E233F93922757)
 
  
  
@@ -102,7 +102,7 @@ struct PageTwo {
 #### 问题定位
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/gHjW6MhLRum804WO12pxMg/zh-cn_image_0000002658918979.png?HW-CC-KV=V1&HW-CC-Date=20260723T013015Z&HW-CC-Expire=86400&HW-CC-Sign=25054A24A26AD55E7FDB1150AB0BE2249ECF01293B051D75BA629B93C9B1A14C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/gHjW6MhLRum804WO12pxMg/zh-cn_image_0000002658918979.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=4D22C67E2AA4E2C53BD0F017C210A9EEC9A8FBDFD482221CC459AC33806B5DD5)
 
  
 查阅官方文档关于pushPath方法的[NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10)入参说明，其中的onPop回调函数仅pop、[popToName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#poptoname11)、[popToIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#poptoindex11)中设置result参数后触发。

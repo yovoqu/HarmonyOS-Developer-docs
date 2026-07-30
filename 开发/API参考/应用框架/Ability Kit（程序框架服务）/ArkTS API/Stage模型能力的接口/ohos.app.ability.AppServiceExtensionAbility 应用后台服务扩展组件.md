@@ -1,6 +1,6 @@
 # @ohos.app.ability.AppServiceExtensionAbility (应用后台服务扩展组件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -18,6 +18,7 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
  - 当前仅支持2in1设备。
  - 应用集成AppServiceExtensionAbility的组件需要申请ACL权限（ohos.permission.SUPPORT_APP_SERVICE_EXTENSION）。该ACL权限当前只对企业普通应用开放申请，申请方式参考[权限申请指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+ - 为保障系统安全性和稳定性，防止AppServiceExtensionAbility滥用系统资源，系统对其能力进行管控，不支持[@ohos.window (窗口)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)模块的引用。
 
 
 
@@ -29,7 +30,7 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 AppServiceExtensionAbility提供了[onCreate()](#oncreate)、[onRequest()](#onrequest)、[onConnect()](#onconnect)、[onDisconnect()](#ondisconnect)和[onDestroy()](#ondestroy)生命周期回调，开发者可根据需要重写对应的回调方法。下图展示了AppServiceExtensionAbility的生命周期。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/dNeumVqqQumIzZoDpyG88Q/zh-cn_image_0000002628702236.png?HW-CC-KV=V1&HW-CC-Date=20260701T014230Z&HW-CC-Expire=86400&HW-CC-Sign=41F3C40BEEA023DD31654C242E410154EAA0A27433C4EAD38E4E7DA6ADCE371D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/CQs09esqRLa9TeeQa8oeWQ/zh-cn_image_0000002685927837.png?HW-CC-KV=V1&HW-CC-Date=20260730T071420Z&HW-CC-Expire=86400&HW-CC-Sign=A48ED484C9A745965FDC03BE2AC2B79A07F8CD3CA19FEE077F88CB2830281874)
 
 
  - **onCreate**
@@ -75,6 +76,8 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
+**设备行为差异**：该属性仅在PC/2in1设备中可正常调用，在其他设备上不生效。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | context | AppServiceExtensionContext | 否 | 否 | AppServiceExtensionAbility的上下文环境，继承自ExtensionContext。 |
@@ -95,6 +98,8 @@ onCreate(want: Want): void
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**设备行为差异**：该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
 
 **参数：**
 
@@ -130,6 +135,8 @@ onDestroy(): void
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
+**设备行为差异**：该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
+
 **示例：**
 
 ```text
@@ -156,6 +163,8 @@ onRequest(want: Want, startId: number): void
 调用方每次使用[startAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startappserviceextensionability20)拉起AppServiceExtensionAbility实例时，系统都会触发该回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**设备行为差异**：该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
 
 **参数：**
 
@@ -193,6 +202,8 @@ onConnect(want: Want): rpc.RemoteObject
 应用需要在该接口中返回一个RemoteObject对象，用于客户端和服务端进行通信。当AppServiceExtensionAbility实例处于连接状态时，如果调用方发起新的连接，系统会返回缓存的RemoteObject对象，而不会重复回调onConnect()接口。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**设备行为差异**：该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
 
 **参数：**
 
@@ -245,6 +256,8 @@ onDisconnect(want: Want): void
 当所有连接方断开与AppServiceExtensionAbility实例的连接时，系统会触发该回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**设备行为差异**：该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
 
 **参数：**
 

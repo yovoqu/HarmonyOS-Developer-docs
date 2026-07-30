@@ -13,7 +13,7 @@ Swiper设置居底高度自适应后，希望上方区域不再响应Swiper的�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/7qfQvzc3RYSnrjoH4KNbmg/zh-cn_image_0000002658849559.png?HW-CC-KV=V1&HW-CC-Date=20260723T012811Z&HW-CC-Expire=86400&HW-CC-Sign=AD282A522C19BD4AFA01042CC3489F2793395CBF8ADB0D82F6A35D1F5C6D9227)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/7qfQvzc3RYSnrjoH4KNbmg/zh-cn_image_0000002658849559.png?HW-CC-KV=V1&HW-CC-Date=20260730T072411Z&HW-CC-Expire=86400&HW-CC-Sign=83311873562BBE3768C2715499FB117BC54F089A4C13726363B630342AABB54D)
 
  
  

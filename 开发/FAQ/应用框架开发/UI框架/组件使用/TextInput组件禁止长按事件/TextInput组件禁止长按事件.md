@@ -13,7 +13,7 @@ TextInput组件长按输入框内文本时会自动选中文本，如何实现�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/piXyo911QK67AvL-XyAmVQ/zh-cn_image_0000002628555694.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012610Z&HW-CC-Expire=86400&HW-CC-Sign=3ED99D3E667BD278949FD61FE05725FC9F1E888E4A0C73D6261608A233C4DCC9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/piXyo911QK67AvL-XyAmVQ/zh-cn_image_0000002628555694.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072328Z&HW-CC-Expire=86400&HW-CC-Sign=92A70B2DC833342D13F64FF093878DCD410C185B28850AE2B899E83A6A5C95F9)
 
  
  

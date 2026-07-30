@@ -1,14 +1,14 @@
 # textSearchImage（通过文本搜索图片）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-text-search-image-api
 **支持设备：** Phone | PC/2in1 | Tablet
 
-文本搜索图片提供基于文本描述的图片检索能力。通过输入文本关键词，从已插入的图片库中搜索匹配的图像结果，返回图片路径、作用域和相似度信息。
- 
+文本搜索图片提供基于文本描述的图片检索能力。通过输入文本关键词，从已插入的图片库中搜索匹配的图像结果，返回图片沙箱路径、作用域和相似度信息。
+
 **起始版本：** 26.0.0
-  
+
 
 #### 导入模块
 
@@ -17,62 +17,62 @@
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
 ```
- 
-  
+
+
 
 #### ImageObject
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-待处理图片信息。
- 
+搜索完成后返回的图片信息对象，包含图片沙箱路径、图片作用域和相似度（图像与搜索文本之间对比）。
+
 **系统能力：** SystemCapability.AI.Vision.VisionBase
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **起始版本：** 26.0.0
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| imagePath | string | 是 | 否 | 图片路径。 |
+| imagePath | string | 是 | 否 | 图片沙箱路径。 |
 | scope | string | 是 | 否 | 图片作用域。 |
-| similarity | number | 是 | 否 | 相似度，取值范围为[-1, 1]的浮点数，数值越大相似度越高，反之则相似度越低。 |
- 
- 
-  
+| similarity | number | 是 | 否 | 图像和相关文本的相似度，取值范围为[-1, 1]，数值越大相似度越高，反之则相似度越低。 |
+
+
+
 
 #### textSearchImage.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 init(): Promise&lt;boolean&gt;
- 
+
 初始化文本搜索图片分析器服务。使用Promise异步回调。
- 
+
 **系统能力：** SystemCapability.AI.Vision.VisionBase
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **起始版本：** 26.0.0
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回true表示初始化成功，返回false表示初始化失败。 |
- 
- 
+
+
 **错误码：**
- 
+
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
-  
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1013100002 | Service abnormal. |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -104,60 +104,66 @@ struct Page {
   }
 }
 ```
- 
-  
+
+
 
 #### textSearchImage.insertImage
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 insertImage(imagePath: string, scope: string): Promise&lt;boolean&gt;
- 
+
 在数据库中插入图片特征。使用Promise异步回调。
- 
+
 **系统能力：** SystemCapability.AI.Vision.VisionBase
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **起始版本：** 26.0.0
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| imagePath | string | 是 | 图片路径。 |
-| scope | string | 是 | 图片作用域。 |
- 
- 
+| imagePath | string | 是 | 图片沙箱路径，允许的长度范围[1,128]，支持字母、数字、符号。对于图像尺寸的要求，详细内容请参考约束与限制。 |
+| scope | string | 是 | 图片作用域，允许的长度范围[1,32]，支持字母或数字。 |
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回true表示插入成功，返回false表示插入失败。 |
- 
- 
+
+
 **错误码：**
- 
+
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
-  
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1013100001 | Invalid image path. |
 | 1013100002 | Service abnormal. |
 | 1013100003 | The capability has been updated. Please use the function clearData, and after completing it, use this function again. |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { common } from '@kit.AbilityKit';
 
-async function insertImage() {
-  const imagePath = '/data/storage/el2/base/haps/entry/files/image.jpg';
-  const scope = 'default_scope';
+async function insertImage(context: common.UIAbilityContext) {
+  // 正确获取应用级别的沙箱路径
+  const applicationContext = context.getApplicationContext();
+  const filesDir = applicationContext.filesDir;
   
+  // 请确保该路径下确实存在对应的图片文件
+  const imagePath = filesDir + '/haps/entry/files/image.jpg';
+  const scope = 'default_scope';
+
   try {
     const result = await textSearchImage.insertImage(imagePath, scope);
     hilog.info(0x0000, 'textSearchImageSample', `Insert image result: ${result}`);
@@ -170,61 +176,65 @@ async function insertImage() {
 @Entry
 @Component
 struct Page {
-
   build() {
-    Column(){
-      Button('insertImage').onClick(() => {
-        void insertImage();
-      })
+    Column() {
+      Button('insertImage')
+        .onClick(() => {
+          const context = getContext(this) as common.UIAbilityContext;
+          void insertImage(context);
+        })
     }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
   }
 }
 ```
- 
-  
+
+
 
 #### textSearchImage.search
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 search(query: string, scope: string, topKey?: number): Promise<Array&lt;ImageObject&gt;>
- 
+
 返回匹配搜索条件的图片集合。使用Promise异步回调。
- 
+
 **系统能力：** SystemCapability.AI.Vision.VisionBase
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **起始版本：** 26.0.0
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| query | string | 是 | 查询词。 |
-| scope | string | 是 | 图片作用域。 |
+| query | string | 是 | 查询词，允许的长度范围[1,100]，不支持纯数字和纯字母，支持中文，拼接数字，字母或者符号。 |
+| scope | string | 是 | 图片作用域，允许的长度范围[1,32]，支持字母或数字。 |
 | topKey | number | 否 | 在满足匹配条件的前提下，自定义返回图片数量的上限，默认值为100。取值范围为[0, 100]的整数。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Array&lt;ImageObject&gt;> | Promise对象，返回匹配的图片结果列表。 |
- 
- 
+
+
 **错误码：**
- 
+
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
-  
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1013100002 | Service abnormal. |
 | 1013100003 | The capability has been updated. Please use the function clearData, and after completing it, use this function again. |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -260,58 +270,64 @@ struct Page {
   }
 }
 ```
- 
-  
+
+
 
 #### textSearchImage.deleteImage
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 deleteImage(imagePath: string, scope: string): Promise&lt;boolean&gt;
- 
-从数据库中删除图片数据。使用Promise异步回调。
- 
+
+从数据库中删除该图片记录。使用Promise异步回调。
+
 **系统能力：** SystemCapability.AI.Vision.VisionBase
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **起始版本：** 26.0.0
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| imagePath | string | 是 | 图片路径。 |
-| scope | string | 是 | 图片作用域。 |
- 
- 
+| imagePath | string | 是 | 图片沙箱路径，允许的长度范围[1,128]，支持字母、数字、符号。 |
+| scope | string | 是 | 图片作用域，允许的长度范围[1,32]，支持字母或数字。 |
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回true表示删除成功，返回false表示删除失败。 |
- 
- 
+
+
 **错误码：**
- 
+
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
-  
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1013100002 | Service abnormal. |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { common } from '@kit.AbilityKit';
 
-async function deleteImage() {
-  const imagePath = '/data/storage/el2/base/haps/entry/files/image.jpg';
+async function deleteImage(context: common.UIAbilityContext) {
+  // 正确获取应用级别的沙箱路径
+  const applicationContext = context.getApplicationContext();
+  const filesDir = applicationContext.filesDir;
+
+  // 请确保该路径下确实存在对应的图片文件
+  const imagePath = filesDir + '/haps/entry/files/image.jpg';
   const scope = 'default_scope';
-  
+
   try {
     const result = await textSearchImage.deleteImage(imagePath, scope);
     hilog.info(0x0000, 'textSearchImageSample', `Delete image result: ${result}`);
@@ -324,51 +340,51 @@ async function deleteImage() {
 @Entry
 @Component
 struct Page {
-
   build() {
-    Column(){
+    Column() {
       Button('deleteImage').onClick(() => {
-        void deleteImage();
+        const context = getContext(this) as common.UIAbilityContext;
+        void deleteImage(context);
       })
     }
   }
 }
 ```
- 
-  
+
+
 
 #### textSearchImage.clearData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 clearData(): Promise&lt;boolean&gt;
- 
-清除数据库中所有数据。使用Promise异步回调。
- 
+
+清除数据库中所有数据，建议在模型能力更新后执行。使用Promise异步回调。
+
 **系统能力：** SystemCapability.AI.Vision.VisionBase
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **起始版本：** 26.0.0
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回true表示清除数据成功，返回false表示清除数据失败。 |
- 
- 
+
+
 **错误码：**
- 
+
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
-  
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1013100002 | Service abnormal. |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -397,41 +413,41 @@ struct Page {
   }
 }
 ```
- 
-  
+
+
 
 #### textSearchImage.release
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 release(): Promise&lt;boolean&gt;
- 
+
 释放文本搜索图片分析器服务。使用Promise异步回调。
- 
+
 **系统能力：** SystemCapability.AI.Vision.VisionBase
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **起始版本：** 26.0.0
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回true表示释放成功，返回false表示释放失败。 |
- 
- 
+
+
 **错误码：**
- 
+
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
-  
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1013100002 | Service abnormal. |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

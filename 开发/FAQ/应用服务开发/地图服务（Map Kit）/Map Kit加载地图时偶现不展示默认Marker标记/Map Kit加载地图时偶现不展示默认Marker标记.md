@@ -1,6 +1,6 @@
 # Map Kit加载地图时偶现不展示默认Marker标记
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-24
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-[getEventManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section154601059144812)：返回地图监听事件管理器。
+[getEventManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#geteventmanager)：返回地图监听事件管理器。
  
  
 
@@ -30,4 +30,4 @@
 
 #### 修改建议
 
-在初始化地图方法的callback回调中，执行添加默认Marker的方法，保证地图初始化完成后再调用添加默认Marker的方法。正确用法见[添加标记](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-marker#section2594451570)。
+在初始化地图方法的callback回调中，执行添加默认Marker的方法，保证地图初始化完成后再调用添加默认Marker的方法。正确用法见[添加标记](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-marker#添加标记)。

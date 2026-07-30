@@ -1,6 +1,6 @@
 # Navigation
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,6 +54,8 @@ Navigation(pathInfos: NavPathStack)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -71,9 +73,11 @@ Navigation(pathInfos: NavPathStack)
 
 Navigation(pathInfos: NavPathStack, homeDestination: HomePathInfo)
 
-绑定路由栈到Navigation组件，并且指定一个NavDestination作为Navigation的导航页（主页），适用于使用[NavPathStack](#navpathstack10)配合[navDestination](#navdestination10)属性或者系统路由表进行页面路由。使用示例参考[示例16（Navigation使用NavDestination作为导航页）](#示例16navigation使用navdestination作为导航页)。
+绑定路由栈到Navigation组件，指定一个NavDestination作为Navigation的导航页（主页），适用于使用[NavPathStack](#navpathstack10)配合[navDestination](#navdestination10)属性或者系统路由表进行页面路由。使用示例参考[示例16（Navigation使用NavDestination作为导航页）](#示例16navigation使用navdestination作为导航页)。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -120,7 +124,7 @@ title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCus
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ResourceStr10+ \| CustomBuilder \| NavigationCommonTitle9+ \| NavigationCustomTitle9+ | 是 | 页面标题，使用NavigationCustomTitle类型设置height高度时，titleMode属性不会生效。 字符串超长时，如果不设置副标题，先缩小再换行（2行）最后截断。如果设置副标题，先缩小最后截断。 |
-| options11+ | NavigationTitleOptions | 否 | 标题栏选项。包含标题栏背景颜色、标题栏背景模糊样式及模糊选项、标题栏背景属性、标题栏布局方式、标题栏起始端内间距、标题栏结束端内间距、主标题属性修改器、子标题属性修改器、是否响应悬停态。 |
+| options11+ | NavigationTitleOptions | 否 | 标题栏选项。包含标题栏背景颜色、标题栏背景模糊样式及模糊选项、标题栏背景属性、标题栏布局方式、标题栏滚动模糊效果选项、标题栏起始端内间距、标题栏结束端内间距、主标题属性修改器、子标题属性修改器、是否响应悬停态。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -131,7 +135,7 @@ title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCus
 
 menus(value: Array&lt;NavigationMenuItem&gt; | CustomBuilder)
 
-设置页面右上角菜单。不设置时不显示菜单项。使用Array<[NavigationMenuItem](#navigationmenuitem)> 写法时，竖屏最多支持显示3个图标，横屏最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。
+设置页面右上角菜单。不设置时不显示菜单项。使用Array<[NavigationMenuItem](#navigationmenuitem)>写法时，竖屏最多支持显示3个图标，横屏最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -159,6 +163,8 @@ menus(items: Array&lt;NavigationMenuItem&gt; | CustomBuilder, options?: Navigati
 
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -207,6 +213,8 @@ toolbarConfiguration(value: Array&lt;ToolbarItem&gt; | CustomBuilder, options?: 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -250,6 +258,8 @@ hideToolBar(hide: boolean, animated: boolean)
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -292,6 +302,8 @@ hideTitleBar(hide: boolean, animated: boolean)
 设置是否隐藏标题栏。与[hideTitleBar](#hidetitlebar)相比，新增标题栏显隐时是否使用动画。
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -430,6 +442,8 @@ backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier, accessi
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -475,6 +489,8 @@ navDestination(builder: (name: string, param: unknown) => void)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -507,6 +523,8 @@ navBarWidthRange(value: [Dimension, Dimension])
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -528,6 +546,8 @@ minContentWidth(value: Dimension)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -548,10 +568,12 @@ ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;L
 控制组件的布局，使其扩展到非安全区域。
 
 > [!TIP]
-> 组件设置ignoreLayoutSafeArea之后生效的条件为： 设置LayoutSafeAreaType.SYSTEM时，组件的边界与非安全区域重合时组件能够延伸到非安全区域下。 若组件扩展到非安全区域内，此时在非安全区域里触发的事件（例如：点击事件）等可能会被系统拦截，优先响应状态栏等系统组件。 组件想要扩展到非安全区域内，需隐藏或者设置标题栏和工具栏为 STACK 模式。
+> 组件设置ignoreLayoutSafeArea之后生效的条件为： 设置LayoutSafeAreaType.SYSTEM时，组件的边界与非安全区域重合时组件能够延伸到非安全区域下。 若组件扩展到非安全区域内，此时在非安全区域里触发的事件（例如：点击事件）等可能会被系统拦截，优先响应状态栏等系统组件。 组件想要扩展到非安全区域内，需隐藏或者设置标题栏和工具栏为 STACK 模式，否则无法扩展到非安全区域。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -579,6 +601,8 @@ systemBarStyle(style: Optional&lt;SystemBarStyle&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -602,6 +626,8 @@ recoverable(recoverable: Optional&lt;boolean&gt;)
 > 使用该接口需要先设置Navigation的通用属性 id ，否则该接口无效。 该接口需要配合NavDestination的 recoverable 接口使用。 恢复的过程中不可序列化的信息，例如不可序列化的参数与用户设置的onPop等，会被丢弃，无法恢复。 当应用退到后台，因系统资源不足等原因被系统终止后，如果某页面已配置为可恢复，当应用再次被唤醒至前台时，系统将自动恢复该页面。详细说明请参考 UIAbility备份恢复 ，详细使用请参考 示例18 。
 
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -622,6 +648,8 @@ enableDragBar(isEnabled: Optional&lt;boolean&gt;)
 控制分栏场景下是否显示拖拽条。该属性在PC/2in1设备上不生效。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -644,6 +672,8 @@ enableModeChangeAnimation(isEnabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -664,6 +694,8 @@ enableToolBarAdaptation(enable: Optional&lt;boolean&gt;)
 设置是否启用Navigation和NavDestination的工具栏[toolbarConfiguration](#toolbarconfiguration10)自适应能力。关闭此能力后，底部工具栏[toolbarConfiguration](#toolbarconfiguration10)将不会再移动至页面右上角的菜单中。该接口不适配于自定义菜单，使用该接口需采用[NavigationMenuItem](#navigationmenuitem)接口来定义[menus](#menus)。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -686,6 +718,8 @@ Navigation双栏模式下，支持设置右侧页面显示默认占位页，占�
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -707,9 +741,9 @@ divider(style: NavigationDividerStyle | null)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
@@ -734,6 +768,8 @@ enableVisibilityLifecycleWithContentCover(isEnabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -741,6 +777,31 @@ enableVisibilityLifecycleWithContentCover(isEnabled: Optional&lt;boolean&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isEnabled | Optional&lt;boolean&gt; | 是 | 是否启用NavDestination页面onShown、onHidden生命周期与全模态的联动触发。 默认值：true true：全模态拉起时，会触发当前NavDestination页面的onHidden生命周期；全模态关闭时会触发当前NavDestination页面的onShown生命周期 false：NavDestination页面onHidden、onShown生命周期不会因为全模态的拉起、关闭而触发。 |
+
+
+
+
+#### configuration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+configuration(config: NavigationConfiguration)
+
+设置Navigation配置项，包括路由栈大小限制。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| config | NavigationConfiguration | 是 | Navigation配置项。 |
 
 
 
@@ -858,6 +919,8 @@ onNavigationModeChange(callback: (mode: NavigationMode) => void)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -882,6 +945,8 @@ customNavContentTransition(delegate:(from: NavContentInfo, to: NavContentInfo, o
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -913,6 +978,8 @@ Navigation导航控制器，以栈的数据结构管理Navigation中所有的子
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 > [!NOTE]
@@ -931,6 +998,8 @@ constructor()
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -944,6 +1013,8 @@ pushPath(info: NavPathInfo, animated?: boolean): void
 将info指定的NavDestination页面信息入栈。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -967,6 +1038,8 @@ pushPath(info: NavPathInfo, options?: NavigationOptions): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -988,6 +1061,8 @@ pushPathByName(name: string, param: unknown, animated?: boolean): void
 将name指定的NavDestination页面信息入栈，传递的数据为param。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1012,6 +1087,8 @@ pushPathByName(name: string, param: Object, onPop: import('../api/@ohos.base').C
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1034,11 +1111,9 @@ pushDestination(info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
 将info指定的NavDestination页面信息入栈，使用Promise异步回调返回接口调用结果。
 
-> [!NOTE]
-> 不建议在 aboutToAppear 中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1079,11 +1154,9 @@ pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise&lt;void
 
 将info指定的NavDestination页面信息入栈，使用Promise异步回调返回接口调用结果，具体根据options中指定不同的[LaunchMode](#launchmode12枚举说明)，来实现不同的行为。
 
-> [!NOTE]
-> 不建议在 aboutToAppear 中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1124,11 +1197,9 @@ pushDestinationByName(name: string, param: Object, animated?: boolean): Promise&
 
 将name指定的NavDestination页面信息入栈，传递的数据为param，使用Promise异步回调返回接口调用结果。
 
-> [!NOTE]
-> 不建议在 aboutToAppear 中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1170,11 +1241,9 @@ pushDestinationByName(name: string, param: Object, onPop: import('../api/@ohos.b
 
 将name指定的NavDestination页面信息入栈，传递的数据为param，并且添加用于页面出栈时处理返回结果的onPop回调，使用Promise异步回调返回接口调用结果。
 
-> [!NOTE]
-> 不建议在 aboutToAppear 中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1219,6 +1288,8 @@ replacePath(info: NavPathInfo, animated?: boolean): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1240,6 +1311,8 @@ replacePath(info: NavPathInfo, options?: NavigationOptions): void
 替换路由栈操作，具体根据options中指定不同的[LaunchMode](#launchmode12枚举说明)，来实现不同的行为。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1263,6 +1336,8 @@ replacePathByName(name: string, param: Object, animated?: boolean): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1285,6 +1360,8 @@ replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise&lt;v
 替换路由栈操作。使用Promise异步回调返回接口调用结果，具体根据options中指定不同的[LaunchMode](#launchmode12枚举说明)，来实现不同的行为。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1327,6 +1404,8 @@ removeByIndexes(indexes: Array&lt;number&gt;): number
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1355,6 +1434,8 @@ removeByName(name: string): number
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1382,6 +1463,8 @@ removeByNavDestinationId(navDestinationId: string): boolean
 将路由栈内指定navDestinationId的NavDestination页面删除。navDestinationId可以在NavDestination的[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onready11)回调中获取，也可以在[NavDestinationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer#navdestinationinfo)中获取。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1415,6 +1498,8 @@ pop(animated?: boolean): NavPathInfo | undefined
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1447,6 +1532,8 @@ pop(result: Object, animated?: boolean): NavPathInfo | undefined
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1472,9 +1559,11 @@ pop(result: Object, animated?: boolean): NavPathInfo | undefined
 
 popToName(name: string, animated?: boolean): number
 
-回退路由栈到由栈底开始第一个名为name的NavDestination页面。
+回退路由栈到栈底第一个名为name的NavDestination页面。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1504,6 +1593,8 @@ popToName(name: string, result: Object, animated?: boolean): number
 回退路由栈到由栈底开始第一个名为name的NavDestination页面，并触发onPop回调传入页面处理结果。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1535,6 +1626,8 @@ popToIndex(index: number, animated?: boolean): void
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1556,6 +1649,8 @@ popToIndex(index: number, result: Object, animated?: boolean): void
 回退路由栈到index指定的NavDestination页面，并触发onPop回调传入页面处理结果。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1579,6 +1674,8 @@ moveToTop(name: string, animated?: boolean): number
 将由栈底开始第一个名为name的NavDestination页面移到栈顶。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1609,6 +1706,8 @@ moveIndexToTop(index: number, animated?: boolean): void
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1631,6 +1730,8 @@ clear(animated?: boolean): void
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1652,13 +1753,15 @@ getAllPathName(): Array&lt;string&gt;
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;string&gt; | 返回栈中所有NavDestination页面的名称。 |
+| Array&lt;string&gt; | 返回栈中所有NavDestination页面的名称数组，数组元素按页面在栈中的索引从0开始顺序排列。 |
 
 
 
@@ -1672,6 +1775,8 @@ getParamByIndex(index: number): unknown | undefined
 获取index指定的NavDestination页面的参数信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1701,6 +1806,8 @@ getParamByName(name: string): Array&lt;unknown&gt;
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1714,7 +1821,7 @@ getParamByName(name: string): Array&lt;unknown&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;unknown&gt; | 返回全部名为name的NavDestination页面的参数信息，unknown可以是用户自定义的类型。 |
+| Array&lt;unknown&gt; | 返回全部名为name的NavDestination页面的参数信息数组，数组元素按页面索引从小到大排序，每个元素为对应页面的参数信息，具体内容由开发者自定义。 |
 
 
 
@@ -1728,6 +1835,8 @@ getIndexByName(name: string): Array&lt;number&gt;
 获取全部名为name的NavDestination页面的位置索引。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1757,6 +1866,8 @@ size(): number
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1777,6 +1888,8 @@ disableAnimation(value: boolean): void
 关闭（true）或打开（false）当前Navigation中所有转场动画。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1801,6 +1914,8 @@ getParent(): NavPathStack | null
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1822,13 +1937,15 @@ setInterception(interception: NavigationInterception): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| interception | NavigationInterception | 是 | 设置Navigation跳转拦截对象。 |
+| interception | NavigationInterception | 是 | 设置Navigation跳转拦截对象。设置后，可在页面跳转前/后执行自定义回调，允许操作栈或拦截跳转。 |
 
 
 
@@ -1842,6 +1959,8 @@ getPathStack(): Array&lt;NavPathInfo&gt;
 获取当前路由栈中的路由页面信息数组。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1868,13 +1987,15 @@ setPathStack(pathStack: Array&lt;NavPathInfo&gt;, animated?: boolean): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pathStack | Array&lt;NavPathInfo&gt; | 是 | 设置当前路由栈中的路由页面信息数组。 说明： 数组长度无限制。 |
+| pathStack | Array&lt;NavPathInfo&gt; | 是 | 设置当前路由栈中的路由页面信息数组。设置后，将当前路由栈更新为指定内容，并实现路由转场。开发者可在原有栈的基础上批量添加或删除页面。 说明： 数组长度无限制。 |
 | animated | boolean | 否 | 是否开启转场动画。 true：开启转场动画；false：不开启转场动画。 默认值：true |
 
 
@@ -1898,6 +2019,8 @@ constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Ca
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1917,6 +2040,8 @@ constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Ca
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavPathInfo参数信息。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1939,6 +2064,8 @@ NavPathInfo参数信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1956,6 +2083,8 @@ NavPathInfo参数信息。
 跳转Destination信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1977,6 +2106,8 @@ NavPathInfo参数信息。
 自定义转场动画协议，开发者需实现该协议来定义Navigation路由跳转的跳转动画。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2008,6 +2139,8 @@ NavigationTransitionProxy参数信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2029,6 +2162,8 @@ finishTransition(): void;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -2043,6 +2178,8 @@ cancelTransition?(): void;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -2055,11 +2192,9 @@ updateTransition?(progress: number): void;
 
 更新交互转场动画进度(不可交互动画不支持动画进度设置)。
 
-> [!NOTE]
-> 不建议在 aboutToAppear 中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2067,7 +2202,7 @@ updateTransition?(progress: number): void;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| progress | number | 是 | 设置交互转场动画进度百分比。取值范围：[0, 1] |
+| progress | number | 是 | 设置交互转场动画进度值。取值范围：[0, 1] |
 
 
 
@@ -2077,6 +2212,8 @@ updateTransition?(progress: number): void;
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Navigation跳转拦截对象。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2099,6 +2236,8 @@ type InterceptionShowCallback = (from: NavDestinationContext | NavBar, to: NavDe
 Navigation页面跳转前和页面跳转后的拦截回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2124,6 +2263,8 @@ Navigation单双栏显示状态发生变更时的拦截回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2144,6 +2285,8 @@ type InterceptionCallback = (from: NavPathInfo | NavBar, to: NavPathInfo | NavBa
 Navigation页面跳转前的拦截回调。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2170,6 +2313,8 @@ Navigation首页名字。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -2191,9 +2336,9 @@ Navigation首页名字。
 | --- | --- | --- | --- | --- |
 | value | string \| Resource14+ | 否 | 否 | API version 9：显示菜单栏单个选项的文本。 从API version 10开始，不显示菜单栏单个选项的文本。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | icon | string \| Resource14+ | 否 | 是 | 菜单栏单个选项的图标资源路径。 说明： 当图标为SVG格式时，系统会默认设置fill颜色，覆盖SVG文件中自定义的fill属性，可能导致图标显示异常。建议在SVG文件中通过style样式设置fill来覆盖系统默认值，示例如下： 原始写法（fill属性会被系统默认值覆盖）：<rect fill="rgb(255,0,0)" .../>，建议修改为：<rect style="fill: rgb(255,0,0)" .../>。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isEnabled12+ | boolean | 否 | 是 | 使能状态，默认使能（false未使能，true使能）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isEnabled12+ | boolean | 否 | 是 | 使能状态，默认使能（false未使能，true使能）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | action | () => void | 否 | 是 | 当前选项被选中的事件回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| symbolIcon12+ | SymbolGlyphModifier | 否 | 是 | 菜单栏单个选项的symbol资源（优先级高于icon）。 说明： 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| symbolIcon12+ | SymbolGlyphModifier | 否 | 是 | 菜单栏单个选项的symbol资源（优先级高于icon）。 说明： 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -2203,6 +2348,8 @@ Navigation首页名字。
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 工具栏可配置参数。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2226,6 +2373,8 @@ Navigation首页名字。
 工具栏单个选项的状态。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2301,6 +2450,8 @@ Navigation分割线颜色及上下边距。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2373,6 +2524,8 @@ Navigation分割线颜色及上下边距。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -2390,6 +2543,8 @@ Navigation分割线颜色及上下边距。
 
 标题栏或工具栏的布局样式。NavDestination的工具栏不支持设置该属性。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -2401,18 +2556,69 @@ Navigation分割线颜色及上下边距。
 
 
 
+#### ScrollEffectType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+标题栏滚动模糊效果类型。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| COMMON_BLUR | 0 | 普通模糊样式，对背景做均匀模糊，模糊背景随透明渐变显隐。 |
+| GRADUAL_BLUR | 1 | 渐进模糊样式，对标题背景做均匀模糊且边界清晰，标题栏内容颜色或状态在滚动前后切换，并在滚动过程中随手势线性变化。 |
+
+
+
+
+#### ScrollEffectOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+标题栏滚动模糊效果选项。
+
+> [!NOTE]
+> 如果同时设置了 NavigationTitleOptions 中的backgroundColor，则滚动模糊效果会被标题栏背景色覆盖。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| scrollEffectType | ScrollEffectType | 否 | 是 | 标题栏滚动模糊效果类型。 默认值：ScrollEffectType.COMMON_BLUR |
+| blurEffectiveStartOffset | LengthMetrics | 否 | 是 | 启用标题栏滚动模糊效果的最小滑动距离。当用户滑动距离超过该值时，开始应用模糊效果。 不支持使用LengthMetrics.percent设置最小滑动距离。 默认值：0vp |
+| blurEffectiveEndOffset | LengthMetrics | 否 | 是 | 达到标题栏最终模糊样式的最大滑动距离。当用户滑动距离达到该值时，模糊效果达到最终状态。 不支持使用LengthMetrics.percent设置最大滑动距离。 默认值：8vp |
+
+
+
+
 #### NavigationTitleOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 标题栏选项。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| backgroundColor | ResourceColor | 否 | 是 | 标题栏背景颜色，不设置时为系统默认颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle | BlurStyle | 否 | 是 | 标题栏背景模糊样式，不设置时关闭背景模糊效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| backgroundColor | ResourceColor | 否 | 是 | 标题栏背景颜色，设置后，标题栏背景将显示为指定颜色；不设置时为系统默认颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyle | BlurStyle | 否 | 是 | 标题栏背景模糊样式，设置后，标题栏将应用指定的模糊样式；不设置时关闭背景模糊效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 标题栏背景模糊选项。 说明： 只在设置了backgroundBlurStyle时生效。 不建议与backgroundEffect同时使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 设置标题栏背景属性包括：模糊半径，亮度，饱和度，颜色等。 说明： 不建议与backgroundBlurStyleOptions同时使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | barStyle12+ | BarStyle | 否 | 是 | 设置标题栏布局方式。 默认值：BarStyle.STANDARD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -2421,6 +2627,12 @@ Navigation分割线颜色及上下边距。
 | mainTitleModifier13+ | TextModifier | 否 | 是 | 主标题属性修改器。 1. 通过Modifier设置的属性会覆盖系统默认的属性（如果Modifier设置了fontSize，maxFontSize，minFontSize任一属性，则系统设置的大小相关属性不生效，以开发者的设置为准）； 2. 不设该属性或者设置了异常值，则恢复系统默认设置； 3. Free模式下设置字体大小时，原有滑动改变标题大小的效果失效。 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |
 | subTitleModifier13+ | TextModifier | 否 | 是 | 子标题属性修改器。 1. 通过Modifier设置的属性会覆盖系统默认的属性（如果Modifier设置了fontSize，maxFontSize，minFontSize任一属性，则系统设置的大小相关属性不生效，以开发者的设置为准）； 2. 不设该属性或者设置了异常值，则恢复系统默认设置。 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |
 | enableHoverMode13+ | boolean | 否 | 是 | 是否响应悬停态。 使用规则： 1. 需满足Navigation为全屏大小； 2. 标题栏显示模式为Free时或者标题栏布局方式为STANDARD时，此接口设置无效。 true：响应悬停态；false：不响应悬停态。 默认值：false 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |
+| scrollEffectOptions | ScrollEffectOptions | 否 | 是 | 标题栏滚动模糊效果选项。默认值undefined，不启用标题栏的滚动模糊。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| systemMaterial | Material | 否 | 是 | 标题栏系统材质。默认值为undefined。系统材质效果取决于设备算力，详见系统材质。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+
+
+> [!NOTE]
+> 标题栏材质生效的范围是：返回键背板，menu按钮背板，menu的更多弹窗的背板。当应用级系统材质开关配置为disable时，无论systemMaterial设置为何值，标题栏材质效果都不生效，应用级系统材质开关请参考 MaterialState 。标题栏系统材质设置不同值的效果： undefined（默认值），应用级系统材质开关配置为default时，标题栏无材质效果；应用级系统材质开关配置为enable时，标题栏生效系统默认的沉浸式材质效果。 Material.empty ，标题栏无材质效果。 Material ，应用级系统材质开关配置为default或者enable时，生效指定的材质效果。
 
 
 
@@ -2431,12 +2643,14 @@ Navigation分割线颜色及上下边距。
 
 工具栏选项。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| backgroundColor | ResourceColor | 否 | 是 | 工具栏背景颜色，不设置时为系统默认颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle | BlurStyle | 否 | 是 | 工具栏背景模糊样式，不设置时关闭背景模糊效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| backgroundColor | ResourceColor | 否 | 是 | 工具栏背景颜色，设置后，工具栏背景将显示为指定颜色；不设置时为系统默认颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyle | BlurStyle | 否 | 是 | 工具栏背景模糊样式，设置后，工具栏将应用指定的模糊样式；不设置时关闭背景模糊效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 工具栏背景模糊选项。 说明： 只在设置了backgroundBlurStyle时生效。 不建议与backgroundEffect同时使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 设置工具栏背景属性包括：模糊半径，亮度，饱和度，颜色等。 说明： 不建议与backgroundBlurStyleOptions同时使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | barStyle14+ | BarStyle | 否 | 是 | 设置工具栏布局方式。 默认值：BarStyle.STANDARD 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
@@ -2454,11 +2668,13 @@ Navigation分割线颜色及上下边距。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| moreButtonOptions | MoreButtonOptions | 否 | 是 | 更多图标的菜单选项。 |
+| moreButtonOptions | MoreButtonOptions | 否 | 是 | 更多图标的菜单选项。设置后，可自定义更多按钮的背景模糊样式、背景效果等。 |
 
 
 
@@ -2470,6 +2686,8 @@ Navigation分割线颜色及上下边距。
 路由栈操作模式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2491,12 +2709,35 @@ Navigation分割线颜色及上下边距。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | launchMode | LaunchMode | 否 | 是 | 路由栈的操作模式。 默认值：LaunchMode.STANDARD |
 | animated | boolean | 否 | 是 | 是否支持转场动画。 true：支持转场动画；false：不支持转场动画。 默认值：true |
+
+
+
+
+#### NavigationConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+Navigation配置项。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| stackSizeLimit | number | 否 | 是 | Navigation路由栈的活跃页面节点数量限制。 默认值：0，表示不限制路由栈大小。 取值小于等于0时，不限制路由栈大小。 取值大于0时，将活跃页面节点数量限制为指定值；超过限制后，系统会按照先入先出顺序自动销毁较早入栈的页面节点，页面的NavPathInfo完整保留在路由栈中，支持后续重新创建页面。 |
 
 
 
@@ -2509,11 +2750,13 @@ Navigation分割线颜色及上下边距。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| backgroundBlurStyle | BlurStyle | 否 | 是 | 更多图标的菜单背景模糊样式，不设置时关闭背景模糊效果。 |
+| backgroundBlurStyle | BlurStyle | 否 | 是 | 更多图标的菜单背景模糊样式，设置后，更多图标的菜单将应用指定的模糊样式；不设置时关闭背景模糊效果。 |
 | backgroundBlurStyleOptions | BackgroundBlurStyleOptions | 否 | 是 | 更多图标的菜单背景模糊选项。 说明： 只在设置了backgroundBlurStyle时生效。 不建议与backgroundEffect同时使用。 |
 | backgroundEffect | BackgroundEffectOptions | 否 | 是 | 设置更多图标的菜单背景属性包括：模糊半径，亮度，饱和度，颜色等。 说明： 不建议与backgroundBlurStyleOptions同时使用。 |
 
@@ -2530,11 +2773,36 @@ type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
 | import('../api/@ohos.window').default.SystemBarStyle | 状态栏文字颜色。 默认值：'#0xE5FFFFFF' |
+
+
+
+
+#### Material
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type Material = import('../api/@ohos.arkui.uiMaterial').default.Material
+
+系统材质。在设置标题栏系统材质属性时使用。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 类型 | 说明 |
+| --- | --- |
+| import('../api/@ohos.arkui.uiMaterial').default.Material | 系统材质。 |
 
 
 
@@ -2546,6 +2814,8 @@ type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle
 主页NavDestination的信息。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2672,7 +2942,7 @@ struct NavigationExample {
 ```
 
 
-![](assets/Navigation/file-20260525091201661-007.gif)
+![](assets/Navigation/file-20260525091201660-004.gif)
 
 
 
@@ -2941,7 +3211,7 @@ export struct PageTwo {
 ```
 
 
-![](assets/Navigation/file-20260525091201662-008.gif)
+![](assets/Navigation/file-20260525091201661-005.gif)
 
 
 
@@ -3429,7 +3699,7 @@ export class CustomTransition {
 ```
 
 
-![](assets/Navigation/file-20260525091201662-009.gif)
+![](assets/Navigation/file-20260525091201661-006.gif)
 
 
 
@@ -3532,7 +3802,7 @@ export struct PageOne {
             }).catch((error: BusinessError) => {
               console.error(`[pushDestination]failed, error code = ${error.code}, error.message = ${error.message}.`);
             }).then(() => {
-              console.error('[pushDestination]success.');
+              console.info('[pushDestination]success.');
             });
           })
 
@@ -3549,7 +3819,7 @@ export struct PageOne {
             }).catch((error: BusinessError) => {
               console.error(`[pushDestinationByName]failed, error code = ${error.code}, error.message = ${error.message}.`);
             }).then(() => {
-              console.error('[pushDestinationByName]success.');
+              console.info('[pushDestinationByName]success.');
             });
           })
 
@@ -3581,7 +3851,7 @@ export struct PageOne {
               .catch((error: BusinessError) => {
                 console.error(`[pushDestinationWithoutOnPop]failed, error code = ${error.code}, error.message = ${error.message}.`);
               }).then(() => {
-              console.error('[pushDestinationWithoutOnPop]success.');
+              console.info('[pushDestinationWithoutOnPop]success.');
             });
           })
 
@@ -3596,7 +3866,7 @@ export struct PageOne {
               .catch((error: BusinessError) => {
                 console.error(`[pushDestinationByNameWithoutOnPop]failed, error code = ${error.code}, error.message = ${error.message}.`);
               }).then(() => {
-              console.error('[pushDestinationByNameWithoutOnPop]success.');
+              console.info('[pushDestinationByNameWithoutOnPop]success.');
             });
           })
 
@@ -3621,7 +3891,7 @@ export struct PageOne {
 
 ```ArkTS
 // PageTwo.ets
-class resultClass {
+class ResultClass {
   constructor(count: number) {
     this.count = count;
   }
@@ -3646,7 +3916,7 @@ export struct PageTwo {
           .height(40)
           .margin(20)
           .onClick(() => {
-            this.pathStack.pop(new resultClass(1)); // 回退到上一个页面，将处理结果传入push的onPop回调中。
+            this.pathStack.pop(new ResultClass(1)); // 回退到上一个页面，将处理结果传入push的onPop回调中。
           })
 
         Button('popToName', { stateEffect: true, type: ButtonType.Capsule })
@@ -3655,7 +3925,7 @@ export struct PageTwo {
           .margin(20)
           .onClick(() => {
             this.pathStack.popToName('pageOne',
-              new resultClass(11)); // 回退路由栈到第一个名为name的NavDestination页面，将处理结果传入push的onPop回调中。
+              new ResultClass(11)); // 回退路由栈到第一个名为name的NavDestination页面，将处理结果传入push的onPop回调中。
           })
 
         Button('popToIndex', { stateEffect: true, type: ButtonType.Capsule })
@@ -3663,7 +3933,7 @@ export struct PageTwo {
           .height(40)
           .margin(20)
           .onClick(() => {
-            this.pathStack.popToIndex(0, new resultClass(111)); // 回退路由栈到index指定的NavDestination页面，将处理结果传入push的onPop回调中。
+            this.pathStack.popToIndex(0, new ResultClass(111)); // 回退路由栈到index指定的NavDestination页面，将处理结果传入push的onPop回调中。
           })
 
         Button('popWithoutResult', { stateEffect: true, type: ButtonType.Capsule })
@@ -3692,7 +3962,7 @@ export struct PageTwo {
       }.width('100%').height('100%')
     }.title('pageTwo')
     .onBackPressed(() => {
-      this.pathStack.pop(new resultClass(0)); // 回退到上一个页面，将处理结果传入push的onPop回调。
+      this.pathStack.pop(new ResultClass(0)); // 回退到上一个页面，将处理结果传入push的onPop回调。
       return true;
     }).onReady((context: NavDestinationContext) => {
       this.pathStack = context.pathStack;
@@ -3724,7 +3994,7 @@ export struct PageTwo {
 ```
 
 
-![](assets/Navigation/file-20260525091201663-010.gif)
+![](assets/Navigation/file-20260525091201661-007.gif)
 
 
 
@@ -4024,7 +4294,7 @@ export const EFFECT_OPTION_2: BackgroundEffectOptions = {
 ```
 
 
-![](assets/Navigation/file-20260525091201663-011.gif)
+![](assets/Navigation/file-20260525091201662-008.gif)
 
 
 
@@ -4099,7 +4369,7 @@ export function PageOneBuilder(name: string) {
 ```
 
 
-![](assets/Navigation/file-20260525091201664-012.gif)
+![](assets/Navigation/file-20260525091201662-009.gif)
 
 
 
@@ -4214,7 +4484,7 @@ struct NavigationExample2 {
 ```
 
 
-![](assets/Navigation/file-20260525091201665-013.gif)
+![](assets/Navigation/file-20260525091201663-010.gif)
 
 
 
@@ -4339,7 +4609,7 @@ struct NavigationExample3 {
 ```
 
 
-![](assets/Navigation/file-20260525091201665-014.gif)
+![](assets/Navigation/file-20260525091201663-011.gif)
 
 
 
@@ -4415,7 +4685,7 @@ struct NavigationExample {
 ```
 
 
-![](assets/Navigation/file-20260525091201665-015.gif)
+![](assets/Navigation/file-20260525091201664-012.gif)
 
 
 
@@ -4569,7 +4839,7 @@ export class NewParam {
 ```
 
 
-![](assets/Navigation/file-20260525091201666-016.gif)
+![](assets/Navigation/file-20260525091201665-013.gif)
 
 
 
@@ -4724,7 +4994,7 @@ export struct NavigationMenu {
 ```
 
 
-![](assets/Navigation/file-20260525091201666-017.gif)
+![](assets/Navigation/file-20260525091201665-014.gif)
 
 
 
@@ -4977,7 +5247,7 @@ export class SubTitleTextModifier extends TextModifier {
 ```
 
 
-![](assets/Navigation/file-20260525091201667-018.gif)
+![](assets/Navigation/file-20260525091201665-015.gif)
 
 
 
@@ -5229,7 +5499,7 @@ export class CustomTransition {
 ```
 
 
-![](assets/Navigation/file-20260708103219b12640c7.gif)
+![](assets/Navigation/file-20260525091201666-016.gif)
 
 
 
@@ -5369,7 +5639,7 @@ struct NavigationExample {
 ```
 
 
-![](assets/Navigation/file-20260708103219fc0e2195.gif)
+![](assets/Navigation/file-20260525091201666-017.gif)
 
 
 
@@ -5444,7 +5714,7 @@ struct NavigationExample {
 ```
 
 
-![](assets/Navigation/file-202607081032200fa02ebd.gif)
+![](assets/Navigation/file-20260525091201667-018.gif)
 
 
 
@@ -5535,7 +5805,7 @@ struct Index {
 ```
 
 
-![](assets/Navigation/file-20260708103220559dc743.gif)
+![](assets/Navigation/file-20260708103219b12640c7.gif)
 
 
 
@@ -5809,7 +6079,7 @@ export struct PageTwo {
 ```
 
 
-![](assets/Navigation/file-20260708103221a71b1788.gif)
+![](assets/Navigation/file-20260708103219fc0e2195.gif)
 
 
 
@@ -5972,8 +6242,224 @@ export struct NavigationMenu {
 ```
 
 > [!NOTE]
-> 为模拟进程异常退出并重新冷启动，可执行以下步骤： 工程运行成功后点击跳转按钮。 应用上划回退到后台，开启命令行窗口。 输入"hdc shell"，回车后输入"pidof 工程包名"，查询pid值。 输入"aa force-stop 工程包名 -p pid值 -r RESOURCE_CONTROL"进行回车，模拟资源使用不当导致的应用退出。 点击应用重新进入，可发现页面依然是点击跳转按钮后的页面。
+> 为模拟进程异常退出并重新冷启动，可执行以下步骤： 工程运行成功后点击跳转按钮。 应用上滑回退到后台，开启命令行窗口。 输入"hdc shell"，回车后输入"pidof 工程包名"，查询pid值。 输入"aa force-stop 工程包名 -p pid值 -r RESOURCE_CONTROL"进行回车，模拟资源使用不当导致的应用退出。 点击应用重新进入，可发现页面依然是点击跳转按钮后的页面。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/NU1FwYpZSImV1_PQC2LT7w/zh-cn_image_0000002647587936.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=48DF82503004CC6086CEA1FF29B1181D4DD1D46450BF935FEEAF5FA3A1F9F77B)
+![](assets/Navigation/file-20260708103220559dc743.gif)
+
+
+
+
+#### 示例19（设置ScrollEffectOptions开启标题栏滚动模糊）
+
+该示例演示如何使用[scrollEffectOptions](#scrolleffectoptions)配置项，开启标题栏滚动模糊效果。
+
+从API版本26.0.0开始，[title](#title)接口的参数options，新增了[scrollEffectOptions](#scrolleffectoptions)属性。
+
+```ArkTS
+// xxx.ets
+import { LengthMetrics } from '@kit.ArkUI'
+
+@Entry
+@Component
+struct NavigationExample {
+  private arr: number[] = [];
+
+  aboutToAppear(): void {
+    for (let i = 0; i < 50; i++) {
+      this.arr.push(i)
+    }
+  }
+
+  build() {
+    Column() {
+      Navigation() {
+        Column() {
+          List({ space: 12, initialIndex: 0 }) {
+            ListItem() {
+              Column() {
+                Blank()
+                  .width('100%')
+                  .height(128)
+              }
+            }
+            ForEach(this.arr, (item: number) => {
+              ListItem() {
+                Text('' + item)
+                  .width('90%')
+                  .height(72)
+                  .backgroundColor($r('sys.color.brand'))
+                  .borderRadius(24)
+                  .fontSize(16)
+                  .fontWeight(500)
+                  .textAlign(TextAlign.Center)
+              }
+            }, (item: number) => item.toString())
+          }
+          .height("100%")
+          .width('100%')
+        }
+        .width('100%')
+        .height('100%')
+      }
+      .title({ main: "Main Title", sub: "Sub Title" }, {
+        barStyle: BarStyle.STACK,
+        scrollEffectOptions: {
+          scrollEffectType: ScrollEffectType.COMMON_BLUR,
+          blurEffectiveStartOffset: LengthMetrics.vp(8),
+          blurEffectiveEndOffset: LengthMetrics.vp(56)
+        }
+      })
+      .titleMode(NavigationTitleMode.Full)
+      .hideTitleBar(false)
+      .hideToolBar(false)
+    }.width('100%').height('100%').backgroundColor('#F1F3F5')
+  }
+}
+```
+
+
+![](assets/Navigation/file-20260708103221a71b1788.gif)
+
+
+
+
+#### 示例20（设置systemMaterial开启标题栏材质效果）
+
+该示例演示如何使用systemMaterial属性，开启标题栏材质效果。
+
+从API版本26.0.0开始，[NavigationTitleOptions](#navigationtitleoptions11)新增了systemMaterial属性。
+
+```ArkTS
+// xxx.ets
+import { SymbolGlyphModifier, uiMaterial } from '@kit.ArkUI';
+
+function BuildMenu(): Array<NavigationMenuItem> {
+  return [
+    {
+      value: 'menu1',
+      symbolIcon: new SymbolGlyphModifier($r('sys.symbol.ohos_circle'))
+    },
+    {
+      value: 'menu2',
+      symbolIcon: new SymbolGlyphModifier($r('sys.symbol.ohos_star'))
+    },
+    {
+      value: 'menu3',
+      symbolIcon: new SymbolGlyphModifier($r('sys.symbol.ohos_folder_badge_plus'))
+    },
+    {
+      value: 'menu4',
+      symbolIcon: new SymbolGlyphModifier($r('sys.symbol.ohos_lock'))
+    }
+  ]
+}
+
+@Component
+struct TestComponent {
+  private arr: number[] = new Array<number>();
+
+  aboutToAppear(): void {
+    for (let i = 0; i < 20; i++) {
+      this.arr.push(i);
+    }
+  }
+
+  build() {
+    Scroll() {
+      Column() {
+        ForEach(this.arr, (item: number) => {
+          Stack() {
+            Text(item.toString())
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor((item % 2) == 1 ? '#fff5e4e4' : '#ff302a2a')
+          }.width('100%')
+          .height(180)
+          .backgroundColor((item % 2) == 0 ? '#fff5e4e4' : '#ff302a2a')
+        }, (item: number) => item.toString())
+      }
+    }
+  }
+}
+
+@Component
+struct MyDest {
+  build() {
+    NavDestination() {
+      TestComponent().width('100%').height('100%')
+    }.width('100%').height('100%')
+    .title('', {
+      systemMaterial: new uiMaterial.ImmersiveMaterial({
+        style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
+        colorInvert: true,
+        interactive: true,
+        lightEffect: {}
+      }),
+      // systemMaterial和barStyle没有关联性，但是同时设置barStyle为STACK样式可获得最佳沉浸效果
+      barStyle: BarStyle.STACK
+    })
+    .menus(BuildMenu())
+  }
+}
+
+@Entry
+@Component
+struct NavigationTitleMaterialDemo {
+  private stack: NavPathStack = new NavPathStack();
+
+  @Builder
+  MyMap(name: string) {
+    MyDest()
+  }
+
+  build() {
+    RelativeContainer() {
+      Navigation(this.stack) {
+        Column() {
+          TestComponent()
+            .width('100%')
+        }.width('100%').height('100%')
+      }
+      .width('100%')
+      .height('100%')
+      .mode(NavigationMode.Stack)
+      .navDestination(this.MyMap)
+      .title('', {
+        systemMaterial: new uiMaterial.ImmersiveMaterial({
+          style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
+          colorInvert: true,
+          interactive: true,
+          lightEffect: {}
+        }),
+        // systemMaterial和barStyle没有关联性，但是同时设置barStyle为STACK样式可获得最佳沉浸效果
+        barStyle: BarStyle.STACK
+      })
+      .menus(BuildMenu())
+      Column() {
+        Stack({alignContent: Alignment.Center}) {
+          Text('push page').fontSize(25)
+        }
+        .width(150)
+        .height(50)
+        .borderRadius(22)
+        .backgroundColor(Color.Orange)
+        .margin({left: 50, bottom: 100})
+        .onClick(() => {
+          this.stack.pushPath({name: 'one'})
+        })
+      }
+      .alignRules({
+        bottom: {anchor: '__container__', align: VerticalAlign.Bottom},
+        left: {anchor: '__container__', align: HorizontalAlign.Start},
+      })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+![](assets/Navigation/file-20260708103221c6d313be.gif)

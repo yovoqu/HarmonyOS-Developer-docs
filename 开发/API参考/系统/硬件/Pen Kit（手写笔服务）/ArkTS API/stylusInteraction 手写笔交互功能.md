@@ -1,6 +1,6 @@
 # stylusInteraction (手写笔交互功能)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-stylusinteraction
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -26,7 +26,7 @@ import { stylusInteraction } from '@kit.Penkit';
 
 on(type: 'squeeze', receiver: Callback&lt;SqueezeEvent&gt;): void
  
-监听手写笔笔身轻捏事件，使用callback异步回调。
+订阅手写笔笔身轻捏事件，使用callback异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -45,14 +45,12 @@ on(type: 'squeeze', receiver: Callback&lt;SqueezeEvent&gt;): void
 **示例：**
  
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
-
 try {
   stylusInteraction.on('squeeze', (event: stylusInteraction.SqueezeEvent) => {
     console.info(`got squeeze event, time: ${event.timestamp}`);
   });
-} catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
 }
 ```
  
@@ -64,7 +62,7 @@ try {
 
 off(type: 'squeeze', receiver?: Callback&lt;SqueezeEvent&gt;): void
  
-取消监听手写笔笔身轻捏事件，使用callback异步回调。
+取消订阅手写笔笔身轻捏事件，使用callback异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -77,19 +75,18 @@ off(type: 'squeeze', receiver?: Callback&lt;SqueezeEvent&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填写"squeeze"字符串，表示手写笔笔身轻捏事件。 |
-| receiver | Callback&lt;SqueezeEvent&gt; | 否 | 回调函数，需要取消注册的手写笔轻捏事件对象，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的轻捏事件。 |
+| receiver | Callback&lt;SqueezeEvent&gt; | 否 | 回调函数，需要取消订阅的手写笔轻捏事件对象，需与订阅时传入的回调函数是同一个。若不设置此参数，则取消订阅所有的轻捏事件。 |
  
  
 **示例：**
  
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
 try {
   stylusInteraction.off('squeeze', (event: stylusInteraction.SqueezeEvent) => {
     console.info(`off squeeze event, time: ${event.timestamp}`);
   });
-} catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
 }
 ```
  
@@ -101,7 +98,7 @@ try {
 
 on(type: 'doubleTap', receiver: Callback&lt;DoubleTapEvent&gt;): void
  
-监听手写笔笔身双击事件，使用callback异步回调。
+订阅手写笔笔身双击事件，使用callback异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -120,13 +117,12 @@ on(type: 'doubleTap', receiver: Callback&lt;DoubleTapEvent&gt;): void
 **示例：**
  
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
 try {
   stylusInteraction.on('doubleTap', (event: stylusInteraction.DoubleTapEvent) => {
     console.info(`got doubleTap event, time: ${event.timestamp}`);
   });
-} catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
 }
 ```
  
@@ -138,7 +134,7 @@ try {
 
 off(type: 'doubleTap', receiver?: Callback&lt;DoubleTapEvent&gt;): void
  
-取消监听手写笔笔身双击事件，使用callback异步回调。
+取消订阅手写笔笔身双击事件，使用callback异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -151,19 +147,18 @@ off(type: 'doubleTap', receiver?: Callback&lt;DoubleTapEvent&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填写"doubleTap"字符串，表示手写笔笔身双击事件。 |
-| receiver | Callback&lt;DoubleTapEvent&gt; | 否 | 回调函数，需要取消注册的手写笔双击事件对象，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的双击事件。 |
+| receiver | Callback&lt;DoubleTapEvent&gt; | 否 | 回调函数，需要取消订阅的手写笔双击事件对象，需与订阅时传入的回调函数是同一个。若不设置此参数，则取消订阅所有的双击事件。 |
  
  
 **示例：**
  
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
 try {
   stylusInteraction.off('doubleTap', (event: stylusInteraction.DoubleTapEvent) => {
     console.info(`off doubleTap event, time: ${event.timestamp}`);
   });
-} catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
 }
 ```
  
@@ -180,8 +175,6 @@ try {
 **系统能力：** SystemCapability.Stylus.StylusService
  
 **起始版本：** 5.1.1(19)
- 
-**参数：**
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -201,9 +194,387 @@ try {
 **系统能力：** SystemCapability.Stylus.StylusService
  
 **起始版本：** 5.1.1(19)
- 
-**参数：**
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | timestamp | number | 否 | 否 | 时间戳，自系统启动以来经过的时间，单位：ms。 |
+ 
+ 
+  
+
+#### stylusInteraction.isSensorSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+isSensorSupported(): boolean
+ 
+查询当前设备是否支持手写笔传感器数据功能。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 返回查询结果。 - true：支持手写笔传感器数据功能。 - false：不支持手写笔传感器数据功能。 |
+ 
+ 
+**示例：**
+ 
+```text
+try {
+  let supported: boolean = stylusInteraction.isSensorSupported();
+  console.info(`stylus sensor is supported: ${supported}`);
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+}
+```
+ 
+  
+
+#### stylusInteraction.onAccelerometer
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+onAccelerometer(receiver: Callback&lt;AccelerometerEvent&gt;): void
+ 
+订阅手写笔加速度传感器数据，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receiver | Callback&lt;AccelerometerEvent&gt; | 是 | 回调函数，返回手写笔加速度传感器数据。 |
+ 
+ 
+**示例：**
+ 
+```text
+try {
+  stylusInteraction.onAccelerometer((event: stylusInteraction.AccelerometerEvent) => {
+    console.info(`got accelerometer event, time: ${event.timestamp}`);
+    for (let i = 0; i < event.accelerometerData.length; i++) {
+      console.info(`accelerometer data: x=${event.accelerometerData[i].x}, y=${event.accelerometerData[i].y}
+      , z=${event.accelerometerData[i].z}`);
+    }
+  });
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+}
+```
+ 
+  
+
+#### stylusInteraction.offAccelerometer
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+offAccelerometer(receiver?: Callback&lt;AccelerometerEvent&gt;): void
+ 
+取消订阅手写笔加速度传感器数据，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receiver | Callback&lt;AccelerometerEvent&gt; | 否 | 回调函数，需要取消订阅的加速度数据回调对象，需与订阅时传入的回调函数是同一个。若不设置此参数，则取消订阅所有的加速度数据回调。 |
+ 
+ 
+**示例：**
+ 
+```text
+try {
+  stylusInteraction.offAccelerometer((event: stylusInteraction.AccelerometerEvent) => {
+    console.info(`off accelerometer event, time: ${event.timestamp}`);
+  });
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+}
+```
+ 
+  
+
+#### AccelerometerData
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+手写笔加速度传感器数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| x | number | 否 | 否 | 加速度x轴分量，单位：m/s²，4096为1个重力加速度g，取值范围[-32768, 32767]。 |
+| y | number | 否 | 否 | 加速度y轴分量，单位：m/s²，4096为1个重力加速度g，取值范围[-32768, 32767]。 |
+| z | number | 否 | 否 | 加速度z轴分量，单位：m/s²，4096为1个重力加速度g，取值范围[-32768, 32767]。 |
+ 
+ 
+  
+
+#### AccelerometerEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+手写笔加速度传感器事件数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| accelerometerData | AccelerometerData[] | 否 | 否 | 手写笔加速度数组数据。 |
+| timestamp | number | 否 | 否 | 加速度数据的时间戳，自系统启动以来经过的时间，单位：ms。 |
+ 
+ 
+  
+
+#### stylusInteraction.onGyroscope
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+onGyroscope(receiver: Callback&lt;GyroscopeEvent&gt;): void
+ 
+订阅手写笔陀螺仪传感器数据，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receiver | Callback&lt;GyroscopeEvent&gt; | 是 | 回调函数，返回手写笔陀螺仪传感器数据。 |
+ 
+ 
+**示例：**
+ 
+```text
+try {
+  stylusInteraction.onGyroscope((event: stylusInteraction.GyroscopeEvent) => {
+    console.info(`got gyroscope event, time: ${event.timestamp}`);
+    for (let i = 0; i < event.gyroscopeData.length; i++) {
+      console.info(`gyroscope data: x=${event.gyroscopeData[i].x}, y=${event.gyroscopeData[i].y}
+  , z=${event.gyroscopeData[i].z}`);
+    }
+  });
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+}
+```
+ 
+  
+
+#### stylusInteraction.offGyroscope
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+offGyroscope(receiver?: Callback&lt;GyroscopeEvent&gt;): void
+ 
+取消订阅手写笔陀螺仪传感器数据，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receiver | Callback&lt;GyroscopeEvent&gt; | 否 | 回调函数，需要取消订阅的陀螺仪数据回调对象，需与订阅时传入的回调函数是同一个。若不设置此参数，则取消订阅所有的陀螺仪数据回调。 |
+ 
+ 
+**示例：**
+ 
+```text
+try {
+  stylusInteraction.offGyroscope((event: stylusInteraction.GyroscopeEvent) => {
+    console.info(`off gyroscope event, time: ${event.timestamp}`);
+  });
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+}
+```
+ 
+  
+
+#### GyroscopeData
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+手写笔陀螺仪传感器数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| x | number | 否 | 否 | 陀螺仪x轴分量，单位：61mdps/LSB，取值范围[-32768, 32767]。 |
+| y | number | 否 | 否 | 陀螺仪y轴分量，单位：61mdps/LSB，取值范围[-32768, 32767]。 |
+| z | number | 否 | 否 | 陀螺仪z轴分量，单位：61mdps/LSB，取值范围[-32768, 32767]。 |
+ 
+ 
+  
+
+#### GyroscopeEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+手写笔陀螺仪传感器事件数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| gyroscopeData | GyroscopeData[] | 否 | 否 | 手写笔陀螺仪数组数据。 |
+| timestamp | number | 否 | 否 | 陀螺仪数据的时间戳，自系统启动以来经过的时间，单位：ms。 |
+ 
+ 
+  
+
+#### stylusInteraction.onSensor
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+onSensor(receiver: Callback&lt;SensorEvent&gt;): void
+ 
+订阅手写笔加速度和陀螺仪传感器数据，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receiver | Callback&lt;SensorEvent&gt; | 是 | 回调函数，返回手写笔加速度和陀螺仪传感器数据。 |
+ 
+ 
+**示例：**
+ 
+```text
+try {
+  stylusInteraction.onSensor((event: stylusInteraction.SensorEvent) => {
+    console.info(`got sensor event, time: ${event.timestamp}`);
+    for (let i = 0; i < event.sensorData.length; i++) {
+      let accel = event.sensorData[i].accelerometerData;
+      let gyro = event.sensorData[i].gyroscopeData;
+      console.info(`sensor data: accel.x=${accel.x}, accel.y=${accel.y}, accel.z=${accel.z}, gyro.x=${gyro.x},
+      gyro.y=${gyro.y}, gyro.z=${gyro.z}`);
+    }
+  });
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+}
+```
+ 
+  
+
+#### stylusInteraction.offSensor
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+offSensor(receiver?: Callback&lt;SensorEvent&gt;): void
+ 
+取消订阅手写笔加速度和陀螺仪传感器数据，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receiver | Callback&lt;SensorEvent&gt; | 否 | 回调函数，需要取消订阅的传感器数据回调对象，需与订阅时传入的回调函数是同一个。若不设置此参数，则取消订阅所有的传感器数据回调。 |
+ 
+ 
+**示例：**
+ 
+```text
+try {
+  stylusInteraction.offSensor((event: stylusInteraction.SensorEvent) => {
+    console.info(`off sensor event, time: ${event.timestamp}`);
+  });
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+}
+```
+ 
+  
+
+#### SensorData
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+手写笔加速度和陀螺仪传感器数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| accelerometerData | AccelerometerData | 否 | 否 | 加速度传感器数据。 |
+| gyroscopeData | GyroscopeData | 否 | 否 | 陀螺仪传感器数据。 |
+ 
+ 
+  
+
+#### SensorEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+手写笔加速度和陀螺仪传感器事件数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Stylus.StylusService
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| sensorData | SensorData[] | 否 | 否 | 手写笔加速度和陀螺仪数组数据。 |
+| timestamp | number | 否 | 否 | 传感器数据的时间戳，自系统启动以来经过的时间，单位：ms。 |

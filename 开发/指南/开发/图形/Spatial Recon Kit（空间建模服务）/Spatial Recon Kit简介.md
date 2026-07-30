@@ -1,6 +1,6 @@
 # Spatial Recon Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-introduction
 
@@ -39,6 +39,6 @@ Spatial Recon Kit提供了和空间重建有关的能力，帮助开发者实现
  
   
 
-#### 与ArkGraphics 3D 模块的关系
+#### 与ArkGraphics 3D模块的关系
 
-Spatial Recon Kit是[ArkGraphics 3D 模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkgraphics-3d-api)的扩展，需与[ArkGraphics 3D 模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkgraphics-3d-api)联合使用。
+Spatial Recon Kit是[ArkGraphics 3D模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkgraphics-3d-api)的扩展，需与[ArkGraphics 3D模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkgraphics-3d-api)联合使用。

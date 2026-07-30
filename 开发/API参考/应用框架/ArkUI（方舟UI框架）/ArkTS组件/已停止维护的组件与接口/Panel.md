@@ -1,6 +1,6 @@
 # Panel
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-panel
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,7 +30,11 @@
 
 Panel(show: boolean)
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+滑动面板组件。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 bindSheet 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -40,7 +44,7 @@ Panel(show: boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| show | boolean | 是 | 控制Panel显示或隐藏。 说明： 如果设置为false时，则不占位隐藏。Visible.None或者show之间有一个生效时，都会生效不占位隐藏。 |
+| show | boolean | 是 | 控制Panel显示或隐藏，true表示显示面板，false表示隐藏面板。 说明： 如果设置为false时，则不占位隐藏。Visibility.None或show之间有一个生效时，都会生效不占位隐藏。 |
 
 
 
@@ -61,7 +65,9 @@ type(value: PanelType)
 
 可滑动面板的类型。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的preferType替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -84,7 +90,9 @@ mode(value: PanelMode)
 
 可滑动面板的初始状态。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的preferType替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -107,7 +115,9 @@ dragBar(value: boolean)
 
 设置是否存在控制条。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的dragBar替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -130,7 +140,9 @@ customHeight(value: Dimension | PanelHeight)
 
 指定PanelType.CUSTOM状态下的高度。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 10开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的height替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -151,9 +163,11 @@ customHeight(value: Dimension | PanelHeight)
 
 fullHeight(value: number | string)
 
-指定PanelType.Full状态下的高度。
+指定PanelMode.Full状态下的高度。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的height替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -163,7 +177,7 @@ fullHeight(value: number | string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 指定PanelMode.Full状态下的高度。 默认值：当前组件主轴大小减去8vp空白区 说明： 不支持设置百分比。 |
+| value | number \| string | 是 | 指定PanelMode.Full状态下的高度。 默认值：当前组件主轴大小减去8vp空白区 单位：vp 说明： 不支持设置百分比。 |
 
 
 
@@ -176,7 +190,9 @@ halfHeight(value: number | string)
 
 指定PanelMode.Half状态下的高度。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的height替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -186,7 +202,7 @@ halfHeight(value: number | string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 指定PanelMode.Half状态下的高度。 默认值：当前组件主轴大小的一半。 说明： 不支持设置百分比。 |
+| value | number \| string | 是 | 指定PanelMode.Half状态下的高度。 默认值：当前组件主轴大小的一半。 单位：vp 说明： 不支持设置百分比。 |
 
 
 
@@ -199,7 +215,9 @@ miniHeight(value: number | string)
 
 指定PanelMode.Mini状态下的高度。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的height替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -222,7 +240,9 @@ show(value: boolean)
 
 当滑动面板弹出时调用。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的isShow替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -245,7 +265,9 @@ backgroundMask(color: ResourceColor)
 
 指定Panel的背景蒙层。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 9开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的maskColor替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -268,7 +290,9 @@ showCloseIcon(value: boolean)
 
 设置是否显示关闭图标。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 10开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的showClose替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -287,18 +311,20 @@ showCloseIcon(value: boolean)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!TIP]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetSize 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-| 名称 | 说明 |
-| --- | --- |
-| Minibar | 提供minibar和类全屏展示切换效果。 |
-| Foldable | 内容永久展示类，提供大（类全屏）、中（类半屏）、小三种尺寸展示切换效果。 |
-| Temporary | 内容临时展示区，提供大（类全屏）、中（类半屏）两种尺寸展示切换效果。 |
-| CUSTOM10+ | 配置自适应内容高度，不支持尺寸切换效果。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| Minibar | 0 | 提供minibar和类全屏展示切换效果。 |
+| Foldable | 1 | 内容永久展示类，提供大（类全屏）、中（类半屏）、小三种尺寸展示切换效果。 |
+| Temporary | 2 | 内容临时展示区，提供大（类全屏）、中（类半屏）两种尺寸展示切换效果。 |
+| CUSTOM10+ | 3 | 配置自适应内容高度，不支持尺寸切换效果。 |
 
 
 
@@ -307,7 +333,9 @@ showCloseIcon(value: boolean)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -326,15 +354,17 @@ showCloseIcon(value: boolean)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!TIP]
+> 从API version 10开始支持，从API version 12开始废弃。建议使用 SheetSize 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-| 名称 | 说明 |
-| --- | --- |
-| WRAP_CONTENT | 类型为CUSTOM时，自适应内容高度。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| WRAP_CONTENT | 'wrapContent' | PanelType的类型为CUSTOM时，自适应内容高度。 |
 
 
 
@@ -355,7 +385,9 @@ onChange(event: (width: number, height: number, mode: PanelMode) => void)
 
 当可滑动面板发生状态变化时触发。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 7开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的onTypeDidChange替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -380,7 +412,9 @@ onHeightChange(callback: (value: number) => void)
 
 当可滑动面板发生高度变化时触发。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+> [!NOTE]
+> 从API version 9开始支持，从API version 12开始废弃。建议使用 SheetOptions 中的onHeightDidChange替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -415,7 +449,7 @@ struct PanelExample {
         .backgroundColor(0xFFFFFF)
         .padding({ left: 20 })
         .onClick(() => {
-          this.show = !this.show
+          this.show = !this.show;
         })
       Panel(this.show) { // 展示日程
         Column() {
@@ -427,10 +461,10 @@ struct PanelExample {
       .type(PanelType.Foldable)
       .mode(PanelMode.Half)
       .dragBar(true) // 默认开启
-      .halfHeight(500) // 默认一半
+      .halfHeight(500) // 设置半屏高度为500（默认为组件主轴大小的一半）
       .showCloseIcon(true) // 显示关闭图标
       .onChange((width: number, height: number, mode: PanelMode) => {
-        console.info(`width:${width},height:${height},mode:${mode}`)
+        console.info(`width:${width},height:${height},mode:${mode}`);
       })
     }.width('100%').height('100%').backgroundColor(0xDCDCDC).padding({ top: 5 })
   }
@@ -438,4 +472,4 @@ struct PanelExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/wTHLHp_2TYW8OVXUPGn-Bg/zh-cn_image_0000002628862920.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014357Z&HW-CC-Expire=86400&HW-CC-Sign=130C9050765B7A600D73344B67C17AC4FDC1831EBDF6E3FF0F2F0F4049104AD5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/hoQmNZikRquJmaacmWA48Q/zh-cn_image_0000002686088503.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071522Z&HW-CC-Expire=86400&HW-CC-Sign=020A2230D927C87FA90872670FFA2EEE200A670FF77E083129BA1EBC76662F93)

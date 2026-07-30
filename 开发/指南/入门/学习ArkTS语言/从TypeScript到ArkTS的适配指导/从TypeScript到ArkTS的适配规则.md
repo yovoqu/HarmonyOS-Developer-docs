@@ -1,6 +1,6 @@
 # 从TypeScript到ArkTS的适配规则
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typescript-to-arkts-migration-guide
 
@@ -195,7 +195,7 @@ class U {
 let u: U = new T(); // 是否允许？
 ```
  
-类型为T的值是否能传递给接受类型为U的参数的函数。
+类型为T的值是否能传递给接收类型为U的参数的函数。
  
 ```ts
 function greeter(u: U) {

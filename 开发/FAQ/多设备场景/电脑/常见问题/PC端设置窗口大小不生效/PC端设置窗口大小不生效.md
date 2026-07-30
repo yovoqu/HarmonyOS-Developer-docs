@@ -1,6 +1,6 @@
 # PC端设置窗口大小不生效
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:24:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-12
 
@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/r2SwfrPKSWyHiCLZ767fnA/zh-cn_image_0000002658791751.png?HW-CC-KV=V1&HW-CC-Date=20260723T012339Z&HW-CC-Expire=86400&HW-CC-Sign=CCC740D9453CC87FB691D411DB6993779FA6316ED39A85C4CF01BD808D51346C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/vwkxkBQwTMKsdYKnNgaXmg/zh-cn_image_0000002658791751.png?HW-CC-KV=V1&HW-CC-Date=20260730T072244Z&HW-CC-Expire=86400&HW-CC-Sign=4A4B1ECFEEA59DABEDF81E9E1ADA9402DD8B8899A9D122522BB546775494B3B7)
 
  
  
@@ -156,5 +156,5 @@ A：PC/2in1设备上的应用可以支持全屏或自由窗口、自定义窗口
  
 - 可以在module.json5中配置参数设置窗口大小，参考[如何限制自由窗窗口尺寸](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode#section6754152523715)。
 - 应用窗口化适配：应用从桌面启动时，默认以非全屏窗口显示，窗口大小支持自由拖动。更多详情请参考[自由窗口模式适配](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode#section151195853214)。
-- 应用窗口化标题栏适配：应用窗口标题栏支持沉浸式和自定义。更多详情请参考[窗口沉浸式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive#section1477255312219)。
-- 自由窗口的全屏沉浸式适配：视频类应用支持自由窗口与全屏沉浸式体验。更多详情请参考[窗口沉浸式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive#section1477255312219)。
+- 应用窗口化标题栏适配：应用窗口标题栏支持沉浸式和自定义。更多详情请参考[窗口沉浸式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive)。
+- 自由窗口的全屏沉浸式适配：视频类应用支持自由窗口与全屏沉浸式体验。更多详情请参考[窗口沉浸式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive)。

@@ -307,7 +307,7 @@ export class MyDataSource extends BasicDataSource {
  纵向循环滚动效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/9lAopOnvTUST2cn9BS0tUQ/zh-cn_image_0000002658920467.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013139Z&HW-CC-Expire=86400&HW-CC-Sign=10E2ECB7E824F6FF6A1A81B4B9E7741F686B1F2CB6C7EBE150AAAD56FC1DB79B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/9lAopOnvTUST2cn9BS0tUQ/zh-cn_image_0000002658920467.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=25284DB8DCD46D7F1EA1E9C598E8995EFF2729F0449A348C6745FB45C55B6BA4)
 
 
  
@@ -446,4 +446,4 @@ struct HorizontalCircularList {
  横向循环滚动效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/B_m-CuxNSTKgLHHiJJqDYw/zh-cn_image_0000002628401258.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013139Z&HW-CC-Expire=86400&HW-CC-Sign=354B2E97697DE34B4EECD337CF21F3BBAFC0CDEE9BD3044427053929AB8B71F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/B_m-CuxNSTKgLHHiJJqDYw/zh-cn_image_0000002628401258.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=DB20823539920D5BF1F4F17722966539BF84749B8CD6E7E0E978A9EF8684E811)

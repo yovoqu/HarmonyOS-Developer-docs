@@ -1,6 +1,6 @@
 # @ohos.settingsLite (设置信息)
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-settings-lite
 **支持设备：** Wearable | lite_wearable
@@ -128,7 +128,25 @@ settingsLite.isDoubleClickAppForSelf({
 按键设置-双击下按键页面检查回调。
  
 **系统能力：** SystemCapability.Applications.Settings.Core.Lite
+ 
+**模型约束：** 此接口仅可在FA模型下使用。
+ 
   
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| onResult | (result: boolean) => void | 双击下按键的默认启动应用为当前应用则返回true，否则返回false。 |
+
+#### onResult
+
+**支持设备：** Wearable | lite_wearable
+
+onResult(result: boolean):void
+ 
+双击结果回调。
+ 
+**系统能力：** SystemCapability.Applications.Settings.Core.Lite
+ 
+**模型约束：** 此接口仅可在FA模型下使用。
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| result | boolean | 是 | 返回检查结果 |

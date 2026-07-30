@@ -118,13 +118,13 @@ export struct <span style="color: rgb(0,0,255);">CanvasView </span><span style="
 在onReady中打印的日志显示context.width和context.height并未初始化完成三个画板的样式，说明Canvas尺寸尚未确定时已进行绘制设置，所以是初始化时序的问题。前后日志如图：问题日志：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/_EpfQtynRWGZ7Wtgtn_Vog/zh-cn_image_0000002628553250.png?HW-CC-KV=V1&HW-CC-Date=20260723T013656Z&HW-CC-Expire=86400&HW-CC-Sign=B27C0D247EFE581E6D535DEC2E4CE75DCF99BCAB2831832C151EB9604DC336B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/_EpfQtynRWGZ7Wtgtn_Vog/zh-cn_image_0000002628553250.png?HW-CC-KV=V1&HW-CC-Date=20260730T072636Z&HW-CC-Expire=86400&HW-CC-Sign=C8CBFC21B902CD629BA8E5E2E45573DF5DD591436275EA8722F5E8382A404486)
 
  
 修复日志：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/4cln3YFjStS6mxGIc2Dw3g/zh-cn_image_0000002658912561.png?HW-CC-KV=V1&HW-CC-Date=20260723T013656Z&HW-CC-Expire=86400&HW-CC-Sign=CB61D11D71042EC6E22EC4AE236E7AC87829E9EED7A6CBD74A7E4461BA7D2020)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/4cln3YFjStS6mxGIc2Dw3g/zh-cn_image_0000002658912561.png?HW-CC-KV=V1&HW-CC-Date=20260730T072636Z&HW-CC-Expire=86400&HW-CC-Sign=C801055C8B2FA329DE410EACC04E6F6E4999D910B350538A8C124E1B23233404)
 
  
  

@@ -230,7 +230,7 @@ export struct Index1 {
   效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/O6Q_VhkvRgudEdderrfmOA/zh-cn_image_0000002628605352.png?HW-CC-KV=V1&HW-CC-Date=20260723T013130Z&HW-CC-Expire=86400&HW-CC-Sign=C679F03E6505D2AC15CE0A862B26E984F0262731BD6F0E9930F1580A1DDE52BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/O6Q_VhkvRgudEdderrfmOA/zh-cn_image_0000002628605352.png?HW-CC-KV=V1&HW-CC-Date=20260730T072458Z&HW-CC-Expire=86400&HW-CC-Sign=94265AC13BF3C3016CD6CFB46710F0321FE29A18A6888932EC640D8414C6C46C)
 
 
  - **方案二**：通过scrollToIndex、scrollTo控制滚动，使得可视区域不变。1. LazyDataSource2.ets：定义LazyForEach懒加载数据通用工具类。
@@ -414,7 +414,7 @@ export struct Index2 {
   效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/xfwoiYSmQ96s7cj0otfphg/zh-cn_image_0000002658844609.png?HW-CC-KV=V1&HW-CC-Date=20260723T013130Z&HW-CC-Expire=86400&HW-CC-Sign=B8E3DCCB27308786D69C978E846297EA9B11919FF08DB6FEC0607347C4374EE7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/xfwoiYSmQ96s7cj0otfphg/zh-cn_image_0000002658844609.png?HW-CC-KV=V1&HW-CC-Date=20260730T072458Z&HW-CC-Expire=86400&HW-CC-Sign=23DCEEC32800C16FC67952C236A416052745C19C438A74B12FBEA8AB8B4B5869)
 
 
  

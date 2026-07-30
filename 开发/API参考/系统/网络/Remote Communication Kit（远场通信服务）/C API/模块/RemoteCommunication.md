@@ -1,6 +1,6 @@
 # RemoteCommunication
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -4478,7 +4478,7 @@ Rcp_QuicErrorCode HMS_Rcp_QuicConnDestroy (Rcp_QuicConn *conn)
  
 **描述**
  
-销毁quic连接对象。释放quic连接资源。
+销毁QUIC连接，完成后触发[Rcp_QuicConnectionOnClosed](#rcp_quicconnectiononclosed)事件。请勿对同一个[Rcp_QuicConn](#rcp_quicconn)实例重复执行此操作。
  
 **起始版本：** 26.0.0
  

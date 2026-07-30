@@ -1,6 +1,6 @@
 # OH_AVDataSourceExt
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-codecbase-oh-avdatasourceext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,5 +36,5 @@ typedef struct OH_AVDataSourceExt {...} OH_AVDataSourceExt
  
 | 名称 | 描述 |
 | --- | --- |
-| int64_t size | 数据源的总大小。 |
-| OH_AVDataSourceReadAtExt readAt | 数据源的数据回调。 |
+| int64_t size | 数据源的总大小，单位为字节。 |
+| OH_AVDataSourceReadAtExt readAt | 数据源的数据读取回调。 |

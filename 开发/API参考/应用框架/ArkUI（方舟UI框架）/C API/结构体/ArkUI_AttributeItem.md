@@ -1,6 +1,6 @@
 # ArkUI_AttributeItem
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_AttributeItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义[setAttribute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#setattribute)函数通用入参结构。各个属性设置接口可选择使用其中的成员变量来存储特定类型的参数数据。
+定义[setAttribute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#setattribute)函数的通用入参结构。各个属性设置接口可选择使用其中的成员变量来存储特定类型的参数数据。
  
 **起始版本：** 12
  
@@ -36,7 +36,7 @@ typedef struct {...} ArkUI_AttributeItem
  
 | 名称 | 描述 |
 | --- | --- |
-| const ArkUI_NumberValue* value | 数字类型数组，用于存储数字数组类型的参数。 |
-| int32_t size | 数字类型数组大小，配合变量value使用，value数组的长度。 |
-| const char* string | 字符串类型，用于存储字符串类型的参数。 |
-| void* object | 对象类型，用于存储对象类型的参数。 |
+| const ArkUI_NumberValue* value | 数字数组，用于存储数字类型的属性参数，数组长度由size指定。 |
+| int32_t size | value数组的长度，需配合变量value使用。 |
+| const char* string | 字符串，用于存储字符串类型的属性参数。 |
+| void* object | 对象数据，用于存储对象类型的属性参数。 |

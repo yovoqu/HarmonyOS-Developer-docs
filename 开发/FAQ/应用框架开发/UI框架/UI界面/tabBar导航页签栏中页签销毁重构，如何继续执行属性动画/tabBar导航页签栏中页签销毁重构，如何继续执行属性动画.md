@@ -11,7 +11,7 @@ Tabs组件的tabBar导航页签栏中第一个页签使用if/else条件渲染，
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/-8c2DuGxTLulf2P3g_a-mQ/zh-cn_image_0000002628602042.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013144Z&HW-CC-Expire=86400&HW-CC-Sign=15E5683D378DAE3FC2CE970819E685422574962AAE597CED26C48A519BE44A81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/-8c2DuGxTLulf2P3g_a-mQ/zh-cn_image_0000002628602042.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072502Z&HW-CC-Expire=86400&HW-CC-Sign=DD3070DC68BF8A0C5910FB56D2FC6E725F827507F83439F381F9117299BE2B78)
 
  
  
@@ -21,7 +21,7 @@ Tabs组件的tabBar导航页签栏中第一个页签使用if/else条件渲染，
 tabBar导航页签栏切换到其他页签之后再次切回第一个页签，动画效果仍存在：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/XE-hmRl2RM-P77Whkw9--w/zh-cn_image_0000002628761928.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013144Z&HW-CC-Expire=86400&HW-CC-Sign=DD954EFA96FD9550DA7DC1DF6159B245F9D461C171C553B95AAA4EB60979C2E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/XE-hmRl2RM-P77Whkw9--w/zh-cn_image_0000002628761928.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072502Z&HW-CC-Expire=86400&HW-CC-Sign=7290570ECC24E1D6C4A397B06BF80ABFA0DCCCEF9A5D5563F535B153587E8480)
 
  
  

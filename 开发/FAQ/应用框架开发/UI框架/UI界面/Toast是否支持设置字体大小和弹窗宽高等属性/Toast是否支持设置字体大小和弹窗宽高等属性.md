@@ -13,7 +13,7 @@ Toast是否支持自定义设置字体大小和弹窗背板的宽高等属性？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/_vhMeuFsRzaetoR_unRN4g/zh-cn_image_0000002628763654.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013058Z&HW-CC-Expire=86400&HW-CC-Sign=0D376011168E2CDEB52AD09564B5FE37EB24779D4CF4B0D2022ACBAFAEE17962)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/_vhMeuFsRzaetoR_unRN4g/zh-cn_image_0000002628763654.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072451Z&HW-CC-Expire=86400&HW-CC-Sign=3788069EA6C59B13B8F149BD15088B9C6331C59C81A9B3AB9240074598FBDE9E)
 
  
  

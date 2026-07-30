@@ -1,6 +1,6 @@
 # Class (BitVector)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-bitvector
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -70,7 +70,7 @@ let bitVector: collections.BitVector = new collections.BitVector(0); // 初始�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-push(element:number): boolean
+push(element: number): boolean
  
 在BitVector尾部插入元素。
  
@@ -788,5 +788,5 @@ bitVector.push(1);
 bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
-console.info("BitVector Element Index at 1: " + bitVector[1]);
+console.info("BitVector Element Index at 1: " + bitVector[1]); // bitVector 1
 ```

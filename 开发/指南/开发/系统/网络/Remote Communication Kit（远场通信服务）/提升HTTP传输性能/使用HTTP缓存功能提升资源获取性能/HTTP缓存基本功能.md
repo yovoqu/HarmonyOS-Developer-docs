@@ -1,6 +1,6 @@
 # HTTP缓存基本功能
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-cache-basic
 
@@ -29,10 +29,11 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 
   
 ```text
+// 创建ResponseCache实例
 const responseCache = new rcp.ResponseCache({
   persistent: {
     kind: 'file-system',
-    pathToFolder: '/path/dir' // 请根据自身业务选择合适的路径
+    pathToFolder: '/data/storage/el2/base/entry/temp/BaseHttp' // 请根据自身业务选择合适的路径
   }
 });
 ```
@@ -43,7 +44,7 @@ const responseCache = new rcp.ResponseCache({
 ```text
 const session: rcp.Session = rcp.createSession({
   requestConfiguration: {
-    cache: responseCache
+    cache: responseCache,
   }
 });
 ```
@@ -52,6 +53,7 @@ const session: rcp.Session = rcp.createSession({
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseA = await session.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseA)}`);
 let cacheState = await responseCache.getState();
@@ -62,6 +64,7 @@ console.info(`The current number of cache entries is: ${cacheState.count}`);
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseB = await session.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseB)}`);
 cacheState = await responseCache.getState();
@@ -88,7 +91,7 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 const responseCache = new rcp.ResponseCache({
   persistent: {
     kind: 'file-system',
-    pathToFolder: '/path/dir' // 请根据自身业务选择合适的路径
+    pathToFolder: '/data/storage/el2/base/entry/temp/ExpirationHttp' // 请根据自身业务选择合适的路径
   },
   // 过期策略配置，可根据业务特性进行选择
   defaultExpirationPolicy: {
@@ -105,9 +108,9 @@ const responseCache = new rcp.ResponseCache({
 
   
 ```text
-const session: rcp.Session = rcp.createSession({
+const session: rcp.Session  = rcp.createSession({
   requestConfiguration: {
-    cache: responseCache
+    cache: responseCache,
   }
 });
 ```
@@ -116,6 +119,7 @@ const session: rcp.Session = rcp.createSession({
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseA = await session.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseA)}`);
 let cacheState = await responseCache.getState();
@@ -143,6 +147,7 @@ await sleep(4000);
 
   
 ```json
+// 请求的网址是示例网址，请根据实际需求更改
 const responseB = await session.get('https://www.example.com');
 console.info(`Request succeeded, message is ${JSON.stringify(responseB)}`);
 cacheState = await responseCache.getState();

@@ -13,7 +13,7 @@ Canvas如何实现橡皮擦效果，清除已绘制的路径？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/2GNZo5_8SZSCR6OiEq80yA/zh-cn_image_0000002628769120.png?HW-CC-KV=V1&HW-CC-Date=20260723T013037Z&HW-CC-Expire=86400&HW-CC-Sign=5AB7E4F1AE62E466D93A0A61BFD7139814049D3D4E753094996151A8679AE2EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/2GNZo5_8SZSCR6OiEq80yA/zh-cn_image_0000002628769120.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=73D094A37CA7CEA418959273EEDFE851E700796C7399E0A8BDFA048850823039)
 
  
  

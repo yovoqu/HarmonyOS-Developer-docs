@@ -1,11 +1,11 @@
 # Menu
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-以垂直列表形式显示的菜单。
+以垂直列表形式显示的菜单。Menu组件支持配置菜单项、子菜单、图标、分隔线等内容，可用于展示操作选项、功能入口等场景。
  
 > [!NOTE]
 > 该组件从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 Menu组件需和 bindMenu 或 bindContextMenu 方法配合使用，不支持作为普通组件单独使用。
@@ -52,7 +52,7 @@ Menu()
 
 font(value: Font)
  
-统一设置Menu中所有文本的尺寸。
+统一设置Menu中所有文本的字体样式。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -64,7 +64,7 @@ font(value: Font)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Font | 是 | Menu中所有文本的尺寸。 默认值： { size: 16, family: 'HarmonyOS Sans', weight: FontWeight.Medium, style: FontStyle.Normal } |
+| value | Font | 是 | Menu中所有文本的字体样式。 默认值： { size: 16, family: 'HarmonyOS Sans', weight: FontWeight.Medium, style: FontStyle.Normal } |
  
  
   
@@ -121,9 +121,9 @@ radius(value: Dimension | BorderRadiuses)
 
 menuItemDivider(options: DividerStyleOptions | undefined)
  
-设置menuItem分割线样式，不设置该属性则不展示分割线。
+设置MenuItem分割线样式，不设置该属性则不展示分割线。
  
-startMargin + endMargin 超过组件宽度后startMargin和endMargin会被置0。
+startMargin + endMargin超过组件宽度后startMargin和endMargin会被置0。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -135,7 +135,7 @@ startMargin + endMargin 超过组件宽度后startMargin和endMargin会被置0�
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | DividerStyleOptions \| undefined | 是 | 设置menuItem分割线样式。 -strokeWidth：分割线的线宽。 -color：分割线的颜色。 -startMargin：分割线与menuItem侧边起始端的距离。 -endMargin：分割线与menuItem侧边结束端的距离。 -mode：分割线的模式，默认值为FLOATING_ABOVE_MENU。 |
+| options | DividerStyleOptions \| undefined | 是 | 设置MenuItem分割线样式。 -strokeWidth：分割线的线宽，默认值是1px。 -color：分割线的颜色，默认值是#33000000。 -startMargin：分割线与MenuItem侧边起始端的距离，默认为16vp，单位为vp。 -endMargin：分割线与MenuItem侧边结束端的距离，默认为16vp，单位为vp。 -mode：分割线的模式，默认值为FLOATING_ABOVE_MENU。 startMargin + endMargin超过组件宽度后startMargin和endMargin会被置0。 |
  
  
   
@@ -146,7 +146,7 @@ startMargin + endMargin 超过组件宽度后startMargin和endMargin会被置0�
 
 menuItemGroupDivider(options: DividerStyleOptions | undefined)
  
-设置menuItemGroup上下分割线的样式，不设置该属性则默认展示分割线。
+设置MenuItemGroup顶部和底部分割线的样式，不设置该属性则默认展示分割线。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -158,7 +158,7 @@ menuItemGroupDivider(options: DividerStyleOptions | undefined)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | DividerStyleOptions \| undefined | 是 | 设置menuItemGroup顶部和底部分割线样式。 -strokeWidth：分割线的线宽，默认值是1px。 -color：分割线的颜色，默认值是 #33000000。 -startMargin：分割线与menuItemGroup侧边起始端的距离，默认为16vp，单位为vp。 -endMargin：分割线与menuItemGroup侧边结束端的距离，默认为16vp，单位为vp。 -mode：分割线的模式，默认值为FLOATING_ABOVE_MENU。 |
+| options | DividerStyleOptions \| undefined | 是 | 设置MenuItemGroup顶部和底部分割线样式。 -strokeWidth：分割线的线宽，默认值是1px。 -color：分割线的颜色，默认值是#33000000。 -startMargin：分割线与MenuItemGroup侧边起始端的距离，默认为16vp，单位为vp。 -endMargin：分割线与MenuItemGroup侧边结束端的距离，默认为16vp，单位为vp。 -mode：分割线的模式，默认值为FLOATING_ABOVE_MENU。 startMargin + endMargin超过组件宽度后startMargin和endMargin会被置0。 |
  
  
   
@@ -181,7 +181,7 @@ subMenuExpandingMode(mode: SubMenuExpandingMode)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | SubMenuExpandingMode | 是 | Menu子菜单展开样式。 默认值：SubMenuExpandingMode.SIDE_EXPAND |
+| mode | SubMenuExpandingMode | 是 | Menu子菜单展开样式。 默认值：SubMenuExpandingMode.SIDE_EXPAND 设置为SIDE_EXPAND时，subMenuExpandSymbol属性不会显示；设置为EMBEDDED_EXPAND或STACK_EXPAND时，subMenuExpandSymbol属性才会生效。 |
  
  
   
@@ -192,7 +192,7 @@ subMenuExpandingMode(mode: SubMenuExpandingMode)
 
 subMenuExpandSymbol(symbol: SymbolGlyphModifier)
  
-设置Menu子菜单展开符号。
+设置Menu子菜单展开符号。仅在SubMenuExpandingMode.EMBEDDED_EXPAND或SubMenuExpandingMode.STACK_EXPAND模式下显示，SubMenuExpandingMode.SIDE_EXPAND模式下不显示。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  
@@ -247,7 +247,7 @@ Menu子菜单展开样式枚举。
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SIDE_EXPAND | 0 | 默认展开样式，子菜单位于同一平面侧边展开。 |
-| EMBEDDED_EXPAND | 1 | 直接展开样式，子菜单嵌于主菜单内展开。 |
+| EMBEDDED_EXPAND | 1 | 内嵌展开样式，子菜单嵌于主菜单内展开。 |
 | STACK_EXPAND | 2 | 堆叠样式，子菜单浮于主菜单上方展开。 |
  
  
@@ -267,48 +267,47 @@ Menu子菜单展开样式枚举。
 @Entry
 @Component
 struct Index {
-  @State select: boolean = true;
   // $r('app.media.xxx')需要替换为开发者所需的图像资源文件。
-  private iconStr: ResourceStr = $r("app.media.view_list_filled");
-  private iconStr2: ResourceStr = $r("app.media.arrow_right_filled");
+  private iconStr: ResourceStr = $r('app.media.view_list_filled');
+  private iconStr2: ResourceStr = $r('app.media.arrow_right_filled');
 
   @Builder
   SubMenu() {
     Menu() {
-      MenuItem({ content: "复制", labelInfo: "Ctrl+C" })
-      MenuItem({ content: "粘贴", labelInfo: "Ctrl+V" })
+      MenuItem({ content: '复制', labelInfo: 'Ctrl+C' })
+      MenuItem({ content: '粘贴', labelInfo: 'Ctrl+V' })
     }
   }
 
   @Builder
-  MyMenu(){
+  MyMenu() {
     Menu() {
-      MenuItem({ startIcon: $r("app.media.icon"), content: "菜单选项" })
-      MenuItem({ startIcon: $r("app.media.icon"), content: "菜单选项" })
+      MenuItem({ startIcon: $r('app.media.icon'), content: '菜单选项' })
+      MenuItem({ startIcon: $r('app.media.icon'), content: '菜单选项' })
         .enabled(false)
       MenuItem({
         startIcon: this.iconStr,
-        content: "菜单选项",
+        content: '菜单选项',
         endIcon: this.iconStr2,
-        builder: ():void=>this.SubMenu()
+        builder: (): void => this.SubMenu()
       })
       MenuItemGroup({ header: '小标题' }) {
         MenuItem({
           startIcon: this.iconStr,
-          content: "菜单选项",
+          content: '菜单选项',
           endIcon: this.iconStr2,
-          builder: ():void=>this.SubMenu()
+          builder: (): void => this.SubMenu()
         })
         MenuItem({
-          startIcon: $r("app.media.app_icon"),
-          content: "菜单选项",
+          startIcon: $r('app.media.app_icon'),
+          content: '菜单选项',
           endIcon: this.iconStr2,
-          builder: ():void=>this.SubMenu()
+          builder: (): void => this.SubMenu()
         })
       }
       MenuItem({
         startIcon: this.iconStr,
-        content: "菜单选项",
+        content: '菜单选项',
       })
     }
   }
@@ -354,39 +353,39 @@ struct Index {
   @Builder
   SubMenu() {
     Menu() {
-      MenuItem({ content: "复制", labelInfo: "Ctrl+C" })
-      MenuItem({ content: "粘贴", labelInfo: "Ctrl+V" })
+      MenuItem({ content: '复制', labelInfo: 'Ctrl+C' })
+      MenuItem({ content: '粘贴', labelInfo: 'Ctrl+V' })
     }
   }
 
   @Builder
   MyMenu() {
     Menu() {
-      MenuItem({ symbolStartIcon: this.startIconModifier, content: "菜单选项" })
-      MenuItem({ symbolStartIcon: this.startIconModifier, content: "菜单选项" })
+      MenuItem({ symbolStartIcon: this.startIconModifier, content: '菜单选项' })
+      MenuItem({ symbolStartIcon: this.startIconModifier, content: '菜单选项' })
         .enabled(false)
       MenuItem({
         symbolStartIcon: this.startIconModifier,
-        content: "菜单选项",
+        content: '菜单选项',
         symbolEndIcon: this.endIconModifier,
         builder: (): void => this.SubMenu()
       })
       MenuItemGroup({ header: '小标题' }) {
         MenuItem({
           symbolStartIcon: this.startIconModifier,
-          content: "菜单选项",
+          content: '菜单选项',
           symbolEndIcon: this.endIconModifier,
           builder: (): void => this.SubMenu()
         })
         MenuItem({
           symbolStartIcon: this.startIconModifier,
-          content: "菜单选项",
+          content: '菜单选项',
           symbolEndIcon: this.endIconModifier,
           builder: (): void => this.SubMenu()
         })
       }
       MenuItem({
-        content: "菜单选项",
+        content: '菜单选项',
       }).selected(this.select).selectIcon(this.selectIconModifier)
     }
   }
@@ -407,17 +406,17 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/SNAULv4aQsuIglt882OrTA/zh-cn_image_0000002659102119.png?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=28DCEF0DBA84A2D587C422CE41AD4DD9A5EBF8FAA37F5C59D960C7E99C0B3D5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/NTrMgb2LRXG1y0tbse3gxw/zh-cn_image_0000002656008824.png?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=94753A4161DA81EB62184B9A29FCFF24ADE35AAECA930A043B0C36CA51472BA5)
 
  
   
 
 #### 示例3（设置Menu子菜单展开符号）
 
-该示例通过配置subMenuExpandSymbol实现对Menu子菜单展开符号配置颜色。
+该示例通过配置subMenuExpandSymbol实现对Menu子菜单展开符号配置颜色和大小。
  
 ```text
-import { SymbolGlyphModifier } from '@kit.ArkUI';
+import { SymbolGlyphModifier, SubMenuExpandingMode } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -432,11 +431,11 @@ struct Index {
     Menu() {
       MenuItem({
         symbolStartIcon: this.startIconModifier,
-        content: "图标"
+        content: '图标'
       })
       MenuItem({
         symbolStartIcon: this.startIconModifier,
-        content: "列表"
+        content: '列表'
       })
     }.backgroundColor(Color.Grey)
   }
@@ -447,22 +446,24 @@ struct Index {
       MenuItem({
         symbolStartIcon: this.startIconModifier,
         symbolEndIcon: this.endIconModifier,
-        content: "新建文件夹",
+        content: '新建文件夹',
         builder: (): void => this.SubMenu(),
       })
       MenuItem({
         symbolStartIcon: this.startIconModifier,
-        content: "排序方式",
+        content: '排序方式',
         builder: (): void => this.SubMenu(),
       })
       MenuItem({
         symbolStartIcon: this.startIconModifier,
-        content: "查看方式",
+        content: '查看方式',
         builder: (): void => this.SubMenu(),
       })
     }
+    // 设置子菜单展开样式为嵌入式展开
     .subMenuExpandingMode(SubMenuExpandingMode.EMBEDDED_EXPAND)
     .backgroundColor(Color.Grey)
+    // 设置子菜单展开符号
     .subMenuExpandSymbol(this.expandSymbolModifier)
   }
 
@@ -475,17 +476,17 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/ksrfYNxESg2i4Ue9zjT5Nw/zh-cn_image_0000002628862772.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=2F3BD746EE1CFE2481A7A2BFAC07A9BAB786F27E3AEB27F2D8C50A1DD18AF7F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/DoK0r6JGR42slVhXD7IHkg/zh-cn_image_0000002655848904.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=9D11BFE8DEF0D235BA6C943D2DCD375B021D50807AD8ABDC179AE534964FB864)
 
  
   
 
 #### 示例4（设置分割线样式）
 
-该示例通过设置menuItemGroupDivider属性实现分割线样式。
+该示例通过设置menuItemDivider和menuItemGroupDivider属性实现分割线样式。
  
 ```text
-import { LengthMetrics } from '@kit.ArkUI'
+import { LengthMetrics, DividerMode } from '@kit.ArkUI'
 
 @Entry
 @Component
@@ -494,20 +495,22 @@ struct Index {
   @Builder
   MyMenu() {
     Menu() {
-      MenuItem({ content: "Item Content" })
-      MenuItem({ content: "Item Content" })
-      MenuItem({ content: "Item Content" })
+      MenuItem({ content: 'Item Content' })
+      MenuItem({ content: 'Item Content' })
+      MenuItem({ content: 'Item Content' })
       MenuItemGroup() {
-        MenuItem({ content: "Group Child" })
-        MenuItem({ content: "Group Child" })
+        MenuItem({ content: 'Group Child' })
+        MenuItem({ content: 'Group Child' })
       }
-      MenuItem({ content: "Item Content" })
+      MenuItem({ content: 'Item Content' })
     }
+    // 设置菜单项分割线样式
     .menuItemDivider({
       strokeWidth: LengthMetrics.vp(5),
       color: '#d5d5d5',
       mode: DividerMode.EMBEDDED_IN_MENU
     })
+    // 设置菜单项分组分割线样式
     .menuItemGroupDivider({
       strokeWidth: LengthMetrics.vp(5),
       color: '#707070',
@@ -517,8 +520,8 @@ struct Index {
 
   build() {
     RelativeContainer() {
-      Button("show menu")
-        .bindMenu(this.MyMenu())
+      Button('show menu')
+        .bindMenu(this.MyMenu)
     }
     .height('100%')
     .width('100%')
@@ -527,4 +530,65 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/WX4V7zuFRFCDTwyfnpXxfA/zh-cn_image_0000002659222085.png?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=A51396948C9A0E9DD35E4CC158486A15BA8F66F19B47188AF1907C5586CD4F28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/sy45B9siRb209omnmW_Cmg/zh-cn_image_0000002686088335.png?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=3605B1C116B7F6645E8E74AEB2140328CEF1E4834CA8C56DAF751DD22C96B9DF)
+
+ 
+  
+
+#### 示例5（设置自定义菜单项的多级菜单）
+
+该示例通过设置subMenuBuilder属性为自定义菜单项添加多级菜单。
+ 
+从API版本26.0.0开始，新增[subMenuBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menuitem#submenubuilder)属性。
+ 
+```text
+import { LengthMetrics } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct Index {
+
+  @Builder
+  SubMenu() {
+    Menu() {
+      MenuItem({ content: '复制', labelInfo: 'Ctrl+C' })
+      MenuItem({ content: '粘贴', labelInfo: 'Ctrl+V' })
+    }
+  }
+
+  @Builder
+  SubMenuContent() {
+    Row() {
+      // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
+      Image($r('app.media.startIcon')).width(20).height(20)
+      Text('Custom Menu Item').margin({start: LengthMetrics.vp(5)})
+    }.padding(20)
+  }
+
+  @Builder
+  MyMenu() {
+    Menu() {
+      MenuItem(this.SubMenuContent)
+      MenuItem(this.SubMenuContent)
+        .enabled(false)
+      MenuItem(this.SubMenuContent).subMenuBuilder(this.SubMenu)
+    }
+  }
+
+  build() {
+    Row() {
+      Column() {
+        Text('click to show menu')
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+      }
+      .bindMenu(this.MyMenu)
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/hPFqGw_sQuirCYm7RxD_Pg/zh-cn_image_0000002685928503.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=3D708B478CACDA1AB1340463A85D328CB01F3F4543EB49F72157B750103CECC0)

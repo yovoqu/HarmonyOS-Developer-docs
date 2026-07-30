@@ -9,7 +9,7 @@
 ArkTS如何实现点阵屏背景样式的弹幕滚动？效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/C-8YHyJ3REu4i0ZicC12Uw/zh-cn_image_0000002658791977.png?HW-CC-KV=V1&HW-CC-Date=20260723T012540Z&HW-CC-Expire=86400&HW-CC-Sign=954A4CB9CE6F1594C512186EABF986591819113FF09FEB468F6A93A31E54884D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/C-8YHyJ3REu4i0ZicC12Uw/zh-cn_image_0000002658791977.png?HW-CC-KV=V1&HW-CC-Date=20260730T072321Z&HW-CC-Expire=86400&HW-CC-Sign=1383B6B9DFF612F29E17F1862AEE07C93850D6774F21C1E65BCFE6DFE6306D24)
 
  
  
@@ -17,7 +17,7 @@ ArkTS如何实现点阵屏背景样式的弹幕滚动？效果如下图：
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/TzF8nRuCS3SpX1cSjevqRA/zh-cn_image_0000002628552602.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012540Z&HW-CC-Expire=86400&HW-CC-Sign=5A4B1E1B1DCDB62216AC7181A27631771886B2069A99DE58E66208BF4A982764)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/TzF8nRuCS3SpX1cSjevqRA/zh-cn_image_0000002628552602.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072321Z&HW-CC-Expire=86400&HW-CC-Sign=35B48A59396B064922ED6661EC754BC825960D259F30A331028D3C62355AB899)
 
  
  

@@ -22,7 +22,7 @@
 #### 问题定位
 1. 使用[DevEco Testing](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/get-familiar)查看页面布局，发现视频是通过Web组件中的video标签展示。
 2. 根据布局排查video组件的宽度，是否与设备屏幕宽度一致。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/iFWkPyIFRTyU8KiFMFk3Pw/zh-cn_image_0000002628551556.png?HW-CC-KV=V1&HW-CC-Date=20260723T012917Z&HW-CC-Expire=86400&HW-CC-Sign=FD8CE015D727B490894ABEFF44F06ADBD6D5724E4D34049753F60604A6BD8229)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/iFWkPyIFRTyU8KiFMFk3Pw/zh-cn_image_0000002628551556.png?HW-CC-KV=V1&HW-CC-Date=20260730T072429Z&HW-CC-Expire=86400&HW-CC-Sign=6C7990BB27D3F9C6C2D62008F4F670A43150C484E22E962559AEBB3BBAAF24C1)
 
 3. 播放视频时根据关键字“This request has been blocked”排查日志，发现应用在使用了HTTPS协议的Web页面加载了使用HTTP协议的视频。
 ```bash
@@ -84,4 +84,4 @@ export struct WebVideoIndex {
   效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/FcNbdloRQCCQ1nbDU6A8LA/zh-cn_image_0000002628391676.png?HW-CC-KV=V1&HW-CC-Date=20260723T012917Z&HW-CC-Expire=86400&HW-CC-Sign=BF0EAA4FA0FA1E71171C3736948E59DF71679F858DAE092754A9766AF0AC37FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/FcNbdloRQCCQ1nbDU6A8LA/zh-cn_image_0000002628391676.png?HW-CC-KV=V1&HW-CC-Date=20260730T072429Z&HW-CC-Expire=86400&HW-CC-Sign=CEBD8A5C90882523033ADD3253AD6CDB3FF07B803EDC9771C5BDB274DBCB391C)

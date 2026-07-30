@@ -1,6 +1,6 @@
 # net_websocket.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -179,7 +179,7 @@ int OH_WebSocketClient_Send(struct WebSocket *client, char *data, size_t length)
 | --- | --- |
 | struct WebSocket *client | 客户端。 |
 | char *data | 客户端发送的数据。 |
-| size_t length | 客户端发送的数据长度。 |
+| size_t length | 客户端发送的数据长度。单位：Byte。 |
  
  
 **返回：**
@@ -241,7 +241,7 @@ int OH_WebSocketClient_Destroy(struct WebSocket *client)
 2. 调用[OH_WebSocketClient_Close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-h#oh_websocketclient_close)关闭WebSocket连接。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/xOOahF0rQKWfr8vc3KoH_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020118Z&HW-CC-Expire=86400&HW-CC-Sign=47448E1A294461A0E7A575ED888DBD6AD8DFC479F5CF316570430F5D42D92C6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/TENJZ0rVR7-QQNH7KoO3ZA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071625Z&HW-CC-Expire=86400&HW-CC-Sign=3DB875F2DF4640163594D3346FF925136CB4CB64AF9110F622957DD8D9C46AAA)
  
  
 确保触发[WebSocket_OnCloseCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-type-h#websocket_onclosecallback)回调后再调用该接口，否则系统内存资源被释放后可能出现socket泄露以及连接未关闭的情况。

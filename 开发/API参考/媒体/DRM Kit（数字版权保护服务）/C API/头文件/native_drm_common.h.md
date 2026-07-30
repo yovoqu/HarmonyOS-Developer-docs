@@ -1,6 +1,6 @@
 # native_drm_common.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -102,8 +102,8 @@
 | MAX_MEDIA_KEY_STATUS_NAME_LEN 64 | 媒体密钥状态名称的最大长度。 起始版本： 11 |
 | MAX_MEDIA_KEY_STATUS_VALUE_LEN 256 | 媒体密钥状态值的最大长度。 起始版本： 11 |
 | DRM_UUID_LEN 16 | DRM解决方案的UUID长度。 起始版本： 11 |
-| MAX_PSSH_DATA_LEN 2048 | PSSH（Protected System Specific Header）信息的最大长度。 起始版本： 11 |
-| MAX_PSSH_INFO_COUNT 8 | PSSH（Protected System Specific Header）信息的最大数量。 起始版本： 11 |
+| MAX_PSSH_DATA_LEN 2048 | PSSH（Protection System Specific Header）信息的最大长度。 起始版本： 11 |
+| MAX_PSSH_INFO_COUNT 8 | PSSH（Protection System Specific Header）信息的最大数量。 起始版本： 11 |
 | MAX_MEDIA_KEY_SYSTEM_NAME_LEN 128 | MediaKeySystem名称的最大长度。 起始版本： 12 |
 | MAX_MEDIA_KEY_SYSTEM_NUM 8 | MediaKeySystem的最大数量。 起始版本： 12 |
  

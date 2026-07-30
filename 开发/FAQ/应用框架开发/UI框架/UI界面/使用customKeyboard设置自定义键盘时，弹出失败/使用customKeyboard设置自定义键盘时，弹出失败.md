@@ -62,7 +62,7 @@ struct <span style="color: rgb(0,0,255);">CustomKeyboardPage </span><span style=
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/0nSRHe54Tny6hhf5R3VMMg/zh-cn_image_0000002628569772.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013122Z&HW-CC-Expire=86400&HW-CC-Sign=D3386515C07AEEF1AF05DA038A5AB7233ACCC5FA3266935E98E464C768018531)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/0nSRHe54Tny6hhf5R3VMMg/zh-cn_image_0000002628569772.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072456Z&HW-CC-Expire=86400&HW-CC-Sign=3819FD707BF825DBCCE9246F080277FE75EF56533926758B278D7C25CF8AE773)
 
  
  

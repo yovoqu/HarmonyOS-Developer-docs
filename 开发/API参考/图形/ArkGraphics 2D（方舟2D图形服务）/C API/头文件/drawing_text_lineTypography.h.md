@@ -1,6 +1,6 @@
 # drawing_text_lineTypography.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-linetypography-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -162,7 +162,7 @@ OH_Drawing_TextLine* OH_Drawing_LineTypographyCreateLine(OH_Drawing_LineTypograp
 | --- | --- |
 | OH_Drawing_LineTypography* lineTypography | 指向排版行对象OH_Drawing_LineTypography的指针，由OH_Drawing_CreateLineTypography获取。 |
 | size_t startIndex | 表示计算排版的起始位置，整数，取值范围为[0, 文本字符总数)。 |
-| size_t count | 表示从指定排版起始位置开始进行排版的字符个数，取值为[0,文本字符总数)的整数，startIndex和count之和不能大于文本字符总数。 可以先使用OH_Drawing_LineTypographyGetLineBreak获得合理的可用于进行排版的字符总数。如果该值设置为0，则返回nullptr。 |
+| size_t count | 表示从指定排版起始位置开始进行排版的字符个数，取值为[0,文本字符总数)的整数，startIndex和count之和不能大于文本字符总数。 可以先使用OH_Drawing_LineTypographyGetLineBreak获得合理的可用于进行排版的字符总数。如果该值设置为0，则返回自startIndex开始到文本末尾的内容。 |
  
  
 **返回：**

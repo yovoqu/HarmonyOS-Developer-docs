@@ -1,6 +1,6 @@
 # @system.battery (电量信息)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-battery
 **支持设备：** Wearable | lite_wearable
@@ -140,4 +140,4 @@ export default {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | charging | boolean | 否 | 否 | 当前电池是否在充电中。true表示在充电，false表示没有充电，默认为false。 说明： 除Lite Wearable外，从API Version 6开始不再维护，建议使用batteryInfo.chargingStatus替代。 |
-| level | number | 否 | 否 | 当前电池的电量百分比，取值范围：0.00 - 1.00 。 说明： 除Lite Wearable外，从API Version 6开始不再维护，建议使用batteryInfo.batterySOC替代。 |
+| level | number | 否 | 否 | 当前电池的电量百分比，取值范围：0.00~1.00。 说明： 除Lite Wearable外，从API Version 6开始不再维护，建议使用batteryInfo.batterySOC替代。 |

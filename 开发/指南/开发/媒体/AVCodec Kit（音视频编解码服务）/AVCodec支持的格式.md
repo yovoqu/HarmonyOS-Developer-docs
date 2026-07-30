@@ -1,13 +1,13 @@
 # AVCodec支持的格式
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats
 
 音视频的编解码能力以及文件格式封装和解封装能力的支持情况，在不同平台存在能力和规格的差异。开发者可以通过[获取支持的编解码能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/obtain-supported-codecs)来获取实际的支持情况和规格情况。
 
 
-#### 媒体编解码
+#### 音视频编解码
 
 
 
@@ -124,11 +124,11 @@
 
 
 
-#### 媒体数据封装与解析
+#### 媒体数据封装与解封装
 
 
 
-#### 媒体数据解析
+#### 媒体数据解封装
 
 支持的解封装格式如下：
 
@@ -138,7 +138,7 @@
 | 音视频 | fmp4 | 视频轨：AVC(H.264)、HEVC(H.265) 音频轨：AAC、MPEG(MP3)、Audio Vivid |
 | 音视频 | mkv | 视频轨：AVC(H.264)、HEVC(H.265)、MSVIDEO122+ 音频轨：AAC、MPEG(MP3)、OPUS、ADPCM_YAMAHA22+、ADPCM_G72222+、ALAC22+ |
 | 音视频 | mpeg-ts | 视频轨：AVC(H.264)、HEVC(H.265)、MPEG2、MPEG4 音频轨：AAC、MPEG(MP3)、Audio Vivid |
-| 音视频 | flv | 视频轨：AVC(H.264)、HEVC(H.265) 音频轨：AAC |
+| 音视频 | flv | 视频轨：AVC(H.264)、HEVC(H.265) 音频轨：AAC、Audio Vivid（从API版本26.0.0开始支持） |
 | 音视频 | mpeg-ps | 视频轨：AVC(H.264)、MPEG2 音频轨：MPEG(MP2、MP3)、DTS23+ |
 | 音视频 | avi | 视频轨：H.263、AVC(H.264)、MPEG2、MPEG4、MJPEG22+、MSVIDEO122+ 音频轨：AAC、MPEG(MP2、MP3)、PCM、GSM_MS22+、ADPCM_YAMAHA22+、ADPCM_G72222+、DVAUDIO23+、DTS23+ |
 | 音视频 | 3gp22+ | 视频轨：H.263、AVC(H.264)、MPEG4 音频轨：AAC、AMR(amrnb、amrwb) |
@@ -163,7 +163,7 @@
 
 DRM解密能力支持的解封装格式：mp4(H.264，H.265，AAC)、mpeg-ts(H.264，H.265，AAC)。
 
-具体开发指导请参考[媒体数据解析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-demuxer)。
+具体开发指导请参考[媒体数据解封装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-demuxer)。
 
 
 

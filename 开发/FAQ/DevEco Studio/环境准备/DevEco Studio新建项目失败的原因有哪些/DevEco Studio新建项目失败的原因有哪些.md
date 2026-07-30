@@ -41,13 +41,13 @@ Windows环境：在系统或者用户的PATH变量中查看NODE_HOME。
 
  
  - **场景二**：新建项目时，出现npm报错，如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/-Q1t9uOvT8yg9sB4sK3GEg/zh-cn_image_0000002628565012.png?HW-CC-KV=V1&HW-CC-Date=20260723T013906Z&HW-CC-Expire=86400&HW-CC-Sign=675A3C5BE6C6751809BAA47436E536DA63A6D2B706FBC2F58E4B8614D7FD8AD6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/-Q1t9uOvT8yg9sB4sK3GEg/zh-cn_image_0000002628565012.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=2F6167E07622078B0A8F722DF20CDBC0075C1AF6982F6E365AE55D27F180503B)
 
 - **场景三**：新建项目窗口无任何内容，如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/YklHCP4PT4yAFTgXfbb8yg/zh-cn_image_0000002628405106.png?HW-CC-KV=V1&HW-CC-Date=20260723T013906Z&HW-CC-Expire=86400&HW-CC-Sign=E8CB9EE7FB22E5BA21B1B86C58FF9C5AABF9F5FE652686BF516615E06D0966DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/YklHCP4PT4yAFTgXfbb8yg/zh-cn_image_0000002628405106.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=59C8017CA6DFB5BE315AD7B482510E8B669D9975646BBB24DF838E96FFD28E1F)
 
 - **场景四**：新建项目时，出现Cannot detect a launch configuration，如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/GQfb9vewT6yEBZgTi07JRQ/zh-cn_image_0000002658924327.png?HW-CC-KV=V1&HW-CC-Date=20260723T013906Z&HW-CC-Expire=86400&HW-CC-Sign=DA85EBDCDAC58EA100C0B3D41620A473036A641DA625A3F8AEB35B14E02CA6E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/GQfb9vewT6yEBZgTi07JRQ/zh-cn_image_0000002658924327.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=8DC93F7D16D9D1C8207BEEA722E261EE9A018AAF4D3D34B47296CB8920272D1B)
 
 
  

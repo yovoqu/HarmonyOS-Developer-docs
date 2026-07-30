@@ -1,6 +1,6 @@
 # @ohos.hiviewdfx.FaultLogExtensionAbility (故障延迟通知)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-faultlogextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,15 @@
 开发者可在[onFaultReportReady](#onfaultreportready)中订阅并处理故障事件。
 
 > [!NOTE]
-> 本模块接口从API version 21开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块设置了不允许调用的API名单，调用名单中的API将导致功能异常，详情请参见 附录 。
+> 本模块接口从API version 21开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
+
+
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+为保障系统安全性和稳定性，防止FaultLogExtensionAbility滥用系统资源，系统对其能力进行管控，不支持部分模块的引用，详情请参考[附录](#附录)。
 
 
 
@@ -35,7 +43,7 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 应用接入故障延迟通知需要通过FaultLogExtensionAbility实现，开发者可以在[onFaultReportReady](#onfaultreportready)中订阅并处理故障事件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/xgFG7fiuSa-kSuRQrs4A5Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020201Z&HW-CC-Expire=86400&HW-CC-Sign=250F373AFA4B7BB2597EDDAF2C61C3B967FD833E2850ED9F2AC6AEA536196814)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/oq1A7Lw4R6qppoFDAPGXCA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071646Z&HW-CC-Expire=86400&HW-CC-Sign=E8B11D158003476D24750F2C8F747766DF6A8FAB91179CFC3489447CA732EFEE)
 
 
  - FaultLogExtensionAbility被拉起后只有很短的时间完成故障处理，建议处理时间不要超过10秒。超时没有处理完成可以在[onDisconnect](#ondisconnect)中保存状态。
@@ -143,7 +151,7 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块不允许调用的API名单如下。
+FaultLogExtensionAbility不支持以下模块的引用。
 
 | Kit名称 | 模块名称 |
 | --- | --- |

@@ -1,6 +1,6 @@
 # applySync/flushUpdates/flushUIUpdates接口：同步刷新
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates
 
@@ -174,6 +174,14 @@ struct Index {
 }
 ```
 
+ - 三个同步刷新接口的刷新范围对比如下表所示：
+
+
+| 接口 | 刷新范围 | @Computed | @Monitor |
+| --- | --- | --- | --- |
+| applySync | 仅闭包内修改 | 同步执行 | 同步执行 |
+| flushUpdates | 所有待处理修改 | 同步执行 | 同步执行 |
+| flushUIUpdates | 所有待处理修改 | 不同步执行 | 不同步执行 |
 
 
 

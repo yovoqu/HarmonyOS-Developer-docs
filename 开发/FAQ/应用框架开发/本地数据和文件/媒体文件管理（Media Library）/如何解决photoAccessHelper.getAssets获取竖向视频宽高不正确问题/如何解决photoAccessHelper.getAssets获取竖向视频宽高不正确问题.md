@@ -9,13 +9,13 @@
 图库显示宽高1080*1920。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/b2cMaQ8nR9qBYAk2RxHPGA/zh-cn_image_0000002659258335.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=059CE4AE022FBE85FADA18BD75FAB8B16FD5ABBA1417172C96F82B5DB3391451)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/b2cMaQ8nR9qBYAk2RxHPGA/zh-cn_image_0000002659258335.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=E2341E7660A9D3CC3AD9B2E9674168739307779E6391F909B7A6F0E223D304D3)
 
  
 通过API获取到的视频高为1080，宽为1920，API获取的值宽高与实际相反。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/71SQX3vZSI2Z27z4uIrOyA/zh-cn_image_0000002628899116.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=F72BD5ECC865F515999EF60A8F81041B9D229B6A275840EF330C3799B2902B58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/71SQX3vZSI2Z27z4uIrOyA/zh-cn_image_0000002628899116.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=3592C52E053672953F4BA8542580276A974E917ED2B470FC18AE75307D8FEAD8)
 
  
  
@@ -33,23 +33,23 @@
 获取横屏视频做对比，两个视频在手机上显示的尺寸宽高数值相反。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/gWioWTP2S_Gz16anACcOFw/zh-cn_image_0000002659138385.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=F57FAF57E1AE28EB589ED40E7B9470469D030706EAAF0869A0F559CD8ABC3D77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/gWioWTP2S_Gz16anACcOFw/zh-cn_image_0000002659138385.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=E230EBA6DE2DE6A0ED1B720CBCD0171CAF8364F9729AB87F7C779C3BCED1D40E)
 
  
 通过API获取到的两个视频同样高为1080，宽为1920，但是竖向视频有90°旋转，因此怀疑是旋转导致的问题。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/NOl-0ePSRDmkf1To2dO8Qg/zh-cn_image_0000002629059034.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=08B5628435B7771BA0FC7BCC6B6C0693179B7C68EFEAB9FC879CE7258CDE4BC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/NOl-0ePSRDmkf1To2dO8Qg/zh-cn_image_0000002629059034.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=20B8BA30B41EB572BADCB90D9250EE24CD885F0AB7E0E5457999999E525A6786)
 
  
 再对比下旋转180°和270°的情况，旋转度数除以180余数为90的时候，需要长宽的数值互换，才能得出手机上看到的结果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/DyQkbZNERii-TkJHccLSpQ/zh-cn_image_0000002659258337.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=224635DC82616E08233C722E447192322D66D611FBFA29EBFDA5F0B37004E02B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/DyQkbZNERii-TkJHccLSpQ/zh-cn_image_0000002659258337.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=E808A8F077B226088A13B59D90D576BE0A7CAEC566CA57C8219BC1CAD09E4468)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/9Olw1LV1S_idw072dZ5yUQ/zh-cn_image_0000002628899118.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=A568E43B8DEB309D5E558F8016B80AA6418281346E6B2E0B1C3D549B3B6B0A0D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/9Olw1LV1S_idw072dZ5yUQ/zh-cn_image_0000002628899118.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=F1F9B157DE29E51B4199F66C4363E148691FFF5BEAF7EDE5C1D0C5726DD57FC7)
 
  
  

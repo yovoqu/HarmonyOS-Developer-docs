@@ -1,6 +1,6 @@
 # Image错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -171,6 +171,8 @@ The image data is abnormal.
 
 
 #### 62980102 图片分配内存错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1246,11 +1248,11 @@ PixelMap已被传递至另一个线程。
 
 **可能原因**
 
-PixelMap对象已被传递至另一个线程。
+PixelMap对象已被传递至另一个线程，原线程的对象无法继续调用接口。
 
 **处理步骤**
 
-不要在PixelMap对象被传递到另一个线程后仍在当前线程调用该对象的方法。
+不要在PixelMap对象被传递到另一个线程后仍在原线程调用该对象的接口。
 
 
 
@@ -1443,6 +1445,26 @@ Unsupported data format.
 **处理步骤**
 
 查看接口文档并使用接口支持的数据格式。
+
+
+
+#### 7600208 HDR图片分解失败
+
+**错误信息**
+
+HDR image decomposition failed. Possible causes: 1. Decomposition processing is not supported. 2. Processing error occurs.
+
+**错误描述**
+
+HDR图片分解失败。
+
+**可能原因**
+1. 分解处理不被支持。
+2. HDR图片处理过程中发生错误。
+
+**处理步骤**
+
+检查HDR PixelMap的像素格式是否支持分解，或更换图片后重试。
 
 
 
@@ -1884,6 +1906,8 @@ Unsupported options.
 
 
 #### 7800202 ImagePacker无效参数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

@@ -1,6 +1,6 @@
 # @ohos.multimedia.sendableImage (基于Sendable对象的图片处理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -135,7 +135,7 @@ class MySequence implements rpc.Parcelable {
       this.pixel_map = sendableImage.createPixelMapFromParcel(messageSequence);
     } catch(e) {
       let error = e as BusinessError;
-      console.error(`createPixelMapFromParcel error. code is ${error.code}, message is ${error.message}`);
+      console.error(`Failed to create a PixelMap from a parcel. Code: ${error.code}, message: ${error.message}.`);
       return false;
     }
     return true;
@@ -1854,7 +1854,7 @@ class MySequence implements rpc.Parcelable {
   }
   marshalling(messageSequence : rpc.MessageSequence) {
     this.pixel_map.marshalling(messageSequence);
-    console.info('marshalling');
+    console.info('Succeeded in marshalling a PixelMap.');
     return true;
   }
   unmarshalling(messageSequence : rpc.MessageSequence) {
@@ -1862,7 +1862,7 @@ class MySequence implements rpc.Parcelable {
       pixelParcel.unmarshalling(messageSequence).then(async (pixelMap: sendableImage.PixelMap) => {
         this.pixel_map = pixelMap;
         pixelMap.getImageInfo().then((imageInfo: image.ImageInfo) => {
-          console.info("unmarshalling information h:" + imageInfo.size.height + "w:" + imageInfo.size.width);
+          console.info(`Succeeded in unmarshalling a PixelMap. Height: ${imageInfo.size.height}, width: ${imageInfo.size.width}.`);
         })
       })
     });
@@ -1953,7 +1953,7 @@ class MySequence implements rpc.Parcelable {
   }
   marshalling(messageSequence: rpc.MessageSequence) {
     this.pixel_map.marshalling(messageSequence);
-    console.info('marshalling');
+    console.info('Succeeded in marshalling a PixelMap.');
     return true;
   }
   unmarshalling(messageSequence: rpc.MessageSequence) {
@@ -1961,7 +1961,7 @@ class MySequence implements rpc.Parcelable {
       pixelParcel.unmarshalling(messageSequence).then(async (pixelMap : sendableImage.PixelMap) => {
         this.pixel_map = pixelMap;
         pixelMap.getImageInfo().then((imageInfo : image.ImageInfo) => {
-          console.info("unmarshalling information h:" + imageInfo.size.height + "w:" + imageInfo.size.width);
+          console.info(`Succeeded in unmarshalling a PixelMap. Height: ${imageInfo.size.height}, width: ${imageInfo.size.width}.`);
         })
       })
     });
@@ -2432,9 +2432,9 @@ async function GetComponent() {
   let receiver: sendableImage.ImageReceiver = sendableImage.createImageReceiver(size, image.ImageFormat.JPEG, 8);
   let img = await receiver.readNextImage();
   img.getComponent(image.ComponentType.JPEG).then((component: image.Component) => {
-    console.info('getComponent succeeded.');
+    console.info('Succeeded in getting an image component.');
   }).catch((error: BusinessError) => {
-    console.error(`getComponent failed code ${error.code}, message is ${error.message}`);
+    console.error(`Failed to get an image component. Code: ${error.code}, message: ${error.message}.`);
   })
 }
 ```
@@ -2479,9 +2479,9 @@ async function Release() {
   let receiver: sendableImage.ImageReceiver = sendableImage.createImageReceiver(size, image.ImageFormat.JPEG, 8);
   let img = await receiver.readNextImage();
   img.release().then(() => {
-    console.info('release succeeded.');
+    console.info('Succeeded in releasing an image.');
   }).catch((error: BusinessError) => {
-    console.error(`release failed. code ${error.code}, message is ${error.message}`);
+    console.error(`Failed to release an image. Code: ${error.code}, message: ${error.message}.`);
   })
 }
 ```
@@ -2562,7 +2562,7 @@ readLatestImage(): Promise&lt;Image&gt;
 从ImageReceiver读取最新的图片。使用promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/_uNmCvZbRZCbO1yRLCeilQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020241Z&HW-CC-Expire=86400&HW-CC-Sign=AF76D0E992140B1B0C6A3D1A64BDED5B5F5F7A375C83A92215F2A075B59E58E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/aFIK2xMrSR2WgHMLRnU-UA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071705Z&HW-CC-Expire=86400&HW-CC-Sign=F5582E44CB59C0639B2636DF03680A7C65778542C5DA7998AE0F8FCBB7450840)
 
 
 此接口需要在[on](#on)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。
@@ -2592,9 +2592,9 @@ async function ReadLatestImage() {
   }
   let receiver: sendableImage.ImageReceiver = sendableImage.createImageReceiver(size, image.ImageFormat.JPEG, 8);
   receiver.readLatestImage().then((img: sendableImage.Image) => {
-    console.info('readLatestImage succeeded.');
+    console.info('Succeeded in reading the latest image.');
   }).catch((error: BusinessError) => {
-    console.error(`readLatestImage failed. code ${error.code}, message is ${error.message}`);
+    console.error(`Failed to read the latest image. Code: ${error.code}, message: ${error.message}.`);
   })
 }
 ```
@@ -2610,7 +2610,7 @@ readNextImage(): Promise&lt;Image&gt;
 从ImageReceiver读取下一张图片。使用promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/MC2GncFySgexpQI1kC5ogA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020241Z&HW-CC-Expire=86400&HW-CC-Sign=7DDC119062C1BF2E58FA04834D6641028A676447204303244927AC2DC61D6724)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/jM85QOtITGWVYGl0zGLbTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071705Z&HW-CC-Expire=86400&HW-CC-Sign=50244A1A6537EE0E50A011799144A517C42B72F75832A9F3F0E48335403D726D)
 
 
 此接口需要在[on](#on)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。
@@ -2640,9 +2640,9 @@ async function ReadNextImage() {
   }
   let receiver: sendableImage.ImageReceiver = sendableImage.createImageReceiver(size, image.ImageFormat.JPEG, 8);
   receiver.readNextImage().then((img: sendableImage.Image) => {
-    console.info('readNextImage succeeded.');
+    console.info('Succeeded in reading the next image.');
   }).catch((error: BusinessError) => {
-    console.error(`readNextImage failed. code ${error.code}, message is ${error.message}`);
+    console.error(`Failed to read the next image. Code: ${error.code}, message: ${error.message}.`);
   })
 }
 ```
@@ -2722,9 +2722,9 @@ async function Release() {
   }
   let receiver: sendableImage.ImageReceiver = sendableImage.createImageReceiver(size, image.ImageFormat.JPEG, 8);
   receiver.release().then(() => {
-    console.info('release succeeded.');
+    console.info('Succeeded in releasing an image receiver.');
   }).catch((error: BusinessError) => {
-    console.error(`release failed. code ${error.code}, message is ${error.message}`);
+    console.error(`Failed to release an image receiver. Code: ${error.code}, message: ${error.message}.`);
   })
 }
 ```

@@ -1,10 +1,10 @@
 # @performance/monitor-invisible-area-in-image-animation
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-monitor-invisible-area-in-image-animation
 
-使用ImageAnimation实现帧动画时，建议显式调用monitorInvisibleArea接口。在动画组件不可见时，会停止动画播放，减少无效的冗余动画带来的负载恶化。
+使用ImageAnimation实现帧动画时，建议显式调用monitorInvisibleArea接口。在动画组件不可见时，会停止动画播放，减少冗余动画带来的负载恶化。
  
 
 #### 规则配置

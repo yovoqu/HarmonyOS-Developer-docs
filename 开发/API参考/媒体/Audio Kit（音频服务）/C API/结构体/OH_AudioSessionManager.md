@@ -1,12 +1,12 @@
 # OH_AudioSessionManager
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosessionmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef struct OH_AudioSessionManager OH_AudioSessionManager
+typedef struct OH_AudioSessionManager OH_AudioSessionManager;
 ```
   
 
@@ -14,7 +14,7 @@ typedef struct OH_AudioSessionManager OH_AudioSessionManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明音频会话管理器。用于管理音频会话相关功能。
+音频会话管理器结构体。用于管理音频会话。
  
 **起始版本：** 12
  

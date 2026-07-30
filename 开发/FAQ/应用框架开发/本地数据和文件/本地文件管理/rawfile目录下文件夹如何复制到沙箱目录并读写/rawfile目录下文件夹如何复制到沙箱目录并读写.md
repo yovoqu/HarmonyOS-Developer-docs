@@ -1,6 +1,6 @@
 # rawfile目录下文件夹如何复制到沙箱目录并读写
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-55
 
@@ -28,7 +28,7 @@
  
 - **方案一：rawfile目录下的文件夹直接复制到resfile目录下（resfile/apps），然后再复制到沙箱。**由于resfile下文件夹随应用安装解压到应用沙箱目录，但是仅能以只读方式访问，所以也需要将其文件复制到沙箱目录下进行读写。1. 通过context.resourceDir获取resfile目录，context.filesDir获取沙箱目录。
 
-2. 使用[fs.copyDirSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopydirsync10)把resfile/apps直接复制到沙箱目录。
+2. 使用[fs.copyDirSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiocopydirsync10)把resfile/apps直接复制到沙箱目录。
 - **方案二：把需要复制的目录压缩成zip，复制zip并解压到沙箱目录。**1. 通过[getRawFd()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9)获取rawfile/apps.zip所在hap包的descriptor信息（示例代码中的参数data）。
 
 2. 使用buffer将rawfile/apps.zip文件内容复制到沙箱临时文件路径（示例代码中的参数filepath）。

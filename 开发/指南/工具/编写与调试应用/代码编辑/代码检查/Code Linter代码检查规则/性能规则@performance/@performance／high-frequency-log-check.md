@@ -1,16 +1,12 @@
 # @performance/high-frequency-log-check
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-high-frequency-log-check
 
-不建议在高频函数中使用Hilog。
+不建议在高频函数中使用Hilog。高频函数包括：onTouch、onItemDragMove、onDragMove、onMouse、onVisibleAreaChange、onAreaChange、onScroll（已废弃）、onWillScroll。
  
-高频函数包括：onTouch、onItemDragMove、onDragMove、onMouse、onVisibleAreaChange、onAreaChange、onScroll（已废弃）、onWillScroll。
- 
-
- 
-高耗时函数处理场景下，建议优先修改。
+高耗时函数处建议优先修改。
  
 
 #### 规则配置

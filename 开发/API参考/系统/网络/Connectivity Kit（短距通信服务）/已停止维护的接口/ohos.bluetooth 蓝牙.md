@@ -1,6 +1,6 @@
 # @ohos.bluetooth (蓝牙)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 蓝牙模块提供了基础的传统蓝牙能力以及BLE的扫描、广播等功能。
  
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API Version 9 开始，该接口不再维护，推荐使用 @ohos.bluetooth.ble 等相关profile接口。
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API Version 9 开始，该接口不再维护，推荐使用 @ohos.bluetooth.ble (蓝牙ble模块) 等相关Profile接口。
 
   
 
@@ -4511,8 +4511,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| STATE_NOT_PLAYING | 0x0000 | 表示未播放。 |
-| STATE_PLAYING | 0x0001 | 表示正在播放。 |
+| STATE_NOT_PLAYING | 0 | 表示未播放。 |
+| STATE_PLAYING | 1 | 表示正在播放。 |
  
  
   

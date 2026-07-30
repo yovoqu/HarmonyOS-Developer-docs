@@ -1,6 +1,6 @@
 # GlobalColorPicker
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker-c
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -99,8 +99,6 @@ typedef void(* HMS_GCP_OnResult) (void *userData, HMS_GCP_PickedColorInfo colorI
 此回调用于接收拾取的颜色结果。
  
 **起始版本：** 5.0.0(12)
- 
-**参数:**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -182,8 +180,6 @@ int32_t HMS_GCP_StartColorPicker (int32_t initialPosX, int32_t initialPosY, HMS_
 启动全局取色器，并且在取色器移动时不显示值。
  
 **起始版本：** 5.0.0(12)
- 
-**参数:**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -210,8 +206,6 @@ int32_t HMS_GCP_StartColorPickerWithColorValue (int32_t initialPosX, int32_t ini
 此API用于启动取色器，在取色器移动时显示值。
  
 **起始版本：** 5.1.0(18)
- 
-**参数：**
   
 | 名称 | 描述 |
 | --- | --- |

@@ -1,12 +1,12 @@
 # 使用WebGL绘制图形
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/webgl-2d-guidelines
 
 #### 场景介绍
 
-WebGL的全称为Web Graphics Library（网页图形库），主要用于交互式渲染2D图形。目前HarmonyOS中使用的WebGL是基于OpenGL裁剪的OpenGL ES，可以在HTML5的Canvas元素对象中使用，无需使用插件，支持跨平台。WebGL程序是由JavaScript代码组成的，其中使用的API可以利用用户设备提供的GPU硬件完成图形渲染和加速。更多信息请参考[WebGL™标准](https://www.khronos.org/registry/webgl/specs/latest/1.0/)。
+WebGL的全称为Web Graphics Library（网页图形库），主要用于交互式渲染2D图形。目前HarmonyOS中使用的WebGL是基于OpenGL裁剪的OpenGL ES，可以在HTML5的Canvas元素对象中使用，无需使用插件，支持跨平台。WebGL程序是由JavaScript代码组成的，其中使用的API可以利用用户设备提供的GPU硬件完成图形渲染和加速。更多信息请参考[WebGL™标准](https://registry.khronos.org/webgl/specs/latest/1.0/)。
  
 > [!NOTE]
 > 目前该功能仅支持使用兼容JS的类Web开发范式开发。
@@ -88,7 +88,7 @@ WebGL的全称为Web Graphics Library（网页图形库），主要用于交互�
 | webgl.createBuffer(): WebGLBuffer \| null | 创建与初始化WebGL数据缓冲区。 |
 | webgl.bindBuffer(target: GLenum, buffer: WebGLBuffer \| null): void | 将WebGL数据缓冲区与目标进行绑定。 |
 | webgl.bufferData(target: GLenum, srcData: ArrayBufferView, usage: GLenum, srcOffset: GLuint, length?: GLuint): void | 创建并初始化WebGL的数据存储区。 |
-| webgl.getAttribLocation(program: WebGLProgram, name: string): GLint | 从给定WebGL着色程序中获取着色器中attribute变量的地址。 |
+| webgl.getAttribLocation(program: WebGLProgram, name: string): GLint | 从给定WebGL着色器程序中获取着色器中attribute变量的地址。 |
 | webgl.vertexAttribPointer(index GLuint, size: GLint, type: GLenum, normalized: GLboolean, stride: GLsizei, offset: GLintptr): void | 将缓冲区对象分配给变量。 |
 | webgl.enableVertexAttribArray(index: GLuint): void | 连接变量与分配给它的缓冲区对象。 |
 | webgl.clearColor(red: GLclampf, green: GLclampf, blue: GLclampf, alpha: GLclampf): void | 清空canvas指定的颜色。 |
@@ -102,7 +102,7 @@ WebGL的全称为Web Graphics Library（网页图形库），主要用于交互�
 
 #### 开发步骤
 
- 如下以实现一个彩色正方形为例，来演示使用WebGL绘制2D图形的过程。
+如下以实现一个彩色正方形为例，来演示使用WebGL绘制2D图形的过程。
  1. 使用WebGL进行3D渲染前，首先需要一个Canvas元素。以下示例创建了一个Canvas元素并设置一个onclick事件处理程序来初始化WebGL上下文。
 
   
@@ -210,7 +210,7 @@ function loadShader(gl, type, source) {
   
 在画正方形前，需要创建一个缓冲器来存储它的顶点。
 11. 首先调用gl的成员函数createBuffer()得到缓冲对象并存储在顶点缓冲器。然后调用 bindBuffer() 函数绑定上下文。
-12. 创建一个Javascript数组去记录每一个正方体的每一个顶点。然后将其转化为WebGL浮点型类型的数组，并将其传到gl对象的bufferData()方法来建立对象的顶点。
+12. 创建一个Javascript数组去记录每一个正方形的每一个顶点。然后将其转化为WebGL浮点型类型的数组，并将其传到gl对象的bufferData()方法来建立对象的顶点。
 13. 渲染场景。
 
   
@@ -220,4 +220,4 @@ function loadShader(gl, type, source) {
 最终实现效果示意如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/nC6lXoz6SuWJd_8jAhIK2w/zh-cn_image_0000002611754155.png?HW-CC-KV=V1&HW-CC-Date=20260528T030430Z&HW-CC-Expire=86400&HW-CC-Sign=90EA88EBF3E79BE80A601CCF827A8BE7A479E7BA2F4E2D1373637CB420C30A3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/pRrKEGEKRveMPIsNfEiFww/zh-cn_image_0000002685926329.png?HW-CC-KV=V1&HW-CC-Date=20260730T071858Z&HW-CC-Expire=86400&HW-CC-Sign=4540CFB02EC3787897606F8AD0FD57DEE3846D09D64713E388610A20EE13C12D)

@@ -1,6 +1,6 @@
 # HiDebug错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hidebug
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -71,10 +71,8 @@ The number of available invocations for the interface is insufficient. Please wa
 接口调用配额已超限，无法继续执行操作。
 
 **可能原因**
-
-1.进程调用次数超出配额（1次/天）。
-
-2.整机调用次数超出配额（5次/周）。
+1. 进程调用次数超出配额（1次/天）。
+2. 整机调用次数超出配额（5次/周）。
 
 **处理步骤**
 
@@ -227,10 +225,8 @@ Failed to create dump file.
 创建dump文件时出现失败。
 
 **可能原因**
-
-1、进程目录下存在同名文件。
-
-2、系统资源不足。
+1. 进程目录下存在同名文件。
+2. 系统资源不足。
 
 **处理步骤**
 

@@ -73,7 +73,7 @@ export struct <span style="color: rgb(0,0,255);">SectionView </span><span style=
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/UnEMKGJ8QWOLJqMWqd_WDw/zh-cn_image_0000002628766434.png?HW-CC-KV=V1&HW-CC-Date=20260723T013148Z&HW-CC-Expire=86400&HW-CC-Sign=CD8A268A7BFE91113F0B21EF6CC3FE4BC71AB229FC660F2F0F7187105648725F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/UnEMKGJ8QWOLJqMWqd_WDw/zh-cn_image_0000002628766434.png?HW-CC-KV=V1&HW-CC-Date=20260730T072503Z&HW-CC-Expire=86400&HW-CC-Sign=DBACD9F732486EBF903AE8EEAC5791C6E632476A5DB8E91BA8391D35C6F7B327)
 
  
  
@@ -81,7 +81,7 @@ export struct <span style="color: rgb(0,0,255);">SectionView </span><span style=
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/1xdX4EOxTLyLSi2KEXhfLQ/zh-cn_image_0000002658965769.png?HW-CC-KV=V1&HW-CC-Date=20260723T013148Z&HW-CC-Expire=86400&HW-CC-Sign=F2BCC2F6D0ECD911CF24773D41E0053182B73EDCD59F9915665DA6B5B9F5B12F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/1xdX4EOxTLyLSi2KEXhfLQ/zh-cn_image_0000002658965769.png?HW-CC-KV=V1&HW-CC-Date=20260730T072503Z&HW-CC-Expire=86400&HW-CC-Sign=CE44144BD7F5E6C53FA61D2F4385B9D443DA666D97936996BBF296C17978312D)
 
  
  
@@ -107,7 +107,7 @@ export struct <span style="color: rgb(0,0,255);">SectionView </span><span style=
 本地运行代码，没有报错信息，@Builder函数被成功调用，但是内部的Text文本未显示，推测是传入自定义组件的参数值有问题，通过debug发现contentComponent方法中this.message的值为undefined。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/zOaRtXY_RISfSszSWkUf_A/zh-cn_image_0000002628606556.png?HW-CC-KV=V1&HW-CC-Date=20260723T013148Z&HW-CC-Expire=86400&HW-CC-Sign=C7C18978EBEB7610902BBA6FE966144AB794331F3937355635F9DFFA75F9250C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/zOaRtXY_RISfSszSWkUf_A/zh-cn_image_0000002628606556.png?HW-CC-KV=V1&HW-CC-Date=20260730T072503Z&HW-CC-Expire=86400&HW-CC-Sign=CE6036B8051A6ED784059092C2661E76CD6DA9BD5E4C32E4EB11BEB49A3B194C)
 
  
  

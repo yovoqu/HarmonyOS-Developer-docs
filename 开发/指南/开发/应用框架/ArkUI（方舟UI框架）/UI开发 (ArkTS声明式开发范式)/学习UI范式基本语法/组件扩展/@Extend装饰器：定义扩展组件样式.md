@@ -1,10 +1,10 @@
 # @Extend装饰器：定义扩展组件样式
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend
 
-在前文的示例中，可以使用[@Styles](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style)用于样式的重用，在@Styles的基础上，我们提供了@Extend，用于扩展组件样式。
+在前文的示例中，可以使用[@Styles](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style)复用样式，在@Styles的基础上，我们提供了[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-extend#extend)，用于扩展组件样式。
 
 > [!NOTE]
 > 从API version 9开始支持。 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
@@ -18,7 +18,7 @@
 #### 语法
 
 ```text
-@Extend(UIComponentName) function functionName { ... }
+@Extend(UIComponentName) function functionName() { ... }
 ```
 
 
@@ -89,6 +89,7 @@ struct FancyUse {
 
   
 ```ArkTS
+// @Extend装饰的方法支持function参数
 @Extend(Text)
 function makeMeClick(onClick: () => void) {
   .backgroundColor(Color.Blue)
@@ -119,6 +120,7 @@ struct FancyUse {
 
   
 ```ArkTS
+// 将状态变量作为@Extend参数，状态变化驱动Text样式刷新
 @Extend(Text)
 function fancy(fontSize: number) {
   .fontColor(Color.Blue)
@@ -143,10 +145,8 @@ struct FancyUse {
 }
 ```
 
-
-
-
 ![](assets/@Extend装饰器：定义扩展组件样式/file-20260514130511380-1.png)
+
 
 
 
@@ -155,18 +155,19 @@ struct FancyUse {
 
  - 和@Styles不同，@Extend仅支持在全局定义，不支持在组件内部定义。
 
-
+  
 > [!NOTE]
 > 仅限在当前文件内使用，不支持导出。 如果要实现export功能，推荐使用 AttributeModifier 。
 
 
-【反例】
+  【反例】
 
+  
 ```text
 @Entry
 @Component
 struct FancyUse {
-  // 错误写法，@Extend仅支持在全局定义，不支持在组件内部定义
+  // 错误写法，@Extend仅支持在全局定义，不支持在组件内部定义。
   @Extend(Text) function fancy (fontSize: number) {
     .fontSize(fontSize)
   }
@@ -179,9 +180,9 @@ struct FancyUse {
   }
 }
 ```
-
 【正例】
 
+  
 ```ArkTS
 // 正确写法
 @Extend(Text)
@@ -203,11 +204,11 @@ struct FancyUse {
 
  - @Extend装饰的函数仅限当前文件使用，不支持导出，不支持在其他文件调用。
 
+  【反例】
 
-【反例】
-
+  
 ```ArkTS
-// 错误写法 不要在pageTwo当中使用在其他文件比如pageOne中定义的@Extend函数
+// 错误写法 不要在pageTwo当中使用在其他文件比如pageOne中定义的@Extend函数。
   // pageOne.ets
   @Extend(Button)
   function ButtonUse() {
@@ -226,7 +227,7 @@ struct FancyUse {
       }
     }
   }
-  
+
   // pageTwo.ets
   @Entry
   @Component
@@ -236,17 +237,17 @@ struct FancyUse {
         Text('this is TextUse')
 
         Button()
-          .ButtonUse()  // 会有编译告警提示: Property 'ButtonUse' does not exist on type 'ButtonAttribute'.
+          .ButtonUse()  // 会有编译告警提示: Property 'ButtonUse' does not exist  on type 'ButtonAttribute'.
           .height(50)
       }
     }
   }
 ```
-
 【正例】
 
+  
 ```ArkTS
-// 正确写法 在pageTwo文件当中可以定义与pageOne文件中的@Extend函数不重名的@Extend函数
+// 正确写法 在pageTwo文件当中可以定义与pageOne文件中的@Extend函数不重名的@Extend函数。
   // pageOne.ets
   @Extend(Button)
   function ButtonUse() {
@@ -265,7 +266,7 @@ struct FancyUse {
       }
     }
   }
-  
+
   // pageTwo.ets
   @Extend(Button)
   function ButtonUse2() {
@@ -279,7 +280,7 @@ struct FancyUse {
     build() {
       Row() {
         Text('this is TextUse')
-  
+
         Button()
           .ButtonUse2()
           .height(50)
@@ -290,9 +291,11 @@ struct FancyUse {
 
 
 
+
+
 #### 使用场景
 
-以下示例声明了3个Text组件，每个Text组件均设置了[fontStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontstyle)、[fontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) 和[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)样式。
+以下示例声明了3个Text组件，每个Text组件均设置了[fontStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontstyle)、[fontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontweight) 和[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)样式。
 
 ```ArkTS
 @Entry
@@ -302,6 +305,7 @@ struct FancyUse {
 
   build() {
     Row({ space: 10 }) {
+      // Text组件重复设置样式
       Text(`${this.label}`)
         .fontStyle(FontStyle.Italic)
         .fontWeight(500)
@@ -320,12 +324,13 @@ struct FancyUse {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/4dp-wSG3TLOByoKtzvenCw/zh-cn_image_0000002656347463.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=FD3A13EE18A95F69D09D447FDA7C36A5E3341D88053CEDE998C8F2C29453BFF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/MCWCiYWuSEa0RV21fIAu8g/zh-cn_image_0000002656005832.png?HW-CC-KV=V1&HW-CC-Date=20260730T071839Z&HW-CC-Expire=86400&HW-CC-Sign=2E80D584650264FD675E8DE06A373FED32370F902F5C6893A93ED3B01D9B7AC0)
 
 
 使用@Extend将样式组合复用，示例如下。
 
 ```ArkTS
+// 使用@Extend封装Text样式组合，便于复用
 @Extend(Text)
 function fancyText(weightValue: number, color: Color) {
   .fontStyle(FontStyle.Italic)
@@ -344,6 +349,7 @@ struct FancyUse {
 
   build() {
     Row({ space: 10 }) {
+      // 调用@Extend封装的fancyText复用样式
       Text(`${this.label}`)
         .fancyText(100, Color.Blue)
       Text(`${this.label}`)

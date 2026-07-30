@@ -1,6 +1,6 @@
 # Class (HeifsMetadata)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-heifsmetadata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -67,7 +67,7 @@ static createInstance(): HeifsMetadata
 async function heifsMetadataCreateInstance(context: Context) {
   let heifsMetadata = image.HeifsMetadata.createInstance();
   if (heifsMetadata != undefined) {
-    console.info("createInstance successfully.");
+    console.info("Succeeded in creating a HeifsMetadata instance.");
   }
 }
 ```
@@ -236,7 +236,7 @@ getAllProperties(): Promise<Record<string, string | null>>
  
 **示例：**
  
-```text
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -254,10 +254,9 @@ async function heifsMetadataGetAllProperties(context: Context) {
   if (metaData != undefined && metaData.heifsMetadata != undefined) {
     await metaData.heifsMetadata.getAllProperties().then((data) => {
       const count = Object.keys(data).length;
-      console.info('Metadata have ', count, ' properties');
-      console.info(`Get metadata all properties: ${data}`);
+      console.info(`Succeeded in getting all properties. Count: ${count}, data: ${JSON.stringify(data)}.`);
     }).catch((error: BusinessError) => {
-      console.error(`Failed to get metadata all properties. error.code is ${error.code}, error.message is ${error.message}`);
+      console.error(`Failed to get all properties. Code: ${error.code}, message: ${error.message}.`);
     });
   } else {
     console.error('Metadata is null.');
@@ -288,7 +287,7 @@ clone(): Promise&lt;HeifsMetadata&gt;
  
 **示例：**
  
-```text
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -306,9 +305,9 @@ async function heifsMetadataClone(context: Context) {
   if (metaData != undefined && metaData.heifsMetadata != undefined) {
     let new_metadata = await metaData.heifsMetadata.clone();
     new_metadata.getProperties(["HeifsDelayTime"]).then((data1) => {
-      console.info(`Clone new_metadata and get Properties: ${data1}`);
+      console.info(`Succeeded in cloning metadata and getting properties. Data: ${JSON.stringify(data1)}.`);
     }).catch((err: BusinessError) => {
-      console.error(`Failed to clone new_metadata. error.code: ${err.code}, error.message: ${err.message}`);
+      console.error(`Failed to clone metadata and get properties. Code: ${err.code}, message: ${err.message}.`);
     });
   } else {
     console.error('Metadata is null.');

@@ -1,6 +1,6 @@
 # @ohos.inputMethodEngine (输入法服务)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodengine
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,10 +50,10 @@ import { inputMethodEngine } from '@kit.IMEKit';
 | PATTERN_PASSWORD | number | 7 | 密码编辑框。 |
 | PATTERN_PASSWORD_NUMBER11+ | number | 8 | 数字密码编辑框。 |
 | PATTERN_PASSWORD_SCREEN_LOCK11+ | number | 9 | 锁屏密码编辑框。 |
-| PATTERN_USER_NAME20+ | number | 10 | 用户名编辑框。 |
-| PATTERN_NEW_PASSWORD20+ | number | 11 | 新密码编辑框。 |
-| PATTERN_NUMBER_DECIMAL20+ | number | 12 | 带小数点的数字编辑框。 |
-| PATTERN_ONE_TIME_CODE20+ | number | 13 | 验证码编辑框。 |
+| PATTERN_USER_NAME20+ | number | 10 | 用户名编辑框。 模型约束： 该参数仅可在Stage模型下使用。 |
+| PATTERN_NEW_PASSWORD20+ | number | 11 | 新密码编辑框。 模型约束： 该参数仅可在Stage模型下使用。 |
+| PATTERN_NUMBER_DECIMAL20+ | number | 12 | 带小数点的数字编辑框。 模型约束： 该参数仅可在Stage模型下使用。 |
+| PATTERN_ONE_TIME_CODE20+ | number | 13 | 验证码编辑框。 模型约束： 该参数仅可在Stage模型下使用。 |
 | OPTION_ASCII | number | 20 | 允许输入ASCII值。 |
 | OPTION_NONE | number | 0 | 不指定编辑框输入属性。 |
 | OPTION_AUTO_CAP_CHARACTERS | number | 2 | 允许输入字符。 |
@@ -2200,7 +2200,7 @@ adjustPanelRect(flag: PanelFlag, rect: PanelRect): void
 预设置输入法应用横竖屏大小。接口调用完毕表示adjust请求已提交到输入法框架，不表示执行完毕。
 
 > [!NOTE]
-> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。 此接口为同步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。 此接口为同步接口，接口返回成功仅代表系统侧收到设置的请求，不代表设置完成。如果需要感知执行过程中的异常，建议使用 updatePanelRect 或 updatePanelRectSync 。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
 
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -2263,7 +2263,7 @@ adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void
 预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。
 
 > [!NOTE]
-> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容 adjustPanelRect 的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用 adjustPanelRect 。 此接口为同步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容 adjustPanelRect 的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用 adjustPanelRect 。 此接口为同步接口，接口返回成功仅代表系统侧收到设置的请求，不代表设置完成。如果需要感知执行过程中的异常，建议使用 updatePanelRect 或 updatePanelRectSync 。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
 
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -2318,6 +2318,294 @@ let panelRect: inputMethodEngine.EnhancedPanelRect = {
   fullScreenMode: true
 };
 panel.adjustPanelRect(panelFlag, panelRect);
+```
+
+
+
+#### updatePanelRect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+updatePanelRect(flag: PanelFlag, rect: PanelRect): Promise&lt;void&gt;
+
+预设置输入法应用横竖屏大小。使用Promise异步回调。
+
+> [!NOTE]
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。 此接口为异步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| flag | PanelFlag | 是 | 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。 |
+| rect | PanelRect | 是 | 目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 12800013 | window manager service error. |
+
+
+**示例：**
+
+```text
+import { window } from '@kit.ArkUI';
+
+let landscapeRect: window.Rect = {
+  left: 100,
+  top: 100,
+  width: 400,
+  height: 400
+};
+
+let portraitRect: window.Rect = {
+  left: 200,
+  top: 200,
+  width: 300,
+  height: 300
+};
+
+// 目标面板状态类型
+let panelFlag: inputMethodEngine.PanelFlag = inputMethodEngine.PanelFlag.FLG_FIXED;
+// 目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度
+let panelRect: inputMethodEngine.PanelRect = {
+  landscapeRect: landscapeRect,
+  portraitRect: portraitRect
+};
+panel.updatePanelRect(panelFlag, panelRect);
+```
+
+
+
+#### updatePanelRect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+updatePanelRect(flag: PanelFlag, rect: EnhancedPanelRect): Promise&lt;void&gt;
+
+预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。使用Promise异步回调。
+
+> [!NOTE]
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容 adjustPanelRect 的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用 adjustPanelRect 。 此接口为异步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| flag | PanelFlag | 是 | 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。 |
+| rect | EnhancedPanelRect | 是 | 目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 12800013 | window manager service error. |
+| 12800017 | invalid panel type or panel flag. |
+
+
+**示例：**
+
+```text
+import { window } from '@kit.ArkUI';
+
+let landscapeRect1: window.Rect = {
+  left: 300,
+  top: 650,
+  width: 2000,
+  height: 500
+};
+let landscapeInputRegion: Array<window.Rect> = [landscapeRect1];
+
+let portraitRect1: window.Rect = {
+  left: 0,
+  top: 1800,
+  width: 1200,
+  height: 800
+}
+let portraitInputRegion: Array<window.Rect> = [portraitRect1];
+// 目标面板状态类型。
+let panelFlag: inputMethodEngine.PanelFlag = inputMethodEngine.PanelFlag.FLG_FIXED;
+// 目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。
+let panelRect: inputMethodEngine.EnhancedPanelRect = {
+  landscapeAvoidY: 650,
+  landscapeInputRegion: landscapeInputRegion,
+  portraitAvoidY: 1800,
+  portraitInputRegion: portraitInputRegion,
+  fullScreenMode: true
+};
+panel.updatePanelRect(panelFlag, panelRect);
+```
+
+
+
+#### updatePanelRectSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+updatePanelRectSync(flag: PanelFlag, rect: PanelRect): void
+
+预设置输入法应用横竖屏大小。
+
+> [!NOTE]
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。 此接口为同步接口，接口返回代表系统侧收到设置的请求，并已完成设置。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| flag | PanelFlag | 是 | 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。 |
+| rect | PanelRect | 是 | 目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 12800013 | window manager service error. |
+
+
+**示例：**
+
+```text
+import { window } from '@kit.ArkUI';
+
+let landscapeRect: window.Rect = {
+  left: 100,
+  top: 100,
+  width: 400,
+  height: 400
+};
+
+let portraitRect: window.Rect = {
+  left: 200,
+  top: 200,
+  width: 300,
+  height: 300
+};
+
+// 目标面板状态类型
+let panelFlag: inputMethodEngine.PanelFlag = inputMethodEngine.PanelFlag.FLG_FIXED;
+// 目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度
+let panelRect: inputMethodEngine.PanelRect = {
+  landscapeRect: landscapeRect,
+  portraitRect: portraitRect
+};
+panel.updatePanelRectSync(panelFlag, panelRect);
+```
+
+
+
+#### updatePanelRectSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+updatePanelRectSync(flag: PanelFlag, rect: EnhancedPanelRect): void
+
+预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。
+
+> [!NOTE]
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容 adjustPanelRect 的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用 adjustPanelRect 。 此接口为同步接口，接口返回代表系统侧收到设置的请求，并已完成设置。 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| flag | PanelFlag | 是 | 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。 |
+| rect | EnhancedPanelRect | 是 | 目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 12800013 | window manager service error. |
+| 12800017 | invalid panel type or panel flag. |
+
+
+**示例：**
+
+```text
+import { window } from '@kit.ArkUI';
+
+let landscapeRect1: window.Rect = {
+  left: 300,
+  top: 650,
+  width: 2000,
+  height: 500
+};
+let landscapeInputRegion: Array<window.Rect> = [landscapeRect1];
+
+let portraitRect1: window.Rect = {
+  left: 0,
+  top: 1800,
+  width: 1200,
+  height: 800
+}
+let portraitInputRegion: Array<window.Rect> = [portraitRect1];
+// 目标面板状态类型。
+let panelFlag: inputMethodEngine.PanelFlag = inputMethodEngine.PanelFlag.FLG_FIXED;
+// 目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。
+let panelRect: inputMethodEngine.EnhancedPanelRect = {
+  landscapeAvoidY: 650,
+  landscapeInputRegion: landscapeInputRegion,
+  portraitAvoidY: 1800,
+  portraitInputRegion: portraitInputRegion,
+  fullScreenMode: true
+};
+panel.updatePanelRectSync(panelFlag, panelRect);
 ```
 
 
@@ -2765,7 +3053,7 @@ setKeepScreenOn(isKeepScreenOn: boolean): Promise&lt;void&gt;
 
 设置屏幕常亮。使用Promise异步回调。
 
-> [!TIP]
+> [!NOTE]
 > 当键盘拉起时设置常亮生效，键盘关闭则自动失效。 规范使用该接口：必要场景（例如：语音输入）下，设置该属性为true；退出必要场景后，重置该属性为false；其他场景下，不使用该接口。
 
 
@@ -5290,7 +5578,7 @@ getAttachOptions(): AttachOptions
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/4zMzu96PS-aMoUzHJ8sOtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014421Z&HW-CC-Expire=86400&HW-CC-Sign=918B031A542E2905E6858018594F31536259AF35127CE61BFDC4C47AA90B23CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/MT4oeWq3RrWX9bqi3CvMQw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071603Z&HW-CC-Expire=86400&HW-CC-Sign=F0C2F340F5C04847543FB2084DFBE75870E6704B66D4815E97D2961E3234B4EF)
 
 
 从API version 20 开始，错误码801 Capability not supported.被移除。
@@ -5334,7 +5622,7 @@ on(type: 'attachOptionsDidChange', callback: Callback&lt;AttachOptions&gt;): voi
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Zh1rt-xsRfudOXXDlsUGVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014421Z&HW-CC-Expire=86400&HW-CC-Sign=C02D0B5F8A553D48D6B16D6860E556DEDA71D44093CC7AE7CB000D71C2F23B2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/ck3tjObpTKmV_vEstP-J4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071603Z&HW-CC-Expire=86400&HW-CC-Sign=32311B6C6A6DA2BE6AD277449F433473EAAD5F7D5F48F598D0779788078D17CE)
 
 
 从API version 20 开始，错误码801 Capability not supported.被移除。
@@ -5431,6 +5719,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 | capitalizeMode20+ | CapitalizeMode | 是 | 是 | 编辑框设置大小写模式。如果没有设置或设置非法值，默认不进行任何首字母大写处理。 |
 | gradientMode20+ | GradientMode | 是 | 是 | 渐变模式。如果没有设置或设置非法值，默认不使用渐变模式。 |
 | extraConfig22+ | InputMethodExtraConfig | 是 | 是 | 输入法扩展信息。 |
+| consumeKeyEvents | boolean | 是 | 是 | 编辑框是否具有完整处理字母、字符、功能等按键的能力。 - 值为true，表示具备此能力。 - 值为false，表示不具备此能力。 起始版本： 26.0.0 模型约束： 该参数仅可在Stage模型下使用。 |
 
 
 

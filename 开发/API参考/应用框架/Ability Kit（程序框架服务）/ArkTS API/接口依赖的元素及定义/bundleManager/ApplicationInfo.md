@@ -1,6 +1,6 @@
 # ApplicationInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-applicationinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 应用程序信息，可以通过[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的应用程序信息，其中参数[bundleFlags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundleflag)至少包含GET_BUNDLE_INFO_WITH_APPLICATION。
 
 > [!NOTE]
-> 本模块首批接口从API version 9 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 
@@ -46,9 +46,9 @@ import { bundleManager } from '@kit.AbilityKit';
 | removable | boolean | 是 | 否 | 应用程序是否可以被移除，取值为true表示可以被移除，取值为false表示不可以被移除。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | accessTokenId | number | 是 | 否 | 应用程序的accessTokenId，应用的身份标识，在checkAccessToken中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | uid | number | 是 | 否 | 应用程序的UID。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| iconResource | Resource | 是 | 否 | 应用程序的图标资源信息，包含了该资源信息的bundleName、moduleName 和 id，可以调用全球化的接口getMediaContent来获取详细的资源数据信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| labelResource | Resource | 是 | 否 | 应用程序的名称资源信息，包含了该资源信息的bundleName、moduleName 和 id，可以调用全球化的接口getMediaContent来获取详细的资源数据信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| descriptionResource | Resource | 是 | 否 | 应用程序的描述资源信息，包含了该资源信息的bundleName、moduleName 和 id，可以调用全球化的接口getMediaContent来获取详细的资源数据信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| iconResource | Resource | 是 | 否 | 应用程序的图标资源信息，包含了该资源信息的bundleName、moduleName和id，可以调用全球化的接口getMediaContentBase64，传入参数iconResource.id来获取详细的资源数据信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| labelResource | Resource | 是 | 否 | 应用程序的名称资源信息，包含了该资源信息的bundleName、moduleName和id，可以调用全球化的接口getStringValue，传入参数labelResource.id来获取详细的资源数据信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| descriptionResource | Resource | 是 | 否 | 应用程序的描述资源信息，包含了该资源信息的bundleName、moduleName和id，可以调用全球化的接口getStringValue，传入参数descriptionResource.id来获取详细的资源数据信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | appDistributionType | string | 是 | 否 | 应用程序签名证书的分发类型，分为： app_gallery：应用市场安装的应用。签名证书申请方式请参考申请发布Profile。 enterprise：企业内部应用，企业自行开发、仅限企业内部员工使用的应用，不通过应用市场等公开渠道发布，而是通过企业自己的渠道进行内部分发。签名证书申请方式请参考申请In-house发布Profile。 enterprise_mdm：企业MDM应用。签名证书申请方式请参考申请企业MDM应用发布Profile。 enterprise_normal：普通企业应用，无需上架华为应用市场，可通过企业MDM应用以及离线安装器分发安装。签名证书申请方式请参考申请企业应用发布证书。 os_integration：预置应用，三方应用无法申请配置。 crowdtesting：众包测试应用，是由应用市场分发给部分用户，有一定的有效期的特定应用，系统检测到应用的有效期到期后，会通知用户到应用市场更新release版本的应用。从API version 11开始被废弃。 internaltesting：应用市场内测的应用。签名证书申请方式请参考申请内部测试Profile。 none：其他。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | appProvisionType | string | 是 | 否 | 应用程序签名证书文件的类型，分为'debug'和'release'两种类型。'debug'类型用于开发测试阶段，可调试和验证功能；'release'类型用于生产环境中正式发布的应用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | systemApp | boolean | 是 | 否 | 标识应用是否为系统应用，取值为true表示系统应用，取值为false表示非系统应用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |

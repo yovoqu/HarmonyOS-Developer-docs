@@ -1,6 +1,6 @@
 # @AnimatableExtend装饰器：定义可动画属性
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animatable-extend
 
@@ -55,6 +55,7 @@
 ```ArkTS
 @AnimatableExtend(Text)
 function animatableWidth(width: number) {
+  // 在逐帧回调中将width写入Text的width属性
   .width(width)
 }
 
@@ -68,6 +69,7 @@ struct AnimatablePropertyText {
       Text('AnimatableProperty')
         .animatableWidth(this.textWidth)
         .animation({ duration: 2000, curve: Curve.Ease })
+      // 点击按钮切换textWidth，触发Text逐帧更新宽度并产生动画效果
       Button('Play')
         .onClick(() => {
           this.textWidth = this.textWidth == 80 ? 160 : 80;

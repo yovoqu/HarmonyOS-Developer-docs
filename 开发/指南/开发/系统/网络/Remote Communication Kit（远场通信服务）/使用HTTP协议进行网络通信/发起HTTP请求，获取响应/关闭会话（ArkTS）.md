@@ -1,6 +1,6 @@
 # 关闭会话（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netclose-arkts
 
@@ -47,12 +47,13 @@ import { BusinessError } from '@kit.BasicServicesKit';
 ```text
 // 1、创建会话
 const session = rcp.createSession();
-// 2、创建Request，"http://www.example.com"请根据实际情况替换为想要请求的URL地址。
-let req = new rcp.Request("http://www.example.com/fetch", "GET");
+// 2、创建Request，"http://www.example.com/fetch"请根据实际情况替换为想要请求的URL地址。
+let req = new rcp.Request('http://www.example.com/fetch', 'GET');
 // 3、利用fetch发起网络请求
 session.fetch(req).then((response) => {
   // 4、对响应的处理，此处为示例，只做打印处理
   console.info(`Response succeeded: ${response}`);
+  // ...
 }).catch((err: BusinessError) => {
   // 5、请求错误处理
   console.error(`Response error code is ${err.code}, error data is ${err.data}`);

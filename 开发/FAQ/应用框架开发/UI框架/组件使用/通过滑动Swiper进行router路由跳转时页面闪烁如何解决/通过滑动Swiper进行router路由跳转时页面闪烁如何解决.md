@@ -126,7 +126,7 @@ struct <span style="color: rgb(0,0,255);">SecondPage </span><span style="color: 
  问题效果预览：翻到最后一页时会闪一下。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/MFca8iSzR0KvalP3t4ubBw/zh-cn_image_0000002628392506.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012539Z&HW-CC-Expire=86400&HW-CC-Sign=4A910351411AE19F597F10DF48147B7970804E95B7D49B7EB0C1A1CE010A5898)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/MFca8iSzR0KvalP3t4ubBw/zh-cn_image_0000002628392506.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=18E3F50B356507AFE6859212C2CB6127CFCA5B7224EF53C531F83E1B81D960DE)
 
  
  
@@ -136,7 +136,7 @@ struct <span style="color: rgb(0,0,255);">SecondPage </span><span style="color: 
 在切换动画完成后进行跳转则正常展示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/THp_uLSLSWuOHjbvdeK65g/zh-cn_image_0000002658911721.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012539Z&HW-CC-Expire=86400&HW-CC-Sign=0FCA2F7FEFD427E19F88BC04A0A7F7107D0B3DB727C474948556DF033CC0237A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/THp_uLSLSWuOHjbvdeK65g/zh-cn_image_0000002658911721.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=8A5630542DEE3CE0C37BE4DF90CDFCC8A25D8D2634A42A430D26290284EB5DD1)
 
  
  

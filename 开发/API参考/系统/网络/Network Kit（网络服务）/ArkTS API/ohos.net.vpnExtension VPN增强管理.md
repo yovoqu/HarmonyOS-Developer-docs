@@ -1,6 +1,6 @@
 # @ohos.net.vpnExtension (VPN增强管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-vpnextension
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,15 @@
 三方VPN管理模块，支持三方VPN的启动和停止功能。三方VPN是指由第三方提供的VPN服务，它们通常提供更多的功能和更广泛的网络连接选项，包括更多的安全和隐私功能，以及更全面的定制选项。当前提供三方VPN能力主要用于创建虚拟网卡及配置VPN路由信息，连接隧道过程及内部连接的协议需要应用内部自行实现。
 
 > [!NOTE]
-> 本模块首批接口从 API version 11 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 以下模块不支持在VpnExtensionAbility中引用，可能会导致程序异常退出。 @ohos.contact (联系人) @ohos.geolocation 、 @ohos.geoLocationManager (位置服务) @ohos.multimedia.audio(音频管理) @ohos.multimedia.camera(相机管理) @ohos.telephony.call (拨打电话) @ohos.telephony.sim (SIM卡管理) @ohos.telephony.sms (短信服务)
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
+
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+为保障系统安全性和稳定性，防止VpnExtensionAbility滥用系统资源，系统对其能力进行管控，不支持部分模块的引用，详情请参考[附录](#附录)。
 
 
 
@@ -299,7 +307,7 @@ onAuthorizationResult(callback: Callback&lt;boolean&gt;): void
 注册用户授权结果监听器。授权结果在调用[startVpnExtensionAbility](#vpnextensionstartvpnextensionability)弹出授权弹窗，用户点击弹窗后通知，仅接收当前VPN的结果。在不需要监听授权结果时可以调用[offAuthorizationResult](#offauthorizationresult)接口取消注册。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/1MXtKzY6QOWlA6EOtJh9mA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020116Z&HW-CC-Expire=86400&HW-CC-Sign=71849BF425EAF59D3402C294F2DD7E250010CDB731347C340D1B942F400E9D39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/k6paNbLfR8Gz3vcyyl68JQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071624Z&HW-CC-Expire=86400&HW-CC-Sign=DCB268D1D379CE425064D54DE35DECE37E033E2285679F3DE85E66EF758ACB52)
 
 
 多次调用该接口时，仅最后一次传入的callback生效。
@@ -345,7 +353,7 @@ offAuthorizationResult(callback?: Callback&lt;boolean&gt;): void
 取消注册用户授权结果监听器。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/yI7LLQR1RNqhNYtmAW6PVg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020116Z&HW-CC-Expire=86400&HW-CC-Sign=2C1BBF77D9C262C3832A64321E6C4E08159B2A693DDD3526E10D564DE6FE1A8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/LnA7U3cnRkiIVDd36SK6sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071624Z&HW-CC-Expire=86400&HW-CC-Sign=A25A1C5ED07CB9E05FE83AE6D6242DCF6310139CBE8E18050E420E7C53FD9235)
 
 
 多次调用[onAuthorizationResult](#onauthorizationresult)注册监听时，若需取消授权结果监听，需要传最后一次调用时传入的callback，或者不传入参数。
@@ -766,7 +774,7 @@ generateVpnId(): Promise&lt;string&gt;
 如需使用系统多VPN能力，需调用该接口生成vpnId，配置到VpnConfig中。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/4IEDkSPoSECzWviBIJX6ww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020116Z&HW-CC-Expire=86400&HW-CC-Sign=416ACBAFBA0B9ABD96DC1A1187CD295FC500DED00A6ED5A7CDB6573C7A0EC994)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/p-gdBZNeTuiP6PG3SczbUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071624Z&HW-CC-Expire=86400&HW-CC-Sign=E03DA3A4590DBD7C99EF9D7911E74079A84E4EFB1F64C2D52254053586B1EE32)
 
 
 当前系统多VPN能力仅支持IPv4。
@@ -875,7 +883,7 @@ export default class MyVpnExtAbility  extends VpnExtensionAbility {
 | addresses | Array&lt;LinkAddress&gt; | 否 | 否 | VPN虚拟网卡的IP地址。API version 23之前，最多支持64个IP地址；从API version 23开始，最多支持2000个IP地址。 |
 | vpnId20+ | string | 否 | 是 | VPN唯一标识。 |
 | routes | Array&lt;RouteInfo&gt; | 否 | 是 | VPN虚拟网卡的路由信息（API version 23前最多可配置1024条路由；从API version 23开始最多可配置10000条路由）。 |
-| dnsAddresses | Array&lt;string&gt; | 否 | 是 | DNS服务器地址信息。当配置DNS服务器地址后，VPN启动状态下被代理的应用上网时，使用配置的DNS服务器做DNS查询。 |
+| dnsAddresses | Array&lt;string&gt; | 否 | 是 | DNS服务器地址信息。当配置DNS服务器地址后，VPN启动状态下被代理的应用上网时，使用配置的DNS服务器做DNS查询。最多可配置64个DNS服务器地址。 |
 | searchDomains | Array&lt;string&gt; | 否 | 是 | DNS的搜索域列表。 |
 | mtu | number | 否 | 是 | 最大传输单元MTU值（单位：字节）。取值范围：[576，1500]。 |
 | isIPv4Accepted | boolean | 否 | 是 | 是否支持IPv4。true表示支持，false表示不支持, 默认值为true。 注意：若支持IPv4功能，需要在addresses中配置IPv4类型的IP地址。 |
@@ -895,7 +903,9 @@ let vpnConfig: vpnExtension.VpnConfig = {
   addresses: [],
   vpnId: '123',
   routes: [{
-    interface: "eth0",
+    // 网卡名称配置为空时，系统默认将路由配置到VPN虚拟网卡。
+    // 如填写非虚拟网卡实际名称，可能导致路由配置异常。
+    interface: "vpn-tun",
     destination: {
       address: {
         address:'',
@@ -905,6 +915,8 @@ let vpnConfig: vpnExtension.VpnConfig = {
       prefixLength:1
     },
     gateway: {
+      // 网关地址配置为空时，系统默认将VPN虚拟网卡地址作为网关地址。
+      // 如需使用非VPN虚拟网卡地址，请确保地址可达，否则可能导致路由配置失败。
       address:'',
       family:1,
       port:8080
@@ -926,3 +938,22 @@ function vpnCreate(){
   })
 }
 ```
+
+
+
+#### 附录
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+VpnExtensionAbility不支持以下模块的引用。
+
+| Kit | 模块 |
+| --- | --- |
+| Contacts Kit | @ohos.contact (联系人) |
+| Location Kit | @ohos.geolocation (位置服务) |
+| Location Kit | @ohos.geoLocationManager (位置服务) |
+| Audio Kit | @ohos.multimedia.audio (音频管理) |
+| Camera Kit | @ohos.multimedia.camera (相机管理) |
+| Telephony Kit | @ohos.telephony.call (拨打电话) |
+| Telephony Kit | @ohos.telephony.sim (SIM卡管理) |
+| Telephony Kit | @ohos.telephony.sms (短信服务) |

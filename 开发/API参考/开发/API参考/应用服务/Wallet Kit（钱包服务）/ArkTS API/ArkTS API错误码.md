@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet
 **支持设备：** Phone
@@ -373,15 +373,15 @@ The Wallet app was closed by the user.
  
 **错误描述**
  
-钱包APP被用户关闭。
+钱包App被用户关闭。
  
 **可能原因**
  
-用户主动关闭钱包APP。
+用户主动关闭钱包App。
  
 **处理步骤**
  
-重新点击桌面图标打开钱包APP。
+重新点击桌面图标打开钱包App。
  
   
 
@@ -1183,7 +1183,7 @@ Failed to confirm the order.
 
 **错误信息**
  
-The card deleting failed.
+Failed to delete the card.
  
 **错误描述**
  

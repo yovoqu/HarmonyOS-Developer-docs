@@ -1,14 +1,14 @@
 # RowSplit
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-rowsplit
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-将子组件横向布局，并在每个子组件之间插入纵向分割线。
+将子组件横向布局，并在每个子组件之间插入纵向分割线。适用于需要横向多区域布局且支持动态调整子组件宽度的场景，如文件管理器的左右分栏、设置页面的双栏布局等。通过可拖拽的分割线，用户可以灵活调整各区域宽度。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -18,9 +18,9 @@
 
 可以包含子组件。
  
-RowSplit通过分割线限制子组件的宽度。初始化时，分割线位置根据子组件的宽度来计算。初始化后，动态修改子组件的宽度不生效，分割线位置保持不变，可以通过拖动相邻分割线改变子组件宽度。
+RowSplit通过分割线限制子组件的宽度。初始化时，分割线位置根据子组件的宽度来计算。初始化后，动态修改子组件的宽度不会改变分割线位置，分割线位置保持不变。可以通过拖动分割线改变子组件宽度。
  
-初始化后，动态修改[margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)、[border](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#border)、[padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#padding)通用属性导致子组件宽度大于相邻分割线间距的异常情况下，不支持拖动分割线改变子组件的宽度。
+初始化后，动态修改[margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)、[border](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#border)、[padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#padding)通用属性可能导致子组件宽度大于相邻分割线间距。在此异常情况下，不支持拖动分割线改变子组件的宽度。这是因为分割线的位置在初始化时已确定，动态修改边距、边框、内边距等属性会破坏原有的布局计算，导致分割线无法正确响应拖动操作。建议在初始化时合理设置子组件的尺寸和边距属性。
  
   
 
@@ -56,7 +56,11 @@ RowSplit()
 
 resizeable(value: boolean)
  
-设置分割线是否可拖拽。
+设置分割线是否可拖拽。设置为true时，用户可以拖拽分割线改变子组件宽度；设置为false时，分割线位置固定。
+ 
+> [!NOTE]
+> 初始化后，动态修改margin、border、padding通用属性导致子组件宽度大于相邻分割线间距的异常情况下，不支持拖动分割线改变子组件的宽度。
+
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -70,7 +74,7 @@ resizeable(value: boolean)
  
  
 > [!NOTE]
-> RowSplit的分割线可以改变左右两边子组件的宽度，子组件可改变宽度的范围取决于子组件的最大最小宽度。
+> RowSplit的分割线可以改变左右两边子组件的宽度，子组件可改变宽度的范围取决于子组件的最大最小宽度。分割线拖动时，会实时计算子组件的宽度，当达到子组件设置的最小宽度或最大宽度限制时，分割线将停止移动。
 
  
   
@@ -87,7 +91,7 @@ resizeable(value: boolean)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-RowSplit的基本用法。设置可拖动的、横向布局的子组件。
+RowSplit的基本用法。实现分割线可拖动的横向布局。
  
 ```ArkTS
 // xxx.ets
@@ -97,6 +101,7 @@ struct RowSplitExample {
   build() {
     Column() {
       Text('The second line can be dragged').fontSize(9).fontColor(0xCCCCCC).width('90%')
+      // 创建RowSplit组件，实现横向布局
       RowSplit() {
         Text('1').width('10%').height(100).backgroundColor(0xF5DEB3).textAlign(TextAlign.Center)
         Text('2').width('10%').height(100).backgroundColor(0xD2B48C).textAlign(TextAlign.Center)
@@ -112,4 +117,4 @@ struct RowSplitExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/_6mTV6bFR-CvKbhOIREsoQ/zh-cn_image_0000002659221651.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=74472793B5704466DD99EF88A95176AB4CD594BFF597A396C19E79674B8B1D69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/rM-a8ULrS9y_HAMj0klBLQ/zh-cn_image_0000002656008394.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=DB88B3BF479BA1133F3FF7CA505535DC8854B6946B6B33481B8E064EB79CE9A6)

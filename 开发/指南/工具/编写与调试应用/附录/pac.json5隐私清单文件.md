@@ -1,6 +1,6 @@
 # pac.json5隐私清单文件
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-pac
 
@@ -24,7 +24,7 @@
 
  
 - 开发HSP或HAR情况下，选中HSP或HAR模块目录新建pac.json5文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/Zc371KEbQ9S8541UF3_Q9Q/zh-cn_image_0000002594474614.png?HW-CC-KV=V1&HW-CC-Date=20260723T012123Z&HW-CC-Expire=86400&HW-CC-Sign=378089658308036971801DC19206A1A7991330C371B4EC18CA4E2095DA9A5726)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/lw_-sZXySzCiiVhRTsTddQ/zh-cn_image_0000002647916952.png?HW-CC-KV=V1&HW-CC-Date=20260730T071820Z&HW-CC-Expire=86400&HW-CC-Sign=21EBAB7BC8F097FF17B7C685E620C61ADADD416E3F458762973A15B33ED54C14)
 
 
  
@@ -147,7 +147,7 @@ dataLabels是声明应用收集的个人数据项和目的。
 | Package delivery information | 快递信息 | Transaction information |
 | Other transaction information | 其他交易信息 | Transaction information |
 | Contact list | 联系人列表 | Contact information |
-| Social media accounts | 社交帐号 | Contact information |
+| Social media accounts | 社交账号 | Contact information |
 | Other contact information | 其他联系人信息 | Contact information |
 | Facial recognition features | 面部识别特征 | Special category data |
 | Voiceprint information | 声纹 | Special category data |

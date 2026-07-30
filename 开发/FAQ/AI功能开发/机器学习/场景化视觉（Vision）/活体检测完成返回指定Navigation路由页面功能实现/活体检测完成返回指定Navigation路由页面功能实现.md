@@ -1,12 +1,12 @@
 # 活体检测完成返回指定Navigation路由页面功能实现
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-8
 
 #### 问题现象
 
-[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section68501963545)接口的参数[InteractiveLivenessConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section16532153115517)中可以设置successfulRouteUrl和failedRouteUrl分别作为人脸活体检测成功/失败后跳转的页面路径。页面路由只支持Router方式，不支持Navigation方式。
+[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#startlivenessdetection)接口的参数[InteractiveLivenessConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#interactivelivenessconfig)中可以设置successfulRouteUrl和failedRouteUrl分别作为人脸活体检测成功/失败后跳转的页面路径。页面路由只支持Router方式，不支持Navigation方式。
  
 如何实现检测结束后自动跳转到Navigation路由的指定页面？
  
@@ -14,7 +14,7 @@
 
 #### 背景知识
 
-- 人脸活体检测具有两个同名startLivenessDetection接口：[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section68501963545)跳转到人脸活体检测页面的入口，使用Promise异步回调；[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)跳转到人脸活体检测页面的入口，使用Promise异步回调获取跳转结果，使用callback回调获取检测结果。
+- 人脸活体检测具有两个同名startLivenessDetection接口：[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#startlivenessdetection)跳转到人脸活体检测页面的入口，使用Promise异步回调；[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#startlivenessdetection)跳转到人脸活体检测页面的入口，使用Promise异步回调获取跳转结果，使用callback回调获取检测结果。
 - [Navigation路由操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#路由操作)支持：页面跳转、页面替换、参数获取等多种。
 
  
@@ -22,7 +22,7 @@
 
 #### 解决方案
 
-实现思路：在[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)接口的callback回调函数中获取检测结果，再根据检测结果调用NavPathStack.pushPath()（或NavPathStack.replacePath()）方法跳转到成功/失败页面。
+实现思路：在[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#startlivenessdetection)接口的callback回调函数中获取检测结果，再根据检测结果调用NavPathStack.pushPath()（或NavPathStack.replacePath()）方法跳转到成功/失败页面。
  
 具体步骤：
  
@@ -39,7 +39,7 @@ export class <span style="color: rgb(0,0,255);">DetectionResult </span><span sty
 
 
  
-- [startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)接口的callback回调函数中获取检测结果：
+- [startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#startlivenessdetection)接口的callback回调函数中获取检测结果：
 ```text
 <span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startLivenessDetection</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">routerOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">,</span>
   <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">interactiveLiveness</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">InteractiveLivenessResult </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当路由跳转错误时，获取结果失败，</span><span style="color: rgb(128,128,128);">result</span><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">undefined</span>

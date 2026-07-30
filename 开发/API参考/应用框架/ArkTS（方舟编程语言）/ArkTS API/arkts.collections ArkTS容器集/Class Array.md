@@ -1,6 +1,6 @@
 # Class (Array)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,7 +60,7 @@ constructor()
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -143,7 +143,7 @@ ArkTS Array的构造函数，通过开发者提供的元素进行初始化。
 **示例：**
 
 ```text
-let arrayPara  = [1,2,3];
+let arrayPara = [1,2,3];
 let array = new collections.Array<number>(...arrayPara);
 ```
 
@@ -178,7 +178,7 @@ static create&lt;T&gt;(arrayLength: number, initialValue: T): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -221,7 +221,7 @@ static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -232,13 +232,13 @@ static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;): Array&lt;T&gt;
 
 ```text
 // 正例
-let array : Array<string> = ['str1', 'str2', 'str3']; // 原生Array<T>，T是Sendable数据类型。
+let array: Array<string> = ['str1', 'str2', 'str3']; // 原生Array<T>，T是Sendable数据类型。
 let sendableArray = collections.Array.from<string>(array); // 返回Sendable Array<T>
 ```
 
 ```text
 // 反例
-let array : Array<Array<string>> = [['str1', 'str2', 'str3'], ['str4', 'str5', 'str6'], ['str7', 'str8', 'str9']]; // 原生Array<T>，T是非Sendable数据类型。
+let array: Array<Array<string>> = [['str1', 'str2', 'str3'], ['str4', 'str5', 'str6'], ['str7', 'str8', 'str9']]; // 原生Array<T>，T是非Sendable数据类型。
 let sendableArray = collections.Array.from<Array<string>>(array); // 打印异常信息：Parameter error.Only accept sendable value
 ```
 
@@ -272,7 +272,7 @@ static from&lt;T&gt;(iterable: Iterable&lt;T&gt;): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -359,7 +359,7 @@ static from<U, T>(arrayLike: ArrayLike&lt;U&gt; | Iterable&lt;U&gt;, mapFn: Arra
 **示例：**
 
 ```text
-let array : Array<number> = [1, 2, 3]; // 原生Array<T>
+let array: Array<number> = [1, 2, 3]; // 原生Array<T>
 let newArray = collections.Array.from<number, string>(array, (value, index) => value + "." + index); // 返回新的 Array<T>
 console.info(newArray.toString()); // 预期输出： 1.0, 2.1, 3.2
 ```
@@ -467,7 +467,7 @@ copyWithin(target: number, start: number, end?: number): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -514,7 +514,7 @@ lastIndexOf(searchElement: T, fromIndex?: number): number
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -562,7 +562,7 @@ some(predicate: ArrayPredicateFn<T, Array&lt;T&gt;>): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -607,7 +607,7 @@ reduceRight(callbackFn: ArrayReduceCallback<T, T, Array&lt;T&gt;>): T
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -654,7 +654,7 @@ reduceRight<U = T>(callbackFn: ArrayReduceCallback<U, T, Array&lt;T&gt;>, initia
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -694,7 +694,7 @@ pop(): T | undefined
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -822,7 +822,7 @@ shift(): T | undefined
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -860,7 +860,7 @@ reverse(): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1392,7 +1392,7 @@ entries(): IterableIterator<[number, T]>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1431,7 +1431,7 @@ keys(): IterableIterator&lt;number&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1472,7 +1472,7 @@ values(): IterableIterator&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1879,7 +1879,7 @@ every(predicate: ArrayPredicateFn<T, Array&lt;T&gt;>): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2015,7 +2015,7 @@ let removeArray = array.splice(2, 2, 6, 7, 8); // array内容变为[1, 2, 6, 7, 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

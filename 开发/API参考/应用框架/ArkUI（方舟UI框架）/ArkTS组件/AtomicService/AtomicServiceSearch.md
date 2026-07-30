@@ -1,6 +1,6 @@
 # AtomicServiceSearch
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicesearch
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1128,4 +1128,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/o93P7r5CTsmjsp0yQo7JrA/zh-cn_image_0000002659222151.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=BD3656D5948BD14E237C29C32C34DC8B67F36A99D00E05D4C74D572878F8A410)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/NNjC0OM8SA2kOauUt_YJqQ/zh-cn_image_0000002656008892.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071516Z&HW-CC-Expire=86400&HW-CC-Sign=384545B0ECDBD2608FD10D8E8E99B5CECE00CB63828B9F1A4CF563CBF22E8441)

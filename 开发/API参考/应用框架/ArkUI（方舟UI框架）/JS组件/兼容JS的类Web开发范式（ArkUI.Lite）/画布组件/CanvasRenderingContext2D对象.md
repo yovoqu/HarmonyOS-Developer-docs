@@ -1,11 +1,15 @@
 # CanvasRenderingContext2D对象
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-canvas-canvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 使用CanvasRenderingContext2D在canvas画布组件上进行绘制，绘制对象可以是矩形、文本。
+ 
+> [!NOTE]
+> 从API版本23开始，预览器不再受JS文件大小不能超过48KB的限制。对于API版本22及之前，JS文件大小不能超过48 KB。
+
  
 **示例：**
  
@@ -31,7 +35,7 @@ export default {
 ```
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-0.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-1.png)
 
   
 
@@ -54,7 +58,7 @@ export default {
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-1.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-10.png)
 
  
 ```text
@@ -79,7 +83,7 @@ ctx.fillRect(20, 20, 200, 150);
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-10.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-11.png)
 
  
 ```text
@@ -108,7 +112,7 @@ ctx.fillRect(20, 20, 150, 100);
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-11.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-12.png)
 
  
 ```text
@@ -135,7 +139,7 @@ ctx.strokeRect(30, 30, 200, 150);
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-12.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-13.png)
 
  
 ```text
@@ -161,7 +165,7 @@ ctx.fillText("Hello World!", 20, 60);
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-13.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-14.png)
 
  
 ```text
@@ -187,7 +191,7 @@ ctx.strokeRect(25, 25, 85, 105);
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-14.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-15.png)
 
  
 ```text
@@ -207,7 +211,7 @@ ctx.strokeRect(25, 25, 155, 105);
 **示例：**
  
 
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-15.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-2.png)
 
  
 ```text
@@ -228,7 +232,7 @@ ctx.stroke();
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-2.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-3.png)
 
  
 ```text
@@ -259,7 +263,7 @@ ctx.stroke();
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-3.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-4.png)
 
  
 ```text
@@ -288,7 +292,7 @@ ctx.stroke();
 **示例：**
  
 
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-4.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-5.png)
 
  
 ```text
@@ -309,7 +313,7 @@ ctx.stroke();
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-5.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-6.png)
 
  
 ```text
@@ -339,7 +343,7 @@ ctx.stroke();
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-6.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-7.png)
 
  
 ```text
@@ -365,7 +369,7 @@ ctx.fillText("Hello World", 20, 60);
 **示例：**
  
  
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-7.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-8.png)
 
  
 ```text
@@ -408,7 +412,7 @@ ctx.fillText('textAlign=right',140, 140);
 **示例：**
  
 
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-8.png)
+![](assets/CanvasRenderingContext2D对象/file-20260514164252091-9.png)
 
  
 ```text
@@ -438,7 +442,7 @@ ctx.stroke();
 **示例：**
  
 
-![](assets/CanvasRenderingContext2D对象/file-20260514164252091-9.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/TbE9w2JCSZuGChYqRy44Ww/zh-cn_image_0000002685928929.png?HW-CC-KV=V1&HW-CC-Date=20260730T071526Z&HW-CC-Expire=86400&HW-CC-Sign=7698B9EBF323B9CBA5E37E9DAAAE220528C2D4A17DE271123CF0FEBF9FB999FF)
 
  
 ```text

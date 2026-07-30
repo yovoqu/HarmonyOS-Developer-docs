@@ -86,7 +86,7 @@ animateTo适用于组件自身属性动画场景（如尺寸、颜色改变等�
 可以使用定时器来控制Progress组件进度值变化。用setInterval()方法创建定时任务，每间隔一段时间（如20毫秒）均匀地改变Progress组件进度值（如每次加1），即可实现预期效果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/6PBO4eIsSv-yFu51GT99tw/zh-cn_image_0000002628388622.png?HW-CC-KV=V1&HW-CC-Date=20260723T012525Z&HW-CC-Expire=86400&HW-CC-Sign=914615F10EA18CB096A8B39BDE3AD88C54559FA9CCD8ECD0620BF5630E23998B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/6PBO4eIsSv-yFu51GT99tw/zh-cn_image_0000002628388622.png?HW-CC-KV=V1&HW-CC-Date=20260730T072317Z&HW-CC-Expire=86400&HW-CC-Sign=0776012EF1B918A89A5A500E38BF22A6980FFF3FBA181DEE93DDCB44FF4E37DA)
 
  
 ```text

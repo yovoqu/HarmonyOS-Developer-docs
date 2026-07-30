@@ -406,7 +406,7 @@ struct CorrectImplementationExample {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/YQnOxhbNRq2V0SoL_bmjAA/zh-cn_image_0000002658806605.png?HW-CC-KV=V1&HW-CC-Date=20260723T013235Z&HW-CC-Expire=86400&HW-CC-Sign=3C0ACA5772919C690E2868DE2CC68DC63E1FB91723E6D20E2B3AB2F884B7898D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/YQnOxhbNRq2V0SoL_bmjAA/zh-cn_image_0000002658806605.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=E63A811024E7658B81BEF130E315F23E113919373F8BE3397C32DEBC9806C705)
 
  
  

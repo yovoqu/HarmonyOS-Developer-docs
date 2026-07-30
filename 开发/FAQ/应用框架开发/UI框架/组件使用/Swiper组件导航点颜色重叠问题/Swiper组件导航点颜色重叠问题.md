@@ -37,7 +37,7 @@ export class YDSwiperIndicatorStyles implements AttributeModifier<SwiperAttribut
 效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/XWDu41DoRIivhZYpnvPEdg/zh-cn_image_0000002658797001.png?HW-CC-KV=V1&HW-CC-Date=20260723T012614Z&HW-CC-Expire=86400&HW-CC-Sign=CFCCF9C86FB3D33C4CCEF0F991052A0CEE948E87325D88D173F82FBF7E6092FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/XWDu41DoRIivhZYpnvPEdg/zh-cn_image_0000002658797001.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=93428025B64C50FE7F0C69C7826525700E796698D5957B3A8816CF4569727AFA)
 
  
  
@@ -124,4 +124,4 @@ struct swiperDemo {
 效果参考如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/wHTzfijpQRiwDQD0Fy4MFw/zh-cn_image_0000002628557638.png?HW-CC-KV=V1&HW-CC-Date=20260723T012614Z&HW-CC-Expire=86400&HW-CC-Sign=1E38B0AD2FBE2A32E42AEA6750BC971DEDF2517FC7C87EE22E889B0D891C9783)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/wHTzfijpQRiwDQD0Fy4MFw/zh-cn_image_0000002628557638.png?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=83D5F12F34BE2BEA54A4D2C4F809CF7C72C7E7545A860C3B2122BB7ED0BB502A)

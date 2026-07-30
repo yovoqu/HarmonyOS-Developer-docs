@@ -9,7 +9,7 @@
 如何实现当List的ListItem刚到达Tab底部时Tab页签切换？即如下图所示，当b线到达a线处时，Tab的页签切换至Title3页。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/Z39Y44YJThG-IK4yFGa4Ig/zh-cn_image_0000002628569780.png?HW-CC-KV=V1&HW-CC-Date=20260723T012707Z&HW-CC-Expire=86400&HW-CC-Sign=90DFF0D7677205758DF39C46733EE914756DB43F915C896A0EE19A484A80C84E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/Z39Y44YJThG-IK4yFGa4Ig/zh-cn_image_0000002628569780.png?HW-CC-KV=V1&HW-CC-Date=20260730T072343Z&HW-CC-Expire=86400&HW-CC-Sign=85877C0BCB050151E2072DC058724BACC4C3B14C68F354344D544FEF337D76C7)
 
  
 因为Tab是堆叠在List上方的，Tab与List组件上方有显示区域重叠部分。如果使用List的onScrollIndex方法，当b到达a时，获取的index是被Tab遮挡的List的ListItem索引，而非b所在的ListItem，所以onScrollIndex无法实现需求。是否有其他方法？
@@ -19,7 +19,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/7qt7IXY_RMStM5uGoI5h8w/zh-cn_image_0000002628409876.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012707Z&HW-CC-Expire=86400&HW-CC-Sign=A6764BFAB495E760C154FCFBE2FEAC4F88910615DA544FDCD5DF60B0A6235B6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/7qt7IXY_RMStM5uGoI5h8w/zh-cn_image_0000002628409876.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072343Z&HW-CC-Expire=86400&HW-CC-Sign=22509B54CB5635BF86E36176F8B0BF058CC808E6059CDEA42E820132EA734403)
 
  
  

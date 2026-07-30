@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.gestureEvent (手势事件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-multimodalinput-gestureevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -32,7 +32,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | ActionType | 否 | 否 | 手势事件类型。如：手势开始、手势更新、手势结束等。 |
+| type | ActionType | 否 | 否 | 手势事件类型，包括手势取消、手势开始、手势更新、手势结束。 |
 | scale | number | 否 | 否 | 捏合度，取值范围大于等于0。 |
  
  

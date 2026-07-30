@@ -1,6 +1,6 @@
 # slider
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-slider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,10 +28,10 @@
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| min | number | 0 | 否 | 滑动选择器的最小值。 |
-| max | number | 100 | 否 | 滑动选择器的最大值。 |
+| min | number | 0 | 否 | 滑动条的最小值。 |
+| max | number | 100 | 否 | 滑动条的最大值。 |
 | step | number | 1 | 否 | 每次滑动的步长。 |
-| value | number | 0 | 否 | 滑动选择器的初始值。 |
+| value | number | 0 | 否 | 滑动条的初始值。 |
 | mode5+ | string | outset | 否 | 滑动条样式： - outset：滑块在滑杆上； - inset：滑块在滑杆内。 |
 | showsteps5+ | boolean | false | 否 | 是否显示步长标识。true表示显示步长标识，false表示不显示步长标识。 |
 | showtips5+ | boolean | false | 否 | 滑动时是否有气泡提示百分比。true表示有气泡提示百分比，false表示没有气泡提示百分比。 |
@@ -69,8 +69,8 @@
   
 | 属性 | 类型 | 说明 |
 | --- | --- | --- |
-| value5+ | number | 当前slider的进度值。 |
-| mode5+ | string | 当前change事件的类型，可选值为： - start：slider的值开始改变。 - move：slider的值跟随手指拖动中。 - end：slider的值结束改变。 - click：slider的值在点击进度条后改变。 |
+| value5+ | number | 当前滑动条的进度值。 |
+| mode5+ | string | 当前change事件的类型，可选值为： - start：滑动条的值开始改变。 - move：滑动条的值跟随手指拖动中。 - end：滑动条的值结束改变。 - click：滑动条的值在点击进度条后改变。 |
  
  
   
@@ -101,4 +101,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/S3nNUCdNQ_OuYmvObK1XSw/zh-cn_image_0000002659102303.png?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=770B9259CB0FB73BDBA05A6F40405236422C8066A4B4E380AE287C5CE244FE08)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/8D8OVX6zT_GJeSGluEtW-A/zh-cn_image_0000002655849108.png?HW-CC-KV=V1&HW-CC-Date=20260730T071524Z&HW-CC-Expire=86400&HW-CC-Sign=A4F5190963550B240D07C88400BAFEE350A81F5A8975A3E3CBD545B1AF7A486E)

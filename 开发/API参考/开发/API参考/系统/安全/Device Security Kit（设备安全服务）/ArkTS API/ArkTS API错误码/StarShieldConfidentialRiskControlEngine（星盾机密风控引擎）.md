@@ -1,34 +1,12 @@
 # RiskControlEngine（星盾机密风控引擎）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-riskcontrolengine
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 > [!NOTE]
 > 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
-
-
-
-#### 1010800001 内部异常
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
-
-**错误信息**
-
-Internal error.
-
-**错误描述**
-
-内部异常。
-
-**可能原因**
-
-接口执行流程中调用系统其它接口出现异常。
-
-**处理步骤**
-
-请优先重试，若重试不成功，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
 

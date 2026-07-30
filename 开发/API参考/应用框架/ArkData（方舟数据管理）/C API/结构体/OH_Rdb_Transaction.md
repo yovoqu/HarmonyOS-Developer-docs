@@ -1,6 +1,6 @@
 # OH_Rdb_Transaction
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-rdb-transaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_Rdb_Transaction OH_Rdb_Transaction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义[OH_Rdb_Transaction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-rdb-transaction)结构类型。
+表示事务类型。
  
 **起始版本：** 18
  

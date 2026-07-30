@@ -18,7 +18,7 @@ UI测试框架（UITest）为开发者提供UI界面查找和模拟操作能力�
 
 #### 解决方案
 1. 在项目工程中新建feature模块：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/BZrTzMaOTXyFMhaDRays0A/zh-cn_image_0000002658808887.png?HW-CC-KV=V1&HW-CC-Date=20260723T014004Z&HW-CC-Expire=86400&HW-CC-Sign=39B470B9DE96F4C6BCD68721E51CA82E333DB0B182247BC09CD7F19A4B1FE552)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/BZrTzMaOTXyFMhaDRays0A/zh-cn_image_0000002658808887.png?HW-CC-KV=V1&HW-CC-Date=20260730T072723Z&HW-CC-Expire=86400&HW-CC-Sign=45A66FCE91006FF9F6BDE4DC202D5665E6A9BBCA0F0C24CCC11C317A1449CFB5)
 
 2. 打开feature\src\main\module.json5，查看abilities标签的name属性值，确认需要启动的abilityName：
 ```ArkTS

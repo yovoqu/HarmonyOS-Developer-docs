@@ -1,6 +1,6 @@
 # extension系统托管下载
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-back-system
 
@@ -52,7 +52,7 @@
     "srcEntry": "./ets/extensionability/AssetAccelExtAbility.ets", // 游戏资源加速ExtensionAbility组件所对应的代码路径。
     "type": "assetAcceleration"
   }
-]
+],
 ```
 
 2. 导入模块信息。
@@ -63,10 +63,13 @@
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
-import { assetDownloadManager, AssetAccelerationExtensionAbility, AssetAccelerationExtensionInfo, ContentRequestType } from '@kit.GraphicsAccelerateKit';
-
-export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbility {
-};
+import {
+  assetDownloadManager,
+  AssetAccelerationExtensionAbility,
+  AssetAccelerationExtensionInfo,
+  ContentRequestType
+} from '@kit.GraphicsAccelerateKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
 3. 实现extension系统托管下载。
@@ -81,12 +84,13 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
   
 ```text
-async onDownloadContentRequest(requestType: ContentRequestType, manifestUrl: string,
-  assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo): Promise<assetDownloadManager.AssetDownloadConfig[]> {
-  const context = this.context as common.ExtensionContext; // 将当前上下文转换为ExtensionContext类型。
-  console.info('AssetAccelDemo', `application file directory = ${context.filesDir}`);
-  console.info('AssetAccelDemo', `onDownloadContentRequest enter, requestType: ${requestType}, manifestUrl: ${manifestUrl}.`);
+async onDownloadContentRequest(requestType: ContentRequestType, manifestURL: string,
+  assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo):
+  Promise<assetDownloadManager.AssetDownloadConfig[]> {
+  hilog.info(DOMAINID,
+    TAG, `onDownloadContentRequest enter, requestType: ${requestType}, manifestURL: ${manifestURL}.`);
   // 1.根据manifestUrl获取下载资源包。2.manifestUrl不为空，获取华为CDN侧资源，为空则获取三方CDN侧资源。3.返回资源包下载任务列表。
+  // ...
   let downloadConfigArr: Array<assetDownloadManager.AssetDownloadConfig> = [];
   return downloadConfigArr;
 }
@@ -99,8 +103,10 @@ async onDownloadContentRequest(requestType: ContentRequestType, manifestUrl: str
 ```text
 async onBackgroundDownloadSucceeded(downloadTask: assetDownloadManager.AssetDownloadTask,
   filePath: string): Promise<void> {
-  console.info('AssetAccelDemo', `onBackgroundDownloadSucceeded enter, taskId is ${downloadTask.taskId}, filePath = ${filePath}`);
+  hilog.info(DOMAINID,
+    TAG, `onBackgroundDownloadSucceeded enter, taskId is ${downloadTask.taskId}, filePath = ${filePath}`);
   // 添加已下载资源包转移等处理逻辑。
+  // ...
 }
 ```
 
@@ -111,8 +117,10 @@ async onBackgroundDownloadSucceeded(downloadTask: assetDownloadManager.AssetDown
 ```text
 async onBackgroundDownloadFailed(downloadTask: assetDownloadManager.AssetDownloadTask,
   fault: assetDownloadManager.DownloadFault): Promise<void> {
-  console.info('AssetAccelDemo', `onBackgroundDownloadFailed enter, download url: ${downloadTask.config.url}, err: ${fault}`);
+  hilog.info(DOMAINID,
+    TAG, `onBackgroundDownloadFailed enter, download url: ${downloadTask.config.url}, err: ${fault}`);
   // 添加资源包下载失败处理逻辑。
+  // ...
 }
 ```
 
@@ -123,11 +131,12 @@ async onBackgroundDownloadFailed(downloadTask: assetDownloadManager.AssetDownloa
 ```text
 async onExtensionWillTerminate(error?: BusinessError): Promise<void> {
   // 避免进行耗时处理。
-  if (error) {
-    console.error('AssetAccelDemo', `onExtensionWillTerminate enter, TerminateReason: ${error?.code}, msg: ${error?.message}.`);
-    // 添加异常终止处理逻辑。
+  if (!error) {
+    hilog.info(DOMAINID, TAG, `onExtensionWillTerminate enter, BusinessError is null`);
+    // 添加资源清理等处理逻辑。
     return;
   }
-  // 添加资源清理等处理逻辑。
+  hilog.error(DOMAINID, TAG, `onExtensionWillTerminate enter, BusinessError：${error?.code}, msg: ${error?.message}`);
+  // 添加异常终止处理逻辑。
 }
 ```

@@ -1,17 +1,85 @@
 # @ohos.userIAM.userAuthIcon (嵌入式用户身份认证控件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-useriam-userauthicon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-提供应用界面上展示的人脸、指纹认证图标，具体功能如下：
-1. 提供嵌入式的人脸、指纹认证控件图标，可被应用集成。
-2. 支持自定义图标的颜色和大小，但图标样式不可变更。
-3. 点击控件图标后将以系统弹窗的方式，拉起人脸、指纹认证控件。
+**userAuthIcon**模块是HarmonyOS用户身份认证体系（UserIAM）的UI组件模块，提供了一个开箱即用的身份认证图标组件（UserAuthIcon）。该组件用于在应用UI中展示人脸认证或指纹认证的图标，支持自定义图标颜色和尺寸，并可在点击图标时直接启动系统身份认证弹窗组件。
+
+该模块主要用于以下场景：
+
+ - 在应用界面中快速集成人脸或指纹认证入口。
+ - 需要统一风格的生物特征认证图标展示。
+ - 点击图标即可触发系统级身份认证流程。
+
 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
+
+
+#### 关键Class/Interface介绍
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+
+
+#### UserAuthIcon组件
+
+UserAuthIcon是一个ArkTS自定义组件（@Component struct），封装了认证图标展示和认证触发逻辑。开发者只需传入认证参数和结果回调，即可快速实现认证功能。
+
+主要属性包括：
+
+ - **authParam**：认证参数，定义认证类型、信任级别等。
+ - **widgetParam**：认证弹窗页面参数，定义标题、窗口模式等。
+ - **iconHeight**：图标高度（宽高比1:1）。
+ - **iconColor**：图标颜色。
+ - **onAuthResult**：认证结果回调。
+ - **onIconClick**：图标点击回调。
+
+
+
+![](assets/ohos.userIAM.userAuthIcon%20嵌入式用户身份认证控件/file-20260514164541410-1.png)
+
+
+
+
+#### API组合使用关系说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+使用userAuthIcon模块的典型流程如下：
+
+```text
+// 以下为阐述调用逻辑的伪代码，仅提供步骤说明，不提供详细的可执行代码。
+// 1. 在ArkTS页面中直接使用UserAuthIcon组件。
+// 配置认证参数
+let authParam = {
+  challenge: new Uint8Array([]), // challenge用于防止重放攻击，必须使用安全随机数生成器获取。
+  authType: [userAuth.UserAuthType.FACE, userAuth.UserAuthType.FINGERPRINT],
+  authTrustLevel: userAuth.AuthTrustLevel.ATL3
+};
+
+// 配置弹窗页面参数。
+let widgetParam = {
+  title: '请进行身份认证'
+};
+
+// 2. 在页面布局中使用组件。
+UserAuthIcon({
+  authParam: authParam,
+  widgetParam: widgetParam,
+  iconHeight: '80fp',
+  iconColor: Color.Blue,
+  onAuthResult: (result) => {
+    // 处理认证结果。
+  },
+  onIconClick: () => {
+    // 可选：处理图标点击事件。
+  }
+})
+```
 
 
 
@@ -45,6 +113,8 @@ import { userAuth, UserAuthIcon } from '@kit.UserAuthenticationKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
+嵌入式用户身份认证控件。提供系统标准的人脸、指纹认证图标，点击图标后可自动触发身份认证流程。开发者只需配置认证参数和回调函数，即可在应用界面中集成身份认证入口。
+
 ```text
 UserAuthIcon({
   authParam: userAuth.AuthParam,
@@ -66,12 +136,12 @@ UserAuthIcon({
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| authParam | userAuth.AuthParam | 是 | 用户认证相关参数。 |
-| widgetParam | userAuth.WidgetParam | 是 | 用户认证界面配置相关参数。 |
-| iconHeight | Dimension | 否 | 设置icon的高度，宽高比1:1，默认64fp，不支持百分比字符串。 |
-| iconColor | ResourceColor | 否 | 设置icon的颜色，默认值：\$r('sys.color.ohos_id_color_activated')。 |
-| onIconClick | ()=>void | 否 | 用户点击icon回调接口。 |
-| onAuthResult | (result: userAuth.UserAuthResult)=>void | 是 | 用户认证结果信息回调接口。 应用需要申请ohos.permission.ACCESS_BIOMETRIC权限，否则应用将仅展示图标，无法正常拉起身份认证控件。 |
+| authParam | userAuth.AuthParam | 是 | 用户认证相关参数。包含挑战值(challenge)、认证类型列表(authType)、认证可信等级(authTrustLevel)等配置。挑战值用于防重放攻击，认证类型指定可用的认证方式（如人脸、指纹、PIN），认证可信等级决定认证的安全强度。 |
+| widgetParam | userAuth.WidgetParam | 是 | 用户认证界面配置相关参数。包含认证界面标题(title)、导航按钮文本(navigationButtonText)等配置，用于自定义认证弹窗的显示内容。 |
+| iconHeight | Dimension | 否 | 图标高度。设置认证图标的高度，宽高比为1:1（即高度和宽度相等）。默认值为64fp，不支持百分比字符串。建议根据界面布局选择合适的大小。 默认值： 64fp |
+| iconColor | ResourceColor | 否 | 图标颜色。设置认证图标的颜色，支持颜色值、资源引用等多种格式。默认使用系统激活色，开发者可根据应用主题自定义颜色，如使用Color.Blue或\$r('app.color.primary')。 默认值： \$r('sys.color.ohos_id_color_activated') |
+| onIconClick | ()=>void | 否 | 图标点击回调。用户点击认证图标时触发此回调，可在回调中执行点击前的准备工作或记录用户行为日志。如果未设置此回调，点击图标后直接触发认证流程。 |
+| onAuthResult | (result: userAuth.UserAuthResult)=>void | 是 | 认证结果回调。用户完成认证后触发此回调，回调参数包含认证结果码(result)、认证令牌(token)、认证类型(authType)等信息。应用需在此回调中处理认证结果，如认证通过时获取token用于后续安全操作，认证失败时提示用户重新尝试。 注意： 应用需申请ohos.permission.ACCESS_BIOMETRIC权限，否则应用将仅展示图标，无法正常拉起身份认证控件。 |
 
 
 
@@ -133,10 +203,10 @@ struct Index {
 **人脸认证图例：**
 
 
-![](assets/ohos.userIAM.userAuthIcon%20嵌入式用户身份认证控件/file-20260514164541410-1.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/1ua3f6HYSsu84VeQkTOAog/zh-cn_image_0000002655849446.png?HW-CC-KV=V1&HW-CC-Date=20260730T071619Z&HW-CC-Expire=86400&HW-CC-Sign=2E10A373C4D3A4CD5B9FD74F4DC39E54A53059872777EDCA1AC0145E1E6D72E6)
 
 
 **指纹认证图例：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/MeFz0D-1Q22D4fZKDbrbDQ/zh-cn_image_0000002626231236.png?HW-CC-KV=V1&HW-CC-Date=20260624T020108Z&HW-CC-Expire=86400&HW-CC-Sign=F6D9DDB05981616F8E555CDA2835AA78E5463C45A5563F68EE0435BF202EA13C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/BYRFylfrT-eps9vmQfB89g/zh-cn_image_0000002686088877.png?HW-CC-KV=V1&HW-CC-Date=20260730T071619Z&HW-CC-Expire=86400&HW-CC-Sign=B604B76EF12DE84E360E9C412D9196282091400A230F9DD93807066CAB540C06)

@@ -1,6 +1,6 @@
 # 如何解决使用SafetyDetect安全检测checkSysIntegrity接口报错问题
 
-更新时间：2026-07-02 07:18:00
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-2
 
@@ -16,7 +16,7 @@ SafetyDetect安全检测：
  
 - 判断设备环境是否安全，比如是否被越狱、被模拟等，您可基于结果评估如何响应。
 - 判断用户访问的URL是否为恶意网址，对于恶意网址，由您评估提示或拦截用户的访问风险。
-- 获取本设备的系统完整性的在线检测结果：[checkSysIntegrity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#section102884586336)。
+- 获取本设备的系统完整性的在线检测结果：[checkSysIntegrity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#checksysintegrity)。
 
  
  
@@ -47,4 +47,4 @@ Q：在调用Device Security Kit的checkSysIntegrity接口时，真机不会报�
  
 A：模拟器与真机存在差异性，Device Security Kit（设备安全服务）暂不支持模拟器。
  
-详见官网：[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section147193483010)。
+详见官网：[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification)。

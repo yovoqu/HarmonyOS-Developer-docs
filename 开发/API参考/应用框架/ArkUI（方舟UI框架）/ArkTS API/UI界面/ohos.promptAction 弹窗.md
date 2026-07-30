@@ -1,11 +1,11 @@
 # @ohos.promptAction (弹窗)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-创建并显示即时反馈、对话框和操作菜单。
+创建并显示即时反馈、对话框和操作菜单，适用于系统通知、交互确认、菜单选择等场景。
 
 > [!TIP]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块不支持在 UIAbility 的文件声明处使用，即不能在UIAbility的生命周期中调用，需要在创建组件实例后使用。 本模块功能依赖UI的执行上下文，不可在 UI上下文不明确 的地方使用，参见 UIContext 说明。建议使用UIContext中的弹窗方法。
@@ -31,7 +31,7 @@ openToast(options: ShowToastOptions): Promise&lt;number&gt;
 显示即时反馈并通过Promise返回其id。
 
 > [!TIP]
-> 不支持在输入法类型窗口中使用子窗（showMode设置为TOP_MOST或者SYSTEM_TOP_MOST）的openToast，详情见输入法框架的约束与限制说明 createPanel 。 直接使用openToast可能导致 UI上下文不明确 的问题，建议使用UIContext中的getPromptAction方法获取到PromptAction对象，再通过该对象调用 openToast 实现。
+> 不支持在输入法类型窗口中使用子窗（showMode设置为TOP_MOST）的openToast，详情见输入法框架的约束与限制说明 createPanel 。 直接使用openToast可能导致 UI上下文不明确 的问题，建议使用UIContext中的getPromptAction方法获取到PromptAction对象，再通过该对象调用 openToast 实现。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -44,7 +44,7 @@ openToast(options: ShowToastOptions): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ShowToastOptions | 是 | Toast选项。 |
+| options | ShowToastOptions | 是 | Toast选项，用于配置Toast的显示内容和样式。 |
 
 
 **返回值**
@@ -91,7 +91,7 @@ struct toastExample {
           })
             .catch((error: BusinessError) => {
               console.error(`openToast error code is ${error.code}, message is ${error.message}`);
-            })
+            });
         })
       Blank().height(50)
       Button('Close Toast')
@@ -103,7 +103,7 @@ struct toastExample {
           } catch (error) {
             let message = (error as BusinessError).message;
             let code = (error as BusinessError).code;
-            console.error(`CloseToast error code is ${code}, message is ${message}`);
+            console.error(`closeToast error code is ${code}, message is ${message}`);
           }
         })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
@@ -139,7 +139,7 @@ closeToast(toastId: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| toastId | number | 是 | openToast返回的id。 |
+| toastId | number | 是 | openToast返回的id，用于标识要关闭的Toast实例。 |
 
 
 **错误码：**
@@ -155,7 +155,7 @@ closeToast(toastId: number): void
 
 **示例：**
 
-示例请看[promptAction.openToast18](#promptactionopentoast18)的示例。
+示例请看[promptAction.openToast](#promptactionopentoast18)的示例。
 
 
 
@@ -170,9 +170,9 @@ Toast的选项。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | message | string \| Resource | 否 | 否 | 显示的文本信息。 说明： 默认字体为'Harmony Sans'，不支持设置其他字体。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| duration | number | 否 | 是 | 设置Toast弹出的持续时间。 默认值：1500ms 取值范围：[1500, 10000] 若小于1500ms则取默认值，若大于10000ms则取上限值10000ms。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| bottom | string \| number | 否 | 是 | 设置Toast底部边框距离导航条的高度，软键盘拉起时，如果bottom值过小，Toast要被软键盘遮挡时，会自动避让至距离软键盘80vp处。 默认值：80vp 说明： 当底部没有导航条时，bottom为设置弹窗底部边框距离窗口底部的高度。 设置对齐方式alignment后，bottom不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| alignment12+ | Alignment | 否 | 是 | 对齐方式。 默认值：undefined，当未设置alignment且存在导航条或软键盘时，Toast会自动根据导航条或软键盘位置进行调整，可参考bottom的说明。 说明： 不同alignment下，Toast位置对齐效果，如下图所示。 Toast的文本显示默认自左向右，不支持其他对齐方式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| duration | number | 否 | 是 | 设置Toast弹出的持续时间。 单位：ms 默认值：1500ms 取值范围：[1500, 10000]。若小于1500ms则取默认值，若大于10000ms则取上限值10000ms。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| bottom | string \| number | 否 | 是 | 设置Toast底部边框距离导航条的高度。软键盘拉起时，若bottom值过小且Toast会被遮挡，则自动避让至距离软键盘80vp处。 默认值：80vp 说明： 当底部没有导航条时，bottom为设置弹窗底部边框距离窗口底部的高度。 设置对齐方式alignment后，bottom不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| alignment12+ | Alignment | 否 | 是 | 对齐方式。默认值：undefined，当未设置alignment且存在导航条或软键盘时，Toast会自动根据导航条或软键盘位置进行调整，可参考bottom的说明。 说明： 不同alignment下，Toast位置对齐效果，如下图所示。 Toast的文本显示默认自左向右，不支持其他对齐方式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | offset12+ | Offset | 否 | 是 | 在对齐方式上的偏移。 默认值：{ dx: 0, dy: 0 }，默认没有偏移。 说明： 仅支持设置px类型的数值。如需设置其他类型的数值，应将其他类型转换为px类型后传入。例如，若需设置vp，应将其转换为px后传入。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | showMode11+ | ToastShowMode | 否 | 是 | 设置Toast层级。 默认值：ToastShowMode.DEFAULT，默认显示在应用内。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | backgroundColor12+ | ResourceColor | 否 | 是 | Toast的背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
@@ -181,7 +181,7 @@ Toast的选项。
 | shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | Toast的背板阴影。 默认值：ShadowStyle.OUTER_DEFAULT_MD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 响应悬停态时，弹窗的显示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN，默认显示在下半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：如果主动设置了backgroundBlurStyle或backgroundColor接口，默认值是无系统材质效果，否则默认值是style为ImmersiveStyle.ULTRA_THICK的ImmersiveMaterial对象。设置undefined时与默认值保持一致。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，不建议与上述接口一起使用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：未设置systemMaterial时，如果已主动设置了backgroundBlurStyle或backgroundColor接口，则无系统材质效果；否则默认使用style为ImmersiveStyle.THICK的ImmersiveMaterial对象。设置undefined时与默认值保持一致。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，不建议与上述接口一起使用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -218,7 +218,7 @@ Toast的选项。
 | --- | --- | --- | --- | --- |
 | title | string \| Resource | 否 | 是 | 标题文本。 默认值：undefined，取值为undefined默认不显示标题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | message | string \| Resource | 否 | 是 | 内容文本。 默认值：undefined，取值为undefined默认不显示内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| buttons | Array&lt;Button&gt; | 否 | 是 | 对话框中按钮的数组，结构为：{text:'button', color: '#666666'}，支持大于1个按钮。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| buttons | Array&lt;Button&gt; | 否 | 是 | 对话框中按钮的数组，结构为：{text:'button', color: '#666666'}，支持1个或多个按钮。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | alignment10+ | DialogAlignment | 否 | 是 | 对话框在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 说明： 若在UIExtension中设置showInSubWindow为true, 弹窗将基于UIExtension的宿主窗口对齐。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | offset10+ | Offset | 否 | 是 | 对话框相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | maskRect10+ | Rectangle | 否 | 是 | 对话框遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 说明： showInSubWindow为true时，maskRect不生效。 maskRect在设置Rectangle中的部分属性后，若未设置其余的属性，则其余属性的默认值为0。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -232,7 +232,7 @@ Toast的选项。
 | enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 说明： PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通过设置hoverModeArea参数显示在上半屏。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 设置悬停态下对话框的默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | onWillAppear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变对话框显示效果的回调事件，二次弹出生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| onDidAppear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，关闭对话框时，onWillDisappear在onDidAppear前生效。 4.对话框入场动效未完成时彻底关闭对话框，动效打断，onDidAppear不会触发。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| onDidAppear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，在对话框下次打开时生效。 3.在onDidAppear触发前就关闭对话框时，onWillDisappear在onDidAppear前生效。 4.对话框入场动效未完成时彻底关闭对话框，动效打断，onDidAppear不会触发。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | onWillDisappear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | onDidDisappear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框消失后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | levelMode15+ | LevelMode | 否 | 是 | 设置对话框显示层级。 说明： - 默认值：LevelMode.OVERLAY - 当且仅当showInSubWindow属性设置为false时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
@@ -272,7 +272,7 @@ Toast的选项。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | title | string \| Resource | 否 | 是 | 标题文本。 默认值：undefined，取值为undefined默认不显示标题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| buttons | [Button,Button?,Button?,Button?,Button?,Button?] | 否 | 否 | 菜单中菜单项按钮的数组，结构为：{text:'button', color: '#666666'}，支持1-6个按钮。按钮数量大于6个时，仅显示前6个按钮，之后的按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| buttons | [Button,Button?,Button?,Button?,Button?,Button?] | 否 | 否 | 菜单中菜单项按钮的数组，结构为：{text:'button', color: '#666666'}，支持1-6个按钮。按钮数量大于6个时，仅显示buttons数组中的前6个按钮（索引0到5），数组中索引大于5的按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | showInSubWindow11+ | boolean | 否 | 是 | 某操作菜单需要显示在主窗口之外时，是否在子窗口显示此菜单。值为true表示在子窗口显示菜单。 默认值：false，在子窗口不显示菜单。 说明： - showInSubWindow为true的菜单无法触发显示另一个showInSubWindow为true的菜单。 - 若在UIExtension中设置showInSubWindow为true, 菜单将基于UIExtension的宿主窗口对齐。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | isModal11+ | boolean | 否 | 是 | 菜单是否为模态窗口。值为true表示为模态窗口且有蒙层，不可与菜单周围其他控件进行交互，即蒙层区域无法事件透传。值为false表示为非模态窗口且无蒙层，可以与菜单周围其他控件进行交互。 默认值：true 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | levelMode15+ | LevelMode | 否 | 是 | 设置菜单显示层级。 说明： - 默认值：LevelMode.OVERLAY - 当且仅当showInSubWindow属性设置为false时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
@@ -299,7 +299,7 @@ Toast的选项。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| index | number | 否 | 否 | 选中按钮在buttons数组中的索引，从0开始。 |
+| index | number | 否 | 否 | 选中按钮在buttons数组中的索引，从0开始，可用于判断用户点击了哪个按钮。 |
 
 
 
@@ -452,7 +452,7 @@ static clamp(order: number): LevelOrder
 
 | 类型 | 说明 |
 | --- | --- |
-| LevelOrder | 返回当前对象实例。 |
+| LevelOrder | 返回当前对象实例，该对象可用于设置弹窗的显示顺序。 |
 
 
 
@@ -484,7 +484,7 @@ getOrder(): number
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-自定义弹窗的内容，继承自[BaseDialogOptions](#basedialogoptions11)。
+自定义弹窗的内容，继承自[BaseDialogOptions](#basedialogoptions11)，用于配置自定义弹窗的显示参数和行为。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -495,11 +495,11 @@ getOrder(): number
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | backgroundColor | ResourceColor | 否 | 是 | 设置弹窗背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。 |
-| cornerRadius | DialogOptionsCornerRadius | 否 | 是 | 设置弹窗背板的圆角半径。 可分别设置4个圆角的半径。 默认值：{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' } 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，若值为负，则按照默认值处理。 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。 |
+| cornerRadius | DialogOptionsCornerRadius | 否 | 是 | 设置弹窗背板的圆角半径。 可分别设置4个圆角的半径。 默认值：{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' } 圆角大小受组件尺寸限制，最大值为组件宽和高中较小值的一半，若值为负，则按照默认值处理。 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。 |
 | borderWidth | DialogOptionsBorderWidth | 否 | 是 | 设置弹窗背板的边框宽度。 可分别设置4个边框宽度。 默认值：0 单位：vp 百分比参数方式：以父元素弹窗宽的百分比来设置弹窗的边框宽度。 当弹窗左边框和右边框大于弹窗宽度，弹窗上边框和下边框大于弹窗高度，显示可能不符合预期。 |
 | borderColor | DialogOptionsBorderColor | 否 | 是 | 设置弹窗背板的边框颜色。 默认值：Color.Black 如果使用borderColor属性，需要和borderWidth属性一起使用。 |
 | borderStyle | DialogOptionsBorderStyle | 否 | 是 | 设置弹窗背板的边框样式。 默认值：BorderStyle.Solid。 如果使用borderStyle属性，需要和borderWidth属性一起使用。 |
-| width | Dimension | 否 | 是 | 设置弹窗背板的宽度。 说明： - 默认最大值：400vp - 百分比参数方式：弹窗参考宽度基于所在窗口宽度调整。 |
+| width | Dimension | 否 | 是 | 设置弹窗背板的宽度。 说明： - 默认最大值：400vp - 百分比参数方式：弹窗参考宽度为所在窗口宽度的百分比，即弹窗宽度=窗口宽度×百分比值。 |
 | height | Dimension | 否 | 是 | 设置弹窗背板的高度。 说明： - 默认最大值：0.9 *（窗口高度 - 安全区域）。 - 百分比参数方式：弹窗参考高度为（窗口高度 - 安全区域），在此基础上调小或调大。 |
 | shadow | DialogOptionsShadow | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。 |
 | backgroundBlurStyle | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 |
@@ -633,7 +633,7 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 | --- | --- | --- | --- | --- |
 | builder | CustomBuilder | 否 | 否 | 设置自定义弹窗的内容。 说明： builder需要赋值为箭头函数，格式如下：() => { this.XXX() }，其中XXX是内部builder名。 全局builder需要在组件内部创建，并在内部builder中调用。 builder根节点宽高百分比相对弹窗容器大小。 builder非根节点宽高百分比相对父节点大小。 |
 | backgroundColor 12+ | ResourceColor | 否 | 是 | 设置弹窗背板颜色。 默认值：Color.Transparent 说明： 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则颜色显示将不符合预期效果。 |
-| cornerRadius12+ | Dimension \| BorderRadiuses | 否 | 是 | 设置背板的圆角半径。 可分别设置4个圆角的半径。 默认值：{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' } 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，若值为负，则按照默认值处理。 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。 |
+| cornerRadius12+ | Dimension \| BorderRadiuses | 否 | 是 | 设置背板的圆角半径。 可分别设置4个圆角的半径。 默认值：{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' } 圆角大小受组件尺寸限制，最大值为组件宽和高中较小值的一半，若值为负，则按照默认值处理。 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。 |
 | borderWidth12+ | Dimension \| EdgeWidths | 否 | 是 | 设置弹窗背板的边框宽度。 可分别设置4个边框宽度。 默认值：0 单位：vp 百分比参数方式：以父元素弹窗宽的百分比来设置弹窗的边框宽度。 当弹窗左边框和右边框大于弹窗宽度，弹窗上边框和下边框大于弹窗高度，显示可能不符合预期。 |
 | borderColor12+ | ResourceColor \| EdgeColors | 否 | 是 | 设置弹窗背板的边框颜色。 默认值：Color.Black 如果使用borderColor属性，需要和borderWidth属性一起使用。 |
 | borderStyle12+ | BorderStyle \| EdgeStyles | 否 | 是 | 设置弹窗背板的边框样式。 默认值：BorderStyle.Solid 如果使用borderStyle属性，需要和borderWidth属性一起使用。 |
@@ -662,18 +662,19 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 | offset | Offset | 否 | 是 | 弹窗相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | isModal | boolean | 否 | 是 | 弹窗是否为模态窗口。值为true表示为模态窗口且有蒙层，不可与弹窗周围其他控件进行交互，即蒙层区域无法事件透传。值为false表示为非模态窗口且无蒙层，可以与弹窗周围其他控件进行交互。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | showInSubWindow | boolean | 否 | 是 | 某弹窗需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。 默认值：false，弹窗显示在应用内，而非独立子窗口。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| displayModeInSubWindow | DialogDisplayMode | 否 | 是 | 弹窗在子窗口中的显示模式。 默认值：DialogDisplayMode.SCREEN_BASED 说明： 仅当showInSubWindow设置为true时生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 | onWillDismiss12+ | Callback&lt;DismissDialogAction&gt; | 否 | 是 | 交互式关闭回调函数。 说明： 1.当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。当前组件返回的reason中，暂不支持CLOSE_BUTTON的枚举值。 2.在onWillDismiss回调中，不能再做onWillDismiss拦截。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | autoCancel12+ | boolean | 否 | 是 | 点击遮障层时，是否关闭弹窗，true表示关闭弹窗。false表示不关闭弹窗。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | maskColor12+ | ResourceColor | 否 | 是 | 自定义蒙层颜色。 默认值: 0x33000000 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | transition12+ | TransitionEffect | 否 | 是 | 设置弹窗显示和退出的过渡效果。 说明： 1.如果不设置，则使用默认的显示/退出动效。 2.显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。 3.退出动效中按back键，不会打断退出动效，退出动效继续执行，继续按back键退出应用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | dialogTransition19+ | TransitionEffect | 否 | 是 | 设置弹窗内容显示的过渡效果。默认无动效。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | maskTransition19+ | TransitionEffect | 否 | 是 | 设置蒙层显示的过渡效果。默认无动效。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| onDidAppear12+ | () => void | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onDidDisappear12+ | () => void | 否 | 是 | 弹窗消失后的事件回调。 说明： 正常时序依次为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 当弹窗退场动画未完成时（例如：同时触发弹窗关闭和页面切换），该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onWillAppear12+ | () => void | 否 | 是 | 弹窗显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onWillDisappear12+ | () => void | 否 | 是 | 弹窗退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onDidAppear12+ | () => void | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onDidDisappear12+ | () => void | 否 | 是 | 弹窗消失后的事件回调。 说明： 正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 当弹窗退场动画未完成时（例如：同时触发弹窗关闭和页面切换），该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onWillAppear12+ | () => void | 否 | 是 | 弹窗显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onWillDisappear12+ | () => void | 否 | 是 | 弹窗退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | keyboardAvoidMode12+ | KeyboardAvoidMode | 否 | 是 | 用于设置弹窗是否在拉起软键盘时进行自动避让。 默认值：KeyboardAvoidMode.DEFAULT 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 说明： PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true。可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通过设置hoverModeArea参数显示在上半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 说明： PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通过设置hoverModeArea参数显示在上半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 悬停态下弹窗默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。默认值请参考BackgroundBlurStyleOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
@@ -707,7 +708,7 @@ Dialog关闭的信息。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | dismiss | Callback&lt;void&gt; | 否 | 否 | Dialog关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。 |
-| reason | DismissReason | 否 | 否 | Dialog无法关闭原因。根据开发者需求选择不同操作下，Dialog是否关闭。 |
+| reason | DismissReason | 否 | 否 | 触发Dialog关闭的操作类型（如点击遮障层、按返回键等）。开发者可根据reason判断用户的具体关闭操作，决定是否调用dismiss()关闭Dialog。 |
 
 
 
@@ -727,7 +728,7 @@ Dialog关闭的信息。
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | OVERLAY | 0 | 弹窗层级为应用窗口根节点，应用内路由导航切换弹窗不隐藏。 |
-| EMBEDDED | 1 | 弹窗节点为页面内路由/导航下的节点，随路由导航切换，弹窗随页面隐藏。 说明： 1. 目前只支持挂载在Page或者NavDestination节点上，优先挂载在Page节点下，只支持在这两种页面内顶层显示。 2. 该模式下新起的页面可以覆盖在弹窗上，页面返回后该弹窗依旧存在，弹窗内容不会丢失。 3. 该模式下需确保目标页面节点如Page节点已挂载上树，再拉起弹窗，否则弹窗将无法挂载到对应的页面节点内。 |
+| EMBEDDED | 1 | 弹窗节点为页面内路由/导航下的节点，随路由导航切换，弹窗随页面隐藏。 说明： 1. 仅支持挂载在Page或NavDestination节点上，需在页面内顶层显示。 2. 新起页面可覆盖在弹窗上，页面返回后该弹窗仍存在，弹窗内容不丢失。 3. 需确保目标页面节点（如Page节点）已挂载上树后，再拉起弹窗，否则弹窗将无法挂载到对应的页面节点内。 |
 
 
 
@@ -756,7 +757,7 @@ Dialog关闭的信息。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-菜单中的菜单项按钮。
+弹窗或菜单中的按钮信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -931,7 +932,8 @@ struct toastExample {
           try {
             promptAction.showToast({
               message: 'Hello World',
-              duration: 2000
+              duration: 2000,
+              showMode:promptAction.ToastShowMode.DEFAULT,
             });
           } catch (error) {
             let message = (error as BusinessError).message;
@@ -1052,7 +1054,7 @@ showDialog(options: ShowDialogOptions, callback: AsyncCallback&lt;ShowDialogSucc
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | ShowDialogOptions | 是 | 页面显示对话框信息描述。 |
-| callback | AsyncCallback&lt;ShowDialogSuccessResponse&gt; | 是 | 回调函数。弹出对话框成功，err为undefined，data为获取到的对话框响应结果，否则为错误对象。 |
+| callback | AsyncCallback&lt;ShowDialogSuccessResponse&gt; | 是 | 回调函数。弹出对话框成功时，err为undefined，data为获取到的对话框响应结果；失败时，err为错误对象。 |
 
 
 **错误码：**
@@ -1100,7 +1102,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/ibg7mCy1SO-n7vnZuY855g/zh-cn_image_0000002659221461.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=01A50BA50FAC6F6935D6B0EF2B55B2B23F3A8DA75836AECC3170EBE835123261)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/VjHP3YbBTAa2FQ3jKYq4og/zh-cn_image_0000002655848278.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=00389FF16E50C2232EB85D826883074AB0BE6A8B5C534748AA6339B3B97EA074)
 
 
 当弹窗的showInSubWindow属性为true时，弹窗可显示在窗口外。
@@ -1140,7 +1142,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/CPntft6EQuiBMtnWuqFS3w/zh-cn_image_0000002628702272.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=05991DD806D685674D0164D2AE957CB53F412D118EB952F58B30A42D0B508B72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/0BAi4jbGQpWa5yP56pWiOA/zh-cn_image_0000002686087707.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=7B9FDBB0CE5AF9644778DB7C0D9D3008DCE91724CF649F0FEDFF0537F1369DA1)
 
 
 从API version 19开始，该示例通过调用[ShowDialogOptions](#showdialogoptions)中的onDidAppear、onDidDisappear、onWillAppear和onWillDisappear属性展示了弹窗生命周期的相关接口的使用方法。
@@ -1188,7 +1190,7 @@ struct DialogExample {
           console.info("showDialog,is onDidDisappear!");
         },
         onWillAppear: () => {
-          this.log = 'Log information:#onWillAppear';
+          this.log = 'Log information:# onWillAppear';
           console.info("showDialog,is onWillAppear!");
         },
         onWillDisappear: () => {
@@ -1205,7 +1207,7 @@ struct DialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/R1pDUQmWSu2EGd80aYV0kQ/zh-cn_image_0000002659101501.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=3C890F23413FBB75CA3DDCE8EF45844CEB4CF588E9F5C992C9005A05D387DE97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/nlSjTRUvQSmEieizqPReXw/zh-cn_image_0000002685927879.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=7D4B7734E2C25BDF79BF46FE7FD9BCC7910DF50CE4882A644FAFBED1C4438493)
 
 
 
@@ -1231,7 +1233,7 @@ showActionMenu(options: ActionMenuOptions, callback: AsyncCallback&lt;ActionMenu
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | ActionMenuOptions | 是 | 操作菜单选项。 |
-| callback | AsyncCallback&lt;ActionMenuSuccessResponse&gt; | 是 | 回调函数。弹出操作菜单成功，err为undefined，data为获取到的操作菜单响应结果，否则为错误对象。 |
+| callback | AsyncCallback&lt;ActionMenuSuccessResponse&gt; | 是 | 回调函数。弹出操作菜单成功时，err为undefined，data为获取到的操作菜单响应结果；失败时，err为错误对象。 |
 
 
 **错误码：**
@@ -1278,7 +1280,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/cTBuVhmuR42GWl2CndWRkw/zh-cn_image_0000002628862152.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=EC87F279BEC6A90E896D17F8E4D844E199082D038045631F0B84AB6C8812DB9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/AzZUOE8dSY6-p56g3pu0xw/zh-cn_image_0000002656008200.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=31D07C70B0219B84BEA257FAE2C494FDBCE6EEC8E7BD05D432968C9101A35675)
 
 
 **示例：2**
@@ -1355,7 +1357,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/EzsWcGf4Q3WnFAczj_W2bQ/zh-cn_image_0000002659221463.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=E02B4C1748ABFC11CA2D2E3DEE817C80868414208D68A469CC84CB63AC5CB9FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/T8xsOQuWQ-C0Xssf6PMIqA/zh-cn_image_0000002655848280.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=4AF0FF8DE0C28DE469778FC4CEFE446E8C9A0A27F2DDA1095BCD914C25086003)
 
 
 
@@ -1380,7 +1382,7 @@ showActionMenu(options: ActionMenuOptions): Promise&lt;ActionMenuSuccessResponse
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ActionMenuOptions | 是 | Promise对象，返回菜单的响应结果。 |
+| options | ActionMenuOptions | 是 | 操作菜单选项。 |
 
 
 **返回值：**
@@ -1427,7 +1429,7 @@ promptAction.showActionMenu({
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/wAsNUxm6TkudO_N26nsBUQ/zh-cn_image_0000002628702274.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=791A78A5CC0E7A09034B5FADA54CA6995C5373342D9B6FD52AE465FC5CF3C244)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/aBxsap9CQiCAIR2uEW9KAg/zh-cn_image_0000002686087709.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=B3E0123CDF7FD9A945971852B57FB2B27632289157FA7DC2878AEDB680C870AF)
 
 
 
@@ -1631,7 +1633,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/CjUkCyTARrGBi50VjTvtow/zh-cn_image_0000002659101503.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=A59C5AD78B69A6D0C213752E1F2082AECAC7FE835789CBDBDC95590ABF230065)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/-Y3mIKrvQC6c8uIOa5AdiQ/zh-cn_image_0000002685927881.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=A94CA775AFD30CDCF63814F0B2BCF2739239C72D8EA00E45985871C767726427)
 
 
 该示例实现了一个页面内的弹窗。
@@ -1723,7 +1725,7 @@ struct Next {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/JLDYy0CpT36U7kdyk-JV0A/zh-cn_image_0000002628862154.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=DEAABED120725829A16496C5CD188B835B60D6D52DA7E55ABC0F4668C756D200)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/4UcyLGGhQK2k85V1R2rxbQ/zh-cn_image_0000002656008202.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=F2F374C58E46EFB4782318BE971163AA8C45A8488D1642D31A6C9E6100E94575)
 
 
 

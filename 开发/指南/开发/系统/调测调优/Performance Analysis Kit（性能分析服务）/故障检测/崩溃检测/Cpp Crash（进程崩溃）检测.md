@@ -1,6 +1,6 @@
 # Cpp Crash（进程崩溃）检测
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines
 
@@ -219,9 +219,10 @@ HiAppEvent给开发者提供了故障订阅接口，详见[HiAppEvent介绍](htt
 | Uid | 用户ID | 8 | 是 | - |
 | HiTraceId | HiTraceChain唯一跟踪标识 | 20 | 否 | 仅故障线程开启HiTraceChain功能时提供，详见HiTraceChain介绍。 |
 | Process name | 故障进程名 | 8 | 是 | - |
+| App running unique id | 应用运行时唯一关联的id。 | 26.0.0 | 是 | - |
 | Process life time | 故障进程存活时间 | 8 | 是 | - |
 | Process Memory(kB) | 故障进程内存占用 | 20 | 是 | - |
-| Device Memory(kB) | 整机内存状态 | 20 | 否 | 依赖维测服务进程，若发生故障时维测服务进程停止或设备重启则无此字段，详见实现原理。 |
+| Device Memory(kB) | 整机内存信息 | 20 | 否 | 依赖维测服务进程，若发生故障时维测服务进程停止或设备重启则无此字段，详见实现原理。 |
 | Reason | 故障原因 | 8 | 是 | - |
 | LastFatalMessage | Fatal消息 | 8 | 否 | 以下几种情况共用此字段： 解析到不可靠的栈帧地址时输出的提示信息。 因ABORT信号崩溃退出时保存最后一条FATAL级Hilog日志。 系统内部的维测信息。 应用通过OH_HiDebug_SetCrashObj设置的字符串信息。 从API版本26.0.0开始，应用若开启模块加载链路调试开关，则此字段包含模块加载链路。 |
 | Fault thread info | 故障线程信息 | 8 | 是 | - |
@@ -990,7 +991,7 @@ at onPageShow (sample|sample|1.0.0|src/main/ets/pages/Index.ts:381:36)
 从**API version 24**开始，当应用发生SIGPIPE异常退出时，可开启SIGPIPE信号打印调用栈功能，重启应用后，开发者复现问题场景，可以抓取调用栈信息并输出到HILOG。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/di4D342CTbqdI1KDG35SuQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012148Z&HW-CC-Expire=86400&HW-CC-Sign=E6664BB2E6ED3D67BAD1ED4EB955E0004760B4D9ED5FDBED33B8203D585A335C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/VohaWo1CSLuQE10_WONhkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071929Z&HW-CC-Expire=86400&HW-CC-Sign=66F6AD7F7548DBC3AF40EE5F2904E638CF92F256F9AA45F2E0FD4FAECABC38FE)
 
 
 此功能只能在[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)开启。

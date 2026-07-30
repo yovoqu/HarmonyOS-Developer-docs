@@ -1,6 +1,6 @@
 # 使用HiCollie检测业务线程卡死卡顿问题（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-guidelines-ndk
 
@@ -53,8 +53,8 @@ API接口的具体使用说明（参数使用限制、具体取值范围等）�
 
 #### 开发步骤
 
-下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie Ndk接口。
-1. 新建Native C++工程，目录结构如下：
+下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie NDK接口。
+1. 在DevEco Studio中，新建Native C++工程，目录结构如下：
 
   
 ```ArkTS
@@ -74,7 +74,7 @@ entry:
           - Index.ets
 ```
 
-2. 编辑“CMakeLists.txt”文件，添加源文件及动态库：
+2. 编辑工程中的“entry > src > main > cpp > CMakeLists.txt”文件，添加源文件及动态库：
 
   
 ```text
@@ -82,7 +82,7 @@ entry:
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libohhicollie.so)
 ```
 
-3. 编辑“napi_init.cpp”文件，导入依赖的文件，定义LOG_TAG，下述代码步骤用于模拟卡死卡顿场景，具体使用请结合业务需要。示例代码如下：
+3. 编辑工程中的“entry > src > main > cpp > napi_init.cpp”文件，导入依赖的文件，定义LOG_TAG，下述代码步骤用于模拟卡死卡顿场景，具体使用请结合业务需要。示例代码如下：
 
   
 从API version 12开始，支持**应用线程卡顿检测**：OH_HiCollie_Init_JankDetection，示例代码如下：
@@ -90,15 +90,15 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libohhicol
 5. 从API version 18开始，支持**应用线程卡死检测，自定义检测时间**：OH_HiCollie_Init_StuckDetectionWithTimeout，示例代码如下：
 6. 从API version 24开始，支持**应用线程卡死检测，应用主动上报输入无响应故障**：OH_HiCollie_ReportInputBlock，示例代码如下：
 7. 从API version 24开始，支持**应用线程卡死检测，三方框架生成自定义日志**：OH_HiCollie_SetFreezeCallback、OH_HiCollie_AssociateProcessReport，示例代码如下：
-8. 将TestHiCollieNdk注册为ArkTS接口。
+8. 编辑工程中的“entry > src > main > cpp > types > libentry > Index.ets”文件，定义ArkTS接口。
 
   
-OH_HiCollie_Init_JankDetection示例，编辑“index.d.ts”文件，定义ArkTS接口：
-9. OH_HiCollie_Init_StuckDetection示例，编辑“index.d.ts”文件，定义ArkTS接口：
-10. OH_HiCollie_Init_StuckDetectionWithTimeout示例，编辑“index.d.ts”文件，定义ArkTS接口：
-11. OH_HiCollie_ReportInputBlock示例，编辑“index.d.ts”文件，定义ArkTS接口：
-12. OH_HiCollie_SetFreezeCallback、OH_HiCollie_AssociateProcessReport示例，编辑“index.d.ts”文件，定义ArkTS接口：
-13. 编辑“Index.ets”文件：
+OH_HiCollie_Init_JankDetection示例：
+9. OH_HiCollie_Init_StuckDetection示例：
+10. OH_HiCollie_Init_StuckDetectionWithTimeout示例：
+11. OH_HiCollie_ReportInputBlock示例：
+12. OH_HiCollie_SetFreezeCallback、OH_HiCollie_AssociateProcessReport示例：
+13. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件：
 
   
 ```text

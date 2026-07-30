@@ -1,13 +1,13 @@
 # oh_environment.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-environment-h
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 #### 概述
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 environment模块接口定义，使用environment提供的native接口，获取公共文件根目录的沙箱路径。
  
@@ -17,6 +17,12 @@ environment模块接口定义，使用environment提供的native接口，获取�
  
 **系统能力：** SystemCapability.FileManagement.File.Environment.FolderObtain
  
+**设备行为差异**：
+ 
+- 在API版本26.0.0及之后：该接口在PC/2in1和Tablet中可正常调用，在其他设备类型中返回801错误码。
+- 在API版本26.0.0之前：该接口在PC/2in1可正常调用，在其他设备类型中返回801错误码。
+
+ 
 **起始版本：** 12
  
 **相关模块：** [Environment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-environment)
@@ -25,13 +31,13 @@ environment模块接口定义，使用environment提供的native接口，获取�
 
 #### 汇总
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
   
 
 #### 函数
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -44,13 +50,13 @@ environment模块接口定义，使用environment提供的native接口，获取�
 
 #### 函数说明
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
   
 
 #### OH_Environment_GetUserDownloadDir()
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 FileManagement_ErrCode OH_Environment_GetUserDownloadDir(char **result)
@@ -80,7 +86,7 @@ FileManagement_ErrCode OH_Environment_GetUserDownloadDir(char **result)
 
 #### OH_Environment_GetUserDesktopDir()
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 FileManagement_ErrCode OH_Environment_GetUserDesktopDir(char **result)
@@ -110,7 +116,7 @@ FileManagement_ErrCode OH_Environment_GetUserDesktopDir(char **result)
 
 #### OH_Environment_GetUserDocumentDir()
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 FileManagement_ErrCode OH_Environment_GetUserDocumentDir(char **result)

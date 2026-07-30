@@ -1,6 +1,6 @@
 # promotionService(营销服务)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -182,17 +182,6 @@ constructor(context: UIContext)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | UIContext | 是 | UI上下文对象。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 801 | Capability not supported. |
-| 1019200001 | System internal error. |
-| 1019200002 | Network connection error. |
 
 
 **示例**：
@@ -428,7 +417,7 @@ export struct StartPromotionDetailPopupDemo {
                         .then((val) => {
                             console.info(`receive resulr is ${JSON.stringify(val)}`);
                         }).catch((e: BusinessError) => {
-                            console.info(`sendMessageRequest failed, message: ${JSON.stringify(e)}`)
+                            console.error(`sendMessageRequest failed, message: ${JSON.stringify(e)}`)
                         });
                 })
         }
@@ -515,7 +504,7 @@ export struct GetOrderAvailableCouponsDemo {
           }
           console.info(`req ${JSON.stringify(req)}`);
           promotionService.getOrderAvailableCoupons(this.getUIContext().getHostContext()!, req).then(res => {
-            console.error(`getOrderAvailableCoupons res ${JSON.stringify(res)}.`);
+            console.info(`getOrderAvailableCoupons res ${JSON.stringify(res)}.`);
           }).catch((e: BusinessError) => {
             console.error(`getOrderAvailableCoupons error ${JSON.stringify(e)}`);
           });

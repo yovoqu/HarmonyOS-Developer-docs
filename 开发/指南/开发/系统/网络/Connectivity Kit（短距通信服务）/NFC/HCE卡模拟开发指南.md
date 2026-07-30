@@ -1,6 +1,6 @@
 # HCE卡模拟开发指南
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nfc-hce-guide
 
@@ -174,6 +174,10 @@ export default class EntryAbility extends UIAbility {
       hilog.error(0x0000, 'testTag', 'NFC System Capability not supported.');
       return;
     }
+    if (!nfcController.isNfcSupported()) {
+      hilog.error(0x0000, 'testTag', 'NFC not supported on this device.');
+      return;
+    }
     if (!cardEmulation.hasHceCapability()) {
       hilog.error(0x0000, 'testTag', 'hce unavailable.');
       return;
@@ -316,6 +320,10 @@ export default class HceUIAbility extends UIAbility {
     // 判断设备是否支持NFC能力和HCE能力
     if (!canIUse("SystemCapability.Communication.NFC.Core")) {
       hilog.error(0x0000, 'testTag', 'NFC System Capability not supported.');
+      return;
+    }
+    if (!nfcController.isNfcSupported()) {
+      hilog.error(0x0000, 'testTag', 'NFC not supported on this device.');
       return;
     }
     if (!cardEmulation.hasHceCapability()) {

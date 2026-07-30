@@ -1,6 +1,6 @@
 # Native侧实现文件访问
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/file-native-side
 
@@ -429,7 +429,7 @@ ArkTS侧通过文件picker选择文件，并传递文件描述符到Native侧，
  
 实现方案分为Native侧定义操作文件的方法和ArkTS侧调用该方法两部分。
  
-第一部分：在Native侧定义一个方法，用于接收文件描述符并将数据写入到文件中，注意使用文件描述符操作文件需要引用头文件unistd.h。
+第一部分：在Native侧定义一个方法，用于接收文件描述符并从文件中读取数据，注意使用文件描述符操作文件需要引用头文件unistd.h。
  1. 将传入的文件描述符通过Node-API接口传递到Native侧。
 
   

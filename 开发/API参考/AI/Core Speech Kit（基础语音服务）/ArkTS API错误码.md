@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -26,11 +26,13 @@ Create engine failed.
 1. 语种不支持。
 2. 模式不支持。
 3. 资源不存在或初始化超时。
+4. 频繁创建、销毁引擎引起资源竞争，导致创建失败。
 
 **处理步骤**
 1. 调用[listLanguages](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#listlanguages)方法查询支持的语种，确认语种后请重新尝试。
 2. 当前仅支持[CreateEngineParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#createengineparams)，确认模式后请重新尝试。
 3. 资源不存在及初始化超时时，建议稍后重新尝试。
+4. 将创建成功的引擎实例进行存储，创建引擎参数相同的场景复用引擎实例，避免使用完立即销毁引擎，等到后续无需再使用时销毁引擎。
 
 
 

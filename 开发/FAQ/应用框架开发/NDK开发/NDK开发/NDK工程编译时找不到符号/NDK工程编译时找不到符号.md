@@ -1,6 +1,6 @@
 # NDK工程编译时找不到符号
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-5
 
@@ -18,7 +18,7 @@ NDK工程使用CMake编译时，报告链接错误，找不到符号，报错信
 
 - 在项目中引入C++源码构建so并调用，参考[使用命令行CMake构建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake)。
 - 在项目中引用其他使用HarmonyOS工具链编译好的so，请参考[在NDK工程中使用预构建库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-prebuilts)。
-- 使用其他工具构建HarmonyOS可用的so，参考[使用lycium工具快速编译三方库](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lycium-adapts-to-harmonyos#section42371745152513)。
+- 使用其他工具构建HarmonyOS可用的so，参考[使用lycium工具快速编译三方库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-lycium-build-project)。
 - Linux相关命令行用法参考Linux官方手册，如[nm — Linux manual page](https://man7.org/linux/man-pages/man1/nm.1.html)。
 - CMake语法参考其官方文档：[CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)。
 

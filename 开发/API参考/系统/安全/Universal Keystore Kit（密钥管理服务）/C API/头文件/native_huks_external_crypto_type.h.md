@@ -1,6 +1,6 @@
 # native_huks_external_crypto_type.h
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-type-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-定义面向外部密钥管理扩展的结构体与枚举类型。
+定义面向外部密钥管理扩展的结构体、枚举类型与宏定义。
  
 **引用文件：** <huks/native_huks_external_crypto_type.h>
  
@@ -36,7 +36,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_Huks_ExternalCryptoParam | OH_Huks_ExternalCryptoParam | 定义参数集合中单个参数的结构体。 |
-| OH_Huks_ExternalCryptoParamSet | OH_Huks_ExternalCryptoParamSet | 定义外部加密参数集合的结构。 |
+| OH_Huks_ExternalCryptoParamSet | OH_Huks_ExternalCryptoParamSet | 定义外部加密参数集合的结构体。 |
  
  
   
@@ -48,6 +48,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_Huks_ExternalCryptoTag | OH_Huks_ExternalCryptoTag | 列举参数集合中使用的标签值。 |
+| OH_Huks_ExternalPinAuthState | OH_Huks_ExternalPinAuthState | 列举UKey PIN码认证状态。 |
  
  
   
@@ -106,7 +107,7 @@ enum OH_Huks_ExternalPinAuthState
  
 **描述**
  
-列举Ukey PIN码认证状态。
+列举UKey PIN码认证状态。
  
 **起始版本：** 22
   
@@ -114,4 +115,4 @@ enum OH_Huks_ExternalPinAuthState
 | --- | --- |
 | OH_HUKS_EXT_CRYPTO_PIN_NO_AUTH = 0 | PIN码未认证。 |
 | OH_HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED = 1 | PIN码认证成功。 |
-| OH_HUKS_EXT_CRYPTO_PIN_LOCKED = 2 | PIN码被锁。 |
+| OH_HUKS_EXT_CRYPTO_PIN_LOCKED = 2 | PIN码被锁定。 |

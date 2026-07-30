@@ -15,7 +15,7 @@
 可以看到气泡大小会跟随StyledString而变化。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/2cEfcK1WT8GXWfg-lwesmQ/zh-cn_image_0000002628394678.png?HW-CC-KV=V1&HW-CC-Date=20260723T012554Z&HW-CC-Expire=86400&HW-CC-Sign=80E988E11A655D1D920112F8FA611169427EF6148365DD2537EECC94656BAADD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/2cEfcK1WT8GXWfg-lwesmQ/zh-cn_image_0000002628394678.png?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=3B61A847E825CE409A9BFB5849665D00493BAF05DB129F4454F868DC49865438)
 
  
  

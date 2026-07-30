@@ -1,6 +1,6 @@
 # Webview错误码
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -431,6 +431,28 @@ The port number is not within the allowed range.
 **处理步骤**
 
 检查使用的端口号是否在允许的取值范围内。
+
+
+
+#### 17100024 AIPageCommand格式错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Command format error. The command parameter does not conform to the JSON format requirements.
+
+**错误描述**
+
+AIPageCommand参数格式错误。
+
+**可能原因**
+
+调用[WebviewController.executeAIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#executeaipagecommand)时，传入的command参数不是合法的JSON对象字符串，或命令字段不符合格式要求。
+
+**处理步骤**
+
+检查command参数是否为合法的JSON对象字符串，并确认JSON对象中包含字符串类型的method字段。
 
 
 

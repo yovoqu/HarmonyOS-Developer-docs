@@ -1,6 +1,6 @@
 # Drawing
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,6 +12,8 @@
 Drawing模块提供包括2D图形渲染、文字绘制和图片显示等功能函数。
  
 本模块采用屏幕物理像素单位px。
+ 
+本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
  

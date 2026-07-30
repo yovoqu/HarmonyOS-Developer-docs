@@ -1,6 +1,6 @@
 # DnsConfiguration：定制DNS
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customdnsconfig
 
@@ -66,7 +66,7 @@ request.configuration = {
   dns: {
     dnsRules: [
       {
-        ip: 'x.xxx.x.xx', // DNS服务器的IP地址
+        ip: '192.168.1.1', // DNS服务器的IP地址
         port: 53, // DNS服务器的端口号
       },
     ]
@@ -80,10 +80,12 @@ request.configuration = {
 ```json
 session.fetch(request).then((response: rcp.Response) => {
   console.info(`The response is ${JSON.stringify(response)}`); // 处理成功响应
+  // ...
   // 关闭会话
   session.close();
 }).catch((err: BusinessError) => {
   console.error(`The error code is ${err.code}, error data is ${err.data}`); // 处理错误
+  // ...
   // 关闭会话
   session.close();
 })
@@ -119,7 +121,7 @@ request.configuration = {
   dns: {
     dnsRules: (host: string, port: number): rcp.IpAddress[] => {
       if (host === 'example.com') {
-        return ['x.xxx.x.xx', 'x.xxx.x.xx']; // 此处请根据实际情况填写
+        return ['192.168.1.1', '192.168.1.2']; // 此处请根据实际情况填写
       }
       return [];
     }
@@ -134,11 +136,13 @@ request.configuration = {
 session.fetch(request).then((response: rcp.Response) => {
   // 处理成功响应
   console.info(`The response is ${JSON.stringify(response)}`);
+  // ...
   // 关闭会话
   session.close();
 }).catch((err: BusinessError) => {
   // 处理错误
   console.error(`The error code is ${err.code}, error data is ${err.data}`);
+  // ...
   // 关闭会话
   session.close();
 })

@@ -1,6 +1,6 @@
 # AntifraudPicker（反诈选择器）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-antifraudpicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,7 +24,7 @@ Permission denied.
  
 **可能原因**
  
-应用hap未申请ohos.permission.USE_FRAUD_MESSAGES_PICKER或ohos.permission.USE_FRAUD_CALL_LOG_PICKER权限。
+应用hap未申请ohos.permission.USE_FRAUD_MESSAGES_PICKER、ohos.permission.USE_FRAUD_CALL_LOG_PICKER或ohos.permission.USE_FRAUD_APP_PICKER权限。
  
 **处理步骤**
  

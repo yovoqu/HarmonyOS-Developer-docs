@@ -1,6 +1,6 @@
 # rcp表单格式数据传输
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-18
 
@@ -17,11 +17,11 @@
 2. 采用multipart/form-data格式的数据编码，表单数据位于HTTP请求体中，不暴露在URL中，在敏感信息传输、混合数据传输、大数据传输等场景广泛使用。
 
 3. rcp模块为上述两种数据编码方式提供了多种接口
-[URLOrString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section320653742718)：作为HTTP/HTTPS地址的入参，包括[URL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section66401230152412)类型和string类型，URL可通过[append](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-url#append9)接口将表单数据拼接到请求地址中传输。
+[URLOrString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#urlorstring)：作为HTTP/HTTPS地址的入参，包括[URL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#url)类型和string类型，URL可通过[append](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-url#append9)接口将表单数据拼接到请求地址中传输。
 
-4. [Form](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section1188301010515)：HTTP简单的表格数据，通过POST方法将表单数据以application/x-www-form-urlencoded编码方式上传表单数据。
+4. [Form](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#form)：HTTP简单的表格数据，通过POST方法将表单数据以application/x-www-form-urlencoded编码方式上传表单数据。
 
-5. [MultipartForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section1420174317517)：HTTP多部分表格数据传输。
+5. [MultipartForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#multipartform)：HTTP多部分表格数据传输。
 
   
 
@@ -65,7 +65,7 @@ session.get(urlWithParam).then((response) => {
   运行日志如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/9XKEUTQeQ6i6VSNfq150Ag/zh-cn_image_0000002658851751.png?HW-CC-KV=V1&HW-CC-Date=20260723T013448Z&HW-CC-Expire=86400&HW-CC-Sign=6F1A07327993FC67E30F61CC577160EC2240CE51DFCCF68AB089ADB562B1BA91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/6Y2APZd_SCimYuOiDDs3cQ/zh-cn_image_0000002658851751.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=DD634ACBF78B1E4243E93567942B2765213092FD99C1B78641DDA360D23C7E2C)
 
 - **方案2：使用rcp模块中的Form类型数据传输表单数据。**1. 使用参数新建Form类。
 ```text
@@ -96,7 +96,7 @@ session.post('xxx.xxx.xxx', simpleForm).then((response) => { <em>// 开发者自
   运行日志如下，如果用户不在请求头设置数据大小，rcp模块会自动计算：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/Id86sy_MTH2RR0n0vjLFqQ/zh-cn_image_0000002628772386.png?HW-CC-KV=V1&HW-CC-Date=20260723T013448Z&HW-CC-Expire=86400&HW-CC-Sign=3C1A1728F8E9C7DC3372C4DB855F5B4CBD06A2B7931E9F8A15D80EC536B4249C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/qQ4RedmrTtuecbwQhV7j4A/zh-cn_image_0000002628772386.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=5C31BF730B3ED6695E7EA60DDFECAD9D4E196E5DEB95CFC1B53940DA41E6AADF)
 
 
  
@@ -134,7 +134,7 @@ multiForm.boundary = '--MULTIPARTFORM BEGIN AND END BOUNDARY'; <em>// 开发者�
 运行日志如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/aloi8zGFSPO2-KsffbIYHg/zh-cn_image_0000002658971707.png?HW-CC-KV=V1&HW-CC-Date=20260723T013448Z&HW-CC-Expire=86400&HW-CC-Sign=C48A4D00A2141EC01C5E83F24D97451F017066852465E67B67A2D81CB5913DCD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/e-4kdRXcThujukXX7MQCiA/zh-cn_image_0000002658971707.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=EE9F76F1C38A256761B6ECF0B29BDA4895DC35F583250E03E0FF54C839165541)
 
  
 完整示例代码如下：

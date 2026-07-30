@@ -1,6 +1,6 @@
 # 如何实现通过文件选择器（FilePicker）选择文件进行预览
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-8
 
@@ -21,7 +21,7 @@
 #### 解决方案
 
 可以先将文件选择器打开的文件拷贝至应用沙箱内，再通过传入拷贝的沙箱文件的uri来进行预览。
- 1. 设置[PreviewInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section1081123302517)文件预览信息，其中mimeType为空时，Preview Kit会根据文件后缀判断文件类型。
+ 1. 设置[PreviewInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#previewinfo)文件预览信息，其中mimeType为空时，Preview Kit会根据文件后缀判断文件类型。
 ```text
 <em>// 文件预览信息</em>
 private fileInfo: filePreview.PreviewInfo = {
@@ -67,7 +67,7 @@ docPickerSelectThenCopy2Sandbox() {
 }
 ```
 
-3. 通过filePreview.[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section3643113161616)判断文件是否可以预览，通过filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)打开预览窗口。
+3. 通过filePreview.[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#canpreview)判断文件是否可以预览，通过filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#openpreview)打开预览窗口。
 ```text
 <em>// 根据文件的uri判断文件是否可以预览</em>
 <em>// 当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权</em>
@@ -88,7 +88,7 @@ filePreview.canPreview(this.context, this.fileInfo.uri).then((result) => { // �
 注意事项：
  
 - 沙箱路径需要通过[fileUri.getUriFromPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)获取到uri传递给Preview Kit使用。
-- 判断文件是否可以预览的接口filePreview.[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section3643113161616)，仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权。
+- 判断文件是否可以预览的接口filePreview.[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#canpreview)，仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权。
 
 1. 完整代码示例如下：
 ```json

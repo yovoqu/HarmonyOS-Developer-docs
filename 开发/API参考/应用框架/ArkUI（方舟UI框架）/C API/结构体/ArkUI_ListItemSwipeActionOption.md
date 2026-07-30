@@ -1,6 +1,6 @@
 # ArkUI_ListItemSwipeActionOption
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-listitemswipeactionoption
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_ListItemSwipeActionOption ArkUI_ListItemSwipeActionOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义ListItemSwipeActionOption方法的配置信息。
+定义列表项侧滑操作的配置信息。
  
 **起始版本：** 12
  

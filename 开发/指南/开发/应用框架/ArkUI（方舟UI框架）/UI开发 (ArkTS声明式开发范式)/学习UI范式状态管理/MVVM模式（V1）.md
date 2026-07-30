@@ -1,6 +1,6 @@
 # MVVM模式（V1）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-mvvm
 
@@ -926,7 +926,8 @@ export default class ThingViewModel {
   }
 
   addSuffixes(): void {
-    this.thingName += 'lala';
+    // 请将$r('app.string.la_la')替换为实际资源文件，在本示例中该资源文件的value值为"啦"
+    this.thingName += resource.resourceToString($r('app.string.la_la'));
   }
 }
 ```

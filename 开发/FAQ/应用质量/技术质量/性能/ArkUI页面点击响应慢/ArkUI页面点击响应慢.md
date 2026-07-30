@@ -52,7 +52,7 @@
 - DevEco Profiler目前是集成在DevEco Studio中的性能调优工具，提供场景化的性能调优功能体验，目前版本提供六大特性解决快速定界、效率提升、内存分析、内核分析和卡顿分析相关问题，帮助应用开发者定位到问题代码，更多详细内容可看[使用Profiler进行性能调优](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-introduction)。借助DevEco Profiler Time工具可以查看应用执行的ArkTS代码以及相应耗时，如下图所示，更多详细内容可看[基础耗时分析：Time分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/4oU9EZBiSQ27YsUUs8_Jlg/zh-cn_image_0000002658914331.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=B2C3669015076005DE6031329D1563A3AE8DC7DB731FE2C95FD8EEDDEF57FCAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/4oU9EZBiSQ27YsUUs8_Jlg/zh-cn_image_0000002658914331.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=DBEB8D0AD525EB8B9E2950B8C025D80FADA4033F536B22D44A46AA0C747F0167)
 
 
  
@@ -62,39 +62,39 @@
 
 以点击某应用首页跳转到详情页，点击响应慢问题为例，按整体流程拆分总耗时，确定各模块耗时，具体如下：
  1. 多模输入模块耗时为手指离开屏幕到应用收到该事件的时间。用SmartPerf打开Trace文件，在上方搜索框中输入H:originEventHandle code:501找到手指离开屏幕的地方。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/ewRBu1brSlW0Dxk7Sj_lhg/zh-cn_image_0000002658794377.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=F4FA0EA847AA0C39993D83C456B6C9EAB5DA254C0A3E07BCF794DB2A81773550)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/ewRBu1brSlW0Dxk7Sj_lhg/zh-cn_image_0000002658794377.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=5F1AA531434C8D160461BDEB74DF0BA6C8942B91DE69AF8322DE688DFE125031)
 
 
   接着以该点为起始点，在应用包名泳道中往后查看几ms范围内的Trace关键字H:DispatchTouchEvent XXX type=1，找到应用收到该事件的地方，得到该部分耗时为1.5ms。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/PEZkwEAOQeqpNaifm-mNPw/zh-cn_image_0000002628555012.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=B3FC911D924A5DB3BDEFC8FE1CB054EA1717EED5945BDA301597AA8D050688AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/PEZkwEAOQeqpNaifm-mNPw/zh-cn_image_0000002628555012.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=B85B8359010266DFB463A3FF367B859EA42EE9563D13BE279827847663A0EABF)
 
 2. 应用模块耗时起点为应用收到手指离开屏幕的事件，终点为应用从当前页面开始跳转到新页面时第一次发送绘制请求的结束点。手指离开屏幕事件的地方为上述多模输入模块耗时的结束点。应用第一次发送绘制请求的地方可以通过应用收到手指离开屏幕的事件后第一次接收Vsync信号（Trace关键字为H:ReceiveVsync）中发送绘制请求（关键字为H:SendCommands）的结束点来确定，同时该点会在页面切换Trace关键字H:ABILITY_OR_PAGE_SWITCH的起始点附近。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/0VLFc1xLTRqkGP78dCmFcg/zh-cn_image_0000002628395112.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=F7EAAE058A82465FC06838971A895A916F17BAC2B2C7401B56A7836083CD77AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/0VLFc1xLTRqkGP78dCmFcg/zh-cn_image_0000002628395112.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=074626C5DA99E5FFB2464330ED5CACC95A59A09BA1A968D8E0362D08FC5D6EE2)
 
 
   计算应用收到手指离开屏幕的事件和该点之后应用第一次提交绘制请求的时间可确定应用模块处理耗时142.5ms。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/W4qjvXmCQtyounEl8VghSA/zh-cn_image_0000002658914333.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=9DA4DBB46DB4901354292C47F027B185B7C0EC59B0CA038F2C351638B6B66899)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/W4qjvXmCQtyounEl8VghSA/zh-cn_image_0000002658914333.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=0E5689D2D1D62E1E9FEB40F014DEC1159C69BE5FEA60BC914F1569B6A9A95375)
 
 3. 渲染服务模块耗时为渲染服务处理应用发送的渲染请求到将GPU处理的渲染结果提交到显示硬件的时间。渲染服务处理应用发送的渲染请求可以通过应用模块耗时的结束点来确定。在应用包名泳道上方有个Actual Timeline泳道，在应用接收Vsync信号、提交绘制请求处会有对应的一段Trace点（以数字呈现），点击后在下方显示框中点击render_service右侧的跳转箭头可以找到渲染服务处理页面有变化第一帧数据的地方。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/_4YRdDqjTNKTHPvXjVMw5w/zh-cn_image_0000002658794379.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=54D24898FBC3E9297303EEEF9EA7DB9F56A20DBF1E9810C110541473ED836AAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/_4YRdDqjTNKTHPvXjVMw5w/zh-cn_image_0000002658794379.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=0579576B56A92C7BBE70DC7E73C1D05E9EA00684AB73EDB8C8D25F13EDD1736C)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/8qjHXZiuRo2SW-J0bkyCNQ/zh-cn_image_0000002628555014.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=9878800D18BDF2A248535E05ADD8F5F314AB8991D31B7E1C26237CA2481422C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/8qjHXZiuRo2SW-J0bkyCNQ/zh-cn_image_0000002628555014.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=018B23F1C760812D891F18AC4F174DF2466EF0E7696F1C23F4964A485EDB4653)
 
 
   然后以render_service这次处理Vsync信号为起点，根据now（时间戳），在RSHardwareThread泳道中找到render_service将该帧GPU处理的渲染结果提交到显示硬件的地方，最终得到渲染服务模块耗时15.7ms。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/BDfY16x3Ty-2XcTiSvxDtw/zh-cn_image_0000002628395114.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=CEE6E5C8181D34FA9B779E60DB38DE2879E2D1314602CFF9880529DAB7DC078E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/BDfY16x3Ty-2XcTiSvxDtw/zh-cn_image_0000002628395114.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=7F1CCE10D22143681C34E1308E1CE0C9EE89076A2AB4566E9C4B885A20DE8363)
 
 
   最终得到如下耗时拆分结果，耗时主要集中在应用模块。
@@ -108,18 +108,18 @@
 场景一：执行业务代码耗时：框选Trace中应用主进程该阶段的运行状态，发现耗时主要在Running部分，查看该阶段的Trace信息，得知其中一部分是加载NewsPage页面，还有另一部分没有Trace点，无法看到在执行什么业务流程。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/Rt3rMezmRE2J_n1_Nw19Bg/zh-cn_image_0000002658914335.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=DF397698581BC8930AFF54458137EDF1C953B836C7CA0263D5D88C755A2CCA81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/Rt3rMezmRE2J_n1_Nw19Bg/zh-cn_image_0000002658914335.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=B9DD2B8EFCE819821033051DFB81173759AE7818C1FCDC3D07772B27D467871A)
 
 
   使用Profiler工具抓取该过程的Trace信息，发现应用在执行dispatchJson方法，该方法耗时占比较多。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/yglEGHYwSLOH9ZJNIYLAbA/zh-cn_image_0000002658794381.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=FC4DDD15CBAD4285AE13602B7F9B0CA8BADD1DB3B6AA71B74AEEF2CDADD9C051)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/yglEGHYwSLOH9ZJNIYLAbA/zh-cn_image_0000002658794381.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=AB5ED481C8AEDE0FF0C54D3E552296A7F3DDAA2CA7083D7FC6A320DDF0C543ED)
 
 5. 场景二：http请求耗时：查看该阶段应用包名泳道Trace，发现耗时主要在http请求部分。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/ZDwZU8aZSwerbzYjscXOWA/zh-cn_image_0000002628555016.png?HW-CC-KV=V1&HW-CC-Date=20260723T012412Z&HW-CC-Expire=86400&HW-CC-Sign=D29B276DDBFB42C304C635B44E519715C8552702385D29DDE0311B06943721A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/ZDwZU8aZSwerbzYjscXOWA/zh-cn_image_0000002628555016.png?HW-CC-KV=V1&HW-CC-Date=20260730T072255Z&HW-CC-Expire=86400&HW-CC-Sign=152C2B786F0FBDE9A8C364EE53D42D5074A539DB660A289B84036094BBCCC575)
 
 
   结合问题发生时的Hilog日志，根据Trace信息中的TaskID可以看到问题发生时http请求总耗时7.237秒，因此点击响应慢。

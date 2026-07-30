@@ -11,7 +11,7 @@ RichEditor与Text组件不同，无法根据内容自适应自身宽度，组件
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/TY_llpqJTNSyJeKFB8RXXg/zh-cn_image_0000002658793547.png?HW-CC-KV=V1&HW-CC-Date=20260723T012547Z&HW-CC-Expire=86400&HW-CC-Sign=DA6D08D501BFA47D5F34CEBCF2217D932BDAC0E22ECF80204E0A53B1D4951F29)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/TY_llpqJTNSyJeKFB8RXXg/zh-cn_image_0000002658793547.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=2B669E8FC35FCD9B1F22FBBB93336808075D7E5579F8F2A35005EDBA1C945AE5)
 
  
  
@@ -19,7 +19,7 @@ RichEditor与Text组件不同，无法根据内容自适应自身宽度，组件
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/smuywre-Tt2TPAG47mHWqg/zh-cn_image_0000002628554180.png?HW-CC-KV=V1&HW-CC-Date=20260723T012547Z&HW-CC-Expire=86400&HW-CC-Sign=C45E85B61038186B915F2BA594CCD6B2E68B8E1D750FD16332C55B5432D6C79D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/smuywre-Tt2TPAG47mHWqg/zh-cn_image_0000002628554180.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=2A526D4AC1053F64309FDAA197A1F5EC057AAFE47FB5AFBDF9D2AC1F023A07FF)
 
  
  

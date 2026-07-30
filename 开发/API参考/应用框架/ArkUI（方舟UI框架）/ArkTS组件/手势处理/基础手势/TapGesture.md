@@ -1,14 +1,14 @@
 # TapGesture
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-tapgesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-支持单击、双击和多次点击事件的识别。
+支持单击、双击和多次点击事件的识别，适用于为组件绑定点击交互、区分不同点击次数并触发对应业务逻辑的场景。
  
 > [!NOTE]
-> 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 当组件同时绑定双击和单击手势且双击手势先绑定时，单击手势会有300ms的延时。
+> 从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当组件同时绑定双击和单击手势且双击手势先绑定时，单击手势会有300ms的延时。
 
   
 
@@ -20,7 +20,7 @@ TapGesture(value?: TapGestureParameters)
  
 创建点击手势对象。继承自[GestureInterface&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gestureinterfacet11)。
  
-触发点击手势事件的设备类型为键盘或手柄时，事件的[SourceTool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#sourcetool枚举说明9)值为Unknown，事件的[SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#sourcetype枚举说明8)值为KEY，JOYSTICK。
+触发点击手势事件的设备类型为键盘或手柄时，事件的[SourceTool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#sourcetool枚举说明9)值为Unknown；设备类型为键盘时，事件的[SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#sourcetype枚举说明8)值为KEY；设备类型为手柄时，事件的[SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#sourcetype枚举说明8)值为JOYSTICK。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -30,7 +30,7 @@ TapGesture(value?: TapGestureParameters)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TapGestureParameters | 否 | 点击手势的相关参数。 |
+| value | TapGestureParameters | 否 | 点击手势的相关参数。用于配置连续点击次数、触发点击的手指数、点击手势移动阈值等点击识别条件；当需要自定义点击手势识别条件时传入。不传入时使用TapGestureParameters中各参数的默认配置。 |
  
  
   
@@ -51,9 +51,9 @@ TapGesture(value?: TapGestureParameters)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| count11+ | number | 否 | 是 | 识别的连续点击次数。当设置的值小于1或不设置时，会被转化为默认值。 默认值：1 取值范围：[0, +∞) 说明： 1. 当配置多击时，上一次的最后一根手指抬起和下一次的第一根手指按下的超时时间为300毫秒。 2. 当上次点击的位置与当前点击的位置距离超过60vp时，手势识别失败。在多指情况下，点击的位置为所有参与手势响应手指的平均位置。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fingers11+ | number | 否 | 是 | 触发点击的手指数，最小为1指， 最大为10指。当设置小于1的值或不设置时，会被转化为默认值。 默认值：1 说明： 1. 当配置多指时，第一根手指按下后300毫秒内未有足够的手指数按下，手势识别失败；手指抬起时，抬起后剩余的手指数小于阈值时开始计时，如300ms内未全部抬起则手势识别失败。 2. 实际点击手指数超过配置值，手势识别成功。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| distanceThreshold | number | 否 | 是 | 点击手势移动阈值。当设置的值小于等于0或不设置时，会被转化为默认值。 默认值：2³¹-1 单位：vp 说明： 当手指的移动距离超出开发者预设的移动阈值时，点击识别失败。如果初始化为默认阈值时，手指移动超过组件热区范围，点击识别失败。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| count11+ | number | 否 | 是 | 识别的连续点击次数。当设置的值小于1或不设置时，会被转化为默认值。 默认值：1 取值范围：[0, +∞) 说明： 1. 当配置多击时，上一次的最后一根手指抬起和下一次的第一根手指按下的超时时间为300毫秒。 2. 当上次点击的位置与当前点击的位置距离超过60vp时，手势识别失败。在多指情况下，点击的位置为所有参与手势响应的手指的平均位置。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fingers11+ | number | 否 | 是 | 触发点击的手指数，取值范围：[1, 10]，单位：指。当设置小于1的值或不设置时，会被转化为默认值。 默认值：1 说明： 1. 当配置多指时，第一根手指按下后300毫秒内未有足够的手指数按下，手势识别失败；手指抬起时，抬起后剩余的手指数小于阈值时开始计时，如300ms内未全部抬起则手势识别失败。 2. 实际点击手指数超过配置值，手势识别成功。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| distanceThreshold | number | 否 | 是 | 点击手势移动阈值。当设置的值小于等于0或不设置时，会被转化为默认值。 默认值：2³¹-1 取值范围：(0, +∞) 单位：vp 说明： 当手指的移动距离超出开发者预设的移动阈值时，点击识别失败。使用默认阈值时，手指移动超过组件热区范围，点击识别失败。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
  
  
   
@@ -74,7 +74,7 @@ TapGesture(value?: TapGestureParameters)
 
 onAction(event: (event: GestureEvent) => void)
  
-点击手势识别成功回调。
+点击手势识别成功回调。当组件同时绑定双击和单击手势且双击手势先绑定时，单击手势对应的onAction回调会有300ms的延时。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -84,7 +84,7 @@ onAction(event: (event: GestureEvent) => void)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | (event: GestureEvent) => void | 是 | 手势事件回调函数。 |
+| event | (event: GestureEvent) => void | 是 | 手势事件回调函数，用于在点击手势识别成功时接收手势事件信息。回调参数event表示点击手势事件对象，包含手势触发位置、手指信息等事件相关数据。 |
  
  
   
@@ -113,8 +113,8 @@ onAction(event: (event: GestureEvent) => void)
 | windowY | number | 否 | 否 | 相对于窗口的左上角Y坐标。 取值范围：[0, +∞) 单位：vp 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 | displayX | number | 否 | 否 | 相对于屏幕的左上角X坐标。 取值范围：[0, +∞) 单位：vp 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 | displayY | number | 否 | 否 | 相对于屏幕的左上角Y坐标。 取值范围：[0, +∞) 单位：vp 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| globalDisplayX23+ | number | 否 | 是 | 相对于主屏幕左上角为原点的坐标系中的X坐标。 单位：vp 取值范围：[0, +∞) 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
-| globalDisplayY23+ | number | 否 | 是 | 相对于主屏幕左上角为原点的坐标系中的Y坐标。 单位：vp 取值范围：[0, +∞) 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| globalDisplayX23+ | number | 否 | 是 | 相对于主屏幕左上角为原点的坐标系中的X坐标。未获取到该坐标时，该属性为undefined。 单位：vp 取值范围：[0, +∞) 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| globalDisplayY23+ | number | 否 | 是 | 相对于主屏幕左上角为原点的坐标系中的Y坐标。未获取到该坐标时，该属性为undefined。 单位：vp 取值范围：[0, +∞) 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
  
  
   
@@ -139,7 +139,7 @@ getCurrentLocalPosition?(): Coordinate2D
   
 | 类型 | 说明 |
 | --- | --- |
-| Coordinate2D | 点击位置相对于当前组件实时位置的左上角坐标。 |
+| Coordinate2D | 返回Coordinate2D对象，用于表示点击位置相对于当前组件实时位置左上角的二维坐标。 |
  
  
   
@@ -169,23 +169,23 @@ struct TapGestureExample {
         TapGesture({ count: 2 })
           .onAction((event: GestureEvent) => {
             if (event) {
-              this.value = JSON.stringify(event.fingerList[0])
+              this.value = JSON.stringify(event.fingerList[0]);
             }
           })
-        )
-      Text(this.value)
+        );
+      Text(this.value);
     }
     .height(300)
     .width(300)
     .padding(20)
     .border({ width: 3 })
-    .margin(30)
+    .margin(30);
   }
 }
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/dSTF-xEhR0Cn90qQUDK1EQ/zh-cn_image_0000002628862312.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014330Z&HW-CC-Expire=86400&HW-CC-Sign=693F6CDEFDB2FAEB7220A41394F484D96AC7DE5A3CC77576622B1EC26E62D695)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/4sKe9p21QZSfK_3vuM8Vrw/zh-cn_image_0000002685928047.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071458Z&HW-CC-Expire=86400&HW-CC-Sign=5F70F17C2D85FF5CDC39972B53BF9A53ADD8A8623CE2FB940B6F5E4A3A805B83)
 
  
   
@@ -207,18 +207,18 @@ struct TapGestureExample {
           TapGesture({ count: 1, fingers: 1 })
             .onAction((event: GestureEvent | undefined) => {
               if (event) {
-                console.info(`x = ${JSON.stringify(event.tapLocation?.x)}`)
-                console.info(`y = ${JSON.stringify(event.tapLocation?.y)}`)
-                console.info(`windowX = ${JSON.stringify(event.tapLocation?.windowX)}`)
-                console.info(`windowY = ${JSON.stringify(event.tapLocation?.windowY)}`)
-                console.info(`displayX = ${JSON.stringify(event.tapLocation?.displayX)}`)
-                console.info(`displayY = ${JSON.stringify(event.tapLocation?.displayY)}`)
+                console.info(`x = ${JSON.stringify(event.tapLocation?.x)}`);
+                console.info(`y = ${JSON.stringify(event.tapLocation?.y)}`);
+                console.info(`windowX = ${JSON.stringify(event.tapLocation?.windowX)}`);
+                console.info(`windowY = ${JSON.stringify(event.tapLocation?.windowY)}`);
+                console.info(`displayX = ${JSON.stringify(event.tapLocation?.displayX)}`);
+                console.info(`displayY = ${JSON.stringify(event.tapLocation?.displayY)}`);
                 // 从API version 23开始，新增globalDisplayX和globalDisplayY属性。
-                console.info(`globalDisplayX = ${JSON.stringify(event.tapLocation?.globalDisplayX)}`)
-                console.info(`globalDisplayY = ${JSON.stringify(event.tapLocation?.globalDisplayY)}`)
+                console.info(`globalDisplayX = ${JSON.stringify(event.tapLocation?.globalDisplayX)}`);
+                console.info(`globalDisplayY = ${JSON.stringify(event.tapLocation?.globalDisplayY)}`);
               }
             })
-        )
+        );
     }
     .height(200)
     .width(300)
@@ -230,14 +230,14 @@ struct TapGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/1Z8w7zWyS-qFVvf7ZDk6MQ/zh-cn_image_0000002659221625.png?HW-CC-KV=V1&HW-CC-Date=20260701T014330Z&HW-CC-Expire=86400&HW-CC-Sign=8A110034BD82B8D47154766C50D948C227D5451FF2B733E503304EF33F84B5A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/Ruq1utryRmeqSxd_CHt-Cw/zh-cn_image_0000002656008368.png?HW-CC-KV=V1&HW-CC-Date=20260730T071458Z&HW-CC-Expire=86400&HW-CC-Sign=72509F381CB2D65BDED04144FA75032DE7BE92EAB259E935989B6671F3665416)
 
  
   
 
 #### 示例3（获取组件实时位置）
 
-该示例通过[getCurrentLocalPosition](#getcurrentlocalposition)方法获取当前组件基于其实时位置的左上角坐标。
+该示例通过[getCurrentLocalPosition](#getcurrentlocalposition)方法获取点击位置相对于当前组件实时位置左上角的坐标。
  
 从API版本26.0.0开始，新增支持getCurrentLocalPosition接口。
  
@@ -256,6 +256,7 @@ struct GetCurrentLocalPositionExample {
           TapGesture({ count: 1 })
             .onAction((event: GestureEvent) => {
               if (event) {
+                // 移动组件后延迟获取点击位置相对于组件实时位置左上角的坐标。
                 this.textOffsetY = -200;
                 setTimeout(() => {
                   let localPos: Coordinate2D | undefined = event?.tapLocation?.getCurrentLocalPosition?.();
@@ -263,13 +264,13 @@ struct GetCurrentLocalPositionExample {
                 }, 2000);
               }
             })
-        )
+        );
 
-      Text(this.positionText)
-    }.width('100%')
+      Text(this.positionText);
+    }.width('100%');
   }
 }
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/WEvrUboDTfO72O5KtCYiOA/zh-cn_image_0000002628702310.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014330Z&HW-CC-Expire=86400&HW-CC-Sign=14D9F0ADA9F32018D8E17AD5F75FE1569C94097DCABFDACB31B5157413BE534B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Ic0mnChjQQSnETUapycMoQ/zh-cn_image_0000002686087747.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071458Z&HW-CC-Expire=86400&HW-CC-Sign=72E4172A2617F9731DCA620B9A755CDB70EF57708F1EF81A7821A43EFA282AA6)

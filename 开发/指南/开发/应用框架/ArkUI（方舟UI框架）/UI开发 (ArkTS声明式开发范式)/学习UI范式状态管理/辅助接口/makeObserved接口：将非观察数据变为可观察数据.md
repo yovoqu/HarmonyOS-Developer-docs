@@ -1,6 +1,6 @@
 # makeObserved接口：将非观察数据变为可观察数据
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved
 
@@ -108,14 +108,21 @@ struct Page1 {
   build() {
     Column() {
       Text(`${this.message2.person.age}`)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           // UI不会刷新，因为State只能观察到第一层的变化
           this.message2.person.age++;
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-1.gif)
+
 
 
 
@@ -143,19 +150,33 @@ struct Page2 {
   @Local message: Info = UIUtils.makeObserved(new Info(20));
   build() {
     Column() {
-      Button(`change id`).onClick(() => {
-        this.message.id++;
-      })
-      Button(`change Info ${this.message.id}`).onClick(() => {
-        this.message = new Info(30);
-      })
-      Button(`change Info1 ${this.message.id}`).onClick(() => {
-        this.message = UIUtils.makeObserved(new Info(30));
-      })
+      Button(`change id`)
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message.id++;
+        })
+      Button(`change Info ${this.message.id}`)
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message = new Info(30);
+        })
+      Button(`change Info1 ${this.message.id}`)
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          this.message = UIUtils.makeObserved(new Info(30));
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-2.gif)
+
 
 
 
@@ -255,26 +276,39 @@ struct Page3 {
   build() {
     Column() {
       Text(this.send.name)
-      Button('change name').onClick(() => {
-        // ok 可以观察到属性的改变
-        this.send.name += '0';
-      })
+        .fontSize(20)
+        .margin(10)
+      Button('change name')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          // ok 可以观察到属性的改变
+          this.send.name += '0';
+        })
 
-      Button('task').onClick(() => {
-        // 将待执行的函数放入taskpool内部任务队列等待，等待分发到工作线程执行。
-        taskpool.execute(threadGetData, this.send.name)
-          .catch((err: Error) => {
-            hilog.error(DOMAIN, 'testTag', `taskpool execute fail. code is ${err.name}, message is ${err.message}`);
-          })
-          .then(val => {
-            // 和@Local一起使用，可以观察this.send的变化
-            this.send = UIUtils.makeObserved(val as SendableData);
-          });
-      })
+      Button('task')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          // 将待执行的函数放入taskpool内部任务队列等待，等待分发到工作线程执行。
+          taskpool.execute(threadGetData, this.send.name)
+            .catch((err: Error) => {
+              hilog.error(DOMAIN, 'testTag', `taskpool execute fail. code is ${err.name}, message is ${err.message}`);
+            })
+            .then(val => {
+              // 和@Local一起使用，可以观察this.send的变化
+              this.send = UIUtils.makeObserved(val as SendableData);
+            });
+        })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-3.gif)
+
 
 需要注意：数据的构建和处理可以在子线程中完成，但有观察能力的数据不能传给子线程，只有在主线程里才可以操作可观察的数据。所以上述例子中只是将this.send的属性name传给子线程操作。
 
@@ -449,7 +483,7 @@ struct Page4 {
 ```
 
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-1.gif)
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260708103953f7b4417a.gif)
 
 
 **collections.Map**
@@ -521,7 +555,7 @@ struct Page5 {
 ```
 
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-2.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/PQHkXT7ySr2rkqpogy0bug/zh-cn_image_0000002685925629.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=2BE6EC9236CE3B2C7942BB63B1816831C0EC97B7C71457A6F49D8A0F7A9B9CE7)
 
 
 **collections.Set**
@@ -591,7 +625,7 @@ struct Page6 {
 ```
 
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-3.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/qMPPcOsKSmKiqlD7S94SKw/zh-cn_image_0000002656005950.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=EB5A76127AE09B62FA0C5D3DA1BEDAF55B2EB8F8DBE74C08C79D9FC568C1F2C3)
 
 
 
@@ -646,6 +680,10 @@ struct Page7 {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/5FZUjRwwTTqI7MszQIGFJQ/zh-cn_image_0000002655846030.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=96BFAD21A1E6BD7467F844C08B658BB3A0D92E30887C0BF896CF45C973EFE390)
+
 
 
 
@@ -736,7 +774,7 @@ struct Child {
 ```
 
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260708103953f7b4417a.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/NhExzh-HTYif1-s30e23-g/zh-cn_image_0000002686085459.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=924517CD0852E6BFA3482C2D10FDC7B60A8C1DCA1354E9B40D08E891E3DBA466)
 
 
 
@@ -766,6 +804,8 @@ struct Page9 {
     RelativeContainer() {
       Text(`${this.message.id}`)
         .id('textNumber')
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           this.message.id++;
         })
@@ -775,6 +815,10 @@ struct Page9 {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/TK2ZoAPaScOh3Zs81wX3aw/zh-cn_image_0000002685925631.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=9162CF107A99E85C7D895C446D7F62FE49057C9A95D78B5A60F19329FD9C3E00)
+
 
 
 
@@ -806,7 +850,8 @@ struct Page10 {
     Column() {
       Text(`${this.observedObj.id}`)
         .id('textobservedObj1')
-        .fontSize(50)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           // 通过getTarget获取this.observedObj的原始对象，原始对象为不可观察的数据
           let rawObj: Info = UIUtils.getTarget(this.observedObj);
@@ -816,12 +861,17 @@ struct Page10 {
 
       Text(`${this.observedObj.id}`)
         .id('textobservedObj2')
-        .fontSize(50)
+        .fontSize(20)
+        .margin(10)
         .onClick(() => {
           // 触发UI刷新，Text显示21
           this.observedObj.id++;
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/TdkQMYmNQx-MtPUrDC0QtQ/zh-cn_image_0000002656005952.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=E6F87DCDBFC85EE2116BDDBDB5B29CA93F7DE78BDF633474E713DF7F1027BA86)

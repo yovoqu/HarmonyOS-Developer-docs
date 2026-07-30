@@ -37,13 +37,13 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 previewer效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/okIkJapyQ6Wt9SNJCGTMTg/zh-cn_image_0000002658807357.png?HW-CC-KV=V1&HW-CC-Date=20260723T013916Z&HW-CC-Expire=86400&HW-CC-Sign=9C0976AB29A79ABA753D9816C9E9567F2AA005CF57E11FA55F5E098CAA4200F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/okIkJapyQ6Wt9SNJCGTMTg/zh-cn_image_0000002658807357.png?HW-CC-KV=V1&HW-CC-Date=20260730T072712Z&HW-CC-Expire=86400&HW-CC-Sign=39953AC52632C2E02C70F5D8ADDC95707E676E9D81FF10F242259409B35B98CC)
 
  
 真机效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/d5edHIUERhy2VV96nt6-CA/zh-cn_image_0000002628408096.png?HW-CC-KV=V1&HW-CC-Date=20260723T013916Z&HW-CC-Expire=86400&HW-CC-Sign=99C261FECEBA31DA742B06EC1BF432B659757BF4AB5B6C38702F010BDF578F93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/d5edHIUERhy2VV96nt6-CA/zh-cn_image_0000002628408096.png?HW-CC-KV=V1&HW-CC-Date=20260730T072712Z&HW-CC-Expire=86400&HW-CC-Sign=61A698AFD9ED18EDF32EEB2DA7CFF11ECFAF540928E84BF5FAC78B493A1F687E)
 
  
 可以发现真机的Text组件两侧留有空白。
@@ -53,7 +53,7 @@ previewer效果：
 #### 背景知识
 
 - previewer可以看到previewer设备的屏幕尺寸：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/cNl-DI-1QNyz55-QDy317w/zh-cn_image_0000002628567996.png?HW-CC-KV=V1&HW-CC-Date=20260723T013916Z&HW-CC-Expire=86400&HW-CC-Sign=6A66ADF161F26E1469AEC8A6FB801AFFE7ECE74A16F5D87323284C79D6FB8F5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/cNl-DI-1QNyz55-QDy317w/zh-cn_image_0000002628567996.png?HW-CC-KV=V1&HW-CC-Date=20260730T072712Z&HW-CC-Expire=86400&HW-CC-Sign=F10C63DF2EBA363068F06D196D3C378F13EC337A45FBDE983401D232948C4BEC)
 
 
   1080px换算成vp是360vp。

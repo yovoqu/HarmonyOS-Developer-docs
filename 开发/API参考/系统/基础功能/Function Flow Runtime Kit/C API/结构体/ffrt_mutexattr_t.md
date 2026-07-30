@@ -1,6 +1,6 @@
 # ffrt_mutexattr_t
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ffrt-ffrt-mutexattr-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ffrt_mutexattr_t
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-FFRT锁属性结构。
+互斥锁属性结构体，用于存储互斥锁的属性信息。
  
 **起始版本：** 10
  
@@ -36,4 +36,4 @@ FFRT锁属性结构。
  
 | 名称 | 描述 |
 | --- | --- |
-| long storage | FFRT锁属性占用空间 |
+| long storage | 互斥锁属性的内部存储。请勿直接访问，通过ffrt_mutexattr_init初始化。 |

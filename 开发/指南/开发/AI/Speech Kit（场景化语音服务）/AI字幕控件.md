@@ -1,6 +1,6 @@
 # AI字幕控件
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speech-aicaption-guide
 
@@ -37,7 +37,7 @@ AI字幕功能主要由[AICaptionComponent](https://developer.huawei.com/consume
 import { AICaptionComponent, AICaptionController, AICaptionOptions,AICaptionFontSize } from '@kit.SpeechKit';
 ```
 
-2. 简单配置页面的布局，加入AI字幕组件，并在aboutToAppear中设置AI字幕组件的传入参数。
+2. 简单配置页面的布局，加入AI字幕组件，判断设备是否支持（该查询接口仅支持26.0.0以上版本API），并在aboutToAppear中设置AI字幕组件的传入参数。
 
   
 ```text
@@ -60,9 +60,12 @@ class Logger {
 struct Index {
   private captionOption ?: AICaptionOptions;
   private controller = new AICaptionController();
+  @State isSupport: boolean = false;
   @State isShown: boolean = false;
 
   aboutToAppear(): void {
+    // 判断设备是否支持功能特性（仅支持26.0.0以上版本API）
+    this.isSupport = this.controller.isCapabilitySupported()
     // AI字幕初始化参数，设置字幕的不透明度和回调函数
     this.captionOption = {
       initialOpacity: 1,
@@ -85,19 +88,21 @@ struct Index {
 
   build() {
     Column({ space: 20 }) {
-      // 调用AICaptionComponent组件初始化字幕
-      AICaptionComponent({
-        isShown: this.isShown,
-        controller: this.controller,
-        options: this.captionOption
-      })
-        .width('100%')
-        .height(100)
-      Divider()
-      if (this.isShown) {
-        Text('上面是字幕区域')
-          .fontColor(Color.White)
-      }
+     if (this.isSupport) {
+       // 调用AICaptionComponent组件初始化字幕
+       AICaptionComponent({
+         isShown: this.isShown,
+         controller: this.controller,
+         options: this.captionOption
+       })
+         .width('100%')
+         .height(100)
+       Divider()
+       if (this.isShown) {
+         Text('上面是字幕区域')
+           .fontColor(Color.White)
+       }
+     }
     }
     .width('100%')
     .height('100%')
@@ -141,10 +146,13 @@ class Logger {
 struct Index {
   private captionOption?: AICaptionOptions;
   private controller: AICaptionController = new AICaptionController();
+  @State isSupport: boolean = false;
   @State isShown: boolean = false;
   isReading: boolean = false;
 
   aboutToAppear(): void {
+    // 判断设备是否支持功能特性
+    this.isSupport = this.controller.isCapabilitySupported()
     // AI字幕初始化参数，设置字幕的不透明度和回调函数
     this.captionOption = {
       initialOpacity: 1,
@@ -186,7 +194,7 @@ struct Index {
     while (offset < byteLength) {
       // 模拟实际情况，读文件比录音机返回流快，所以要等待一段时间
       let nextOffset = offset + bufferSize;
-      if (offset > byteLength) {
+      if (offset >= byteLength) {
         this.isReading = false;
         return;
       }
@@ -218,33 +226,35 @@ struct Index {
 
   build() {
     Column({ space: 20 }) {
-      Button('切换字幕显示状态：' + (this.isShown ? '显示' : '隐藏'))
-        .backgroundColor('#B8BDA0')
-        .width(200)
-        .onClick(() => {
-          this.isShown = !this.isShown;
+      if (this.isSupport ) {
+        Button('切换字幕显示状态：' + (this.isShown ? '显示' : '隐藏'))
+          .backgroundColor('#B8BDA0')
+          .width(200)
+          .onClick(() => {
+            this.isShown = !this.isShown;
+          })
+        Button('读取PCM音频')
+          .backgroundColor('#B8BDA0')
+          .width(200)
+          .onClick(() => {
+            if (!this.isReading) {
+              void this.readPcmAudio();
+            }
+          })
+        Divider()
+        // 调用AICaptionComponent组件初始化字幕
+        AICaptionComponent({
+          isShown: this.isShown,
+          controller: this.controller,
+          options: this.captionOption
         })
-      Button('读取PCM音频')
-        .backgroundColor('#B8BDA0')
-        .width(200)
-        .onClick(() => {
-          if (!this.isReading) {
-            void this.readPcmAudio();
-          }
-        })
-      Divider()
-      // 调用AICaptionComponent组件初始化字幕
-      AICaptionComponent({
-        isShown: this.isShown,
-        controller: this.controller,
-        options: this.captionOption
-      })
-        .width('100%')
-        .height(100)
-      Divider()
-      if (this.isShown) {
-        Text('上面是字幕区域')
-          .fontColor(Color.White)
+          .width('100%')
+          .height(100)
+        Divider()
+        if (this.isShown) {
+          Text('上面是字幕区域')
+            .fontColor(Color.White)
+        }
       }
     }
     .width('100%')

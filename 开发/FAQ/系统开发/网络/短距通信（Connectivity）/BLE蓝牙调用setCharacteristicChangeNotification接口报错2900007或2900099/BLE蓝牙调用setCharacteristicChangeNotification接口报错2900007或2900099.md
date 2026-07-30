@@ -24,11 +24,11 @@
 
 - 排查server端（server端以HarmonyOS NEXT设备为例）是否创建了[on('descriptorWrite')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#ondescriptorwrite)监听。若server端没有创建此监听，将无法接收到client端发来的描述符请求，client端setCharacteristicChangeNotification接口将会处于持续请求的阻塞状态。
 - 排查server端接收到client端发来的描述符请求后，是否及时应答（检查日志是否返回OnSetNotifyCharacteristic关键字）。若server端在接收到client端发来的描述符请求后没有及时调用sendResponse接口应答，client端setCharacteristicChangeNotification接口同样会处于持续请求的阻塞状态。参考错误日志如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/K3Y3QJHiSUqQI5AuIYLq1w/zh-cn_image_0000002628772390.png?HW-CC-KV=V1&HW-CC-Date=20260723T013451Z&HW-CC-Expire=86400&HW-CC-Sign=8F47C5621BC0A8453E9D76A61FD52BD8818E770A5CCEF7734111D099ABA4FE88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/K3Y3QJHiSUqQI5AuIYLq1w/zh-cn_image_0000002628772390.png?HW-CC-KV=V1&HW-CC-Date=20260730T072556Z&HW-CC-Expire=86400&HW-CC-Sign=E4091C8880BA2EFED198A156B2319FE8A732D08951A9A96FB917B057B3166331)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/vIQh6MQQR-O7Zb2D4QkzaQ/zh-cn_image_0000002658971711.png?HW-CC-KV=V1&HW-CC-Date=20260723T013451Z&HW-CC-Expire=86400&HW-CC-Sign=250FE9E55620523346C7F3AD1DD376FDC8701AD65756B7D36615FC30666E0C27)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/vIQh6MQQR-O7Zb2D4QkzaQ/zh-cn_image_0000002658971711.png?HW-CC-KV=V1&HW-CC-Date=20260730T072556Z&HW-CC-Expire=86400&HW-CC-Sign=E77861BCDAA08DD39AD39A186B53BC08845CCF13293387BCBD34E4EDC31ACA37)
 
 - 检查client端调用setCharacteristicChangeNotification接口时，是否有其它异步接口调用未完成，导致setCharacteristicChangeNotification接口调用被阻塞。排查方式如下：
 通过在接口回调中设置日志打印，查看接口调用的完整顺序流程。从创建对象实例到数据传输，BLE蓝牙client端接口调用顺序参考如下：1. 调用[createGattClientDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#blecreategattclientdevice)接口创建client实例。
@@ -47,7 +47,7 @@
 - 排查系统日志输出。可在问题复现后[生成hilog日志](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#hilog日志生成)，查看日志中各接口调用开始/完成时，系统日志输出的时间点，从而判断是否出现了接口调用阻塞情况。如：setCharacteristicChangeNotification接口调用开始时，系统日志中会打印出关键字setCharacteristicChangeNotification。接口调用完成时，可通过setCharacteristicChangeNotification接口Callback回调中自定义的日志进行判断。参考问题日志如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/EUkUgx6mQc6-u9WSH-OMUQ/zh-cn_image_0000002628612500.png?HW-CC-KV=V1&HW-CC-Date=20260723T013451Z&HW-CC-Expire=86400&HW-CC-Sign=444F7B4C8F86CB51C19A0611286591DDCD310221E3DAAE8A4782E269CDF0DCCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/EUkUgx6mQc6-u9WSH-OMUQ/zh-cn_image_0000002628612500.png?HW-CC-KV=V1&HW-CC-Date=20260730T072556Z&HW-CC-Expire=86400&HW-CC-Sign=E51CF7077367C7E511B63145647D45044450F99E2B6788FF66C05D274DA2FD7C)
 
 
  

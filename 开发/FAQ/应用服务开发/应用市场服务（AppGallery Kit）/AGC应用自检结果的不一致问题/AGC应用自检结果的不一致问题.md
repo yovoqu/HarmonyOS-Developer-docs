@@ -22,8 +22,8 @@
 3. 自检结果不影响您邀请测试的上架结果和不会影响应用提交上架申请，但存在被审核驳回的风险，故最终结果以提交正式上架审核结果为准。
 4. 两个自检路径：
 - 邀请测试上架自检[发布测试版本](https://developer.huawei.com/consumer/cn/doc/app/agc-help-appgallery-release-testapp-0000002258174266#section6326193918558)：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/WNGfsydERnKqDxa7sUGTcQ/zh-cn_image_0000002658913855.png?HW-CC-KV=V1&HW-CC-Date=20260723T013845Z&HW-CC-Expire=86400&HW-CC-Sign=E0C9C3660B0D627DCBCD032B77342F605A376DC4E3657782D9B48FCB3374DA67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/mPTJNxJYRG2CfOykYYeCdg/zh-cn_image_0000002658913855.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=FCB380A55A9B9CB8C814D6D49E44A50C85CBE8E4BC8A2E4C2F6513CDB960A26F)
 
 
 5. 软件包管理启动自检[（推荐）上架自检](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-upload-pkg-0000002277983368#section15203163921310)：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/UX_orwt5SQK7S6BOu9C24A/zh-cn_image_0000002658793915.png?HW-CC-KV=V1&HW-CC-Date=20260723T013845Z&HW-CC-Expire=86400&HW-CC-Sign=9020B08B1EC7D2A146D91B8612E998C88A348DF7BA387D53FE636CF40F66CF44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/CgbvxTkFRWygxW1laStKmA/zh-cn_image_0000002658793915.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=9F5DE83AFC8F7EFEF294F56AC9C8BAF5A257AEC6F3B8803F358E257FF1FEC628)

@@ -1,16 +1,16 @@
 # LoadingProgress
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于显示加载动效的组件。
+LoadingProgress是用于显示加载进度条的组件，在数据加载过程中为用户提供视觉反馈，提升用户体验。该组件支持设置前景色、控制动画显示状态等特性，适用于需要在应用内展示加载进度的场景。
  
-加载动效在组件不可见时停止，组件的可见状态基于[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)处理，可见阈值ratios大于0即视为可见状态。
+加载进度条的动效在组件不可见时停止，组件的可见状态基于[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)处理，可见阈值ratios大于0即视为可见状态。
  
 > [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
 
   
 
@@ -45,7 +45,7 @@ LoadingProgress()
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
 > [!NOTE]
-> 组件应设置合理的宽高，当组件宽高设置过大时加载动效可能不符合预期效果。
+> 组件应设置合理的宽高，当组件宽高设置过大时加载进度条的动效可能不符合预期效果。
 
  
   
@@ -114,7 +114,7 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| modifier | ContentModifier&lt;LoadingProgressConfiguration&gt; | 是 | 在LoadingProgress组件上，定制内容区的方法。 modifier： 内容修改器，开发者需要自定义class实现ContentModifier接口。 |
+| modifier | ContentModifier&lt;LoadingProgressConfiguration&gt; | 是 | 在LoadingProgress组件上，定制内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 |
  
  
   
@@ -175,7 +175,7 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
 
 #### 示例1（设置颜色）
 
-该示例通过[color](#color)接口，实现了设置加载动效颜色的功能。
+该示例通过[color](#color)接口，实现了设置加载进度条颜色的功能。
  
 ```ArkTS
 // xxx.ets
@@ -194,7 +194,7 @@ struct LoadingProgressExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/H00-ySnwSTeQakbTaHZgeg/zh-cn_image_0000002677667979.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=781D9A1891811C197869768ADBD63E02CCC53C2EA9FC8F9F136FEA7D15230336)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/CKCRMKBfTvWdop6F-9vTRA/zh-cn_image_0000002686088241.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071508Z&HW-CC-Expire=86400&HW-CC-Sign=37F01EF8FC1955F5912ABF0957F65AF038AD6168D4DE2BA658FD61635D65DBFB)
 
  
   
@@ -221,7 +221,7 @@ class MyLoadingProgressStyle implements ContentModifier<LoadingProgressConfigura
   }
 }
 
-let arr2: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let arr: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 @Builder
 function buildLoadingProgress(config: LoadingProgressConfiguration) {
@@ -282,7 +282,7 @@ function buildLoadingProgress(config: LoadingProgressConfiguration) {
 
     Column() {
       List({ space: 20, initialIndex: 0 }) {
-        ForEach(arr2, (item: string) => {
+        ForEach(arr, (item: string) => {
           ListItem() {
             Text((config.contentModifier as MyLoadingProgressStyle).enableLoading ? '' + item : Number(item) * 2 + '')
               .width('100%')
@@ -318,7 +318,6 @@ function buildLoadingProgress(config: LoadingProgressConfiguration) {
 @Component
 struct LoadingProgressDemoExample {
   @State loadingProgressList: (boolean | undefined | null)[] = [undefined, true, null, false];
-  @State widthList: (number | string)[] = ['110%', 220, '40%', 80];
   @State loadingProgressIndex: number = 0;
   @State clickFlag: number = 0;
   scroller: Scroller = new Scroller();
@@ -348,4 +347,4 @@ struct LoadingProgressDemoExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/qmuzUnhrTIC97Zwqwrezrg/zh-cn_image_0000002647748098.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=41B6F016F678ED7FF56AB2B8EB4EBBCD4670DB399313357388B36678DF35F3BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/AP20e_v_TN6afvh8OUM_Kg/zh-cn_image_0000002685928411.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071508Z&HW-CC-Expire=86400&HW-CC-Sign=55BABA52BABBFD006502D50ECB372583F7306702A5453A22C9DCD60DC80ADF66)

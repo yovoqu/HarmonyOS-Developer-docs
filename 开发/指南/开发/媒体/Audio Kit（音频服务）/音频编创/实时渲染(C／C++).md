@@ -1,6 +1,6 @@
 # 实时预览(C/C++)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering
 
@@ -166,12 +166,12 @@ OH_AudioSuiteEngine_ConnectNodes(eqNode, outputNode);
 3. 创建[OH_AudioRendererStruct](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)实例，并在其AudioRendererOnWriteData()回调函数中调用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)管线的[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口来处理数据。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/zACz9KUrSUqGbJh0pfvxtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020904Z&HW-CC-Expire=86400&HW-CC-Sign=884E2260EC80C1D893E13F7C84BAC499338DEA710EEEAB7C9CA5CF7A4EC919AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/Qxabf_zhRqS68ZSjmmoCJQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071938Z&HW-CC-Expire=86400&HW-CC-Sign=D45E54698A1BE383DFB18E44A3397034D5DDCD71E15E2F5AF7CA6FBFFE7A271A)
  
 
   [OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口的处理时长和管线中连接的效果节点数量有关，需要注意接口处理时长，以避免实时预览卡顿。
 
-  请参考音频播放完成音频播放功能开发：[使用OHAudio开发音频播放功能(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)。
+  请参考[使用OHAudio开发音频播放功能(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)完成音频播放功能开发。
 
 4. 在播放器的回调函数中，将处理后的数据复制到OH_AudioRenderer实例的缓冲区中，实现音频播放过程中实时预览。
 
@@ -263,4 +263,4 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 
 #### 完整示例代码
 
- - [音频编创示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/HarmonyOS-7.0-beta-20260514/Media/Audio/AudioSuiteSample)
+ - [音频编创示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/Media/Audio/AudioSuiteSample)

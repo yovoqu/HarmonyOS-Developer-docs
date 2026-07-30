@@ -1,6 +1,6 @@
 # healthStore (运动健康数据服务)(Lite)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite
 **支持设备：** lite_wearable
@@ -119,8 +119,8 @@ import healthStore from '@hms.health.store';
 | --- | --- | --- | --- | --- |
 | startLocalDate | string | 否 | 否 | 数据的开始本地日期，格式'MM/DD/YYYY'。 |
 | endLocalDate | string | 否 | 否 | 数据的结束本地日期，格式'MM/DD/YYYY'。 |
-| startTime | number | 否 | 否 | 请求的开始时间，Unix时间戳，以毫秒为单位。该参数在Lite Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
-| endTime | number | 否 | 否 | 请求的结束时间，Unix时间戳，以毫秒为单位。该参数在Lite Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
+| startTime | number | 否 | 否 | 请求的开始时间，Unix时间戳，单位：ms。该参数在Lite Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
+| endTime | number | 否 | 否 | 请求的结束时间，Unix时间戳，单位：ms。该参数在Lite Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
 | dataSourceOptions | DataSourceOptions | 否 | 是 | 请求关联的数据源信息，若未填写，默认为无数据源限制。 |
 
 
@@ -185,7 +185,7 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | exerciseType | SubDataType | 否 | 否 | 锻炼记录子数据类型。 |
-| duration | number | 否 | 是 | 锻炼时长，单位毫秒，若未填写，默认为结束时间减去开始时间。 取值范围：(0, ∞) |
+| duration | number | 否 | 是 | 锻炼时长，单位：ms，若未填写，默认为结束时间减去开始时间。 取值范围：(0, ∞) |
 | summaries | Pick<K, keyof K> | 否 | 否 | 统计数据，锻炼记录关联的统计数据类型参考exerciseSequenceHelper定义的模型。 |
 | details | Pick<DK, keyof DK> | 否 | 是 | 详情数据，锻炼记录关联的详情数据类型参考exerciseSequenceHelper定义的模型，若未填写，默认为空。 |
 
@@ -295,10 +295,10 @@ type PaceValueType = Record<string, number>
 | dataType | DataType | 否 | 否 | 数据类型。 |
 | dataSourceId | string | 否 | 否 | 数据源唯一标识值。LiteWearable设备开发，无需填写dataSourceId。 |
 | localDate | string | 否 | 否 | 数据的本地日期，格式'MM/DD/YYYY'。 |
-| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
-| endTime | number | 否 | 否 | 数据结束时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
+| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) |
+| endTime | number | 否 | 否 | 数据结束时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) |
 | timeZone | string | 否 | 否 | 数据所在的时区，格式为+0800。 |
-| modifiedTime | number | 否 | 否 | 创建或修改时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
+| modifiedTime | number | 否 | 否 | 创建或修改时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) |
 
 
 
@@ -317,7 +317,7 @@ type PaceValueType = Record<string, number>
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
+| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) |
 | [P: string] | HealthValueType | 否 | 否 | 详情数据点字段。 |
 
 

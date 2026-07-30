@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -27,7 +27,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 媒体变更请求，资产变更请求和相册变更请求的父类型。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/Kj1csJ0jRK2ycFKFdXJpAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020302Z&HW-CC-Expire=86400&HW-CC-Sign=126ED8F801432A8117051AE36D775F86CED8999A795A14518396C9C1B6271FDA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/X_Pmpa21TXGPgy1VBDFT8Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071715Z&HW-CC-Expire=86400&HW-CC-Sign=51E3672838CB328854756933FCE551D0C6DFA0CC5012302566EEEBE8AB0ADFE4)
 
 
 媒体变更请求必须在调用[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)后才会生效。
@@ -227,6 +227,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 | uri | string | 否 | 否 | 媒体文件资源uri。 |
 | mediaType | PhotoType | 否 | 否 | 媒体资产的类型（图片/视频）。 |
 | albumUri | string | 否 | 否 | 媒体资产（图片/视频）所属相册的uri。 |
+| isFavorite | boolean | 否 | 否 | 表示媒体资产（图片/视频）的收藏状态。true表示资产已收藏，false表示资产未收藏。 起始版本： 26.0.0 |
 
 
 

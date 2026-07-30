@@ -1,6 +1,6 @@
 # Interface (AbsAlbum)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-absalbum
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 | count | number | 是 | 否 | 相册中文件数量。 |
 | coverUri | string | 是 | 否 | 封面文件uri。 |
 | lpath23+ | string | 是 | 是 | 相册虚拟路径。 |
-| changeTime23+ | number | 是 | 是 | 相册的更改时间。 |
+| changeTime23+ | number | 是 | 是 | 相册的更改时间，单位：秒。 |
 
 
 
@@ -69,7 +69,8 @@ getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult&lt;PhotoAss
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 201 | Permission denied. |
+| 201 | Permission denied. 适用版本：12+ |
+| 13900012 | Permission denied. 适用版本：10-11 |
 | 13900020 | Invalid argument. |
 | 14000011 | System inner fail. |
 
@@ -143,7 +144,8 @@ getAssets(options: FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 201 | Permission denied. |
+| 201 | Permission denied. 适用版本：20+ |
+| 13900012 | Permission denied. 适用版本：10-19 |
 | 13900020 | Invalid argument. |
 | 14000011 | System inner fail. |
 

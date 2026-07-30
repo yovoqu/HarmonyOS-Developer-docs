@@ -9,7 +9,7 @@
 使用request.downloadFile方法下载网络图片到沙箱，图片不能直接打开查看：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/sjnxaz-aSGOjkCJ2Qs9EZw/zh-cn_image_0000002628613956.png?HW-CC-KV=V1&HW-CC-Date=20260723T013516Z&HW-CC-Expire=86400&HW-CC-Sign=9BE06242B01B9186BD62E9D912EA9531AE4BB008DEE7823347EFC8261ED90B28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/sjnxaz-aSGOjkCJ2Qs9EZw/zh-cn_image_0000002628613956.png?HW-CC-KV=V1&HW-CC-Date=20260730T072604Z&HW-CC-Expire=86400&HW-CC-Sign=FB70593EA4066EFF5748361A2DF0A5D43BB9C260C65235BBEF74E0A0C098C094)
 
  
 关键代码如下：
@@ -37,16 +37,16 @@
 
 #### 问题定位
 1. 直接打开问题图片的链接是可以看到图片的；
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/jw-811-yTna-aErgIHglNA/zh-cn_image_0000002658973159.png?HW-CC-KV=V1&HW-CC-Date=20260723T013516Z&HW-CC-Expire=86400&HW-CC-Sign=B94EA9D44BB971A38D26B149CD5076E52CB8F559E3574B33E65DF9C6370042E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/jw-811-yTna-aErgIHglNA/zh-cn_image_0000002658973159.png?HW-CC-KV=V1&HW-CC-Date=20260730T072604Z&HW-CC-Expire=86400&HW-CC-Sign=792CD6A7FDC2CB5C9E446F2900935F48FA68537A075C0F75E55BE63760665D5A)
 
 
   使用request.downloadFile方法下载该图片到沙箱，然后导出到PC，再拖拽到浏览器，图片也不能查看了；
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/9NQn35w-TmC59ddnom9-RQ/zh-cn_image_0000002658853205.png?HW-CC-KV=V1&HW-CC-Date=20260723T013516Z&HW-CC-Expire=86400&HW-CC-Sign=52F52CF36B8D1C20BBC33D4A25C570BDE0E6C1474AF31C9EB569862BACDBD921)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/9NQn35w-TmC59ddnom9-RQ/zh-cn_image_0000002658853205.png?HW-CC-KV=V1&HW-CC-Date=20260730T072604Z&HW-CC-Expire=86400&HW-CC-Sign=F569441B5F5042EBB1F333634EC0C28D51665FCCB036ABB58E95C790B8020BA3)
 
 2. 查看图片的二进制码，发现第二张图片和第一张图片的文件头有差异，多了以下高亮区域里的数据：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/aRyfjlmdT9CDbx0fAjVZKQ/zh-cn_image_0000002628773846.png?HW-CC-KV=V1&HW-CC-Date=20260723T013516Z&HW-CC-Expire=86400&HW-CC-Sign=562C70455898457EB341ECC9F8508BDA294293813ED95257505DE9E066DA4AD9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/aRyfjlmdT9CDbx0fAjVZKQ/zh-cn_image_0000002628773846.png?HW-CC-KV=V1&HW-CC-Date=20260730T072604Z&HW-CC-Expire=86400&HW-CC-Sign=6326A4A9741D37152E5AB3666E2A71ADD6D70707CAFAE7813F67472BD46646BA)
 
 3. 读取前几个字节为1F 8B 08，其中1F 8B表明为gzip压缩，而08表示为deflate压缩。下载的是未解码的文件，所以图片无法显示。
  

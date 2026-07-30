@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.keyCode (键值)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -207,7 +207,7 @@ import { KeyCode } from '@kit.InputKit';
 | KEYCODE_STOP | 2616 | 停止键。 |
 | KEYCODE_AGAIN | 2617 | 重复键。 |
 | KEYCODE_PROPS | 2618 | 道具键。 |
-| KEYCODE_UNDO | 2619 | 撤消键。 |
+| KEYCODE_UNDO | 2619 | 撤销键。 |
 | KEYCODE_COPY | 2620 | 复制键。 |
 | KEYCODE_OPEN | 2621 | 打开键。 |
 | KEYCODE_PASTE | 2622 | 粘贴键。 |

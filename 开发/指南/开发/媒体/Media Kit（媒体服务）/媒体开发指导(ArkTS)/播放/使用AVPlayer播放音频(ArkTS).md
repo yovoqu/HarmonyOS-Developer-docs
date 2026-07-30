@@ -1,6 +1,6 @@
 # 使用AVPlayer播放音频(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avplayer-for-playback
 
@@ -84,13 +84,13 @@ avPlayer.on('error', (error: BusinessError) => {
 avPlayer.on('durationUpdate', (duration: number) => {
     // 开发者根据需要写入业务逻辑。
 });
-avPlayer.on('timeUpdate', (time:number) => {
+avPlayer.on('timeUpdate', (time: number) => {
     // 开发者根据需要写入业务逻辑。
 });
-avPlayer.on('seekDone', (seekDoneTime:number) => {
+avPlayer.on('seekDone', (seekDoneTime: number) => {
     // 开发者根据需要写入业务逻辑。
 });
-avPlayer.on('speedDone', (speed:number) => {
+avPlayer.on('speedDone', (speed: number) => {
     // 开发者根据需要写入业务逻辑。
 });
 avPlayer.on('volumeChange', (vol: number) => {
@@ -126,16 +126,16 @@ avPlayer.url = url;
   
 ```text
 let fdPath = 'fd://'; // 此处仅为示意，请替换为真实资源文件URL。
-let path : string = `${this.context.filesDir}/${this.fileName}`; // 此处仅为示意，请替换为真实资源文件URL。
+let path : string = `${this.context.filesDir}/${this.fileName}`; // 此处仅为示意，请替换为真实的应用沙箱文件路径。
 let file = await fs.open(path);
 fdPath = fdPath + file.fd;
 this.avPlayer = await media.createAVPlayer();
-this.avPlayer.url = url;
+this.avPlayer.url = fdPath;
 ```
 
 4. （可选）设置音频渲染：只允许在initialized状态下，第一次调用prepare()之前设置，以便音频渲染器信息在之后生效。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。
 
-  为了确保音频行为符合使用预期，建议根据具体业务场景和实际需求，主动配置[audio.AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8)，为音频选择恰当的流类型[usage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-right-streamusage-and-sourcetype)。
+  为了确保音频行为符合使用预期，建议根据具体业务场景和实际需求，主动配置[audio.AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8)，为音频[选择合适的播放流类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-right-streamusage-for-playback)。
 
   
 ```text
@@ -206,10 +206,10 @@ avPlayer.stop((err: BusinessError) => {
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-await avPlayer.reset((err: BusinessError) => {
+avPlayer.reset((err: BusinessError) => {
     avPlayer.url = url;
     if (err) {
-        console.error('Failed to reset,error message is :' + err.message);
+        console.error('Failed to reset, error message is :' + err.message);
     } else {
         console.info('Succeeded in resetting');
     }

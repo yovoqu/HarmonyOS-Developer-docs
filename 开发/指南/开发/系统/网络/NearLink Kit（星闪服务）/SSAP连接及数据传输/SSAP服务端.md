@@ -1,6 +1,6 @@
 # SSAP服务端
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-ssap-server-connect
 
@@ -40,20 +40,21 @@
 
   
 ```text
-import { ssap } from '@kit.NearLinkKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { ssap, advertising, dataTransfer, constant, manager } from '@kit.NearLinkKit';
 ```
 
 2. 创建ssap服务端实例。
 
   
-```json
+```text
 let server: ssap.Server;
 try {
   server = ssap.createServer();
-  console.info('server: ' + JSON.stringify(server));
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -61,50 +62,67 @@ try {
 
   
 ```text
-// 构造descriptor
-let descriptorsArray: Array<ssap.PropertyDescriptor> = [];
-let arrayBuffer = new ArrayBuffer(2);
-let descValue = new Uint8Array(arrayBuffer);
-descValue[0] = 11;
-descValue[1] = 22;
-let descriptor: ssap.PropertyDescriptor = {
-  serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-  propertyUuid: '37bea880-fc70-11ea-b720-000000001234',
-  value: arrayBuffer,
-  descriptorType:ssap.PropertyDescriptorType.PROPERTY,
-  isWriteable:true
-};
-descriptorsArray[0] = descriptor;
-// 构造properties
-let propertiesArray: Array<ssap.Property> = [];
-let arrayBufferProperty = new ArrayBuffer(1);
-let properValue = new Uint8Array(arrayBufferProperty);
-properValue[0] = 1;
-let property1: ssap.Property = {
-  serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-  propertyUuid: '37bea880-fc70-11ea-b720-000000001234',
-  value: arrayBufferProperty,
-  descriptors:descriptorsArray,
-  operation:3 // 属性可读且可写
-};
-let property2: ssap.Property = {
-  serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-  propertyUuid: '37bea880-fc70-11ea-b720-000000003421',
-  value: arrayBufferProperty,
-  descriptors:descriptorsArray,
-  operation:3 // 属性可读且可写
-};
-propertiesArray[0] = property1;
-propertiesArray[1] = property2;
-// 构造服务
-let service: ssap.Service = {
-  serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-  properties:propertiesArray
-};
+let property1: ssap.Property;
+let property2: ssap.Property;
+const SERVICE_UUID: string = 'FFFFFFFF-1234-5678-ABCD-000000001234';
+const PROPERTY_UUID_1: string = 'FFFFFFFF-1234-5678-ABCD-000000001234';
+const PROPERTY_UUID_2: string = 'FFFFFFFF-1234-5678-ABCD-000000001234';
+let READABLE: number = ssap.Operation.READABLE;
+let WRITE_NO_RESPONSE: number = ssap.Operation.WRITE_NO_RESPONSE;
+let WRITE_WITH_RESPONSE: number = ssap.Operation.WRITE_WITH_RESPONSE;
+let NOTIFY: number = ssap.Operation.NOTIFY;
+// ...
 try {
+  let descriptorsArray1: ssap.PropertyDescriptor[] = [];
+  let descriptorsArray2: ssap.PropertyDescriptor[] = [];
+  let arrayBuffer = new ArrayBuffer(2);
+  let descValue = new Uint8Array(arrayBuffer);
+  descValue[0] = 1;
+  descValue[1] = 0;
+  let descriptor1: ssap.PropertyDescriptor = {
+    serviceUuid: SERVICE_UUID,
+    propertyUuid: PROPERTY_UUID_1,
+    value: arrayBuffer,
+    descriptorType:ssap.PropertyDescriptorType.CLIENT_PROPERTY_CONFIG,
+    isWriteable:true
+  };
+  let descriptor2: ssap.PropertyDescriptor = {
+    serviceUuid: SERVICE_UUID,
+    propertyUuid: PROPERTY_UUID_2,
+    value: arrayBuffer,
+    descriptorType:ssap.PropertyDescriptorType.PROPERTY,
+    isWriteable:false
+  };
+  descriptorsArray1[0] = descriptor1;
+  descriptorsArray2[0] = descriptor2;
+  let propertiesArray: ssap.Property[] = [];
+  let arrayBufferProperty = new ArrayBuffer(1);
+  let properValue = new Uint8Array(arrayBufferProperty);
+  properValue[0] = 11;
+  property1 = {
+    serviceUuid: SERVICE_UUID,
+    propertyUuid: PROPERTY_UUID_1,
+    value: arrayBufferProperty,
+    descriptors: descriptorsArray1,
+    operation: READABLE | WRITE_NO_RESPONSE | NOTIFY
+  };
+  property2 = {
+    serviceUuid: SERVICE_UUID,
+    propertyUuid: PROPERTY_UUID_2,
+    value: arrayBufferProperty,
+    descriptors: descriptorsArray2,
+    operation: READABLE | WRITE_WITH_RESPONSE
+  };
+  propertiesArray[0] = property1;
+  propertiesArray[1] = property2;
+  let service: ssap.Service = {
+    serviceUuid: SERVICE_UUID,
+    properties:propertiesArray
+  };
   server.addService(service);
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -112,13 +130,15 @@ try {
 
   
 ```json
-let onReceiveConnectionChangeEvent:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
-  console.info('data:' + JSON.stringify(data));
+let connectionStateChangeCallback = (data: ssap.ConnectionChangeState) => {
+  hilog.info(this.domainId, this.logTag, `Connection state change: ${JSON.stringify(data)}`);
+  // ...
 };
 try {
-  server.on('connectionStateChange', onReceiveConnectionChangeEvent);
+  server.on('connectionStateChange', connectionStateChangeCallback);
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -127,59 +147,42 @@ try {
   
 ```json
 let onReceivePropertyReadEvent:(data: ssap.PropertyReadRequest) => void = (data: ssap.PropertyReadRequest) => {
-  console.info('data:' + JSON.stringify(data));
+  hilog.info(this.domainId, this.logTag, `Property data received: ${JSON.stringify(data)}`);
+  // ...
 };
 try {
   server.on('propertyRead', onReceivePropertyReadEvent);
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 
-6. 收到客户端读属性请求事件后，回复响应。读属性请求通过步骤5订阅。
+6. 通知客户端属性值更新。其中参数address是步骤4中获取的已连接客户端设备地址。
 
   
-```text
-// 订阅客户端的读写请求，收到请求后通过该接口回复
-let arrayBuffer = new ArrayBuffer(2);
-let descValue = new Uint8Array(arrayBuffer);
-descValue[0] = 11;
-descValue[1] = 22;
-let resp: ssap.ServerResponse = {
-  address: '00:11:22:33:AA:FF', // 请求方的客户端地址
-  requestId: 1, // 请求方传入
-  value: arrayBuffer // 回复的数据
-};
-try {
-  // 地址是服务端缓存的已连接的客户端设备
-  server.sendResponse(resp);
-} catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
-}
-```
-
-7. 通知客户端属性值更新。其中参数address是步骤4中获取的已连接客户端设备地址。
-
-  
-```text
-// 构造properties
-let arrayBufferProperty = new ArrayBuffer(8);
-let properValue = new Uint8Array(arrayBufferProperty);
-properValue[0] = 123; // 本次更新后的值
-let property: ssap.Property = {
-  serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
-  propertyUuid: '37bea880-fc70-11ea-b720-000000001234',
-  value: arrayBufferProperty
-};
-try {
-  let address = '00:11:22:33:AA:FF'; // 已连接的设备地址
-  server.notifyPropertyChanged(address, property).then(() => {
-    console.info('notifyPropertyChanged success');
-  }).catch ((err: BusinessError) => {
-    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+```json
+let onReceivePropertyWriteEvent:(data: ssap.PropertyWriteRequest) => void = (data: ssap.PropertyWriteRequest) => {
+  hilog.info(this.domainId, this.logTag, `PropertyWriteRequest: ${JSON.stringify(data)}`);
+  let property: ssap.Property = {
+    serviceUuid: data.serviceUuid,
+    propertyUuid: data.propertyUuid,
+    value: data.value
+  };
+  server.notifyPropertyChanged(data.address, property).then(() => {
+    hilog.info(this.domainId, this.logTag, `notifyPropertyChanged success`);
+    // ...
+  }).catch((err:BusinessError) => {
+    hilog.error(this.domainId, this.logTag,
+      `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
+    // ...
   });
+};
+try {
+  server.on('propertyWrite', onReceivePropertyWriteEvent);
 } catch (err) {
-  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+  hilog.error(this.domainId, this.logTag,
+    `errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
 }
 ```
 

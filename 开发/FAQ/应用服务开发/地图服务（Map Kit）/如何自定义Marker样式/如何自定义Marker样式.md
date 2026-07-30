@@ -1,6 +1,6 @@
 # 如何自定义Marker样式
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-50
 
@@ -21,7 +21,7 @@
 
 #### 解决方案
 
-- 方式一：替换Marker标记为本地图片。配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中icon参数为本地图片，图片文件存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。
+- 方式一：替换Marker标记为本地图片。配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#markeroptions)中icon参数为本地图片，图片文件存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。
 
   
 ```text
@@ -51,7 +51,7 @@ try {
 }
 ```
 
-- 方式二：替换Marker标记为自定义Builder内容。通过@Builder设计自定义Marker的UI组件样式，然后配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中iconBuilder为@Builder装饰的组件。参见[自定义组件实现Marker图标](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-marker#section1885775613279)。
+- 方式二：替换Marker标记为自定义Builder内容。通过@Builder设计自定义Marker的UI组件样式，然后配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#markeroptions)中iconBuilder为@Builder装饰的组件。参见[自定义组件实现Marker图标](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-marker#自定义组件实现marker图标)。
 
   
 ```text
@@ -82,7 +82,7 @@ try {
 }
 ```
 
-- 方式三：替换Marker标记为自定义画布内容。通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)绘制自定义画布内容，使用[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)接口转换为PixelMap格式图片，配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中icon参数为转换后的PixelMap图片。
+- 方式三：替换Marker标记为自定义画布内容。通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)绘制自定义画布内容，使用[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)接口转换为PixelMap格式图片，配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#markeroptions)中icon参数为转换后的PixelMap图片。
 
   
 ```text
@@ -158,7 +158,7 @@ try {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/TOaO_ZMIRrWbiSdFRgvqyQ/zh-cn_image_0000002628394396.png?HW-CC-KV=V1&HW-CC-Date=20260723T013729Z&HW-CC-Expire=86400&HW-CC-Sign=0CA2A53CE1CCEBB1DF308A5CAD147F0A056E93245EE7D9D92465BEA722CAD1B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/mHHYaEvDTaiaGaNrBGO0dw/zh-cn_image_0000002628394396.png?HW-CC-KV=V1&HW-CC-Date=20260730T072644Z&HW-CC-Expire=86400&HW-CC-Sign=F8BF404E4ECF0C3FF405B6C11313C355FC495AB2523108FBD7684FB8CCD7362A)
 
  
 完整代码：

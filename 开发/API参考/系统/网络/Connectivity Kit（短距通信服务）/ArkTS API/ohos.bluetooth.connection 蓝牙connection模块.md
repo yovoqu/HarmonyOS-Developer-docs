@@ -1,6 +1,6 @@
 # @ohos.bluetooth.connection (蓝牙connection模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -32,6 +32,8 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | constant.ProfileConnectionState | 蓝牙设备的Profile协议连接状态。 |
@@ -48,6 +50,8 @@ type ProfileId = constant.ProfileId
 枚举，蓝牙Profile协议。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 类型 | 说明 |
 | --- | --- |
@@ -66,6 +70,8 @@ type ProfileUuids = constant.ProfileUuids
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | constant.ProfileUuids | 蓝牙Profile协议的UUID。 |
@@ -82,6 +88,8 @@ type MajorClass = constant.MajorClass
 蓝牙设备的主要类型。蓝牙标准协议字段。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 类型 | 说明 |
 | --- | --- |
@@ -100,6 +108,8 @@ type MajorMinorClass = constant.MajorMinorClass
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | constant.MajorMinorClass | 蓝牙设备的子类型。 |
@@ -116,6 +126,8 @@ type BluetoothAddress = common.BluetoothAddress
 描述蓝牙设备地址信息的参数结构，包括地址与地址类型。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 类型 | 说明 |
 | --- | --- |
@@ -142,7 +154,9 @@ pairDevice(deviceId: string, callback: AsyncCallback&lt;void&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -164,7 +178,7 @@ pairDevice(deviceId: string, callback: AsyncCallback&lt;void&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -198,14 +212,16 @@ pairDevice(deviceId: string): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 需要配对的对端蓝牙设备地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -226,7 +242,7 @@ pairDevice(deviceId: string): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -261,14 +277,16 @@ pairDevice(deviceId: BluetoothAddress): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | BluetoothAddress | 是 | 需要配对的对端蓝牙设备地址信息，包括地址与地址类型。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -288,7 +306,7 @@ pairDevice(deviceId: BluetoothAddress): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -328,14 +346,16 @@ getRemoteDeviceName(deviceId: string): string
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示对端设备的地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -356,7 +376,7 @@ getRemoteDeviceName(deviceId: string): string
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -386,7 +406,9 @@ getRemoteDeviceName(deviceId: string, alias?: boolean): string
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -394,7 +416,7 @@ getRemoteDeviceName(deviceId: string, alias?: boolean): string
 | alias | boolean | 否 | 表示是否获取对端蓝牙设备别名。 - 如果携带alias，则根据alias判断是否获取对端蓝牙设备别名：true表示获取对端蓝牙设备别名，false表示获取对端蓝牙设备原始名称。 - 如果未携带alias，则默认值为true，返回对端蓝牙设备别名。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -415,7 +437,7 @@ getRemoteDeviceName(deviceId: string, alias?: boolean): string
 | 2900099 | Failed to obtain the name or alias of the peer Bluetooth device. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -442,14 +464,16 @@ getRemoteDeviceClass(deviceId: string): DeviceClass
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示对端设备的地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -462,6 +486,7 @@ getRemoteDeviceClass(deviceId: string): DeviceClass
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：10-17 |
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
@@ -469,7 +494,7 @@ getRemoteDeviceClass(deviceId: string): DeviceClass
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -495,14 +520,16 @@ getRemoteDeviceTransport(deviceId: string): BluetoothTransport
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示对端设备的地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -521,7 +548,7 @@ getRemoteDeviceTransport(deviceId: string): BluetoothTransport
 | 2900099 | Get transport failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -550,7 +577,9 @@ getRemoteProfileUuids(deviceId: string, callback: AsyncCallback<Array&lt;Profile
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -572,7 +601,7 @@ getRemoteProfileUuids(deviceId: string, callback: AsyncCallback<Array&lt;Profile
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -603,14 +632,16 @@ getRemoteProfileUuids(deviceId: string): Promise<Array&lt;ProfileUuids&gt;>
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示对端设备地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -631,7 +662,7 @@ getRemoteProfileUuids(deviceId: string): Promise<Array&lt;ProfileUuids&gt;>
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -660,7 +691,9 @@ getLocalName(): string
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -679,7 +712,7 @@ getLocalName(): string
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -700,13 +733,19 @@ getPairedDevices(): Array&lt;string&gt;
 
 获取已配对蓝牙设备的地址集合。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -726,7 +765,7 @@ getPairedDevices(): Array&lt;string&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -756,14 +795,16 @@ getPairState(deviceId: string): BondState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示对端设备的地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -784,7 +825,7 @@ getPairState(deviceId: string): BondState
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -810,14 +851,16 @@ getProfileConnectionState(profileId?: ProfileId): ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | profileId | ProfileId | 否 | 表示Profile协议的枚举值。如果携带ProfileId，则返回指定Profile协议的连接状态。如果未携带ProfileId，则检查所有支持的Profile连接状态，按如下优先级顺序检查并返回： - 存在已连接的Profile协议，则返回STATE_CONNECTED。 - 存在正在连接的Profile协议，则返回STATE_CONNECTING。 - 存在正在断连的Profile协议，则返回STATE_DISCONNECTING。 - 以上条件均不满足，则返回STATE_DISCONNECTED。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -839,7 +882,7 @@ getProfileConnectionState(profileId?: ProfileId): ProfileConnectionState
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -868,7 +911,9 @@ setDevicePairingConfirmation(deviceId: string, accept: boolean): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -890,7 +935,7 @@ setDevicePairingConfirmation(deviceId: string, accept: boolean): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -920,7 +965,9 @@ setDevicePinCode(deviceId: string, code: string, callback: AsyncCallback&lt;void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -943,7 +990,7 @@ setDevicePinCode(deviceId: string, code: string, callback: AsyncCallback&lt;void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -971,7 +1018,9 @@ setDevicePinCode(deviceId: string, code: string): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -979,7 +1028,7 @@ setDevicePinCode(deviceId: string, code: string): Promise&lt;void&gt;
 | code | string | 是 | 用户输入的PIN码，该字符串的字符个数范围为(0, 16]，例如："12345"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1000,7 +1049,7 @@ setDevicePinCode(deviceId: string, code: string): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1035,7 +1084,9 @@ setLocalName(name: string): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1056,7 +1107,7 @@ setLocalName(name: string): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1081,7 +1132,9 @@ setBluetoothScanMode(mode: ScanMode, duration: number): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1103,7 +1156,7 @@ setBluetoothScanMode(mode: ScanMode, duration: number): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1129,7 +1182,9 @@ getBluetoothScanMode(): ScanMode
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1149,7 +1204,7 @@ getBluetoothScanMode(): ScanMode
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1182,6 +1237,8 @@ startBluetoothDiscovery(): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -1195,7 +1252,7 @@ startBluetoothDiscovery(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1231,6 +1288,8 @@ stopBluetoothDiscovery(): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 **错误码**：
 
 以下错误码的详细介绍请参见[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
@@ -1244,7 +1303,7 @@ stopBluetoothDiscovery(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1269,7 +1328,9 @@ isBluetoothDiscovering(): boolean
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1289,7 +1350,7 @@ isBluetoothDiscovering(): boolean
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1321,7 +1382,9 @@ setRemoteDeviceName(deviceId: string, name: string): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1329,7 +1392,7 @@ setRemoteDeviceName(deviceId: string, name: string): Promise&lt;void&gt;
 | name | string | 是 | 修改对端设备名称，名称长度范围：(0, 64]，单位：Byte。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1348,7 +1411,7 @@ setRemoteDeviceName(deviceId: string, name: string): Promise&lt;void&gt;
 | 2900003 | Bluetooth disabled. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1382,14 +1445,16 @@ getRemoteDeviceBatteryInfo(deviceId: string): Promise&lt;BatteryInfo&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示对端蓝牙设备的MAC地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1408,7 +1473,7 @@ getRemoteDeviceBatteryInfo(deviceId: string): Promise&lt;BatteryInfo&gt;
 | 2900003 | Bluetooth disabled. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1436,7 +1501,9 @@ on(type: 'batteryChange', callback: Callback&lt;BatteryInfo&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1454,7 +1521,7 @@ on(type: 'batteryChange', callback: Callback&lt;BatteryInfo&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1482,7 +1549,9 @@ off(type: 'batteryChange', callback?: Callback&lt;BatteryInfo&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1500,7 +1569,7 @@ off(type: 'batteryChange', callback?: Callback&lt;BatteryInfo&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1530,13 +1599,19 @@ on(type: 'bluetoothDeviceFind', callback: Callback<Array&lt;string&gt;>): void
  - 推荐使用API version 18开始支持的[connection.on('discoveryResult')](#connectionondiscoveryresult18)扫描上报方式，可获取到更多设备信息，包括设备地址、设备信号强度、设备名称和设备类型。
 
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1551,12 +1626,12 @@ on(type: 'bluetoothDeviceFind', callback: Callback<Array&lt;string&gt;>): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1586,7 +1661,9 @@ off(type: 'bluetoothDeviceFind', callback?: Callback<Array&lt;string&gt;>): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1605,7 +1682,7 @@ off(type: 'bluetoothDeviceFind', callback?: Callback<Array&lt;string&gt;>): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1630,11 +1707,17 @@ on(type: 'bondStateChange', callback: Callback&lt;BondStateParam&gt;): void
 
 订阅蓝牙配对状态变化事件。使用Callback异步回调。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1649,12 +1732,12 @@ on(type: 'bondStateChange', callback: Callback&lt;BondStateParam&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1682,7 +1765,9 @@ off(type: 'bondStateChange', callback?: Callback&lt;BondStateParam&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1702,7 +1787,7 @@ off(type: 'bondStateChange', callback?: Callback&lt;BondStateParam&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1727,11 +1812,17 @@ on(type: 'pinRequired', callback: Callback&lt;PinRequiredParam&gt;): void
 
 订阅配对请求事件。使用Callback异步回调。
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本10-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1746,12 +1837,12 @@ on(type: 'pinRequired', callback: Callback&lt;PinRequiredParam&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：10-24 |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1779,7 +1870,9 @@ off(type: 'pinRequired', callback?: Callback&lt;PinRequiredParam&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1799,7 +1892,7 @@ off(type: 'pinRequired', callback?: Callback&lt;PinRequiredParam&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1828,11 +1921,17 @@ on(type: 'discoveryResult', callback: Callback<Array&lt;DiscoveryResult&gt;>): v
  - 该上报方式支持获取设备地址、设备信号强度、设备名称和设备类型。
 
 
-**需要权限**：ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：
+
+ - API版本26.0.0+：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+ - API版本18-24：ohos.permission.ACCESS_BLUETOOTH
+
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1847,12 +1946,12 @@ on(type: 'discoveryResult', callback: Callback<Array&lt;DiscoveryResult&gt;>): v
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. 适用版本：18-24 |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1880,7 +1979,9 @@ off(type: 'discoveryResult', callback?: Callback<Array&lt;DiscoveryResult&gt;>):
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1899,7 +2000,7 @@ off(type: 'discoveryResult', callback?: Callback<Array&lt;DiscoveryResult&gt;>):
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1928,7 +2029,9 @@ onScanModeChange(callback: Callback&lt;ScanMode&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1946,7 +2049,7 @@ onScanModeChange(callback: Callback&lt;ScanMode&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 function ScanModeChangeEvent(scanMode: connection.ScanMode) {
@@ -1973,7 +2076,9 @@ offScanModeChange(callback?: Callback&lt;ScanMode&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1991,7 +2096,7 @@ offScanModeChange(callback?: Callback&lt;ScanMode&gt;): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 function ScanModeChangeEvent(scanMode: connection.ScanMode) {
@@ -2019,14 +2124,16 @@ getLastConnectionTime(deviceId: string): Promise&lt;number&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示远端设备MAC地址。例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2039,14 +2146,14 @@ getLastConnectionTime(deviceId: string): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
 | 2900003 | Bluetooth disabled. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2077,13 +2184,13 @@ connectAllowedProfiles(deviceId: string, callback: AsyncCallback&lt;void&gt;): v
  - 从API version 21开始，此接口支持使用对端设备的实际MAC地址进行profile连接。
 
 
-**需要权限：** ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
 
-**系统能力：**: SystemCapability.Communication.Bluetooth.Core
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2091,7 +2198,7 @@ connectAllowedProfiles(deviceId: string, callback: AsyncCallback&lt;void&gt;): v
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当发起连接成功，err为undefined，否则为错误对象。 |
 
 
-**错误码：**
+**错误码**：
 
 以下错误码的详细介绍请参见 [通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
 
@@ -2105,7 +2212,7 @@ connectAllowedProfiles(deviceId: string, callback: AsyncCallback&lt;void&gt;): v
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2139,27 +2246,27 @@ connectAllowedProfiles(deviceId: string): Promise&lt;void&gt;
  - 从API version 21开始，此接口支持使用对端设备的实际MAC地址进行profile连接。
 
 
-**需要权限：** ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
 
-**系统能力：**: SystemCapability.Communication.Bluetooth.Core
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示需要连接的对端设备MAC地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
-**错误码：**
+**错误码**：
 
 以下错误码的详细介绍请参见 [通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
 
@@ -2173,7 +2280,7 @@ connectAllowedProfiles(deviceId: string): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2201,29 +2308,29 @@ disconnectAllowedProfiles(deviceId: string): Promise&lt;void&gt;
  - 需要与接口[connection.connectAllowedProfiles](#connectionconnectallowedprofiles16)配合使用。
 
 
-**起始版本：** 26.0.0
+**起始版本**：26.0.0
 
-**需要权限：** ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
 
-**系统能力：**: SystemCapability.Communication.Bluetooth.Core
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 表示需要断开连接的对端设备MAC地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
-**错误码：**
+**错误码**：
 
 以下错误码的详细介绍请参见 [通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
 
@@ -2236,7 +2343,7 @@ disconnectAllowedProfiles(deviceId: string): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 try {
@@ -2258,13 +2365,13 @@ getVirtualAddressByHash(algorithmType: HashAlgorithmType, hashValue: string): st
 
 当[HashAlgorithmType](#hashalgorithmtype24)为HASH_ALGORITHM_SHA256时，应使用大写实际MAC地址通过SHA256算法生成对应的哈希值（十六进制64位），取后32位作为输入，哈希值字母不区分大小写。
 
-**需要权限：** ohos.permission.ACCESS_BLUETOOTH
+**需要权限**：ohos.permission.ACCESS_BLUETOOTH
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**系统能力：** SystemCapability.Communication.Bluetooth.Core
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2272,14 +2379,14 @@ getVirtualAddressByHash(algorithmType: HashAlgorithmType, hashValue: string): st
 | hashValue | string | 是 | 哈希值，例如："c10b57deb2e1aafd255596e0d4fd6789"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回与哈希值相对应的设备虚拟MAC地址，例如："XX:XX:XX:XX:XX:XX"，返回地址为大写。 |
 
 
-**错误码：**
+**错误码**：
 
 以下错误码的详细介绍请参见 [通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
 
@@ -2293,7 +2400,7 @@ getVirtualAddressByHash(algorithmType: HashAlgorithmType, hashValue: string): st
 | 2900099 | Internal system error. For example, IPC error. Detailed error messages can be used to assist in locating the problem. |
 
 
-**示例：**
+**示例**：
 
 ```text
 // 若查询的真实地址为11:22:33:44:55:AA,
@@ -2317,15 +2424,15 @@ onAclStateChange(callback: Callback&lt;AclStateResult&gt;): void
 
 订阅蓝牙ACL链路连接状态变化事件。当触发蓝牙ACL链路连接与断开连接时，如订阅此事件，则会收到携带对应设备的地址与连接状态的回调函数。
 
-**起始版本：** 26.0.0
+**起始版本**：26.0.0
 
 **需要权限**：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2343,7 +2450,7 @@ onAclStateChange(callback: Callback&lt;AclStateResult&gt;): void
 | 2900099 | Internal system error. For example, IPC error. Detailed error messages can be used to assist in locating the problem. |
 
 
-**示例：**
+**示例**：
 
 ```json
 function AclStateChangeEvent(aclStateResult: connection.AclStateResult) {
@@ -2366,15 +2473,15 @@ offAclStateChange(callback?: Callback&lt;AclStateResult&gt;): void
 
 取消订阅蓝牙ACL链路连接状态变化事件。
 
-**起始版本：** 26.0.0
+**起始版本**：26.0.0
 
 **需要权限**：ohos.permission.ACCESS_BLUETOOTH 或 (ohos.permission.ACCESS_BLUETOOTH 和 ohos.permission.GET_BLUETOOTH_PEERS_MAC)
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2392,7 +2499,7 @@ offAclStateChange(callback?: Callback&lt;AclStateResult&gt;): void
 | 2900099 | Internal system error. For example, IPC error. Detailed error messages can be used to assist in locating the problem. |
 
 
-**示例：**
+**示例**：
 
 ```json
 function AclStateChangeEvent(aclStateResult: connection.AclStateResult) {
@@ -2415,11 +2522,14 @@ try {
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 配对中的对端设备地址。 |
 | state | BondState | 否 | 否 | 配对状态。 |
 | cause12+ | UnbondCause | 否 | 否 | 配对失败的原因。 |
+| causeMessage | string | 否 | 是 | 配对失败的具体原因，例如：本端业务主动删除配对时，返回：USER_REMOVED。 起始版本：26.0.0 |
 
 
 
@@ -2431,6 +2541,8 @@ try {
 描述配对请求的参数结构。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2447,6 +2559,8 @@ try {
 描述蓝牙设备的类型。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2466,6 +2580,8 @@ try {
 只有支持蓝牙标准协议定义的电量信息AT（Attention）命令（包括：+XEVENT和IPHONEACCEV）的设备才支持上报有效的电量信息。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2488,6 +2604,8 @@ try {
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | TRANSPORT_BR_EDR | 0 | 传统蓝牙（Basic Rate/Enhanced Data Rate，BR/EDR）设备传输方式。 |
@@ -2505,6 +2623,8 @@ try {
 枚举，表示扫描模式。该模式决定设备是否可被发现或可被连接。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2528,6 +2648,8 @@ try {
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | BOND_STATE_INVALID | 0 | 未配对状态。 |
@@ -2544,6 +2666,8 @@ try {
 枚举，配对失败原因。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2564,6 +2688,8 @@ try {
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
+**模型约束**：此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEVICE_NORMAL_CHARGE_NOT_CHARGED | 0 | 不支持超级快充能力的设备当前处于未充电状态。 |
@@ -2581,6 +2707,8 @@ try {
 扫描到设备后，上报的扫描结果。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2600,9 +2728,9 @@ try {
 
 哈希算法是一种数学函数，通过对输入数据进行复杂计算，生成一个唯一且固定长度的字符串（即哈希值）。常用于数据完整性校验、数字签名等场景。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**系统能力：** SystemCapability.Communication.Bluetooth.Core
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2617,11 +2745,11 @@ try {
 
 描述ACL连接状态的参数结构。
 
-**起始版本：** 26.0.0
+**起始版本**：26.0.0
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2637,11 +2765,11 @@ try {
 
 枚举，表示ACL连接状态。
 
-**起始版本：** 26.0.0
+**起始版本**：26.0.0
 
-**系统能力：** SystemCapability.Communication.Bluetooth.Core
+**系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**模型约束：** 此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

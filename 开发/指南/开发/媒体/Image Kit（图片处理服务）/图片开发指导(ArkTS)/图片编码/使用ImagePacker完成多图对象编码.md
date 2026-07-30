@@ -1,6 +1,6 @@
 # 使用ImagePacker完成多图对象编码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-picture-encoding
 
@@ -33,7 +33,8 @@ import { resourceManager } from '@kit.LocalizationKit';
 ```ArkTS
 let packOpts: image.PackingOption = {
   format: 'image/jpeg',
-  quality: 95,
+  // quality默认值为0，建议不低于80；本示例统一设置为90，兼顾图片质量和文件体积。
+  quality: 90,
   needsPackProperties: true
 };
 ```

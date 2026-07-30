@@ -84,7 +84,7 @@ export struct MainPage {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/WudotJI3Rd6ZPx90_nzQ-A/zh-cn_image_0000002628548522.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013039Z&HW-CC-Expire=86400&HW-CC-Sign=6A9871D02108DB626F8D0B2BC77BB6BF30BBF74A0AC00C4F87798AC4FEC96821)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/WudotJI3Rd6ZPx90_nzQ-A/zh-cn_image_0000002628548522.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072448Z&HW-CC-Expire=86400&HW-CC-Sign=98F284E7F001C4493A5EAB631889A8C8E67EB96CB26036F023E9D02D4F743F70)
 
  
  
@@ -94,7 +94,7 @@ export struct MainPage {
 退出到后台，重新进入页面后不会重新创建子页面。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/96gUA8x0SECKVfr4bsiw7w/zh-cn_image_0000002658907837.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013039Z&HW-CC-Expire=86400&HW-CC-Sign=4CFF5B62CE992C4F78632DF7CAE39F39CCCA91FC7D301597B039055BE114DBDA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/96gUA8x0SECKVfr4bsiw7w/zh-cn_image_0000002658907837.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072448Z&HW-CC-Expire=86400&HW-CC-Sign=78CB30E2072FD9AC44B2D112483F08EA8A796A62D27A51BCF90C64B6C437A4DC)
 
  
  

@@ -1,6 +1,6 @@
 # 如何解决Scroll嵌套地图组件时的滚动冲突问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1555
 
@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/1Dq-a9xlRX2FvIoH_lKm9g/zh-cn_image_0000002658848495.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012808Z&HW-CC-Expire=86400&HW-CC-Sign=1BFCE35E37995972C1CE8591ECE3980C3B5767D86F17CE7FDA0023B563C61946)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/iAEYrLD3RAaFgnLFq-zyog/zh-cn_image_0000002658848495.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072410Z&HW-CC-Expire=86400&HW-CC-Sign=4145C3228B8A43B222AB6929A4F36D4C09FEB6E0F6FC226FFA378CA31A600743)
 
  
  
@@ -19,7 +19,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/aZKz9j7gSoivpJpqb2xN3w/zh-cn_image_0000002628609232.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012808Z&HW-CC-Expire=86400&HW-CC-Sign=089CB004FE5D138B33ECEEE1DB99913561F185378F2C0D9BDF1058287EA0C0AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/Xu2a8_hETw2cCdf-njcxiA/zh-cn_image_0000002628609232.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072410Z&HW-CC-Expire=86400&HW-CC-Sign=D40001D3A5CDC3E43D70DF65DDC04A69DF54C462D82B90C7F06C3F61917FEACF)
 
  
  

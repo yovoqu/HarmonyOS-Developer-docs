@@ -1,6 +1,6 @@
 # OH_AudioCodec_PushInputBuffer标记flag为EOS后再次填入数据返回AV_ERR_INVALID_STATE
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-16
 

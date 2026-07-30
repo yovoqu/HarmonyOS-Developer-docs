@@ -1,6 +1,6 @@
 # picture_native.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-picture-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,9 +35,11 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| OH_PictureNative | OH_PictureNative | Picture结构体类型，用于执行picture相关操作。 |
-| OH_AuxiliaryPictureNative | OH_AuxiliaryPictureNative | AuxiliaryPicture结构体类型，用于执行AuxiliaryPicture相关操作。 |
-| OH_AuxiliaryPictureInfo | OH_AuxiliaryPictureInfo | AuxiliaryPictureInfo结构体类型，用于执行AuxiliaryPictureInfo相关操作。 |
+| OH_PictureNative_AuxiliaryPictureCopyItem | OH_PictureNative_AuxiliaryPictureCopyItem | 此结构体用于在创建PictureNative对象的深拷贝时指定辅助图的拷贝规则。描述如何将辅助图从一种类型拷贝到另一种类型。 |
+| OH_PictureNative_MetadataCopyItem | OH_PictureNative_MetadataCopyItem | 此结构体用于在创建PictureNative对象的深拷贝时指定元数据的拷贝规则。描述如何将元数据从一种类型拷贝到另一种类型。 |
+| OH_PictureNative | - | Picture结构体类型，用于执行picture相关操作。 Picture为多图对象结构体，包含主图、辅助图和元数据。 主图包含图像的大部分信息，主要用于显示图像内容。 辅助图用于存储与主图相关但不同的数据，展示图像更丰富的信息。 元数据一般用来存储关于图像文件的信息。 |
+| OH_AuxiliaryPictureNative | - | AuxiliaryPicture结构体类型，用于执行AuxiliaryPicture相关操作。 |
+| OH_AuxiliaryPictureInfo | - | AuxiliaryPictureInfo结构体类型，用于执行AuxiliaryPictureInfo相关操作。 |
 | OH_ComposeOptions | OH_ComposeOptions | OH_ComposeOptions是native层封装的合成HDR选项参数结构体，用于设置合成选项参数。用于指定合成HDR所用的参数，例如目标像素格式。 |
  
  
@@ -73,6 +75,13 @@
 | Image_ErrorCode OH_PictureNative_GetAuxiliaryPicture(OH_PictureNative *picture, Image_AuxiliaryPictureType type, OH_AuxiliaryPictureNative **auxiliaryPicture) | 根据类型获取辅助图。 |
 | Image_ErrorCode OH_PictureNative_GetMetadata(OH_PictureNative *picture, Image_MetadataType metadataType, OH_PictureMetadata **metadata) | 获取主图的元数据。 |
 | Image_ErrorCode OH_PictureNative_SetMetadata(OH_PictureNative *picture, Image_MetadataType metadataType, OH_PictureMetadata *metadata) | 设置主图的元数据。 |
+| Image_ErrorCode OH_PictureNative_GetAuxiliaryPictureCount(OH_PictureNative *picture, uint32_t *count) | 获取辅助图数量。 |
+| Image_ErrorCode OH_PictureNative_GetAuxiliaryPictureTypes(OH_PictureNative *picture, Image_AuxiliaryPictureType *auxiliaryPictureTypes, uint32_t *count) | 获取辅助图类型。 |
+| Image_ErrorCode OH_PictureNative_GetMetadataCount(OH_PictureNative *picture, uint32_t *count) | 获取Picture对象中元数据的数量。 |
+| Image_ErrorCode OH_PictureNative_GetMetadataTypes(OH_PictureNative *picture, Image_MetadataType *metadataTypes, uint32_t *count) | 获取Picture对象中元数据的类型。 |
+| Image_ErrorCode OH_PictureNative_RemoveAuxiliaryPicture(OH_PictureNative *picture, Image_AuxiliaryPictureType type) | 从Picture对象中移除辅助图。 |
+| Image_ErrorCode OH_PictureNative_RemoveMetadata(OH_PictureNative *picture, Image_MetadataType type) | 从Picture对象中移除元数据。 |
+| Image_ErrorCode OH_PictureNative_DeepCopyWithItems(OH_PictureNative *source, const OH_PictureNative_AuxiliaryPictureCopyItem *auxiliaryPictureCopyItems, uint32_t auxiliaryPictureCopyCount, const OH_PictureNative_MetadataCopyItem *metadataCopyItems, uint32_t metadataCopyCount, Image_AuxiliaryPictureType *sourceAuxPictureAsMainPixelMap, OH_PictureNative **picture) | 创建PictureNative对象的深拷贝，并将指定的辅助图和元数据拷贝到指定的目标类型。 |
 | Image_ErrorCode OH_PictureNative_Release(OH_PictureNative *picture) | 释放OH_PictureNative指针。 |
 | Image_ErrorCode OH_AuxiliaryPictureNative_Create(uint8_t *data, size_t dataLength, Image_Size *size, Image_AuxiliaryPictureType type, OH_AuxiliaryPictureNative **auxiliaryPicture) | 创建OH_AuxiliaryPictureNative指针。该接口仅支持传入PIXEL_FORMAT为BGRA_8888的连续像素数据，会创建出RGBA_8888的辅助图。 |
 | Image_ErrorCode OH_AuxiliaryPictureNative_WritePixels(OH_AuxiliaryPictureNative *auxiliaryPicture, uint8_t *source, size_t bufferSize) | 读取缓冲区的图像像素数据，并将结果写入辅助图中。 |
@@ -82,6 +91,7 @@
 | Image_ErrorCode OH_AuxiliaryPictureNative_SetInfo(OH_AuxiliaryPictureNative *auxiliaryPicture, OH_AuxiliaryPictureInfo *info) | 设置辅助图信息。 |
 | Image_ErrorCode OH_AuxiliaryPictureNative_GetMetadata(OH_AuxiliaryPictureNative *auxiliaryPicture, Image_MetadataType metadataType, OH_PictureMetadata **metadata) | 获取辅助图的元数据。 |
 | Image_ErrorCode OH_AuxiliaryPictureNative_SetMetadata(OH_AuxiliaryPictureNative *auxiliaryPicture, Image_MetadataType metadataType, OH_PictureMetadata *metadata) | 设置辅助图的元数据。 |
+| Image_ErrorCode OH_AuxiliaryPictureNative_AcquirePixelmap(OH_AuxiliaryPictureNative *auxiliaryPicture, OH_PixelmapNative **pixelmap) | 获取辅助图的OH_PixelmapNative对象。 |
 | Image_ErrorCode OH_AuxiliaryPictureNative_Release(OH_AuxiliaryPictureNative *picture) | 释放OH_AuxiliaryPictureNative指针。 |
 | Image_ErrorCode OH_AuxiliaryPictureInfo_Create(OH_AuxiliaryPictureInfo **info) | 创建一个OH_AuxiliaryPictureInfo对象。 |
 | Image_ErrorCode OH_AuxiliaryPictureInfo_GetType(OH_AuxiliaryPictureInfo *info, Image_AuxiliaryPictureType *type) | 获取OH_AuxiliaryPictureInfo中的辅助图类型。 |
@@ -552,6 +562,230 @@ Image_ErrorCode OH_PictureNative_SetMetadata(OH_PictureNative *picture, Image_Me
  
   
 
+#### OH_PictureNative_GetAuxiliaryPictureCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureNative_GetAuxiliaryPictureCount(OH_PictureNative *picture, uint32_t *count)
+```
+ 
+**描述**
+ 
+获取辅助图数量。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureNative *picture | 指向OH_PictureNative对象的指针。 |
+| uint32_t *count | 辅助图数量。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：picture或count为空指针、获取picture失败。 |
+ 
+ 
+  
+
+#### OH_PictureNative_GetAuxiliaryPictureTypes()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureNative_GetAuxiliaryPictureTypes(OH_PictureNative *picture, Image_AuxiliaryPictureType *auxiliaryPictureTypes, uint32_t *count)
+```
+ 
+**描述**
+ 
+获取辅助图类型。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureNative *picture | 指向OH_PictureNative对象的指针。 |
+| Image_AuxiliaryPictureType *auxiliaryPictureTypes | 指向接收辅助图类型的数组的指针。 |
+| uint32_t *count | 输入时，为辅助图类型数组的大小。输出时，为辅助图的实际数量。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：picture、auxiliaryPictureTypes或count为空指针、无法获取图片、count小于要求。 |
+ 
+ 
+  
+
+#### OH_PictureNative_GetMetadataCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureNative_GetMetadataCount(OH_PictureNative *picture, uint32_t *count)
+```
+ 
+**描述**
+ 
+获取Picture对象中元数据的数量。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureNative *picture | 指向OH_PictureNative对象的指针。 |
+| uint32_t *count | 元数据数量。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：picture或count为空指针、获取picture失败。 |
+ 
+ 
+  
+
+#### OH_PictureNative_GetMetadataTypes()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureNative_GetMetadataTypes(OH_PictureNative *picture, Image_MetadataType *metadataTypes, uint32_t *count)
+```
+ 
+**描述**
+ 
+获取Picture对象中元数据的类型。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureNative *picture | 指向OH_PictureNative对象的指针。 |
+| Image_MetadataType *metadataTypes | 接收元数据类型的数组指针。 |
+| uint32_t *count | 输入时，metadataTypes数组的大小。输出时，元数据的实际数量。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：picture、metadataTypes或count为空指针、获取picture失败、count小于所需大小。 |
+ 
+ 
+  
+
+#### OH_PictureNative_RemoveAuxiliaryPicture()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureNative_RemoveAuxiliaryPicture(OH_PictureNative *picture, Image_AuxiliaryPictureType type)
+```
+ 
+**描述**
+ 
+从Picture对象中移除辅助图。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureNative *picture | 指向OH_PictureNative对象的指针。 |
+| Image_AuxiliaryPictureType type | 移除的辅助图类型。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：辅助图被成功移除或不存在。 IMAGE_INVALID_PARAMETER：picture为空指针、获取picture失败、辅助图类型不支持。 |
+ 
+ 
+  
+
+#### OH_PictureNative_RemoveMetadata()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureNative_RemoveMetadata(OH_PictureNative *picture, Image_MetadataType type)
+```
+ 
+**描述**
+ 
+从Picture对象中移除元数据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureNative *picture | 指向OH_PictureNative对象的指针。 |
+| Image_MetadataType type | 移除的元数据类型。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：元数据被成功移除或不存在。 IMAGE_INVALID_PARAMETER：picture为空指针、获取picture失败。 IMAGE_UNSUPPORTED_METADATA：不支持的元数据类型。 |
+ 
+ 
+  
+
+#### OH_PictureNative_DeepCopyWithItems()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_PictureNative_DeepCopyWithItems(OH_PictureNative *source, const OH_PictureNative_AuxiliaryPictureCopyItem *auxiliaryPictureCopyItems, uint32_t auxiliaryPictureCopyCount, const OH_PictureNative_MetadataCopyItem *metadataCopyItems, uint32_t metadataCopyCount, Image_AuxiliaryPictureType *sourceAuxPictureAsMainPixelMap, OH_PictureNative **picture)
+```
+ 
+**描述**
+ 
+创建PictureNative对象的深拷贝，并将指定的辅助图和元数据拷贝到指定的目标类型。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_PictureNative *source | 源PictureNative对象，不能为NULL。 |
+| const OH_PictureNative_AuxiliaryPictureCopyItem *auxiliaryPictureCopyItems | 描述需要拷贝的辅助图的结构体。包括源辅助图和目标辅助图类型。如果auxiliaryPictureCopyCount为0，可以为NULL。 |
+| uint32_t auxiliaryPictureCopyCount | 需要拷贝的辅助图数量。 |
+| const OH_PictureNative_MetadataCopyItem *metadataCopyItems | 描述需要拷贝的元数据的结构体。包括源元数据类型和目标元数据类型。如果metadataCopyCount为0，可以为NULL。 |
+| uint32_t metadataCopyCount | 需要拷贝的元数据数量。 |
+| Image_AuxiliaryPictureType *sourceAuxPictureAsMainPixelMap | 指定源图片中作为拷贝图片主图的辅助图类型。如果应使用原始主图，可以为NULL。 |
+| OH_PictureNative **picture | 输出参数，用于接收新创建的PictureNative对象。当调用者不再需要时释放该对象。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：source或picture为空指针、获取picture失败或数量不匹配、数量不为零但对应数组为空指针。 IMAGE_ALLOC_FAILED：内存分配失败。 |
+ 
+ 
+  
+
 #### OH_PictureNative_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -841,6 +1075,37 @@ Image_ErrorCode OH_AuxiliaryPictureNative_SetMetadata(OH_AuxiliaryPictureNative 
 | 类型 | 说明 |
 | --- | --- |
 | Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_METADATA：不支持的元数据类型，或者元数据类型与辅助图片类型不匹配。 |
+ 
+ 
+  
+
+#### OH_AuxiliaryPictureNative_AcquirePixelmap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Image_ErrorCode OH_AuxiliaryPictureNative_AcquirePixelmap(OH_AuxiliaryPictureNative *auxiliaryPicture, OH_PixelmapNative **pixelmap)
+```
+ 
+**描述**
+ 
+获取辅助图的OH_PixelmapNative对象。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_AuxiliaryPictureNative *auxiliaryPicture | 指向OH_AuxiliaryPictureNative对象的指针。 |
+| OH_PixelmapNative **pixelmap | 输出参数，用于接收获取到的OH_PixelmapNative对象地址。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_INVALID_PARAMETER：auxiliaryPicture或pixelmap为空指针。 IMAGE_GET_IMAGE_DATA_FAILED：无法获取辅助图或像素数据。 IMAGE_ALLOC_FAILED：内存分配失败。 |
  
  
   

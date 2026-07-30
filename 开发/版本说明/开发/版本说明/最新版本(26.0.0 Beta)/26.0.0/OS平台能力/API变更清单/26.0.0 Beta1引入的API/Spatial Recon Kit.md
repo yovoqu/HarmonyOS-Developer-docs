@@ -1,6 +1,6 @@
 # Spatial Recon Kit
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-06-27 01:41:31（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-spatialreconkit-7001
 

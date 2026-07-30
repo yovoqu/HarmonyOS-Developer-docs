@@ -1,6 +1,6 @@
 # oh_values_bucket.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-values-bucket-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -113,7 +113,7 @@ int OH_VBucket_PutAssets(OH_VBucket *bucket, const char *field, Data_Asset **val
 | OH_VBucket *bucket | 表示指向OH_VBucket实例的指针。 |
 | const char *field | 数据库表中的列名，不能为空。 |
 | Data_Asset **value | 数据库表中指定列名对应的值。 |
-| uint32_t count | 表示传入的Data_Asset对象数组元素的个数. |
+| uint32_t count | 表示传入的Data_Asset对象数组元素的个数。 |
  
  
 **返回：**
@@ -125,7 +125,7 @@ int OH_VBucket_PutAssets(OH_VBucket *bucket, const char *field, Data_Asset **val
  
 **参考：**
  
-OH_VBucket
+[OH_VBucket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-vbucket)
  
   
 
@@ -162,7 +162,7 @@ int OH_VBucket_PutFloatVector(OH_VBucket *bucket, const char *field, const float
  
 **参考：**
  
-OH_VBucket
+[OH_VBucket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-vbucket)
  
   
 

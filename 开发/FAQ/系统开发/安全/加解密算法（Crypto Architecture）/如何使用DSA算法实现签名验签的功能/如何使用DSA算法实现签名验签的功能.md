@@ -30,7 +30,7 @@
 流程图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/qP9gRDfkTW-4DnuYGoSonQ/zh-cn_image_0000002658968429.png?HW-CC-KV=V1&HW-CC-Date=20260723T013406Z&HW-CC-Expire=86400&HW-CC-Sign=C91EE71A79D6296274309C63792DBF69FE7F68F1610EF1800C0968D4DEE3F2BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/qP9gRDfkTW-4DnuYGoSonQ/zh-cn_image_0000002658968429.png?HW-CC-KV=V1&HW-CC-Date=20260730T072541Z&HW-CC-Expire=86400&HW-CC-Sign=46E434125E45BF9BAEFFAB73EBA92A8DD9A22EBCBCB81DECD449C768A71A4B01)
 
  
 完整示例参考如下：

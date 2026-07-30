@@ -1,14 +1,14 @@
 # SplitLayout
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-splitlayout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-上下结构布局介绍了常用的页面布局样式。主要分为上下文本和上下图文两种类型。
+SplitLayout组件提供了常用的页面布局样式，主要用于展示图片、标题和内容容器的组合布局，适用于需要自适应不同屏幕尺寸的分栏展示场景（如详情页、设置页等）。支持自适应不同屏幕宽度（小于等于600vp、大于600vp且小于等于840vp、大于840vp三种布局），解决了在不同尺寸设备上需要展示不同布局样式的需求，提升页面适配性和用户体验。
  
 > [!NOTE]
-> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果SplitLayout设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SplitLayout本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SplitLayout设置通用属性和通用事件。
+> 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件仅可在Stage模型下使用。 SplitLayout不支持设置 通用属性 和 通用事件 。如果设置，编译工具链会额外生成__Common__节点，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SplitLayout本身，导致设置的属性或事件不生效。
 
   
 
@@ -36,6 +36,8 @@ import { SplitLayout } from '@kit.ArkUI';
 
 SplitLayout({mainImage: ResourceStr, primaryText: ResourceStr, secondaryText?: ResourceStr, tertiaryText?: ResourceStr, container: () => void })
  
+SplitLayout是分栏布局组件，支持自适应布局能力，在不同宽度下显示不同的布局样式。
+ 
 **装饰器类型：**@Component
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -46,11 +48,11 @@ SplitLayout({mainImage: ResourceStr, primaryText: ResourceStr, secondaryText?: R
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| mainImage | ResourceStr | 是 | @State | 传入图片。 |
-| primaryText | ResourceStr | 是 | @Prop | 标题内容。 |
-| secondaryText | ResourceStr | 否 | @Prop | 副标题内容。当需要在标题下方显示副标题时传入，不传入时取默认值，不显示副标题。 |
-| tertiaryText | ResourceStr | 否 | @Prop | 辅助文本。当需要显示辅助文本时传入，不传入时取默认值，不显示辅助文本。 |
-| container | () => void | 是 | @BuilderParam | 容器内组件。 |
+| mainImage | ResourceStr | 是 | @State | 主图片资源，显示在布局上方区域，支持png、jpg、svg等常见图片格式。 |
+| primaryText | ResourceStr | 是 | @Prop | 主标题内容，无长度限制。显示在布局的标题区域。 |
+| secondaryText | ResourceStr | 否 | @Prop | 副标题内容，无长度限制。当需要在标题下方显示副标题时传入，不传入时不显示副标题。 |
+| tertiaryText | ResourceStr | 否 | @Prop | 辅助文本，无长度限制。显示在副标题下方区域，当需要显示辅助文本时传入，不传入时不显示辅助文本。 |
+| container | () => void | 是 | @BuilderParam | 容器内组件，用于在布局下方区域承载自定义组件内容，无返回值。 |
  
  
   
@@ -60,6 +62,14 @@ SplitLayout({mainImage: ResourceStr, primaryText: ResourceStr, secondaryText?: R
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ 
+  
+
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
  
   
 
@@ -75,7 +85,7 @@ import { SplitLayout } from '@kit.ArkUI';
 @Entry
 @Component
 struct Index {
-  @State demoImage: Resource = $r("app.media.background");
+  @State demoImage: Resource = $r('app.media.background');
 
   build() {
     Column() {
@@ -111,4 +121,4 @@ struct Index {
 大于840vp布局：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/K3YD2LkITtm7DGrdK3WAcQ/zh-cn_image_0000002677828091.png?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=AA8B9F70CBA1D2F2AE7A36CB54F1E2BF7686BC771EC376D08D370D012FD61C93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/IOJnF1CcQcSPMzJYwe3-zg/zh-cn_image_0000002656008954.png?HW-CC-KV=V1&HW-CC-Date=20260730T071520Z&HW-CC-Expire=86400&HW-CC-Sign=4FE29103BA980D58E27366D160F5A63FE9185FEE527B44A62F8DD6F321638F01)

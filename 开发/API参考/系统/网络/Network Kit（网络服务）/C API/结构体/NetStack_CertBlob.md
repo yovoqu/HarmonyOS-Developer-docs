@@ -1,6 +1,6 @@
 # NetStack_CertBlob
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-netstack-certblob
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,5 +37,5 @@ struct NetStack_CertBlob {...}
 | 名称 | 描述 |
 | --- | --- |
 | enum NetStack_CertType type | 证书类型。 |
-| uint32_t size | 证书内容长度。 |
+| uint32_t size | 证书内容长度。单位：Byte。 |
 | uint8_t *data | 证书内容。 |

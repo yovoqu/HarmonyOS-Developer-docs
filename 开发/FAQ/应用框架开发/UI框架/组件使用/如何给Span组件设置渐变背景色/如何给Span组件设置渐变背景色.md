@@ -197,7 +197,7 @@ struct <span style="color: rgb(0,0,255);">styled_string_demo6 </span><span style
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ubexCInDQ3eHjrqlP6hMLg/zh-cn_image_0000002658962961.png?HW-CC-KV=V1&HW-CC-Date=20260723T012749Z&HW-CC-Expire=86400&HW-CC-Sign=48226769778F030F473C0F7CB02EA8E0E3BA08819E8618CFFD4EF281ACAF54D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ubexCInDQ3eHjrqlP6hMLg/zh-cn_image_0000002658962961.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=99CAADEFFBE00E2D415C9ABAE75FBDA9BB66C71BCE1228B877F454651180430C)
 
 - **方案二**：可直接采用Text组件代替Span组件，实现渐变背景色设置。
 ```text
@@ -236,7 +236,7 @@ export struct <span style="color: rgb(0,0,255);">OptionTwo </span><span style="c
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/YEA3YyPTRS-VjnKd3GADCw/zh-cn_image_0000002628603746.png?HW-CC-KV=V1&HW-CC-Date=20260723T012749Z&HW-CC-Expire=86400&HW-CC-Sign=DE2CB2989600BB99C47D6AB96A76420ADB8A8DBDECCAF65692D83F854A7639E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/YEA3YyPTRS-VjnKd3GADCw/zh-cn_image_0000002628603746.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=E63E82AB58DAF0032B3BDF08651AD64EA8DF32DCAE67489CBB223ACBBC1140F3)
 
 - **方案三**：将文本绘制成图片显示。
 
@@ -339,7 +339,7 @@ struct <span style="color: rgb(0,0,255);">OptionThree </span><span style="color:
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/0RVs7A_6R3WtaxskSV1BZA/zh-cn_image_0000002658843013.png?HW-CC-KV=V1&HW-CC-Date=20260723T012749Z&HW-CC-Expire=86400&HW-CC-Sign=0005BD51FDB3A7EE38B685F49A2540EE5ACBC0309736A237BD94E5C85E3CDB0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/0RVs7A_6R3WtaxskSV1BZA/zh-cn_image_0000002658843013.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=07D145C480C35069D8C1E2BA3736553C0786110DB0B46C7BFEA5F79194AB39BC)
 
 
  

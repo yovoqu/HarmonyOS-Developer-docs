@@ -80,7 +80,7 @@ struct Index {
 问题效果图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/eLHj9xotQh-Avc8kFyvm3Q/zh-cn_image_0000002633438810.png?HW-CC-KV=V1&HW-CC-Date=20260723T013237Z&HW-CC-Expire=86400&HW-CC-Sign=D4E019D39708D33BECE54B536E63EFCE72BC0E29841C3941B79B17B70D9E80DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/eLHj9xotQh-Avc8kFyvm3Q/zh-cn_image_0000002633438810.png?HW-CC-KV=V1&HW-CC-Date=20260730T072519Z&HW-CC-Expire=86400&HW-CC-Sign=1C1159CD89193A0AC5743B0812AB1E1EA8753E84CF0EB97FF45960B2371738A2)
 
  
 场景三：如何为HdsNavigation的标题栏与HdsTabs的底部悬浮页签设置沉浸式光感材质效果（如颜色反射）？
@@ -203,7 +203,7 @@ struct ExtensionToolBar {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Nt8KPoK6S3ik8R40Sw3j8Q/zh-cn_image_0000002633598796.png?HW-CC-KV=V1&HW-CC-Date=20260723T013237Z&HW-CC-Expire=86400&HW-CC-Sign=B985B411598BC044EA7F04D77CA21F24E1CE70E4587DBD66C5F7658F8A40A841)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Nt8KPoK6S3ik8R40Sw3j8Q/zh-cn_image_0000002633598796.png?HW-CC-KV=V1&HW-CC-Date=20260730T072519Z&HW-CC-Expire=86400&HW-CC-Sign=A31B509F1732F1522C12E4E977AE90FD1052592A05A8C31DFED135D1D454B2A0)
 
 - **场景二：实现HdsNavigation嵌套HdsTabs滚动模糊效果正常显示。**1. 每个Tab单独创建独立的Scroller，互不共用，避免彼此干扰。
 
@@ -323,7 +323,7 @@ struct Index {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/hDtywFwmQQWVJgyFwJamAw/zh-cn_image_0000002633438926.png?HW-CC-KV=V1&HW-CC-Date=20260723T013237Z&HW-CC-Expire=86400&HW-CC-Sign=C7DEEB168110FDBB8998C612F669EF5559FF3365B713BAFFEF9100953E8FFDF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/hDtywFwmQQWVJgyFwJamAw/zh-cn_image_0000002633438926.png?HW-CC-KV=V1&HW-CC-Date=20260730T072519Z&HW-CC-Expire=86400&HW-CC-Sign=29AA9671FF8FAE5D8AD8A869D2CFE1D4DCF14D94BCCECF6257D38147977ACF51)
 
 - **场景三：为HdsNavigation的标题栏与HdsTabs的底部悬浮页签设置沉浸式材质效果。**1.在aboutToAppear生命周期中，调用hdsMaterial.getSystemMaterialTypes()获取当前设备支持的材质类型。若设备不支持hdsMaterial.MaterialType.IMMERSIVE沉浸式材质，则降级使用hdsMaterial.MaterialLevel.SMOOTH效果以优化性能。
 

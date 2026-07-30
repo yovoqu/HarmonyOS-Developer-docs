@@ -1,6 +1,6 @@
 # avimage_generator.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -90,7 +90,7 @@ OH_AVImageGenerator* OH_AVImageGenerator_Create(void)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-OH_AVErrCode OH_AVImageGenerator_SetFDSource(OH_AVImageGenerator* generator,int32_t fd, int64_t offset, int64_t size)
+OH_AVErrCode OH_AVImageGenerator_SetFDSource(OH_AVImageGenerator* generator, int32_t fd, int64_t offset, int64_t size)
 ```
  
 **描述**
@@ -125,7 +125,7 @@ OH_AVErrCode OH_AVImageGenerator_SetFDSource(OH_AVImageGenerator* generator,int3
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-OH_AVErrCode OH_AVImageGenerator_FetchFrameByTime(OH_AVImageGenerator* generator,int64_t timeUs, OH_AVImageGenerator_QueryOptions options, OH_PixelmapNative** pixelMap)
+OH_AVErrCode OH_AVImageGenerator_FetchFrameByTime(OH_AVImageGenerator* generator, int64_t timeUs, OH_AVImageGenerator_QueryOptions options, OH_PixelmapNative** pixelMap)
 ```
  
 **描述**
@@ -144,7 +144,7 @@ OH_AVErrCode OH_AVImageGenerator_FetchFrameByTime(OH_AVImageGenerator* generator
 | --- | --- |
 | OH_AVImageGenerator* generator | 指向OH_AVImageGenerator实例的指针。 |
 | int64_t timeUs | 需要获取的视频帧在视频中的时间点，单位为微秒（μs）。 |
-| OH_AVImageGenerator_QueryOptions options | 关于给定时间Us和视频帧之间关系的时间选项。 |
+| OH_AVImageGenerator_QueryOptions options | 指定如何根据给定时间点查找视频帧的选项。 |
 | OH_PixelmapNative** pixelMap | 获取的视频帧对象。 |
  
  

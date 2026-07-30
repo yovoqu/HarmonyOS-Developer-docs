@@ -1,6 +1,6 @@
 # API错误码
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -592,7 +592,7 @@ SSL peer certificate or SSH remote key was not OK.
 4. 采集故障扩展信息字段或者日志，查看如下关键字信息：
 
   
-[tstGlbUsr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field#tstglbusr)、[tstCurUsr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field#tstcurusr)：参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section11935814273)信任CA证书。
+[tstGlbUsr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field#tstglbusr)、[tstCurUsr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field#tstcurusr)：参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-connection-security-configuration)信任CA证书。
 5. [caFun](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field#cafun)：若使用了自定义回调函数，请查看回调函数的逻辑正确性。
 6. [selfCaPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field#selfcapath)：若使用了自定义CA文件夹，请分析排查自定义CA文件夹下的证书与服务器证书是否匹配。
 7. [selfCaFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field#selfcafile)：若使用了自定义证书文件，请分析排查自定义证书文件。

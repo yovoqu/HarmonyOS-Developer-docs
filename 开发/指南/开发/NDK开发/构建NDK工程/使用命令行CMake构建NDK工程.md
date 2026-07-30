@@ -1,6 +1,6 @@
 # 使用命令行CMake构建NDK工程
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake
 
@@ -184,20 +184,20 @@ int sum(int a, int b)
 
   
 ```bash
->mkdir build && cd build
- >cmake -D OHOS_STL=c++_shared -D OHOS_ARCH=arm64-v8a -D OHOS_PLATFORM=OHOS -D CMAKE_TOOLCHAIN_FILE={ohos-sdk}/linux/native/build/cmake/ohos.toolchain.cmake ..
- >cmake --build .
+mkdir build && cd build
+ cmake -D OHOS_STL=c++_shared -D OHOS_ARCH=arm64-v8a -D OHOS_PLATFORM=OHOS -D CMAKE_TOOLCHAIN_FILE={ohos-sdk}/linux/native/build/cmake/ohos.toolchain.cmake ..
+ cmake --build .
 ```
 
 2. 采用OHOS_STL=c++_static静态链接c++库方式构建工程，当OHOS_ARCH=armeabi-v7a会编译32位静态库，而当OHOS_ARCH=arm64-v8a会编译64位静态库。
 
   
 ```bash
->mkdir build && cd build
- >cmake -D OHOS_STL=c++_static -D OHOS_ARCH=arm64-v8a -D OHOS_PLATFORM=OHOS -D CMAKE_TOOLCHAIN_FILE={ohos-sdk}/linux/native/build/cmake/ohos.toolchain.cmake ..
- >cmake --build .
+mkdir build && cd build
+ cmake -D OHOS_STL=c++_static -D OHOS_ARCH=arm64-v8a -D OHOS_PLATFORM=OHOS -D CMAKE_TOOLCHAIN_FILE={ohos-sdk}/linux/native/build/cmake/ohos.toolchain.cmake ..
+ cmake --build .
 ```
-  命令中，OHOS_ARCH与OHOS_PLATFORM两个变量最终会生成clang++的--target命令参数，在此例子中就是--target=arm-linux-ohos和--march=armv7a两个参数。
+  命令中，OHOS_ARCH与OHOS_PLATFORM两个变量最终会生成clang++的--target命令参数，在此例子中就是--target=arm-linux-ohos和--march=arm64-v8a两个参数。
 
   CMAKE_TOOLCHAIN_FILE指定了toolchain文件，在此文件中默认给clang++设置了--sysroot={ndk_sysroot目录}，告诉编译器查找系统头文件的根目录。
  

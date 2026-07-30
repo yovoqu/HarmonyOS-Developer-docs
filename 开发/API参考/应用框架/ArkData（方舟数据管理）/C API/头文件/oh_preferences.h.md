@@ -1,6 +1,6 @@
 # oh_preferences.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -98,8 +98,8 @@ typedef void (*OH_PreferencesDataObserver)(void *context, const OH_PreferencesPa
 | 参数项 | 描述 |
 | --- | --- |
 | void *context | 应用上下文的指针。 |
-| const OH_PreferencesPair *pairs | 发生变更的KV数据的指针。 |
-| uint32_t count | 发生变更的KV数据的数量。 |
+| const OH_PreferencesPair *pairs | 发生变更的键值对（KV）数据的指针。 |
+| uint32_t count | 发生变更的键值对（KV）数据的数量。 |
  
  
   
@@ -226,7 +226,7 @@ int OH_Preferences_GetBool(OH_Preferences *preference, const char *key, bool *va
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_STORAGE，表示存储异常。 若错误码为PREFERENCES_ERROR_MALLOC，表示内存分配失败。 若错误码为PREFERENCES_ERROR_KEY_NOT_FOUND，表示查询的key不存在。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_STORAGE，表示存储异常。 若错误码为PREFERENCES_ERROR_MALLOC，表示内存分配失败。 若错误码为PREFERENCES_ERROR_KEY_NOT_FOUND，表示查询的Key不存在。 |
  
  
   
@@ -436,7 +436,7 @@ int OH_Preferences_RegisterDataObserver(OH_Preferences *preference, void *contex
 | void *context | 应用上下文的指针。 |
 | OH_PreferencesDataObserver observer | 订阅数据变更关联的回调函数OH_PreferencesDataObserver。 |
 | const char *keys[] | 需要订阅的Key数组。 |
-| uint32_t keyCount | 需要订阅的Key的数量。 |
+| uint32_t keyCount | 需要订阅的Key的数量。取值范围大于等于1，必须与keys数组的实际长度一致。 |
  
  
 **返回：**
@@ -470,7 +470,7 @@ int OH_Preferences_UnregisterDataObserver(OH_Preferences *preference, void *cont
 | void *context | 应用上下文的指针。 |
 | OH_PreferencesDataObserver observer | 订阅数据变更关联的回调函数OH_PreferencesDataObserver。 |
 | const char *keys[] | 需要取消订阅的Key数组。 |
-| uint32_t keyCount | 需要取消订阅的Key的数量。 |
+| uint32_t keyCount | 需要取消订阅的Key的数量。取值范围大于等于1，必须与keys数组的实际长度一致。 |
  
  
 **返回：**

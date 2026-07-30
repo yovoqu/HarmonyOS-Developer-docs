@@ -1,6 +1,6 @@
 # 订阅崩溃事件（C/C++）
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events-ndk
 
@@ -414,7 +414,7 @@ HiAppEvent eventInfo.params.exception={"message":"Unexpected Text in JSON: Empty
 HiAppEvent eventInfo.params.hilog.size=100
 HiAppEvent eventInfo.params.process_life_time=25
 HiAppEvent eventInfo.params.memory={"rss":181964,"sys_avail_mem":1230456,"sys_free_mem":676940,"sys_total_mem":2001932}
-HiAppEvent eventInfo.params.external_log=["/data/storage/el2/log/hiappevent/APP_CRASH_1503045716408_2610.log","/data/storage/el2/log/hiappevent/APP_CRASH_1503045716409_2610.dmp"]
+HiAppEvent eventInfo.params.external_log=["/data/storage/el2/log/hiappevent/APP_CRASH_1503045716408_2610.log"]
 HiAppEvent eventInfo.params.log_over_limit=0
 ```
 

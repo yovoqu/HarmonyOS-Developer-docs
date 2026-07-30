@@ -1,6 +1,6 @@
 # 如何解决朗读控件TextReader的跳跃播放问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-1
 
@@ -14,7 +14,7 @@
 
 朗读控件应用广泛，例如在用户不方便或者无法查看屏幕文字的时候，为用户朗读新闻，提供资讯。
  
-朗读控件TextReader设置内容的相关API有[TextReader.setArticle()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api#section1658111564332)和[TextReader.setArticleContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api#section456794474412)。
+朗读控件TextReader设置内容的相关API有[TextReader.setArticle()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api#setarticle)和[TextReader.setArticleContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api#setarticlecontent)。
  
  
 

@@ -11,7 +11,7 @@ Tabs组件嵌套Tabs，在正常情况下，当子组件滑动到边缘时不会
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/77YCawQhRLyX2YmI4yfgIg/zh-cn_image_0000002628552384.png?HW-CC-KV=V1&HW-CC-Date=20260723T013021Z&HW-CC-Expire=86400&HW-CC-Sign=D3988413592310C2CF16C23F123A35B7B50B2BF09B53C646205C58B1D3DAF7D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/77YCawQhRLyX2YmI4yfgIg/zh-cn_image_0000002628552384.png?HW-CC-KV=V1&HW-CC-Date=20260730T072443Z&HW-CC-Expire=86400&HW-CC-Sign=E82D65C9096E408EB4C685FD3D653823A95D97D5AB7404C25837FCEBF937BF69)
 
  
  

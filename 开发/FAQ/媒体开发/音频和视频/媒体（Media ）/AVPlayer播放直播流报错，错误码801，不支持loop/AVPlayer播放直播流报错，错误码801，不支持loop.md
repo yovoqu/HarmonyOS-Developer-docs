@@ -21,7 +21,7 @@
 使用AVPlayer播放直播流，错误日志信息如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/yf7yXXMgTuuq_mW74j81Yg/zh-cn_image_0000002628392786.png?HW-CC-KV=V1&HW-CC-Date=20260723T013633Z&HW-CC-Expire=86400&HW-CC-Sign=907048D9A219931B15193D58147EA2789B35E9A95BBE2DDDD56E0F2ADB568811)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/yf7yXXMgTuuq_mW74j81Yg/zh-cn_image_0000002628392786.png?HW-CC-KV=V1&HW-CC-Date=20260730T072630Z&HW-CC-Expire=86400&HW-CC-Sign=9F65280832630437C2FED4C34C2509A5817F9DA7AFEFFA865724A3F3BAD6230F)
 
  
 根据错误日志信息可以知道，当前媒体流为直播流，直播流不支持循环播放。

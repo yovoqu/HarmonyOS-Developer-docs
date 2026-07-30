@@ -1,6 +1,6 @@
 # button
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-button
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -32,7 +32,7 @@
 | value | string | - | 否 | button的文本值，circle类型不生效。 |
 | icon | string | - | 否 | button的图标路径，图标格式为jpg，png和svg。 |
 | placement | string | end | 否 | 仅在type属性为缺省时生效，设置图标位于文本的位置，可选值为： - "start"：图标位于文本起始处。 - "end"：图标位于文本结束处。 - "top"：图标位于文本上方。 - "bottom"：图标位于文本下方。 |
-| waiting | boolean | false | 否 | 是否处于waiting状态，值为true时展现等待中转圈效果，位于文本左侧。值为false时，不展示等待中效果。类型为download时不生效。 |
+| waiting | boolean | false | 否 | 是否处于waiting状态，值为true时展现等待中转圈效果，位于文本左侧。值为false时，不展示等待中效果。 |
  
  
   
@@ -109,4 +109,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/aGAfDJX7TqmK8lEpVpqErQ/zh-cn_image_0000002626231126.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=64EA293BC1BB807B037E85E6C2407BC69C0D2D72A6DD09D5A0BC585D50C1FF55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/HMa33GEhSWqakhasl9JyPA/zh-cn_image_0000002686088767.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071527Z&HW-CC-Expire=86400&HW-CC-Sign=A3196BA4CABEC1E5B88828F7DE4F15130AA92EAB636D3A8E8F412CC7AFD52E26)

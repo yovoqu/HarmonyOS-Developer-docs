@@ -1,11 +1,11 @@
 # 页面间转场 (pageTransition)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-当路由([router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router))进行切换时，可以通过在[pageTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#pagetransition9)函数中自定义页面入场和页面退场的转场动效。详细指导请参考[页面转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-page-transition-animation)。
+当路由（[router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)）进行切换时，可以通过在[pageTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#pagetransition9)函数中自定义页面入场和页面退场的转场动效。详细指导请参考[页面转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-page-transition-animation)。
 
 > [!NOTE]
 > 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 为了实现更好的转场效果，推荐使用 Navigation组件 和 模态转场 。
@@ -28,7 +28,7 @@ PageTransitionEnter(value: PageTransitionOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | PageTransitionOptions | 是 | 配置入场动效的参数。 |
+| value | PageTransitionOptions | 是 | 配置入场动效的参数，包含页面转场效果的路由类型(type)、动画时长(duration)、动画曲线(curve)、动画延迟时长(delay)等配置项。 |
 
 
 
@@ -82,7 +82,7 @@ PageTransitionExit(value: PageTransitionOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | PageTransitionOptions | 是 | 配置退场动效的参数。 |
+| value | PageTransitionOptions | 是 | 配置退场动效的参数，包含页面转场效果的路由类型(type)、动画时长(duration)、动画曲线(curve)、动画延迟时长(delay)等配置项。 |
 
 
 
@@ -93,17 +93,17 @@ PageTransitionExit(value: PageTransitionOptions)
 
 onExit(event: PageTransitionCallback): PageTransitionExitInterface
 
-逐帧回调，直到出场动画结束，progress从0变化到1。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+逐帧回调，直到退场动画结束，progress从0变化到1。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | PageTransitionCallback | 是 | 出场动画的逐帧回调直到出场动画结束，progress从0变化到1。 |
+| event | PageTransitionCallback | 是 | 退场动画的逐帧回调直到退场动画结束，progress从0变化到1。 |
 
 
 **示例：**
@@ -124,7 +124,7 @@ pageTransition() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-退场/进场动效的参数。
+退场/入场动效的参数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -135,7 +135,7 @@ pageTransition() {
 | type | RouteType | 否 | 是 | 页面转场效果生效的路由类型。 默认值：RouteType.None。 说明： 当pageTransition函数中配置了多个PageTransitionEnter或PageTransitionExit时，按照RouteType匹配规则生效：系统会根据当前路由操作类型（Push或Pop）从所有配置的PageTransitionEnter/PageTransitionExit中选择最后一个匹配的组件生效。如果存在多个匹配相同RouteType的PageTransitionEnter，则最后配置的生效；如果存在多个匹配相同RouteType的PageTransitionExit，则最后配置的生效。RouteType.None与所有路由类型均匹配。 |
 | duration | number | 否 | 是 | 动画的时长。 单位：毫秒 默认值：1000 取值范围：[0, +∞) |
 | curve | Curve \| string \| ICurve10+ | 否 | 是 | 动画曲线。 推荐以Curve或ICurve形式指定。 当类型为string时，为动画插值曲线，取值参考AnimateParam的curve参数。 默认值：Curve.Linear |
-| delay | number | 否 | 是 | 动画延迟时长。 单位：毫秒 默认值：0 说明： 没有匹配时使用系统默认的页面转场效果(根据设备可能会有差异)，如需禁用系统默认页面转场效果，可以指定duration为0。 |
+| delay | number | 否 | 是 | 动画延迟时长。 单位：毫秒 默认值：0 说明： 没有匹配时使用系统默认的页面转场效果（根据设备可能会有差异），如需禁用系统默认页面转场效果，可以指定duration为0。 |
 
 
 
@@ -238,7 +238,7 @@ scale(value: ScaleOptions): T
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ScaleOptions | 是 | 设置页面转场时的缩放效果，为入场时起点和退场时终点的值。 - x：横向放大倍数（或缩小比例）。 - y：纵向放大倍数（或缩小比例）。 - z：竖向放大倍数（或缩小比例）。 - centerX、centerY缩放中心点。centerX和centerY默认值是"50%"，即默认以页面的中心点为旋转中心点。 - 中心点为(0, 0)代表页面的左上角。 |
+| value | ScaleOptions | 是 | 设置页面转场时的缩放效果，为入场时起点和退场时终点的值。 - x：横向放大倍数（或缩小比例）。 - y：纵向放大倍数（或缩小比例）。 - z：竖向放大倍数（或缩小比例）。 - centerX、centerY缩放中心点。centerX和centerY默认值是"50%"，即默认以页面的中心点为缩放中心点。 - 中心点为(0, 0)代表页面的左上角。 |
 
 
 **返回值：**
@@ -292,9 +292,11 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
+**参数：**
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | RouteType | 是 | 页面转场类型。 |
+| type | RouteType | 是 | 页面转场效果生效的路由类型。 |
 | progress | number | 是 | 转场进度。progress从0变化到1。 |
 
 
@@ -331,12 +333,12 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Left | 1 | 设置到入场时表示从左边滑入，出场时表示滑出到左边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| Right | 2 | 设置到入场时表示从右边滑入，出场时表示滑出到右边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| Top | 3 | 设置到入场时表示从上边滑入，出场时表示滑出到上边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| Bottom | 4 | 设置到入场时表示从下边滑入，出场时表示滑出到下边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| START12+ | 5 | 设置LTR入场时表示从左边滑入，出场时表示滑出到左边。RTL入场时表示从右边滑入，出场时表示滑出到右边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| END12+ | 6 | 设置LTR入场时表示从右边滑入，出场时表示滑出到右边。RTL入场时表示从左边滑入，出场时表示滑出到左边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| Left | 1 | 设置到入场时表示从左边滑入，退场时表示滑出到左边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Right | 2 | 设置到入场时表示从右边滑入，退场时表示滑出到右边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Top | 3 | 设置到入场时表示从上边滑入，退场时表示滑出到上边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Bottom | 4 | 设置到入场时表示从下边滑入，退场时表示滑出到下边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| START12+ | 5 | 设置LTR入场时表示从左边滑入，退场时表示滑出到左边。RTL入场时表示从右边滑入，退场时表示滑出到右边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| END12+ | 6 | 设置LTR入场时表示从右边滑入，退场时表示滑出到右边。RTL入场时表示从左边滑入，退场时表示滑出到左边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -349,7 +351,7 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 #### 示例1（设置退入场动画）
 
-自定义方式1：通过不同的退入场类型配置不同的退场，入场动画。
+自定义方式1：通过不同的退入场类型配置不同的退场和入场动画。
 
 ```ArkTS
 // Index.ets
@@ -362,7 +364,7 @@ struct Index {
   build() {
     Column() {
       // $r("app.media.transition_image1")需要替换为开发者所需的图像资源文件。
-      Image($r("app.media.transition_image1")).width('100%').height('100%')
+      Image($r('app.media.transition_image1')).width('100%').height('100%')
     }
     .width('100%')
     .height('100%')
@@ -454,7 +456,7 @@ struct Index {
     })
   }
 
-  // 自定义方式2：使用系统提供的多种默认效果(平移、缩放、透明度等)
+  // 自定义方式2：使用系统提供的多种默认效果（平移、缩放、透明度等）
   pageTransition() {
     // 该页面进入动画时长为1200ms，尽量与另一页面的退出动画时长匹配
     PageTransitionEnter({ duration: 1200 })
@@ -482,7 +484,7 @@ struct Page1 {
     })
   }
 
-  // 自定义方式2：使用系统提供的多种默认效果(平移、缩放、透明度等)
+  // 自定义方式2：使用系统提供的多种默认效果（平移、缩放、透明度等）
   pageTransition() {
     // 该页面进入动画时长为1000ms，尽量与另一页面的退出动画时长匹配
     PageTransitionEnter({ duration: 1000 })
@@ -534,7 +536,7 @@ struct Index {
     .justifyContent(FlexAlign.Center)
   }
 
-  // 自定义方式2：使用系统提供的多种默认效果(平移、缩放、透明度等)
+  // 自定义方式2：使用系统提供的多种默认效果（平移、缩放、透明度等）
   pageTransition() {
     // 设置入场动效
     PageTransitionEnter({ duration: 200 })
@@ -575,7 +577,7 @@ struct Page1 {
     .justifyContent(FlexAlign.Center)
   }
 
-  // 自定义方式2：使用系统提供的多种默认效果(平移、缩放、透明度等)
+  // 自定义方式2：使用系统提供的多种默认效果（平移、缩放、透明度等）
   pageTransition() {
     PageTransitionEnter({ duration: 200 })
       .slide(SlideEffect.END) //Right
@@ -648,4 +650,4 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/oDnqpmEXR96aIYi0TCoakQ/zh-cn_image_0000002677827947.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=9E34E25C4DC0AA7C5EBA48F241CF3AE5B58BDBF5CD9BD5B95D016AE4F455E957)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/QZjKCUt3RZmEdIQVc0StSg/zh-cn_image_0000002656008830.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071513Z&HW-CC-Expire=86400&HW-CC-Sign=0211B82DC23E11F939F1E25F04B71A1A638AB031AF3FB6D9C82A12F0C313C5CE)

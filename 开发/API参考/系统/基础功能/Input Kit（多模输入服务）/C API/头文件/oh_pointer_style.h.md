@@ -1,6 +1,6 @@
 # oh_pointer_style.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -101,7 +101,7 @@ enum Input_PointerStyle
 | MIDDLE_BTN_SOUTH_EAST = 36 | 向东南滚动 |  |
 | MIDDLE_BTN_SOUTH_WEST = 37 | 向西南滚动 |  |
 | MIDDLE_BTN_NORTH_SOUTH_WEST_EAST = 38 | 四向锥形移动 |  |
-| HORIZONTAL_TEXT_CURSOR = 39 | 垂直文本选择 |  |
+| HORIZONTAL_TEXT_CURSOR = 39 | 水平文本选择 |  |
 | CURSOR_CROSS = 40 | 十字光标 |  |
 | CURSOR_CIRCLE = 41 | 圆形光标 |  |
 | LOADING = 42 | 正在载入动画光标 |  |

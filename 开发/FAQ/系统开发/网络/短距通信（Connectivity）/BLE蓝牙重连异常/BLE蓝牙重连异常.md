@@ -30,14 +30,14 @@
 
 分析hilog日志，从日志发现在重新连接流程时，有方法调用不合理的情况：
  1. setCharacteristicChangeNotification和getServices一直在循环调用，且getServices在setCharacteristicChangeNotification之后调用，而正常流程是先调用getServices之后才能调用setCharacteristicChangeNotification。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/y4xxYOZyTueIsNOTfHQOww/zh-cn_image_0000002658972619.png?HW-CC-KV=V1&HW-CC-Date=20260723T013500Z&HW-CC-Expire=86400&HW-CC-Sign=CC966946F5D9B23EC017AA8DFD613ABE5C73311544D087947A607B98C79D5069)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/y4xxYOZyTueIsNOTfHQOww/zh-cn_image_0000002658972619.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=BC28E7C8CDB52C6404E54042949AB9F687C5259C369B363DE0B1517387190297)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/P7K8QV6XTVK9H2MMj9gZWg/zh-cn_image_0000002628613410.png?HW-CC-KV=V1&HW-CC-Date=20260723T013500Z&HW-CC-Expire=86400&HW-CC-Sign=F75B20F15D978D19BD73BD066A9A009CDB37B552B1730A1EA10EE95AB9BB247B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/P7K8QV6XTVK9H2MMj9gZWg/zh-cn_image_0000002628613410.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=452302FA1B7C347683D981C35776F3447E9C5A33F1DF181CB56E7AE68EA665CB)
 
 2. writeCharacteristicValue没有在setCharacteristicChangeNotification异步回调回来之后再调用。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/FDXvqRBKS--LV7I5NYrScw/zh-cn_image_0000002658852667.png?HW-CC-KV=V1&HW-CC-Date=20260723T013500Z&HW-CC-Expire=86400&HW-CC-Sign=EC3FA0FAE64517327862F474E956DA7A3FDC0EEDAD0CFC4B5283F1A1A4096A5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/FDXvqRBKS--LV7I5NYrScw/zh-cn_image_0000002658852667.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=F9C19C58C24110AA792E9B4D9F0AE0F0E331580112B87160639D09B3CBB7AF98)
 
  
  

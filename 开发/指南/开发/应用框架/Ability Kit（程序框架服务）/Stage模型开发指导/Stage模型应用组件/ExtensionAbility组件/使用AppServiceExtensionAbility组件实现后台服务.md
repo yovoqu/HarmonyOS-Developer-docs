@@ -1,6 +1,6 @@
 # 使用AppServiceExtensionAbility组件实现后台服务
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-service-extension-ability
 
@@ -29,14 +29,14 @@ AppServiceExtensionAbility组件当前仅支持2in1设备。
 #### 规格限制
 
  - 应用集成AppServiceExtensionAbility组件需要申请ACL权限（ohos.permission.SUPPORT_APP_SERVICE_EXTENSION）。该ACL权限当前只对企业普通应用开放申请。
- - AppServiceExtensionAbility组件内不支持调用[window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)相关API。
+ - 针对AppServiceExtensionAbility接口调用限制，详情请参考 [@ohos.app.ability.AppServiceExtensionAbility (应用后台服务扩展组件)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability) 的约束限制。
 
 
 
 
 #### 运作机制
 
-开发者可以在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中以[启动](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startappserviceextensionability20)或[连接](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#connectappserviceextensionability20)的方式来拉起AppServiceExtensionAbility组件。
+开发者可以在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中以启动（[startAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startappserviceextensionability20)）或连接（[connectAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#connectappserviceextensionability20)）的方式来拉起AppServiceExtensionAbility组件。
 
  - **启动：** 客户端必须为AppServiceExtensionAbility所属应用或者在AppServiceExtensionAbility支持的应用清单（即[extensionAbilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#extensionabilities标签)的appIdentifierAllowList属性）中的应用才能调用[startAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startappserviceextensionability20)接口。
  - **连接：** 如果[AppServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability)实例未启动，客户端必须为AppServiceExtensionAbility所属应用或者在AppServiceExtensionAbility支持的应用清单（即[extensionAbilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#extensionabilities标签)的appIdentifierAllowList属性）中的应用才能调用[connectAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#connectappserviceextensionability20)接口。如果实例已启动，则没有上述限制。
@@ -69,7 +69,7 @@ AppServiceExtensionAbility组件当前仅支持2in1设备。
 2. 在myappserviceextability目录，右键选择“New > ArkTS File”，新建一个文件并命名为MyAppServiceExtAbility.ets。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/mJOB2qp_TNqm4oNN6YhklA/zh-cn_image_0000002656467289.png?HW-CC-KV=V1&HW-CC-Date=20260624T020724Z&HW-CC-Expire=86400&HW-CC-Sign=50A0F76EE92FDCA1C1353F61EBC69A177C76E11C032D206AB1B86968B0E5A93D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/V4y4vo_sQyCpqlupIiP63w/zh-cn_image_0000002685925361.png?HW-CC-KV=V1&HW-CC-Date=20260730T071824Z&HW-CC-Expire=86400&HW-CC-Sign=2C8E85A35D31FACABE23F0E4F8EB772A28F9A74584D1173F0E63211F7CAC61BE)
 
 
   其目录结构如下所示：
@@ -140,9 +140,9 @@ export default class MyAppServiceExtAbility extends AppServiceExtensionAbility {
 ```ArkTS
 {
   "module": {
-    // ···
+    // ...
     "extensionAbilities": [
-    // ···
+      // ...
       {
         "name": "MyAppServiceExtAbility",
         "description": "appService",
@@ -151,7 +151,7 @@ export default class MyAppServiceExtAbility extends AppServiceExtensionAbility {
         "srcEntry": "./ets/myappserviceextability/MyAppServiceExtAbility.ets",
         "appIdentifierAllowList": [
           // 此处填写允许启动该后台服务的客户端应用的appIdentifier列表
-        ],
+        ]
       }
     ]
   }
@@ -473,9 +473,15 @@ let options: common.ConnectOptions = {
     let data = new rpc.MessageSequence();
     let reply = new rpc.MessageSequence();
 
-    // 写入请求数据
-    data.writeInt(1);
-    data.writeInt(2);
+    try {
+         // 写入请求数据
+         data.writeInt(1);
+         data.writeInt(2);
+       } catch (error) {
+         let e: BusinessError = error as BusinessError;
+         hilog.error(DOMAIN_NUMBER, TAG, 'errorCode ' + e.code);
+         hilog.error(DOMAIN_NUMBER, TAG, 'errorMessage ' + e.message);
+       }
 
     remote.sendMessageRequest(REQUEST_CODE, data, reply, option).then((ret: rpc.RequestResult) => {
       if (ret.errCode === 0) {
@@ -504,13 +510,13 @@ let options: common.ConnectOptions = {
 struct ClientServerExt {
   build() {
     Column() {
-    // ···
+      // ...
       List({ initialIndex: 0 }) {
         ListItem() {
           Row() {
-            // ···
+            // ...
           }
-        // ···
+          // ...
           .onClick(() => {
             let context = this.getUIContext().getHostContext() as common.UIAbilityContext; // UIAbilityContext
             connectionId = context.connectAppServiceExtensionAbility(want, options);
@@ -518,7 +524,7 @@ struct ClientServerExt {
           })
         }
       }
-    // ···
+      // ...
     }
   }
 }
@@ -530,6 +536,7 @@ struct ClientServerExt {
 import { AppServiceExtensionAbility, Want } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 const TAG: string = '[MyAppServiceExtAbility]';
 const DOMAIN_NUMBER: number = 0xFF00;
@@ -540,9 +547,15 @@ class Stub extends rpc.RemoteObject {
     data: rpc.MessageSequence,
     reply: rpc.MessageSequence,
     options: rpc.MessageOption): boolean | Promise<boolean> {
-    hilog.info(DOMAIN_NUMBER, TAG, 'onRemoteMessageRequest');
-    let sum = data.readInt() + data.readInt();
-    reply.writeInt(sum);
+    try {
+         hilog.info(DOMAIN_NUMBER, TAG, 'onRemoteMessageRequest');
+         let sum = data.readInt() + data.readInt();
+         reply.writeInt(sum);
+       } catch (error) {
+         let e: BusinessError = error as BusinessError;
+         hilog.error(DOMAIN_NUMBER, TAG, 'errorCode ' + e.code);
+         hilog.error(DOMAIN_NUMBER, TAG, 'errorMessage ' + e.message);
+       }
     return true;
   }
 }

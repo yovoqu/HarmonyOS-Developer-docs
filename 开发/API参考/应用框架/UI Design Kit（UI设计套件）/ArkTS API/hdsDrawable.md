@@ -1,6 +1,6 @@
 # hdsDrawable
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsdrawable
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -157,25 +157,19 @@ import { resourceManager } from '@kit.LocalizationKit';
 import { common } from '@kit.AbilityKit';
 
 let bundleName: string = 'com.example.uidesignkit';
-try {
-  // 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext
-  let resManager: resourceManager.ResourceManager =
-    (this.getUIContext().getHostContext() as common.UIAbilityContext)?.resourceManager;
-  let layeredDrawableDescriptor: LayeredDrawableDescriptor =
-    (resManager.getDrawableDescriptor($r('app.media.drawable').id)) as LayeredDrawableDescriptor; // 传入已创建的图片资源
+// 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext
+let resManager: resourceManager.ResourceManager =
+  (this.getUIContext().getHostContext() as common.UIAbilityContext)?.resourceManager;
+let layeredDrawableDescriptor: LayeredDrawableDescriptor =
+  (resManager.getDrawableDescriptor($r('app.media.drawable').id)) as LayeredDrawableDescriptor; // 传入已创建的图片资源
 
-  hdsDrawable.getHdsLayeredIconAsync(bundleName, layeredDrawableDescriptor, 48, true)
-    .then((data: image.PixelMap) => {
-      let processedIcon: image.PixelMap = data;
-    })
-    .catch((err: BusinessError) => {
-      console.error(`getHdsLayeredIconAsync return error, code: ${err.code}, msg: ${err.message}`);
-    });
-} catch (err) {
-  let message = (err as BusinessError).message;
-  let code = (err as BusinessError).code;
-  console.error(`getHdsLayeredIconAsync failed, code: ${code}, message: ${message}`);
-}
+hdsDrawable.getHdsLayeredIconAsync(bundleName, layeredDrawableDescriptor, 48, true)
+  .then((data: image.PixelMap) => {
+    let processedIcon: image.PixelMap = data;
+  })
+  .catch((err: BusinessError) => {
+    console.error(`Failed to get processed icon, code: ${err.code}, msg: ${err.message}`);
+  });
 ```
  
 
@@ -242,10 +236,14 @@ try {
   // 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext
   let resManager: resourceManager.ResourceManager =
     (this.getUIContext().getHostContext() as common.UIAbilityContext)?.resourceManager;
+
+  // 传入已创建的图片资源，获取指定资源ID对应的DrawableDescriptor对象，分层图标会返回LayeredDrawableDescriptor对象
   let layeredDrawableDescriptor: LayeredDrawableDescriptor =
-    (resManager.getDrawableDescriptor($r('app.media.drawable').id)) as LayeredDrawableDescriptor; // 传入已创建的图片资源
+    (resManager.getDrawableDescriptor($r('app.media.drawable').id)) as LayeredDrawableDescriptor;
+
+  // 传入已创建的图片资源，获取指定资源ID对应的DrawableDescriptor对象
   let drawableDescriptor: DrawableDescriptor =
-    (resManager?.getDrawableDescriptor($r('app.media.normal_icon_512').id)) as DrawableDescriptor; // 传入已创建的图片资源
+    (resManager?.getDrawableDescriptor($r('app.media.normal_icon_512').id)) as DrawableDescriptor;
   let processedIcon: image.PixelMap = hdsDrawable.getHdsIcon(bundleName, drawableDescriptor?.getPixelMap(), 48,
     layeredDrawableDescriptor?.getMask().getPixelMap(), true);
 } catch (err) {
@@ -577,7 +575,7 @@ try {
 | --- | --- | --- | --- | --- |
 | size | number | 否 | 否 | 接口处理完成后输出的图标对象为正方形，该值表示输出对象的正方形边长，包含描边区域，取值范围：大于0，单位：vp。 |
 | hasBorder | boolean | 否 | 是 | 是否描边，true：描边，false：不描边，默认false，在线主题场景不支持设置描边。 |
-| parallelNumber | number | 否 | 是 | 批量处理图标数据的并发数量，默认（推荐）：4，最大10。 |
+| parallelNumber | number | 否 | 是 | 批量处理图标数据的并发数量，取值范围 (0, 10]，超过10按10处理，默认值（推荐）：4。 |
  
  
   

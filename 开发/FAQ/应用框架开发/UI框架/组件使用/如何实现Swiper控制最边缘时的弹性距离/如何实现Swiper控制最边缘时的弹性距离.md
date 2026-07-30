@@ -9,13 +9,13 @@
 使用Swiper展示内容时，在列表的第一个和最后一个展示时，可以通过上划或者下划触发弹性伸缩。但是，弹性伸缩的距离过长。是否可以设置Swiper中弹性伸缩的高度，如下图拉到最下面伸缩的距离大概有2/5：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/AL2siOY6SKS7K8ZQmbQ4Pw/zh-cn_image_0000002658852597.png?HW-CC-KV=V1&HW-CC-Date=20260723T012815Z&HW-CC-Expire=86400&HW-CC-Sign=6E27146A48B143804385DA72B19E163C13347321DEF8B11A2B5FCF1782F18316)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/AL2siOY6SKS7K8ZQmbQ4Pw/zh-cn_image_0000002658852597.png?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=64784F50D159BA172F6DCEB3A23FE23EB56EEB29CA8D883BA013CD724783E27D)
 
  
 把第一个内容拉到最下面伸缩距离固定：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/c6eDgX5KTxeC4sw6Wozf3w/zh-cn_image_0000002628773238.png?HW-CC-KV=V1&HW-CC-Date=20260723T012815Z&HW-CC-Expire=86400&HW-CC-Sign=1C50F9F363111D89864DDF491BFADD35163C521CE68C606A921D05707A5D511B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/c6eDgX5KTxeC4sw6Wozf3w/zh-cn_image_0000002628773238.png?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=CE43CF02D74D7321ED622CAE298877951146D58DB213CA74DE6EAA6B423D7867)
 
  
  

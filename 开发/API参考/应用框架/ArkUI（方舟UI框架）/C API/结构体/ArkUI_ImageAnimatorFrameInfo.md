@@ -1,6 +1,6 @@
 # ArkUI_ImageAnimatorFrameInfo
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-imageanimatorframeinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,4 +20,4 @@ typedef struct ArkUI_ImageAnimatorFrameInfo ArkUI_ImageAnimatorFrameInfo
  
 **相关模块：** [ArkUI_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule)
  
-**所在头文件：** [native_type.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h)
+**所在头文件：** [image_animator.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-animator-h)

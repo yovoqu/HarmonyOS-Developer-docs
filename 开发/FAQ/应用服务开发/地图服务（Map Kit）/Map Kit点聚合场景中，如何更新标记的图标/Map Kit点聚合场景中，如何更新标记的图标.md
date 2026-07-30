@@ -1,6 +1,6 @@
 # Map Kit点聚合场景中，如何更新标记的图标
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-12
 
@@ -27,8 +27,8 @@ Map Kit点聚合场景中，如何在点绘制之后再进行图标更改？
 
 更新点图标有2种方式：
  
-- 先使用[remove()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay#section39155506439)删除老的点，再增加更换图片后新的点，达到更新图标效果，适用于应用自动触发更新场景。
-- 使用[on('imageOverlayClick')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section1567795020369)监听点击事件，在事件处理中直接更新点图标，适用于用户手动触发更新场景。
+- 先使用[remove()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay#remove)删除老的点，再增加更换图片后新的点，达到更新图标效果，适用于应用自动触发更新场景。
+- 使用[on('imageOverlayClick')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#onimageoverlayclick)监听点击事件，在事件处理中直接更新点图标，适用于用户手动触发更新场景。
 
  
 参考代码：

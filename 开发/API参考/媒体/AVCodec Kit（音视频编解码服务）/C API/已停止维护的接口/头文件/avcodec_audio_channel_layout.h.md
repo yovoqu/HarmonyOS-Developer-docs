@@ -1,6 +1,6 @@
 # avcodec_audio_channel_layout.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avcodec-audio-channel-layout-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -135,7 +135,7 @@ enum AudioChannelLayout : uint64_t
  
 **描述**
  
-音频声道数类型，将用户申请的解码器输出格式表示为编解码器的声道类型。
+音频声道布局类型，将用户申请的解码器输出格式表示为编解码器的声道布局类型。
  
 **系统能力：** SystemCapability.Multimedia.Media.CodecBase
  
@@ -147,8 +147,8 @@ enum AudioChannelLayout : uint64_t
   
 | 枚举项 | 描述 |
 | --- | --- |
-| UNKNOWN_CHANNEL_LAYOUT = 0 | 未知通道布局。 |
-| MONO = (AudioChannelSet::FRONT_CENTER) | 单通道布局。 |
+| UNKNOWN_CHANNEL_LAYOUT = 0 | 未知声道布局。 |
+| MONO = (AudioChannelSet::FRONT_CENTER) | 单声道布局。 |
 | STEREO = (AudioChannelSet::FRONT_LEFT \| AudioChannelSet::FRONT_RIGHT) | 立体声布局。 |
 | CH_2POINT1 = (STEREO \| AudioChannelSet::LOW_FREQUENCY) | 2.1布局。 |
 | CH_2_1 = (STEREO \| AudioChannelSet::BACK_CENTER) | 2_1布局。 |
@@ -172,7 +172,7 @@ enum AudioChannelLayout : uint64_t
 | CH_7POINT0_FRONT = (CH_5POINT0 \| AudioChannelSet::FRONT_LEFT_OF_CENTER \| AudioChannelSet::FRONT_RIGHT_OF_CENTER) | 7.0前置布局。 |
 | CH_7POINT1 = (CH_5POINT1 \| AudioChannelSet::BACK_LEFT \| AudioChannelSet::BACK_RIGHT) | 7.1布局。 |
 | CH_7POINT1_WIDE = (CH_5POINT1 \| AudioChannelSet::FRONT_LEFT_OF_CENTER \| AudioChannelSet::FRONT_RIGHT_OF_CENTER) | 7.1宽布局。 |
-| CH_7POINT1_WIDE_BACK = | 7.1后置宽布局。 |
+| CH_7POINT1_WIDE_BACK = (CH_5POINT1_BACK \| AudioChannelSet::FRONT_LEFT_OF_CENTER \| AudioChannelSet::FRONT_RIGHT_OF_CENTER) | 7.1后置宽布局。 |
 | CH_3POINT1POINT2 = (CH_3POINT1 \| AudioChannelSet::TOP_FRONT_LEFT \| AudioChannelSet::TOP_FRONT_RIGHT) | 3.1.2布局。 |
 | CH_5POINT1POINT2 = (CH_5POINT1 \| AudioChannelSet::TOP_SIDE_LEFT \| AudioChannelSet::TOP_SIDE_RIGHT) | 5.1.2布局。 |
 | (CH_5POINT1 \| AudioChannelSet::TOP_FRONT_LEFT \| AudioChannelSet::TOP_FRONT_RIGHT \|AudioChannelSet::TOP_BACK_LEFT \| AudioChannelSet::TOP_BACK_RIGHT) | 5.1.4布局。 |

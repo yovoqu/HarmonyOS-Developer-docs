@@ -1,16 +1,31 @@
 # @ohos.app.form.FormExtensionAbility (FormExtensionAbility)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FormExtensionAbility为卡片扩展模块，提供卡片创建、销毁、刷新等生命周期回调。
- 
-> [!NOTE]
-> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 FormExtensionAbility创建后10秒内无操作将会被清理。 如下模块不支持在FormExtensionAbility引用，可能会导致程序异常退出。 @ohos.ability.particleAbility (ParticleAbility模块) @ohos.multimedia.audio (音频管理) @ohos.multimedia.camera (相机管理) @ohos.multimedia.media (媒体服务) @ohos.resourceschedule.backgroundTaskManager (后台任务管理)
 
-  
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 FormExtensionAbility创建后10秒内无操作将会被清理。
+
+
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+为保障系统安全性和稳定性，防止 FormExtensionAbility 滥用系统资源，系统对其能力进行管控， 不支持以下模块的引用：
+
+ - [@ohos.ability.particleAbility (ParticleAbility模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-particleability)
+ - [@ohos.multimedia.audio (音频管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio)
+ - [@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)
+ - [@ohos.multimedia.media (媒体服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)
+ - [@ohos.resourceschedule.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager)
+
+
+
 
 #### 导入模块
 
@@ -19,64 +34,64 @@ FormExtensionAbility为卡片扩展模块，提供卡片创建、销毁、刷新
 ```text
 import { FormExtensionAbility } from '@kit.FormKit';
 ```
- 
-  
+
+
 
 #### FormExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片扩展类。包含卡片提供方接收创建卡片、修改可见性等的通知接口。
- 
-  
+
+
 
 #### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务。
- 
+
 **系统能力：** SystemCapability.Ability.Form
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | context | FormExtensionContext | 否 | 否 | FormExtensionAbility的上下文环境，继承自ExtensionContext。 |
- 
- 
-  
+
+
+
 
 #### FormExtensionAbility.onAddForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAddForm(want: Want): formBindingData.FormBindingData
- 
+
 卡片提供方接收创建卡片的通知接口。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | want | Want | 是 | 当前卡片相关的Want类型信息，其中Want中的parameters为自定义取值，取值可以包含卡片参数枚举中的一个或多个，如卡片ID、卡片名称、卡片样式等。这些卡片信息必须作为持久数据进行管理，以便后续更新和删除卡片。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | formBindingData.FormBindingData | formBindingData.FormBindingData对象，卡片要显示的数据。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { formBindingData, FormExtensionAbility } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
@@ -94,32 +109,32 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onCastToNormalForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCastToNormalForm(formId: string): void
- 
+
 卡片提供方收到卡片使用方将临时卡片转常态卡片的通知接口。临时卡片、常态卡片是卡片使用方的概念，其中：临时卡片是短期存在的，在特定事件或用户行为后显示，完成后自动消失。常态卡片是持久存在的，在用户未进行清除或更改的情况下，会一直存在，平时开发的功能卡片属于常态卡片。当前卡片使用方不会使用临时卡片。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 请求转换为常态的卡片标识。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { FormExtensionAbility } from '@kit.FormKit';
 
@@ -130,33 +145,33 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onUpdateForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onUpdateForm(formId: string, wantParams?: Record<string, Object>): void
- 
+
 卡片提供方接收携带参数的更新卡片的通知接口。获取最新数据后调用formProvider的[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口刷新卡片数据。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 请求更新的卡片ID。 |
 | wantParams12+ | Record<string, Object> | 否 | 更新参数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { formBindingData, FormExtensionAbility, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -178,30 +193,30 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onChangeFormVisibility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChangeFormVisibility(newStatus: Record<string, number>): void
- 
+
 卡片提供方接收修改可见性的通知接口。该接口仅对系统应用生效，且需要将formVisibleNotify配置为true。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newStatus | Record<string, number> | 是 | 请求修改的卡片标识和可见状态。 说明： number参数是取值范围[0, 2]的整数，0是未知类型，1是可见状态，2是不可见状态。 详细参考 formInfo.VisibilityType |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { formBindingData, FormExtensionAbility, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -235,33 +250,33 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onFormEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFormEvent(formId: string, message: string): void
- 
+
 卡片提供方接收处理卡片事件的通知接口。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 请求触发事件的卡片标识。 |
 | message | string | 是 | 事件消息。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { FormExtensionAbility } from '@kit.FormKit';
 
@@ -271,32 +286,32 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onRemoveForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRemoveForm(formId: string): void
- 
+
 卡片提供方接收销毁卡片的通知接口。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 请求销毁的卡片标识。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { FormExtensionAbility } from '@kit.FormKit';
 
@@ -306,32 +321,32 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onConfigurationUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onConfigurationUpdate(newConfig: Configuration): void
- 
+
 当系统配置项变更时调用，仅当FormExtensionAbility存活时才会触发onConfigurationUpdate回调。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newConfig | Configuration | 是 | 表示需要更新的配置信息。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { FormExtensionAbility } from '@kit.FormKit';
 import { Configuration } from '@kit.AbilityKit';
@@ -344,39 +359,39 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onAcquireFormState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAcquireFormState?(want: Want): formInfo.FormState
- 
+
 卡片提供方接收查询卡片状态通知接口，默认返回卡片初始状态（该方法可以选择性重写）。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | want | Want | 是 | want表示获取卡片状态的描述。描述包括Bundle名称、能力名称、模块名称、卡片名称等。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | formInfo.FormState | formInfo.FormState枚举，表示卡片当前的状态。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { FormExtensionAbility, formInfo } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
@@ -388,25 +403,25 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onStop12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStop?(): void
- 
+
 当卡片提供方的卡片进程退出时，触发该回调。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **示例：**
- 
+
 ```text
 import { FormExtensionAbility } from '@kit.FormKit';
 
@@ -416,33 +431,33 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onFormLocationChanged20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void
- 
+
 当卡片位置发生变化时，触发该回调。
- 
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 发生位置变化的卡片标识。 |
 | newFormLocation | formInfo.FormLocation | 是 | 卡片最新位置的枚举值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
@@ -459,34 +474,34 @@ export default class EntryFormAbility extends FormExtensionAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### FormExtensionAbility.onSizeChanged20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
- 
+
 卡片大小变化时，触发回调。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Ability.Form
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片标识。 |
 | newDimension | formInfo.FormDimension | 是 | 卡片尺寸，例如 Dimension_1_2，表示 1 x 2 卡片。 |
 | newRect | formInfo.Rect | 是 | 卡片位置信息，包括卡片左上角顶点的xy坐标和卡片的宽高。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { FormExtensionAbility, formInfo } from '@kit.FormKit';
 

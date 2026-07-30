@@ -1,6 +1,6 @@
 # 基于HMRouter的页面跳转
 
-更新时间：2026-07-22 06:05:01
+更新时间：2026-07-28 03:34:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hmrouter
 
@@ -45,7 +45,7 @@ export struct ProductContent {
 }
 ```
 
-2. 在需要进行页面跳转的位置，使用HMRouterMgr提供的to方法进行页面跳转，在参数中配置目标页面的页面地址，如需传参可配置withParam参数。此外，也可以配置页面栈唯一标识navigationId，当使用多个HMNavigation时建议开发者手动指定navigationId，当使用单个HMNavigation时，开发者可以不传递navigationId参数，系统会默认处理。onResult参数可用于配置当从其他页面返回到当前页面时的回调函数，在回调函数内可以通过参数的srcPageInfo.name属性获取由哪个页面跳转到当前页，还可以通过参数的result属性获取返回当前页面时携带的参数。
+2. 在需要进行页面跳转的位置，使用HMRouterMgr提供的to()方法进行页面跳转，在参数中配置目标页面的页面地址，如需传参可配置withParam参数。此外，也可以配置页面栈唯一标识navigationId，当使用多个HMNavigation时建议开发者手动指定navigationId，当使用单个HMNavigation时，开发者可以不传递navigationId参数，系统会默认处理。onResult参数可用于配置当从其他页面返回到当前页面时的回调函数，在回调函数内可以通过参数的srcPageInfo.name属性获取由哪个页面跳转到当前页，还可以通过参数的result属性获取返回当前页面时携带的参数。
 ```ArkTS
 HMRouterMgr.to('ProductContent')
   .withNavigation('mainNavigationId')
@@ -73,7 +73,7 @@ export struct ProductContent {
 }
 ```
 
-4. 如需使用页面返回功能，在对应的业务逻辑位置使用HMRouterMgr提供的pop方法实现页面返回，同样的pop方法支持传入navigationId，同时HMRouter还支持在返回时通过配置param参数向其所返回的页面传递参数。
+4. 如需使用页面返回功能，在对应的业务逻辑位置使用HMRouterMgr提供的pop()方法实现页面返回，同样的pop()方法支持传入navigationId，同时HMRouter还支持在返回时通过配置param参数向其所返回的页面传递参数。
 ```ArkTS
 HMRouterMgr.pop({ navigationId: 'mainNavigationId', param: this.param })
 ```
@@ -83,7 +83,7 @@ HMRouterMgr.pop({ navigationId: 'mainNavigationId', param: this.param })
 
 #### 多次页面跳转，返回指定页面
 
-当页面跳转路径如HomePage->PageA->PageB->PageC，开发者希望在PageC的页面逻辑中直接返回到HomePage并携带参数，开发者仅需使用HMRouterMgr提供的to方法，并传入需要返回的目标页面的地址以及携带的参数，即可直接带参返回到指定页面。
+当页面跳转路径如HomePage->PageA->PageB->PageC，开发者希望在PageC的页面逻辑中直接返回到HomePage并携带参数，开发者仅需使用HMRouterMgr提供的to()方法，并传入需要返回的目标页面的地址以及携带的参数，即可直接带参返回到指定页面。
  
 ```ArkTS
 HMRouterMgr.to('MainPage')
@@ -266,7 +266,7 @@ export struct PayDialogContent {
 该场景下用户第一次触发应用返回退出时向用户提示“再次返回退出”，第二次用户触发返回操作时应用真正退出。实现上可参考以下步骤：
  1. 定义一个生命周期类ExitAppLifecycle实现IHMLifecycle接口。
 2. 使用@HMLifecycle注解传入生命周期名称参数lifecycleName为ExitAppLifecycle。
-3. 重写其中的onBackPressed方法（此处是由于上述业务场景需要，实际开发中根据实际业务场景按需重写方法），通过判断上次返回操作与当前返回操作的时间间隔，按如下逻辑处理：
+3. 重写其中的onBackPressed()方法（此处是由于上述业务场景需要，实际开发中根据实际业务场景按需重写方法），通过判断上次返回操作与当前返回操作的时间间隔，按如下逻辑处理：
 - 当两次返回操作的时间间隔大于设置值时（此处为1000ms），重新弹窗对用户进行提示，此处返回true，表示不执行默认返回逻辑。
 
 4. 当两次返回操作的时间间隔小于设置值时（此处为1000ms），返回为false表示执行默认返回逻辑，退出应用。
@@ -354,7 +354,7 @@ HMNavigation({
 
 #### 特定页面设置自定义转场
 
-开发者可以自定义动画类并实现IHMAnimator接口中的effect方法，该方法会将页面进出场的效果对象enterHandle与exitHandle作为参数传入，可通过参数对象上的start、finish方法，设置对应效果的起止状态，支持设置的常用属性还有：
+开发者可以自定义动画类并实现IHMAnimator接口中的effect()方法，该方法会将页面进出场的效果对象enterHandle与exitHandle作为参数传入，可通过参数对象上的start、finish方法，设置对应效果的起止状态，支持设置的常用属性还有：
  
 - curve：设置动画速度曲线，支持通过Curve枚举传入值，默认Curve.EaseInOut。
 - duration：动画持续时长，单位ms。

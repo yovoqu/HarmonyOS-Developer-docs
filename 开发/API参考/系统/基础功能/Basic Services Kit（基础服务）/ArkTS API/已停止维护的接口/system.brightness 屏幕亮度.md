@@ -1,6 +1,6 @@
 # @system.brightness (屏幕亮度)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-brightness
 **支持设备：** Wearable | lite_wearable
@@ -22,7 +22,15 @@ import brightness, { BrightnessModeResponse, BrightnessResponse } from '@system.
 
 
 
-#### brightness.getValue(deprecated)
+#### Brightness
+
+**支持设备：** Wearable | lite_wearable
+
+提供屏幕亮度和模式的查询、调节接口。
+
+
+
+#### getValue(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -108,7 +116,7 @@ export default {
 
 
 
-#### brightness.setValue(deprecated)
+#### setValue(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -195,7 +203,7 @@ export default {
 
 
 
-#### brightness.getMode(deprecated)
+#### getMode(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -281,7 +289,7 @@ export default {
 
 
 
-#### brightness.setMode(deprecated)
+#### setMode(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -368,21 +376,21 @@ export default {
 
 
 
-#### brightness.setKeepScreenOn(deprecated)
+#### setKeepScreenOn(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
 setKeepScreenOn(options?: SetKeepScreenOnOptions): void
 
-除Lite Wearable外，从API version 7开始不再维护，建议使用[window.setWindowKeepScreenOn()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowkeepscreenon9)替代。
-
 设置屏幕是否保持常亮状态，开启常亮模式推荐在onShow()阶段调用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/GpbTpFQaQxuKTtk_8MtRxA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020139Z&HW-CC-Expire=86400&HW-CC-Sign=0F3E1603B45C3C0F9053CA105251AF588BC2E37574604EB69722D2064DED4506)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/OrfGeDHfQNaXcYnoAZiXCQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071632Z&HW-CC-Expire=86400&HW-CC-Sign=722BAB82601A5FEB79DFEBFCF20310820F738C642D018264225AE4E31DB62B7D)
 
 
-在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
+ - 除Lite Wearable外，从API version 7开始不再维护，建议使用[window.setWindowKeepScreenOn()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowkeepscreenon9)替代。
+ - 在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
+
 
 
 

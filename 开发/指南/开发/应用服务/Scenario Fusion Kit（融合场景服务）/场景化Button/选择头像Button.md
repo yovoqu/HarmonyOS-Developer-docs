@@ -1,6 +1,6 @@
 # 选择头像Button
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-chooseavatar
 
@@ -54,7 +54,7 @@ struct Index {
               .width(80)
               .height(80)
               .backgroundColor('#E5E5E5')
-          },
+          }
         },
         // 当OpenType设置为CHOOSE_AVATAR时，回调函数必须是onChooseAvatar。
         controller: new functionalButtonComponentManager.FunctionalButtonController().onChooseAvatar((err, data) => {

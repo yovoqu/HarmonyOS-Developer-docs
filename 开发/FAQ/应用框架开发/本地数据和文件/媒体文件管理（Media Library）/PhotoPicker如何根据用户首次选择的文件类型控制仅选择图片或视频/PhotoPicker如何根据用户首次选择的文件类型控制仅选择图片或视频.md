@@ -1,6 +1,6 @@
 # PhotoPicker如何根据用户首次选择的文件类型控制仅选择图片或视频
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-15
 
@@ -18,7 +18,7 @@
 
 #### 解决方案
 
-- 需要在展示所有相册文件（即MIMETYPE设置为IMAGE_VIDEO_TYPE）的场景下，根据用户首次选择的文件类型，实现图片与视频分开选择。在官网[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#示例)的基础上，规定最大图片数量maxPhotoSelectNumber与最大视频数量maxVideoSelectNumber。
+- 需要在展示所有相册文件（即MIMETYPE设置为IMAGE_VIDEO_TYPE）的场景下，根据用户首次选择的文件类型，实现图片与视频分开选择。在官网[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent)的基础上，规定最大图片数量maxPhotoSelectNumber与最大视频数量maxVideoSelectNumber。
 ```text
 this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MIMEType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewMIMETypes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IMAGE_VIDEO_TYPE</span><span style="color: rgb(181,106,1);">;</span>
 this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxVideoSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">;</span>

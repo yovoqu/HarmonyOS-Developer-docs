@@ -97,7 +97,7 @@ struct <span style="color: rgb(0,0,255);">GetTheHeightOfTheListItemOne </span><s
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/PZu9X3ThQlWzOBH6W5JMag/zh-cn_image_0000002628552386.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012537Z&HW-CC-Expire=86400&HW-CC-Sign=F398A8DE954D961C2672738DC735B855262E201C3A39C6553FB8446FAB515C89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/PZu9X3ThQlWzOBH6W5JMag/zh-cn_image_0000002628552386.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=2A86323B8FBB453BEEA4944062BCE492467503693972A7063302E95621DCD07E)
 
 - **场景二**：要想获取ListItem的总高度，可以通过获取List中每一个ListItem组件的高度，然后将所有高度进行相加。
 ```text
@@ -141,7 +141,7 @@ struct <span style="color: rgb(0,0,255);">GetTheHeightOfTheListItemTwo </span><s
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/gny8vZeFSOCt9FF5291MGA/zh-cn_image_0000002628392496.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012537Z&HW-CC-Expire=86400&HW-CC-Sign=A4041F9CFF5C077E9D7365DDE2E445B55F04DA4B9F5CE8F9D733F80AC97DC595)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/gny8vZeFSOCt9FF5291MGA/zh-cn_image_0000002628392496.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=CF83839A93E819CB7B5213C0DC3DEA420B3C3CA51AE3131DC0328818F499F0AC)
 
 
   总共有12个组件，每个组件的高度是35，总和为420。

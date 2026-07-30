@@ -1,15 +1,13 @@
 # @ohos.data.cloudData (端云服务)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-端云服务提供端云协同、端云共享和端云策略。
+端云服务提供端云策略能力。
 
-端云协同提供结构化数据（RDB Store）端云同步的能力。即：云作为数据的中心节点，通过与云的数据同步，实现数据云备份、同账号设备间的数据一致性。
-
-端云配置提供端云同步策略配置的能力。
+端云策略提供端云同步策略配置的能力。
 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -114,14 +112,14 @@ setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): P
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | strategy | StrategyType | 是 | 配置的策略类型。 |
-| param | Array<commonType.ValueType> | 否 | 策略参数。当前仅支持设置网络策略，默认支持WIFI和蜂窝网络策略。 |
+| param | Array<commonType.ValueType> | 否 | 策略参数，类型为Array<commonType.ValueType>，实际传入值为NetWorkStrategy枚举值，取值范围为WIFI和CELLULAR，默认支持WIFI和蜂窝网络策略。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -134,16 +132,16 @@ setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): P
 | 801 | Capability not supported. |
 
 
-**样例：**
+**示例：**
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 仅WIFI同步
 cloudData.setCloudStrategy(cloudData.StrategyType.NETWORK, [cloudData.NetWorkStrategy.WIFI]).then(() => {
-    console.info('Succeeded in setting the cloud strategy');
+  console.info('Succeeded in setting the cloud strategy');
 }).catch((err: BusinessError) => {
-    console.error(`Failed to set cloud strategy. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to set cloud strategy. Code: ${err.code}, message: ${err.message}`);
 });
 ```
 
@@ -155,7 +153,7 @@ cloudData.setCloudStrategy(cloudData.StrategyType.NETWORK, [cloudData.NetWorkStr
 
 onAutoSyncTrigger(observer: Callback&lt;AutoSyncTriggerInfo&gt;): void
 
-在已打开端云同步，并且应用关闭自动同步条件下，注册自动同步触发事件通知，自动同步进行时调用回调。
+在已打开端云同步且应用关闭自动同步的条件下，注册自动同步触发事件通知。当满足自动触发条件时，回调函数会被调用。
 
 **起始版本：** 26.0.0
 
@@ -167,7 +165,7 @@ onAutoSyncTrigger(observer: Callback&lt;AutoSyncTriggerInfo&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| observer | Callback&lt;AutoSyncTriggerInfo&gt; | 是 | 自动同步触发的回调函数。 |
+| observer | Callback&lt;AutoSyncTriggerInfo&gt; | 是 | 回调函数。 |
 
 
 **错误码：**
@@ -182,8 +180,6 @@ onAutoSyncTrigger(observer: Callback&lt;AutoSyncTriggerInfo&gt;): void
 **示例：**
 
 ```text
-import { cloudData } from '@kit.ArkData';
-
 function autoSyncTriggerObserver(info: cloudData.AutoSyncTriggerInfo) {
   console.info(`Auto sync triggered, mode: ${info.mode}`);
 }
@@ -211,7 +207,7 @@ offAutoSyncTrigger(observer?: Callback&lt;AutoSyncTriggerInfo&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| observer | Callback&lt;AutoSyncTriggerInfo&gt; | 否 | 自动同步触发的回调函数。如果不传参数，则取消所有已注册的回调。 |
+| observer | Callback&lt;AutoSyncTriggerInfo&gt; | 否 | 回调函数。 若传入observer，则取消指定回调函数的订阅；若不传入observer，则取消所有已注册的订阅。 |
 
 
 **错误码：**
@@ -226,8 +222,6 @@ offAutoSyncTrigger(observer?: Callback&lt;AutoSyncTriggerInfo&gt;): void
 **示例：**
 
 ```text
-import { cloudData } from '@kit.ArkData';
-
 function autoSyncTriggerObserver(info: cloudData.AutoSyncTriggerInfo) {
   console.info(`Auto sync triggered, mode: ${info.mode}`);
 }

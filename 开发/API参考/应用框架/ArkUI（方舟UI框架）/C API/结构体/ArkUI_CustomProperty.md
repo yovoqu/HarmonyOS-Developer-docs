@@ -1,6 +1,6 @@
 # ArkUI_CustomProperty
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customproperty
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_CustomProperty ArkUI_CustomProperty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义自定义属性的ArkUI_CustomProperty结构体信息。
+定义表示组件自定义属性的 ArkUI_CustomProperty 结构体。通过相关接口，可以为 ArkUI 组件添加、移除和获取自定义属性，以及获取自定义属性的字符串值。
  
 **起始版本：** 14
  
@@ -28,6 +28,6 @@ typedef struct ArkUI_CustomProperty ArkUI_CustomProperty
 | --- | --- |
 | OH_ArkUI_NodeUtils_AddCustomProperty | 添加组件的自定义属性。 |
 | OH_ArkUI_NodeUtils_RemoveCustomProperty | 移除组件已设置的自定义属性。 |
-| OH_ArkUI_NodeUtils_GetCustomProperty | 获取组件的自定义属性的值。 |
-| OH_ArkUI_CustomProperty_Destroy | 销毁CustomProperty实例。 |
+| OH_ArkUI_NodeUtils_GetCustomProperty | 获取组件的自定义属性，并通过handle返回ArkUI_CustomProperty实例。 |
+| OH_ArkUI_CustomProperty_Destroy | 销毁 ArkUI_CustomProperty 实例。 |
 | OH_ArkUI_CustomProperty_GetStringValue | 获取自定义属性的字符串值。 |

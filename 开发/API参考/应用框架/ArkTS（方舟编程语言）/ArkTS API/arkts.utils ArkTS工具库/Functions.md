@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -15,7 +15,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { ArkTSUtils } from '@kit.ArkTS'
+import { ArkTSUtils } from '@kit.ArkTS';
 ```
  
   
@@ -36,7 +36,7 @@ isSendable(value: Object | null | undefined): boolean
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Object \| null \| undefined | 是 | 待校验的对象。 |
+| value | Object \| null \| undefined | 是 | 待判断是否为Sendable数据类型的对象。 |
  
  
 **返回值：**

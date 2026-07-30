@@ -1,6 +1,6 @@
 # 使用滑块视图容器 (Swiper)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-swiper
 
@@ -65,7 +65,7 @@ nodeApi->setAttribute(swiper, NODE_SWIPER_AUTO_PLAY, &item);
 
 #### 设置导航指示器
 
-本示例通过[OH_ArkUI_SwiperIndicator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_swiperindicator_create)(ARKUI_SWIPER_INDICATOR_TYPE_DOT)创建圆点类型的导航指示器，并通过[OH_ArkUI_SwiperIndicator_SetEndPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_swiperindicator_setendposition)、[OH_ArkUI_SwiperIndicator_SetSelectedColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_swiperindicator_setselectedcolor)接口分别设置导航指示器距离Swiper组件右边的距离和选中圆点的颜色。
+本示例通过[OH_ArkUI_SwiperIndicator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-swiper-h#oh_arkui_swiperindicator_create)(ARKUI_SWIPER_INDICATOR_TYPE_DOT)创建圆点类型的导航指示器，并通过[OH_ArkUI_SwiperIndicator_SetEndPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-swiper-h#oh_arkui_swiperindicator_setendposition)、[OH_ArkUI_SwiperIndicator_SetSelectedColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-swiper-h#oh_arkui_swiperindicator_setselectedcolor)接口分别设置导航指示器距离Swiper组件右边的距离和选中圆点的颜色。
 
 本示例仅展示核心功能代码，完整示例请参考工程[NDKSwiperSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NDKSwiperSample)。
 

@@ -1,6 +1,6 @@
 # @ohos.faultLogger (故障日志获取)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -84,7 +84,7 @@ query(faultType: FaultType, callback: AsyncCallback<Array&lt;FaultLogInfo&gt;>) 
 
 **错误码：**
 
-以下错误码的详细介绍参见[faultLogger错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-faultlogger)。
+以下错误码的详细介绍参见[Faultlogger 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-faultlogger)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -153,7 +153,7 @@ query(faultType: FaultType) : Promise<Array&lt;FaultLogInfo&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍参见[faultLogger错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-faultlogger)。
+以下错误码的详细介绍参见[Faultlogger 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-faultlogger)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

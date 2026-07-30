@@ -1,6 +1,6 @@
-# Ukey流程示例指导
+# UKey流程示例指导
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-best-dev
 
@@ -61,7 +61,7 @@ try {
   certificateManagerDialog.openAuthorizeDialog(context, authorizeRequest).then((certReference: certificateManagerDialog.CertReference) => {
     /* 需要记录选择证书弹窗中获取到的keyUri，方便后续使用 */
     let keyUri = certReference.keyUri;
-    console.info(`Succeeded in opening authorize dialog.`);
+    console.info('Succeeded in opening authorize dialog.');
   }).catch((err: BusinessError) => {
     console.error(`Failed to open authorize dialog. Code: ${err.code}, message: ${err.message}`);
   });
@@ -109,7 +109,7 @@ static napi_value GetUkeyCert(napi_env env, napi_callback_info info)
     /* 定义UkeyInfo入参 */
     OH_CM_UkeyInfo ukeyInfo = { OH_CM_CERT_PURPOSE_SIGN }; /* USB凭据的属性信息，此处省略 */
 
-    /* 获取keyUri对应的Ukey证书详情 */
+    /* 获取keyUri对应的UKey证书详情 */
     OH_CM_CredentialDetailList credentialList = { 0, nullptr };
     int32_t ret = OH_CertManager_GetUkeyCertificate(&keyUri, &ukeyInfo, &credentialList);
 
@@ -311,7 +311,7 @@ let ukeyAuthRequest: certificateManagerDialog.UkeyAuthRequest = { keyUri: keyUri
 try {
   certificateManagerDialog.openUkeyAuthDialog(context, ukeyAuthRequest)
     .then(() => {
-      console.info(`Succeeded in opening ukey authorization dialog.`);
+      console.info('Succeeded in opening ukey authorization dialog.');
     }).catch((err: BusinessError) => {
       console.error(`Failed to open ukey authorization dialog. Code: ${err.code}, message: ${err.message}`);
     });

@@ -53,34 +53,34 @@
 
 以某应用侧滑返回首页响应时延267ms问题为例，按整体流程拆分总耗时，确定各模块耗时。
  1. 多模输入模块耗时，为检测到手指离开屏幕的事件，与事件分发到SceneBoard应用（返回手势窗口所属的应用）的时间间隔。用SmartPerf打开Trace文件，在上方搜索框中输入H:originEventHandle code:501找到手指离开屏幕的地方。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/CTAc-tHxSM2RDJPYX5t_yg/zh-cn_image_0000002628395038.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=DBC9F6D7947EAFF26A0FD8DC05FEC56B8C547B175C6B3E813F5B5985611F93EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/CTAc-tHxSM2RDJPYX5t_yg/zh-cn_image_0000002628395038.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=37BA237EDEF3AEF05E6300E7059ED7D1EF57161214CF1C19B901AA4719ECE4C8)
 
 
   接着以该点为起始点在ohos.sceneboard泳道中找到ohos.sceneboard应用收到该事件的地方（Trace点H:DispatchTouchEvent xxx type=1），根据两者之间的时间间隔得到多模输入模块耗时为3.3ms。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/x1VEtLe0RCOOIumdfZSknA/zh-cn_image_0000002658914257.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=EEF9CF27BEB1F93A30D866EF89BCF7E1850EB6A8C9BFF4F27DA36FBD73E7F252)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/x1VEtLe0RCOOIumdfZSknA/zh-cn_image_0000002658914257.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=375261678585894F86E545FB571E42EE810A886F4DCC976900DB14F30014AC91)
 
 2. 返回手势窗口模块耗时，起始点为ohos.sceneboard应用收到手指离开屏幕的事件（Trace关键字为H:DispatchTouchEvent位置type=1），终点为该事件处理完成的结束点，在返回手势结束点（Trace关键字为H:[Gesture]backGesture）的附近。从下图中可以得到该部分耗时为5.1ms。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/a8NPl2oPQvCVL__--jApBQ/zh-cn_image_0000002658794303.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=6B702195BE138DF739ED4185C612D862E250E1BE1398A3F3601B300AEED91ADF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/a8NPl2oPQvCVL__--jApBQ/zh-cn_image_0000002658794303.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=DA177F07B9E997FAC4BC386A271C7A856A9E19AE984342D74B5F70B132CE8D03)
 
 3. 应用模块耗时，为返回手势结束点（Trace关键字为H:[Gesture]backGesture）到页面切换（Trace关键字为H:ABILITY_OR_PAGE_SWITCH）的起始点之间的时间间隔，从下图中可看到该部分耗时为12.9ms。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/seppBYc3TDKt1PevVQHQWQ/zh-cn_image_0000002628554940.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=A44C8EDEF78C809CFF6861C76D4CDF2CB16EA1149947B12FD513A84D9AEBDA8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/seppBYc3TDKt1PevVQHQWQ/zh-cn_image_0000002628554940.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=6DB4C9A023914507C2C978D0E15D3A027EE1A69DA15FE543746231B99CEC3F83)
 
 4. 渲染服务模块耗时，为渲染服务处理应用发送的绘制请求到将GPU处理的渲染结果提交到显示硬件的时间。找到应用页面切换起始点、接收Vsync信号处，点击上方的Actual Timeline，在下方显示框中点击render_service右侧的跳转箭头可以找到渲染服务处理该绘制请求相应的Vsync信号接收点。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/9ECkASXdReqCBsOQfVbDfQ/zh-cn_image_0000002628395040.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=25B74E8CCD048F748A11439969E26726B76CBCC44DA3F98316E9AA0C65E91F6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/9ECkASXdReqCBsOQfVbDfQ/zh-cn_image_0000002628395040.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=55196FE95AF3D9C9171354893DEB6AF2331908C0426A9466D31EB4A099F31370)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/7_7w5388TACkuIpHxP1IAw/zh-cn_image_0000002658914259.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=71CEEBD26AC0652E32E8E1995954C3AC45D8AEC3B346883B7F2C5E6357432289)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/7_7w5388TACkuIpHxP1IAw/zh-cn_image_0000002658914259.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=5B8026F6AE21A5A0BBAEC40AA6E2048F89AE9E7D75CBAFEB2093509BE849E596)
 
 
   然后以render_service此处Vsync信号接收点为起点，根据now时间值，在RSHardwareThread泳道中找到render_service将该帧GPU处理的渲染结果提交到显示硬件的地方，最终得到渲染服务模块耗时14.6ms。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/HZo1o0pPRTG_Q4zHaBiNSg/zh-cn_image_0000002658794305.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=D97FE7FA82E330D9F3D513773C110A293DB0D0AD0B972FE727A494D1A6843288)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/HZo1o0pPRTG_Q4zHaBiNSg/zh-cn_image_0000002658794305.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=4157221C4ECD8799D86AAE8493A63AC85F893107FCF84C728097E02D199E364A)
 
  
 最终得到如下耗时拆分结果：
@@ -92,19 +92,19 @@
  
 按上述步骤分析得到总耗时为46.9ms，与问题反馈的总耗时267ms相差甚远。需要对各模块逐个分析、排查异常点。
  1. 多模输入模块仅接收用户触发事件进行分发，并无其他逻辑处理。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/zAFjSwPjRcOskId3-ZWgFw/zh-cn_image_0000002628554942.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=DBD0443C5D099623A509FD5CEE7EF4C3C5B400EC4ACBF65D07C64590859DDE3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/zAFjSwPjRcOskId3-ZWgFw/zh-cn_image_0000002628554942.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=708C721C2C4118434C762940CC08B21429AB419DBCFA36C6FC42B282903F3B71)
 
 2. 返回手势窗口模块仅执行ArkTS业务逻辑，并将返回事件分发给应用，无异常点。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/YMetIGqdQMGpjPiUf2KLcA/zh-cn_image_0000002628395042.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=CC81412167450777F53D1AA9D423F7E0EE5490A4A072087579E16D0E55FE098F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/YMetIGqdQMGpjPiUf2KLcA/zh-cn_image_0000002628395042.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=E1F0E4023FE331BB4F3DB6596218A7ACD7F4413DBD852F2884BFF2EB492315DB)
 
 3. 应用收到返回事件后执行自身业务逻辑，然后启动页面返回，提交绘制指令。排查应用在提交绘制指令前有启动动画，动画延时了210ms执行，如下图所示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/5Puq_6SEQWyOMR5T-xMphw/zh-cn_image_0000002658914261.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=B0BD6F7074DAD07FEA088B522C948C2B726D40A06F0A64373A693BA9EF3FDD77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/5Puq_6SEQWyOMR5T-xMphw/zh-cn_image_0000002658914261.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=80F38346AE460D0C6D2F3D953681BBF791DAD272E419D1771F2D01BC4021113F)
 
 
   框选animateTo中的Trace关键字，在下方Slices中搜索viewPropertyHasChanged查看有状态变量刷新的组件。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/KFQLDuxaSlW3OSqxqOV_wA/zh-cn_image_0000002658794309.png?HW-CC-KV=V1&HW-CC-Date=20260723T012409Z&HW-CC-Expire=86400&HW-CC-Sign=67BEAD8738F6798FEDD79A707ECABCBC8EE650BBBC3DD2CEBA5ED7615DF820CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/KFQLDuxaSlW3OSqxqOV_wA/zh-cn_image_0000002658794309.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=59638E7D548D556375CE727B0711EF8A94B6F2A6812DFEC0AEE26DCBC0EEA9F0)
 
 
   使用Ark Inspector查看该组件，该组件为侧滑退出的页面，可知在侧滑退出时应用对当前页面执行了延时210ms的X轴位移动画，该延时动画导致侧滑返回的响应时延增加。

@@ -1,6 +1,6 @@
 # 加载丢帧：ArkWeb分析
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-arkweb
 
@@ -49,9 +49,9 @@ H:RosenWeb：用于记录准备提交给Render Service进行统一渲染的数�
 6. VSync-webview：用于接收图形侧发送的vsync信号，并根据信号触发WebView页面的渲染或重绘。
 7. VizCompositorTh：绘制信号监听线程，向图形请求Web本身的vsync信号，触发系统Web相关绘制或执行。
 8. Web应用Render线程：以 :render 结尾的线程，主要用于图形渲染任务，包括html、css解析，进行分层布局绘制。
-9. 一般结合**H:RosenWeb**泳道和**Present Fence**泳道来分析是否存在丢帧。
+9. 一般结合**H:RosenWeb**泳道和**PresentFence**泳道来分析是否存在丢帧。
 
-  H:RosenWeb上标识有待提交给渲染服务的数据量。正常情况下，每个数据量都会提交给硬件进行上屏，即Present Fence泳道上的H:Waiting for Present Fence trace点。如果某个数据量在Present Fence泳道上没有该trace点，那么很可能是存在丢帧问题。
+  H:RosenWeb上标识有待提交给渲染服务的数据量。正常情况下，每个数据量都会提交给硬件进行上屏，即PresentFence泳道上的H:Waiting for PresentFence trace点。如果某个数据量在PresentFence泳道上没有该trace点，那么很可能是存在丢帧问题。
 
   
 ![](assets/加载丢帧：ArkWeb分析/file-20260514133153135-3.png)
@@ -66,4 +66,4 @@ H:RosenWeb：用于记录准备提交给Render Service进行统一渲染的数�
 2. 点选某一行，可以查看该URL对应的缓存信息。包括缓存存在时长、最后修改时刻、过期时刻、缓存指令、资源的唯一标识符以及资源是否过期。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/BIq-PChTQ_6A_dlgSe619Q/zh-cn_image_0000002594635218.png?HW-CC-KV=V1&HW-CC-Date=20260624T020721Z&HW-CC-Expire=86400&HW-CC-Sign=5D7EC64A0EBE932E967643D2F516BC6448A1BF52019E2791B4EAD166C6FD2F8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/ZZ7HXx4PSaety-EHayStEg/zh-cn_image_0000002647917740.png?HW-CC-KV=V1&HW-CC-Date=20260730T071823Z&HW-CC-Expire=86400&HW-CC-Sign=ECD4F39ADFADD5953B6EB79DB6D268B344C1DA51CD40ECB70930D518E6AB048A)

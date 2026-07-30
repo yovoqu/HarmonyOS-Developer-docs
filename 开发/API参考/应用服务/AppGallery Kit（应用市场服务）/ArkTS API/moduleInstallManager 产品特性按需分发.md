@@ -1,6 +1,6 @@
 # moduleInstallManager (产品特性按需分发)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -250,7 +250,7 @@ struct LoadInstallService {
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-按需加载controller父类对象。
+按需加载controller的父类对象。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -264,7 +264,7 @@ struct LoadInstallService {
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-按需加载请求父类对象。
+按需加载请求的父类对象。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -529,8 +529,12 @@ struct FetchModules {
             myModuleInstallRequest.addModule('BModule');
             // 按需加载请求接口,返回请求、监听/注销监听调用结果
             moduleInstallManager.fetchModules(myModuleInstallRequest)
-              .then(() => {
-                hilog.info(0, TAG, 'Succeeded in fetching modules success data.' );
+              .then((result: moduleInstallManager.ModuleInstallSessionState) => {
+                if (result.code === moduleInstallManager.RequestErrorCode.SUCCESS) {
+                  hilog.info(0, TAG, 'Succeeded in fetching modules success data.' );
+                } else {
+                  hilog.info(0, TAG, 'Fetching modules failed' );
+                }
               })
           } catch (error) {
             hilog.error(0, TAG, `fetching modules onError.code is ${error.code}, message is ${error.message}`);
@@ -786,5 +790,79 @@ try {
   })
 } catch (error) {
   hilog.error(0, 'TAG', `moduleInstallManager.off onError.code is ${error.code}, message is ${error.message}`);
+}
+```
+ 
+  
+
+#### moduleInstallManager.pauseTask
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+pauseTask(taskId: string): ReturnCode
+ 
+暂停下载任务。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.AppGalleryService.Distribution.OnDemandInstall
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| taskId | string | 是 | 下载任务的taskId。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| ReturnCode | 接口调用结果码。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1006500012 | Internal communication error. |
+| 1006500013 | Invalid taskId. |
+ 
+ 
+**示例：**
+ 
+```text
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { moduleInstallManager } from '@kit.AppGalleryKit';
+
+const TAG: string = 'pauseTask';
+
+@Entry
+@Component
+struct PauseTask {
+
+  build() {
+    Column() {
+      Button("pauseTask")
+        .onClick(() => {
+          try {
+            const taskId: string = '********';
+            // 暂停下载任务
+            const rtnCode: moduleInstallManager.ReturnCode = moduleInstallManager.pauseTask(taskId);
+            hilog.info(0, 'TAG', "Succeeded in getting result:" + rtnCode);
+          } catch (error) {
+            hilog.error(0, TAG, `pauseTask onError.code is ${error.code}, message is ${error.message}`);
+          }
+        })
+        .width('100%')
+    }
+    .margin(16)
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+  }
 }
 ```

@@ -1,6 +1,6 @@
 # Class (VerifyPinHandler)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-24 10:38:53
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-verifypinhandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@ VerifyPinHandler是Web组件中处理PIN码验证请求的类。当需要用户P
 
   
 
-#### constructor22+
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ VerifyPinHandler的构造函数。
  
   
 
-#### confirm22+
+#### confirm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

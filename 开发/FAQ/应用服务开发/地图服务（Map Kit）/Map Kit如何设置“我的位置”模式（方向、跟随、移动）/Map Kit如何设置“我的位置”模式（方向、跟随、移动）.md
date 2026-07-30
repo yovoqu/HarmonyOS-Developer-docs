@@ -1,6 +1,6 @@
 # Map Kit如何设置“我的位置”模式（方向、跟随、移动）
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-49
 
@@ -12,9 +12,9 @@ Map Kit地图服务提供自带的“我的位置”图标显示，但应用有�
 
 #### 背景知识
 
-- [setMyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section126791641317)：设置用户的位置样式。
-- [MyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section3713124215275)：自定义“我的位置”样式。
-- [MyLocationDisplayType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section78428244375)：定位图标的展示模式。可以设置是否连续定位、是否跟随设备移动、是否跟随设备方向旋转、相机是否跟随移动到“我的位置”为屏幕中心。默认为连续定位，相机不移动到“我的位置”，定位蓝点跟踪设备移动。
+- [setMyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#setmylocationstyle)：设置用户的位置样式。
+- [MyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#mylocationstyle)：自定义“我的位置”样式。
+- [MyLocationDisplayType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#mylocationdisplaytype)：定位图标的展示模式。可以设置是否连续定位、是否跟随设备移动、是否跟随设备方向旋转、相机是否跟随移动到“我的位置”为屏幕中心。默认为连续定位，相机不移动到“我的位置”，定位蓝点跟踪设备移动。
 - 前提条件：
 使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
 - 使用“我的位置”能力需声明和向用户授权ohos.permission.LOCATION、ohos.permission.APPROXIMATELY_LOCATION权限。
@@ -25,7 +25,7 @@ Map Kit地图服务提供自带的“我的位置”图标显示，但应用有�
 
 #### 解决方案
 
-- **场景一：显示或隐藏“我的位置”图标。**设置[setMyLocationEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section201759451313)为true表示显示“我的位置”图标，设置为false表示隐藏“我的位置”图标。
+- **场景一：显示或隐藏“我的位置”图标。**设置[setMyLocationEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#setmylocationenabled)为true表示显示“我的位置”图标，设置为false表示隐藏“我的位置”图标。
 - **场景二：“我的位置”图标跟随设备移动，跟随设备旋转，相机不跟随移动到“我的位置”为屏幕中心。**从版本6.0.0(20)开始MyLocationDisplayType支持TRACK_ROTATE模式，满足此场景需求。
 
   
@@ -41,7 +41,7 @@ this.mapController?.setMyLocationStyle(style);
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/v2q9i0eJQsq-gExjZvjk4A/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260723T013729Z&HW-CC-Expire=86400&HW-CC-Sign=91E61F3D0897EEDA3F06A3ABDA147C3AE4D8A365D02E8296B0C9901536B5D531)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/7TTlbNm7T0ajD1rfGjCAbQ/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260730T072644Z&HW-CC-Expire=86400&HW-CC-Sign=7F125063E3B2F9B616E8258F81470A20F4AC27BDE45E136EE3434D6D7CD210EF)
 
 
   完整代码：

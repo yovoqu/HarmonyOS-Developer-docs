@@ -1,6 +1,6 @@
 # oh_preferences_value.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-value-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| OH_PreferencesPair | OH_PreferencesPair | 定义Preferences使用的KV数据对象类型。 |
+| OH_PreferencesPair | OH_PreferencesPair | 定义Preferences使用的键值对数据对象类型。 |
 | OH_PreferencesValue | OH_PreferencesValue | 定义PreferencesValue对象类型。 |
  
  
@@ -58,8 +58,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| const char *OH_PreferencesPair_GetKey(const OH_PreferencesPair *pairs, uint32_t index) | 获取KV数据中索引对应数据的键。 |
-| const OH_PreferencesValue *OH_PreferencesPair_GetPreferencesValue(const OH_PreferencesPair *pairs, uint32_t index) | 获取KV数据数组中索引对应的值。 |
+| const char *OH_PreferencesPair_GetKey(const OH_PreferencesPair *pairs, uint32_t index) | 获取键值对数据中索引对应数据的键。 |
+| const OH_PreferencesValue *OH_PreferencesPair_GetPreferencesValue(const OH_PreferencesPair *pairs, uint32_t index) | 获取键值对数据数组中索引对应的值。 |
 | Preference_ValueType OH_PreferencesValue_GetValueType(const OH_PreferencesValue *object) | 获取PreferencesValue对象的数据类型。 |
 | int OH_PreferencesValue_GetInt(const OH_PreferencesValue *object, int *value) | 从PreferencesValue对象OH_PreferencesValue中获取一个整型值。 |
 | int OH_PreferencesValue_GetBool(const OH_PreferencesValue *object, bool *value) | 从PreferencesValue对象OH_PreferencesValue中获取一个布尔值。 |
@@ -145,7 +145,7 @@ const char *OH_PreferencesPair_GetKey(const OH_PreferencesPair *pairs, uint32_t 
  
 **描述**
  
-获取KV数据中索引对应数据的键。
+获取键值对数据中索引对应数据的键。
  
 **起始版本：** 13
  
@@ -153,8 +153,8 @@ const char *OH_PreferencesPair_GetKey(const OH_PreferencesPair *pairs, uint32_t 
   
 | 参数项 | 描述 |
 | --- | --- |
-| const OH_PreferencesPair *pairs | 目标KV数据OH_PreferencesPair的指针。 |
-| uint32_t index | 目标KV数据OH_PreferencesPair的索引值。 |
+| const OH_PreferencesPair *pairs | 目标键值对数据OH_PreferencesPair的指针。 |
+| uint32_t index | 目标键值对数据OH_PreferencesPair的索引值。 |
  
  
 **返回：**
@@ -176,7 +176,7 @@ const OH_PreferencesValue *OH_PreferencesPair_GetPreferencesValue(const OH_Prefe
  
 **描述**
  
-获取KV数据数组中索引对应的值。
+获取键值对数据数组中索引对应的值。
  
 **起始版本：** 13
  
@@ -184,8 +184,8 @@ const OH_PreferencesValue *OH_PreferencesPair_GetPreferencesValue(const OH_Prefe
   
 | 参数项 | 描述 |
 | --- | --- |
-| const OH_PreferencesPair *pairs | 目标KV数据OH_PreferencesPair的指针。 |
-| uint32_t index | 目标KV数据OH_PreferencesPair的索引值。 |
+| const OH_PreferencesPair *pairs | 目标键值对数据OH_PreferencesPair的指针。 |
+| uint32_t index | 目标键值对数据OH_PreferencesPair的索引值，取值范围[0, count-1]（count为pairs数组长度）。 |
  
  
 **返回：**

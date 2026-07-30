@@ -1,6 +1,6 @@
 # ArkUI_AnimateCompleteCallback
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-animatecompletecallback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ typedef struct {...} ArkUI_AnimateCompleteCallback
  
 | 名称 | 描述 |
 | --- | --- |
-| ArkUI_FinishCallbackType type | 在动画中定义结束回调的类型。 |
+| ArkUI_FinishCallbackType type | 在动画中定义结束回调的回调类型枚举，用于指定回调的触发方式。 |
 | void* userData | 用于动画结束回调，传递用户自定义数据。 |
  
  

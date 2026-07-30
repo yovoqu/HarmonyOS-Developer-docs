@@ -1,6 +1,6 @@
 # external_window.h
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-external-window-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -312,7 +312,7 @@ OHNativeWindow* OH_NativeWindow_CreateNativeWindow(void* pSurface)
   
 | 参数项 | 描述 |
 | --- | --- |
-| void* pSurface | 一个指向生产者ProduceSurface的指针，类型为sptr<OHOS::Surface>。 |
+| void* pSurface | 一个指向生产者ProducerSurface的指针，类型为sptr<OHOS::Surface>。 |
  
  
 **返回：**
@@ -377,7 +377,7 @@ OHNativeWindowBuffer* OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer(
   
 | 参数项 | 描述 |
 | --- | --- |
-| void* pSurfaceBuffer | 一个指向生产者buffer的指针，类型为sptrOHOS::SurfaceBuffer。 |
+| void* pSurfaceBuffer | 一个指向生产者buffer的指针，类型为sptr<OHOS::SurfaceBuffer>。 |
  
  
 **返回：**

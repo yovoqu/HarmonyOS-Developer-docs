@@ -1,10 +1,10 @@
 # @ReusableV2装饰器：V2组件复用
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2
 
-为了降低反复创建销毁自定义组件带来的性能开销，开发者可以使用@ReusableV2装饰[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件，达成组件复用的效果。
+为了降低反复创建销毁自定义组件带来的性能开销，开发者可以使用[@ReusableV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-reusablev2#reusablev2)装饰[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件，达成组件复用的效果。
 
 在阅读本文前，建议提前阅读：[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。
 
@@ -1135,4 +1135,4 @@ struct ChildComponent {
 ```
 
 
-![](assets/@ReusableV2装饰器：V2组件复用/file-202607081039407591e700.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/_FgchxNgTJOUPBkIoWp4Cw/zh-cn_image_0000002685925463.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071834Z&HW-CC-Expire=86400&HW-CC-Sign=63B7DB21D87324ECA335C93BA156E6294B8213ABA2789A6AF46BA8A7BFB89370)

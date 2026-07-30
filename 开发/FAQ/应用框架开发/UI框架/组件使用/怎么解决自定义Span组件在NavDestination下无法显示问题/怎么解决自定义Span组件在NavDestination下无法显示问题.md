@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/vekZBIQ5RqOsRB0s_UjIXQ/zh-cn_image_0000002658918867.png?HW-CC-KV=V1&HW-CC-Date=20260723T012630Z&HW-CC-Expire=86400&HW-CC-Sign=AE679CB01C24FBA7D73B50142DF61F9435B6A8F0D503767E0F0A8FEA739FE510)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/vekZBIQ5RqOsRB0s_UjIXQ/zh-cn_image_0000002658918867.png?HW-CC-KV=V1&HW-CC-Date=20260730T072333Z&HW-CC-Expire=86400&HW-CC-Sign=8CF4A32165D7C79318F14EA4FBE6F0422986C4FD1B69B26491C1FAAEF18D4949)
 
  
  
@@ -90,7 +90,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(1
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Wl3jZ8E6RfmIkhD35-GEsQ/zh-cn_image_0000002628399650.png?HW-CC-KV=V1&HW-CC-Date=20260723T012630Z&HW-CC-Expire=86400&HW-CC-Sign=1DD114A45279EA336E4976A9C4B6E4DFC4F5387334B3EEB318B02329BAD1C6C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Wl3jZ8E6RfmIkhD35-GEsQ/zh-cn_image_0000002628399650.png?HW-CC-KV=V1&HW-CC-Date=20260730T072333Z&HW-CC-Expire=86400&HW-CC-Sign=E96911CC33206ECC8E81FFEB69E5F9C5129B80EEB1A99023BE5EDDD6F53EE6A1)
 
 2. 如果Span组件是一组公共的特性，则可以通过@Builder装饰器把公共的部分抽取出来。
 ```text
@@ -146,7 +146,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(1
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/okcsi1iGQ-6LJVVOisumwA/zh-cn_image_0000002658798917.png?HW-CC-KV=V1&HW-CC-Date=20260723T012630Z&HW-CC-Expire=86400&HW-CC-Sign=5C4D350F035A75F29F711DE108B6620FA4A868C8AD40AEFF3301057DF947555D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/okcsi1iGQ-6LJVVOisumwA/zh-cn_image_0000002658798917.png?HW-CC-KV=V1&HW-CC-Date=20260730T072333Z&HW-CC-Expire=86400&HW-CC-Sign=80DCA543AE0035A781C7AF53ECF56FFC5D5A61BD8FF7495BD87528C7488CA235)
 
 3. 如果需要使用自定义组件，应该选择支持自定义子组件的组件，比如Column组件。
 ```text
@@ -209,7 +209,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(1
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/zOcuOjfhQWuPgnUyaaBuxg/zh-cn_image_0000002628559556.png?HW-CC-KV=V1&HW-CC-Date=20260723T012630Z&HW-CC-Expire=86400&HW-CC-Sign=79795F95AD821199A77D0616BE8FEFE9D8E22096D8D74BE60F2CE52D0ABA5EDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/zOcuOjfhQWuPgnUyaaBuxg/zh-cn_image_0000002628559556.png?HW-CC-KV=V1&HW-CC-Date=20260730T072333Z&HW-CC-Expire=86400&HW-CC-Sign=9F97E8BF36CE2CF20620F68C2D8EAED516FC4ADEBC3E36756483A5D7EB657F34)
 
  
  

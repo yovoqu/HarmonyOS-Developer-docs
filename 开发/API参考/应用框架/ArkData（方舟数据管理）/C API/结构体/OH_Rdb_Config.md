@@ -1,6 +1,6 @@
 # OH_Rdb_Config
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-rdb-config
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,5 +42,5 @@ typedef struct  {...} OH_Rdb_Config
 | const char* bundleName | 应用包名，不能为空。 |
 | const char* moduleName | 应用模块名，不能为空。 |
 | bool isEncrypt | 指定数据库是否加密。true表示加密，false表示不加密。 |
-| int securityLevel | 设置数据库安全级别OH_Rdb_SecurityLevel。 |
-| int area | 设置数据库安全区域等级Rdb_SecurityArea 起始版本： 11 |
+| int securityLevel | 数据库安全级别OH_Rdb_SecurityLevel。 |
+| int area | 数据库安全区域等级Rdb_SecurityArea 起始版本： 11 |

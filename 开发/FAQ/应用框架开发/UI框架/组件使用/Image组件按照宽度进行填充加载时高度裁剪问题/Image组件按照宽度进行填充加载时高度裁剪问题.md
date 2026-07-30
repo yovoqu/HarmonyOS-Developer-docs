@@ -34,7 +34,7 @@ struct DisplayTest1 {
 预览效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/jYGRnkoiTBK3QxFPL0wF7w/zh-cn_image_0000002628569614.png?HW-CC-KV=V1&HW-CC-Date=20260723T012705Z&HW-CC-Expire=86400&HW-CC-Sign=79C60AA41CFF9E3080F21A720E4149A4A6DC68C05F755AD96A0599FC211EC561)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/jYGRnkoiTBK3QxFPL0wF7w/zh-cn_image_0000002628569614.png?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=93C14F43942D49CF0C1E04D2568475A1A988CAEF78EF91EDD38B4D5FEDE0B62E)
 
  
  
@@ -53,7 +53,7 @@ struct DisplayTest1 {
  1. 首先将Image填充加载，把objectFit属性改为.objectFit(ImageFit.Cover)。此时预览效果图如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/L5T8pKIoQ4GNI4jMYSzttQ/zh-cn_image_0000002628409714.png?HW-CC-KV=V1&HW-CC-Date=20260723T012705Z&HW-CC-Expire=86400&HW-CC-Sign=74E109FD10C0529A02713F8D91B351BEF26A0AAA66BC7DEAB7E8C9F56EC7BF12)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/L5T8pKIoQ4GNI4jMYSzttQ/zh-cn_image_0000002628409714.png?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=A7BEB935A5970A66CD2728BFA7F5D9CE5A373ACDE530C49E420C350CAE4B35B8)
 
 1. 然后对超出Row容器的部分进行裁剪，满足图片从上到下展示。此时可以使用Scroll容器替代Row容器，因为Scroll容器默认是对元素进行从上往下滚动，再将Scroll的滚动条隐藏，并设置不可滚动就能实现效果。
 
@@ -85,7 +85,7 @@ struct DisplayTest2 {
   预览效果图如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/IQtK6HCGToSHEflb1ILC5A/zh-cn_image_0000002658928935.png?HW-CC-KV=V1&HW-CC-Date=20260723T012705Z&HW-CC-Expire=86400&HW-CC-Sign=138B291A250885C2BBE602DCF40DD9D7CDC59EB6981D2F1CE58695E2F2A56F7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/IQtK6HCGToSHEflb1ILC5A/zh-cn_image_0000002658928935.png?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=3D267CC8FF48E4F43632F731D4EB7DBA3E31C9E0A1C7F9E1DBBDDB4AB12963B3)
 
 
   此时的效果已满足该场景要求。

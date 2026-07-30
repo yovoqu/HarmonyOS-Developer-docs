@@ -1,6 +1,6 @@
 # LoginWithHuaweiIDButton能否根据loginType的属性动态切换登录类型
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-11
 
@@ -36,8 +36,8 @@ LoginWithHuaweiIDButton({
 #### 背景知识
 
 - [LoginWithHuaweiIDButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button)：华为账号登录组件，通过该组件，应用可完成华为账号的登录功能。
-- [loginType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#section79023235528)：是LoginWithHuaweiIDButton中标识华为账号登录类型的属性，默认是LoginType.ID，一键登录对应的值是LoginType.QUICK_LOGIN。
-- 华为账号一键登录及华为账号登录，可以[借助DevEco Studio辅助开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login#section12250103482815)，快速实现页面代码及逻辑编写。
+- [loginType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#logintype)：是LoginWithHuaweiIDButton中标识华为账号登录类型的属性，默认是LoginType.ID，一键登录对应的值是LoginType.QUICK_LOGIN。
+- 华为账号一键登录及华为账号登录，可以[借助DevEco Studio辅助开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login#借助deveco-studio辅助开发可选)，快速实现页面代码及逻辑编写。
 
  
  

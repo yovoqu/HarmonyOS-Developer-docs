@@ -9,7 +9,7 @@
 手机连接上电脑，执行hdc list targets可以识别到设备，但使用Hypium的UiViewer功能时提示“选中设备中包含不兼容的设备！”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/c65j7pmoRUawFCTCvap8Lw/zh-cn_image_0000002658928763.png?HW-CC-KV=V1&HW-CC-Date=20260723T013959Z&HW-CC-Expire=86400&HW-CC-Sign=71468A2B5D4DF91D592D6F44EDACD3D1F3C03D335AA819F831B99CF0E82E6E23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/c65j7pmoRUawFCTCvap8Lw/zh-cn_image_0000002658928763.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=38F0534ECEFE28B408049DAC43D8C4D682F4FC1AEA04061F7373E8B0C4988E38)
 
  
  
@@ -23,16 +23,16 @@
 #### 问题定位
 
 - 检查hdc、Hypium插件、设备驱动程序已正确安装。执行hdc list targets查看设备是否能够被正确识别。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/hL0YFx_jRvShy_NJSnXE6Q/zh-cn_image_0000002658808817.png?HW-CC-KV=V1&HW-CC-Date=20260723T013959Z&HW-CC-Expire=86400&HW-CC-Sign=F1742E96439475D5CCE5E8ADECCA64A31134430BF3C3B3DE7CB43AD25326A0FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/hL0YFx_jRvShy_NJSnXE6Q/zh-cn_image_0000002658808817.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=0CD7A1F62D1BFAB6EE44F64871EB38DB9C8F7D8773C9856DC6AB84451C8F8C5C)
 
 - 执行hdc shell uitest --version命令，查看版本号是否大于4.1.4.0。如下图显示的4.0.4.0版本不支持UiViewer查看设备。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/CFOZtL_vSmemejjWXBTNow/zh-cn_image_0000002628409550.png?HW-CC-KV=V1&HW-CC-Date=20260723T013959Z&HW-CC-Expire=86400&HW-CC-Sign=62C571AB283A1468A4D55C6BBB1A3ECA2EB253F40663709F5DFC5D25AA7018CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/CFOZtL_vSmemejjWXBTNow/zh-cn_image_0000002628409550.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=82322BBB348F07C8790AD341CA3471480FCC51C680D5296933F063088A6C143C)
 
 - 执行hdc -v命令，查看版本号是否在3.0.0及以上。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/j8i286g1SS6Bi5uopVXMww/zh-cn_image_0000002628569448.png?HW-CC-KV=V1&HW-CC-Date=20260723T013959Z&HW-CC-Expire=86400&HW-CC-Sign=FB7EDCB956FCDF94D6AB9945BEAAE6ABA4543D9FBF888CA189CAF7DE08F1BBB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/j8i286g1SS6Bi5uopVXMww/zh-cn_image_0000002628569448.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=DAAEC9A2D9A8B01613686ED19FBEBE16570372A9E9AA47DEAFE83E3C65572D1C)
 
 - 检查Hypium插件是否为6.0.0 Release及以上版本：打开Pycharm，点击File -> Settings -> Plugins进行查看。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/oOzE5hHiRz2ZImMgjz8pbw/zh-cn_image_0000002658928765.png?HW-CC-KV=V1&HW-CC-Date=20260723T013959Z&HW-CC-Expire=86400&HW-CC-Sign=BA7FB0377C5C64767D2B9B9AC632FF81F701B64C2E2CEA724CD033964FE86551)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/oOzE5hHiRz2ZImMgjz8pbw/zh-cn_image_0000002658928765.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=1D3B36B6E5352E2705C1A8AF0E4F330F26434CE27497E3D475D3C3751F6BC25B)
 
 
  

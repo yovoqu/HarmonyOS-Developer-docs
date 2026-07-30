@@ -1,6 +1,6 @@
 # Environment：设备环境查询
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-environment
 
@@ -68,7 +68,7 @@ export default class EntryAbility extends UIAbility {
 Environment.envProp('languageCode', 'en');
 ```
 
- - 在自定义组件中通过@StorageProp获取languageCode的值。
+ - 在自定义组件中通过[@StorageProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storageprop)获取languageCode的值。
 
   
 ```ArkTS
@@ -97,11 +97,19 @@ struct UiEnvironment {
       Column() {
         // 输出当前设备的languageCode
         Text(this.languageCode)
+          .fontSize(20)
+          .margin(10)
       }
+      .width('100%')
     }
+    .height('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/nmQe_S27RDSyZctx9k3yfw/zh-cn_image_0000002686085401.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=253DDF3BCE3543AE6926D9560C389336CDD083FB4EBD177B238242F22A457A6A)
+
 
 
 

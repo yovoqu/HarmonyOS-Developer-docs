@@ -1,10 +1,10 @@
 # @Monitor装饰器：状态变量修改异步监听
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor
 
-为了增强状态管理框架对状态变量变化的监听能力，开发者可以使用@Monitor装饰器对状态变量进行监听。
+为了增强状态管理框架对状态变量变化的监听能力，开发者可以使用[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-monitor#monitor)装饰器对状态变量进行监听。
 
 @Monitor提供了对V2状态变量的监听。在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)，[@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)，[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)。
 
@@ -27,7 +27,7 @@
  - 和[@Watch装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)类似，开发者需要自己定义回调函数，区别在于@Watch装饰器将函数名作为参数，而@Monitor直接装饰回调函数。@Monitor与@Watch的对比可以查看[@Monitor与@Watch的对比](#monitor与watch对比)。
 
 
-从API版本26.0.0开始，支持配置[MonitorDecoratorOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor#monitordecoratoroptions)来获得以下能力增强：
+从API版本26.0.0开始，支持配置[MonitorDecoratorOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-monitor#monitordecoratoroptions)来获得以下能力增强：
 
  - 支持在监听路径中设置通配符“*”，用于模糊监听对象内部变化，包括@ObservedV2中任意@Trace属性变化，内置类型（Array、Map、Date、Set）的API调用引起的变化等。详情见[监听包含通配符的路径](#监听包含通配符的路径)。
  - 对@Monitor部分能力进行修正，详情见[@Monitor使用配置项前后的对比](#monitor使用配置项前后的对比)。
@@ -67,18 +67,26 @@ struct Index {
       Column() {
         // 对象、数组中某一单个属性或数组项变化，不会触发UI刷新
         Button('change info name')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.info.name = 'Jack';
           })
         Button('change info age')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.info.age = 30;
           })
         Button('change numArr[2]')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.numArr[2] = 5;
           })
         Button('change numArr[3]')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.numArr[3] = 6;
           })
@@ -89,6 +97,10 @@ struct Index {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/izf6gfS7TTmakqYAiDY5eA/zh-cn_image_0000002685925599.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=CFF1291D2E60F273718B5E460719E2EFCB616D50A4835C5B59907354E37D2805)
+
 
 上述代码中，点击"change info name"更改info中的name属性或点击"change info age"更改age时，均会触发info注册的@Watch回调。点击"change numArr[2]"更改numArr中的第3个元素或点击"change numArr[3]"更改第4个元素时，均会触发numArr注册的@Watch回调。在这两个回调中，由于无法获取数据更改前的值，在业务逻辑更加复杂的场景下，无法准确知道是哪一个属性或元素发生了改变从而触发了@Watch事件，这不便于开发者对变量的更改进行准确监听。因此推出@Monitor装饰器实现对对象、数组中某一单个属性或数组项变化的监听，并且能够获取到变化之前的值。
 
@@ -149,7 +161,7 @@ onValueChange3(monitor: IMonitor) {
 
 #### 接口说明
 
-IMonitor类型、IMonitorValue&lt;T&gt;类型以及MonitorDecoratorOptions的接口说明参考API文档：[状态变量变化监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor)。
+IMonitor类型、IMonitorValue&lt;T&gt;类型以及MonitorDecoratorOptions的接口说明参考API文档：[@Monitor：状态变量修改监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-monitor)。
 
 
 
@@ -186,14 +198,19 @@ struct Index {
     Column() {
       // 点击Button更新message和name，触发onStrChange回调
       Button('change string')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.message += '!';
           this.name = 'Jack';
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/dHVP6VfkSiiHnePYxwm8eA/zh-cn_image_0000002656005920.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=7E2B9D05BCCAD634CD3EE3270541A4D394F326309FC661F247C3394E3A0978E1)
 
  - @Monitor监听的状态变量为类对象时，仅能监听对象整体的变化。监听类属性的变化需要类属性被@Trace装饰。
 
@@ -229,18 +246,27 @@ struct Index {
   build() {
     Column() {
       Text(`name: ${this.info.name}, age: ${this.info.age}`)
+        .fontSize(20)
+        .margin(10)
       Button('change info')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info = new Info('Lucy', 18); // 能够监听到
         })
       Button('change info.name')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.name = 'Jack'; // 监听不到
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/qzdpBMq_SRudYZhONTLuHA/zh-cn_image_0000002655846000.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=55A1D846178662BC8D6344A33F79487E7759BAD1A9D98C8CF81B3DD8406DCFEC)
 
 
 
@@ -295,25 +321,36 @@ struct Index {
   build() {
     Column() {
       Button('change name')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.name = 'Jack'; // 能够触发onNameChange方法
         })
       Button('change age')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.age = 26; // 不能够触发onAgeChange方法
         })
       Button('change region')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.region = 'South'; // 能够触发onChange方法
         })
       Button('change job')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.job = 'Driver'; // 能够触发onChange方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/a1Qvto2qThW0-9PInmQw-A/zh-cn_image_0000002686085429.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3861AB06C118707A9D20FAE6595D1EB905C01E8D650C6E2774EBBBE3B3A9F1F0)
 
  - @Monitor可以监听深层属性的变化，该深层属性需要被@Trace装饰。
 
@@ -345,13 +382,18 @@ struct Index {
   build() {
     Column() {
       Button('change num')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.outer.inner.num = 100; // 能够触发onChange方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/dB-vZ0aZT6ezxlonAnuDEg/zh-cn_image_0000002685925601.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=EFEA8824F45C5C3C4617B5F317D10D81E5C3B6CD0845587D4B23963BF1C30AA5)
 
  - 在继承类场景下，可以在继承链中对同一个属性进行多次监听。
 
@@ -395,13 +437,18 @@ struct Index {
   build() {
     Column() {
       Button('change name')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.derived.name = 'BBB'; // 能够先后触发onBaseNameChange、onDerivedNameChange方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/N3FVXbISSr2u0GgZpn5UaA/zh-cn_image_0000002656005922.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4A4A3C768314BB45BC1855442FA08EF596D5ECA00721D4F9426CDC61D96DADFF)
 
 
 
@@ -482,37 +529,50 @@ struct Index {
   build() {
     Column() {
       Button('Change dimensionTwo')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 能够触发onDimensionTwoChange方法
           this.arrMonitor.dimensionTwo[0][0]++;
           this.arrMonitor.dimensionTwo[1][1]++;
         })
       Button('Change dimensionThree')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 能够触发onDimensionThreeChange方法
           this.arrMonitor.dimensionThree[0][0][0]++;
           this.arrMonitor.dimensionThree[1][1][0]++;
         })
       Button('Change info property')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 能够触发onInfoArrPropertyChange方法
           this.arrMonitor.infoArr[0].name = 'Tom';
           this.arrMonitor.infoArr[1].age = 19;
         })
       Button('Change whole infoArr')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 能够触发onInfoArrChange、onInfoArrPropertyChange、onInfoArrLengthChange方法
           this.arrMonitor.infoArr = [new Info('Cindy', 8)];
         })
       Button('Push new info to infoArr')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 能够触发onInfoArrPropertyChange、onInfoArrLengthChange方法
           this.arrMonitor.infoArr.push(new Info('David', 50));
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/YPm7LoQhQyG5bVCQ0omjfQ/zh-cn_image_0000002655846002.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3707A7250D6FF4A03ADC079BDFCAE673F38B04DA695972687BBDE3FF87770094)
 
  - 对象整体改变，但监听的属性不变时，不触发@Monitor回调。
 
@@ -564,21 +624,30 @@ struct Index {
   build() {
     Column() {
       Button('Step1: Only change name')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.person = new Person('Jack', 25); // 能够触发onNameChange方法，不触发onAgeChange方法
         })
       Button('Step2: Only change age')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.person = new Person('Jack', 18); // 能够触发onAgeChange方法，不触发onNameChange方法
         })
       Button('Step3: Change name and age')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.person = new Person('Lucy', 19); // 能够触发onNameChange、onAgeChange方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/NAYxua3CRKSHK88ZM5segg/zh-cn_image_0000002686085431.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=ABCFE92796530098AFA7979F49F4EDC18D3992371C0EBE43FC9B301FE4F4F986)
 
  - 在一次事件中多次改变被@Monitor监听的属性，以最后一次修改为准。
 
@@ -605,12 +674,16 @@ struct Index {
   build() {
     Column() {
       Button('change count to 1000')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           for (let i = 1; i <= 1000; i++) {
             this.frequency.count = i;
           }
         })
       Button('change count to 0 then to 1000')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           for (let i = 999; i >= 0; i--) {
             this.frequency.count = i;
@@ -618,9 +691,12 @@ struct Index {
           this.frequency.count = 1000; // 最终不触发onCountChange方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/FK55vkhuT0aq1UDI0D4rHw/zh-cn_image_0000002685925603.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=1532D3DBFC369D4D40EC6F192F538EAA45BC07D933700FBDD59843348AB87D20)
 
 
 
@@ -687,21 +763,32 @@ struct MonitorWildcardObject {
   build() {
     Column() {
       Button(`Change propA: ${this.cls.propA}`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cls.propA += 1; // 触发onClsChanged
         })
       Button(`Change propB: ${this.cls.propB}`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cls.propB += 1; // 触发onClsChanged
         })
       Button('Assign new object')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cls = new ClassA(-200, -200); // 触发onClsChanged
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/agISuCsSReaa145kayNd8g/zh-cn_image_0000002656005924.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=B09067366472561D532F2A3244170F0BDCA444EE78C50CD459F82AD6B9B6868D)
+
 
 
 
@@ -742,12 +829,16 @@ struct MonitorWildcardNestedObject {
   build() {
     Column({ space: 5 }) {
       Button('1. Class0 = new Class')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // @Monitor回调触发
           // 原因：class0, class1, person变更为新对象
           this.class0 = new Class0();
         })
       Button('2. Class0 = new Class, keep Class1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 当class0为Class0类型时，@Monitor回调不触发
           // 原因：即使class0变化了，路径'class0.class1.person.*'中通配符前最后一个确定值person也没有改变
@@ -758,6 +849,8 @@ struct MonitorWildcardNestedObject {
           }
         })
       Button('3. Class0.class1 = new Class1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 当class0为Class0类型时，@Monitor回调触发
           // 原因：class1、person变更为新对象
@@ -766,6 +859,8 @@ struct MonitorWildcardNestedObject {
           }
         })
       Button('4. Class0.class1.person = new Person')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 当class0为Class0类型时，@Monitor回调触发
           // 原因：person变更为新对象
@@ -774,6 +869,8 @@ struct MonitorWildcardNestedObject {
           }
         })
       Button('5. Class0....person.last update')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 当class0为Class0类型时，@Monitor回调触发
           // 原因：person的属性发生变化
@@ -782,6 +879,8 @@ struct MonitorWildcardNestedObject {
           }
         })
       Button('6. Class0 toggle number <=> new Class0')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // @Monitor回调触发
           // 原因：person在可访问与不可访问之间切换
@@ -791,6 +890,10 @@ struct MonitorWildcardNestedObject {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/bUSXkZGsRWm2L8jvzX1hzw/zh-cn_image_0000002655846004.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=998CE1E30449474182A21692DBCBBDCEDA0EA0D84146C17ED21DAB539DC35DE4)
+
 
 当使用配置项的@Monitor监听的变量在可访问和不可访问之间切换时，都会触发@Monitor回调。
 
@@ -855,12 +958,16 @@ struct MonitorWildcardArray {
     Column() {
       // topArrayMonitor1Star与topArrayMonitorStar回调均触发
       Button('topArray = new TopArray')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.topArray = this.makeNewTopArray();
         })
 
       // 当topArray[1][0]存在时，topArrayMonitor1Star回调触发，topArrayMonitorStar回调不触发
       Button('topArray[1][0] = new Person')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           if (this.topArray.length > 1 && this.topArray[1].length > 0) {
             this.topArray[1][0] = new Person();
@@ -869,6 +976,8 @@ struct MonitorWildcardArray {
 
       // 当topArray[0][1]存在时，topArrayMonitor1Star与topArrayMonitorStar回调均不触发
       Button('topArray[0][1] = new Person')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           if (this.topArray.length > 0 && this.topArray[0].length > 1) {
             this.topArray[0][1] = new Person();
@@ -877,6 +986,8 @@ struct MonitorWildcardArray {
 
       // 当topArray[1]存在时，topArrayMonitor1Star回调触发，topArrayMonitorStar回调不触发
       Button('topArray[1].push')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           if (this.topArray.length > 1 && this.topArray[1] instanceof ArrayOfPerson) {
             this.topArray[1].push(new Person());
@@ -885,6 +996,8 @@ struct MonitorWildcardArray {
 
       // 当topArray的length大于2时，topArrayMonitor1Star与topArrayMonitorStar回调均触发
       Button('topArray.shift (length>2)')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           if (this.topArray.length > 2) {
             this.topArray.shift();
@@ -893,6 +1006,8 @@ struct MonitorWildcardArray {
 
       // 当topArray[0]存在时，topArrayMonitor1Star回调不触发，topArrayMonitorStar回调触发
       Button('topArray[0] = new ArrayOfPerson')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           if (this.topArray.length > 0) {
             this.topArray[0] = new ArrayOfPerson(new Person(), new Person());
@@ -901,6 +1016,8 @@ struct MonitorWildcardArray {
 
       // 当topArray[1][0]存在时，topArrayMonitor1Star与topArrayMonitorStar回调均不触发
       Button('topArray[1][0].last update')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           if (this.topArray.length > 1 && this.topArray[1].length > 0 && this.topArray[1][0] instanceof Person) {
             this.topArray[1][0].lastName += '~';
@@ -909,6 +1026,8 @@ struct MonitorWildcardArray {
 
       // topArrayMonitor1Star回调不触发，topArrayMonitorStar回调触发
       Button('topArray = new TopArray, keep [1]')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           let newTop = this.makeNewTopArray();
           newTop[1] = this.topArray[1]; // topArray.1未改变，路径'topArray.1.*'中通配符前最后一个确定值未改变
@@ -917,13 +1036,20 @@ struct MonitorWildcardArray {
 
       // topArrayMonitor1Star回调不触发，topArrayMonitorStar回调触发
       Button('topArray.push')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.topArray.push(new ArrayOfPerson(new Person(), new Person()));
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/f3vyu6i9TniscNQtakghUg/zh-cn_image_0000002686085433.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=E346948395A37A9B34CD3BA5D528CC37F18E8B76980441AACCE3C4887A07DC3F)
+
 
 
 
@@ -963,21 +1089,29 @@ struct MonitorWildcardDate {
     Column({ space: 5 }) {
       // API调用触发onDateChanged
       Button(`date.setMilliseconds(1000)`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.date.setMilliseconds(1000);
         })
       // API调用触发onDateChanged
       Button(`date.setTime(1000)`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.date.setTime(1000000);
         })
       // API调用触发onDateChanged
       Button(`Assign new Date`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.date = new Date();
         })
       // 整体赋相同值，不触发onDateChanged
       Button(`Re-assign the same Date`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           let sameDate = this.date;
           this.date = sameDate;
@@ -986,6 +1120,10 @@ struct MonitorWildcardDate {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/r5VCqjD7RFSXTZTOmZb3eg/zh-cn_image_0000002685925605.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4A5C9C5F68ADAC0ABF8058F5A2FD62C3768DF53ECF3871E27DA4A94A557134D2)
+
 
 
 
@@ -1032,15 +1170,23 @@ struct MonitorWildcardMap {
   build() {
     Column({ space: 5 }) {
       Text(`map.size: ${this.map.size}`)
+        .fontSize(20)
+        .margin(10)
       Text(`map.get('one'): ${this.map.get('one')}`)
+        .fontSize(20)
+        .margin(10)
       // 在首次点击时，onMapSizeChanged、onMapChanged回调都触发
       Button(`Init, map.set('one', 'A'), map.set('two', 'B')`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.map.set('one', 'A');
           this.map.set('two', 'B');
         })
       // onMapSizeChanged、onMapChanged回调都触发
       Button(`Add new, map.set('three' + this.cnt, 'C')`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cnt++;
           this.map.set('three' + this.cnt, 'C')
@@ -1048,24 +1194,32 @@ struct MonitorWildcardMap {
       // 当'one'不存在时，onMapSizeChanged、onMapChanged回调都不触发
       // 当'one'存在时，onMapSizeChanged、onMapChanged回调都触发
       Button(`Delete from map: map.delete('one')`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.map.delete('one')
         })
       // 当map不为空时，onMapSizeChanged、onMapChanged回调都触发
       // 当map为空时，onMapSizeChanged、onMapChanged回调都不触发
       Button(`Clear map`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.map.clear();
         })
       // 在首次点击且假设存在（'one' -> 'A'）时，仅onMapChanged回调触发
       // 若已经设置过（'one' -> 'TWO'），则onMapSizeChanged、onMapChanged回调都不触发
       Button(`Update one to 'TWO' - map.set('one', 'TWO')`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.map.set('one', 'TWO');
         })
       // 当Map不存在'one'时，onMapSizeChanged、onMapChanged回调都触发
       // 当Map存在'one'时，onMapSizeChanged、onMapChanged回调都不会触发
       Button(`Update one to the same - map.set('one', sameval)`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           const sameval = this.map.get('one') ?? 'one';
           this.map.set('one', sameval);
@@ -1073,6 +1227,8 @@ struct MonitorWildcardMap {
       // 当Map不存在'one'时，onMapSizeChanged、onMapChanged回调都触发
       // 当Map存在'one'时，仅onMapChanged回调触发
       Button(`Update one to new value - map.set('one', newval)`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           let newval = 'x' + (++this.cnt);
           this.map.set('one', newval);
@@ -1080,14 +1236,19 @@ struct MonitorWildcardMap {
       // 当map为空时，仅onMapChanged回调触发
       // 当map不为空时，onMapChanged、onMapSizeChanged回调都触发
       Button(`new map`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.map = new Map();
         })
     }
-    .border({ style: BorderStyle.Solid, width: 2, color: Color.Green })
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/mnq8U8bST0izq5aUyekg3g/zh-cn_image_0000002656005926.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=0DA6EC4655B464E78EAC2DB3E76BA7ABAEBA1DD003277E6932011F7D9DF9690C)
+
 
 
 
@@ -1140,6 +1301,8 @@ struct MonitorWildcardSet {
     Column({ space: 5 }) {
       // onSetChanged、onSetSizeChanged回调都触发
       Button(`Add three<Num> to the set`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cnt++;
           this.set.add('three' + this.cnt);
@@ -1147,24 +1310,32 @@ struct MonitorWildcardSet {
       // 当元素不存在时，onSetChanged、onSetSizeChanged回调都不触发
       // 当元素存在时，onSetChanged、onSetSizeChanged回调都触发
       Button(`Delete 'three<Num>' from the set - set.delete(...)`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.set.delete('three' + this.cnt);
         })
       // 当set不为空时，onSetChanged、onSetSizeChanged回调都触发
       // 当set为空时，onSetChanged、onSetSizeChanged回调都不触发
       Button(`Clear the set - set.clear()`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.set.clear();
         })
       // 当set不为空时，onSetChanged、onSetSizeChanged回调都触发
       // 当set为空时，仅onSetChanged回调触发
       Button(`Assign new set`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.set = new Set();
         })
       // 当set不包含'one'时，onSetChanged、onSetSizeChanged回调都触发
       // 当set包含'one'时，onSetChanged、onSetSizeChanged回调都不触发
       Button(`Add 'one' to the set`)
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.set.add('one');
         })
@@ -1172,6 +1343,10 @@ struct MonitorWildcardSet {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/LIoFTJciRbWmksggX2rbsw/zh-cn_image_0000002655846006.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=61F7C6AB848E4913EC7F689AE5D644F1A7AA3D41EEAE2AF55AA4EA0F5B2619C1)
+
 
 
 
@@ -1208,13 +1383,18 @@ struct Index {
   build() {
     Column() {
       Button('change name')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.name = 'Jack'; // 仅会触发onNameChangeDuplicate方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/u_0p5LmbSmmKuZuZF8Y3Ag/zh-cn_image_0000002686085435.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3F30EE100EE88DBB5A7F5C42610E51F39A909F6E1E4A50A0E63E9A5364260BE0)
 
  - 当@Monitor传入多个路径参数时，以参数的全拼接结果判断是否重复监听。全拼接时会在参数间加空格，以区分不同参数。例如，'ab', 'c'的全拼接结果为'ab c'，'a', 'bc'的全拼接结果为'a bc'，二者全拼接不相等。以下示例中，Monitor 1、Monitor 2与Monitor 3都监听了name属性的变化。由于Monitor 2与Monitor 3的入参全拼接相等（都为'name position'），因此Monitor 2不生效，仅Monitor 3生效。当name属性变化时，将同时触发onNameAgeChange与onNamePositionChangeDuplicate方法。但请注意，Monitor 2与Monitor 3的写法仍然被视作在一个类中对同一个属性进行多次@Monitor的监听，这是不建议的。
 
@@ -1262,13 +1442,18 @@ struct Index {
   build() {
     Column() {
       Button('change name')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.name = 'Jack'; // 同时触发onNameAgeChange与onNamePositionChangeDuplicate方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/vOXLH4IiQxKUa_ALWUHmDA/zh-cn_image_0000002685925607.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=21BE31689BF3128C6A476CA224F45CD0D5A4343325D52CE4C01E8923BDB60D37)
 
  - @Monitor的参数需要为监听属性名的字符串，仅可以使用字符串字面量、const常量、enum枚举值作为参数。如果使用变量作为参数，仅会监听@Monitor初始化时，变量值所对应的属性。当更改变量时，@Monitor无法实时改变监听的属性，即@Monitor监听的目标属性从初始化时便已经确定，无法动态更改。不建议开发者使用变量作为@Monitor的参数进行初始化。
 
@@ -1321,37 +1506,54 @@ struct Index {
   build() {
     Column() {
       Button('Change t1')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.t1++; // 能够触发onT1Change方法
         })
       Button('Change t2')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.t2++; // 能够触发onT2Change方法
         })
       Button('Change t3')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.t3++; // 能够触发onT3Change方法
         })
       Button('Change t4')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.t4++; // 能够触发onT4Change方法
         })
       Button('Change var t4 to t5')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           t4 = 't5'; // 更改变量值为't5'
         })
       Button('Change t5')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.t5++; // onT4Change仍监听t4，不会触发
         })
       Button('Change t4 again')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.t4++; // 能够触发onT4Change方法
         })
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/m0KHwAeyQ9GosY2IRx4pZA/zh-cn_image_0000002656005928.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=B8162DD809A8E2364C44B197D1CEF28B0CFBB37742D61A5097A4323D595ABCC9)
 
  - 建议开发者避免在@Monitor中再次更改被监听的属性，这会导致无限循环。
 
@@ -1440,14 +1642,22 @@ struct Index {
       Text(`Important Value: ${this.textStyle.info.value}`)
         .fontColor(this.textStyle.color)
         .fontSize(this.textStyle.fontSize)
+        .margin(10)
       Button('change!')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.textStyle.info.value = Math.floor(Math.random() * 100) + 1;
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/v7_b0w1WRnSZzO45Ezfosw/zh-cn_image_0000002655846008.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=38BEA6E5FBD9708375800FA32ADD973082138A0C2AB8C883979DAB533F8505DF)
+
 
 
 
@@ -1495,11 +1705,16 @@ struct Child {
   build() {
     Column() {
       Text('Child')
+        .fontSize(20)
+        .margin(10)
       Button('change message in Child')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.message = 'Child click to change Message';
         })
     }
+    .width('95%')
     .borderColor(Color.Red)
     .borderWidth(2)
 
@@ -1521,10 +1736,14 @@ struct Index {
   build() {
     Column() {
       Button('show/hide Child')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.flag = !this.flag
         })
       Button('change message in Index')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.message = 'Index click to change Message';
         })
@@ -1535,6 +1754,10 @@ struct Index {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/guLBXd0HSIWMAcMRF9t7zw/zh-cn_image_0000002686085437.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=F236AE81F76FE850545DFAF53A08283B8655A2B4A7EE444FC477D49C1EC6799C)
+
 
 在上面的例子中，可以通过创建和销毁Child组件来观察定义在自定义组件中的@Monitor的生效和失效时机。推荐按如下顺序进行操作：
 
@@ -1585,6 +1808,8 @@ struct Index {
   build() {
     Column() {
       Button('change message')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.info.message = 'Index click to change message';
         })
@@ -1592,6 +1817,10 @@ struct Index {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/Bg-qe8VST9aCyHWoXQhT2Q/zh-cn_image_0000002685925609.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=BDB01B1FCED2E505E61D89B665F3CFAACD5ACA65C656031804A00EE5AC98163F)
+
 
 上面的例子中，@Monitor会在info创建完成后生效，这个时机晚于类的constructor，早于自定义组件的aboutToAppear。当界面加载完成后，点击“change message”，修改message变量。此时日志输出信息如下：
 
@@ -1640,6 +1869,8 @@ struct Child {
   build() {
     Column() {
       Text(`${this.infoWrapper.info?.age}`)
+        .fontSize(20)
+        .margin(10)
     }
   }
 }
@@ -1660,10 +1891,14 @@ struct Index {
     Column() {
       // 点击Button切换showFlag，触发Child组件的创建/销毁
       Button('change showFlag')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.showFlag = !this.showFlag;
         })
       Button('change number')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           hilog.info(0xFF00, 'testTag', '%{public}s', 'click to change age');
           this.dataArray.forEach((info: Info) => {
@@ -1673,6 +1908,8 @@ struct Index {
       if (this.showFlag) {
         Column() {
           Text('Children')
+            .fontSize(20)
+            .margin(10)
           ForEach(this.dataArray, (info: Info) => {
             Child({ infoWrapper: new InfoWrapper(info) })
           })
@@ -1684,6 +1921,10 @@ struct Index {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/iKSDJd9ARrOqVTKScGup2w/zh-cn_image_0000002656005930.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=655A1993FDC31C195CE9E1B4959C4EA20C70149F2B7E15D673FCC6DA96932D2F)
+
 
 在上面的例子中，当点击“change showFlag”切换if组件的条件时，Child组件会被销毁。此时，点击“change number”修改age的值时，可以通过日志观察到InfoWrapper中定义的@Monitor回调仍然被触发了。这是因为此时自定义组件Child虽然执行了aboutToDisappear，但是其成员变量infoWrapper还没有被立刻回收，当变量发生变化时，依然能够调用到infoWrapper中定义的onInfoAgeChange方法，所以从现象上看@Monitor回调仍会被触发。
 
@@ -1729,6 +1970,8 @@ struct Child {
   build() {
     Column() {
       Text(`${this.infoWrapper.info?.age}`)
+        .fontSize(20)
+        .margin(10)
     }
   }
 }
@@ -1752,6 +1995,7 @@ struct Index {
         .onClick(() => {
           this.showFlag = !this.showFlag;
         })
+        .margin(10)
       Button('change number')
         .onClick(() => {
           hilog.info(0xFF00, 'testTag', '%{public}s', 'click to change age');
@@ -1759,9 +2003,12 @@ struct Index {
             info.age += 100;
           })
         })
+        .margin(10)
       if (this.showFlag) {
         Column() {
           Text('Children')
+            .fontSize(20)
+            .margin(10)
           ForEach(this.dataArray, (info: Info) => {
             Child({ infoWrapper: new InfoWrapper(info) })
           })
@@ -1770,9 +2017,14 @@ struct Index {
         .borderWidth(2)
       }
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/4n4PnXUYRVqBr-f0Hmcivw/zh-cn_image_0000002655846010.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=84267DA1993601C0336B6499BA793ECDA9A58930BA287025C0C2D2CEA884A3D1)
+
 
 2、主动置空监听的对象。当自定义组件即将销毁时，主动置空@Monitor的监听目标，这样@Monitor无法再监听原监听目标的变化，达到取消@Monitor监听的效果。
 
@@ -1815,6 +2067,8 @@ struct Child {
   build() {
     Column() {
       Text(`${this.infoWrapper.info?.age}`)
+        .fontSize(20)
+        .margin(10)
     }
   }
 }
@@ -1837,6 +2091,7 @@ struct Index {
         .onClick(() => {
           this.showFlag = !this.showFlag;
         })
+        .margin(10)
       Button('change number')
         .onClick(() => {
           hilog.info(0xFF00, 'testTag', '%{public}s', 'click to change age');
@@ -1844,9 +2099,12 @@ struct Index {
             info.age += 100;
           })
         })
+        .margin(10)
       if (this.showFlag) {
         Column() {
           Text('Children')
+            .fontSize(20)
+            .margin(10)
           ForEach(this.dataArray, (info: Info) => {
             Child({ infoWrapper: new InfoWrapper(info) })
           })
@@ -1855,9 +2113,14 @@ struct Index {
         .borderWidth(2)
       }
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/-IU8VgMIQ1iBR9uEKVC5xw/zh-cn_image_0000002686085439.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=8DD93B1CE601398E798838EA97AE9AECA01494A2ABE632D5367F450EEC53B8EF)
+
 
 
 
@@ -1899,9 +2162,14 @@ struct Index {
           this.info.name = 'Johny';
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/9Tz-wT9qTLC1ttWmqMlRZQ/zh-cn_image_0000002685925611.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=1C56D1C8089B7603319F9E15A0AC79FCDD40587C0E4CCDBA4CAC5C14F874CC1E)
+
 
 上面的代码中，当点击按钮同时更改状态变量age和非状态变量name时，会输出以下日志：
 
@@ -1910,7 +2178,15 @@ property path:age change from 24 to 25
 property path:name change from John to Johny
 ```
 
-实际上name属性本身并不是可被观测的变量，不应被加入到@Monitor的入参当中。建议开发者去除对name属性的监听或者给name加上@Trace装饰成为状态变量。
+实际上name属性本身并不是可被观测的变量，不应被加入到@Monitor的入参当中。
+
+从API版本26.0.0开始，使用配置项的@Monitor对路径的监听变为互相独立的监听，各路径互不影响。若改为使用配置项的@Monitor（如@Monitor({}, 'age', 'name')），非状态变量name将被忽略，不参与监听。仅当状态变量age变化时才会触发回调，且dirty中仅包含age；当仅修改name时不会触发回调。在这种情况下，点击按钮同时修改age和name时，会输出以下日志：
+
+```text
+property path:age change from 24 to 25
+```
+
+建议开发者去除对name属性的监听，或给name加上@Trace装饰使其成为状态变量；也可改为使用配置项的@Monitor。
 
 【正例1】
 
@@ -1945,9 +2221,14 @@ struct Index {
           this.info.name = 'Johny';
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/IcMJo2MdQeCS-480o-0TQw/zh-cn_image_0000002656005932.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=2EA56B8B685B2763518C56E4D982C9034133136C2D55C6FA5544908FA5FBA67D)
+
 
 【反例2】
 
@@ -1986,7 +2267,9 @@ struct Index {
 }
 ```
 
-上面的代码中，@Monitor的入参为一个getter访问器的名字，但该getter访问器本身并未被@Computed装饰，不是一个可被监听的变量。但由于使用了状态变量参与了计算，在状态变量变化后，myAge也被认为发生了变化，因此触发了@Monitor回调。建议开发者给myAge添加@Computed装饰器或当getter访问器直接返回状态变量时，不监听getter访问器而是直接监听状态变量本身。
+上面的代码中，@Monitor的入参为一个getter访问器的名字，但该getter访问器本身并未被@Computed装饰，不是一个可被监听的变量。但由于使用了状态变量参与了计算，在状态变量变化后，myAge也被认为发生了变化，因此触发了@Monitor回调。从API版本26.0.0开始，若改为使用配置项的@Monitor（如@Monitor({}, 'myAge')），由于读取myAge时仍会读取状态变量age，因此行为不变，依然会触发回调。
+
+建议开发者给myAge添加@Computed装饰器使其成为状态变量，或直接监听状态变量本身。
 
 【正例2】
 
@@ -2025,9 +2308,14 @@ struct Index {
           this.info.age = 25; // 状态变量age改变
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/ll51UeqMQ7uOO7jY_i0SkQ/zh-cn_image_0000002655846012.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4A5DD69E0C240822F84EC5B0B05D606C67F458D40DC39CF44EB99A89DCBB8E9C)
+
 
 或直接监听状态变量本身：
 
@@ -2058,9 +2346,14 @@ struct Index {
           this.info.age = 25; // 状态变量age改变
         })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/UEh1q9tIQBqyVUx_FC4GBw/zh-cn_image_0000002686085441.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3B3A6F5777A7BBFB9484CC30E11FAFFA000DA4FA8AC1E2803B641CF825A6FAE9)
+
 
 
 
@@ -2069,6 +2362,8 @@ struct Index {
 @Monitor仅会保存变量可访问时的值，当状态变量变为不可访问的状态时，并不会记录其值的变化。在下面的例子中，点击三个Button，均不会触发onChange的回调。
 
 从API version 20开始，如果需要监听可访问到不可访问和不可访问到可访问的状态变化，可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor#监听变量从可访问到不访问和从不可访问到可访问)。
+
+从API版本26.0.0开始，使用配置项的@Monitor能够正常处理变量在可访问与不可访问之间的切换。在下面的例子中，若将@Monitor('user.age')改写为使用配置项的形式@Monitor({}, 'user.age')，则点击三个Button均会触发onChange回调，dirty中将包含路径user.age，其对应的IMonitorValue的before值与now值会分别反映可访问性切换前后的状态（变量可访问时为实际值，变量不可访问时为undefined）。
 
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -2093,20 +2388,34 @@ struct Page {
 
   build() {
     Column() {
-      Text(`User age ${this.user?.age}`).fontSize(20)
-      Button('set user to undefined').onClick(() => {
-        // age：可访问 -> 不可访问
-        this.user = undefined;
-      })
-      Button('set user to User').onClick(() => {
-        // age：不可访问 ->可访问
-        this.user = new User();
-      })
-      Button('set user to null').onClick(() => {
-        // age：可访问->不可访问
-        this.user = null;
-      })
+      Text(`User age ${this.user?.age}`)
+        .fontSize(20)
+        .margin(10)
+      Button('set user to undefined')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          // age：可访问 -> 不可访问
+          this.user = undefined;
+        })
+      Button('set user to User')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          // age：不可访问 ->可访问
+          this.user = new User();
+        })
+      Button('set user to null')
+        .width(300)
+        .margin(10)
+        .onClick(() => {
+          // age：可访问->不可访问
+          this.user = null;
+        })
     }
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/ZjzhbdYEQwuRDPSFkZl3rQ/zh-cn_image_0000002685925613.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=CDD9B071B580E6569899B8045C50C6FCECCFAC0DCB0EA30BC406A39531718D2F)

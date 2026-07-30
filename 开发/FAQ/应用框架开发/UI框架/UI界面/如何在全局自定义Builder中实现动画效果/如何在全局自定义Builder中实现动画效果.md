@@ -149,7 +149,7 @@ struct <span style="color: rgb(0,0,255);">OptionTwo </span><span style="color: r
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/07aaHNNOSW2jy-qOkLmbpg/zh-cn_image_0000002658804043.png?HW-CC-KV=V1&HW-CC-Date=20260723T013202Z&HW-CC-Expire=86400&HW-CC-Sign=F4DC4F52EC2613ACBD460A15064708D8A7046D5E89CB0DB102274103B8D2D24F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/07aaHNNOSW2jy-qOkLmbpg/zh-cn_image_0000002658804043.png?HW-CC-KV=V1&HW-CC-Date=20260730T072508Z&HW-CC-Expire=86400&HW-CC-Sign=B9E25279F44667729EDA20FF5C7BE4807625CAB5058AC3928A26797A254406CB)
 
 
   由于全局自定义函数的Builder的父容器Column组件没有设置宽高限制，导致Column组件自适应子组件大小，所以Text组件也跟随移动。

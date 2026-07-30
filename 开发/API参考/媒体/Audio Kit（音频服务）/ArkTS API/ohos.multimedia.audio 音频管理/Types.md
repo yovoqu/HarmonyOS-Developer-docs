@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,13 +50,13 @@ type AudioCapturerChangeInfoArray = Array<Readonly&lt;AudioCapturerChangeInfo&gt
 
 type AudioEffectInfoArray = Array<Readonly&lt;AudioEffectMode&gt;>
  
-待查询ContentType和StreamUsage组合场景下的音效模式数组类型，[AudioEffectMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioeffectmode10)数组，只读。
+ContentType和StreamUsage组合场景下的音效模式数组类型，[AudioEffectMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioeffectmode10)数组，只读。
  
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
   
 | 类型 | 说明 |
 | --- | --- |
-| Array<Readonly&lt;AudioEffectMode&gt;> | 待查询ContentType和StreamUsage组合场景下的音效模式数组类型，AudioEffectMode数组，只读。 |
+| Array<Readonly&lt;AudioEffectMode&gt;> | ContentType和StreamUsage组合场景下的音效模式数组类型，AudioEffectMode数组，只读。 |
  
  
   
@@ -86,7 +86,7 @@ type AudioDeviceDescriptors = Array<Readonly&lt;AudioDeviceDescriptor&gt;>
 
 type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult | void
  
-回调函数类型，用于音频渲染器的数据写入，回调函数结束后，音频服务会把data指向的数据放入队列里等待播放，因此请勿在回调外再次更改data指向的数据, 且务必保证往data填满待播放数据, 否则会导致音频服务播放杂音。
+回调函数类型，用于音频渲染器的数据写入。回调函数结束后，音频服务会把data指向的数据放入队列里等待播放，因此请勿在回调外再次更改data指向的数据，且务必保证往data填满待播放数据，否则会导致音频播放出现杂音。
  
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
  
@@ -102,3 +102,24 @@ type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackRe
 | 类型 | 说明 |
 | --- | --- |
 | AudioDataCallbackResult \| void | 如果返回 void 或 AudioDataCallbackResult.VALID：表示数据有效，将播放音频数据；如果返回 AudioDataCallbackResult.INVALID：表示数据无效，且音频数据不播放。 |
+ 
+ 
+  
+
+#### DeviceTypeArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type DeviceTypeArray = Array&lt;DeviceType&gt;
+ 
+数组类型，[DeviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#devicetype)数组。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Audio.Device
+  
+| 类型 | 说明 |
+| --- | --- |
+| Array< DeviceType> | DeviceType数组。 |

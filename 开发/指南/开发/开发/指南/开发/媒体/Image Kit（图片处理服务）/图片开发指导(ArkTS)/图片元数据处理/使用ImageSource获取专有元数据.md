@@ -1,6 +1,6 @@
 # 使用ImageSource获取专有元数据
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-specific-metadata
 
@@ -114,11 +114,22 @@ async readImageMetadataByType(imageSource: image.ImageSource | undefined) : Prom
 
   
 ```ArkTS
-async release(pixelMap: image.PixelMap | undefined, imageSource: image.ImageSource | undefined) {
-  await pixelMap?.release();
-  pixelMap = undefined;
-  await imageSource?.release();
-  imageSource = undefined;
+async release() {
+  try {
+    await this.pixelMap?.release();
+  } catch (error) {
+    console.error(`Failed to release PixelMap: ${error}.`);
+  } finally {
+    this.pixelMap = undefined;
+  }
+
+  try {
+    await this.imageSource?.release();
+  } catch (error) {
+    console.error(`Failed to release ImageSource: ${error}.`);
+  } finally {
+    this.imageSource = undefined;
+  }
 }
 ```
 

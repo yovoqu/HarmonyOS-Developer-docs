@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-functions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -175,6 +175,7 @@ let bounds: mapCommon.LatLngBounds = {
     longitude: 119
   }
 };
+// 设置地图经纬度范围并指定内边距为5px
 let cameraUpdate: map.CameraUpdate = map.newLatLngBounds(bounds, 5);
 ```
  

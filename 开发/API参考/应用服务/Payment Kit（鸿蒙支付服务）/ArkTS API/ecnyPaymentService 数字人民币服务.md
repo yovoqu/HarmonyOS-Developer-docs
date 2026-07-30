@@ -1,6 +1,6 @@
 # ecnyPaymentService (数字人民币服务)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-ecnypaymentservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -87,7 +87,7 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise&lt;EcnyPayResult&gt;
 
-该方法提供基础支付功能，调用该方法前请确保网络已连接，调用该方法后会拉起数字人民币收银台，支付完成后使用Promise异步返回。
+该方法提供基础支付功能，调用该方法前请确保网络已连接，调用该方法后会拉起数字人民币收银台，支付完成后使用Promise异步回调。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 

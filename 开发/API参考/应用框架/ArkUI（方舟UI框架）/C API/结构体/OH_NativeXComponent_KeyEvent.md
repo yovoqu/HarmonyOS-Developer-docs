@@ -1,6 +1,6 @@
 # OH_NativeXComponent_KeyEvent
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-keyevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_NativeXComponent_KeyEvent OH_NativeXComponent_KeyEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供封装按键事件信息的OH_NativeXComponent_KeyEvent实例。
+OH_NativeXComponent_KeyEvent用于封装XComponent按键事件的信息，提供按键的键值、动作类型、事件时间戳等关键数据。适用于Native侧接收和处理ArkUI XComponent按键事件的场景。
  
 **起始版本：** 10
  

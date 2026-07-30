@@ -9,7 +9,7 @@
 Refresh组件在反复滑动时，会重复触发刷新回调，无法控制刷新状态，问题图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ZO4IywDySHKkBqI7zIEROw/zh-cn_image_0000002658914537.png?HW-CC-KV=V1&HW-CC-Date=20260723T012605Z&HW-CC-Expire=86400&HW-CC-Sign=B00CB98FE28A8C8F4B04B5302153F4433302D1D38F81BA36178EE700B0E958C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ZO4IywDySHKkBqI7zIEROw/zh-cn_image_0000002658914537.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=4CB85AAE2CCF5D57AA7B37A8B7237AE35B794188003F55757348978F51E6F55B)
 
  
 由图可见，Refresh的刷新不断重复触发，如何解决Refresh每次下拉重复触发刷新回调的问题？
@@ -141,7 +141,7 @@ struct RefreshRepeatProblem {
 修正效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/WDAAYU2HQJyl04-XJTp9Bg/zh-cn_image_0000002628395312.png?HW-CC-KV=V1&HW-CC-Date=20260723T012605Z&HW-CC-Expire=86400&HW-CC-Sign=AA89359FE37DEA4AAAFAE7CE33B6240FA4782EBF713F8F2B4CF8AB7C65F1A11D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/WDAAYU2HQJyl04-XJTp9Bg/zh-cn_image_0000002628395312.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=C73B85565AAECAAC85BF48AA82761DE88CC007CB47B2BB78AF30DBCE3D38F9C0)
 
  
 由图可见，Refresh组件的刷新状态不会在短时间内频繁触发。

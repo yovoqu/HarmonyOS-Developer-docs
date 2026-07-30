@@ -1,6 +1,6 @@
 # AVPlayer播放网络视频流的相关问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-34
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)主要工作是将Audio/Video媒体资源（比如mp4/mp3/mkv/mpeg-ts等）转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放。AVPlayer提供功能完善的一体化播放能力，应用只需要提供流媒体来源，不负责数据解析和解码就可达成播放效果。
+[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)主要工作是将Audio/Video媒体资源（比如mp4/mp3/mkv/mpeg-ts等）转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放。AVPlayer提供功能完善一体化播放能力，应用只需要提供流媒体来源，不负责数据解析和解码就可达成播放效果。
  
 AVPlayer播放网络视频和直播流等流媒体时可以参考相关文档：[使用AVPlayer播放流媒体](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/streaming-media-playback-development-guide)。
  
@@ -31,3 +31,11 @@ AVPlayer默认采用内存缓冲区实现边播边缓冲功能，缓冲区数据
 **场景三**：播放的远程文件需要鉴权，需要在请求头里增加多个字段，AVPlayer是否只支持传入URL？
  
 AVPlayer已经支持header播放鉴权以及添加相关的文件信息，详情可以参考相关接口：[createMediaSourceWithUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatemediasourcewithurl12)。
+ 
+ 
+
+#### 常见FAQ
+
+Q：AVPlayer是否支持流媒体播放？之前使用第三方开源库播放流媒体不太稳定，是否可以替换为AVPlayer？
+ 
+A：支持。AVPlayer可以播放网络视频和直播流等流媒体内容，建议使用AVPlayer替换第三方开源库以获得更稳定的播放体验。具体使用方式参考[使用AVPlayer播放流媒体](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/streaming-media-playback-development-guide)。

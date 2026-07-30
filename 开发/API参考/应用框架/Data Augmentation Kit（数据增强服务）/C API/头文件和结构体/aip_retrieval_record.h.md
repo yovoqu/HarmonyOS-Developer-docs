@@ -1,6 +1,6 @@
 # aip_retrieval_record.h
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-aip-retrieval-record
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -10,6 +10,10 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 提供与检索结果相关的接口。
+ 
+检索结果（OH_Retrieval_Record）是知识检索操作的返回数据，包含从知识库中检索到的字段和字段取值。检索结果由多个数据库bucket数组（OH_Retrieval_RecordItem）组成，每个bucket数组对应一条匹配的记录，其中包含该记录各字段的名称和值。
+ 
+适用于需要从知识库中获取相关信息并进行展示的应用场景，例如：知识问答系统中获取检索结果、智能推荐中提取匹配记录等。
  
 **引用文件：** #include "dataaugmentation/retrieval/aip_retrieval_record.h"
  

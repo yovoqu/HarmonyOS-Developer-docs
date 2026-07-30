@@ -1,6 +1,6 @@
 # FIDO2_PublicKeyCredentialRequestOptions
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_request_options
 
@@ -10,7 +10,9 @@
  
 **起始版本：** 6.0.0(20)
  
-**相关模块：** [FIDO2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+**相关模块：** [FIDO2（通行密钥服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+ 
+**所在头文件：** [fido2_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication_capi_header_fido2)
  
   
 
@@ -23,7 +25,7 @@
 | 名称 | 描述 |
 | --- | --- |
 | Uint8Buff challenge | 获取挑战值。 |
-| uint32_t timeout | 注册操作最长时间，单位为ms。默认为300000（5分钟），最大为600000（10分钟）。可选。 |
+| uint32_t timeout | 超时时间。单位为ms。默认为300000（5分钟），限制为0到600000（10分钟）。可选。 |
 | char * rpId | 依赖方标识（如域名等）。默认空。可选。 |
 | FIDO2_PublicKeyCredentialDescriptorArray allowCredentials | 认证凭据的附加参数列表。默认空列表。可选。 |
 | FIDO2_UserVerificationRequirement userVerification | 用户认证需求枚举。默认值为FIDO2_PREFERRED。可选。 |
@@ -105,7 +107,7 @@ uint32_t FIDO2_PublicKeyCredentialRequestOptions::timeout
  
 **描述**
  
-认证操作最长时间，单位为ms。可选。
+超时时间。单位为ms。默认为300000（5分钟），限制为0到600000（10分钟）。可选。
  
   
 

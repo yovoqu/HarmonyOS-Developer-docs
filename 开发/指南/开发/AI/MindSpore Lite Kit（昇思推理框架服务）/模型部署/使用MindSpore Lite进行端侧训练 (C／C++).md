@@ -1,6 +1,6 @@
 # 使用MindSpore Lite进行端侧训练 (C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-train-guidelines
 
@@ -22,7 +22,7 @@ MindSpore Lite是一款AI引擎，它提供了面向不同硬件设备AI模型�
 | OH_AI_DeviceInfoHandle OH_AI_DeviceInfoCreate(OH_AI_DeviceType device_type) | 创建一个运行时设备信息对象。 |
 | void OH_AI_ContextDestroy(OH_AI_ContextHandle *context) | 释放上下文对象。 |
 | void OH_AI_ContextAddDeviceInfo(OH_AI_ContextHandle context, OH_AI_DeviceInfoHandle device_info) | 添加运行时设备信息。 |
-| OH_AI_TrainCfgHandle OH_AI_TrainCfgCreate() | 创建训练配置对象指针。 |
+| OH_AI_TrainCfgHandle OH_AI_TrainCfgCreate() | 创建训练配置对象。 |
 | void OH_AI_TrainCfgDestroy(OH_AI_TrainCfgHandle *train_cfg) | 销毁训练配置对象指针。 |
 | OH_AI_ModelHandle OH_AI_ModelCreate() | 创建一个模型对象。 |
 | OH_AI_Status OH_AI_TrainModelBuildFromFile(OH_AI_ModelHandle model, const char *model_path, OH_AI_ModelType model_type, const OH_AI_ContextHandle model_context, const OH_AI_TrainCfgHandle train_cfg) | 通过模型文件加载并编译MindSpore Lite训练模型。 |
@@ -210,7 +210,7 @@ printf("Export Inference Model Success.\n");
 
 8. 释放模型。
 
-  不再使用MindSpore Lite推理框架时，需要释放已经创建的模型。
+  不再使用MindSpore Lite框架时，需要释放已经创建的模型。
 
   
 ```text

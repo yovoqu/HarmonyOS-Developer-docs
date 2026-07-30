@@ -1,16 +1,16 @@
 # @ohos.util (util工具函数)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该模块主要提供常用的工具函数，实现字符串编解码（[TextEncoder](#textencoder)，[TextDecoder](#textdecoder)）、有理数运算（[RationalNumber8+](#rationalnumber8)）、缓冲区管理（[LRUCache9+](#lrucache9)）、范围判断（[ScopeHelper9+](#scopehelper9)）、Base64编解码（[Base64Helper9+](#base64helper9)）、内置对象类型检查（[types8+](#types8)）、对方法进行插桩和替换（[Aspect11+](#aspect11)）、堆内存阈值配置（[HeapMemoryThreshold24+](#heapmemorythreshold24)）等功能。
- 
+
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-  
+
 
 #### 导入模块
 
@@ -19,38 +19,38 @@
 ```text
 import { util } from '@kit.ArkTS';
 ```
- 
-  
+
+
 
 #### util.format9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 format(format: string, ...args: Object[]): string
- 
+
 使用样式化字符串将输入内容按特定格式输出。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | format | string | 是 | 格式化字符串，可以包含零个或多个占位符，用于指定要插入的参数的位置和格式。 |
 | ...args | Object[] | 否 | 替换format参数中占位符的数据，此参数缺失时，默认返回第一个参数。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 格式化后的字符串。 |
- 
- 
+
+
 **格式说明符：**
-  
+
 | 格式说明符 | 说明 |
 | --- | --- |
 | %s | 将参数转换为字符串，用于除Object，BigInt和-0之外的所有值。 |
@@ -62,10 +62,10 @@ format(format: string, ...args: Object[]): string
 | %O | 用于将JavaScript对象进行格式化输出，将对象转换为字符串表示。 |
 | %c | 只在浏览器环境中有效。其余环境不会产生样式效果。 |
 | %% | 转义百分号的特殊格式化占位符。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { util } from '@kit.ArkTS';
 
@@ -129,46 +129,46 @@ formattedString = util.format('John finished %d%% of the %s', percentage, arg);
 console.info(formattedString);
 // 输出结果：John finished 80% of the homework
 ```
- 
-  
+
+
 
 #### util.errnoToString9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 errnoToString(errno: number): string
- 
+
 获取系统错误码对应的详细信息。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | errno | number | 是 | 系统发生错误产生的错误码。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 错误码对应的详细信息。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let errnum = -1; // -1 : a system error number
 let result = util.errnoToString(errnum);
 console.info("result = " + result);
 // 输出结果：result = operation not permitted
 ```
- 
+
 **部分错误码及信息示例：**
-  
+
 | 错误码 | 信息 |
 | --- | --- |
 | -1 | operation not permitted |
@@ -180,42 +180,42 @@ console.info("result = " + result);
 | -12 | not enough memory |
 | -13 | permission denied |
 | -100 | network is down |
- 
- 
-  
+
+
+
 
 #### util.callbackWrapper
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 callbackWrapper(original: Function): (err: Object, value: Object)=>void
- 
+
 对异步函数进行回调化处理，回调中第一个参数是拒绝原因（如果Promise已解决，则为null），第二个参数是已解决的值。
- 
+
 > [!NOTE]
 > 该接口要求参数original必须是异步函数类型。如果传入的参数不是异步函数，不会进行拦截，但是会输出错误信息："callbackWrapper: The type of Parameter must be AsyncFunction"。 该接口用于将返回Promise的async函数转换为错误优先回调风格的函数，调用此接口返回的函数接收一个回调函数作为第二个入参，调用此方法时会先执行original函数。当original的Promise返回resolve时，入参的回调函数的第一个参数为null，第二个参数为resolve的值。当original的Promise返回reject时，入参的回调函数的第一个参数为错误对象，第二个参数为null。 由于此方法返回类型的声明为(err: Object, value: Object) => void，TypeScript编译器会按照该声明进行参数数量校验，因此当original为无入参的函数时，此接口返回的函数第一个入参需传入一个无效的占位参数。当original为多个入参的函数时，此接口返回的函数当前仅支持传入一个参数，可使用array等容器进行多个入参的传入调用（参照下方示例代码）。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | original | Function | 是 | 异步函数。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | (err: Object, value: Object)=>void | 返回一个回调函数，该函数第一个参数err是拒绝原因（如果 Promise 已解决，则为 null），第二个参数value是已解决的值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // original为一个入参示例
 async function fn(input: string) {
@@ -228,7 +228,7 @@ cb('hello world', (err : Object, ret : string) => {
 });
 // 输出结果：hello world
 ```
- 
+
 ```text
 // original需要传入多个入参场景示例
 async function fn(args: Array<string | number | Function>) {
@@ -243,37 +243,37 @@ cb(args, (err : Object, ret : string) => {
   console.info(ret); // 输出结果：hello world
 });
 ```
- 
-  
+
+
 
 #### util.promisify9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 promisify(original: (err: Object, value: Object) => void): Function
- 
+
 接收一个采用“错误优先”回调模式的函数，即以(err, value) => callback作为最后一个参数，并返回其Promise函数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | original | (err: Object, value: Object) => void | 是 | 回调函数中第一个参数err是拒绝原因（如果 Promise 已解决，则为 null），第二个参数value是已解决的值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Function | 返回一个 Promise 的函数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 async function fn() {
   return 'hello world';
@@ -289,264 +289,264 @@ const addCall = util.promisify(util.callbackWrapper(fn));
   }
 })();
 ```
- 
-  
+
+
 
 #### util.generateRandomUUID9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 generateRandomUUID(entropyCache?: boolean): string
- 
+
 使用加密安全随机数生成器生成随机的RFC 4122版本4的string类型UUID。为了提升性能，此接口会默认使用缓存，即入参为true，最多可缓存128个随机的UUID。当缓存中128个UUID用尽后，会重新生成，以保证UUID的随机性。如需禁用缓存，请将入参设置为false。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | entropyCache | boolean | 否 | 是否使用已缓存的UUID，true表示使用缓存的UUID，false表示不使用缓存的UUID，默认true。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 表示此UUID的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let uuid = util.generateRandomUUID(true);
 console.info("RFC 4122 Version 4 UUID:" + uuid);
 // 输出随机生成的UUID
 ```
- 
-  
+
+
 
 #### util.generateRandomBinaryUUID9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 generateRandomBinaryUUID(entropyCache?: boolean): Uint8Array
- 
+
 使用加密安全随机数生成器生成随机的RFC 4122版本4的UUID。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | entropyCache | boolean | 否 | 是否使用已缓存的UUID，true表示使用缓存的UUID，false表示不使用缓存的UUID，默认true。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 表示此UUID的Uint8Array值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```json
 let uuid = util.generateRandomBinaryUUID(true);
 console.info(JSON.stringify(uuid));
 // 输出随机生成的UUID
 ```
- 
-  
+
+
 
 #### util.parseUUID9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 parseUUID(uuid: string): Uint8Array
- 
+
 将generateRandomUUID生成的string类型UUID转换为[util.generateRandomBinaryUUID](#utilgeneraterandombinaryuuid9)生成的UUID，符合RFC 4122版本规范。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uuid | string | 是 | UUID字符串。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 返回表示此UUID的Uint8Array，如果解析失败，则抛出SyntaxError。 |
- 
- 
+
+
 **错误码：**
- 
+
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-  
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200002 | Invalid uuid string. |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let uuid = util.parseUUID("84bdf796-66cc-4655-9b89-d6218d100f9c");
 console.info("uuid = " + uuid);
 // 输出结果：uuid = 132,189,247,150,102,204,70,85,155,137,214,33,141,16,15,156
 ```
- 
-  
+
+
 
 #### util.printf(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 printf(format: string, ...args: Object[]): string
- 
+
 通过式样化字符串对输入的内容按特定格式输出。
- 
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 util.format 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | format | string | 是 | 式样化字符串。 |
 | ...args | Object[] | 否 | 替换式样化字符串通配符的数据，此参数缺失时，默认返回第一个参数。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 按特定格式式样化后的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let res = util.printf("%s", "hello world!");
 console.info(res);
 // 输出结果：hello world!
 ```
- 
-  
+
+
 
 #### util.getErrorString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getErrorString(errno: number): string
- 
+
 获取系统错误码对应的详细信息。
- 
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 util.errnoToString 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | errno | number | 是 | 系统发生错误产生的错误码。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 错误码对应的详细信息。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let errnum = -1; // -1 : a system error number
 let result = util.getErrorString(errnum);
 console.info("result = " + result);
 // 输出结果：result = operation not permitted
 ```
- 
-  
+
+
 
 #### util.promiseWrapper(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 promiseWrapper(original: (err: Object, value: Object) => void): Object
- 
+
 接收一个采用“错误优先”回调模式的函数，即以(err, value) => callback作为最后一个参数，并返回其Promise函数。
- 
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，此接口不可用，建议使用 util.promisify 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | original | (err: Object, value: Object) => void | 是 | 异步函数。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Object | 返回promise函数，采用遵循常见的错误优先的回调风格的函数（也就是将(err, value) => ...回调作为最后一个参数）。 |
- 
- 
-  
+
+
+
 
 #### util.getHash12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHash(object: object): number
- 
+
 获取对象的Hash值。
- 
+
 首次获取时，则计算Hash值并保存到对象的Hash域（返回随机的Hash值）；后续获取时，直接从Hash域中返回Hash值（同一对象多次返回值保持不变）。
- 
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | object | object | 是 | 需要获取Hash值的对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | Hash值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 interface Person {
   name: string,
@@ -559,107 +559,145 @@ let result2 = util.getHash(obj);
 console.info('result2 is ' + result2);
 // 输出结果：result1 与 result2 的值相等，且为随机的Hash值。
 ```
- 
-  
+
+
 
 #### util.getMainThreadStackTrace20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMainThreadStackTrace(): string
- 
+
 获取主线程的栈追踪信息，最多返回64层调用帧。
- 
+
 该接口可能对主线程性能产生影响，建议仅在必要时使用，如日志记录、错误分析或调试场景。
- 
+
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 主线程的栈追踪信息。若主线程未处于执行JS代码状态，则返回空字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let stack = util.getMainThreadStackTrace();
 console.info(stack);
 // 输出当前主线程的栈追踪信息。
 ```
- 
-  
+
+
+
+#### MultithreadingDetectionOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+MultithreadingDetectionOptions是一个接口类，用于配置[ArkTSVM.setMultithreadingDetectionEnabled](#setmultithreadingdetectionenabled23)函数的行为参数。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Utils.Lang
+
+**属性：**
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| abort | boolean | 否 | 是 | 控制检测到多线程问题时是否崩溃。true表示崩溃，false表示不崩溃。默认true。 |
+| frequency | number | 否 | 是 | 多线程安全检测的粒度，表示每发生多少次函数调用进行一次多线程安全检测，该值越大采样频率越低，对应用性能影响越小，但可能漏检部分多线程安全使用问题场景，范围为[100, 2147483647]，默认100。 |
+| interval | number | 否 | 是 | 多线程安全检测的上报故障时间间隔，仅不崩溃时生效，范围为[0,1440]，单位为分钟，默认5分钟。（不建议设为5分钟以下，有严重的性能影响。） |
+
+
+
 
 #### ArkTSVM23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-ArkTSVM是一个类，用于给开发者提供虚拟机的维测能力。
- 
-  
+ArkTSVM是一个类，用于给开发者提供虚拟机的诊断与维护能力，包括多线程安全检测、堆内存信息获取、内存泄漏防护、全局引用追踪和堆内存预警等功能。
+
+
 
 #### setMultithreadingDetectionEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-static setMultithreadingDetectionEnabled(enabled: boolean): void
- 
-若enabled为true则开启，为false则关闭。开启多线程检测，多线程问题的cppcrash文件里会包含多线程信息。关闭多线程检测，则多线程问题的cppcrash文件里不会包含多线程信息。
- 
+static setMultithreadingDetectionEnabled(enabled: boolean, options?: MultithreadingDetectionOptions): void
+
+若enabled为true则开启，为false则关闭。开启多线程安全检测，多线程问题的cppcrash文件里会包含多线程信息。关闭多线程安全检测，则多线程问题的cppcrash文件里不会包含多线程信息。
+
+options是用于配置多线程安全检测的行为参数。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | boolean | 是 | 控制多线程检测开关的开启或关闭 。true表示开启，false表示关闭。 |
- 
- 
+| enabled | boolean | 是 | 控制多线程安全检测开关的开启或关闭。true表示开启，false表示关闭。 |
+| options | MultithreadingDetectionOptions | 否 | 多线程安全检测的参数配置，此参数不填时，对应各属性取MultithreadingDetectionOptions的默认值。起始版本： 26.0.0 |
+
+
 **示例：**
- 
+
 ```text
 import { util } from '@kit.ArkTS';
 
-// 打开多线程检测开关
+// 打开多线程安全检测开关
 util.ArkTSVM.setMultithreadingDetectionEnabled(true);
-// 关闭多线程检测开关
+// 关闭多线程安全检测开关
 util.ArkTSVM.setMultithreadingDetectionEnabled(false);
+// 设置崩溃行为
+util.ArkTSVM.setMultithreadingDetectionEnabled(true, { abort: false });
+// 调整检测粒度
+util.ArkTSVM.setMultithreadingDetectionEnabled(true, { frequency: 200 });
+// 调整上报间隔
+util.ArkTSVM.setMultithreadingDetectionEnabled(true, { interval: 10 });
+// 同时设置三个参数
+util.ArkTSVM.setMultithreadingDetectionEnabled(true, {
+  abort: false,
+  frequency: 500,
+  interval: 60
+});
 ```
- 
-  
+
+
 
 #### getAllVMHeapMemoryInfo24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>
- 
+
 获取所有VM线程的堆内存信息，包括线程ID、线程名称、堆类型和堆对象大小。使用Promise异步回调。
- 
+
 接口获取到的堆包含两种类型：local堆，即应用进程中每个ArkTS线程独有的虚拟机堆；shared堆，即应用进程中所有ArkTS线程共享的虚拟机堆。
- 
+
 > [!NOTE]
 > 此接口在执行时会暂停所有VM线程运行以获取内存信息。由于需要等待所有VM线程暂停，高负载场景下调用此接口的耗时可能较高。
 
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise<HeapMemoryInfo[]> | Promise对象，解析为HeapMemoryInfo对象数组，每个对象包含线程ID、线程名称、堆类型和堆对象大小。此方法可以获取local堆和shared堆的内存信息。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { util } from '@kit.ArkTS';
 
@@ -674,23 +712,23 @@ util.ArkTSVM.getAllVMHeapMemoryInfo().then(
   }
 );
 ```
- 
-  
+
+
 
 #### enableLocalHandleDetection24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static enableLocalHandleDetection(): void
- 
+
 EventHandler和libuv的异步事件循环机制在执行异步任务时，任务会跳出当前handle scope范围。若开发者在任务回调中未添加scope，将导致内存泄漏。调用该接口后，可确保这两个机制的任务在scope范围内执行，从而避免内存泄漏。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```cpp
 // napi_init.cpp C++侧示例代码
 #include "napi/native_api.h"
@@ -724,18 +762,18 @@ static napi_value CreateObject(napi_env env, napi_callback_info info)
     return nullptr;
 }
 ```
- 
+
 在CMakeLists.txt中添加以下动态链接库：
- 
+
 ```text
 libuv.so
 ```
- 
+
 ```ts
 // index.d.ts 接口声明
 export const createObject: () => void;
 ```
- 
+
 ```ArkTS
 // Index.ets ArkTS侧示例代码
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -751,11 +789,11 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API createObject failed error: %{public}s', error.message);
 }
 ```
- 
+
 **可能出现的问题：**
- 
+
 如果之前内存泄漏的对象被继续使用，使用enableLocalHandleDetection接口后，系统会回收内存泄漏对象。继续使用该对象会导致内存泄漏问题转变为稳定性问题。
- 
+
 ```text
 napi_value global_js_object;
 napi_value dangerous_function(napi_env env, napi_callback_info info) {
@@ -765,40 +803,108 @@ napi_value dangerous_function(napi_env env, napi_callback_info info) {
     return nullptr;
 }
 ```
- 
-  
+
+
+
+#### setTrackGlobalRef
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static setTrackGlobalRef(enable: boolean): void
+
+开启或关闭napi_ref与全局对象之间的关联追踪。开启后，堆快照中全局对象节点将包含napi_ref的地址信息；关闭后（enable为false），将停止追踪，堆快照中不再显示napi_ref与全局对象之间的关联关系。
+
+开启追踪后，虚拟机会额外记录napi_ref与全局对象的关联关系，可能带来一定的内存和性能开销。在不需要调试时，建议调用util.ArkTSVM.setTrackGlobalRef(false)关闭追踪。
+
+该接口的开关为进程级别，进程内的所有线程共享同一开关状态。在任意线程调用本接口设置开关后，将对该进程内所有线程生效。
+
+关于napi_ref的详细说明，请参考[napi_ref](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-life-cycle#napi_ref)使用指导。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Utils.Lang
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enable | boolean | 是 | 是否开启追踪。true表示开启追踪，false表示关闭追踪。 |
+
+
+**示例：**
+
+```cpp
+// napi_init.cpp C++侧示例代码
+#include "napi/native_api.h"
+
+static napi_value CreateGlobalRef(napi_env env, napi_callback_info info)
+{
+    napi_value js_obj = nullptr;
+    napi_create_object(env, &js_obj);
+    // 创建napi_ref，与全局handle建立关联
+    napi_ref ref = nullptr;
+    napi_create_reference(env, js_obj, 1, &ref);
+    // 开启setTrackGlobalRef后，堆快照中将包含该ref对应的native引用地址信息
+    return nullptr;
+}
+```
+
+```ts
+// Index.d.ts 接口声明
+export const createGlobalRef: () => void;
+```
+
+```ArkTS
+// Index.ets ArkTS侧示例代码
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import testNapi from 'libentry.so';
+import { util } from '@kit.ArkTS';
+
+try {
+  // 开启napi_ref与全局handle的关联追踪，开启后堆快照中将包含native引用地址信息
+  util.ArkTSVM.setTrackGlobalRef(true);
+  testNapi.createGlobalRef();
+  hilog.info(0x0000, 'testTag', 'Test Node-API createGlobalRef success');
+} catch (error) {
+  hilog.error(0x0000, 'testTag', 'Test Node-API createGlobalRef failed error: %{public}s', error.message);
+}
+```
+
+
 
 #### onVMHeapMemoryPressure24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static onVMHeapMemoryPressure(callback: Callback&lt;string&gt;, heapMemoryThreshold: HeapMemoryThreshold): boolean
- 
+
 注册一个回调函数，在虚拟机主线程完成垃圾回收后，如果堆内存超过预警阈值则触发回调执行。
- 
+
 虚拟机是通过统计存活对象大小来判断是否达到内存预警阈值，由于虚拟机堆存在一定内存碎片以及浮动垃圾，无法保证在OOM前肯定会触发到回调。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;string&gt; | 是 | 垃圾回收后内存达到预警阈值时触发的回调函数，字符串参数表示内存压力事件的类型。目前事件的类型有三种取值，"LocalHeapMemPressure"，"SharedHeapMemPressure"，"ProcessHeapMemPressure"。 |
 | heapMemoryThreshold | HeapMemoryThreshold | 是 | 堆内存预警阈值配置，以百分比设置，取值范围为[70, 95]。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 注册成功返回true，当不在主线程调用或回调已注册时返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { util } from '@kit.ArkTS';
 
@@ -815,154 +921,154 @@ let threshold: util.HeapMemoryThreshold = {
 let result : boolean = util.ArkTSVM.onVMHeapMemoryPressure(callback, threshold);
 console.info('Registration result: ' + result);
 ```
- 
-  
+
+
 
 #### offVMHeapMemoryPressure24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static offVMHeapMemoryPressure(): void
- 
+
 取消已注册的内存预警回调函数。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 import { util } from '@kit.ArkTS';
 
 util.ArkTSVM.offVMHeapMemoryPressure();
 ```
- 
-  
+
+
 
 #### HeapMemoryThreshold24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 堆内存预警阈值配置，用于指定触发回调的堆内存预警阈值。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | localHeapThreshold | number | 否 | 是 | local堆内存预警阈值配置，以百分比设置，取值范围为[70, 95]。超出范围时自动限制到有效区间。若未设置，则不监听local堆。 |
 | sharedHeapThreshold | number | 否 | 是 | shared堆内存预警阈值配置，以百分比设置，取值范围为[70, 95]。超出范围时自动限制到有效区间。若未设置，则不监听shared堆。 |
 | processHeapThreshold | number | 否 | 是 | 进程总虚拟机堆内存预警阈值配置，以百分比设置，取值范围为[70, 95]。超出范围时自动限制到有效区间。若未设置，则不监听进程总虚拟机堆大小。 |
- 
- 
-  
+
+
+
 
 #### HeapMemoryInfo24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述local堆或shared堆的内存信息，包含线程标识和堆内存大小等详细数据。
- 
+
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | threadId | number | 否 | 是 | 线程ID。如果此内存信息描述的是local堆，该值为表示运行线程ID的整数；如果此内存信息描述的是shared堆，该值为undefined。 |
 | threadName | string | 否 | 是 | 线程名称。如果此内存信息描述的是local堆，该值为表示运行线程名称的字符串；如果此内存信息描述的是shared堆，该值为undefined。 |
 | heapType | string | 否 | 否 | 堆类型。目前有两种取值，"local"表示堆类型为local堆，"shared"表示堆类型为shared堆。 |
 | heapObjectSize | number | 否 | 否 | 堆对象大小，单位为KB（向上取整的整数）。 |
- 
- 
-  
+
+
+
 
 #### TextDecoderOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 解码相关选项参数，包含两个属性fatal和ignoreBOM。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | fatal | boolean | 否 | 是 | 是否显示致命错误，true表示显示致命错误，false表示不显示致命错误，默认值是false。 |
 | ignoreBOM | boolean | 否 | 是 | 是否忽略BOM标记，true表示忽略待解码数据的BOM标记，false表示会对BOM标记解码，默认值是false。 |
- 
- 
-  
+
+
+
 
 #### DecodeToStringOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于配置decodeToString方法在解码字节流时的行为参数。
- 
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | stream | boolean | 否 | 是 | 输入末尾出现的不完整字节序列是否需要追加在下次调用decodeToString的参数中处理。设置为true，则不完整的字节序列会存储在内部缓存区直到下次调用该函数，false则会在当前调用时直接解码。默认为false。 |
- 
- 
-  
+
+
+
 
 #### DecodeWithStreamOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 解码是否跟随附加数据块相关选项参数。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | stream | boolean | 否 | 是 | 在随后的decodeWithStream调用中是否跟随附加数据块。如果以块的形式处理数据，则设置为true；如果处理最后的数据未分块，则设置为false。默认为false。 |
- 
- 
-  
+
+
+
 
 #### Aspect11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Aspect类用于封装提供切面能力（Aspect Oriented Programming，简写AOP）的接口，这些接口可用于对类方法进行前后插桩或替换实现。
- 
-  
+
+
 
 #### addBefore11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static addBefore(targetClass: Object, methodName: string, isStatic: boolean, before: Function): void
- 
+
 在指定的类对象的原方法执行前插入一个函数。执行addBefore接口后，先运行插入的函数逻辑，再执行指定类对象的原方法。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | targetClass | Object | 是 | 指定的类对象。 |
 | methodName | string | 是 | 指定的原方法名，不支持read-only方法。 |
 | isStatic | boolean | 是 | 指定的原方法是否为静态方法。true表示静态方法，false表示实例方法。 |
 | before | Function | 是 | 要插入的函数对象。函数有参数，则第一个参数是this对象（若isStatic为true，则为类对象即targetClass；若isStatic为false，则为调用方法的实例对象），其余参数是原方法的参数。函数也可以无参数，无参时不做处理。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class MyClass {
   msg: string = 'msg000';
@@ -1025,33 +1131,33 @@ console.info('res is ' + res);
 console.info('MyClass.data is ' + MyClass.data);
 // 输出结果：MyClass.data is data111
 ```
- 
-  
+
+
 
 #### addAfter11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static addAfter(targetClass: Object, methodName: string, isStatic: boolean, after: Function): void
- 
+
 在指定的类方法执行后插入一段逻辑。最终返回插入函数执行后的返回值。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | targetClass | Object | 是 | 指定的类对象。 |
 | methodName | string | 是 | 指定的原方法名，不支持read-only方法。 |
 | isStatic | boolean | 是 | 指定的原方法是否为静态方法。true表示静态方法，false表示实例方法。 |
 | after | Function | 是 | 要插入的函数。函数有参数时，则第一个参数是this对象（若isStatic为true，则为类对象即targetClass；若isStatic为false，则为调用方法的实例对象），第二个参数是原方法的返回值（如果原方法没有返回值，则为undefined），其余参数是原方法的参数。函数也可以无参，无参时不做处理。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class MyClass {
   msg: string = 'msg000';
@@ -1105,33 +1211,33 @@ util.Aspect.addAfter(AroundTest, 'foo', false, () => {
 // 输出结果：execute foo with arg hello
 // 输出结果：execute after
 ```
- 
-  
+
+
 
 #### replace11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static replace(targetClass: Object, methodName: string, isStatic: boolean, instead: Function) : void
- 
+
 将指定类的原方法替换为另一个函数。replace接口执行完成后，调用指定的类方法时，仅执行替换后的逻辑。最终返回替换函数执行完毕的返回值。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | targetClass | Object | 是 | 指定的类对象。 |
 | methodName | string | 是 | 指定的原方法名，不支持read-only方法。 |
 | isStatic | boolean | 是 | 指定的原方法是否为静态方法。true表示静态方法，false表示实例方法。 |
 | instead | Function | 是 | 要用来替换原方法的函数。函数有参数时，则第一个参数是this对象（若isStatic为true，则为类对象即targetClass；若isStatic为false，则为调用方法的实例对象），其余参数是原方法的参数。函数也可以无参，无参时不做处理。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class MyClass {
   msg: string = 'msg000';
@@ -1166,86 +1272,86 @@ console.info('result is ' + result);
 console.info('asp.msg is ' + asp.msg);
 // 输出结果：asp.msg is msg111
 ```
- 
-  
+
+
 
 #### TextDecoder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TextDecoder用于将字节数组解码为字符串，支持utf-8、utf-16le/be、iso-8859和windows-1251等不同的编码格式。
- 
-  
+
+
 
 #### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.Utils.Lang。
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | encoding | string | 是 | 否 | 编码格式。 - 支持格式：utf-8、ibm866、iso-8859-2、iso-8859-3、iso-8859-4、iso-8859-5、iso-8859-6、iso-8859-7、iso-8859-8、iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、iso-8859-15、koi8-r、koi8-u、macintosh、windows-874、windows-1250、windows-1251、windows-1252、windows-1253、windows-1254、windows-1255、windows-1256、windows-1257、windows-1258、x-mac-cyrillic、gbk、gb18030、big5、euc-jp、iso-2022-jp、shift_jis、euc-kr、utf-16be、utf-16le、gb2312、iso-8859-1。 |
 | fatal | boolean | 是 | 否 | 是否显示致命错误，true表示显示，false表示不显示。 |
 | ignoreBOM | boolean | 是 | 否 | 是否忽略BOM（byte order marker）标记，默认值为false，表示解码结果包含BOM标记。 |
- 
- 
-  
+
+
+
 
 #### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
- 
+
 TextDecoder的构造函数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 let textDecoder = new util.TextDecoder();
 let retStr = textDecoder.encoding;
 console.info('retStr = ' + retStr);
 // 输出结果：retStr = utf-8
 ```
- 
-  
+
+
 
 #### create9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static create(encoding?: string, options?: TextDecoderOptions): TextDecoder
- 
+
 替代有参构造函数的功能。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 编码格式，默认值是'utf-8'。 |
 | options | TextDecoderOptions | 否 | 解码相关选项参数，存在两个属性fatal和ignoreBOM。此参数不填时，对应各属性取其默认值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | TextDecoder | 返回一个TextDecoder对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textDecoderOptions: util.TextDecoderOptions = {
   fatal: false,
@@ -1256,42 +1362,42 @@ let retStr = textDecoder.encoding;
 console.info('retStr = ' + retStr);
 // 输出结果：retStr = utf-8
 ```
- 
-  
+
+
 
 #### decodeToString12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decodeToString(input: Uint8Array, options?: DecodeToStringOptions): string
- 
+
 将输入参数解码后输出对应文本。
- 
+
 > [!NOTE]
 > 该接口会正常解析值为\0的字节，将其转换为Unicode字符\u0000（空字符），不会导致解码中断或错误。
 
- 
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | input | Uint8Array | 是 | 需要解码的数组。 |
 | options | DecodeToStringOptions | 否 | 解码相关选项参数。默认undefined。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 解码后的数据。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // 当解析不含有\0的字节的示例代码
 let textDecoderOptions: util.TextDecoderOptions = {
@@ -1307,7 +1413,7 @@ let retStr = textDecoder.decodeToString(uint8, decodeToStringOptions);
 console.info("retStr = " + retStr);
 // 输出结果：retStr = abc
 ```
- 
+
 ```json
 // 当解析含有\0的字节的示例代码
 let textDecoderOptions: util.TextDecoderOptions = {
@@ -1326,42 +1432,42 @@ let retJson = JSON.stringify(retStr)
 console.info("retJson = " + retJson);
 // 输出结果：retJson = ab/u0000c
 ```
- 
-  
+
+
 
 #### decodeWithStream(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decodeWithStream(input: Uint8Array, options?: DecodeWithStreamOptions): string
- 
+
 将输入参数解码后输出对应文本。当input是一个空数组时，返回undefined。
- 
+
 > [!NOTE]
 > 从API version 9开始支持，从API version 12开始废弃，建议使用 decodeToString 12+ 替代。
 
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | input | Uint8Array | 是 | 符合格式需要解码的数组。 |
 | options | DecodeWithStreamOptions | 否 | 解码相关选项参数。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 解码后的数据。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textDecoderOptions: util.TextDecoderOptions = {
   fatal: false,
@@ -1383,85 +1489,85 @@ let retStr = textDecoder.decodeWithStream(uint8, decodeWithStreamOptions);
 console.info("retStr = " + retStr);
 // 输出结果：retStr = abc
 ```
- 
-  
+
+
 
 #### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean })
- 
+
 TextDecoder的构造函数。
- 
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 create 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 编码格式，默认值是'utf-8'。 |
 | options | { fatal?: boolean; ignoreBOM?: boolean } | 否 | 解码相关选项参数，存在两个属性fatal和ignoreBOM。 |
- 
- 
- **表1** options
-  
+
+
+**表1** options
+
 | 名称 | 参数类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fatal | boolean | 否 | 是否显示致命错误，true表示显示致命错误，false表示不显示致命错误，默认值是false。 |
 | ignoreBOM | boolean | 否 | 是否忽略BOM标记，true表示忽略待解码数据的BOM标记，false表示会对BOM标记解码，默认值是false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textDecoder = new util.TextDecoder("utf-8",{ignoreBOM: true});
 ```
- 
-  
+
+
 
 #### decode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decode(input: Uint8Array, options?: { stream?: false }): string
- 
+
 通过输入参数解码后输出对应文本。
- 
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 decodeToString 12+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | input | Uint8Array | 是 | 符合格式需要解码的数组。 |
 | options | { stream?: false } | 否 | 解码相关选项参数。 |
- 
- 
+
+
 **表2** options
-  
+
 | 名称 | 参数类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | stream | boolean | 否 | 在随后的decode()调用中是否跟随附加数据块。如果以块的形式处理数据，则设置为true；如果处理数据未分块，则设置为false。默认为false。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 解码后的数据。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textDecoder = new util.TextDecoder("utf-8",{ignoreBOM: true});
 let uint8 = new Uint8Array(6);
@@ -1476,205 +1582,205 @@ let retStr = textDecoder.decode(uint8, {stream: false});
 console.info("retStr = " + retStr);
 // 输出结果：retStr = abc
 ```
- 
-  
+
+
 
 #### EncodeIntoUint8ArrayInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 编码后的信息，包含读取的字符数和写入的字节数。
- 
-  
+
+
 
 #### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | read | number | 是 | 否 | 已读取的字符数。 |
 | written | number | 是 | 否 | 已写入的字节数。 |
- 
- 
-  
+
+
+
 
 #### TextEncoder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TextEncoder将字符串编码为字节数组，支持多种编码格式。
- 
+
 在使用TextEncoder进行编码时，需要注意不同编码格式下字符所占的字节数不同。务必明确指定编码格式，以确保编码结果正确。
- 
-  
+
+
 
 #### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.Utils.Lang。
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | encoding | string | 是 | 否 | 编码格式。 - 支持格式：utf-8、gb2312、gb18030、ibm866、iso-8859-1、iso-8859-2、iso-8859-3、iso-8859-4、iso-8859-5、iso-8859-6、iso-8859-7、iso-8859-8、iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、iso-8859-15、koi8-r、koi8-u、macintosh、windows-874、windows-1250、windows-1251、windows-1252、windows-1253、windows-1254、windows-1255、windows-1256、windows-1257、windows-1258、gbk、big5、euc-jp、iso-2022-jp、shift_jis、euc-kr、x-mac-cyrillic、utf-16be、utf-16le。 - 默认值是：'utf-8'。 |
- 
- 
-  
+
+
+
 
 #### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
- 
+
 TextEncoder的构造函数。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 let textEncoder = new util.TextEncoder();
 ```
- 
-  
+
+
 
 #### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(encoding?: string)
- 
+
 TextEncoder的构造函数。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 编码格式，默认值为'utf-8'。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textEncoder = new util.TextEncoder("utf-8");
 ```
- 
-  
+
+
 
 #### create12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static create(encoding?: string): TextEncoder
- 
+
 创建TextEncoder对象的方法。
- 
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 编码格式，默认值为'utf-8'。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | TextEncoder | 返回一个TextEncoder对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textEncoder = util.TextEncoder.create("utf-8");
 ```
- 
-  
+
+
 
 #### encodeInto9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeInto(input?: string): Uint8Array
- 
+
 将输入参数编码后输出Uint8Array对象。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | input | string | 否 | 需要编码的字符串，默认值是空字符串。当入参是空字符串时，返回undefined。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 返回编码后的Uint8Array对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textEncoder = new util.TextEncoder();
 let result = textEncoder.encodeInto("\uD800¥¥");
 console.info("result = " + result);
 // 输出结果: result = 237,160,128,194,165,194,165
 ```
- 
-  
+
+
 
 #### encodeIntoUint8Array9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo
- 
+
 对字符串进行编码，将结果存储到dest数组。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | input | string | 是 | 需要编码的字符串。 |
 | dest | Uint8Array | 是 | Uint8Array对象实例，用于将生成的utf-8编码文本放入其中。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | EncodeIntoUint8ArrayInfo | 返回一个对象，read表示已编码的字符数，written表示编码字符所占用的字节数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textEncoder = new util.TextEncoder();
 let buffer = new ArrayBuffer(4);
@@ -1687,40 +1793,40 @@ console.info("result.read = " + result.read);
 console.info("result.written = " + result.written);
 // 输出结果: result.written = 4
 ```
- 
-  
+
+
 
 #### encodeInto(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeInto(input: string, dest: Uint8Array): { read: number; written: number }
- 
+
 将生成的utf-8编码文本写入dest数组。
- 
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 encodeIntoUint8Array 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | input | string | 是 | 需要编码的字符串。 |
 | dest | Uint8Array | 是 | Uint8Array对象实例，用于将生成的utf-8编码文本放入其中。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | { read: number; written: number } | 返回一个对象，read表示已编码的字符数，written表示编码字符所占用的字节数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textEncoder = new util.TextEncoder();
 let buffer = new ArrayBuffer(4);
@@ -1729,181 +1835,181 @@ let result = textEncoder.encodeInto('abcd', uint8);
 console.info("uint8 = " + uint8);
 // 输出结果: uint8 = 97,98,99,100
 ```
- 
-  
+
+
 
 #### encode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encode(input?: string): Uint8Array
- 
+
 将输入参数编码后输出对应文本。
- 
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 encodeInto 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | input | string | 否 | 需要编码的字符串，默认值是空字符串。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 返回编码后的文本。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let textEncoder = new util.TextEncoder();
 let result = textEncoder.encode("\uD800¥¥");
 console.info("result = " + result);
 // 输出结果: result = 237,160,128,194,165,194,165
 ```
- 
-  
+
+
 
 #### RationalNumber8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RationalNumber主要用于有理数的比较，并提供获取分子和分母的方法。使用toString()方法可以将有理数转换为字符串形式，使用该类可以方便地进行有理数的各种操作。
- 
-  
+
+
 
 #### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
- 
+
 RationalNumber的构造函数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber();
 ```
- 
-  
+
+
 
 #### parseRationalNumber9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static parseRationalNumber(numerator: number,denominator: number): RationalNumber
- 
+
 创建具有给定分子和分母的RationalNumber实例。
- 
+
 > [!NOTE]
 > 该接口要求参数numerator和denominator必须是整数类型。如果传入的参数是小数类型，不会进行拦截，但是会输出错误信息："parseRationalNumber: The type of Parameter must be integer"。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | numerator | number | 是 | 分子，整数类型。取值范围：-Number.MAX_VALUE <= numerator <= Number.MAX_VALUE。 |
 | denominator | number | 是 | 分母，整数类型。取值范围：-Number.MAX_VALUE <= denominator <= Number.MAX_VALUE。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | RationalNumber | RationalNumber对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 ```
- 
-  
+
+
 
 #### createRationalFromString8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createRationalFromString(rationalString: string): RationalNumber
- 
+
 使用给定的字符串创建RationalNumber对象。
- 
+
 > [!NOTE]
 > 该接口要求参数rationalString是字符串格式。如果传入的参数是小数类型字符串格式，不会进行拦截，但是会输出错误信息："createRationalFromString: The type of Parameter must be integer string"。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | rationalString | string | 是 | 字符串格式。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | RationalNumber​ | RationalNumber对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rational = util.RationalNumber.createRationalFromString("3/4");
 ```
- 
-  
+
+
 
 #### compare9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 compare(another: RationalNumber): number​
- 
+
 将当前RationalNumber对象与目标RationalNumber对象进行比较，并返回比较结果。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | another | RationalNumber | 是 | 其他的有理数对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 两个对象相等时返回0；给定对象小于当前对象时返回1；给定对象大于当前对象时返回-1。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let rational = util.RationalNumber.createRationalFromString("3/4");
@@ -1911,76 +2017,76 @@ let result = rationalNumber.compare(rational);
 console.info("result = " + result);
 // 输出结果：result = -1
 ```
- 
-  
+
+
 
 #### valueOf8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 valueOf(): number
- 
+
 获取当前RationalNumber对象的整数或浮点数值。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回整数或者浮点数的值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let result = rationalNumber.valueOf();
 console.info("result = " + result);
 // 输出结果：result = 0.5
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let result = rationalNumber.valueOf();
 console.info("result = " + result);
 // 输出结果：result = 0.5
 ```
- 
-  
+
+
 
 #### equals8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equals(obj: Object): boolean
- 
+
 比较当前的RationalNumber对象与给定对象是否相等。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | obj | Object | 是 | 其他类型对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果给定对象与当前对象相同，则返回true；否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let rational = util.RationalNumber.createRationalFromString("3/4");
@@ -1988,9 +2094,9 @@ let result = rationalNumber.equals(rational);
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let rational = util.RationalNumber.createRationalFromString("3/4");
@@ -1998,344 +2104,344 @@ let result = rationalNumber.equals(rational);
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### getCommonFactor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getCommonFactor(number1: number, number2: number): number
- 
+
 获取两个整数的最大公约数。
- 
+
 > [!NOTE]
 > 该接口要求参数number1和number2必须是整数类型。如果传入的参数是小数类型，不会进行拦截，但是会输出错误信息："getCommonFactor: The type of Parameter must be integer"。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | number1 | number | 是 | 整数类型。-Number.MAX_VALUE <= number1 <= Number.MAX_VALUE。 |
 | number2 | number | 是 | 整数类型。-Number.MAX_VALUE <= number2 <= Number.MAX_VALUE。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回两个给定数字的最大公约数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let result = util.RationalNumber.getCommonFactor(4,6);
 console.info("result = " + result);
 // 输出结果：result = 2
 ```
- 
-  
+
+
 
 #### getNumerator8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getNumerator(): number
- 
+
 获取当前RationalNumber对象的分子。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回RationalNumber对象的分子。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let result = rationalNumber.getNumerator();
 console.info("result = " + result);
 // 输出结果：result = 1
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let result = rationalNumber.getNumerator();
 console.info("result = " + result);
 // 输出结果：result = 1
 ```
- 
-  
+
+
 
 #### getDenominator8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDenominator(): number
- 
+
 获取当前RationalNumber对象的分母。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回RationalNumber对象的分母。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let result = rationalNumber.getDenominator();
 console.info("result = " + result);
 // 输出结果：result = 2
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2)
 let result = rationalNumber.getDenominator();
 console.info("result = " + result);
 // 输出结果：result = 2
 ```
- 
-  
+
+
 
 #### isZero8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isZero():boolean
- 
+
 检查当前RationalNumber对象是否为0。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果当前对象的值为0，则返回true；否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let result = rationalNumber.isZero();
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let result = rationalNumber.isZero();
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### isNaN8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isNaN(): boolean
- 
+
 检查当前RationalNumber对象是否表示非数字(NaN)值。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果分母和分子都为0，则返回true；否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let result = rationalNumber.isNaN();
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let result = rationalNumber.isNaN();
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### isFinite8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFinite():boolean
- 
+
 检查RationalNumber对象是否表示一个有限值。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果分母不为0，则返回true；否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let result = rationalNumber.isFinite();
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let result = rationalNumber.isFinite();
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### toString8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toString(): string
- 
+
 获取RationalNumber对象的字符串表示形式。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回Numerator/Denominator格式的字符串，例如3/5，如果分子为0，则返回0/1。如果分母为0，则返回Infinity。如果分子和分母都为0，则返回NaN。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let result = rationalNumber.toString();
 console.info("result = " + result);
 // 输出结果：result = 1/2
 ```
- 
+
 API 9及以上建议使用以下写法：
- 
+
 ```text
 let rationalNumber = util.RationalNumber.parseRationalNumber(1,2);
 let result = rationalNumber.toString();
 console.info("result = " + result);
 // 输出结果：result = 1/2
 ```
- 
-  
+
+
 
 #### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(numerator: number,denominator: number)
- 
+
 RationalNumber的构造函数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 parseRationalNumber 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | numerator | number | 是 | 分子，整数类型。 |
 | denominator | number | 是 | 分母，整数类型。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 ```
- 
-  
+
+
 
 #### compareTo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 compareTo(another: RationalNumber): number​
- 
+
 比较当前的RationalNumber对象与给定的对象。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 compare 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | another | RationalNumber | 是 | 其他的有理数对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 如果两个对象相等，则返回0；如果给定对象小于当前对象，则返回1；如果给定对象大于当前对象，则返回-1。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let rationalNumber = new util.RationalNumber(1,2);
 let rational = util.RationalNumber.createRationalFromString("3/4");
@@ -2343,63 +2449,63 @@ let result = rationalNumber.compareTo(rational);
 console.info("result = " + result);
 // 输出结果：result = -1
 ```
- 
-  
+
+
 
 #### getCommonDivisor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getCommonDivisor(number1: number,number2: number): number
- 
+
 获取两个指定整数的最大公约数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 getCommonFactor 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | number1 | number | 是 | 整数类型。 |
 | number2 | number | 是 | 整数类型。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回两个给定数字的最大公约数。 |
- 
- 
-  
+
+
+
 
 #### LRUCache9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LRUCache用于在缓存空间不足时，将近期最少使用的数据替换为新数据。此设计基于资源访问的考虑：近期访问的数据，可能在不久的将来会再次访问。因此最少访问的数据被认为价值最低，应当优先从缓存中移除。
- 
-  
+
+
 
 #### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.Utils.Lang。
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | 当前缓冲区中值的总数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2408,85 +2514,85 @@ let result = pro.length;
 console.info('result = ' + result);
 // 输出结果：result = 2
 ```
- 
-  
+
+
 
 #### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(capacity?: number)
- 
+
 默认构造函数用于创建一个新的LRUCache实例，默认容量为64。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | capacity | number | 否 | 指示要为缓冲区自定义的容量，不传默认值为64，最大值不能超过2147483647。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 ```
- 
-  
+
+
 
 #### updateCapacity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateCapacity(newCapacity: number): void
- 
+
 更新缓冲区容量为指定值，如果newCapacity小于或等于0，则抛出异常。当缓冲区中值的总数大于指定容量时，会执行删除操作。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newCapacity | number | 是 | 指示要为缓冲区自定义的容量，最大值不能超过2147483647。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.updateCapacity(100);
 ```
- 
-  
+
+
 
 #### toString9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toString(): string
- 
+
 返回对象的字符串表示。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回对象的字符串表示形式。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2496,53 +2602,53 @@ console.info(pro.toString());
 // 输出结果：LRUCache[ maxSize = 64, hits = 1, misses = 1, hitRate = 50% ]
 // maxSize: 缓存区最大值 hits: 查询值匹配成功的次数 misses: 查询值匹配失败的次数 hitRate: 查询值匹配率
 ```
- 
-  
+
+
 
 #### getCapacity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCapacity(): number
- 
+
 获取当前缓冲区的容量。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回当前缓冲区的容量。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 let result = pro.getCapacity();
 console.info('result = ' + result);
 // 输出结果：result = 64
 ```
- 
-  
+
+
 
 #### clear9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clear(): void
- 
+
 清除当前缓冲区中的键值对。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2554,30 +2660,30 @@ console.info('res = ' + res);
 // 输出结果：result = 1
 // 输出结果：res = 0
 ```
- 
-  
+
+
 
 #### getCreateCount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCreateCount(): number
- 
+
 获取对象创建的次数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回创建对象的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // 创建新类ChildLRUCache继承LRUCache，重写createDefault方法，返回一个非undefined的值。
 class ChildLRUCache extends util.LRUCache<number, number> {
@@ -2597,30 +2703,30 @@ let res = lru.getCreateCount();
 console.info('res = ' + res);
 // 输出结果：res = 2
 ```
- 
-  
+
+
 
 #### getMissCount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMissCount(): number
- 
+
 获取查询值不匹配的次数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回查询值不匹配的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2629,30 +2735,30 @@ let result = pro.getMissCount();
 console.info('result = ' + result);
 // 输出结果：result = 0
 ```
- 
-  
+
+
 
 #### getRemovalCount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRemovalCount(): number
- 
+
 获取缓冲区键值对的回收次数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回缓冲区键值对回收的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2662,30 +2768,30 @@ let result = pro.getRemovalCount();
 console.info('result = ' + result);
 // 输出结果：result = 0
 ```
- 
-  
+
+
 
 #### getMatchCount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMatchCount(): number
- 
+
 获取查询值匹配成功的次数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回查询值匹配成功的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2694,30 +2800,30 @@ let result = pro.getMatchCount();
 console.info('result = ' + result);
 // 输出结果：result = 1
 ```
- 
-  
+
+
 
 #### getPutCount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPutCount(): number
- 
+
 获取将值添加到缓冲区的次数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回将值添加到缓冲区的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2725,30 +2831,30 @@ let result = pro.getPutCount();
 console.info('result = ' + result);
 // 输出结果：result = 1
 ```
- 
-  
+
+
 
 #### isEmpty9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEmpty(): boolean
- 
+
 检查缓冲区是否为空。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果缓冲区不包含任何值，则返回true。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2756,37 +2862,37 @@ let result = pro.isEmpty();
 console.info('result = ' + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### get9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: K): V | undefined
- 
+
 返回键对应的值。当键不在缓冲区中时，通过[createDefault9+](#createdefault9)接口创建，若createDefault创建的值不为undefined时，此时会调用[afterRemoval9+](#afterremoval9)接口，返回createDefault创建的值。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要查询的键。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V \| undefined | 如果指定的键存在于缓冲区中，则返回与键关联的值；否则返回createDefault创建的值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2794,68 +2900,68 @@ let result  = pro.get(2);
 console.info('result = ' + result);
 // 输出结果：result = 10
 ```
- 
-  
+
+
 
 #### put9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 put(key: K,value: V): V
- 
+
 将键值对添加到缓冲区，返回与添加的键关联的值。当缓冲区中值的总数超过容量时，执行删除操作。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要添加的键。 |
 | value | V | 是 | 指示与要添加的键关联的值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V | 返回与添加的键关联的值。如果键或值为空，则抛出此异常。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 let result = pro.put(2, 10);
 console.info('result = ' + result);
 // 输出结果：result = 10
 ```
- 
-  
+
+
 
 #### values9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): V[]
- 
+
 获取当前缓冲区中所有值，从最近最少访问到最近访问的顺序列表。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V[] | 返回当前缓冲区中所有值的列表，顺序为从最近最少访问（Least Recent）到最近访问（Most Recent）。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, string>();
 pro.put(1, 'A');
@@ -2873,30 +2979,30 @@ result = pro.values();
 console.info('result = ' + result);
 // 输出结果：result = C,D,E,F,A,B
 ```
- 
-  
+
+
 
 #### keys9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keys(): K[]
- 
+
 获取当前缓冲区中所有键，从最近最少访问到最近访问的顺序列表。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | K[] | 返回当前缓冲区中所有键的列表，顺序为从最近最少访问（Least Recent）到最近访问（Most Recent）。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, string>();
 pro.put(1, 'A');
@@ -2914,37 +3020,37 @@ result = pro.keys();
 console.info('result = ' + result);
 // 输出结果：result = 1,2,4,6,5,3
 ```
- 
-  
+
+
 
 #### remove9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 remove(key: K): V | undefined
- 
+
 从当前缓冲区中删除指定的键及其关联的值，并返回键关联的值。如果指定的键不存在，则返回undefined。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要删除的键值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V \| undefined | 返回一个包含已删除键值对的Optional对象；如果key不存在，则返回undefined，如果key为null，则抛出异常。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -2952,37 +3058,37 @@ let result = pro.remove(20);
 console.info('result = ' + result);
 // 输出结果：result = undefined
 ```
- 
-  
+
+
 
 #### afterRemoval9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 afterRemoval(isEvict: boolean, key: K, value: V, newValue: V): void
- 
+
 删除值后执行后续操作，这些操作由开发者自行实现。本接口会在删除操作时被调用，如[get9+](#get9)、[put9+](#put9)、[remove9+](#remove9)、[clear9+](#clear9)、[updateCapacity9+](#updatecapacity9)接口。
- 
+
 > [!NOTE]
 > 若此回调方法在 clear 9+ 、 updateCapacity 9+ 接口调用之后触发执行，传入的key和value参数类型为MapIterator，可参照示例二进行后续操作。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isEvict | boolean | 是 | 当因容量不足而调用该方法时，参数值设置为true，其他情况设置为false。 |
 | key | K | 是 | 表示删除的键。 |
 | value | V | 是 | 表示删除的值。 |
 | newValue | V | 是 | 如果已调用put方法并且要添加的键已经存在，则参数值是关联的新值。其他情况下参数值为空。 |
- 
- 
+
+
 **示例一：**
- 
+
 ```text
 class ChildLRUCache<K, V> extends util.LRUCache<K, V> {
   constructor(capacity?: number) {
@@ -3005,9 +3111,9 @@ lru.put(1, 1);
 lru.put(2, 2);
 lru.put(3, 3);
 ```
- 
+
 **示例二：**
- 
+
 ```text
 class TestClass {
   str:string = '';
@@ -3060,37 +3166,37 @@ lru.clear();             // 清空整个缓冲区
          key = cc, valueStr = testC
  */
 ```
- 
-  
+
+
 
 #### contains9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(key: K): boolean
- 
+
 检查当前缓冲区是否包含指定的键。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要检查的键。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果缓冲区包含指定的键，则返回 true。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -3098,67 +3204,67 @@ let result = pro.contains(2);
 console.info('result = ' + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### createDefault9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDefault(key: K): V
- 
+
 如果在缓冲区未匹配到键，则执行后续操作，参数表示未匹配的键，返回与键关联的值，默认返回undefined。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 表示未匹配的键。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V | 返回与键关联的值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 let result = pro.createDefault(50);
 console.info('result = ' + result);
 // 输出结果：result = undefined
 ```
- 
-  
+
+
 
 #### entries9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 entries(): IterableIterator<[K, V]>
- 
+
 返回一个迭代器对象，用于按插入顺序遍历当前对象中的所有键值对（[key, value]）。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | IterableIterator<[K, V]> | 返回一个可迭代数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -3171,30 +3277,30 @@ for (let value of pair) {
 // 2, 10
 // 3, 15
 ```
- 
-  
+
+
 
 #### [Symbol.iterator]9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator<[K, V]>
- 
+
 返回键值对形式的二维数组。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | IterableIterator<[K, V]> | 返回一个键值对形式的二维数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro = new util.LRUCache<number, number>();
 pro.put(2, 10);
@@ -3207,49 +3313,49 @@ for (let value of pro) {
 // 2, 10
 // 3, 15
 ```
- 
-  
+
+
 
 #### ScopeComparable8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ScopeComparable类型的值需要实现compareTo方法，确保传入的数据具有可比性。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
-  
+
+
 
 #### compareTo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 compareTo(other: ScopeComparable): boolean
- 
+
 比较两个值的大小，返回一个布尔值。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | other | ScopeComparable | 是 | 表示要比较的值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 调用compareTo的值大于等于传入的值返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 构造新类，实现compareTo方法。后续示例代码中，均以此Temperature类为例。
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3271,59 +3377,59 @@ class Temperature implements util.ScopeComparable {
   }
 }
 ```
- 
-  
+
+
 
 #### ScopeType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ScopeType = ScopeComparable | number
- 
+
 表示范围中的值的类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 表示值的类型为数字。 |
 | ScopeComparable | 表示值的类型为ScopeComparable。 |
- 
- 
-  
+
+
+
 
 #### ScopeHelper9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ScopeHelper接口用于描述一个字段的有效范围。构造函数用于创建具有指定下限和上限的对象，并要求这些对象必须具有可比性。
- 
-  
+
+
 
 #### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(lowerObj: ScopeType, upperObj: ScopeType)
- 
+
 创建指定下限和上限的作用域实例，返回一个ScopeHelper对象。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | lowerObj | ScopeType | 是 | 指定作用域实例的下限。 |
 | upperObj | ScopeType | 是 | 指定作用域实例的上限。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3350,30 +3456,30 @@ let range = new util.ScopeHelper(tempLower, tempUpper);
 console.info("range = " + range);
 // 输出结果：range = [30, 40]
 ```
- 
-  
+
+
 
 #### toString9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toString(): string
- 
+
 该字符串化方法返回当前范围的字符串表示形式。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回当前范围的字符串表示形式。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3402,37 +3508,37 @@ let result = range.toString();
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### intersect9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 intersect(range: ScopeHelper): ScopeHelper
- 
+
 获取给定范围和当前范围的交集。当交集为空集时，抛出异常。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | range | ScopeHelper | 是 | 传入给定范围。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeHelper | 返回给定范围和当前范围的交集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3464,38 +3570,38 @@ let result = range.intersect(rangeFir);
 console.info("result = " + result);
 // 输出结果：result = [35, 39]
 ```
- 
-  
+
+
 
 #### intersect9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 intersect(lowerObj:ScopeType,upperObj:ScopeType):ScopeHelper
- 
+
 获取当前范围与指定下限和上限范围的交集。当交集为空集时，抛出异常。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | lowerObj | ScopeType | 是 | 给定范围的下限。 |
 | upperObj | ScopeType | 是 | 给定范围的上限。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeHelper | 返回当前范围与给定下限和上限范围的交集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3526,30 +3632,30 @@ let result = range.intersect(tempMiDF, tempMidS);
 console.info("result = " + result);
 // 输出结果：result = [35, 39]
 ```
- 
-  
+
+
 
 #### getUpper9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUpper(): ScopeType
- 
+
 获取当前范围的上限。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeType | 返回当前范围的上限值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3578,30 +3684,30 @@ let result = range.getUpper();
 console.info("result = " + result);
 // 输出结果：result = 40
 ```
- 
-  
+
+
 
 #### getLower9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLower(): ScopeType
- 
+
 获取当前范围的下限。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeType | 返回当前范围的下限值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3630,38 +3736,38 @@ let result = range.getLower();
 console.info("result = " + result);
 // 输出结果：result = 30
 ```
- 
-  
+
+
 
 #### expand9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 expand(lowerObj: ScopeType,upperObj: ScopeType): ScopeHelper
- 
+
 创建并返回当前范围与给定下限和上限的并集。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | lowerObj | ScopeType | 是 | 给定范围的下限。 |
 | upperObj | ScopeType | 是 | 给定范围的上限。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeHelper | 返回当前范围和给定下限和上限的并集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3692,37 +3798,37 @@ let result = range.expand(tempMiDF, tempMidS);
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### expand9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 expand(range: ScopeHelper): ScopeHelper
- 
+
 创建并返回当前范围和给定范围的并集。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | range | ScopeHelper | 是 | 传入一个给定范围。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeHelper | 返回包括当前范围和给定范围的并集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3754,37 +3860,37 @@ let result = range.expand(rangeFir);
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### expand9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 expand(value: ScopeType): ScopeHelper
- 
+
 创建并返回当前范围和给定值的并集。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ScopeType | 是 | 传入一个给定值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeHelper | 返回包括当前范围和给定值的并集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3814,37 +3920,37 @@ let result = range.expand(tempMiDF);
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### contains9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(value: ScopeType): boolean
- 
+
 检查给定value是否在当前范围内。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ScopeType | 是 | 传入一个给定值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果给定值包含在当前范围内返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3874,37 +3980,37 @@ let result = range.contains(tempMiDF);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### contains9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(range: ScopeHelper): boolean
- 
+
 检查给定range是否在当前范围内。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | range | ScopeHelper | 是 | 传入一个给定范围。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果给定范围在当前范围内则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3936,37 +4042,37 @@ let result = range.contains(rangeSec);
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### clamp9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clamp(value: ScopeType): ScopeType
- 
+
 将值限定到当前范围内。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ScopeType | 是 | 传入的给定值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeType | 如果传入的value小于下限，返回lowerObj；如果大于上限值，返回upperObj；如果在当前范围内，返回value。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -3996,66 +4102,66 @@ let result = range.clamp(tempMiDF);
 console.info("result = " + result);
 // 输出结果：result = 35
 ```
- 
-  
+
+
 
 #### Base64Helper9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Base64Helper类提供Base64编解码和Base64URL编解码功能。Base64编码表包含A-Z、a-z、0-9这62个字符，以及"+"和"/"这两个特殊字符。在编码时，将原始数据按3个字节一组进行划分，得到若干个6位的数字，然后使用Base64编码表中对应的字符来表示这些数字。如果最后剩余1或2个字节，则需要使用"="字符进行补齐。Base64URL编码表包含A-Z、a-z、0-9以及"-"和"_"64个字符，Base64URL编码结果不含"="。
- 
-  
+
+
 
 #### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
- 
+
 Base64Helper的构造函数。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **示例：**
- 
+
 ```text
 let base64 = new util.Base64Helper();
 ```
- 
-  
+
+
 
 #### encodeSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeSync(src: Uint8Array, options?: Type): Uint8Array
- 
+
 通过输入参数编码后输出Uint8Array对象。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 待编码的Uint8Array对象。 |
 | options12+ | Type | 否 | 从API version 12开始支持该参数，表示对应的编码格式。 此参数可选，可选值为：util.Type.BASIC和util.Type.BASIC_URL_SAFE，默认值为：util.Type.BASIC。 util.Type.BASIC表示Base64编码。 util.Type.BASIC_URL_SAFE表示Base64URL编码。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 返回编码后的Uint8Array对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64Helper = new util.Base64Helper();
 let array = new Uint8Array([115,49,51]);
@@ -4063,38 +4169,38 @@ let result = base64Helper.encodeSync(array);
 console.info("result = " + result);
 // 输出结果：result = 99,122,69,122
 ```
- 
-  
+
+
 
 #### encodeToStringSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeToStringSync(src: Uint8Array, options?: Type): string
- 
+
 将输入的Uint8Array字节数组进行Base64编码，返回一个字符串结果。该方法支持多种编码格式，包括标准Base64编码、MIME格式的Base64编码（带有换行符）、URL安全格式的Base64编码等。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 待编码Uint8Array对象。 |
 | options10+ | Type | 否 | 从API version 10开始支持该参数，表示对应的编码格式。 此参数可选，可选值为：util.Type.BASIC，util.Type.MIME，util.Type.BASIC_URL_SAFE 和util.Type.MIME_URL_SAFE，默认值为：util.Type.BASIC。 - 当参数取值为util.Type.BASIC，表示Base64编码，返回值没有回车符、换行符。 - 当参数取值为util.Type.MIME，表示使用Base64编码。如果返回值超过76个字符，则会在每76个字符处进行换行，并以'\r\n'结束每行。如果返回值少于76个字符，则会抛出异常。 - 当参数取值为util.Type.BASIC_URL_SAFE，表示Base64URL编码，返回值没有回车符、换行符。 - 当参数取值为util.Type.MIME_URL_SAFE，表示Base64URL编码，返回值每一行不超过76个字符，而且每行以'\r\n'符结束。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回编码后的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // MIME编码
 let base64Helper = new util.Base64Helper();
@@ -4163,38 +4269,38 @@ aW9uZnJvbW90aGVyYW5pbWFsc3doaWNoaXNhbHVzdG9mdGhlbWluZGV4Y2VlZHN0aGVzaG9ydHZl
 aGVtZW5jZW9mYW55Y2FybmFscGxlYXN1cmU
  */
 ```
- 
-  
+
+
 
 #### decodeSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decodeSync(src: Uint8Array | string, options?: Type): Uint8Array
- 
+
 将输入参数解码后输出对应Uint8Array对象。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array \| string | 是 | 待解码的Uint8Array对象或者字符串。 |
 | options10+ | Type | 否 | 从API version 10开始支持该参数，表示对应的解码格式。 此参数可选，可选值为：util.Type.BASIC，util.Type.MIME，util.Type.BASIC_URL_SAFE和util.Type.MIME_URL_SAFE，默认值为：util.Type.BASIC。 - 当参数取值为util.Type.BASIC，表示Base64解码。 - 当参数取值为util.Type.MIME，表示Base64解码，src入参包含回车符、换行符。 - 当参数取值为util.Type.BASIC_URL_SAFE，表示Base64URL解码。 - 当参数取值为util.Type.MIME_URL_SAFE，表示Base64URL解码，src入参包含回车符、换行符。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 返回解码后新分配的Uint8Array对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64Helper = new util.Base64Helper();
 let buff = 'TWFuaXNkaXN0aW5ndWlzaGVkbm90b25seWJ5aGlzcmVhc29uYnV0Ynl0aGlzc2luZ3VsYXJwYXNz\r\naW9uZnJvbW90aGVyYW5pbWFsc3doaWNoaXNhbHVzdG9mdGhlbWluZGV4Y2VlZHN0aGVzaG9ydHZl\r\naGVtZW5jZW9mYW55Y2FybmFscGxlYXN1cmU=\r\n';
@@ -4204,38 +4310,38 @@ console.info("result = " + result);
 输出结果：result = 77,97,110,105,115,100,105,115,116,105,110,103,117,105,115,104,101,100,110,111,116,111,110,108,121,98,121,104,105,115,114,101,97,115,111,110,98,117,116,98,121,116,104,105,115,115,105,110,103,117,108,97,114,112,97,115,115,105,111,110,102,114,111,109,111,116,104,101,114,97,110,105,109,97,108,115,119,104,105,99,104,105,115,97,108,117,115,116,111,102,116,104,101,109,105,110,100,101,120,99,101,101,100,115,116,104,101,115,104,111,114,116,118,101,104,101,109,101,110,99,101,111,102,97,110,121,99,97,114,110,97,108,112,108,101,97,115,117,114,101
  */
 ```
- 
-  
+
+
 
 #### encode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encode(src: Uint8Array, options?: Type): Promise&lt;Uint8Array&gt;
- 
+
 将输入参数异步编码后输出对应Uint8Array对象。使用Promise异步回调。
- 
+
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 待编码Uint8Array对象。 |
 | options12+ | Type | 否 | 从API version 12开始支持该参数，表示对应的编码格式。 此参数可选，可选值为：util.Type.BASIC和util.Type.BASIC_URL_SAFE，默认值为：util.Type.BASIC。 util.Type.BASIC表示Base64编码。 util.Type.BASIC_URL_SAFE表示Base64URL编码。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;Uint8Array&gt; | Promise对象，返回异步编码后新分配的Uint8Array对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64Helper = new util.Base64Helper();
 let array = new Uint8Array([115,49,51]);
@@ -4244,38 +4350,38 @@ base64Helper.encode(array).then((val) => {
   // 输出结果：99,122,69,122
 })
 ```
- 
-  
+
+
 
 #### encodeToString9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeToString(src: Uint8Array, options?: Type): Promise&lt;string&gt;
- 
+
 将输入参数异步编码后输出对应文本。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 异步编码输入Uint8Array对象。 |
 | options10+ | Type | 否 | 从API version 10开始支持该参数，表示对应的编码格式。 此参数可选，可选值为：util.Type.BASIC，util.Type.MIME，util.Type.BASIC_URL_SAFE和util.Type.MIME_URL_SAFE，默认值为：util.Type.BASIC。 - 当参数取值为util.Type.BASIC，表示Base64编码，返回值没有回车符、换行符。 - 当参数取值为util.Type.MIME，表示Base64编码，返回值每一行不超过76个字符，而且每行以'\r\n'符结束。 - 当参数取值为util.Type.BASIC_URL_SAFE，表示Base64URL编码，返回值没有回车符、换行符。 - 当参数取值为util.Type.MIME_URL_SAFE，表示Base64URL编码，返回值每一行不超过76个字符，而且每行以'\r\n'符结束。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | 返回异步编码后的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64Helper = new util.Base64Helper();
 let array = new Uint8Array([77,97,110,105,115,100,105,115,116,105,110,103,117,105,115,104,101,100,110,111,116,111,110,108,121,98,121,104,105,115,114,101,97,115,111,110,98,117,116,98,121,116,104,105,115,115,105,110,103,117,108,97,114,112,97,115,115,105,111,110,102,114,111,109,111,116,104,101,114,97,110,105,109,97,108,115,119,104,105,99,104,105,115,97,108,117,115,116,111,102,116,104,101,109,105,110,100,101,120,99,101,101,100,115,116,104,101,115,104,111,114,116,118,101,104,101,109,101,110,99,101,111,102,97,110,121,99,97,114,110,97,108,112,108,101,97,115,117,114,101]);
@@ -4289,38 +4395,38 @@ base64Helper.encodeToString(array, util.Type.MIME).then((val) => {
 
 })
 ```
- 
-  
+
+
 
 #### decode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decode(src: Uint8Array | string, options?: Type): Promise&lt;Uint8Array&gt;
- 
+
 将输入参数异步解码后输出对应Uint8Array对象。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array \| string | 是 | 异步解码输入Uint8Array对象或者字符串。 |
 | options10+ | Type | 否 | 从API version 10开始支持该参数，表示对应的解码格式。 此参数可选，可选值为：util.Type.BASIC，util.Type.MIME，util.Type.BASIC_URL_SAFE和util.Type.MIME_URL_SAFE，默认值为：util.Type.BASIC。 - 当参数取值为util.Type.BASIC时，表示Base64解码。 - 当参数取值为util.Type.MIME时，表示Base64解码，src入参包含回车符、换行符。 - 当参数取值为util.Type.BASIC_URL_SAFE，表示Base64URL解码。 - 当参数取值为util.Type.MIME_URL_SAFE，表示Base64URL解码，src入参包含回车符、换行符。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;Uint8Array&gt; | 返回异步解码后新分配的Uint8Array对象。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64Helper = new util.Base64Helper();
 let array = 'TWFuaXNkaXN0aW5ndWlzaGVkbm90b25seWJ5aGlzcmVhc29uYnV0Ynl0aGlzc2luZ3VsYXJwYXNz\r\naW9uZnJvbW90aGVyYW5pbWFsc3doaWNoaXNhbHVzdG9mdGhlbWluZGV4Y2VlZHN0aGVzaG9ydHZl\r\naGVtZW5jZW9mYW55Y2FybmFscGxlYXN1cmU=\r\n';
@@ -4331,72 +4437,72 @@ base64Helper.decode(array, util.Type.MIME).then((val) => {
    */
 })
 ```
- 
-  
+
+
 
 #### StringDecoder12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供将二进制流解码为字符串的能力。支持的编码类型包括：utf-8、iso-8859-2、koi8-r、macintosh、windows-1250、windows-1251、gbk、gb18030、big5、utf-16be、utf-16le等。
- 
-  
+
+
 
 #### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(encoding?: string)
- 
+
 StringDecoder的构造函数。
- 
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 输入数据的编码类型。默认值：'utf-8'。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let decoder = new util.StringDecoder();
 ```
- 
-  
+
+
 
 #### write12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(chunk: string | Uint8Array): string
- 
+
 返回一个解码后的字符串，确保Uint8Array末尾的任何不完整的多字节字符从返回的字符串中被过滤，并保存在一个内部的buffer中用于下次调用。
- 
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | chunk | string \| Uint8Array | 是 | 需要解码的字符串。会根据输入的编码类型进行解码，参数为Uint8Array时正常解码，参数为string时会将参数直接返回。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回解码后的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let decoder = new util.StringDecoder('utf-8');
 let input =  new Uint8Array([0xE4, 0xBD, 0xA0, 0xE5, 0xA5, 0xBD]);
@@ -4404,37 +4510,37 @@ const decoded = decoder.write(input);
 console.info("decoded:", decoded);
 // 输出结果：decoded: 你好
 ```
- 
-  
+
+
 
 #### end12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 end(chunk?: string | Uint8Array): string
- 
+
 结束解码过程，以字符串形式返回存储在内部缓冲区中的所有剩余输入。
- 
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | chunk | string \| Uint8Array | 否 | 需要解码的字符串。默认为undefined。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回解码后的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let decoder = new util.StringDecoder('utf-8');
 let input = new Uint8Array([0xE4, 0xBD, 0xA0, 0xE5, 0xA5, 0xBD]);
@@ -4445,159 +4551,159 @@ console.info("writeString:", writeString);
 console.info("endString:", endString);
 // 输出结果：endString: 好
 ```
- 
-  
+
+
 
 #### Type10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Base64编码格式枚举。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
-  
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | BASIC | 0 | 表示BASIC编码格式。元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | MIME | 1 | 表示MIME编码格式。元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | BASIC_URL_SAFE12+ | 2 | 表示BASIC_URL_SAFE编码格式。 从API version 12开始支持此枚举。元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | MIME_URL_SAFE12+ | 3 | 表示MIME_URL_SAFE编码格式。 从API version 12开始支持此枚举。元服务API：从API version 12开始，该接口支持在元服务中使用。 |
- 
- 
-  
+
+
+
 
 #### types8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 types为不同类型的内置对象提供类型检查，可以避免由于类型错误导致的异常。该模块包含了多个工具函数，用于判断JS对象是否属于各种类型，例如：ArrayBuffer、Map、Set等。
- 
-  
+
+
 
 #### constructor8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
- 
+
 Types的构造函数。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 ```
- 
-  
+
+
 
 #### isAnyArrayBuffer8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAnyArrayBuffer(value: Object): boolean
- 
+
 检查value是否为ArrayBuffer或SharedArrayBuffer类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是ArrayBuffer或SharedArrayBuffer类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isAnyArrayBuffer(new ArrayBuffer(0));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isArrayBufferView8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isArrayBufferView(value: Object): boolean
- 
+
 检查value是否为ArrayBufferView类型。
- 
+
 ArrayBufferView类型包括：Int8Array、Int16Array、Int32Array、Uint8Array、Uint8ClampedArray、Uint32Array、Float32Array、Float64Array、DataView。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是ArrayBufferView类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isArrayBufferView(new Int8Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isArgumentsObject8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isArgumentsObject(value: Object): boolean
- 
+
 检查value是否为arguments对象。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是arguments对象则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 function foo() {
@@ -4607,90 +4713,90 @@ function foo() {
 let f = foo();
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isArrayBuffer8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isArrayBuffer(value: Object): boolean
- 
+
 检查value是否为ArrayBuffer类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是ArrayBuffer类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isArrayBuffer(new ArrayBuffer(0));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isAsyncFunction8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAsyncFunction(value: Object): boolean
- 
+
 检查value是否为异步函数类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是异步函数则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isAsyncFunction(async () => {});
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
+
 > [!NOTE]
 > 该接口无法对AsyncGenerator Function进行有效判断，建议通过获取函数的constructor.name属性与'AsyncGeneratorFunction'做判等的方式替代。 该接口无法对Sendable class中的async成员函数进行有效判断，无替代方案。
 
- 
+
 ```text
 // /entry/src/main/ets/pages/test.ts
 export async function* asyncGeneratorFunc() {}
 ```
- 
+
 ```text
 import { asyncGeneratorFunc } from './test'
 
@@ -4713,119 +4819,119 @@ let result2 = type.isAsyncFunction(instance.asyncFunction);
 console.info("result = " + result2);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### isBooleanObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBooleanObject(value: Object): boolean
- 
+
 检查value是否为Boolean对象。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 14开始废弃，没有替代接口。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Boolean对象则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isBooleanObject(new Boolean(true));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isBoxedPrimitive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBoxedPrimitive(value: Object): boolean
- 
+
 检查value是否为Boolean、Number、String或Symbol对象类型。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 14开始废弃，没有替代接口。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Boolean、Number、String或Symbol对象则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isBoxedPrimitive(new Boolean(false));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isDataView8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDataView(value: Object): boolean
- 
+
 检查value是否为DataView类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是DataView类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 const ab = new ArrayBuffer(20);
@@ -4833,74 +4939,74 @@ let result = type.isDataView(new DataView(ab));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isDate8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDate(value: Object): boolean
- 
+
 检查value是否为Date类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Date类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isDate(new Date());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isExternal8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isExternal(value: Object): boolean
- 
+
 检查value是否为native External类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是native External类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```cpp
 // /entry/src/main/cpp/napi_init.cpp
 #include "napi/native_api.h"
@@ -4931,7 +5037,7 @@ EXTERN_C_END
 // 此处已省略模块注册的代码, 你可能需要自行注册Testexternal方法
 ...
 ```
- 
+
 ```text
 import testNapi from 'libentry.so';
 
@@ -4945,116 +5051,116 @@ console.info("result01 = " + result01);
 // 输出结果：result = true
 // 输出结果：result01 = false
 ```
- 
-  
+
+
 
 #### isFloat32Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFloat32Array(value: Object): boolean
- 
+
 检查value是否为Float32Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Float32Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isFloat32Array(new Float32Array());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isFloat64Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFloat64Array(value: Object): boolean
- 
+
 检查value是否为Float64Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Float64Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isFloat64Array(new Float64Array());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isGeneratorFunction8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isGeneratorFunction(value: Object): boolean
- 
+
 检查value是否是为generator函数类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是generator函数类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // /entry/src/main/ets/pages/test.ts
 export function* foo() {}
 ```
- 
+
 ```text
 import { foo } from './test'
 
@@ -5063,16 +5169,16 @@ let result = type.isGeneratorFunction(foo);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
+
 > [!NOTE]
 > 该接口无法对AsyncGenerator Function进行有效判断，建议通过获取函数的constructor.name属性与'AsyncGeneratorFunction'做判等的方式替代。
 
- 
+
 ```text
 // /entry/src/main/ets/pages/test.ts
 export async function* asyncGeneratorFunc() {}
 ```
- 
+
 ```text
 import { asyncGeneratorFunc } from './test'
 
@@ -5085,43 +5191,43 @@ console.info("asyncGeneratorFunc.constructor.name === AsyncGeneratorFunction : "
   (asyncGeneratorFunc.constructor.name === 'AsyncGeneratorFunction'));
 // 输出结果：asyncGeneratorFunc.constructor.name === AsyncGeneratorFunction : true
 ```
- 
-  
+
+
 
 #### isGeneratorObject8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isGeneratorObject(value: Object): boolean
- 
+
 检查value是否为generator对象类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是generator对象则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // /entry/src/main/ets/pages/test.ts
 function* foo() {}
 export const generator = foo();
 ```
- 
+
 ```text
 import { generator } from './test'
 
@@ -5130,185 +5236,185 @@ let result = type.isGeneratorObject(generator);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isInt8Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isInt8Array(value: Object): boolean
- 
+
 检查value是否为Int8Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Int8Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isInt8Array(new Int8Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isInt16Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isInt16Array(value: Object): boolean
- 
+
 检查value是否为Int16Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Int16Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isInt16Array(new Int16Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isInt32Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isInt32Array(value: Object): boolean
- 
+
 检查value是否为Int32Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Int32Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isInt32Array(new Int32Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isMap8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMap(value: Object): boolean
- 
+
 检查value是否为Map类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Map类型返回则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isMap(new Map());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isMapIterator8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMapIterator(value: Object): boolean
- 
+
 检查value是否为Map的Iterator类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Map的Iterator类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 const map : Map<number,number> = new Map();
@@ -5316,152 +5422,152 @@ let result = type.isMapIterator(map.keys());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isNativeError8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isNativeError(value: Object): boolean
- 
+
 检查value是否为Error类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Error类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isNativeError(new TypeError());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isNumberObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isNumberObject(value: Object): boolean
- 
+
 检查value是否为Number对象类型。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 14开始废弃，没有替代接口。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Number对象类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isNumberObject(new Number(0));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isPromise8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isPromise(value: Object): boolean
- 
+
 检查value是否为Promise类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Promise类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isPromise(Promise.resolve(1));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isProxy8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isProxy(value: Object): boolean
- 
+
 检查value是否为Proxy类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Proxy类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Target{
 }
@@ -5472,74 +5578,74 @@ let result = type.isProxy(proxy);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isRegExp8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isRegExp(value: Object): boolean
- 
+
 检查value是否为RegExp类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是RegExp类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isRegExp(new RegExp('abc'));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isSet8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSet(value: Object): boolean
- 
+
 检查value是否为Set类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Set类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let set : Set<number> = new Set();
@@ -5547,37 +5653,37 @@ let result = type.isSet(set);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isSetIterator8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSetIterator(value: Object): boolean
- 
+
 检查value是否为Set的Iterator类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Set的Iterator类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 const set : Set<number> = new Set();
@@ -5585,87 +5691,87 @@ let result = type.isSetIterator(set.keys());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isStringObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isStringObject(value: Object): boolean
- 
+
 检查value是否为String对象类型。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 14开始废弃，没有替代接口。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是String对象类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isStringObject(new String('foo'));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isSymbolObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSymbolObject(value: Object): boolean
- 
+
 检查value是否为Symbol对象类型。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 14开始废弃，没有替代接口。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Symbol对象类型为则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // /entry/src/main/ets/pages/test.ts
 export const symbols = Symbol('foo');
 ```
- 
+
 ```text
 import { symbols } from './test'
 
@@ -5674,224 +5780,224 @@ let result = type.isSymbolObject(Object(symbols));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isTypedArray8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isTypedArray(value: Object): boolean
- 
+
 检查value是否为TypedArray类型。
- 
+
 TypedArray类型，包括Int8Array、Int16Array、Int32Array、Uint8Array、Uint8ClampedArray、Uint16Array、Uint32Array、Float32Array、Float64Array、BigInt64Array、BigUint64Array。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是TypedArray包含的类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isTypedArray(new Float64Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isUint8Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isUint8Array(value: Object): boolean
- 
+
 检查value是否为Uint8Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Uint8Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isUint8Array(new Uint8Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isUint8ClampedArray8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isUint8ClampedArray(value: Object): boolean
- 
+
 检查value是否为Uint8ClampedArray数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Uint8ClampedArray数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isUint8ClampedArray(new Uint8ClampedArray([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isUint16Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isUint16Array(value: Object): boolean
- 
+
 检查value是否为Uint16Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Uint16Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isUint16Array(new Uint16Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isUint32Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isUint32Array(value: Object): boolean
- 
+
 检查value是否为Uint32Array数组类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Uint32Array数组类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isUint32Array(new Uint32Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isWeakMap8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isWeakMap(value: Object): boolean
- 
+
 检查value是否为WeakMap类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是WeakMap类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let value : WeakMap<object, number> = new WeakMap();
@@ -5899,155 +6005,155 @@ let result = type.isWeakMap(value);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isWeakSet8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isWeakSet(value: Object): boolean
- 
+
 检查value是否为WeakSet类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是WeakSet类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isWeakSet(new WeakSet());
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isBigInt64Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBigInt64Array(value: Object): boolean
- 
+
 检查value是否为BigInt64Array类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是BigInt64Array类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isBigInt64Array(new BigInt64Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isBigUint64Array8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBigUint64Array(value: Object): boolean
- 
+
 检查value是否为BigUint64Array类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是BigUint64Array类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isBigUint64Array(new BigUint64Array([]));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isModuleNamespaceObject8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isModuleNamespaceObject(value: Object): boolean
- 
+
 检查value是否为Module Namespace Object类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是Module Namespace Object类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 // /entry/src/main/ets/pages/test.ts
 export function func() {
   console.info("hello world");
 }
 ```
- 
+
 ```text
 import * as nameSpace from './test';
 
@@ -6056,109 +6162,109 @@ let result = type.isModuleNamespaceObject(nameSpace);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### isSharedArrayBuffer8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSharedArrayBuffer(value: Object): boolean
- 
+
 检查value是否为SharedArrayBuffer类型。
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 是 | 待检测对象。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是SharedArrayBuffer类型则返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let type = new util.types();
 let result = type.isSharedArrayBuffer(new SharedArrayBuffer(0));
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### AutoFinalizer&lt;T&gt;22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AutoFinalizer是一个接口类，用于在ArkTS对象释放时提供回调。通过实现回调接口，开发者可自定义对象被回收时自动触发的资源清理逻辑。
- 
+
 > [!NOTE]
 > AutoFinalizer&lt;T&gt;需要和AutoFinalizerCleaner&lt;T&gt;一起使用，只实现该接口类没有任何功能。
 
- 
-  
+
+
 
 #### onFinalization22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFinalization(heldValue: T): void
- 
+
 开发者需要实现该接口，定义对象被回收时自动触发的资源清理回调。
- 
+
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | heldValue | T | 是 | 当监听的对象被回收时，该值会被传递给onFinalization回调方法。 |
- 
- 
-  
+
+
+
 
 #### AutoFinalizerCleaner&lt;T&gt;22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AutoFinalizerCleaner是用于关联对象生命周期与资源清理逻辑的工具类。主要的作用是将实现了AutoFinalizer&lt;T&gt;接口的对象与特定值绑定，当对象被回收时自动触发资源清理回调。
- 
-  
+
+
 
 #### register&lt;T&gt;22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static register&lt;T&gt;(obj: AutoFinalizer&lt;T&gt;, heldValue: T): void
- 
+
 将AutoFinalizer接口的对象与输入值关联，当对象被回收时触发资源清理的回调。
- 
+
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | obj | AutoFinalizer&lt;T&gt; | 是 | 实现了AutoFinalizer接口的对象，其onFinalization方法会在该对象被回收时调用。 |
 | heldValue | T | 是 | 当监听的对象被回收时，该值会被传递给obj.onFinalization方法。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class DeviceManageViewModel implements util.AutoFinalizer<string> {
   constructor(heldValue: string) {
@@ -6173,8 +6279,8 @@ class DeviceManageViewModel implements util.AutoFinalizer<string> {
 
 const device = new DeviceManageViewModel("test");
 ```
- 
-  
+
+
 
 #### LruBuffer(deprecated)
 
@@ -6183,24 +6289,24 @@ const device = new DeviceManageViewModel("test");
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache 9+ 替代。
 
- 
-  
+
+
 
 #### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.Utils.Lang。
-  
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | 当前缓冲区中值的总数。 |
- 
- 
+
+
 **示例：**
- 
- 
- 
+
+
+
 ```text
 let pro : util.LruBuffer<number,number>= new util.LruBuffer();
 pro.put(2,10);
@@ -6209,91 +6315,91 @@ let result = pro.length;
 console.info("result = " + result);
 // 输出结果：result = 2
 ```
- 
-  
+
+
 
 #### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(capacity?: number)
- 
+
 构造函数用于创建一个新的LruBuffer实例，默认容量为64。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.constructor 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | capacity | number | 否 | 指示要为缓冲区自定义的容量，默认值为64。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 ```
- 
-  
+
+
 
 #### updateCapacity(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateCapacity(newCapacity: number): void
- 
+
 将缓冲区容量更新为指定容量，如果newCapacity小于或等于0，则抛出异常。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.updateCapacity 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newCapacity | number | 是 | 指示要为缓冲区自定义的容量。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.updateCapacity(100);
 ```
- 
-  
+
+
 
 #### toString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toString(): string
- 
+
 返回对象的字符串表示形式。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.toString 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回对象的字符串表示形式。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6303,89 +6409,89 @@ let result = pro.toString();
 console.info("result = " + result);
 // 输出结果：result = Lrubuffer[ maxSize = 64, hits = 1, misses = 0, hitRate = 100% ]
 ```
- 
-  
+
+
 
 #### getCapacity(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCapacity(): number
- 
+
 获取当前缓冲区的容量。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.getCapacity 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回当前缓冲区的容量。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 let result = pro.getCapacity();
 console.info("result = " + result);
 // 输出结果：result = 64
 ```
- 
-  
+
+
 
 #### clear(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clear(): void
- 
+
 清除当前缓冲区中的键值对，后续调用afterRemoval()方法执行操作。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.clear 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
 let result = pro.length;
 pro.clear();
 ```
- 
-  
+
+
 
 #### getCreateCount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCreateCount(): number
- 
+
 获取createDefault()返回值的次数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.getCreateCount 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回createDefault()返回值的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(1,8);
@@ -6393,32 +6499,32 @@ let result = pro.getCreateCount();
 console.info("result = " + result);
 // 输出结果：result = 0
 ```
- 
-  
+
+
 
 #### getMissCount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMissCount(): number
- 
+
 获取查询值不匹配的次数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.getMissCount 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回查询值不匹配的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6427,32 +6533,32 @@ let result = pro.getMissCount();
 console.info("result = " + result);
 // 输出结果：result = 0
 ```
- 
-  
+
+
 
 #### getRemovalCount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRemovalCount(): number
- 
+
 获取从缓冲区中逐出值的次数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.getRemovalCount 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回从缓冲区中驱逐的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6462,32 +6568,32 @@ let result = pro.getRemovalCount();
 console.info("result = " + result);
 // 输出结果：result = 0
 ```
- 
-  
+
+
 
 #### getMatchCount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMatchCount(): number
- 
+
 获取查询值匹配成功的次数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.getMatchCount 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回查询值匹配成功的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6496,32 +6602,32 @@ let result = pro.getMatchCount();
 console.info("result = " + result);
 // 输出结果：result = 1
 ```
- 
-  
+
+
 
 #### getPutCount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPutCount(): number
- 
+
 获取将值添加到缓冲区的次数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.getPutCount 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回将值添加到缓冲区的次数。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6529,32 +6635,32 @@ let result = pro.getPutCount();
 console.info("result = " + result);
 // 输出结果：result = 1
 ```
- 
-  
+
+
 
 #### isEmpty(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEmpty(): boolean
- 
+
 检查当前缓冲区是否为空。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.isEmpty 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果当前缓冲区不包含任何值，则返回true。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6562,39 +6668,39 @@ let result = pro.isEmpty();
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### get(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: K): V | undefined
- 
+
 表示要查询的键。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.get 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要查询的键。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V \| undefined | 如果指定的键存在于缓冲区中，则返回与键关联的值；否则返回undefined。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6602,72 +6708,72 @@ let result  = pro.get(2);
 console.info("result = " + result);
 // 输出结果：result = 10
 ```
- 
-  
+
+
 
 #### put(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 put(key: K,value: V): V
- 
+
 将键值对添加到缓冲区。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.put 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | K | 是 | 要添加的键。 |
+| key | K | 是 | 要添加的密钥。 |
 | value | V | 是 | 指示与要添加的键关联的值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V | 返回与添加的键关联的值；如果要添加的键已经存在，则返回原始值，如果键或值为空，则抛出此异常。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 let result = pro.put(2,10);
 console.info("result = " + result);
 // 输出结果：result = 10
 ```
- 
-  
+
+
 
 #### values(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): V[]
- 
+
 获取当前缓冲区中所有值从最近访问到最近最少访问的顺序列表。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.values 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V [] | 按从最近访问到最近最少访问的顺序返回当前缓冲区中所有值的列表。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number|string,number|string> = new util.LruBuffer();
 pro.put(2,10);
@@ -6677,32 +6783,32 @@ let result = pro.values();
 console.info("result = " + result);
 // 输出结果：result = anhu,grfb
 ```
- 
-  
+
+
 
 #### keys(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keys(): K[]
- 
+
 获取当前缓冲区中所有键从最近访问到最近最少访问的升序列表。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.keys 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | K [] | 按升序返回当前缓冲区中所有键的列表，从最近访问到最近最少访问。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6710,39 +6816,39 @@ let result = pro.keys();
 console.info("result = " + result);
 // 输出结果：result = 2
 ```
- 
-  
+
+
 
 #### remove(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 remove(key: K): V | undefined
- 
+
 删除当前缓冲区中指定的键及其关联的值。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.remove 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | K | 是 | 要删除的键。 |
- 
- 
+| key | K | 是 | 要删除的密钥。 |
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V \| undefined | 返回一个包含已删除键值对的Optional对象；如果key不存在，则返回一个空的Optional对象，如果key为null，则抛出异常。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6750,35 +6856,35 @@ let result = pro.remove(20);
 console.info("result = " + result);
 // 输出结果：result = undefined
 ```
- 
-  
+
+
 
 #### afterRemoval(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 afterRemoval(isEvict: boolean,key: K,value: V,newValue: V): void
- 
+
 删除值后执行后续操作。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.afterRemoval 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isEvict | boolean | 是 | 因容量不足而调用该方法时，参数值为true，其他情况为false。 |
 | key | K | 是 | 表示删除的键。 |
 | value | V | 是 | 表示删除的值。 |
 | newValue | V | 是 | 如果已调用put方法并且要添加的键已经存在，则参数值是关联的新值。其他情况下参数值为空。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class ChildLruBuffer<K, V> extends util.LruBuffer<K, V> {
   constructor(capacity?: number) {
@@ -6801,39 +6907,39 @@ lru.put(11, 1);
 lru.put(22, 2);
 lru.put(33, 3);
 ```
- 
-  
+
+
 
 #### contains(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(key: K): boolean
- 
+
 检查当前缓冲区是否包含指定的键。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.contains 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 表示要检查的键。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果缓冲区包含指定的键，则返回 true。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
@@ -6841,107 +6947,107 @@ let result = pro.contains(20);
 console.info('result = ' + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### createDefault(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDefault(key: K): V
- 
+
 如果未计算特定键的值，则执行后续操作，参数表示丢失的键，返回与键关联的值。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.createDefault 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 表示丢失的键。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | V | 返回与键关联的值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 let result = pro.createDefault(50);
 ```
- 
-  
+
+
 
 #### entries(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 entries(): IterableIterator<[K, V]>
- 
+
 允许迭代包含在这个对象中的所有键值对。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.entries 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | IterableIterator<[K, V]> | 返回一个可迭代数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
 let result = pro.entries();
 ```
- 
-  
+
+
 
 #### [Symbol.iterator](deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator<[K, V]>
- 
+
 返回一个键值对形式的二维数组。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 LRUCache.[Symbol.iterator] 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | IterableIterator<[K, V]> | 返回一个键值对形式的二维数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let pro : util.LruBuffer<number,number> = new util.LruBuffer();
 pro.put(2,10);
 let result = pro[Symbol.iterator]();
 ```
- 
-  
+
+
 
 #### Scope(deprecated)
 
@@ -6950,33 +7056,33 @@ let result = pro[Symbol.iterator]();
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper 9+ 替代。
 
- 
-  
+
+
 
 #### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(lowerObj: ScopeType, upperObj: ScopeType)
- 
+
 创建指定下限和上限的作用域实例，并返回一个Scope对象。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.constructor 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | lowerObj | ScopeType | 是 | 指定作用域实例的下限。 |
 | upperObj | ScopeType | 是 | 指定作用域实例的上限。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7004,32 +7110,32 @@ let range = new util.Scope(tempLower, tempUpper);
 console.info("range = " + range);
 // 输出结果：range = [30, 40]
 ```
- 
-  
+
+
 
 #### toString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toString(): string
- 
+
 该字符串化方法返回一个包含当前范围的字符串表示形式。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.toString 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回包含当前范围对象的字符串表示形式。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7058,39 +7164,39 @@ let result = range.toString();
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### intersect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 intersect(range: Scope): Scope
- 
+
 获取给定范围和当前范围的交集。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.intersect 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | range | Scope | 是 | 传入一个给定范围。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Scope | 返回给定范围和当前范围的交集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7122,40 +7228,40 @@ let result = range.intersect(rangeFir );
 console.info("result = " + result);
   // 输出结果：result = [35, 39]
 ```
- 
-  
+
+
 
 #### intersect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 intersect(lowerObj:ScopeType,upperObj:ScopeType):Scope
- 
+
 获取当前范围与给定下限和上限范围的交集。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.intersect 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | lowerObj | ScopeType | 是 | 给定范围的下限。 |
 | upperObj | ScopeType | 是 | 给定范围的上限。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Scope | 返回当前范围与给定下限和上限范围的交集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7186,32 +7292,32 @@ let result = range.intersect(tempMiDF, tempMidS);
 console.info("result = " + result);
 // 输出结果：result = [35, 39]
 ```
- 
-  
+
+
 
 #### getUpper(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUpper(): ScopeType
- 
+
 获取当前范围的上限。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.getUpper 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeType | 返回当前范围的上限值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7240,32 +7346,32 @@ let result = range.getUpper();
 console.info("result = " + result);
 // 输出结果：result = 40
 ```
- 
-  
+
+
 
 #### getLower(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLower(): ScopeType
- 
+
 获取当前范围的下限。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.getLower 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeType | 返回当前范围的下限值。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7294,40 +7400,40 @@ let result = range.getLower();
 console.info("result = " + result);
 // 输出结果：result = 30
 ```
- 
-  
+
+
 
 #### expand(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 expand(lowerObj: ScopeType,upperObj: ScopeType): Scope
- 
+
 创建并返回包括当前范围和给定下限和上限的并集。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.expand 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | lowerObj | ScopeType | 是 | 给定范围的下限。 |
 | upperObj | ScopeType | 是 | 给定范围的上限。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Scope | 返回当前范围和给定下限和上限的并集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7358,39 +7464,39 @@ let result = range.expand(tempMiDF, tempMidS);
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### expand(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 expand(range: Scope): Scope
- 
+
 创建并返回包括当前范围和给定范围的并集。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.expand 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | range | Scope | 是 | 传入一个给定范围。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Scope | 返回包括当前范围和给定范围的并集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7422,39 +7528,39 @@ let result = range.expand(rangeFir);
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### expand(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 expand(value: ScopeType): Scope
- 
+
 创建并返回包括当前范围和给定值的并集。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.expand 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ScopeType | 是 | 传入一个给定值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Scope | 返回包括当前范围和给定值的并集。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7484,39 +7590,39 @@ let result = range.expand(tempMiDF);
 console.info("result = " + result);
 // 输出结果：result = [30, 40]
 ```
- 
-  
+
+
 
 #### contains(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(value: ScopeType): boolean
- 
+
 检查给定value是否包含在当前范围内。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.contains 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ScopeType | 是 | 传入一个给定值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果给定值包含在当前范围内返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7546,39 +7652,39 @@ let result = range.contains(tempMiDF);
 console.info("result = " + result);
 // 输出结果：result = true
 ```
- 
-  
+
+
 
 #### contains(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(range: Scope): boolean
- 
+
 检查给定range是否在当前范围内。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.contains 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | range | Scope | 是 | 传入一个给定范围。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果给定范围包含在当前范围内返回true，否则返回false。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7610,39 +7716,39 @@ let result = range.contains(rangeSec);
 console.info("result = " + result);
 // 输出结果：result = false
 ```
- 
-  
+
+
 
 #### clamp(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clamp(value: ScopeType): ScopeType
- 
+
 将给定值限定到当前范围内。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 ScopeHelper.clamp 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ScopeType | 是 | 传入的给定值。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | ScopeType | 如果传入的value小于下限，则返回lowerObj；如果大于上限值则返回upperObj；如果在当前范围内，则返回value。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 class Temperature implements util.ScopeComparable {
   private readonly _temp: number;
@@ -7672,8 +7778,8 @@ let result = range.clamp(tempMiDF);
 console.info("result = " + result);
 // 输出结果：result = 35
 ```
- 
-  
+
+
 
 #### Base64(deprecated)
 
@@ -7682,61 +7788,61 @@ console.info("result = " + result);
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper 9+ 替代。
 
- 
-  
+
+
 
 #### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
- 
+
 Base64的构造函数。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper.constructor 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **示例：**
- 
+
 ```text
 let base64 = new  util.Base64();
 ```
- 
-  
+
+
 
 #### encodeSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeSync(src: Uint8Array): Uint8Array
- 
+
 将输入的Uint8Array字节数组进行Base64编码，返回编码后的Uint8Array数组。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper.encodeSync 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 编码输入Uint8数组。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 返回编码后新分配的Uint8数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64 = new util.Base64();
 let array = new Uint8Array([115,49,51]);
@@ -7744,39 +7850,39 @@ let result = base64.encodeSync(array);
 console.info("result = " + result);
 // 输出结果：result = 99,122,69,122
 ```
- 
-  
+
+
 
 #### encodeToStringSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeToStringSync(src: Uint8Array): string
- 
+
 将输入的Uint8Array字节数组进行Base64编码，返回编码后的字符串结果。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper.encodeToStringSync 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 编码输入Uint8数组。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回编码后的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64 = new util.Base64();
 let array = new Uint8Array([115,49,51]);
@@ -7784,39 +7890,39 @@ let result = base64.encodeToStringSync(array);
 console.info("result = " + result);
 // 输出结果：result = czEz
 ```
- 
-  
+
+
 
 #### decodeSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decodeSync(src: Uint8Array | string): Uint8Array
- 
+
 通过输入参数解码后输出对应文本。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper.decodeSync 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array \| string | 是 | 解码输入Uint8数组或者字符串。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Uint8Array | 返回解码后新分配的Uint8数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64 = new util.Base64();
 let buff = 'czEz';
@@ -7824,39 +7930,39 @@ let result = base64.decodeSync(buff);
 console.info("result = " + result);
 // 输出结果：result = 115,49,51
 ```
- 
-  
+
+
 
 #### encode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encode(src: Uint8Array): Promise&lt;Uint8Array&gt;
- 
+
 通过输入参数异步编码后输出对应文本。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper.encode 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 异步编码输入Uint8数组。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;Uint8Array&gt; | 返回异步编码后新分配的Uint8数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64 = new util.Base64();
 let array = new Uint8Array([115,49,51]);
@@ -7865,39 +7971,39 @@ base64.encode(array).then((val) => {
   // 输出结果：99,122,69,122
 })
 ```
- 
-  
+
+
 
 #### encodeToString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 encodeToString(src: Uint8Array): Promise&lt;string&gt;
- 
+
 通过输入参数异步编码后输出对应文本。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper.encodeToString 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array | 是 | 异步编码输入Uint8数组。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | 返回异步编码后的字符串。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64 = new util.Base64();
 let array = new Uint8Array([115,49,51]);
@@ -7906,39 +8012,39 @@ base64.encodeToString(array).then((val) => {
     // 输出结果：czEz
 })
 ```
- 
-  
+
+
 
 #### decode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decode(src: Uint8Array | string): Promise&lt;Uint8Array&gt;
- 
+
 将输入参数异步解码后输出对应文本。
- 
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Base64Helper.decode 9+ 替代。
 
- 
+
 **系统能力：** SystemCapability.Utils.Lang
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | Uint8Array \| string | 是 | 异步解码输入Uint8数组或者字符串。 |
- 
- 
+
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;Uint8Array&gt; | 返回异步解码后新分配的Uint8数组。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 let base64 = new util.Base64();
 let array = new Uint8Array([99,122,69,122]);

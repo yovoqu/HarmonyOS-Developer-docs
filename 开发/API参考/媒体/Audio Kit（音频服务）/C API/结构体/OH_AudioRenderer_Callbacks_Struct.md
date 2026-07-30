@@ -1,6 +1,6 @@
 # OH_AudioRenderer_Callbacks_Struct
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -16,7 +16,7 @@ typedef struct OH_AudioRenderer_Callbacks_Struct {...} OH_AudioRenderer_Callback
 
 声明输出音频流的回调函数指针。
 
-为了避免不可预期的行为，在设置音频回调函数时，请确保该结构体的每一个成员变量都被自定义的回调方法或空指针初始化。
+为了避免不可预期的行为，在设置音频回调函数时，请确保该结构体的每一个成员变量都被自定义的回调函数或空指针初始化。
 
 可参考[推荐使用OHAudio开发音频播放功能(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)。
 
@@ -28,7 +28,7 @@ typedef struct OH_AudioRenderer_Callbacks_Struct {...} OH_AudioRenderer_Callback
 
 请分别使用以下回调类型替代：
 
-[OH_AudioRenderer_OnWriteDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiorenderer_onwritedatacallback)、 [OH_AudioRenderer_OutputDeviceChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiorenderer_outputdevicechangecallback)、 [OH_AudioRenderer_OnInterruptCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_oninterruptcallback) 以及 [OH_AudioRenderer_OnErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_onerrorcallback)。
+[OH_AudioRenderer_OnWriteDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiorenderer_onwritedatacallback)、[OH_AudioRenderer_OutputDeviceChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiorenderer_outputdevicechangecallback)、[OH_AudioRenderer_OnInterruptCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_oninterruptcallback) 以及 [OH_AudioRenderer_OnErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_onerrorcallback)。
 
 **相关模块：** [OHAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio)
 
@@ -80,7 +80,7 @@ int32_t (*OH_AudioRenderer_OnWriteData)(OH_AudioRenderer* renderer, void* userDa
 
 回调函数仅用来写入音频数据，请勿在回调函数中调用AudioRenderer相关接口。
 
-回调函数结束后，音频服务会把buffer指针数据放入队列里等待播放，因此请勿在回调外再次更改buffer指向的数据，且务必保证往buffer填满length长度的待播放数据，否则会导致音频服务播放杂音。
+回调函数结束后，音频服务会将buffer数据放入队列中等待播放，因此请勿在回调外再次更改buffer指向的数据，且务必保证往buffer填满length长度的待播放数据，否则会导致音频服务播放杂音。
 
 **起始版本：** 10
 
@@ -112,7 +112,7 @@ int32_t (*OH_AudioRenderer_OnStreamEvent)(OH_AudioRenderer* renderer, void* user
 
 该函数指针将指向用于处理音频播放流事件的回调函数。
 
-OH_AudioRenderer_OnStreamEvent无触发回调场景，为预留接口。从API version 11开始，开发者如果需要监听设备变化，可直接使用[OH_AudioRenderer_OutputDeviceChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiorenderer_outputdevicechangecallback)替代。
+OH_AudioRenderer_OnStreamEvent当前无触发场景，为预留接口。从API version 11开始，开发者如果需要监听设备变化，可直接使用[OH_AudioRenderer_OutputDeviceChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiorenderer_outputdevicechangecallback)替代。
 
 **起始版本：** 10
 

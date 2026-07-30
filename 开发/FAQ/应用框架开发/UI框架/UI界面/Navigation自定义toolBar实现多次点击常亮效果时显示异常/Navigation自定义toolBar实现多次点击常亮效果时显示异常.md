@@ -91,7 +91,7 @@ class <span style="color: rgb(0,0,255);">MenuEntity </span><span style="color: r
 问题现象：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/GExBtgEqQBOdNowDS5SPjg/zh-cn_image_0000002628599750.png?HW-CC-KV=V1&HW-CC-Date=20260723T013010Z&HW-CC-Expire=86400&HW-CC-Sign=946773D5AACDF73BDE00E3F2FE7CB9137C6A9D410505320894EBED7729CAA640)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/GExBtgEqQBOdNowDS5SPjg/zh-cn_image_0000002628599750.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=AE5D3729C1EC684445C980FF20A09CFE51A9828BDE01E63873C9A44DE73983D4)
 
  
  
@@ -142,7 +142,7 @@ public static <span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span>
  验证效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Mo6Djx8XTXKigCh421ZbEQ/zh-cn_image_0000002628759654.png?HW-CC-KV=V1&HW-CC-Date=20260723T013010Z&HW-CC-Expire=86400&HW-CC-Sign=09E92AA184300DCCC992ED4ABE4209AA856CB300A3DED473B9690CD7A4AA0D8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Mo6Djx8XTXKigCh421ZbEQ/zh-cn_image_0000002628759654.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=6CBDF09061591ECCF8D84CB5A611E5428D285DEFE8B33332B9C960B3D9E9ECCA)
 
  
  

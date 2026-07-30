@@ -1,6 +1,6 @@
 # hdc
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc
 
@@ -158,6 +158,7 @@ hdc -t connect-key shell echo "Hello world"
 | fport rm | 删除指定的端口转发任务。 |
 | start | 启动hdc服务进程。 |
 | kill | 终止hdc服务进程。 |
+| reconnect | 对已连接的USB设备重置会话并触发USB重新枚举。 说明：从API版本26.0.0开始，支持该命令。 |
 | hilog | 打印设备端的日志信息。 |
 | jpid | 显示设备上已打开应用的进程pid。 |
 | track-jpid | 实时显示设备上已打开应用的进程pid和应用名。 |
@@ -165,7 +166,9 @@ hdc -t connect-key shell echo "Hello world"
 | keygen | 生成一个新的密钥对。 |
 | version | 打印hdc版本信息，也可使用hdc -v打印版本信息。 |
 | checkserver | 获取客户进程与服务进程版本信息。 |
-| bugreport | 导出系统信息 |
+| bugreport | 导出系统信息。 |
+| spawn-sub | 启动子服务器。 说明：从API版本26.0.0开始，支持该命令。 |
+| killall-sub | 终止子服务器。 说明：从API版本26.0.0开始，支持该命令。 |
 
 
 
@@ -579,7 +582,7 @@ Set device run mode successful.
 ```
 
 
-![](assets/hdc/file-20260708103747e7f448b4.png)
+![](assets/hdc/file-20260708103747b568dc60.png)
 
 
 切换前，请确保条件满足：远端设备与近端电脑处于同一网络，可通过ping命令检查：
@@ -763,7 +766,7 @@ hdc install [-cwd path|-r|-s|-w waitingTime|-u userId|-p|-g|-h] src
 **使用方法**：
 
 
-![](assets/hdc/file-20260708103747e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/VZQ7YKurRP6au_FXz0OPHA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=9AE9D213B9F81B439425088EDC9393DD49C707AB7EDA4BB7FAB71BE1BBC400D3)
 
 
 执行install命令使用bm模块命令参数，对-w和-u参数需参数值组合使用的情况，需将参数变量和参数值放在引号内使用，如"-w 180"，"-u 100"，防止参数解析异常导致命令执行失败。
@@ -1124,6 +1127,7 @@ Remove forward ruler success, ruler:tcp:1234 tcp:1080
 | --- | --- |
 | start [-r] | 启动hdc服务进程，使用-r参数触发服务进程重新启动。 |
 | kill [-r] | 终止hdc服务进程，使用-r参数触发服务进程重新启动。 |
+| reconnect connect-key | 对已通过USB连接且由本机服务进程管理的目标设备重置会话并触发USB重新枚举。 connect-key为设备USB标识符，可通过hdc list targets查询。 |
 | -p | 绕过对服务进程的查询步骤，用于快速执行客户端命令。 |
 | -m | 使用前台启动模式启动服务进程。 前台启动模式（添加-m参数）：实时打印服务日志到客户端窗口。 后台启动模式（不添加-m参数）：客户端不打印服务日志，日志内容写入本地磁盘文件，具体文件存放路径可参考服务器进程日志。 |
 | -e | 指定在TCP端口转发时，本地监听的IP地址，默认是127.0.0.1。该参数必须和-m一起使用。 |
@@ -1182,6 +1186,45 @@ Kill server finish
 
 $ hdc kill # 终止服务进程。
 Kill server finish
+```
+
+
+
+#### 重连USB设备
+
+对已连接且由本机hdc服务进程管理的USB目标设备，重置会话并触发USB重新枚举。
+
+命令格式如下：
+
+```bash
+hdc reconnect connect-key
+```
+
+**参数**：
+
+| 参数 | 说明 |
+| --- | --- |
+| connect-key | 目标设备的USB连接标识符，可通过hdc list targets查询。 |
+
+
+**返回信息**：
+
+| 返回信息 | 说明 |
+| --- | --- |
+| Reconnecting connect-key ... | 已开始重连指定设备。 |
+| Usage: reconnect <target-key> | 未指定connect-key。 |
+| Target device connect-key not available | 目标不存在或未处于已连接状态。 |
+| Reconnect only supports USB devices | 当前目标非USB连接，不支持重连。 |
+
+
+**使用方法**：
+
+```bash
+$ hdc list targets
+connect-key
+
+$ hdc reconnect connect-key
+Reconnecting connect-key ...
 ```
 
 
@@ -1652,6 +1695,87 @@ hdc file recv /data/log/hilog {local_path}            # 获取hilog已落盘日�
 
 
 
+#### 子服务器管理
+
+| 命令 | 说明 |
+| --- | --- |
+| spawn-sub | 启动子服务器。 |
+| killall-sub | 终止子服务器。 |
+
+
+> [!NOTE]
+> 从API版本26.0.0开始，支持此功能。
+
+
+
+
+#### 启动子服务器
+
+将指定USB设备与当前电脑端服务器连接断开，然后启动一个新的子服务器进程，并将USB设备连接到子服务器进程。命令格式如下：
+
+```bash
+hdc spawn-sub -i connect-key -o [IP:]port
+```
+
+创建子服务进程后，可以使用-s参数访问子服务进程，参见[远程连接场景](#远程连接场景)。
+
+**参数**：
+
+| 参数 | 说明 |
+| --- | --- |
+| connect-key | 指定子服务器连接的USB设备标识符。 |
+| IP | 可选参数，指定监听的IP地址，支持IPv4和IPv6。不指定IP默认监听本机127.0.0.1。 |
+| port | 指定监听的端口，范围为1~65535。 |
+
+
+**返回信息**：
+
+| 返回信息 | 说明 |
+| --- | --- |
+| Subserver connected successfully | 子服务进程已连接USB设备。 |
+| Port binding failed | 端口监听失败导致子服务进程退出。 |
+| USB connection timeout | 子服务进程连接USB设备超时退出。 |
+| Device not found | 主服务进程找不到设备。 |
+| Invalid parameters | 命令入参有误。 |
+| USB device disconnected | 子服务进程USB连接已断开。 |
+| Only main server can spawn subserver | 不能通过子服务进程创建新的子服务进程。 |
+| Subprocess launch failed | 拉起子进程失败。 |
+| Subserver process exited | 子服务器进程已退出。 |
+
+
+**使用方法**：
+
+```bash
+$ hdc spawn-sub -i connect-key -o [IP:]port
+Subserver connected successfully
+```
+
+
+
+#### 终止子服务器
+
+将拉起的所有子服务器进程终止，命令格式如下：
+
+```bash
+hdc killall-sub
+```
+
+**返回信息**：
+
+| 返回信息 | 说明 |
+| --- | --- |
+| Kill subservers finish | 已终止所有的子服务器进程。 |
+
+
+**使用方法**：
+
+```bash
+$ hdc killall-sub
+Kill subservers finish
+```
+
+
+
 #### 可选配置项
 
 
@@ -1727,6 +1851,22 @@ hdc file recv /data/log/hilog {local_path}            # 获取hilog已落盘日�
 
 
 
+#### OHOS_HDC_SUBSERVER_LOG_FILE
+
+默认：不开启电脑端子服务进程的日志落盘。
+
+用于设置电脑端子服务进程可落盘日志文件的数量，取值范围为[1, 20]的整数；超过20则自动截断为20；0或负数表示不允许日志落盘。
+
+子服务器进程的日志落盘在TEMP目录下的.hdc_subserver目录内。不同平台TEMP目录位置存在差异，可参考[服务器进程日志](#服务器进程日志)下“日志获取”中的表格说明。
+
+从API版本26.0.0开始，支持该参数。
+
+> [!NOTE]
+> 由于日志文件的创建和老化存在时序关系，实际日志数量可能比配置数量多一个。
+
+
+
+
 #### 环境变量配置方法
 
 以配置OHOS_HDC_LOG_LEVEL值为5举例，介绍环境变量配置方法，更详细的步骤可参考[环境准备](#环境准备)。
@@ -1751,7 +1891,7 @@ hdc file recv /data/log/hilog {local_path}            # 获取hilog已落盘日�
 
 
 
-![](assets/hdc/file-20260708103747e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/yII5H0ZUTgyWACZHutZeRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=EAA73090F935886437425BC563F15C0F1D5353E9099ADF2E796EEC9180F21441)
 
 
 如果开发者当前运行的hdc版本较低，某些功能存在兼容性问题，需要根据功能特性提升版本时，可参考对应API版本说明下载最新版本。
@@ -1934,7 +2074,7 @@ sudo udevadm control --reload
 
 
 
-![](assets/hdc/file-20260708103747e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Jm4OrBblSYemQot2PnBDPg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=48BD617844CD9B955169B5D9F7A5C1736B323F8370B419C9B57046CE8050CFF9)
 
 
 开启非管理员角色的USB设备操作权限可以解决在Linux环境在非管理员权限下使用hdc因权限不足无法找到设备的情况。但权限最大化可能存在潜在安全问题，请开发者根据使用场景自行评估是否开启此权限。
@@ -1968,7 +2108,7 @@ sudo udevadm control --reload
 hdc文件传输命令执行出现乱码，如使用file recv从设备端发送带有中文名称的文件到本地，报错提示[Fail]Error opening file: no such file or directory, path:XXXXX，其中path显示中文乱码。
 
 
-![](assets/hdc/file-20260708103747b568dc60.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/TRB2vxCtTQi9_mLZjdFUuQ/zh-cn_image_0000002686086613.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=20CE646B25C93A82127E40B72BB449FE76BFC49070C29B68EE15F8824AEB1680)
 
 
 **可能原因&解决方法**
@@ -1986,12 +2126,12 @@ hdc文件传输命令执行出现乱码，如使用file recv从设备端发送�
 使用hdc list targets命令查询已连接设备，连接设备标识后显示Unauthorized。
 
 
-![](assets/hdc/file-202607081037476977c290.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/xq0jtJL6SIaLY5PvJkt0DQ/zh-cn_image_0000002685926785.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=172012320C38FF7022FF089B17A4FE6FDFDF6025E7D022EF4FD955118FCAC4E2)
 
 
 **可能原因&解决方法**
 1. 首次连接未授权：连接设备后解锁设备，屏幕显示“是否信任此设备？”窗口，点击“始终信任”或“信任”完成授权。
-2. 授权窗口关闭或拒绝授权：设备端授权窗口会在超时后关闭，或开发者在授权窗口点击“不信任”拒绝授权。需要再次授权可在设备端 设置>系统>开发者选项>USB调试/无线调试 中，关闭已开启的调试开关后再开启，或执行hdc kill -r重启服务进程。屏幕会再次显示“是否信任此设备？”窗口，点击“始终信任”或“信任”完成授权。
+2. 授权窗口关闭或拒绝授权：设备端授权窗口会在超时后关闭，或开发者在授权窗口点击“不信任”拒绝授权。需要再次授权可在设备端 设置>系统>开发者选项>USB调试/无线调试 中，关闭已开启的调试开关后再开启，或执行hdc kill -r重启服务进程（如果使用过spawn-sub命令需执行hdc killall-sub）。屏幕会再次显示“是否信任此设备？”窗口，点击“始终信任”或“信任”完成授权。
 
 
 
@@ -2122,7 +2262,7 @@ Otherwise try 'hdc kill' if that seems wrong.
 
 **处理步骤**
 1. 场景一：设备端弹出授权窗口，点击授权。具体操作为：连接设备后，系统会自动弹出授权弹窗。
-2. 场景二：进入设备端 设置>系统>开发者选项，关闭调试开关后重新打开，重新连接设备进行授权；或者执行命令hdc kill -r后重新启动hdc，再次触发授权弹窗，点击“始终信任”。
+2. 场景二：进入设备端 设置>系统>开发者选项，关闭调试开关后重新打开，重新连接设备进行授权；或者执行命令hdc kill -r（如果使用过spawn-sub命令需执行hdc killall-sub）后重新启动hdc，再次触发授权弹窗，点击“始终信任”。
 
 
 
@@ -2148,7 +2288,7 @@ then check for a confirmation dialog on your device.
 
 **处理步骤**
 
-进入设备端 设置 > 系统 > 开发者选项，关闭调试开关后重新打开，重新连接设备进行授权；或执行命令hdc kill -r后重新启动hdc，再次触发授权弹窗，点击“始终信任”。
+进入设备端 设置 > 系统 > 开发者选项，关闭调试开关后重新打开，重新连接设备进行授权；或执行命令hdc kill -r（如果使用过spawn-sub命令需执行hdc killall-sub）后重新启动hdc，再次触发授权弹窗，点击“始终信任”。
 
 
 

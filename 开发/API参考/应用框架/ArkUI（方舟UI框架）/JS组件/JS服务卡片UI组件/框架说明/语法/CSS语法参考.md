@@ -1,6 +1,6 @@
 # CSS语法参考
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-syntax-css
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -77,7 +77,7 @@ CSS是描述HML页面结构的样式语言。所有组件均存在系统默认�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-css选择器用于选择需要添加样式的元素，支持的选择器如下表所示：
+CSS选择器用于选择需要添加样式的元素，支持的选择器如下表所示：
   
 | 选择器 | 样例 | 样例描述 |
 | --- | --- | --- |
@@ -115,6 +115,6 @@ css选择器用于选择需要添加样式的元素，支持的选择器如下�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-选择器的优先级计算规则与w3c规则保持一致（只支持：内联样式，id，class），其中内联样式为在元素style属性中声明的样式。
+选择器的优先级计算规则与W3C规则保持一致（只支持：内联样式，id，class），其中内联样式为在元素style属性中声明的样式。
  
 当多条选择器声明匹配到同一元素时，各类选择器优先级由高到低顺序为：内联样式 > id > class 。

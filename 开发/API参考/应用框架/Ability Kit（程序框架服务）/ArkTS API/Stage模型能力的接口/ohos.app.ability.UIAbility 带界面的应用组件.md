@@ -1,6 +1,6 @@
 # @ohos.app.ability.UIAbility (带界面的应用组件)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -81,6 +81,7 @@ import { UIAbility } from '@kit.AbilityKit';
 | lastRequestWant | Want | 否 | 否 | 最近一次拉起UIAbility请求的Want参数。 - 首次拉起UIAbility时，取值为onCreate接收到的Want参数。 - 重复拉起UIAbility时，取值为onNewWant最近一次接收到的Want参数。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | callee | Callee | 否 | 否 | 系统为UIAbility创建的后台通信对象，Callee UIAbility（被调用方）可以通过Callee对象接收Caller对象发送的数据。 |
 | specifiedId23+ | string | 否 | 是 | 仅当UIAbility启动模式为specified时存在，取值为开发者自定义的UIAbility标识。 |
+| isDestroyed | boolean | 否 | 否 | 用于判断UIAbility是否已被销毁。默认值为false，表示UIAbility未销毁，当onDestroy回调执行后，该属性会被设置为true，表示UIAbility已销毁。 起始版本： 26.0.0 |
 
 
 

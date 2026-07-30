@@ -1,6 +1,6 @@
-# ArkTS 错误码
+# 错误码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -219,3 +219,47 @@ Out of memory, video send back failed.
 **处理步骤**
  
 代表内存不足视频回传失败，请进行开发者内存分析后修复代码逻辑。
+ 
+  
+
+#### 1028501001 IPC通信异常
+
+**支持设备：** Phone
+
+**错误信息**
+ 
+IPC communication exception.
+ 
+**错误描述**
+ 
+IPC通信异常。
+ 
+**可能原因**
+ 
+系统侧进程出现过异常。
+ 
+**处理步骤**
+ 
+请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+ 
+  
+
+#### 1028501002 参数错误
+
+**支持设备：** Phone
+
+**错误信息**
+ 
+Invalid parameter.
+ 
+**错误描述**
+ 
+参数错误。
+ 
+**可能原因**
+ 
+接口入参传入非法值。
+ 
+**处理步骤**
+ 
+检查出现异常的接口方法的入参传入是否正确。

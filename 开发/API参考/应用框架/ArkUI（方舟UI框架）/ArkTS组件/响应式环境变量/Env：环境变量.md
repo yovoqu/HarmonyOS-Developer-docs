@@ -1,9 +1,11 @@
 # @Env：环境变量
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+@Env装饰器用于获取系统环境变量，帮助开发者感知系统环境变化并动态调整UI显示。
 
 > [!NOTE]
 > 本模块首批接口从API version 22开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -16,7 +18,11 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Env: EnvDecorator
+Env&lt;T&gt;(key: SystemEnvKey&lt;T&gt; | SystemProperties): PropertyDecorator
+
+用于获取系统环境变量。API版本26.0.0之前仅支持传入SystemProperties枚举，API版本26.0.0及以后版本支持传入[SystemEnvKey&lt;T&gt;](#systemenvkeyt)类或[SystemProperties](#systemproperties)枚举作为参数。
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -24,7 +30,7 @@ Env: EnvDecorator
 
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| Env | EnvDecorator | 环境变量装饰器。 |
+| Env | PropertyDecorator | 环境变量装饰器。 |
 
 
 **示例：**
@@ -38,7 +44,12 @@ struct Index {
   // @Env读取系统环境变量
   @Env(SystemProperties.BREAK_POINT) breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo;
 
-  build() {}
+  build() {
+    Column() {
+        Text(`breakpoint height ${this.breakpoint.heightBreakpoint}`)
+        Text(`breakpoint width ${this.breakpoint.widthBreakpoint}`)
+    }
+  }
 }
 ```
 
@@ -50,7 +61,7 @@ struct Index {
 
 type EnvDecorator = (value: SystemProperties) => PropertyDecorator
 
-定义@Env装饰器类型。
+定义EnvDecorator属性装饰器类型。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -62,14 +73,14 @@ type EnvDecorator = (value: SystemProperties) => PropertyDecorator
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SystemProperties | 是 | 环境变量属性名。 |
+| value | SystemProperties | 是 | 环境变量属性名，用于指定要获取的系统环境变量。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| PropertyDecorator | 属性装饰器。 |
+| PropertyDecorator | 属性装饰器，开发者无需关注该返回值。 |
 
 
 **错误码：**
@@ -87,14 +98,149 @@ type EnvDecorator = (value: SystemProperties) => PropertyDecorator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义环境变量枚举值。
+定义环境变量枚举值，用于通过[@Env](#env)装饰器获取系统环境变量。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| BREAK_POINT | 'system.arkui.breakpoint' | @Env变量参数，通过@Env(SystemProperties.BREAK_POINT)可获取WindowSizeLayoutBreakpointInfo实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的尺寸布局断点信息。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| BREAK_POINT | 'system.arkui.breakpoint' | @Env变量参数，通过@Env(SystemProperties.BREAK_POINT)可获取WindowSizeLayoutBreakpointInfo实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的尺寸布局断点信息。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
 | WINDOW_SIZE23+ | 'system.window.size' | @Env变量参数，通过@Env(SystemProperties.WINDOW_SIZE)可获取SizeInVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为vp。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
 | WINDOW_SIZE_PX23+ | 'system.window.size.px' | @Env变量参数，通过@Env(SystemProperties.WINDOW_SIZE_PX)可获取Size实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为px。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
 | WINDOW_AVOID_AREA23+ | 'system.window.avoidarea' | @Env变量参数，通过@Env(SystemProperties.WINDOW_AVOID_AREA)可获取UIEnvWindowAvoidAreaInfoVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为vp。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
 | WINDOW_AVOID_AREA_PX23+ | 'system.window.avoidarea.px' | @Env变量参数，通过@Env(SystemProperties.WINDOW_AVOID_AREA_PX)可获取UIEnvWindowAvoidAreaInfoPX实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为px。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
+| WINDOW_DISPLAY_ID | 'system.window.displayid' | @Env变量参数，通过@Env(SystemProperties.WINDOW_DISPLAY_ID)可获取number类型的值。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的屏幕ID。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
+| WINDOW_SYSTEM_DENSITY | 'system.window.density.system' | @Env变量参数，通过@Env(SystemProperties.WINDOW_SYSTEM_DENSITY)可获取number类型的值。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的系统显示大小缩放系数。该参数为浮点数，取值范围为[0.5, 4.0]或-1.0。4.0表示窗口可显示的最大显示大小缩放系数，-1.0表示窗口使用系统显示大小缩放系数。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
+
+
+
+
+#### SystemEnvKey&lt;T&gt;
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+系统环境变量Key对应的类型。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### 属性
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| type | T | 否 | 是 | 系统环境变量Key对应值的数据类型，默认值为undefined。 |
+
+
+
+
+#### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+protected constructor()
+
+用于创建该类的实例对象。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### WritableSystemEnvKey&lt;T&gt;
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义可写的系统环境变量Key，继承自[SystemEnvKey&lt;T&gt;](#systemenvkeyt)。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### ReadonlySystemEnvKey&lt;T&gt;
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义只读的系统环境变量Key，继承自[SystemEnvKey&lt;T&gt;](#systemenvkeyt)。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### WritableEnvKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义可写的系统环境变量Key集合，用于通过@Env装饰器获取对应的系统环境变量。可通过[WithEnv](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-env)中的[env](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-env#env)方法设置局部环境变量值以影响后代组件渲染，具体示例请参见[示例2（设置局部布局方向）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-env#示例2设置局部布局方向)。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### 属性
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| DIRECTION | WritableSystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(WritableEnvKey.DIRECTION)可获取Direction枚举类型的值。 当该装饰器声明在@Component或@ComponentV2中时，用于获取窗口所在屏幕的布局方向。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| FONT_SCALE | WritableSystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(WritableEnvKey.FONT_SCALE)可获取number类型的值，取值无上限，小于等于0的值按0处理。 当该装饰器声明在@Component或@ComponentV2中时，用于为后代组件提供局部字体缩放倍数。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+
+
+
+
+#### ReadonlyEnvKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义只读的系统环境变量key集合，用于通过@Env装饰器获取对应的系统环境变量。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+
+#### 属性
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| WINDOW_AVOID_AREA | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_AVOID_AREA)可获取UIEnvWindowAvoidAreaInfoVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为vp。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| WINDOW_AVOID_AREA_PX | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_AVOID_AREA_PX)可获取UIEnvWindowAvoidAreaInfoPX实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为px。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| WINDOW_SIZE | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_SIZE)可获取SizeInVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为vp。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| WINDOW_SIZE_PX | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_SIZE_PX)可获取Size实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为px。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| WINDOW_DISPLAY_ID | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_DISPLAY_ID)可获取number类型的值。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的屏幕ID。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| WINDOW_SYSTEM_DENSITY | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_SYSTEM_DENSITY)可获取number类型的值。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的系统显示大小缩放系数。该参数为浮点数，取值范围为[0.5, 4.0]或-1.0。4.0表示窗口可显示的最大显示大小缩放系数，-1.0表示窗口使用系统显示大小缩放系数。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| WINDOW_IS_FOCUSED | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_IS_FOCUSED)可获取boolean类型的值。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口是否处于获焦状态，true表示当前处于获焦状态，false表示当前不处于获焦状态。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| WINDOW_IS_HIGHLIGHTED | ReadonlySystemEnvKey&lt;T&gt; | 是 | 否 | @Env变量参数，通过@Env(ReadonlyEnvKey.WINDOW_IS_HIGHLIGHTED)可获取boolean类型的值。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口是否处于高亮状态，true表示当前处于高亮状态，false表示当前不处于高亮状态。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |

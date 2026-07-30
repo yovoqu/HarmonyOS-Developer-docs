@@ -1,6 +1,6 @@
 # oh_display_capture.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-capture-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,7 +60,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CaptureScreenPixelmap(uin
 
 **需要权限：**
 
- - API版本22+：ohos.permission.CUSTOM_SCREEN_CAPTURE或ohos.permission.CUSTOM_SCREEN_RECORDING
+ - API版本22+：ohos.permission.CUSTOM_SCREEN_CAPTURE 或 ohos.permission.CUSTOM_SCREEN_RECORDING
  - API版本14-21：ohos.permission.CUSTOM_SCREEN_CAPTURE
 
 
@@ -80,4 +80,4 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CaptureScreenPixelmap(uin
 
 | 类型 | 说明 |
 | --- | --- |
-| NativeDisplayManager_ErrorCode | 返回屏幕管理接口的通用状态码，具体可见NativeDisplayManager_ErrorCode。 |
+| NativeDisplayManager_ErrorCode | 返回DISPLAY_MANAGER_OK，表示操作成功。 返回DISPLAY_MANAGER_ERROR_NO_PERMISSION，表示权限校验失败，应用无权限使用该API，需要申请权限。 返回DISPLAY_MANAGER_ERROR_INVALID_PARAM，表示参数检查失败。 返回DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED，表示该设备不支持此API。 返回DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL，表示系统服务工作异常。 |

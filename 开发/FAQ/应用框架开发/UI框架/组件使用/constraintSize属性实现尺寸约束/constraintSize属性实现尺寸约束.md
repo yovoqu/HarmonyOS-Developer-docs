@@ -71,7 +71,7 @@ struct Solution1 {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/kbbFGsIdQOied0I3N7IHWQ/zh-cn_image_0000002628765698.png?HW-CC-KV=V1&HW-CC-Date=20260723T012755Z&HW-CC-Expire=86400&HW-CC-Sign=7D5E5A741644CA02E3E6A0A6D6BC5BF3A1618611D081FDEFB4FB124B4B437B30)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/kbbFGsIdQOied0I3N7IHWQ/zh-cn_image_0000002628765698.png?HW-CC-KV=V1&HW-CC-Date=20260730T072404Z&HW-CC-Expire=86400&HW-CC-Sign=9DE08B839910AAA01883047251A5DD8EE91A162EEE6B656FF83FA87267060B89)
 
 - **场景二**：可以使用[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)来实现，但会导致Text占据剩余空间，从而可能影响到Row组件设置的居中效果。因此，需要考虑其他方法。使用constraintSize设置Text的最大宽度，达到约束Text组件的效果，需要注意的是，应根据不同设备的适配需求，合理设置constraintSize中的maxWidth值。1. 获取屏幕宽度。
 
@@ -121,7 +121,7 @@ struct Solution2 {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/18GwUKNmStyZ1f1lqtLx0w/zh-cn_image_0000002658965025.png?HW-CC-KV=V1&HW-CC-Date=20260723T012755Z&HW-CC-Expire=86400&HW-CC-Sign=3386AF9B43AED9BC8118E91DE743434B04272DB18AC236CC31A60F11FD5B0DB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/18GwUKNmStyZ1f1lqtLx0w/zh-cn_image_0000002658965025.png?HW-CC-KV=V1&HW-CC-Date=20260730T072404Z&HW-CC-Expire=86400&HW-CC-Sign=A2DA54ADA4806A4F34834FE02F6E7E20141438AF5DE49C9AE8DA8DB62150F19D)
 
 - **场景三**：将需要省略显示的Text组件的maxLines属性设置为1，并将其最大宽度设置为父组件宽度减去间距和其他组件的宽度。
 ```text
@@ -162,4 +162,4 @@ struct Solution {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/Z13p_MTBThqBBeC-r_E51Q/zh-cn_image_0000002628605820.png?HW-CC-KV=V1&HW-CC-Date=20260723T012755Z&HW-CC-Expire=86400&HW-CC-Sign=1E564C8567F9D86D54E0273462B17567F7DEE6598507016A6D7CCB7F88B512C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/Z13p_MTBThqBBeC-r_E51Q/zh-cn_image_0000002628605820.png?HW-CC-KV=V1&HW-CC-Date=20260730T072404Z&HW-CC-Expire=86400&HW-CC-Sign=D404069A2B7A1A597ECC8D68927C915AC7DCEB57991ACDE72031E071333B4361)

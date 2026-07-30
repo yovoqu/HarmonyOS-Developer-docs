@@ -1,6 +1,6 @@
 # 自定义字体的注册和使用（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/custom-font-c
 
@@ -87,7 +87,6 @@ const char* fontPath = "/system/fonts/NotoSerifTamil[wdth,wght].ttf";
 
   
 ```cpp
-// 返回0为成功，1为文件不存在，2为打开文件失败，3为读取文件失败，4为寻找文件失败，5为获取大小失败，9文件损坏
 int errorCode = OH_Drawing_RegisterFont(fontCollection, fontFamily, fontPath);
 ```
 

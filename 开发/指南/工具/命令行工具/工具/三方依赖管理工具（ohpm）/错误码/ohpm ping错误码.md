@@ -1,6 +1,6 @@
 # ohpm ping错误码
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-ping-errorcode
 
@@ -20,7 +20,7 @@ ping仓库地址失败。
  
 **处理步骤**
  
-检查仓库地址以及检查网络连接是否可用。
+检查仓库地址以及网络连接是否可用。
  
  
 

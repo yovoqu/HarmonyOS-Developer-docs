@@ -1,6 +1,6 @@
 # 线性布局 (Row/Column)
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-linear
 
@@ -573,7 +573,7 @@ struct LayoutWeightExample {
   
 ![](assets/线性布局%20(Row／Column)/file-20260514130553067-6.png)
 
- - 父容器尺寸确定时，使用百分比设置子元素和兄弟元素的宽度，使他们在任意尺寸的设备下保持固定的自适应占比。
+ - 父容器尺寸确定时，使用百分比设置子元素和兄弟元素的宽度，使它们在任意尺寸的设备下保持固定的自适应占比。
 
   
 ```ArkTS

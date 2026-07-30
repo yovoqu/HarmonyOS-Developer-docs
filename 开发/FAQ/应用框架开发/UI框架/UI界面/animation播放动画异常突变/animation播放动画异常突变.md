@@ -71,7 +71,7 @@ class <span style="color: rgb(0,0,255);">JumpTrans </span><span style="color: rg
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/UAFfOda8S3G5Mzf8b-sYwA/zh-cn_image_0000002628394280.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013108Z&HW-CC-Expire=86400&HW-CC-Sign=E87BD8C4AA7B46F7141F3EB5CF37E77B29EFA22E6A9EDA352148CA42A9255629)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/UAFfOda8S3G5Mzf8b-sYwA/zh-cn_image_0000002628394280.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072453Z&HW-CC-Expire=86400&HW-CC-Sign=02A189B03D47A9323C730BF35F872C2C2153ABF5CA730269C3171A118917622D)
 
  
  
@@ -79,7 +79,7 @@ class <span style="color: rgb(0,0,255);">JumpTrans </span><span style="color: rg
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/AsEgnbwFS02KATkuWlin1Q/zh-cn_image_0000002658913495.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013108Z&HW-CC-Expire=86400&HW-CC-Sign=248E604979696B9D2AE2450462C055A17315ACF6CDBD7AFA24945C83789BF3CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/AsEgnbwFS02KATkuWlin1Q/zh-cn_image_0000002658913495.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072453Z&HW-CC-Expire=86400&HW-CC-Sign=2A86168B6C57FEA4E3EA747F0EEC84A915C3BE1A456DF00FB82A3AB79C4B8445)
 
  
  

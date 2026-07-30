@@ -1,6 +1,6 @@
 # @ohos.bluetooth.access (蓝牙access模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-access
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,7 +53,7 @@ enableBluetooth(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -86,7 +86,7 @@ enableBluetoothAsync(): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -107,7 +107,7 @@ enableBluetoothAsync(): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -156,7 +156,7 @@ disableBluetooth(): void
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -189,7 +189,7 @@ disableBluetoothAsync(): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -210,7 +210,7 @@ disableBluetoothAsync(): Promise&lt;void&gt;
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -240,7 +240,7 @@ getState(): BluetoothState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -253,12 +253,13 @@ getState(): BluetoothState
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：10-12 |
 | 801 | Capability not supported. |
 | 2900001 | Service stopped. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -284,7 +285,7 @@ on(type: 'stateChange', callback: Callback&lt;BluetoothState&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -298,12 +299,13 @@ on(type: 'stateChange', callback: Callback&lt;BluetoothState&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：10-17 |
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -332,7 +334,7 @@ off(type: 'stateChange', callback?: Callback&lt;BluetoothState&gt;): void
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -346,12 +348,13 @@ off(type: 'stateChange', callback?: Callback&lt;BluetoothState&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission denied. 适用版本：10-17 |
 | 401 | Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```json
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -389,14 +392,14 @@ addPersistentDeviceId(deviceId: string): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 对端设备的虚拟MAC地址，例如："XX:XX:XX:XX:XX:XX"。 该地址一般来源于蓝牙扫描结果，如：可通过调用startScan或connection.startBluetoothDiscovery扫描得到。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -417,7 +420,7 @@ addPersistentDeviceId(deviceId: string): Promise&lt;void&gt;
 | 2900099 | Add persistent device address failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -449,14 +452,14 @@ deletePersistentDeviceId(deviceId: string): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 对端设备的虚拟MAC地址，例如："XX:XX:XX:XX:XX:XX"， 该地址一般来源于蓝牙扫描结果，如：通过调用startScan或connection.startBluetoothDiscovery扫描得到。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -476,7 +479,7 @@ deletePersistentDeviceId(deviceId: string): Promise&lt;void&gt;
 | 2900099 | delete persistent device address failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -505,7 +508,7 @@ getPersistentDeviceIds(): string[];
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -524,7 +527,7 @@ getPersistentDeviceIds(): string[];
 | 2900099 | Get persistent device address failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -555,14 +558,14 @@ isValidRandomDeviceId(deviceId: string): boolean;
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 对端设备的虚拟MAC地址，例如："XX:XX:XX:XX:XX:XX"。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -582,7 +585,7 @@ isValidRandomDeviceId(deviceId: string): boolean;
 | 2900099 | Check persistent device address failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -616,21 +619,21 @@ convertUuid(uuid: string): string
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-**参数：**
+**参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uuid | string | 是 | 16bit、32bit、128bit的UUID。 |
 
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
 | string | 转换后的128bit的UUID。 |
 
 
-**示例：**
+**示例**：
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -660,7 +663,7 @@ isBluetoothSupported(): boolean
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**返回值：**
+**返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -676,7 +679,7 @@ isBluetoothSupported(): boolean
 | 2900099 | Operation failed. |
 
 
-**示例：**
+**示例**：
 
 ```text
 try {

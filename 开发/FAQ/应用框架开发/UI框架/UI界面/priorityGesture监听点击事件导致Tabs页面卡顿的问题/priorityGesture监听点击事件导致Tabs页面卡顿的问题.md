@@ -114,7 +114,7 @@ struct TabsExample {
 问题示例实现效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/RyfqjEa1ShOMFnbMdJW6tQ/zh-cn_image_0000002658955335.png?HW-CC-KV=V1&HW-CC-Date=20260723T013031Z&HW-CC-Expire=86400&HW-CC-Sign=DF44883E5555C6D0012D84E789A09FE8E9D11174DBC53FECBB5C154284F2E7EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/RyfqjEa1ShOMFnbMdJW6tQ/zh-cn_image_0000002658955335.png?HW-CC-KV=V1&HW-CC-Date=20260730T072446Z&HW-CC-Expire=86400&HW-CC-Sign=02ABB3058458E34E7E7F4BEA3EFDCD8110BB42203063278AE5E5900429BE2B5D)
 
  
  
@@ -272,7 +272,7 @@ struct TabsExample {
 实现效果如下，当双击的页面不是当前Tab2页面时，不会触发Tab2页面双击事件，优先响应单击跳转事件，跳转到Tab1页面：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/vn1CcsCxTbWQuv0hn2M4-w/zh-cn_image_0000002628596118.png?HW-CC-KV=V1&HW-CC-Date=20260723T013031Z&HW-CC-Expire=86400&HW-CC-Sign=22AB0A55DE39114D407367E80960BAE5AEA9794367151F971EE3777380C295BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/vn1CcsCxTbWQuv0hn2M4-w/zh-cn_image_0000002628596118.png?HW-CC-KV=V1&HW-CC-Date=20260730T072446Z&HW-CC-Expire=86400&HW-CC-Sign=FA016771D174AFF81751F3E047FF2BD08F49B717BEB019C8AAFCA6F16BE156E0)
 
  
  

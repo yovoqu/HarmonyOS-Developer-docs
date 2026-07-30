@@ -1,6 +1,6 @@
 # realNameService(身份验证服务)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-realnameservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,7 +32,7 @@ import { realNameService } from '@kit.PaymentKit';
 
 startRealNameVerification(context: common.UIAbilityContext | common.UIExtensionContext, preVerifyId: string): Promise&lt;string&gt;
  
-该方法提供实名信息验证功能，调用该方法后会拉起实名信息验证授权组件，验证完成后使用Promise异步返回。调用该方法前请确保网络已连接。
+该方法提供实名信息验证功能，调用该方法后会拉起实名信息验证授权组件，验证完成后使用Promise异步回调。调用该方法前请确保网络已连接。
  
 **模型约束**：此接口仅可在Stage模型下使用。
  
@@ -63,6 +63,7 @@ startRealNameVerification(context: common.UIAbilityContext | common.UIExtensionC
   
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 | 1020100000 | The application does not have the required capability. |
 | 1020100001 | The user did not accept the agreement. |
 | 1020100002 | The user canceled the operation. |
@@ -119,7 +120,7 @@ struct Index {
 
 startRealNameAuth(context: common.UIAbilityContext | common.UIExtensionContext): Promise&lt;string&gt;
  
-该方法提供实名信息授权功能，调用该方法后会拉起实名信息授权组件，授权完成后使用Promise异步返回。调用该方法前请确保网络已连接。
+该方法提供实名信息授权功能，调用该方法后会拉起实名信息授权组件，授权完成后使用Promise异步回调。调用该方法前请确保网络已连接。
  
 **模型约束**：此接口仅可在Stage模型下使用。
  
@@ -149,6 +150,7 @@ startRealNameAuth(context: common.UIAbilityContext | common.UIExtensionContext):
   
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 | 1020100000 | The application does not have the required capability. |
 | 1020100001 | The user did not accept the agreement. |
 | 1020100002 | The user canceled the operation. |
@@ -200,7 +202,7 @@ struct Index {
 
 startFaceVerification(context: common.UIAbilityContext | common.UIExtensionContext, preVerifyId: string): Promise&lt;string&gt;
  
-该方法提供人脸核身实人验证功能，调用该方法后会拉起人脸核身实人验证组件，验证完成后使用Promise异步返回。调用该方法前请确保网络已连接。
+该方法提供人脸核身实人验证功能，调用该方法后会拉起人脸核身实人验证组件，验证完成后使用Promise异步回调。调用该方法前请确保网络已连接。
  
 **模型约束**：此接口仅可在Stage模型下使用。
  
@@ -231,6 +233,7 @@ startFaceVerification(context: common.UIAbilityContext | common.UIExtensionConte
   
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 | 1020100000 | The application does not have the required capability. |
 | 1020100001 | The user did not accept the agreement. |
 | 1020100002 | The user canceled the operation. |

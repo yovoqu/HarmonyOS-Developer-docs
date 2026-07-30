@@ -9,7 +9,7 @@
 使用ohpm publish发布包到私仓，出现了404报错信息。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/KQKWGviSS2y01N_78032yw/zh-cn_image_0000002658808989.png?HW-CC-KV=V1&HW-CC-Date=20260723T014011Z&HW-CC-Expire=86400&HW-CC-Sign=FEEDA4E5507F1FAAE10948C4AE029FCDCF64FB47711EFF8C86AE145996882823)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/KQKWGviSS2y01N_78032yw/zh-cn_image_0000002658808989.png?HW-CC-KV=V1&HW-CC-Date=20260730T072725Z&HW-CC-Expire=86400&HW-CC-Sign=691AF93FC1A0753E2DAABBF6EAD2C303EAC42A23FB0654A3B308CC0C0CEC4E6D)
 
  
  

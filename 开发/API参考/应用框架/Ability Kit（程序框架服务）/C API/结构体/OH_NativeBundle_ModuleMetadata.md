@@ -1,6 +1,6 @@
 # OH_NativeBundle_ModuleMetadata
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-modulemetadata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,4 +38,4 @@ typedef struct OH_NativeBundle_ModuleMetadata {...} OH_NativeBundle_ModuleMetada
 | --- | --- |
 | char* moduleName | 模块名称。 |
 | OH_NativeBundle_Metadata* metadataArray | 模块的元数据数组。 |
-| size_t metadataArraySize | 模块的元数据数组大小。 |
+| size_t metadataArraySize | 模块的元数据数组大小。需与metadataArray配合使用，应等于metadataArray数组的实际元素数量，设置错误可能导致数组越界或数据访问异常。 |

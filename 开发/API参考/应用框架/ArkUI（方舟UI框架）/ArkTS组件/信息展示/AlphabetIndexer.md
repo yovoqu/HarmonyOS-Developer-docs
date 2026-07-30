@@ -1,14 +1,14 @@
 # AlphabetIndexer
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-可以与容器组件联动用于按逻辑结构快速定位容器显示区域的组件。
+可以与容器组件联动，用于按逻辑结构快速定位容器显示区域，适用于通讯录、城市列表、分类列表等需要快速定位内容的场景。
 
-> [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> [!TIP]
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 一级索引项：索引条上的字母索引，如'#'、'A'、'B'、'C'等。 二级索引项：提示弹窗中显示的具体内容列表项，通过onRequestPopupData回调返回。 从API version 12开始，触控反馈默认开启；使用前请按 enableHapticFeedback 的说明配置振动权限。
 
 
 
@@ -116,7 +116,7 @@ selectedColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 选中项文本颜色。 默认值：0xFF007DFF，显示为半透明蓝色。 |
+| value | ResourceColor | 是 | 选中项文本颜色。 默认值：0xFF007DFF，显示为不透明的蓝色。 |
 
 
 
@@ -137,7 +137,7 @@ popupColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 提示弹窗一级索引项文本颜色。 默认值：0xFF007DFF，显示为半透明蓝色。 |
+| value | ResourceColor | 是 | 提示弹窗一级索引项文本颜色。 默认值：0xFF007DFF，显示为不透明的蓝色。 |
 
 
 
@@ -177,7 +177,9 @@ API version 11及以前版本，提示弹窗背景颜色默认为0xFFFFFFFF，�
 
 对于API version 12至API version 24版本，默认为#66808080，显示为半透明的灰色。
 
-从API版本26.0.0开始，如果和[popupBackgroundBlurStyle](#popupbackgroundblurstyle12)均未被主动调用或参数value传入undefined，高档、中档算力设备默认显示为沉浸式材质[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。如果popupBackgroundBlurStyle被主动调用且参数value传入有效值，提示弹窗背景颜色默认为#66808080，显示为半透明的灰色。
+从API版本26.0.0开始，如果[popupBackground](#popupbackground)和[popupBackgroundBlurStyle](#popupbackgroundblurstyle12)均未被主动调用或参数value传入undefined，高档、中档算力设备默认显示为沉浸式材质[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。
+
+如果popupBackgroundBlurStyle被主动调用且参数value传入有效值，提示弹窗背景颜色默认为#66808080，显示为半透明的灰色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -325,7 +327,7 @@ alignStyle(value: IndexerAlign, offset?: Length)
 
 selected(index: number)
 
-设置选中项索引值。
+设置选中项索引值。与[AlphabetIndexerOptions](#alphabetindexeroptions18对象说明)中的selected同时设置时，该属性的优先级更高。
 
 从API version 10开始，该参数支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
 
@@ -337,7 +339,7 @@ selected(index: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 选中项索引值。 取值范围：[0, arrayValue.length-1] 默认值：0 |
+| index | number | 是 | 选中项索引值。 取值范围：[0, arrayValue.length-1] 若超出索引值范围，则取默认值0。 默认值：0 |
 
 
 
@@ -348,7 +350,7 @@ selected(index: number)
 
 popupPosition(value: Position)
 
-设置弹出窗口相对于索引条上边框中点的位置。
+设置提示弹窗相对于索引条上边框中点的位置。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -358,7 +360,7 @@ popupPosition(value: Position)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Position | 是 | 弹出窗口相对于索引条上边框中点的位置。 默认值：{x: 60.0, y: 48.0} |
+| value | Position | 是 | 提示弹窗相对于索引条上边框中点的位置。与alignStyle同时设置时，水平方向由alignStyle的offset参数控制，竖直方向上value.y生效。 默认值：{x: 60.0, y: 48.0} 单位：vp |
 
 
 
@@ -463,9 +465,9 @@ autoCollapse(value: boolean)
 
 设置是否使用自适应折叠模式。
 
-如果索引项第一项为“#”，当除去第一项后剩余索引项数量 <= 9时，选择全显示模式；9 < 剩余索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；剩余索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
+如果索引项第一项为“#”，当除去第一项后剩余索引项数量 <= 9时，选择全显示模式（所有索引项完整显示）；9 < 剩余索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；剩余索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
 
-如果索引项第一项不为“#”，当所有索引项数量 <= 9时，选择全显示模式；9 < 所有索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；所有索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
+如果索引项第一项不为“#”，当所有索引项数量 <= 9时，选择全显示模式（所有索引项完整显示）；9 < 所有索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；所有索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
 
 > [!NOTE]
 > 从API version 12开始，该接口支持在 attributeModifier 中调用。
@@ -538,7 +540,7 @@ itemBorderRadius(value: number)
 
 popupBackgroundBlurStyle(value: BlurStyle)
 
-设置提示弹窗的背景模糊材质。API版本26.0.0之前版本，未通过该接口设置时，默认为组件普通材质模糊，对应取值为BlurStyle中的COMPONENT_REGULAR。从API版本26.0.0开始，[popupBackground](#popupbackground)和popupBackgroundBlurStyle均未被主动调用或者传入undefined时，在高档、中档算力设备默认显示为沉浸式材质[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。
+设置提示弹窗的背景模糊材质。API版本26.0.0之前版本，未通过该接口设置时，默认为组件普通材质模糊，对应取值为BlurStyle中的COMPONENT_REGULAR。从API版本26.0.0开始，[popupBackground](#popupbackground)和popupBackgroundBlurStyle均未被主动调用或者传入undefined时，在高算力、中算力设备默认显示为沉浸式材质[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)的THICK样式，低算力设备默认显示为白色背景。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -584,7 +586,7 @@ popupTitleBackground(value: ResourceColor)
 
 enableHapticFeedback(value: boolean)
 
-设置是否开启触控反馈。
+设置是否开启触控反馈。开启后，在手指触摸或滑动选中索引项时会触发振动反馈。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -633,7 +635,7 @@ enableHapticFeedback(value: boolean)
 
 onSelected(callback: (index: number) => void)
 
-索引项选中事件，回调参数为当前选中项索引。
+注册索引项选中事件回调，回调参数为当前选中项索引。
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 8开始废弃，建议使用 onSelect 替代。
@@ -666,7 +668,7 @@ onSelect(callback: OnAlphabetIndexerSelectCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | OnAlphabetIndexerSelectCallback | 是 | 索引项选中事件。 |
+| callback | OnAlphabetIndexerSelectCallback | 是 | 回调函数，用于处理索引项选中事件。 |
 
 
 
@@ -687,7 +689,7 @@ onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | OnAlphabetIndexerRequestPopupDataCallback | 是 | 设置提示弹窗二级索引项内容事件。 |
+| callback | OnAlphabetIndexerRequestPopupDataCallback | 是 | 回调函数，用于提供提示弹窗二级索引项内容。需先设置usingPopup为true。 |
 
 
 
@@ -698,7 +700,7 @@ onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback)
 
 onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback)
 
-提示弹窗二级索引选中事件，回调参数为当前选中二级索引项索引。
+提示弹窗二级索引选中事件，回调参数为当前选中二级索引项索引。仅在[usingPopup](#usingpopup)为true时触发。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -708,7 +710,7 @@ onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | OnAlphabetIndexerPopupSelectCallback | 是 | 提示弹窗二级索引选中事件。 |
+| callback | OnAlphabetIndexerPopupSelectCallback | 是 | 回调函数，用于处理提示弹窗二级索引选中事件。需先设置usingPopup为true。 |
 
 
 
@@ -910,7 +912,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](assets/AlphabetIndexer/file-20260708103204ef78e8e9.gif)
+![](assets/AlphabetIndexer/file-202607081032043896868b.gif)
 
 
 
@@ -997,7 +999,7 @@ struct AlphabetIndexerSample {
               .popupFont({ size: 30, weight: FontWeight.Bolder }) // 提示弹窗一级索引的文本样式
               .itemSize(28) // 每一项的尺寸大小
               .alignStyle(IndexerAlign.Right) // 提示弹窗在索引条左侧弹出
-              .popupTitleBackground("#D2B48C") // 设置提示弹窗一级索引项背景颜色
+              .popupTitleBackground(0xD2B48C) // 设置提示弹窗一级索引项背景颜色
               .popupSelectedColor(0x00FF00) // 提示弹窗二级索引选中项文本颜色
               .popupUnselectedColor(0x0000FF) // 提示弹窗二级索引未选中项文本颜色
               .popupItemFont({ size: 30, style: FontStyle.Normal }) // 提示弹窗二级索引项文本样式
@@ -1056,7 +1058,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](assets/AlphabetIndexer/file-202607081032042a977fe0.gif)
+![](assets/AlphabetIndexer/file-20260708103204ef78e8e9.gif)
 
 
 
@@ -1191,4 +1193,4 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](assets/AlphabetIndexer/file-202607081032043896868b.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/f9BhzeViR96CbKf3v1hLXw/zh-cn_image_0000002655848800.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071508Z&HW-CC-Expire=86400&HW-CC-Sign=637309F86B59102F6955648976463CFBF3D62A76B5CE512EFAF6E708732A785F)

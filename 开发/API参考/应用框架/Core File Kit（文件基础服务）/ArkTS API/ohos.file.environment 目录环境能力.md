@@ -1,9 +1,9 @@
 # @ohos.file.environment (目录环境能力)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-environment
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 该模块提供用户环境目录能力，用于获取用户的下载目录、桌面目录、文档目录的沙箱路径。上述三个方法分别适用于获取不同类型用户目录的场景，开发者可根据需要选择对应的目录类型。
 
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 import { Environment } from '@kit.CoreFileKit';
@@ -24,7 +24,7 @@ import { Environment } from '@kit.CoreFileKit';
 
 #### Environment.getUserDownloadDir
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 getUserDownloadDir(): string
 
@@ -32,7 +32,11 @@ getUserDownloadDir(): string
 
 **系统能力**：SystemCapability.FileManagement.File.Environment.FolderObtain
 
-**设备行为差异**：该接口在2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异**：
+
+ - 在API版本26.0.0及之后：该接口在PC/2in1和Tablet中可正常调用，在其他设备类型中返回801错误码。
+ - 在API版本26.0.0之前：该接口在PC/2in1可正常调用，在其他设备类型中返回801错误码。
+
 
 **返回值：**
 
@@ -70,7 +74,7 @@ function getUserDownloadDirExample() {
 
 #### Environment.getUserDesktopDir
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 getUserDesktopDir(): string
 
@@ -78,7 +82,11 @@ getUserDesktopDir(): string
 
 **系统能力**：SystemCapability.FileManagement.File.Environment.FolderObtain
 
-**设备行为差异**：该接口在2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异**：
+
+ - 在API版本26.0.0及之后：该接口在PC/2in1和Tablet中可正常调用，在其他设备类型中返回801错误码。
+ - 在API版本26.0.0之前：该接口在PC/2in1可正常调用，在其他设备类型中返回801错误码。
+
 
 **返回值：**
 
@@ -116,7 +124,7 @@ function getUserDesktopDirExample() {
 
 #### Environment.getUserDocumentDir
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 getUserDocumentDir(): string
 
@@ -124,7 +132,11 @@ getUserDocumentDir(): string
 
 **系统能力**：SystemCapability.FileManagement.File.Environment.FolderObtain
 
-**设备行为差异**：该接口在2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异**：
+
+ - 在API版本26.0.0及之后：该接口在PC/2in1和Tablet中可正常调用，在其他设备类型中返回801错误码。
+ - 在API版本26.0.0之前：该接口在PC/2in1可正常调用，在其他设备类型中返回801错误码。
+
 
 **返回值：**
 

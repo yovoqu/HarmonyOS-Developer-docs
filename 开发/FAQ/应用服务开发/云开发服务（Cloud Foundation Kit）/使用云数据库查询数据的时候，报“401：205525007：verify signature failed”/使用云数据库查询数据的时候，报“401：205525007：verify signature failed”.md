@@ -1,12 +1,12 @@
 # 使用云数据库查询数据的时候，报“401:205525007:verify signature failed”
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-10
 
 #### 问题现象
 
-在初始化云数据库完成后，调用[query()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-clouddatabase#section390417613213)方法查询数据报401。具体报错信息：401:205525007:verify signature failed，如何解决？
+在初始化云数据库完成后，调用[query()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-clouddatabase#query)方法查询数据报401。具体报错信息：401:205525007:verify signature failed，如何解决？
  
  
 

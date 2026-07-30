@@ -1,6 +1,6 @@
 # OHIPCParcel
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohipcparcel
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供IPC序列化/反序列化C接口。
+提供IPC序列化/反序列化C接口，主要用于跨进程通信时的数据打包与解包。
  
 **系统能力：** SystemCapability.Communication.IPC.Core
  

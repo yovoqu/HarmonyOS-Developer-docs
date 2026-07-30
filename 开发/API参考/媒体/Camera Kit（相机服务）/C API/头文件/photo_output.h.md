@@ -1,6 +1,6 @@
 # photo_output.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-photo-output-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,6 +37,7 @@
 | --- | --- | --- |
 | PhotoOutput_Callbacks | PhotoOutput_Callbacks | 拍照输出的回调。 |
 | Camera_PhotoOutput | Camera_PhotoOutput | 拍照输出对象。 可以使用OH_CameraManager_CreatePhotoOutput方法创建指针。 |
+| OH_Camera_PhotoCaptureSettingExt | OH_Camera_PhotoCaptureSettingExt | 扩展拍照设置对象（提供镜像、旋转等基础拍照配置，支持连续调节图片压缩质量）。 |
  
  
   
@@ -87,6 +88,15 @@
 | Camera_ErrorCode OH_PhotoOutput_EnableMovingPhoto(Camera_PhotoOutput* photoOutput, bool enabled) | - | 是否启用动态照片。 |
 | Camera_ErrorCode OH_PhotoOutput_IsPhotoQualityPrioritizationSupported(Camera_PhotoOutput* photoOutput, Camera_PhotoQualityPrioritization qualityPrioritization, bool* isSupported) | - | 检查是否支持指定的拍照画质优先策略。 |
 | Camera_ErrorCode OH_PhotoOutput_SetPhotoQualityPrioritization(Camera_PhotoOutput* photoOutput, Camera_PhotoQualityPrioritization qualityPrioritization) | - | 设置拍照画质优先策略。 |
+| bool OH_PhotoOutput_IsAutoExtendedGainmapDeliverySupported(const Camera_PhotoOutput* photoOutput) | - | 检查是否支持自动扩展增益图（Gainmap）的输出。 |
+| Camera_ErrorCode OH_PhotoOutput_EnableAutoExtendedGainmapDelivery(Camera_PhotoOutput* photoOutput, bool enabled) | - | 是否启用自动扩展增益图（Gainmap）的输出。 |
+| Camera_ErrorCode OH_PhotoOutput_CreatePhotoCaptureSettingExt(Camera_PhotoOutput* photoOutput, OH_Camera_PhotoCaptureSettingExt** setting) | - | 创建拍照扩展设置的实例。 |
+| Camera_ErrorCode OH_PhotoOutput_DestroyPhotoCaptureSettingExt(OH_Camera_PhotoCaptureSettingExt* setting) | - | 销毁扩展拍照设置实例。 |
+| Camera_ErrorCode OH_PhotoCaptureSettingExt_SetImageRotation(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, Camera_ImageRotation rotation) | - | 拍照扩展设置中的图像旋转角度。 |
+| Camera_ErrorCode OH_PhotoCaptureSettingExt_SetLocation(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, Camera_Location location) | - | 拍照扩展设置中的图片位置信息。 |
+| Camera_ErrorCode OH_PhotoCaptureSettingExt_SetMirror(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, bool mirror) | - | 拍照扩展设置中的镜像效果。 |
+| Camera_ErrorCode OH_PhotoCaptureSettingExt_SetCompressionQuality(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, uint8_t compressionQuality) | - | 拍照扩展设置中的图片压缩质量。 |
+| Camera_ErrorCode OH_PhotoOutput_Capture_WithCaptureSettingExt(Camera_PhotoOutput* photoOutput, OH_Camera_PhotoCaptureSettingExt* setting) | - | 使用扩展拍照设置执行拍照操作。 |
  
  
   
@@ -1259,3 +1269,280 @@ Camera_ErrorCode OH_PhotoOutput_SetPhotoQualityPrioritization(Camera_PhotoOutput
 | 类型 | 说明 |
 | --- | --- |
 | Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+ 
+ 
+  
+
+#### OH_PhotoOutput_IsAutoExtendedGainmapDeliverySupported()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+bool OH_PhotoOutput_IsAutoExtendedGainmapDeliverySupported(const Camera_PhotoOutput* photoOutput)
+```
+ 
+**描述**
+ 
+检查是否支持自动扩展增益图（Gainmap）的输出。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_PhotoOutput* photoOutput | 用于检查是否支持自动扩展增益图（Gainmap）的输出的拍照输出实例。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| bool | 是否支持自动扩展增益图（Gainmap）的输出的结果。true表示支持，false表示不支持。 |
+ 
+ 
+  
+
+#### OH_PhotoOutput_EnableAutoExtendedGainmapDelivery()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoOutput_EnableAutoExtendedGainmapDelivery(Camera_PhotoOutput* photoOutput, bool enabled)
+```
+ 
+**描述**
+ 
+是否启用自动扩展增益图（Gainmap）的输出。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_PhotoOutput* photoOutput | 用于启用或禁用自动扩展增益图（Gainmap）的输出的拍照输出实例。 |
+| bool enabled | 是否启用自动扩展增益图（Gainmap）的输出的结果。true表示启用，false表示不启用。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 CAMERA_SESSION_NOT_CONFIG：会话未配置。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+ 
+ 
+  
+
+#### OH_PhotoOutput_CreatePhotoCaptureSettingExt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoOutput_CreatePhotoCaptureSettingExt(Camera_PhotoOutput* photoOutput, OH_Camera_PhotoCaptureSettingExt** setting)
+```
+ 
+**描述**
+ 
+创建拍照扩展设置的实例。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_PhotoOutput* photoOutput | photoOutput 拍照输出实例。 |
+| OH_Camera_PhotoCaptureSettingExt** setting | 如果方法调用成功，setting指向创建OH_Camera_PhotoCaptureSettingExt实例指针的指针。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+ 
+ 
+  
+
+#### OH_PhotoOutput_DestroyPhotoCaptureSettingExt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoOutput_DestroyPhotoCaptureSettingExt(OH_Camera_PhotoCaptureSettingExt* setting)
+```
+ 
+**描述**
+ 
+销毁拍照扩展设置对象的实例。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Camera_PhotoCaptureSettingExt* setting | 指向扩展拍照设置实例的指针。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 |
+ 
+ 
+  
+
+#### OH_PhotoCaptureSettingExt_SetImageRotation()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoCaptureSettingExt_SetImageRotation(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, Camera_ImageRotation rotation)
+```
+ 
+**描述**
+ 
+拍照扩展设置中的图像旋转角度。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt | 指向扩展拍照设置实例的指针。 |
+| Camera_ImageRotation rotation | 图像旋转角度，定义在Camera_ImageRotation枚举中。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 |
+ 
+ 
+  
+
+#### OH_PhotoCaptureSettingExt_SetLocation()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoCaptureSettingExt_SetLocation(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, Camera_Location location)
+```
+ 
+**描述**
+ 
+拍照扩展设置中的图片位置信息。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt | 指向扩展拍照设置实例的指针。 |
+| Camera_Location location | 图片位置，在Camera_Location枚举中定义。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 |
+ 
+ 
+  
+
+#### OH_PhotoCaptureSettingExt_SetMirror()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoCaptureSettingExt_SetMirror(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, bool mirror)
+```
+ 
+**描述**
+ 
+拍照扩展设置中的镜像效果。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt | 指向扩展拍照设置实例的指针。 |
+| bool mirror | 镜像效果开关。true表示启用，false表示禁用。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 |
+ 
+ 
+  
+
+#### OH_PhotoCaptureSettingExt_SetCompressionQuality()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoCaptureSettingExt_SetCompressionQuality(OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt, uint8_t compressionQuality)
+```
+ 
+**描述**
+ 
+拍照扩展设置中的图片压缩质量。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Camera_PhotoCaptureSettingExt* photoCaptureSettingExt | 指向扩展拍照设置实例的指针。 |
+| uint8_t compressionQuality | 图片压缩质量，取值范围（1, 100），取值越大生成的图片质量越高，1 为最低质量，100 为最高质量。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 |
+ 
+ 
+  
+
+#### OH_PhotoOutput_Capture_WithCaptureSettingExt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_PhotoOutput_Capture_WithCaptureSettingExt(Camera_PhotoOutput* photoOutput, OH_Camera_PhotoCaptureSettingExt* setting)
+```
+ 
+**描述**
+ 
+使用扩展拍照设置执行拍照操作。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_PhotoOutput* photoOutput | 拍照输出实例。 |
+| OH_Camera_PhotoCaptureSettingExt* setting | 指向扩展拍照设置实例的指针。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SESSION_NOT_RUNNING：捕获会话未运行。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |

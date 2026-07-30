@@ -1,6 +1,6 @@
 # 卡片跳转到应用页面（router事件）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-router
 
@@ -104,7 +104,7 @@ export default class EntryAbility extends UIAbility {
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     // 获取router事件中传递的targetPage参数
-    hilog.info(DOMAIN_NUMBER, TAG, `Ability onCreate, Want params: ${(want?.parameters?.params as string)}`);
+    hilog.info(DOMAIN_NUMBER, TAG, `Ability onCreate, ${JSON.stringify(want)}`);
     if (want?.parameters?.params) {
       // want.parameters.params 对应 postCardAction() 中 params 内容
       let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
@@ -115,7 +115,7 @@ export default class EntryAbility extends UIAbility {
 
   // 如果UIAbility已在后台运行，在收到Router事件后会触发onNewWant生命周期回调
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    hilog.info(DOMAIN_NUMBER, TAG, `Ability onNewWant, Want params: ${(want?.parameters?.params as string)}`);
+    hilog.info(DOMAIN_NUMBER, TAG, `onNewWant Want: ${JSON.stringify(want)}`);
     if (want?.parameters?.params) {
       // want.parameters.params 对应 postCardAction() 中 params 内容
       let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
@@ -144,12 +144,12 @@ export default class EntryAbility extends UIAbility {
     if (this.currentWindowStage === null) {
       this.currentWindowStage = windowStage;
     }
-    windowStage.loadContent(targetPage, (err) => {
+    windowStage.loadContent(targetPage, (err, data) => {
       if (err.code) {
-        hilog.error(DOMAIN_NUMBER, TAG, `Failed to load the content. error code: ${err.code}, error message: ${err.message}`);
+        hilog.error(DOMAIN_NUMBER, TAG, 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
       }
-      hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in loading the content.');
+      hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
     });
   }
 }
@@ -304,4 +304,4 @@ struct FunB {
 #### 运行效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/SDHFwLPJT7qPM5JshT9Aqw/zh-cn_image_0000002677666197.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012143Z&HW-CC-Expire=86400&HW-CC-Sign=EF9C2201E621E317ABCBEF9FA228E735D21812F423BAA50C771C6AA6A07AB84A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/KTbwAzZNSxOl4O-oW7lBow/zh-cn_image_0000002656006822.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071905Z&HW-CC-Expire=86400&HW-CC-Sign=EAF567633E4878B42A991E9215CB263999892A2A8E97D7DA70EA4801B7C727E2)

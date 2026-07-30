@@ -1,6 +1,6 @@
 # 订阅崩溃事件（ArkTS）
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events-arkts
 
@@ -72,14 +72,14 @@ if (deviceInfo.sdkApiVersion >= 20) {  // API Version 20及以后版本，支持
 }
 
 if (deviceInfo.sdkApiVersion >= 24) {  // API Version 24及以后版本，支持设置页面切换日志
-  // 配置页面切换日志
-  let switchLogPolicy : hiAppEvent.EventPolicy = {
-    "appCrashPolicy": {
-      "pageSwitchLogEnable": true
+  let crashEventPolicy : hiAppEvent.EventPolicy = {
+    "appCrashPolicy": { // 崩溃事件配置策略
+      "pageSwitchLogEnable": true, // 使能页面切换日志
+      "collectMinidump": true // native崩溃场景，使能minidump
     }
   };
-  // 开发者可以设置崩溃日志配置参数
-  hiAppEvent.configEventPolicy(switchLogPolicy).then(() => {
+  // 开发者可以设置崩溃事件配置策略
+  hiAppEvent.configEventPolicy(crashEventPolicy).then(() => {
     hilog.info(0x0000, 'testTag', `HiAppEvent success to config event policy.`);
   }).catch((err: BusinessError) => {
     hilog.error(0x0000, 'testTag', `HiAppEvent code: ${err.code}, message: ${err.message}`);

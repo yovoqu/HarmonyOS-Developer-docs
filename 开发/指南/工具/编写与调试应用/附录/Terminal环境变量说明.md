@@ -1,6 +1,6 @@
 # Terminal环境变量说明
 
-更新时间：2026-03-31 08:13:00
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-variable
 
@@ -8,7 +8,7 @@
  
 DevEco Studio内置环境变量的设置方式如下：
  
-点击菜单栏**File > Settings**（macOS为**DevEco Studio > Preferences/Settings **）** > Tools > Terminal**，勾选以下选项表示开启内置环境变量。
+点击菜单栏**File > Settings**（macOS为**DevEco Studio > Preferences/Settings **）** > Tools > Terminal**，勾选以下选项表示开启内置环境变量，重启DevEco Studio后生效。
  
 
 ![](assets/Terminal环境变量说明/file-20260514133052758-0.png)

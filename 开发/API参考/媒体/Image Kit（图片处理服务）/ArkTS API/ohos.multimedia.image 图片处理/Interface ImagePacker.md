@@ -1,6 +1,6 @@
 # Interface (ImagePacker)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -13,7 +13,7 @@ ImagePacker类，用于图片压缩和编码。
 
 由于图片占用内存较大，所以当ImagePacker实例使用完成后，应主动调用[release](#release)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
 
-当前支持的格式有：jpeg、webp、png、heic12+、gif18+（不同硬件设备支持情况不同，可通过ImagePacker的supportedFormats属性查看）。
+当前支持的格式有：JPEG、WebP、PNG、HEIC12+、GIF18+、从API版本26.0.0开始支持TIFF格式（不同硬件设备支持情况不同，可通过ImagePacker的supportedFormats属性查看）。
 
 > [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -38,7 +38,7 @@ import { image } from '@kit.ImageKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportedFormats | Array&lt;string&gt; | 是 | 否 | 图片编码支持的格式，包括：jpeg、webp、png、heic12+、gif18+（不同硬件设备支持情况不同）。 |
+| supportedFormats | Array&lt;string&gt; | 是 | 否 | 图片编码支持的格式，包括：JPEG、WebP、PNG、HEIC12+、GIF18+、从API版本26.0.0开始支持TIFF格式（不同硬件设备支持情况不同）。 |
 
 
 
@@ -80,7 +80,7 @@ packToData(source: ImageSource, options: PackingOption): Promise&lt;ArrayBuffer&
 | 62980096 | The operation failed. Possible cause: 1.Image upload exception. 2. Decoding process exception. 3. Insufficient memory. |
 | 62980101 | The image data is abnormal. |
 | 62980106 | The image data is too large. This status code is thrown when an error occurs during the process of checking size. |
-| 62980113 | Unknown image format.The image data provided is not in a recognized or supported format, or it may be corrupted. |
+| 62980113 | Unknown image format. The image data provided is not in a recognized or supported format, or it may be corrupted. |
 | 62980119 | Failed to encode the image. |
 | 62980120 | Add pixelmap out of range. |
 | 62980172 | Failed to encode icc. |
@@ -154,7 +154,7 @@ packToData(source: PixelMap, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 | 62980096 | The operation failed. Possible cause: 1.Image upload exception. 2. Decoding process exception. 3. Insufficient memory. |
 | 62980101 | The image data is abnormal. |
 | 62980106 | The image data is too large. This status code is thrown when an error occurs during the process of checking size. |
-| 62980113 | Unknown image format.The image data provided is not in a recognized or supported format, or it may be corrupted. |
+| 62980113 | Unknown image format. The image data provided is not in a recognized or supported format, or it may be corrupted. |
 | 62980119 | Failed to encode the image. |
 | 62980120 | Add pixelmap out of range. |
 | 62980172 | Failed to encode icc. |
@@ -426,7 +426,7 @@ packToFile(source: ImageSource, fd: number, options: PackingOption, callback: As
 | 62980096 | The operation failed. Possible cause: 1.Image upload exception. 2. Decoding process exception. 3. Insufficient memory. |
 | 62980101 | The image data is abnormal. |
 | 62980106 | The image data is too large. This status code is thrown when an error occurs during the process of checking size. |
-| 62980113 | Unknown image format.The image data provided is not in a recognized or supported format, or it may be corrupted. |
+| 62980113 | Unknown image format. The image data provided is not in a recognized or supported format, or it may be corrupted. |
 | 62980115 | Invalid input parameter. |
 | 62980119 | Failed to encode the image. |
 | 62980120 | Add pixelmap out of range. |
@@ -495,7 +495,7 @@ packToFile (source: ImageSource, fd: number, options: PackingOption): Promise&lt
 | 62980096 | The operation failed. Possible cause: 1.Image upload exception. 2. Decoding process exception. 3. Insufficient memory. |
 | 62980101 | The image data is abnormal. |
 | 62980106 | The image data is too large. This status code is thrown when an error occurs during the process of checking size. |
-| 62980113 | Unknown image format.The image data provided is not in a recognized or supported format, or it may be corrupted. |
+| 62980113 | Unknown image format. The image data provided is not in a recognized or supported format, or it may be corrupted. |
 | 62980115 | Invalid input parameter. |
 | 62980119 | Failed to encode the image. |
 | 62980120 | Add pixelmap out of range. |
@@ -564,7 +564,7 @@ packToFile (source: PixelMap, fd: number, options: PackingOption, callback: Asyn
 | 62980096 | The operation failed. Possible cause: 1.Image upload exception. 2. Decoding process exception. 3. Insufficient memory. |
 | 62980101 | The image data is abnormal. |
 | 62980106 | The image data is too large. This status code is thrown when an error occurs during the process of checking size. |
-| 62980113 | Unknown image format.The image data provided is not in a recognized or supported format, or it may be corrupted. |
+| 62980113 | Unknown image format. The image data provided is not in a recognized or supported format, or it may be corrupted. |
 | 62980115 | Invalid input parameter. |
 | 62980119 | Failed to encode the image. |
 | 62980120 | Add pixelmap out of range. |
@@ -642,7 +642,7 @@ packToFile (source: PixelMap, fd: number, options: PackingOption): Promise&lt;vo
 | 62980096 | The operation failed. Possible cause: 1.Image upload exception. 2. Decoding process exception. 3. Insufficient memory. |
 | 62980101 | The image data is abnormal. |
 | 62980106 | The image data is too large. This status code is thrown when an error occurs during the process of checking size. |
-| 62980113 | Unknown image format.The image data provided is not in a recognized or supported format, or it may be corrupted. |
+| 62980113 | Unknown image format. The image data provided is not in a recognized or supported format, or it may be corrupted. |
 | 62980115 | Invalid input parameter. |
 | 62980119 | Failed to encode the image. |
 | 62980120 | Add pixelmap out of range. |
@@ -818,6 +818,168 @@ async function PackToFile(context : Context) {
 
 
 
+#### packBinaryImageToTiffFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+packBinaryImageToTiffFile(bufferInfo: BinaryBufferInfo, fd: number, options?: PackingOptionsForTiff): Promise&lt;void&gt;
+
+将二值图像数据编码到入参fd对应的TIFF文件。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.ImagePacker
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| bufferInfo | BinaryBufferInfo | 是 | 图像缓冲区信息。 |
+| fd | number | 是 | 文件描述符ID。该值必须为正整数。 |
+| options | PackingOptionsForTiff | 否 | TIFF图像编码选项。 未传入options时，默认的compression为4（CCITT G4）。 未传入options时，默认的orientation为1（TOP_LEFT），表示图像未旋转。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7800202 | Invalid parameter. Possible causes: 1. Invalid FD; 2. Compression algorithm mismatch. |
+| 7800301 | Encode failed. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+import { fileIo } from '@kit.CoreFileKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { image } from '@kit.ImageKit';
+
+const DOMAIN = 0X00000;
+const TAG: string = 'PackBinaryImageToTiffFile';
+
+async function PackBinaryImageToTiffFile(context: Context) {
+  const width = 100;
+  const height = 100;
+  const rowBytes = 13;
+  const bufferSize = rowBytes * height;
+  const data: ArrayBuffer = new ArrayBuffer(bufferSize);
+
+  let bufferInfo: image.BinaryBufferInfo = {
+    size: { width: width, height: height },
+    data: data,
+    bytesPerRow: rowBytes
+  };
+
+  const filePath: string = context.filesDir + "/output.tiff";
+  let file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
+
+  let tiffOptions: image.PackingOptionsForTiff = {
+    compression: 4 // CCITT G4压缩
+  };
+
+  const imagePackerObj: image.ImagePacker = image.createImagePacker();
+  await imagePackerObj.packBinaryImageToTiffFile(bufferInfo, file.fd, tiffOptions)
+    .then(() => {
+      hilog.info(DOMAIN, TAG, 'Succeeded in packing binary image to tiff file.');
+    }).catch((error: BusinessError) => {
+      hilog.error(DOMAIN, TAG, `Failed to pack binary image to tiff file. code ${error.code}, message is ${error.message}`);
+    });
+  fileIo.closeSync(file);
+}
+```
+
+
+
+#### packBinaryImageToTiffData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+packBinaryImageToTiffData(bufferInfo: BinaryBufferInfo, options?: PackingOptionsForTiff): Promise&lt;ArrayBuffer&gt;
+
+将二值图像数据编码为TIFF数据，以ArrayBuffer的形式返回。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.ImagePacker
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| bufferInfo | BinaryBufferInfo | 是 | 图像缓冲区信息。 |
+| options | PackingOptionsForTiff | 否 | TIFF图像编码选项。 未传入options时，默认的compression为4（CCITT G4）。 未传入options时，默认的orientation为1（TOP_LEFT），表示图像未旋转。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;ArrayBuffer&gt; | Promise对象，返回编码后的数据。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7800202 | Invalid parameter. Possible causes: 1. Invalid FD; 2. Compression algorithm mismatch. |
+| 7800301 | Encode failed. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { image } from '@kit.ImageKit';
+
+const DOMAIN = 0X00000;
+const TAG: string = 'PackBinaryImageToTiffData';
+
+async function PackBinaryImageToTiffData() {
+  const width = 100;
+  const height = 100;
+  const rowBytes = 13;
+  const bufferSize = rowBytes * height;
+  const data: ArrayBuffer = new ArrayBuffer(bufferSize);
+
+  let bufferInfo: image.BinaryBufferInfo = {
+    size: { width: width, height: height },
+    data: data,
+    bytesPerRow: rowBytes
+  };
+
+  let tiffOptions: image.PackingOptionsForTiff = {
+    compression: 4 // CCITT G4压缩
+  };
+
+  const imagePackerObj: image.ImagePacker = image.createImagePacker();
+  await imagePackerObj.packBinaryImageToTiffData(bufferInfo, tiffOptions)
+    .then((data: ArrayBuffer) => {
+      hilog.info(DOMAIN, TAG, 'Succeeded in packing binary image to tiff data.');
+    }).catch((error: BusinessError) => {
+      hilog.error(DOMAIN, TAG, `Failed to pack binary image to tiff data. code ${error.code}, message is ${error.message}`);
+    });
+}
+```
+
+
+
 #### packing(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -932,7 +1094,7 @@ packing(source: PixelMap, option: PackingOption, callback: AsyncCallback&lt;Arra
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/tbYHR6_0QbyBoo1K7lfXRw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020239Z&HW-CC-Expire=86400&HW-CC-Sign=4FE05B4EB487098A0D36855B88CCBDE1C868A5D26BBE64BF2761F2EF1A948DCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/JtunbG3jTNGTsNH51r8hgA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071703Z&HW-CC-Expire=86400&HW-CC-Sign=0755447467EB577BBF9AA6CC1AE208761BE00715C8204942734F8372AF2771F9)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
@@ -991,7 +1153,7 @@ packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/NXb3WRobT26ZWg4UN8TluA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020239Z&HW-CC-Expire=86400&HW-CC-Sign=D81C525EDD281444CFFFAC79534318E520B5A87A279BA6A94459FF1A3887B085)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/_QxjvX33Ts2mI6ero8noRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071703Z&HW-CC-Expire=86400&HW-CC-Sign=0E0FBBA675FDC04462816A32DC9018D47692C8C0C657531DC31E762CB7ADCD0C)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。

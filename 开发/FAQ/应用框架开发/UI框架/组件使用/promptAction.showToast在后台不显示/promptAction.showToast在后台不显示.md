@@ -13,7 +13,7 @@ APP进入后台时，希望能弹出Toast提示用户进入后台，但是Toast�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/nhgU333oQryD5zhxSOzeNg/zh-cn_image_0000002658845071.png?HW-CC-KV=V1&HW-CC-Date=20260723T012755Z&HW-CC-Expire=86400&HW-CC-Sign=3754EA84DECC72E2AA53D37408227932BE6A159B3CA8ED0D61E8E5AA7C5301FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/nhgU333oQryD5zhxSOzeNg/zh-cn_image_0000002658845071.png?HW-CC-KV=V1&HW-CC-Date=20260730T072404Z&HW-CC-Expire=86400&HW-CC-Sign=A37A2F1BFB778E6DD55FEF986D4A2BECA84446F468BD3043D5648286C4C4459E)
 
  
  

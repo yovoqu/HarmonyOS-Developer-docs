@@ -1,6 +1,6 @@
 # ArkTS简介
 
-更新时间：2026-03-12 02:57:50
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-overview
 
@@ -8,7 +8,7 @@ ArkTS是HarmonyOS应用开发的官方高级语言。
 
 ArkTS在[TypeScript](https://www.typescriptlang.org/)（简称TS）生态基础上做了进一步扩展，保持了TS的基本风格，同时通过规范定义强化开发期静态检查和分析，提升代码健壮性，并实现更好的程序执行稳定性和性能。对比标准TS的差异可以参考[从TypeScript到ArkTS的适配规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typescript-to-arkts-migration-guide)。ArkTS同时也支持与TS/JavaScript（简称JS）高效互操作。
 
-ArkTS基础类库和容器类库增强了语言的基础功能，提供包括[高精度浮点运算](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkts-decimal)、[二进制Buffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/buffer)、[XML生成解析转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xml-overview)和多种容器库等能力，协助开发者简化开发工作，提升开发效率。
+ArkTS基础类库和容器类库增强了语言的基础功能，提供包括[高精度数学库Decimal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkts-decimal)、[Buffer与FastBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/buffer)、[XML概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xml-overview)和多种容器库等能力，协助开发者简化开发工作，提升开发效率。
 
 针对TS/JS并发能力支持有限的问题，ArkTS对并发编程API和能力进行了增强，提供了[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)和[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)两种并发API供开发者选择。另外，ArkTS进一步提出了Sendable的概念来支持对象在并发实例间的引用传递，提升ArkTS对象在并发实例间的通信性能。
 

@@ -1,6 +1,6 @@
 # navigationInfoMgr（导航信息管理）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-navigationinfomgr
 **支持设备：** Phone | Tablet
@@ -41,7 +41,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
 | routeIndex | number | 否 | 否 | 路线编号，大于等于0的整数。 |
 | routePreference | RoutePreference[] | 否 | 否 | 路线偏好。 |
 | theme | ThemeType | 否 | 否 | 地图主题色。 |
-| customData | String | 否 | 否 | 自定义数据。 |
+| customData | String | 否 | 否 | 自定义数据。长度：[0, 2048]字节。 |
  
  
   
@@ -243,7 +243,7 @@ onQueryNavigationInfo(query: QueryType, args: Record<string, Object>): Promise&l
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回查询结果，在其它设备中无效果。在6.1.0(23)及之后版本，该回调在Phone、Tablet设备中均可触发并返回查询结果，在其它设备中无效果。对于26.0.0及之后的版本，该回调在Phone、Tablet、Car设备中均可触发并返回查询结果，在其它设备中无效果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回查询结果，在其它设备中无效果。在6.1.0(23)及之后版本，该回调在Phone、Tablet设备中均可触发并返回查询结果，在其它设备中无效果。
  
 **起始版本：** 4.1.0(11)
  
@@ -282,7 +282,7 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回执行指令的结果，在其它设备中无效果。在6.1.0(23)及之后版本，该回调在Phone、Tablet设备中均可触发并返回执行指令的结果，在其它设备中无效果。对于26.0.0及之后的版本，该回调在Phone、Tablet、Car设备中均可触发并返回执行指令的结果，在其它设备中无效果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回执行指令的结果，在其它设备中无效果。在6.1.0(23)及之后版本，该回调在Phone、Tablet设备中均可触发并返回执行指令的结果，在其它设备中无效果。
  
 **起始版本：** 4.1.0(11)
  
@@ -291,7 +291,7 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | command | CommandType | 是 | 系统服务需要应用执行的命令。 |
-| args | Record<string, Object> | 是 | 命令的参数。其取值与具体的command有关，具体如下： 当command为START_NAVIGATION时， 其取值为"destLocation"：导航目的地，其参数类型为Location。 当command为START_MAP_LAYER或STOP_MAP_LAYER时， 其取值为"mapLayerDisplayId"：将地图图层启动到屏幕的displayId。 当command为CHANGE_THEME时， 其取值为"newTheme"：通知应用改变新主题，如浅色深色切换。 当command为SEARCH_POI时， 其取值为"address": 通知应用搜索对应的地址。 |
+| args | Record<string, Object> | 是 | 命令的参数。其取值与具体的command有关，具体如下： 当command为START_NAVIGATION时， 其取值为"destLocation"：导航目的地，其参数类型为Location。 当command为START_MAP_LAYER或STOP_MAP_LAYER时， 其取值为"mapLayerDisplayId"：将地图图层启动到屏幕的displayId，其参数类型为number。 当command为CHANGE_THEME时， 其取值为"newTheme"：通知应用改变新主题，如浅色深色切换，其参数类型为ThemeType。 当command为SEARCH_POI时， 其取值为"address": 通知应用搜索对应的地址，其参数类型为string。 |
  
  
 **返回值：**
@@ -321,8 +321,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| NAVIGATION_STATUS | navigationStatus | 查看导航状态，callback返回数据为NavigationStatus。 |
-| NAVIGATION_METADATA | navigationMetadata | 查看导航TBT信息，callback返回数据为NavigationMetadata。 |
+| NAVIGATION_STATUS | 'navigationStatus' | 查看导航状态，callback返回数据为NavigationStatus。 |
+| NAVIGATION_METADATA | 'navigationMetadata' | 查看导航TBT信息，callback返回数据为NavigationMetadata。 |
  
  
   
@@ -341,18 +341,18 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| START_NAVIGATION | startNavigation | 发起导航接口。 |
-| STOP_NAVIGATION | stopNavigation | 停止导航接口。 |
-| GO_HOME | goHome | 导航回家。 |
-| GO_TO_COMPANY | goToCompany | 导航去公司。 |
-| START_MAP_LAYER | startMapLayer | 启动地图图层到其他屏幕。 |
-| STOP_MAP_LAYER | stopMapLayer | 销毁其他屏幕上的地图图层。 |
-| ZOOM_IN_MAP | zoomInMap | 放大地图。 |
-| ZOOM_OUT_MAP | zoomOutMap | 缩小地图。 |
-| CHANGE_THEME | changeTheme | 更改主题。 |
-| START_UPDATE_NAVIGATION_STATUS | startUpdateNavigationStatus | 开始更新导航状态。 起始版本： 5.0.0(12) |
-| STOP_UPDATE_NAVIGATION_STATUS | stopUpdateNavigationStatus | 停止更新导航状态。 起始版本： 5.0.0(12) |
-| SEARCH_POI | searchPOI | POI搜索。 起始版本： 5.1.0(18) |
+| START_NAVIGATION | 'startNavigation' | 发起导航接口。 |
+| STOP_NAVIGATION | 'stopNavigation' | 停止导航接口。 |
+| GO_HOME | 'goHome' | 导航回家。 |
+| GO_TO_COMPANY | 'goToCompany' | 导航去公司。 |
+| START_MAP_LAYER | 'startMapLayer' | 启动地图图层到其他屏幕。 |
+| STOP_MAP_LAYER | 'stopMapLayer' | 销毁其他屏幕上的地图图层。 |
+| ZOOM_IN_MAP | 'zoomInMap' | 放大地图。 |
+| ZOOM_OUT_MAP | 'zoomOutMap' | 缩小地图。 |
+| CHANGE_THEME | 'changeTheme' | 更改主题。 |
+| START_UPDATE_NAVIGATION_STATUS | 'startUpdateNavigationStatus' | 开始更新导航状态。 起始版本： 5.0.0(12) |
+| STOP_UPDATE_NAVIGATION_STATUS | 'stopUpdateNavigationStatus' | 停止更新导航状态。 起始版本： 5.0.0(12) |
+| SEARCH_POI | 'searchPOI' | POI搜索。 起始版本： 5.1.0(18) |
  
  
   
@@ -373,7 +373,7 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 | --- | --- | --- | --- | --- |
 | code | number | 否 | 否 | 错误码，0表示执行成功，非0表示执行失败（非0以三方地图应用传递的值为准）。 |
 | message | string | 否 | 否 | 错误信息，需结合code确定具体的错误信息： 当code为0时表示执行成功的信息，如execute success。 当code为非0时表示执行失败的信息，如 execute fail。 具体以地图应用传递的值为准。 |
-| data | { [key: string]: object } | 否 | 否 | 附加信息，应用可以根据实际需要以键值对的形式返回给系统。 |
+| data | { [key: string]: object; } | 否 | 否 | 附加信息，应用可以根据实际需要以键值对的形式返回给系统。 |
  
  
   

@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行ArrayBuffer相关开发
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-arraybuffer
 
@@ -44,11 +44,12 @@ JSVM-API 接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include <hilog/log.h>
-// OH_JSVM_GetArraybufferInfo的示例方法
+#include "hilog/log.h"
+// ...
+
+// OH_JSVM_GetArraybufferInfo的样例方法
 static JSVM_Value GetArraybufferInfo(JSVM_Env env, JSVM_CallbackInfo info)
 {
     size_t argc = 1;
@@ -60,7 +61,6 @@ static JSVM_Value GetArraybufferInfo(JSVM_Env env, JSVM_CallbackInfo info)
     OH_JSVM_IsArraybuffer(env, args[0], &isArrayBuffer);
     if (!isArrayBuffer) {
         OH_LOG_ERROR(LOG_APP, "JSVM GetArraybufferInfo isArrayBuffer:false");
-        return nullptr;
     }
     void *data;
     size_t byteLength = 0;
@@ -82,8 +82,8 @@ static JSVM_CallbackStruct *method = param;
 static JSVM_PropertyDescriptor descriptor[] = {
     {"getArraybufferInfo", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
-// 示例测试js
-const char *srcCallNative = R"JS(
+// 样例测试js
+const char *SRC_CALL_NATIVE = R"JS(
 getArraybufferInfo(new ArrayBuffer(10));
 )JS";
 ```
@@ -103,11 +103,12 @@ JSVM GetArraybufferInfo: success
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include <hilog/log.h>
-// OH_JSVM_IsArraybuffer的示例方法
+#include "hilog/log.h"
+// ...
+
+// OH_JSVM_IsArraybuffer的样例方法
 static JSVM_Value IsArrayBuffer(JSVM_Env env, JSVM_CallbackInfo info)
 {
     size_t argc = 1;
@@ -135,8 +136,8 @@ static JSVM_CallbackStruct *method = param;
 static JSVM_PropertyDescriptor descriptor[] = {
     {"isArrayBuffer", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
-// 示例测试js
-const char *srcCallNative = R"JS(
+// 样例测试js
+const char *SRC_CALL_NATIVE = R"JS(
 isArrayBuffer(new ArrayBuffer(8));
 )JS";
 ```
@@ -163,11 +164,12 @@ JSVM IsArrayBuffer: 1
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include <hilog/log.h>
-// OH_JSVM_DetachArraybuffer、OH_JSVM_IsDetachedArraybuffer的示例方法
+#include "hilog/log.h"
+// ...
+
+// OH_JSVM_DetachArraybuffer、OH_JSVM_IsDetachedArraybuffer的样例方法
 static JSVM_Value DetachArraybuffer(JSVM_Env env, JSVM_CallbackInfo info)
 {
     size_t argc = 1;
@@ -209,11 +211,11 @@ static JSVM_CallbackStruct param[] = {
 static JSVM_CallbackStruct *method = param;
 // DetachArraybuffer、IsDetachedArraybuffer方法别名，TS侧调用
 static JSVM_PropertyDescriptor descriptor[] = {
-    {"detachArraybuffer", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
-    {"isDetachedArraybuffer", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
+    {"detachArraybuffer", nullptr, method, nullptr, nullptr, nullptr, JSVM_DEFAULT},
+    {"isDetachedArraybuffer", nullptr, method+1, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
-// 示例测试js
-const char *srcCallNative = R"JS(
+// 样例测试js
+const char *SRC_CALL_NATIVE = R"JS(
 let arrayBuffer = new ArrayBuffer(10);
 detachArraybuffer(arrayBuffer);
 isDetachedArraybuffer(arrayBuffer);
@@ -237,11 +239,12 @@ JSVM IsArrayBuffer: 1
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include <hilog/log.h>
-// OH_JSVM_CreateArraybuffer的示例方法
+#include "hilog/log.h"
+// ...
+
+// OH_JSVM_CreateArraybuffer的样例方法
 static JSVM_Value CreateArraybuffer(JSVM_Env env, JSVM_CallbackInfo info)
 {
     size_t argc = 1;
@@ -275,8 +278,8 @@ static JSVM_CallbackStruct *method = param;
 static JSVM_PropertyDescriptor descriptor[] = {
     {"createArraybuffer", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
-// 示例测试js
-const char *srcCallNative = R"JS(
+// 样例测试js
+const char *SRC_CALL_NATIVE = R"JS(
 createArraybuffer(8);
 )JS";
 ```

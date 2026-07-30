@@ -1,6 +1,6 @@
 # native_audio_manager.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -47,7 +47,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | typedef void (*OH_AudioManager_OnAudioSceneChangeCallback)(void *userData, OH_AudioScene scene) | OH_AudioManager_OnAudioSceneChangeCallback | 音频场景变化回调函数的原型定义，用于传递给OH_AudioManager_RegisterAudioSceneChangeCallback。 |
-| OH_AudioCommon_Result OH_GetAudioManager(OH_AudioManager **audioManager) | - | 获取音频管理器。 使用音频管理器相关功能，首先需要获取音频管理器实例。 |
+| OH_AudioCommon_Result OH_GetAudioManager(OH_AudioManager **audioManager) | - | 获取音频管理器实例。 使用音频管理器相关功能，首先需要获取音频管理器实例。 |
 | OH_AudioCommon_Result OH_GetAudioScene(OH_AudioManager* manager, OH_AudioScene *scene) | - | 获取音频场景模式。 |
 | OH_AudioCommon_Result OH_AudioManager_RegisterAudioSceneChangeCallback(OH_AudioManager *manager, OH_AudioManager_OnAudioSceneChangeCallback callback, void *userData) | - | 注册音频场景切换回调函数。 |
 | OH_AudioCommon_Result OH_AudioManager_UnregisterAudioSceneChangeCallback(OH_AudioManager *manager, OH_AudioManager_OnAudioSceneChangeCallback callback) | - | 取消注册音频场景切换回调函数。 |
@@ -95,9 +95,9 @@ OH_AudioCommon_Result OH_GetAudioManager(OH_AudioManager **audioManager)
  
 **描述**
  
-获取音频管理器。
+获取音频管理器实例。
  
- 使用音频管理器相关功能，首先需要获取音频管理器实例。
+使用音频管理器相关功能，首先需要获取音频管理器实例。
  
 **起始版本：** 12
  
@@ -105,7 +105,7 @@ OH_AudioCommon_Result OH_GetAudioManager(OH_AudioManager **audioManager)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioManager **audioManager | 指向OH_AudioManager用于接收创建的音频管理器实例。 |
+| OH_AudioManager **audioManager | 指向OH_AudioManager指针的地址，用于接收获取的音频管理器实例。 |
  
  
 **返回：**
@@ -135,7 +135,7 @@ OH_AudioCommon_Result OH_GetAudioScene(OH_AudioManager* manager, OH_AudioScene *
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioManager* manager | 指向OH_GetAudioManager创建的音频管理器实例：OH_AudioManager。 |
+| OH_AudioManager* manager | 指向通过OH_GetAudioManager获取的音频管理器实例。 |
 | OH_AudioScene *scene | 指向OH_AudioScene用于接收返回的音频场景模式。 |
  
  
@@ -143,7 +143,7 @@ OH_AudioCommon_Result OH_GetAudioScene(OH_AudioManager* manager, OH_AudioScene *
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioCommon_Result | AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM： 1.参数audioManager为nullptr; 2.参数scene为nullptr。 |
+| OH_AudioCommon_Result | AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM： 1. 参数audioManager为nullptr； 2. 参数scene为nullptr。 |
  
  
   
@@ -166,8 +166,8 @@ OH_AudioCommon_Result OH_AudioManager_RegisterAudioSceneChangeCallback(OH_AudioM
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioManager *manager | 指向OH_AudioManager用于接收创建的音频管理器实例。 |
-| OH_AudioManager_OnAudioSceneChangeCallback callback | 当音频场景切换时，将调用此回调函数OH_AudioManager_OnAudioSceneChangeCallback。 |
+| OH_AudioManager *manager | 指向通过OH_GetAudioManager获取的音频管理器实例。 |
+| OH_AudioManager_OnAudioSceneChangeCallback callback | 当音频场景切换时，将调用此回调函数。 |
 | void *userData | 用户自定义数据指针。 |
  
  
@@ -175,7 +175,7 @@ OH_AudioCommon_Result OH_AudioManager_RegisterAudioSceneChangeCallback(OH_AudioM
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioCommon_Result | AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM： 1.参数manager为nullptr； 2.参数callback为nullptr。 AUDIOCOMMON_RESULT_ERROR_SYSTEM：系统错误。 |
+| OH_AudioCommon_Result | AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM： 1. 参数manager为nullptr； 2. 参数callback为nullptr。 AUDIOCOMMON_RESULT_ERROR_SYSTEM：系统错误。 |
  
  
   
@@ -198,12 +198,12 @@ OH_AudioCommon_Result OH_AudioManager_UnregisterAudioSceneChangeCallback(OH_Audi
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AudioManager *manager | 指向OH_AudioManager用于接收创建的音频管理器实例。 |
-| OH_AudioManager_OnAudioSceneChangeCallback callback | 指向OH_AudioManager_OnAudioSceneChangeCallback传入的回调函数，用于取消注册。 |
+| OH_AudioManager *manager | 指向通过OH_GetAudioManager获取的音频管理器实例。 |
+| OH_AudioManager_OnAudioSceneChangeCallback callback | 指向OH_AudioManager_RegisterAudioSceneChangeCallback传入的回调函数，用于取消注册。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioCommon_Result | AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM： 1.参数manager为nullptr； 2.参数callback为nullptr。 AUDIOCOMMON_RESULT_ERROR_SYSTEM：系统错误。 |
+| OH_AudioCommon_Result | AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM： 1. 参数manager为nullptr； 2. 参数callback为nullptr。 AUDIOCOMMON_RESULT_ERROR_SYSTEM：系统错误。 |

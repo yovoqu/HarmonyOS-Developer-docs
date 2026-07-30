@@ -1,6 +1,6 @@
 # 媒体会话提供方(ArkTS)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avsession-developer
 
@@ -103,6 +103,7 @@ struct Index {
 ```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 import { wantAgent } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
@@ -131,6 +132,8 @@ struct Index {
           }
           wantAgent.getWantAgent(wantAgentInfo).then((agent) => {
             session.setLaunchAbility(agent);
+          }).catch((err: BusinessError) => {
+            console.error(`Failed to getWantAgent. Code: ${err.code}, message: ${err.message}`);
           })
           // ...
         })
@@ -308,8 +311,8 @@ struct Index {
             // 如暂不支持该指令，请勿注册；或在注册后但暂不使用时，通过session.off('rewind')取消监听。
             // 处理完毕后，请使用SetAVPlaybackState上报播放状态和播放position。
           });
-          session.on('seek', (time) => {
-            console.info(`on seek , the seek time is ${time}`);
+          session.on('seek', (time: number) => {
+            console.info(`on seek , the time is ${time}`);
             // ...
             // 如暂不支持该指令，请勿注册；或在注册后但暂不使用时，通过session.off('seek')取消监听。
             // 处理完毕后，请使用SetAVPlaybackState上报播放状态和播放position。

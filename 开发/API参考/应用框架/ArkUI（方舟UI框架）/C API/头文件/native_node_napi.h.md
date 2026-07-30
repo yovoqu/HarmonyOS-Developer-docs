@@ -1,6 +1,6 @@
 # native_node_napi.h
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-napi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供ArkTS侧的[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)转换[NodeHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-node8h)的方式。
+提供ArkTS侧[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)、[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)、NodeContent、DrawableDescriptor等对象与Native侧对象的转换，以及Navigation、Router页面信息查询、帧回调/空闲回调注册和事件直通启用或禁用等能力，适用于ArkTS与Native侧进行ArkUI节点、上下文、资源和页面状态联动的场景。
 
 **引用文件：** <arkui/native_node_napi.h>
 
@@ -37,28 +37,28 @@
 
 | 名称 | 描述 |
 | --- | --- |
-| int32_t OH_ArkUI_GetNodeHandleFromNapiValue(napi_env env, napi_value frameNode, ArkUI_NodeHandle* handle) | 获取ArkTS侧创建的FrameNode节点对象映射到Native侧的ArkUI_NodeHandle。 |
-| int32_t OH_ArkUI_GetContextFromNapiValue(napi_env env, napi_value value, ArkUI_ContextHandle* context) | 获取ArkTS侧创建的UIContext对象映射到Native侧的ArkUI_ContextHandle。 |
-| int32_t OH_ArkUI_GetNodeContentFromNapiValue(napi_env env, napi_value value, ArkUI_NodeContentHandle* content) | 获取ArkTS侧创建的NodeContent对象映射到Native侧的ArkUI_NodeContentHandle。 |
-| int32_t OH_ArkUI_GetDrawableDescriptorFromNapiValue(napi_env env, napi_value value, ArkUI_DrawableDescriptor** drawableDescriptor) | 将ArkTS侧创建的DrawableDescriptor对象映射到Native侧的ArkUI_DrawableDescriptor。 |
-| int32_t OH_ArkUI_GetDrawableDescriptorFromResourceNapiValue(napi_env env, napi_value value, ArkUI_DrawableDescriptor** drawableDescriptor) | 将ArkTS侧通过\$r()获取的资源对象转换为Native侧可使用的ArkUI_DrawableDescriptor对象。 |
+| int32_t OH_ArkUI_GetNodeHandleFromNapiValue(napi_env env, napi_value frameNode, ArkUI_NodeHandle* handle) | 将ArkTS侧创建的FrameNode节点对象映射为Native侧的ArkUI_NodeHandle，适用于Native侧需要操作或管理ArkTS侧FrameNode节点的场景。 |
+| int32_t OH_ArkUI_GetContextFromNapiValue(napi_env env, napi_value value, ArkUI_ContextHandle* context) | 将ArkTS侧创建的UIContext对象映射为Native侧的ArkUI_ContextHandle，适用于Native侧需要基于UIContext调用ArkUI能力的场景。 |
+| int32_t OH_ArkUI_GetNodeContentFromNapiValue(napi_env env, napi_value value, ArkUI_NodeContentHandle* content) | 将ArkTS侧创建的NodeContent对象映射为Native侧的ArkUI_NodeContentHandle，适用于Native侧需要操作或挂载ArkTS侧NodeContent内容的场景。 |
+| int32_t OH_ArkUI_GetDrawableDescriptorFromNapiValue(napi_env env, napi_value value, ArkUI_DrawableDescriptor** drawableDescriptor) | 将ArkTS侧创建的DrawableDescriptor对象映射到Native侧的ArkUI_DrawableDescriptor，适用于Native侧需要使用ArkTS侧图片资源描述对象的场景。 |
+| int32_t OH_ArkUI_GetDrawableDescriptorFromResourceNapiValue(napi_env env, napi_value value, ArkUI_DrawableDescriptor** drawableDescriptor) | 将ArkTS侧通过\$r()获取的资源对象转换为Native侧可使用的ArkUI_DrawableDescriptor对象，适用于Native侧需要使用ArkTS资源对象作为图片资源描述的场景。 |
 | ArkUI_ErrorCode OH_ArkUI_GetNavigationId(ArkUI_NodeHandle node, char* buffer, int32_t bufferSize, int32_t* writeLength) | 获取当前节点所在的Navigation组件的ID。 |
 | ArkUI_ErrorCode OH_ArkUI_GetNavDestinationName(ArkUI_NodeHandle node, char* buffer, int32_t bufferSize, int32_t* writeLength) | 获取当前节点所在的NavDestination组件的名称。 |
 | ArkUI_ErrorCode OH_ArkUI_GetNavStackLength(ArkUI_NodeHandle node, int32_t* length) | 获取当前节点所在的Navigation栈的长度。 |
 | ArkUI_ErrorCode OH_ArkUI_GetNavDestinationNameByIndex(ArkUI_NodeHandle node, int32_t index, char* buffer, int32_t bufferSize, int32_t* writeLength) | 根据给定索引值，获取当前节点所在的Navigation栈中对应位置的页面名称。索引值从0开始计数，0为栈底。 |
 | ArkUI_ErrorCode OH_ArkUI_GetNavDestinationId(ArkUI_NodeHandle node, char* buffer, int32_t bufferSize, int32_t* writeLength) | 获取当前节点所在的NavDestination组件的ID。 |
 | ArkUI_ErrorCode OH_ArkUI_GetNavDestinationState(ArkUI_NodeHandle node, ArkUI_NavDestinationState* state) | 获取当前节点所在的NavDestination组件的状态。 |
-| ArkUI_ErrorCode OH_ArkUI_GetNavDestinationIndex(ArkUI_NodeHandle node, int32_t* index) | 获取当前节点所在的NavDestination组件在页面栈的索引。 |
+| ArkUI_ErrorCode OH_ArkUI_GetNavDestinationIndex(ArkUI_NodeHandle node, int32_t* index) | 获取当前节点所在的NavDestination组件在页面栈中的索引。 |
 | napi_value OH_ArkUI_GetNavDestinationParam(ArkUI_NodeHandle node) | 获取当前节点所在的NavDestination组件的参数。 |
 | ArkUI_ErrorCode OH_ArkUI_GetRouterPageIndex(ArkUI_NodeHandle node, int32_t* index) | 获取当前节点所在页面在Router页面栈中的索引。 |
 | ArkUI_ErrorCode OH_ArkUI_GetRouterPageName(ArkUI_NodeHandle node, char* buffer, int32_t bufferSize, int32_t* writeLength) | 获取当前节点所在页面的名称。 |
 | ArkUI_ErrorCode OH_ArkUI_GetRouterPagePath(ArkUI_NodeHandle node, char* buffer, int32_t bufferSize, int32_t* writeLength) | 获取当前节点所在页面的Page组件的路径。 |
 | ArkUI_ErrorCode OH_ArkUI_GetRouterPageState(ArkUI_NodeHandle node, ArkUI_RouterPageState* state) | 获取当前节点所在页面的Page组件的状态。 |
 | ArkUI_ErrorCode OH_ArkUI_GetRouterPageId(ArkUI_NodeHandle node, char* buffer, int32_t bufferSize, int32_t* writeLength) | 获取当前节点所在页面的Page组件的ID。 |
-| ArkUI_ErrorCode OH_ArkUI_InitModuleForArkTSEnv(napi_env env) | 初始化指定上下文环境的ArkUI相关接口。该函数禁止在非UI线程中调用，否则程序将主动abort。 |
-| void OH_ArkUI_NotifyArkTSEnvDestroy(napi_env env) | 通知指定的上下文环境已销毁。该函数禁止在非UI线程中调用，否则程序将主动abort。 |
-| int32_t OH_ArkUI_PostFrameCallback(ArkUI_ContextHandle uiContext, void* userData,void (*callback)(uint64_t nanoTimestamp, uint32_t frameCount, void* userData)) | 注册一个回调函数，以便在下一帧渲染时执行。不允许在非UI线程调用，检查到非UI线程调用程序会主动中止。 |
-| int32_t OH_ArkUI_PostIdleCallback(ArkUI_ContextHandle uiContext, void* userData,void (*callback)(uint64_t nanoTimeLeft, uint32_t frameCount, void* userData)) | 注册一个回调函数，在下一帧渲染任务结束后，如果距离其下个VSync信号到来的剩余时间大于1ms时，该回调函数将被执行；如果剩余时间小于1ms时，回调函数将被顺延至当某个下一帧的剩余时间大于1ms时再执行。如果当前没有下一帧，将自动请求下一帧。 |
+| ArkUI_ErrorCode OH_ArkUI_InitModuleForArkTSEnv(napi_env env) | 初始化指定上下文环境的ArkUI相关接口，适用于在Native侧使用ArkUI相关接口前进行上下文环境初始化的场景。该函数禁止在非UI线程中调用，否则程序将主动中止。使用该函数初始化指定上下文环境后，在对应环境销毁时调用OH_ArkUI_NotifyArkTSEnvDestroy()通知环境已销毁。 |
+| void OH_ArkUI_NotifyArkTSEnvDestroy(napi_env env) | 通知指定的上下文环境已销毁，适用于ArkTS上下文环境销毁时在Native侧同步清理相关状态的场景。使用OH_ArkUI_InitModuleForArkTSEnv()初始化上下文环境后，应在该环境销毁时调用此函数。该函数禁止在非UI线程中调用，否则程序将主动中止。 |
+| int32_t OH_ArkUI_PostFrameCallback(ArkUI_ContextHandle uiContext, void* userData, void (*callback)(uint64_t nanoTimestamp, uint32_t frameCount, void* userData)) | 注册一个回调函数，以便在下一帧渲染时执行，适用于Native侧在下一帧执行界面刷新或渲染相关任务的场景。不允许在非UI线程调用；如果检查到在非UI线程调用，程序会主动中止。 |
+| int32_t OH_ArkUI_PostIdleCallback(ArkUI_ContextHandle uiContext, void* userData, void (*callback)(uint64_t nanoTimeLeft, uint32_t frameCount, void* userData)) | 注册一个回调函数，适用于需要在Native侧利用帧间空闲时间处理非紧急任务的场景。下一帧渲染结束后，如果距离该帧之后的下一个VSync信号到来的剩余时间大于1ms，该回调函数将被执行；如果剩余时间小于1ms，回调函数将顺延至后续某一帧渲染结束后剩余时间大于1ms时执行。如果当前没有下一帧，将自动请求下一帧。不允许在非UI线程调用；如果检查到在非UI线程调用，程序会主动中止。 |
 | ArkUI_ErrorCode OH_ArkUI_EnableEventPassthrough(ArkUI_ContextHandle uiContext, bool enabled, ArkUI_RawInputEventType type) | 启用或禁用事件直通。事件直通表示在事件分发过程中，不经过重采样直接下发给组件。 |
 
 
@@ -80,7 +80,7 @@ int32_t OH_ArkUI_GetNodeHandleFromNapiValue(napi_env env, napi_value frameNode, 
 
 **描述：**
 
-获取ArkTS侧创建的FrameNode节点对象映射到Native侧的ArkUI_NodeHandle。
+将ArkTS侧创建的FrameNode节点对象映射为Native侧的ArkUI_NodeHandle，适用于Native侧需要操作或管理ArkTS侧FrameNode节点的场景。
 
 **起始版本：** 12
 
@@ -97,7 +97,7 @@ int32_t OH_ArkUI_GetNodeHandleFromNapiValue(napi_env env, napi_value frameNode, 
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常，请检查传入的env、frameNode和handle是否有效。 |
 
 
 
@@ -112,7 +112,7 @@ int32_t OH_ArkUI_GetContextFromNapiValue(napi_env env, napi_value value, ArkUI_C
 
 **描述：**
 
-获取ArkTS侧创建的[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)对象映射到Native侧的ArkUI_ContextHandle。
+将ArkTS侧创建的[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)对象映射为Native侧的ArkUI_ContextHandle，适用于Native侧需要基于UIContext调用ArkUI能力的场景。
 
 **起始版本：** 12
 
@@ -120,8 +120,8 @@ int32_t OH_ArkUI_GetContextFromNapiValue(napi_env env, napi_value value, ArkUI_C
 
 | 参数项 | 描述 |
 | --- | --- |
-| napi_env env | napi的环境指针。 |
-| napi_value value | ArkTS侧创建的context对象。 |
+| napi_env env | Node-API的环境指针。 |
+| napi_value value | ArkTS侧创建的UIContext对象。 |
 | ArkUI_ContextHandle* context | ArkUI_ContextHandle指针。 |
 
 
@@ -129,7 +129,7 @@ int32_t OH_ArkUI_GetContextFromNapiValue(napi_env env, napi_value value, ArkUI_C
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常，请检查传入的env、value和context是否有效。 |
 
 
 
@@ -144,7 +144,7 @@ int32_t OH_ArkUI_GetNodeContentFromNapiValue(napi_env env, napi_value value, Ark
 
 **描述：**
 
-获取ArkTS侧创建的NodeContent对象映射到Native侧的ArkUI_NodeContentHandle。
+将ArkTS侧创建的NodeContent对象映射为Native侧的ArkUI_NodeContentHandle，适用于Native侧需要操作或挂载ArkTS侧NodeContent内容的场景。
 
 **起始版本：** 12
 
@@ -152,7 +152,7 @@ int32_t OH_ArkUI_GetNodeContentFromNapiValue(napi_env env, napi_value value, Ark
 
 | 参数项 | 描述 |
 | --- | --- |
-| napi_env env | napi的环境指针。 |
+| napi_env env | Node-API的环境指针。 |
 | napi_value value | ArkTS侧创建的NodeContent对象。 |
 | ArkUI_NodeContentHandle* content | ArkUI_NodeContentHandle指针。 |
 
@@ -161,7 +161,7 @@ int32_t OH_ArkUI_GetNodeContentFromNapiValue(napi_env env, napi_value value, Ark
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常，请检查传入的env、value和content是否有效。 |
 
 
 
@@ -176,7 +176,7 @@ int32_t OH_ArkUI_GetDrawableDescriptorFromNapiValue(napi_env env, napi_value val
 
 **描述：**
 
-将ArkTS侧创建的[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawabledescriptor10)对象映射到Native侧的[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)。
+将ArkTS侧创建的[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawabledescriptor10)对象映射到Native侧的[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)，适用于Native侧需要使用ArkTS侧图片资源描述对象的场景。
 
 **起始版本：** 12
 
@@ -184,7 +184,7 @@ int32_t OH_ArkUI_GetDrawableDescriptorFromNapiValue(napi_env env, napi_value val
 
 | 参数项 | 描述 |
 | --- | --- |
-| napi_env env | napi的环境指针。 |
+| napi_env env | Node-API的环境指针。 |
 | napi_value value | ArkTS侧创建的DrawableDescriptor对象。 |
 | ArkUI_DrawableDescriptor** drawableDescriptor | 接受ArkUI_DrawableDescriptor指针的对象。 |
 
@@ -193,7 +193,7 @@ int32_t OH_ArkUI_GetDrawableDescriptorFromNapiValue(napi_env env, napi_value val
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常，请检查传入的env、value和drawableDescriptor是否有效。 |
 
 
 
@@ -208,7 +208,7 @@ int32_t OH_ArkUI_GetDrawableDescriptorFromResourceNapiValue(napi_env env, napi_v
 
 **描述：**
 
-将ArkTS侧通过\$r()获取的资源对象转换为Native侧可使用的[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)对象。
+将ArkTS侧通过\$r()获取的资源对象转换为Native侧可使用的[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)对象，适用于Native侧需要使用ArkTS资源对象作为图片资源描述的场景。
 
 **起始版本：** 12
 
@@ -216,8 +216,8 @@ int32_t OH_ArkUI_GetDrawableDescriptorFromResourceNapiValue(napi_env env, napi_v
 
 | 参数项 | 描述 |
 | --- | --- |
-| napi_env env | napi的环境指针。 |
-| napi_value value | ArkTS侧创建的$r资源对象。 |
+| napi_env env | Node-API的环境指针。 |
+| napi_value value | ArkTS侧通过\$r()获取的资源对象。 |
 | ArkUI_DrawableDescriptor** drawableDescriptor | 接受ArkUI_DrawableDescriptor指针的对象。 |
 
 
@@ -225,7 +225,7 @@ int32_t OH_ArkUI_GetDrawableDescriptorFromResourceNapiValue(napi_env env, napi_v
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常，请检查传入的env、value和drawableDescriptor是否有效。 |
 
 
 
@@ -435,7 +435,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavDestinationIndex(ArkUI_NodeHandle node, int32_t* 
 
 **描述：**
 
-获取当前节点所在的NavDestination组件在页面栈的索引。
+获取当前节点所在的NavDestination组件在页面栈中的索引。
 
 **起始版本：** 12
 
@@ -657,7 +657,7 @@ ArkUI_ErrorCode OH_ArkUI_InitModuleForArkTSEnv(napi_env env)
 
 **描述：**
 
-初始化指定上下文环境的ArkUI相关接口。该函数禁止在非UI线程中调用，否则程序将主动abort。
+初始化指定上下文环境的ArkUI相关接口，适用于在Native侧使用ArkUI相关接口前进行上下文环境初始化的场景。该函数禁止在非UI线程中调用，否则程序将主动中止。使用该函数初始化指定上下文环境后，在对应环境销毁时调用[OH_ArkUI_NotifyArkTSEnvDestroy()](#oh_arkui_notifyarktsenvdestroy)通知环境已销毁。
 
 **起始版本：** 20
 
@@ -672,7 +672,7 @@ ArkUI_ErrorCode OH_ArkUI_InitModuleForArkTSEnv(napi_env env)
 
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 参数无效（如env为null或设置白名单失败）。 ARKUI_ERROR_CODE_CAPI_INIT_ERROR CAPI初始化错误。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 参数无效，可能原因是env为空或设置白名单失败；请检查env是否有效后重试。 ARKUI_ERROR_CODE_CAPI_INIT_ERROR CAPI初始化错误，请确认当前运行环境支持ArkUI Native接口并重试。 |
 
 
 
@@ -687,7 +687,7 @@ void OH_ArkUI_NotifyArkTSEnvDestroy(napi_env env)
 
 **描述：**
 
-通知指定的上下文环境已销毁。该函数禁止在非UI线程中调用，否则程序将主动abort。
+通知指定的上下文环境已销毁，适用于ArkTS上下文环境销毁时在Native侧同步清理相关状态的场景。使用[OH_ArkUI_InitModuleForArkTSEnv()](#oh_arkui_initmoduleforarktsenv)初始化上下文环境后，应在该环境销毁时调用此函数。该函数禁止在非UI线程中调用，否则程序将主动中止。
 
 **起始版本：** 20
 
@@ -705,12 +705,12 @@ void OH_ArkUI_NotifyArkTSEnvDestroy(napi_env env)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int32_t OH_ArkUI_PostFrameCallback(ArkUI_ContextHandle uiContext, void* userData,void (*callback)(uint64_t nanoTimestamp, uint32_t frameCount, void* userData))
+int32_t OH_ArkUI_PostFrameCallback(ArkUI_ContextHandle uiContext, void* userData, void (*callback)(uint64_t nanoTimestamp, uint32_t frameCount, void* userData))
 ```
 
 **描述：**
 
-注册一个回调函数，以便在下一帧渲染时执行。不允许在非UI线程调用，检查到非UI线程调用程序会主动中止。
+注册一个回调函数，以便在下一帧渲染时执行，适用于Native侧在下一帧执行界面刷新或渲染相关任务的场景。不允许在非UI线程调用；如果检查到在非UI线程调用，程序会主动中止。
 
 **起始版本：** 18
 
@@ -720,8 +720,8 @@ int32_t OH_ArkUI_PostFrameCallback(ArkUI_ContextHandle uiContext, void* userData
 | --- | --- |
 | ArkUI_ContextHandle uiContext | UIContext对象指针，用以绑定实例。 |
 | void* userData | 自定义事件参数，当事件触发时在回调参数中携带回来。 |
-| callback | 自定义回调函数。 |
-| uint64_t nanoTimestamp | 帧信号的时间戳。 |
+| callback | 自定义回调函数，签名为void (*callback)(uint64_t nanoTimestamp, uint32_t frameCount, void* userData)，用于在下一帧渲染时执行。其中nanoTimestamp表示帧信号的时间戳，frameCount表示帧号，userData表示注册时传入并在回调触发时携带回来的自定义数据。 |
+| uint64_t nanoTimestamp | 帧信号的时间戳，单位：ns。 |
 | uint32_t frameCount | 帧号。 |
 
 
@@ -729,7 +729,7 @@ int32_t OH_ArkUI_PostFrameCallback(ArkUI_ContextHandle uiContext, void* userData
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_CAPI_INIT_ERROR CAPI初始化错误。 ARKUI_ERROR_CODE_UI_CONTEXT_INVALID uiContext对象无效。 ARKUI_ERROR_CODE_CALLBACK_INVALID 回调函数无效。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_CAPI_INIT_ERROR CAPI初始化错误，请确认ArkUI Native接口运行环境已完成初始化后重试。 ARKUI_ERROR_CODE_UI_CONTEXT_INVALID uiContext对象无效，请检查uiContext是否为空或是否来自有效的UIContext对象。 ARKUI_ERROR_CODE_CALLBACK_INVALID 回调函数无效，请检查callback是否为空。 |
 
 
 
@@ -739,12 +739,12 @@ int32_t OH_ArkUI_PostFrameCallback(ArkUI_ContextHandle uiContext, void* userData
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int32_t OH_ArkUI_PostIdleCallback(ArkUI_ContextHandle uiContext, void* userData,void (*callback)(uint64_t nanoTimeLeft, uint32_t frameCount, void* userData))
+int32_t OH_ArkUI_PostIdleCallback(ArkUI_ContextHandle uiContext, void* userData, void (*callback)(uint64_t nanoTimeLeft, uint32_t frameCount, void* userData))
 ```
 
 **描述：**
 
-注册一个回调函数，在下一帧渲染结束后如果距离下一帧到来剩余时间大于1ms时，该回调函数将被执行；如果剩余时间小于1ms时，回调函数将被顺延至当某个下一帧的剩余时间大于1ms时再执行。如果当前没有下一帧，将自动请求下一帧。
+注册一个回调函数，适用于需要在Native侧利用帧间空闲时间处理非紧急任务的场景。下一帧渲染结束后，如果距离该帧之后的下一个VSync信号到来的剩余时间大于1ms，该回调函数将被执行；如果剩余时间小于1ms，回调函数将顺延至后续某一帧渲染结束后剩余时间大于1ms时执行。如果当前没有下一帧，将自动请求下一帧。不允许在非UI线程调用；如果检查到在非UI线程调用，程序会主动中止。
 
 **起始版本：** 20
 
@@ -754,8 +754,8 @@ int32_t OH_ArkUI_PostIdleCallback(ArkUI_ContextHandle uiContext, void* userData,
 | --- | --- |
 | ArkUI_ContextHandle uiContext | UIContext对象指针，用以绑定实例。 |
 | void* userData | 自定义事件参数，当自定义回调函数触发时在回调参数中携带回来。 |
-| callback | 自定义回调函数，会在下一帧事件结束后剩余时间大于1ms时回调执行。 |
-| uint64_t nanoTimeLeft | 下一帧渲染后的剩余时间。 |
+| callback | 自定义回调函数，签名为void (*callback)(uint64_t nanoTimeLeft, uint32_t frameCount, void* userData)，用于在下一帧渲染结束后，剩余时间大于1ms时执行。其中nanoTimeLeft表示距离当前帧截止时间的剩余时间，frameCount表示帧号，userData表示注册时传入并在回调触发时携带回来的自定义数据。 |
+| uint64_t nanoTimeLeft | 距离当前帧截止时间的剩余时间，单位：ns。 |
 | uint32_t frameCount | 帧号。 |
 
 
@@ -763,7 +763,7 @@ int32_t OH_ArkUI_PostIdleCallback(ArkUI_ContextHandle uiContext, void* userData,
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_CAPI_INIT_ERROR CAPI初始化错误。 ARKUI_ERROR_CODE_UI_CONTEXT_INVALID uiContext对象无效。 ARKUI_ERROR_CODE_CALLBACK_INVALID 回调函数无效。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_CAPI_INIT_ERROR CAPI初始化错误，请确认ArkUI Native接口运行环境已完成初始化后重试。 ARKUI_ERROR_CODE_UI_CONTEXT_INVALID uiContext对象无效，请检查uiContext是否为空或是否来自有效的UIContext对象。 ARKUI_ERROR_CODE_CALLBACK_INVALID 回调函数无效，请检查callback是否为空。 |
 
 
 

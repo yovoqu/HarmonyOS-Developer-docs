@@ -1,6 +1,6 @@
 # ohpm unpublish
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-unpublish
 
@@ -40,7 +40,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
 - 别名：f
 
  
-强制下架。
+默认不开启。使用 --force 或者 -f 参数，开启强制下架。
  
  
 
@@ -126,4 +126,4 @@ ohpm unpublish demo@1.0.0 -f
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/E7bmEr2CRKK9bBDrIRlmnw/zh-cn_image_0000002624994483.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=BB93E2336DB9DC945B1BFE62158D08D4948832E931D7738BEE5BFA106DF40E43)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/P2_A0RFOTS2M1RmbLmfKxA/zh-cn_image_0000002678157173.png?HW-CC-KV=V1&HW-CC-Date=20260730T071814Z&HW-CC-Expire=86400&HW-CC-Sign=934E25FE3432807F6C1DFAC606B913D2A9C9CD3B92C92802EBB2AD7623ED1855)

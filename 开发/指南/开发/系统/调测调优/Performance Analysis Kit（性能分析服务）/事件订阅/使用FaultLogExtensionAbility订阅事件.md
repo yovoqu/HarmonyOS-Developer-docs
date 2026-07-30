@@ -1,6 +1,6 @@
 # 使用FaultLogExtensionAbility订阅事件
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fault-log-extension-app-events-arkts
 
@@ -34,7 +34,7 @@ FaultLogExtensionAbility的原理机制如下图所示：
  - FaultLogExtensionAbility被拉起后只有10s的时间用以完成故障处理。超时没有处理完成可以在[onDisconnect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-faultlogextensionability#ondisconnect)中保存状态。
  - 从开机或上次拉起FaultLogExtensionAbility后，应用首次触发崩溃或冻屏开始计时。在拉起FaultLogExtensionAbility前反复触发崩溃或冻屏事件均不会重新计时。计时30分钟后拉起FaultLogExtensionAbility进程。
  - FaultLogExtensionAbility自身崩溃时，不会再次被系统服务拉起。
- - FaultLogExtensionAbility调用限制的API名单见[附录](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-faultlogextensionability#附录)。
+ - 针对FaultLogExtensionAbility接口调用限制，详情请参考API中[约束限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-faultlogextensionability#约束限制)。
  - FaultLogExtensionAbility进程中订阅的事件需要在主进程中使用HiAppEvent进行订阅。否则，可能会发生[FaultLogExtensionAbility进程没有接收到回调事件](#faultlogextensionability进程没有接收到回调事件)的问题。
  - FaultLogExtensionAbility进程中仅订阅崩溃、应用冻屏事件，不订阅除这两类外的系统事件。否则，可能会发生[系统事件重复上报](#系统事件重复上报)的问题。
  - 主进程用于延迟回调处理事件观察者B和非延迟处理的事件观察者A定义名字不能重复。否则，可能会发生[部分事件丢失](#部分事件丢失)的问题。

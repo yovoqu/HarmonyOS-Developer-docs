@@ -1,6 +1,6 @@
 # 监听游戏手柄的轴和按键事件（C/C++）
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/game-controller-monitor-pad
 
@@ -20,14 +20,14 @@ Game Controller Kit提供游戏手柄轴事件和按键事件的监听能力。�
 Game Controller Kit支持的手柄键位参考图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/rpg29irBTKaXIqLTww3e0w/zh-cn_image_0000002581434980.png?HW-CC-KV=V1&HW-CC-Date=20260528T030050Z&HW-CC-Expire=86400&HW-CC-Sign=18E849B698752E8616786DD3BB428248CF17CECF60181547CD9506A22C8C8594)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/0viAvNn5SZCxoLLFgvq1wA/zh-cn_image_0000002686087067.png?HW-CC-KV=V1&HW-CC-Date=20260730T072004Z&HW-CC-Expire=86400&HW-CC-Sign=6891BD69739AC77CB9057EC0A4A6B1A14543F5CBF57035304BE3657803BF1DE0)
 
 
 
 
 #### 接口说明
 
-接口详细介绍请参考[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-controller)。
+接口详细介绍请参考[GameController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller)。
 
 | 接口名 | 描述 |
 | --- | --- |

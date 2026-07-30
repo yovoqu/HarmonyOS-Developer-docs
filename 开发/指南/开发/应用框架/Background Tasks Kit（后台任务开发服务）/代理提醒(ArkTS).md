@@ -1,6 +1,6 @@
 # 代理提醒(ArkTS)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-powered-reminder
 
@@ -37,8 +37,9 @@
 
  - **个数限制**：
 
-1. 单个普通应用有效/未过期的提醒数量不超过30个。
-2. 从API version 10开始，所有应用有效/未过期的提醒数量总和不超过12000个。API version 9及之前的版本，有效/未过期的提醒数量总和不超过2000个。
+1. API版本26.0.0及以上，单个普通应用有效/未过期的提醒数量不超过64个。
+2. API version 25及以下，单个普通应用有效/未过期的提醒数量不超过30个。
+3. 从API version 10开始，所有应用有效/未过期的提醒数量总和不超过12000个。API version 9及之前的版本，有效/未过期的提醒数量总和不超过2000个。
 
 > [!NOTE]
 > 当到达设置的提醒时间点时，通知中心会弹出相应提醒。若未点击提醒上的关闭/CLOSE按钮，则代理提醒是有效/未过期的；若点击了关闭/CLOSE按钮，则代理提醒过期。 当代理提醒是周期性提醒时，如设置每天提醒，无论是否点击关闭/CLOSE按钮，代理提醒都是有效的。
@@ -100,13 +101,13 @@
 5. 返回“开放能力接入”页面，原“申请”按钮变为“申请中”，8个工作日反馈申请结果。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/XIZPIkKPQnqZp9g2LzuBnQ/zh-cn_image_0000002647746270.png?HW-CC-KV=V1&HW-CC-Date=20260723T012142Z&HW-CC-Expire=86400&HW-CC-Sign=7225BC36E427FD29C8071B11A403AC8C875B576644080215AE0B48F62DE8FD92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/_-ww18PKRtKRNgXxMQqtKQ/zh-cn_image_0000002656006776.png?HW-CC-KV=V1&HW-CC-Date=20260730T071901Z&HW-CC-Expire=86400&HW-CC-Sign=B4B8D330066EB9321FAC7DC1DCAA5DA77106C31EA694051BB6296C8787CF2D67)
 
 6. 申请审批通过后，互动中心会发送通知给您，同时“申请中”按钮会变为置灰显示的“申请”。
 7. 能力申请通过后，勾选代理提醒的能力开关，点击右上角“保存”。至此，您的应用已成功接入开放能力。此时，调试和发布应用必须重新生成Profile文件并使用[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/lkmRWMs2Ta6_E2d0VvE4Iw/zh-cn_image_0000002647586360.png?HW-CC-KV=V1&HW-CC-Date=20260723T012142Z&HW-CC-Expire=86400&HW-CC-Sign=72DB28F626E8289F96B48029121853CEFB879C45500C650EF8EEA4FAA6921D37)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/VUbiVmiIT5Sawni-9HO0kw/zh-cn_image_0000002655846856.png?HW-CC-KV=V1&HW-CC-Date=20260730T071901Z&HW-CC-Expire=86400&HW-CC-Sign=D6276144CF44CEB12DD120909E2ECA1072C1C3FBABDA6C712ED04D3482B12268)
 
 
 

@@ -1,6 +1,6 @@
 # ArkUI_TransitionEffect
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-transitioneffect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_TransitionEffect ArkUI_TransitionEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义transition属性配置转场参数对象。
+定义transition属性的转场效果参数对象，用于配置组件出现或消失时的过渡动画效果。
  
 **起始版本：** 12
  

@@ -1,6 +1,6 @@
 # 两个华为账号登录获取的OpenID相同
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-21
 
@@ -19,7 +19,7 @@
 #### 问题定位
 1. 根据开发者反馈的华为账号登录代码片段排查登录流程是否有误。
 2. 查看提供的日志打印，对比返回的OpenID。发现两次返回的OpenID有一个字母的大小写是不同的。
-3. 考虑到OpenID是[大小写敏感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-9#section1261562914568)的，建议开发者排查下是否做了大小写区分。
+3. 考虑到OpenID是[大小写敏感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-9#大小写敏感)的，建议开发者排查下是否做了大小写区分。
  
  
 

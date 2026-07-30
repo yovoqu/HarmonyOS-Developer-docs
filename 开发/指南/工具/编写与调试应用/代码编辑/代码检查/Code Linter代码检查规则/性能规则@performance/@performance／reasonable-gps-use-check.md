@@ -1,10 +1,10 @@
 # @performance/reasonable-gps-use-check
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-reasonable-gps-use-check
 
-无长时任务的应用退到后台时，禁止使用定位服务。
+未申请长时任务的应用退到后台时，禁止使用定位服务。
  
 
 #### 规则配置

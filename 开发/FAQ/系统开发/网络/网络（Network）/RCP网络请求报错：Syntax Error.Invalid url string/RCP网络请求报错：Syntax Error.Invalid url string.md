@@ -1,6 +1,6 @@
 # RCP网络请求报错：Syntax Error.Invalid url string
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-112
 
@@ -49,7 +49,7 @@ session.fetch(req).then((rep: rcp.Response) => {
 
 #### 背景知识
 
-[SessionConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section18613443123412)中baseAddress可以设置会话中url的基地址。这允许开发者为会话中的多个请求定义一个通用的基本url。如果请求url不是绝对url，则把基地址预制在请求url的前面。
+[SessionConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#sessionconfiguration)中baseAddress可以设置会话中url的基地址。这允许开发者为会话中的多个请求定义一个通用的基本url。如果请求url不是绝对url，则把基地址预制在请求url的前面。
  
 例如:
  
@@ -95,7 +95,7 @@ A：模拟器缓存的问题，重启后即可。
  
 Q：RCP的POST请求如何传递请求参数？
  
-A：RCP的POST请求参数可以通过RequestContent进行填充，可参考[使用示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netsend-arkts#section14831954172119)。
+A：RCP的POST请求参数可以通过RequestContent进行填充，可参考[使用示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netsend-arkts#使用示例-2)。
  
 Q：RCP网络请求失败，日志报错statusCode：404，是什么原因导致的？
  

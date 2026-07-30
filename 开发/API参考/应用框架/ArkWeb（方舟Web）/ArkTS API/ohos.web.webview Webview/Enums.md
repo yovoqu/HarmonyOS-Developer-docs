@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -339,7 +339,7 @@ Scroll滚动类型，用于[setScrollable](https://developer.huawei.com/consumer
 | HAVE_NOTHING | 0 | 没有缓存。 |
 | HAVE_METADATA | 1 | 只缓存了媒体元数据。 |
 | HAVE_CURRENT_DATA | 2 | 只缓存到当前的播放进度。 |
-| HAVE_FUTURE_DATA | 3 | 缓存时长超过了当前的播放进度, 但是仍有可能导致卡顿。 |
+| HAVE_FUTURE_DATA | 3 | 缓存时长超过了当前的播放进度，但是仍有可能导致卡顿。 |
 | HAVE_ENOUGH_DATA | 4 | 缓存了足够的数据，保证播放流畅。 |
 
 
@@ -471,8 +471,9 @@ Web页面场景下，全局滚动条模式。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| OVERLAY_LAYOUT_SCROLLBAR | 0 | 非常驻滚动条。 |
+| OVERLAY_LAYOUT_SCROLLBAR | 0 | 非常驻滚动条，可以拖拽。 |
 | FORCE_DISPLAY_SCROLLBAR | 1 | 常驻滚动条。 |
+| OVERLAY_VISUAL_SCROLLBAR | 2 | 非常驻滚动条，不可以拖拽。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 

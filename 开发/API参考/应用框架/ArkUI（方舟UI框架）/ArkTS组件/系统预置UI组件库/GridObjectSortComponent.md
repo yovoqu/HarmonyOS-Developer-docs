@@ -1,6 +1,6 @@
 # GridObjectSortComponent
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-gridobjectsortcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -114,7 +114,7 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
 | --- | --- | --- | --- | --- |
 | id | number \| string | 否 | 否 | 数据id序号，不可重复。 默认值：空字符串。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | text | ResourceStr | 否 | 否 | 显示文本信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| selected | boolean | 否 | 否 | 是否已经被添加，已添加：true，未添加：false。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| selected | boolean | 否 | 否 | 是否被选中，已选中：true，未选中：false。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | url | ResourceStr | 否 | 是 | GridObjectSortComponentType类型为IMAGE_TEXT时，需要传入图片地址。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | symbolStyle18+ | SymbolGlyphModifier | 否 | 是 | GridObjectSortComponentType类型为IMAGE_TEXT时，需要传入Symbol图标资源。配置优先级高于url。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | order | number | 否 | 否 | 顺序序号。 取值范围：大于等于0。 默认值：0 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -207,4 +207,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/FTheATeZTAOhPih4i1-BAw/zh-cn_image_0000002628862872.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=5F0FA5A1564AC1E9762316DDAA908178B51BF76148EFB30DBE8A1CEA2CECFAD7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/3jBXwHB7RLugoLgLi46hhg/zh-cn_image_0000002685928617.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071519Z&HW-CC-Expire=86400&HW-CC-Sign=FC5D67A3C1A83279880E309E8859E218FCF222621877FE0313CEC3ECCCCF68BD)

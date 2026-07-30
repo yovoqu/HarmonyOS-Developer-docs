@@ -1,6 +1,6 @@
 # native_avbuffer_info.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avbuffer-info-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -82,5 +82,5 @@ enum OH_AVCodecBufferFlags
 | AVCODEC_BUFFER_FLAGS_SYNC_FRAME = 1 << 1 | 表示缓冲区包含关键帧。 |
 | AVCODEC_BUFFER_FLAGS_INCOMPLETE_FRAME = 1 << 2 | 表示缓冲区中的数据只是帧的一部分。 |
 | AVCODEC_BUFFER_FLAGS_CODEC_DATA = 1 << 3 | 表示缓冲区包含编解码特定数据。 |
-| AVCODEC_BUFFER_FLAGS_DISCARD = 1 << 4 | 表示缓冲区被解码依赖，解码之后的数据可丢弃。 起始版本： 12 |
-| AVCODEC_BUFFER_FLAGS_DISPOSABLE = 1 << 5 | 表示缓冲区不被参考可直接丢弃。 起始版本： 12 |
+| AVCODEC_BUFFER_FLAGS_DISCARD = 1 << 4 | 表示缓冲区被解码器依赖，解码之后的数据可丢弃。 起始版本： 12 |
+| AVCODEC_BUFFER_FLAGS_DISPOSABLE = 1 << 5 | 表示缓冲区不被参考，可直接丢弃。 起始版本： 12 |

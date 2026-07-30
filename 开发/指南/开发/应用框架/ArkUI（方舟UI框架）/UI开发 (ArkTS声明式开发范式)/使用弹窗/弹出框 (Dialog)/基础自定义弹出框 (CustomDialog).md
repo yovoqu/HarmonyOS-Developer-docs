@@ -1,6 +1,6 @@
 # 基础自定义弹出框 (CustomDialog)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-custom-dialog
 
@@ -245,15 +245,15 @@ export struct DialogInteractionUseButton {
   }
 
   onCancel() {
-    hilog.info(DOMAIN, 'testTag', 'testTag', 'Callback when the first button is clicked');
+    hilog.info(DOMAIN, 'testTag', 'Callback when the first button is clicked');
   }
 
   onAccept() {
-    hilog.info(DOMAIN, 'testTag', 'testTag', 'Callback when the second button is clicked');
+    hilog.info(DOMAIN, 'testTag', 'Callback when the second button is clicked');
   }
 
   exitApp() {
-    hilog.info(DOMAIN, 'testTag', 'testTag', 'Click the callback in the blank area');
+    hilog.info(DOMAIN, 'testTag', 'Click the callback in the blank area');
   }
 
   build() {
@@ -323,7 +323,6 @@ struct CustomDialogExample {
 @Entry
 @Component
 export struct DialogAnimationNew {
-  @State textValue: string = '';
   @State inputValue: string = 'click me';
   dialogController: CustomDialogController | null = new CustomDialogController({
     builder: CustomDialogExample(),
@@ -333,7 +332,7 @@ export struct DialogAnimationNew {
       delay: 500,
       playMode: PlayMode.Alternate,
       onFinish: () => {
-        hilog.info(DOMAIN, 'testTag', 'play end')
+        hilog.info(DOMAIN, 'testTag', 'play end');
       }
     },
     autoCancel: true,
@@ -391,7 +390,6 @@ struct CustomDialogExample {
 @Entry
 @Component
 export struct DialogStyleNew {
-  @State textValue: string = '';
   @State inputValue: string = 'click me';
   dialogController: CustomDialogController | null = new CustomDialogController({
     builder: CustomDialogExample(),
@@ -586,6 +584,9 @@ struct CustomDialogExample {
             if (this.controller !== undefined) {
               this.controller.close();
             }
+            if (this.cancel) {
+              this.cancel();
+            }
           })
           .backgroundColor(0xffffff)
           .fontColor(Color.Black)
@@ -593,6 +594,9 @@ struct CustomDialogExample {
           .onClick(() => {
             if (this.controller !== undefined) {
               this.controller.close();
+            }
+            if (this.confirm) {
+              this.confirm();
             }
           })
           .backgroundColor(0xffffff)
@@ -798,4 +802,4 @@ export struct GetDialogStatus {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/Ki4ZDKLWQA6Nz9tExPS6fw/zh-cn_image_0000002677665751.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012134Z&HW-CC-Expire=86400&HW-CC-Sign=F24AFBC2D1A219C7E2B2EB1E82AF33BF60E1B1E892A830156A0A0EA98BDCC312)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/ouaE6oQuQx2gTO0u_jutLA/zh-cn_image_0000002686085839.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=1FF396D91692737346E012502C7F15CCCB6070663D21CE8FF4B899EDED0AFD55)

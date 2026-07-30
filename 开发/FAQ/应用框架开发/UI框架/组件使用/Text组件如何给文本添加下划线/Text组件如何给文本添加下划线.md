@@ -65,7 +65,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/bVbNRzBYSYWFRY-pHZ0xPg/zh-cn_image_0000002658907835.png?HW-CC-KV=V1&HW-CC-Date=20260723T012527Z&HW-CC-Expire=86400&HW-CC-Sign=08BDC4FD38C9251EE0B392BC8120A26E8D1D9F74B3E45C84ACE45ABE0B7B9596)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/bVbNRzBYSYWFRY-pHZ0xPg/zh-cn_image_0000002658907835.png?HW-CC-KV=V1&HW-CC-Date=20260730T072317Z&HW-CC-Expire=86400&HW-CC-Sign=4D2A4DEE4F6176CACC0D6B43E43717238051A2ABF7B30EAEBDAFB410B2491ED9)
 
 - **方案二**：通过Text组件的decoration参数直接设置基础线条样式。
 ```text
@@ -166,7 +166,7 @@ struct <span style="color: rgb(0,0,255);">Scene2 </span><span style="color: rgb(
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/eF07obbQRISKoJHpdJNOKw/zh-cn_image_0000002658787897.png?HW-CC-KV=V1&HW-CC-Date=20260723T012527Z&HW-CC-Expire=86400&HW-CC-Sign=841AB8EA571EC62299B72FD8BBDA65A5C52EED2A470082CEBE2BFCA7247E2E75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/eF07obbQRISKoJHpdJNOKw/zh-cn_image_0000002658787897.png?HW-CC-KV=V1&HW-CC-Date=20260730T072317Z&HW-CC-Expire=86400&HW-CC-Sign=1504FD85C1B52B0A91647FF4D5372A890E3C25CA898F18B25488414C559F7D1B)
 
 - **方案三**：通过border属性给Text组件添加下边框来实现文字下划线的效果。
 ```text
@@ -263,4 +263,4 @@ struct <span style="color: rgb(0,0,255);">WebComponent </span><span style="color
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/YLnaeX6lTi6jF7cBUGv0tw/zh-cn_image_0000002628388624.png?HW-CC-KV=V1&HW-CC-Date=20260723T012527Z&HW-CC-Expire=86400&HW-CC-Sign=D6363BE56DC630DDE0F3470DBC75DA035D4CF72685609908F6AE15889D0E723A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/YLnaeX6lTi6jF7cBUGv0tw/zh-cn_image_0000002628388624.png?HW-CC-KV=V1&HW-CC-Date=20260730T072317Z&HW-CC-Expire=86400&HW-CC-Sign=99C89316CF9B5FE650B0F2BD4C577B5BCE253A80DFDF638E0B6C0F3BF3FBB756)

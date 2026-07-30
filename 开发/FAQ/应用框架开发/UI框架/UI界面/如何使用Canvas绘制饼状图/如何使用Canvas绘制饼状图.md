@@ -9,7 +9,7 @@
 如何使用Canvas绘制饼状图以展示不同类型的数据占比？问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/9Hi6rLyPSoa4qhkEAdXibg/zh-cn_image_0000002628554406.png?HW-CC-KV=V1&HW-CC-Date=20260723T013135Z&HW-CC-Expire=86400&HW-CC-Sign=061EF66596F18647367F9DDD1709FE107167A34C98A0FD2C61273EB4F3452BCF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/9Hi6rLyPSoa4qhkEAdXibg/zh-cn_image_0000002628554406.png?HW-CC-KV=V1&HW-CC-Date=20260730T072500Z&HW-CC-Expire=86400&HW-CC-Sign=2B73AD884AFB2B59AAE854256A879B68A011ACF199BA5E6AB752B33A9FB21B72)
 
  
  

@@ -1,6 +1,6 @@
 # Local Test
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-local-test
 
@@ -109,7 +109,7 @@
 
 在LocalTest运行的基础上支持代码覆盖率统计，当前仅支持ArkTS工程。
  
-开发者可以自定义需要参与覆盖率测试的文件，具体配置方法请参考[配置覆盖率过滤文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ui-test#section13756446154)。
+开发者可以自定义参与覆盖率测试的本地文件或远程源码har包，具体配置方法请参考[配置覆盖率过滤文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ui-test#section13756446154)。
  
 如前所述，覆盖率统计模式也有多级别入口，以文件级别为例，有两种方式启动测试：
  
@@ -123,14 +123,14 @@
 - 方式二：在DevEco Studio的右上角，选择测试任务，然后单击右侧的
 ![](assets/Local%20Test/file-20260514133037800-9.png)
 按钮，执行测试。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/kyib3xusR3Oy_UpvMibVog/zh-cn_image_0000002571387582.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=36C9D15E680F1A023B174552BF4C490E1C8256922ADA09F782545C2228756D52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/f6YR3o-wQaaysFPrKqaTLw/zh-cn_image_0000002648077152.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=3C6EA9E52D7A5C594F07CAFE360C92C0F5A1FE6510B47F633B0E6867AA9D4ED6)
 
 
  
 启动测试后，进行编译构建，底部将出现Cover窗口，构建结束后自动拉起Cover窗口，测试任务结束后，窗口中会打印测试报告的路径。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/tfsYhBn4Tp-ckFrjl1LhXA/zh-cn_image_0000002602186733.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=917C5A5168485964EC6D9FB260372F2A09261A6A3AE8BD1D6174CE1A6FBD1654)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/hEPp_XCfQ36L1Mufsl78_Q/zh-cn_image_0000002648077132.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=8A77F0C1F7F9286F258927B6BF78FA4483ABC7023A0576A6D1B020B9DA630005)
 
  
 
@@ -138,13 +138,13 @@
 点击链接可打开报告，查看代码覆盖率详情，关于覆盖率的计算方式请参考[查看覆盖率报告](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ui-test#section10394362109)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/DX53CHEzS3OAbr_nFUat9w/zh-cn_image_0000002602186739.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=410B2C5DCA5479F701F69654822463D5084A6E7888825D66B661D3B0A5451CC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/6YQkOBpcRnKm5aQoIL07vg/zh-cn_image_0000002648077130.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=DC06BAE227AFD1FEA2D9BF152F81FEBB800D77FEC168A2F32E5B3C2633826244)
 
  
 在Cover窗口中，单击rerun按钮可以按照之前的设置，重新执行覆盖率用例。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/M_Lx4eJOQDeXo3iWUgsW_A/zh-cn_image_0000002571387584.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=BFF61C49857D867F365B00A9B133E8F70ED05084E993F528A889CF4695C1FFF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/H1cO1FDZSaWzxrdNpsNNHg/zh-cn_image_0000002647917232.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=540F6FD463CD3227F7183778619E2D65B8D0A14EB53A2AADCA7E5398F9E62B9E)
 
  
  
@@ -156,12 +156,12 @@
 2. 在**Run/Debug Configurations**界面，单击**+**按钮，在弹出的下拉菜单中，单击**Local Test**。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/TO85-p6ERkiq063WWA0lag/zh-cn_image_0000002602066673.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=66B176CFA1B87D49F6AD4BC41EA3F28A443C09FC7A509E828778DC3FB8335ACC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/_3cm2bV5Q3O9hIfYTsZEyw/zh-cn_image_0000002647917224.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=D64608AE94218968A94EFC701D8D2A12E8D84E4B787F814793FAA976C84CF6C8)
 
 3. 根据实际情况，配置Local Test的运行参数。 然后单击**OK**，完成配置。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/kqwjl5dkR5KDRmuMHyrVSw/zh-cn_image_0000002571547204.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=0CB23D6413DC0CB14C72F016343B4CCA898CB76F924465B2ECCA9D534BD0159D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/yQF7ntxfSp2s1sAfl9Vm8Q/zh-cn_image_0000002678156843.png?HW-CC-KV=V1&HW-CC-Date=20260730T071819Z&HW-CC-Expire=86400&HW-CC-Sign=FBED2689AE219B00A9FD23963669158F9DFE2DB1EA5660DEEA6C1ED00B17BC00)
 
  
  

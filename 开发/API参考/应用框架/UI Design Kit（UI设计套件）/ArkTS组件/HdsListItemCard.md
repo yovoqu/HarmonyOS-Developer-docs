@@ -1,6 +1,6 @@
 # HdsListItemCard
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitemcard
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1524,7 +1524,7 @@ HdsListItemCard无障碍播放能力选项。
  
 **系统能力：** SystemCapability.UIDesign.HDSComponent.Full
  
-**起始本：** 6.1.0(23)
+**起始版本：** 6.1.0(23)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1684,6 +1684,7 @@ HdsListItemCard中选择类元素样式选项。
 | enable | boolean | 否 | 是 | 选择类元素是否被启用。 true：选择类元素被启用。 false：选择类元素被禁用。 默认值：true。 |
 | checkId | string | 否 | 是 | 选择类元素的Id。 |
 | accessibilityOptions | AccessibilityOptions | 否 | 是 | 选择类元素的无障碍播放能力选项。 |
+| radioStyle | HdsRadioStyle | 否 | 是 | 单选框的样式。本参数仅对单选框生效。 起始版本： 26.0.0 |
  
  
   
@@ -1874,6 +1875,25 @@ HdsListItemCard中下拉按钮样式选项。
  
   
 
+#### HdsRadioStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+HdsListItemCard中单选框的样式选项。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.UIDesign.HDSComponent.Full
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| indicatorType | HdsRadioIndicatorType | 否 | 是 | 单选框的选中样式。 默认值：HdsIndicatorType.TICK。 |
+ 
+ 
+  
+
 #### SymbolType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1967,6 +1987,26 @@ PrefixIcon图标大小枚举。
 > [!NOTE]
 > 上述描述中所有左侧、中间、右侧均是在LTR模式下。
 
+ 
+  
+
+#### HdsRadioIndicatorType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+单选框选中样式枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.UIDesign.HDSComponent.Full
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| TICK | 0 | 选中样式为系统默认TICK图标。即Radio的默认选中样式。 |
+| CHECK_MARK | 100 | 选中样式为\$r('sys.symbol.checkmark')图标。图标默认颜色为\$r('sys.color.icon_primary')。 |
+ 
  
   
 
@@ -2193,4 +2233,4 @@ struct HdsListItemCardExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/BuUU4osVRlSoGcRU3kn43w/zh-cn_image_0000002656350647.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020050Z&HW-CC-Expire=86400&HW-CC-Sign=BE7E827B4AB62BA4D56BA1E37D8AA28785BFE02DFF86A4016901FC926C9B0415)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/gjQLWIzjSCiUcGFz0C5DGw/zh-cn_image_0000002655849442.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071607Z&HW-CC-Expire=86400&HW-CC-Sign=DE722EC2F22906265965A1911DF1D6787658CB78BFDCB6C06D38AF56D289A36C)

@@ -1,6 +1,6 @@
 # App Linking跳转问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-2
 
@@ -38,7 +38,7 @@ A:可以设置一个链接，点击此链接，就能拉起目标应用。然后
  
 Q：已接入扫码直达服务，如何在应用的生命周期内获取到对应的码值信息？
  
-A：参考官网接入扫码直达服务-[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-directservice#section3877330816)中的代码，根据不同的启动场景（冷启动/热启动）在onCreate/onNewWant中获取到对应的码值信息，并作出相应的处理。
+A：参考官网接入扫码直达服务-[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-directservice#开发步骤)中的代码，根据不同的启动场景（冷启动/热启动）在onCreate/onNewWant中获取到对应的码值信息，并作出相应的处理。
  
 Q：点击App Linking从短信链接跳转到指定App，为何页面是空白的？
  
@@ -46,7 +46,7 @@ A：配置直达应用市场能力，直达应用市场链接配置后不是即�
  
 Q：拉起应用的Harmony相关参数应该如何填写？
  
-A：在AGC上创建项目，并在项目中开通App Linking，创建应用链接，形成聚合链接，详情可参考[目标方应用配置应用链接能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-linking-startupapp#section2860153314525)和[目标方应用配置聚合链接能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/applinking-cross-platform#section6516103518384)。
+A：在AGC上创建项目，并在项目中开通App Linking，创建应用链接，形成聚合链接，详情可参考[目标方应用配置应用链接能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-linking-startupapp#配置应用链接能力)和[目标方应用配置聚合链接能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/applinking-cross-platform#配置聚合链接能力)。
  
 Q：使用App Linking链接拉起应用，但拿不到回调，怎么处理？
  
@@ -96,14 +96,14 @@ A：path、pathStartWith、pathRegex的取值前后均不需要加斜杠/，如�
  
 Q：在AGC创建元服务的App linking链接时报错：源JSON文件中未找到正确的AppID，请检查源JSON文件的配置是否准确？
  
-A：报错是由于applinking.json配置文件中appIdentifier字段值错误或缺失导致，此字段必须与AGC控制台的应用标识符严格匹配，否则系统无法验证域名与应用的关系。元服务需参考[在开发者网站上关联元服务](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-applinking#section10497195541515)配置正确的appIdentifier字段值。
+A：报错是由于applinking.json配置文件中appIdentifier字段值错误或缺失导致，此字段必须与AGC控制台的应用标识符严格匹配，否则系统无法验证域名与应用的关系。元服务需参考[在开发者网站上关联元服务](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-applinking)配置正确的appIdentifier字段值。
  
 Q：在AGC创建应用链接时错出现报错：源JSON文件中的index字段不符合要求，请检查配置是否准确？
  
 A：报错是由于applinking.json文件中类型不对导致的，比如HarmonyOS应用在applinking.json文件中类型为atomicServices，或者元服务应用在applinking.json文件中类型为apps。需要改为对应的正确类型。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/7qtlspTWTWuAkKbBPs33Vg/zh-cn_image_0000002628554440.png?HW-CC-KV=V1&HW-CC-Date=20260723T013817Z&HW-CC-Expire=86400&HW-CC-Sign=1B7A2CBC162F667A4C1B4749AE8AFA0A78DD7E39C71DEE879323979CA8B75111)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/N6Fm-tJhQsC3qrMUuWMm4w/zh-cn_image_0000002628554440.png?HW-CC-KV=V1&HW-CC-Date=20260730T072655Z&HW-CC-Expire=86400&HW-CC-Sign=4194339F177DE550370FA57F249C1128886D04AB305FA8661C1D5CA15EFE2144)
 
  
 Q：应用链接发布失败后，在域名服务器上重新完成了applinking.json配置文件放置，为何AGC显示的状态仍然是“失败”？

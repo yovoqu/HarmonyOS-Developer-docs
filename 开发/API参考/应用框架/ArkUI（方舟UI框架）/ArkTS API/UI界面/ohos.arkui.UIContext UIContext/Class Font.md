@@ -1,11 +1,11 @@
 # Class (Font)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-font
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-注册自定义字体的信息。
+Font用于管理自定义字体和系统字体信息，支持注册自定义字体、获取系统字体列表、查询字体详细信息等功能，适用于需要在应用中使用自定义字体或查询系统字体资源的场景。
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 10开始支持。 以下API需先使用UIContext中的 getFont() 方法获取到Font对象，再通过该对象调用对应方法。 推荐使用字体引擎的 loadFontSync 接口注册自定义字体。
@@ -20,7 +20,9 @@ registerFont(options: font.FontOptions): void
 
 在字体管理中注册自定义字体。
 
-该接口为异步接口，不支持并发调用。
+推荐使用字体引擎的[loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)接口注册自定义字体。
+
+该接口为异步接口，字体注册为异步过程，不支持并发调用。由于注册是异步完成的，建议在页面初始化阶段（如aboutToAppear）提前调用，以确保字体在使用前已注册完成。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -52,7 +54,7 @@ struct Index {
     this.font.registerFont({
       familyName: 'medium',
       familySrc: '/font/medium.ttf' // font文件夹与pages目录同级
-    })
+    });
   }
 
   build() {
@@ -60,7 +62,7 @@ struct Index {
       Text(this.message)
         .align(Alignment.Center)
         .fontSize(20)
-        .fontFamily('medium') // medium：注册自定义字体的名字（$r('app.string.mediumFamilyName')、'mediumRawFile'等已注册字体也能正常使用）
+        .fontFamily('medium') // medium：已注册的自定义字体名称。需先调用registerFont注册字体后，才能使用该字体名称。
     }.width('100%')
   }
 }
@@ -90,7 +92,7 @@ getSystemFontList(): Array&lt;string&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;string&gt; | 系统的字体名列表。 |
+| Array&lt;string&gt; | 系统支持的字体名称列表，返回的名称可用于getFontByName方法查询对应字体的详细信息。 |
 
 
 **示例：**
@@ -113,7 +115,7 @@ struct Index {
         .height('6%')
         .onClick(() => {
           this.fontList = this.font.getSystemFontList();
-          console.info('getSystemFontList', JSON.stringify(this.fontList))
+          console.info('getSystemFontList', JSON.stringify(this.fontList));
         })
     }.width('100%')
   }
@@ -140,7 +142,7 @@ getFontByName(fontName: string): font.FontInfo
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fontName | string | 是 | 系统的字体名。 |
+| fontName | string | 是 | 系统的字体名，可通过getSystemFontList()方法获取支持的字体名称列表。 |
 
 
 **返回值：**

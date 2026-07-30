@@ -1,6 +1,6 @@
 # UI调优
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-inspector-profiler
 
@@ -17,14 +17,20 @@
 
 状态管理接入[hidumper](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper)，支持通过-jsdump获取状态变量关联的组件、自定义组件树等信息，方便开发者了解状态变量影响的UI范围，写出高性能应用代码。
 
-下面介绍dump状态变量每个参数的含义：
+下面介绍-jsdump每个参数的含义：
 
- - jsdump：请求状态管理中的dump信息。
- - viewHierarchy：打印自定义组件树信息，默认只打印根自定义组件。
- - r：递归从根节点打印，自定义组件和其拥有组件的elementId。默认值打印根节点信息。
- - viewId：打印指定viewId的自定义组件的信息。
- - stateVariable：打印状态变量及关联的组件和同步对象的信息。当前命令不支持r递归dump。
- - registeredElementIds：打印当前自定义组件拥有的elementId。
+ - -viewHierarchy：打印自定义组件树信息，默认只打印根自定义组件。
+ - -stateVariable：打印状态变量及关联的组件和同步对象的信息。不支持-r递归dump。
+ - -registeredElementIds：打印当前自定义组件拥有的elementId。
+ - -inactiveComponents：[组件冻结](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-custom-components-freeze)场景下非激活的组件列表。
+ - -dumpAll：打印自定义组件树、状态变量和自定义组件的子组件和脏节点列表。
+ - -h：打印帮助信息。
+
+
+除上述命令外，开发者可以额外输入以下命令选择递归打印或指定打印某一个组件id的信息，如果没有指定，则默认打印页面的根节点的信息。
+
+ - -r：递归从根节点打印，自定义组件和其拥有组件的elementId。默认值打印根节点信息。
+ - -viewId：打印指定viewId的自定义组件的信息。
 
 
 具体例子如下：
@@ -94,7 +100,7 @@ Page[4]：自定义组件根节点。
  - View Hierarchy：前端自定义组件树结构信息。
  - State variables：根节点状态变量。从下面的信息可以看到Page下有状态变量@State 'message'[0]的具体信息：         
 [0]代表状态变量id。
- - Owned by @Component 'Page'[4]：当前状态变量属于组件'Page'[4],[4]为自定义组件id。
+ - Owned by @Component 'Page'[4]：当前状态变量属于组件'Page'[4]，[4]为自定义组件id。
  - Sync peers：当前状态变量的同步对象，即@State message改变会通知@Link 'message'[-1] <@Component 'Child'[7]>刷新。
  - dependencies：           
 variable assignment affects elmtIds：状态变量改变会触发的组件的刷新。例如，@State message的改变会触发Text[6]的刷新。
@@ -104,6 +110,8 @@ variable assignment affects elmtIds：状态变量改变会触发的组件的刷
         - Registered Element IDs：自定义组件和build()方法下声明的组件。
  - Dirty Registered Element IDs：自定义组件下未更新的脏节点列表。状态变量变化后，会标记其关联节点为脏节点，并请求在下一帧更新。在下一帧中更新脏节点并清空脏节点列表。手动执行dump时，Dirty Registered Element IDs通常为空。因为以目前大多数设备的帧间隔，开发者难以在两帧之间dump出脏节点列表。
 
+
+输出结果：
 
 ```text
 --------------------ViewPUInfo--------------------
@@ -162,7 +170,7 @@ Total: 0
 ```bash
 hdc shell hidumper -s WindowManagerService -a '-w 90 -jsdump -dumpAll -viewId=7'
 ```
-输出信息如下。
+输出结果：
 
   
 ```text
@@ -266,7 +274,7 @@ DevEco Studio的ArkUI Inspector可以显示当前页面自定义组件内的状�
 **图3** ArkUI Inspector显示状态变量相关信息
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/vnHlpaZ3SKufIjlMy0bmRA/zh-cn_image_0000002581434230.png?HW-CC-KV=V1&HW-CC-Date=20260528T030419Z&HW-CC-Expire=86400&HW-CC-Sign=658DF8EEFD76182EB2AF122F8C0250DFB31D25A0D83BA7F5A94AD1F9B66762A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/kh2HTRDkTcamAgJumEJC_g/zh-cn_image_0000002656006660.png?HW-CC-KV=V1&HW-CC-Date=20260730T071858Z&HW-CC-Expire=86400&HW-CC-Sign=8B3234393B4E3BAC2B85DCC10D8B775945DBF9F8FA9A46B2549F871AF211EC03)
 
 
 > [!NOTE]

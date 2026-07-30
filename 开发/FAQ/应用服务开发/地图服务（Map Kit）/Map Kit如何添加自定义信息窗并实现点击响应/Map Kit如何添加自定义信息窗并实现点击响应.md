@@ -1,6 +1,6 @@
 # Map Kit如何添加自定义信息窗并实现点击响应
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-45
 
@@ -13,7 +13,7 @@ Map Kit中Marker标记仅能实现简单图标的显示，如何实现标记点�
 #### 背景知识
 
 - 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
-- [customInfoWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#section7379125210145)：自定义信息窗。在[customInfoWindowCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#section1038016522147)中绘制自定义UI样式。
+- [customInfoWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#mapcomponent)：自定义信息窗。在[customInfoWindowCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#custominfowindowcallback)中绘制自定义UI样式。
 
  
  
@@ -33,7 +33,7 @@ let markerOptions: mapCommon.MarkerOptions = {
 await this.mapController?.addMarker(markerOptions);
 ```
 
-2. 设置自定义信息窗UI样式，通过[getTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section045613476152)和[setTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section136101154181514)可以获取和设置当前Marker信息窗的标题。在UI中添加onClick点击事件，进行相关点击的响应和操作。
+2. 设置自定义信息窗UI样式，通过[getTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#gettitle)和[setTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#settitle)可以获取和设置当前Marker信息窗的标题。在UI中添加onClick点击事件，进行相关点击的响应和操作。
 ```text
 <em>// 自定义信息窗BuilderParam</em>
 @BuilderParam customInfoWindow: ($$: map.MarkerDelegate) => void = this.customInfoWindowBuilder;
@@ -80,7 +80,7 @@ build() {
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/lApV1f1bTkCFAI2ALqjuLg/zh-cn_image_0000002658793655.png?HW-CC-KV=V1&HW-CC-Date=20260723T013727Z&HW-CC-Expire=86400&HW-CC-Sign=EC9EED88D1BEF3B6DC086D5F95B7BB935399B7107D205BDA1A7D910835F42CC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/cWjVLNwAQl2G03J1t5I2eQ/zh-cn_image_0000002658793655.png?HW-CC-KV=V1&HW-CC-Date=20260730T072643Z&HW-CC-Expire=86400&HW-CC-Sign=22CC59E2621586D8E1F0BBAE5D16945CD0C4FE715636882C5150BB9A8AFBFA66)
 
 
   完整代码：
@@ -186,4 +186,4 @@ struct MarkerDemo {
 
 Q：如何默认显示信息窗？
  
-A：在初始化地图时，添加Marker后，设置[setInfoWindowVisible](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section143213202166)为true。
+A：在初始化地图时，添加Marker后，设置[setInfoWindowVisible](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#setinfowindowvisible)为true。

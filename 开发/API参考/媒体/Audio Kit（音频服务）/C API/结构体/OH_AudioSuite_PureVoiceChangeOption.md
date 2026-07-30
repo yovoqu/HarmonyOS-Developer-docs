@@ -1,6 +1,6 @@
 # OH_AudioSuite_PureVoiceChangeOption
 
-更新时间：2026-06-03 01:38:22（官网已下线）
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-purevoicechangeoption
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -36,6 +36,6 @@ typedef struct {...} OH_AudioSuite_PureVoiceChangeOption
  
 | 名称 | 描述 |
 | --- | --- |
-| OH_AudioSuite_PureVoiceChangeGenderOption optionGender | 定义传统变声性别。 |
-| OH_AudioSuite_PureVoiceChangeType optionType | 定义传统变声类型。 |
-| float pitch | 定义传统变声音调。如果使用系统中的默认音调以获得最佳效果, 设置为OH_PURE_VOICE_DEFAULT_PITCH。 设置自定义音调的取值范围为[0.3f, 3.0f]。 |
+| OH_AudioSuite_PureVoiceChangeGenderOption optionGender | 指定传统变声性别。 |
+| OH_AudioSuite_PureVoiceChangeType optionType | 指定传统变声类型。 |
+| float pitch | 指定传统变声音调。如果使用系统中的默认音调以获得最佳效果, 设置为宏定义中的OH_PURE_VOICE_DEFAULT_PITCH。 设置自定义音调的取值范围为[0.3f, 3.0f]。 |

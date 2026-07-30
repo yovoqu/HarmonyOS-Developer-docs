@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -22,7 +22,7 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ERROR_UNKNOWN | 24700101 | 未知错误。 |
+| ERROR_UNKNOWN | 24700101 | 未知错误，当发生无法归类的异常时返回。 |
 | MAX_SYSTEM_NUM_REACHED | 24700103 | MediaKeySystem实例数量超过上限（64个）。 |
 | MAX_SESSION_NUM_REACHED | 24700104 | MediaKeySession实例数量超过上限（64个）。 |
 | SERVICE_FATAL_ERROR | 24700201 | DRM服务异常。 |
@@ -65,8 +65,8 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| MEDIA_KEY_TYPE_OFFLINE | 0 | 离线。 |
-| MEDIA_KEY_TYPE_ONLINE | 1 | 在线。 |
+| MEDIA_KEY_TYPE_OFFLINE | 0 | 离线媒体密钥，用于离线播放场景。 |
+| MEDIA_KEY_TYPE_ONLINE | 1 | 在线媒体密钥，用于在线播放场景。 |
  
  
   

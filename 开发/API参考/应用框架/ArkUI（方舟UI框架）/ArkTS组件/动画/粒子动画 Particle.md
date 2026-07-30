@@ -1,6 +1,6 @@
 # 粒子动画 (Particle)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-particle-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@
 粒子动画的效果通过Particle组件展现。
 
 > [!NOTE]
-> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 Particle在息屏之后再次打开或者切换后台再次唤起，粒子动画会自动暂停。
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 Particle在熄屏之后再次打开或者切换后台再次唤起，粒子动画会自动暂停。
 
 
 
@@ -96,7 +96,7 @@ disturbanceFields(fields: Array&lt;DisturbanceFieldOptions&gt;)
 
 emitter(value: Array&lt;EmitterProperty&gt;)
 
-支持发射器位置动态更新
+支持发射器属性动态更新，包括发射速率、位置、大小和环形区域等参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -106,7 +106,7 @@ emitter(value: Array&lt;EmitterProperty&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;EmitterProperty&gt; | 是 | 需要更新的emitter参数数组 |
+| value | Array&lt;EmitterProperty&gt; | 是 | 需要更新的发射器参数数组。 |
 
 
 
@@ -197,8 +197,8 @@ interface ParticleOptions<
 | color | ParticleColorPropertyOptions[/topic/body/section/table/tgroup/tbody/row/entry/color_updater {""}) (color_updater] | 否 | 是 | 粒子颜色配置。 说明： 默认值：{ range:[Color.White,Color.White] } 。图片粒子不支持设置颜色。 |
 | opacity | ParticlePropertyOptions<number, OPACITY_UPDATER> | 否 | 是 | 粒子透明度配置。 默认值：{ range:[1.0,1.0] } |
 | scale | ParticlePropertyOptions<number, SCALE_UPDATER> | 否 | 是 | 粒子大小配置。 默认值：{ range:[1.0,1.0] } |
-| velocity | VelocityOptions | 否 | 是 | 粒子速度配置。 说明： speed表示速度大小。angle表示速度的方向（单位为角度），以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。 默认值：{ speed:[0.0,0.0],angle:[0.0,0.0] } |
-| acceleration | AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER> | 否 | 是 | 粒子加速度配置。 说明： speed表示加速度大小，angle表示加速度方向（单位为角度）。 默认值：{ speed:{range:[0.0,0.0]},angle:{range:[0.0,0.0]} } |
+| velocity | VelocityOptions | 否 | 是 | 粒子速度配置。 说明： speed表示速度大小。angle表示速度的方向（单位：度），以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。 默认值：{ speed:[0.0,0.0],angle:[0.0,0.0] } |
+| acceleration | AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER> | 否 | 是 | 粒子加速度配置。 说明： speed表示加速度大小，angle表示加速度方向（单位：度）。 默认值：{ speed:{range:[0.0,0.0]},angle:{range:[0.0,0.0]} } |
 | spin | ParticlePropertyOptions<number, SPIN_UPDATER> | 否 | 是 | 粒子自旋角度配置。 默认值：{range:[0.0,0.0]} 方向：正数表示顺时针旋转，负数表示逆时针旋转。 |
 
 
@@ -225,7 +225,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| particle | EmitterParticleOptions&lt;PARTICLE&gt; | 否 | 否 | 粒子配置。 -type表示粒子类型，可以选择图片或者是点。 -config表示对应类型的配置。 -config类型和type值有关联： 1. 如果type为ParticleType.POINT，则config类型为PointParticleParameters 。 2. 如果type为ParticleType.IMAGE，则config类型为ImageParticleParameters 。 -count表示发射的粒子总数，count取值>=-1，当count为-1表示粒子总数无限大。 -lifetime表示单个粒子的生命周期，默认值1000（即1000ms，1s），lifetime>=-1，当lifetime为-1表示粒子生命周期无限大。当lifetime<-1，取默认值。 说明：如果不需要动画一直播放，建议不要将生命周期设置为-1，可能对性能造成较大影响。 lifetimeRange表示粒子生命周期取值范围，设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。lifetimeRange默认值为0，取值范围为[0, +∞）。设置为负值时取默认值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| particle | EmitterParticleOptions&lt;PARTICLE&gt; | 否 | 否 | 粒子配置。 -type表示粒子类型，可以选择图片或点。 -config表示对应类型的配置。 -config类型和type值有关联： 1. 如果type为ParticleType.POINT，则config类型为PointParticleParameters 。 2. 如果type为ParticleType.IMAGE，则config类型为ImageParticleParameters 。 -count表示发射的粒子总数，count取值>=-1，当count为-1表示粒子总数无限大。 -lifetime表示单个粒子的生命周期，默认值1000（即1000ms，1s），lifetime>=-1，当lifetime为-1表示粒子生命周期无限大。当lifetime<-1，取默认值。 说明：如果不需要动画一直播放，建议不要将生命周期设置为-1，可能对性能造成较大影响。 lifetimeRange表示粒子生命周期取值范围，设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。lifetimeRange默认值为0，取值范围为[0, +∞）。设置为负值时取默认值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | emitRate | number | 否 | 是 | 发射器发射速率（即每秒发射粒子数）。 默认值：5，小于0时取默认值5。emitRate值超过5000时会极大影响性能，建议设置参数小于5000。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | shape | ParticleEmitterShape | 否 | 是 | 发射器形状。 默认值：ParticleEmitterShape.RECTANGLE 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | position | ParticleTuple<Dimension, Dimension> | 否 | 是 | 发射器位置（距离组件左上角的位置。第一个参数为x方向上的相对偏移，第二个参数为y轴方向相对偏移。） 默认值：[0.0, 0.0] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -283,8 +283,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | src | ResourceStr | 否 | 否 | 图片路径，支持本地图片和网络图片，引用方式请参考加载图片资源。 暂不支持svg图片类型。 src未发生变化时，会优先使用缓存的资源，无法动态切换资源。如需动态切换资源建议切换为不同的src。 |
-| size | ParticleTuple<Dimension, Dimension> | 否 | 否 | 图像尺寸。 默认值：[0, 0] |
-| objectFit | ImageFit | 否 | 是 | 图片显示模式。 |
+| size | ParticleTuple<Dimension, Dimension> | 否 | 否 | 图像尺寸，第一个参数为图像宽度，第二个参数为图像高度。 默认值：[0, 0] |
+| objectFit | ImageFit | 否 | 是 | 图片显示模式。 默认值：ImageFit.Cover |
 
 
 
@@ -309,7 +309,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 | --- | --- | --- | --- | --- |
 | range | ParticleTuple<ResourceColor, ResourceColor> | 否 | 否 | 粒子初始颜色区间，粒子发射器生成粒子的初始颜色在range区间随机取值。 默认值：range:[Color.White,Color.White] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | distributionType12+ | DistributionType | 否 | 是 | 粒子初始颜色随机值分布，允许用户选择颜色随机值生成的分布类型，支持均匀分布或正态（高斯）分布。 默认值：DistributionType.UNIFORM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| updater | ParticleColorUpdaterOptions&lt;UPDATER&gt; | 否 | 是 | 颜色属性变化配置。颜色属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.CURVE]。 默认值：type默认为 ParticleUpdater.NONE。 说明： 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配置来变化；在updater配置的动画时间周期外，以range中的颜色配置来变化。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| updater | ParticleColorUpdaterOptions&lt;UPDATER&gt; | 否 | 是 | 颜色属性变化配置。颜色属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、type为ParticleUpdater.RANDOM，表示随机均匀变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.CURVE]。 默认值：type默认为 ParticleUpdater.NONE。 说明： 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配置来变化；在updater配置的动画时间周期外，以range中的颜色配置来变化。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -327,7 +327,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | [ParticleUpdater.NONE] | void | 否 | 否 | 无变化。 |
-| [ParticleUpdater.RANDOM] | ParticleColorOptions | 否 | 否 | 表示变化方式为均匀变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。 |
+| [ParticleUpdater.RANDOM] | ParticleColorOptions | 否 | 否 | 表示变化方式为随机变化的时候，对每个粒子在变化区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。 |
 | [ParticleUpdater.CURVE] | Array<ParticlePropertyAnimation&lt;ResourceColor&gt;> | 否 | 否 | 表示变化方式为曲线变化时，颜色变化的配置。数组类型表示当前属性可以设置多段动画，如0ms-3000ms，3000ms-5000ms，5000ms-8000ms分别设置动画。 |
 
 
@@ -353,7 +353,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | range | ParticleTuple<TYPE, TYPE> | 否 | 否 | 粒子初始属性值区间，粒子发射器生成粒子的属性值在range区间随机取值。 说明 各项属性的非法输入取默认值，当最大值小于最小值的时候取默认区间。TYPE为number。 不同属性的默认值不同： 1、opacity属性：range:[1.0,1.0]，取值范围为[0, 1]，默认值为1.0。 2、scale属性：range:[1.0,1.0]，取值范围为[0, 10000]，默认值为1.0。 3、acceleration加速度speed属性：range:[0.0,0.0]，取值范围为[0, 10000]，默认值为0.0。 4、acceleration加速度angle属性：range:[0.0,0.0]，取值范围为[-10000, 10000]，默认值为0.0。 5、spin属性：range:[0.0,0.0]，取值范围为[-10000, 10000]，默认值为0.0。 |
-| updater | ParticleUpdaterOptions<TYPE, UPDATER> | 否 | 是 | 属性变化配置。属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、当type为ParticleUpdater.RANDOM，表示变化类型为随机变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、当type为ParticleUpdater.CURVE，表示变化类型为曲线变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.CURVE] 默认值：type默认为ParticleUpdater.NONE。 |
+| updater | ParticleUpdaterOptions<TYPE, UPDATER> | 否 | 是 | 属性变化配置。属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、当type为ParticleUpdater.RANDOM，表示变化类型为随机均匀变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、当type为ParticleUpdater.CURVE，表示变化类型为曲线变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.CURVE] 默认值：type默认为ParticleUpdater.NONE。 |
 
 
 
@@ -379,7 +379,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | [ParticleUpdater.NONE] | void | 否 | 否 | 无变化。 |
-| [ParticleUpdater.RANDOM] | ParticleTuple<T, T> | 否 | 否 | 表示变化方式为匀速变化时，每秒的变化差值为设置区间随机生成的值。 目标属性值为当前属性值叠加变化差值。如当前属性值为0.2，config取[0.1,1.0]: 1、如果变化差值在区间[0.1,1.0]取随机值0.5，则目标属性值为0.2+0.5 = 0.7； 2、变化差值也可以取负值。如当前属性值为0.2，config为 [-3.0,2.0],如果变化差值在区间[-3.0,2.0]取随机值-2.0，则目标属性值为0.2-2.0 = -1.8。 说明： config配置的是变化差值的取值范围，差值的最大最小值没有约束。但是如果当前属性值叠加差值大于属性最大值，目标属性值取属性最大值；如果当前属性值叠加差值小于属性最小值，目标属性值取属性最小值。T为number。 例如：opacity的取值范围[0.0,1.0]则当当前属性值叠加差值超过1.0，则取1.0。 |
+| [ParticleUpdater.RANDOM] | ParticleTuple<T, T> | 否 | 否 | 表示变化方式为随机变化时，每秒的变化差值为设置区间随机生成的值。 目标属性值为当前属性值叠加变化差值。如当前属性值为0.2，config取[0.1,1.0]: 1、如果变化差值在区间[0.1,1.0]取随机值0.5，则目标属性值为0.2+0.5 = 0.7； 2、变化差值也可以取负值。如当前属性值为0.2，config为 [-3.0,2.0],如果变化差值在区间[-3.0,2.0]取随机值-2.0，则目标属性值为0.2-2.0 = -1.8。 说明： config配置的是变化差值的取值范围，差值的最大最小值没有约束。但是如果当前属性值叠加差值大于属性最大值，目标属性值取属性最大值；如果当前属性值叠加差值小于属性最小值，目标属性值取属性最小值。T为number。 例如：opacity的取值范围[0.0,1.0]则当当前属性值叠加差值超过1.0，则取1.0。 |
 | [ParticleUpdater.CURVE] | Array<ParticlePropertyAnimation&lt;T&gt;> | 否 | 否 | 表示变化方式为曲线变化时，属性变化的配置。数组类型表示当前属性可以设置多段动画，如0ms-3000ms，3000ms-5000ms，5000ms-8000ms分别设置动画。T为number。 |
 
 
@@ -482,9 +482,9 @@ interface ParticlePropertyAnimation<T> {
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| NONE | 'none' | 无变化 |
-| RANDOM | 'random' | 随机变化 |
-| CURVE | 'curve' | 动画曲线变化 |
+| NONE | 'none' | 无变化。 |
+| RANDOM | 'random' | 随机均匀变化。 |
+| CURVE | 'curve' | 动画曲线变化。 |
 
 
 
@@ -503,8 +503,8 @@ interface ParticlePropertyAnimation<T> {
 | --- | --- | --- | --- | --- |
 | strength | number | 否 | 是 | 场强，表示场从中心向外的排斥力的强度，默认值0。正数表示排斥力方向朝外，负数表示吸引力，方向朝内。 取值范围：(-∞, +∞)。 |
 | shape | DisturbanceFieldShape | 否 | 是 | 场的形状。 默认为DisturbanceFieldShape.RECT。 |
-| size | SizeT&lt;T&gt;&lt;number&gt; | 否 | 是 | 场的大小。 默认值 {width:0，height:0}。 width和height的取值范围：[0, +∞)。 |
-| position | PositionT&lt;number&gt; | 否 | 是 | 场的位置。 默认值{x:0，y:0}。 x、y的取值范围：(-∞, +∞)。 |
+| size | SizeT&lt;T&gt;&lt;number&gt; | 否 | 是 | 场的大小，单位：vp。 默认值 {width:0, height:0}。 width和height的取值范围：[0, +∞)。 |
+| position | PositionT&lt;number&gt; | 否 | 是 | 场的位置，单位：vp。 默认值{x:0, y:0}。 x、y的取值范围：(-∞, +∞)。 |
 | feather | number | 否 | 是 | 羽化值，表示场从中心点到场边缘的衰减程度，取值范围0到100的整数，如果0则表示场是一个刚体，所有范围内的粒子都被排斥在外。羽化值越大场的缓和程度越大，场范围内出现越多靠近中心点的粒子。 默认值为0。 |
 | noiseScale | number | 否 | 是 | 噪声尺度，用于控制噪声图案的整体大小，取值大于等于0。 默认值1。 |
 | noiseFrequency | number | 否 | 是 | 噪声频率，频率越大噪声越细腻，取值大于等于0。 默认值1。 |
@@ -517,7 +517,7 @@ interface ParticlePropertyAnimation<T> {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-粒子形状。
+扰动场形状。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -525,7 +525,7 @@ interface ParticlePropertyAnimation<T> {
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| RECT | 0 | 长方形。 |
+| RECT | 0 | 矩形。 |
 | CIRCLE | 1 | 圆。 |
 | ELLIPSE | 2 | 椭圆。 |
 
@@ -556,7 +556,7 @@ interface ParticlePropertyAnimation<T> {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-declare type ParticleTuple<T1, T2> = [T1, T2];
+type ParticleTuple<T1, T2> = [T1, T2]
 ```
 
 粒子元组，表示定义一些动画参数的类型。
@@ -612,7 +612,7 @@ interface Particles<
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| particles10+ | Array< ParticleOptions< PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER > > | 否 | 否 | 粒子动画的集合。每一个的粒子动画（ParticleOptions）包含粒子发射，同时可配置粒子的颜色、透明度、大小、速度、加速度与旋转速度，详见ParticleOptions属性说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| particles10+ | Array< ParticleOptions< PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER > > | 否 | 否 | 粒子动画的集合。每个粒子动画（ParticleOptions）包含粒子发射，同时可配置粒子的颜色、透明度、大小、速度、加速度与旋转速度，详见ParticleOptions属性说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -634,7 +634,7 @@ interface Particles<
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | speed10+ | ParticleTuple<number, number> | 否 | 否 | 表示速度大小。 默认值：{range:[0.0,0.0]} 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| angle10+ | ParticleTuple<number, number> | 否 | 否 | 表示速度的方向（单位为角度）。以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。 默认值：{range:[0.0,0.0]} 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| angle10+ | ParticleTuple<number, number> | 否 | 否 | 表示速度的方向（单位：度）。以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。 默认值：{range:[0.0,0.0]} 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -666,7 +666,7 @@ declare interface AccelerationOptions<
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | speed10+ | ParticlePropertyOptions<number, ACC_SPEED_UPDATER> | 否 | 是 | 表示加速度大小。 默认值：{range:[0.0,0.0]} 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| angle10+ | ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> | 否 | 是 | 表示加速度方向（单位为角度）。 默认值：{range:[0.0,0.0]} 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| angle10+ | ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> | 否 | 是 | 表示加速度方向（单位：度）。 默认值：{range:[0.0,0.0]} 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -697,11 +697,11 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type10+ | PARTICLE | 否 | 否 | 表示粒子类型，可以选择图片或者是点。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| type10+ | PARTICLE | 否 | 否 | 表示粒子类型，可以选择图片或点。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | config10+ | ParticleConfigs[PARTICLE] | 否 | 否 | 表示对应类型的配置。 config类型和type值有关联： 1. 如果type为ParticleType.POINT，则config类型为PointParticleParameters 。 2. 如果type为ParticleType.IMAGE，则config类型为ImageParticleParameters 。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | count10+ | number | 否 | 否 | 表示发射的粒子总数，count取值>=-1,当count为-1表示粒子总数无限大。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | lifetime10+ | number | 否 | 是 | 表示单个粒子的生命周期，默认值1000（即1000ms，1s），lifetime>=-1。当lifetime为-1表示粒子生命周期无限大。当lifetime<-1，取默认值。 说明：如果不需要动画一直播放，建议不要将生命周期设置为-1，可能对性能造成较大影响。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| lifetimeRange12+ | number | 否 | 是 | 表示粒子生命周期取值范围，设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。lifetimeRange默认值为0，取值范围为0到正无穷。设置为负值时取默认值。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| lifetimeRange12+ | number | 否 | 是 | 表示粒子生命周期取值范围，单位：毫秒(ms)。设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。lifetimeRange默认值为0，取值范围为0到正无穷。设置为负值时取默认值。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
 
@@ -717,7 +717,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
 }
 ```
 
-颜色属性变化配置。
+属性变化配置。
 
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -729,7 +729,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type10+ | UPDATER | 否 | 否 | 表示颜色属性变化类型。 默认值：type默认为ParticleUpdater.NONE。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| type10+ | UPDATER | 否 | 否 | 表示属性变化类型。 默认值：type默认为ParticleUpdater.NONE。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | config10+ | ParticlePropertyUpdaterConfigs&lt;TYPE&gt;[UPDATER] | 否 | 否 | 属性变化配置。属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、当type为ParticleUpdater.RANDOM，表示变化类型为随机变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、当type为ParticleUpdater.CURVE，表示变化类型为曲线变化，则config类型为ParticlePropertyUpdaterConfigs[ParticleUpdater.CURVE]。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
@@ -759,7 +759,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type10+ | UPDATER | 否 | 否 | 表示颜色属性变化类型。 默认值：type默认为 ParticleUpdater.NONE。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| config10+ | ParticleColorPropertyUpdaterConfigs[UPDATER] | 否 | 否 | 颜色属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.CURVE]。 说明： 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配置来变化；在updater配置的动画时间周期外，以range中的颜色配置来变化。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| config10+ | ParticleColorPropertyUpdaterConfigs[UPDATER] | 否 | 否 | 颜色属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、type为ParticleUpdater.RANDOM，表示随机均匀变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.CURVE]。 说明： 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配置来变化；在updater配置的动画时间周期外，以range中的颜色配置来变化。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -768,7 +768,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-颜色变化方式为均匀变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
+颜色变化方式为随机变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
 
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -1040,7 +1040,7 @@ struct ParticleExample {
               speed: {
                 range: [3, 9],
                 updater: {
-                  type: ParticleUpdater.RANDOM, // Speed的变化方式是随机变化
+                  type: ParticleUpdater.RANDOM, // Speed的变化方式是随机均匀变化
                   config: [1, 20]
                 }
               },
@@ -1058,7 +1058,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/VPOBBn6GTZ-s6JozrRGENg/zh-cn_image_0000002677668105.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=782FDF5316A09BC3010E07B1374F497AF5C987A56BD61C56A8B9F002E1AF3288)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/W8a_raNYQqu5RfAV0VAVLA/zh-cn_image_0000002655848914.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=DEB265325F29270805620E7E48E5E03928773DF8C3479DA71A307C900376B7D4)
 
 
 
@@ -1163,14 +1163,14 @@ struct ParticleExample {
         }).width(300).height(300)
 
       }.width(500).height(500).align(Alignment.Center)
-    }.width("100%").height("100%")
+    }.width('100%').height('100%')
 
   }
 }
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/pRnX-WlgRrKzUYLcCHu0dw/zh-cn_image_0000002647748222.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=F508DC0AC4BED49B9DD697FAF6DFA68250C00510B943669075AF95F80D5F946D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/1mPtTUmqRSGWObyQMT5EJQ/zh-cn_image_0000002686088345.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=54C16A8AEFDE08C8E265DDF81C5392CA5804FBEECF1BD6043BEB7FED483C3E85)
 
 
 
@@ -1285,15 +1285,16 @@ struct ParticleExample3 {
 
           }
         ]
+      // 设置粒子扰动场，干扰粒子运动轨迹
       }).width(300).height(300).disturbanceFields([{
-        strength: 10,
-        shape: DisturbanceFieldShape.RECT,
-        size: { width: 100, height: 100 },
-        position: { x: 100, y: 100 },
-        feather: 15,
-        noiseScale: 10,
-        noiseFrequency: 15,
-        noiseAmplitude: 5
+        strength: 10, // 场强，表示排斥力或吸引力的强度
+        shape: DisturbanceFieldShape.RECT, // 扰动场形状为矩形
+        size: { width: 100, height: 100 }, // 扰动场大小
+        position: { x: 100, y: 100 }, // 扰动场位置
+        feather: 15, // 羽化值，表示场从中心点到场边缘的衰减程度
+        noiseScale: 10, // 噪声尺度
+        noiseFrequency: 15, // 噪声频率
+        noiseAmplitude: 5 // 噪声振幅
       }])
     }.width('100%').height('100%').align(Alignment.Center)
   }
@@ -1301,7 +1302,7 @@ struct ParticleExample3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/XFvQ3LnAQNOVl0q9sS7HAA/zh-cn_image_0000002647588314.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=EEF65E8F8DC2072F04EB9DF7318B39CC60A7BD8B738215848544017BD11C0058)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/w_VEZIUXQw-vsnfcnrhhAQ/zh-cn_image_0000002685928513.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=C132E6D6C944BE6803AED84ED26C7A2F1BCC4DF914F37BEBD301FC0B1AC7325B)
 
 
 
@@ -1384,7 +1385,7 @@ struct ParticleExample4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/1Y8TeuhyQgOkx247kV4B4g/zh-cn_image_0000002677827953.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=4F0CF3712231B4399E590A92C8390AE87BACACB04D7AE5E243A48F1E125489E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/jI4sQadeRDuzQMw3kJM2Vg/zh-cn_image_0000002656008836.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=5E069890DA062A0E3EA73821725334532842947A74952DE3E65109E5BE9F471B)
 
 
 
@@ -1475,7 +1476,7 @@ struct ParticleExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/XmZGqN8AQvmzOSzFOBHhSg/zh-cn_image_0000002677668107.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=98EF011DFB377029705DB58FC8467A8A63942767CB94A09736987403708071A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/hnTrQMXRSqKksC7nW4K5Mw/zh-cn_image_0000002655848916.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=4DB611DF3F32176E0164DA1D1E000920F27C4A77A00AB7A007C7BE0DA92A003C)
 
 
 
@@ -1508,7 +1509,7 @@ struct ParticleExample6 {
       index: 0,
       emitRate: 100,
       annulusRegion: {
-        center:{x:this.centerX, y: this.centerY}, // 圆环的圆心坐标
+        center: {x:this.centerX, y: this.centerY}, // 圆环的圆心坐标
         outerRadius: this.outRadius, // 圆环的外圆半径
         innerRadius: this.inRadius, // 圆环的内圆半径
         startAngle: this.startAngle, // 圆环的起始角度
@@ -1519,7 +1520,7 @@ struct ParticleExample6 {
 
   // 创建的时候，环形发射器的初始设置
   @State region: ParticleAnnulusRegion = {
-    center:{x:this.centerX, y: this.centerY},
+    center: {x:this.centerX, y: this.centerY},
     outerRadius: this.outRadius,
     innerRadius: this.inRadius,
     startAngle: -90,
@@ -1595,7 +1596,7 @@ struct ParticleExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/bxAcA5A7QT-UH2QhyPzeHQ/zh-cn_image_0000002647748224.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=F1D40736A6A58F28C514606D40A09AE430FC4B4D4AB32FB77CB756F53E296B4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/5EAtf5x1RuqjasUGFU6qnw/zh-cn_image_0000002686088347.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=E8A3A59D930791040839CA4E00C609B1F9CE81EE564C340399EAD3A6B73F917A)
 
 
 
@@ -1663,7 +1664,7 @@ struct ParticleExample {
               }
             }
           ])
-      }.width("100%").height(300).align(Alignment.Center)
+      }.width('100%').height(300).align(Alignment.Center)
       Text('速度场')
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
@@ -1721,11 +1722,11 @@ struct ParticleExample {
               }
             }
           ])
-      }.width("100%").height(300).align(Alignment.Center)
+      }.width('100%').height(300).align(Alignment.Center)
     }
   }
 }
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/5iuStHymSeyq6VHGuJeAbA/zh-cn_image_0000002647588316.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=5C25630BE2CB4E064C188F07C14011984F80D7507044C57D8CC62BB1513688E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/3V7EJnt8QxOz_WqmBWHX3A/zh-cn_image_0000002685928515.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=E23826D465548B46A16AE32499C3C29E299F2A27D5A07737F23F49AFFE9AFC5D)

@@ -1,6 +1,6 @@
 # 画布操作及状态处理（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-operation-state-c
 
@@ -37,10 +37,10 @@
 
 | 接口 | 描述 |
 | --- | --- |
-| void OH_Drawing_CanvasClipRect (OH_Drawing_Canvas *, const OH_Drawing_Rect *, OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个矩形。 |
-| void OH_Drawing_CanvasClipRoundRect (OH_Drawing_Canvas *, const OH_Drawing_RoundRect *, OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个圆角矩形。 |
-| void OH_Drawing_CanvasClipPath (OH_Drawing_Canvas *, const OH_Drawing_Path *, OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个自定义路径。 |
-| OH_Drawing_ErrorCode OH_Drawing_CanvasClipRegion (OH_Drawing_Canvas *canvas, const OH_Drawing_Region *region, OH_Drawing_CanvasClipOp clipOp) | 用于裁剪一个区域。 |
+| void OH_Drawing_CanvasClipRect(OH_Drawing_Canvas *, const OH_Drawing_Rect *, OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个矩形。 |
+| void OH_Drawing_CanvasClipRoundRect(OH_Drawing_Canvas *, const OH_Drawing_RoundRect *, OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个圆角矩形。 |
+| void OH_Drawing_CanvasClipPath(OH_Drawing_Canvas *, const OH_Drawing_Path *, OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个自定义路径。 |
+| OH_Drawing_ErrorCode OH_Drawing_CanvasClipRegion(OH_Drawing_Canvas *canvas, const OH_Drawing_Region *region, OH_Drawing_CanvasClipOp clipOp) | 用于裁剪一个区域。 |
 
 
 
@@ -102,10 +102,10 @@ OH_Drawing_BrushDestroy(brush);
 
 | 接口 | 描述 |
 | --- | --- |
-| void OH_Drawing_CanvasTranslate (OH_Drawing_Canvas *, float dx, float dy) | 用于平移画布一段距离。 |
-| void OH_Drawing_CanvasScale (OH_Drawing_Canvas *, float sx, float sy) | 用于画布缩放。 |
-| void OH_Drawing_CanvasRotate (OH_Drawing_Canvas *, float degrees, float px, float py) | 用于画布旋转一定的角度，正数表示顺时针旋转，负数反之。 |
-| void OH_Drawing_CanvasSkew (OH_Drawing_Canvas *, float sx, float sy) | 用于画布倾斜变换。等同于将当前画布矩阵左乘（premultiply）倾斜变换矩阵，并应用到画布上。其中倾斜变换矩阵为：\|1 sx 0\| \|sy 1 0\| \|0 0 1\|。 |
+| void OH_Drawing_CanvasTranslate(OH_Drawing_Canvas *, float dx, float dy) | 用于平移画布一段距离。 |
+| void OH_Drawing_CanvasScale(OH_Drawing_Canvas *, float sx, float sy) | 用于画布缩放。 |
+| void OH_Drawing_CanvasRotate(OH_Drawing_Canvas *, float degrees, float px, float py) | 用于画布旋转一定的角度，正数表示顺时针旋转，负数反之。 |
+| void OH_Drawing_CanvasSkew(OH_Drawing_Canvas *, float sx, float sy) | 用于画布倾斜变换。等同于将当前画布矩阵左乘（premultiply）倾斜变换矩阵，并应用到画布上。其中倾斜变换矩阵为：\|1 sx 0\| \|sy 1 0\| \|0 0 1\|。 |
 
 
 
@@ -178,7 +178,7 @@ OH_Drawing_MatrixDestroy(matrix);
 
 #### 缩放
 
-使用OH_Drawing_MatrixCreateScale()接口进行画布缩放，接口接受4个参数，分别为沿x轴和y轴的缩放因子、旋转中心的x轴和y轴坐标。
+使用OH_Drawing_MatrixCreateScale()接口进行画布缩放，接口接受4个参数，分别为沿x轴和y轴的缩放因子、缩放中心的x轴和y轴坐标。
 
 简单示例和示意图如下所示：
 
@@ -220,9 +220,9 @@ OH_Drawing_RectDestroy(rect);
 
 | 接口 | 描述 |
 | --- | --- |
-| void OH_Drawing_CanvasSave (OH_Drawing_Canvas *) | 用于保存当前画布的状态（画布矩阵）到一个栈顶。 |
-| void OH_Drawing_CanvasRestore (OH_Drawing_Canvas *) | 用于恢复保存在栈顶的画布状态（画布矩阵）。 |
-| void OH_Drawing_CanvasRestoreToCount (OH_Drawing_Canvas *, uint32_t saveCount) | 用于恢复到指定数量的画布状态（画布矩阵）。 |
+| void OH_Drawing_CanvasSave(OH_Drawing_Canvas *) | 用于保存当前画布的状态（画布矩阵）到一个栈顶。 |
+| void OH_Drawing_CanvasRestore(OH_Drawing_Canvas *) | 用于恢复保存在栈顶的画布状态（画布矩阵）。 |
+| void OH_Drawing_CanvasRestoreToCount(OH_Drawing_Canvas *, uint32_t saveCount) | 用于恢复到指定数量的画布状态（画布矩阵）。 |
 
 
 
@@ -259,7 +259,7 @@ OH_Drawing_MatrixDestroy(matrix);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/dg2nqgaET0m5QoWC5RV6cw/zh-cn_image_0000002626229246.png?HW-CC-KV=V1&HW-CC-Date=20260624T020913Z&HW-CC-Expire=86400&HW-CC-Sign=943152BA99F1B7AB4ABA8D233A58EB80126B1951E62651A99CFCFF6F952C5682)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/6XSNMCgoT7qqTnXk61t8KA/zh-cn_image_0000002656007294.png?HW-CC-KV=V1&HW-CC-Date=20260730T071949Z&HW-CC-Expire=86400&HW-CC-Sign=4212121B2D03F1A8E5E289A68A3C674533C71C723CA6720E38F048224F1D2154)
 
 
 

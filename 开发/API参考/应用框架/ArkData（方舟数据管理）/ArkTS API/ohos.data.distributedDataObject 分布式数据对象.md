@@ -1,6 +1,6 @@
 # @ohos.data.distributedDataObject (分布式数据对象)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-distributedobject
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -63,22 +63,21 @@ FA模型示例：
 ```text
 // 导入模块
 import { featureAbility } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
 // 获取context
 let context = featureAbility.getContext();
 class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
+  name: string
+  age: number
+  isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name;
-        this.age = age;
-        this.isVis = isVis;
-    }
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
-let source: SourceObject = new SourceObject("jack", 18, false);
+let source: SourceObject = new SourceObject('jack', 18, false);
 let g_object: distributedDataObject.DataObject = distributedDataObject.create(context, source);
 ```
 
@@ -91,23 +90,24 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
 
 let g_object: distributedDataObject.DataObject|null = null;
-class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name;
-        this.age = age;
-        this.isVis = isVis;
-    }
+class SourceObject {
+  name: string
+  age: number
+  isVis: boolean
+
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
 class EntryAbility extends UIAbility {
-    onWindowStageCreate(windowStage: window.WindowStage) {
-        let source: SourceObject = new SourceObject("jack", 18, false);
-        g_object = distributedDataObject.create(this.context, source);
-    }
+  onWindowStageCreate(windowStage: window.WindowStage) {
+    let source: SourceObject = new SourceObject('jack', 18, false);
+    g_object = distributedDataObject.create(this.context, source);
+  }
 }
 ```
 
@@ -203,7 +203,7 @@ type DataObserver = (sessionId: string, fields: Array&lt;string&gt;) => void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 标识变更对象的sessionId。长度需小于128字节，且只能包含字母、数字或下划线_。 |
+| sessionId | string | 是 | 标识变更对象的sessionId。长度不大于128字节，且只能包含字母、数字或下划线_。 |
 | fields | Array&lt;string&gt; | 是 | 标识对象变更的属性名。属性名可自定义，要求字符串非空且长度不超过128字节。 |
 
 
@@ -274,7 +274,7 @@ setSessionId(sessionId: string, callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 分布式数据对象在可信组网中的标识ID，长度不大于128，且只能包含字母数字或下划线_。当传入""、null时表示退出分布式组网。 |
+| sessionId | string | 是 | 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母数字或下划线_。当传入""、null时表示退出分布式组网。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 加入session的异步回调。 |
 
 
@@ -293,12 +293,12 @@ setSessionId(sessionId: string, callback: AsyncCallback&lt;void&gt;): void
 
 ```text
 // g_object加入分布式组网
-g_object.setSessionId(distributedDataObject.genSessionId(), ()=>{
-    console.info("join session");
+g_object.setSessionId(distributedDataObject.genSessionId(), () => {
+    console.info('join session');
 });
 // g_object退出分布式组网
-g_object.setSessionId("", ()=>{
-    console.info("leave all session");
+g_object.setSessionId('', () => {
+    console.info('leave all session');
 });
 ```
 
@@ -342,12 +342,12 @@ setSessionId(callback: AsyncCallback&lt;void&gt;): void
 
 ```text
 // g_object加入分布式组网
-g_object.setSessionId(distributedDataObject.genSessionId(), ()=>{
-    console.info("join session");
+g_object.setSessionId(distributedDataObject.genSessionId(), () => {
+    console.info('join session');
 });
 // 退出分布式组网
 g_object.setSessionId(() => {
-    console.info("leave all session.");
+    console.info('leave all session.');
 });
 ```
 
@@ -369,7 +369,7 @@ setSessionId(sessionId?: string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 否 | 分布式数据对象在可信组网中的标识ID，长度不大于128，且只能包含字母数字或下划线_。当传入""、null或不传入参数时表示退出分布式组网。 |
+| sessionId | string | 否 | 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母数字或下划线_。当传入""、null或不传入参数时表示退出分布式组网。 |
 
 
 **返回值：**
@@ -394,16 +394,16 @@ setSessionId(sessionId?: string): Promise&lt;void&gt;
 
 ```text
 // g_object加入分布式组网
-g_object.setSessionId(distributedDataObject.genSessionId()).then (()=>{
-    console.info("join session.");
-    }).catch((error: BusinessError)=>{
-        console.error("error:" + error.code + error.message);
+g_object.setSessionId(distributedDataObject.genSessionId()).then(() => {
+    console.info('join session.');
+}).catch((error: BusinessError) => {
+    console.error(`Failed to set sessionId. Code: ${error.code}, message: ${error.message}`);
 });
 // 退出分布式组网
-g_object.setSessionId().then (()=>{
-    console.info("leave all session.");
-    }).catch((error: BusinessError)=>{
-        console.error("error:" + error.code + error.message);
+g_object.setSessionId().then(() => {
+    console.info('leave all session.');
+}).catch((error: BusinessError) => {
+    console.error(`Failed to set sessionId. Code: ${error.code}, message: ${error.message}`);
 });
 ```
 
@@ -439,11 +439,11 @@ on(type: 'change', callback: (sessionId: string, fields: Array&lt;string&gt;) =>
 **示例：**
 
 ```text
-g_object.on("change", (sessionId: string, fields: Array<string>) => {
-    console.info("change" + sessionId);
+g_object.on('change', (sessionId: string, fields: Array<string>) => {
+    console.info('change' + sessionId);
     if (g_object != null && fields != null && fields != undefined) {
         for (let index: number = 0; index < fields.length; index++) {
-            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+            console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
         }
     }
 });
@@ -482,16 +482,16 @@ off(type: 'change', callback?: (sessionId: string, fields: Array&lt;string&gt;) 
 
 ```text
 // 删除数据变更回调changeCallback
-g_object.off("change", (sessionId: string, fields: Array<string>) => {
-    console.info("change" + sessionId);
+g_object.off('change', (sessionId: string, fields: Array<string>) => {
+    console.info('change' + sessionId);
     if (g_object != null && fields != null && fields != undefined) {
         for (let index: number = 0; index < fields.length; index++) {
-            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+            console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
         }
     }
 });
 // 删除所有的数据变更回调
-g_object.off("change");
+g_object.off('change');
 ```
 
 
@@ -526,8 +526,8 @@ on(type: 'status', callback: (sessionId: string, networkId: string, status: 'onl
 **示例：**
 
 ```text
-g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info("status changed " + sessionId + " " + status + " " + networkId);
+g_object.on('status', (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info('status changed ' + sessionId + ' ' + status + ' ' + networkId);
 });
 ```
 
@@ -548,7 +548,7 @@ off(type: 'status', callback?:(sessionId: string, networkId: string, status: 'on
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示对象上下线。 |
-| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。 sessionId：标识变更对象的sessionId； networkId：标识变更对象； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
+| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。 sessionId：标识变更对象的sessionId； networkId：标识对象设备； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
 
 
 **错误码：**
@@ -564,11 +564,11 @@ off(type: 'status', callback?:(sessionId: string, networkId: string, status: 'on
 
 ```text
 // 删除上下线回调changeCallback
-g_object.off("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info("status changed " + sessionId + " " + status + " " + networkId);
+g_object.off('status', (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info('status changed ' + sessionId + ' ' + status + ' ' + networkId);
 });
 // 删除所有的上下线回调
-g_object.off("status");
+g_object.off('status');
 ```
 
 
@@ -596,7 +596,7 @@ save(deviceId: string, callback: AsyncCallback&lt;SaveSuccessResponse&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceId | string | 是 | 保存数据的deviceId，当deviceId为"local"，代表存储在本地设备。 |
+| deviceId | string | 是 | 存储数据的设备号，标识需要保存对象的设备。"local"表示本地设备，否则表示其他设备的设备号。 |
 | callback | AsyncCallback&lt;SaveSuccessResponse&gt; | 是 | 回调函数。返回SaveSuccessResponse，包含sessionId、version、deviceId等信息。 |
 
 
@@ -613,17 +613,16 @@ save(deviceId: string, callback: AsyncCallback&lt;SaveSuccessResponse&gt;): void
 **示例：**
 
 ```text
-g_object.setSessionId("123456");
-g_object.save("local", (err: BusinessError, result:distributedDataObject.SaveSuccessResponse) => {
+g_object.setSessionId('123456');
+g_object.save('local', (err: BusinessError, result:distributedDataObject.SaveSuccessResponse) => {
     if (err) {
-        console.error("save failed, error code = " + err.code);
-        console.error("save failed, error message: " + err.message);
+        console.error(`Failed to save. Code: ${err.code}, message: ${err.message}`);
         return;
     }
-    console.info("save callback");
-    console.info("save sessionId: " + result.sessionId);
-    console.info("save version: " + result.version);
-    console.info("save deviceId:  " + result.deviceId);
+    console.info('save callback');
+    console.info('save sessionId: ' + result.sessionId);
+    console.info('save version: ' + result.version);
+    console.info('save deviceId:  ' + result.deviceId);
 });
 ```
 
@@ -652,7 +651,7 @@ save(deviceId: string): Promise&lt;SaveSuccessResponse&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceId | string | 是 | 保存数据的设备号，当deviceId默认为"local"，标识需要保存对象的设备。 |
+| deviceId | string | 是 | 存储数据的设备号，标识需要保存对象的设备。"local"表示本地设备，否则表示其他设备的设备号。 |
 
 
 **返回值：**
@@ -675,15 +674,14 @@ save(deviceId: string): Promise&lt;SaveSuccessResponse&gt;
 **示例：**
 
 ```text
-g_object.setSessionId("123456");
-g_object.save("local").then((callbackInfo: distributedDataObject.SaveSuccessResponse) => {
-    console.info("save callback");
-    console.info("save sessionId " + callbackInfo.sessionId);
-    console.info("save version " + callbackInfo.version);
-    console.info("save deviceId " + callbackInfo.deviceId);
+g_object.setSessionId('123456');
+g_object.save('local').then((callbackInfo: distributedDataObject.SaveSuccessResponse) => {
+    console.info('save callback');
+    console.info('save sessionId ' + callbackInfo.sessionId);
+    console.info('save version ' + callbackInfo.version);
+    console.info('save deviceId ' + callbackInfo.deviceId);
 }).catch((err: BusinessError) => {
-    console.error("save failed, error code = " + err.code);
-    console.error("save failed, error message: " + err.message);
+    console.error(`Failed to save. Code: ${err.code}, message: ${err.message}`);
 });
 ```
 
@@ -723,28 +721,25 @@ revokeSave(callback: AsyncCallback&lt;RevokeSaveSuccessResponse&gt;): void
 **示例：**
 
 ```text
-g_object.setSessionId("123456");
+g_object.setSessionId('123456');
 // 持久化数据
-g_object.save("local", (err: BusinessError, result: distributedDataObject.SaveSuccessResponse) => {
+g_object.save('local', (err: BusinessError, result: distributedDataObject.SaveSuccessResponse) => {
     if (err) {
-        console.error("save failed, error code = " + err.code);
-        console.error("save failed, error message: " + err.message);
-        return;
+        console.error(`Failed to save. Code: ${err.code}, message: ${err.message}`);
     }
-    console.info("save callback");
-    console.info("save sessionId: " + result.sessionId);
-    console.info("save version: " + result.version);
-    console.info("save deviceId:  " + result.deviceId);
+    console.info('save callback');
+    console.info('save sessionId: ' + result.sessionId);
+    console.info('save version: ' + result.version);
+    console.info('save deviceId:  ' + result.deviceId);
 });
 // 删除持久化保存的数据
 g_object.revokeSave((err: BusinessError, result: distributedDataObject.RevokeSaveSuccessResponse) => {
     if (err) {
-      console.error("revokeSave failed, error code = " + err.code);
-      console.error("revokeSave failed, error message: " + err.message);
+      console.error(`Failed to revoke save. Code: ${err.code}, message: ${err.message}`);
       return;
     }
-    console.info("revokeSave callback");
-    console.info("revokeSave sessionId " + result.sessionId);
+    console.info('revokeSave callback');
+    console.info('revokeSave sessionId ' + result.sessionId);
 });
 ```
 
@@ -783,24 +778,22 @@ revokeSave(): Promise&lt;RevokeSaveSuccessResponse&gt;
 **示例：**
 
 ```text
-g_object.setSessionId("123456");
+g_object.setSessionId('123456');
 // 持久化数据
-g_object.save("local").then((result: distributedDataObject.SaveSuccessResponse) => {
-    console.info("save callback");
-    console.info("save sessionId " + result.sessionId);
-    console.info("save version " + result.version);
-    console.info("save deviceId " + result.deviceId);
+g_object.save('local').then((result: distributedDataObject.SaveSuccessResponse) => {
+    console.info('save callback');
+    console.info('save sessionId ' + result.sessionId);
+    console.info('save version ' + result.version);
+    console.info('save deviceId ' + result.deviceId);
 }).catch((err: BusinessError) => {
-    console.error("save failed, error code = " + err.code);
-    console.error("save failed, error message: " + err.message);
+    console.error(`Failed to save. Code: ${err.code}, message: ${err.message}`);
 });
 // 删除持久化保存的数据
 g_object.revokeSave().then((result: distributedDataObject.RevokeSaveSuccessResponse) => {
-    console.info("revokeSave callback");
-    console.info("sessionId" + result.sessionId);
-}).catch((err: BusinessError)=> {
-    console.error("revokeSave failed, error code = " + err.code);
-    console.error("revokeSave failed, error message = " + err.message);
+    console.info('revokeSave callback');
+    console.info('sessionId' + result.sessionId);
+}).catch((err: BusinessError) => {
+    console.error(`Failed to revoke save. Code: ${err.code}, message: ${err.message}`);
 });
 ```
 
@@ -884,7 +877,7 @@ class EntryAbility extends UIAbility {
 
     g_object.bindAssetStore('attachment', bindInfo, (err: BusinessError) => {
       if (err) {
-        console.error('bindAssetStore failed.');
+        console.error(`Failed to bind asset store. Code: ${err.code}, message: ${err.message}`);
       }
       console.info('bindAssetStore success.');
     });
@@ -918,7 +911,7 @@ bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -976,10 +969,10 @@ class EntryAbility extends UIAbility {
       assetName: attachment.name as string
     }
 
-    g_object.bindAssetStore("attachment", bindInfo).then(() => {
+    g_object.bindAssetStore('attachment', bindInfo).then(() => {
       console.info('bindAssetStore success.');
     }).catch((err: BusinessError) => {
-      console.error("bindAssetStore failed, error code = " + err.code);
+      console.error(`Failed to bind asset store. Code: ${err.code}, message: ${err.message}`);
     });
   }
 }
@@ -1009,17 +1002,17 @@ on(type: 'change', callback: DataObserver): void
 
 ```text
 const changeCallback1: distributedDataObject.DataObserver = (sessionId: string, fields: Array<string>) => {
-  console.info("change callback1 " + sessionId);
+  console.info('change callback1 ' + sessionId);
   if (fields != null && fields != undefined) {
       for (let index: number = 0; index < fields.length; index++) {
-          console.info("change !" + fields[index]);
+          console.info('change !' + fields[index]);
       }
   }
 }
 try {
-  g_object.on("change", changeCallback1);
+  g_object.on('change', changeCallback1);
 } catch (error) {
-  console.error("Execute failed, error code =  " + error.code);
+  console.error(`Failed to execute. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -1047,34 +1040,34 @@ off(type: 'change', callback?: DataObserver): void
 
 ```text
 const changeCallback1: distributedDataObject.DataObserver = (sessionId: string, fields: Array<string>) => {
-  console.info("change callback1 " + sessionId);
+  console.info('change callback1 ' + sessionId);
   if (fields != null && fields != undefined) {
       for (let index: number = 0; index < fields.length; index++) {
-          console.info("change !" + fields[index]);
+          console.info('change !' + fields[index]);
       }
   }
 }
 
 const changeCallback2: distributedDataObject.DataObserver = (sessionId: string, fields: Array<string>) => {
-  console.info("change callback2 " + sessionId);
+  console.info('change callback2 ' + sessionId);
   if (fields != null && fields != undefined) {
       for (let index: number = 0; index < fields.length; index++) {
-          console.info("change !" + fields[index]);
+          console.info('change !' + fields[index]);
       }
   }
 }
 
 try {
   // 删除单个数据变更回调函数
-  g_object.on("change", changeCallback1);
-  g_object.off("change", changeCallback1);
+  g_object.on('change', changeCallback1);
+  g_object.off('change', changeCallback1);
 
   // 删除所有数据变更回调函数
-  g_object.on("change", changeCallback1);
-  g_object.on("change", changeCallback2);
-  g_object.off("change");
+  g_object.on('change', changeCallback1);
+  g_object.on('change', changeCallback2);
+  g_object.off('change');
 } catch (error) {
-  console.error("Execute failed, error code =  " + error.code);
+  console.error(`Failed to execute. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -1102,12 +1095,12 @@ on(type: 'status', callback: StatusObserver): void
 
 ```text
 const statusCallback1: distributedDataObject.StatusObserver = (sessionId: string, networkId: string, status: string) => {
-  console.info("status callback " + sessionId);
+  console.info('status callback ' + sessionId);
 }
 try {
-  g_object.on("status", statusCallback1);
+  g_object.on('status', statusCallback1);
 } catch (error) {
-  console.error("Execute failed, error code =  " + error.code);
+  console.error(`Failed to execute. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -1135,23 +1128,23 @@ off(type: 'status', callback?: StatusObserver): void
 
 ```text
 const statusCallback1: distributedDataObject.StatusObserver = (sessionId: string, networkId: string, status: string) => {
-  console.info("status callback1" + sessionId);
+  console.info('status callback1' + sessionId);
 }
 
 const statusCallback2: distributedDataObject.StatusObserver = (sessionId: string, networkId: string, status: string) => {
-  console.info("status callback2" + sessionId);
+  console.info('status callback2' + sessionId);
 }
 try {
   // 删除单个状态变更回调函数
-  g_object.on("status", statusCallback1);
-  g_object.off("status", statusCallback1);
+  g_object.on('status', statusCallback1);
+  g_object.off('status', statusCallback1);
 
   // 删除所有状态变更回调函数
-  g_object.on("status", statusCallback1);
-  g_object.on("status", statusCallback2);
-  g_object.off("status");
+  g_object.on('status', statusCallback1);
+  g_object.on('status', statusCallback2);
+  g_object.off('status');
 } catch (error) {
-  console.error("Execute failed, error code =  " + error.code);
+  console.error(`Failed to execute. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -1179,13 +1172,13 @@ on(type: 'progressChanged', callback: ProgressObserver): void
 
 ```text
 const progressChangedCallback: distributedDataObject.ProgressObserver = (sessionId: string, progress: number) => {
-  console.info("progressChanged callback" + sessionId);
-  console.info("progressChanged callback" + progress);
+  console.info('progressChanged callback' + sessionId);
+  console.info('progressChanged callback' + progress);
 }
 try {
-  g_object.on("progressChanged", progressChangedCallback);
+  g_object.on('progressChanged', progressChangedCallback);
 } catch (error) {
-  console.error("Execute failed, error code =  " + error.code);
+  console.error(`Failed to execute. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -1197,7 +1190,7 @@ try {
 
 off(type: 'progressChanged', callback?: ProgressObserver): void
 
-当不再进行资产传输进度监听时，使用此接口取消监听。
+当不再进行资产传输进度监听时，使用此接口删除资产传输进度监听的回调实例。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
@@ -1206,32 +1199,32 @@ off(type: 'progressChanged', callback?: ProgressObserver): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'progressChanged'，表示资产传输进度变化事件。 |
-| callback | ProgressObserver | 否 | 需要取消监听的事件回调，若不设置，则取消对该事件的所有监听。 |
+| callback | ProgressObserver | 否 | 需要取消监听的回调实例，若不设置，则取消对该事件的所有监听。 |
 
 
 **示例：**
 
 ```text
 const progressChangedCallback1: distributedDataObject.ProgressObserver = (sessionId: string, progress: number) => {
-  console.info("progressChanged callback1" + sessionId);
-  console.info("progressChanged callback1" + progress);
+  console.info('progressChanged callback1' + sessionId);
+  console.info('progressChanged callback1' + progress);
 }
 
 const progressChangedCallback2: distributedDataObject.ProgressObserver = (sessionId: string, progress: number) => {
-  console.info("progressChanged callback2" + sessionId);
-  console.info("progressChanged callback2" + progress);
+  console.info('progressChanged callback2' + sessionId);
+  console.info('progressChanged callback2' + progress);
 }
 try {
-  g_object.on("progressChanged", progressChangedCallback1);
+  g_object.on('progressChanged', progressChangedCallback1);
   // 取消对资产传输进度的监听
-  g_object.off("progressChanged", progressChangedCallback1);
+  g_object.off('progressChanged', progressChangedCallback1);
 
-  g_object.on("progressChanged", progressChangedCallback1);
-  g_object.on("progressChanged", progressChangedCallback2);
+  g_object.on('progressChanged', progressChangedCallback1);
+  g_object.on('progressChanged', progressChangedCallback2);
   // 取消对资产传输进度的所有监听
-  g_object.off("progressChanged");
+  g_object.off('progressChanged');
 } catch (error) {
-  console.error("Execute failed, error code =  " + error.code);
+  console.error(`Failed to execute. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -1246,7 +1239,7 @@ setAsset(assetKey: string, uri: string): Promise&lt;void&gt;
 设置分布式对象中的单个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/xkrN0b_GSTysFYMfll20aQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014251Z&HW-CC-Expire=86400&HW-CC-Sign=028BFCA67865640455E22E861F3E6B995EDEF90B5904C33033837C5E510BE22E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/4rynMWFUS5qUNX1XCbEH7Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071431Z&HW-CC-Expire=86400&HW-CC-Sign=8C42E161D35BAA7D44D31B1E9846FA60419EE4F7B19C9950A0AAF75264D83D14)
 
 
 在设置资产时必须保证assetKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
@@ -1279,7 +1272,7 @@ setAsset(assetKey: string, uri: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1326,11 +1319,11 @@ class EntryAbility extends UIAbility {
     let note: Note = new Note('test', 'test', attachment);
     let g_object: distributedDataObject.DataObject = distributedDataObject.create(this.context, note);
 
-    let uri = "file://test/test.img";
-    g_object.setAsset("attachment", uri).then(() => {
+    let uri = 'file://test/test.img';
+    g_object.setAsset('attachment', uri).then(() => {
       console.info('setAsset success.');
     }).catch((err: BusinessError) => {
-      console.error("setAsset failed, error code = " + err.code);
+      console.error(`Failed to set asset. Code: ${err.code}, message: ${err.message}`);
     });
   }
 }
@@ -1344,15 +1337,15 @@ class EntryAbility extends UIAbility {
 
 setAssets(assetsKey: string, uris: Array&lt;string&gt;): Promise&lt;void&gt;
 
-设置分布式对象中的多个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。uris数组的数量范围为1-50。使用Promise异步回调。
+设置分布式对象中的多个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/5lLwFN4GRvSpRJpMSH0vSw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014251Z&HW-CC-Expire=86400&HW-CC-Sign=7BB412E4AFCD41DC4CDCC2E7FBAF027AE6DBD50CFEA22A9D0AD2D724C96E3E21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/sYbqQpNISfOAeoj8p8YARQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071431Z&HW-CC-Expire=86400&HW-CC-Sign=19043EB1800F1C00F28C120D6252FFC5996406073FBE6FA9C0135665DC1DBF8D)
 
 
 在设置资产时必须保证assetsKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
 
-在设置资产时必须保证uris数组内uri均为正确且真实存在的分布式路径，否则无法保证对端能接收到此次设置的资产。
+在设置资产时必须保证uris数组中uri元素的数量在[1, 50]之间，元素uri均为正确且真实存在的分布式路径，否则无法保证对端能接收到此次设置的资产。
 
 
 
@@ -1364,8 +1357,8 @@ setAssets(assetsKey: string, uris: Array&lt;string&gt;): Promise&lt;void&gt;
 | assetsKey为无效值，例如：null（不存在）、undefined（未定义）或''（空字符串）。 | 设置资产失败，抛出15400002异常。 |
 | assetsKey存在、对应文件为非资产类型。 | 系统会强制修改该字段对应的文件类型为资产类型且设置资产字段，可能出现真实资产无法同步至对端设备。 |
 | assetsKey存在、且对应文件为资产类型。 | 设置资产成功、更新uri信息。 |
-| uris数组uri元素数量为0或超过50（不包含50）个字符。 | 设置资产失败，抛出15400002异常。 |
-| uris数组uri元素数量为1-50之间，存在单个或多个uri无效，例如：null（不存在）、undefined（未定义）或''（空字符串）。 | 设置资产失败，抛出15400002异常。 |
+| uris数组中uri元素的数量在[1, 50]之外。 | 设置资产失败，抛出15400002异常。 |
+| uris数组中uri元素的数量在[1, 50]之间，存在单个或多个uri无效，例如：null（不存在）、undefined（未定义）或''（空字符串）。 | 设置资产失败，抛出15400002异常。 |
 
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -1375,14 +1368,14 @@ setAssets(assetsKey: string, uris: Array&lt;string&gt;): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | assetsKey | string | 是 | 分布式对象中资产数组类型数据对应的属性名。 使用约束： （1）提供的assetsKey对应的文件已存在且类型必须为资产Asset，才可进行正确的设置资产。若assetsKey对应文件不存在或文件存在但类型不是资产类型，可能会出现资产设置错误。 （2）在协同或接续场景下需要双端满足assetsKey对应的文件存在且为资产类型，才可将设置的资产数组同步到对端设备。 |
-| uris | Array&lt;string&gt; | 是 | 待设置的新资产数组的uri集合，表示资产数组内每个资产的存放的分布式路径。数组元素有效范围为1-50，元素uri必须为真实存在的资产对应的分布式路径。 |
+| uris | Array&lt;string&gt; | 是 | 待设置的新资产数组的uri集合，表示资产数组内每个资产存放的分布式路径。数组中元素的数量为[1, 50]，元素uri必须为真实存在的资产对应的分布式路径。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1429,11 +1422,11 @@ class EntryAbility extends UIAbility {
     let note: Note = new Note('test', 'test', attachment);
     let g_object: distributedDataObject.DataObject = distributedDataObject.create(this.context, note);
 
-    let uris: Array<string> = ["file://test/test_1.txt", "file://test/test_2.txt"];
-    g_object.setAssets("attachment", uris).then(() => {
+    let uris: Array<string> = ['file://test/test_1.txt', 'file://test/test_2.txt'];
+    g_object.setAssets('attachment', uris).then(() => {
       console.info('setAssets success.');
     }).catch((err: BusinessError) => {
-      console.error("setAssets failed, error code = " + err.code);
+      console.error(`Failed to set assets. Code: ${err.code}, message: ${err.message}`);
     });
   }
 }
@@ -1473,18 +1466,18 @@ createDistributedObject(source: object): DistributedObject
 
 ```text
 class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
+  name: string
+  age: number
+  isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name
-        this.age = age
-        this.isVis = isVis
-    }
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
-let source: SourceObject = new SourceObject("jack", 18, false);
+let source: SourceObject = new SourceObject('jack', 18, false);
 let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 ```
 
@@ -1495,6 +1488,10 @@ let g_object: distributedDataObject.DistributedObject = distributedDataObject.cr
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示一个分布式数据对象。在使用以下接口前，需调用[createDistributedObject()](#distributeddataobjectcreatedistributedobjectdeprecated)获取DistributedObject对象。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，暂无替代接口。
+
 
 
 
@@ -1532,23 +1529,23 @@ setSessionId(sessionId?: string): boolean
 
 ```text
 class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
+  name: string
+  age: number
+  isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name
-        this.age = age
-        this.isVis = isVis
-    }
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
-let source: SourceObject = new SourceObject("jack", 18, false);
+let source: SourceObject = new SourceObject('jack', 18, false);
 let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 // g_object加入分布式组网
 g_object.setSessionId(distributedDataObject.genSessionId());
 // 设置为""退出分布式组网
-g_object.setSessionId("");
+g_object.setSessionId('');
 ```
 
 
@@ -1579,24 +1576,24 @@ on(type: 'change', callback: (sessionId: string, fields: Array&lt;string&gt;) =>
 
 ```text
 class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
+  name: string
+  age: number
+  isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name
-        this.age = age
-        this.isVis = isVis
-    }
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
-let source: SourceObject = new SourceObject("jack", 18, false);
+let source: SourceObject = new SourceObject('jack', 18, false);
 let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
-g_object.on("change", (sessionId: string, fields: Array<string>) => {
-    console.info("change" + sessionId);
+g_object.on('change', (sessionId: string, fields: Array<string>) => {
+    console.info('change' + sessionId);
     if (fields != null && fields != undefined) {
         for (let index: number = 0; index < fields.length; index++) {
-            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+            console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
         }
     }
 });
@@ -1630,30 +1627,30 @@ off(type: 'change', callback?: (sessionId: string, fields: Array&lt;string&gt;) 
 
 ```text
 class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
+  name: string
+  age: number
+  isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name
-        this.age = age
-        this.isVis = isVis
-    }
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
-let source: SourceObject = new SourceObject("jack", 18, false);
+let source: SourceObject = new SourceObject('jack', 18, false);
 let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 // 删除数据变更回调changeCallback
-g_object.off("change", (sessionId: string, fields: Array<string>) => {
-    console.info("change" + sessionId);
+g_object.off('change', (sessionId: string, fields: Array<string>) => {
+    console.info('change' + sessionId);
     if (fields != null && fields != undefined) {
         for (let index: number = 0; index < fields.length; index++) {
-            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+            console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
         }
     }
 });
 // 删除所有的数据变更回调
-g_object.off("change");
+g_object.off('change');
 ```
 
 
@@ -1684,22 +1681,22 @@ on(type: 'status', callback: (sessionId: string, networkId: string, status: 'onl
 
 ```text
 class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
+  name: string
+  age: number
+  isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name
-        this.age = age
-        this.isVis = isVis
-    }
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
-let source: SourceObject = new SourceObject("jack", 18, false);
+let source: SourceObject = new SourceObject('jack', 18, false);
 let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 
-g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info("status changed " + sessionId + " " + status + " " + networkId);
+g_object.on('status', (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info('status changed ' + sessionId + ' ' + status + ' ' + networkId);
 });
 ```
 
@@ -1724,30 +1721,30 @@ off(type: 'status', callback?: (sessionId: string, networkId: string, status: 'o
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示对象上下线。 |
-| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。 sessionId：标识变更对象的sessionId； networkId：标识变更对象； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
+| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。 sessionId：标识变更对象的sessionId； networkId：标识对象设备； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
 
 
 **示例：**
 
 ```text
 class SourceObject {
-    name: string
-    age: number
-    isVis: boolean
+  name: string
+  age: number
+  isVis: boolean
 
-    constructor(name: string, age: number, isVis: boolean) {
-        this.name = name
-        this.age = age
-        this.isVis = isVis
-    }
+  constructor(name: string, age: number, isVis: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isVis = isVis;
+  }
 }
 
-let source: SourceObject = new SourceObject("jack", 18, false);
+let source: SourceObject = new SourceObject('jack', 18, false);
 let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 // 删除上下线回调changeCallback
-g_object.off("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info("status changed " + sessionId + " " + status + " " + networkId);
+g_object.off('status', (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info('status changed ' + sessionId + ' ' + status + ' ' + networkId);
 });
 // 删除所有的上下线回调
-g_object.off("status");
+g_object.off('status');
 ```

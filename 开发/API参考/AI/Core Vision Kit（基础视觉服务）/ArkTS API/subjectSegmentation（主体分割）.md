@@ -1,6 +1,6 @@
 # subjectSegmentation（主体分割）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-subjectsegmentation-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -34,7 +34,7 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pixelMap | image.PixelMap | 否 | 否 | 待识别的图片。 具体规格请参考约束与限制。 |
+| pixelMap | image.PixelMap | 否 | 否 | 待识别的图片。对于图片的要求请参见约束与限制。 |
 
 
 
@@ -53,7 +53,7 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| maxCount | number | 否 | 是 | 最多输出主体个数。取值范围为[1,20]，以主体在原图中的面积占比降序排序，默认为6。 |
+| maxCount | number | 否 | 是 | 最多输出主体个数。取值范围为[1,20]个，以主体在原图中的面积占比降序排序，默认为6，超出范围则报错。 |
 | enableSubjectDetails | boolean | 否 | 是 | 是否输出每个主体的前景信息（subjectDetails），默认为false，true代表输出每个主体的前景信息。 |
 | enableSubjectForegroundImage | boolean | 否 | 是 | 是否输出前景图，默认为false，true代表输出前景图。 |
 
@@ -76,8 +76,8 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 | --- | --- | --- | --- | --- |
 | left | number | 否 | 否 | 边界框左上角的x坐标。 |
 | top | number | 否 | 否 | 边界框左上角的y坐标。 |
-| height | number | 否 | 否 | 边界框高度，单位为像素。 |
-| width | number | 否 | 否 | 边界框宽度，单位为像素。 |
+| height | number | 否 | 否 | 边界框高度，单位：px。 |
+| width | number | 否 | 否 | 边界框宽度，单位：px。 |
 
 
 

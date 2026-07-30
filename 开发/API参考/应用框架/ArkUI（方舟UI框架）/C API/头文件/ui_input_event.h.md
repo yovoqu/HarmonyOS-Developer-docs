@@ -1,6 +1,6 @@
 # ui_input_event.h
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ui-input-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供ArkUI在Native侧的事件定义。
+提供ArkUI在Native侧的输入事件定义，支持触摸、鼠标、轴、按键等事件类型及事件属性获取、事件冒泡控制、克隆事件处理等能力，适用于Native组件中识别和处理用户输入交互的场景，帮助开发者获取事件来源、位置、状态等信息并实现精细化交互控制。
 
 **引用文件：** <arkui/ui_input_event.h>
 
@@ -37,12 +37,12 @@
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| ArkUI_UIInputEvent | ArkUI_UIInputEvent | UI输入事件定义。 |
-| ArkUI_CoastingAxisEvent | ArkUI_CoastingAxisEvent | 定义惯性滚动轴事件。 |
-| ArkUI_TouchTestInfo | ArkUI_TouchTestInfo | 定义触摸测试信息。 |
-| ArkUI_TouchTestInfoItem | ArkUI_TouchTestInfoItem | 定义触摸测试信息项。 |
-| ArkUI_TouchTestInfoItem* | ArkUI_TouchTestInfoItemHandle | 定义触摸测试信息项句柄。 |
-| ArkUI_TouchTestInfoItemHandle* | ArkUI_TouchTestInfoItemArray | 定义触摸测试信息项句柄数组。 |
+| ArkUI_UIInputEvent | ArkUI_UIInputEvent | ArkUI_UIInputEvent用于表示ArkUI中的UI输入事件，供ArkUI_EventModule模块中的事件接口传递和处理输入事件信息，适用于需要识别、分发或响应用户输入事件的场景。 |
+| ArkUI_CoastingAxisEvent | ArkUI_CoastingAxisEvent | 定义惯性滚动轴事件。 当用户在触控板上用双指滑动时，系统会根据手指抬起时的速度，按照一定的衰减曲线构造滑动事件。可以监听此类事件，以便在常规轴事件之后立即处理惯性滚动效果。 仅当用户在触控板上双指抛滑，且指针位置下存在通过registerNodeEvent注册了NODE_ON_COASTING_AXIS_EVENT事件的组件时，才能接收到此事件。不再需要监听此事件时，应通过unregisterNodeEvent注销事件监听，避免回调持续触发。 |
+| ArkUI_TouchTestInfo | ArkUI_TouchTestInfo | 定义触摸测试信息，用于在命中测试过程中获取触摸测试策略、参与命中测试的子组件ID及触摸测试信息项列表，适用于需要在子组件触摸事件中获取命中测试详细信息以自定义命中测试逻辑、优化触摸事件分发与响应的场景。 当用户通过registerNodeEvent注册了NODE_ON_CHILD_TOUCH_TEST事件时，才能接收到此事件。触摸测试信息包含触摸测试策略、命中测试过程中需要参与命中测试的子组件ID和触摸测试信息项的列表。 |
+| ArkUI_TouchTestInfoItem | ArkUI_TouchTestInfoItem | 定义触摸测试信息项。触摸测试信息项包含触摸测试中子组件的信息，适用于触摸测试过程中获取和识别子组件相关信息的场景，可以通过OH_ArkUI_TouchTestInfoItem_GetXXX系列接口获取子组件信息，帮助开发者处理触摸测试结果。 |
+| ArkUI_TouchTestInfoItem* | ArkUI_TouchTestInfoItemHandle | 定义触摸测试信息项句柄，用于表示触摸测试流程中的触摸测试信息项；触摸测试接口请参见ui_input_event.h。 |
+| ArkUI_TouchTestInfoItemHandle* | ArkUI_TouchTestInfoItemArray | 定义触摸测试信息项句柄数组，用于表示多个触摸测试信息项句柄。在触摸事件分发与测试过程中，可通过此数组类型统一管理和访问多个触摸测试结果，适用于需要同时处理多个触点测试信息的场景。 |
 
 
 
@@ -60,7 +60,7 @@
 | HitTestMode | HitTestMode | 定义触摸测试类型的枚举值。 |
 | anonymous4 | - | 定义鼠标事件的行为类型。 |
 | anonymous5 | - | 定义鼠标事件的按键类型。 |
-| ArkUI_ModifierKeyName | ArkUI_ModifierKeyName | 定义modifier按键。 |
+| ArkUI_ModifierKeyName | ArkUI_ModifierKeyName | 定义修饰键。 |
 | anonymous6 | - | 定义焦点轴事件的轴类型。 |
 | ArkUI_InteractionHand | ArkUI_InteractionHand | 定义触摸事件是左手还是右手。 |
 | anonymous7 | - | 定义轴事件的操作类型。 |
@@ -80,16 +80,16 @@
 | --- | --- |
 | int32_t OH_ArkUI_UIInputEvent_GetType(const ArkUI_UIInputEvent* event) | 获取UI输入事件的类型。在访问一个ArkUI_UIInputEvent指针对象之前，推荐使用该方法判断该输入事件的类型，该接口会返回ArkUI_UIInputEvent_Type枚举中的一种。比如，当事件是一个触控类型时，由于触控类型是指向性事件，那么使用OH_ArkUI_UIInputEvent_GetXXX及OH_ArkUI_PointerEvent_GetXXX系列接口，均可以正常访问；而如果使用OH_ArkUI_KeyEvent_GetXXX相关接口去访问它，则会有无法预期的结果。对于还未支持的事件类型，接口返回默认值0。 |
 | int32_t OH_ArkUI_UIInputEvent_GetAction(const ArkUI_UIInputEvent* event) | 获取输入事件的action类型。action类型为基础事件在不同阶段的类型定义，通常代表了事件的特点，并表征事件的开始与结束，如touch down, touch up。触控事件的action类型为UI_TOUCH_EVENT_ACTION_XXX，鼠标事件的action类型为UI_MOUSE_EVENT_ACTION_XXX。 |
-| int32_t OH_ArkUI_UIInputEvent_GetSourceType(const ArkUI_UIInputEvent* event) | 获取UI输入事件的触发源类型。输入源为产生输入事件的真实物理设备，如触摸屏，鼠标等，由UI_INPUT_EVENT_SOURCE_TYPE_XXX定义，而输入工具为操作输入源设备来产生事件的工具，如手指、触控笔。在某些情况下两者可能容易发生混淆，比如当用户在操作鼠标时，鼠标既是输入源，也是输入工具。 |
+| int32_t OH_ArkUI_UIInputEvent_GetSourceType(const ArkUI_UIInputEvent* event) | 获取UI输入事件的触发源类型。输入源为产生输入事件的真实物理设备，如触摸屏、鼠标等，由UI_INPUT_EVENT_SOURCE_TYPE定义，而输入工具为操作输入源设备来产生事件的工具，如手指、触控笔。在某些情况下两者可能容易发生混淆，比如当用户在操作鼠标时，鼠标既是输入源，也是输入工具。对于按键事件，并不支持获取输入源类型，返回unknown。 |
 | int32_t OH_ArkUI_UIInputEvent_GetToolType(const ArkUI_UIInputEvent* event) | 获取UI输入事件的工具类型。输入工具为操作输入源设备来产生事件的操作方，如手指、触控笔，他们自身不真实产生事件，但可以驱动输入源设备不断产生事件。返回的类型由UI_INPUT_EVENT_TOOL_TYPE_XXX枚举值定义。 |
 | int64_t OH_ArkUI_UIInputEvent_GetEventTime(const ArkUI_UIInputEvent* event) | 获取UI输入事件发生的时间。单位为ns。 |
 | uint32_t OH_ArkUI_PointerEvent_GetPointerCount(const ArkUI_UIInputEvent* event) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中获取多点触控的接触点数量。指向性事件一般是附带有事件发生位置信息的事件，如触摸事件，用户操作时，可以感知事件在什么位置发生。而非指向性事件，如按键事件，一般没有位置信息，没有触点的说法，所以该接口对按键事件无效。对于触摸事件，该接口多用于处理多指触控，判断用户有几根手指在操作当前控件。而对于鼠标和轴事件，可认为触点只有1个，该接口永远返回1。 |
 | int32_t OH_ArkUI_PointerEvent_GetPointerId(const ArkUI_UIInputEvent* event, uint32_t pointerIndex) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中获取多点触控的接触点标识。返回事件发生时，事件触点的唯一标识符，用于区分同类输入设备的多点触控信息。其数值没有除标识触点外的其他含义。 |
-| int32_t OH_ArkUI_PointerEvent_GetChangedPointerId(const ArkUI_UIInputEvent* event, uint32_t* pointerIndex) | 获取当前触摸事件触发的id。 |
+| int32_t OH_ArkUI_PointerEvent_GetChangedPointerId(const ArkUI_UIInputEvent* event, uint32_t* pointerIndex) | 获取触发当前事件的手指ID。 |
 | float OH_ArkUI_PointerEvent_GetCurrentLocalX(const ArkUI_UIInputEvent* event) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中根据实时位置获取相对于当前组件左上角的X坐标。 |
 | float OH_ArkUI_PointerEvent_GetCurrentLocalXByIndex(const ArkUI_UIInputEvent* event, uint32_t pointerIndex) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中根据实时位置获取特定接触点相对于当前组件左上角的X坐标。所有类型事件，若传入的索引值小于0时为非法值。对于鼠标和轴事件，当索引值非0时为非法值。对于触摸事件，根据给定的索引获取特定接触点相对于当前组件左上角的X坐标。 |
 | float OH_ArkUI_PointerEvent_GetCurrentLocalY(const ArkUI_UIInputEvent* event) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中根据实时位置获取相对于当前组件左上角的Y坐标。 |
-| float OH_ArkUI_PointerEvent_GetCurrentLocalYByIndex(const ArkUI_UIInputEvent* event, uint32_t pointerIndex) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中根据实时位置获取特定接触点相对于当前组件左上角的Y坐标。所有类型事件，若传入的索引值小于0时为非法值。对于鼠标和轴事件，当索引值非0时为非法值。对于触摸事件。根据给定的索引获取特定接触点相对于当前组件左上角的Y坐标。 |
+| float OH_ArkUI_PointerEvent_GetCurrentLocalYByIndex(const ArkUI_UIInputEvent* event, uint32_t pointerIndex) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中根据实时位置获取特定接触点相对于当前组件左上角的Y坐标。所有类型事件，若传入的索引值小于0时为非法值。对于鼠标和轴事件，当索引值非0时为非法值。对于触摸事件，根据给定的索引获取特定接触点相对于当前组件左上角的Y坐标。 |
 | float OH_ArkUI_PointerEvent_GetX(const ArkUI_UIInputEvent* event) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中获取相对于当前组件左上角的X坐标。 |
 | float OH_ArkUI_PointerEvent_GetXByIndex(const ArkUI_UIInputEvent* event, uint32_t pointerIndex) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中获取特定接触点相对于当前组件左上角的X坐标。对于鼠标和轴事件，当给定的索引大于0时，返回默认值0.0f。 |
 | float OH_ArkUI_PointerEvent_GetY(const ArkUI_UIInputEvent* event) | 从指向性输入事件（如触摸事件、鼠标事件、轴事件）中获取相对于当前组件左上角的Y坐标。 |
@@ -128,19 +128,19 @@
 | float OH_ArkUI_PointerEvent_GetHistoryGlobalDisplayY(const ArkUI_UIInputEvent* event, uint32_t pointerIndex, uint32_t historyIndex) | 从给定指针索引和历史记录索引的指向性输入事件中获取历史事件中相对于全局显示的特定触摸点的Y坐标。本接口支持的指向性输入事件仅包含触摸事件、鼠标事件。只能从指针事件中获取位置信息，对于鼠标事件，当给定的pointerIndex大于0时，始终返回默认值0.0f。从API version 20开始支持触摸事件，从API version 26.0.0开始支持鼠标事件。 |
 | float OH_ArkUI_PointerEvent_GetHistoryPressure(const ArkUI_UIInputEvent* event, uint32_t pointerIndex, uint32_t historyIndex) | 从指向性输入事件（如触摸事件）中获取特定历史事件中的触屏压力。 |
 | float OH_ArkUI_PointerEvent_GetHistoryTiltX(const ArkUI_UIInputEvent* event, uint32_t pointerIndex, uint32_t historyIndex) | 从指向性输入事件（如触摸事件）中获取特定历史事件中的相对YZ平面的角度，取值的范围[-90, 90]，单位为deg，其中正值是向右倾斜。 |
-| float OH_ArkUI_PointerEvent_GetHistoryTiltY(const ArkUI_UIInputEvent* event, uint32_t pointerIndex, uint32_t historyIndex) | 从指向性输入事件（如触摸事件）中获取特定历史事件中的相对XZ平面的角度，值的范围[-90, 90]，单位为deg，其中正值是向下倾斜。 |
+| float OH_ArkUI_PointerEvent_GetHistoryTiltY(const ArkUI_UIInputEvent* event, uint32_t pointerIndex, uint32_t historyIndex) | 从指向性输入事件（如触摸事件）中获取特定历史事件中的相对XZ平面的角度，取值的范围[-90, 90]，单位为deg，其中正值是向下倾斜。仅适用于支持倾角上报的触控笔操作产生的触控事件。 |
 | float OH_ArkUI_PointerEvent_GetHistoryTouchAreaWidth(const ArkUI_UIInputEvent* event, uint32_t pointerIndex, uint32_t historyIndex) | 从指向性输入事件（如触摸事件）中获取特定历史事件中的触屏区域的宽度。 |
 | float OH_ArkUI_PointerEvent_GetHistoryTouchAreaHeight(const ArkUI_UIInputEvent* event, uint32_t pointerIndex, uint32_t historyIndex) | 从指向性输入事件（如触摸事件）中获取特定历史事件中的触屏区域的高度。 |
-| double OH_ArkUI_AxisEvent_GetVerticalAxisValue(const ArkUI_UIInputEvent* event) | 获取当前轴事件的垂直滚动轴的值。通常由鼠标滚轮，或用户在触控板上双指竖向滑动产生。当通过鼠标滚动触发时：1.上报的数值单位为角度，为单次滚动角度增量，非滚动总量；2.上报的数值已与用户配置的放大系数OH_ArkUI_AxisEvent_GetScrollStep叠加运算；3.数值的正负代表方向，向前滚动鼠标滚轮时上报数值为正数，向后滚动鼠标滚轮时上报数值为负数；当通过触控板双指竖向滑动时：1.上报的数值单位为PX，为单次滚动增量，非滚动总量；2.上报的数值不受用户配置的放大系数OH_ArkUI_AxisEvent_GetScrollStep影响；3.数值的正负代表方向，双指从上往下滑动时上报数值为负数，双指从下往上滑动时上报数值为正数；4.方向会受系统设置中"自然滚动"配置的影响。通常情况下，垂直滚动轴事件只能驱动竖向的滑动手势响应，但当鼠标指针下命中的可滑动手势里，如果可响应的方向都是一致的，那么垂直滚动轴事件可以驱动这些滑动手势得到响应，即使这些手势所定义的方向是横向的。 |
-| double OH_ArkUI_AxisEvent_GetHorizontalAxisValue(const ArkUI_UIInputEvent* event) | 获取当前轴事件的水平滚动轴的值，通过在触控板上双指横向滑动产生。 |
+| double OH_ArkUI_AxisEvent_GetVerticalAxisValue(const ArkUI_UIInputEvent* event) | 获取当前轴事件的垂直滚动轴的值。该值通常由鼠标滚轮或用户在触控板上双指竖向滑动产生。 当通过鼠标滚轮触发时： 1. 上报的数值单位为角度，表示单次滚动角度增量，非滚动总量。 2. 上报的数值已与用户配置的放大系数OH_ArkUI_AxisEvent_GetScrollStep叠加运算。 3. 数值的正负代表方向，向前滚动鼠标滚轮时上报数值为负数，向后滚动鼠标滚轮时上报数值为正数。 当通过触控板双指竖向滑动触发时： 1. 上报的数值单位为px，表示单次滚动增量，非滚动总量。 2. 上报的数值不受用户配置的放大系数OH_ArkUI_AxisEvent_GetScrollStep影响。 3. 数值的正负代表方向，双指从上往下滑动时上报数值为负数，双指从下往上滑动时上报数值为正数。 4. 方向会受系统设置中“自然滚动”配置的影响。 通常情况下，垂直滚动轴事件只能驱动竖向的滑动手势响应。但当鼠标指针下命中的可滑动手势里可响应方向一致时，垂直滚动轴事件可以驱动这些滑动手势得到响应，即使这些手势所定义的方向是横向的。 |
+| double OH_ArkUI_AxisEvent_GetHorizontalAxisValue(const ArkUI_UIInputEvent* event) | 获取当前轴事件的水平滚动轴的值，该值通过在触控板上双指横向滑动产生。 1. 上报的数值单位为px，表示单次滚动增量，非滚动总量。 2. 上报的数值不受用户配置的放大系数OH_ArkUI_AxisEvent_GetScrollStep影响。 3. 数值的正负代表方向，双指从左往右滑动时上报数值为负数，双指从右往左滑动时上报数值为正数。 4. 方向会受系统设置中“自然滚动”配置的影响。 |
 | double OH_ArkUI_AxisEvent_GetPinchAxisScaleValue(const ArkUI_UIInputEvent* event) | 获取当前轴事件的捏合轴缩放的值。通过触控板双指缩放/捏合操作产生。上报的scale数值，为相对于初始状态时的当前scale值。初始状态为系统识别到用户通过触控板发生了捏合操作时的两指位置状态，此时的scale数值为1.0。在手指抬起前的本次捏合操作过程中，所上报的scale数值均将初始状态作为参考系，从初始状态往中心捏合，则上报的scale会从1.0逐步往0.0缩小；当从初始化状态往外扩大双指距离时，会从1.0逐步变大。 |
 | int32_t OH_ArkUI_AxisEvent_GetAxisAction(const ArkUI_UIInputEvent* event) | 获取当前轴事件的操作类型。 |
 | int32_t OH_ArkUI_AxisEvent_HasAxis(const ArkUI_UIInputEvent* event, int32_t axis) | 检测此轴事件是否包含指定的轴类型。 |
 | int32_t OH_ArkUI_PointerEvent_SetInterceptHitTestMode(const ArkUI_UIInputEvent* event, HitTestMode mode) | 配置触摸测试模式。仅适用于接收基础事件的场景，如使用NODE_ON_TOUCH接收触摸事件场景。对于通过OH_ArkUI_GestureEvent_GetRawInputEvent接口从一个手势事件中获取到的ArkUI_UIInputEvent对象，无法使用该接口。 |
 | int32_t OH_ArkUI_MouseEvent_GetMouseButton(const ArkUI_UIInputEvent* event) | 获取鼠标事件的按键类型的值。 |
 | int32_t OH_ArkUI_MouseEvent_GetMouseAction(const ArkUI_UIInputEvent* event) | 获取鼠标事件的鼠标动作类型的值。 |
-| int32_t OH_ArkUI_PointerEvent_SetStopPropagation(const ArkUI_UIInputEvent* event, bool stopPropagation) | 设置是否阻止事件冒泡。仅适用于接收基础事件的场景，如使用NODE_ON_TOUCH接收触摸事件场景。对于通过 OH_ArkUI_GestureEvent_GetRawInputEvent接口从一个手势事件中获取到的ArkUI_UIInputEvent对象，无法使用该接口。 |
-| int32_t OH_ArkUI_UIInputEvent_GetDeviceId(const ArkUI_UIInputEvent* event) | 获取当前按键的输入设备ID。 |
+| int32_t OH_ArkUI_PointerEvent_SetStopPropagation(const ArkUI_UIInputEvent* event, bool stopPropagation) | 设置是否阻止事件冒泡。仅适用于接收基础事件的场景，如使用NODE_ON_TOUCH接收触摸事件场景，不适用于轴事件。对于通过OH_ArkUI_GestureEvent_GetRawInputEvent接口从一个手势事件中获取到的ArkUI_UIInputEvent对象，无法使用该接口。 |
+| int32_t OH_ArkUI_UIInputEvent_GetDeviceId(const ArkUI_UIInputEvent* event) | 获取当前UI输入事件的设备ID。 |
 | int32_t OH_ArkUI_UIInputEvent_GetPressedKeys(const ArkUI_UIInputEvent* event, int32_t* pressedKeyCodes, int32_t* length) | 获取所有按下的按键，当前只支持按键事件。 |
 | double OH_ArkUI_FocusAxisEvent_GetAxisValue(const ArkUI_UIInputEvent* event, int32_t axis) | 获取焦点轴事件的轴值。 |
 | int32_t OH_ArkUI_FocusAxisEvent_SetStopPropagation(const ArkUI_UIInputEvent* event, bool stopPropagation) | 设置是否阻止焦点轴事件冒泡。 |
@@ -160,9 +160,9 @@
 | int32_t OH_ArkUI_UIInputEvent_GetTargetDisplayId(const ArkUI_UIInputEvent* event) | 获取发生UI输入事件的屏幕ID。 |
 | bool OH_ArkUI_HoverEvent_IsHovered(const ArkUI_UIInputEvent* event) | 获取鼠标是否悬浮在当前组件上 |
 | int32_t OH_ArkUI_PointerEvent_CreateClonedEvent(const ArkUI_UIInputEvent* event, ArkUI_UIInputEvent** clonedEvent) | 基于原始事件指针创建克隆事件指针。仅对触摸事件有效。 |
-| int32_t OH_ArkUI_PointerEvent_DestroyClonedEvent(const ArkUI_UIInputEvent* event) | 销毁克隆事件指针。 |
-| int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPosition(const ArkUI_UIInputEvent* event, float x, float y) | 设置指向性事件相对于当前组件左上角的X坐标和Y坐标。 |
-| int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPositionByIndex(const ArkUI_UIInputEvent* event, float x, float y, int32_t pointerIndex) | 设置指向性事件特有接触点相对于当前组件左上角的X坐标和Y坐标。 |
+| int32_t OH_ArkUI_PointerEvent_DestroyClonedEvent(const ArkUI_UIInputEvent* event) | 销毁由OH_ArkUI_PointerEvent_CreateClonedEvent()创建的克隆事件指针。克隆事件使用完毕后应调用该接口释放资源。 |
+| int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPosition(const ArkUI_UIInputEvent* event, float x, float y) | 设置指向性克隆事件相对于当前组件左上角的X坐标和Y坐标。该接口应在调用OH_ArkUI_PointerEvent_CreateClonedEvent()创建克隆事件后使用；同系列SetClonedEvent接口均仅适用于克隆事件。 |
+| int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPositionByIndex(const ArkUI_UIInputEvent* event, float x, float y, int32_t pointerIndex) | 设置克隆指向性事件特定接触点相对于当前组件左上角的X坐标和Y坐标。只有通过OH_ArkUI_PointerEvent_CreateClonedEvent接口创建的ArkUI_UIInputEvent克隆事件指针才能使用此接口。 |
 | int32_t OH_ArkUI_PointerEvent_SetClonedEventActionType(const ArkUI_UIInputEvent* event, int32_t actionType) | 设置当前带有指向性的克隆输入事件的事件类型。 |
 | int32_t OH_ArkUI_PointerEvent_SetClonedEventChangedFingerId(const ArkUI_UIInputEvent* event, int32_t fingerId) | 设置当前带有指向性的克隆输入事件的触摸点ID。 |
 | int32_t OH_ArkUI_PointerEvent_SetClonedEventFingerIdByIndex(const ArkUI_UIInputEvent* event, int32_t fingerId, int32_t pointerIndex) | 设置带有指向性的克隆输入事件特定接触点的触摸点ID。 |
@@ -187,7 +187,7 @@
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedGlobalDisplayPosition(const ArkUI_UIInputEvent* event, float x, float y) | 设置克隆事件在全局坐标系的坐标。该接口适用于触摸事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetGlobalDisplayPositionByIndex(const ArkUI_UIInputEvent* event, float x, float y, int32_t pointerIndex) | 设置克隆事件在全局坐标系的坐标。该接口适用于触摸事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetHandleId(const ArkUI_UIInputEvent* event, int32_t eventHandleId) | 设置事件处理会话的唯一句柄。该句柄必须用于对该事件的任何进一步操作。对于给定的手指，同一时间只有一个具有此句柄的事件处于活动状态。该接口适用于触摸事件、鼠标事件和轴事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
-| ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetTiltAngle(const ArkUI_UIInputEvent* event, float tiltX, float tiltY) | 设置克隆事件相对于XZ平面和YZ平面的倾斜角度。取值范围为[-90, 90]，其中正值表示向右倾斜。该接口适用于触摸事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
+| ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetTiltAngle(const ArkUI_UIInputEvent* event, float tiltX, float tiltY) | 设置克隆事件相对于YZ平面和XZ平面的倾斜角度。tiltX取值范围为[-90, 90]，其中正值表示向右倾斜；tiltY取值范围为[-90, 90]，其中正值表示向下倾斜。该接口适用于触摸事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetRollAngle(const ArkUI_UIInputEvent* event, float rollAngle) | 设置克隆事件触控笔绕Z轴的旋转角度。该接口适用于触摸事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPressedKeys(const ArkUI_UIInputEvent* event, int32_t* pressedKeyCodes, int32_t length) | 设置克隆事件中所有按下的按键。该接口适用于触摸事件、鼠标事件和轴事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedTouchArea(const ArkUI_UIInputEvent* event, float width, float height) | 设置克隆事件的手指接触区域的宽度和高度，该接口适用于触摸事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
@@ -203,14 +203,14 @@
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetRawDeltaX(const ArkUI_UIInputEvent* event, float rawDeltaX) | 设置鼠标设备在二维平面X轴的移动增量。其数值为鼠标硬件的原始移动数据，使用物理世界中鼠标移动的距离单位进行表示。该接口仅适用于鼠标事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetRawDeltaY(const ArkUI_UIInputEvent* event, float rawDeltaY) | 设置鼠标设备在二维平面Y轴的移动增量。其数值为鼠标硬件的原始移动数据，使用物理世界中鼠标移动的距离单位进行表示。该接口仅适用于鼠标事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
 | ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPressedButtons(const ArkUI_UIInputEvent* event, const int32_t* pressedButtons, int32_t length) | 设置克隆事件的按下的按键。该接口仅适用于鼠标事件。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
-| ArkUI_ErrorCode OH_ArkUI_PointerEvent_PostClonedEventWithStrategy(ArkUI_NodeHandle node, const ArkUI_UIInputEvent* event, ArkUI_CompetitionStrategy strategy) | 使用指定的竞争策略将克隆事件发送到特定节点。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
-| ArkUI_ErrorCode OH_ArkUI_UIInputEvent_GetLatestStatus() | 调用该方法获取最近一次UIInput相关方法的执行情况。通常情况下不需要使用该方法，仅在返回值结果不确定是否异常时使用。 |
-| ArkUI_CoastingAxisEvent OH_ArkUI_UIInputEvent_GetCoastingAxisEvent(ArkUI_UIInputEvent* event) | 获取惯性滚动轴事件的指针。 |
-| int64_t OH_ArkUI_CoastingAxisEvent_GetEventTime(ArkUI_CoastingAxisEvent event) | 获取惯性滚动轴事件发生的时间。 |
-| ArkUI_CoastingAxisEventPhase OH_ArkUI_CoastingAxisEvent_GetPhase(ArkUI_CoastingAxisEvent event) | 获取惯性滚动轴事件发生时的滚动阶段。 |
-| float OH_ArkUI_CoastingAxisEvent_GetDeltaY(ArkUI_CoastingAxisEvent event) | 获取惯性滚动轴事件垂直方向的增量值。单位为px，表示为单次滚动增量，非滚动总量。数值的正负代表方向，双指从上往下滑动时为负数，双指从下往上滑动时为正数。 |
-| float OH_ArkUI_CoastingAxisEvent_GetDeltaX(ArkUI_CoastingAxisEvent event) | 获取惯性滚动轴事件水平方向的增量值。单位为px，表示为单次滚动增量，非滚动总量。数值的正负代表方向，双指从左往右滑动时为负数，双指从右往左滑动时为正数。 |
-| int32_t OH_ArkUI_CoastingAxisEvent_SetPropagation(ArkUI_CoastingAxisEvent event, bool propagation) | 设置惯性滚动轴事件是否启用冒泡，默认禁止冒泡。 |
+| ArkUI_ErrorCode OH_ArkUI_PointerEvent_PostClonedEventWithStrategy(ArkUI_NodeHandle node, const ArkUI_UIInputEvent* event, ArkUI_CompetitionStrategy strategy) | 使用指定的竞争策略将克隆事件发送到特定节点，适用于向目标节点注入克隆事件并需要控制注入事件与目标节点已有手势之间是否竞争的场景。只有通过OH_ArkUI_PointerEvent_CreateClonedPointerEvent和OH_ArkUI_PointerEvent_CreatePointerEvent接口创建的ArkUI_UIInputEvent对象才能使用此接口。 |
+| ArkUI_ErrorCode OH_ArkUI_UIInputEvent_GetLatestStatus() | 调用该方法获取最近一次UIInput相关方法的执行情况。通常情况下不需要使用该方法，仅在调用UIInput相关方法后需要确认最近一次调用是否执行异常时使用。 |
+| ArkUI_CoastingAxisEvent* OH_ArkUI_UIInputEvent_GetCoastingAxisEvent(ArkUI_UIInputEvent* event) | 从组件事件中获取惯性滚动轴事件，仅当用户在触摸板上使用双指执行满足系统惯性滚动判定条件的抛滑操作，且指针位置下存在注册了NODE_ON_COASTING_AXIS_EVENT事件的组件时，才能获取到有效事件。在从ArkUI_NodeEvent对象获取到ArkUI_UIInputEvent对象后调用此方法。惯性滚动轴事件仅在双指抛滑并离开触控板时触发，因此仅支持触控板。惯性滚动轴事件会在手指离开触控板后，根据抛滑速度产生轴值逐渐衰减的事件。由于刷新频率和性能的影响，当前事件轴值可能高于或低于上一个事件值。在惯性滚动轴事件期间，以下四种行为会中断事件，并立即收到ARKUI_COASTING_AXIS_EVENT_PHASE_END。1. 手指触摸触控板。2. 滚动鼠标滚轮。3. 手指或鼠标点击注册了惯性滚动轴事件的节点。需要注意的是，点击未注册此事件的节点不会产生任何效果。例如，A节点注册了惯性滚动轴事件，当事件发生时，让B节点滚动，但点击B节点不会中断此事件。点击事件的中断行为受OH_ArkUI_PointerEvent_SetInterceptHitTestMode的影响。此外，如果用户点击区域存在已收集的可响应惯性滚动轴事件的节点，本次惯性滚动轴事件会被强制终止。4. 应用休眠（例如最小化、锁屏）。 |
+| int64_t OH_ArkUI_CoastingAxisEvent_GetEventTime(ArkUI_CoastingAxisEvent* event) | 获取惯性滚动轴事件发生的时间。 |
+| ArkUI_CoastingAxisEventPhase OH_ArkUI_CoastingAxisEvent_GetPhase(ArkUI_CoastingAxisEvent* event) | 获取惯性滚动轴事件发生时的滚动阶段。 |
+| float OH_ArkUI_CoastingAxisEvent_GetDeltaY(ArkUI_CoastingAxisEvent* event) | 获取惯性滚动轴事件垂直方向的增量值。单位为px，表示为单次滚动增量，非滚动总量。数值的正负代表方向，双指从上往下滑动时为负数，双指从下往上滑动时为正数。 |
+| float OH_ArkUI_CoastingAxisEvent_GetDeltaX(ArkUI_CoastingAxisEvent* event) | 获取惯性滚动轴事件水平方向的增量值。单位为px，表示为单次滚动增量，非滚动总量。数值的正负代表方向，双指从左往右滑动时为负数，双指从右往左滑动时为正数。 |
+| int32_t OH_ArkUI_CoastingAxisEvent_SetPropagation(ArkUI_CoastingAxisEvent* event, bool propagation) | 设置惯性滚动轴事件是否启用冒泡，默认禁止冒泡。 |
 | ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_GetTouchTestInfoList(ArkUI_TouchTestInfo* info, ArkUI_TouchTestInfoItemArray* array, int32_t* size) | 获取触摸测试信息中的触摸测试信息项数组。 |
 | float OH_ArkUI_TouchTestInfoItem_GetX(const ArkUI_TouchTestInfoItem* info) | 从触摸测试信息项中获取相对于子组件左上角的X坐标，单位为px。 |
 | float OH_ArkUI_TouchTestInfoItem_GetY(const ArkUI_TouchTestInfoItem* info) | 从触摸测试信息项中获取相对于子组件左上角的Y坐标，单位为px。 |
@@ -220,8 +220,8 @@
 | float OH_ArkUI_TouchTestInfoItem_GetYRelativeToParent(const ArkUI_TouchTestInfoItem* info) | 从触摸测试信息项中获取相对于父组件左上角的Y坐标，单位为px。 |
 | ArkUI_ErrorCode OH_ArkUI_TouchTestInfoItem_GetChildRect(const ArkUI_TouchTestInfoItem* info, ArkUI_Rect* childRect) | 从触摸测试信息项中获取子组件的边界矩形信息。 |
 | ArkUI_ErrorCode OH_ArkUI_TouchTestInfoItem_GetChildId(const ArkUI_TouchTestInfoItem* info, char* buffer, int32_t bufferSize) | 从触摸测试信息项中获取子组件的ID。 |
-| ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultStrategy(ArkUI_TouchTestInfo* info, ArkUI_TouchTestStrategy strategy) | 设置触摸测试策略，即组件及其子组件在命中测试过程中的行为方式。 |
-| ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultId(ArkUI_TouchTestInfo* info, const char* id) | 设置命中测试过程中需要作用的子组件ID。 |
+| ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultStrategy(ArkUI_TouchTestInfo* info, ArkUI_TouchTestStrategy strategy) | 设置触摸测试策略，即组件及其子组件在命中测试过程中的行为方式，适用于自定义触摸命中结果、将触摸事件分发给指定子组件或控制兄弟节点是否继续参与命中测试的场景。 |
+| ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultId(ArkUI_TouchTestInfo* info, const char* id) | 设置命中测试过程中需要作用的子组件ID，适用于自定义触摸测试结果并希望将触摸事件分发到指定子组件的场景。 |
 
 
 
@@ -300,7 +300,7 @@ enum anonymous2
 | --- | --- |
 | UI_INPUT_EVENT_TOOL_TYPE_UNKNOWN = 0 | 不支持的工具类型。 |
 | UI_INPUT_EVENT_TOOL_TYPE_FINGER = 1 | 手指。 |
-| UI_INPUT_EVENT_TOOL_TYPE_PEN = 2 | 笔。 |
+| UI_INPUT_EVENT_TOOL_TYPE_PEN = 2 | 触控笔。 |
 | UI_INPUT_EVENT_TOOL_TYPE_MOUSE = 3 | 鼠标。 |
 | UI_INPUT_EVENT_TOOL_TYPE_TOUCHPAD = 4 | 触控板。 |
 | UI_INPUT_EVENT_TOOL_TYPE_JOYSTICK = 5 | 操纵杆。 |
@@ -354,7 +354,7 @@ enum HitTestMode
 | HTM_TRANSPARENT = 2 | 自身和子节点都响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。 |
 | HTM_NONE = 3 | 自身不响应触摸测试，不会阻塞子节点、兄弟节点和祖先节点的触摸测试。 |
 | HTM_BLOCK_HIERARCHY = 4 | 自身和子节点响应触摸测试，阻止所有优先级较低的兄弟节点和父节点参与触摸测试。 起始版本： 20 |
-| HTM_BLOCK_DESCENDANTS = 5 | 自身不响应触摸测试，并且所有的后代（孩子，孙子等）也不响应触摸测试，不会影响祖先节点的触摸测试。 起始版本： 20 |
+| HTM_BLOCK_DESCENDANTS = 5 | 自身不响应触摸测试，并且所有的后代（孩子、孙子等）也不响应触摸测试，不会影响祖先节点的触摸测试。 起始版本： 20 |
 
 
 
@@ -420,7 +420,7 @@ enum ArkUI_ModifierKeyName
 
 **描述：**
 
-定义modifier按键。
+定义修饰键。
 
 **起始版本：** 12
 
@@ -712,7 +712,7 @@ int32_t OH_ArkUI_UIInputEvent_GetSourceType(const ArkUI_UIInputEvent* event)
 
 **描述：**
 
-获取UI输入事件的触发源类型。输入源为产生输入事件的真实物理设备，如触摸屏，鼠标等，由[UI_INPUT_EVENT_SOURCE_TYPE](#anonymous3)定义，而输入工具为操作输入源设备来产生事件的工具，如手指、触控笔。在某些情况下两者可能容易发生混淆，比如当用户在操作鼠标时，鼠标既是输入源，也是输入工具。对于按键事件，并不支持获取输入源类型，返回unknown。
+获取UI输入事件的触发源类型。输入源为产生输入事件的真实物理设备，如触摸屏、鼠标等，由[UI_INPUT_EVENT_SOURCE_TYPE](#anonymous3)定义，而输入工具为操作输入源设备来产生事件的工具，如手指、触控笔。在某些情况下两者可能容易发生混淆，比如当用户在操作鼠标时，鼠标既是输入源，也是输入工具。对于按键事件，并不支持获取输入源类型，返回unknown。
 
 **起始版本：** 12
 
@@ -863,7 +863,7 @@ int32_t OH_ArkUI_PointerEvent_GetChangedPointerId(const ArkUI_UIInputEvent* even
 
 **描述：**
 
-获取触发当前事件的对应的手指id。
+获取触发当前事件的对应的手指ID。
 
 **起始版本：** 15
 
@@ -1001,7 +1001,7 @@ float OH_ArkUI_PointerEvent_GetYByIndex(const ArkUI_UIInputEvent* event, uint32_
 
 | 类型 | 说明 |
 | --- | --- |
-| float | 返回指向性输入事件事件中特定接触点相对于当前组件左上角的Y坐标，单位为px。如果参数异常则返回0.0f。 |
+| float | 返回指向性输入事件中特定接触点相对于当前组件左上角的Y坐标，单位为px。如果参数异常则返回0.0f。 |
 
 
 
@@ -1470,7 +1470,7 @@ float OH_ArkUI_PointerEvent_GetGlobalDisplayY(const ArkUI_UIInputEvent* event)
 
 | 类型 | 说明 |
 | --- | --- |
-| float | float 返回相对于全局显示的Y坐标，单位为px。如果发生任何参数错误，例如传递的一个事件没有位置信息，则返回0.0f。 |
+| float | 返回相对于全局显示的Y坐标，单位为px。如果发生任何参数错误，例如传递的一个事件没有位置信息，则返回0.0f。 |
 
 
 
@@ -1501,7 +1501,7 @@ float OH_ArkUI_PointerEvent_GetGlobalDisplayYByIndex(const ArkUI_UIInputEvent* e
 
 | 类型 | 说明 |
 | --- | --- |
-| float | float 返回相对于全局显示的Y坐标，单位为px。如果发生任何参数错误，则返回0.0f。 |
+| float | 返回相对于全局显示的Y坐标，单位为px。如果发生任何参数错误，则返回0.0f。 |
 
 
 
@@ -1804,7 +1804,7 @@ int64_t OH_ArkUI_PointerEvent_GetHistoryEventTime(const ArkUI_UIInputEvent* even
 | 参数项 | 描述 |
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -1835,7 +1835,7 @@ uint32_t OH_ArkUI_PointerEvent_GetHistoryPointerCount(const ArkUI_UIInputEvent* 
 | 参数项 | 描述 |
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -1867,7 +1867,7 @@ int32_t OH_ArkUI_PointerEvent_GetHistoryPointerId(const ArkUI_UIInputEvent* even
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
 | uint32_t pointerIndex | 表示多点触控数据列表的序号。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -1899,7 +1899,7 @@ float OH_ArkUI_PointerEvent_GetHistoryX(const ArkUI_UIInputEvent* event, uint32_
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
 | uint32_t pointerIndex | 表示多点触控数据列表的序号。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -1931,7 +1931,7 @@ float OH_ArkUI_PointerEvent_GetHistoryY(const ArkUI_UIInputEvent* event, uint32_
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
 | uint32_t pointerIndex | 表示多点触控数据列表的序号。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -1963,7 +1963,7 @@ float OH_ArkUI_PointerEvent_GetHistoryWindowX(const ArkUI_UIInputEvent* event, u
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
 | uint32_t pointerIndex | 表示多点触控数据列表的序号。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -1995,7 +1995,7 @@ float OH_ArkUI_PointerEvent_GetHistoryWindowY(const ArkUI_UIInputEvent* event, u
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
 | uint32_t pointerIndex | 表示多点触控数据列表的序号。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -2027,7 +2027,7 @@ float OH_ArkUI_PointerEvent_GetHistoryDisplayX(const ArkUI_UIInputEvent* event, 
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
 | uint32_t pointerIndex | 表示多点触控数据列表的序号。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -2059,7 +2059,7 @@ float OH_ArkUI_PointerEvent_GetHistoryDisplayY(const ArkUI_UIInputEvent* event, 
 | --- | --- |
 | const ArkUI_UIInputEvent* event | 表示指向当前UI输入事件的指针。 |
 | uint32_t pointerIndex | 表示多点触控数据列表的序号。 |
-| uint32_t historyIndex | 表示历史事件数据列表的序号。 |
+| uint32_t historyIndex | 表示历史事件数据列表的序号，必须小于OH_ArkUI_PointerEvent_GetHistorySize。 |
 
 
 **返回：**
@@ -2177,7 +2177,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTiltX(const ArkUI_UIInputEvent* event, uin
 
 **描述：**
 
-从指向性输入事件（如触摸事件）中获取特定历史事件中的相对YZ平面的角度，取值的范围[-90, 90]，单位为deg，其中正值是向右倾斜。
+从指向性输入事件（如触摸事件）中获取特定历史事件中的相对YZ平面的角度，取值的范围[-90, 90]，单位为deg，其中正值是向右倾斜。仅适用于支持倾角上报的触控笔操作产生的触控事件。
 
 **起始版本：** 12
 
@@ -2209,7 +2209,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTiltY(const ArkUI_UIInputEvent* event, uin
 
 **描述：**
 
-从指向性输入事件（如触摸事件）中获取特定历史事件中的相对XZ平面的角度，值的范围[-90, 90]，单位为deg，其中正值是向下倾斜。
+从指向性输入事件（如触摸事件）中获取特定历史事件中的相对XZ平面的角度，取值的范围[-90, 90]，单位为deg，其中正值是向下倾斜。仅适用于支持倾角上报的触控笔操作产生的触控事件。
 
 **起始版本：** 12
 
@@ -2241,7 +2241,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTouchAreaWidth(const ArkUI_UIInputEvent* e
 
 **描述：**
 
-从指向性输入事件（如触摸事件）中获取特定历史事件中的触屏区域的宽度。
+从指向性输入事件（如触摸事件）中获取特定历史事件中的触屏区域的宽度。仅适用于手指操作产生的触控事件，这通常是一个圆形区域的半径。
 
 **起始版本：** 12
 
@@ -2273,7 +2273,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTouchAreaHeight(const ArkUI_UIInputEvent* 
 
 **描述：**
 
-从指向性输入事件（如触摸事件）中获取特定历史事件中的触屏区域的高度。
+从指向性输入事件（如触摸事件）中获取特定历史事件中的触屏区域的高度。仅适用于手指操作产生的触控事件，这通常是一个圆形区域的半径。
 
 **起始版本：** 12
 
@@ -2305,7 +2305,20 @@ double OH_ArkUI_AxisEvent_GetVerticalAxisValue(const ArkUI_UIInputEvent* event)
 
 **描述：**
 
-获取当前轴事件的垂直滚动轴的值。通常由鼠标滚轮，或用户在触控板上双指竖向滑动产生。当通过鼠标滚动触发时：1.上报的数值单位为角度，为单次滚动角度增量，非滚动总量；2.上报的数值已与用户配置的放大系数[OH_ArkUI_AxisEvent_GetScrollStep](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ui-input-event-h#oh_arkui_axisevent_getscrollstep)叠加运算；3.数值的正负代表方向，向前滚动鼠标滚轮时上报数值为负数，向后滚动鼠标滚轮时上报数值为正数；当通过触控板双指竖向滑动时：1.上报的数值单位为PX，为单次滚动增量，非滚动总量；2.上报的数值不受用户配置的放大系数[OH_ArkUI_AxisEvent_GetScrollStep](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ui-input-event-h#oh_arkui_axisevent_getscrollstep)影响；3.数值的正负代表方向，双指从上往下滑动时上报数值为负数，双指从下往上滑动时上报数值为正数；4.方向会受系统设置中"自然滚动"配置的影响。通常情况下，垂直滚动轴事件只能驱动竖向的滑动手势响应，但当鼠标指针下命中的可滑动手势里，如果可响应的方向都是一致的，那么垂直滚动轴事件可以驱动这些滑动手势得到响应，即使这些手势所定义的方向是横向的。
+获取当前轴事件的垂直滚动轴的值。该值通常由鼠标滚轮或用户在触控板上双指竖向滑动产生。
+
+当通过鼠标滚轮触发时：
+1. 上报的数值单位为角度，表示单次滚动角度增量，非滚动总量。
+2. 上报的数值已与用户配置的放大系数[OH_ArkUI_AxisEvent_GetScrollStep](#oh_arkui_axisevent_getscrollstep)叠加运算。
+3. 数值的正负代表方向，向前滚动鼠标滚轮时上报数值为负数，向后滚动鼠标滚轮时上报数值为正数。
+
+当通过触控板双指竖向滑动触发时：
+1. 上报的数值单位为px，表示单次滚动增量，非滚动总量。
+2. 上报的数值不受用户配置的放大系数[OH_ArkUI_AxisEvent_GetScrollStep](#oh_arkui_axisevent_getscrollstep)影响。
+3. 数值的正负代表方向，双指从上往下滑动时上报数值为负数，双指从下往上滑动时上报数值为正数。
+4. 方向会受系统设置中“自然滚动”配置的影响。
+
+通常情况下，垂直滚动轴事件只能驱动竖向的滑动手势响应。但当鼠标指针下命中的可滑动手势里可响应方向一致时，垂直滚动轴事件可以驱动这些滑动手势得到响应，即使这些手势所定义的方向是横向的。
 
 **起始版本：** 12
 
@@ -2335,7 +2348,11 @@ double OH_ArkUI_AxisEvent_GetHorizontalAxisValue(const ArkUI_UIInputEvent* event
 
 **描述：**
 
-获取当前轴事件的水平滚动轴的值，通过在触控板上双指横向滑动产生。1.上报的数值单位为PX，为单次滚动增量，非滚动总量；2.上报的数值不受用户配置的放大系数[OH_ArkUI_AxisEvent_GetScrollStep](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ui-input-event-h#oh_arkui_axisevent_getscrollstep)影响；3.数值的正负代表方向，双指从左往右滑动时上报数值为负数，双指从右往左滑动时上报数值为正数；4.方向会受系统设置中"自然滚动"配置的影响。
+获取当前轴事件的水平滚动轴的值，该值通过在触控板上双指横向滑动产生。
+1. 上报的数值单位为px，表示单次滚动增量，非滚动总量。
+2. 上报的数值不受用户配置的放大系数[OH_ArkUI_AxisEvent_GetScrollStep](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ui-input-event-h#oh_arkui_axisevent_getscrollstep)影响。
+3. 数值的正负代表方向，双指从左往右滑动时上报数值为负数，双指从右往左滑动时上报数值为正数。
+4. 方向会受系统设置中“自然滚动”配置的影响。
 
 **起始版本：** 12
 
@@ -2472,7 +2489,7 @@ int32_t OH_ArkUI_PointerEvent_SetInterceptHitTestMode(const ArkUI_UIInputEvent* 
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回执行的状态代码。 |
+| int32_t | 返回触摸测试模式配置结果的状态代码。返回0表示配置成功，返回非0表示配置失败。 |
 
 
 
@@ -2563,7 +2580,7 @@ int32_t OH_ArkUI_PointerEvent_SetStopPropagation(const ArkUI_UIInputEvent* event
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回执行的状态代码。返回0表示设置成功，如果返回401，表示返回失败，可能的原因是参数异常，例如event是一个空指针。 |
+| int32_t | 返回执行的状态代码。返回0表示设置成功，如果返回401，表示返回失败，可能的原因是参数异常，例如event是一个空指针，请检查event是否为空并传入有效的UI输入事件指针。 |
 
 
 
@@ -2671,7 +2688,7 @@ int32_t OH_ArkUI_FocusAxisEvent_SetStopPropagation(const ArkUI_UIInputEvent* eve
 
 **描述：**
 
-设置是否阻止焦点轴事件冒泡。
+设置是否阻止焦点轴事件冒泡，适用于组件已处理焦点轴事件后，不希望该事件继续传递给父组件或其他祖先组件的场景。
 
 **起始版本：** 15
 
@@ -3020,7 +3037,7 @@ float OH_ArkUI_MouseEvent_GetRawDeltaX(const ArkUI_UIInputEvent* event)
 
 | 类型 | 说明 |
 | --- | --- |
-| float | 返回鼠标设备在二维平面X轴的移动增量，使用物理世界中鼠标移动的距离单位进行表示；如果发生任何参数错误，则返回0.0f。 |
+| float | 返回鼠标设备在二维平面X轴的移动增量，使用物理世界中鼠标移动的距离单位进行表示；如果发生任何参数错误，则返回0.0f。 说明： API版本26.0.0之前，返回值并非鼠标硬件的原始移动数据，而是原始数据缩小了X倍，X为系统的显示大小比例。API版本26.0.0开始，返回值为鼠标硬件的原始移动数据。 |
 
 
 
@@ -3050,7 +3067,7 @@ float OH_ArkUI_MouseEvent_GetRawDeltaY(const ArkUI_UIInputEvent* event)
 
 | 类型 | 说明 |
 | --- | --- |
-| float | 返回鼠标设备在二维平面Y轴的移动增量，使用物理世界中鼠标移动的距离单位进行表示；如果发生任何参数错误，则返回0.0f。 |
+| float | 返回鼠标设备在二维平面Y轴的移动增量，使用物理世界中鼠标移动的距离单位进行表示；如果发生任何参数错误，则返回0.0f。 说明： API版本26.0.0之前，返回值并非鼠标硬件的原始移动数据，而是原始数据缩小了X倍，X为系统的显示大小比例。API版本26.0.0开始，返回值为鼠标硬件的原始移动数据。 |
 
 
 
@@ -3127,7 +3144,7 @@ bool OH_ArkUI_HoverEvent_IsHovered(const ArkUI_UIInputEvent* event)
 
 **描述：**
 
-获取鼠标是否悬浮在当前组件上
+获取鼠标是否悬浮在当前组件上。
 
 **起始版本：** 17
 
@@ -3157,7 +3174,7 @@ int32_t OH_ArkUI_PointerEvent_CreateClonedEvent(const ArkUI_UIInputEvent* event,
 
 **描述：**
 
-基于原始事件指针创建克隆事件指针。仅对触摸事件有效。
+基于原始事件指针创建克隆事件指针。仅对触摸事件有效。调用成功后，应在克隆事件使用完毕后调用OH_ArkUI_PointerEvent_DestroyClonedEvent()销毁该克隆事件指针，避免资源未释放。
 
 **起始版本：** 15
 
@@ -3188,7 +3205,7 @@ int32_t OH_ArkUI_PointerEvent_DestroyClonedEvent(const ArkUI_UIInputEvent* event
 
 **描述：**
 
-销毁克隆事件指针。
+销毁由OH_ArkUI_PointerEvent_CreateClonedEvent()创建的克隆事件指针。克隆事件使用完毕后应调用该接口释放资源。
 
 **起始版本：** 15
 
@@ -3218,7 +3235,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPosition(const ArkUI_UIInputEve
 
 **描述：**
 
-设置指向性事件相对于当前组件左上角的X坐标和Y坐标。
+设置指向性克隆事件相对于当前组件左上角的X坐标和Y坐标。该接口应在调用OH_ArkUI_PointerEvent_CreateClonedEvent()创建克隆事件后使用；同系列SetClonedEvent接口均仅适用于克隆事件。
 
 **起始版本：** 15
 
@@ -3250,7 +3267,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPositionByIndex(const ArkUI_UII
 
 **描述：**
 
-设置指向性事件特有接触点相对于当前组件左上角的X坐标和Y坐标。
+设置克隆指向性事件特定接触点相对于当前组件左上角的X坐标和Y坐标。只有通过[OH_ArkUI_PointerEvent_CreateClonedEvent](#oh_arkui_pointerevent_createclonedevent)接口创建的ArkUI_UIInputEvent克隆事件指针才能使用此接口。
 
 **起始版本：** 15
 
@@ -3283,7 +3300,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventActionType(const ArkUI_UIInputEvent*
 
 **描述：**
 
-设置当前带有指向性的克隆输入事件的事件类型。
+设置当前带有指向性的克隆输入事件的事件类型。只有通过[OH_ArkUI_PointerEvent_CreateClonedEvent](#oh_arkui_pointerevent_createclonedevent)接口创建的ArkUI_UIInputEvent克隆事件指针才能使用此接口。
 
 **起始版本：** 15
 
@@ -3314,7 +3331,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventChangedFingerId(const ArkUI_UIInputE
 
 **描述：**
 
-设置当前带有指向性的克隆输入事件的触摸点ID。
+设置当前带有指向性的克隆输入事件的触摸点ID。只有通过[OH_ArkUI_PointerEvent_CreateClonedEvent](#oh_arkui_pointerevent_createclonedevent)接口创建的ArkUI_UIInputEvent克隆事件指针才能使用此接口。
 
 **起始版本：** 15
 
@@ -3345,7 +3362,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventFingerIdByIndex(const ArkUI_UIInputE
 
 **描述：**
 
-设置带有指向性的克隆输入事件特定接触点的触摸点ID。
+设置带有指向性的克隆输入事件特定接触点的触摸点ID。只有通过[OH_ArkUI_PointerEvent_CreateClonedEvent](#oh_arkui_pointerevent_createclonedevent)接口创建的ArkUI_UIInputEvent克隆事件指针才能使用此接口。
 
 **起始版本：** 15
 
@@ -3377,7 +3394,7 @@ int32_t OH_ArkUI_PointerEvent_PostClonedEvent(ArkUI_NodeHandle node, const ArkUI
 
 **描述：**
 
-转发克隆事件到特定节点。
+转发克隆事件到特定节点。使用该接口前应先调用OH_ArkUI_PointerEvent_CreateClonedEvent()创建克隆事件，并可按需调用OH_ArkUI_PointerEvent_SetClonedEventLocalPosition()等接口设置事件属性；克隆事件使用完毕后应调用OH_ArkUI_PointerEvent_DestroyClonedEvent()销毁。
 
 **起始版本：** 15
 
@@ -3408,7 +3425,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_CreateClonedPointerEvent(const ArkUI_UIInp
 
 **描述：**
 
-创建指定事件的克隆事件。该接口适用于触摸事件、鼠标事件和轴事件。
+创建指定事件的克隆事件。该接口适用于触摸事件、鼠标事件和轴事件。调用成功后，可使用OH_ArkUI_ClonedEvent_SetXXX系列接口设置克隆事件属性，使用完毕后应调用OH_ArkUI_PointerEvent_DestroyClonedPointerEvent()销毁该克隆事件，避免资源未释放。
 
 **起始版本：** 24
 
@@ -3439,7 +3456,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_CreatePointerEvent(ArkUI_UIInputEvent** ev
 
 **描述：**
 
-创建新事件，不克隆现有事件。该接口适用于触摸事件、鼠标事件和轴事件。
+创建新事件，不克隆现有事件。该接口适用于触摸事件、鼠标事件和轴事件。调用成功后，可使用OH_ArkUI_ClonedEvent_SetXXX系列接口设置事件属性，使用完毕后应调用OH_ArkUI_PointerEvent_DestroyClonedPointerEvent()销毁该事件，避免资源未释放。
 
 **起始版本：** 24
 
@@ -3476,7 +3493,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_DestroyClonedPointerEvent(const ArkUI_UIIn
 
 **参数：**
 
-| 参数项项 | 描述 |
+| 参数项 | 描述 |
 | --- | --- |
 | const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
 
@@ -3789,7 +3806,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetFingerIdByIndex(const ArkUI_UIInputEvent
 | 参数项 | 描述 |
 | --- | --- |
 | const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
-| int32_t fingerId | 特定接触点的触摸点ID，可以通过OH_ArkUI_PointerEvent_GetChangedPointerId接口获取。 |
+| int32_t fingerId | 特定接触点的触摸点ID，可以通过OH_ArkUI_PointerEvent_GetPointerId接口获取。 |
 | int32_t pointerIndex | 表示多点触控数据列表中目标触控点的索引。 |
 
 
@@ -4038,7 +4055,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetTiltAngle(const ArkUI_UIInputEvent* even
 
 **描述：**
 
-设置克隆事件相对于XZ平面和YZ平面的倾斜角度。取值范围为[-90, 90]，其中正值表示向右倾斜。该接口适用于触摸事件。只有通过[OH_ArkUI_PointerEvent_CreateClonedPointerEvent](#oh_arkui_pointerevent_createclonedpointerevent)和[OH_ArkUI_PointerEvent_CreatePointerEvent](#oh_arkui_pointerevent_createpointerevent)接口创建的ArkUI_UIInputEvent对象才能使用此接口。
+设置克隆事件相对于YZ平面和XZ平面的倾斜角度。tiltX取值范围为[-90, 90]，其中正值表示向右倾斜；tiltY取值范围为[-90, 90]，其中正值表示向下倾斜。该接口适用于触摸事件。只有通过[OH_ArkUI_PointerEvent_CreateClonedPointerEvent](#oh_arkui_pointerevent_createclonedpointerevent)和[OH_ArkUI_PointerEvent_CreatePointerEvent](#oh_arkui_pointerevent_createpointerevent)接口创建的ArkUI_UIInputEvent对象才能使用此接口。
 
 **起始版本：** 24
 
@@ -4302,7 +4319,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPinchAxisScaleValue(const ArkUI_UIInputE
 | 参数项 | 描述 |
 | --- | --- |
 | const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
-| double pinchAxisScaleValue | 捏合轴的缩放值，单位为vp，取值[0, +∞)。 |
+| double pinchAxisScaleValue | 捏合轴的缩放值，取值范围为[0, +∞)。 |
 
 
 **返回：**
@@ -4542,7 +4559,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_PostClonedEventWithStrategy(ArkUI_NodeHand
 
 **描述：**
 
-使用指定的竞争策略将克隆事件发送到特定节点。只有通过[OH_ArkUI_PointerEvent_CreateClonedPointerEvent](#oh_arkui_pointerevent_createclonedpointerevent)和[OH_ArkUI_PointerEvent_CreatePointerEvent](#oh_arkui_pointerevent_createpointerevent)接口创建的ArkUI_UIInputEvent对象才能使用此接口。
+使用指定的竞争策略将克隆事件发送到特定节点，适用于向目标节点注入克隆事件并需要控制注入事件与目标节点已有手势之间是否竞争的场景。只有通过[OH_ArkUI_PointerEvent_CreateClonedPointerEvent](#oh_arkui_pointerevent_createclonedpointerevent)和[OH_ArkUI_PointerEvent_CreatePointerEvent](#oh_arkui_pointerevent_createpointerevent)接口创建的ArkUI_UIInputEvent对象才能使用此接口。
 
 **起始版本：** 24
 
@@ -4574,7 +4591,7 @@ ArkUI_ErrorCode OH_ArkUI_UIInputEvent_GetLatestStatus()
 
 **描述：**
 
-调用该方法获取最近一次UIInput相关方法的执行情况。通常情况下不需要使用该方法，仅在返回值结果不确定是否异常时使用。
+调用该方法获取最近一次UIInput相关方法的执行情况。通常情况下不需要使用该方法，仅在调用UIInput相关方法后需要确认最近一次调用是否执行异常时使用。
 
 **起始版本：** 20
 
@@ -4597,7 +4614,7 @@ ArkUI_CoastingAxisEvent* OH_ArkUI_UIInputEvent_GetCoastingAxisEvent(ArkUI_UIInpu
 
 **描述：**
 
-从组件事件中获取惯性滚动轴事件，仅当用户在触摸板上使用双指滑动一定距离并快速抬手，且指针位置下存在注册了[NODE_ON_COASTING_AXIS_EVENT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)事件的组件时，才能获取到有效事件。在从[ArkUI_NodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nodeevent)对象获取到[ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)对象后调用此方法。
+从组件事件中获取惯性滚动轴事件，仅当用户在触摸板上使用双指执行满足系统惯性滚动判定条件的抛滑操作，且指针位置下存在注册了[NODE_ON_COASTING_AXIS_EVENT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)事件的组件时，才能获取到有效事件。在从[ArkUI_NodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nodeevent)对象获取到[ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)对象后调用此方法。
 
 惯性滚动轴事件仅在双指抛滑并离开触控板时触发，因此仅支持触控板。惯性滚动轴事件会在手指离开触控板后，根据抛滑速度产生轴值逐渐衰减的事件。由于刷新频率和性能的影响，当前事件轴值可能高于或低于上一个事件值。在惯性滚动轴事件期间，以下四种行为会中断事件，并立即收到[ARKUI_COASTING_AXIS_EVENT_PHASE_END](#arkui_coastingaxiseventphase)。
 1. 手指触摸触控板。
@@ -4753,7 +4770,7 @@ int32_t OH_ArkUI_CoastingAxisEvent_SetPropagation(ArkUI_CoastingAxisEvent* event
 
 **描述：**
 
-设置惯性滚动轴事件是否启用冒泡，默认禁止冒泡。
+设置惯性滚动轴事件是否启用冒泡，默认禁止冒泡；适用于当前组件处理惯性滚动轴事件后，还需要将事件继续传递给祖先组件协同处理滚动效果的场景。
 
 **起始版本：** 22
 
@@ -4785,7 +4802,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_GetTouchTestInfoList(ArkUI_TouchTestInfo*
 
 **描述：**
 
-获取触摸测试信息项数组。
+获取触摸测试信息中的触摸测试信息项数组。
 
 **起始版本：** 22
 
@@ -4794,8 +4811,8 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_GetTouchTestInfoList(ArkUI_TouchTestInfo*
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_TouchTestInfo* info | 指向触摸测试信息的指针。 |
-| ArkUI_TouchTestInfoItemArray* array | 指向触摸测试信息项数组的指针。 |
-| int32_t* size | 触摸测试信息项数组的大小。 |
+| ArkUI_TouchTestInfoItemArray* array | 输出参数，指向用于接收触摸测试信息项数组的指针，数组元素为触摸测试信息项，数组大小通过size参数返回。 |
+| int32_t* size | 输出参数，表示array中返回的触摸测试信息项数量。 |
 
 
 **返回：**
@@ -5038,7 +5055,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfoItem_GetChildId(const ArkUI_TouchTestInfoI
 | 参数项 | 描述 |
 | --- | --- |
 | const ArkUI_TouchTestInfoItem* info | 指向触摸测试信息项的指针。 |
-| char* buffer | 存储结果的缓冲区。 |
+| char* buffer | 调用者提供的缓冲区，用于接收获取到的子组件ID字符串。 |
 | int32_t bufferSize | 缓冲区的大小。 |
 
 
@@ -5061,7 +5078,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultStrategy(ArkUI_TouchTestInf
 
 **描述：**
 
-设置触摸测试策略，即组件及其子组件在命中测试过程中的行为方式。
+设置触摸测试策略，即组件及其子组件在命中测试过程中的行为方式，适用于自定义触摸命中结果、将触摸事件分发给指定子组件或控制兄弟节点是否继续参与命中测试的场景。
 
 **起始版本：** 22
 
@@ -5092,7 +5109,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultId(ArkUI_TouchTestInfo* inf
 
 **描述：**
 
-设置命中测试过程中需要作用的子组件ID。
+设置命中测试过程中需要作用的子组件ID，适用于自定义触摸测试结果并希望将触摸事件分发到指定子组件的场景。
 
 **起始版本：** 22
 
@@ -5123,7 +5140,7 @@ int64_t OH_ArkUI_DigitalCrownEvent_GetEventTime(const ArkUI_UIInputEvent* event)
 
 **描述：**
 
-获取表冠事件发生的时间。单位为ns。
+获取表冠事件发生的时间。单位为ns。仅适用于入参event里存储的是表冠事件对象的场景。
 
 **起始版本：** 24
 
@@ -5153,7 +5170,7 @@ double OH_ArkUI_DigitalCrownEvent_GetAngularVelocity(const ArkUI_UIInputEvent* e
 
 **描述：**
 
-获取表冠事件发生的角速度。单位为°/s。
+获取表冠事件发生的角速度。单位为°/s。仅适用于入参event里存储的是表冠事件对象的场景。
 
 **起始版本：** 24
 
@@ -5183,7 +5200,7 @@ double OH_ArkUI_DigitalCrownEvent_GetDegree(const ArkUI_UIInputEvent* event)
 
 **描述：**
 
-获取表冠事件发生的旋转角度。单位为°。
+获取表冠事件发生的旋转角度。单位为°。仅适用于入参event里存储的是表冠事件对象的场景。
 
 **起始版本：** 24
 
@@ -5213,7 +5230,7 @@ ArkUI_CrownEvent_Action OH_ArkUI_DigitalCrownEvent_GetAction(const ArkUI_UIInput
 
 **描述：**
 
-获取表冠事件发生的阶段。
+获取表冠事件发生的阶段。仅适用于入参event里存储的是表冠事件对象的场景。
 
 **起始版本：** 24
 

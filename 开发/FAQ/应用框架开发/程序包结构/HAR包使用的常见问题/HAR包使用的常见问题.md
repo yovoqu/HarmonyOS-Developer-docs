@@ -39,18 +39,18 @@ HAR包作为静态共享包，时常作为二方/三方SDK使用，但在HAR包�
   在多包场景下，如果应用的多个HAP或HSP包使用HAR包实现代码和资源的共享，那么打包后的每个HAP或HSP包中都会存在一份共享HAR包的拷贝，导致APP包中存在冗余代码和资源。如下图示例，应用模块HAP1和HAP2/HSP1都引用了HAR2和HAR3，打包后，APP包中HAR2和HAR3存在多份重复拷贝，体积较大。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/igz4_K26SWGz_qtZJ98LPQ/zh-cn_image_0000002628788114.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=4B82211F5627601B6BA5E0DF483AF692C55E9B24CC568150A4BBF360FAADFCAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/igz4_K26SWGz_qtZJ98LPQ/zh-cn_image_0000002628788114.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=838D7AF2AFE21AEAA88280E48A52995C6E885E09599280CAC1EF8EF96AE0AE7A)
 
 
   这种场景下，推荐开发者使用HSP代替HAR实现代码和资源共享。如下图示例，使用HSP2对原应用进行升级改造，打包后，APP包中HAR2和HAR3只存在一份拷贝，HAR2、HAR3总大小大于HSP时，可以减小应用包大小。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/eSKv1_UdTCqgDOWkut1nfA/zh-cn_image_0000002658987435.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=8E2D74355743603500A29FA608611259AB0D8AF01FF9DD9203B27E8C1447A9EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/eSKv1_UdTCqgDOWkut1nfA/zh-cn_image_0000002658987435.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=D5425D870E87D26EF60C6478A4F9A61B6757E82D343A30C0BC95811B4BFDB649)
 
 - **场景四：一个应用有多个模块，多个模块中引用同一个HAR包的不同版本是否有影响，怎么指定统一的版本？**没有影响，每个模块都会将各自的HAR包拷贝到自己的模块，不会影响其它模块。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/nvfDWoCgQ9OA_Y2uS1HpMA/zh-cn_image_0000002628628218.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=AD8B4EC14F6F0D544513D6EDA1A9EC7C8ED8903F47B04C70AC49929CD14D1329)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/nvfDWoCgQ9OA_Y2uS1HpMA/zh-cn_image_0000002628628218.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=EF8DC12840728CC21D51A458CE467892904C51394C465595866EA9542B3080D0)
 
 
   ohpm客户端在1.4.0版本开始支持[Override机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5#zh-cn_topic_0000001792256137_overrides)，可以在项目级别的oh-package.json5（即项目根目录下的oh-package.json5）文件中添加overrides配置，可以将HAR包指定统一的版本。替换的版本既可以是一个具体的版本号，也可以是一个模糊版本，还可以是本地存在的HAR包或源码目录。
@@ -75,14 +75,14 @@ HAR包作为静态共享包，时常作为二方/三方SDK使用，但在HAR包�
 ```
 
 - **场景五：一个应用存在多个HAR模块，例如存在模块HARA、模块HARB、模块HARC和模块HARD，HARB中依赖并引用了HARA，HARC中依赖并引用了HARB和HARA，HARD中依赖并引用了HARC、HARB和HARA，现在希望打包完成后的包中只包含一份HARA、HARB、HARC、HARD，避免生成的HAR包冗余重复，该如何实现？**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zmYHieC3QcOMP0beKBhkEw/zh-cn_image_0000002658867497.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=F7F7B2B0E2F7AFABF81F85AA5E48F0A46085F8A33FD4D38B102E4C7934F1CFD1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zmYHieC3QcOMP0beKBhkEw/zh-cn_image_0000002658867497.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=B09D6278F26C85971F46E7C3292F93D7DE4FAC199474ADDB93ACC2B254369571)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/uVlakH4rQ7WOW8gqZJPdnw/zh-cn_image_0000002628788118.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=6FF5C1F82A3D0726EC8B2A3A240CB328DDF8FFFBD67CB3C31232B52068623A44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/uVlakH4rQ7WOW8gqZJPdnw/zh-cn_image_0000002628788118.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=E59FA78E70481EFDE3031D33AFEE6A5B9DF0BA952AE35AC8F1C8F11365FB45DB)
 
 - 由于存在多个HAR模块，这些模块之间又存在重复依赖和引用的关系，由于同一个工程下，不同HAR模块之间存在继承依赖的关系，即对于工程下的模块HARA、模块HARB、模块HARC和模块HARD，先将模块中的方法、类和接口等通过export方式暴露出去，使得工程下其他模块能够访问。
 - 让HARB中依赖HARA，HARC中依赖HARB，HARD中依赖HARC，从而使四个模块构成继承依赖的关系，就可以实现在HARD引用HARC、HARB和HARA，在HARC中引用HARB和HARA，在HARB中引用HARA，这样就避免生成重复HAR包的情况。
 - 将最外层的HAR模块HARD先转化成HSP模块，参考链接进行相关配置[HAR转HSP指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-to-hsp)。由于HSP模块只能供应用内其他HAP模块或HSP模块引用，如果需要共其他应用的模块使用，还需要将HSP模块转化成[集成态HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrated-hsp)，参考链接进行相关配置集成态HSP。
 - 对集成态HSP模块HARD进行打包，提供给其他应用使用。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/wme5QV0EQKiJrXC-ZC1FTg/zh-cn_image_0000002658987441.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=2DFAED871754011B3648F1AC58301C1A68181C37B789EDCD02E16166BA6B1526)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/wme5QV0EQKiJrXC-ZC1FTg/zh-cn_image_0000002658987441.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=49274790FEC78D97E8218F0A34E3D89056917DB44BC034A0FE2ED3051374689C)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/Ed4DXvRbTKGCtT7POB09ig/zh-cn_image_0000002628628220.png?HW-CC-KV=V1&HW-CC-Date=20260723T012424Z&HW-CC-Expire=86400&HW-CC-Sign=9BF65746D2118CD23B6A54CA4676129B956233031FF892E41A39E0AF3877A8D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/Ed4DXvRbTKGCtT7POB09ig/zh-cn_image_0000002628628220.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=1A6E86B1A682E42DDD1DF5607F41234BD4FD352B78D58D840C97FB2B3D6BAEB2)

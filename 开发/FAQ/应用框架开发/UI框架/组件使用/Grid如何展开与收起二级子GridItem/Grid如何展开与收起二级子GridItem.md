@@ -1,6 +1,6 @@
 # Grid如何展开与收起二级子GridItem
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-712
 
@@ -34,14 +34,14 @@
  
 示例代码如下：
  
-CollapseMenu.ets:
+CollapseMenu.ets：
  
 ```text
 export class CollapseMenu {
   columns: number = 4; <em>// 列</em>
   isExpanded: boolean = false; <em>// 是否展开</em>
   layoutOptions: GridLayoutOptions = {
-   <em> // Grid布局选项</em>
+    <em>// Grid布局选项</em>
     regularSize: [1, 1]
   };
   index: number = 0; <em>// 数组索引 0</em>
@@ -54,48 +54,43 @@ export class CollapseMenu {
   rowIndex: number = 0; <em>// 点击行数 从0开始</em>
   isLastRow: boolean = false; <em>// 是否是最后一行</em>
 
-
   <em>// 初始化一级数据</em>
   public setFirstMenu(arr: Array<ESObject>) {
     this.firstMenu = arr;
   };
-
 
   <em>// 初始化二级数据</em>
   public setSecondMenu(arr: Array<ESObject>) {
     this.secondMenu = arr;
   };
 
-
   <em>// 初始化列</em>
   public setColumns(column: number) {
     this.columns = column;
   };
 
-
- <em> // 设置网格布局</em>
+  <em>// 设置网格布局</em>
   public setLayoutOptions(gridLayoutOptions: GridLayoutOptions) {
     this.layoutOptions = gridLayoutOptions;
   };
 
-
   public addSecondMenu(index: number) {
     if (!this.isExpanded) {
-      this.totalRows = Math.ceil(this.firstMenu.length / this.columns);<em> // 计算总行数 从1开始</em>
-      this.rowIndex = Math.floor(index / this.columns);<em> // 计算所在行 从0开始</em>
+      this.totalRows = Math.ceil(this.firstMenu.length / this.columns); <em>// 计算总行数 从1开始</em>
+      this.rowIndex = Math.floor(index / this.columns); <em>// 计算所在行 从0开始</em>
       this.firstMenu.splice(index + (this.columns - index % this.columns), 0,
-        this.secondMenu); <em>//  向当前点击menu的下一行(获取当前行最末端的索引)添加一条数据到一级grid中，用于展示二级grid</em>
+        this.secondMenu); <em>// 向当前点击menu的下一行(获取当前行最末端的索引)添加一条数据到一级grid中，用于展示二级grid</em>
       this.isLastRow = this.rowIndex === this.totalRows - 1; <em>// 是否是最后一行</em>
       this.targetIndex = this.isLastRow ? this.firstMenu.length - 1 : (this.rowIndex + 1) * 4;
       this.layoutOptions = {
         regularSize: [1, 1], <em>// 追加数据独占一行</em>
-        irregularIndexes: [this.targetIndex] <em> // 当前点击item的下一行添加一个GridItem，独占一行 从0开始</em>
+        irregularIndexes: [this.targetIndex] <em>// 下一行添加一个GridItem从0开始独占一行</em>
       };
       this.isExpanded = true;
       this.clickIndex = index;
     } else {
       this.firstMenu.splice(this.targetIndex, 1);
-   <em>   // 点击同一个元素</em>
+      <em>// 点击同一个元素</em>
       if (this.clickIndex === index) {
         this.isExpanded = false;
         this.layoutOptions = {
@@ -104,7 +99,7 @@ export class CollapseMenu {
       } else {
         this.clickIndex = index > this.targetIndex ? index - 1 : index;
         this.totalRows = Math.ceil(this.firstMenu.length / this.columns);
-        this.rowIndex = Math.floor(index / this.columns);
+        this.rowIndex = Math.floor(this.clickIndex / this.columns);
         this.firstMenu.splice(this.clickIndex + (this.columns - this.clickIndex % this.columns), 0, this.secondMenu);
         this.isLastRow = this.rowIndex === this.totalRows - 1;
         this.targetIndex = this.isLastRow ? this.firstMenu.length - 1 : (this.rowIndex + 1) * 4;
@@ -112,10 +107,8 @@ export class CollapseMenu {
           regularSize: [1, 1],
           irregularIndexes: [this.targetIndex]
         };
-      }
-      ;
-    }
-    ;
+      };      
+    };
   };
 };
 ```
@@ -125,7 +118,6 @@ Index.ets：
 ```text
 import { CollapseMenu as collapseMenu } from './CollapseMenu';
 
-
 @Entry
 @Component
 struct Index {
@@ -133,16 +125,14 @@ struct Index {
   arr: Array<string> = ['1', '2', '3', '4', '5', '6'];
   child: Array<string> = ['child1', 'child2', 'child3', 'child4', 'child5'];
 
-
   aboutToAppear(): void {
     this.collapseMenu.setFirstMenu(this.arr);
     this.collapseMenu.setSecondMenu(this.child);
   }
 
-
   @Builder
   commonBuilder(param: string) {
-   <em> // 自定义菜单样式</em>
+    <em>// 自定义菜单样式</em>
     Column() {
       Image($r('app.media.startIcon'))
         .width(60)
@@ -157,13 +147,12 @@ struct Index {
     };
   }
 
-
   build() {
     Column() {
       Grid(undefined, this.collapseMenu.layoutOptions) {
         ForEach(this.collapseMenu.firstMenu, (item: ESObject, index: number) => {
           if (this.collapseMenu.isExpanded && this.collapseMenu.targetIndex === index) {
-          <em>  // 二级</em>
+            <em>// 二级</em>
             GridItem() {
               Column() {
                 Grid() {
@@ -178,12 +167,12 @@ struct Index {
             }
             .backgroundColor('#f1f1f1');
           } else {
-           <em> // 一级</em>
+            <em>// 一级</em>
             GridItem() {
               Stack({ alignContent: Alignment.Bottom }) {
                 this.commonBuilder(item);
                 if (this.collapseMenu.isExpanded && this.collapseMenu.clickIndex === index) {
-               <em>   // 当一级菜单被点击，对应的一级item添加倒三角形</em>
+                  <em>// 当一级菜单被点击，对应的一级item添加倒三角形</em>
                   Row()
                     .width(0)
                     .height(0)
@@ -214,7 +203,7 @@ struct Index {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/keCDCza4T-666dGzQyupEQ/zh-cn_image_0000002628554904.png?HW-CC-KV=V1&HW-CC-Date=20260723T012601Z&HW-CC-Expire=86400&HW-CC-Sign=548F924AF4D2371F456F4B9EB42F3FE9ACF6DE20DB4DB076D6204DF87930E9CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/apadc61uQ-ClKSdwCojAAg/zh-cn_image_0000002655584712.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=66FA955769E534843D5D53EECA12C2D2ABE6097C26B4B62A32BBCE6D5D4F4897)
 
  
  

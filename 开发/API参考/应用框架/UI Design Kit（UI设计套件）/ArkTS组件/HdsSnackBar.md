@@ -1,6 +1,6 @@
 # HdsSnackBar
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssnackbar
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -113,6 +113,8 @@ dismiss(): void
 | iconType | SnackBarIconType | 否 | 是 | HdsSnackBar的图标类型。 默认值：SnackBarIconType.SMALL。 |
 | iconModifier | ImageModifier | 否 | 是 | HdsSnackBar的Image图片的modifier。 |
 | iconSymbolModifier | SymbolGlyphModifier | 否 | 是 | HdsSnackBar的SymbolGlyph图标的modifier。 |
+| iconBuilder | CustomBuilder | 否 | 是 | HdsSnackBar的左侧图标自定义Builder，优先级高于icon。 起始版本： 26.0.0。 |
+| iconBuilderWidth | LengthMetrics | 否 | 是 | HdsSnackBar的左侧图标自定义Builder宽度，优先级高于icon。 起始版本： 26.0.0。 |
  
  
   
@@ -135,6 +137,8 @@ dismiss(): void
 | titleColor | ColorMetrics | 否 | 是 | HdsSnackBar的中间文本的标题颜色。 |
 | content | ResourceStr | 否 | 是 | HdsSnackBar的中间文本的内容。 |
 | contentColor | ColorMetrics | 否 | 是 | HdsSnackBar的中间文本的内容颜色。 |
+| titleModifier | TextModifier | 否 | 是 | HdsSnackBar的中间文本的标题样式修改器。 起始版本： 26.0.0。 |
+| contentModifier | TextModifier | 否 | 是 | HdsSnackBar的中间文本的内容样式修改器。 起始版本： 26.0.0。 |
  
  
   
@@ -160,6 +164,7 @@ dismiss(): void
 | contentAccessibilityText | ResourceStr | 否 | 是 | HdsSnackBar的右侧区域文本按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值：""。 说明：当右侧操作区是关闭按钮（即operationType为CLOSE_BUTTON_ONLY）时，该参数不生效。 |
 | contentAccessibilityDescription | ResourceStr | 否 | 是 | HdsSnackBar的右侧区域文本按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值："单指双击即可执行"。 说明：当右侧操作区是关闭按钮（即operationType为CLOSE_BUTTON_ONLY）时，该参数不生效。 |
 | onCloseButtonClick | Callback&lt;void&gt; | 否 | 是 | HdsSnackBar的右侧区域关闭按钮的点击事件。 说明：当右侧操作区是文本按钮或者带有右箭头的文本按钮（即operationType为TEXT_ONLY或者TEXT_WITH_ARROW）时，该参数不生效。 |
+| closeSymbolModifier | SymbolGlyphModifier | 否 | 是 | HdsSnackBar的右侧操作区关闭按钮的图标样式修改器。 起始版本： 26.0.0。 |
 | closeButtonAccessibilityText | ResourceStr | 否 | 是 | HdsSnackBar的右侧区域关闭按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值：""。 说明：当右侧操作区是文本按钮或者带有右箭头的文本按钮（即operationType为TEXT_ONLY或者TEXT_WITH_ARROW）时，该参数不生效。 |
 | closeButtonAccessibilityDescription | ResourceStr | 否 | 是 | HdsSnackBar的右侧区域关闭按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值："单指双击即可执行"。 说明：当右侧操作区是文本按钮或者带有右箭头的文本按钮（即operationType为TEXT_ONLY或者TEXT_WITH_ARROW）时，该参数不生效。 |
 | arrowColor | ColorMetrics[] | 否 | 是 | HdsSnackBar的右侧区域的右箭头颜色。 说明：当右侧操作区是带有右箭头的文本按钮（即operationType为TEXT_WITH_ARROW）时，该参数生效。 |
@@ -313,4 +318,4 @@ struct TestSnackBar {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/bu_8dS4gSQS1ZWsTHGSb4A/zh-cn_image_0000002626231228.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=389C25D8E73825C44BB468A2FE0454FB81587BC27C7523B26C2813A916439793)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/b0nh-zUeREOrDET1lOQrnA/zh-cn_image_0000002686088867.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071607Z&HW-CC-Expire=86400&HW-CC-Sign=364C55AE0A6EB5DA06897F1E935A50DBBB62957525A975228C6DAB40EB617123)

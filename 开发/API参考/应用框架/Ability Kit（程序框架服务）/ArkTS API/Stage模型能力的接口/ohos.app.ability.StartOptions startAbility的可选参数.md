@@ -1,6 +1,6 @@
 # @ohos.app.ability.StartOptions (startAbility的可选参数)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -43,7 +43,7 @@ StartOptions用于指定启动目标UIAbility时的选项。
 | processMode12+ | contextConstant.ProcessMode | 否 | 是 | UIAbility启动后的进程模式。 约束： 1.该功能仅在2in1和Tablet设备上生效。 2.仅在UIAbilityContext.startAbility中生效。 3.processMode和startupVisibility必须同时设置。 |
 | startupVisibility12+ | contextConstant.StartupVisibility | 否 | 是 | UIAbility启动后的可见性。当用户设置目标UIAbility为不可见时，目标UIAbility的窗口不会显示在前台，dock栏也不会有图标，同时目标UIAbility的onForeground生命周期不会被调用。 约束： 1.该功能仅在2in1和Tablet设备上生效。 2.仅在UIAbilityContext.startAbility中生效。 3.processMode和startupVisibility必须同时设置。 |
 | startWindowIcon14+ | image.PixelMap | 否 | 是 | 启动当前应用的UIAbility时，启动页所显示的图标。如果未配置该字段，则默认采用module.json5文件中startWindowIcon字段的配置。 约束： - 启动其他应用的UIAbility时，该字段不生效。 - 该功能仅在2in1和Tablet设备上生效。 - 仅在UIAbilityContext.startAbility中生效。 - 图片数据大小限制为600MB。 |
-| startWindowBackgroundColor14+ | string | 否 | 是 | 启动当前应用的UIAbility时，启动页所显示的背景颜色。固定为ARGB格式, 如：#E5FFFFFF。如果未配置该字段，则默认采用module.json5文件中startWindowBackground字段的配置。 约束： - 启动其他应用的UIAbility时，该字段不生效。 - 该功能仅在2in1和Tablet设备上生效。 - 仅在UIAbilityContext.startAbility中生效。 |
+| startWindowBackgroundColor14+ | string | 否 | 是 | 启动当前应用的UIAbility时，启动页所显示的背景颜色。固定为ARGB格式，如：#E5FFFFFF。如果未配置该字段，则默认采用module.json5文件中startWindowBackground字段的配置。 约束： - 启动其他应用的UIAbility时，该字段不生效。 - 该功能仅在2in1和Tablet设备上生效。 - 仅在UIAbilityContext.startAbility中生效。 |
 | supportWindowModes14+ | Array<bundleManager.SupportWindowMode> | 否 | 是 | 启动UIAbility时，指定窗口是否显示最大化/窗口化/分屏按键。如果未配置该字段，则默认采用该UIAbility对应的module.json5配置文件中abilities标签的supportWindowMode字段取值。 - FULL_SCREEN：支持全屏模式。 - FLOATING：支持悬浮窗模式。 - SPLIT：支持分屏模式。通常需要配合FULL_SCREEN或FLOATING一起使用，不建议只配置SPLIT。当仅配置SPLIT时，2in1设备上的窗口默认为悬浮窗模式，支持进入分屏模式；Tablet设备上的窗口默认为全屏模式，支持进入分屏模式。 在自由窗口状态下同时配置FULL_SCREEN和SPLIT时，如果应用的targetAPIVersion小于15，窗口将以悬浮窗模式启动；如果应用的targetAPIVersion大于等于15，窗口将以全屏模式启动。 约束： 仅在2in1和tablet设备上生效。对于tablet设备，还需要在“自由多窗”模式下，该字段方可生效。 |
 | minWindowWidth17+ | number | 否 | 是 | 窗口最小的宽度，单位为vp，可以通过getWindowLimitsVP获得当前窗口的尺寸限制。 约束： 该功能仅在自由窗口状态下生效。 |
 | minWindowHeight17+ | number | 否 | 是 | 窗口最小的高度，单位为vp，可以通过getWindowLimitsVP获得当前窗口的尺寸限制。 约束： 该功能仅在自由窗口状态下生效。 |

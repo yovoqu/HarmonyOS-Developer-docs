@@ -1,6 +1,6 @@
 # 高亮显示PDF文档
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-highlight
 
@@ -37,10 +37,11 @@ PDF文档在预览时，可以对页面的矩形区域或文本设置高亮显�
 
 ```text
 import { pdfService, PdfView, pdfViewManager } from '@kit.PDFKit';
+// ...
 
 @Entry
 @Component
-struct PdfPage {
+struct HighlightPage {
   private controller: pdfViewManager.PdfController = new pdfViewManager.PdfController();
   private context = this.getUIContext().getHostContext() as Context;
   private loadResult: pdfService.ParseResult = pdfService.ParseResult.PARSE_ERROR_FORMAT;
@@ -54,25 +55,26 @@ struct PdfPage {
   }
 
   build() {
-    Column() {
-      Row() {
-        // 设置文本的高亮显示风格
-        Button('setHighlightText').onClick(async () => {
-          if (this.loadResult === pdfService.ParseResult.PARSE_SUCCESS) {
-            this.controller.setHighlightText(0, ['白皮书'], 0xAAF9CC00);
-          }
+    // ...
+      Column() {
+        Row() {
+          // 设置文本的高亮显示风格
+          Button('setHighlightText').onClick(async () => {
+            if (this.loadResult === pdfService.ParseResult.PARSE_SUCCESS) {
+              this.controller.setHighlightText(0, ['PDF'], 0xAAF9CC00);
+            }
+          })
+        }
+        // 加载PdfView组件进行预览
+        PdfView({
+          controller: this.controller,
+          pageFit: pdfService.PageFit.FIT_WIDTH,
+          showScroll: true
         })
+          .id('pdfview_app_view')
+          .layoutWeight(1);
       }
-
-      // 加载PdfView组件进行预览
-      PdfView({
-        controller: this.controller,
-        pageFit: pdfService.PageFit.FIT_WIDTH,
-        showScroll: true
-      })
-        .id('pdfview_app_view')
-        .layoutWeight(1);
-    }
+      // ...
     .width('100%').height('100%')
   }
 }

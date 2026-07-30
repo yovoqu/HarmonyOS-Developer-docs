@@ -1,8 +1,13 @@
 # 产品特性按需分发(C/C++)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_c
+
+> [!NOTE]
+> 26.0.0版本开始，新增暂停下载任务接口，支持用户暂停下载任务。
+
+
 
 #### 场景介绍
 
@@ -19,7 +24,8 @@
 #### 约束与限制
 
  - 应用需要上架应用市场。
- - 产品特性按需分发功能支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备。
+ - 产品特性按需分发功能支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备；从26.0.0版本开始，新增支持Car设备。
+ - 使用按需分发前，需先将应用拆分为基础包与增强功能模块，详细操作请参考[模块管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-module-management)。
 
 
 
@@ -43,6 +49,7 @@
 | HMS_ModuleInstall_GetFetchModulesTotalSize | 获取模块下载总大小。 |
 | HMS_ModuleInstall_GetFetchModulesDownloadedSize | 获取模块下载已下载大小。 |
 | HMS_ModuleInstall_CancelTask | 取消下载任务。 |
+| HMS_ModuleInstall_PauseTask | 暂停下载任务。 |
 | HMS_ModuleInstall_ShowCellularDataConfirmation | 展示流量弹窗。 |
 | HMS_ModuleInstall_CreateStatusCallback | 创建下载进度监听回调。 |
 | HMS_ModuleInstall_On | 下载进度监听。 |
@@ -61,7 +68,7 @@
 #### 在CMake脚本中链接动态库
 
 ```text
-target_link_libraries(sample PUBLIC libhmsmoduleinstall.so)
+target_link_libraries(entry PUBLIC ${module_install_lib})
 ```
 
 
@@ -103,13 +110,17 @@ if (installedModule != nullptr) {
 
 ```text
 char *bundleName;
-int arraySize = 1;
-char** moduleNames = new char*[arraySize];
+unsigned int arraySize = 1;
+// ...
+char **moduleNames = new char *[arraySize];
 for (int i = 0; i < arraySize; i++) {
-     moduleNames[i] = new char[256];
+    moduleNames[i] = new char[256];
 }
+// ...
 ModuleInstall_FetchModulesResult *fetchModulesResult;
-ModuleInstall_ErrCode ret = HMS_ModuleInstall_FetchModules(bundleName, strlen(bundleName), moduleNames, arraySize, &fetchModulesResult);
+ModuleInstall_ErrCode ret =
+    HMS_ModuleInstall_FetchModules(bundleName, strlen(bundleName), moduleNames, arraySize, &fetchModulesResult);
+// ...
 if (ret == E_NO_ERROR) {
     ModuleInstall_RequestCode code = HMS_ModuleInstall_GetFetchModulesRequestCode(fetchModulesResult);
     ModuleInstall_TaskStatus taskStatus = HMS_ModuleInstall_GetFetchModulesTaskStatus(fetchModulesResult);
@@ -118,6 +129,7 @@ if (ret == E_NO_ERROR) {
     char *modules = HMS_ModuleInstall_GetFetchModules(fetchModulesResult);
     int totalSize = HMS_ModuleInstall_GetFetchModulesTotalSize(fetchModulesResult);
     int downloadedSize = HMS_ModuleInstall_GetFetchModulesDownloadedSize(fetchModulesResult);
+    // ...
 }
 if (moduleNames != nullptr) {
     delete[] moduleNames;
@@ -131,13 +143,86 @@ if (fetchModulesResult != nullptr) {
 
 
 
-#### 取消下载任务
+#### 暂停下载任务
 
-如果需要取消下载，应用可以调用[HMS_ModuleInstall_CancelTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_canceltask)接口取消下载任务，其中taskId是调用[HMS_ModuleInstall_GetFetchModulesTaskId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_getfetchmodulestaskid)接口返回的taskId。
+调用[HMS_ModuleInstall_PauseTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_pausetask)接口暂停下载任务。
 
 ```text
 char *taskId; // 下载任务id
+// ...
+ModuleInstall_ErrCode ret = HMS_ModuleInstall_PauseTask(taskId);
+if (ret == E_NO_ERROR) {
+    // 暂停下载成功
+}
+```
+
+
+
+#### 恢复下载任务
+
+使用[HMS_ModuleInstall_PauseTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_pausetask)接口暂停下载任务后，可通过调用[HMS_ModuleInstall_FetchModules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_fetchmodules)接口实现下载任务从中断处继续下载。
+
+```text
+#include <cstring>
+#include "AppGalleryKit/module_install.h"
+
+// ...
+
+// 暂停下载任务
+void PauseTask() {
+    char *taskId;
+    ModuleInstall_ErrCode ret = HMS_ModuleInstall_PauseTask(taskId);
+    if (ret == E_NO_ERROR) {
+        // 暂停下载成功
+    }
+}
+
+// 恢复下载任务
+void FetchModules() {
+    char *bundleName;
+    int arraySize = 1;
+    char **moduleNames = new char *[arraySize];
+    for (int i = 0; i < arraySize; i++) {
+        moduleNames[i] = new char[256];
+    }
+    ModuleInstall_FetchModulesResult *fetchModulesResult;
+    ModuleInstall_ErrCode ret =
+        HMS_ModuleInstall_FetchModules(bundleName, strlen(bundleName), moduleNames, arraySize, &fetchModulesResult);
+    if (ret == E_NO_ERROR) {
+        ModuleInstall_TaskStatus taskStatus = HMS_ModuleInstall_GetFetchModulesTaskStatus(fetchModulesResult);
+        char *taskId = HMS_ModuleInstall_GetFetchModulesTaskId(fetchModulesResult);
+        ModuleInstall_RequestCode code = HMS_ModuleInstall_GetFetchModulesRequestCode(fetchModulesResult);
+        if (code == DOWNLOAD_WAIT_WIFI) {
+            int showResult;
+            ModuleInstall_ErrCode ret =
+                HMS_ModuleInstall_ShowCellularDataConfirmation(taskId, strlen(taskId), showResult);
+        }
+        char *desc = HMS_ModuleInstall_GetFetchModulesDesc(fetchModulesResult);
+        char *modules = HMS_ModuleInstall_GetFetchModules(fetchModulesResult);
+        int totalSize = HMS_ModuleInstall_GetFetchModulesTotalSize(fetchModulesResult);
+        int downloadedSize = HMS_ModuleInstall_GetFetchModulesDownloadedSize(fetchModulesResult);
+    }
+    if (moduleNames != nullptr) {
+        delete[] moduleNames;
+        moduleNames = nullptr;
+    }
+    if (fetchModulesResult != nullptr) {
+        delete fetchModulesResult;
+        fetchModulesResult = nullptr;
+    }
+}
+```
+
+
+
+#### 取消下载任务
+
+调用[HMS_ModuleInstall_CancelTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_canceltask)接口取消下载任务。
+
+```text
+char *taskId;     // 下载任务id
 int cancelResult; // 取消下载结果
+// ...
 ModuleInstall_ErrCode ret = HMS_ModuleInstall_CancelTask(taskId, strlen(taskId), cancelResult);
 if (ret == E_NO_ERROR && cancelResult == 0) {
     // 取消下载成功
@@ -151,8 +236,9 @@ if (ret == E_NO_ERROR && cancelResult == 0) {
 如果调用[HMS_ModuleInstall_GetFetchModulesRequestCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_getfetchmodulesrequestcode)接口返回DOWNLOAD_WAIT_WIFI时，需要调用[HMS_ModuleInstall_ShowCellularDataConfirmation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall#hms_moduleinstall_showcellulardataconfirmation)接口展示流量弹窗。
 
 ```text
-char *taskId; // 下载任务id
+char *taskId;   // 下载任务id
 int showResult; // 展示流量弹窗结果
+// ...
 ModuleInstall_ErrCode ret = HMS_ModuleInstall_ShowCellularDataConfirmation(taskId, strlen(taskId), showResult);
 if (ret == E_NO_ERROR && showResult == 0) {
     // 展示流量弹窗成功
@@ -170,6 +256,7 @@ if (ret == E_NO_ERROR && showResult == 0) {
 ```text
 void onEvent(char *bundleName, char *eventInfo) {
     // 回调处理
+    // ...
 }
 ```
 
@@ -193,8 +280,9 @@ statusCallback = HMS_ModuleInstall_CreateStatusCallback(&onStatusCallback);
 
 ```text
 char *bundleName; // 应用包名
-int appIndex; // 应用分身索引
-int period; // 监听周期
+int appIndex;     // 应用分身索引
+int period;       // 监听周期
+// ...
 ModuleInstall_ErrCode ret = HMS_ModuleInstall_On(bundleName, strlen(bundleName), appIndex, period, &statusCallback);
 ```
 
@@ -206,7 +294,8 @@ ModuleInstall_ErrCode ret = HMS_ModuleInstall_On(bundleName, strlen(bundleName),
 
 ```text
 char *bundleName; // 应用包名
-int appIndex; // 应用分身索引
+int appIndex;     // 应用分身索引
+// ...
 ModuleInstall_ErrCode ret = HMS_ModuleInstall_Off(bundleName, strlen(bundleName), appIndex);
 if (ret == E_NO_ERROR) {
     // 取消监听成功
@@ -243,6 +332,22 @@ void ShowCellularDataConfirmation(char *taskId) {
     ModuleInstall_ErrCode ret = HMS_ModuleInstall_ShowCellularDataConfirmation(taskId, strlen(taskId), showResult);
 }
 
+void CancelTask() {
+    char *taskId;
+    int cancelResult;
+    ModuleInstall_ErrCode ret = HMS_ModuleInstall_CancelTask(taskId, strlen(taskId), cancelResult);
+}
+
+// 暂停下载任务
+void PauseTask() {
+    char *taskId;
+    ModuleInstall_ErrCode ret = HMS_ModuleInstall_PauseTask(taskId);
+    if (ret == E_NO_ERROR) {
+        // 暂停下载成功
+    }
+}
+
+// 恢复下载任务
 void FetchModules() {
     char *bundleName;
     int arraySize = 1;
@@ -251,38 +356,35 @@ void FetchModules() {
         moduleNames[i] = new char[256];
     }
     ModuleInstall_FetchModulesResult *fetchModulesResult;
-    ModuleInstall_ErrCode ret = HMS_ModuleInstall_FetchModules(bundleName, strlen(bundleName), moduleNames, arraySize, &fetchModulesResult);
+    ModuleInstall_ErrCode ret =
+        HMS_ModuleInstall_FetchModules(bundleName, strlen(bundleName), moduleNames, arraySize, &fetchModulesResult);
     if (ret == E_NO_ERROR) {
         ModuleInstall_TaskStatus taskStatus = HMS_ModuleInstall_GetFetchModulesTaskStatus(fetchModulesResult);
         char *taskId = HMS_ModuleInstall_GetFetchModulesTaskId(fetchModulesResult);
         ModuleInstall_RequestCode code = HMS_ModuleInstall_GetFetchModulesRequestCode(fetchModulesResult);
         if (code == DOWNLOAD_WAIT_WIFI) {
-            ShowCellularDataConfirmation(taskId);
+            int showResult;
+            ModuleInstall_ErrCode ret =
+                HMS_ModuleInstall_ShowCellularDataConfirmation(taskId, strlen(taskId), showResult);
         }
         char *desc = HMS_ModuleInstall_GetFetchModulesDesc(fetchModulesResult);
         char *modules = HMS_ModuleInstall_GetFetchModules(fetchModulesResult);
         int totalSize = HMS_ModuleInstall_GetFetchModulesTotalSize(fetchModulesResult);
         int downloadedSize = HMS_ModuleInstall_GetFetchModulesDownloadedSize(fetchModulesResult);
     }
-
     if (moduleNames != nullptr) {
         delete[] moduleNames;
         moduleNames = nullptr;
     }
-
     if (fetchModulesResult != nullptr) {
         delete fetchModulesResult;
         fetchModulesResult = nullptr;
     }
 }
 
-void CancelTask() {
-    char *taskId;
-    int cancelResult;
-    ModuleInstall_ErrCode ret = HMS_ModuleInstall_CancelTask(taskId, strlen(taskId), cancelResult);
+void onEvent(char *bundleName, char *eventInfo) {
+    // ...
 }
-
-void onEvent(char *bundleName, char *eventInfo) {}
 
 void On() {
     char *bundleName;

@@ -9,7 +9,7 @@
 点击按钮蓝色部分才会响应点击事件，被灰点遮挡的部分点击无响应，如何实现点击灰点处和按钮事件都生效？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/e1Uvipy3RLuOLBkS635P0g/zh-cn_image_0000002658969083.png?HW-CC-KV=V1&HW-CC-Date=20260723T012810Z&HW-CC-Expire=86400&HW-CC-Sign=8E302036BD105E2D4C32B46900BDD1893F147CE5C27792626531FA79F1FE7A7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/e1Uvipy3RLuOLBkS635P0g/zh-cn_image_0000002658969083.png?HW-CC-KV=V1&HW-CC-Date=20260730T072411Z&HW-CC-Expire=86400&HW-CC-Sign=9B2FE5EF097F45B37B8AD70AB060F4A5BD73FF4A5BC8DBFD9124C01448D16C55)
 
  
 问题代码示例参考如下：
@@ -53,7 +53,7 @@ struct <span style="color: rgb(0,0,255);">BadgeClickTest </span><span style="col
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/bBuW0JoUSvuy4X3-OuBs3Q/zh-cn_image_0000002658849135.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012810Z&HW-CC-Expire=86400&HW-CC-Sign=9EC31A5DD43492BE6693E8919D2CF4B823EB44CD79C51E611198D46C12915F25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/bBuW0JoUSvuy4X3-OuBs3Q/zh-cn_image_0000002658849135.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072411Z&HW-CC-Expire=86400&HW-CC-Sign=B09C4D2AFFCE3CD58CF20D27B563E853AC94B60624EA07FF44E19579EE5F6F66)
 
  
  

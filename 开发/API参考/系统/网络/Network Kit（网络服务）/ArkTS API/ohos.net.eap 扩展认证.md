@@ -1,6 +1,6 @@
 # @ohos.net.eap (扩展认证)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-eap
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -313,7 +313,7 @@ EAP信息。
 | --- | --- | --- | --- | --- |
 | msgId | number | 否 | 否 | 伪随机数，用于关联处理前后的EAP数据。 |
 | eapBuffer | Uint8Array | 否 | 否 | 从EAP header开始的EAP原始数据，未加密。 |
-| bufferLen | number | 否 | 否 | 数据长度。 |
+| bufferLen | number | 否 | 否 | 数据长度。单位：Byte。 |
 
 
 

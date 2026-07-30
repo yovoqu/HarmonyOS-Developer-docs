@@ -79,7 +79,7 @@ pathStack.pushPath(pathInfo);
 新增工程项目后，此时存在一个entry类型的HAP包（作为拉起方），再新增一个feature类型的HAP（被拉起方）。参考不同类型[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)的说明。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/7ndlKcceTkC8OSr-vNdqcg/zh-cn_image_0000002628755346.png?HW-CC-KV=V1&HW-CC-Date=20260723T013205Z&HW-CC-Expire=86400&HW-CC-Sign=BCDB0B3CA89A774F1DF84026AEDD089FAABD0C134E5FF5C3C1D861E4FDFC1405)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/7ndlKcceTkC8OSr-vNdqcg/zh-cn_image_0000002628755346.png?HW-CC-KV=V1&HW-CC-Date=20260730T072510Z&HW-CC-Expire=86400&HW-CC-Sign=048B788ACAD794BC40087B0A50C8E15F7DBC844972D1C4D0B97D845A0823F653)
 
  1. 拉起方（entry模块）的示例代码如下，请根据实际的HAP信息更新want参数：
 ```json
@@ -193,7 +193,7 @@ struct NavDesPage {
 
 3. 按照方案的描述修改被拉起方的UIAbility文件（示例中为TargetAbility.ets）的onNewWant方法（若UIAbility文件无此方法，则参照背景知识中介绍自行增加onNewWant即可）。
 4. 分别编译target模块和entry模块，再运行entry模块即可。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/OZI4r7oaTAykKC3RFz4Czw/zh-cn_image_0000002658954667.png?HW-CC-KV=V1&HW-CC-Date=20260723T013205Z&HW-CC-Expire=86400&HW-CC-Sign=B9442C4E78C0F9590218F0B6430C00B910E9E2E0BB25AFB8B38E5B9A4595CEDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/OZI4r7oaTAykKC3RFz4Czw/zh-cn_image_0000002658954667.png?HW-CC-KV=V1&HW-CC-Date=20260730T072510Z&HW-CC-Expire=86400&HW-CC-Sign=26A75DAD6E1BCF8CD95320164D45D414573B192FD9BC707B423396B944AE6986)
 
  
 

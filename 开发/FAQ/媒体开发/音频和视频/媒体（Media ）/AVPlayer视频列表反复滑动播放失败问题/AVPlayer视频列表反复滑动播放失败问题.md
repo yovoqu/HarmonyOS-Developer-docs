@@ -57,7 +57,7 @@
 ```
 
 4. 视频播放状态示意如下。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/YZdFGJObTNyJIEjSm2scNg/zh-cn_image_0000002658792019.png?HW-CC-KV=V1&HW-CC-Date=20260723T013623Z&HW-CC-Expire=86400&HW-CC-Sign=C3872D335FECB8C96147986EFEA769D763C459659B0929DE8E61268E1EB6CB58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/YZdFGJObTNyJIEjSm2scNg/zh-cn_image_0000002658792019.png?HW-CC-KV=V1&HW-CC-Date=20260730T072627Z&HW-CC-Expire=86400&HW-CC-Sign=54CE992B44222D059D090BAD8E2B645B0613463F11B510A5B65D6C09C1F6FD6B)
 
 
   

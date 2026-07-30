@@ -1,14 +1,14 @@
 # Rect
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-rect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-矩形绘制组件。
+矩形绘制组件，用于在界面中绘制矩形图形，支持设置填充颜色、边框样式、圆角等属性。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API version 20开始支持使用 AttributeUpdater 类的 updateConstructorParams 接口更新构造参数。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件从API version 20开始支持使用 AttributeUpdater 类的 updateConstructorParams 接口更新构造参数。
 
   
 
@@ -32,7 +32,7 @@
 
 new Rect(options?: RectOptions | RoundedRectOptions)
  
-用于绘制矩形的构造函数。
+用于绘制矩形的构造函数。调用后创建一个Rect对象，可设置宽度、高度、圆角等属性。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -44,7 +44,7 @@ new Rect(options?: RectOptions | RoundedRectOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | RectOptions \| RoundedRectOptions | 否 | Rect绘制属性。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | RectOptions \| RoundedRectOptions | 否 | Rect绘制属性，包含宽度、高度、圆角等配置。不传入时使用各属性默认值绘制矩形（宽高和圆角均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
  
  
   
@@ -55,7 +55,7 @@ new Rect(options?: RectOptions | RoundedRectOptions)
 
 Rect(options?: RectOptions | RoundedRectOptions)
  
-用于绘制矩形的构造函数。
+用于绘制矩形的构造函数。调用后创建一个Rect对象，可设置宽度、高度、圆角等属性。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -67,7 +67,7 @@ Rect(options?: RectOptions | RoundedRectOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | RectOptions \| RoundedRectOptions | 否 | Rect绘制属性。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | RectOptions \| RoundedRectOptions | 否 | Rect绘制属性，包含宽度、高度、圆角等配置。不传入时使用各属性默认值绘制矩形（宽高和圆角均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
  
  
   
@@ -76,7 +76,7 @@ Rect(options?: RectOptions | RoundedRectOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于描述Rect组件绘制属性。
+用于描述矩形绘制组件的绘制属性。
  
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -92,9 +92,9 @@ Rect(options?: RectOptions | RoundedRectOptions)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width7+ | Length | 否 | 是 | 宽度，取值范围≥0。 默认值：0 默认单位：vp 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| height7+ | Length | 否 | 是 | 高度，取值范围≥0。 默认值：0 默认单位：vp 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| radius7+ | Length \| Array&lt;any&gt; | 否 | 是 | 圆角半径，支持分别设置四个角的圆角度数，取值范围≥0。 该属性和radiusWidth/radiusHeight属性效果类似，在组合使用时优先于radiusWidth/radiusHeight生效。 默认值：0 默认单位：vp 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| width7+ | Length | 否 | 是 | 宽度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| height7+ | Length | 否 | 是 | 高度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| radius7+ | Length \| Array&lt;any&gt; | 否 | 是 | 圆角半径，支持分别设置四个角的圆角半径大小，取值范围≥0。 该属性和radiusWidth/radiusHeight属性效果类似，在组合使用时优先于radiusWidth/radiusHeight生效。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
  
  
   
@@ -103,7 +103,7 @@ Rect(options?: RectOptions | RoundedRectOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于描述Rect绘制属性。
+用于描述圆角矩形绘制组件的绘制属性。
  
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -119,10 +119,10 @@ Rect(options?: RectOptions | RoundedRectOptions)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width7+ | Length | 否 | 是 | 宽度，取值范围≥0。 默认值：0 默认单位：vp 异常值按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| height7+ | Length | 否 | 是 | 高度，取值范围≥0。 默认值：0 默认单位：vp 异常值按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| radiusWidth7+ | Length | 否 | 是 | 圆角宽度，取值范围≥0。 默认值：0 默认单位：vp 异常值按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| radiusHeight7+ | Length | 否 | 是 | 圆角高度，取值范围≥0。 默认值：0 默认单位：vp 异常值按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| width7+ | Length | 否 | 是 | 宽度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| height7+ | Length | 否 | 是 | 高度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| radiusWidth7+ | Length | 否 | 是 | 圆角宽度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| radiusHeight7+ | Length | 否 | 是 | 圆角高度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
  
  
   
@@ -131,7 +131,7 @@ Rect(options?: RectOptions | RoundedRectOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)以及[图形绘制通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common)外，还支持以下属性：
  
   
 
@@ -141,7 +141,7 @@ Rect(options?: RectOptions | RoundedRectOptions)
 
 radiusWidth(value: Length)
  
-设置圆角的宽度，仅设置宽时宽高一致，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。 异常值按照默认值处理。
+设置圆角的宽度。仅设置radiusWidth时，圆角的宽度和高度相同。该属性与[radius](#radius)属性效果类似，当与radius组合使用时，radius属性优先于本属性生效。支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。异常值undefined、null、NaN和Infinity按照默认值处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -153,7 +153,7 @@ radiusWidth(value: Length)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 圆角的宽度，取值范围≥0。 默认值：0 默认单位：vp 异常值undefined按照默认值处理。 |
+| value | Length | 是 | 圆角的宽度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 |
  
  
   
@@ -164,7 +164,7 @@ radiusWidth(value: Length)
 
 radiusHeight(value: Length)
  
-设置圆角的高度，仅设置高时宽高一致，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。 异常值按照默认值处理。
+设置圆角的高度。仅设置radiusHeight时，圆角的高度和宽度相同。该属性与[radius](#radius)属性效果类似，当与radius组合使用时，radius属性优先于本属性生效。支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。异常值undefined、null、NaN和Infinity按照默认值处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -176,7 +176,7 @@ radiusHeight(value: Length)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 圆角的高度，取值范围≥0。 默认值：0 默认单位：vp 异常值undefined按照默认值处理。 |
+| value | Length | 是 | 圆角的高度，取值范围≥0。 默认值：0 默认单位：vp。 异常值undefined、null、NaN和Infinity按照默认值处理。 |
  
  
   
@@ -187,7 +187,7 @@ radiusHeight(value: Length)
 
 radius(value: Length | Array&lt;any&gt;)
  
-设置圆角半径大小，取值范围≥0，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。异常值按照默认值处理。
+设置圆角半径大小，取值范围≥0，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性与[radiusWidth](#radiuswidth)、[radiusHeight](#radiusheight)属性效果类似，在组合使用时优先于radiusWidth和radiusHeight生效。异常值undefined、null、NaN和Infinity按照默认值处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -199,262 +199,7 @@ radius(value: Length | Array&lt;any&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length \| Array&lt;any&gt; | 是 | 圆角半径大小。 默认值：0 默认单位：vp 异常值undefined和null按照[[0, 0], [0, 0], [0, 0], [0, 0]]处理。 |
- 
- 
-  
-
-#### fill
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-fill(value: ResourceColor)
- 
-设置填充区域的颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | ResourceColor | 是 | 填充区域颜色。 默认值：Color.Black 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### fillOpacity
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-fillOpacity(value: number | string | Resource)
- 
-设置填充区域透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 填充区域透明度。 说明： number格式取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0，其余异常值按1.0处理。 string格式支持number格式取值的字符串形式，取值范围与number格式相同。 Resource格式支持系统资源或者应用资源中的字符串，取值范围和number格式相同。 异常值NaN按0.0处理，undefined、null和Infinity按1.0处理。 默认值：1.0 |
- 
- 
-  
-
-#### stroke
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-stroke(value: ResourceColor)
- 
-设置边框颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，不设置时，默认边框透明度为0，即无边框。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | ResourceColor | 是 | 边框颜色。 默认值：Color.Transparent 异常值undefined和null按照默认值处理，NaN和Infinity按照Color.Black处理。 |
- 
- 
-  
-
-#### strokeDashArray
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeDashArray(value: Array&lt;any&gt;)
- 
-设置边框的虚线长度和虚线间隙长度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。取值范围≥0。异常值将按默认值处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | Array&lt;any&gt; | 是 | 定义Rect边框的虚线模式的数组，数组元素交替表示线段长度和间隙长度。 默认值：[]（空数组） 默认单位：vp 异常值undefined和null按照默认值处理。 说明： 空数组：实线 偶数多元素数组：数组元素按顺序循环，如[a, b, c, d]表示线段长度a->间隙长度b->线段长度c->间隙长度d->线段长度a->... 奇数多元素数组：重复一次该数组元素，按偶数多元素数组的规则顺序循环，如[a, b, c]等效于[a, b, c, a, b, c]，表示线段长度a->间隙长度b->线段长度c->间隙长度a->线段长度b->间隙长度c->线段长度a->... |
- 
- 
-  
-
-#### strokeDashOffset
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeDashOffset(value: number | string)
- 
-设置边框绘制起点的偏移量，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。异常值按照默认值处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string | 是 | 边框绘制起点的偏移量。 默认值：0 默认单位：vp 异常值undefined和null按照默认值处理，NaN和Infinity会导致strokeDashArray失效。 |
- 
- 
-  
-
-#### strokeLineCap
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeLineCap(value: LineCapStyle)
- 
-设置边框端点绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | LineCapStyle | 是 | 边框端点绘制样式。 默认值：LineCapStyle.Butt 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### strokeLineJoin
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeLineJoin(value: LineJoinStyle)
- 
-设置边框拐角绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | LineJoinStyle | 是 | 边框拐角绘制样式。 默认值：LineJoinStyle.Miter 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### strokeMiterLimit
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeMiterLimit(value: number | string)
- 
-设置斜接长度与边框宽度比值的极限值，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。斜接长度表示外边框外边交点到内边交点的距离，边框宽度即strokeWidth属性的值。该属性取值需在strokeLineJoin属性取值LineJoinStyle.Miter时生效。
- 
-该属性的合法值范围应当大于等于1.0，当取值范围在[0,1)时按1.0处理，其余异常值按默认值处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string | 是 | 斜接长度与边框宽度比值的极限值。 默认值：4 异常值undefined、null和NaN按照默认值处理，Infinity会导致stroke失效。 |
- 
- 
-  
-
-#### strokeOpacity
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeOpacity(value: number | string | Resource)
- 
-设置边框透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性的取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 边框透明度。 默认值：stroke接口设置的透明度。 异常值NaN按0.0处理，undefined、null和Infinity按1.0处理。 |
- 
- 
-  
-
-#### strokeWidth
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeWidth(value: Length)
- 
-设置边框宽度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性若为string类型，暂不支持百分比，百分比按照1px处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | Length | 是 | 边框宽度，取值范围≥0。 默认值：1 默认单位：vp 异常值undefined、null和NaN按照默认值处理，Infinity按0处理。 |
- 
- 
-  
-
-#### antiAlias
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-antiAlias(value: boolean)
- 
-设置是否开启抗锯齿效果，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | boolean | 是 | 是否开启抗锯齿效果。 true：开启抗锯齿；false：关闭抗锯齿。 默认值：true 异常值undefined和null按照false处理。 |
+| value | Length \| Array&lt;any&gt; | 是 | 圆角半径大小。 默认值：0 默认单位：vp 异常值undefined、null、NaN和Infinity按照[[0, 0], [0, 0], [0, 0], [0, 0]]处理。 |
  
  
   
@@ -504,7 +249,7 @@ struct RectExample {
           .stroke(Color.Transparent)
       }.width('100%').margin({ top: 10 })
 
-      // 绘制90% * 50矩形, 左上圆角宽高40,右上圆角宽高20,右下圆角宽高40,左下圆角宽高20
+      // 绘制90% * 80矩形, 左上圆角宽高40,右上圆角宽高20,右下圆角宽高40,左下圆角宽高20
       Rect({ width: '90%', height: 80 })
         .radius([[40, 40], [20, 20], [40, 40], [20, 20]])
         .fill(Color.Pink)
@@ -521,7 +266,7 @@ struct RectExample {
 
 #### 示例2（绘制渐变色矩形）
 
-通过通用属性[linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient18)、[clipShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clipshape18)分别绘制渐变色的矩形。
+使用通用属性[linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient18)、[clipShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clipshape18)分别绘制渐变色矩形。
  
 从API version 18开始，新增linearGradient、clipShape通用属性。
  
@@ -545,7 +290,7 @@ struct RectExample {
         .height(100)
         // 设置矩形填充，如果需要显示背景的渐变色，请设置区域透明度.fillOpacity(0.0)
         .fill(Color.Pink)
-        // 设置倒角为40
+        // 设置圆角为40
         .radius(40)
         .stroke(Color.Black)
         // 设置渐变色，仅100*100的矩形区域生效，渐变色的边界不包含倒角
@@ -559,7 +304,7 @@ struct RectExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/QaIyz0SbRvaH-86gFLxQqA/zh-cn_image_0000002628702886.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=B27E1A45F8FAFDCE71C3AA302D3C6833750CB374658EFE7BDBCA742F58CF6F32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/TSozm_C6Q7mOcXM2F4HReg/zh-cn_image_0000002685928471.jpeg?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=E10780E8BA950E6F774CD83ED2DAE409E29B55D8DCA33196F78E6E334E950558)
 
  
   
@@ -583,7 +328,7 @@ struct RectExample {
         .fillOpacity(0)
         .stroke(Color.Red)
         .strokeWidth(3)
-      // 绘制200 * 50矩形, 圆角宽80, 圆角高20
+      // 使用Resource类型从资源文件获取尺寸和圆角参数绘制矩形
       Rect({
         width: $r('app.string.RectWidth'), // 使用Resource类型，需用户自定义
         height: $r('app.string.RectHeight'),
@@ -598,7 +343,7 @@ struct RectExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/MP7ETJw9R2aX6wEDI4Qr0Q/zh-cn_image_0000002659102113.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=77D8911F55264EB028A30357BBB2EE5694B0E7B35627F2ABE8447A3DC10D445B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/VFYsMFwVR_6IO0uX42e8aQ/zh-cn_image_0000002656008818.png?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=124E70DCA9AF081EB26FDA2B4F99A84A22F1ABBAE471384E0F673B2054D2F7C6)
 
  
   
@@ -611,7 +356,7 @@ struct RectExample {
 // xxx.ets
 class MyRectModifier implements AttributeModifier<RectAttribute> {
   applyNormalAttribute(instance: RectAttribute): void {
-    // 填充颜色#707070，填充透明度0.5，边框颜色#2787D9，边框间隙[20]，向左偏移15，线条两端样式为半圆，拐角样式使用尖角连接路径段，斜接长度与边框宽度比值的极限值为5，边框透明度0.5，边框宽度10，抗锯齿开启
+    // 填充颜色#707070，填充透明度0.5，边框颜色#2787D9，边框线段长度和间隙长度均为20，向左偏移15，线条两端样式为半圆，拐角样式使用尖角连接路径段，斜接长度与边框宽度比值的极限值为5，边框透明度0.5，边框宽度10，抗锯齿开启
     instance.fill("#707070")
     instance.fillOpacity(0.5)
     instance.stroke("#2787D9")
@@ -644,4 +389,4 @@ struct RectModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/hfuFfeDGSN-7nyasaYNdEw/zh-cn_image_0000002628862766.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=1BE0C77B95C593F8D90D1A9F890EF555A363ABB757A0E2A1C2BBC2C7A0E336E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/5dRppuisQiKh-M7LAEXRTA/zh-cn_image_0000002655848898.png?HW-CC-KV=V1&HW-CC-Date=20260730T071512Z&HW-CC-Expire=86400&HW-CC-Sign=4B8CE58A8763B47CF65F616B26F7699DF1558646B37C9844F016B76571FD97D5)

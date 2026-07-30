@@ -1,6 +1,6 @@
 # SuperPrivacyMode（超级隐私模式）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -265,6 +265,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 超级隐私模式管控策略对象，表示超级隐私对隐私传感器的控制策略。
+
+**模型约束**： 此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Security.SecurityPrivacyServer
 

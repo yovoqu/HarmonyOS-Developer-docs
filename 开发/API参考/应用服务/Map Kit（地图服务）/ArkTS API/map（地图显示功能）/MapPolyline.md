@@ -1,6 +1,6 @@
 # Interface (MapPolyline)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -859,17 +859,72 @@ setCustomTextureIndexes(customTextureIndexes: number[]): Promise&lt;void&gt;
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
  
  
-**错误码：**
+**示例：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
+```text
+await mapPolyline.setCustomTextureIndexes([0,1,0]);
+```
+ 
   
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Invalid input parameter. |
+
+#### addLineText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+addLineText(lineText: mapCommon.LineText): void
+ 
+添加折线的线条文本。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Map.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| lineText | mapCommon.LineText | 是 | 折线的线条文本参数，异常值作为无响应处理。 |
  
  
 **示例：**
  
 ```text
-await mapPolyline.setCustomTextureIndexes([0,1,0]);
+let textLine: mapCommon.LineText = {
+  lineNames: ['第一段文字', '第二段文字'],
+  lineNameIndexes: [0, 1, 1, 2],
+  nameOnRight: false,
+  color: 0xFF000000,
+  fontSize: 15,
+  strokeColor: 0xFFFFFFFF,
+  fontStyle: 0
+};
+mapPolyline.addLineText(textLine);
+```
+ 
+  
+
+#### removeLineText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+removeLineText(): void
+ 
+删除折线的文本。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Map.Core
+ 
+**起始版本：** 26.0.0
+ 
+**示例：**
+ 
+```text
+mapPolyline.removeLineText();
 ```

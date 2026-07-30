@@ -1,6 +1,6 @@
 # 转换整个PDF文档为图片
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-convert-img
 
@@ -29,10 +29,10 @@
 import { fileIo } from '@kit.CoreFileKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { pdfService } from '@kit.PDFKit';
-
+// ...
 @Entry
 @Component
-struct PdfPage {
+struct ConvertImagePage {
   private pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
   private context = this.getUIContext().getHostContext() as Context;
   private loadResult: pdfService.ParseResult = pdfService.ParseResult.PARSE_ERROR_FORMAT;
@@ -45,16 +45,18 @@ struct PdfPage {
 
   build() {
     Column() {
-      // 获取为图片并保存到应用沙箱
-      Button('convertToImage').onClick(async () => {
-        if (this.loadResult === pdfService.ParseResult.PARSE_SUCCESS) {
-          let outputPath = this.getUIContext().getHostContext()?.filesDir + '/output/';
+    // ...
+        // 获取为图片并保存到应用沙箱
+        Button('convertToImage').onClick(async () => {
+          if (this.loadResult === pdfService.ParseResult.PARSE_SUCCESS) {
+            let outputPath = this.getUIContext().getHostContext()?.filesDir + '/output/';
             fileIo.mkdir(outputPath);
-          // 将所有的页面转化为png图片，并存储在output文件夹里，确保output文件夹目录存在
-          let res = this.pdfDocument.convertToImage(outputPath, pdfService.ImageFormat.PNG);
-          hilog.info(0x0000, 'PdfPage', 'convertToImage %{public}s!', res ? 'success' : 'fail');
-        }
-      })
+            // 将所有的页面转化为png图片，并存储在output文件夹里，确保output文件夹目录存在
+            let res = this.pdfDocument.convertToImage(outputPath, pdfService.ImageFormat.PNG);
+            hilog.info(0x0000, 'ConvertImagePage', 'convertToImage %{public}s!', res ? 'success' : 'fail');
+          }
+        })
+        // ...
     }
   }
 }

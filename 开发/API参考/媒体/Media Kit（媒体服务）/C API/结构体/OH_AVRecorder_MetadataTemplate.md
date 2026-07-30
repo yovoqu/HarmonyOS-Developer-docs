@@ -1,6 +1,6 @@
 # OH_AVRecorder_MetadataTemplate
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-oh-avrecorder-metadatatemplate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,5 +36,5 @@ typedef struct OH_AVRecorder_MetadataTemplate {...} OH_AVRecorder_MetadataTempla
  
 | 名称 | 描述 |
 | --- | --- |
-| char* key | 元数据的键值。 |
+| char* key | 元数据的键。 |
 | char* value | 元数据的内容。 |

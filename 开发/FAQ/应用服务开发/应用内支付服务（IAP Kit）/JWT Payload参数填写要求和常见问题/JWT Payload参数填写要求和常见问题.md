@@ -1,6 +1,6 @@
 # JWT Payload参数填写要求和常见问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-10
 
@@ -21,17 +21,17 @@ JSON Web Token（JWT）是一个开放标准（RFC 7519），定义了一种安�
 JWT的生成和密钥中的私钥相关，因此需要先[下载密钥](https://developer.huawei.com/consumer/cn/doc/app/download-0000001958955101)，特别关注的是私钥仅供下载一次，下载后的私钥需要安全保存，丢失后则需更换新的密钥重新生成JWT。
  
 创建JWT格式的token分为下面三个步骤：
- 1. [创建JWT header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#section19716287255)需要填写三个必填参数alg、typ和kid，前两个参数分别为固定值ES256和JWT，需要关注的是kid参数的填写，该参数对应的是密钥ID，密钥ID的获取可在[创建密钥](https://developer.huawei.com/consumer/cn/doc/app/key-0000001959074877)时获取。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/Zyf184AXTGKNH0EpL47Opw/zh-cn_image_0000002658913789.png?HW-CC-KV=V1&HW-CC-Date=20260723T013820Z&HW-CC-Expire=86400&HW-CC-Sign=E825FD346D3EF45C4CE8ED1A63956727A8111569ED2E1D0880BC59FFE6E1AE2E)
+ 1. [创建JWT header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#创建jwt-header)需要填写三个必填参数alg、typ和kid，前两个参数分别为固定值ES256和JWT，需要关注的是kid参数的填写，该参数对应的是密钥ID，密钥ID的获取可在[创建密钥](https://developer.huawei.com/consumer/cn/doc/app/key-0000001959074877)时获取。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/xEsjVtVdTNu00tQCSTqMQw/zh-cn_image_0000002658913789.png?HW-CC-KV=V1&HW-CC-Date=20260730T072656Z&HW-CC-Expire=86400&HW-CC-Sign=A7F7301FA89754CB61786861DEAE8A2A33E027180172872BB7CBBC0F076FE98C)
 
 
   创建密钥时需注意密钥名称长度不超过50字符，且只允许字母、数字和下划线，否则会提示创建失败。
-2. [创建JWT Payload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#section202141451152815)需注意iss（密钥颁发者ID）、exp（JWT到期时间）、aid（APPID）和digest参数的填写。
+2. [创建JWT Payload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#创建jwt-payload)需注意iss（密钥颁发者ID）、exp（JWT到期时间）、aid（APPID）和digest参数的填写。
 Issuer ID是在初次生成密钥时，服务器为商户自动生成唯一的ID，如何获取可以参考第一步中展示的图片。
 3. exp（JWT到期时间）是一个以秒为单位的UTC时间戳（如：1769049727），且和iat（JWT签发时间）相隔时间不能超过3600s，超过会提示JWT参数校验失败，相隔时间可通过exp减去iat来计算得出，推荐通过iat（JWT签发时间）+秒数的形式来设置到期时间。
 4. aid是应用对应的APPID，可登录AppGallery Connect平台，在“开发与服务”中选择目标项目，通过“项目设置>常规>应用”获取目标应用的APPID。
 5. digest是用sha256加密的hash值字符串，用于验证Request Body的完整性，此处需要注意算法必须是sha256格式的，使用其他类型的算法生成会提示JWT参数校验失败。
-6. [创建JWT格式的token](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#section1867421172915)则是通过第一步Header中指定的算法(ES256)以及下载后私钥（密钥ID关联的私钥）进行签名生成JWT，该操作通常是在应用服务器端完成的，目前支持生成JWT的编程语言有Java、Python、PHP、JS和Golang，具体可以参考[示例代码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#section1435074914419)。
+6. [创建JWT格式的token](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#创建jwt格式的token)则是通过第一步Header中指定的算法(ES256)以及下载后私钥（密钥ID关联的私钥）进行签名生成JWT，该操作通常是在应用服务器端完成的，目前支持生成JWT的编程语言有Java、Python、PHP、JS和Golang，具体可以参考[示例代码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#代码示例)。
  
  
 

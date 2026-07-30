@@ -9,7 +9,7 @@
 使用router的Single模式进行路由跳转时，跳转已存在的页面，如何接收参数？在页面的onPageShow生命周期函数中接收参数，切换后台会导致参数重置，如何处理？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/cYoJSgNRRQ-21HltA2nQwQ/zh-cn_image_0000002658791771.png?HW-CC-KV=V1&HW-CC-Date=20260723T012538Z&HW-CC-Expire=86400&HW-CC-Sign=BC537B73C59EEC36AC6CEA84730C6972C4B7C104E96F52C051EC889671DD3689)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/cYoJSgNRRQ-21HltA2nQwQ/zh-cn_image_0000002658791771.png?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=ED9D5E652FD5228C77B808407CEE323FD8225162E219B9830EBE81C710300ABF)
 
  
  

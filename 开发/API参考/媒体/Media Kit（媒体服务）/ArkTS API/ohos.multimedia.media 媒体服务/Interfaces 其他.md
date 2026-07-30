@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -148,6 +148,28 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
+#### WatermarkConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+添加水印的配置参数。水印位置以视频左上角为原点计算。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | number | 否 | 否 | 水印相对于视频顶部位置的偏移量。取值为整数，单位为像素（px）。 |
+| left | number | 否 | 否 | 水印相对于视频左侧位置的偏移量。取值为整数，单位为像素（px）。 |
+| width | number | 否 | 是 | 水印图片的宽度。取值为正整数，取值范围为[1, 4096]，单位为像素（px）。 |
+| height | number | 否 | 是 | 水印图片的高度。取值为正整数，取值范围为[1, 4096]，单位为像素（px）。 |
+
+
+
+
 #### AVRecorderConfig9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -282,6 +304,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 | --- | --- | --- | --- | --- |
 | audioBitrate | number | 否 | 是 | 输出音频的码率，单位为比特率（bps），支持范围[1, 500000]。默认设置为48Kbps。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | audioCodec | CodecMimeType | 否 | 是 | 输出音频的编码格式，当前仅支持AAC。默认设置为AAC。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| audioCodecV2 | CodecMimeType | 否 | 是 | 输出音频的编码格式。 如果指定的编码格式不被支持，prepare会失败。默认设置为AAC。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 | fileFormat | ContainerFormatType | 否 | 否 | 输出视频文件的封装格式，当前视频文件仅支持MP4。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | videoBitrate | number | 否 | 是 | 输出视频的码率，单位为比特率（bps）。默认码率按输出视频的分辨率设置，[240p, 480P]默认码率值为1Mbps，(480P, 720P]默认码率值为2Mbps，(720P, 1080P]默认码率值为4Mbps，1080P及以上默认值为8Mbps。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | videoCodec | CodecMimeType | 否 | 是 | 输出视频的编码格式，当前仅支持AVC和HEVC。若源视频编码格式为HEVC，则默认设置为HEVC，否则默认设置为AVC。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
@@ -566,7 +589,7 @@ async function setupPlayer() {
 | event | AVMetricsEventType | 否 | 否 | 指标事件的类型。 模型约束： 此接口仅可在Stage模型下使用。 |
 | timeStamp | number | 否 | 否 | 事件发生时的系统时间。 |
 | playbackPosition | number | 否 | 否 | 事件发生时的播放进度位置。 |
-| details | Record<string, Object> | 否 | 否 | 事件的详细信息，不同指标事件类型包含的信息不同。 包含卡顿时间（duration: number）和卡顿的媒体类型（media: MediaType）。 模型约束： 此接口仅可在Stage模型下使用。 |
+| details | Record<string, Object> | 否 | 否 | 事件的详细信息，不同指标事件类型包含的信息不同。 卡顿事件包含卡顿时间（duration: number）和卡顿的媒体类型（media: MediaType）。 音画不同步事件包含不同步类型（视频帧超前或滞后音频帧）和不同步起止时间。 加载速率变化事件包含变化前后的数据下载速率。 加载数据请求错误事件包含请求阶段（连接、请求流媒体播放列表、请求流媒体数据）、请求时间和网络错误码。 播放内容切换事件包含切换前后的资源参数信息（视频分辨率、视频帧率、音频采样率、音频通道数等）。 播放内容不连续事件包含不连续类型（PTS跳变或者音频参数变化）、跳变前后的PTS/变化前后的音频参数（音频采样率、音频通道数、音频位深）。 音频状态变化事件包括失焦事件发生时的前/后状态。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 

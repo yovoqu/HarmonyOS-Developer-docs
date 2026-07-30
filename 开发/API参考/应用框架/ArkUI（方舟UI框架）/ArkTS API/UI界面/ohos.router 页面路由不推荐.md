@@ -1,11 +1,11 @@
 # @ohos.router (页面路由)(不推荐)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
-本模块提供通过不同的url访问不同的页面，包括跳转到应用内的指定页面、同应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
+本模块提供页面路由能力，支持通过url或命名路由进行页面跳转与替换、返回上一页面或指定页面、管理页面栈、获取页面状态与跳转参数、设置页面返回询问对话框等，适用于需要在应用内进行页面导航和流转的场景。
 
 推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)作为应用路由框架。
 
@@ -73,9 +73,11 @@ pushUrl(options: RouterOptions): Promise&lt;void&gt;
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
-class innerParams {
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -85,11 +87,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -100,9 +102,9 @@ router.pushUrl({
   .then(() => {
     console.info(`pushUrl finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
-  })
+  .catch((err: BusinessError) => {
+    console.error(`pushUrl failed. Code: ${err.code}, message: ${err.message}`);
+  });
 ```
 
 
@@ -150,7 +152,9 @@ pushUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 **示例：**
 
 ```text
-class innerParams {
+import { router } from '@kit.ArkUI';
+
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -160,11 +164,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -173,11 +177,11 @@ router.pushUrl({
   params: new RouterParams('message', [123, 456, 789])
 }, (err) => {
   if (err) {
-    console.error(`pushUrl failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`pushUrl failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('pushUrl success');
-})
+});
 ```
 
 
@@ -232,9 +236,11 @@ pushUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
-class innerParams {
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -244,11 +250,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -259,8 +265,8 @@ router.pushUrl({
   .then(() => {
     console.info(`pushUrl finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  .catch((err: BusinessError) => {
+    console.error(`pushUrl failed. Code: ${err.code}, message: ${err.message}`);
   })
 ```
 
@@ -288,7 +294,7 @@ pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;voi
 | --- | --- | --- | --- |
 | options | RouterOptions | 是 | 跳转页面描述信息。 |
 | mode | RouterMode | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 页面跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -310,7 +316,9 @@ pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;voi
 **示例：**
 
 ```text
-class innerParams {
+import { router } from '@kit.ArkUI';
+
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -320,11 +328,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -333,7 +341,7 @@ router.pushUrl({
   params: new RouterParams('message', [123, 456, 789])
 }, router.RouterMode.Standard, (err) => {
   if (err) {
-    console.error(`pushUrl failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`pushUrl failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('pushUrl success');
@@ -390,6 +398,8 @@ replaceUrl(options: RouterOptions): Promise&lt;void&gt;
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -407,8 +417,8 @@ router.replaceUrl({
   .then(() => {
     console.info(`replaceUrl finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`replaceUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  .catch((err: BusinessError) => {
+    console.error(`replaceUrl failed. Code: ${err.code}, message: ${err.message}`);
   })
 ```
 
@@ -420,7 +430,7 @@ router.replaceUrl({
 
 replaceUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl(options: router.RouterOptions, callback: AsyncCallback&lt;void&gt;) 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -456,6 +466,8 @@ replaceUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 class RouterParams {
   data1: string;
 
@@ -469,7 +481,7 @@ router.replaceUrl({
   params: new RouterParams('message')
 }, (err) => {
   if (err) {
-    console.error(`replaceUrl failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`replaceUrl failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('replaceUrl success');
@@ -484,7 +496,7 @@ router.replaceUrl({
 
 replaceUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl(options: router.RouterOptions, mode: router.RouterMode) 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -527,6 +539,8 @@ replaceUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -544,8 +558,8 @@ router.replaceUrl({
   .then(() => {
     console.info(`replaceUrl finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`replaceUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  .catch((err: BusinessError) => {
+    console.error(`replaceUrl failed. Code: ${err.code}, message: ${err.message}`);
   })
 ```
 
@@ -557,7 +571,7 @@ router.replaceUrl({
 
 replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;) 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -572,7 +586,7 @@ replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | RouterOptions | 是 | 替换页面描述信息。 |
-| mode | RouterMode | 是 | 跳转页面使用的模式。 |
+| mode | RouterMode | 是 | 替换页面使用的模式。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。 |
 
 
@@ -594,6 +608,8 @@ replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 class RouterParams {
   data1: string;
 
@@ -607,7 +623,7 @@ router.replaceUrl({
   params: new RouterParams('message')
 }, router.RouterMode.Standard, (err) => {
   if (err) {
-    console.error(`replaceUrl failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`replaceUrl failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('replaceUrl success');
@@ -667,9 +683,11 @@ pushNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
-class innerParams {
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -679,11 +697,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -694,12 +712,12 @@ router.pushNamedRoute({
   .then(() => {
     console.info(`pushNamedRoute finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`pushNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  .catch((err: BusinessError) => {
+    console.error(`pushNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
   })
 ```
 
-详细示例请参考：[UI开发-命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)
+详细示例请参考：[UI开发-命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)。
 
 
 
@@ -748,7 +766,9 @@ pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&gt;)
 **示例：**
 
 ```text
-class innerParams {
+import { router } from '@kit.ArkUI';
+
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -758,11 +778,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -771,7 +791,7 @@ router.pushNamedRoute({
   params: new RouterParams('message', [123, 456, 789])
 }, (err) => {
   if (err) {
-    console.error(`pushNamedRoute failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`pushNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('pushNamedRoute success');
@@ -832,9 +852,11 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;void&g
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
-class innerParams {
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -844,11 +866,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -859,8 +881,8 @@ router.pushNamedRoute({
   .then(() => {
     console.info(`pushNamedRoute finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`pushNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  .catch((err: BusinessError) => {
+    console.error(`pushNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
   })
 ```
 
@@ -912,7 +934,9 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCal
 **示例：**
 
 ```text
-class innerParams {
+import { router } from '@kit.ArkUI';
+
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -922,11 +946,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -935,7 +959,7 @@ router.pushNamedRoute({
   params: new RouterParams('message', [123, 456, 789])
 }, router.RouterMode.Standard, (err) => {
   if (err) {
-    console.error(`pushNamedRoute failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`pushNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('pushNamedRoute success');
@@ -950,7 +974,7 @@ router.pushNamedRoute({
 
 replaceNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -994,6 +1018,8 @@ replaceNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -1011,8 +1037,8 @@ router.replaceNamedRoute({
   .then(() => {
     console.info(`replaceNamedRoute finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`replaceNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  .catch((err: BusinessError) => {
+    console.error(`replaceNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
   })
 ```
 
@@ -1024,7 +1050,7 @@ router.replaceNamedRoute({
 
 replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback&lt;void&gt;) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -1062,6 +1088,8 @@ replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&g
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 class RouterParams {
   data1: string;
 
@@ -1075,7 +1103,7 @@ router.replaceNamedRoute({
   params: new RouterParams('message')
 }, (err) => {
   if (err) {
-    console.error(`replaceNamedRoute failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`replaceNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('replaceNamedRoute success');
@@ -1090,7 +1118,7 @@ router.replaceNamedRoute({
 
 replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -1135,6 +1163,8 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;voi
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -1152,8 +1182,8 @@ router.replaceNamedRoute({
   .then(() => {
     console.info(`replaceNamedRoute finish`);
   })
-  .catch((err: ESObject) => {
-    console.error(`replaceNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  .catch((err: BusinessError) => {
+    console.error(`replaceNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
   })
 ```
 
@@ -1165,7 +1195,7 @@ router.replaceNamedRoute({
 
 replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -1182,7 +1212,7 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: Async
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | NamedRouterOptions | 是 | 替换页面描述信息。 |
-| mode | RouterMode | 是 | 跳转页面使用的模式。 |
+| mode | RouterMode | 是 | 替换页面使用的模式。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。 |
 
 
@@ -1204,6 +1234,8 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: Async
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 class RouterParams {
   data1: string;
 
@@ -1217,7 +1249,7 @@ router.replaceNamedRoute({
   params: new RouterParams('message')
 }, router.RouterMode.Standard, (err) => {
   if (err) {
-    console.error(`replaceNamedRoute failed, code is ${err.code}, message is ${err.message}`);
+    console.error(`replaceNamedRoute failed. Code: ${err.code}, message: ${err.message}`);
     return;
   }
   console.info('replaceNamedRoute success');
@@ -1232,7 +1264,7 @@ router.replaceNamedRoute({
 
 back(options?: RouterOptions ): void
 
-返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。
+返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 18开始废弃，建议使用 back (options?: router.RouterOptions)替代。back需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -1246,7 +1278,7 @@ back(options?: RouterOptions ): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | RouterOptions | 否 | 返回页面描述信息，其中参数url指路由跳转时会返回到指定url的界面，如果页面栈上没有url页面，则不响应该情况。如果url未设置，则返回上一页，页面不会重新构建，页面栈里面的page不会回收，出栈后会被回收。back是返回接口，url设置为特殊值"/"不生效。如果是用命名路由的方式跳转，传入的url需是命名路由的名称。 |
+| options | RouterOptions | 否 | 返回页面描述信息，其中url指返回目标页面的路由地址，如果页面栈中不存在指定url的页面，则不响应当前返回请求。如果url未设置，则返回上一页，页面不会重新构建，页面栈里面的page不会回收，出栈后会被回收。back是返回接口，url设置为特殊值"/"不生效。如果是用命名路由的方式跳转，传入的url需是命名路由的名称。 |
 
 
 **示例：**
@@ -1263,7 +1295,7 @@ this.getUIContext().getRouter().back({ url: 'pages/detail' });
 
 back(index: number, params?: Object): void;
 
-返回指定的页面，会删除当前页面与指定页面之间的所有页面。
+返回指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。
 
 > [!NOTE]
 > 从API version 12开始支持，从API version 18开始废弃，建议使用 back(index: number, params?: Object) 替代。back需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 12开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -1279,8 +1311,8 @@ back(index: number, params?: Object): void;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 返回目标页面的索引值。 从栈底到栈顶，index从1开始递增。 |
-| params | Object | 否 | 页面返回时携带的参数。 |
+| index | number | 是 | 返回目标页面的索引值，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在或超出页面栈有效范围时不响应。 |
+| params | Object | 否 | 页面返回时携带的参数。 说明： params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 |
 
 
 **示例：**
@@ -1371,7 +1403,7 @@ getState(): RouterState
 
 | 类型 | 说明 |
 | --- | --- |
-| RouterState | 页面状态信息。 |
+| RouterState | 栈顶页面的状态信息，包含页面索引、名称、路径和参数。 |
 
 
 **示例：**
@@ -1407,19 +1439,21 @@ getStateByIndex(index: number): RouterState | undefined
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 表示要获取的页面索引。从栈底到栈顶，index从1开始递增。 |
+| index | number | 是 | 表示要获取的页面索引，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在时返回undefined。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| RouterState \| undefined | 返回页面状态信息。索引不存在时返回undefined。 |
+| RouterState \| undefined | 返回对应索引页面的状态信息，包含页面索引、名称、路径和参数。索引不存在时返回undefined。 |
 
 
 **示例：**
 
 ```json
+import { router } from '@kit.ArkUI';
+
 let options: router.RouterState | undefined = router.getStateByIndex(1);
 if (options != undefined) {
   console.info('index = ' + options.index);
@@ -1453,19 +1487,21 @@ getStateByUrl(url: string): Array&lt;RouterState&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| url | string | 是 | 表示要获取对应页面信息的url。 |
+| url | string | 是 | 表示要获取对应页面信息的url。url格式为页面绝对路径，由配置文件中pages列表提供，例如：pages/index/index。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;RouterState&gt; | 页面状态信息。 |
+| Array&lt;RouterState&gt; | 匹配指定url的页面状态信息数组，每个元素包含页面索引、名称、路径和参数。 |
 
 
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 let options: Array<router.RouterState> = router.getStateByUrl('pages/index');
 for (let i: number = 0; i < options.length; i++) {
   console.info('index = ' + options[i].index);
@@ -1483,14 +1519,14 @@ for (let i: number = 0; i < options.length; i++) {
 
 页面状态信息。
 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | index | number | 否 | 否 | 表示当前页面在页面栈中的索引。从栈底到栈顶，index从1开始递增。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | name | string | 否 | 否 | 表示当前页面的名称，即对应文件名。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | path | string | 否 | 否 | 表示当前页面的路径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| params12+ | Object | 否 | 否 | 表示当前页面携带的参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| params12+ | Object | 否 | 否 | 表示当前页面携带的参数。 说明： params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1501,7 +1537,7 @@ for (let i: number = 0; i < options.length; i++) {
 
 showAlertBeforeBackPage(options: EnableAlertOptions): void
 
-开启页面返回询问对话框。
+开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作。适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 18开始废弃，建议使用 showAlertBeforeBackPage 替代。showAlertBeforeBackPage需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -1538,7 +1574,7 @@ try {
     message: 'Message Info'
   });
 } catch (err) {
-  console.error(`showAlertBeforeBackPage failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+  console.error(`showAlertBeforeBackPage failed. Code: ${(err as BusinessError).code}, message: ${(err as BusinessError).message}`);
 }
 ```
 
@@ -1552,7 +1588,7 @@ try {
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1567,7 +1603,7 @@ try {
 
 hideAlertBeforeBackPage(): void
 
-禁用页面返回询问对话框。
+禁用页面返回询问对话框。调用此方法后，将关闭由[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 18开始废弃，建议使用 hideAlertBeforeBackPage 替代。hideAlertBeforeBackPage需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
@@ -1622,12 +1658,12 @@ this.getUIContext().getRouter().getParams();
 
 路由跳转选项。
 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Lite。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Lite
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| url | string | 否 | 否 | 表示目标页面的url，可以用以下两种格式： - 页面绝对路径，由配置文件中pages列表提供，例如： - pages/index/index - pages/detail/detail - 特殊值，如果url的值是"/"，则跳转到首页，首页默认为页面跳转配置项src数组的第一个数据项。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| params | Object | 否 | 是 | 表示路由跳转时要同时传递到目标页面的数据，切换到其他页面时，当前接收的数据失效。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| url | string | 否 | 否 | 表示目标页面的url，可以用以下两种格式： - 页面绝对路径，由配置文件中pages列表提供，例如： - pages/index/index - pages/detail/detail - 特殊值，如果url的值是"/"，则跳转到首页，首页默认为页面跳转配置项src数组的第一个数据项。 传入不存在或无效的url路径时，跳转失败，具体错误码参见各接口的错误码说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| params | Object | 否 | 是 | 表示路由跳转时要同时传递到目标页面的数据，切换到其他页面时，当前接收的数据失效。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | recoverable14+ | boolean | 否 | 是 | 表示对应的页面是否可恢复，默认为true。当为true时，表示可恢复，当为false时，表示不可恢复。 说明： 当应用退到后台，并且在未来的某个时间点，由于系统资源限制等原因被系统杀死，如果某个页面被设置成可恢复，那么该应用再次被拉到前台后系统可以恢复出页面，详细说明请参考UIAbility备份恢复。 |
 
 
@@ -1645,12 +1681,12 @@ this.getUIContext().getRouter().getParams();
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Standard | 0 | 多实例模式，也是默认情况下的跳转模式。 目标页面会被添加到页面栈顶，无论栈中是否存在相同url的页面。 说明： 不使用路由跳转模式时，则按照默认的多实例模式进行跳转。 |
-| Single | 1 | 单实例模式。 如果目标页面的url已经存在于页面栈中，则该url页面移动到栈顶。 如果目标页面的url在页面栈中不存在同url页面，则按照默认的多实例模式进行跳转。 |
+| Standard | 0 | 多实例模式，也是默认情况下的跳转模式。 目标页面会被添加到页面栈顶，无论栈中是否存在相同url的页面。适用于需要保留多个相同页面的场景，例如浏览商品详情页时每个商品各需要一个独立页面实例。 说明： 不使用路由跳转模式时，则按照默认的多实例模式进行跳转。 |
+| Single | 1 | 单实例模式。 如果目标页面的url已经存在于页面栈中，则该url页面移动到栈顶。 如果目标页面的url在页面栈中不存在同url页面，则按照默认的多实例模式进行跳转。适用于需要保持页面唯一实例的场景，例如主页、登录页等不应在栈中重复出现的页面。 |
 
 
 
@@ -1663,8 +1699,8 @@ this.getUIContext().getRouter().getParams();
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | string | 否 | 否 | 表示目标命名路由页面的name。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
-| params | Object | 否 | 是 | 表示路由跳转时要同时传递到目标页面的数据。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
+| name | string | 否 | 否 | 表示目标命名路由页面的name，需为已注册的命名路由名称。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
+| params | Object | 否 | 是 | 表示路由跳转时要同时传递到目标页面的数据，切换到其他页面时，当前接收的数据失效。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
 | recoverable14+ | boolean | 否 | 是 | 表示对应的页面是否可恢复，默认为true。当为true时，表示可恢复，当为false时，表示不可恢复。 说明： 当应用退到后台，并且在未来的某个时间点，由于系统资源限制等原因被系统杀死，如果某个页面被设置成可恢复，那么该应用再次被拉到前台后系统可以恢复出页面，详细说明请参考UIAbility备份恢复。 系统能力： SystemCapability.ArkUI.ArkUI.Lite |
 
 
@@ -1678,7 +1714,7 @@ this.getUIContext().getRouter().getParams();
 
 #### 基于JS扩展的类Web开发范式
 
-以下代码仅适用于javascript文件，不适用于ArkTS文件
+以下代码仅适用于javascript文件，不适用于ArkTS文件。
 
 ```text
 // 在当前页面中
@@ -1717,7 +1753,7 @@ import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 定义传递参数的类
-class innerParams {
+class InnerParams {
   array: number[];
 
   constructor(tuple: number[]) {
@@ -1727,11 +1763,11 @@ class innerParams {
 
 class RouterParams {
   text: string;
-  data: innerParams;
+  data: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.text = str;
-    this.data = new innerParams(tuple);
+    this.data = new InnerParams(tuple);
   }
 }
 
@@ -1742,14 +1778,14 @@ struct Index {
     let options: router.RouterOptions = {
       url: 'pages/second',
       params: new RouterParams('这是第一页的值', [12, 45, 78])
-    }
+    };
     // 建议使用this.getUIContext().getRouter().pushUrl()
     this.getUIContext().getRouter().pushUrl(options)
       .then(() => {
         console.info(`pushUrl finish`);
       })
-      .catch((err: ESObject) => {
-        console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+      .catch((err: BusinessError) => {
+        console.error(`pushUrl failed. Code: ${err.code}, message: ${err.message}`);
       })
     }
 
@@ -1779,7 +1815,7 @@ struct Index {
 // 在second页面中接收传递过来的参数
 import { router } from '@kit.ArkUI';
 
-class innerParams {
+class InnerParams {
   array: number[];
 
   constructor(tuple: number[]) {
@@ -1789,21 +1825,21 @@ class innerParams {
 
 class RouterParams {
   text: string;
-  data: innerParams;
+  data: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.text = str;
-    this.data = new innerParams(tuple);
+    this.data = new InnerParams(tuple);
   }
 }
 
 @Entry
 @Component
 struct Second {
-  private content: string = "这是第二页";
+  private content: string = '这是第二页';
   // 建议使用this.getUIContext().getRouter().getParams()
   @State text: string = (this.getUIContext().getRouter().getParams() as RouterParams).text;
-  @State data: object = (this.getUIContext().getRouter().getParams() as RouterParams).data;
+  @State data: InnerParams = (this.getUIContext().getRouter().getParams() as RouterParams).data;
   @State secondData: string = '';
 
   build() {
@@ -1854,7 +1890,9 @@ push(options: RouterOptions): void
 **示例：**
 
 ```text
-class innerParams {
+import { router } from '@kit.ArkUI';
+
+class InnerParams {
   data3: number[];
 
   constructor(tuple: number[]) {
@@ -1864,11 +1902,11 @@ class innerParams {
 
 class RouterParams {
   data1: string;
-  data2: innerParams;
+  data2: InnerParams;
 
   constructor(str: string, tuple: number[]) {
     this.data1 = str;
-    this.data2 = new innerParams(tuple);
+    this.data2 = new InnerParams(tuple);
   }
 }
 
@@ -1886,7 +1924,7 @@ router.push({
 
 replace(options: RouterOptions): void
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 replaceUrl(options: router.RouterOptions) 替代。
@@ -1904,6 +1942,8 @@ replace(options: RouterOptions): void
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 class RouterParams {
   data1: string;
 
@@ -1926,7 +1966,7 @@ router.replace({
 
 enableAlertBeforeBackPage(options: EnableAlertOptions): void
 
-开启页面返回询问对话框。
+开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作；用户取消则不执行返回。适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 showAlertBeforeBackPage 替代。
@@ -1944,6 +1984,8 @@ enableAlertBeforeBackPage(options: EnableAlertOptions): void
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 router.enableAlertBeforeBackPage({
   message: 'Message Info'
 });
@@ -1957,7 +1999,7 @@ router.enableAlertBeforeBackPage({
 
 disableAlertBeforeBackPage(): void
 
-禁用页面返回询问对话框。
+禁用页面返回询问对话框。调用此方法后，将关闭由[enableAlertBeforeBackPage](#routerenablealertbeforebackpagedeprecated)开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 hideAlertBeforeBackPage 替代。
@@ -1968,6 +2010,8 @@ disableAlertBeforeBackPage(): void
 **示例：**
 
 ```text
+import { router } from '@kit.ArkUI';
+
 router.disableAlertBeforeBackPage();
 ```
 
@@ -2063,7 +2107,7 @@ pages
 
 ```text
 // index.js
-import router from '@ohos.router';
+import { router } from '@kit.ArkUI';
 
 export default {
     data: {
@@ -2073,7 +2117,7 @@ export default {
     },
     replaceToRouterPage: function() {
         router.replace({
-            uri: 'pages/routerPages/routerPage',
+            url: 'pages/routerPages/routerPage',
             params: {
                 statusText: 'Opened by router.replace.'
             }
@@ -2160,7 +2204,7 @@ export default {
 
 ```text
 // routerPage.js
-import router from '@ohos.router';
+import { router } from '@kit.ArkUI';
 
 export default {
     data: {
@@ -2170,7 +2214,7 @@ export default {
     },
     replaceToIndex: function() {
         router.replace({
-            uri: 'pages/index/index',
+            url: 'pages/index/index',
             params: {
                 statusText: 'Returned by router.replace.'
             }
@@ -2188,4 +2232,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/APpoTBgKQ-ioJwaG82U-wQ/zh-cn_image_0000002677827323.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011949Z&HW-CC-Expire=86400&HW-CC-Sign=F92DFAD1347E9305BD08E1C0B4F8FD9AAD21B139599DFCC33ED9BBF4B81C0A90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/AhvgtOayS2OagC4mILjooQ/zh-cn_image_0000002655848282.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=30BB5AAECE1A22E07DEBBB6A17DA7B38329B682B23B3280550FF381581646648)

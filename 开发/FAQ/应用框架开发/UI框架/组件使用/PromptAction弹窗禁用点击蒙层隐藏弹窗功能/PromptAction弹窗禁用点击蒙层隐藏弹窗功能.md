@@ -13,7 +13,7 @@ PromptAction自定义弹窗如何实现在点击弹窗外围的蒙层时，弹�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/WY2et_8HSXCqJuwLTarrkA/zh-cn_image_0000002628395300.png?HW-CC-KV=V1&HW-CC-Date=20260723T012603Z&HW-CC-Expire=86400&HW-CC-Sign=96A7B9C2539596BE11D13508FB2467862474B434AF1C2196A307A442029F1AA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/WY2et_8HSXCqJuwLTarrkA/zh-cn_image_0000002628395300.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=F5FDBA6BB1C1C8A08AF36C5A6E523FB60009CC21F7347618BC167AA481424011)
 
  
  

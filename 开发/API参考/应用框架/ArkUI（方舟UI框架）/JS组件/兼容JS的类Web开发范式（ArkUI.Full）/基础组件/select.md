@@ -1,6 +1,6 @@
 # select
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-select
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@
   
 | 名称 | 类型 | 必填 | 描述 |
 | --- | --- | --- | --- |
-| font-family | string | 否 | 字体样式列表，用逗号分隔。列表中第一个系统中存在的字体样式或者通过自定义字体指定的字体样式，会被选中作为当前文本的字体样式。 默认值：sans-serif |
+| font-family | string | 否 | 字体系列列表，用逗号分隔。列表中第一个系统中存在的字体样式或者通过自定义字体指定的字体样式，会被选中作为当前文本的字体样式。 默认值：sans-serif |
  
  
   
@@ -115,4 +115,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/7lKiUFbMTgaKuT7I10bo5g/zh-cn_image_0000002628703076.png?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=8C6B7863BA43E92871008F48DB19462BAB82F2A5E48DCE5B32569B5657FB3002)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/-O6ke6wjQPigOcZ_ZKs_XQ/zh-cn_image_0000002656009028.png?HW-CC-KV=V1&HW-CC-Date=20260730T071524Z&HW-CC-Expire=86400&HW-CC-Sign=9ED022A16453A97964524A4BA81DF3E0DDE091821D6356CF540A5B3ADE7D1D84)

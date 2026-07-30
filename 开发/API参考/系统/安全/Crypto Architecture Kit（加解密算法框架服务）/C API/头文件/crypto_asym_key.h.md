@@ -1,6 +1,6 @@
 # crypto_asym_key.h
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明非对称密钥接口。
+定义非对称密钥接口。
  
 **引用文件：** <CryptoArchitectureKit/crypto_asym_key.h>
  
@@ -35,14 +35,14 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| OH_CryptoKeyPair | OH_CryptoKeyPair | 定义密钥对结构体。 |
-| OH_CryptoPubKey | OH_CryptoPubKey | 定义公钥结构体。 |
-| OH_CryptoPrivKey | OH_CryptoPrivKey | 定义私钥结构体。 |
-| OH_CryptoAsymKeyGenerator | OH_CryptoAsymKeyGenerator | 定义非对称密钥生成器结构体。 |
-| OH_CryptoPrivKeyEncodingParams | OH_CryptoPrivKeyEncodingParams | 定义私钥编码参数结构体。 |
-| OH_CryptoAsymKeySpec | OH_CryptoAsymKeySpec | 定义非对称密钥规格结构体。 |
-| OH_CryptoAsymKeyGeneratorWithSpec | OH_CryptoAsymKeyGeneratorWithSpec | 定义带规格的非对称密钥生成器。 |
-| OH_CryptoEcPoint | OH_CryptoEcPoint | 定义EC点结构体。 |
+| OH_CryptoKeyPair | OH_CryptoKeyPair | 密钥对结构体，表示密钥对。 |
+| OH_CryptoPubKey | OH_CryptoPubKey | 公钥结构体，表示公钥。 |
+| OH_CryptoPrivKey | OH_CryptoPrivKey | 私钥结构体，表示私钥。 |
+| OH_CryptoAsymKeyGenerator | OH_CryptoAsymKeyGenerator | 非对称密钥生成器结构体，表示非对称密钥生成器。 |
+| OH_CryptoPrivKeyEncodingParams | OH_CryptoPrivKeyEncodingParams | 私钥编码参数结构体，表示私钥编码参数。 |
+| OH_CryptoAsymKeySpec | OH_CryptoAsymKeySpec | 非对称密钥规格结构体，表示非对称密钥规格。 |
+| OH_CryptoAsymKeyGeneratorWithSpec | OH_CryptoAsymKeyGeneratorWithSpec | 基于规格的非对称密钥生成器结构体，表示基于规格的非对称密钥生成器。 |
+| OH_CryptoEcPoint | OH_CryptoEcPoint | 椭圆曲线点结构体，表示椭圆曲线上的点。 |
  
  
   
@@ -54,7 +54,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | CryptoAsymKey_ParamType | CryptoAsymKey_ParamType | 定义非对称密钥参数类型。 |
-| Crypto_EncodingType | Crypto_EncodingType | 定义编码格式。 |
+| Crypto_EncodingType | Crypto_EncodingType | 定义编码类型。 |
 | CryptoPrivKeyEncoding_ParamType | CryptoPrivKeyEncoding_ParamType | 定义私钥编码参数类型。 |
 | CryptoAsymKeySpec_Type | CryptoAsymKeySpec_Type | 定义非对称密钥规格类型。 |
  
@@ -67,37 +67,37 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Create(const char *algoName, OH_CryptoAsymKeyGenerator **ctx) | 通过指定算法名称的字符串，获取相应的非对称密钥生成器实例。 注意：创建的资源必须通过OH_CryptoAsymKeyGenerator_Destroy销毁。 |
-| OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Generate(OH_CryptoAsymKeyGenerator *ctx, OH_CryptoKeyPair **keyCtx) | 随机生成非对称密钥（密钥对）。 注意：使用完成后必须通过OH_CryptoKeyPair_Destroy销毁keyCtx内存。 |
+| OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Create(const char *algoName, OH_CryptoAsymKeyGenerator **ctx) | 根据给定的算法名称创建非对称密钥生成器。 注意：创建的资源必须通过OH_CryptoAsymKeyGenerator_Destroy销毁。 |
+| OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Generate(OH_CryptoAsymKeyGenerator *ctx, OH_CryptoKeyPair **keyCtx) | 生成非对称密钥对。注意：使用完成后必须通过OH_CryptoKeyPair_Destroy销毁keyCtx内存。 |
 | OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Convert(OH_CryptoAsymKeyGenerator *ctx, Crypto_EncodingType type, Crypto_DataBlob *pubKeyData, Crypto_DataBlob *priKeyData, OH_CryptoKeyPair **keyCtx) | 将非对称密钥数据转换为密钥对。 注意：使用完成后必须通过OH_CryptoKeyPair_Destroy销毁keyCtx内存。 |
-| const char *OH_CryptoAsymKeyGenerator_GetAlgoName(OH_CryptoAsymKeyGenerator *ctx) | 获取非对称密钥算法名称。 |
-| void OH_CryptoAsymKeyGenerator_Destroy(OH_CryptoAsymKeyGenerator *ctx) | 销毁非对称密钥生成器实例。 |
-| void OH_CryptoKeyPair_Destroy(OH_CryptoKeyPair *keyCtx) | 销毁非对称密钥对实例。 |
-| OH_CryptoPubKey *OH_CryptoKeyPair_GetPubKey(OH_CryptoKeyPair *keyCtx) | 从密钥对中获取公钥实例。 |
-| OH_CryptoPrivKey *OH_CryptoKeyPair_GetPrivKey(OH_CryptoKeyPair *keyCtx) | 获取密钥对的私钥。 |
-| OH_Crypto_ErrCode OH_CryptoPubKey_Encode(OH_CryptoPubKey *key, Crypto_EncodingType type, const char *encodingStandard, Crypto_DataBlob *out) | 根据指定的编码格式输出公钥数据。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放out内存。 |
-| OH_Crypto_ErrCode OH_CryptoPubKey_GetParam(OH_CryptoPubKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value) | 从公钥实例获取指定参数。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放value内存。 |
-| OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_SetPassword(OH_CryptoAsymKeyGenerator *ctx, const unsigned char *password, uint32_t passwordLen) | 设置非对称密钥生成器上下文的密码。 |
+| const char *OH_CryptoAsymKeyGenerator_GetAlgoName(OH_CryptoAsymKeyGenerator *ctx) | 获取非对称密钥生成器的算法名称。 |
+| void OH_CryptoAsymKeyGenerator_Destroy(OH_CryptoAsymKeyGenerator *ctx) | 销毁非对称密钥生成器。 |
+| void OH_CryptoKeyPair_Destroy(OH_CryptoKeyPair *keyCtx) | 销毁密钥对。 |
+| OH_CryptoPubKey *OH_CryptoKeyPair_GetPubKey(OH_CryptoKeyPair *keyCtx) | 获取密钥对中的公钥。 |
+| OH_CryptoPrivKey *OH_CryptoKeyPair_GetPrivKey(OH_CryptoKeyPair *keyCtx) | 获取密钥对中的私钥。 |
+| OH_Crypto_ErrCode OH_CryptoPubKey_Encode(OH_CryptoPubKey *key, Crypto_EncodingType type, const char *encodingStandard, Crypto_DataBlob *out) | 对公钥进行编码。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放out内存。 |
+| OH_Crypto_ErrCode OH_CryptoPubKey_GetParam(OH_CryptoPubKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value) | 获取公钥的指定参数。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放value内存。 |
+| OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_SetPassword(OH_CryptoAsymKeyGenerator *ctx, const unsigned char *password, uint32_t passwordLen) | 设置非对称密钥生成器的密码。如果需要使用OH_CryptoAsymKeyGenerator_Convert将加密的私钥数据转换为密钥对，请调用此方法设置密码。 |
 | OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_Create(OH_CryptoPrivKeyEncodingParams **ctx) | 创建私钥编码参数。 注意：创建的资源必须通过OH_CryptoPrivKeyEncodingParams_Destroy销毁。 |
 | OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_SetParam(OH_CryptoPrivKeyEncodingParams *ctx, CryptoPrivKeyEncoding_ParamType type, Crypto_DataBlob *value) | 设置私钥编码参数。 |
 | void OH_CryptoPrivKeyEncodingParams_Destroy(OH_CryptoPrivKeyEncodingParams *ctx) | 销毁私钥编码参数。 |
 | OH_Crypto_ErrCode OH_CryptoPrivKey_Encode(OH_CryptoPrivKey *key, Crypto_EncodingType type, const char *encodingStandard, OH_CryptoPrivKeyEncodingParams *params, Crypto_DataBlob *out) | 对私钥进行编码。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放out内存。 |
-| OH_Crypto_ErrCode OH_CryptoPrivKey_GetParam(OH_CryptoPrivKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value) | 获取私钥的指定参数。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放value内存。 |
+| OH_Crypto_ErrCode OH_CryptoPrivKey_GetParam(OH_CryptoPrivKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value) | 获取私钥的指定参数。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放out内存。 |
 | OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenEcCommonParamsSpec(const char *curveName, OH_CryptoAsymKeySpec **spec) | 生成EC通用参数规格。 注意：使用完成后必须通过OH_CryptoAsymKeySpec_Destroy销毁spec内存。 |
 | OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenDhCommonParamsSpec(int pLen, int skLen, OH_CryptoAsymKeySpec **spec) | 生成DH通用参数规格。 注意：使用完成后必须通过OH_CryptoAsymKeySpec_Destroy销毁spec内存。 |
 | OH_Crypto_ErrCode OH_CryptoAsymKeySpec_Create(const char *algoName, CryptoAsymKeySpec_Type type, OH_CryptoAsymKeySpec **spec) | 根据给定的算法名称和规格类型创建非对称密钥规格。 注意：创建的资源必须通过OH_CryptoAsymKeySpec_Destroy销毁。 |
 | OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetParam(OH_CryptoAsymKeySpec *spec, CryptoAsymKey_ParamType type, Crypto_DataBlob *value) | 设置非对称密钥规格的指定参数。 |
-| OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetCommonParamsSpec(OH_CryptoAsymKeySpec *spec, OH_CryptoAsymKeySpec *commonParamsSpec) | 设置非对称密钥规格的通用参数规格。 |
+| OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetCommonParamsSpec(OH_CryptoAsymKeySpec *spec, OH_CryptoAsymKeySpec *commonParamsSpec) | 将通用参数规格设置到非对称密钥规格中。 |
 | OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GetParam(OH_CryptoAsymKeySpec *spec, CryptoAsymKey_ParamType type, Crypto_DataBlob *value) | 获取非对称密钥规格的指定参数。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放value内存。 |
 | void OH_CryptoAsymKeySpec_Destroy(OH_CryptoAsymKeySpec *spec) | 销毁非对称密钥规格。 |
-| OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_Create(OH_CryptoAsymKeySpec *keySpec, OH_CryptoAsymKeyGeneratorWithSpec **generator) | 创建带规格的非对称密钥生成器。 注意：创建的资源必须通过OH_CryptoAsymKeyGeneratorWithSpec_Destroy销毁。 |
+| OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_Create(OH_CryptoAsymKeySpec *keySpec, OH_CryptoAsymKeyGeneratorWithSpec **generator) | 根据非对称密钥规格创建密钥生成器。 注意：创建的资源必须通过OH_CryptoAsymKeyGeneratorWithSpec_Destroy销毁。 |
 | OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair(OH_CryptoAsymKeyGeneratorWithSpec *generator, OH_CryptoKeyPair **keyPair) | 根据非对称密钥规格生成密钥对。 注意：使用完成后必须通过OH_CryptoKeyPair_Destroy释放keyPair内存。 |
-| void OH_CryptoAsymKeyGeneratorWithSpec_Destroy(OH_CryptoAsymKeyGeneratorWithSpec *generator) | 销毁带规格的非对称密钥生成器。 |
-| OH_Crypto_ErrCode OH_CryptoEcPoint_Create(const char *curveName, Crypto_DataBlob *ecKeyData, OH_CryptoEcPoint **point) | 创建EC点。 注意：创建的资源必须通过OH_CryptoEcPoint_Destroy销毁。 |
-| OH_Crypto_ErrCode OH_CryptoEcPoint_GetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y) | 获取EC点的x和y坐标。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放x和y内存 |
-| OH_Crypto_ErrCode OH_CryptoEcPoint_SetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y) | 设置EC点的x和y坐标。 |
-| OH_Crypto_ErrCode OH_CryptoEcPoint_Encode(OH_CryptoEcPoint *point, const char *format, Crypto_DataBlob *out) | 将EC点编码为指定格式。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放out内存。 |
-| void OH_CryptoEcPoint_Destroy(OH_CryptoEcPoint *point) | 销毁EC点。 |
+| void OH_CryptoAsymKeyGeneratorWithSpec_Destroy(OH_CryptoAsymKeyGeneratorWithSpec *generator) | 销毁根据规格创建的非对称密钥生成器。 |
+| OH_Crypto_ErrCode OH_CryptoEcPoint_Create(const char *curveName, Crypto_DataBlob *ecKeyData, OH_CryptoEcPoint **point) | 创建椭圆曲线点。 注意：创建的资源必须通过OH_CryptoEcPoint_Destroy销毁。 |
+| OH_Crypto_ErrCode OH_CryptoEcPoint_GetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y) | 获取椭圆曲线点的x和y坐标。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放x和y内存。 |
+| OH_Crypto_ErrCode OH_CryptoEcPoint_SetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y) | 设置椭圆曲线点的x和y坐标。 |
+| OH_Crypto_ErrCode OH_CryptoEcPoint_Encode(OH_CryptoEcPoint *point, const char *format, Crypto_DataBlob *out) | 将椭圆曲线点编码为指定格式。 注意：使用完成后必须通过OH_Crypto_FreeDataBlob释放out内存。 |
+| void OH_CryptoEcPoint_Destroy(OH_CryptoEcPoint *point) | 销毁椭圆曲线点。 |
  
  
   
@@ -124,36 +124,36 @@ enum CryptoAsymKey_ParamType
   
 | 枚举项 | 描述 |
 | --- | --- |
-| CRYPTO_DSA_P_DATABLOB = 101 | DSA算法的素模数p。 |
-| CRYPTO_DSA_Q_DATABLOB = 102 | DSA算法中密钥参数q（p-1的素因子）。 |
-| CRYPTO_DSA_G_DATABLOB = 103 | DSA算法的参数g。 |
-| CRYPTO_DSA_SK_DATABLOB = 104 | DSA算法的私钥sk。 |
-| CRYPTO_DSA_PK_DATABLOB = 105 | DSA算法的公钥pk。 |
-| CRYPTO_ECC_FP_P_DATABLOB = 201 | ECC算法中表示椭圆曲线Fp域的素数p。 |
-| CRYPTO_ECC_A_DATABLOB = 202 | ECC算法中椭圆曲线的第一个系数a。 |
-| CRYPTO_ECC_B_DATABLOB = 203 | ECC算法中椭圆曲线的第二个系数b。 |
-| CRYPTO_ECC_G_X_DATABLOB = 204 | ECC算法中基点g的x坐标。 |
-| CRYPTO_ECC_G_Y_DATABLOB = 205 | ECC算法中基点g的y坐标。 |
-| CRYPTO_ECC_N_DATABLOB = 206 | ECC算法中基点g的阶n。 |
-| CRYPTO_ECC_H_INT = 207 | ECC算法中的余因子h。 |
-| CRYPTO_ECC_SK_DATABLOB = 208 | ECC算法中的私钥sk。 |
-| CRYPTO_ECC_PK_X_DATABLOB = 209 | ECC算法中，公钥pk（椭圆曲线上的一个点）的x坐标。 |
-| CRYPTO_ECC_PK_Y_DATABLOB = 210 | ECC算法中，公钥pk（椭圆曲线上的一个点）的y坐标。 |
-| CRYPTO_ECC_FIELD_TYPE_STR = 211 | ECC算法中，椭圆曲线的域类型（当前只支持Fp域）。 |
-| CRYPTO_ECC_FIELD_SIZE_INT = 212 | ECC算法中域的大小，单位为bits（注：对于Fp域，域的大小为素数p的bits长度）。 |
-| CRYPTO_ECC_CURVE_NAME_STR = 213 | ECC算法中的SECG（Standards for Efficient Cryptography Group）曲线名称。 |
-| CRYPTO_RSA_N_DATABLOB = 301 | RSA算法中的模数n。 |
-| CRYPTO_RSA_D_DATABLOB = 302 | RSA算法中的私钥sk（即私钥指数d）。 |
-| CRYPTO_RSA_E_DATABLOB = 303 | RSA算法中的公钥pk（即公钥指数e）。 |
-| CRYPTO_DH_P_DATABLOB = 401 | DH算法中的素数p。 |
-| CRYPTO_DH_G_DATABLOB = 402 | DH算法中的参数g。 |
-| CRYPTO_DH_L_INT = 403 | DH算法中私钥长度，单位为bit。 |
-| CRYPTO_DH_SK_DATABLOB = 404 | DH算法中的私钥sk。 |
-| CRYPTO_DH_PK_DATABLOB = 405 | DH算法中的公钥pk。 |
-| CRYPTO_ED25519_SK_DATABLOB = 501 | Ed25519算法中的私钥sk。 |
-| CRYPTO_ED25519_PK_DATABLOB = 502 | Ed25519算法中的公钥pk。 |
-| CRYPTO_X25519_SK_DATABLOB = 601 | X25519算法中的私钥sk。 |
-| CRYPTO_X25519_PK_DATABLOB = 602 | X25519算法中的公钥pk。 |
+| CRYPTO_DSA_P_DATABLOB = 101 | 表示DSA算法的素数p。 |
+| CRYPTO_DSA_Q_DATABLOB = 102 | 表示DSA算法的子素数q。 |
+| CRYPTO_DSA_G_DATABLOB = 103 | 表示DSA算法的基g。 |
+| CRYPTO_DSA_SK_DATABLOB = 104 | 表示DSA算法的私钥。 |
+| CRYPTO_DSA_PK_DATABLOB = 105 | 表示DSA算法的公钥。 |
+| CRYPTO_ECC_FP_P_DATABLOB = 201 | 表示椭圆曲线(EC)素数域的素数p。 |
+| CRYPTO_ECC_A_DATABLOB = 202 | 表示椭圆曲线的第一个系数a。 |
+| CRYPTO_ECC_B_DATABLOB = 203 | 表示椭圆曲线的第二个系数b。 |
+| CRYPTO_ECC_G_X_DATABLOB = 204 | 表示基点g的仿射x坐标。 |
+| CRYPTO_ECC_G_Y_DATABLOB = 205 | 表示基点g的仿射y坐标。 |
+| CRYPTO_ECC_N_DATABLOB = 206 | 表示基点g的阶。 |
+| CRYPTO_ECC_H_INT = 207 | 表示椭圆曲线的余因子。 |
+| CRYPTO_ECC_SK_DATABLOB = 208 | 表示ECC私钥的私钥值。 |
+| CRYPTO_ECC_PK_X_DATABLOB = 209 | 表示ECC公钥中公钥点的仿射x坐标。 |
+| CRYPTO_ECC_PK_Y_DATABLOB = 210 | 表示ECC公钥中公钥点的仿射y坐标。 |
+| CRYPTO_ECC_FIELD_TYPE_STR = 211 | 表示椭圆曲线有限域类型。 |
+| CRYPTO_ECC_FIELD_SIZE_INT = 212 | 表示有限域的比特长度。 |
+| CRYPTO_ECC_CURVE_NAME_STR = 213 | 表示SECG标准的曲线名称。 |
+| CRYPTO_RSA_N_DATABLOB = 301 | 表示RSA算法的模数n。 |
+| CRYPTO_RSA_D_DATABLOB = 302 | 表示RSA算法的私钥指数d。 |
+| CRYPTO_RSA_E_DATABLOB = 303 | 表示RSA算法的公钥指数e。 |
+| CRYPTO_DH_P_DATABLOB = 401 | 表示DH算法的素数p。 |
+| CRYPTO_DH_G_DATABLOB = 402 | 表示DH算法的生成元g。 |
+| CRYPTO_DH_L_INT = 403 | 表示DH算法中私钥长度的比特数。 |
+| CRYPTO_DH_SK_DATABLOB = 404 | 表示DH私钥的私钥值。 |
+| CRYPTO_DH_PK_DATABLOB = 405 | 表示DH公钥的公钥值。 |
+| CRYPTO_ED25519_SK_DATABLOB = 501 | 表示ED25519私钥的私钥值。 |
+| CRYPTO_ED25519_PK_DATABLOB = 502 | 表示ED25519公钥的公钥值。 |
+| CRYPTO_X25519_SK_DATABLOB = 601 | 表示X25519私钥的私钥值。 |
+| CRYPTO_X25519_PK_DATABLOB = 602 | 表示X25519公钥的公钥值。 |
  
  
   
@@ -168,14 +168,14 @@ enum Crypto_EncodingType
  
 **描述**
  
-定义编码格式。
+定义编码类型。
  
 **起始版本：** 12
   
 | 枚举项 | 描述 |
 | --- | --- |
-| CRYPTO_PEM = 0 | PEM格式密钥类型。 |
-| CRYPTO_DER = 1 | DER格式密钥类型。 |
+| CRYPTO_PEM = 0 | PEM格式。 |
+| CRYPTO_DER = 1 | DER格式。 |
  
  
   
@@ -197,7 +197,7 @@ enum CryptoPrivKeyEncoding_ParamType
 | 枚举项 | 描述 |
 | --- | --- |
 | CRYPTO_PRIVATE_KEY_ENCODING_PASSWORD_STR = 0 | 表示密码字符串。 |
-| CRYPTO_PRIVATE_KEY_ENCODING_SYMMETRIC_CIPHER_STR = 1 | 表示对称加密字符串。 |
+| CRYPTO_PRIVATE_KEY_ENCODING_SYMMETRIC_CIPHER_STR = 1 | 对称加密算法名称，通过OH_CryptoPrivKeyEncodingParams_SetParam设置。取值："DES-EDE3-CBC"、"AES-128-CBC"、"AES-192-CBC"、"AES-256-CBC"。 |
  
  
   
@@ -242,9 +242,9 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Create(const char *algoName, OH_Cryp
  
 **描述**
  
-通过指定算法名称的字符串，获取相应的非对称密钥生成器实例。
+根据给定的算法名称创建非对称密钥生成器。
  
- 注意：创建的资源必须通过[OH_CryptoAsymKeyGenerator_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_destroy)销毁。
+注意：创建的资源必须通过[OH_CryptoAsymKeyGenerator_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_destroy)销毁。
  
 **起始版本：** 12
  
@@ -252,16 +252,22 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Create(const char *algoName, OH_Cryp
   
 | 参数项 | 描述 |
 | --- | --- |
-| const char *algoName | 用于生成生成器的算法名称。 例如"RSA1024\|PRIMES_2"。 |
-| OH_CryptoAsymKeyGenerator **ctx | 指向非对称密钥生成器上下文的指针。 |
+| const char *algoName | [in] 非对称密钥算法名称，不能为NULL。取值如下： - 从API version 12开始支持RSA系列："RSA512"、"RSA768"、"RSA1024"、"RSA2048"、"RSA3072"、"RSA4096"、"RSA8192"。支持多素数格式，示例："RSA1024\|PRIMES_3"、"RSA4096\|PRIMES_4"、"RSA8192\|PRIMES_5"。 - 从API version 12开始支持ECC系列："ECC224"、"ECC256"、"ECC384"、"ECC521"。 - 从API version 12开始支持ECC BrainPool系列："ECC_BrainPoolP160r1"、"ECC_BrainPoolP160t1"、"ECC_BrainPoolP192r1"、"ECC_BrainPoolP192t1"、"ECC_BrainPoolP224r1"、"ECC_BrainPoolP224t1"、"ECC_BrainPoolP256r1"、"ECC_BrainPoolP256t1"、"ECC_BrainPoolP320r1"、"ECC_BrainPoolP320t1"、"ECC_BrainPoolP384r1"、"ECC_BrainPoolP384t1"、"ECC_BrainPoolP512r1"、"ECC_BrainPoolP512t1"。 - 从API version 12开始支持"SM2_256"、"Ed25519"、"X25519"。 - 从API version 12开始支持DSA系列："DSA1024"、"DSA2048"、"DSA3072"。 - 从API version 12开始支持DH系列："DH_modp1536"、"DH_modp2048"、"DH_modp3072"、"DH_modp4096"、"DH_modp6144"、"DH_modp8192"、"DH_ffdhe2048"、"DH_ffdhe3072"、"DH_ffdhe4096"、"DH_ffdhe6144"、"DH_ffdhe8192"。 - 从API version 14开始支持"ECC_Secp256k1"。 - 从API版本26.0.0开始支持"ECC192"。 |
+| OH_CryptoAsymKeyGenerator **ctx | [out] 指向非对称密钥生成器指针的指针。ctx不能为NULL，*ctx必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：ctx为NULL或algoName为NULL。 CRYPTO_NOT_SUPPORTED：不支持的算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
+ 
+**参考：**
+ 
+[OH_CryptoAsymKeyGenerator_Generate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_generate) 生成非对称密钥对。
+ 
+[OH_CryptoAsymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_convert) 将非对称密钥数据转换为密钥对。
  
   
 
@@ -275,9 +281,9 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Generate(OH_CryptoAsymKeyGenerator *
  
 **描述**
  
-随机生成非对称密钥（密钥对）。
+生成非对称密钥对。
  
- 注意：使用完成后必须通过[OH_CryptoKeyPair_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptokeypair_destroy)销毁keyCtx内存。
+注意：使用完成后必须通过[OH_CryptoKeyPair_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptokeypair_destroy)销毁keyCtx内存。
  
 **起始版本：** 12
  
@@ -285,15 +291,15 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Generate(OH_CryptoAsymKeyGenerator *
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeyGenerator *ctx | 非对称密钥生成器实例。 |
-| OH_CryptoKeyPair **keyCtx | 指向非对称密钥对实例的指针。 |
+| OH_CryptoAsymKeyGenerator *ctx | [in] 非对称密钥生成器。不能为NULL。 |
+| OH_CryptoKeyPair **keyCtx | [out] 指向密钥对指针的指针。keyCtx不能为NULL，*keyCtx必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：ctx或keyCtx为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -310,7 +316,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Convert(OH_CryptoAsymKeyGenerator *c
  
 将非对称密钥数据转换为密钥对。
  
- 注意：使用完成后必须通过[OH_CryptoKeyPair_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptokeypair_destroy)销毁keyCtx内存。
+注意：使用完成后必须通过[OH_CryptoKeyPair_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptokeypair_destroy)销毁keyCtx内存。
  
 **起始版本：** 12
  
@@ -318,18 +324,18 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Convert(OH_CryptoAsymKeyGenerator *c
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeyGenerator *ctx | 非对称密钥生成器实例。 |
-| Crypto_EncodingType type | 编码格式。 |
-| Crypto_DataBlob *pubKeyData | 公钥数据。 |
-| Crypto_DataBlob *priKeyData | 私钥数据。 |
-| OH_CryptoKeyPair **keyCtx | 指向非对称密钥对实例的指针。 |
+| OH_CryptoAsymKeyGenerator *ctx | [in] 非对称密钥生成器。不能为NULL。 |
+| Crypto_EncodingType type | [in] 编码类型。 |
+| Crypto_DataBlob *pubKeyData | [in] 公钥数据，不能与priKeyData同时为NULL。 |
+| Crypto_DataBlob *priKeyData | [in] 私钥数据，不能与pubKeyData同时为NULL。 |
+| OH_CryptoKeyPair **keyCtx | [out] 指向密钥对指针的指针。keyCtx不能为NULL，*keyCtx必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：ctx为NULL，pubKeyData和priKeyData同时为NULL，keyCtx为NULL 或type不是有效的Crypto_EncodingType。 CRYPTO_NOT_SUPPORTED：不支持的密钥格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密钥转换失败。可能的原因： 密钥数据损坏或不是有效的PEM/DER格式，密钥数据与算法不匹配，或加密私钥的密码不正确。 |
  
  
   
@@ -344,7 +350,7 @@ const char *OH_CryptoAsymKeyGenerator_GetAlgoName(OH_CryptoAsymKeyGenerator *ctx
  
 **描述**
  
-获取非对称密钥算法名称。
+获取非对称密钥生成器的算法名称。
  
 **起始版本：** 12
  
@@ -352,14 +358,14 @@ const char *OH_CryptoAsymKeyGenerator_GetAlgoName(OH_CryptoAsymKeyGenerator *ctx
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeyGenerator *ctx | 非对称密钥生成器实例。 |
+| OH_CryptoAsymKeyGenerator *ctx | [in] 非对称密钥生成器。不能为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| const char * | 返回非对称密钥算法名称。 |
+| const char * | 返回非对称密钥算法名称，不需要调用者释放，在生成器销毁后不可使用。 返回NULL，如果ctx是NULL。 |
  
  
   
@@ -374,7 +380,7 @@ void OH_CryptoAsymKeyGenerator_Destroy(OH_CryptoAsymKeyGenerator *ctx)
  
 **描述**
  
-销毁非对称密钥生成器实例。
+销毁非对称密钥生成器。
  
 **起始版本：** 12
  
@@ -382,7 +388,7 @@ void OH_CryptoAsymKeyGenerator_Destroy(OH_CryptoAsymKeyGenerator *ctx)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeyGenerator *ctx | 非对称密钥生成器实例。 |
+| OH_CryptoAsymKeyGenerator *ctx | [in] 非对称密钥生成器。 |
  
  
   
@@ -397,7 +403,7 @@ void OH_CryptoKeyPair_Destroy(OH_CryptoKeyPair *keyCtx)
  
 **描述**
  
-销毁非对称密钥对实例。
+销毁密钥对。
  
 **起始版本：** 12
  
@@ -405,7 +411,7 @@ void OH_CryptoKeyPair_Destroy(OH_CryptoKeyPair *keyCtx)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoKeyPair *keyCtx | 密钥对实例。 |
+| OH_CryptoKeyPair *keyCtx | [in] 密钥对。 |
  
  
   
@@ -420,7 +426,7 @@ OH_CryptoPubKey *OH_CryptoKeyPair_GetPubKey(OH_CryptoKeyPair *keyCtx)
  
 **描述**
  
-从密钥对中获取公钥实例。
+获取密钥对中的公钥。
  
 **起始版本：** 12
  
@@ -428,14 +434,14 @@ OH_CryptoPubKey *OH_CryptoKeyPair_GetPubKey(OH_CryptoKeyPair *keyCtx)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoKeyPair *keyCtx | 密钥对实例。 |
+| OH_CryptoKeyPair *keyCtx | [in] 密钥对。不能为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_CryptoPubKey * | 返回从密钥对中得到的公钥实例。 |
+| OH_CryptoPubKey * | 返回密钥对中的公钥。为内部引用，不需要单独销毁，在密钥对销毁后不可使用。 返回NULL，如果keyCtx为NULL或公钥不存在。 |
  
  
   
@@ -450,7 +456,7 @@ OH_CryptoPrivKey *OH_CryptoKeyPair_GetPrivKey(OH_CryptoKeyPair *keyCtx)
  
 **描述**
  
-获取密钥对的私钥。
+获取密钥对中的私钥。
  
 **起始版本：** 20
  
@@ -458,14 +464,14 @@ OH_CryptoPrivKey *OH_CryptoKeyPair_GetPrivKey(OH_CryptoKeyPair *keyCtx)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoKeyPair *keyCtx | 密钥对实例。 |
+| OH_CryptoKeyPair *keyCtx | [in] 密钥对。不能为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_CryptoPrivKey * | 返回从密钥对中得到的私钥实例。 |
+| OH_CryptoPrivKey * | 返回密钥对中的私钥。为内部引用，不需要单独销毁，在密钥对销毁后不可使用。 返回NULL，如果keyCtx为NULL或私钥不存在。 |
  
  
   
@@ -480,9 +486,9 @@ OH_Crypto_ErrCode OH_CryptoPubKey_Encode(OH_CryptoPubKey *key, Crypto_EncodingTy
  
 **描述**
  
-根据指定的编码格式输出公钥数据。
+对公钥进行编码。
  
- 注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放out内存。
+注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放out内存。
  
 **起始版本：** 12
  
@@ -490,17 +496,17 @@ OH_Crypto_ErrCode OH_CryptoPubKey_Encode(OH_CryptoPubKey *key, Crypto_EncodingTy
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoPubKey *key | 公钥实例。 |
-| Crypto_EncodingType type | 编码类型。 |
-| const char *encodingStandard | 编码格式。 |
-| Crypto_DataBlob *out | 输出的公钥结果。 |
+| OH_CryptoPubKey *key | [in] 公钥。不能为NULL。 |
+| Crypto_EncodingType type | [in] 编码类型。 |
+| const char *encodingStandard | [in] 编码标准，支持"X509"。不能为NULL。 |
+| Crypto_DataBlob *out | [out] 指向用于存储编码结果的Crypto_DataBlob结构体的指针。不能为NULL。调用前需将out初始化为{0}，不要预分配out->data内存。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：key、out或encodingStandard为NULL，type不是 有效的Crypto_EncodingType，或编码标准与密钥类型不兼容。 CRYPTO_NOT_SUPPORTED：不支持的编码格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：编码失败。 |
  
  
   
@@ -515,9 +521,9 @@ OH_Crypto_ErrCode OH_CryptoPubKey_GetParam(OH_CryptoPubKey *key, CryptoAsymKey_P
  
 **描述**
  
-从公钥实例获取指定参数。
+获取公钥的指定参数。
  
- 注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放value内存。
+注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放value内存。
  
 **起始版本：** 12
  
@@ -525,16 +531,16 @@ OH_Crypto_ErrCode OH_CryptoPubKey_GetParam(OH_CryptoPubKey *key, CryptoAsymKey_P
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoPubKey *key | 公钥实例。 |
-| CryptoAsymKey_ParamType item | 非对称密钥参数类型。 |
-| Crypto_DataBlob *value | 参数输出值。 |
+| OH_CryptoPubKey *key | [in] 公钥。不能为NULL。 |
+| CryptoAsymKey_ParamType item | [in] 非对称密钥参数类型。 |
+| Crypto_DataBlob *value | [out] 指向用于存储输出数据的Crypto_DataBlob结构体的指针。不能为NULL。调用前需将value初始化为{0}，不要预分配value->data内存。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：key或value为NULL，或该参数类型不支持该密钥算法。 CRYPTO_NOT_SUPPORTED：不支持的参数类型。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：获取参数失败。 |
  
  
   
@@ -549,7 +555,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_SetPassword(OH_CryptoAsymKeyGenerato
  
 **描述**
  
-设置非对称密钥生成器上下文的密码。
+设置非对称密钥生成器的密码。如果需要使用[OH_CryptoAsymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_convert)将加密的私钥数据转换为密钥对，请调用此方法设置密码。
  
 **起始版本：** 20
  
@@ -557,16 +563,16 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_SetPassword(OH_CryptoAsymKeyGenerato
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeyGenerator *ctx | 非对称密钥生成器。不能为NULL。 |
-| const unsigned char *password | 表示密码。 |
-| uint32_t passwordLen | 表示密码长度。 |
+| OH_CryptoAsymKeyGenerator *ctx | [in] 非对称密钥生成器。不能为NULL。 |
+| const unsigned char *password | [in] 密码。本接口会对password中的数据进行深拷贝，调用者在接口返回后可立即释放password。不能为NULL。 |
+| uint32_t passwordLen | [in] 密码的字节长度。必须大于0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_PARAMETER_CHECK_FAILED：ctx或password为NULL，或passwordLen为0。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -583,7 +589,7 @@ OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_Create(OH_CryptoPrivKeyEncoding
  
 创建私钥编码参数。
  
- 注意：创建的资源必须通过[OH_CryptoPrivKeyEncodingParams_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoprivkeyencodingparams_destroy)销毁。
+注意：创建的资源必须通过[OH_CryptoPrivKeyEncodingParams_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoprivkeyencodingparams_destroy)销毁。
  
 **起始版本：** 20
  
@@ -591,15 +597,19 @@ OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_Create(OH_CryptoPrivKeyEncoding
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoPrivKeyEncodingParams **ctx | 私钥编码参数。 |
+| OH_CryptoPrivKeyEncodingParams **ctx | [out] 指向私钥编码参数指针的指针。ctx不能为NULL，*ctx必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
+ 
+**参考：**
+ 
+[OH_CryptoPrivKeyEncodingParams_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoprivkeyencodingparams_setparam) 设置私钥编码参数。
  
   
 
@@ -621,16 +631,16 @@ OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_SetParam(OH_CryptoPrivKeyEncodi
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoPrivKeyEncodingParams *ctx | 私钥编码参数。 |
-| CryptoPrivKeyEncoding_ParamType type | 私钥编码参数类型。 |
-| Crypto_DataBlob *value | 私钥编码参数值。 |
+| OH_CryptoPrivKeyEncodingParams *ctx | [in] 私钥编码参数。不能为NULL。 |
+| CryptoPrivKeyEncoding_ParamType type | [in] 私钥编码参数类型。 |
+| Crypto_DataBlob *value | [in] 私钥编码参数值。本接口会对value中的数据进行深拷贝，调用者在接口返回后可立即释放value。不能为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx或value为NULL， value->data为NULL，value->len为0，或type无法识别。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：深拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -653,7 +663,7 @@ void OH_CryptoPrivKeyEncodingParams_Destroy(OH_CryptoPrivKeyEncodingParams *ctx)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoPrivKeyEncodingParams *ctx | 私钥编码参数。 |
+| OH_CryptoPrivKeyEncodingParams *ctx | [in] 私钥编码参数。 |
  
  
   
@@ -670,7 +680,7 @@ OH_Crypto_ErrCode OH_CryptoPrivKey_Encode(OH_CryptoPrivKey *key, Crypto_Encoding
  
 对私钥进行编码。
  
- 注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放out内存。
+注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放out内存。
  
 **起始版本：** 20
  
@@ -678,18 +688,18 @@ OH_Crypto_ErrCode OH_CryptoPrivKey_Encode(OH_CryptoPrivKey *key, Crypto_Encoding
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoPrivKey *key | 私钥。 |
-| Crypto_EncodingType type | 私钥编码类型。 |
-| const char *encodingStandard | 编码标准。 例如"PKCS8"。 |
-| OH_CryptoPrivKeyEncodingParams *params | 私钥编码参数，可以为NULL，如果要加密私钥，则应设置此参数。 |
-| Crypto_DataBlob *out | 编码结果。 |
+| OH_CryptoPrivKey *key | [in] 私钥。不能为NULL。 |
+| Crypto_EncodingType type | [in] 编码类型。 |
+| const char *encodingStandard | [in] 编码标准，支持"PKCS8"和"PKCS1"。其中"PKCS1"仅支持RSA私钥。不能为NULL。 |
+| OH_CryptoPrivKeyEncodingParams *params | [in] 私钥编码参数，可以为NULL，如果需要加密私钥，应设置此参数。 |
+| Crypto_DataBlob *out | [out] 指向用于存储编码结果的Crypto_DataBlob结构体的指针。不能为NULL。调用前需将out初始化为{0}，不要预分配out->data内存。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：key、out或encodingStandard为NULL， type不是有效的Crypto_EncodingType，或编码标准与密钥类型不兼容。 CRYPTO_NOT_SUPPORTED：不支持的编码格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：编码失败。 |
  
  
   
@@ -706,7 +716,7 @@ OH_Crypto_ErrCode OH_CryptoPrivKey_GetParam(OH_CryptoPrivKey *key, CryptoAsymKey
  
 获取私钥的指定参数。
  
- 注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放value内存。
+注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放value内存。
  
 **起始版本：** 20
  
@@ -714,16 +724,16 @@ OH_Crypto_ErrCode OH_CryptoPrivKey_GetParam(OH_CryptoPrivKey *key, CryptoAsymKey
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoPrivKey *key | 私钥。 |
-| CryptoAsymKey_ParamType item | 非对称密钥参数类型。 |
-| Crypto_DataBlob *value | 输出数据。 |
+| OH_CryptoPrivKey *key | [in] 私钥。不能为NULL。 |
+| CryptoAsymKey_ParamType item | [in] 非对称密钥参数类型。 |
+| Crypto_DataBlob *value | [out] 指向用于存储输出数据的Crypto_DataBlob结构体的指针。不能为NULL。 调用前需将value初始化为{0}，不要预分配value->data内存。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：key或value为NULL，或该参数类型不支持该密钥算法。 CRYPTO_NOT_SUPPORTED：不支持的参数类型。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：获取参数失败。 |
  
  
   
@@ -740,7 +750,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenEcCommonParamsSpec(const char *curveNa
  
 生成EC通用参数规格。
  
- 注意：使用完成后必须通过[OH_CryptoAsymKeySpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy)销毁spec内存。
+注意：使用完成后必须通过[OH_CryptoAsymKeySpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy)销毁spec内存。
  
 **起始版本：** 20
  
@@ -748,15 +758,15 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenEcCommonParamsSpec(const char *curveNa
   
 | 参数项 | 描述 |
 | --- | --- |
-| const char *curveName | ECC曲线名称。 |
-| OH_CryptoAsymKeySpec **spec | 指向EC通用参数规格的指针。 |
+| const char *curveName | [in] ECC曲线的NID（Name Identifier）字符串名称，不能为NULL。例如"NID_X9_62_prime256v1"、"NID_secp384r1"、"NID_secp521r1"、"NID_sm2"。 |
+| OH_CryptoAsymKeySpec **spec | [out] 指向非对称密钥规格指针的指针。spec不能为NULL，*spec必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：curveName或spec为NULL，或曲线名不是有效的椭圆曲线。 CRYPTO_NOT_SUPPORTED：不支持的曲线。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：生成规格失败。 |
  
  
   
@@ -773,7 +783,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenDhCommonParamsSpec(int pLen, int skLen
  
 生成DH通用参数规格。
  
- 注意：使用完成后必须通过[OH_CryptoAsymKeySpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy)销毁spec内存。
+注意：使用完成后必须通过[OH_CryptoAsymKeySpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy)销毁spec内存。
  
 **起始版本：** 20
  
@@ -781,16 +791,16 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenDhCommonParamsSpec(int pLen, int skLen
   
 | 参数项 | 描述 |
 | --- | --- |
-| int pLen | 素数p的字节长度。 |
-| int skLen | 私钥的字节长度。 |
-| OH_CryptoAsymKeySpec **spec | 指向DH通用参数规格的指针。 |
+| int pLen | [in] 素数p的比特长度。 |
+| int skLen | [in] 私钥的比特长度。 |
+| OH_CryptoAsymKeySpec **spec | [out] 指向非对称密钥规格指针的指针。spec不能为NULL，*spec必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec为NULL， pLen为负数，skLen为负数，或skLen大于pLen。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -807,7 +817,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_Create(const char *algoName, CryptoAsymKe
  
 根据给定的算法名称和规格类型创建非对称密钥规格。
  
- 注意：创建的资源必须通过[OH_CryptoAsymKeySpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy)销毁。
+注意：创建的资源必须通过[OH_CryptoAsymKeySpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy)销毁。
  
 **起始版本：** 20
  
@@ -815,16 +825,16 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_Create(const char *algoName, CryptoAsymKe
   
 | 参数项 | 描述 |
 | --- | --- |
-| const char *algoName | 用于生成规格的算法名称。 例如"RSA"。 |
-| CryptoAsymKeySpec_Type type | 非对称密钥规格类型。 |
-| OH_CryptoAsymKeySpec **spec | 指向非对称密钥规格的指针。 |
+| const char *algoName | [in] 非对称密钥规格算法名称，不能为NULL。取值如下： - 从API version 20开始支持"RSA"、"ECC"、"DSA"、"SM2"、"Ed25519"、"X25519"、"DH"。 |
+| CryptoAsymKeySpec_Type type | [in] 非对称密钥规格类型。 |
+| OH_CryptoAsymKeySpec **spec | [out] 指向非对称密钥规格指针的指针。spec不能为NULL，*spec必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：algoName或spec为NULL， algoName不是支持的算法名称。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -847,16 +857,16 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetParam(OH_CryptoAsymKeySpec *spec, Cryp
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeySpec *spec | 非对称密钥规格。 |
-| CryptoAsymKey_ParamType type | 非对称密钥参数类型。 |
-| Crypto_DataBlob *value | 输入数据。 |
+| OH_CryptoAsymKeySpec *spec | [in] 非对称密钥规格。不能为NULL。 |
+| CryptoAsymKey_ParamType type | [in] 非对称密钥参数类型。 |
+| Crypto_DataBlob *value | [in] 输入数据。本接口会对value中的数据进行深拷贝，调用者在接口返回后可立即释放value。不能为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec或value为NULL， value->data为NULL，value->len为0，或该参数类型不支持该算法。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：深拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -871,7 +881,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetCommonParamsSpec(OH_CryptoAsymKeySpec 
  
 **描述**
  
-设置非对称密钥规格的通用参数规格。
+将通用参数规格设置到非对称密钥规格中。
  
 **起始版本：** 20
  
@@ -879,15 +889,15 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetCommonParamsSpec(OH_CryptoAsymKeySpec 
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeySpec *spec | 非对称密钥规格。 |
-| OH_CryptoAsymKeySpec *commonParamsSpec | 通用参数规格。 |
+| OH_CryptoAsymKeySpec *spec | [in] 非对称密钥规格。不能为NULL。 |
+| OH_CryptoAsymKeySpec *commonParamsSpec | [in] 通用参数规格。本接口会对commonParamsSpec中的数据进行深拷贝，调用者在接口返回后可立即释放commonParamsSpec。不能为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec或commonParamsSpec为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -904,7 +914,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GetParam(OH_CryptoAsymKeySpec *spec, Cryp
  
 获取非对称密钥规格的指定参数。
  
- 注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放value内存。
+注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放value内存。
  
 **起始版本：** 20
  
@@ -912,16 +922,16 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GetParam(OH_CryptoAsymKeySpec *spec, Cryp
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeySpec *spec | 非对称密钥规格。 |
-| CryptoAsymKey_ParamType type | 非对称密钥参数类型。 |
-| Crypto_DataBlob *value | 输出数据。 |
+| OH_CryptoAsymKeySpec *spec | [in] 非对称密钥规格。不能为NULL。 |
+| CryptoAsymKey_ParamType type | [in] 非对称密钥参数类型。 |
+| Crypto_DataBlob *value | [out] 指向用于存储输出数据的Crypto_DataBlob结构体的指针。不能为NULL。调用前需将value初始化为{0}，不要预分配value->data内存。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec或value为NULL，或该参数类型不支持该算法。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -944,7 +954,7 @@ void OH_CryptoAsymKeySpec_Destroy(OH_CryptoAsymKeySpec *spec)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeySpec *spec | 非对称密钥规格。 |
+| OH_CryptoAsymKeySpec *spec | [in] 非对称密钥规格。 |
  
  
   
@@ -959,9 +969,9 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_Create(OH_CryptoAsymKeySpec 
  
 **描述**
  
-创建带规格的非对称密钥生成器。
+根据非对称密钥规格创建密钥生成器。
  
- 注意：创建的资源必须通过[OH_CryptoAsymKeyGeneratorWithSpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygeneratorwithspec_destroy)销毁。
+注意：创建的资源必须通过[OH_CryptoAsymKeyGeneratorWithSpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygeneratorwithspec_destroy)销毁。
  
 **起始版本：** 20
  
@@ -969,16 +979,20 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_Create(OH_CryptoAsymKeySpec 
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeySpec *keySpec | 非对称密钥规格。 |
-| OH_CryptoAsymKeyGeneratorWithSpec **generator | 带规格的非对称密钥生成器。 |
+| OH_CryptoAsymKeySpec *keySpec | [in] 非对称密钥规格。不能为NULL。 |
+| OH_CryptoAsymKeyGeneratorWithSpec **generator | [out] 指向基于规格的非对称密钥生成器指针的指针。generator不能为NULL，*generator必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：keySpec或generator为NULL， 或密钥规格参数不完整或无效。 CRYPTO_NOT_SUPPORTED：不支持的算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：创建生成器失败。 |
  
+ 
+**参考：**
+ 
+[OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygeneratorwithspec_genkeypair) 根据非对称密钥规格生成密钥对。
  
   
 
@@ -994,7 +1008,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair(OH_CryptoAsymKeyG
  
 根据非对称密钥规格生成密钥对。
  
- 注意：使用完成后必须通过[OH_CryptoKeyPair_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptokeypair_destroy)释放keyPair内存。
+注意：使用完成后必须通过[OH_CryptoKeyPair_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptokeypair_destroy)释放keyPair内存。
  
 **起始版本：** 20
  
@@ -1002,15 +1016,15 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair(OH_CryptoAsymKeyG
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeyGeneratorWithSpec *generator | 带规格的非对称密钥生成器。 |
-| OH_CryptoKeyPair **keyPair | 指向密钥对的指针。 |
+| OH_CryptoAsymKeyGeneratorWithSpec *generator | [in] 基于规格的非对称密钥生成器。不能为NULL。 |
+| OH_CryptoKeyPair **keyPair | [out] 指向密钥对指针的指针。keyPair不能为NULL，*keyPair必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：generator或keyPair为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：生成密钥对失败。可能的原因：密钥规格参数不完整或不一致。 |
  
  
   
@@ -1025,7 +1039,7 @@ void OH_CryptoAsymKeyGeneratorWithSpec_Destroy(OH_CryptoAsymKeyGeneratorWithSpec
  
 **描述**
  
-销毁带规格的非对称密钥生成器。
+销毁根据规格创建的非对称密钥生成器。
  
 **起始版本：** 20
  
@@ -1033,7 +1047,7 @@ void OH_CryptoAsymKeyGeneratorWithSpec_Destroy(OH_CryptoAsymKeyGeneratorWithSpec
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoAsymKeyGeneratorWithSpec *generator | 带规格的非对称密钥生成器。 |
+| OH_CryptoAsymKeyGeneratorWithSpec *generator | [in] 基于规格的非对称密钥生成器。 |
  
  
   
@@ -1048,9 +1062,9 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_Create(const char *curveName, Crypto_DataBlob
  
 **描述**
  
-创建EC点。
+创建椭圆曲线点。
  
- 注意：创建的资源必须通过[OH_CryptoEcPoint_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_destroy)销毁。
+注意：创建的资源必须通过[OH_CryptoEcPoint_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_destroy)销毁。
  
 **起始版本：** 20
  
@@ -1058,17 +1072,23 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_Create(const char *curveName, Crypto_DataBlob
   
 | 参数项 | 描述 |
 | --- | --- |
-| const char *curveName | 曲线名称。 |
-| Crypto_DataBlob *ecKeyData | EC点数据，支持"04 \|\| x \|\| y"、"02 \|\| x"或"03 \|\| x"格式。如果ecKeyData参数为NULL，将创建一个空的EC点规格。 |
-| OH_CryptoEcPoint **point | 指向EC点的指针。 |
+| const char *curveName | [in] 椭圆曲线的NID（Name Identifier）字符串名称，不能为NULL。例如"NID_X9_62_prime256v1"、"NID_secp384r1"、"NID_secp521r1"、"NID_sm2"。 |
+| Crypto_DataBlob *ecKeyData | [in] 椭圆曲线点数据，支持"04 \|\| x \|\| y"、"02 \|\| x"或"03 \|\| x"格式。可以为NULL。如果ecKeyData参数为NULL，将创建一个空的椭圆曲线点规格。 |
+| OH_CryptoEcPoint **point | [out] 指向椭圆曲线点指针的指针。point不能为NULL，*point必须为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：curveName或point为NULL，或曲线名称无效。 CRYPTO_NOT_SUPPORTED：不支持的曲线。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：创建EC点失败。可能的原因：点数据格式不正确。 |
  
+ 
+**参考：**
+ 
+[OH_CryptoEcPoint_GetCoordinate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_getcoordinate) 获取椭圆曲线点的x和y坐标。
+ 
+[OH_CryptoEcPoint_SetCoordinate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_setcoordinate) 设置椭圆曲线点的x和y坐标。
  
   
 
@@ -1082,9 +1102,9 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_GetCoordinate(OH_CryptoEcPoint *point, Crypto
  
 **描述**
  
-获取EC点的x和y坐标。
+获取椭圆曲线点的x和y坐标。
  
- 注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放x和y内存
+注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放x和y内存
  
 **起始版本：** 20
  
@@ -1092,16 +1112,16 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_GetCoordinate(OH_CryptoEcPoint *point, Crypto
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoEcPoint *point | EC点。 |
-| Crypto_DataBlob *x | EC点的x坐标,可以为NULL。 |
-| Crypto_DataBlob *y | EC点的y坐标,可以为NULL。 |
+| OH_CryptoEcPoint *point | [in] 椭圆曲线点。不能为NULL。 |
+| Crypto_DataBlob *x | [out] 指向用于存储x坐标的Crypto_DataBlob结构体的指针。不能为NULL。调用前需将x初始化为{0}，不要预分配x->data内存。 |
+| Crypto_DataBlob *y | [out] 指向用于存储y坐标的Crypto_DataBlob结构体的指针。不能为NULL。调用前需将y初始化为{0}，不要预分配y->data内存。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：point、x或y为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -1116,7 +1136,7 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_SetCoordinate(OH_CryptoEcPoint *point, Crypto
  
 **描述**
  
-设置EC点的x和y坐标。
+设置椭圆曲线点的x和y坐标。
  
 **起始版本：** 20
  
@@ -1124,17 +1144,21 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_SetCoordinate(OH_CryptoEcPoint *point, Crypto
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoEcPoint *point | EC点。 |
-| Crypto_DataBlob *x | EC点的x坐标。 |
-| Crypto_DataBlob *y | EC点的y坐标。 |
+| OH_CryptoEcPoint *point | [in] 椭圆曲线点。不能为NULL。 |
+| Crypto_DataBlob *x | [in] 椭圆曲线点的x坐标。本接口会对x和y中的数据进行深拷贝，调用者在接口返回后可立即释放x和y。不能为NULL。 |
+| Crypto_DataBlob *y | [in] 椭圆曲线点的y坐标。不能为NULL。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：point、x或y为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：深拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
+ 
+**参考：**
+ 
+[OH_CryptoEcPoint_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_encode) 将椭圆曲线点编码为指定格式。
  
   
 
@@ -1148,9 +1172,9 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_Encode(OH_CryptoEcPoint *point, const char *f
  
 **描述**
  
-将EC点编码为指定格式。
+将椭圆曲线点编码为指定格式。
  
- 注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放out内存。
+注意：使用完成后必须通过[OH_Crypto_FreeDataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h#oh_crypto_freedatablob)释放out内存。
  
 **起始版本：** 20
  
@@ -1158,16 +1182,16 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_Encode(OH_CryptoEcPoint *point, const char *f
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoEcPoint *point | EC点。 |
-| const char *format | 编码格式,支持"UNCOMPRESSED"和"COMPRESSED"。 |
-| Crypto_DataBlob *out | 编码后的EC点数据。 |
+| OH_CryptoEcPoint *point | [in] 椭圆曲线点。不能为NULL。 |
+| const char *format | [in] 编码格式，不能为NULL。支持"UNCOMPRESSED"和"COMPRESSED"。 |
+| Crypto_DataBlob *out | [out] 指向用于存储编码后椭圆曲线点数据的Crypto_DataBlob结构体的指针。不能为NULL。 调用前需将out初始化为{0}，不要预分配out->data内存。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：point、format或out为NULL， 或格式字符串不是有效的点格式。 CRYPTO_NOT_SUPPORTED：不支持的格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：编码失败。可能的原因：该点不是有效的曲线点。 |
  
  
   
@@ -1182,7 +1206,7 @@ void OH_CryptoEcPoint_Destroy(OH_CryptoEcPoint *point)
  
 **描述**
  
-销毁EC点。
+销毁椭圆曲线点。
  
 **起始版本：** 20
  
@@ -1190,4 +1214,4 @@ void OH_CryptoEcPoint_Destroy(OH_CryptoEcPoint *point)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_CryptoEcPoint *point | EC点。 |
+| OH_CryptoEcPoint *point | [in] 椭圆曲线点。 |

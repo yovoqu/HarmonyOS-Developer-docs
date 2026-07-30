@@ -9,7 +9,7 @@
 搭建流水线时通过cat命令行查看获取profile文件中的信息为乱码，没办法校验bundleName（包名）。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Kd5PbOgVTjaaJlcPoIaEvA/zh-cn_image_0000002658808545.png?HW-CC-KV=V1&HW-CC-Date=20260723T013917Z&HW-CC-Expire=86400&HW-CC-Sign=8F5D9A44FC5B581E6B74C5613771BAE47D54EDA48964C4E8460AE14F52DCB22E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Kd5PbOgVTjaaJlcPoIaEvA/zh-cn_image_0000002658808545.png?HW-CC-KV=V1&HW-CC-Date=20260730T072713Z&HW-CC-Expire=86400&HW-CC-Sign=EBD0D61D05574AA6FEEE9AAEB86EFCE984BFF09B2E6550F8D29DC83B1D4B2E7E)
 
  
  
@@ -18,13 +18,13 @@
 1. **为什么要校验profile中的包名**？签名可能会因为签名所需要的profile文件与工程中的包名不同、当前不在profile有效期内等原因导致签名失败，提前校验可以尽早发现问题，符合测试左移的工程原则。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/25_ODtnnRYONWZ3BDnsoZQ/zh-cn_image_0000002628569170.png?HW-CC-KV=V1&HW-CC-Date=20260723T013917Z&HW-CC-Expire=86400&HW-CC-Sign=5D22460C65CE8AE2F3FDA27E32CE2832902319241B6035D56B03B03E46E72A5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/25_ODtnnRYONWZ3BDnsoZQ/zh-cn_image_0000002628569170.png?HW-CC-KV=V1&HW-CC-Date=20260730T072713Z&HW-CC-Expire=86400&HW-CC-Sign=88D84B09583DD294EB099AF6E2931BBCD58D0F5E5D2B2A44E630DEC1ABE4A88E)
 
 
   此校验过程在搭建流水过程中下图的红框部分，构建后签名前的校验脚本中。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/mGnvwQzDRPiVLxCEV2xHkA/zh-cn_image_0000002658928495.png?HW-CC-KV=V1&HW-CC-Date=20260723T013917Z&HW-CC-Expire=86400&HW-CC-Sign=692E4C753DC24A5FF6C412FB28ABD264B008D0549E318F24B43D0E29DE653E54)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/mGnvwQzDRPiVLxCEV2xHkA/zh-cn_image_0000002658928495.png?HW-CC-KV=V1&HW-CC-Date=20260730T072713Z&HW-CC-Expire=86400&HW-CC-Sign=A9428D8B8D935AF2AF778BB146F042161B0C341CF05862AA31CA8889E9541AB4)
 
 2. **签名的作用**。
 应用身份识别：每个包文件都有一个唯一的签名，系统通过它来识别应用的身份。
@@ -34,7 +34,7 @@
 6. **Profile文件**。Profile格式为.p7b，包含HarmonyOS应用/元服务的包名、数字证书信息、HarmonyOS应用/元服务允许申请的证书权限列表，以及允许应用/元服务调试的设备列表（如果应用/元服务类型为Release类型，则设备列表为空）等内容。Profile文件分为调试Profile和发布Profile两种。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/bPQwPGuVTQCIFZyZSeEN7w/zh-cn_image_0000002628409276.png?HW-CC-KV=V1&HW-CC-Date=20260723T013917Z&HW-CC-Expire=86400&HW-CC-Sign=125E8720175D72B9161DD6A20BCF6E15979C007F5AB1745AB5407379306ECF26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/bPQwPGuVTQCIFZyZSeEN7w/zh-cn_image_0000002628409276.png?HW-CC-KV=V1&HW-CC-Date=20260730T072713Z&HW-CC-Expire=86400&HW-CC-Sign=09D47782A1B7ADB71070368FFF8EE1C11F8F9BD4BE6263C298D57D210519D037)
 
 7. **[搭建流水线](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-building-app)**。
  
@@ -72,4 +72,4 @@ cat命令为Linux查看文件内容的命令，但profile文件不是纯文本�
 签名能够确保文件在传输和安装过程中没有被篡改，在搭建流水线时，可以通过官网提供的命令行工具中的签名工具hap-sign-tool.jar校验包名和工程项目中的包名是否一致，提前发现问题。通过该方法，还可以获得type、developer-id、validity，开发者也可使用同样方法，对这些字段进行校验。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/tuhLPOSRS1ibGrWfCJ6EFQ/zh-cn_image_0000002658808547.png?HW-CC-KV=V1&HW-CC-Date=20260723T013917Z&HW-CC-Expire=86400&HW-CC-Sign=7D673C508101388F86786957170B149246F95DC4FE13F1FEBC8828443D210DC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/tuhLPOSRS1ibGrWfCJ6EFQ/zh-cn_image_0000002658808547.png?HW-CC-KV=V1&HW-CC-Date=20260730T072713Z&HW-CC-Expire=86400&HW-CC-Sign=51CB7EF04C7B57D61D3E0683F10AE118C403C2B26D4A821849D9564264C9239A)

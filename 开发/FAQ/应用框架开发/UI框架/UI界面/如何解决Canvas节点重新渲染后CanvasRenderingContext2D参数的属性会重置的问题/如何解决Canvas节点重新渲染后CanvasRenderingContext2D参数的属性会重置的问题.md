@@ -11,7 +11,7 @@
 问题效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/a3O3BCIdQhuhxHXDbi50dg/zh-cn_image_0000002658806483.png?HW-CC-KV=V1&HW-CC-Date=20260723T013233Z&HW-CC-Expire=86400&HW-CC-Sign=E2ADCEB71A083DDA925CF2E0098F638355A6DEFA66E2CA04C7BD72CA0F0B8F05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/a3O3BCIdQhuhxHXDbi50dg/zh-cn_image_0000002658806483.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=4FE0436B3C1D71683A75E3F9363B7746C13AE30FA9830C47460E16E8991C3AE1)
 
  
 点击变更时，蓝色的大“测试”闪烁成黑色的小“测试”。疑似CanvasRenderingContext2D发生重置。
@@ -80,7 +80,7 @@ struct Index {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/SOTf3AAjSzGl9jM63jl2vQ/zh-cn_image_0000002628567126.png?HW-CC-KV=V1&HW-CC-Date=20260723T013233Z&HW-CC-Expire=86400&HW-CC-Sign=2E46541EAC5727A2503E08576E56BDEDB3096177E7C83FAC48392DBA329A0BE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/SOTf3AAjSzGl9jM63jl2vQ/zh-cn_image_0000002628567126.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=4026EE4AF61FFE6FDB78140536FD138ED2D7105AF5D552B4BC5A0599045AF472)
 
  
  

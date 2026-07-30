@@ -21,7 +21,7 @@ XPath中的下标（索引）从1开始，而不是从0开始。但是Hypium插�
 XPath是W3C标准，节点是从[1]开始。UiViewer提供的path下标是从[0]开始。两者不等同，不同的API使用的路径也是不同的。如图点击选中框位置。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/2IZeCbAGRVqCk1wqsgcANw/zh-cn_image_0000002628569544.png?HW-CC-KV=V1&HW-CC-Date=20260723T014008Z&HW-CC-Expire=86400&HW-CC-Sign=069F728B939A99441D0547E25D68CF71023E0B12E9EB02AE095325FAB422D101)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/2IZeCbAGRVqCk1wqsgcANw/zh-cn_image_0000002628569544.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=63998B8FAB79F8DCFB8AC16379CDEC44DD1003DD31E4C1DF64161D6BAFD32697)
 
  
 - XPath语法定位控件。使用BY.xpath匹配器可以支持通过XPath语法来查找控件。注意XPath不能和其他匹配器一起使用。
@@ -61,7 +61,7 @@ class TC_001(TestCase):
 - UiViewer提供的path路径定位控件。UiViewer提供的path路径定位控件可以在不同的API中使用，API参数path为UiViewer查看的路径。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/W_j-stLWQAWofPX5bF4AwQ/zh-cn_image_0000002658928869.png?HW-CC-KV=V1&HW-CC-Date=20260723T014008Z&HW-CC-Expire=86400&HW-CC-Sign=CE45F2C0A5B2CAF6CA8B1EAA833E019D9D164D6D167FFA1FFFC0530D0CFEBCC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/W_j-stLWQAWofPX5bF4AwQ/zh-cn_image_0000002658928869.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=E950F7E7B67822BFF61EA21377090B94CF305D1AC64715E3CA05E5D2EEC4CA8A)
 
 
   
@@ -108,7 +108,7 @@ Q：如何通过UiViewer插件中生成的非标准绝对路径查找控件？
 A：可以通过self.driver.touch(BY.abspath("/root/Navigation/**"))方式，使用绝对路径查找控件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/ONehAD6tTveyhNxQf-wKgg/zh-cn_image_0000002628409654.png?HW-CC-KV=V1&HW-CC-Date=20260723T014008Z&HW-CC-Expire=86400&HW-CC-Sign=7E6966B8DDA0A0AD7C541DE7B38FB99F9584CD73667E80B51D180B791F9CED58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/ONehAD6tTveyhNxQf-wKgg/zh-cn_image_0000002628409654.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=E3D57B6E2BBFEA8506D33F2F1D39E6D4CFF8FD5D03A2B36B98CAF77DFF79B11B)
 
  
 > [!NOTE]

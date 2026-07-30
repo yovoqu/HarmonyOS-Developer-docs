@@ -1,14 +1,14 @@
 # CanvasPattern
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvaspattern
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-一个Object对象，使用[createPattern](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createpattern)方法创建，通过指定图像和重复方式创建图片填充的模板。
+CanvasPattern对象，使用[createPattern](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#createpattern)方法创建，通过指定图像和重复方式生成图片填充的模板，适用于需要在Canvas中实现图案填充或背景纹理的场景，可简化图案填充的实现并提高绘制效率。
  
 > [!NOTE]
-> 从 API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
 
@@ -24,7 +24,7 @@
 
 setTransform(transform?: Matrix2D): void
  
-使用Matrix2D对象作为参数，对当前CanvasPattern进行矩阵变换。
+使用Matrix2D对象作为参数，对当前CanvasPattern进行矩阵变换。适用于需要对图案填充进行平移、缩放、旋转等几何变换的场景。不传参时，不对CanvasPattern做矩阵变换处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -36,7 +36,7 @@ setTransform(transform?: Matrix2D): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| transform | Matrix2D | 否 | 转换矩阵。 异常值undefined和null按无效值不做矩阵变换处理。 默认值：不做矩阵变换 |
+| transform | Matrix2D | 否 | 转换矩阵，用于对CanvasPattern进行平移、缩放、旋转等几何变换。 说明：参数为undefined或null时不做矩阵变换处理。 默认值：null |
  
  
   
@@ -45,7 +45,7 @@ setTransform(transform?: Matrix2D): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通过setTransform对当前CanvasPattern进行矩阵变换。
+通过createPattern创建CanvasPattern对象，在onReady回调和按钮点击时分别设置matrix参数，并调用setTransform方法进行矩阵变换。
  
 > [!NOTE]
 > 此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中 copyCodeResource 相关介绍。
@@ -60,12 +60,12 @@ struct CanvasPatternPage {
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private matrix: Matrix2D = new Matrix2D();
   // "common/pattern.jpg"需要替换为开发者所需的图像资源文件
-  private img: ImageBitmap = new ImageBitmap("common/pattern.jpg");
+  private img: ImageBitmap = new ImageBitmap('common/pattern.jpg');
   private pattern: CanvasPattern | null = null;
 
   build() {
       Column() {
-        Button("Click to set transform")
+        Button('Click to set transform')
           .onClick(() => {
             this.matrix.scaleY = 1
             this.matrix.scaleX = 1
@@ -76,8 +76,8 @@ struct CanvasPatternPage {
             }
             this.context.fillRect(0, 0, 480, 720)
           })
-          .width("45%")
-          .margin("5px")
+          .width('45%')
+          .margin('5px')
         Canvas(this.context)
           .width('100%')
           .height('80%')
@@ -102,4 +102,4 @@ struct CanvasPatternPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/LtkrD8zoSf-lcU_o7CBwyQ/zh-cn_image_0000002628862676.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=943222452B457BFE8BCA3F77AC728CA98A51F3D8767B225FA028CC084704C8F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/r_U-7MvNR6iAjDcQqczNLQ/zh-cn_image_0000002686088261.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071509Z&HW-CC-Expire=86400&HW-CC-Sign=F9B02631357EC209DF61A09227A108CCBEB020A286F7FC912E44EA219914BABD)

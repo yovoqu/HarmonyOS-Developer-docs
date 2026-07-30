@@ -1,6 +1,6 @@
 # 获取网格扫描信息（ArkTS）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-mesh
 
@@ -48,9 +48,11 @@ AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AG
 
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
-import { Node, Scene, Vec3 } from '@kit.ArkGraphics3D';
-import { window } from '@kit.ArkUI';
+import {CubeGeometry, CustomGeometry, Geometry, Material, MaterialType, MeshResource, Node,
+  PrimitiveTopology, Scene, SceneResourceFactory, Shader, ShaderMaterial, Vec3} from '@kit.ArkGraphics3D';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { logger } from '../utils/Logger';
+import { arrayBufferFloat32ToNumber, arrayBufferInt32ToNumber, arrayToVec3, getStatusBarHeight } from '../utils/Utils';
 ```
 
 
@@ -59,13 +61,10 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 定义变量hitAnchorList存储放置物体处的锚点信息、hitPoseList存储放置物体处的位姿信息和statusBarHeight设备状态栏高度。
 
-用户点击设备的坐标和显示预览流的坐标不一致，预览流的窗口略小于设备屏幕，因此需要减去设备状态栏高度以获取准确的点击坐标。
-
 ```text
 let frame: arEngine.ARFrame;
 let hitAnchorList: arEngine.ARAnchor[] = [];
 let hitPoseList: Vec3[] = [];
-let statusBarHeight: number = 0;
 ```
 
 
@@ -79,11 +78,16 @@ let statusBarHeight: number = 0;
 export function ARMeshBuilder(): void {
   ARMesh();
 }
-
+// ...
 @Component
 struct ARMesh {
   @State arContext?: arViewController.ARViewContext = undefined;
   @State context: Context = this.getUIContext().getHostContext() as Context;
+  @State statusBarHeight: number = 0;
+
+  async aboutToAppear(): Promise<void> {
+    this.statusBarHeight = await getStatusBarHeight(this.context);
+  }
 
   build(): void {
     NavDestination() {
@@ -104,10 +108,9 @@ struct ARMesh {
     }
     .onAppear(() => {
       this.initARView();
-      this.getAvoidArea();
     })
-    .onWillDisappear(() => {
-      this.stopARView();
+    .onWillDisappear(async () => {
+      await this.stopARView();
     })
     .onShown(() => {
       this.resumeARView();
@@ -120,15 +123,14 @@ struct ARMesh {
     .hideToolBar(true)
   }
 
-  // 获取用户点击坐标，获取碰撞检测结果
   private objectCollisionDetection(event: ClickEvent): void {
     let x: number = this.getUIContext().vp2px(event.windowX);
-    let y: number = this.getUIContext().vp2px(event.windowY) - statusBarHeight;
-    console.info(`Get onclick position, x: ${x} y: ${y}.`);
+    let y: number = this.getUIContext().vp2px(event.windowY) - this.statusBarHeight;
+    logger.info(`Get onclick position, x: ${x} y: ${y}.`);
 
     try {
       let result: arEngine.ARHitResult[] = frame.hitTest(x, y);
-      console.info(`The hitResult size is: ${result.length}.`);
+      logger.info(`The hitresult size is: ${result.length}.`);
       if (!result) {
         return;
       }
@@ -136,6 +138,7 @@ struct ARMesh {
       for (let i = 0; i < result.length; i++) {
         let hitResult: arEngine.ARHitResult = result[i];
         let distance: number = hitResult.distance;
+        logger.info(`The hitresult distance is: ${distance}.`);
 
         if (distance <= 0) {
           continue;
@@ -147,16 +150,20 @@ struct ARMesh {
         hitPoseList.push(pos);
         hitAnchorList.push(hitAnchor);
 
+        if (hitPoseList.length > 10) {
+          hitPoseList.splice(0, 1);
+          hitAnchorList.splice(0, 1);
+        }
       }
-      console.info('Succeeded in getting hit result.'); // 成功获取碰撞目标
+      logger.info('Succeeded in getting hit result.');
     } catch (error) {
       const err: BusinessError = error as BusinessError;
-      console.error(`Failed to get hitResults. Code is ${err.code}, message is ${err.message}`);
+      logger.error(`Failed to get hitResults. Code is ${err.code}, message is ${err.message}`);
     }
   }
 
   private initARView(): void {
-    Scene.load().then((scene: Scene) => {
+    Scene.load().then(async (scene: Scene) => {
       let viewContext: arViewController.ARViewContext = new arViewController.ARViewContext();
       viewContext.scene = scene;
       viewContext.callback = new ARViewCallbackImpl();
@@ -167,37 +174,26 @@ struct ARMesh {
         semanticMode: arEngine.ARSemanticMode.NONE,
         poseMode: arEngine.ARPoseMode.GRAVITY,
         depthMode: arEngine.ARDepthMode.AUTOMATIC,
-        meshMode: arEngine.ARMeshMode.ENABLE, // 开启mesh
+        meshMode: arEngine.ARMeshMode.ENABLE,
         focusMode: arEngine.ARFocusMode.AUTO
-      };
+      }
       viewContext.init().then(() => {
         this.arContext = viewContext;
-        console.info('Succeeded in initializing ARView.');
+        logger.info('Succeeded in initting ARView.');
       }).catch((err: BusinessError) => {
-        console.error(`Failed to init ARView. Code is ${err.code}, message is ${err.message}.`);
-      });
-    });
-  }
-
-  // 获取屏幕上减去状态栏的真实高度（预览流高度）
-  private getAvoidArea(): void {
-    let avoidAreaType: window.AvoidAreaType = window.AvoidAreaType.TYPE_SYSTEM;
-    window.getLastWindow(this.context).then((data) => {
-      // 获取顶部状态栏高度
-      let avoidArea1: window.AvoidArea = data.getWindowAvoidArea(avoidAreaType);
-      statusBarHeight = avoidArea1.topRect.height;
-      console.info(`The statusBarHeight is ${statusBarHeight}.`);
-    }).catch((err: BusinessError) => {
-      console.error(`Failed to obtain the window. Code is ${err.code}, message is ${err.message}.`);
+        logger.error(`Failed to init ARView. Code is ${err.code}, message is ${err.message}.`);
+      })
     })
   }
 
-  private stopARView(): void {
+  private async stopARView(): Promise<void> {
     // ...
   }
+
   private resumeARView(): void {
     // ...
   }
+
   private pauseARView(): void {
     // ...
   }
@@ -212,43 +208,46 @@ struct ARMesh {
 
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
+  // ...
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
-    // ...
   }
 
   onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
-    // ...
   }
 
-  onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): void {
-    let planeVertices: number[] = [];
-    let vertexNormals: number[] = [];
-    let triangleIndices: number[] = [];
-
+  async onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): Promise<void> {
     if (!ctx.session) {
       return;
     }
 
     let session: arEngine.ARSession | undefined = ctx.session;
 
+    // The mesh color is controlled by the file mesh.shader
+    let rf: SceneResourceFactory = ctx.scene.getResourceFactory();
+    this.material = await rf.createMaterial({ name: 'CustomMaterial' }, MaterialType.SHADER);
+    this.shader = await rf.createShader({ name: 'CustomShader', uri: $rawfile('shaders/custom_shader/mesh.shader') });
+    this.material.colorShader = this.shader;
+    (this.material as CustomerMaterial).blend = { enabled: true };
+
     try {
       frame = session.getFrame();
       let camera: arEngine.ARCamera = frame.getCamera();
-      let sceneMesh: arEngine.ARSceneMesh = frame.acquireSceneMesh();
 
       if (camera.state === arEngine.ARTrackingState.TRACKING) {
-        planeVertices = arrayBufferFloat32ToNumber(sceneMesh.getVertices());
-        triangleIndices = arrayBufferInt32ToNumber(sceneMesh.getTriangleIndices());
-        vertexNormals = arrayBufferFloat32ToNumber(sceneMesh.getVertexNormals());
-
-        // 输出mesh数据
-        console.info(`The mesh data planeVertices is: ${planeVertices}, triangleIndices is: ${triangleIndices},
-          vertexNormals is: ${vertexNormals}.`);
+        planeVertices = arrayBufferFloat32ToNumber(frame.acquireSceneMesh().getVertices());
+        triangleIndices = arrayBufferInt32ToNumber(frame.acquireSceneMesh().getTriangleIndices());
+        vertexNormals = arrayBufferFloat32ToNumber(frame.acquireSceneMesh().getVertexNormals());
+        isDisplayCube = true;
+      } else {
+        planeVertices = [];
+        triangleIndices = [];
+        vertexNormals = [];
+        isDisplayCube = false;
       }
-
+      // ...
     } catch (error) {
       const err: BusinessError = error as BusinessError;
-      console.error(`Failed to acquire depth information. Code is ${err.code}, message is ${err.message}.`);
+      logger.error(`Failed to acquire depth information. Code is ${err.code}, message is ${err.message}.`);
     }
   }
 }

@@ -1,6 +1,6 @@
 # IFAA
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -27,10 +27,8 @@ System Interruption.
 运行环境异常。
  
 **处理步骤**
- 
-1 重启系统。
- 
-2 重试操作。
+ 1. 重启系统。
+2. 重试操作。
  
   
 

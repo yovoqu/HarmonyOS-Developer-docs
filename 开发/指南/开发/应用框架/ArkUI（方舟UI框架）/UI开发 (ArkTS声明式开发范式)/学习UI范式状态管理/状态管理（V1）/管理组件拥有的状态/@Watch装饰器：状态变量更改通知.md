@@ -1,63 +1,63 @@
 # @Watch装饰器：状态变量更改通知
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch
 
-@Watch应用于对状态变量的监听。如果开发者需要关注某个状态变量的值是否改变，可以使用@Watch为状态变量设置回调函数。
- 
+[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch#watch)应用于对状态变量的监听。如果开发者需要关注某个状态变量的值是否改变，可以使用@Watch为状态变量设置回调函数。
+
 @Watch提供了状态变量的监听能力，@Watch仅能监听到可以观察到的变化。
- 
+
 在阅读本文档前，建议开发者对状态管理基本观察能力有基本的了解。建议提前阅读：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)。
- 
+
 > [!NOTE]
 > 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
 
-  
+
 
 #### 概述
 
 @Watch用于监听状态变量的变化，当状态变量变化时，@Watch的回调方法将被调用。@Watch在ArkUI框架内部判断数值有无更新使用的是严格相等（===），遵循严格相等规范。当严格相等判断的结果是false（即不相等）的情况下，就会触发@Watch的回调。
- 
-  
+
+
 
 #### 装饰器说明
- 
+
 | @Watch补充变量装饰器 | 说明 |
 | --- | --- |
 | 装饰器参数 | 必填。常量字符串，字符串需要有引号。是(string) => void自定义成员函数的方法的引用。 |
 | 可装饰的自定义组件变量 | 可监听所有装饰器装饰的状态变量。不允许监听常规变量。 |
 | 装饰器的顺序 | 装饰器顺序不影响实际功能，开发者可以根据自己的需要决定装饰器顺序的先后。建议@State、@Prop、@Link等装饰器在@Watch装饰器之前，以保持整体风格的一致。 |
 | @Watch触发时机 | 使用@Watch来监听状态变量变化时，回调触发时间是变量真正变化、被赋值的时间。详细示例请参考使用场景中的@Watch的触发时机。 |
- 
- 
-  
+
+
+
 
 #### 语法说明
- 
+
 | 类型 | 说明 |
 | --- | --- |
 | (changedPropertyName? : string) => void | 该函数是自定义组件的成员函数，changedPropertyName是被watch的属性名。 在多个状态变量绑定同一个@Watch的回调方法的时候，可以通过changedPropertyName进行不同的逻辑处理 将属性名作为字符串输入参数，不返回任何内容。 |
- 
- 
-  
+
+
+
 
 #### 观察变化和行为表现
 1. 当观察到状态变量的变化（包括双向绑定的[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)和[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)中对应的key发生的变化）的时候，对应的@Watch的回调方法将被触发；
 2. @Watch方法在自定义组件的属性变更之后同步执行；
 3. 如果在@Watch的方法里改变了其他的状态变量，也会引起状态变更和@Watch的执行；
 4. 在第一次初始化的时候，@Watch装饰的方法不会被调用，即认为初始化不是状态变量的改变。只有在后续状态改变时，才会调用@Watch回调方法。
- 
-  
+
+
 
 #### 限制条件
 
-- 建议开发者避免无限循环。循环可能是因为在@Watch的回调方法里直接或者间接地修改了同一个状态变量引起的。为了避免循环的产生，建议不要在@Watch的回调方法里修改当前装饰的状态变量；
-- 开发者应关注性能，属性值更新函数会延迟组件的重新渲染（具体请见上面的行为表现），因此，回调函数应仅执行快速运算；
-- 不建议在@Watch函数中调用async await，因为@Watch设计的用途是为了快速的计算，异步行为可能会导致重新渲染速度的性能问题。
-- @Watch参数为必选，且参数类型必须是string，否则编译期会报错。不建议开发者传入undefined，传入后编译不会报错，相当于传入“undefined”。
+ - 建议开发者避免无限循环。循环可能是因为在@Watch的回调方法里直接或者间接地修改了同一个状态变量引起的。为了避免循环的产生，建议不要在@Watch的回调方法里修改当前装饰的状态变量；
+ - 开发者应关注性能，属性值更新函数会延迟组件的重新渲染（具体请见上面的行为表现），因此，回调函数应仅执行快速运算；
+ - 不建议在@Watch函数中调用async await，因为@Watch设计的用途是为了快速的计算，异步行为可能会导致重新渲染速度的性能问题。
+ - @Watch参数为必选，且参数类型必须是string，否则编译期会报错。不建议开发者传入undefined，传入后编译不会报错，相当于传入“undefined”。
 
- 
+
 ```text
 // 错误写法，编译报错
 @State @Watch() num: number = 10;
@@ -69,10 +69,10 @@ change() {
   console.info(`xxx`);
 }
 ```
- 
-- @Watch内的参数必须是声明的方法名，否则编译期会报错。
 
- 
+ - @Watch内的参数必须是声明的方法名，否则编译期会报错。
+
+
 ```text
 // 错误写法，没有对应名称的函数，编译报错
 @State @Watch('change') num: number = 10;
@@ -86,10 +86,10 @@ change() {
   console.info(`xxx`);
 }
 ```
- 
-- 常规变量不能被@Watch装饰，否则编译期会报错。
 
- 
+ - 常规变量不能被@Watch装饰，否则编译期会报错。
+
+
 ```text
 // 错误写法
 @Watch('change') num: number = 10;
@@ -103,17 +103,17 @@ change() {
   console.info(`xxx`);
 }
 ```
- 
-  
+
+
 
 #### 使用场景
 
-  
+
 
 #### @Watch和自定义组件更新
 
 以下示例展示组件更新和@Watch的处理步骤。count在CountModifier中由@State装饰，在TotalView中由@Prop装饰。
- 
+
 ```ArkTS
 @Component
 struct TotalView {
@@ -127,6 +127,8 @@ struct TotalView {
 
   build() {
     Text(`Total: ${this.total}`)
+      .fontSize(20)
+      .margin(10)
   }
 }
 
@@ -138,26 +140,33 @@ struct CountModifier {
   build() {
     Column() {
       Button('add to basket')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.count++;
         })
       TotalView({ count: this.count })
     }
+    .width('100%')
   }
 }
 ```
- 
+
+
+![](assets/@Watch装饰器：状态变量更改通知/file-20260708103955407e2471.gif)
+
+
 处理步骤：
- 1. CountModifier自定义组件的Button.onClick点击事件自增count。
+1. CountModifier自定义组件的Button.onClick点击事件自增count。
 2. 由于@State count变量更改，子组件TotalView中的@Prop被更新，其@Watch('onCountUpdated')方法被调用，更新了子组件TotalView 中的total变量。
 3. 子组件TotalView中的Text重新渲染。
- 
-  
+
+
 
 #### @Watch与@Link组合使用
 
 以下示例说明了如何在子组件中观察@Link变量。
- 
+
 ```ArkTS
 class PurchaseItem {
   public static nextId: number = 0;
@@ -218,25 +227,25 @@ struct BasketModifier {
   }
 }
 ```
- 
+
 处理步骤如下：
- 1. BasketModifier组件的Button.onClick向BasketModifier shopBasket中添加条目；
+1. BasketModifier组件的Button.onClick向BasketModifier shopBasket中添加条目；
 2. @Link装饰的BasketViewer shopBasket值发生变化；
 3. 状态管理框架调用@Watch函数BasketViewer onBasketUpdated 更新BasketViewer totalPurchase的值；
 4. @Link shopBasket的改变，新增了数组项，ForEach组件会执行item Builder，渲染构建新的Item项；@State totalPurchase改变，对应的Text组件也重新渲染；重新渲染是异步发生的。
- 
+
 效果图如下：
- 
 
-![](assets/@Watch装饰器：状态变量更改通知/file-20260708103955407e2471.gif)
 
- 
-  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/LF_W4sd7QTKw6lt11SZYAg/zh-cn_image_0000002655845952.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=30DDF115CE6F8CB722AFF4FB0EC48E70C1F8162A96AF7AB01610E50C222D2BCA)
+
+
+
 
 #### @Watch的触发时机
 
 为了展示@Watch回调触发时间是根据状态变量真正变化的时间，本示例在子组件中同时使用@Link和[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器，分别观察不同的状态对象。通过在父组件中更改状态变量并观察@Watch回调的先后顺序，来表明@Watch触发的时机与赋值、同步的关系。
- 
+
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -283,19 +292,26 @@ struct ParentComponent {
         .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text7').id) :
         this.getUIContext()
           .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text8').id)}`)
+        .fontSize(20)
+        .margin(10)
       Text(`${this.type2} ${this.taskB.isFinished ? this.getUIContext()
         .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text7').id) :
         this.getUIContext()
           .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text8').id)}`)
+        .fontSize(20)
+        .margin(10)
       ChildComponent({ taskA: this.taskA, taskB: this.taskB })
       // 请将$r('app.string.watch_text9')替换为实际资源文件，在本示例中该资源文件的value值为"切换任务状态"
       Button(this.getUIContext()
         .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text9').id))
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.taskB = new Task(!this.taskB.isFinished);
           this.taskA = new Task(!this.taskA.isFinished);
         })
     }
+    .width('100%')
   }
 }
 
@@ -329,17 +345,26 @@ struct ChildComponent {
         .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text7').id) :
         this.getUIContext()
           .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text8').id)}`)
+        .fontSize(20)
+        .margin(10)
       Text(`${this.type2} ${this.taskB.isFinished ? this.getUIContext()
         .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text7').id) :
         this.getUIContext()
           .getHostContext()!.resourceManager.getStringSync($r('app.string.watch_text8').id)}`)
+        .fontSize(20)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
- 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/L0ulZ8oKR_ONc0oiCdgUsA/zh-cn_image_0000002686085381.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=934B56D1E875CF751217AB8D741F386D90ADDFA0E71BEA8DCEA5A2E74A6DAE39)
+
+
 处理步骤如下：
- 1. 当点击按钮切换任务状态时，父组件首先更新了被@ObjectLink关联的taskB，然后更新了被@Link关联的taskA。
+1. 当点击按钮切换任务状态时，父组件首先更新了被@ObjectLink关联的taskB，然后更新了被@Link关联的taskA。
 2. 观察到日志依次显示：
 
   
@@ -352,13 +377,13 @@ struct ChildComponent {
 
 3. 通过日志可以看到，父组件的回调顺序和修改顺序一致，而子组件中@Link和@ObjectLink的回调触发顺序与父组件中变量更新的顺序不同。这是因为父组件的变量更新是即时的，但子组件中@Link和@ObjectLink获取更新数据的时机不同。@Link的状态更新是同步的，状态变化会立刻触发@Watch回调。而@ObjectLink的更新依赖于父组件的同步，当父组件刷新并将更新后的变量传递给子组件时，@Watch回调才会触发，因此触发顺序略晚于@Link。
 4. 这是符合预期的行为，展示了@Watch回调的触发时机是根据状态变量真正变化的时间。因为@Link直接同步，而@ObjectLink需要等父组件更新子组件变量。类似地，当父组件的数据源变化时，@Prop也会表现出与@ObjectLink类似的行为，其回调触发时间也会略晚。
- 
-  
+
+
 
 #### 使用changedPropertyName进行不同的逻辑处理
 
 以下示例说明了如何在@Watch函数中使用changedPropertyName进行不同的逻辑处理。
- 
+
 ```ArkTS
 @Entry
 @Component
@@ -376,24 +401,39 @@ struct UsePropertyName {
 
   build() {
     Column() {
-      Text(`Number of apples: ${this.apple.toString()}`).fontSize(30)
-      Text(`Number of cabbages: ${this.cabbage.toString()}`).fontSize(30)
-      Text(`Total number of fruits: ${this.fruit.toString()}`).fontSize(30)
+      Text(`Number of apples: ${this.apple.toString()}`)
+        .fontSize(30)
+        .margin(10)
+      Text(`Number of cabbages: ${this.cabbage.toString()}`)
+        .fontSize(30)
+        .margin(10)
+      Text(`Total number of fruits: ${this.fruit.toString()}`)
+        .fontSize(30)
+        .margin(10)
       Button('Add apples')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.apple++;
         })
       Button('Add cabbages')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.cabbage++;
         })
     }
+    .width('100%')
   }
 }
 ```
- 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/gt3yefQrRBqqyk-EwEXTPA/zh-cn_image_0000002685925553.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=BFFD2D6E717EF924323A6803884B3F4493CC698D6B125A9550FFA89510510745)
+
+
 处理步骤如下：
- 1. 点击Button('Add apples')时，apple的值发生变化。
+1. 点击Button('Add apples')时，apple的值发生变化。
 2. 状态管理框架调用@Watch函数countUpdated，发生变化的状态变量名为apple，满足if逻辑条件，fruit的值被改变。
 3. 绑定了apple，fruit状态变量的Text重新渲染。
 4. 点击Button('Add cabbages')时，cabbage的值发生变化。

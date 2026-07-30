@@ -1,6 +1,6 @@
 # 字节码HAR的代码防泄漏安全程度如何
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-38
 
@@ -55,9 +55,9 @@ HAR是静态共享包，当[工程级build-profile.json5](https://developer.huaw
 6. 开启顶层作用域名称混淆：[-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-toplevel-obfuscation)。
 7. 开启文件名混淆：[-enable-filename-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-filename-obfuscation)。
 8. 开启导入导出名称混淆：[-enable-export-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-export-obfuscation)。
-9. 代码压缩：[-compact](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-compact)。
+9. 代码压缩：[-compact](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#混淆规则合并策略)。
 10. 删除console.*语句：[-remove-log](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-remove-log)。
-11. 声明文件注释删除：[-remove-comments](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-remove-comments)。
+11. 声明文件注释删除：[-remove-comments](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation)。
 12. 敏感数据保护：
 避免在源码中直接明文存储敏感字符串，例如密钥、URL、账号密码等。
 13. 推荐使用加密存储+运行时解密的方案保护敏感信息。

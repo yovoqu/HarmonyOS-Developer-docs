@@ -62,7 +62,7 @@ struct SwiperIndexDemo {
 效果如下：Swiper初始化显示最后一页内容，滑动Swiper会改变showIndex，改变showIndex也能滑动Swiper。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/h4yahob2QX6dSTJFu3a3hg/zh-cn_image_0000002628756008.png?HW-CC-KV=V1&HW-CC-Date=20260723T012721Z&HW-CC-Expire=86400&HW-CC-Sign=95DAB9F98C6032B6033B8B5975020B462DE51F52C0C3A1D4A4BB39D254D5FB3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/h4yahob2QX6dSTJFu3a3hg/zh-cn_image_0000002628756008.png?HW-CC-KV=V1&HW-CC-Date=20260730T072348Z&HW-CC-Expire=86400&HW-CC-Sign=236FC9ECEBF9B783F34E0C363E6D39F6B27781093CEE322C7376F0AB573E6A17)
 
  
  

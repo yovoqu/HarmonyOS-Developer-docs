@@ -1,6 +1,6 @@
 # Interface (AVCastController)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avcastcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -225,7 +225,7 @@ getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>
 **示例：**
 
 ```text
-import { type hdrCapability } from '@kit.ArkGraphics2D';
+import  { type hdrCapability } from '@kit.ArkGraphics2D';
 
 avCastController.getSupportedHdrCapabilities().then((hdrFormats: hdrCapability.HDRFormat[]) => {
   console.info(`Succeeded in getting supported HDR capabilities, length: ${hdrFormats.length}`);
@@ -1627,7 +1627,7 @@ on(type: 'videoSizeChange', callback: (width: number, height: number) => void): 
 
 每个指令支持注册多个回调，如果需要只执行最新监听，需要先注销旧的监听，否则新旧监听都会触发回调。
 
-系统能力： SystemCapability.Multimedia.AVSession.AVCast
+**系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
 
@@ -1665,7 +1665,7 @@ off(type: 'videoSizeChange'): void
 
 取消视频尺寸事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
 
-系统能力： SystemCapability.Multimedia.AVSession.AVCast
+**系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
 

@@ -1,6 +1,6 @@
 # Class (Animation)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -19,7 +19,7 @@ import { map } from '@kit.MapKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-动画抽象类。
+动画抽象类。Animation类用于控制地图元素的动画效果，支持旋转、缩放、平移等多种动画类型，适用于地图交互增强、路径动画展示等场景。
  
 > [!NOTE]
 > 动画持续时间默认值为250ms； 动画执行完成后的状态，默认值为 AnimationFillMode .FORWARDS； 动画插值器，默认值为 Curve .Linear； 动画重复执行的次数，默认值为0； 重复执行的模式，默认值为 AnimationRepeatMode .RESTART。

@@ -16,13 +16,13 @@ app.json5中的icon和label改变的是设置中显示的图标和名称。例�
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/gAOo_avISAONBxi6pQc5iw/zh-cn_image_0000002658807325.png?HW-CC-KV=V1&HW-CC-Date=20260723T013912Z&HW-CC-Expire=86400&HW-CC-Sign=F32C7DA5A381FBC70953F44CDFAA98292A415E38ACA7B0F87F3C779BACAB4B9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/gAOo_avISAONBxi6pQc5iw/zh-cn_image_0000002658807325.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=E1877F56650FE33CC1021E619DBB12CED26BE29A38140F739DA7C15E0C5A4D92)
 
  
 正常使用DevEco Studio推送安装到手机的是HAP包，而HAP包里的icon和label是由module.json5文件决定的。例如：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/RzSwgEkSRuiwx4DCfJyryA/zh-cn_image_0000002628408064.png?HW-CC-KV=V1&HW-CC-Date=20260723T013912Z&HW-CC-Expire=86400&HW-CC-Sign=6015FFC024EE8450BD5A5042CC86C02BF7B531AD57C0D193945F8C46ED56F58C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/RzSwgEkSRuiwx4DCfJyryA/zh-cn_image_0000002628408064.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=E8994DA4EED7A359C1BDB8DA654E44643476110F3E3F1BD5491E02DB6A81807A)
 
  
 要在工程级build-profile.json5文件products中配置不同的APP产物，并配置对应icon和label来覆盖app.json5里面的默认内容：
@@ -137,19 +137,19 @@ product中的icon和label改变设置中显示的图标和名称，应用桌面�
 可通过打包后的产物来检查是否配置正确：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/7Uzub7JtQRu7uF72nYfanw/zh-cn_image_0000002628567960.png?HW-CC-KV=V1&HW-CC-Date=20260723T013912Z&HW-CC-Expire=86400&HW-CC-Sign=DF487E0FD2A816BA08363A2597CE9BCC45977DBE20C5431A0DA1C3806BD63E2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/7Uzub7JtQRu7uF72nYfanw/zh-cn_image_0000002628567960.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=83DD256F7B4545407EB4A9687B5F3E5A337058DE34053497A10495640035FB03)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/wAf_cV1ySEGcbrviipokCw/zh-cn_image_0000002658927283.png?HW-CC-KV=V1&HW-CC-Date=20260723T013912Z&HW-CC-Expire=86400&HW-CC-Sign=DB90F30012EEECF2A899FA62E4C0091830ED5816A49C4BE89AD5C16D04A6B2EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/wAf_cV1ySEGcbrviipokCw/zh-cn_image_0000002658927283.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=32BAAB92DC2E7422EFF9CAA7ED7D198B97185BD57C50E94C26F2613DECBAF759)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/K_Kbh2KNRM6_l49yBvkzdA/zh-cn_image_0000002658807327.png?HW-CC-KV=V1&HW-CC-Date=20260723T013912Z&HW-CC-Expire=86400&HW-CC-Sign=62E12BD48BEBDF71785BE6051B15B0C336C204663CD61C2B60C2F9B7EBF44FD6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/K_Kbh2KNRM6_l49yBvkzdA/zh-cn_image_0000002658807327.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=73C6671959B1C29E5827864C6B588C0466A48936ED5224D64303710EC196F15B)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/AQF5q4xQRsmAO2jctZjuJg/zh-cn_image_0000002628408066.png?HW-CC-KV=V1&HW-CC-Date=20260723T013912Z&HW-CC-Expire=86400&HW-CC-Sign=8A5CA1B7F0C0C90DAEDBC4040A34F8A586BCB9BDA112C1109A780496207525E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/AQF5q4xQRsmAO2jctZjuJg/zh-cn_image_0000002628408066.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=212F0AAF4F44F34711E6ACE4452EDE3400897373954383F7E9A3E949A7EF38D9)
 
  
 附：配置多目标产物-[定义产物的icon、label、launchType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-customized-multi-targets-and-products-guides#section82111917125413)。

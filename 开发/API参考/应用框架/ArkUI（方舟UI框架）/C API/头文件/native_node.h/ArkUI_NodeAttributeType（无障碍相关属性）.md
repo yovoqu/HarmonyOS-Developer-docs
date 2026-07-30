@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（无障碍相关属性）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-accessibility
 
@@ -27,7 +27,7 @@ enum ArkUI_NodeAttributeType
 NODE_ACCESSIBILITY_GROUP = 62
 ```
  
-无障碍组属性，支持属性设置，属性重置和属性获取。
+无障碍组属性，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -37,7 +37,7 @@ NODE_ACCESSIBILITY_GROUP = 62
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 为1时表示该组件及其所有子组件为一整个可以选中的组件。无障碍服务将不再关注其子组件内容。参数取值为1或0。 |
+| .value[0].i32 | 为1时表示该组件及其所有子组件为一整个可以选中的组件，无障碍服务将不再关注其子组件内容；为0时表示子组件各自独立可被选中，无障碍服务将分别关注其各子组件内容。参数取值为1或0，传入非法值时该设置不生效。 |
  
  
 **返回：**
@@ -55,7 +55,7 @@ NODE_ACCESSIBILITY_GROUP = 62
 NODE_ACCESSIBILITY_TEXT = 63
 ```
  
-无障碍文本属性，支持属性设置，属性重置和属性获取。
+无障碍文本属性，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -65,14 +65,14 @@ NODE_ACCESSIBILITY_TEXT = 63
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 无障碍文本。 |
+| .string | 无障碍文本，无长度限制。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .string | 无障碍文本。 |
+| .string | 组件的无障碍文本内容，用于在无障碍服务中朗读或展示该组件的文本描述。 |
  
  
   
@@ -83,7 +83,7 @@ NODE_ACCESSIBILITY_TEXT = 63
 NODE_ACCESSIBILITY_MODE = 64
 ```
  
-无障碍辅助服务模式，支持属性设置，属性重置和属性获取。
+无障碍辅助服务模式，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -93,7 +93,7 @@ NODE_ACCESSIBILITY_MODE = 64
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 辅助服务模式，参数类型ArkUI_AccessibilityMode。 |
+| .value[0].i32 | 辅助服务模式，参数类型为ArkUI_AccessibilityMode。 |
  
  
 **返回：**
@@ -111,7 +111,7 @@ NODE_ACCESSIBILITY_MODE = 64
 NODE_ACCESSIBILITY_DESCRIPTION = 65
 ```
  
-无障碍说明属性，支持属性设置，属性重置和属性获取。
+无障碍说明属性，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -121,14 +121,14 @@ NODE_ACCESSIBILITY_DESCRIPTION = 65
   
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 无障碍说明。 |
+| .string | 无障碍说明，无长度限制。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .string | 无障碍说明。 |
+| .string | 组件的无障碍说明内容，用于向无障碍服务补充描述该组件的详细用途或操作指引。 |
  
  
   
@@ -160,7 +160,7 @@ NODE_ACCESSIBILITY_ID = 87
 NODE_ACCESSIBILITY_ACTIONS = 88
 ```
  
-定义无障碍支持操作类型属性，支持属性设置，属性重置和属性获取。
+无障碍操作类型属性，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -188,7 +188,7 @@ NODE_ACCESSIBILITY_ACTIONS = 88
 NODE_ACCESSIBILITY_ROLE = 89
 ```
  
-定义无障碍组件类型属性，支持属性设置，属性重置和属性获取。
+定义无障碍角色属性，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -198,7 +198,7 @@ NODE_ACCESSIBILITY_ROLE = 89
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].u32 | 无障碍组件类型，参数类型ArkUI_NodeType。 |
+| .value[0].u32 | 无障碍角色，参数类型ArkUI_NodeType。 |
  
  
 **返回：**
@@ -216,7 +216,7 @@ NODE_ACCESSIBILITY_ROLE = 89
 NODE_ACCESSIBILITY_STATE = 90
 ```
  
-定义无障碍状态属性，支持属性设置，属性重置和属性获取。
+定义无障碍状态属性，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -226,7 +226,7 @@ NODE_ACCESSIBILITY_STATE = 90
   
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 参数类型为ArkUI_AccessibilityState。 |
+| .object | 无障碍状态属性，无障碍状态信息，参数类型ArkUI_AccessibilityState。 |
  
  
 **返回：**
@@ -244,7 +244,7 @@ NODE_ACCESSIBILITY_STATE = 90
 NODE_ACCESSIBILITY_VALUE = 91
 ```
  
-定义无障碍值属性，支持属性设置，属性重置和属性获取。
+定义无障碍值属性，支持属性设置、属性重置和属性获取。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -254,7 +254,7 @@ NODE_ACCESSIBILITY_VALUE = 91
   
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 参数类型为ArkUI_AccessibilityValue。 |
+| .object | 无障碍信息属性，无障碍值信息，参数类型为ArkUI_AccessibilityValue。 |
  
  
 **返回：**

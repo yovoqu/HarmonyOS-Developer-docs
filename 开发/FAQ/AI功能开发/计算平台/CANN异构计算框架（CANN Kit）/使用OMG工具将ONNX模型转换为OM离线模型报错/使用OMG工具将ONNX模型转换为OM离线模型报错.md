@@ -1,6 +1,6 @@
 # 使用OMG工具将ONNX模型转换为OM离线模型报错
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-2
 
@@ -94,4 +94,4 @@ E/OMG_TOOL (16075): main.cpp main(21)::"OMG generate offline model failed. Pleas
 
 使用HarmonyOS 5.0提供的[轻量化工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-lightweight-tool-instructions)对该ONNX模型进行模型轻量化优化之后，再根据官方文档进行[模型转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-model-conversion)。
  
-目前支持ONNX的轻量化方式为[无训练量化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-no-training-and-quantization#section1262217244312)。可以参考[模型轻量化示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-examples#section778655215202)。
+目前支持ONNX的轻量化方式为[无训练量化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-no-training-and-quantization#onnx模型无训练量化)。可以参考[模型轻量化示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-examples)。

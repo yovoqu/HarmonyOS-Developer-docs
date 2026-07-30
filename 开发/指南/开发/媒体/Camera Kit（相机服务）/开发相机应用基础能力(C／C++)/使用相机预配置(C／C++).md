@@ -1,6 +1,6 @@
 # 使用相机预配置(C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preconfig-native
 
@@ -434,14 +434,14 @@ NDKCamera::NDKCamera(char *previewId, char *photoId) {
     if (ret != CAMERA_OK) {
         OH_LOG_ERROR(LOG_APP, "Delete Cameras failed.");
     } else {
-        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_DeleteSupportedCameras. ok");
+        OH_LOG_INFO(LOG_APP, "OH_CameraManager_DeleteSupportedCameras. ok");
     }
 
     ret = OH_Camera_DeleteCameraManager(cameraManager);
     if (ret != CAMERA_OK) {
         OH_LOG_ERROR(LOG_APP, "Delete Cameras failed.");
     } else {
-        OH_LOG_ERROR(LOG_APP, "OH_Camera_DeleteCameraManager. ok");
+        OH_LOG_INFO(LOG_APP, "OH_Camera_DeleteCameraManager. ok");
     }
 }
 ```

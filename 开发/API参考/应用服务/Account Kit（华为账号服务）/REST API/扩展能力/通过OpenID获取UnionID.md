@@ -1,10 +1,10 @@
 # 通过OpenID获取UnionID
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-unionid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/h53hbaWAR06-IGuJF6P5MA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=977C5D10405A4C64B0505D7951486AE1706CE455657BC230F27E8353AF21A6B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/Ir5YHVRmRY-FMVKmxGyTFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071727Z&HW-CC-Expire=86400&HW-CC-Sign=B9B7169FF9CA36149E1742300065A94BA51864C20B9C3195F98DABE66B75583C)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -220,4 +220,4 @@ public class OpenIdToUnionIdDemo {
 | 501 | 服务分发异常。 | - 检查请求URL中nsp_svc是否正确 - 若确认请求URL与文档一致，请通过在线提单提交问题。 |
 | 1302 | 接口流控。 | 业务调用频率过高，单应用调用并发请低于100TPS。 |
 | 31204 | access_token已失效。 | 通过获取应用级凭证获取的access_token不会出现此错误。请严格按照接口入参要求，使用获取应用级凭证方式获取access_token并重试。 |
-| 150028 | open_id参数为空或超长。 | 请检查open_id是否为空或者超过256的字符长度。具体格式要求请参考OpenID和UnionID的格式说明 |
+| 150028 | open_id参数非法。 | open_id参数非法，可能原因： - open_id参数为空。 - open_id参数格式错误，具体格式要求请参考OpenID和UnionID的格式说明。 |

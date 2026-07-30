@@ -1,6 +1,6 @@
 # drawing_types.h
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-types-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,6 +10,8 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文件中定义了用于绘制2d图形的数据类型，包括画布、画笔、画刷、位图和路径。
+ 
+本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
  
 **引用文件：** <native_drawing/drawing_types.h>
  

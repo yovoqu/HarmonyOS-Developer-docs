@@ -145,10 +145,10 @@ export class <span style="color: rgb(0,0,255);">AppBarTitleModifier </span>imple
 短文本效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/JyXUXofFRFWD6CnsK0FMqg/zh-cn_image_0000002628773272.png?HW-CC-KV=V1&HW-CC-Date=20260723T012816Z&HW-CC-Expire=86400&HW-CC-Sign=EB9623BDF750B62753C35DB7839145AC4E39F35082AFCD7C80A8363F657EEAEC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/JyXUXofFRFWD6CnsK0FMqg/zh-cn_image_0000002628773272.png?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=DAD93079835EA81E84A4195DB6B7F22B0BFE267E784B26909A875124167F24D7)
 
  
 长文本效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/CK3Q-VCmQhiCWGh2U8liNQ/zh-cn_image_0000002628613374.png?HW-CC-KV=V1&HW-CC-Date=20260723T012816Z&HW-CC-Expire=86400&HW-CC-Sign=C263E728950C98DC10314788F0D17F450983040BF26CAA7E5C7999269C22C534)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/CK3Q-VCmQhiCWGh2U8liNQ/zh-cn_image_0000002628613374.png?HW-CC-KV=V1&HW-CC-Date=20260730T072413Z&HW-CC-Expire=86400&HW-CC-Sign=102898490AB9A54BFA9AD9B1989657839B63882D1BAF669DEE29DA1CEDBD2945)

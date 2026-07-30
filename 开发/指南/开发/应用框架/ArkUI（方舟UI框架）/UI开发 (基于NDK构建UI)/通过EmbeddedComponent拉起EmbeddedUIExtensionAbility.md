@@ -1,6 +1,6 @@
 # 通过EmbeddedComponent拉起EmbeddedUIExtensionAbility
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-embedded-component
 
@@ -9,7 +9,7 @@ ArkUI在Native侧提供的能力是ArkTS的子集，某些能力不会在Native�
 从API version 20开始，ArkUI开发框架提供了Native侧嵌入EmbeddedComponent组件的能力，此能力依赖于[EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)机制。EmbeddedComponent用于支持在当前页面嵌入同一应用内其他[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)提供的UI。EmbeddedUIExtensionAbility在独立进程中运行，负责页面布局和渲染。此功能主要用于有进程隔离需求的模块化开发场景。
 
 > [!NOTE]
-> 使用 OH_ArkUI_EmbeddedComponentOption_Create 获取 ArkUI_EmbeddedComponentOption 后，可以使用 OH_ArkUI_EmbeddedComponentOption_SetOnError 设置onError回调，使用 OH_ArkUI_EmbeddedComponentOption_SetOnTerminated 设置onTerminated回调。可以使用 OH_ArkUI_NodeUtils_MoveTo 迁移节点。 使用 OH_ArkUI_EmbeddedComponentOption_SetOnTerminated 设置onTerminated回调时，返回的want参数，只支持提供方返回的want参数的key，value解析，不支持嵌套解析。 在EmbeddedComponent销毁时，调用 OH_ArkUI_EmbeddedComponentOption_Dispose 释放内存。 EmbeddedComponent组件需要使用 setAttribute 设置宽高才能显示。
+> 使用 OH_ArkUI_EmbeddedComponentOption_Create 获取 ArkUI_EmbeddedComponentOption 后，可以使用 OH_ArkUI_EmbeddedComponentOption_SetOnError 设置onError回调，使用 OH_ArkUI_EmbeddedComponentOption_SetOnTerminated 设置onTerminated回调。可以使用 OH_ArkUI_NodeUtils_MoveTo 迁移节点。 使用 OH_ArkUI_EmbeddedComponentOption_SetOnTerminated 设置onTerminated回调时，返回的want参数只支持解析提供方返回的key-value，不支持嵌套解析。 在EmbeddedComponentOption属性设置完成后，调用 OH_ArkUI_EmbeddedComponentOption_Dispose 释放内存，避免内存泄漏。 EmbeddedComponent组件需要使用 setAttribute 设置宽高才能显示。
 
 
 本示例展示EmbeddedComponent组件NDK的基础使用方式，ability相关使用请参考[EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)。示例应用的bundleName为"com.example.uiextensionandaccessibility"，同一应用下被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。本示例仅支持在具有多进程权限的设备上运行，例如PC/2in1。
@@ -23,10 +23,9 @@ ArkUI在Native侧提供的能力是ArkTS的子集，某些能力不会在Native�
 void onError(int32_t code, const char *name, const char *message) {}
 void onTerminated(int32_t code, AbilityBase_Want *want) {}
 const unsigned int LOG_PRINT_DOMAIN = 0xFF00;
-#define SIZE_300 300
-#define SIZE_401 401
-#define SIZE_480 480
-// ···
+#define SIZE_300 300 // 节点的宽/高数值，单位 vp（用于设置 NODE_WIDTH/NODE_HEIGHT）
+#define PARAMETER_ERROR_CODE 401 // 参数错误码（OH_ArkUI_NodeContent_AddNode 返回值表示入参非法）
+// ...
     // 创建节点
     ArkUI_NodeHandle embeddedNode = nodeAPI->createNode(ARKUI_NODE_EMBEDDED_COMPONENT);
     // 设置属性
@@ -35,7 +34,8 @@ const unsigned int LOG_PRINT_DOMAIN = 0xFF00;
                                    .moduleName = "entry"};       // 由元能力提供接口
     AbilityBase_Want *want = OH_AbilityBase_CreateWant(Element); // 由元能力提供接口
     if (want == nullptr) {
-        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "AbilityBase_Want", "~PluginManager");
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "AbilityBase_Want", "CreateWant failed");
+        return nullptr;
     }
     ArkUI_AttributeItem itemobjwant = {.object = want};
     nodeAPI->setAttribute(embeddedNode, NODE_EMBEDDED_COMPONENT_WANT, &itemobjwant);
@@ -48,18 +48,19 @@ const unsigned int LOG_PRINT_DOMAIN = 0xFF00;
 
     ArkUI_AttributeItem itemobjembeddedNode = {.object = embeddedNode_option};
     nodeAPI->setAttribute(embeddedNode, NODE_EMBEDDED_COMPONENT_OPTION, &itemobjembeddedNode);
+    // 属性设置完成后释放 embeddedNode_option 资源，避免内存泄漏
+    OH_ArkUI_EmbeddedComponentOption_Dispose(embeddedNode_option);
 
     // 设置基本属性，如宽高
-    ArkUI_NumberValue value[] = {SIZE_480};
+    ArkUI_NumberValue value[] = {{.f32 = SIZE_300}};
     ArkUI_AttributeItem item = {value, sizeof(value) / sizeof(ArkUI_NumberValue)};
-    value[0].f32 = SIZE_300;
     nodeAPI->setAttribute(embeddedNode, NODE_WIDTH, &item);
     nodeAPI->setAttribute(embeddedNode, NODE_HEIGHT, &item);
 
     // 创建Column
     ArkUI_NodeHandle column = nodeAPI->createNode(ARKUI_NODE_COLUMN);
     nodeAPI->setAttribute(column, NODE_WIDTH, &item);
-    ArkUI_NumberValue column_bc[] = {{.u32 = 0xFFF00BB}};
+    ArkUI_NumberValue column_bc[] = {{.u32 = 0xFFFF00BB}};
     ArkUI_AttributeItem column_item = {column_bc, 1};
     nodeAPI->setAttribute(column, NODE_BACKGROUND_COLOR, &column_item);
     ArkUI_AttributeItem column_id = {.string = "Column_CAPI"};

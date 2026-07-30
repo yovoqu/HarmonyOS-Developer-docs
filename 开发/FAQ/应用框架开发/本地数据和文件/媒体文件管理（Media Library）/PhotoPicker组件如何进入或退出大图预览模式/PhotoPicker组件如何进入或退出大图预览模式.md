@@ -7,7 +7,7 @@
 #### 问题现象
 1. PhotoPicker组件如何实现点击缩略图后进入大图模式，自定义按钮如何进入或退出大图预览？
 2. PhotoPicker组件点击缩略图进入预览界面，当PhotoPicker组件存在尺寸限制时，预览界面大小被限制为PhotoPicker组件的尺寸，体验不佳，想实现全屏预览的效果，当前效果如下。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/FHkS3W6oRsOwUD0KffeNMQ/zh-cn_image_0000002659138387.png?HW-CC-KV=V1&HW-CC-Date=20260723T013318Z&HW-CC-Expire=86400&HW-CC-Sign=0B249A1B7C036F62195191E3BBE50A4A051CB19769FF26BA233474C0D478E25E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/FHkS3W6oRsOwUD0KffeNMQ/zh-cn_image_0000002659138387.png?HW-CC-KV=V1&HW-CC-Date=20260730T072527Z&HW-CC-Expire=86400&HW-CC-Sign=4AA899BB962B74FF02DBDDA16E6C26BD59C1F201FFA2C5A5E623D6AF4951A4FD)
 
  
  

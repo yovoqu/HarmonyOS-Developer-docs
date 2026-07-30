@@ -1,6 +1,6 @@
 # Snapshot模板基本操作
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations
 
@@ -151,8 +151,6 @@ Module：模块信息。
 
 
 ![](assets/Snapshot模板基本操作/file-20260514133142120-22.png)
-
-
 
 
 

@@ -1,6 +1,6 @@
 # native_display_soloist.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-display-soloist-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,8 +35,8 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| DisplaySoloist_ExpectedRateRange | DisplaySoloist_ExpectedRateRange | 提供期望帧率范围结构体。 |
-| OH_DisplaySoloist | OH_DisplaySoloist | 提供OH_DisplaySoloist结构体声明。 |
+| DisplaySoloist_ExpectedRateRange | DisplaySoloist_ExpectedRateRange | 期望帧率范围结构体，用于设置DisplaySoloist（可变帧率独立线程绘制）的期望帧率范围。设置的期望帧率范围将作为系统调度的参考，系统会尽量在此范围内调整绘制帧率。 |
+| OH_DisplaySoloist | OH_DisplaySoloist | OH_DisplaySoloist结构体声明，此结构体用于需要在独立线程中实现帧率控制的Native侧业务。 |
  
  
   
@@ -47,12 +47,12 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| typedef void (*OH_DisplaySoloist_FrameCallback)(long long timestamp, long long targetTimestamp, void* data) | OH_DisplaySoloist_FrameCallback | OH_DisplaySoloist回调函数类型。 |
-| OH_DisplaySoloist* OH_DisplaySoloist_Create(bool useExclusiveThread) | - | 创建一个OH_DisplaySoloist实例，每次调用都会产生一个新的实例。 |
-| int32_t OH_DisplaySoloist_Destroy(OH_DisplaySoloist* displaySoloist) | - | 销毁OH_DisplaySoloist实例并回收对象占用的内存。 |
-| int32_t OH_DisplaySoloist_Start(OH_DisplaySoloist* displaySoloist, OH_DisplaySoloist_FrameCallback callback, void* data) | - | 设置每帧回调函数，每次VSync信号到来时启动每帧回调。 |
-| int32_t OH_DisplaySoloist_Stop(OH_DisplaySoloist* displaySoloist) | - | 停止请求下一次VSync信号，并停止调用回调函数callback。 |
-| int32_t OH_DisplaySoloist_SetExpectedFrameRateRange(OH_DisplaySoloist* displaySoloist, DisplaySoloist_ExpectedRateRange* range) | - | 设置VSync期望帧率范围。 |
+| typedef void (*OH_DisplaySoloist_FrameCallback)(long long timestamp, long long targetTimestamp, void* data) | OH_DisplaySoloist_FrameCallback | OH_DisplaySoloist回调函数类型。在每次VSync信号到来时被系统调用，用于执行每帧的自定义业务。 |
+| OH_DisplaySoloist* OH_DisplaySoloist_Create(bool useExclusiveThread) | - | 创建一个OH_DisplaySoloist实例，每次调用都会产生一个新的实例。useExclusiveThread参数决定线程模式：独占线程模式下，该实例拥有独立的线程，性能更高但资源消耗更大；共享线程模式下，多个实例共享线程，资源消耗较小但可能存在调度延迟。 |
+| int32_t OH_DisplaySoloist_Destroy(OH_DisplaySoloist* displaySoloist) | - | 销毁OH_DisplaySoloist实例并回收对象占用的内存。销毁前应先调用OH_DisplaySoloist_Stop停止回调。销毁后不应再访问该实例或依赖其回调。 |
+| int32_t OH_DisplaySoloist_Start(OH_DisplaySoloist* displaySoloist, OH_DisplaySoloist_FrameCallback callback, void* data) | - | 开始请求VSync信号，并且每次VSync信号到来时调用回调函数。如果通过OH_DisplaySoloist_SetExpectedFrameRateRange设置了期望帧率范围，则开始生效该期望帧率范围。 |
+| int32_t OH_DisplaySoloist_Stop(OH_DisplaySoloist* displaySoloist) | - | 用于停止请求VSync信号，并停止调用回调函数callback；同时会使通过OH_DisplaySoloist_SetExpectedFrameRateRange设置的期望帧率范围失效。停止后可再次调用OH_DisplaySoloist_Start重新启动。与OH_DisplaySoloist_Start成对使用，且必须在OH_DisplaySoloist_Start之后调用。 |
+| int32_t OH_DisplaySoloist_SetExpectedFrameRateRange(OH_DisplaySoloist* displaySoloist, DisplaySoloist_ExpectedRateRange* range) | - | 设置VSync期望帧率范围，设置的期望帧率范围将作为系统调度的参考，系统会尽量在此范围内调整绘制帧率。未调用该方法或传入DisplaySoloist_ExpectedRateRange(0, 0, 0)时，将跟随应用当前运行的帧率。建议在调用OH_DisplaySoloist_Start前设置，以便立即生效；调用OH_DisplaySoloist_Start之后设置也可以生效但可能存在延迟。 |
  
  
   
@@ -73,7 +73,7 @@ typedef void (*OH_DisplaySoloist_FrameCallback)(long long timestamp, long long t
  
 **描述**
  
-OH_DisplaySoloist回调函数类型。
+OH_DisplaySoloist回调函数类型。在每次VSync信号到来时被系统调用，用于执行每帧的自定义业务。
  
 **起始版本：** 12
  
@@ -81,9 +81,9 @@ OH_DisplaySoloist回调函数类型。
   
 | 参数项 | 描述 |
 | --- | --- |
-| long long timestamp | 当前帧VSync时间戳。 |
-| long long targetTimestamp | 预期的下一帧VSync时间戳。 |
-| void* data | 用户自定义数据。 |
+| long long timestamp | 当前帧VSync时间戳（单位：纳秒）。 |
+| long long targetTimestamp | 预期的下一帧VSync时间戳（单位：纳秒）。 |
+| void* data | 用户自定义数据的指针。 |
  
  
   
@@ -98,7 +98,7 @@ OH_DisplaySoloist* OH_DisplaySoloist_Create(bool useExclusiveThread)
  
 **描述**
  
-创建一个OH_DisplaySoloist实例，每次调用都会产生一个新的实例。
+创建一个[OH_DisplaySoloist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaysoloist-oh-displaysoloist)实例，每次调用都会产生一个新的实例。useExclusiveThread参数决定线程模式：独占线程模式下，该实例拥有独立的线程，性能更高但资源消耗更大；共享线程模式下，多个实例共享线程，资源消耗较小但可能存在调度延迟。
  
 **起始版本：** 12
  
@@ -106,7 +106,7 @@ OH_DisplaySoloist* OH_DisplaySoloist_Create(bool useExclusiveThread)
   
 | 参数项 | 描述 |
 | --- | --- |
-| bool useExclusiveThread | 表示此OH_DisplaySoloist实例是否是独占线程。true表示独占一个线程，false表示共享线程。 |
+| bool useExclusiveThread | 表示此OH_DisplaySoloist实例是否独占线程。true表示独占线程，false表示共享线程（与其他实例共享线程）。 |
  
  
 **返回：**
@@ -128,7 +128,7 @@ int32_t OH_DisplaySoloist_Destroy(OH_DisplaySoloist* displaySoloist)
  
 **描述**
  
-销毁OH_DisplaySoloist实例并回收对象占用的内存。
+销毁[OH_DisplaySoloist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaysoloist-oh-displaysoloist)实例并回收对象占用的内存。销毁前应先调用[OH_DisplaySoloist_Stop](#oh_displaysoloist_stop)停止回调。销毁后不应再访问该实例或依赖其回调。
  
 **起始版本：** 12
  
@@ -136,14 +136,14 @@ int32_t OH_DisplaySoloist_Destroy(OH_DisplaySoloist* displaySoloist)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针。 |
+| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针，不能为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回值为0表示执行成功，-1表示执行失败。 |
+| int32_t | 返回值为0表示执行成功；-1表示执行失败，可能原因是传入错误的displaySoloist。 |
  
  
   
@@ -158,7 +158,7 @@ int32_t OH_DisplaySoloist_Start(OH_DisplaySoloist* displaySoloist, OH_DisplaySol
  
 **描述**
  
-设置每帧回调函数，每次VSync信号到来时启动每帧回调。
+开始请求VSync信号，并且每次VSync信号到来时调用回调函数。如果通过[OH_DisplaySoloist_SetExpectedFrameRateRange](#oh_displaysoloist_setexpectedframeraterange)设置了期望帧率范围，则开始生效该期望帧率范围。
  
 **起始版本：** 12
  
@@ -166,16 +166,16 @@ int32_t OH_DisplaySoloist_Start(OH_DisplaySoloist* displaySoloist, OH_DisplaySol
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针。 |
-| OH_DisplaySoloist_FrameCallback callback | 表示下一次VSync信号到来时执行的回调函数类型。 |
-| void* data | 一个指向用户自定义数据结构的指针，类型是void。 |
+| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针，不能为空。 |
+| OH_DisplaySoloist_FrameCallback callback | 表示下一次VSync信号到来时执行的回调函数。 |
+| void* data | 用户自定义数据的指针，用于传递自定义数据给回调函数。需要在回调函数中访问自定义数据时传入，可以为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回值为0表示执行成功，-1表示执行失败。 |
+| int32_t | 返回值为0表示执行成功；-1表示执行失败，可能原因是传入错误的displaySoloist或callback。 |
  
  
   
@@ -190,7 +190,7 @@ int32_t OH_DisplaySoloist_Stop(OH_DisplaySoloist* displaySoloist)
  
 **描述**
  
-停止请求下一次VSync信号，并停止调用回调函数callback。
+用于停止请求VSync信号，并停止调用回调函数callback；同时会使通过[OH_DisplaySoloist_SetExpectedFrameRateRange](#oh_displaysoloist_setexpectedframeraterange)设置的期望帧率范围失效。停止后可再次调用[OH_DisplaySoloist_Start](#oh_displaysoloist_start)重新启动。与[OH_DisplaySoloist_Start](#oh_displaysoloist_start)成对使用，且必须在[OH_DisplaySoloist_Start](#oh_displaysoloist_start)之后调用。
  
 **起始版本：** 12
  
@@ -198,14 +198,14 @@ int32_t OH_DisplaySoloist_Stop(OH_DisplaySoloist* displaySoloist)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针。 |
+| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针，不能为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回值为0表示执行成功，-1表示执行失败。 |
+| int32_t | 返回值为0表示执行成功；-1表示执行失败，可能原因是传入错误的displaySoloist。 |
  
  
   
@@ -220,7 +220,7 @@ int32_t OH_DisplaySoloist_SetExpectedFrameRateRange(OH_DisplaySoloist* displaySo
  
 **描述**
  
-设置VSync期望帧率范围。
+设置VSync期望帧率范围，设置的期望帧率范围将作为系统调度的参考，系统会尽量在此范围内调整绘制帧率。未调用该方法或传入DisplaySoloist_ExpectedRateRange(0, 0, 0)时，将跟随应用当前运行的帧率。建议在调用[OH_DisplaySoloist_Start](#oh_displaysoloist_start)前设置，以便立即生效；调用[OH_DisplaySoloist_Start](#oh_displaysoloist_start)之后设置也可以生效但可能存在延迟。
  
 **起始版本：** 12
  
@@ -228,12 +228,12 @@ int32_t OH_DisplaySoloist_SetExpectedFrameRateRange(OH_DisplaySoloist* displaySo
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针。 |
-| DisplaySoloist_ExpectedRateRange* range | 一个指向期望帧率范围DisplaySoloist_ExpectedRateRange实例的指针。 |
+| OH_DisplaySoloist* displaySoloist | 一个指向OH_DisplaySoloist实例的指针，不能为空。 |
+| DisplaySoloist_ExpectedRateRange* range | 一个指向期望帧率范围DisplaySoloist_ExpectedRateRange实例的指针，不能为空。包含expected、min、max三个字段，单位为帧/秒（fps），字段需为非负整数，取值范围为[0, 设备最大帧率]，且满足min <= expected <= max。超出有效范围时参数校验失败。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回值为0表示执行成功，-1表示执行失败。 |
+| int32_t | 返回值为0表示执行成功；-1表示执行失败，可能的失败原因：1. 必填参数未指定；2. 参数类型错误；3. 参数校验失败或DisplaySoloist_ExpectedRateRange无效。 |

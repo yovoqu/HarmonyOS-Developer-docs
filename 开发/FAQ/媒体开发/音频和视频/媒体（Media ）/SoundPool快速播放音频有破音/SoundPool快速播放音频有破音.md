@@ -37,13 +37,13 @@
 在查看PCM文件时，发现客户端下发的两段音频数据存在重叠。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/yZiEY8hxTuaRDY6f86kd1A/zh-cn_image_0000002628552674.png?HW-CC-KV=V1&HW-CC-Date=20260723T013631Z&HW-CC-Expire=86400&HW-CC-Sign=93756288425150D370E53F78809E7D6D0713D0DDCED4C0D3732D2FBA7B91E511)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/yZiEY8hxTuaRDY6f86kd1A/zh-cn_image_0000002628552674.png?HW-CC-KV=V1&HW-CC-Date=20260730T072629Z&HW-CC-Expire=86400&HW-CC-Sign=12466C3DB7AE9C289D0E077581C45D438906C20AFEE9110EEFA3D5B6D413839F)
 
  
 具体表现为：Demo中音频源的正常播放时间为45毫秒，但在播放到第20毫秒时，接收到新的音频片段播放请求，导致当前音频未播放完即被中断，新音频随即开始播放，从而产生破音现象。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/nHFBYzrlTuCMh44bqlmfbg/zh-cn_image_0000002658911993.png?HW-CC-KV=V1&HW-CC-Date=20260723T013631Z&HW-CC-Expire=86400&HW-CC-Sign=3F8A807AD59C799C10FAC8358E8324CD307E2C966EC07FF0186FAB7A442E1984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/nHFBYzrlTuCMh44bqlmfbg/zh-cn_image_0000002658911993.png?HW-CC-KV=V1&HW-CC-Date=20260730T072629Z&HW-CC-Expire=86400&HW-CC-Sign=47492C51C679728C30864FCED8E99B0E63EF2E4BE79D0DD710E7EEA73241D2F3)
 
  
  

@@ -13,7 +13,7 @@ Swiper组件，在滑动时手指抬起后，怎样监听到是要显示下一�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/jzWgwNJKQM-wuMzlKZSV3g/zh-cn_image_0000002658808973.png?HW-CC-KV=V1&HW-CC-Date=20260723T012703Z&HW-CC-Expire=86400&HW-CC-Sign=15356ADC88850B68B57C85756EC4827992FC2C6CDDBE65524EC8998579D1C38B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/jzWgwNJKQM-wuMzlKZSV3g/zh-cn_image_0000002658808973.png?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=27417F336921A36DD4C09B4C4452914536867E640273FF14B7E9EA7EC2853DEA)
 
  
  

@@ -9,7 +9,7 @@
 使用CanvasRenderingContext2D绘制长文本时，这些长文本既没有换行符，也没有空格符，如何对绘制的文本进行自动换行？效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/UBEmRlnjSXuqm1tgTU0wzg/zh-cn_image_0000002658838901.png?HW-CC-KV=V1&HW-CC-Date=20260723T012950Z&HW-CC-Expire=86400&HW-CC-Sign=3A8E7F9AEC182EB166CBFA9CA1F4282F2EE81BF8F6BD1872FEAC7FFEC5FDA028)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/UBEmRlnjSXuqm1tgTU0wzg/zh-cn_image_0000002658838901.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=1729FB762DC89DBC25C447439FD88108343CD6F27E27D8B8BD024BB8F0DE143D)
 
  
  

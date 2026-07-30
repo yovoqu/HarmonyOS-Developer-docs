@@ -1,6 +1,6 @@
 # 仅MDM应用可用权限
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-mdm-apps
 
@@ -486,7 +486,7 @@
  
 **授权方式**：系统授权（system_grant）
  
-**支持设备**：PC/2in1
+**支持设备**：Phone | PC/2in1 | Tablet
  
 **起始版本**：12
  
@@ -515,6 +515,8 @@
 **权限级别**：system_basic
  
 **授权方式**：系统授权（system_grant）
+ 
+**支持设备**：Phone | PC/2in1 | Tablet
  
 **起始版本**：14
  
@@ -797,3 +799,53 @@
 **支持设备**：Phone | PC/2in1 | Tablet
  
 **起始版本**：24
+ 
+  
+
+#### ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
+
+允许企业设备管理应用管理本地账号。
+ 
+**申请后AGC的审核时长：** 预计3个工作日内反馈审核结果。
+ 
+**权限级别**：system_basic
+ 
+**授权方式**：系统授权（system_grant）
+ 
+**支持设备**：Phone | Tablet
+ 
+**起始版本**：26.0.0
+ 
+  
+
+#### ohos.permission.ENTERPRISE_INTERACT_ACROSS_LOCAL_ACCOUNTS
+
+允许企业设备管理应用进行多用户操作。
+ 
+**申请后AGC的审核时长：** 预计3个工作日内反馈审核结果。
+ 
+**权限级别**：system_core
+ 
+**授权方式**：系统授权（system_grant）
+ 
+**支持设备**：Phone | Tablet
+ 
+**起始版本**：26.0.0
+ 
+  
+
+#### ohos.permission.ENTERPRISE_VPN
+
+允许设备管理应用默认拥有VPN接入权限。
+ 
+获取此权限后，应用无需经过用户确认，默认可接入VPN。
+ 
+**申请后AGC的审核时长：** 预计3个工作日内反馈审核结果。
+ 
+**权限级别**：system_basic
+ 
+**授权方式**：系统授权（system_grant）
+ 
+**支持设备**：PC/2in1
+ 
+**起始版本**：26.0.0

@@ -1,11 +1,21 @@
 # @ohos.notificationManager (NotificationManager模块)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供通知管理的能力，包括发布、更新、取消通知，创建、获取、移除通知渠道，获取发布通知应用的使能状态，获取通知的相关信息等。
+本模块提供通知管理的能力，应用可使用本模块完成通知的完整生命周期管理。其中涉及通知的发布、更新与取消，通知渠道的创建与查询、通知能力授权状态的查询与申请、应用角标的设置、通知中心存量通知的查询等操作。
+
+**API组合使用关系说明**：
+
+本模块的接口围绕通知的“授权→发布→取消→渠道管理”的完整流程展开，各接口间存在明确的组合使用关系：
+1. **授权查询与申请流程**：发布通知前，先通过isNotificationEnabled查询通知能力的授权状态。如果通知能力未授权，通过requestEnableNotification引导用户开启通知权限。
+2. **通知发布与更新流程**：通过publish发布通知，通知内容通过NotificationRequest指定。如果新发布通知与已有通知的ID和标签相同，将自动更新已有通知。如果新发布通知与已有通知的ID或标签不相同，将创建新的通知。
+3. **通知取消流程**：通过cancel取消指定ID的通知，通过cancelAll取消本应用所有通知，通过cancelGroup取消指定分组下的通知。
+4. **通知渠道管理流程**：通过addSlot创建通知渠道，通过getSlot/getSlots查询通知渠道配置，通过removeSlot/removeAllSlots删除通知渠道。建议在发布通知前先创建对应类型的通知渠道。除了可以使用addSlot创建通知渠道，还可以在发布通知的[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)中携带notificationSlotType字段，如果对应类型的渠道不存在，会自动创建。
+5. **角标管理流程**：通过setBadgeNumber设置角标数字，或者通过publish接口发布通知时，在[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)的badgeNumber字段里携带需要增加的角标数量。
+6. **存量通知查询流程**：通过getActiveNotificationCount获取通知中心本应用存量通知数量，通过getActiveNotifications获取通知中心本应用存量通知详情。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -30,7 +40,7 @@ publish(request: NotificationRequest, callback: AsyncCallback&lt;void&gt;): void
 
 发布通知。使用callback异步回调。
 
-如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知。
+发布通知后，通知将以通知卡片的形式展示在设备的通知中心、状态栏等位置。如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知，实现通知的更新效果。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -48,21 +58,21 @@ publish(request: NotificationRequest, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
 | 1600004 | Notification disabled. |
 | 1600005 | Notification slot disabled. |
-| 1600007 | The notification does not exist. 适用版本：11 |
+| 1600007 | The notification does not exist. 适用版本：11+ |
 | 1600009 | The notification sending frequency reaches the upper limit. |
 | 1600012 | No memory space. |
-| 1600014 | No permission. 适用版本：11 |
-| 1600015 | The current notification status does not support duplicate configurations. 适用版本：11 |
-| 1600016 | The notification version for this update is too low. 适用版本：11 |
-| 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12 |
-| 1600029 | The system failed to find the ExtensionAbility instance for the custom Live View widget template. 适用版本：26.0.0 |
-| 2300007 | Network unreachable. 适用版本：11 |
+| 1600014 | No permission. 适用版本：11+ |
+| 1600015 | The current notification status does not support duplicate configurations. 适用版本：11+ |
+| 1600016 | The notification version for this update is too low. 适用版本：11+ |
+| 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12+ |
+| 1600029 | The system failed to find the ExtensionAbility instance for the custom Live View widget template. 适用版本：26.0.0+ |
+| 2300007 | Network unreachable. 适用版本：11+ |
 
 
 **示例：**
@@ -103,7 +113,7 @@ publish(request: NotificationRequest): Promise&lt;void&gt;
 
 发布通知。使用Promise异步回调。
 
-如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知。
+发布通知后，通知将以通知卡片的形式展示在设备的通知中心、状态栏等位置。如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知，实现通知的更新效果。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -127,21 +137,21 @@ publish(request: NotificationRequest): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
 | 1600004 | Notification disabled. |
 | 1600005 | Notification slot disabled. |
-| 1600007 | The notification does not exist. 适用版本：11 |
+| 1600007 | The notification does not exist. 适用版本：11+ |
 | 1600009 | The notification sending frequency reaches the upper limit. |
 | 1600012 | No memory space. |
-| 1600014 | No permission. 适用版本：11 |
-| 1600015 | The current notification status does not support duplicate configurations. 适用版本：11 |
-| 1600016 | The notification version for this update is too low. 适用版本：11 |
-| 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12 |
-| 1600029 | The system failed to find the ExtensionAbility instance for the custom Live View widget template. 适用版本：26.0.0 |
-| 2300007 | Network unreachable. 适用版本：11 |
+| 1600014 | No permission. 适用版本：11+ |
+| 1600015 | The current notification status does not support duplicate configurations. 适用版本：11+ |
+| 1600016 | The notification version for this update is too low. 适用版本：11+ |
+| 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12+ |
+| 1600029 | The system failed to find the ExtensionAbility instance for the custom Live View widget template. 适用版本：26.0.0+ |
+| 2300007 | Network unreachable. 适用版本：11+ |
 
 
 **示例：**
@@ -176,7 +186,11 @@ notificationManager.publish(notificationRequest).then(() => {
 
 cancel(id: number, label: string, callback: AsyncCallback&lt;void&gt;): void
 
-根据通知ID和标签取消已发布的通知。使用callback异步回调。
+根据通知ID和标签label取消已发布的通知。使用callback异步回调。
+
+取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。适用于需要精确取消某一条带有特定标签的通知的场景。
+
+与仅传入通知ID的[notificationManager.cancel(id, callback)](#notificationmanagercancel-2)相比，此接口额外传入label参数，可精确取消同一ID，不同标签的通知。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -184,8 +198,8 @@ cancel(id: number, label: string, callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| id | number | 是 | 通知ID。 |
-| label | string | 是 | 通知标签。 |
+| id | number | 是 | 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。 |
+| label | string | 是 | 通知标签。该值由发布通知时NotificationRequest的label字段指定。 - 若标签为空，则取消与指定通知ID匹配，标签为空的已发布通知。 - 若标签不为空，则取消与指定通知ID和标签同时匹配的已发布通知。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。根据通知ID和标签取消已发布的通知成功，err为undefined，否则为错误对象。 |
 
 
@@ -195,7 +209,7 @@ cancel(id: number, label: string, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -226,7 +240,9 @@ notificationManager.cancel(0, "label", cancelCallback);
 
 cancel(id: number, label?: string): Promise&lt;void&gt;
 
-根据通知ID和标签取消已发布的通知，若标签为空，则取消与指定通知ID匹配的已发布通知。使用Promise异步回调。
+根据通知ID和标签label取消已发布的通知。使用Promise异步回调。
+
+取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -234,8 +250,8 @@ cancel(id: number, label?: string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| id | number | 是 | 通知ID。 |
-| label | string | 否 | 通知标签，默认为空。 |
+| id | number | 是 | 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。 |
+| label | string | 否 | 通知标签，默认为空。该值由发布通知时NotificationRequest的label字段指定。 - 若标签为空，则取消与指定通知ID匹配，标签为空的已发布通知。 - 若标签不为空，则取消与指定通知ID和标签同时匹配的已发布通知。 |
 
 
 **返回值：**
@@ -251,7 +267,7 @@ cancel(id: number, label?: string): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -280,13 +296,17 @@ cancel(id: number, callback: AsyncCallback&lt;void&gt;): void
 
 根据指定的通知ID取消已发布的通知。使用callback异步回调。
 
+取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。
+
+与带label参数的[notificationManager.cancel(id, label, callback)](#notificationmanagercancel)相比，此接口不传入label，将取消与指定ID匹配的通知。当发布通知，label不为空时，则需使用接口notificationManager.cancel(id, label, callback)取消通知。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| id | number | 是 | 通知ID。 |
+| id | number | 是 | 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当取消已发布的通知成功，err为undefined，否则为错误对象。 |
 
 
@@ -296,7 +316,7 @@ cancel(id: number, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -329,6 +349,8 @@ cancelAll(callback: AsyncCallback&lt;void&gt;): void
 
 取消当前应用所有已发布的通知。使用callback异步回调。
 
+取消后，当前应用的所有通知将从通知中心、状态栏等位置移除，用户不再可见。适用于应用退出或用户手动清除全部通知的场景。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -344,7 +366,7 @@ cancelAll(callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -375,6 +397,8 @@ notificationManager.cancelAll(cancelAllCallback);
 cancelAll(): Promise&lt;void&gt;
 
 取消当前应用所有已发布的通知。使用Promise异步回调。
+
+取消后，当前应用的所有通知将从通知中心、状态栏等位置移除，用户不再可见。适用于应用退出或用户手动清除全部通知的场景。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -418,13 +442,15 @@ addSlot(type: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
 创建指定类型的通知渠道。使用callback异步回调。
 
+通知渠道[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot#notificationslot-1)定义了通知的提醒方式（如提示音、振动、横幅等）和级别。发布通知前，应用需先创建对应类型的通知渠道，或者发布通知时系统将自动创建对应类型的通知渠道。同一类型的通知渠道只能创建一个。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | SlotType | 是 | 要创建的通知渠道的类型。 |
+| type | SlotType | 是 | 要创建的通知渠道的类型。不同的渠道类型对应不同的默认SlotLevel，影响通知的提醒方式。例如SOCIAL_COMMUNICATION对应LEVEL_HIGH（状态栏图标+横幅+提示音），CONTENT_INFORMATION对应LEVEL_MIN（状态栏不显示图标+无横幅+无提示音）。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当创建指定类型的通知渠道成功，err为undefined，否则为错误对象。 |
 
 
@@ -434,7 +460,7 @@ addSlot(type: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -467,13 +493,15 @@ addSlot(type: SlotType): Promise&lt;void&gt;
 
 创建指定类型的通知渠道。使用Promise异步回调。
 
+通知渠道[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot#notificationslot-1)定义了通知的提醒方式（如提示音、振动、横幅等）和级别。发布通知前，应用需先创建对应类型的通知渠道，或者发布通知时系统将自动创建对应类型的通知渠道。同一类型的通知渠道只能创建一个。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | SlotType | 是 | 要创建的通知渠道的类型。 |
+| type | SlotType | 是 | 要创建的通知渠道的类型。不同的渠道类型对应不同的默认SlotLevel，影响通知的提醒方式。例如SOCIAL_COMMUNICATION对应LEVEL_HIGH（状态栏图标+横幅+提示音），CONTENT_INFORMATION对应LEVEL_MIN（状态栏不显示图标+无横幅+无提示音）。 |
 
 
 **返回值：**
@@ -489,7 +517,7 @@ addSlot(type: SlotType): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -518,6 +546,8 @@ getSlot(slotType: SlotType, callback: AsyncCallback&lt;NotificationSlot&gt;): vo
 
 获取指定类型的通知渠道。使用callback异步回调。
 
+用于查询已创建的通知渠道的详细配置信息，包括提醒方式、级别、锁屏显示等设置。需先通过[addSlot](#notificationmanageraddslot)创建对应类型的通知渠道，否则获取结果为空。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -534,7 +564,7 @@ getSlot(slotType: SlotType, callback: AsyncCallback&lt;NotificationSlot&gt;): vo
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -567,6 +597,8 @@ getSlot(slotType: SlotType): Promise&lt;NotificationSlot&gt;
 
 获取指定类型的通知渠道。使用Promise异步回调。
 
+用于查询已创建的通知渠道的详细配置信息，包括提醒方式、级别、锁屏显示等设置。需先通过[addSlot](#notificationmanageraddslot)创建对应类型的通知渠道，否则获取结果为空。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -589,7 +621,7 @@ getSlot(slotType: SlotType): Promise&lt;NotificationSlot&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -618,6 +650,8 @@ getSlots(callback: AsyncCallback<Array&lt;NotificationSlot&gt;>): void
 
 获取当前应用的所有通知渠道。使用callback异步回调。
 
+用于批量查询当前应用已创建的所有通知渠道的配置信息，包括各渠道的类型、提醒方式、级别等设置。适用于需要查看所有渠道配置的场景。需先通过[addSlot](#notificationmanageraddslot)创建对应类型的通知渠道，否则获取结果为空。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -633,7 +667,7 @@ getSlots(callback: AsyncCallback<Array&lt;NotificationSlot&gt;>): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -664,6 +698,8 @@ notificationManager.getSlots(getSlotsCallback);
 getSlots(): Promise<Array&lt;NotificationSlot&gt;>
 
 获取当前应用的所有通知渠道。使用Promise异步回调。
+
+用于批量查询当前应用已创建的所有通知渠道的配置信息，包括各渠道的类型、提醒方式、级别等设置。适用于需要查看所有渠道配置的场景。需先通过[addSlot](#notificationmanageraddslot)创建对应类型的通知渠道，否则获取结果为空。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -707,13 +743,15 @@ removeSlot(slotType: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
 删除当前应用指定类型的通知渠道。使用callback异步回调。
 
+删除后，对应类型的通知渠道及其配置将被永久移除，后续发布该类型通知时系统将自动创建默认渠道。已通过该渠道发布的通知不受影响，仍可在通知中心查看。适用于需要重新配置渠道时先删除再创建的场景。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
+| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。需传入已创建的渠道类型，否则删除操作无效。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当删除指定类型的通知渠道成功，err为undefined，否则为错误对象。 |
 
 
@@ -723,7 +761,7 @@ removeSlot(slotType: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -756,13 +794,15 @@ removeSlot(slotType: SlotType): Promise&lt;void&gt;
 
 删除当前应用指定类型的通知渠道。使用Promise异步回调。
 
+删除后，对应类型的通知渠道及其配置将被永久移除，后续发布该类型通知时系统将自动创建默认渠道。已通过该渠道发布的通知不受影响，仍可在通知中心查看。适用于需要重新配置渠道时先删除再创建的场景。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
+| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。需传入已创建的渠道类型，否则删除操作无效。 |
 
 
 **返回值：**
@@ -778,7 +818,7 @@ removeSlot(slotType: SlotType): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -807,6 +847,8 @@ removeAllSlots(callback: AsyncCallback&lt;void&gt;): void
 
 删除当前应用所有通知渠道。使用callback异步回调。
 
+删除后，当前应用的所有通知渠道及其配置将被永久移除，后续发布通知时系统将自动创建对应类型的渠道。已通过这些渠道发布的通知不受影响，仍可在通知中心查看。适用于需要一次性清除所有渠道配置的场景。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -822,7 +864,7 @@ removeAllSlots(callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -852,6 +894,8 @@ notificationManager.removeAllSlots(removeAllSlotsCallback);
 removeAllSlots(): Promise&lt;void&gt;
 
 删除当前应用所有通知渠道。使用Promise异步回调。
+
+删除后，当前应用的所有通知渠道及其配置将被永久移除，后续发布通知时系统将自动创建对应类型的渠道。已通过这些渠道发布的通知不受影响，仍可在通知中心查看。适用于需要一次性清除所有渠道配置的场景。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -893,7 +937,9 @@ notificationManager.removeAllSlots().then(() => {
 
 isNotificationEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
-查询当前应用通知使能状态。使用callback异步回调。
+查询当前应用通知授权状态。使用callback异步回调。
+
+用于在发布通知前检查当前应用是否被允许发送通知，避免在通知授权关闭时发布导致失败。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -910,7 +956,7 @@ isNotificationEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -942,7 +988,9 @@ notificationManager.isNotificationEnabled(isNotificationEnabledCallback);
 
 isNotificationEnabled(): Promise&lt;boolean&gt;
 
-查询当前应用通知使能状态。使用Promise异步回调。
+查询当前应用通知授权状态。使用Promise异步回调。
+
+用于在发布通知前检查当前应用是否被允许发送通知，避免在通知使能关闭时发布导致失败。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -986,7 +1034,9 @@ notificationManager.isNotificationEnabled().then((data: boolean) => {
 
 isNotificationEnabledSync(): boolean
 
-同步查询当前应用通知使能状态。
+同步查询当前应用通知授权状态。
+
+用于在发布通知前快速检查当前应用是否被允许发送通知。此接口为同步接口，调用后立即返回结果，适用于需要在同步代码流程中获取使能状态的场景。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1025,6 +1075,8 @@ setBadgeNumber(badgeNumber: number): Promise&lt;void&gt;
 
 设定角标个数，在应用的桌面图标上呈现。使用Promise异步回调。
 
+角标是应用桌面图标右上角显示的数字标识，用于提示用户有未处理的通知数量。设定后，桌面图标将显示对应角标数字。适用于需要在桌面图标上提示用户待处理消息数量的场景，如未读消息数、待办事项数等。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **设备行为差异**：该接口在Wearable中返回801错误码，在其他设备类型中可正常调用。
@@ -1049,8 +1101,8 @@ setBadgeNumber(badgeNumber: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
-| 801 | Capability not supported. 适用版本：18 |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 801 | Capability not supported. 适用版本：18+ |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1080,6 +1132,8 @@ setBadgeNumber(badgeNumber: number, callback: AsyncCallback&lt;void&gt;): void
 
 设定角标个数，在应用的桌面图标上呈现。使用callback异步回调。
 
+角标是应用桌面图标右上角显示的数字标识，用于提示用户有未处理的通知数量。设定后，桌面图标将显示对应角标数字。适用于需要在桌面图标上提示用户待处理消息数量的场景，如未读消息数、待办事项数等。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **设备行为差异**：该接口在Wearable中返回801错误码，在其他设备类型中可正常调用。
@@ -1098,8 +1152,8 @@ setBadgeNumber(badgeNumber: number, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
-| 801 | Capability not supported. 适用版本：18 |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 801 | Capability not supported. 适用版本：18+ |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1131,6 +1185,8 @@ notificationManager.setBadgeNumber(badgeNumber, setBadgeNumberCallback);
 getBadgeNumber(): Promise&lt;number&gt;
 
 获取当前应用角标数量。使用Promise异步回调。
+
+用于查询当前应用桌面图标上显示的角标数字。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1172,7 +1228,9 @@ notificationManager.getBadgeNumber().then((badgeNumber: number) => {
 
 getActiveNotificationCount(callback: AsyncCallback&lt;number&gt;): void
 
-获取当前应用未删除的通知数。使用callback异步回调。
+获取当前应用的通知数量。使用callback异步回调。
+
+用于查询当前应用在通知中心中已发布的存量通知数量。适用于需要展示未读通知数量提示的场景。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1189,7 +1247,7 @@ getActiveNotificationCount(callback: AsyncCallback&lt;number&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1219,7 +1277,9 @@ notificationManager.getActiveNotificationCount(getActiveNotificationCountCallbac
 
 getActiveNotificationCount(): Promise&lt;number&gt;
 
-获取当前应用未删除的通知数。使用Promise异步回调。
+获取当前应用的通知数量。使用Promise异步回调。
+
+用于查询当前应用在通知中心中已发布的存量通知数量。适用于需要展示未读通知数量提示的场景。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1263,6 +1323,8 @@ getActiveNotifications(callback: AsyncCallback<Array&lt;NotificationRequest&gt;>
 
 获取当前应用未删除的通知列表。使用callback异步回调。
 
+用于查询当前应用在通知中心中所有存量通知的详细信息列表，包括每条通知的ID、标签、内容、创建时间等。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -1278,7 +1340,7 @@ getActiveNotifications(callback: AsyncCallback<Array&lt;NotificationRequest&gt;>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1308,6 +1370,8 @@ notificationManager.getActiveNotifications(getActiveNotificationsCallback);
 getActiveNotifications(): Promise<Array&lt;NotificationRequest&gt;>
 
 获取当前应用未删除的通知列表。使用Promise异步回调。
+
+用于查询当前应用在通知中心中所有存量通知的详细信息列表，包括每条通知的ID、标签、内容、创建时间等。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1359,8 +1423,8 @@ getNotificationParameters(id: number, label?: string): Promise&lt;NotificationPa
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| id | number | 是 | 通知ID。 |
-| label | string | 否 | 通知标签，默认为空。 |
+| id | number | 是 | 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。 |
+| label | string | 否 | 通知标签，默认为空。该值由发布通知时NotificationRequest的label字段指定。 - 若标签为空，则获取与指定通知ID匹配，标签为空的已发布通知的部分信息。 - 若标签不为空，则获取与指定通知ID和标签同时匹配的已发布通知的部分信息。 |
 
 
 **返回值：**
@@ -1406,6 +1470,8 @@ cancelGroup(groupName: string, callback: AsyncCallback&lt;void&gt;): void
 
 取消当前应用指定组下的通知。使用callback异步回调。
 
+通知组groupName是在发布通知时通过[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)的groupName字段指定的分组标识。取消后，该组下所有通知将从通知中心移除。适用于需要按业务分组批量取消通知的场景。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -1422,7 +1488,7 @@ cancelGroup(groupName: string, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1454,6 +1520,8 @@ cancelGroup(groupName: string): Promise&lt;void&gt;
 
 取消当前应用指定组下的通知。使用Promise异步回调。
 
+通知组groupName是在发布通知时通过[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)的groupName字段指定的分组标识。取消后，该组下所有通知将从通知中心移除。适用于需要按业务分组批量取消通知的场景。
+
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
@@ -1476,7 +1544,7 @@ cancelGroup(groupName: string): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1521,7 +1589,7 @@ isSupportTemplate(templateName: string, callback: AsyncCallback&lt;boolean&gt;):
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1575,7 +1643,7 @@ isSupportTemplate(templateName: string): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1626,12 +1694,12 @@ requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback&lt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. 适用版本：11 |
-| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
+| 1600004 | Notification disabled. 适用版本：11+ |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11+ |
 
 
 **示例：**
@@ -1702,12 +1770,12 @@ requestEnableNotification(context: UIAbilityContext): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. 适用版本：11 |
-| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
+| 1600004 | Notification disabled. 适用版本：11+ |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11+ |
 
 
 **示例：**
@@ -1766,12 +1834,12 @@ requestEnableNotification(callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. 适用版本：11 |
-| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
+| 1600004 | Notification disabled. 适用版本：11+ |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11+ |
 
 
 **示例：**
@@ -1821,8 +1889,8 @@ requestEnableNotification(): Promise&lt;void&gt;
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. 适用版本：11 |
-| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
+| 1600004 | Notification disabled. 适用版本：11+ |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11+ |
 
 
 **示例：**
@@ -1839,7 +1907,7 @@ notificationManager.requestEnableNotification().then(() => {
 
 
 
-#### notificationManager.isDistributedEnabled
+#### notificationManager.isDistributedEnabled(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1847,7 +1915,9 @@ isDistributedEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
 查询设备是否支持跨设备协同通知。使用callback异步回调。
 
-**设备行为差异**：该接口在Wearable/TV中回调返回恒为false，在其他设备类型中回调正常。
+> [!NOTE]
+> 从API version 9开始支持，从API version 26.0.0开始废弃。
+
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1864,7 +1934,8 @@ isDistributedEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 801 | Capability not supported. 适用版本：26.0.0+ |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1888,7 +1959,7 @@ notificationManager.isDistributedEnabled(isDistributedEnabledCallback);
 
 
 
-#### notificationManager.isDistributedEnabled
+#### notificationManager.isDistributedEnabled(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1896,7 +1967,9 @@ isDistributedEnabled(): Promise&lt;boolean&gt;
 
 查询设备是否支持跨设备协同通知。使用Promise异步回调。
 
-**设备行为差异**：该接口在Wearable/TV中回调返回恒为false，在其他设备类型中回调正常。
+> [!NOTE]
+> 从API version 9开始支持，从API version 26.0.0开始废弃。
+
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1913,6 +1986,7 @@ isDistributedEnabled(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 801 | Capability not supported. 适用版本：26.0.0+ |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1941,6 +2015,8 @@ openNotificationSettings(context: UIAbilityContext): Promise&lt;void&gt;
 
 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调。
 
+适用于用户需要手动修改通知设置的场景，如用户拒绝授权后二次申请，或需要修改通知提醒方式（振动、响铃等）。当[requestEnableNotification](#notificationmanagerrequestenablenotification10)弹窗被用户拒绝后，开发者可调用此接口引导用户前往通知设置页面手动开启。
+
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Notification.NotificationSettings
@@ -1965,7 +2041,7 @@ openNotificationSettings(context: UIAbilityContext): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. 适用版本：18 |
+| 801 | Capability not supported. 适用版本：18+ |
 | 1600001 | Internal error. |
 | 1600003 | Failed to connect to the service. |
 | 1600018 | The notification settings window is already displayed. |
@@ -2008,6 +2084,8 @@ openNotificationSettingsWithResult(context: UIAbilityContext): Promise&lt;Notifi
 
 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调，当半模态窗口关闭时返回用户设置的状态。
 
+与[openNotificationSettings](#notificationmanageropennotificationsettings13)相比，此接口在半模态窗口关闭时返回[NotificationSetting](#notificationsetting20)对象，开发者可根据返回结果判断用户是否开启了通知权限，从而决定后续逻辑。
+
 **起始版本**：26.0.0
 
 **模型约束**：此接口仅可在Stage模型下使用。
@@ -2025,7 +2103,7 @@ openNotificationSettingsWithResult(context: UIAbilityContext): Promise&lt;Notifi
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;NotificationSetting&gt; | Promise对象，返回此应用程序的通知设置。 |
+| Promise&lt;NotificationSetting&gt; | Promise对象，返回此应用的通知设置。 |
 
 
 **错误码：**
@@ -2075,7 +2153,7 @@ class MyAbility extends UIAbility {
 
 getNotificationSetting(): Promise&lt;NotificationSetting&gt;
 
-获取应用程序的通知设置。使用Promise异步回调。
+获取应用的通知设置，包括锁屏通知、横幅通知、桌面角标、振动、铃声等开关状态。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -2083,7 +2161,7 @@ getNotificationSetting(): Promise&lt;NotificationSetting&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;NotificationSetting&gt; | Promise对象，返回此应用程序的通知设置。 |
+| Promise&lt;NotificationSetting&gt; | Promise对象，返回此应用的通知设置。 |
 
 
 **错误码：**
@@ -2170,7 +2248,7 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 | NOTIFICATION_CONTENT_BASIC_TEXT | 0 | 普通文本类型通知。 |
 | NOTIFICATION_CONTENT_LONG_TEXT | 1 | 长文本类型通知。 |
 | NOTIFICATION_CONTENT_PICTURE | 2 | 图片类型通知。 |
-| NOTIFICATION_CONTENT_CONVERSATION | 3 | 社交类型通知。预留能力，暂未支持。 |
+| NOTIFICATION_CONTENT_CONVERSATION | 3 | 社交类型通知。 |
 | NOTIFICATION_CONTENT_MULTILINE | 4 | 多行文本类型通知。 |
 | NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW11+ | 5 | 系统实况窗类型通知。不支持三方应用直接创建该类型通知。系统代理创建系统实况窗类型通知后，三方应用可以通过发布相同ID的通知来更新指定内容。 |
 | NOTIFICATION_CONTENT_LIVE_VIEW11+ | 6 | 普通实况窗类型通知。仅系统应用可用。 |
@@ -2183,6 +2261,8 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通知级别。
+
+用于定义[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot)的通知提醒行为级别，影响通知在状态栏的显示方式，是否展示横幅和提示音等。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -2203,6 +2283,8 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 通知渠道类型。
 
+不同类型对应不同的[SlotLevel](#slotlevel)，决定通知的提醒行为。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -2210,7 +2292,7 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNKNOWN_TYPE | 0 | 未知类型。该类型对应SlotLevel为LEVEL_MIN。 |
-| SOCIAL_COMMUNICATION | 1 | 社交通信。该类型对应SlotLevel为LEVEL_HIGH。 |
+| SOCIAL_COMMUNICATION | 1 | 社交通讯。该类型对应SlotLevel为LEVEL_HIGH。 |
 | SERVICE_INFORMATION | 2 | 服务提醒。该类型对应SlotLevel为LEVEL_HIGH。 |
 | CONTENT_INFORMATION | 3 | 内容资讯。该类型对应SlotLevel为LEVEL_MIN。 |
 | LIVE_VIEW11+ | 4 | 实况窗。不支持三方应用直接创建该渠道类型通知，可以由系统代理创建后，三方应用发布同ID的通知来更新指定内容，更新时默认无提示音。该类型对应SlotLevel为LEVEL_DEFAULT。 |
@@ -2240,6 +2322,25 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 
 
+#### PriorityNotificationType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述通知的优先级类型。
+
+**系统能力**：SystemCapability.Notification.Notification
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| OTHER | "OTHER" | 表示通知优先级类型为默认。 |
+| PRIMARY_CONTACT | "PRIMARY_CONTACT" | 表示通知优先级类型为重要联系人。 |
+| AT_ME | "AT_ME" | 表示通知优先级类型为@我。 |
+| URGENT_MESSAGE | "URGENT_MESSAGE" | 表示通知优先级类型为加急消息。 |
+| SCHEDULE_REMINDER | "SCHEDULE_REMINDER" | 表示通知优先级类型为日程待办。 |
+
+
+
+
 #### BundleOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2248,7 +2349,7 @@ type BundleOption = _BundleOption
 
 指定应用的包信息。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2265,7 +2366,7 @@ type NotificationActionButton = _NotificationActionButton
 
 通知中显示的操作按钮。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2282,7 +2383,7 @@ type NotificationBasicContent = _NotificationBasicContent
 
 普通文本通知。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2299,7 +2400,7 @@ type NotificationContent = _NotificationContent
 
 通知内容。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2316,7 +2417,7 @@ type NotificationLongTextContent = _NotificationLongTextContent
 
 长文本通知。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2333,7 +2434,7 @@ type NotificationMultiLineContent = _NotificationMultiLineContent
 
 多行文本通知。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2350,7 +2451,7 @@ type NotificationPictureContent = _NotificationPictureContent
 
 附有图片的通知。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2367,7 +2468,7 @@ type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent
 
 系统实况窗通知内容。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2384,7 +2485,7 @@ type NotificationRequest = _NotificationRequest
 
 通知请求。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2403,7 +2504,7 @@ type NotificationParameters = _NotificationParameters
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2420,7 +2521,7 @@ type DistributedOptions = _DistributedOptions
 
 分布式选项。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2437,7 +2538,7 @@ type NotificationSlot = _NotificationSlot
 
 通知渠道。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2454,7 +2555,7 @@ type NotificationTemplate = _NotificationTemplate
 
 通知模板。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2471,7 +2572,7 @@ type NotificationUserInput = _NotificationUserInput
 
 保存用户输入的通知消息。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2488,7 +2589,7 @@ type NotificationCapsule = _NotificationCapsule
 
 通知胶囊。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2505,7 +2606,7 @@ type NotificationButton = _NotificationButton
 
 通知按钮。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2522,7 +2623,7 @@ type NotificationTime = _NotificationTime
 
 通知计时信息。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2539,27 +2640,8 @@ type NotificationProgress = _NotificationProgress
 
 通知进度。
 
-**系统能力**： SystemCapability.Notification.Notification
+**系统能力**：SystemCapability.Notification.Notification
 
 | 类型 | 说明 |
 | --- | --- |
 | _NotificationProgress | 描述通知进度。 |
-
-
-
-
-#### PriorityNotificationType23+
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-描述通知的优先级类型。
-
-**系统能力**：SystemCapability.Notification.Notification
-
-| 名称 | 值 | 说明 |
-| --- | --- | --- |
-| OTHER | "OTHER" | 表示通知优先级类型为默认。 |
-| PRIMARY_CONTACT | "PRIMARY_CONTACT" | 表示通知优先级类型为重要联系人。 |
-| AT_ME | "AT_ME" | 表示通知优先级类型为@我。 |
-| URGENT_MESSAGE | "URGENT_MESSAGE" | 表示通知优先级类型为加急消息。 |
-| SCHEDULE_REMINDER | "SCHEDULE_REMINDER" | 表示通知优先级类型为日程待办。 |

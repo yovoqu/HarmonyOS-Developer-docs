@@ -1,6 +1,6 @@
 # 解析应用minidump文件
 
-更新时间：2026-07-15 09:00:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-analyze-dump
 
@@ -8,9 +8,9 @@
  
 
 #### 操作步骤
-1. 打开**Log**窗口，点击**AnalyzeDump**打开界面，选择要解析的dump文件和[带调试信息的so目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section1623725511263)，点击**Start Analyze**开始解析。
+1. 打开**Log**窗口，点击**AnalyzeDump**页签打开界面，选择要解析的dump文件和带调试信息的so目录（默认是模块下的build/{product}/intermediates/libs/{target}/{abi}，其中product和target默认是default，{abi}是设备CPU架构类型，如arm64-v8a），点击**Start Analyze**开始解析。
 > [!NOTE]
-> 应用运行崩溃时产生的dump，需要借助同一次构建生成的so文件中的符号信息才能解析。因此，此处选择的so目录，必须是该应用在构建时存放so文件的原始目录。若替换为其他时间或通过其他构建生成的so目录，会因符号不一致导致无法解析。
+> 应用运行崩溃时产生的dump，需要借助同一次构建生成的so文件中的符号信息才能解析。若使用源码变更后重新构建生成的so目录，可能会因符号不一致导致解析结果不准确或解析失败。
 
 
   
@@ -19,11 +19,11 @@
 2. 等待解析成功后，默认会展示异常线程和对应的堆栈，展开堆栈可查看变量信息，支持切换查看不同线程的堆栈，点击堆栈中的超链接可以跳转到对应的源码。
 ![](assets/解析应用minidump文件/file-2026070810342697af2cc9.png)
 
-3. 支持查看指定地址的内存，填写内存地址，点击**View**即可查看。
+3. 支持查看指定地址的内存，填写内存地址，点击**View**即可查看。也可以直接右键点击变量查看内存。
 ![](assets/解析应用minidump文件/file-2026070810342725eaa7b7.png)
 
 
   点击**Settings**，可设置进制、偏移量和内存数量。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/3MWXG985RJOzqB6Jz1TZdg/zh-cn_image_0000002594475130.png?HW-CC-KV=V1&HW-CC-Date=20260723T012203Z&HW-CC-Expire=86400&HW-CC-Sign=0207508210EBB1526D18D1732F4EC9386E89C5CB5D66FE0FACBA347351F6BBDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/1WasSTeqRge9FYf7WXgPyQ/zh-cn_image_0000002648077256.png?HW-CC-KV=V1&HW-CC-Date=20260730T072033Z&HW-CC-Expire=86400&HW-CC-Sign=D5225E708DC5F6BF273572E95D7832E446C17DF6449BCD1CEA432ACA0AD5D28E)

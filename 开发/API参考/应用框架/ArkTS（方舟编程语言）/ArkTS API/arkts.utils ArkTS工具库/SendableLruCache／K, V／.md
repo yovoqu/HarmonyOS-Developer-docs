@@ -1,6 +1,6 @@
 # SendableLruCache<K, V>
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-sendablelrucache
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -71,7 +71,7 @@ constructor(capacity?: number)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| capacity | number | 否 | 指示缓冲区的自定义容量。不传时，默认值为64，最大值不能超过2147483647；小于等于0时会抛出异常。 |
+| capacity | number | 否 | 指示缓冲区的自定义容量。不传时，默认值为64，最大值不能超过2147483647；小于等于0时会抛出异常。建议根据实际业务数据量设置合适的容量值，以平衡缓存命中率与内存占用。 |
  
  
 **示例：**
@@ -98,7 +98,7 @@ updateCapacity(newCapacity: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| newCapacity | number | 是 | 指示要为缓冲区自定义的容量，最大值不能超过2147483647；小于等于0时会抛出异常。 |
+| newCapacity | number | 是 | 指示要为缓冲区自定义的容量，最大值不能超过2147483647；小于等于0时会抛出异常。建议根据实际业务数据量设置合适的容量值，以平衡缓存命中率与内存占用。 |
  
  
 **示例：**

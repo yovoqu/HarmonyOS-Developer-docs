@@ -1,6 +1,6 @@
 # @ohos.ability.featureAbility (FeatureAbility模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-featureability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -255,8 +255,8 @@ startAbilityForResult(parameter: StartAbilityParameter): Promise&lt;AbilityResul
 启动一个Ability。使用Promise异步回调。启动Ability后，存在如下几种情况：
 
  - 正常情况下可通过调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止并且返回结果给调用方。
- - 异常情况下比如杀死Ability会返回异常信息给调用方, 异常信息中resultCode为-1。
- - 如果被启动的Ability模式是单实例模式, 不同应用多次调用该接口启动这个Ability，当这个Ability调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 异常情况下比如杀死Ability会返回异常信息给调用方，异常信息中resultCode为-1。
+ - 如果被启动的Ability模式是单实例模式，不同应用多次调用该接口启动这个Ability，当这个Ability调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息，异常信息中resultCode为-1。
 
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 # ABR功能开发
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-abr
 
@@ -36,13 +36,15 @@
 
 在“src/main/module.json5”的module层级中添加以下配置。
 
+
+
 ```json
 "metadata": [
   {
     "name": "GraphicsAccelerateKit_ABR",
     "value": "true"
-  }
-]
+  },
+],
 ```
 
 
@@ -54,7 +56,6 @@
 ```text
 // 引用ABR头文件 abr_gles.h
 #include <graphics_game_sdk/abr_gles.h>
-#include <GLES3/gl32.h>
 ```
 
 
@@ -106,12 +107,10 @@ if (context_ == nullptr) {
 
   
 ```text
-// 初始化ABR接口调用错误码
-ABR_ErrorCode errorCode = ABR_SUCCESS;
-
 // 初始化ABR实例，配置ABR的目标帧率属性。例如游戏目标帧率为120fps，则配置ABR的目标帧率属性为120fps
-errorCode = HMS_ABR_SetTargetFps(context_, 120);
+ABR_ErrorCode errorCode = HMS_ABR_SetTargetFps(context_, 120);
 if (errorCode != ABR_SUCCESS) {
+    GOLOGE("HMS_ABR_SetTargetFps execution failed, error code: %d.", errorCode);
     return false;
 }
 ```
@@ -124,6 +123,7 @@ if (errorCode != ABR_SUCCESS) {
 // 例如设置ABR对Buffer分辨率进行0.5~1.0倍的自适应调整
 errorCode = HMS_ABR_SetScaleRange(context_, 0.5f, 1.0f);
 if (errorCode != ABR_SUCCESS) {
+    GOLOGE("HMS_ABR_SetScaleRange execution failed, error code: %d.", errorCode);
     return false;
 }
 ```
@@ -135,6 +135,7 @@ if (errorCode != ABR_SUCCESS) {
 // 激活ABR上下文实例
 errorCode = HMS_ABR_Activate(context_);
 if (errorCode != ABR_SUCCESS) {
+    GOLOGE("HMS_ABR_Activate execution failed, error code: %d.", errorCode);
     return false;
 }
 ```
@@ -152,16 +153,14 @@ if (errorCode != ABR_SUCCESS) {
 // 相机运动数据结构体，设置每帧实时相机运动数据
 ABR_CameraData cameraData;
 // 每帧位置
-ABR_Vector3 position_;
+cameraData.position = static_cast<ABR_Vector3>(camera_.GetPosition());
 // 每帧的相机旋转角，范围是[0, 360]
-ABR_Vector3 rotation_;
-cameraData.position = position_;
-cameraData.rotation = rotation_;
-
+cameraData.rotation = static_cast<ABR_Vector3>(camera_.GetRotation());
 // 每帧相机运动数据更新
 errorCode = HMS_ABR_UpdateCameraData(context_, &cameraData);
 if (errorCode != ABR_SUCCESS) {
-    return false;
+    GOLOGE("HMS_ABR_UpdateCameraData execution failed, error code: %d.", errorCode);
+    return;
 }
 ```
 
@@ -175,10 +174,12 @@ if (errorCode != ABR_SUCCESS) {
   
 ```text
 // 创建帧缓冲对象
-GLuint fbo;
-glGenFramebuffers(1, &fbo);
+glGenFramebuffers(1, &fbo.fbo_);
+CheckOpenGLError();
+
 // 绑定帧缓冲
-glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+glBindFramebuffer(GL_FRAMEBUFFER, fbo.fbo_);
+CheckOpenGLError();
 ```
 
 2. 调用[HMS_ABR_MarkFrameBuffer_GLES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_abr_markframebuffer_gles)接口对Buffer进行标记。
@@ -188,7 +189,8 @@ glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 // 在Buffer渲染前调用，执行失败不影响Buffer正常渲染
 errorCode = HMS_ABR_MarkFrameBuffer_GLES(context_);
 if (errorCode != ABR_SUCCESS) {
-    return false;
+    GOLOGE("HMS_ABR_MarkFrameBuffer_GLES execution failed, error code: %d.", errorCode);
+    return;
 }
 ```
 
@@ -202,10 +204,14 @@ if (errorCode != ABR_SUCCESS) {
 
 调用[HMS_ABR_DestroyContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_abr_destroycontext)接口销毁ABR实例，释放内存资源。
 
+
+
 ```text
 // 销毁ABR上下文实例并释放内存资源
 ABR_ErrorCode errorCode = HMS_ABR_DestroyContext(&context_);
+predictionPaused_ = (errorCode == ABR_SUCCESS);
 if (errorCode != ABR_SUCCESS) {
-     return false;
+    GOLOGE("HMS_ABR_ContextDestroy execution failed, error code: %d.", errorCode);
+    return false;
 }
 ```

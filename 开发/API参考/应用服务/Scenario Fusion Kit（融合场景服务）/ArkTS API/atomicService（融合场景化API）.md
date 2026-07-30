@@ -1,17 +1,11 @@
 # atomicService（融合场景化API）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块为开发者提供获取系统信息、系统设置、关注组件等能力。
- 
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
-**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
 **起始版本：** 5.0.0(12)
   
@@ -194,7 +188,7 @@ type SystemInfoType = 'brand' | 'deviceModel' | 'screenWidth' | 'screenHeight' |
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
   
@@ -235,7 +229,7 @@ type SystemSettingType = 'bluetoothEnabled' | 'locationEnabled' | 'wifiEnabled' 
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
   
@@ -267,7 +261,7 @@ getSystemInfoSync(properties?: Array&lt;SystemInfoType&gt;): SystemInfo
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
  
@@ -336,7 +330,7 @@ getSystemInfo(properties?: Array&lt;SystemInfoType&gt;): Promise&lt;SystemInfo&g
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
  
@@ -389,7 +383,7 @@ try {
     let windowHeight: number | undefined = data.windowHeight;
   }).catch((error: BusinessError) => {
     hilog.error(0x0000, 'testTag', 'Promise error: %{public}d %{public}s', error.code, error.message);
-  })
+  });
 } catch (error) {
   hilog.error(0x0000, 'testTag', 'Failed to get system info asynchronously, failReason: %{public}d %{public}s', error.code, error.message);
 }
@@ -411,7 +405,7 @@ getSystemSetting(properties?: Array&lt;SystemSettingType&gt;): SystemSettingInfo
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
  
@@ -532,15 +526,16 @@ struct Index {
           hilog.info(0x0000, 'testTag', 'follow failed handle');
         }
       }
-    }
+    };
     // 展示关注组件。
     atomicService.showFollowComponent(this.getUIContext(), params, callbacks).catch((error: BusinessError<void>) => {
       hilog.error(0x0000, 'testTag', 'Failed to show the Follow Component, failReason: %{public}d %{public}s', error.code,
         error.message);
-    })
+    });
   }
 
   build() {
+    // 开发者自行实现逻辑处理
   }
 }
 ```

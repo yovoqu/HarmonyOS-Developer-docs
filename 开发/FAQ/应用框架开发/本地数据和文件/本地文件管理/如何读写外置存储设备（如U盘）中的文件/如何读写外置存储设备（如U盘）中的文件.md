@@ -71,13 +71,13 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 
 1. 实现效果：
 点击**查看U盘文件并导入到沙箱**按钮后，拉起了DocumentViewPicker。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/ZYVpVo4DQ3K0GLfR-gzBuA/zh-cn_image_0000002659258327.png?HW-CC-KV=V1&HW-CC-Date=20260723T013312Z&HW-CC-Expire=86400&HW-CC-Sign=12670275A4FA377E71CF2F4D1AE393A60F239F678E5EF5423F67108D35A8F03F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/ZYVpVo4DQ3K0GLfR-gzBuA/zh-cn_image_0000002659258327.png?HW-CC-KV=V1&HW-CC-Date=20260730T072525Z&HW-CC-Expire=86400&HW-CC-Sign=E88558E02DE21DFA29FB2F253677470D7D39A006632154EE30A3E0B73162EC93)
 
 2. 点击**MyUSB**后可以浏览我的U盘。选中要拷贝的文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/c-pIFp76Q5S1o3_1fYL9EA/zh-cn_image_0000002628899108.png?HW-CC-KV=V1&HW-CC-Date=20260723T013312Z&HW-CC-Expire=86400&HW-CC-Sign=1237AE5E64FC1BD3D9374850F182D0628C407D47206342958D4CD93218750AC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/c-pIFp76Q5S1o3_1fYL9EA/zh-cn_image_0000002628899108.png?HW-CC-KV=V1&HW-CC-Date=20260730T072525Z&HW-CC-Expire=86400&HW-CC-Sign=D5B58357D6901FD1884B190BE31C541DAAEA7103A94B11CEF5F2E83FC53697BD)
 
 3. 点击**完成**后，成功将U盘中的两个文件拷贝到了沙箱。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/ptqpoHh7RRSy6oJ2Hu_AMA/zh-cn_image_0000002659138377.png?HW-CC-KV=V1&HW-CC-Date=20260723T013312Z&HW-CC-Expire=86400&HW-CC-Sign=D939CD264197A849533EB5AC47538D5D15245EB97AC01AC4D3F0897480927123)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/ptqpoHh7RRSy6oJ2Hu_AMA/zh-cn_image_0000002659138377.png?HW-CC-KV=V1&HW-CC-Date=20260730T072525Z&HW-CC-Expire=86400&HW-CC-Sign=F14933A6443DF7B08219DBA6057A0A84F6A0ED4245DC9F828622EF50E4FD70EF)
 
  
 二、**拷贝文件到外置存储设备的文件**

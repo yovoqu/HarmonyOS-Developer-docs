@@ -1,6 +1,6 @@
 # 弧形列表 (ArcList)（圆形屏幕推荐使用）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-arclist
 
@@ -403,7 +403,7 @@ ArcScrollBar({ scroller: this.arcListScroller })
 
 如图8所示，当列表从联系人A滚动到联系人B时，外侧索引条也需要同步从选中A状态变成选中B状态，此场景可以通过监听[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)组件的[onScrollIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist#onscrollindex)事件来实现；当点击索引项C时，列表也需要跳转到联系人C，此场景可以通过监听[ArcAlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer)的[onSelect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer#onselect)事件来实现。
 
-在列表滚动时，根据列表此时所在的索引值位置firstIndex，重新计算字母索引条对应字母的位置selectedIndex。由于[ArcAlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer)组件通过[selected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer#selected)属性设置了选中项索引值，当selectedIndex变化时会触发[ArcAlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer)组件重新渲染，从而显示为选中对应字母的状态。
+在列表滚动时，根据列表此时所在的索引值位置centerIndex，重新计算字母索引条对应字母的位置indexerIndex。由于[ArcAlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer)组件通过[selected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer#selected)属性设置了选中项索引值，当indexerIndex变化时会触发[ArcAlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer)组件重新渲染，从而显示为选中对应字母的状态。
 
 在选中索引项时，根据此时选中项的索引值index，重新计算列表联系人对应的位置，然后通过列表绑定的滚动控制器arcListScroller的[scrollToIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrolltoindex)方法控制列表跳转到对应的联系人位置。弧形列表[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)可通过[scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist#arklistoptions)参数绑定[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)（滚动控制器）。
 
@@ -413,7 +413,7 @@ import { common } from '@kit.AbilityKit';
 
 // ...
 const alphabets: string[] = [
-  '#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N',
+  '#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
   'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ];
 
@@ -438,7 +438,9 @@ export struct ArcListArcIndexerBar {
             // ...
             .onScrollIndex((firstIndex: number, lastIndex: number, centerIndex: number) => {
               // 根据列表滚动到的索引值，重新计算对应索引条的位置this.indexerIndex
-              this.indexerIndex = centerIndex + 1;
+              let contact = this.contacts[centerIndex] as Contact;
+              let firstChar = contact.firstChar;
+              this.indexerIndex = alphabets.indexOf(firstChar);
             })
             // ...
             // 弧形索引条组件
@@ -446,8 +448,19 @@ export struct ArcListArcIndexerBar {
               .selected(this.indexerIndex!!)
               .onSelect((index: number) => {
                 // 选中索引项后，列表跳转到相应位置
-                this.indexerIndex = index
-                this.arcListScroller.scrollToIndex(this.indexerIndex - 1)
+                this.indexerIndex = index;
+                const selectedLetter = alphabets[index];
+                let targetIndex = -1;
+                for (let i = 0; i < this.contacts.length; i++) {
+                  const contact = this.contacts[i] as Contact;
+                  if (contact.firstChar === selectedLetter) {
+                    targetIndex = i;
+                    break;
+                  }
+                }
+                if (targetIndex >= 0) {
+                  this.arcListScroller.scrollToIndex(targetIndex);
+                }
               })
               // ...
           }
@@ -459,7 +472,7 @@ export struct ArcListArcIndexerBar {
 **图8** 弧形列表与弧形索引条联动
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/1KNxnS1fRO2EEfPmWz1KZQ/zh-cn_image_0000002677825461.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=BF4D9964510B565EDD22B0E74D963ED55D102D3F019EEEFFB4DCCEAE9FC2D0C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/uQaXYIvOTXGXXSGfmhdyTg/zh-cn_image_0000002686085669.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=0B9D78B2770D555CCFB36F659DF53E91B569D89CB038B298A89D2401263A1FC1)
 
 
 
@@ -468,7 +481,7 @@ export struct ArcListArcIndexerBar {
 
 [ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)的[swipeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem#swipeaction)属性可用于实现列表项的左右滑动功能。[swipeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem#swipeaction)属性方法初始化时存在必填[SwipeActionOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#swipeactionoptions9对象说明)参数start和end。其中，start表示设置列表项右滑时起始端滑出的组件，end表示设置列表项左滑时尾端滑出的组件。
 
-在联系人列表中，end参数表示设置[ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)左滑时尾端划出自定义组件，即删除按钮。在初始化end方法时，将滑动列表项的索引传入删除按钮组件，当用户点击删除按钮时，可以根据数据索引来删除列表项对应的数据，从而实现侧滑删除功能。
+在联系人列表中，end参数表示设置[ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)左滑时尾端滑出自定义组件，即删除按钮。在初始化end方法时，将滑动列表项的索引传入删除按钮组件，当用户点击删除按钮时，可以根据数据索引来删除列表项对应的数据，从而实现侧滑删除功能。
 1. 首先，实现尾端滑出组件的构建。
 
   
@@ -522,7 +535,7 @@ ArcListItem() {
 **图9** 侧滑删除列表项
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/BVpsxTYnRgCl87SifwbKrQ/zh-cn_image_0000002677665613.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=BA388322F99B9FEC9DF55710ED51D9D1F54B7DD9933D1E19ECA5D50AC973EC1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/XuEG7lOqTmKFjELnTa9uFg/zh-cn_image_0000002685925841.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=B47BDA68008705C79D2C45C09A4886F8F6A28BFC64FDD10E579953C2E0A0D521)
 
 
 

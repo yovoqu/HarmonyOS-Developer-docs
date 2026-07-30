@@ -1,9 +1,9 @@
 # ArkTS API错误码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preview
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 > [!TIP]
 > 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
@@ -12,7 +12,7 @@
 
 #### 1017220001 内部失败
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 **错误信息**
  
@@ -34,7 +34,7 @@ Internal failure.
 
 #### 1017220002 服务不可用
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 **错误信息**
  
@@ -56,7 +56,7 @@ IPC服务处理异常。
 
 #### 1017220003 添加的文件个数超过上限
 
-**支持设备：** PC/2in1
+**支持设备：** PC/2in1 | Tablet
 
 **错误信息**
  

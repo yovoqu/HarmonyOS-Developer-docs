@@ -1,6 +1,6 @@
 # button开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-button
 
@@ -85,11 +85,12 @@ button是按钮组件，其类型包括胶囊按钮、圆形按钮、文本按�
 如果需要添加ohos.permission.INTERNET权限，则在resources文件夹下的config.json文件里进行权限配置。
 
 ```json
-<!-- config.json -->
-"module": {
-  "reqPermissions": [{
-    "name": "ohos.permission.INTERNET"
-  }],
+{
+  "module": {
+    "reqPermissions": [{
+      "name": "ohos.permission.INTERNET"
+    }]
+  }
 }
 ```
 
@@ -125,7 +126,6 @@ button是按钮组件，其类型包括胶囊按钮、圆形按钮、文本按�
 
 ```text
 // xxx.js
-import promptAction from '@ohos.promptAction';
 export default {
   data: {
     percent: 0,
@@ -139,7 +139,7 @@ export default {
         this.percent += 1;
         this.downloadText = this.percent+ "%";
        } else{
-         promptAction.showToast({
+         this.getUIContext().getPromptAction().showToast({
             message: "Download succeeded."
          })
          this.paused()
@@ -155,13 +155,13 @@ export default {
   },
  setProgress(e) {
     if(this.isPaused){
-      promptAction.showToast({
+      this.getUIContext().getPromptAction().showToast({
         message: "Started Downloading"
       })
       this.start();
       this.isPaused = false;
     }else{
-      promptAction.showToast({
+      this.getUIContext().getPromptAction().showToast({
         message: "Paused."
       })
       this.paused();
@@ -183,7 +183,7 @@ export default {
 
 #### 场景示例
 
-在本场景中，开发者可根据输入的文本内容进行button类型切换。
+在本场景中，开发者可根据输入的文本内容进行input类型切换。
 
 ```text
 <!-- xxx.hml -->
@@ -191,7 +191,7 @@ export default {
   <div class="input-item">
     <input class="input-text" id="change" type="{{mytype}}"  placeholder="{{myholder}}"
       style="background-color:{{mystyle1}};
-      placeholder-color:{{mystyle2}};flex-grow:{{myflex}};"name="{{myname}}" value="{{myvalue}}"></input>
+      placeholder-color:{{mystyle2}};flex-grow:{{myflex}};" name="{{myname}}" value="{{myvalue}}"></input>
   </div>
   <div class="input-item">
     <div class="doc-row">
@@ -283,4 +283,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/oety-j2iRjeLBJjk1GG46A/zh-cn_image_0000002581274254.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=659B5D2B84CECEB23E3E9D492A071198E5F748B0739FBD04955911406649D642)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/iORw_9bFQLW3rHFx7-q1Xw/zh-cn_image_0000002686086111.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071856Z&HW-CC-Expire=86400&HW-CC-Sign=7688FC03903822E520F29FC1B3820B0BB11AFA31A9781D26E92CC8F3ACAE5E4A)

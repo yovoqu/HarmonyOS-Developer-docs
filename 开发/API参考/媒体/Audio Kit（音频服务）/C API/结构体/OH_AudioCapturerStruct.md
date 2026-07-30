@@ -1,12 +1,12 @@
 # OH_AudioCapturerStruct
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiocapturerstruct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef struct OH_AudioCapturerStruct OH_AudioCapturer
+typedef struct OH_AudioCapturerStruct OH_AudioCapturer;
 ```
   
 
@@ -14,7 +14,7 @@ typedef struct OH_AudioCapturerStruct OH_AudioCapturer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-声明输入音频流。输入音频流的实例被用来获取音频数据。
+声明音频采集器结构体。音频采集器的实例用于获取输入音频（录音）数据。
  
 **起始版本：** 10
  

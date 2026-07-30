@@ -26,7 +26,7 @@
 快速适配流程图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/us189uIIQnmRAxhR01qscA/zh-cn_image_0000002629059094.png?HW-CC-KV=V1&HW-CC-Date=20260723T013351Z&HW-CC-Expire=86400&HW-CC-Sign=BA19E90E0CF519210B2CF32F2CCD3DA7F2884208BABF5D5E065AC37C437C550E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/us189uIIQnmRAxhR01qscA/zh-cn_image_0000002629059094.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=E5C725C5453FBCD39982C1582E5299DD0792B5D2F11D90F564EAC515EBC241EB)
 
  1. 创建Web组件加载：
 页面加载是Web组件的基本功能。根据页面加载数据来源可以分为三种常用场景，包括加载网络页面、加载本地页面、加载HTML格式的富文本数据。详情请参考：[使用Web组件加载页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-page-loading-with-web-components)。

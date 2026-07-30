@@ -9,7 +9,7 @@
 Tabs页面切换时，tabBar切换动画发生的比较慢，需要等到Tabs页面完成切换时，tabBar才发生切换。效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/C5-Im_FvRsmsD49vhMFa5Q/zh-cn_image_0000002628552042.png?HW-CC-KV=V1&HW-CC-Date=20260723T013008Z&HW-CC-Expire=86400&HW-CC-Sign=442F6AF6590766705000FAE833F797153B3CAA5E12CB63F8442A5E8F26D21A05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/C5-Im_FvRsmsD49vhMFa5Q/zh-cn_image_0000002628552042.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=727B47EBF127540FE7951AB96BE7072C8A306FA6BBE43E2FF8C637911CF3D200)
 
  
  

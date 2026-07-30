@@ -1,6 +1,6 @@
 # HiDebug Trace错误码
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hidebug-trace
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -115,10 +115,8 @@ Quota exceeded.
 接口调用配额已超出。
 
 **可能原因**
-
-1.进程调用次数超出配额（1次/天）。
-
-2.整机调用次数超出配额（5次/周）。
+1. 进程调用次数超出配额（1次/天）。
+2. 整机调用次数超出配额（5次/周）。
 
 **处理步骤**
 

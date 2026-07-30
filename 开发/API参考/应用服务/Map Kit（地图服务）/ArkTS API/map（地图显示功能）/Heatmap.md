@@ -1,6 +1,6 @@
 # Interface (Heatmap)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-heatmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -33,6 +33,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
 ```text
 let data: mapCommon.WeightedLatLng[] = [];
+// 生成500个随机坐标点，用于热力图数据
 for (let i = 0; i < 500; i++) {
   data.push({
     point: {

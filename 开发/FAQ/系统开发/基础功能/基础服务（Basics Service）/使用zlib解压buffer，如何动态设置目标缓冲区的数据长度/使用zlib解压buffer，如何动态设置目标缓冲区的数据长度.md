@@ -26,7 +26,7 @@
 4. 参考示意图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/hSFCxI4yQg-BuMevMxqXmA/zh-cn_image_0000002628613904.png?HW-CC-KV=V1&HW-CC-Date=20260723T013505Z&HW-CC-Expire=86400&HW-CC-Sign=6E8F435AA429A446CDD39C490C2AA7F2FF19A403FCB1B84FB25EEE8E0B1468B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/hSFCxI4yQg-BuMevMxqXmA/zh-cn_image_0000002628613904.png?HW-CC-KV=V1&HW-CC-Date=20260730T072600Z&HW-CC-Expire=86400&HW-CC-Sign=FBAD2133E43A6D660B509650FF8B4F0891AD7E53E0B39CE3C5FE8F95690E3CE1)
 
  
 - **核心解压逻辑：**

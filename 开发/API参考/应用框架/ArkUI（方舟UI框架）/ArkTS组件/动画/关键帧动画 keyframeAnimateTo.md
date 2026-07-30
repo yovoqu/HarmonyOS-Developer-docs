@@ -1,6 +1,6 @@
 # 关键帧动画 (keyframeAnimateTo)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,7 +50,7 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-设置关键帧选项。
+关键帧状态设置。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -90,7 +90,7 @@ struct KeyframeDemo {
       Circle()
         .width(100)
         .height(100)
-        .fill("#46B1E3")
+        .fill('#46B1E3')
         .margin(100)
         .scale({ x: this.myScale, y: this.myScale })
         .onClick(() => {
@@ -104,7 +104,7 @@ struct KeyframeDemo {
               iterations: 3,
               delay: 200,
               onFinish: () => {
-                console.info("keyframe animate finish");
+                console.info('keyframe animate finish');
               },
               expectedFrameRateRange: {
                 min: 10,
@@ -136,4 +136,4 @@ struct KeyframeDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/C3Y9Epp3QLKMUbQtEA88Xw/zh-cn_image_0000002677827945.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=19CF750DB7FF27736178436AD95C29B7501487C4394190B935BCBAF34ADDA25F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/sIkZyfx2TBiLgJvFJ3rUYg/zh-cn_image_0000002656008828.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071513Z&HW-CC-Expire=86400&HW-CC-Sign=352298435BFDE75A79EBA8AB8B7D6295866E323EC31D578F5D6D57E2E890F0E4)

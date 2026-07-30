@@ -1,6 +1,6 @@
 # native_handwrite_api.h
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwrite-headerfile-declare
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -46,7 +46,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| enum Handwrite_ErrCode { E_NO_ERROR = 0, E_PARAMS = 401, E_INNER_ERROR = 1010400001 } | 定义手写错误码。 |
+| enum Handwrite_ErrCode { E_NO_ERROR = 0, E_PARAMS = 401, E_INNER_ERROR = 1010400001, E_PERMISSION = 201 } | 定义手写错误码。 |
  
  
   
@@ -58,3 +58,14 @@
 | 名称 | 函数 |
 | --- | --- |
 | int32_t HMS_HandWrite_GetPredictPoint(const HandWrite_HistoricalPoint *event, int32_t size, float *predictPointX, float *predictPointY) | 此接口用于获取预测点。 |
+ 
+ 
+  
+
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
+ 
+| 名称 | 函数 |
+| --- | --- |
+| int32_t HMS_HandWrite_SetRefreshDelayOff(const char* xcomponentId, const bool enable) | 此接口用于笔记类应用提升手写笔书写时延。 |

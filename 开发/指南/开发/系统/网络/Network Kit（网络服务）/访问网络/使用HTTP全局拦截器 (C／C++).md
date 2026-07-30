@@ -1,12 +1,12 @@
 # 使用HTTP全局拦截器 (C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-httpinterceptor-guidelines
 
 #### 场景介绍
 
-从API version 24开始，通过HTTP全局拦截器（包含只读拦截器和可修改拦截器），开发者可以在只读拦截器中监控HTTP流量，实现日志记录功能，也可以在可修改拦截器中添加自定义逻辑，实现修改请求头、修改响应头、修改响应体等功能。
+从API version 24开始，通过HTTP全局拦截器（全局HTTP拦截器包含只读拦截器和可修改拦截器），开发者可以在只读拦截器中监控HTTP流量，实现日志记录功能，也可以在可修改拦截器中添加自定义逻辑，实现修改请求头、修改响应头、修改响应体等功能。
 
 
 
@@ -929,25 +929,25 @@ struct Index {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/Zqf3kztkTMaRYwFmhR9q2Q/zh-cn_image_0000002656348413.png?HW-CC-KV=V1&HW-CC-Date=20260624T020845Z&HW-CC-Expire=86400&HW-CC-Sign=69635CEECC8D755C439317B1AF9BC4D06D8546C7FB1C54CBF9D5F45042945F9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/K-AIJqRQS6OEf_6GtTN4MA/zh-cn_image_0000002686086515.png?HW-CC-KV=V1&HW-CC-Date=20260730T071923Z&HW-CC-Expire=86400&HW-CC-Sign=A9DFFE68DF7D8BAA06B562F1F18A4A4409D8531EA2ABBCA1BB7AC1AD2C9736CB)
 
 
  - 点击Remove All Read Only Response Interceptors按钮，移除组ID为1的所有只读响应拦截器。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/5KpYfLgnSQqcXjGtZIwi2A/zh-cn_image_0000002626229000.png?HW-CC-KV=V1&HW-CC-Date=20260624T020845Z&HW-CC-Expire=86400&HW-CC-Sign=016B0D58D5C6F36A3F2DA9F5788ED72A46F85F9BCD79DC3BB401152D5D46AECE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/2B_ptGXITBOJPAYV95QL0g/zh-cn_image_0000002685926687.png?HW-CC-KV=V1&HW-CC-Date=20260730T071923Z&HW-CC-Expire=86400&HW-CC-Sign=A1BF8A9399D01B70D809B348B0F0151449E6681499A06E2E18ACA3B083B06A75)
 
 
  - 点击Remove All Modify Request Interceptors按钮，移除组ID为2的所有可修改请求拦截器。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/_hi_df75RXGlbDOhsdFRWA/zh-cn_image_0000002626069090.png?HW-CC-KV=V1&HW-CC-Date=20260624T020845Z&HW-CC-Expire=86400&HW-CC-Sign=85DB7F6ADA7B9FEB04E88FFE308E5A0DF2FE90A1EEC713D2F7B4C9D6F13C9EE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/6BzwlHL2TfOum_6sWhCg9A/zh-cn_image_0000002656007008.png?HW-CC-KV=V1&HW-CC-Date=20260730T071923Z&HW-CC-Expire=86400&HW-CC-Sign=344E0B3E53DB74636B950DA570DC9B31D94BA082886F48D2E351962C3C7BFF88)
 
 
  - 点击Remove All Modify Response Interceptors按钮，移除组ID为3的所有可修改响应拦截器。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/5Vt9eV5NTQWJlRkzNDlZdA/zh-cn_image_0000002656468367.png?HW-CC-KV=V1&HW-CC-Date=20260624T020845Z&HW-CC-Expire=86400&HW-CC-Sign=76632D967F2641CC20C81FF183E3CD68B399B9E9E2E146247990186C0D3E311B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/27QEDdwoSl6w0iZV9qiIig/zh-cn_image_0000002655847088.png?HW-CC-KV=V1&HW-CC-Date=20260730T071923Z&HW-CC-Expire=86400&HW-CC-Sign=2106C5AFC47F9E7BB3A5AF06E1F26791A15760E8559F23F9F7A1FF84C8C08C69)

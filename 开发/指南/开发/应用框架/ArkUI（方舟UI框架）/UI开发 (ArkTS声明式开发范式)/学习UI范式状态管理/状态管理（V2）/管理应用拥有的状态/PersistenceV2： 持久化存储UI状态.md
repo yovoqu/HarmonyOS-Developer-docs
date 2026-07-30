@@ -1,6 +1,6 @@
 # PersistenceV2: 持久化存储UI状态
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2
 
@@ -155,6 +155,8 @@ struct Page1 {
 }
 ```
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/y1EnTQHfR7CTVuR812DG2A/zh-cn_image_0000002656005938.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=52F3563F2DD67364E86A1B85B5B7C7C917C6FD0F6AE571E652214118B2C17BAC)
+
  - globalConnect在持久化多个相同[集合类型](#globalconnect支持集合的类型)时，需要提供不同的key来区分持久化数据。
 
   如下展示开发者持久化相同的Array&lt;number&gt;类型的部分示例代码片段：
@@ -251,7 +253,11 @@ struct Comp {
   }
 }
 ```
-如下为globalConnect支持Date类型的持久化示例：
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/WkgT2tIJRi20jwQ7G9QV0Q/zh-cn_image_0000002655846018.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=FCB008D1460258A760A18E8F1CCA112CAC2580A42A51CBBD3954B74804FAD6C6)
+
+
+  如下为globalConnect支持Date类型的持久化示例：
 
   
 ```ArkTS
@@ -270,8 +276,10 @@ struct Page1 {
     Column({ space: 40 }) {
       Text(`date: ${this.date.toISOString()}`)
         .fontSize(24)
+        .margin(10)
       // 点击'date.setTime( Date.now() )', 杀掉应用，进入应用后，显示日期
       Button('date.setTime( Date.now() )')
+        .margin(10)
         .onClick(() => {
           this.date.setTime(Date.now());
         })
@@ -281,7 +289,11 @@ struct Page1 {
   }
 }
 ```
-如下为globalConnect支持Number类型作为class子属性的持久化示例：
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/LtaowzFqTVez-E63PSQQFA/zh-cn_image_0000002686085447.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=422BC6CCC245FB3114CBD23093FB08BE78523DB16A08086943F71B407E0C9AF9)
+
+
+  如下为globalConnect支持Number类型作为class子属性的持久化示例：
 
   
 ```ArkTS
@@ -320,6 +332,8 @@ struct Page1 {
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/DkmndASsSOSSg9hrpezTNQ/zh-cn_image_0000002685925619.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=97F3C832C8DB59BF7563E4EE23FCD368E34C9CC6C6D50A2AB0FB5EBC6C3219D4)
 
 
 
@@ -381,13 +395,18 @@ struct Page1 {
         // 第一次打开应用，界面显示'a, b'
         // 第二次打开应用，界面显示'aa, bb'
         Text(this.output.join('\n\n'))
-          .fontSize(24)
+          .fontSize(20)
+          .width(300)
+          .margin(10)
       }
+      .height('100%')
     }
     .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Fr6ZXObeQla1iJO4Rh1LWQ/zh-cn_image_0000002656005940.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=BA0A1140B03C6783B8ABC1C38DA7B562E07E721E2B68584573BFD5809FF7DA77)
 
 
 
@@ -634,6 +653,10 @@ struct Page1 {
 ```
 
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/XpAdfi43QW2jaO0jUSWANQ/zh-cn_image_0000002655846020.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=A105F0B9D7FEE79A04175C02F16350D8261B46BA897D955BAA8DBD3FCFAC8C32)
+
+
+
 
 #### 使用场景
 
@@ -689,11 +712,15 @@ struct Page1 {
     Navigation(this.pageStack) {
       Column() {
         Button('Go to page2')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             this.pageStack.pushPathByName('Page2', null);
           })
 
         Button('Page1 connect the key Sample')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             // 在PersistenceV2中创建一个key为Sample的键值对（如果存在，则返回PersistenceV2中的数据），并且和prop关联
             // 不建议对prop属性换connect的对象
@@ -701,12 +728,16 @@ struct Page1 {
           })
 
         Button('Page1 remove the key Sample')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             // 从PersistenceV2中删除后，prop将不会再与key为Sample的值关联
             PersistenceV2.remove(Sample);
           })
 
         Button('Page1 save the key Sample')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             // 如果处于connect状态，持久化key为Sample的键值对
             PersistenceV2.save(Sample);
@@ -714,12 +745,14 @@ struct Page1 {
 
         Text(`Page1 add 1 to prop.p1: ${this.prop.f.p1}`)
           .fontSize(30)
+          .margin(10)
           .onClick(() => {
             this.prop.f.p1++;
           })
 
         Text(`Page1 add 1 to prop.p2: ${this.prop.f.p2}`)
           .fontSize(30)
+          .margin(10)
           .onClick(() => {
             // 页面不刷新，但是p2的值改变了
             this.prop.f.p2++;
@@ -728,7 +761,9 @@ struct Page1 {
         // 获取当前PersistenceV2里面的所有key
         Text(`all keys in PersistenceV2: ${PersistenceV2.keys()}`)
           .fontSize(30)
+          .margin(10)
       }
+        .width('100%')
     }
   }
 }
@@ -757,6 +792,8 @@ struct Page2 {
     NavDestination() {
       Column() {
         Button('Page2 connect the key Sample1')
+          .width(300)
+          .margin(10)
           .onClick(() => {
             // 在PersistenceV2中创建一个key为Sample1的键值对（如果存在，则返回PersistenceV2中的数据），并且和prop关联
             // 不建议对prop属性换connect的对象
@@ -765,12 +802,14 @@ struct Page2 {
 
         Text(`Page2 add 1 to prop.p1: ${this.prop.f.p1}`)
           .fontSize(30)
+          .margin(10)
           .onClick(() => {
             this.prop.f.p1++;
           })
 
         Text(`Page2 add 1 to prop.p2: ${this.prop.f.p2}`)
           .fontSize(30)
+          .margin(10)
           .onClick(() => {
             // 页面不刷新，但是p2的值改变了；只有重新初始化才会改变
             this.prop.f.p2++;
@@ -779,7 +818,9 @@ struct Page2 {
         // 获取当前PersistenceV2里面的所有key
         Text(`all keys in PersistenceV2: ${PersistenceV2.keys()}`)
           .fontSize(30)
+          .margin(10)
       }
+      .width('100%')
     }
     .onReady((context: NavDestinationContext) => {
       this.pathStack = context.pathStack;
@@ -804,6 +845,10 @@ struct Page2 {
   ]
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/fSeSAgUMR7a7EBlym9zKnA/zh-cn_image_0000002686085449.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=F7A413623B481FEC9332875DD0D598CD3143B9B72BA234F048BE840606F7E793)
+
 
 
 
@@ -868,24 +913,28 @@ struct Page1 {
           this.p.father.childId += 1;
         })
         .fontSize(25)
+        .margin(5)
         .fontColor(Color.Red)
       Text('Key global1: ' + this.p1.father.childId.toString())
         .onClick(() => {
           this.p1.father.childId += 1;
         })
         .fontSize(25)
+        .margin(5)
         .fontColor(Color.Red)
       Text('Key global2: ' + this.p2.father.childId.toString())
         .onClick(() => {
           this.p2.father.childId += 1;
         })
         .fontSize(25)
+        .margin(5)
         .fontColor(Color.Red)
       Text('Key global3: ' + this.p3.father.childId.toString())
         .onClick(() => {
           this.p3.father.childId += 1;
         })
         .fontSize(25)
+        .margin(5)
         .fontColor(Color.Red)
       // keys接口
       // keys本身不会刷新，需要借助状态变量刷新
@@ -894,6 +943,7 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
 
       // remove接口
       Text('Remove key SampleGlobalConnect: ' + 'refresh: ' + this.refresh)
@@ -903,6 +953,7 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
       Text('Remove key global1: ' + 'refresh: ' + this.refresh)
         .onClick(() => {
           // 删除这个key，会导致和p1失去联系，之后即使reconnect，p1也无法存储
@@ -910,6 +961,7 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
       Text('Remove key global2: ' + 'refresh: ' + this.refresh)
         .onClick(() => {
           // 删除这个key，会导致和p2失去联系，之后即使reconnect，p2也无法存储
@@ -917,6 +969,7 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
       Text('Remove key global3: ' + 'refresh: ' + this.refresh)
         .onClick(() => {
           // 删除这个key，会导致和p3失去联系，之后即使reconnect，p3也无法存储
@@ -924,6 +977,7 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
       // reConnect
       // 重新连接也无法和之前的状态变量建立联系，因此无法保存数据
       Text('ReConnect key global2: ' + 'refresh: ' + this.refresh)
@@ -933,6 +987,7 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
 
       // save接口
       Text('not save key SampleGlobalConnect: ' + this.p.father.groupId.toString() + ' refresh: ' + this.refresh)
@@ -942,6 +997,7 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
       Text('save key SampleGlobalConnect: ' + this.p.father.groupId.toString() + ' refresh: ' + this.refresh)
         .onClick(() => {
           // 未被@Trace保存的对象无法自动存储，需要调用save存储
@@ -950,11 +1006,16 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(5)
     }
     .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/j00TlISEQHyExXZwFeHTtA/zh-cn_image_0000002685925621.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=77C5470E33557675862FF5BA417BA1D6C8AA9E21C3150695DBB682EBD748EE78)
+
 
 
 
@@ -1023,16 +1084,20 @@ struct Page1 {
           this.p1.father.childId += 1;
         })
         .fontSize(25)
-        .fontColor(Color.Red)
+        .margin(10)
+        .fontColor(Color.Pink)
       Text('Key connect2: ' + this.p2.father.childId.toString())
         .onClick(() => {
           this.p2.father.childId += 1;
         })
         .fontSize(25)
-        .fontColor(Color.Red)
+        .margin(10)
+        .fontColor(Color.Pink)
 
       // 跳转
       Button('Jump to newModule')
+        .width(300)
+        .margin(10)
         .onClick(() => { // 不同module之间使用，建议使用globalConnect
           let want: Want = {
             deviceId: '', // deviceId为空代表本设备
@@ -1057,6 +1122,10 @@ struct Page1 {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/aTtO2HTjSm626AEdJnNz6w/zh-cn_image_0000002656005942.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=0BC757DB7E2DEB0890A7F92F382AF05DFDE395BFB01ED6756C78EEACF42A1F6D)
+
 
 ```ArkTS
 // 模块2
@@ -1101,18 +1170,24 @@ struct Page1 {
           this.p1.father.childId += 1;
         })
         .fontSize(25)
+        .margin(10)
         .fontColor(Color.Red)
       Text('Key connect2: ' + this.p2.father.childId.toString())
         .onClick(() => {
           this.p2.father.childId += 1;
         })
         .fontSize(25)
+        .margin(10)
         .fontColor(Color.Red)
     }
     .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/L7amoleqR4iueK5MKW0foQ/zh-cn_image_0000002655846022.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=3329F46C9DB80569502F88CC63DABE4052C585B11416C1B623BF95F2A743129A)
+
 
 当开发者对newModule使用不同启动方式会有以下现象：
 
@@ -1168,7 +1243,8 @@ struct Index {
   @Local refresh: number = 0;
   // 调用connect或globalConnect存储
   @Local p: Sample = PersistenceV2.connect(Sample, 'connectSample', () => new Sample())!;
-  // @Local p: Sample = PersistenceV2.globalConnect({ type: Sample, key: 'connectSample', defaultCreator: () => new Sample() })!;
+  // @Local p: Sample = PersistenceV2.globalConnect(
+  //   { type: Sample, key: 'connectSample', defaultCreator: () => new Sample() })!;
 
   build() {
     Column({ space: 5 }) {
@@ -1178,6 +1254,7 @@ struct Index {
           this.p.father.groupId += 1;
         })
         .fontSize(25)
+        .margin(10)
         .fontColor(Color.Red)
 
       // save接口
@@ -1190,11 +1267,16 @@ struct Index {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(10)
     }
     .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/WgjtN6djRZuusonU0F611A/zh-cn_image_0000002686085451.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=F13EA1FD836551B7B3F85B70AE3595F73506EE3DB14EAE9930AC9F44A64EB4BC)
+
 
 起始时，SampleChild中的childInfo变量类型为SampleInfo，正常存储后，将childInfo变量的类型切换为number，并赋值为1，之后再次启动程序，此时会由于存储数据的结构与当前数据的结构不一致，导致数据反序列化失败。此时会通过notifyOnError中写入的回调，将磁盘中存储的旧的序列化数据打印出来。即在Error日志中显示：
 
@@ -1252,6 +1334,7 @@ struct Page1 {
           this.p.father.childId += 1;
         })
         .fontSize(25)
+        .margin(10)
         .fontColor(Color.Red)
 
       // save接口
@@ -1264,11 +1347,16 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(10)
     }
     .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/4R7raiZ3RsmiQiXpsnxqEg/zh-cn_image_0000002685925623.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=E0B6B064AAF8B3A6F45E8E1CF82251AA20BBFA34822D86BFD55A4E5350E69E94)
+
 
 ```ArkTS
 // 迁移到globalConnect
@@ -1332,6 +1420,7 @@ struct Page1 {
           this.p.father.childId += 1;
         })
         .fontSize(25)
+        .margin(10)
         .fontColor(Color.Red)
 
       // save接口
@@ -1344,11 +1433,16 @@ struct Page1 {
           this.refresh += 1;
         })
         .fontSize(25)
+        .margin(10)
     }
     .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/z4iPbQMHRt-X-1b15Qwi0A/zh-cn_image_0000002656005944.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=755878B4E3680FE6D6FF08C08C0BE53DEF70AD4294B09C90B58779F854738F6B)
+
 
 connect向globalConnect迁移，需要将key绑定的value赋值给globalConnect进行存储，之后当自定义组件使用globalConnect连接时，globalConnect绑定的数据即为之前使用connect保存的数据，开发者可以自定义move函数，并将其放在合适位置迁移即可。
 
@@ -1392,7 +1486,11 @@ struct Index {
   build() {
     Column({ space: 5 }) {
       Text(JSON.stringify(this.sample)) // 序列化sample变量并显示
+        .fontSize(20)
+        .margin(10)
       Button('Change Info')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           // 通过将类型转换为ESObject，再转为SampleChild，绕过了类型校验，故点击后不会触发notifyOnError。
           // 点击并重新运行后，由于此处存储的info为Array类型，但SampleChild中的info仍是string类型，故会触发notifyOnError。
@@ -1403,6 +1501,10 @@ struct Index {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/UI1KK4OPSgaMGiBjB4gUnw/zh-cn_image_0000002655846024.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=DB3AA7971B82498F69204A1CF9D3C101C84DC46A27849B67C189FB9B52C7815C)
+
 
 下表将结合样例，说明在变更数据结构时会触发notifyOnError的情形。
 

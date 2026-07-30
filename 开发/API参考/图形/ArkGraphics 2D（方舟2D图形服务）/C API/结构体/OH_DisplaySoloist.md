@@ -1,6 +1,6 @@
 # OH_DisplaySoloist
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaysoloist-oh-displaysoloist
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_DisplaySoloist OH_DisplaySoloist
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供OH_DisplaySoloist结构体声明。
+OH_DisplaySoloist结构体声明，此结构体用于需要在独立线程中实现帧率控制的Native侧业务。
  
 **起始版本：** 12
  

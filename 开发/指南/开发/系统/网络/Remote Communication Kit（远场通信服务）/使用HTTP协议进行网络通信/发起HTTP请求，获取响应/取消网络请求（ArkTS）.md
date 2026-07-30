@@ -1,6 +1,6 @@
 # 取消网络请求（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netcancle-arkts
 
@@ -36,13 +36,15 @@ import { BusinessError } from '@kit.BasicServicesKit';
 2. 创建会话并创建两个Request，分别发起请求，在请求完成后进行cancel操作。
 
   
-单独取消某个请求         
+单独取消某个请求
+
+  
 ```text
 // 创建会话
 const session = rcp.createSession();
-// 创建request1、request2
-let request1 = new rcp.Request("https://www.example.com");
-let request2 = new rcp.Request("https://www.example.com");
+// 创建request1、request2, 请求的网址是示例网址，请根据实际需求更改
+let request1 = new rcp.Request('https://www.example.com');
+let request2 = new rcp.Request('https://www.example.com');
 
 // 分别发起请求
 session.fetch(request1).then((response: rcp.Response) => {
@@ -62,13 +64,15 @@ session.cancel(request1);
 session.cancel(request2);
 ```
 
-3. 取消全部请求         
+3. 取消全部请求
+
+  
 ```text
 // 创建会话
 const session = rcp.createSession();
-// 创建request1、request2
-let request1 = new rcp.Request("https://www.example.com");
-let request2 = new rcp.Request("https://www.example.com");
+// 创建request1、request2, 请求的网址是示例网址，请根据实际需求更改
+let request1 = new rcp.Request('https://www.example.com');
+let request2 = new rcp.Request('https://www.example.com');
 
 // 分别发起请求
 session.fetch(request1).then((response: rcp.Response) => {

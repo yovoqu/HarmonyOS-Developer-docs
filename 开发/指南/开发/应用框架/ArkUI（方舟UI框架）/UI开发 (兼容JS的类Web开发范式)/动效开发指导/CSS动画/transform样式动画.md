@@ -1,6 +1,6 @@
 # transform样式动画
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-animate-transform
 
@@ -9,7 +9,7 @@
 
 #### 设置静态动画
 
-创建一个正方形并旋转90°变成菱形，并用下方的长方形把菱形下半部分遮盖形成屋顶，设置长方形translate属性值为(150px,-150px)确定坐标位置形成门，再使用position属性使横纵线跟随父组件（正方形）移动到指定坐标位置，接着设置scale属性使父子组件一起变大形成窗户大小，最后使用skewX属性使组件倾斜后设置坐标translate(200px,-710px)得到烟囱。
+创建一个正方形并旋转90°变成菱形，并用下方的长方形把菱形下半部分遮盖形成屋顶，设置长方形translate属性值为(150px,-137px)确定坐标位置形成门，再使用position属性使横纵线跟随父组件（正方形）移动到指定坐标位置，接着设置scale属性使父子组件一起变大形成窗户大小，最后使用skewX属性使组件倾斜后设置坐标translate(200px,-710px)得到烟囱。
  
 ```text
 <!-- xxx.hml -->
@@ -480,7 +480,7 @@ matrix是一个参数为六个值的矩阵，6个值分别代表：scaleX, skewY
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Iyqpmh21Rc2VWumrDyiMMQ/zh-cn_image_0000002611834041.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030430Z&HW-CC-Expire=86400&HW-CC-Sign=C5C01A97C0A49719F3B363B599DDF13B0B1E922C6A9D6F906BB8CFDAB708C024)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/sKiVLyqRSiGXnJfPZu4Biw/zh-cn_image_0000002655846722.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071857Z&HW-CC-Expire=86400&HW-CC-Sign=6C3F74F2B126FE40DE7DCAD7F11809E82FA61E9FB88C53FC841861FDEFE9A1AC)
 
  
   
@@ -593,7 +593,7 @@ transform可以设置多个值并且多个值可同时设置，下面案例中�
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/gAmxeySzTOqsP7twc85cJQ/zh-cn_image_0000002581274294.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030430Z&HW-CC-Expire=86400&HW-CC-Sign=BC87D35A9C6AC93567AEEC68D3500799690BA8201242620E6FAF5C0840291449)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/AMoGUwsQRcuu2_LHVtDt1g/zh-cn_image_0000002686086151.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071857Z&HW-CC-Expire=86400&HW-CC-Sign=F7C80C44C64ED22F1A2266C8E192C0B901D253BD2A0C80CF5F0889F1B8FEEDEE)
 
  
 > [!NOTE]

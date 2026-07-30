@@ -1,6 +1,6 @@
 # voipCall (应用内通话管理)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/call-voipcall
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -195,6 +195,8 @@ import { voipCall } from '@kit.CallServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示静音、扬声器事件的枚举。
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -775,5 +777,72 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 voipCall.reportIncomingCallError("callId123", voipCall.VoipCallFailureCause.OTHER).then(() => {
   hilog.info(0x0000, 'testTag', `Succeeded in reporting incoming call error.`);
+});
+```
+ 
+  
+
+#### voipCall.reportCallAttributeChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+reportCallAttributeChange(voipCallAttribute: VoipCallAttribute): Promise&lt;ErrorReason&gt;
+ 
+应用上报通话属性变化。在通话过程中，当通话属性发生变化时，应用可以调用该接口更新通话属性（当前版本允许通话类型、应用内通话用户昵称、用户头像图片、通话是否为会议）。使用Promise异步回调。
+ 
+**模型约束**：该接口仅可在Stage模型下使用。
+ 
+**系统能力**: SystemCapability.Telephony.VoipCallManager
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| voipCallAttribute | VoipCallAttribute | 是 | 应用内通话详细信息，包含需要更新的通话属性，详情请参见VoipCallAttribute。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;ErrorReason&gt; | Promise对象，返回错误码。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/call-error-code)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1007200001 | Invalid parameter value. |
+| 1007200002 | Operation failed. Cannot connect to service. |
+| 1007200003 | System internal error. |
+ 
+ 
+**示例：**
+ 
+```text
+import { voipCall } from '@kit.CallServiceKit';
+import { image } from '@kit.ImageKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+let newUserProfile = image.createPixelMapSync(new ArrayBuffer(100), { size: { width: 90, height: 90 } });
+let updatedAttribute: voipCall.VoipCallAttribute = {
+  callId: '1234567890',
+  voipCallType: voipCall.VoipCallType.VOIP_CALL_VOICE,
+  userName: 'UpdatedName',
+  userProfile: newUserProfile,
+  abilityName: 'VoipCallAbility',
+  voipCallState: voipCall.VoipCallState.VOIP_CALL_STATE_ACTIVE
+};
+
+voipCall.reportCallAttributeChange(updatedAttribute).then(errorReason => {
+  if (errorReason == voipCall.ErrorReason.ERROR_NONE) {
+    hilog.info(0x0000, 'testTag', `Succeeded in reporting call attribute change.`);
+  } else {
+    hilog.error(0x0000, 'testTag', 'Failed to report call attribute change: %{public}d', errorReason);
+  }
 });
 ```

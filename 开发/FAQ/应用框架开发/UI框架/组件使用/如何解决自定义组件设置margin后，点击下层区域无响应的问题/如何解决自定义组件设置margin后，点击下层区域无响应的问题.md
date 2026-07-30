@@ -9,7 +9,7 @@
 在如下图所示的Stack组件中，有个Row组件A，以及堆叠顺序在A上方的自定义组件IconView（设置了IconView的zIndex(1)），IconView的组件区域为Row组件B，C区域是通过margin形成的布局边界。点击C区域，不会响应A组件的点击事件。如何使得布局边界C也能响应A组件的点击事件？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/noq67_9vTQSXoYI5R9Axpg/zh-cn_image_0000002658919545.png?HW-CC-KV=V1&HW-CC-Date=20260723T012634Z&HW-CC-Expire=86400&HW-CC-Sign=D86CECD5E898660C43415C02783B7B4CF29C2F5C01FAC5189E0FD851114DD096)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/noq67_9vTQSXoYI5R9Axpg/zh-cn_image_0000002658919545.png?HW-CC-KV=V1&HW-CC-Date=20260730T072334Z&HW-CC-Expire=86400&HW-CC-Sign=6E6FA5AC0964D03ADD97EBFDB6EB1514B881ACCD019E3DE1DCE1A4CDFF52AFB9)
 
  
 示例代码如下：

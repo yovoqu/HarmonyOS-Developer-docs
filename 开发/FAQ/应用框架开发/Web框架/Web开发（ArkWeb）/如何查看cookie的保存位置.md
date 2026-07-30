@@ -1,6 +1,6 @@
 # 如何查看cookie的保存位置
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-06-26 09:07:13（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-53
 

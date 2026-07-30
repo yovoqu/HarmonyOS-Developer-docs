@@ -13,7 +13,7 @@ SegmentButton如何设置点击回调事件来监听当前点击的Tab？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/ydMMVG19SyuxCeX8HIRK1g/zh-cn_image_0000002628409706.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012703Z&HW-CC-Expire=86400&HW-CC-Sign=4D42842BDA179D1D82661AE7240DAE226347EC0A4003FF03678840D0D0A140FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/ydMMVG19SyuxCeX8HIRK1g/zh-cn_image_0000002628409706.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=88629CB936A1382CD2A6C69A60F0D1A759A0FEC4F03F3925BC8834305DDD1A54)
 
  
  

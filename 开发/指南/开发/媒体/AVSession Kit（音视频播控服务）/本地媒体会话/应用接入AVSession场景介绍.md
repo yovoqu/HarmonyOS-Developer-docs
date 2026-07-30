@@ -1,6 +1,6 @@
 # 应用接入AVSession场景介绍
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene
 
@@ -318,31 +318,31 @@ struct Index {
   
 ```ArkTS
 {
-  // 应用支持的意图列表
-  "insightIntents": [
-    {
-      // 意图名称
-      // 名称应当遵循意图框架规范，当前仅支持预置垂域意图，不允许自定义
-      // 应用内意图名称唯一，不允许出现相同的名称定义
-      "intentName": "PlayMusicList", // 音乐类PlayMusicList，听书或有声书类PlayAudio
-      // 意图所属的垂域
-      "domain": "MusicDomain", // 音乐类MusicDomain，听书或有声书类AudioDomain
-      // 意图版本号
-      // 插件引用意图时会校验该版本号，只有和插件定义的版本号一致才能正常调用
-      "intentVersion": "1.0.1",
-      // 意图调用代码逻辑入口
-      "srcEntry": "./ets/entryability/InsightIntentExecutorImpl.ets",
-      "uiAbility": {
-        // 意图所在module、ability，以及代码相对路径入口
-        "ability": "EntryAbility",
-        // UIAbility支持前后台两种执行模式
-        "executeMode": [
-          "background", // 播控一键冷启动、历史歌单功能需要应用支持意图后台启动
-          "foreground"
-        ]
-      }
-    }
-  ]
+    // 应用支持的意图列表。
+    "insightIntents": [
+        {
+            // 意图名称。
+            // 名称应当遵循意图框架规范，当前仅支持预置垂域意图，不允许自定义。
+            // 应用内意图名称唯一，不允许出现相同的名称定义。
+            "intentName": "PlayMusicList", // 音乐类PlayMusicList，听书或有声书类PlayAudio。
+            // 意图所属的垂域。
+            "domain": "MusicDomain", // 音乐类MusicDomain，听书或有声书类AudioDomain。
+            // 意图版本号。
+            // 插件引用意图时会校验该版本号，只有和插件定义的版本号一致才能正常调用。
+            "intentVersion": "1.0.1",
+            // 意图调用代码逻辑入口。
+            "srcEntry": "./ets/entryability/InsightIntentExecutorImpl.ets",
+            "uiAbility": {
+                // 意图所在module、ability，以及代码相对路径入口。
+                "ability": "EntryAbility",
+                // UIAbility支持前后台两种执行模式。
+                "executeMode": [
+                    "background", // 播控一键冷启动、历史歌单功能需要应用支持意图后台启动。
+                    "foreground"
+                ]
+            }
+        }
+    ]
 }
 ```
 **设置歌单信息**
@@ -357,30 +357,39 @@ avQueueName: 歌单的名称，接入歌单必选
 
 系统媒体信息根据应用上报实时刷新，若应用接入歌单功能，则确保在[AVMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avmetadata10)中一直携带歌单数据。
 
-```text
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
- 
-let context: Context = getContext(this);
-async function setListener() {
-  // 假设已经创建了一个session，如何创建session可以参考之前的案例
+// ...
+async function setListener(context: Context) {
+  // 假设已经创建了一个session，如何创建session可以参考之前的案例。
   let type: AVSessionManager.AVSessionType = 'audio';
-  let session = await AVSessionManager.createAVSession(context, 'SESSION_NAME', type);
-  // 将歌单信息设置给AVSession
+  let session: AVSessionManager.AVSession;
+  try {
+    session = await AVSessionManager.createAVSession(context, 'SESSION_NAME', type);
+  } catch (err) {
+    let error = err as BusinessError;
+    console.error(`Failed to create AVSession. Code: ${error.code}, message: ${error.message}`);
+    return;
+  }
+  // 将歌单信息设置给AVSession。
   let metadata: AVSessionManager.AVMetadata = {
-  // 下面内容均由应用设置
-  assetId: 'musicid123',
-  avQueueName: 'myQueue',
-  avQueueId: 'myQueue123',
-  avQueueImage: "PIXELMAP_OBJECT",
+    // 下面内容均由应用设置。
+    assetId: 'musicid123',
+    avQueueName: 'myQueue',
+    avQueueId: 'myQueue123',
+    avQueueImage: 'PIXELMAP_OBJECT',
   };
   session.setAVMetadata(metadata).then(() => {
-  console.info(`SetAVMetadata successfully`);
+    console.info(`SetAVMetadata successfully`);
+    // ...
   }).catch((err: BusinessError) => {
     console.error(`Failed to set AVMetadata. Code: ${err.code}, message: ${err.message}`);
+    // ...
   });
-  // 上报播放状态，参考播放状态
+  // ...
 }
+// ...
 ```
 
 **实现意图启动播放**
@@ -391,66 +400,68 @@ async function setListener() {
  - 用户触发播控冷启动播放时，系统会在意图参数(intentParam)的包含空歌单id，即解析出得的entityId为空字符串，**由应用来决定播放内容**，可以实现为续播上一次的播放内容。
  - **系统会在后台冷启动应用的播放，需要在播放前先设置[AVMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avmetadata10)，注册[播控控制回调](#控制命令的处理)，并申请播音长时任务。**
 
-
-```text
+  
+```ArkTS
 import { insightIntent, InsightIntentExecutor } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
+/**
+ * 意图调用样例。
+ */
+export default class InsightIntentExecutorImpl extends InsightIntentExecutor {
   /**
-   * 意图调用样例
+   * override 执行后台启动UIAbility意图。
+   *
+   * @param intentName 意图名称。
+   * @param intentParam 意图参数。
+   * @returns 意图调用结果。
    */
-  export default class InsightIntentExecutorImpl extends InsightIntentExecutor {
-    /**
-     * override 执行后台启动UIAbility意图
-     *
-     * @param intentName 意图名称
-     * @param intentParam 意图参数
-     * @returns 意图调用结果
-     */
-    async onExecuteInUIAbilityBackgroundMode(intentName: string, intentParam: Record<string, Object>):
-      Promise<insightIntent.ExecuteResult> {
-      // 根据意图名称分发处理逻辑
-      switch (intentName) {
-        case 'PlayMusicList':
-          // PlayMusicList参照如下解析方式
-          const entityId: string = (typeof intentParam.entityId === 'string') ? intentParam.entityId : '';
-          return this.playFunc(entityId);
-        case 'PlayAudio':
-          // PlayAudio参照如下解析方式
-          let data = intentParam as Record<string, string>;
-          return this.playFunc(data.entityId);
-        default:
-          break;
-      }
-      const data: insightIntent.ExecuteResult = {
-        code: -1,
-        result: {
-          message: 'unknown intent'
-          }
-        };
-        return Promise.resolve(data);
-      }
-    
-    /**
-     * 实现调用播放功能
-     *
-     * @param entityId 播放内容id
-     */
-    private playFunc(entityId: string): Promise<insightIntent.ExecuteResult> {
-      // entityId 不为空，表示用户指定内容（歌单/专辑）播放
-      // entityId 为空（entityId.length == 0），由应用自行决定播放内容，续播历史内容或者是推荐内容
-      // 此时是后台拉起应用播放，除了初始化播放资源，还需要设置AVMetadata，注册播控控制回调，并申请播音长时任务
-      // TODO 实现具体的播放业务
-      return Promise.resolve({
-        code: 0,
-        result: {
-          message: 'Intent execute succeed'
-        }
-      } as insightIntent.ExecuteResult)
+  async onExecuteInUIAbilityBackgroundMode(intentName: string, intentParam: Record<string, Object>):
+    Promise<insightIntent.ExecuteResult> {
+    // 根据意图名称分发处理逻辑。
+    switch (intentName) {
+      case 'PlayMusicList':
+        // PlayMusicList参照如下解析方式。
+        const entityId: string = (typeof intentParam.entityId === 'string') ? intentParam.entityId : '';
+        return this.playFunc(entityId);
+      case 'PlayAudio':
+        // PlayAudio参照如下解析方式。
+        let data = intentParam as Record<string, string>;
+        return this.playFunc(data.entityId);
+      default:
+        break;
     }
+    const data: insightIntent.ExecuteResult = {
+      code: -1,
+      result: {
+        message: 'unknown intent'
+      }
+    };
+    return Promise.resolve(data);
+  }
+
+  /**
+   * 实现调用播放功能。
+   *
+   * @param entityId 播放内容id。
+   */
+  private playFunc(entityId: string): Promise<insightIntent.ExecuteResult> {
+    // entityId 不为空，表示用户指定内容（歌单/专辑）播放。
+    // entityId 为空（entityId.length == 0），由应用自行决定播放内容，续播历史内容或者是推荐内容。
+    // 此时是后台拉起应用播放，除了初始化播放资源，还需要设置AVMetadata，注册播控控制回调，并申请播音长时任务。
+    // TODO 实现具体的播放业务。
+    return Promise.resolve({
+      code: 0,
+      result: {
+        message: 'Intent execute succeed'
+      }
+    } as insightIntent.ExecuteResult)
+  }
 }
 ```
+
+
 
 
 
@@ -703,7 +714,7 @@ struct Index {
 
           // 设置支持的快进快退的时长设置给AVSession。
           let metadata: AVSessionManager.AVMetadata = {
-            assetId: '0', // Specified by the application, used to identify the media asset in the application media library.
+            assetId: '0', // 由应用指定，用于标识应用媒体库里的媒体。
             title: 'TITLE',
             mediaImage: 'IMAGE',
             skipIntervals: AVSessionManager.SkipIntervals.SECONDS_10,
@@ -716,12 +727,12 @@ struct Index {
             // ...
           });
 
-          session.on('fastForward', (time ?: number) => {
+          session.on('fastForward', (time?: number) => {
             console.info(`on fastForward , do fastForward task`);
             // ...
             // do some tasks ···
           });
-          session.on('rewind', (time ?: number) => {
+          session.on('rewind', (time?: number) => {
             console.info(`on rewind , do rewind task`);
             // ...
             // do some tasks ···
@@ -888,8 +899,8 @@ struct Index {
           let session = await AVSessionManager.createAVSession(context, 'SESSION_NAME', type);
           // ...
 
-          session.on('seek', (position: number) => {
-            console.info(`on seek , the time is ${JSON.stringify(position)}`);
+          session.on('seek', (time: number) => {
+            console.info(`on seek , the time is ${time}`);
             // ...
 
             // 由于应用内seek可能会触发较长的缓冲等待，可以先把状态设置为 Buffering。
@@ -911,7 +922,7 @@ struct Index {
             // 应用内更新新的位置后，也需要同步更新状态给系统。
             playbackState.state = AVSessionManager.PlaybackState.PLAYBACK_STATE_PLAY; // 播放状态。
             playbackState.position = {
-              elapsedTime: position, // 已经播放的位置，以ms为单位。
+              elapsedTime: time, // 已经播放的位置，以ms为单位。
               updateTime: new Date().getTime(), // 应用更新当前位置的时间戳，以ms为单位。
             }
             session.setAVPlaybackState(playbackState, (err) => {

@@ -1,6 +1,6 @@
 # 接入ArkTS页面
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page
 
@@ -125,7 +125,7 @@ ArkUI_AttributeItem item = {value, 1};
 arkUINativeNodeApi->setAttribute(stack, NODE_WIDTH, &item);
 ArkUI_NumberValue value_color[] = {{.u32 = 0xff112233}};
 ArkUI_AttributeItem item_color = {value_color, 1};
-arkUINativeNodeApi->setAttribute(stack, NODE_BACKGROUND_COLOR, &item);
+arkUINativeNodeApi->setAttribute(stack, NODE_BACKGROUND_COLOR, &item_color);
 ```
 获取NDK接口支持的属性范围可以通过查询[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)枚举值。
  - 事件注册。
@@ -176,7 +176,7 @@ arkUINativeNodeApi->registerNodeEvent(stack, NODE_ON_CLICK, 0, nullptr);
 **图1** Native文本列表
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Sbj7-F4FShybpWISPwCD4Q/zh-cn_image_0000002647746054.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=AA44B0D1E57A5FDEF476D895EDBAF1A9506505DE97461D06D8C0753A17D5A278)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/-L8jalZgQdWYhyEwv1afug/zh-cn_image_0000002685926235.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071853Z&HW-CC-Expire=86400&HW-CC-Sign=60C4E8E4DC84BD1C628C5CD76E85B2664AD936295029DD828FE3E2F0D14BE8B0)
 
 1. 在ArkTS页面上声明用于Native页面挂载的占位组件，并在页面创建时通知Native侧创建文本列表。
 
@@ -597,8 +597,8 @@ public:
 ```cpp
 // ArkUIListItemNode.h
 // 提供列表项的封装类。
-#ifndef MYAPPLICATION_ARKUISTACKNODE_H
-#define MYAPPLICATION_ARKUISTACKNODE_H
+#ifndef MYAPPLICATION_ARKUILISTITEMNODE_H
+#define MYAPPLICATION_ARKUILISTITEMNODE_H
 
 #include "ArkUINode.h"
 
@@ -610,7 +610,7 @@ public:
 };
 } // namespace NativeModule
 
-#endif // MYAPPLICATION_ARKUISTACKNODE_H
+#endif // MYAPPLICATION_ARKUILISTITEMNODE_H
 ```
 5）实现文本组件。
 
@@ -695,7 +695,6 @@ std::shared_ptr<ArkUIBaseNode> CreateTextListExample()
         textNode->SetTextContent(std::to_string(i));
         textNode->SetFontSize(fontSizes);
         textNode->SetFontColor(0xFF000000);
-        textNode->SetPercentWidth(1);
         textNode->SetPercentWidth(screenWidth);
         textNode->SetHeight(defaultHeight);
         textNode->SetBackgroundColor(0xFFfffacd);

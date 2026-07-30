@@ -1,6 +1,6 @@
 # OpenHarmony类型的应用打包和调试常见问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-30 01:18:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-78
 
@@ -27,7 +27,7 @@ Error message:Cannot read property add of undefined
 
 #### 背景知识
 
-DevEco Studio 4.1Beta1版本及之后，不再支持直接创建OpenHarmony工程，需要手动修改配置改为OpenHarmony工程。创建OpenHarmony工程参考[官方文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section1826317225311)。
+DevEco Studio 4.1Beta1版本及之后，不再支持直接创建OpenHarmony工程，需要手动修改配置改为OpenHarmony工程。创建OpenHarmony工程参考[官方文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section181328285169)。
  
  
 

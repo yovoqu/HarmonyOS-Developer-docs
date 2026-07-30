@@ -1,14 +1,14 @@
 # SelectionMenu
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-selectionmenu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-文本选择菜单，适用于[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)组件通过[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#bindselectionmenu)或[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件通过[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)绑定自定义文本选择菜单，建议绑定鼠标右键或者鼠标选中方式弹出，不支持作为普通组件单独使用。
+文本选择菜单，适用于[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)组件通过[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#bindselectionmenu)或[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件通过[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)绑定自定义文本选择菜单，支持编辑菜单和扩展下拉菜单两种类型，可通过配置实现复制、粘贴、剪切、全选等内置功能，也可通过自定义菜单项和事件回调实现扩展功能。建议绑定鼠标右键或鼠标选中方式弹出，不支持作为普通组件单独使用。适用于富文本编辑场景，可为用户提供便捷的文本操作入口，提升文本编辑效率。
 
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
+> 该组件从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -36,7 +36,7 @@ import { SelectionMenu, EditorMenuOptions, ExpandedMenuOptions, EditorEventInfo,
 
 SelectionMenu(options: SelectionMenuOptions): void
 
-入参为空时，文本选择菜单组件SelectionMenu内容区大小及组件大小为零。表现例如，富文本组件[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)使用[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#bindselectionmenu)接口绑定一个SelectionMenu的右键菜单，则右键富文本组件区域时无任何菜单弹出。
+入参为空时，文本选择菜单组件SelectionMenu内容区大小及组件大小为零。例如，富文本组件[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)使用[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#bindselectionmenu)接口绑定一个SelectionMenu的右键菜单，则右键富文本组件区域时无任何菜单弹出。
 
 **装饰器类型：**[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)
 
@@ -50,7 +50,7 @@ SelectionMenu(options: SelectionMenuOptions): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | SelectionMenuOptions | 是 | 文本选择菜单可选项。 |
+| options | SelectionMenuOptions | 是 | 文本选择菜单配置选项，用于配置编辑菜单、扩展下拉菜单、富文本控制器以及复制粘贴剪切等回调事件。 |
 
 
 
@@ -59,9 +59,7 @@ SelectionMenu(options: SelectionMenuOptions): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配置参数。
-
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其配置参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -69,13 +67,14 @@ SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| editorMenuOptions | Array&lt;EditorMenuOptions&gt; | 否 | 是 | 编辑菜单。 editorMenuOptions未配置时，不显示编辑菜单。 同时配置EditorMenuOptions中action和builder时，点击图标会同时响应。 点击编辑菜单图标默认不关闭整个菜单，应用可以通过action接口配置RichEditorController的closeSelectionMenu主动关闭菜单。 |
-| expandedMenuOptions | Array&lt;ExpandedMenuOptions&gt; | 否 | 是 | 扩展下拉菜单。 expandedMenuOptions参数为空时无更多按钮，不显示扩展下拉菜单。 expandedMenuOptions参数不为空时显示更多按钮，配置菜单项收起在更多按钮中，点击更多按钮展示。 |
-| controller | RichEditorController | 否 | 是 | 富文本控制器不为空时显示默认系统菜单（包含剪切复制粘贴等部分）且默认菜单功能内置。 controller为空时不显示更多按钮，expandedMenuOptions参数不为空则在下拉菜单中显示。 系统默认只支持复制粘贴富文本文本内容，图文混排需要应用自定义onCopy、onPaste接口。应用自行配置onCopy \| onPaste接口时，系统菜单默认复制粘贴失效，调用应用自定义函数。 说明： 点击自定义文本选择菜单内置复制功能选项后，自定义菜单消失选中文本高亮保留。 点击自定义文本选择菜单内置全选功能选项后，自定义菜单消失文本全选高亮。 点击自定义文本选择菜单内置粘贴功能选项后，空白处粘贴或者选中文本替换粘贴均是保留被复制文本的样式。 当富文本组件RichEditor的copyOptions属性设置为CopyOptions.None时，内置的复制剪切功能不会被限制。 |
-| onCopy | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单复制项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置复制功能。 说明： event为返回信息。 |
-| onPaste | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单粘贴项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置粘贴功能。 说明： event为返回信息。 |
-| onCut | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单剪切项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置剪切功能。 说明： event为返回信息。 |
-| onSelectAll | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单全选项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置全选功能。 说明： event为返回信息。 |
+| editorMenuOptions | Array&lt;EditorMenuOptions&gt; | 否 | 是 | 编辑菜单。 editorMenuOptions未配置时，不显示编辑菜单。 同时配置EditorMenuOptions中action和builder时，点击图标会同时响应。 点击编辑菜单图标默认不关闭整个菜单，应用可以通过action接口配置RichEditorController的closeSelectionMenu主动关闭菜单。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| expandedMenuOptions | Array&lt;ExpandedMenuOptions&gt; | 否 | 是 | 扩展下拉菜单。 expandedMenuOptions参数为空时无更多按钮，不显示扩展下拉菜单。 expandedMenuOptions参数不为空时显示更多按钮，配置菜单项收起在更多按钮中，点击更多按钮展示。 controller为空时不显示更多按钮，expandedMenuOptions参数不为空则在下拉菜单中显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| controller | RichEditorController | 否 | 是 | 富文本控制器不为空时显示默认系统菜单（包含剪切复制粘贴等部分）且默认菜单功能内置。 controller为空时不显示更多按钮，expandedMenuOptions参数不为空则在下拉菜单中显示。 系统默认只支持复制粘贴富文本内容，图文混排需要应用自定义onCopy、onPaste接口。应用自行配置onCopy \| onPaste接口时，系统菜单默认复制粘贴失效，调用应用自定义函数。 说明： 点击自定义文本选择菜单内置复制功能选项后，自定义菜单消失选中文本高亮保留。 点击自定义文本选择菜单内置全选功能选项后，自定义菜单消失文本全选高亮。 点击自定义文本选择菜单内置粘贴功能选项后，空白处粘贴或者选中文本替换粘贴均是保留被复制文本的样式。 当富文本组件RichEditor的copyOptions属性设置为CopyOptions.None时，内置的复制剪切功能不会被限制。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onCopy | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单复制项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置复制功能。 说明： event为返回信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onPaste | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单粘贴项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置粘贴功能。 说明： event为返回信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onCut | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单剪切项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置剪切功能。 说明： event为返回信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onSelectAll | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单全选项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置全选功能。 说明： event为返回信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundSystemMaterial | uiMaterial.Material | 否 | 是 | 菜单背景板使用的系统材质，用于实现菜单背景的视觉效果（如模糊、透明度等）。不同系统材质包含不同的属性，影响最终的显示效果。具体材质类型及属性请参考uiMaterial.Material。默认值：undefined，无材质效果。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -92,10 +91,10 @@ SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | ResourceStr | 否 | 否 | 图标资源。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| builder | () => void | 否 | 是 | 点击时显示用户自定义组件，自定义组件在构造时结合@Builder使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| action | () => void | 否 | 是 | 点击菜单项的事件回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| symbolStyle18+ | SymbolGlyphModifier | 否 | 是 | Symbol图标资源，优先级大于icon。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| icon | ResourceStr | 否 | 否 | 编辑菜单项的图标资源。若同时设置symbolStyle，则本属性不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| builder | () => void | 否 | 是 | 点击时显示用户自定义组件，自定义组件在构造时结合@Builder使用。不设置时不显示自定义组件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| action | () => void | 否 | 是 | 点击菜单项的事件回调。同时配置builder和action时，点击图标会同时响应。不设置时点击无响应。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| symbolStyle18+ | SymbolGlyphModifier | 否 | 是 | Symbol图标资源。当需要使用系统Symbol图标（支持动态颜色、多色等高级特性）时传入此参数，不传入时使用icon属性指定的图标资源。优先级大于icon，同时设置时优先使用symbolStyle。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
 
@@ -106,7 +105,7 @@ SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配�
 
 扩展下拉菜单。
 
-继承于[MenuItemOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menuitem#menuitemoptions对象说明)。
+继承自[MenuItemOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menuitem#menuitemoptions对象说明)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -116,7 +115,7 @@ SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| action | () => void | 否 | 是 | 点击菜单项的事件回调。 |
+| action | () => void | 否 | 是 | 点击菜单项的事件回调。不设置时点击无响应。 |
 
 
 
@@ -135,7 +134,7 @@ SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | RichEditorSelection | 否 | 是 | 选中内容信息。 |
+| content | RichEditorSelection | 否 | 是 | 选中的内容信息，包含选中的文本或图片片段（spans）及选择范围（selection）。 |
 
 
 
@@ -178,22 +177,18 @@ import {
 @Entry
 @Component
 struct Index {
-  @State select: boolean = true;
   controller: RichEditorController = new RichEditorController();
   options: RichEditorOptions = { controller: this.controller };
   @State message: string = 'Hello world';
   @State textSize: number = 30;
-  @State fontWeight: FontWeight = FontWeight.Normal;
   @State start: number = -1;
   @State end: number = -1;
-  @State visibleValue: Visibility = Visibility.Visible;
-  @State colorTransparent: Color = Color.Transparent;
   @State textStyle: RichEditorTextStyle = {};
   private editorMenuOptions: Array<EditorMenuOptions> =
     [
       {
         // $r('app.media.ic_notepad_textbold')需要替换为开发者所需的图像资源文件。
-        icon: $r("app.media.ic_notepad_textbold"), action: () => {
+        icon: $r('app.media.ic_notepad_textbold'), action: () => {
         if (this.controller) {
           let selection = this.controller.getSelection();
           let spans = selection.spans;
@@ -204,7 +199,8 @@ struct Index {
               let start = span.offsetInSpan[0];
               let end = span.offsetInSpan[1];
               let offset = span.spanPosition.spanRange[0];
-              if (this.textStyle.fontWeight != 11) {
+              // 判断当前是否加粗，切换加粗/取消加粗样式
+              if (this.textStyle.fontWeight != FontWeight.Bold) {
                 this.textStyle.fontWeight = FontWeight.Bolder;
               } else {
                 this.textStyle.fontWeight = FontWeight.Normal;
@@ -221,7 +217,7 @@ struct Index {
       },
       {
         // $r('app.media.ic_notepad_texttilt')需要替换为开发者所需的图像资源文件。
-        icon: $r("app.media.ic_notepad_texttilt"), action: () => {
+        icon: $r('app.media.ic_notepad_texttilt'), action: () => {
         if (this.controller) {
           let selection = this.controller.getSelection();
           let spans = selection.spans;
@@ -232,6 +228,7 @@ struct Index {
               let start = span.offsetInSpan[0];
               let end = span.offsetInSpan[1];
               let offset = span.spanPosition.spanRange[0];
+              // 判断当前是否斜体，切换斜体/取消斜体样式
               if (this.textStyle.fontStyle == FontStyle.Italic) {
                 this.textStyle.fontStyle = FontStyle.Normal;
               } else {
@@ -249,7 +246,7 @@ struct Index {
       },
       {
         // $r('app.media.ic_notepad_underline')需要替换为开发者所需的图像资源文件。
-        icon: $r("app.media.ic_notepad_underline"),
+        icon: $r('app.media.ic_notepad_underline'),
         action: () => {
           if (this.controller) {
             let selection = this.controller.getSelection();
@@ -262,6 +259,7 @@ struct Index {
                 let end = span.offsetInSpan[1];
                 let offset = span.spanPosition.spanRange[0];
                 if (this.textStyle.decoration) {
+                  // 判断当前是否有下划线，切换下划线/取消下划线样式
                   if (this.textStyle.decoration.type == TextDecorationType.Underline) {
                     this.textStyle.decoration.type = TextDecorationType.None;
                   } else {
@@ -282,12 +280,12 @@ struct Index {
       },
       {
         // $r('app.media.ic_notepad_fontsize')需要替换为开发者所需的图像资源文件。
-        icon: $r("app.media.ic_notepad_fontsize"), action: () => {
+        icon: $r('app.media.ic_notepad_fontsize'), action: () => {
       }, builder: (): void => this.sliderPanel()
       },
       {
         // $r('app.media.ic_notepad_textcolor')需要替换为开发者所需的图像资源文件。
-        icon: $r("app.media.ic_notepad_textcolor"), action: () => {
+        icon: $r('app.media.ic_notepad_textcolor'), action: () => {
         if (this.controller) {
           let selection = this.controller.getSelection();
           let spans = selection.spans;
@@ -298,6 +296,7 @@ struct Index {
               let start = span.offsetInSpan[0];
               let end = span.offsetInSpan[1];
               let offset = span.spanPosition.spanRange[0];
+              // 判断当前是否为橙色（枚举值或十六进制字符串），切换橙色/黑色样式
               if (this.textStyle.fontColor == Color.Orange || this.textStyle.fontColor == '#FFFFA500') {
                 this.textStyle.fontColor = Color.Black;
               } else {
@@ -316,15 +315,15 @@ struct Index {
   private expandedMenuOptions: Array<ExpandedMenuOptions> =
     [{
       // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
-      startIcon: $r("app.media.startIcon"), content: '词典', action: () => {
+      startIcon: $r('app.media.startIcon'), content: '词典', action: () => {
       }
     }, {
       // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
-      startIcon: $r("app.media.startIcon"), content: '翻译', action: () => {
+      startIcon: $r('app.media.startIcon'), content: '翻译', action: () => {
       }
     }, {
       // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
-      startIcon: $r("app.media.startIcon"), content: '搜索', action: () => {
+      startIcon: $r('app.media.startIcon'), content: '搜索', action: () => {
       }
     }]
   private expandedMenuOptions1: Array<ExpandedMenuOptions> = [];
@@ -337,7 +336,7 @@ struct Index {
         event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
           if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
             let span = item as RichEditorTextSpanResult;
-            console.info('test cut' + span.value);
+            console.info('test onCut' + span.value);
             console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
           }
         })
@@ -388,6 +387,7 @@ struct Index {
           .onChange((value: number, mode: SliderChangeMode) => {
             if (this.controller) {
               let selection = this.controller.getSelection();
+              // 滑块拖动结束时，获取当前选中文本的最大字体大小作为起始值
               if (mode == SliderChangeMode.End) {
                 if (this.textSize == undefined) {
                   this.textSize = 0;
@@ -399,6 +399,7 @@ struct Index {
                   }
                 })
               }
+              // 滑块拖动中或点击时，实时更新选中文本的字体大小
               if (mode == SliderChangeMode.Moving || mode == SliderChangeMode.Click) {
                 this.start = selection.selection[0];
                 this.end = selection.selection[1];
@@ -458,7 +459,7 @@ struct Index {
 
   build() {
     Column() {
-      Button("SetSelection")
+      Button('SetSelection')
         .onClick((event: ClickEvent) => {
           if (this.controller) {
             this.controller.setSelection(0, 2);
@@ -496,7 +497,7 @@ struct Index {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/KbjYp4LwTKCtKbcOSN2CTA/zh-cn_image_0000002677828087.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=2AFEFF1EC31EC3E7A955D4F3E27395E7797539E3C25CEE79581D58A8630D74DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/U-OyKn3wTDiGoNXwft_heQ/zh-cn_image_0000002685928631.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071520Z&HW-CC-Expire=86400&HW-CC-Sign=7DA6D85E24F08E004F133C730FC4A8CC6DD42223C5021AFC99D6B4FA61403A85)
 
 
 
@@ -518,21 +519,17 @@ import {
 @Entry
 @Component
 struct Index {
-  @State select: boolean = true;
   controller: RichEditorController = new RichEditorController();
   options: RichEditorOptions = { controller: this.controller };
   @State message: string = 'Hello world';
   @State textSize: number = 30;
-  @State fontWeight: FontWeight = FontWeight.Normal;
   @State start: number = -1;
   @State end: number = -1;
-  @State visibleValue: Visibility = Visibility.Visible;
-  @State colorTransparent: Color = Color.Transparent;
   @State textStyle: RichEditorTextStyle = {};
   private editorMenuOptions: Array<EditorMenuOptions> =
     [
       {
-        icon: $r("sys.media.wifi_router_fill"),
+        icon: $r('sys.media.wifi_router_fill'),
         symbolStyle: new SymbolGlyphModifier($r('sys.symbol.save')),
         action: () => {
           if (this.controller) {
@@ -545,7 +542,8 @@ struct Index {
                 let start = span.offsetInSpan[0];
                 let end = span.offsetInSpan[1];
                 let offset = span.spanPosition.spanRange[0];
-                if (this.textStyle.fontWeight != 11) {
+                // 判断当前是否加粗，切换加粗/取消加粗样式
+                if (this.textStyle.fontWeight != FontWeight.Bold) {
                   this.textStyle.fontWeight = FontWeight.Bolder;
                 } else {
                   this.textStyle.fontWeight = FontWeight.Normal;
@@ -561,7 +559,7 @@ struct Index {
         }
       },
       {
-        icon: $r("sys.media.save_button_picture"),
+        icon: $r('sys.media.save_button_picture'),
         symbolStyle: new SymbolGlyphModifier($r('sys.symbol.camera')),
         action: () => {
           if (this.controller) {
@@ -574,6 +572,7 @@ struct Index {
                 let start = span.offsetInSpan[0];
                 let end = span.offsetInSpan[1];
                 let offset = span.spanPosition.spanRange[0];
+                // 判断当前是否斜体，切换斜体/取消斜体样式
                 if (this.textStyle.fontStyle == FontStyle.Italic) {
                   this.textStyle.fontStyle = FontStyle.Normal;
                 } else {
@@ -590,7 +589,7 @@ struct Index {
         }
       },
       {
-        icon: $r("sys.media.waveform_folder_fill"),
+        icon: $r('sys.media.waveform_folder_fill'),
         symbolStyle: new SymbolGlyphModifier($r('sys.symbol.car')),
         action: () => {
           if (this.controller) {
@@ -604,6 +603,7 @@ struct Index {
                 let end = span.offsetInSpan[1];
                 let offset = span.spanPosition.spanRange[0];
                 if (this.textStyle.decoration) {
+                  // 判断当前是否有下划线，切换下划线/取消下划线样式
                   if (this.textStyle.decoration.type == TextDecorationType.Underline) {
                     this.textStyle.decoration.type = TextDecorationType.None;
                   } else {
@@ -624,11 +624,11 @@ struct Index {
       },
       {
         // $r('app.media.app_icon')需要替换为开发者所需的图像资源文件。
-        icon: $r("app.media.app_icon"), action: () => {
+        icon: $r('app.media.app_icon'), action: () => {
       }, builder: (): void => this.sliderPanel()
       },
       {
-        icon: $r("sys.media.thermometer_fill"), action: () => {
+        icon: $r('sys.media.thermometer_fill'), action: () => {
         if (this.controller) {
           let selection = this.controller.getSelection();
           let spans = selection.spans;
@@ -639,6 +639,7 @@ struct Index {
               let start = span.offsetInSpan[0];
               let end = span.offsetInSpan[1];
               let offset = span.spanPosition.spanRange[0];
+              // 判断当前是否为橙色（枚举值或十六进制字符串），切换橙色/黑色样式
               if (this.textStyle.fontColor == Color.Orange || this.textStyle.fontColor == '#FFFFA500') {
                 this.textStyle.fontColor = Color.Black;
               } else {
@@ -657,15 +658,15 @@ struct Index {
   private expandedMenuOptions: Array<ExpandedMenuOptions> =
     [{
       // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
-      startIcon: $r("app.media.startIcon"), content: '词典', action: () => {
+      startIcon: $r('app.media.startIcon'), content: '词典', action: () => {
       }
     }, {
       // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
-      startIcon: $r("app.media.startIcon"), content: '翻译', action: () => {
+      startIcon: $r('app.media.startIcon'), content: '翻译', action: () => {
       }
     }, {
       // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
-      startIcon: $r("app.media.startIcon"), content: '搜索', action: () => {
+      startIcon: $r('app.media.startIcon'), content: '搜索', action: () => {
       }
     }]
   private expandedMenuOptions1: Array<ExpandedMenuOptions> = []
@@ -679,7 +680,7 @@ struct Index {
         event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
           if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
             let span = item as RichEditorTextSpanResult;
-            console.info('test cut' + span.value);
+            console.info('test onCut' + span.value);
             console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
           }
         })
@@ -701,7 +702,7 @@ struct Index {
         event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
           if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
             let span = item as RichEditorTextSpanResult;
-            console.info('test cut' + span.value);
+            console.info('test onCopy' + span.value);
             console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
           }
         })
@@ -712,7 +713,7 @@ struct Index {
         event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
           if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
             let span = item as RichEditorTextSpanResult;
-            console.info('test onPaste' + span.value);
+            console.info('test onSelectAll' + span.value);
             console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
           }
         })
@@ -730,6 +731,7 @@ struct Index {
           .onChange((value: number, mode: SliderChangeMode) => {
             if (this.controller) {
               let selection = this.controller.getSelection();
+              // 滑块拖动结束时，获取当前选中文本的最大字体大小作为起始值
               if (mode == SliderChangeMode.End) {
                 if (this.textSize == undefined) {
                   this.textSize = 0;
@@ -741,6 +743,7 @@ struct Index {
                   }
                 })
               }
+              // 滑块拖动中或点击时，实时更新选中文本的字体大小
               if (mode == SliderChangeMode.Moving || mode == SliderChangeMode.Click) {
                 this.start = selection.selection[0];
                 this.end = selection.selection[1];
@@ -800,7 +803,7 @@ struct Index {
 
   build() {
     Column() {
-      Button("SetSelection")
+      Button('SetSelection')
         .onClick((event: ClickEvent) => {
           if (this.controller) {
             this.controller.setSelection(0, 2);
@@ -831,4 +834,122 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/Le5J39VGQKWWXmi-UhgIVw/zh-cn_image_0000002677668239.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=FEFE233128515AC713D1EBEC8A0ABD19C4D294DC4BFEAD71D93E2E99057A916A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/YEPmgyEoRAORFsLfTbJvFA/zh-cn_image_0000002656008952.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071520Z&HW-CC-Expire=86400&HW-CC-Sign=F5ABE54DCD1C5A833A121F4850319328AA22936805606810F65E3C444989A68F)
+
+
+
+
+#### 示例3（设置背景板材质）
+
+该示例通过设置[SelectionMenuOptions](#selectionmenuoptions)的属性backgroundSystemMaterial，展示了超薄样式的背景板材质。
+
+从API版本26.0.0开始，SelectionMenuOptions新增backgroundSystemMaterial属性。
+
+```text
+import {
+  SelectionMenu, EditorEventInfo, SelectionMenuOptions
+} from '@kit.ArkUI';
+
+import { uiMaterial } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct Index {
+  controller: RichEditorController = new RichEditorController();
+  options: RichEditorOptions = { controller: this.controller };
+  @State message: string = 'Hello world';
+  @State textStyle: RichEditorTextStyle = {};
+  private selectionMenuOptions: SelectionMenuOptions = {
+    controller: this.controller,
+    onCut: (event?: EditorEventInfo) => {
+      if (event && event.content) {
+        event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
+          if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
+            let span = item as RichEditorTextSpanResult;
+            console.info('test onCut' + span.value);
+            console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
+          }
+        })
+      }
+    },
+    onPaste: (event?: EditorEventInfo) => {
+      if (event && event.content) {
+        event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
+          if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
+            let span = item as RichEditorTextSpanResult;
+            console.info('test onPaste' + span.value);
+            console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
+          }
+        })
+      }
+    },
+    onCopy: (event?: EditorEventInfo) => {
+      if (event && event.content) {
+        event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
+          if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
+            let span = item as RichEditorTextSpanResult;
+            console.info('test onCopy' + span.value);
+            console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
+          }
+        })
+      }
+    },
+    onSelectAll: (event?: EditorEventInfo) => {
+      if (event && event.content) {
+        event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
+          if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
+            let span = item as RichEditorTextSpanResult;
+            console.info('test onSelectAll' + span.value);
+            console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
+          }
+        })
+      }
+    },
+    // 使用系统材质，以超薄样式为例
+    backgroundSystemMaterial: new uiMaterial.ImmersiveMaterial({
+      style: uiMaterial.ImmersiveStyle.ULTRA_THIN
+    })
+  };
+
+  @Builder
+  MyMenu() {
+    Column() {
+      SelectionMenu(this.selectionMenuOptions)
+    }
+    .width(256)
+    .backgroundColor(Color.Transparent)
+  }
+
+  build() {
+    Column() {
+      Button('SetSelection')
+        .onClick((event: ClickEvent) => {
+          if (this.controller) {
+            this.controller.setSelection(0, 2);
+          }
+        })
+
+      RichEditor(this.options)
+        .onReady(() => {
+          this.controller.addTextSpan(this.message, { style: { fontColor: Color.Orange, fontSize: 30 } });
+          this.controller.addTextSpan(this.message, { style: { fontColor: Color.Black, fontSize: 25 } });
+        })
+        .onSelect((value: RichEditorSelection) => {
+          if (value.selection[0] == -1 && value.selection[1] == -1) {
+            return;
+          }
+        })
+        .bindSelectionMenu(RichEditorSpanType.TEXT, this.MyMenu(), RichEditorResponseType.RIGHT_CLICK)
+        .bindSelectionMenu(RichEditorSpanType.TEXT, this.MyMenu(), RichEditorResponseType.LONG_PRESS)
+        .borderWidth(1)
+        .borderColor(Color.Red)
+        .width(200)
+        .height(200)
+        .margin(10)
+    }
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/g72NyevMScqJxP_iG5hy1A/zh-cn_image_0000002655849032.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071520Z&HW-CC-Expire=86400&HW-CC-Sign=1F6518A5CD0C717362F6951398A6ED087CC357FBB2CED754754DBAF3BDEEDEB0)

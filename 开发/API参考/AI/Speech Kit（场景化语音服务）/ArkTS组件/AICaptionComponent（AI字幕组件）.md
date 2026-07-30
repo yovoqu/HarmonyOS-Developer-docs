@@ -1,6 +1,6 @@
 # AICaptionComponent（AI字幕组件）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-aicaptioncomponent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -16,7 +16,7 @@ AI字幕控件使用AI能力将语音实时转化成文本并翻译，提供原�
 
 ```text
 import {
-  AICaptionComponent, AudioInfo, AudioData, AICaptionOptions, AICaptionController
+  AICaptionComponent, AudioInfo, AudioData, AICaptionOptions, AICaptionController, AICaptionFontSize
 } from '@kit.SpeechKit';
 ```
  
@@ -98,6 +98,12 @@ struct Index {
 }
 ```
  
+组件如下图：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/R0XnLcTOSamEnZR4z2Sx_g/zh-cn_image_0000002686089265.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=BC7D342BC9770F11318A872CD22AB12279CD95D0737DD4B20B9D5CFDD86F2F37)
+
+ 
   
 
 #### AICaptionController
@@ -144,6 +150,73 @@ struct Index {
         controller: this.controller,
         options: this.options
       })
+    }
+  }
+}
+```
+ 
+  
+
+#### isCapabilitySupported
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+isCapabilitySupported(): boolean
+ 
+检测设备是否支持AI字幕功能。
+ 
+**系统能力：** SystemCapability.AI.AICaption
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**起始版本：** 26.0.0
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 是否支持AI字幕功能特性。true：支持AI字幕功能。false：不支持AI字幕功能。 |
+ 
+ 
+**示例：**
+ 
+```text
+import { AICaptionComponent, AICaptionOptions, AICaptionController } from '@kit.SpeechKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+@Entry
+@Component
+struct Index {
+  private captionOption?: AICaptionOptions;
+  private controller: AICaptionController = new AICaptionController();
+  @State isSupport: boolean = false;
+  @State isShown: boolean = false;
+
+  aboutToAppear(): void {
+    // AI字幕初始化参数，设置字幕的不透明度和回调函数
+    this.captionOption = {
+      initialOpacity: 1,
+      onPrepared: () => {
+        console.info('onPrepared')
+      },
+      onError: (error: BusinessError) => {
+        console.error(`AICaption component error. Error code: ${error.code}, message: ${error.message}`);
+      }
+    };
+    this.isSupport = this.controller.isCapabilitySupported();
+    this.isShown = true;
+  }
+
+  build() {
+    Column({ space: 20 }) {
+      // 调用AICaptionComponent组件初始化字幕
+      if (this.isSupport) {
+        AICaptionComponent({
+          isShown: this.isShown,
+          controller: this.controller,
+          options: this.captionOption
+        })
+      }
     }
   }
 }

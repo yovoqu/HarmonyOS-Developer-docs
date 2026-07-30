@@ -1,6 +1,6 @@
 # 使用HiLog打印日志（ArkTS）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog-guidelines-arkts
 
@@ -23,6 +23,13 @@ HiLog中定义了DEBUG、INFO、WARN、ERROR、FATAL五种日志级别，并提�
 | fatal(domain: number, tag: string, format: string, ...args: any[]) | 输出FATAL级别日志。表示出现致命错误、不可恢复错误。 |
 | setMinLogLevel(level: LogLevel) | 设置应用日志打印的最低日志级别，用于拦截低级别日志打印。 说明：从API version 15开始，支持该接口。 |
 | setLogLevel(level: LogLevel, prefer: PreferStrategy) | 设置当前应用程序进程的最低日志级别。可以配置不同的偏好策略。 说明：从API version 21开始，支持该接口。 |
+| setOutputType(type: OutputType) | 设置hilog的输出类型。可选择不同的日志输出方式。 说明：从API版本26.0.0开始，支持该接口。 |
+| setOutputTypeByDomainID(type: OutputType, domainIDs: Array&lt;number&gt;, isExclude: boolean) | 根据domainIDs设置hilog的输出类型。可选择不同的日志输出方式。 说明：从API版本26.0.0开始，支持该接口。 |
+| getOutputType() | 返回当前hilog的输出类型。 说明：从API版本26.0.0开始，支持该接口。 |
+| clean() | 删除沙箱中的所有hilog日志。 说明：从API版本26.0.0开始，支持该接口。 |
+| flush() | 将缓存中的日志强制落盘。 说明：从API版本26.0.0开始，支持该接口。 |
+| getLogFile(latestSeconds: number) | 返回指定最近时间段沙箱中的hilog日志文件路径列表。 说明：从API版本26.0.0开始，支持该接口。 |
+| getOutputDir() | 返回hilog日志在沙箱中的路径。 说明：从API版本26.0.0开始，支持该接口。 |
 
 
 
@@ -44,6 +51,10 @@ debug版本应用下，setMinLogLevel()和setLogLevel()函数均不生效。
  - **level**：用于指定日志级别。取值见[LogLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hilog#loglevel)。
  - **prefer**：用于指定偏好策略。取值见[PreferStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hilog#preferstrategy21)。
  - **format**：格式字符串，用于日志的格式化输出。日志打印的格式化参数需按照“%{private flag}specifier”的格式打印。
+ - **type**：hilog的输出类型，取值见[OutputType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hilog#outputtype)。
+ - **domainIDs**：设置输出类型的domain列表，取值范围为0x0000~0xFFFF。
+ - **isExclude**：用于决定domainIDs是否对设置的输出类型生效，true表示排除domainIDs列表，仅对非列表中的domain生效，false表示仅对列表中的domain生效。
+ - **latestSeconds**：距离现在的时间段，单位是秒，取值范围大于0。
 
 | 隐私标识符（private flag） | 说明 |
 
@@ -85,61 +96,89 @@ debug版本应用下，setMinLogLevel()和setLogLevel()函数均不生效。
 
 #### 开发步骤
 
-在按钮中增加一个单击事件，单击按钮时打印一条日志。
+在按钮中增加一个单击事件，单击按钮时打印日志。
 1. 新建一个工程，选择“Empty Ability”。
-2. 工程配置界面中，**Model**选择“Stage”。
-3. 在**Project**窗口单击entry > src > main > ets > pages，打开工程中的Index.ets文件，添加一个按钮，单击按钮打印日志。
+2. 工程配置界面中，**Model**选择“Stage”，若无Model选项，则无需配置，默认为“Stage”模型。
+3. 在**Project**窗口单击entry > src > main > ets > pages，打开工程中的Index.ets文件，添加两个按钮，单击按钮打印日志。
 
   示例代码如下：
 
   
 ```ArkTS
-// Index.ets
-
 import { hilog } from '@kit.PerformanceAnalysisKit';
-
+// ...
 @Entry
 @Component
 struct Index {
   build() {
     Row() {
       Column() {
-        // 添加按钮，以响应用户点击
-        Button() {
-          Text('Next')
-            .fontSize(30)
-            .fontWeight(FontWeight.Bold)
-        }
-        .type(ButtonType.Capsule)
-        .margin({
-          top: 20
-        })
-        .backgroundColor('#0D9FFB')
-        .width('40%')
-        .height('5%')
-        // 跳转按钮绑定onClick事件，点击时打印日志
-        .onClick(() => {
-          hilog.isLoggable(0xFF00, "testTag", hilog.LogLevel.INFO);
-          hilog.info(0xFF00, "testTag", "%{public}s World %{public}d", "hello", 3);
-          class Person {
-             constructor(name: string, age: number) {
-               this.name = name;
-               this.age = age;
-             }
-             name: string;
-             age:  number;
-          }
-          let peter: Person = new Person("peter", 15);
-          hilog.info(0xFF00, "testTag", "peter is %{public}o", peter);
-          // 设置应用日志最低打印级别，设置完成后，低于Warn级别的日志将无法打印
-          hilog.setMinLogLevel(hilog.LogLevel.WARN);
-          hilog.info(0x0000, 'testTag', 'this is an info level log');
-          hilog.error(0x0000, 'testTag', 'this is an error level log');
-          // 设置应用日志PREFER_OPEN_LOG策略的最低打印级别，设置完成后，不低于INFO级别的日志都可打印
-          hilog.setLogLevel(hilog.LogLevel.INFO, hilog.PreferStrategy.PREFER_OPEN_LOG);
-          hilog.info(0x0000, 'testTag', 'this is an another info level log');
-          hilog.error(0x0000, 'testTag', 'this is an another error level log');
-        })
+        // 添加hilog按钮，以响应用户点击
+        Button($r('app.string.HiLogArkTS_Button'))
+          .type(ButtonType.Capsule)
+          .margin({
+            top: 20
+          })
+          .backgroundColor('#0D9FFB')
+          .width('40%')
+          .height('5%')
+          // 按钮绑定onClick事件，点击时打印日志，注意release hap包默认无法打印debug级别日志
+          .onClick(() => {
+            //isLoggable是用来判断，domainID和tag是否满足目前的日志级别打印，建议对返回值进行判断
+            let ret = hilog.isLoggable(0xFF00, 'testTag', hilog.LogLevel.INFO);
+            if (ret) {
+              hilog.info(0xFF00, 'testTag',
+              'A log with a domainID of 0xFF00 and a label of testTag can print logs at the Info level or higher.');
+            }
+            hilog.info(0xFF00, 'testTag', '%{public}s World %{public}d', 'hello', 3);
+            class Person {
+              constructor(name: string, age: number) {
+                this.name = name;
+                this.age = age;
+              }
+              public name: string;
+              public age:  number;
+            }
+            let peter: Person = new Person('peter', 15);
+            hilog.info(0xFF00, 'testTag', 'peter is %{public}o', peter);
+            // 设置应用日志最低打印级别，设置完成后，低于Warn级别的日志将无法打印
+            hilog.setMinLogLevel(hilog.LogLevel.WARN);
+            hilog.info(0xFF00, 'testTag', 'this is an info level log');
+            hilog.error(0xFF00, 'testTag', 'this is an error level log');
+            // 设置应用日志PREFER_OPEN_LOG策略的最低打印级别，设置完成后，不低于INFO级别的日志都可打印
+            hilog.setLogLevel(hilog.LogLevel.INFO, hilog.PreferStrategy.PREFER_OPEN_LOG);
+            hilog.info(0xFF00, 'testTag', 'this is an another info level log');
+            hilog.error(0xFF00, 'testTag', 'this is an another error level log');
+          })
+        // 添加沙箱日志按钮，以响应用户点击
+        Button($r('app.string.SandboxLogArkTS_Button'))
+          .type(ButtonType.Capsule)
+          .margin({
+            top: 20
+          })
+          .backgroundColor('#0D9FFB')
+          .width('40%')
+          .height('5%')
+          // 按钮绑定onClick事件，点击时打印日志，注意release hap包默认无法打印debug级别日志
+          .onClick(() => {
+            // 设置日志输出类型SHARE_SANDBOX_WITH_CONSOLE，同时输出公有沙箱和控制台
+            hilog.setOutputType(hilog.OutputType.SHARE_SANDBOX_WITH_CONSOLE);
+            let lastType = hilog.getOutputType();
+            hilog.info(0xFF00, 'testTag', 'current log type:%{public}d', lastType);
+            let dir = hilog.getOutputDir();
+            hilog.info(0xFF00, 'testTag', 'current log dir:%{public}s', dir);
+            hilog.info(0xFF00, 'testTag', 'hilog_info_test');
+            hilog.debug(0xFF00, 'testTag', 'hilog_debug_test');
+            hilog.warn(0xFF00, 'testTag', 'hilog_warn_test');
+            hilog.fatal(0xFF00, 'testTag', 'hilog_fatal_test');
+            hilog.error(0xFF00, 'testTag', 'hilog_error_test');
+            // 获取沙箱目录中2分钟之内写入过的日志文件
+            let logs = hilog.getLogFile(120);
+            hilog.info(0xFF00, 'testTag', 'current log files:%{public}s', logs.toString());
+            // 将沙箱日志刷入磁盘
+            hilog.flush();
+          })
+// ...
       }
       .width('100%')
     }
@@ -167,18 +206,31 @@ struct Index {
 
   选择当前的设备及进程，日志级别选择Debug，搜索内容设置为“testTag”。此时窗口仅显示符合条件的日志。
 
+  点击HiLogArkTS按钮，查看HiLog日志。
+
 打印日志结果为:
 
 ```text
-01-02 08:18:24.947   30988-30988   A0FF00/com.example.hilogDemo/testTag  com.example.hilogDemo  I     hello World 3
-01-02 08:18:24.947   30988-30988   A0FF00/com.example.hilogDemo/testTag  com.example.hilogDemo  I     peter is {"name":"peter","age":15}
-01-02 08:18:24.947   30988-30988   A00000/com.example.hilogeDmo/testTag  com.example.hilogDemo  E     this is an error level log
-01-02 08:18:24.947   30988-30988   A00000/com.example.hilogeDmo/testTag  com.example.hilogDemo  I     this is an another info level log
-01-02 08:18:24.947   30988-30988   A00000/com.example.hilogeDmo/testTag  com.example.hilogDemo  E     this is an another error level log
+08-05 06:32:35.928   10753-10753   A0FF00/com.sam...hilog/testTag  com.samples.hilog     I     A log with a domainID of 0xFF00 and a label of testTag can print logs at the Info level or higher.
+08-05 06:32:35.928   10753-10753   A0FF00/com.sam...hilog/testTag  com.samples.hilog     I     hello World 3
+08-05 06:32:35.928   10753-10753   A0FF00/com.sam...hilog/testTag  com.samples.hilog     I     peter is {"name":"peter","age":15}
+08-05 06:32:35.928   10753-10753   A0FF00/com.sam...hilog/testTag  com.samples.hilog     E     this is an error level log
+08-05 06:32:35.928   10753-10753   A0FF00/com.sam...hilog/testTag  com.samples.hilog     I     this is an another info level log
+08-05 06:32:35.928   10753-10753   A0FF00/com.sam...hilog/testTag  com.samples.hilog     E     this is an another error level log
 ```
+1. 点击SandboxLog按钮，搜索内容设置为“testTag”，控制台current log dir打印的即为当前沙箱的路径。
+2. 查看沙箱中最新生成的日志文件。
 
+  沙箱日志的内容如下：
 
-
-#### 示例代码
-
- - [Logger](https://gitcode.com/HarmonyOS_Samples/logger)
+  
+```text
+08-05 06:32:35.928 10753 10753 I A0ff00/testTag: current log type:4
+08-05 06:32:35.928 10753 10753 I A0ff00/testTag: current log dir:/data/storage/el2/log/hiapplog
+08-05 06:32:35.929 10753 10753 I A0ff00/testTag: hilog_info_test
+08-05 06:32:35.929 10753 10753 D A0ff00/testTag: hilog_debug_test
+08-05 06:32:35.929 10753 10753 W A0ff00/testTag: hilog_warn_test
+08-05 06:32:35.929 10753 10753 F A0ff00/testTag: hilog_fatal_test
+08-05 06:32:35.929 10753 10753 E A0ff00/testTag: hilog_error_test
+08-05 06:32:35.930 10753 10753 I A0ff00/testTag: current log files:hiapplog.10753.001.20170805-063235.log
+```

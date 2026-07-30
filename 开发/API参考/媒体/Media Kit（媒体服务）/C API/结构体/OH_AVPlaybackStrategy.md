@@ -1,12 +1,12 @@
 # OH_AVPlaybackStrategy
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-oh-avplaybackstrategy
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef struct OH_AVPlaybackStrategy OH_AVPlaybackStrategy
+typedef struct OH_AVPlaybackStrategy OH_AVPlaybackStrategy;
 ```
   
 
@@ -14,7 +14,7 @@ typedef struct OH_AVPlaybackStrategy OH_AVPlaybackStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-音视频播放策略的结构体类型。
+音视频播放策略的结构体类型，用于配置播放器在播放音视频内容时的策略参数，适用于需要精细控制播放行为的场景。
  
 **起始版本：** 23
  

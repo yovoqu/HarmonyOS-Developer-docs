@@ -1,6 +1,6 @@
 # native_avmemory.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmemory-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -49,7 +49,7 @@
 | OH_AVMemory *OH_AVMemory_Create(int32_t size) | 创建OH_AVMemory实例的指针。 |
 | uint8_t *OH_AVMemory_GetAddr(struct OH_AVMemory *mem) | 获取内存虚拟地址。 |
 | int32_t OH_AVMemory_GetSize(struct OH_AVMemory *mem) | 获取内存长度。 |
-| OH_AVErrCode OH_AVMemory_Destroy(struct OH_AVMemory *mem) | 释放OH_AVMemory实例指针的资源。 |
+| OH_AVErrCode OH_AVMemory_Destroy(struct OH_AVMemory *mem) | 释放OH_AVMemory实例占用的资源。 |
  
  
   
@@ -178,7 +178,7 @@ OH_AVErrCode OH_AVMemory_Destroy(struct OH_AVMemory *mem)
  
 **描述**
  
-释放OH_AVMemory实例指针的资源。
+释放OH_AVMemory实例占用的资源。
  
 **系统能力：** SystemCapability.Multimedia.Media.Core
  

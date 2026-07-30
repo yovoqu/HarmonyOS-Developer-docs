@@ -1,6 +1,6 @@
 # 空间渲染(C/C++)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-space-render
 
@@ -34,7 +34,7 @@
 固定摆位模式用于将音频源放置在特定空间的固定位置，适用于需要固定音源位置的场景，用户可通过调用[OH_AudioSuiteEngine_SetSpaceRenderPositionParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setspacerenderpositionparams)对空间渲染节点进行参数配置。固定摆位示意图如下：
 
 
-![](assets/空间渲染(C／C++)/file-2026070810351034562b04.png)
+![](assets/空间渲染(C／C++)/file-20260708103510253f88e2.png)
 
 
 
@@ -44,7 +44,7 @@
 旋转模式让音频源在指定位置设定单周环绕时间与时针方向进行动态渲染，用户可通过调用[OH_AudioSuiteEngine_SetSpaceRenderRotationParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setspacerenderrotationparams)对空间渲染节点进行参数配置。旋转模式示意图如下：
 
 
-![](assets/空间渲染(C／C++)/file-20260708103510253f88e2.png)
+![](assets/空间渲染(C／C++)/file-2026070810351034562b04.png)
 
 
 
@@ -310,4 +310,4 @@ OH_AudioSuiteEngine_Destroy(g_audioSuiteEngine);
 
 #### 完整示例代码
 
- - [音频编创示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/HarmonyOS-7.0-beta-20260514/Media/Audio/AudioSuiteSample)
+ - [音频编创示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/Media/Audio/AudioSuiteSample)

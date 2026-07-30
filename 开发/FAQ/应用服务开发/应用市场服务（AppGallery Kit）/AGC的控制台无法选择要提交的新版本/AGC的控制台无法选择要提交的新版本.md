@@ -9,17 +9,17 @@
 AGC的控制台进行新版本提交，无法选择需要提交的新版本。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ErjydVfyRSacbx5oqg1z1Q/zh-cn_image_0000002628554516.png?HW-CC-KV=V1&HW-CC-Date=20260723T013838Z&HW-CC-Expire=86400&HW-CC-Sign=4F74BF84BA95CAC0741D96748AC85D2DF5F7F84E9CE708648C17FEBF012C7B79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/s48Z155kSkiNJXrBk_obRg/zh-cn_image_0000002628554516.png?HW-CC-KV=V1&HW-CC-Date=20260730T072702Z&HW-CC-Expire=86400&HW-CC-Sign=9ABBA3D18F355064411E00EC05A99EC553040167D715AF3A476C0C847E43D198)
 
  
  
 
 #### 解决方案
 1. 在“上传包”窗口，先选择“使用场景”，然后点击“+”上传软件包。若软件包需要在全网正式发布，请选择“测试和正式上架”，根据需求选择是否在中国大陆发布。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/wB_kd_3hRKqzefw8_5uLEw/zh-cn_image_0000002658913839.png?HW-CC-KV=V1&HW-CC-Date=20260723T013838Z&HW-CC-Expire=86400&HW-CC-Sign=A3C77318FF701DA07C5DDC803DDC538424735C70065B312365930A85A2BE5B81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/zaDavZTUTQ2s1ly1Pr3JAg/zh-cn_image_0000002658913839.png?HW-CC-KV=V1&HW-CC-Date=20260730T072702Z&HW-CC-Expire=86400&HW-CC-Sign=0235B424723CCB27898F58D55A7C85088B969221104B70C52C3043A7135AD285)
 
 2. 配置发布国家或地区，选择“特定国家或地区”：应用仅在所选国家或地区发布。其中，发布国家的中国大陆选项选择需与“上传包”窗口中的选择保持一致。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/CpelGQsvT2mEy9o5ELcgAg/zh-cn_image_0000002658793897.png?HW-CC-KV=V1&HW-CC-Date=20260723T013838Z&HW-CC-Expire=86400&HW-CC-Sign=24A8FB17CE007C8902B8C5A2EFDAC130AA292F3D685EF09D4AF762C65C65DC89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/f3NFUUP8RkKzM2q6-HGQGw/zh-cn_image_0000002658793897.png?HW-CC-KV=V1&HW-CC-Date=20260730T072702Z&HW-CC-Expire=86400&HW-CC-Sign=1C67F1A3BB20395AF8F9316815677E102315C501F9D3FE554AAD674360FA32C9)
 
  
  

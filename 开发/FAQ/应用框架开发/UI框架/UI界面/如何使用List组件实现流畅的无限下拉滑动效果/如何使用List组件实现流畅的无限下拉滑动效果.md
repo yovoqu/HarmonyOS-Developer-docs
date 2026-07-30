@@ -111,7 +111,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/BXB4d9ElTUif-Fm8vG-1IQ/zh-cn_image_0000002628401248.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013139Z&HW-CC-Expire=86400&HW-CC-Sign=0F253FB04C000E639B7FAECA4856C6B70F6BC30AC8927ADB848CCE56A016E358)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/BXB4d9ElTUif-Fm8vG-1IQ/zh-cn_image_0000002628401248.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=6E737206CB0AA0D8FDB3985E8F11A8E1AC15BEE6F874377410C8EA366EAE14CD)
 
 
  
@@ -310,7 +310,7 @@ struct <span style="color: rgb(0,0,255);">RepeatScrollPage </span><span style="c
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ERdwVJslRF-KDAZ-z1WStg/zh-cn_image_0000002658800515.gif?HW-CC-KV=V1&HW-CC-Date=20260723T013139Z&HW-CC-Expire=86400&HW-CC-Sign=C22E686A855FFB5855705A10BDA126103343128903A39C110B1DB5212E4B001C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ERdwVJslRF-KDAZ-z1WStg/zh-cn_image_0000002658800515.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=414E751D7C34780DD3525DEE33EECD7CACE956BF3C9D7626D2521FB72F447724)
 
 - 场景三：当ListItem类型不同时，在[onScrollStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollstart9)触发时通过滚动偏移量和ListItem的高度进行比较，提前加载更多数据。
 ```text
@@ -400,4 +400,4 @@ export class <span style="color: rgb(0,0,255);">ListData </span><span style="col
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/4musROLISgaD5hz5BnD8eg/zh-cn_image_0000002628561156.png?HW-CC-KV=V1&HW-CC-Date=20260723T013139Z&HW-CC-Expire=86400&HW-CC-Sign=6FF919EB0E5BE5CD02C10A573D52804382F12DE7483E02B2F58FA26E0043C770)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/4musROLISgaD5hz5BnD8eg/zh-cn_image_0000002628561156.png?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=E036A5248465C9ADFB7F96932F2B7BB27463730C4B1CE0C842DE67D34C78066B)

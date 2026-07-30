@@ -14,10 +14,10 @@
 | 场景二 | Repeat与@Builder混用场景下，传参错误，导致数据重复。 |
  
 1. 场景一：滑动加载新数据，在aboutToAppear方法里处理数据逻辑，问题如图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/rv9yWOpnRXass4h0Tx18eQ/zh-cn_image_0000002673095881.png?HW-CC-KV=V1&HW-CC-Date=20260723T013207Z&HW-CC-Expire=86400&HW-CC-Sign=24BB2677DF80AA79F85086A4FC97B7C1885EE5C2489CD656375F47C44F8C0574)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/rv9yWOpnRXass4h0Tx18eQ/zh-cn_image_0000002673095881.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=FA4F7C5CE7AD84E2D63BDB33FE35F834C3A55ACE06A3FFE16B5BEDF7AB0F62B5)
 
 2. 场景二：进行Repeat与@Builder混用场景下，传参使用错误，导致数据重复，问题如图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/MaOdyVm6SxyujPkmxyWOEA/zh-cn_image_0000002643056034.png?HW-CC-KV=V1&HW-CC-Date=20260723T013207Z&HW-CC-Expire=86400&HW-CC-Sign=BD91865B3693CB704BB4B35AB877795B769AF0BC94A0F99CF3483D589C62B701)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/MaOdyVm6SxyujPkmxyWOEA/zh-cn_image_0000002643056034.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=8BF34015E2C33FF1D657DE270041B34500DA3998B4A485B1CB86588380AB3FF2)
 
  
  
@@ -274,10 +274,10 @@ function getItemData(start: number, count: number): ItemDataV2[] {
 场景一：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/sKTQb3P1Qk2yBbf2cz0AVQ/zh-cn_image_0000002673098375.png?HW-CC-KV=V1&HW-CC-Date=20260723T013207Z&HW-CC-Expire=86400&HW-CC-Sign=888639620A11BBF6B4D569C086E4219F50A0F507298ACEBE881B9A99F9B5EA5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/sKTQb3P1Qk2yBbf2cz0AVQ/zh-cn_image_0000002673098375.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=73587511E032052E17ABEC019FFB27EEE55523F5EB9713FCF679E8FEB2EDD2CE)
 
  
 场景二：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Ddkvw-GaRmm4uUTWrhUZAQ/zh-cn_image_0000002643058520.png?HW-CC-KV=V1&HW-CC-Date=20260723T013207Z&HW-CC-Expire=86400&HW-CC-Sign=DCEB3CB95D66A24E896380EFDC4868BADA0021A3D5F2EF267511EB75B8AD27B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Ddkvw-GaRmm4uUTWrhUZAQ/zh-cn_image_0000002643058520.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=25D54EE4416CE585AC5536469C7E1ED9FE76CB5B3B37C693BE8731E03076B0D0)

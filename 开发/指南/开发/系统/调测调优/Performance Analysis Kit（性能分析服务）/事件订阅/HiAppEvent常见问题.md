@@ -1,6 +1,6 @@
 # HiAppEvent常见问题
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-faq
 
@@ -22,7 +22,7 @@
 
 **问题现象**
 
-Hilog中出现如下日志：
+HiLog中出现如下日志：
 
  - eventInfo.params.external_log=[]
  - HiAppEvent file does not exist

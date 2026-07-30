@@ -1,6 +1,6 @@
 # 连接VPN
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/net-vpnextension
 
@@ -11,14 +11,14 @@ VPN，即虚拟专用网络（Virtual Private Network），是在公用网络上
 HarmonyOS为开发者提供了用于创建VPN的API解决方案。当前提供三方VPN能力主要用于创建虚拟网卡及配置VPN路由信息，连接隧道过程及内部连接的协议需要应用内部自行实现。本文将指导您如何开发自己的VPN客户端。
 
 > [!TIP]
-> 为了保证应用的运行效率，所有API调用都是异步的，对于异步调用的API均提供了Promise的方式，以下示例均采用Promise方式，更多方式可以查阅 @ohos.net.vpnExtension (VPN增强管理) 。 完整的JS API说明以及示例代码请参考： @ohos.net.vpnExtension (VPN增强管理) 。 使用该功能需要 ohos.permission.INTERNET 权限。
+> 为了保证应用的运行效率，所有API调用都是异步的，对于异步调用的API均提供了Promise的方式，以下示例均采用Promise方式，更多方式可以查阅 @ohos.net.vpnExtension (VPN增强管理) 。 完整的JS API说明以及示例代码请参考： @ohos.net.vpnExtension (VPN增强管理) 。 使用该功能需要 ohos.permission.INTERNET 权限。 针对VpnExtensionAbility接口调用限制，详细请参考API中的 约束限制 。
 
 
 
 
 #### VPN应用的显示体验
 
-借助系统提供的[VPN Extension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-vpnextension)接口开发者可以构建支持不同协议的VPN服务。HarmonyOS系统提供了界面 (UI) 使用户可以了解当前VPN应用服务的启动和连接：
+开发者可以借助系统提供的[@ohos.net.vpnExtension (VPN增强管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-vpnextension)接口构建支持不同协议的VPN服务。HarmonyOS系统提供了界面 (UI) 使用户可以了解当前VPN应用服务的启动和连接：
 
  - 在VPN应用首次启动连接之前，系统会显示VPN连接授权对话框。该对话框会提示用户是否信任该VPN应用并接受VPN连接请求。
  - 当VPN启动连接成功时，状态栏显示一个VPN (钥匙) 图标以提醒用户VPN处于连接状态。
@@ -284,7 +284,7 @@ export class VpnTest extends VpnExtensionAbility {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | addresses | Array&lt;LinkAddress&gt; | 否 | 否 | VPN虚拟网卡的IP地址。 |
-| routes | Array&lt;RouteInfo&gt; | 否 | 是 | VPN虚拟网卡的路由信息(目前最多可配置1024条路由)。 |
+| routes | Array&lt;RouteInfo&gt; | 否 | 是 | VPN虚拟网卡的路由信息（API version 23前最多可配置1024条路由；从API version 23开始最多可配置10000条路由）。 |
 | dnsAddresses | Array&lt;string&gt; | 否 | 是 | DNS服务器地址信息。配置DNS服务器地址后，VPN启动状态下，被代理的应用上网时，使用配置的DNS服务器进行DNS查询。 |
 | searchDomains | Array&lt;string&gt; | 否 | 是 | DNS的搜索域列表。 |
 | mtu | number | 否 | 是 | 最大传输单元MTU值(单位：字节)。 |

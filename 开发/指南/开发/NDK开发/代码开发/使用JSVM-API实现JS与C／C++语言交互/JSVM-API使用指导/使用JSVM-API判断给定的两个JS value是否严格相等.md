@@ -1,6 +1,6 @@
 # 使用JSVM-API判断给定的两个JS value是否严格相等
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-strict-equals
 
@@ -38,10 +38,10 @@ JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
 cpp部分代码：
  
 ```cpp
-// hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include <hilog/log.h>
+#include "hilog/log.h"
+// ...
 // OH_JSVM_StrictEquals的样例方法
 static JSVM_Value IsStrictEquals(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -71,7 +71,7 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"isStrictEquals", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 // 样例测试js
-const char* srcCallNative = R"JS(data = '123';value = '123';isStrictEquals(data,value);)JS";
+const char* SRC_CALL_NATIVE = R"JS(data = '123';value = '123';isStrictEquals(data,value);)JS";
 ```
  
 预期的输出结果：

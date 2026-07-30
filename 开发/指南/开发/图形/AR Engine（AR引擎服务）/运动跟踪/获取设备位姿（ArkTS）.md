@@ -1,6 +1,6 @@
 # 获取设备位姿（ArkTS）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-pose
 
@@ -48,7 +48,7 @@ Vec3是一个三维向量，用于存储设备的位姿信息。
 
 ```text
 let pose: arEngine.ARPose;
-let stateReason: arEngine.ARTrackingStateReason = arEngine.ARTrackingStateReason.NONE;
+let stateReason: arEngine.ARTrackingStateReason;
 ```
 
 
@@ -61,26 +61,27 @@ let stateReason: arEngine.ARTrackingStateReason = arEngine.ARTrackingStateReason
 
 ```text
 @Builder
-export function ARPoseBuilder(): void {
-  ARPose();
+export function ARPoseBuilder() {
+  ARPose()
 }
-
+let pose: arEngine.ARPose;
+let stateReason: arEngine.ARTrackingStateReason;
 @Component
 struct ARPose {
+  pageInfos: NavPathStack = new NavPathStack();
   @State arContext?: arViewController.ARViewContext = undefined;
   private intervalId: number = -1;
-  // 重复调用函数时间间隔为33ms，即设定为30fps
   private delayInterval: number = 33;
-  // 位姿的信息参数
+  private params: arEngine.ARConfig = { type: arEngine.ARType.WORLD };
   @State translation: Vec3 = {
     x: 0,
     y: 0,
     z: 0
-  }
-  // 追踪失败的原因
+  };
+  @State currentTimeStamp: Date = new Date();
   @State reason: arEngine.ARTrackingStateReason = stateReason;
 
-  build(): void {
+  build() {
     NavDestination() {
       RelativeContainer() {
         if (this.arContext) {
@@ -92,7 +93,6 @@ struct ARPose {
               middle: { anchor: '__container__', align: HorizontalAlign.Center }
             })
 
-          // 在屏幕上显示设备位姿信息
           Column() {
             Text(`x: ${this.translation.x.toFixed(4)}`)
               .infoStyles()
@@ -102,9 +102,11 @@ struct ARPose {
               .infoStyles()
             Text(`reason: ${this.reason}`)
               .infoStyles()
+            Text(`time: ${this.getCurrentTime(this.currentTimeStamp)}`)
+              .infoStyles()
           }
           .alignItems(HorizontalAlign.Start)
-          .margin({ left: 28, top: 28 })
+          .margin({ left: '28vp' })
           .alignRules({
             top: { anchor: '__container__', align: VerticalAlign.Top },
             left: { anchor: '__container__', align: HorizontalAlign.Start }
@@ -113,50 +115,52 @@ struct ARPose {
       }
     }
     .onAppear(() => {
-      this.initARView();
-      // 设定在30fps下更新位姿和追踪失败原因的信息
+      this.initARView()
+
       this.intervalId = setInterval(() => {
         if (pose !== undefined) {
-          this.translation = pose.translation;
-          this.reason = stateReason;
+          this.translation = pose.translation
+          this.reason = stateReason
+          this.currentTimeStamp = new Date()
         }
       }, this.delayInterval);
     })
     .onWillDisappear(() => {
-      // 退出setInterval函数
       clearInterval(this.intervalId);
-      this.stopARView();
+      this.arContext?.destroy();
     })
     .onShown(() => {
-      this.resumeARView();
+      this.resumeARView()
     })
     .onHidden(() => {
-      this.pauseARView();
+      this.pauseARView()
+    })
+    .onReady(ctx => {
+      this.params = ctx.pathInfo.param as arEngine.ARConfig;
     })
     .hideTitleBar(true)
     .hideBackButton(true)
     .hideToolBar(true)
   }
 
-  private initARView(): void {
-    // ...
-  }
-  private stopARView(): void {
-    // ...
-  }
-  private resumeARView(): void {
-    // ...
-  }
   private pauseARView(): void {
     // ...
   }
-}
 
-// 界面显示文本样式
+  private resumeARView(): void {
+    // ...
+  }
+
+  private initARView(): void {
+    // ...
+  }
+  // ...
+  }
+}
 @Extend(Text)
 function infoStyles() {
   .fontColor(Color.Yellow)
-  .fontSize(24)
+  .fontSize(20)
   .textShadow({
     radius: 10,
     color: Color.Black,
@@ -176,28 +180,25 @@ function infoStyles() {
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
-    // ...
   }
 
   onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
-    // ...
   }
 
-  onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): void {
+  async onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): Promise<void> {
     if (!ctx.session) {
       return;
     }
 
-    let arSession: arEngine.ARSession = ctx.session; // 获取AR会话
-
+    let session: arEngine.ARSession = ctx.session;
     try {
-      // 获取每一帧的设备位姿信息及追踪失败的原因
-      let frame: arEngine.ARFrame = arSession.getFrame();
+      let frame = session.getFrame();
       pose = frame.getCamera().getPose();
       stateReason = frame.getCamera().stateReason;
+      releaseFrame(frame);
     } catch (error) {
-      const err: BusinessError = error as BusinessError;
-      console.error(`Failed to update data. Code is ${err.code}, message is ${err.message}`);
+      const err = error as BusinessError;
+      // ...
     }
   }
 }

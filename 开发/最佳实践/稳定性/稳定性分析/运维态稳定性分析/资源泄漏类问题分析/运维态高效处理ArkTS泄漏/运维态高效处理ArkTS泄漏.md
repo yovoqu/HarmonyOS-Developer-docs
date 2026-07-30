@@ -19,7 +19,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 排查流程如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/VCYzs3yqTeWuxFBhXcx0UA/zh-cn_image_0000002645091426.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=E0F10E610ED74EF66591BBB5EAA4F20FBAE59E116EAA0526BF6B11A1E5A0FB92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/EP50FRguQNeITe-SYnvRpQ/zh-cn_image_0000002645091426.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=EFEBE370A494DD1828377679E1E07BEE8A070D0CEAEEDB82DB7DC07DE745225D)
 
  
 **排查步骤**
@@ -38,7 +38,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 故障分析表格会将相同根因类型的故障聚类并排序。表格会展示故障模块、发生次数（占比）、影响设备数（占比）等关键信息，开发者可以通过发生占比和故障模块结合业务实际情况找出高优先级的问题，并在问题状态和优先级这一栏做出标记，解决高优先级的问题。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/MpEhLQC0S5io769oMaHWHg/zh-cn_image_0000002644931514.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=B2EE9BF8498563C3508A254D66E39E8E7864567695384B8868E37C397EFD89F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/uv0xGi7yQvyXaGBgSZA9tw/zh-cn_image_0000002644931514.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=EDD94D1A9F1CEFDF6D8F888038E48D0435510C60156C152F5C44FD2608CD5130)
 
  
 关键指标说明如下：
@@ -58,7 +58,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 故障详情页面可以通过证据链和现场数据进一步深入分析泄漏的原因。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/Swad1CAFRV2G7IAPcO7Dlg/zh-cn_image_0000002675091223.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=716CB5480FC834D48AE944DDB87C5D308C7E14C4A92D24002DC79AE0BC5A2063)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/rxcHFJocRpOy3rITgN55bg/zh-cn_image_0000002675091223.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=3A45A1BCC347E6A1CF2DB20C9B58026B94D391D55E3BC2BCF80FB80C46F5DC9A)
 
  
 **证据链**
@@ -66,7 +66,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 证据链表格根据泄漏类型的大小，可以查看主泄漏对象和次泄漏对象，以及对象泄漏大小的占比。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/TST_iJzGSwmLzvbXtdrkyQ/zh-cn_image_0000002675011381.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=6BAB8F3B341F01812E068C6857F1C74B0DEC26F9A9A7B3EB6867930FDBE8AA5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/3hAm3Ny1Qt2e_rW9u9cSbw/zh-cn_image_0000002675011381.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=A1862E45E1363F72EB61949AE23AE100AE3F8255F95BC8F68F4A83B6A2DBA4D0)
 
  
 **持有链分布**
@@ -74,7 +74,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 通过持有链可以查看各泄漏对象及其持有情况。一般来说应该从根节点入手，分析是否可以释放掉持有的子对象。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/hD-Z8wJ_QsG7uVPr9VbnpA/zh-cn_image_0000002645091428.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=B4BFACE0A9AEB5875C204083885BA650CEC6E94D19562AF0B4FAC3D159E20AA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/gvA0WMV1TGiMob8yW5Hj9A/zh-cn_image_0000002645091428.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=6308BC892B6DA53AB2BC350A74A25422380458EE4C46FC6260D25AC0CDE9BF33)
 
  
 **现场数据分析**
@@ -82,7 +82,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 现场数据是堆快照中TOP10的相同最短引用链的聚合情况。开发者可以通过现场快照分析最短引用链，也可以下载日志，结合日志进一步分析。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/C-U_atB4QX2rzNoC1shdyA/zh-cn_image_0000002644931516.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=4406E71522105DE05404D61D48AA2D3C7AE80AA689E7D7031774AE1656B5129A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/41qO9wV9Q--ctM6NEcRYZg/zh-cn_image_0000002644931516.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=BA1EBC8A59C23ECB71E368C7C62E97A6E90ACF7358BDB5A4C2883CFEBA1B41E9)
 
  
 关键指标说明：
@@ -112,19 +112,19 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 可以在故障预警平台的告警规则页面新建告警。根据实际的业务情况，选择合适监控时段、监控频率、告警触发条件以及其他告警指标，其中ArkTS泄漏对应的指标类型为MEMORY_LEAK。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/Hlawq6R_R8q8rcGA5rrGbA/zh-cn_image_0000002675091225.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=E5B5508D796FB7E4689651BBE0A1386E0A5E541D459EAF1BD3A6BD5EDFE38729)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/0u_YJOBjSQSHyQZDo_c8Qw/zh-cn_image_0000002675091225.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=29A38213B93304CBF9DD3F7EDE824140D914A9B774A1399DF61B7433B0A01A2A)
 
  
 创建告警之后，后台会开始收集数据。当泄漏达到告警阈值后，会触发故障预警。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/pQtLNn2pTfCSIlwSEeJQlQ/zh-cn_image_0000002675011383.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=E9D237CF72D2365BA5B300750B8788A8F73805BC132B6FDD353FC88EC682AACC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/oOHOSjeEQbKn6mDPe4CN-w/zh-cn_image_0000002675011383.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=B1B9AFECCB086AFC64F55E7D203D719FE138364F94D18D5FCB2523F7B7441A9B)
 
  
 通过操作查看选项可以跳转到故障指标页面查看故障详情。也可以在故障分析页面通过泄漏类型、应用版本等相关信息筛选出对应的泄漏信息。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/kCi4dmDRQkmgKmrqmuo5kw/zh-cn_image_0000002645091430.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=851E7B183D6F8AB01D7A605AE307A2927535A578B712410464FD1351118A277A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/1Nn_KfAHTnmetRxRjzms4A/zh-cn_image_0000002645091430.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=C702ADB2B1C5D4834F594A22663DE69E5DEEA18699BC2904F7ED1E1F44E65047)
 
  
  
@@ -140,19 +140,19 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 - TOP问题查看1.通过故障预警的指引，在故障分析页面筛选出JS_LEAK的泄漏类型。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/8wJpma_LRluS07yi2Ceiow/zh-cn_image_0000002644931518.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=85E726AEEA1C84F970D70C225E642E011E0DCFD3EF2F57823B06A345FA0CB845)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/acwkHIWZTXeFLadVVJpVDA/zh-cn_image_0000002644931518.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=17C6FFD83A7E9ACEB4908E9532C3C4556CA1EA35AE3C5AB45C13754FF1D7D800)
 
 
   2.开发者需要关注页面的故障模块，发生次数和最大泄漏数量。如果泄漏对象是开发者自定义对象，可以通过故障模块，确认自定义对象的位置，进一步缩小排查范围。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/3FsgXhDpSiWiqGuwFeH7Nw/zh-cn_image_0000002675091227.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=5C62ACB61B6BCE835A1DB02BB14C6AA7FEB453297A9BCA328C287FA008205419)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/Om6BQ3sVT_G7phEe3gc1Xw/zh-cn_image_0000002675091227.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=FFA4C743909275DD13B5B9F4AF62A8C667BC7C750553459BA108F29661320A48)
 
 
   3.开发者可在问题状态、优先级、问题备注内填写信息，结合故障模块、异常发生占比与实际业务场景，筛选高优先级问题并完成标注。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/Qi5ofmMVRuOrD3sGNqRXDQ/zh-cn_image_0000002675011385.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=1D8244F22D2D61E79F83A231CE1E1E24485D63F0E18F92DC576A393A8CE5284F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/dVHzVjzBTBqBkhIBPuQGLg/zh-cn_image_0000002675011385.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=1A5F2E2A9DBAFF21A5CF01FFC66D664CD60E0FD68F7F6A9AB1EC659165C01DD2)
 
 
   4.点击操作列的查看按钮，即可查看泄漏对象完整故障详情，进一步确认泄漏对象。
@@ -161,7 +161,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
   当泄漏的对象为开发者自定义对象时，对象信息会显示出对应的对象名称，开发者可以通过名称找到业务代码中泄漏的对象，并优化相关代码。点击查看按钮可以查看当前泄漏对象故障详情，进一步确认泄漏对象。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/JTI9ozOtTQWZxBNytOhobw/zh-cn_image_0000002645091432.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=5A2161D87D41CB95923D540B59BAEC7396F1E5E72966F4302F841E5BE65A4D90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/F5G4YFLQQu2qeczndgEGpg/zh-cn_image_0000002645091432.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=052F25AE0D1EDEAFF3781B98BF4AEDDAF9E232D0AC8A92AB9ECE9DEE5F6BF264)
 
 
  
@@ -174,7 +174,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 **证据链分析**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/kA8zOok4RfeTx3xMH9ufaw/zh-cn_image_0000002644931520.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=85F88EC48C5D04DD43E3A9E7FE7BADA4EAFEFB4EEE4398F02F9D163159023544)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/PquAHk_tQcKPFEB_qKX9zQ/zh-cn_image_0000002644931520.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=E83838453C1F6F149F4C6728C618036C56D24F3B40C3633BAC29CC6EC3CC5EB8)
 
  
 - 主泄漏对象：泄漏问题中Retained Size占比最大的对象，主泄漏对象展示了泄漏对象的名称，Retained Size的大小，占总Retained Size的百分比以及存在实例个数。
@@ -188,7 +188,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 以下是堆快照中TOP10的相同最短引用链的聚合情况，如果证据链中的泄漏信息不足以支持定位，可以查看最短引用链进一步分析。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/hyEIbKzJT86D3FTjT5okCA/zh-cn_image_0000002675091229.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=2167BF27391B5EB217F776D8CDDF84363FC041F1E4942726057747E465AC69ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/zAa_QfFITKmf9ZqtTJBfLQ/zh-cn_image_0000002675091229.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=BF21404DF44C070AE477FC85B43F4B9C83C8D5FE72DCF4DB5598E3816214ACEB)
 
  
 **下钻分析**
@@ -196,7 +196,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 下钻分析是指从宏观汇总数据，逐层点进来看更细的明细数据，用来定位问题、找到原因。平台会根据当前问题的故障特征ID，进行筛选，并展示应用版本TOP5、系统版本TOP5、设备型号TOP5这三个维度的信息，帮助开发者进一步缩小版本排查范围。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/PcYVUkcLS2W3wSugwcttBw/zh-cn_image_0000002675011387.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=A26FCDED83A85A89E8413415295D5A9792140B09D4246B303E39C055C99B5EEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/fs71zYdvQTuH4oDJiNqNjg/zh-cn_image_0000002675011387.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=C83EF9C4D1D0FE0E35C4758E46259B5F89813887291EEF5903F797640D12D283)
 
  
  
@@ -210,7 +210,7 @@ ArkTS泄漏是应用性能优化的重要问题，本文介绍在运维态下如
 一般来说，开发者需要根据引用链尝试定位并断开应用侧的引用链路，释放对应的可疑泄漏对象。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/VRb-Wtw-ShCU0M9rkop1bg/zh-cn_image_0000002645091434.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=0A1B90600EDD46BA0AA25B3FD234A516B6D769948384851A1681685BF0B9788F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/NCmV_L77SD2vzvmHKdd3hA/zh-cn_image_0000002645091434.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=8743C7A0BD2750B791A009052DDCECE55D0CC1FFDB2CFDABEB4BDC3A8560A9A0)
 
  
 如需修改global handle，请参考[开发态快速定位ArkTS泄漏](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkts-leak-in-develop)。
@@ -239,7 +239,7 @@ Operation Analyzer平台是指DevEco Studio的Operation Analyzer 插件。在Dev
 打开DevEco Studio后，在Tool Windows栏的Operation Analyzer进入平台，点击后根据包名选择应用，再点击资源泄漏（Resource Leak）即可查看该类故障相关数据。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/ZJMnhclPRPCyQVk1wECSkg/zh-cn_image_0000002644931524.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=8C60A371B4CB3A0D4477D28F7D9C131B8F8033853E90632C590F223411EFF268)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/JfWYjXE1Tz6D2uLuC8OOkg/zh-cn_image_0000002644931524.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=04A761960A305BA69C7FC6AC364A6932F5A77FA030F11FF31704817F8CADC4D4)
 
  
  
@@ -251,7 +251,7 @@ Operation Analyzer平台是指DevEco Studio的Operation Analyzer 插件。在Dev
 数据和流程同[根因定位与分析](#section1831731688)流程一致，开发者可查看故障分析与修复建议以排查问题，具体操作步骤如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/F8A-2m5hQIS1CgGVY3Q4Ng/zh-cn_image_0000002675091231.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=5640E49B7EA542A4AD45242A2B01744290F1716019AD542A9E6CB04C1E6392A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/PPcrwACDQJeUbPgDL1E7wg/zh-cn_image_0000002675091231.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=525B4A3218A67567E8DAE0D2027176BB728ED5278CD55D366ABEEC8D482EFB05)
 
  
  
@@ -260,4 +260,4 @@ Operation Analyzer平台是指DevEco Studio的Operation Analyzer 插件。在Dev
 数据和流程同[根因定位与分析](#section1831731688)流程一致，具体操作步骤如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/_5cpxRK9QUqRgW-APRXUsQ/zh-cn_image_0000002675011389.png?HW-CC-KV=V1&HW-CC-Date=20260723T014110Z&HW-CC-Expire=86400&HW-CC-Sign=86946F6BCBAB97A1319EE3498687705DF34DC49573B99D966EEE7926F10F6038)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/N9Qa8treQ0qdym9x63C9yQ/zh-cn_image_0000002675011389.png?HW-CC-KV=V1&HW-CC-Date=20260730T072737Z&HW-CC-Expire=86400&HW-CC-Sign=ADFF60A7643C1AC5450EF0824217A14D74239D9E111FAF7BD16A9AAF6BC804AE)

@@ -1,12 +1,12 @@
 # @typescript-eslint/triple-slash-reference
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_triple-slash-reference
 
 不允许某些三斜杠引用，推荐使用ES6风格的导入声明。
  
-支持以下三种三斜杠引用方式的检查
+支持以下三种三斜杠引用方式的检查。
  
 ```text
 <span style="color: rgb(128,128,128);">/// </span><span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">reference lib="..." /</span><span style="color: rgb(128,128,128);">></span>

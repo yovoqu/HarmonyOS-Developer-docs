@@ -1,6 +1,6 @@
 # 高精几何重建（C/C++）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-volume-measurement
 
@@ -43,9 +43,10 @@
 
 首先创建一个UI界面ARSemanticDense.ets，用于选择高精几何重建相关模式。
 
-```ArkTS
-// 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARSemanticDense.ets。
-import { display} from '@kit.ArkUI';
+```text
+import { display } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { logger } from '../utils/Logger';
 
 @Builder
 export function ARSemanticDenseBuilder() {
@@ -54,43 +55,53 @@ export function ARSemanticDenseBuilder() {
 
 @Component
 struct ARSemanticDense {
-  pageInfo: NavPathStack = new NavPathStack();
+  pageInfos: NavPathStack = new NavPathStack();
   @State context: Context = this.getUIContext().getHostContext() as Context;
   @State showPage: boolean = true;
-  @State rotation: number = display.getDefaultDisplaySync().rotation;
+  @State rotation: number = 0;
   @State volume: string = '';
-
+  aboutToAppear(): void {
+    try {
+      this.rotation = display.getDefaultDisplaySync().rotation
+    } catch (error) {
+      const err: BusinessError = error as BusinessError;
+      logger.error(`Failed to stop context. Code is ${err.code}, message is ${err.message}`);
+    }
+  }
   build() {
     NavDestination() {
       Column() {
-        Button('开启稠密点云', { type: ButtonType.Normal, stateEffect: true })
+        Button($r('app.string.semantic_dense_normal'), { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .width('50%')
           .height('5%')
           .onClick(() => {
-            this.pageInfo.pushDestinationByName('ARSemanticDenseRender', 0).catch((error: BusinessError) => {
-              console.error(`[pushDestinationByName]failed. Code: ${error.code}.`);
+            this.pageInfos.pushDestinationByName('ARSemanticDenseRender', 0).catch((err: BusinessError) => {
+              logger.error(
+                `ARSemanticDenseRender failed to pushDestinationByName 0. Code is ${err.code}, message is ${err.message}.`);
             });
           })
 
-        Button('打开体积测量', { type: ButtonType.Normal, stateEffect: true })
+        Button($r('app.string.semantic_dense_cube_volume'), { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .width('50%')
           .height('5%')
           .onClick(() => {
-            this.pageInfo.pushDestinationByName('ARSemanticDenseRender', 1).catch((error: BusinessError) => {
-              console.error(`[pushDestinationByName]failed. Code: ${error.code}.`);
-            });
+            this.pageInfos.pushDestinationByName('ARSemanticDenseRender', 1).catch((err: BusinessError) => {
+              logger.error(
+                `ARSemanticDenseRender failed to pushDestinationByName 1. Code is ${err.code}, message is ${err.message}.`);
+            })
           })
 
-        Button('打开空间测量', { type: ButtonType.Normal, stateEffect: true })
+        Button($r('app.string.semantic_dense_cube_space'), { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .width('50%')
           .height('5%')
           .onClick(() => {
-            this.pageInfo.pushDestinationByName('ARSemanticDenseRender', 2).catch((error: BusinessError) => {
-              console.error(`[pushDestinationByName]failed. Code: ${error.code}.`);
-            });
+            this.pageInfos.pushDestinationByName('ARSemanticDenseRender', 2).catch((err: BusinessError) => {
+              logger.error(
+                `ARSemanticDenseRender failed to pushDestinationByName 2. Code is ${err.code}, message is ${err.message}.`);
+            })
           })
       }
       .justifyContent(FlexAlign.SpaceEvenly)
@@ -98,7 +109,7 @@ struct ARSemanticDense {
       .height('100%')
     }
     .onReady((context: NavDestinationContext) => {
-      this.pageInfo = context.pathStack;
+      this.pageInfos = context.pathStack;
     })
     .hideTitleBar(true)
     .hideBackButton(true)
@@ -109,11 +120,12 @@ struct ARSemanticDense {
 
 最后创建一个ARSemanticDenseRender.ets，使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件用于加载相机预览画面，并定时触发每一帧绘制。
 
-```ArkTS
-// 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARSemanticDenseRender.ets。
+```text
 import { display } from '@kit.ArkUI';
+import { systemDateTime } from '@kit.BasicServicesKit';
 import { resourceManager } from '@kit.LocalizationKit';
 import arEngineDemo from 'libentry.so';
+import { logger } from '../utils/Logger';
 
 @Builder
 export function ARSemanticDenseRenderBuilder() {
@@ -122,24 +134,32 @@ export function ARSemanticDenseRenderBuilder() {
 
 @Component
 struct ARSemanticDenseRender {
-  pageInfo: NavPathStack = new NavPathStack();
+  pageInfos: NavPathStack = new NavPathStack();
   @State context: Context = this.getUIContext().getHostContext() as Context;
+  @State showPage: boolean = true;
+  @State rotation: number = 0;
+  @State volume: string = '';
   private xComponentId: string = 'ARSemanticDense';
+  private idStr: string = systemDateTime.getTime(false).toString() + this.xComponentId;
   private resMgr: resourceManager.ResourceManager = this.context.resourceManager;
   private interval: number = -1;
   private inputInterval: number = -1;
   private getCubeInfoInterval: number = -1;
   private isUpdate: boolean = false;
   private semanticDenseMode: number = 0;
-  @State showPage: boolean = true;
-  @State rotation: number = display.getDefaultDisplaySync().rotation;
-  @State volume: string = '';
-
+  aboutToAppear(): void {
+    try {
+      this.rotation = display.getDefaultDisplaySync().rotation
+    } catch (error) {
+      const err: BusinessError = error as BusinessError;
+      logger.error(`Failed to stop context. Code is ${err.code}, message is ${err.message}`);
+    }
+  }
   build(): void {
     NavDestination() {
       RelativeContainer() {
 
-        XComponent({ id: this.xComponentId, type: XComponentType.SURFACE, libraryname: 'entry' })
+        XComponent({ id: this.idStr, type: XComponentType.SURFACE, libraryname: 'entry' })
           .opacity(0.2)
           .width('100%')
           .height('100%')
@@ -152,12 +172,12 @@ struct ARSemanticDenseRender {
           .onLoad(() => {
             this.interval = setInterval(() => {
               if (this.isUpdate) {
-                arEngineDemo.update(this.xComponentId);
+                arEngineDemo.update(this.idStr);
                 if (this.semanticDenseMode != 0) {
-                  this.volume = arEngineDemo.getVolume(this.xComponentId);
+                  this.volume = arEngineDemo.getVolume(this.idStr);
                 }
               }
-            }, 33) // 将帧速率设置为30fps（每33ms刷新一次帧）
+            }, 33) // Set the frame rate to 30 fps (with the frame refreshed every 33 ms).
           })
           .onDestroy(() => {
             if (this.interval !== -1) {
@@ -188,22 +208,22 @@ struct ARSemanticDenseRender {
     }
     .onAppear(() => {
       arEngineDemo.init(this.resMgr);
-      let config: Int32Array = new Int32Array([1,this.rotation, 2, this.semanticDenseMode]);
-      arEngineDemo.start(this.xComponentId, config);
+      let config: Int32Array = new Int32Array([1, this.rotation, 2, this.semanticDenseMode]);
+      arEngineDemo.start(this.idStr, config);
     })
     .onWillDisappear(async () => {
-      arEngineDemo.stop(this.xComponentId);
+      arEngineDemo.stop(this.idStr);
     })
     .onShown(() => {
       this.isUpdate = true;
-      arEngineDemo.show(this.xComponentId);
+      arEngineDemo.show(this.idStr);
     })
     .onHidden(() => {
       this.isUpdate = false;
-      arEngineDemo.hide(this.xComponentId);
+      arEngineDemo.hide(this.idStr);
     })
     .onReady((context: NavDestinationContext) => {
-      this.pageInfo = context.pathStack;
+      this.pageInfos = context.pathStack;
       this.semanticDenseMode = context.pathInfo.param as number;
     })
     .hideTitleBar(true)
@@ -224,16 +244,15 @@ struct ARSemanticDenseRender {
 #### 创建AR会话并配置高精几何重建相关模式
 
 ```text
-AREngine_ARSession *arSession = nullptr;
-// 创建AR会话。
-HMS_AREngine_ARSession_Create(nullptr, nullptr, &arSession);
+CHECK(HMS_AREngine_ARSession_Create(nullptr, nullptr, &mArSession));
+
 AREngine_ARConfig *arConfig = nullptr;
-// 创建AR会话配置器。
-HMS_AREngine_ARConfig_Create(arSession, &arConfig);
-// 配置高精几何重建模式中的体积识别模式。
-HMS_AREngine_ARConfig_SetSemanticDenseMode(arSession, arConfig, ARENGINE_SEMANTIC_DENSE_MODE_CUBE_VOLUME);
-// 配置器设置给AR会话。
-HMS_AREngine_ARSession_Configure(arSession, arConfig);
+CHECK(HMS_AREngine_ARConfig_Create(mArSession, &arConfig));
+// ...
+SetSemanticDenseMode(params.semanticDenseMode, mArSession, arConfig);
+AREngine_ARSemanticDenseMode outSemanticDenseMode = ARENGINE_SEMANTIC_DENSE_MODE_DISABLED;
+HMS_AREngine_ARConfig_GetSemanticDenseMode(mArSession, arConfig, &outSemanticDenseMode);
+CHECK(HMS_AREngine_ARSession_Configure(mArSession, arConfig));
 ```
 
 
@@ -243,12 +262,8 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 创建一个帧对象，调用[HMS_AREngine_ARFrame_AcquireSemanticDenseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquiresemanticdensedata)函数，从当前帧中获取环境中的高精几何重建信息，其中包含了环境中的稠密点云信息和立方体信息。
 
 ```text
-AREngine_ARFrame *arFrame = nullptr;
-// 创建AR单帧对象
-HMS_AREngine_ARFrame_Create(arSession, &arFrame);
 AREngine_ARSemanticDenseData *arSemanticDense = nullptr;
-// 获取当前帧的稠密点云信息
-HMS_AREngine_ARFrame_AcquireSemanticDenseData(arSession, arFrame, &arSemanticDense);
+auto ret = HMS_AREngine_ARFrame_AcquireSemanticDenseData(arSession, arFrame, &arSemanticDense);
 ```
 
 
@@ -258,7 +273,6 @@ HMS_AREngine_ARFrame_AcquireSemanticDenseData(arSession, arFrame, &arSemanticDen
 
   
 ```text
-AREngine_ARSemanticDenseCubeData *semanticDenseCubeData = nullptr;
 HMS_AREngine_ARSemanticDense_AcquireCubeData(arSession, arSemanticDense, &semanticDenseCubeData);
 ```
 
@@ -266,7 +280,6 @@ HMS_AREngine_ARSemanticDense_AcquireCubeData(arSession, arSemanticDense, &semant
 
   
 ```text
-int64_t cubeDataSize = 0;
 HMS_AREngine_ARSemanticDense_AcquireCubeDataSize(arSession, arSemanticDense, &cubeDataSize);
 ```
 
@@ -278,9 +291,7 @@ HMS_AREngine_ARSemanticDense_AcquireCubeDataSize(arSession, arSemanticDense, &cu
 
   
 ```text
-// 判断获取的立方体数据及数量。
 if (semanticDenseCubeData != nullptr && cubeDataSize > 0) {
-    // 绘制立方体。
-    mCubeRenderer.Draw(projectionMat, viewMat, arSession, semanticDenseCubeData);
+    mCubeRenderer.Draw(projectionMat, viewMat, semanticDenseCubeData);
 }
 ```

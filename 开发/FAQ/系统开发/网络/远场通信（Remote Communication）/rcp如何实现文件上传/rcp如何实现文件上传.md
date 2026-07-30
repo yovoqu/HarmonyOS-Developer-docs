@@ -1,6 +1,6 @@
 # rcp如何实现文件上传
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:55:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-15
 
@@ -12,8 +12,8 @@
 
 #### 背景知识
 
-- [uploadFromFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section221131117418)：为rcp模块独有接口，是结合[Core File Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-file-kit-intro)模块，通过直接输入文件路径、文件描述符、文件数据的方式快速实现上传和下载功能，无需额外配置请求参数。
-- [post](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section12392443193017)：post请求为http常见请求方法，rcp模块的post请求体参数为[RequestContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section18971142565016)，其中请求体参数[MultipartForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section1420174317517)类型可用于上传文字文件混合表单数据。
+- [uploadFromFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#uploadfromfile)：为rcp模块独有接口，是结合[Core File Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-file-kit-intro)模块，通过直接输入文件路径、文件描述符、文件数据的方式快速实现上传和下载功能，无需额外配置请求参数。
+- [post](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#post)：post请求为http常见请求方法，rcp模块的post请求体参数为[RequestContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#requestcontent)，其中请求体参数[MultipartForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section1420174317517)类型可用于上传文字文件混合表单数据。
 - rcp模块上传文件包括2种方案，第一种方案使用uploadFromFile方法上传文件。第二种方案使用post方法并设置请求体为MultipartForm类型用于上传文字文件表单混合数据，详细对比如下表。
 
   
@@ -71,7 +71,7 @@ session.uploadFromFile('xx.xx.xx.xx', new rcp.UploadFromFile(fileOrPath)) <em>//
  **场景1运行效果：使用uploadFromFile方法上传文件content-type系统默认为'application/octet-stream'，运行日志如下图所示。**
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/n1zY2Uw9Qm-qGy0ixnDyeA/zh-cn_image_0000002628772382.png?HW-CC-KV=V1&HW-CC-Date=20260723T013447Z&HW-CC-Expire=86400&HW-CC-Sign=21309AFA38FD5A1B7E8FCB4028D64569CF17660334D5465450301F62A20FD563)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/fb2BKRXVRvuuoJt5RbiH8w/zh-cn_image_0000002628772382.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=B87644CC83C83A89951E87C3D408A61106A9B4259B7F4D154D6096283E326093)
 
 - **场景2：使用读取文件数据回调函数作为入参上传文件，具体参考官方指南上传功能实现。**
 
@@ -120,7 +120,7 @@ uploadMultiPartFormFileForCommon(multiForm: rcp.MultipartForm) {
   使用沙箱路径上传表单文件，系统默认会根据文件名类型匹配content-type，此为图片类型文件上传，即为image/jpeg，运行日志如下图所示。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/9HpuuwXXQNyqv-kiRdO8KA/zh-cn_image_0000002658971703.png?HW-CC-KV=V1&HW-CC-Date=20260723T013447Z&HW-CC-Expire=86400&HW-CC-Sign=F5E114A569C568C0491BC6D4C3E865C28EFDA8C6CFE6E42FA29635F28EF34FB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/DiTeUlAoSyC8al5bRxPXLg/zh-cn_image_0000002658971703.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=E8A30DE87099BEBB34C4A777C4097D6B17572F18084CD3BE20530DCB2D070717)
 
 - **场景2：使用文件数据上传表单文件。**1. 基于文件URI将文件数据读取到ArrayBuffer中，并构建类型为FileContent的contentOrPath参数。
 ```text
@@ -148,10 +148,10 @@ let multiForm = new rcp.MultipartForm({ 'test': multiFormFieldValue, 'test1': mu
 
   
 如果配置参数remoteFileName，系统默认会根据文件名类型匹配content-type，此为图片类型文件上传，即为'image/jpeg'，运行日志如下图所示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/xCNUXnarT3OdVAwgvJpRsw/zh-cn_image_0000002628612492.png?HW-CC-KV=V1&HW-CC-Date=20260723T013447Z&HW-CC-Expire=86400&HW-CC-Sign=0D411B1C0200F7BC601FB597D7EF29A8F29533A4008EE6AC9A733241B9F28F14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/_gLBD8yQRzKEREY-NMHLPA/zh-cn_image_0000002628612492.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=9B06E194913FD762AEA03C872CCA9582298A6462D7DA5ACAF5A9A4F0F94959BD)
 
 - 如果不配置参数remoteFileName，或者设置为undefined，系统无法识别为图片类型文件，即使设置contentType参数为'image/jpeg'，上传数据依然无法识别，运行日志如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/Q7woTgecS9qyUGfYPluELw/zh-cn_image_0000002658851749.png?HW-CC-KV=V1&HW-CC-Date=20260723T013447Z&HW-CC-Expire=86400&HW-CC-Sign=A8B856771758085F243DD375E5D8B9DC15D4A432E7A75F5E30D0755D22F593B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/uTywycuXRCSSJzjmZKQi_w/zh-cn_image_0000002658851749.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=7813600DFB4C291B88C1D564609ACE1B27257E069228F4854B825457EAC7FF0C)
 
 
  

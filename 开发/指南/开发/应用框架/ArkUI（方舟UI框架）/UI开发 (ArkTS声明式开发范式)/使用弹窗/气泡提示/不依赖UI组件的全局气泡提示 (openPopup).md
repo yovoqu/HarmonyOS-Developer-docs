@@ -1,6 +1,6 @@
 # 不依赖UI组件的全局气泡提示 (openPopup)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup
 
@@ -40,7 +40,7 @@ private contentNode: ComponentContent<Object> =
 @Builder
 export function buildText(params: Params) {
   Popup({
-    // 类型设置图标内容。
+    // 设置图标内容。
     icon: {
       // 请将$r('app.media.app_icon')替换为实际资源文件
       image: $r('app.media.app_icon'),
@@ -314,7 +314,7 @@ export struct OpenPopup {
   private promptActionClass: PromptActionClass = new PromptActionClass();
   private targetId: number = ID;
   private contentNode: ComponentContent<Object> =
-    new ComponentContent(this.uiContext, wrapBuilder(buildText), new Params(this.message, this.promptActionClass));
+    new ComponentContent(this.uiContext, wrapBuilder(buildText), this.message);
   private options: PopupCommonOptions = { enableArrow: true };
 
 
@@ -345,4 +345,4 @@ export struct OpenPopup {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/pNqf80IuQX2jE5fhTXtKZA/zh-cn_image_0000002647745888.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012135Z&HW-CC-Expire=86400&HW-CC-Sign=98A6243C68F9A50B187C1EE4D64D2259746527818A2B95442DC3395961FB56FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/I0QG3jx_RjWd19aSQ1NAqA/zh-cn_image_0000002685926029.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071848Z&HW-CC-Expire=86400&HW-CC-Sign=7FA7A0654E0D78F9C2A996CA9CF00EB214DB9E2274543CC9B20A5D03A7A5A8B8)

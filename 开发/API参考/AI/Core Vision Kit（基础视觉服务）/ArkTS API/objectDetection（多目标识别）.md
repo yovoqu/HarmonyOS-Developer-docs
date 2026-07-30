@@ -1,11 +1,11 @@
 # objectDetection（多目标识别）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-object-detection-api
 **支持设备：** Phone | PC/2in1 | Tablet
 
-多目标识别服务提供了从图像中识别多个目标的能力。通过拍照、录像等光学输入方式，把各种场景下的图像转化为数字图像信息，再利用AI底层能力对图像进行分析，从中定位并识别出多个感兴趣的目标对象，如人脸、动物、植物等，便于用户提取目标的类别、边框位置、置信度等信息。
+多目标识别服务提供了从图像中识别多个目标的能力。通过拍照、录像等光学输入方式，把各种场景下的图像转化为数字图像信息，再利用AI技术对图像进行分析，从中定位并识别出多个感兴趣的目标对象，如人脸、动物、植物等，便于用户提取目标的类别、边框位置、置信度等信息。
 
 目前本服务支持识别的目标类型包括：风景，动物，植物，建筑，人脸，表格，文本，人头，猫头，狗头，食物，汽车，人体，文档，卡证。
 
@@ -69,10 +69,10 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 定义多目标识别的接口和基本结构。继承自[visionBase.Analyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#analyzer)类。它有以下功能函数：
 
- - private constructor()：这是一个私有构造函数，意味着不能直接通过new关键字实例化ObjectDetector，必须通过 create() 静态方法来创建实例。
- - static create(): Promise&lt;ObjectDetector&gt;：这是一个静态方法，用于创建 ObjectDetector 的实例。使用Promise异步回调。
- - process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;：这是一个实例方法，用于处理多目标识别请求。使用Promise异步回调。
- - destroy(): Promise&lt;void&gt;：这是一个实例方法，用于销毁多目标识别的进程。使用Promise异步回调。
+ - constructor()：私有构造函数，不能直接通过new关键字实例化ObjectDetector，必须通过create()静态方法来创建实例。
+ - create(): Promise&lt;ObjectDetector&gt;：静态方法，用于创建ObjectDetector的实例。使用Promise异步回调。
+ - process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;：实例方法，用于处理多目标识别请求。使用Promise异步回调。
+ - destroy(): Promise&lt;void&gt;：实例方法，用于销毁多目标识别进程。使用Promise异步回调。
 
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
@@ -80,14 +80,6 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
-
-| 名称 | 说明 |
-| --- | --- |
-| constructor | 强制开发者必须使用static create()方法来创建ObjectDetector的实例。 |
-| create | 初始化多目标识别接口。 |
-| process | 多目标识别的实际执行接口。 |
-| destroy | 多目标识别进程的销毁接口。 |
-
 
 
 
@@ -109,7 +101,7 @@ static create(): Promise&lt;ObjectDetector&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ObjectDetector&gt; | Promise对象，返回ObjectDetector实例。 |
+| Promise&lt;ObjectDetector&gt; | Promise对象，返回ObjectDetector实例，用于执行多目标识别。 |
 
 
 **错误码：**
@@ -129,22 +121,26 @@ import { objectDetection } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 async function createAndDestroyDetector() {
-  const detector = await objectDetection.ObjectDetector.create();
-  if (detector) {
-    hilog.info(0x0000, 'objectDetectionSample', 'Object detector created successfully');
-  } else {
-    hilog.error(0x0000, 'objectDetectionSample', 'Failed to create object detector');
-    return;
-  }
-  // 使用 detector 进行一些操作
-  // ...
+  try {
+    const detector = await objectDetection.ObjectDetector.create();
+    if (detector) {
+      hilog.info(0x0000, 'objectDetectionSample', 'Object detector created successfully');
+    } else {
+      hilog.error(0x0000, 'objectDetectionSample', 'Failed to create object detector');
+      return;
+    }
+    // 使用 detector 进行一些操作
+    // ...
 
-  // 完成后销毁 detector
-  if (detector) {
-    await detector.destroy();
-    hilog.info(0x0000, 'objectDetectionSample', 'Object detector destroyed successfully');
-  } else {
-    hilog.error(0x0000, 'objectDetectionSample', 'Failed to destroy object detector');
+    // 完成后销毁 detector
+    if (detector) {
+      await detector.destroy();
+      hilog.info(0x0000, 'objectDetectionSample', 'Object detector destroyed successfully');
+    } else {
+      hilog.error(0x0000, 'objectDetectionSample', 'Failed to destroy object detector');
+    }
+  } catch (err) {
+    hilog.error(0x0000, 'objectDetectionSample', `Object detector error: ${err}`);
   }
 }
 
@@ -192,22 +188,26 @@ import { objectDetection } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 async function createAndDestroyDetector() {
-  const detector = await objectDetection.ObjectDetector.create();
-  if (detector) {
-    hilog.info(0x0000, 'objectDetectionSample', 'Object detector created successfully');
-  } else {
-    hilog.error(0x0000, 'objectDetectionSample', 'Failed to create object detector');
-    return;
-  }
-  // 使用 detector 进行一些操作
-  // ...
+  try {
+    const detector = await objectDetection.ObjectDetector.create();
+    if (detector) {
+      hilog.info(0x0000, 'objectDetectionSample', 'Object detector created successfully');
+    } else {
+      hilog.error(0x0000, 'objectDetectionSample', 'Failed to create object detector');
+      return;
+    }
+    // 使用 detector 进行一些操作
+    // ...
 
-  // 完成后销毁 detector
-  if (detector) {
-    await detector.destroy();
-    hilog.info(0x0000, 'objectDetectionSample', 'Object detector destroyed successfully');
-  } else {
-    hilog.error(0x0000, 'objectDetectionSample', 'Failed to destroy object detector');
+    // 完成后销毁 detector
+    if (detector) {
+      await detector.destroy();
+      hilog.info(0x0000, 'objectDetectionSample', 'Object detector destroyed successfully');
+    } else {
+      hilog.error(0x0000, 'objectDetectionSample', 'Failed to destroy object detector');
+    }
+  } catch (err) {
+    hilog.error(0x0000, 'objectDetectionSample', `Object detector error: ${err}`);
   }
 }
 
@@ -245,7 +245,7 @@ process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | visionBase.Request | 是 | 图片实例。多目标识别接口仅支持传入一张图片，不支持传入多张图片。 具体规格请参考约束与限制。 |
+| request | visionBase.Request | 是 | 图片实例。多目标识别接口仅支持传入一张图片，不支持传入多张图片。 详细内容请参考约束与限制。 |
 
 
 **返回值：**
@@ -277,59 +277,63 @@ import { fileIo } from '@kit.CoreFileKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 async function objectDetectTest() {
-  let imageSource: image.ImageSource | undefined = undefined;
-  let chooseImage: image.PixelMap | undefined = undefined;
+  try {
+    let imageSource: image.ImageSource | undefined = undefined;
+    let chooseImage: image.PixelMap | undefined = undefined;
 
-  // 通过图库选择一张图片
-  let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
-  photoSelectOptions.maxSelectNumber = 1;
-  let photoPicker: photoAccessHelper.PhotoViewPicker = new photoAccessHelper.PhotoViewPicker();
-  let photoSelectResult = await photoPicker.select(photoSelectOptions);
-  let uri = photoSelectResult.photoUris[0];
-  if (uri === undefined) {
-    hilog.info(0x0000, 'objectDetectionSample', 'uri is undefined');
-    return;
-  }
+    // 通过图库选择一张图片
+    let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
+    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+    photoSelectOptions.maxSelectNumber = 1;
+    let photoPicker: photoAccessHelper.PhotoViewPicker = new photoAccessHelper.PhotoViewPicker();
+    let photoSelectResult = await photoPicker.select(photoSelectOptions);
+    let uri = photoSelectResult.photoUris[0];
+    if (uri === undefined) {
+      hilog.info(0x0000, 'objectDetectionSample', 'uri is undefined');
+      return;
+    }
 
-  // 将图片转换为PixelMap
-  let file = await fileIo.open(uri, fileIo.OpenMode.READ_ONLY);
-  imageSource = image.createImageSource(file.fd);
-  chooseImage = await imageSource.createPixelMap();
-  hilog.info(0x0000, 'objectDetectionSample', 'chooseImage:', chooseImage);
-  if (!chooseImage) {
-    return;
-  }
+    // 将图片转换为PixelMap
+    let file = await fileIo.open(uri, fileIo.OpenMode.READ_ONLY);
+    imageSource = image.createImageSource(file.fd);
+    chooseImage = await imageSource.createPixelMap();
+    hilog.info(0x0000, 'objectDetectionSample', 'chooseImage:', chooseImage);
+    if (!chooseImage) {
+      return;
+    }
 
-  // 创建检测器
-  let detector = await objectDetection.ObjectDetector.create();
-  hilog.info(0x0000, 'objectDetectionSample', 'Object detector created successfully');
+    // 创建检测器
+    let detector = await objectDetection.ObjectDetector.create();
+    hilog.info(0x0000, 'objectDetectionSample', 'Object detector created successfully');
 
-  // 调用对象检测接口
-  let request: visionBase.Request = {
-    inputData: { pixelMap: chooseImage },
-    scene: visionBase.SceneMode.FOREGROUND
-  };
-  let response: objectDetection.ObjectDetectionResponse = await detector.process(request);
+    // 调用对象检测接口
+    let request: visionBase.Request = {
+      inputData: { pixelMap: chooseImage },
+      scene: visionBase.SceneMode.FOREGROUND
+    };
+    let response: objectDetection.ObjectDetectionResponse = await detector.process(request);
 
-  if (response.objects.length === 0) {
-    hilog.info(0x0000, 'objectDetectionSample', 'No objects detected in the image.');
-  } else {
-    let objectString = JSON.stringify(response.objects);
-    hilog.info(0x0000, 'objectDetectionSample', 'Detected objects: ' + objectString);
-  }
+    if (response.objects.length === 0) {
+      hilog.info(0x0000, 'objectDetectionSample', 'No objects detected in the image.');
+    } else {
+      let objectString = JSON.stringify(response.objects);
+      hilog.info(0x0000, 'objectDetectionSample', 'Detected objects: ' + objectString);
+    }
 
-  // 清理资源
-  if (chooseImage && imageSource) {
-    void chooseImage.release();
-    void imageSource.release();
-  }
-  if (file) {
-    await fileIo.close(file);
-  }
-  if (detector) {
-    await detector.destroy();
-    hilog.info(0x0000, 'objectDetectionSample', 'Object detector destroyed successfully');
+    // 清理资源
+    if (chooseImage && imageSource) {
+      void chooseImage.release();
+      void imageSource.release();
+    }
+    if (file) {
+      await fileIo.close(file);
+    }
+    if (detector) {
+      await detector.destroy();
+      hilog.info(0x0000, 'objectDetectionSample', 'Object detector destroyed successfully');
+    }
+  } catch (err) {
+    hilog.error(0x0000, 'objectDetectionSample', `Object detection error: ${err}`);
   }
 }
 

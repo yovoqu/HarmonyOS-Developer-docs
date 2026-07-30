@@ -13,7 +13,7 @@ List组件横向排列，要求RTL方向排列与滑动并且内容靠右显示�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/UOiFOD9ERFC6jZFZjJNGlg/zh-cn_image_0000002628554564.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012554Z&HW-CC-Expire=86400&HW-CC-Sign=4681ACCBE6C9BE324DE760B3DF02D9838F13E9253F44FBE26B39346D88C87215)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/UOiFOD9ERFC6jZFZjJNGlg/zh-cn_image_0000002628554564.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=24D94E94602A0742A432A50FE53C3243D4FB862BE78F1BA1FDE39D98FC76E711)
 
  
  

@@ -11,9 +11,9 @@
 如果页面顶部还有一个标题栏（即下图中“首页”），现在要实现tab内容向上滚动时tabBar悬停到标题栏下方（即下图中“同城”，“推荐”，“活动”，“玩机”这一行），且可以实现标题栏在滚动过程中样式变化（如下图背景变化），该如何实现？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/zEyTqjJlQGaBMschjh-wOQ/zh-cn_image_0000002628557796.png?HW-CC-KV=V1&HW-CC-Date=20260723T013013Z&HW-CC-Expire=86400&HW-CC-Sign=DE34719EE97A77DB6EB2DE378D351334FA7CA8C63546C1BB22C693BB9159E5D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/zEyTqjJlQGaBMschjh-wOQ/zh-cn_image_0000002628557796.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=E237ADDD3845C8177D198F396A1868DB3835E7D35108DA8711632B01F6A7B2D4)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/oroN3jKURw2xn_cwV3bmcg/zh-cn_image_0000002658917113.png?HW-CC-KV=V1&HW-CC-Date=20260723T013013Z&HW-CC-Expire=86400&HW-CC-Sign=780B395AF7DFCB6B66F1BF2130A08417571B227EACECB51B3C2F4B4170F79BD8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/oroN3jKURw2xn_cwV3bmcg/zh-cn_image_0000002658917113.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=808DDAFD044309D0C20B7DA6E2519A9866349B91947EF924FCE7A5A71E2C350A)
 
  
 
@@ -170,7 +170,7 @@ struct StickyNestedScroll {
   效果如图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/yFj47ZBHTqipBN61SNE6mA/zh-cn_image_0000002628397892.png?HW-CC-KV=V1&HW-CC-Date=20260723T013013Z&HW-CC-Expire=86400&HW-CC-Sign=563C78C8DFA2574D336B52A24E7BC79140DB103C58B04831B02B460F24948E7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/yFj47ZBHTqipBN61SNE6mA/zh-cn_image_0000002628397892.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=1763F7CBB89ADD4D8FF0033741D2AC4D7510B7812BEFF92C259AE4EB60B363D8)
 
  
  

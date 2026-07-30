@@ -72,7 +72,7 @@ struct Index {
   效果预览图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Udxo0wgMRTmdPLxxNz4Paw/zh-cn_image_0000002658798907.png?HW-CC-KV=V1&HW-CC-Date=20260723T013001Z&HW-CC-Expire=86400&HW-CC-Sign=E792BD1FE57F5A7CCFAA24F5365334E23229446BE983AB8CCCBEB70B334F958D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Udxo0wgMRTmdPLxxNz4Paw/zh-cn_image_0000002658798907.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=F71EE200578F50A570386CF77A6F0E3DDBEE5A735EED0FC4EB0042C3ACF1A666)
 
 - 方案三：使用ApplicationContext接口实现设置应用内全局字体大小。通过setFontSizeScale方法设置应用字体的全局缩放比例：在entryability/EntryAbility中调用ApplicationContext接口，并使用setFontSizeScale方法，即可设置应用内全局字体比例大小。页面代码为默认Hello World页面，EntryAbility示例代码如下：
 
@@ -178,13 +178,13 @@ struct Page {
   正常字体大小：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/N1XF72zjTkioxksGqImqmA/zh-cn_image_0000002628559546.png?HW-CC-KV=V1&HW-CC-Date=20260723T013001Z&HW-CC-Expire=86400&HW-CC-Sign=60F842B210CE3F58EE779CBCC28B92B8A7652B5981E7BDCD34A7F73EED6599DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/N1XF72zjTkioxksGqImqmA/zh-cn_image_0000002628559546.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=8EE7B90A066B22BDA9329CB60AF4E2A93C96F0C9B02AD3C2101CA0E197EC9CDC)
 
 
   设置setFontSizeScale(2)方法的字体大小：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/-q6lWHN_SDSVp3EJ65gD7Q/zh-cn_image_0000002658918857.png?HW-CC-KV=V1&HW-CC-Date=20260723T013001Z&HW-CC-Expire=86400&HW-CC-Sign=D775C3B69284FF4D25068B611401E18F242600190C5CD7A584CCF8F43FA6F002)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/-q6lWHN_SDSVp3EJ65gD7Q/zh-cn_image_0000002658918857.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=6A1BEC48BD2D2C841DC11E67EA835F7EF634310F5AFBEA561FEF162116D43C8B)
 
 
  

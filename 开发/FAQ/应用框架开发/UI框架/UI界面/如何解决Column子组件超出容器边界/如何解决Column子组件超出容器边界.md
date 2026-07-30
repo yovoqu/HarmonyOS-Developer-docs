@@ -43,7 +43,7 @@ struct <span style="color: rgb(0,0,255);">ProblemCode </span><span style="color:
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/Z5g2KpcvSNSR6ug0dP7QCQ/zh-cn_image_0000002628769118.png?HW-CC-KV=V1&HW-CC-Date=20260723T013036Z&HW-CC-Expire=86400&HW-CC-Sign=B27D3593EA6668849F5B2EB641FB26891E2DF7312F157DD6F1299B7465F96908)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/Z5g2KpcvSNSR6ug0dP7QCQ/zh-cn_image_0000002628769118.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=0C59C01AA999CA74F767921585C0441A015DD32AA4D41F2D0878D9E86DC8E3A9)
 
  
  
@@ -99,7 +99,7 @@ struct <span style="color: rgb(0,0,255);">OptionOne </span><span style="color: r
 修改后的预览效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/FqZQvvhjR8Gzdv9pWNYngg/zh-cn_image_0000002658968437.png?HW-CC-KV=V1&HW-CC-Date=20260723T013036Z&HW-CC-Expire=86400&HW-CC-Sign=F00CE40C3F50EB0C3ADE2D50B850F3E9B596EEF18372607D8699100980EF03D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/FqZQvvhjR8Gzdv9pWNYngg/zh-cn_image_0000002658968437.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=E10601E8CB1A12477B020B632599E6E46E4180F76DD58BD4DF3C784D84C0AB1E)
 
  
 另外，在使用constraintSize的时候，注意constraintSize(minWidth/maxWidth/minHeight/maxHeight)取值对width/height影响。
@@ -144,7 +144,7 @@ struct <span style="color: rgb(0,0,255);">OptionTwo </span><span style="color: r
 预览效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/UCYVZ8jOTq60jZhEpFx8uQ/zh-cn_image_0000002658848483.png?HW-CC-KV=V1&HW-CC-Date=20260723T013036Z&HW-CC-Expire=86400&HW-CC-Sign=2499824399C3B68ABF03CD0F0135B3E857D859FBD8F0A9E64D37D99067E1C820)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/UCYVZ8jOTq60jZhEpFx8uQ/zh-cn_image_0000002658848483.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=6E6F51CC9F51E0567C090697462AB292D467AF06190D8D4010C7B33AAFD19872)
 
  
 如果需要处理这个问题，可以在外部使用Scroll组件，并在Scroll组件上设置constraintSize。此时当子组件的占用空间超过constraintSize设置的约束值时，就会出现滚动条，从而不会破坏整个布局的结构。
@@ -185,7 +185,7 @@ struct <span style="color: rgb(0,0,255);">OptionThree </span><span style="color:
 修改后的预览效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/JQ-_P3t7Rwyb2gM8EBSSdQ/zh-cn_image_0000002628609222.png?HW-CC-KV=V1&HW-CC-Date=20260723T013036Z&HW-CC-Expire=86400&HW-CC-Sign=12F48DA4CEA0F9BAD1F063DB483073916C0B44F8496519F3507680696E58E31B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/JQ-_P3t7Rwyb2gM8EBSSdQ/zh-cn_image_0000002628609222.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=CE36E3EA58414196C2A20F7E0B94829357A2AECA9498EE8C90C0ED29E4F3F99E)
 
  
 这样不仅保持了constraintSize的有效性，还通过滚动条提供了一种查看超出部分内容的方式，确保了用户体验不受影响。

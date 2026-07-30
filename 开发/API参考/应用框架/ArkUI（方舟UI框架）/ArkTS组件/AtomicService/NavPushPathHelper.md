@@ -1,6 +1,6 @@
 # NavPushPathHelper
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-navpushpathhelper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,6 +35,14 @@ import { NavPushPathHelper } from '@kit.ArkUI';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
+
+
+
+#### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
 
@@ -92,7 +100,7 @@ pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -133,7 +141,7 @@ pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Pr
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -173,7 +181,7 @@ pushPathByName(moduleName: string, name: string, param: Object, animated?: boole
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -214,7 +222,7 @@ pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback&
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -253,7 +261,7 @@ pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Prom
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -298,7 +306,7 @@ pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptio
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -342,7 +350,7 @@ pushDestinationByName(moduleName: string, name: string, param: Object, animated?
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -387,7 +395,7 @@ pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Ca
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -430,7 +438,7 @@ replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -471,7 +479,7 @@ replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions):
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -511,7 +519,7 @@ replacePathByName(moduleName: string, name: string, param: Object, animated?: bo
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -522,14 +530,6 @@ replacePathByName(moduleName: string, name: string, param: Object, animated?: bo
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
-
-
-
-#### 事件
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
 
@@ -854,4 +854,4 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/s2_zwMH_Q9KTmIj6xT-coQ/zh-cn_image_0000002659102189.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014351Z&HW-CC-Expire=86400&HW-CC-Sign=6AEB448730A6EF7EDF12CDA47DEC7E4289ABA8DEB2FBB1CC1C38C1329BFA267E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/Nw4feGDeSji_aKfoaw4Xog/zh-cn_image_0000002686088405.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071516Z&HW-CC-Expire=86400&HW-CC-Sign=9F9137B36706688C68569A593CD1DCD9A2552D0D42AF06BCEDCFDF1E1DFE698C)

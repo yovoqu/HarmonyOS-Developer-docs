@@ -1,10 +1,10 @@
 # @Provide装饰器和@Consume装饰器：与后代组件双向同步
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume
 
-@Provide和@Consume，应用于与后代组件的双向数据同步、状态数据在多个层级之间传递的场景。不同于上文提到的父子组件之间通过命名参数机制传递，@Provide和@Consume摆脱参数传递机制的束缚，实现跨层级传递。
+[@Provide](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-provide#provide)和[@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-consume#consume)，应用于与后代组件的双向数据同步、状态数据在多个层级之间传递的场景。不同于上文提到的父子组件之间通过命名参数机制传递，@Provide和@Consume摆脱参数传递机制的束缚，实现跨层级传递。
 
 其中@Provide装饰的变量是在祖先组件中，可以理解为被“提供”给后代的状态变量。@Consume装饰的变量是在后代组件中，去“消费（绑定）”祖先组件提供的变量。
 
@@ -197,6 +197,8 @@ struct Parent {
 }
 ```
 
+![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260525091526199-002.png)
+
 3. @Provide的key重复定义时，框架会抛出运行时错误，从API version 23开始，将返回错误码[140114](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement#section140114-声明重复key的provide)，提醒开发者重复定义key。如果开发者需要重复key，可以使用[allowOverride](#provide支持allowoverride参数)。
 
   
@@ -274,9 +276,11 @@ struct Parent {
 }
 ```
 
-5. @Provide与@Consume不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
+![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260525091526199-003.png)
 
-  从API version 23开始，添加对@Provide与@Consume装饰Function类型变量的校验，编译期会报错。
+5. @Provide与@Consume不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
+
+  从API version 23开始，在应用编译时添加了相关校验，@Provide与@Consume装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@Provide或@Consume装饰器。
 6. 从API version 20开始，支持跨BuilderNode配对@Provide/@Consume。在BuilderNode上树时，@Consume通过key匹配找到最近的@Provide，两者类型需要一致，如果不一致，则会抛出运行时错误。
 
   需要注意类型不相等判断，包括类实例的判断，比如：
@@ -322,11 +326,12 @@ class TextNodeController extends NodeController {
 @Entry
 @Component
 struct Index {
-  @Provide message: string = 'hello';
+  @Provide message: string = 'Hello World';
   controller: TextNodeController = new TextNodeController();
 
   build() {
     Column() {
+      Text(`@Provide: ${this.message}`)
       NodeContainer(this.controller)
         .width('100%')
         .height(100)
@@ -336,19 +341,24 @@ struct Index {
   }
 }
 
-
 @Component
 struct Child {
-  // Child通过BuilderNode上树后，@Consume和Index中的@Provide建立连接时发现类型不一致，抛出运行时错误
-  @Consume message: number = 0;
+  // 错误用法：Child通过BuilderNode上树后，@Consume和Index中的@Provide建立连接时发现类型不一致，抛出运行时错误
+  // @Consume message: number = 0;
+
+  // 正确用法：@Consume和@Provide保持类型一致
+  @Consume message: string = 'Hello ArkUI';
 
   build() {
     Column() {
-      Text(`@Consume ${this.message}`)
+      Text(`@Consume: ${this.message}`)
     }
+    .width('100%')
   }
 }
 ```
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/lPKeVxptS1OPC4uqVzPOfQ/zh-cn_image_0000002656005856.png?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=583EE6DEDD455B29C29F4A3A5544743C0E36569537892FA160D75A16A144598D)
 
 7. 父组件传入undefined时，@Provide装饰的变量仍使用本地默认值进行初始化。
 
@@ -384,6 +394,8 @@ struct Child {
 }
 ```
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/aexWlMEURSWlTtdJKS3Fxg/zh-cn_image_0000002655845936.png?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=B435C9C317C743BA9DA14BCF121F2D7C759913D3FCD31B77F20CC5F1F104CD44)
+
 
 
 
@@ -404,8 +416,12 @@ struct ToDoItem {
   build() {
     Column() {
       Text(`count(${this.count})`)
+        .fontSize(15)
+        .margin(10)
       Button(`count(${this.count}), count + 1`)
         .onClick(() => this.count += 1)
+        .width(150)
+        .margin(10)
     }
     .width('50%')
   }
@@ -438,11 +454,18 @@ struct ToDo {
     Column() {
       Button(`count(${this.count}), count + 1`)
         .onClick(() => this.count += 1)
+        .width(300)
+        .margin(10)
       ToDoDemo()
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/aC2kpGPnRXiJC0GwU0tDYg/zh-cn_image_0000002686085365.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=56A3884A5F94ADA108CC4EC5084CBFD082BBA9CA5F20E7522DFC83542BA7C511)
+
 
 
 
@@ -479,6 +502,7 @@ struct Index {
         .margin(10)
       Child()
     }
+    .width('100%')
   }
 }
 
@@ -516,6 +540,10 @@ struct Child {
 ```
 
 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/sWrpxuyeQ9yi6HmI6aUb0Q/zh-cn_image_0000002685925537.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=44C79AF23BBE45A4F105BA804FEC53723A1A2366003FD948B4C15FD2481B8B42)
+
+
+
 
 #### 装饰Map类型变量
 
@@ -535,8 +563,10 @@ struct Child {
       ForEach(Array.from(this.message.entries()), (item: [number, string]) => {
         Text(`${item[0]}`)
           .fontSize(30)
+          .margin(10)
         Text(`${item[1]}`)
           .fontSize(30)
+          .margin(10)
         Divider()
       })
       // message被@Consume装饰，可以被观察到Map整体的赋值以及调用Map接口带来的变化
@@ -544,23 +574,34 @@ struct Child {
         .onClick(() => {
           this.message = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
         })
+        .width(300)
+        .margin(10)
       Button('Consume set new one')
         .onClick(() => {
           this.message.set(4, 'd');
         })
+        .width(300)
+        .margin(10)
       Button('Consume clear')
         .onClick(() => {
           this.message.clear();
         })
+        .width(300)
+        .margin(10)
       Button('Consume replace the first item')
         .onClick(() => {
           this.message.set(0, 'aa');
         })
+        .width(300)
+        .margin(10)
       Button('Consume delete the first item')
         .onClick(() => {
           this.message.delete(0);
         })
+        .width(300)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 
@@ -578,14 +619,19 @@ struct MapSample {
           .onClick(() => {
             this.message = new Map([[0, 'a'], [1, 'b'], [3, 'c'], [4, 'd']]);
           })
+          .width(300)
+          .margin(10)
         Child()
       }
       .width('100%')
     }
-    .height('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/HkT6-yk_QVuTRVIu7r4AeA/zh-cn_image_0000002656005858.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=D4B120E3AF7F6B3D27EF998CD7A402AC4FEB1DA25AEC85E0E654D933E6FD9BA3)
+
 
 
 
@@ -607,6 +653,7 @@ struct Child {
       ForEach(Array.from(this.message.entries()), (item: [number, number]) => {
         Text(`${item[0]}`)
           .fontSize(30)
+          .margin(10)
         Divider()
       })
       // message被@Consume装饰，可以被观察到Set整体的赋值以及调用Set接口带来的变化
@@ -614,18 +661,26 @@ struct Child {
         .onClick(() => {
           this.message = new Set([0, 1, 2, 3, 4]);
         })
+        .width(300)
+        .margin(10)
       Button('Consume set new one')
         .onClick(() => {
           this.message.add(5);
         })
+        .width(300)
+        .margin(10)
       Button('Consume clear')
         .onClick(() => {
           this.message.clear();
         })
+        .width(300)
+        .margin(10)
       Button('Consume delete the first one')
         .onClick(() => {
           this.message.delete(0);
         })
+        .width(300)
+        .margin(10)
     }
     .width('100%')
   }
@@ -645,14 +700,19 @@ struct SetSample {
           .onClick(() => {
             this.message = new Set([0, 1, 2, 3, 4, 5]);
           })
+          .width(300)
+          .margin(10)
         Child()
       }
       .width('100%')
     }
-    .height('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/c9O6oJjmQGmbVkbo0YqrAA/zh-cn_image_0000002655845938.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=9704E32B1B72AEF3EE197D509A097862E993D2AC83ECB7EF2B3692A475807A1B)
+
 
 
 
@@ -672,17 +732,21 @@ struct Child {
         .onClick(() => {
           this.selectedDate.setDate(this.selectedDate.getDate() + 1);
         })
+        .width(300)
+        .margin(10)
       Button('child update the new date')
         .margin(10)
         .onClick(() => {
           this.selectedDate = new Date('2023-09-09');
         })
+        .width(300)
       DatePicker({
         start: new Date('1970-1-1'),
         end: new Date('2100-1-1'),
         selected: this.selectedDate
       })
     }
+    .width('100%')
   }
 }
 
@@ -699,11 +763,13 @@ struct Parent {
         .onClick(() => {
           this.selectedDate.setDate(this.selectedDate.getDate() + 1);
         })
+        .width(300)
       Button('parent update the new date')
         .margin(10)
         .onClick(() => {
           this.selectedDate = new Date('2023-07-07');
         })
+        .width(300)
       DatePicker({
         start: new Date('1970-1-1'),
         end: new Date('2100-1-1'),
@@ -711,9 +777,14 @@ struct Parent {
       })
       Child()
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/XuFUeAqRRRKicxvnUk_zkA/zh-cn_image_0000002686085367.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=693B81C8D3F669E79900821405A2DC07FB36BB66A9039710CDBE9A1392E64EDB)
+
 
 
 
@@ -730,8 +801,12 @@ struct Child {
   build() {
     Column() {
       Text(`count(${this.count})`)
+        .fontSize(20)
+        .margin(10)
       Button(`count(${this.count}), Child`)
         .onClick(() => this.count = 'Ancestors')
+        .width(300)
+        .margin(10)
     }
     .width('50%')
   }
@@ -756,11 +831,18 @@ struct Ancestors {
     Column() {
       Button(`count(${this.count}), Child`)
         .onClick(() => this.count = undefined)
+        .width(300)
+        .margin(10)
       Parent()
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/KlsSc_TeSyOjCy5gUfNpXA/zh-cn_image_0000002685925539.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=80B8F9F9E954E93BE36F8C4168A5A53D769ADE8345CCF22CFF1D4A3F889AB02B)
+
 
 
 
@@ -800,8 +882,12 @@ struct GrandSon {
   build() {
     Column() {
       Text(`reviewVotes(${this.reviewVotes})`) // Text显示10
+        .fontSize(20)
+        .margin(10)
       Button(`reviewVotes(${this.reviewVotes}), give +1`)
         .onClick(() => this.reviewVotes += 1)
+        .width(300)
+        .margin(10)
     }
     .width('50%')
   }
@@ -836,11 +922,18 @@ struct GrandParent {
     Column() {
       Button(`reviewVotes(${this.reviewVotes}), give +1`)
         .onClick(() => this.reviewVotes += 1)
+        .width(300)
+        .margin(10)
       Parent()
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/OSDAxB5kRMuieQ957JUY3w/zh-cn_image_0000002656005860.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=0E328808D0B83C98F00651F10FAB706EC01A29DBEE20B6621C4F5C18C9A8D730)
+
 
 在上面的示例中：
 
@@ -885,8 +978,13 @@ struct Parent {
       Row() {
         Column() {
           Text(`${this.provideOne}`)
+            .fontSize(20)
+            .margin(10)
           Text(`${this.provideTwo}`)
+            .fontSize(20)
+            .margin(10)
         }
+        .width('100%')
 
         Column() {
           // 点击change provideOne按钮，provideOne和子组件中的textOne属性会同时变化
@@ -894,20 +992,27 @@ struct Parent {
             .onClick(() => {
               this.provideOne = undefined;
             })
+            .width(300)
+            .margin(10)
           // 点击change provideTwo按钮，provideTwo和子组件中的textTwo属性会同时变化
           Button('change provideTwo')
             .onClick(() => {
               this.provideTwo = 'the next provider';
             })
+            .width(300)
+            .margin(10)
         }
+        .width('100%')
       }
 
       Row() {
         Column() {
           Child()
         }
+        .width('100%')
       }
     }
+    .width('100%')
   }
 }
 
@@ -923,22 +1028,37 @@ struct Child {
   build() {
     Column() {
       Text(`${this.textOne}`)
+        .fontSize(20)
+        .margin(10)
       Text(`${this.textTwo}`)
+        .fontSize(20)
+        .margin(10)
       Text(`${this.textThree}`)
+        .fontSize(20)
+        .margin(10)
       // 点击change textOne按钮，textOne和父组件的provideOne会同时变化
       Button('change textOne')
         .onClick(() => {
           this.textOne = 'not undefined';
         })
+        .width(300)
+        .margin(10)
       // 点击change textTwo按钮，textTwo和父组件的provideTwo会同时变化
       Button('change textTwo')
         .onClick(() => {
           this.textTwo = 'change textTwo';
         })
+        .width(300)
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/UfiX-_0ST4-Y5gLQDYL8yw/zh-cn_image_0000002655845940.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=02FA2CFB2C91E3FFC717DF81507A068293DB4D542F03E7E54E12B973EB5A96F2)
+
 
 在上面的示例中：
 
@@ -982,6 +1102,7 @@ function buildText() {
   Column() {
     Child()
   }
+  .width('100%')
 }
 
 class TextNodeController extends NodeController {
@@ -1051,6 +1172,7 @@ struct Index {
         .onClick(() => {
           this.message += ' Provide';
         })
+        .margin(10)
 
       // 执行BuilderNode的build方法，构造Child自定义组件
       // 并将BuilderNode挂载在NodeContainer下
@@ -1060,18 +1182,24 @@ struct Index {
         .onClick(() => {
           this.controller.addBuilderNode();
         })
+        .width(300)
+        .margin(10)
       // 将BuilderNode下的节点从NodeContainer上移除
       // @Consume修饰的变量message从和@Provide配对的值变为default value，并回调@Consume的@Watch方法
       Button('remove Child')
         .onClick(() => {
           this.controller.removeBuilderNode();
         })
+        .width(300)
+        .margin(10)
 
       // 立即释放当前BuilderNode，BuilderNode下节点销毁，Child组件执行aboutToDisappear
       Button('dispose Child')
         .onClick(() => {
           this.controller.disposeNode();
         })
+        .width(300)
+        .margin(10)
       NodeContainer(this.controller)
         .width('100%')
         .height(100)
@@ -1102,10 +1230,16 @@ struct Child {
         .onClick(() => {
           this.message += ' Consume';
         })
+        .margin(10)
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/GGwpwm98Rb6IQQbofBlS4A/zh-cn_image_0000002686085369.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=228D037A23D67C614A029301C3ECF9AE726C1F706908F8AD4A386DC23A8974E3)
+
 
 
 
@@ -1197,22 +1331,28 @@ struct HomePage {
   @Builder
   builder2($$: Tmp) {
     Text(`${$$.name} test`)
+      .fontSize(20)
+      .margin(10)
   }
 
   build() {
     Column() {
-      Button('Hello').onClick(() => {
-        if (this.name == 'ddd') {
-          this.name = 'abc';
-        } else {
-          this.name = 'ddd';
-        }
-      })
+      Button('Hello')
+        .onClick(() => {
+          if (this.name == 'ddd') {
+            this.name = 'abc';
+          } else {
+            this.name = 'ddd';
+          }
+          })
+          .width(300)
+          .margin(10)
       // 修正点2：CustomWidget不再声明@Provide，仅作为容器传递builder
       CustomWidget() {
         CustomWidgetChild({ builder: this.builder2 })
       }
     }
+    .width('100%')
   }
 }
 
@@ -1237,6 +1377,10 @@ struct CustomWidgetChild {
     Column() {
       this.builder({ name: this.name })
     }
+    .width('100%')
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/aCGUsOSdTjG49O_hyvLkAA/zh-cn_image_0000002685925541.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=F335350337605C1C4CE8672D3491E64ADE7CED300F938CD679CCCE174006D36D)

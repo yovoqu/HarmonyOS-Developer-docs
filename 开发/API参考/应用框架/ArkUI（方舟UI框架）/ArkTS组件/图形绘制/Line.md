@@ -1,14 +1,14 @@
 # Line
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-line
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-直线绘制组件。
+Line组件用于在应用界面中绘制直线，支持自定义直线的起点、终点、颜色、宽度、透明度、虚线样式、端点样式等属性。适用于绘制分隔线、装饰性线条、图表中的坐标轴或连接线、自定义图形边框等场景。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API version 20开始支持使用 AttributeUpdater 类的 updateConstructorParams 接口更新构造参数。
+> 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该组件从API version 20开始支持使用 AttributeUpdater 类的 updateConstructorParams 接口更新构造参数。 Line组件无法形成闭合区域，fill和fillOpacity属性设置无效。 Line组件不支持拐角，strokeLineJoin和strokeMiterLimit属性设置无效。
 
   
 
@@ -32,7 +32,7 @@
 
 new Line(options?: LineOptions)
  
-用于绘制直线的构造函数。
+用于绘制直线的构造函数。Line组件在width和height定义的矩形区域内绘制直线，绘制区域的左上角为坐标原点(0,0)，x轴向右延伸，y轴向下延伸。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -44,7 +44,7 @@ new Line(options?: LineOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | LineOptions | 否 | Line绘制区域。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | LineOptions | 否 | Line组件绘制区域，包含width和height属性，用于设置Line组件的宽高。不传递此参数时，Line组件的width和height属性将按照各自属性的缺省逻辑处理（参见LineOptions对象说明）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
  
  
   
@@ -55,7 +55,7 @@ new Line(options?: LineOptions)
 
 Line(options?: LineOptions)
  
-用于绘制直线的构造函数。
+用于绘制直线的构造函数。Line组件在width和height定义的矩形区域内绘制直线，绘制区域的左上角为坐标原点(0,0)，x轴向右延伸，y轴向下延伸。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -67,7 +67,7 @@ Line(options?: LineOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | LineOptions | 否 | Line绘制区域。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | LineOptions | 否 | Line组件绘制区域，包含width和height属性，用于设置Line组件的宽高。不传递此参数时，Line组件的width和height属性将按照各自属性的缺省逻辑处理（参见LineOptions对象说明）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
  
  
   
@@ -92,8 +92,8 @@ Line(options?: LineOptions)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width7+ | Length | 否 | 是 | 宽度。 值为异常值或缺省时按照自身内容需要的宽度处理。 默认单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| height7+ | Length | 否 | 是 | 高度。 值为异常值或缺省时按照自身内容需要的高度处理。 默认单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| width7+ | Length | 否 | 是 | 宽度。 值为异常值或缺省时，根据startPoint和endPoint自动计算所需的绘制区域宽度。 默认单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| height7+ | Length | 否 | 是 | 高度。 值为异常值或缺省时，根据startPoint和endPoint自动计算所需的绘制区域高度。 默认单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
  
  
   
@@ -102,7 +102,7 @@ Line(options?: LineOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)以及[图形绘制通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common)外，还支持以下属性：
  
   
 
@@ -112,7 +112,7 @@ Line(options?: LineOptions)
 
 startPoint(value: Array&lt;any&gt;)
  
-设置直线起点坐标点（相对坐标），支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。
+设置直线起点坐标点（相对于Line组件绘制区域的左上角原点），支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -124,7 +124,7 @@ startPoint(value: Array&lt;any&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;any&gt; | 是 | 直线起点坐标点（相对坐标），单位vp。 默认值：[0, 0] 异常值undefined和null按照默认值处理。 |
+| value | Array&lt;any&gt; | 是 | 直线起点坐标点（相对于Line组件绘制区域的左上角原点），单位vp。数组格式为[x坐标, y坐标]，数组长度必须为2，元素应为Length类型。 默认值：[0, 0] 异常值undefined和null按照默认值处理。 |
  
  
   
@@ -135,7 +135,7 @@ startPoint(value: Array&lt;any&gt;)
 
 endPoint(value: Array&lt;any&gt;)
  
-设置直线终点坐标点（相对坐标），支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。
+设置直线终点坐标点（相对于Line组件绘制区域的左上角原点），支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -147,260 +147,7 @@ endPoint(value: Array&lt;any&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;any&gt; | 是 | 直线终点坐标点（相对坐标），单位vp。 默认值：[0, 0] 异常值undefined和null按照默认值处理。 |
- 
- 
-  
-
-#### fill
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-fill(value: ResourceColor)
- 
-设置填充区域颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Line组件无法形成闭合区域，该属性设置无效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | ResourceColor | 是 | 填充区域颜色。 默认值：Color.Black 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### fillOpacity
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-fillOpacity(value: number | string | Resource)
- 
-设置填充区域透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Line组件无法形成闭合区域，该属性设置无效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 填充区域透明度。 说明： number格式取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0，其余异常值按1.0处理。 string格式支持number格式取值的字符串形式，取值范围与number格式相同。 Resource格式支持系统资源或者应用资源中的字符串，取值范围和number格式相同。 异常值NaN按0.0处理，undefined、null和Infinity按1.0处理。 默认值：1.0 |
- 
- 
-  
-
-#### stroke
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-stroke(value: ResourceColor)
- 
-设置边框颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，不设置时，默认边框透明度为0，即没有边框。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | ResourceColor | 是 | 边框颜色。 默认值：Color.Transparent 异常值undefined和null按照默认值处理，NaN和Infinity按照Color.Black处理。 |
- 
- 
-  
-
-#### strokeDashArray
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeDashArray(value: Array&lt;any&gt;)
- 
-设置边框间隙，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。线段相交时可能会出现重叠现象。取值范围≥0，异常值按照默认值处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | Array&lt;any&gt; | 是 | 定义Line的虚线模式的数组，数组元素交替表示线段长度和间隙长度。 默认值：[]（空数组） 默认单位：vp 异常值undefined和null按照默认值处理。 说明： 空数组：实线 偶数多元素数组：数组元素按顺序循环，如[a, b, c, d]表示线段长度a->间隙长度b->线段长度c->间隙长度d->线段长度a->... 奇数多元素数组：重复一次该数组元素，按偶数多元素数组的规则顺序循环，如[a, b, c]等效于[a, b, c, a, b, c]，表示线段长度a->间隙长度b->线段长度c->间隙长度a->线段长度b->间隙长度c->线段长度a->... |
- 
- 
-  
-
-#### strokeDashOffset
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeDashOffset(value: number | string)
- 
-设置边框绘制起点的偏移量，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string | 是 | 边框绘制起点的偏移量。 默认值：0 默认单位：vp 异常值undefined和null按照默认值处理，NaN和Infinity会导致strokeDashArray失效。 |
- 
- 
-  
-
-#### strokeLineCap
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeLineCap(value: LineCapStyle)
- 
-设置边框端点绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | LineCapStyle | 是 | 边框端点绘制样式。 默认值：LineCapStyle.Butt 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### strokeLineJoin
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeLineJoin(value: LineJoinStyle)
- 
-设置边框拐角绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Line组件不支持拐角，该属性设置无效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | LineJoinStyle | 是 | 边框拐角绘制样式。 默认值：LineJoinStyle.Miter 异常值undefined、null、NaN和Infinity按照默认值处理。 |
- 
- 
-  
-
-#### strokeMiterLimit
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeMiterLimit(value: number | string)
- 
-设置锐角绘制成斜角的极限值，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Line组件不支持设置锐角图形，该属性设置无效。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string | 是 | 锐角绘制成斜角的极限值。 默认值：4 异常值undefined、null和NaN按照默认值处理，Infinity会导致stroke失效。 |
- 
- 
-  
-
-#### strokeOpacity
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeOpacity(value: number | string | Resource)
- 
-设置边框透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性的取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | 边框透明度。 默认值：stroke接口设置的透明度。 异常值NaN按0.0处理，undefined、null和Infinity按1.0处理。 |
- 
- 
-  
-
-#### strokeWidth
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-strokeWidth(value: Length)
- 
-设置边框宽度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性若为string类型, 暂不支持百分比，百分比按照1px处理。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | Length | 是 | 边框宽度，取值范围≥0。 默认值：1 默认单位：vp 异常值undefined、null和NaN按照默认值处理，Infinity按0处理。 |
- 
- 
-  
-
-#### antiAlias
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-antiAlias(value: boolean)
- 
-设置是否开启抗锯齿效果，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
- 
-**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**参数：**
-  
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| value | boolean | 是 | 是否开启抗锯齿效果。 true：开启抗锯齿；false：关闭抗锯齿。 默认值：true 异常值undefined和null按照false处理。 |
+| value | Array&lt;any&gt; | 是 | 直线终点坐标点（相对于Line组件绘制区域的左上角原点），单位vp。数组格式为[x坐标, y坐标]，数组长度必须为2，元素应为Length类型。 默认值：[0, 0] 异常值undefined和null按照默认值处理。 |
  
  
   
@@ -413,7 +160,7 @@ antiAlias(value: boolean)
 
 #### 示例1（组件属性绘制）
 
-通过startPoint、endPoint、fillOpacity、stroke、strokeDashArray、strokeDashOffset属性分别绘制直线的起始点、结束点、透明度、直线颜色、边框间隙、绘制起点。
+通过startPoint、endPoint、strokeOpacity、stroke、strokeWidth、strokeDashArray、strokeDashOffset属性分别绘制直线的起始点、结束点、透明度、直线颜色、线条宽度、边框间隙、绘制起点。
  
 ```ArkTS
 // xxx.ets
@@ -430,6 +177,7 @@ struct LineExample {
         .endPoint([50, 100])
         .stroke(Color.Black)
         .backgroundColor('#F5F5F5')
+      // 设置起始点为(50, 50)，终点为(150, 150)，线条宽度为5，线条颜色为橙色，线条透明度为0.5
       Line()
         .width(200)
         .height(150)
@@ -450,7 +198,7 @@ struct LineExample {
         .strokeDashArray([10, 3])
         .strokeDashOffset(5)
         .backgroundColor('#F5F5F5')
-      // 当坐标点设置的值超出Line组件的宽高范围时，线条会画出组件绘制区域
+      // 当坐标点设置的值超出Line组件的宽高范围时，线条会画出组件绘制区域。设置虚线模式：线段长度10，间隙长度3
       Line()
         .width(50)
         .height(50)
@@ -471,9 +219,9 @@ struct LineExample {
  
   
 
-#### 示例2（边框端点绘制）
+#### 示例2（线条端点绘制）
 
-通过strokeLineCap属性绘制直线的边框端点样式。
+通过strokeLineCap属性绘制直线的线条端点样式。
  
 ```ArkTS
 // xxx.ets
@@ -524,9 +272,9 @@ struct LineExample1 {
  
   
 
-#### 示例3（边框间隙绘制）
+#### 示例3（线条间隙绘制）
 
-通过strokeDashArray属性绘制直线的边框间隙。
+通过strokeDashArray属性绘制直线的线条间隙。
  
 ```ArkTS
 // xxx.ets
@@ -600,7 +348,7 @@ width、height属性分别使用不同的长度类型绘制直线。
 struct LineTypeExample {
   build() {
     Column({ space: 10 }) {
-      // 在200 * 200的区域内绘制一个起始点为（0,0），终点为（150,150），边框宽度为10的直线
+      // 在200 * 200的区域内绘制一个起始点为（0,0），终点为（150,150），线条宽度为10的直线
       Line({ width: '200', height: '200' })// 使用string类型
         .startPoint([0, 0])
         .endPoint([150, 150])
@@ -608,7 +356,7 @@ struct LineTypeExample {
         .strokeWidth(10)
         .backgroundColor('#F5F5F5')
         .margin(10)
-      // 在200 * 200的区域内绘制一个起始点为（0,50），终点为（150,150），边框宽度为10的直线
+      // 在200 * 200的区域内绘制一个起始点为（0,50），终点为（150,150），线条宽度为10的直线
       Line({ width: 200, height: 200 })// 使用number类型
         .startPoint([0, 50])
         .endPoint([150, 150])
@@ -616,7 +364,7 @@ struct LineTypeExample {
         .strokeWidth(10)
         .backgroundColor('#F5F5F5')
         .margin(10)
-      // 在200 * 200的区域内绘制一个起始点为（0,100），终点为（150,150），边框宽度为10的直线
+      // 在200 * 200的区域内绘制一个起始点为（0,100），终点为（150,150），线条宽度为10的直线
       Line({ width: $r('app.string.LineWidth'), height: $r('app.string.LineHeight') })// 使用Resource类型，需用户自定义
         .startPoint([0, 100])
         .endPoint([150, 150])
@@ -630,7 +378,7 @@ struct LineTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/F91sdt4gRa-0X0U78iY7Rw/zh-cn_image_0000002628702880.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=9A3987508282AF25EC3D353AF08FEA955C1A3B350D0EBD22DBA43EAEF5608C74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/yzkyn27ATiufn7yCE2c-8A/zh-cn_image_0000002655848892.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=F8DCD4B7ED7AF2278F84CC293F472465F86B509D43B009408508D5FAEE55F061)
 
  
   
@@ -643,12 +391,12 @@ struct LineTypeExample {
 // xxx.ets
 class MyLineModifier implements AttributeModifier<LineAttribute> {
   applyNormalAttribute(instance: LineAttribute): void {
-    // 一个起始点为（10, 10），终点为（120, 10）的直线，边框颜色#2787D9，边框间隙[20]，向左偏移15，线条两端样式为半圆，边框透明度0.5，边框宽度10，抗锯齿开启
+    // 一个起始点为（10, 10），终点为（120, 10）的直线，线条颜色#2787D9，线条间隙[20]，设置虚线偏移量为15，线条两端样式为半圆，线条透明度0.5，线条宽度10，抗锯齿开启
     instance.startPoint([10, 10])
     instance.endPoint([120, 10])
-    instance.stroke("#2787D9")
+    instance.stroke('#2787D9')
     instance.strokeDashArray([20])
-    instance.strokeDashOffset("15")
+    instance.strokeDashOffset('15')
     instance.strokeLineCap(LineCapStyle.Round)
     instance.strokeOpacity(0.5)
     instance.strokeWidth(10)
@@ -672,4 +420,4 @@ struct LineModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/ZqE2xCA_QvCyrasdAP3gqQ/zh-cn_image_0000002659102107.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=0C546EFB5DB4349EE0573530C1E5CA2D243DCBC0697C8B3BAF73C81D9A0BDF72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/eFtAbbXlRMO4kq8p2EJsqw/zh-cn_image_0000002686088321.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=D3F86A7865F6A0220E1E9C01C19AC8CCADE3046AC34A236F121DB48793061B18)

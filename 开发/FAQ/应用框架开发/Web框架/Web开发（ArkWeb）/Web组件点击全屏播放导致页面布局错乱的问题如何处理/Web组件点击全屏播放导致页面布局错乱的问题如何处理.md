@@ -13,7 +13,7 @@ Web组件引用三方H5页面加载的视频，当点击视频全屏，视频区
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/vz6-dl3sThqJo3DqLM6FnA/zh-cn_image_0000002659258353.png?HW-CC-KV=V1&HW-CC-Date=20260723T013337Z&HW-CC-Expire=86400&HW-CC-Sign=FF8CC410E9F7378849D1F3BE4DA3F0ACBBAB752EDD259BA3646434A5BBE90186)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/vz6-dl3sThqJo3DqLM6FnA/zh-cn_image_0000002659258353.png?HW-CC-KV=V1&HW-CC-Date=20260730T072532Z&HW-CC-Expire=86400&HW-CC-Sign=A3EC7BC13C128047C0165257013FCF89CE1F0AE5E741F9AB589B88128B0DB011)
 
  
  

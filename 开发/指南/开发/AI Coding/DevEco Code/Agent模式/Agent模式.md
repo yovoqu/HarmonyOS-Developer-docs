@@ -1,6 +1,6 @@
 # Agent模式
 
-更新时间：2026-07-21 01:13:31
+更新时间：2026-07-28 12:07:32
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-code-agent
 
@@ -27,7 +27,7 @@ DevEco Code支持三种Agent模式，分别为Build模式、Plan模式、Goal模
 #### 实现流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/U4R9oQAoRGmDcFHvCYHUfQ/zh-cn_image_0000002675391787.png?HW-CC-KV=V1&HW-CC-Date=20260723T012318Z&HW-CC-Expire=86400&HW-CC-Sign=92BA07F3293EAD0C6E017FC2A773B906CAC9D688FAF366FBD807B81A6C248119)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/VRkwlbpyREK_EntbUmLNSA/zh-cn_image_0000002677997267.png?HW-CC-KV=V1&HW-CC-Date=20260730T072213Z&HW-CC-Expire=86400&HW-CC-Sign=0F9CA5324B30C7D80BA150C5927BD52F3227139A15CB0A4DB4D8FE4F3C3B9568)
 
 
 
@@ -46,10 +46,16 @@ DevEco Code支持三种Agent模式，分别为Build模式、Plan模式、Goal模
 
 
 
+#### 约束与限制
+
+推包验证需配置模拟器。
+
+
+
 #### 实现流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/HowGTt_jSjWcw47cL6lB3Q/zh-cn_image_0000002645391994.png?HW-CC-KV=V1&HW-CC-Date=20260723T012318Z&HW-CC-Expire=86400&HW-CC-Sign=DFE1157B41B2DB229D737DE37C98357D31F9F3CE657F3467AF643B777A91E449)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/P9_S9iTIQjWu3OS3vOY2BA/zh-cn_image_0000002677997265.png?HW-CC-KV=V1&HW-CC-Date=20260730T072213Z&HW-CC-Expire=86400&HW-CC-Sign=FD914C9EC5BDA34C1B54D3DC36F074D4071AFDF6BCB5F06382570FE5A5A8EAC0)
 
 
 Plan + Build模式实现流程分为三大阶段：
@@ -82,7 +88,7 @@ Plan + Build模式实现流程分为三大阶段：
 #### 实现流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/P865DfWQTYmINZa1icUqBg/zh-cn_image_0000002675391791.png?HW-CC-KV=V1&HW-CC-Date=20260723T012318Z&HW-CC-Expire=86400&HW-CC-Sign=229D5753D690292F6CC8ACA497EC9E2BE9480CB2C692DED0F749ABD7C17984C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/UN8mnQZSRB-vyG1Qw6DhMw/zh-cn_image_0000002677997269.png?HW-CC-KV=V1&HW-CC-Date=20260730T072213Z&HW-CC-Expire=86400&HW-CC-Sign=DF1765148832F6BADF5434BEBC5095142CEE743D227A37F013509612E7900643)
 
 
 Goal Agent实现流程分为两大阶段：

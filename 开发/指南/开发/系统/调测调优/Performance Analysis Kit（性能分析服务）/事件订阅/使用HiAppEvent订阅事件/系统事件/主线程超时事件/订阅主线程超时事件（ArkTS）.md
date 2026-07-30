@@ -1,6 +1,6 @@
 # 订阅主线程超时事件（ArkTS）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-mainthreadjank-events-arkts
 
@@ -27,7 +27,7 @@
 #### 添加事件观察者
 
 以主线程超时事件订阅为例，说明开发步骤。
-1. 新建一个ArkTS应用工程，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块，示例代码如下：
+1. 在DevEco Studio中，新建一个ArkTS应用工程，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块，示例代码如下：
 
   
 ```text

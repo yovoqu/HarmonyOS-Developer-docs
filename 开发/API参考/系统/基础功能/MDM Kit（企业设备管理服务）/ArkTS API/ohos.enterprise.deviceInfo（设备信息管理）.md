@@ -1,6 +1,6 @@
 # @ohos.enterprise.deviceInfo（设备信息管理）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-deviceinfo
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -59,6 +59,7 @@ getDeviceInfo(admin: Want, label: string): string
 | --- | --- |
 | 9200001 | The application is not an administrator application of the device. |
 | 9200002 | The administrator application does not have permission to manage the device. |
+| 9200007 | The system ability works abnormally. |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 

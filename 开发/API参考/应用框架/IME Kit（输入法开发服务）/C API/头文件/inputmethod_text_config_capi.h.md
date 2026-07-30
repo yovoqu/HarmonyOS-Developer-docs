@@ -1,6 +1,6 @@
 # inputmethod_text_config_capi.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-config-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,6 +55,7 @@
 | InputMethod_ErrorCode OH_TextConfig_SetWindowId(InputMethod_TextConfig *config, int32_t windowId) | 设置文本配置信息中所属窗口的窗口id。 |
 | InputMethod_ErrorCode OH_TextConfig_SetPlaceholder(InputMethod_TextConfig *config, const char16_t *placeholder,size_t length) | 设置文本配置信息中的占位符文本信息。 |
 | InputMethod_ErrorCode OH_TextConfig_SetAbilityName(InputMethod_TextConfig *config, const char16_t *abilityName,size_t length) | 设置文本配置信息中的abilityName信息。 |
+| InputMethod_ErrorCode OH_TextConfig_SetConsumeKeyEvents(InputMethod_TextConfig *config, bool consumeKeyEvents) | 将编辑框是否具有完整处理字母、字符、功能等按键的能力设置到文本配置信息中。 |
 | InputMethod_ErrorCode OH_TextConfig_GetInputType(InputMethod_TextConfig *config, InputMethod_TextInputType *inputType) | 获取文本配置信息中的输入框类型。 |
 | InputMethod_ErrorCode OH_TextConfig_GetEnterKeyType(InputMethod_TextConfig *config, InputMethod_EnterKeyType *enterKeyType) | 获取文本配置信息中的回车键功能类型。 |
 | InputMethod_ErrorCode OH_TextConfig_IsPreviewTextSupported(InputMethod_TextConfig *config, bool *supported) | 获取文本配置中是否支持预上屏。 |
@@ -64,6 +65,7 @@
 | InputMethod_ErrorCode OH_TextConfig_GetWindowId(InputMethod_TextConfig *config, int32_t *windowId) | 获取文本配置信息中所属窗口的窗口id。 |
 | InputMethod_ErrorCode OH_TextConfig_GetPlaceholder(InputMethod_TextConfig *config, char16_t *placeholder,size_t *length) | 获取文本配置信息中的占位符文本信息。 |
 | InputMethod_ErrorCode OH_TextConfig_GetAbilityName(InputMethod_TextConfig *config, char16_t *abilityName,size_t *length) | 获取文本配置信息中的abilityName信息。 |
+| InputMethod_ErrorCode OH_TextConfig_GetConsumeKeyEvents(InputMethod_TextConfig *config, bool *consumeKeyEvents) | 获取文本配置中是否具有完整处理字母、字符、功能等按键的能力。 |
  
  
   
@@ -336,6 +338,37 @@ InputMethod_ErrorCode OH_TextConfig_SetAbilityName(InputMethod_TextConfig *confi
 | 类型 | 说明 |
 | --- | --- |
 | InputMethod_ErrorCode | InputMethod_ErrorCode： IME_ERR_OK = 0：表示成功。 IME_ERR_NULL_POINTER = 12802000：非预期的空指针。 |
+ 
+ 
+  
+
+#### OH_TextConfig_SetConsumeKeyEvents()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+InputMethod_ErrorCode OH_TextConfig_SetConsumeKeyEvents(InputMethod_TextConfig *config, bool consumeKeyEvents)
+```
+ 
+**描述**
+ 
+将编辑框是否具有完整处理字母、字符、功能等按键的能力设置到文本配置信息中。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| InputMethod_TextConfig *config | 指向即将被设置值的InputMethod_TextConfig实例的指针。 |
+| bool consumeKeyEvents | 表示编辑框是否具有完整处理字母、字符、功能等按键的能力。true - 表示具备此能力。false - 表示不具备此能力。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| InputMethod_ErrorCode | 返回一个特定的错误码。 IME_ERR_OK - 表示成功。 IME_ERR_NULL_POINTER - 非预期的空指针。 具体错误码可以参考InputMethod_ErrorCode。 |
  
  
   
@@ -618,3 +651,34 @@ InputMethod_ErrorCode OH_TextConfig_GetAbilityName(InputMethod_TextConfig *confi
 | 类型 | 说明 |
 | --- | --- |
 | InputMethod_ErrorCode | InputMethod_ErrorCode： IME_ERR_OK = 0：表示成功。 IME_ERR_PARAMCHECK = 401：参数检查失败。 IME_ERR_NULL_POINTER = 12802000：非预期的空指针。 |
+ 
+ 
+  
+
+#### OH_TextConfig_GetConsumeKeyEvents()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+InputMethod_ErrorCode OH_TextConfig_GetConsumeKeyEvents(InputMethod_TextConfig *config, bool *consumeKeyEvents)
+```
+ 
+**描述**
+ 
+获取文本配置中是否具有完整处理字母、字符、功能等按键的能力。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| InputMethod_TextConfig *config | 指向即将被获取值的InputMethod_TextConfig实例的指针。 |
+| bool *consumeKeyEvents | 表示编辑框是否具有完整处理字母、字符、功能等按键的能力。true - 表示具备此能力。false - 表示不具备此能力。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| InputMethod_ErrorCode | 返回一个特定的错误码。 IME_ERR_OK - 表示成功。 IME_ERR_NULL_POINTER - 非预期的空指针。 具体错误码可以参考InputMethod_ErrorCode。 |

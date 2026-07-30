@@ -38,4 +38,4 @@ napi开发中，在Index.d.ts接口定义文件中报错Declared function 'xxx' 
 
 - 正确绑定ArkTS接口与C++接口，导出的接口名与Index.d.ts声明的接口名一致。
 - 修改IDE的设置，可以通过settings-editor-inspections-JavaScript typescript ArkTS中取消unregister function in native declaration file设置。示例如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/0HXEnWvZS86sRHr6HlQq8A/zh-cn_image_0000002628569176.png?HW-CC-KV=V1&HW-CC-Date=20260723T013921Z&HW-CC-Expire=86400&HW-CC-Sign=AAEC68FA1042C3601C192D6CD742A863DBE15BA567E705199A8AE4184EDA238A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/0HXEnWvZS86sRHr6HlQq8A/zh-cn_image_0000002628569176.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=0E060D5C2BF01A9A4E8041F3A5B4FA564FC00041FAA00AB749208CF5FA2E3BDD)

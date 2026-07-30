@@ -1,12 +1,12 @@
 # URL检测
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-urlthreat-check
 
 #### 场景介绍
 
-应用通过调用Device Security Kit的checkUrlThreat接口检测URL是否为恶意的，并且根据检测结果来提示或拦截该URL。
+应用通过调用Device Security Kit的[checkUrlThreat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#safetydetectcheckurlthreat)接口检测URL是否为恶意的，并且根据检测结果来提示或拦截该URL。
 
 典型场景：用户访问网址时，判断用户访问的URL是否为恶意网址，对于恶意网址，提示或拦截用户的访问风险。
 
@@ -27,7 +27,7 @@
 
 
 **流程说明：**
-1. 开发者应用调用URL检测（checkUrlThreat）接口，传入待检测的URL，并获得URL检测结果。
+1. 开发者应用调用URL检测（[checkUrlThreat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#safetydetectcheckurlthreat)）接口，传入待检测的URL，并获得URL检测结果。
 
   Device Security Kit将请求发送到华为服务器检测URL风险，并将检测结果返回给开发者应用（NORMAL、PHISHING、MALWARE、OTHERS）。
 2. 开发者应用可以根据检测结果来决定业务处理策略。
@@ -36,7 +36,7 @@
 
 #### 接口说明
 
-以下是URL检测相关接口，包括ArkTS API，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#checkurlthreat)。
+以下是URL检测相关接口，包括ArkTS API，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#safetydetectcheckurlthreat)。
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -55,21 +55,21 @@
   
 ```text
 import { safetyDetect } from '@kit.DeviceSecurityKit';
-import { BusinessError} from '@kit.BasicServicesKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-2. 调用接口获取URL检测结果。
+2. 调用[checkUrlThreat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#safetydetectcheckurlthreat)接口获取URL检测结果。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/EYCUcc6RSgi1ekCb_C_QIg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030302Z&HW-CC-Expire=86400&HW-CC-Sign=BA6030A5B9732FDB2888F1DCC24FD689701CD0342EE62CD76615C04431AA407F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/NLmwM6BBRPKbQKGwI_WjEA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071915Z&HW-CC-Expire=86400&HW-CC-Sign=D01D64F900A284DE7E34284EC9C5B322397DD2C442EA20C8FFB27BA614982A4D)
  
 
   该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
 
   
 ```text
-const TAG = "SafetyDetectJsTest";
+const TAG = 'SafetyDetectJsTest';
 
 // 请求URL检测，并处理结果
 let req : safetyDetect.UrlCheckRequest = {
@@ -79,8 +79,10 @@ try {
   hilog.info(0x0000, TAG, 'CheckUrlThreat begin.');
   const data: safetyDetect.UrlCheckResponse = await safetyDetect.checkUrlThreat(req);
   hilog.info(0x0000, TAG, 'Succeeded in checkUrlThreat: %{public}s %{public}d', data.results[0].url, data.results[0].threat);
+  // ...
 } catch (err) {
   let e: BusinessError = err as BusinessError;
   hilog.error(0x0000, TAG, 'CheckUrlThreat failed: %{public}d %{public}s', e.code, e.message);
+  // ...
 }
 ```

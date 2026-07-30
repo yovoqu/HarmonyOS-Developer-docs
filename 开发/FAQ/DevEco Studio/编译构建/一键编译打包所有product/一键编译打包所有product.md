@@ -28,13 +28,13 @@
  
 DevEco Studio配置的详细步骤如下：
  1. 编辑配置。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/XTD2U-AmQMSWazui9V4-Tw/zh-cn_image_0000002658928501.png?HW-CC-KV=V1&HW-CC-Date=20260723T013921Z&HW-CC-Expire=86400&HW-CC-Sign=EAF666354017C9CEAB972D40ABD05D0F76E2B77E60791E1D7F626C3069F8DAF3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/XTD2U-AmQMSWazui9V4-Tw/zh-cn_image_0000002658928501.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=7378CC2DF96DF463B8CAF0CEF5A4DC1B583987D61C75449B789E639FA1DFFEE2)
 
 2. 点击加号创建Shell Script。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/cRUx22M9RM-F44feRQ918w/zh-cn_image_0000002628409282.png?HW-CC-KV=V1&HW-CC-Date=20260723T013921Z&HW-CC-Expire=86400&HW-CC-Sign=8323F76A58BFD911C227879463D3567A1F69749C9E381D78621CB20CF1778E03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/cRUx22M9RM-F44feRQ918w/zh-cn_image_0000002628409282.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=A666F21AAD618B3404E87A4EF032700B17EB518E61E7DF126984F35723C50C7C)
 
 3. 选择Script text，将命令写入，多个命令用分号隔开。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/_KEspRFpSZCJpw8TwHOenw/zh-cn_image_0000002658808553.png?HW-CC-KV=V1&HW-CC-Date=20260723T013921Z&HW-CC-Expire=86400&HW-CC-Sign=2E8A02738C2303299431CD590DE7862B20DCC69846B8069E6E0C0AD224706A6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/_KEspRFpSZCJpw8TwHOenw/zh-cn_image_0000002658808553.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=1022EABC9833958F857ADABF4F54A90DF8653609310114C8B59076E12D91475A)
 
 4. 切换创建的脚本，执行。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/gZQ8thPHSGSdkIaXMky7VQ/zh-cn_image_0000002628569178.png?HW-CC-KV=V1&HW-CC-Date=20260723T013921Z&HW-CC-Expire=86400&HW-CC-Sign=B8D972FE3A1AD43D9A63B53B6C889A388BF6292D5D49DEBC08CF60720D11A4E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/gZQ8thPHSGSdkIaXMky7VQ/zh-cn_image_0000002628569178.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=592C3DFEAE6DFB10F84E2429603157D54AD82CFE1C261A46C6A454728E1F8284)

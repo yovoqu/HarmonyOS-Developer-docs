@@ -9,7 +9,7 @@
 Tabs组件存在横向滑动的控制手势，当其内部嵌套Tabs或横向的List、Scroll、Swiper、Grid等滚动与滑动组件时，会产生横向滚动手势冲突，导致外部的Tabs无法横向切换。以Grid为例问题现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/zRj0PjIGR5Cn2z6XFc_UyA/zh-cn_image_0000002628770204.png?HW-CC-KV=V1&HW-CC-Date=20260723T012813Z&HW-CC-Expire=86400&HW-CC-Sign=59B0869971EFA6D74175889BD2BC552199ECB72EEF26777C75588B5029A383EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/zRj0PjIGR5Cn2z6XFc_UyA/zh-cn_image_0000002628770204.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=43F36C9277259724527676BEF23079BDEA383C0DE05B72E6470FC7A446D48756)
 
  
 当Grid组件滑动到右侧底部时，预期触发Tabs从“首页1”切换到“首页2”，实际未触发。

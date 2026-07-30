@@ -35,7 +35,7 @@ struct LinearGradientDemo {
 问题现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/ZULbSqNySh2XUqMAwHBuKg/zh-cn_image_0000002628752868.png?HW-CC-KV=V1&HW-CC-Date=20260723T013228Z&HW-CC-Expire=86400&HW-CC-Sign=00220EE214250C7F8E5F326F05286DE36692B343590422E3481F41E509F20A3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/ZULbSqNySh2XUqMAwHBuKg/zh-cn_image_0000002628752868.png?HW-CC-KV=V1&HW-CC-Date=20260730T072517Z&HW-CC-Expire=86400&HW-CC-Sign=D164DCCC1081A7AE8282A0868D175788FBC7DC811681EEB68A9454204DF108AE)
 
  
  
@@ -90,7 +90,7 @@ struct LinearGradientDemo {
 效果图如下，第二个渐变色中间无黑色。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/4XxyZ_qcSHiTGNbMJoBVBQ/zh-cn_image_0000002658952187.png?HW-CC-KV=V1&HW-CC-Date=20260723T013228Z&HW-CC-Expire=86400&HW-CC-Sign=24C714960C9DA907A565594ECEFBF1B7A63231455276A1FF155052020E33BC97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/4XxyZ_qcSHiTGNbMJoBVBQ/zh-cn_image_0000002658952187.png?HW-CC-KV=V1&HW-CC-Date=20260730T072517Z&HW-CC-Expire=86400&HW-CC-Sign=21BB3749CE178681D77CDE9CE051AB45B851E014711C8EB0DDED633CA517A452)
 
  
  

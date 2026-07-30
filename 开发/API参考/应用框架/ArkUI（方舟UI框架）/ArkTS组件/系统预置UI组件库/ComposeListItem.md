@@ -1,6 +1,6 @@
 # ComposeListItem
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-composelistitem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -205,7 +205,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
 
 #### 示例1（设置简单列表项）
 
-该示例实现了带有主标题、副标题、描述、右侧按钮及文本的简单列表项。
+该示例实现了带有主标题、副标题、描述、右侧图标及文本的简单列表项。
  
 ```text
 // 该示例主要演示该组件的基础功能使用，包含左侧右侧元素的情况
@@ -411,4 +411,4 @@ struct ComposeListItemExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/a7hBeWDBQKyYtSDz_zLZQA/zh-cn_image_0000002628702974.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=4EE318782056104CECD72AE3A246DC9BC03521434A2D03EAE13335845F743A2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/2A5RKnDFQ4ma0hcuIrKPTg/zh-cn_image_0000002686088421.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=CC52EDD424B48F1C8588F37BA4AF53CDA4AFE425D14B2AE86B5C0D169279E4C8)

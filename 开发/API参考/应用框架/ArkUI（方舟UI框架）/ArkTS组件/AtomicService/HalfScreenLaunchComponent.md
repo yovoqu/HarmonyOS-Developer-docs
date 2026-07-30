@@ -1,6 +1,6 @@
 # HalfScreenLaunchComponent
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-halfscreenlaunchcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,6 +60,10 @@ HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, option
 | onError | ErrorCallback | 否 | - | 被拉起的元服务扩展在运行过程中发生异常时触发本回调。 |
 | onTerminated | Callback&lt;TerminationInfo&gt; | 否 | - | 被拉起的嵌入式运行元服务通过点击元服务退出按钮、手势侧滑、调用terminateSelfWithResult或者terminateSelf正常退出时，触发本回调函数。 |
 | onReceive20+ | Callback<Record<string, Object>> | 否 | - | 被拉起的嵌入式运行元服务通过@ohos.window (窗口)调用API时，触发本回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+
+
+> [!NOTE]
+> 若元服务通过调用 terminateSelfWithResult 退出，其携带的信息会传给回调函数的入参； 若元服务通过调用 terminateSelf 退出，上述回调函数的入参中，"code"取默认值"0"，"want"为"undefined"。
 
 
 

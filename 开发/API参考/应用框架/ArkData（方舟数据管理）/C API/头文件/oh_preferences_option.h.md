@@ -1,6 +1,6 @@
 # oh_preferences_option.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-option-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -145,7 +145,7 @@ int OH_PreferencesOption_SetFileName(OH_PreferencesOption *option, const char *f
 | 参数项 | 描述 |
 | --- | --- |
 | OH_PreferencesOption *option | 指向Preferences配置选项OH_PreferencesOption实例对象的指针。 |
-| const char *fileName | 需要设置的文件名称。 |
+| const char *fileName | 需要设置的文件名称。文件名称长度需大于零且小于等于255字节，名称中不能包含'/'且不能以'/'结尾。 |
  
  
 **返回：**

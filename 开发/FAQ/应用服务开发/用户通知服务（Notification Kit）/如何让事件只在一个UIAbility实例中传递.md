@@ -1,6 +1,6 @@
 # 如何让事件只在一个UIAbility实例中传递
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-2
 

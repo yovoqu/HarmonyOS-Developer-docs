@@ -1,6 +1,6 @@
 # 使用Node-API进行class相关开发
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-class
 
@@ -23,7 +23,7 @@
 
 #### 场景和功能介绍
 
-以下Node-API接口主要用于处理class。他们的使用场景如下：
+以下Node-API接口主要用于处理class。它们的使用场景如下：
   
 | 接口 | 描述 |
 | --- | --- |
@@ -141,7 +141,7 @@ hilog.info(0x0000, 'Node-API', 'napi_new_instance %{public}s', JSON.stringify(ob
 从ArkTS object上获取先前绑定的native对象实例，并解除绑定。
  
 > [!NOTE]
-> 参数js_object不为object类型或function类型时返回napi_object_expected。
+> 参数js_object不为object类型或function类型时返回napi_object_expected。 如果封装中关联有finalize回调，本接口将在移除封装前调用它。
 
  
 cpp部分代码

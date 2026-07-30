@@ -1,6 +1,6 @@
 # QoS 开发指导
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/qos-guidelines
 
@@ -18,7 +18,7 @@
 
 #### QoS
 
-QoS（Quality of Service），即服务质量，在HarmonyOS中QoS特性主要指任务的优先调度属性。开发者可以利用QoS对要执行的工作进行分类，以指示其与用户交互的关联程度；系统则可以根据任务设置的QoS安排各任务的运行时间和运行次序。例如，当系统中有多个任务需要同时执行时，一些与用户交互关联程度不高的后台下载任务可以推迟到更晚的时间执行，且每次执行时分配更少的时间；而用户感知明显的动效绘制等任务则需要立即执行，并分配更多的执行时间。
+QoS (quality-of-service)，即服务质量。
  
   
 
@@ -75,7 +75,7 @@ typedef enum QoS_Level {
 
 #### 功能效果
 
-QoS等级更高的任务相对于等级更低的任务可能被分配更多的CPU时间。
+QoS等级更高的任务相对等级更低的可能被分配更多的CPU时间。
  
 下面将展示合理使用QoS对程序执行的优化效果。
  
@@ -103,7 +103,7 @@ QoS等级更高的任务相对于等级更低的任务可能被分配更多的CP
 合理标记线程1和线程2的QoS等级后，两个线程的执行优化效果如上图所示：
  1. 线程2运行时间占比提高，线程1等待时间减少；
 2. 线程1被线程2唤醒后，等待的时间减少；
-3. 线程1运行实际占比提高，被抢占比例减少。
+3. 线程1运行时间占比提高，被抢占比例减少。
  
   
 
@@ -125,7 +125,7 @@ QoS等级更高的任务相对于等级更低的任务可能被分配更多的CP
 | --- | --- | --- | --- |
 | OH_QoS_SetThreadQoS(QoS_Level level) | 设置当前任务的QoS等级。 | QoS_Level level | 0或-1 |
 | OH_QoS_ResetThreadQoS() | 取消当前任务设置的QoS等级。 | 无 | 0或-1 |
-| OH_QoS_GetThreadQoS(QoS_Level *level) | 获取当前任务的QoS等级。 | QoS_Level *level | 0或-1 |
+| OH_QoS_GetThreadQoS(QoS_Level *level) | 获取当前任务的QoS等级。如果之前未设置任何QoS等级或发生内部错误，则返回-1。 | QoS_Level *level | 0或-1 |
  
  
   
@@ -163,7 +163,7 @@ QoS_Level level
  
 **描述**
  
-为某个任务设置指定的QoS等级。设置当前任务的QoS等级。开发者可以根据当前任务的重要程度，为其标记不同等级的QoS，从而获得不同的调度供给。参考[QoS实践指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-thread-priority-setting)。
+设置当前任务的QoS等级。开发者可以根据当前任务的重要程度，为其标记不同等级的QoS，从而获得不同的调度优先级。参考[QoS实践指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-thread-priority-setting)。
  
 **样例**
  
@@ -175,9 +175,9 @@ int func()
 {
     // 设置当前任务的QoS等级为QOS_USER_INITIATED
     int ret = OH_QoS_SetThreadQoS(QoS_Level::QOS_USER_INITIATED);
-    
-    if (!ret) { // ret等于0说明设置成功
-        printf("set QoS Success.");
+
+    if (ret == 0) { // ret等于0说明设置成功
+        printf("set QoS success.");
     } else { // ret不等于0说明设置失败
         printf("set QoS failed.");
     }
@@ -208,7 +208,7 @@ int OH_QoS_ResetThreadQoS();
  
 **描述**
  
-取消某个任务设置的QoS等级。参考[QoS实践指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-thread-priority-setting)。
+取消当前任务设置的QoS等级。参考[QoS实践指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-thread-priority-setting)。
  
 **样例**
  
@@ -220,9 +220,9 @@ int func()
 {
     // 重置当前任务的QoS等级
     int ret = OH_QoS_ResetThreadQoS();
-    
-    if (!ret) { // ret等于0说明重置成功
-        printf("reset QoS Success.");
+
+    if (ret == 0) { // ret等于0说明重置成功
+        printf("reset QoS success.");
     } else { // ret不等于0说明重置失败
         printf("reset QoS failed.");
     }
@@ -255,7 +255,7 @@ QoS_Level *level
  
 **描述**
  
-获取某个任务之前最近一次设置的QoS等级；如果之前未设置任何QoS等级，则返回-1。查看当前任务的QoS等级。参考[QoS实践指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-thread-priority-setting)。
+获取当前任务之前最近一次设置的QoS等级；如果之前未设置任何QoS等级，则返回-1。参考[QoS实践指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-thread-priority-setting)。
  
 **样例**
  
@@ -269,8 +269,8 @@ int func()
     QoS_Level level = QoS_Level::QOS_DEFAULT;
     int ret = OH_QoS_GetThreadQoS(&level);
 
-    if (!ret) { // ret等于0说明获取成功
-        printf("get QoS level %d Success.", level);
+    if (ret == 0) { // ret等于0说明获取成功
+        printf("get QoS level %d success.", level);
     } else { // ret不等于0说明获取失败
         printf("get QoS level failed.");
     }
@@ -291,7 +291,7 @@ int func()
 
 QoS特性的使用依赖相关的动态链接库：**libqos.so**；需要在目标应用或程序的编译环境中添加。
  
-**示例**
+**样例**
  
 使用DevEco Studio创建的模板NDK工程，会默认生成CMakeLists.txt脚本，在其中添加QoS相关动态链接库示例如下：
  

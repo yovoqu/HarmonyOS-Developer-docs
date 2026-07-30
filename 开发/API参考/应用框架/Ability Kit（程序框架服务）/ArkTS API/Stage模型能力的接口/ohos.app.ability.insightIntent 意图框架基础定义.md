@@ -1,6 +1,6 @@
 # @ohos.app.ability.insightIntent (意图框架基础定义)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -144,7 +144,7 @@ import { insightIntent } from '@kit.AbilityKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| queryType | QueryType | 否 | 否 | 意图实体查询模式。 |
+| queryType | QueryType | 否 | 否 | 意图实体查询方式。 |
 | parameters | Record<string, Object> | 否 | 是 | 意图实体查询参数。该字段在QueryType为BY_PROPERTY时需要填写。 |
 
 
@@ -245,9 +245,9 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
   supportedQueryProperties: ['entityId', 'name', 'extension'] // 表示onQueryEntity支持通过entityId、name或者extension属性来查询实体信息
 })
 export class AppIntentEntityImpl extends insightIntent.AppIntentEntity<AppIntentEntityImpl> {
-  entityId: string = "default";
-  name: string = "";
-  displayName: string = "";
+  entityId: string = 'default';
+  name: string = '';
+  displayName: string = '';
   description?: string;
   extension?: string;
 

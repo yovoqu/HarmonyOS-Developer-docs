@@ -1,6 +1,6 @@
 # 使用HiTraceMeter跟踪性能（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracemeter-guidelines-ndk
 
@@ -121,14 +121,14 @@ HiTraceMeter打点接口主要分为三类：同步时间片跟踪接口、异�
 cmake_minimum_required(VERSION 3.5.0)
 project(HiTraceChainTest03)
 
-set(NATIVERENDER_ROOT_PATH &#36;{CMAKE_CURRENT_SOURCE_DIR})
+set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(DEFINED PACKAGE_FIND_FILE)
-    include(&#36;{PACKAGE_FIND_FILE})
+    include(${PACKAGE_FIND_FILE})
 endif()
 
-include_directories(&#36;{NATIVERENDER_ROOT_PATH}
-                    &#36;{NATIVERENDER_ROOT_PATH}/include)
+include_directories(${NATIVERENDER_ROOT_PATH}
+                    ${NATIVERENDER_ROOT_PATH}/include)
 
 add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libhitrace_ndk.z.so libhilog_ndk.z.so)

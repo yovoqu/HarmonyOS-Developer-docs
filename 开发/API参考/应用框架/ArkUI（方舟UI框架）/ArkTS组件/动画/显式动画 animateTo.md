@@ -1,11 +1,11 @@
 # 显式动画 (animateTo)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-07-28 11:23:46
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供全局animateTo显式动画接口来指定由于闭包代码导致的状态变化插入过渡动效。同属性动画，对于改变布局类属性（如宽高）的动画，内容通常会直接跳转到最终状态，例如文字或[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)中的内容。如果希望内容跟随宽高变化，可以使用[renderFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit#renderfit)属性进行配置。
+提供全局animateTo显式动画接口来指定由于闭包代码导致的状态变化插入过渡动效。与属性动画相同，对于改变布局类属性（如宽高）的动画，内容通常会直接跳转到最终状态，例如文字或[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)中的内容。如果希望内容跟随宽高变化，可以使用[renderFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit#renderfit)属性进行配置。
 
 > [!TIP]
 > 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块功能依赖UI的执行上下文，不可在 UI上下文不明确 的地方使用，参见 UIContext 说明。
@@ -24,11 +24,11 @@
 | --- | --- | --- | --- | --- |
 | duration | number | 否 | 是 | 动画持续时间，单位为毫秒。 默认值：1000 说明：1. API版本26.0.0之前，在ArkTS卡片上最大动画持续时间为1000毫秒，若超出则固定为1000毫秒。从API版本26.0.0开始，在ArkTS卡片上最大动画持续时间调整为2000毫秒。 2. 可以通过在持续时间为0的动画闭包函数中改变属性，以实现停止该属性动画的效果。 3. 设置小于0的值时按0处理。 4. 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 5. curve配置springMotion、responsiveSpringMotion、interpolatingSpring曲线时，duration不生效。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | tempo | number | 否 | 是 | 动画播放速度，值越大动画播放越快，值越小播放越慢，为0时无动画效果。 当设置为+∞时，动画会在当帧结束，动画结束回调会立即执行。 默认值：1.0 取值范围：[0, +∞) 说明：当设置小于0的值时按1处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| curve | Curve \| string \| ICurve9+ | 否 | 是 | 动画曲线。 推荐以Curve或ICurve形式指定。 当类型为string时，为动画插值曲线，仅支持以下可选值： "linear"：动画线性变化。 "ease"：动画开始和结束时的速度较慢，cubic-bezier(0.25、0.1、0.25、1.0)。 "ease-in"：动画播放速度先慢后快，cubic-bezier(0.42, 0.0, 1.0, 1.0)。 "ease-out"：动画播放速度先快后慢，cubic-bezier(0.0, 0.0, 0.58, 1.0)。 "ease-in-out"：动画播放速度先加速后减速，cubic-bezier(0.42, 0.0, 0.58, 1.0)。 "fast-out-slow-in"：标准曲线，cubic-bezier(0.4, 0.0, 0.2, 1.0)。 "linear-out-slow-in"：减速曲线，cubic-bezier(0.0, 0.0, 0.2, 1.0)。 "fast-out-linear-in"：加速曲线，cubic-bezier(0.4, 0.0, 1.0, 1.0)。 "friction"：阻尼曲线，cubic-bezier(0.2, 0.0, 0.2, 1.0)。 "extreme-deceleration"：急缓曲线，cubic-bezier(0.0, 0.0, 0.0, 1.0)。 "rhythm"：节奏曲线，cubic-bezier(0.7, 0.0, 0.2, 1.0)。 "sharp"：锐利曲线，cubic-bezier(0.33, 0.0, 0.67, 1.0)。 "smooth"：平滑曲线，cubic-bezier(0.4, 0.0, 0.4, 1.0)。 "cubic-bezier(x1, y1, x2, y2)"：三次贝塞尔曲线，x1、x2的值必须处于0-1之间。例如"cubic-bezier(0.42, 0.0, 0.58, 1.0)"。 "steps(number,step-position)"：阶梯曲线，number必须设置，为正整数，step-position参数可选，支持设置start或end，默认值为end。例如"steps(3,start)"。 "interpolating-spring(velocity,mass,stiffness,damping)"：具体参数含义参考插值弹簧曲线curves.interpolatingSpring。 "responsive-spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性跟手动画曲线curves.responsiveSpringMotion。 "spring(velocity,mass,stiffness,damping)"：具体参数含义参考弹簧曲线curves.springCurve。 "spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性动画曲线curves.springMotion。 默认值：Curve.EaseInOut 说明： 当curve传入的string值不在上述可选值范围内时，使用默认值Curve.EaseInOut。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| curve | Curve \| string \| ICurve9+ | 否 | 是 | 动画曲线。 推荐以Curve或ICurve形式指定。 当类型为string时，为动画插值曲线，仅支持以下可选值： "linear"：动画线性变化。 "ease"：动画开始和结束时的速度较慢，cubic-bezier(0.25, 0.1, 0.25, 1.0)。 "ease-in"：动画播放速度先慢后快，cubic-bezier(0.42, 0.0, 1.0, 1.0)。 "ease-out"：动画播放速度先快后慢，cubic-bezier(0.0, 0.0, 0.58, 1.0)。 "ease-in-out"：动画播放速度先加速后减速，cubic-bezier(0.42, 0.0, 0.58, 1.0)。 "fast-out-slow-in"：标准曲线，cubic-bezier(0.4, 0.0, 0.2, 1.0)。 "linear-out-slow-in"：减速曲线，cubic-bezier(0.0, 0.0, 0.2, 1.0)。 "fast-out-linear-in"：加速曲线，cubic-bezier(0.4, 0.0, 1.0, 1.0)。 "friction"：阻尼曲线，cubic-bezier(0.2, 0.0, 0.2, 1.0)。 "extreme-deceleration"：急缓曲线，cubic-bezier(0.0, 0.0, 0.0, 1.0)。 "rhythm"：节奏曲线，cubic-bezier(0.7, 0.0, 0.2, 1.0)。 "sharp"：锐利曲线，cubic-bezier(0.33, 0.0, 0.67, 1.0)。 "smooth"：平滑曲线，cubic-bezier(0.4, 0.0, 0.4, 1.0)。 "cubic-bezier(x1, y1, x2, y2)"：三次贝塞尔曲线，x1、x2的值必须处于0-1之间。例如"cubic-bezier(0.42, 0.0, 0.58, 1.0)"。 "steps(number,step-position)"：阶梯曲线，number必须设置，为正整数，step-position参数可选，支持设置start或end，默认值为end。例如"steps(3,start)"。 "interpolating-spring(velocity,mass,stiffness,damping)"：具体参数含义参考插值弹簧曲线curves.interpolatingSpring。 "responsive-spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性跟手动画曲线curves.responsiveSpringMotion。 "spring(velocity,mass,stiffness,damping)"：具体参数含义参考弹簧曲线curves.springCurve。 "spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性动画曲线curves.springMotion。 默认值：Curve.EaseInOut 说明： 当curve传入的string值不在上述可选值范围内时，使用默认值Curve.EaseInOut。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | delay | number | 否 | 是 | 动画延迟播放时间，单位为ms(毫秒)，默认不延时播放。 默认值：0 取值范围：(-∞, +∞) 说明：1.delay>=0为延迟播放，delay<0表示提前播放。对于delay<0的情况：当delay的绝对值小于实际动画时长，动画将在开始后第一帧直接运动到delay绝对值的时刻的状态；当delay的绝对值大于等于实际动画时长，动画将在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数。 2. 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | iterations | number | 否 | 是 | 动画播放次数。默认播放一次，设置为-1时表示无限次播放。设置为0时表示无动画效果。 默认值：1 取值范围：[-1, +∞) 说明：设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | playMode | PlayMode | 否 | 是 | 动画播放模式，默认播放完成后从头开始播放。 默认值：PlayMode.Normal 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 相关使用约束请参考PlayMode说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| onFinish | () => void | 否 | 是 | 动画播放完成回调。UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，触发播放完成回调。 在设置的开发者选项中关闭过渡动画，以及tempo设置为+∞时，动画播放完成回调会立即执行。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| onFinish | () => void | 否 | 是 | 动画播放完成回调，回调触发时机受finishCallbackType参数影响，详见finishCallbackType说明。UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，触发播放完成回调。 在设置的开发者选项中关闭过渡动画，以及tempo设置为+∞时，动画播放完成回调会立即执行。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | finishCallbackType11+ | FinishCallbackType | 否 | 是 | 在动画中定义onFinish回调的类型。 默认值：FinishCallbackType.REMOVED 卡片能力： 从API version 11开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | expectedFrameRateRange11+ | ExpectedFrameRateRange | 否 | 是 | 设置动画的期望帧率。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
@@ -72,7 +72,7 @@ interpolate(fraction: number): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回归一化time时间点对应的曲线插值。 |
+| number | 返回归一化时间点对应的曲线插值。 |
 
 
 
@@ -129,7 +129,7 @@ animateTo(value: AnimateParam, event: () => void): void
 显式动画接口。在需要动画时，显式调用该接口改变状态以产生动画。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 18开始废弃，建议使用 animateTo 替代。 从API version 10开始，可以通过使用 UIContext 中的 animateTo 来明确UI的执行上下文。 不推荐在aboutToAppear、aboutToDisappear中调用动画。 如果在 aboutToAppear 中调用动画，自定义组件内的build还未执行，内部组件还未创建，动画时机过早，动画属性没有初值无法对组件产生动画。 执行 aboutToDisappear 时，组件即将销毁，不能在aboutToDisappear里面做动画。 在组件出现和消失时，可以通过 组件内转场 添加动画效果。 组件内转场不支持的属性，可以参考 示例2 ，使用animateTo实现动画执行结束后组件消失的效果。 某些场景下，在 状态管理V2 中使用animateTo动画，会产生异常效果，具体可参考： 在状态管理V2中使用animateTo动画效果异常 。
+> 从API version 7开始支持，从API version 18开始废弃，建议使用 animateTo 替代。 从API version 10开始，可以通过使用 UIContext 中的 animateTo 来明确UI的执行上下文。 不推荐在aboutToAppear、aboutToDisappear中调用动画。 如果在 aboutToAppear 中调用动画，由于自定义组件内的build还未执行、内部组件还未创建，动画时机过早。此时动画属性没有初值，无法对组件产生动画。 执行 aboutToDisappear 时，组件即将销毁，不能在aboutToDisappear里面做动画。 在组件出现和消失时，可以通过 组件内转场 添加动画效果。 组件内转场不支持的属性，可以参考 示例2 ，使用animateTo实现动画执行结束后组件消失的效果。 某些场景下，在 状态管理V2 中使用animateTo动画，会产生异常效果，具体可参考： 在状态管理V2中使用animateTo动画效果异常 。
 
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -143,7 +143,7 @@ animateTo(value: AnimateParam, event: () => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | AnimateParam | 是 | 设置动画效果相关参数。 |
-| event | () => void | 是 | 指定动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。 |
+| event | () => void | 是 | 指定动效的闭包函数，闭包函数内引起的状态变化，系统会自动插入过渡动画。 |
 
 
 
@@ -236,7 +236,7 @@ struct AnimateToExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/gPBL-fMCQDuyZRBcDpGF-g/zh-cn_image_0000002647748214.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=24256E56D755AD840ED8E97DBD00EA17B3878E1ACC04F4D74A4078756FBF55BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/PyrCMS3NQf6eVEANfjCR2g/zh-cn_image_0000002686088337.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071513Z&HW-CC-Expire=86400&HW-CC-Sign=9C4841C7918E920678F077A07E391C64A71E0F4B98F91185280A60FF86AE9771)
 
 
 
@@ -293,4 +293,4 @@ struct AttrAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/EM1qR6WWQ0uTvBdISTwTFQ/zh-cn_image_0000002647588306.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=B9ECD7C0A3E4709E9AB913D3CEACEAD9830A69CB495D5843E6D65CFD00F141D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/9JSp7s6RTMWfv8wIaUhwjg/zh-cn_image_0000002685928505.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071513Z&HW-CC-Expire=86400&HW-CC-Sign=428E782644ECF8ED125066B65183AFE26770E9CE9CD3D0DFE8DF823C50409093)
