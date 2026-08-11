@@ -27955,5 +27955,1748 @@
     "name": "ArkTS API错误码",
     "file": "开发/API参考/AI/Vision Kit（场景化视觉服务）/ArkTS API错误码.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision"
+  },
+  {
+    "slug": "account-api-get-authorize-qrcode-info",
+    "name": "获取二维码信息",
+    "file": "开发/API参考/应用服务/Account Kit（华为账号服务）/REST API/开放接口调用凭证/扫码授权登录/获取二维码信息/获取二维码信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-authorize-qrcode-info",
+    "section": "应用服务"
+  },
+  {
+    "slug": "account-api-obtain-user-token-for-qrcode",
+    "name": "获取用户级凭证",
+    "file": "开发/API参考/应用服务/Account Kit（华为账号服务）/REST API/开放接口调用凭证/扫码授权登录/获取用户级凭证/获取用户级凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-obtain-user-token-for-qrcode",
+    "section": "应用服务"
+  },
+  {
+    "slug": "account-intimate",
+    "name": "@hms.core.account.intimate (华为账号亲密圈)",
+    "file": "开发/API参考/应用服务/Account Kit（华为账号服务）/ArkTS API/@hms.core.account.intimate (华为账号亲密圈)/@hms.core.account.intimate (华为账号亲密圈).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-intimate",
+    "section": "应用服务"
+  },
+  {
+    "slug": "aodnavigation-aodnavimanager",
+    "name": "aodNaviManager (熄屏导航服务)",
+    "file": "开发/API参考/系统/硬件/AOD Navigation Kit（熄屏导航服务）/ArkTS API/aodNaviManager (熄屏导航服务)/aodNaviManager (熄屏导航服务).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/aodnavigation-aodnavimanager",
+    "section": "系统"
+  },
+  {
+    "slug": "arkts-apis-audio-audiodebuggingmanager",
+    "name": "Interface (AudioDebuggingManager)",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/ArkTS API/@ohos.multimedia.audio (音频管理)/Interface (AudioDebuggingManager)/Interface (AudioDebuggingManager).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiodebuggingmanager",
+    "section": "媒体"
+  },
+  {
+    "slug": "arkts-apis-audio-audiodeviceenhancemanager",
+    "name": "Interface (AudioDeviceEnhanceManager)",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/ArkTS API/@ohos.multimedia.audio (音频管理)/Interface (AudioDeviceEnhanceManager)/Interface (AudioDeviceEnhanceManager).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiodeviceenhancemanager",
+    "section": "媒体"
+  },
+  {
+    "slug": "arkts-apis-audio-audiorecordingmanager",
+    "name": "Interface (AudioRecordingManager)",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/ArkTS API/@ohos.multimedia.audio (音频管理)/Interface (AudioRecordingManager)/Interface (AudioRecordingManager).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorecordingmanager",
+    "section": "媒体"
+  },
+  {
+    "slug": "arkts-apis-media-avadscontroller",
+    "name": "Interface (AVAdsController)",
+    "file": "开发/API参考/媒体/Media Kit（媒体服务）/ArkTS API/@ohos.multimedia.media (媒体服务)/Interface (AVAdsController)/Interface (AVAdsController).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avadscontroller",
+    "section": "媒体"
+  },
+  {
+    "slug": "arkts-apis-media-avdownloadermanager",
+    "name": "Interface (AVDownloaderManager)",
+    "file": "开发/API参考/媒体/Media Kit（媒体服务）/ArkTS API/@ohos.multimedia.media (媒体服务)/Interface (AVDownloaderManager)/Interface (AVDownloaderManager).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avdownloadermanager",
+    "section": "媒体"
+  },
+  {
+    "slug": "arkts-apis-photoaccesshelper-mediaassetschangerequest",
+    "name": "Class (MediaAssetsChangeRequest)",
+    "file": "开发/API参考/媒体/Media Library Kit（媒体文件管理服务）/ArkTS API/@ohos.file.photoAccessHelper (相册管理模块)/Class (MediaAssetsChangeRequest)/Class (MediaAssetsChangeRequest).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetschangerequest",
+    "section": "媒体"
+  },
+  {
+    "slug": "arkts-apis-uicontext-smartgesturecontroller",
+    "name": "Class (SmartGestureController)",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (SmartGestureController)/Class (SmartGestureController).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-smartgesturecontroller",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-webview-aipagecommand",
+    "name": "AIPageCommand",
+    "file": "开发/API参考/应用框架/ArkWeb（方舟Web）/ArkTS API/@ohos.web.webview (Webview)/AIPageCommand/AIPageCommand.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipagecommand",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-webview-aipageinteraction",
+    "name": "AIPageInteraction",
+    "file": "开发/API参考/应用框架/ArkWeb（方舟Web）/ArkTS API/@ohos.web.webview (Webview)/AIPageInteraction/AIPageInteraction.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipageinteraction",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-webview-aipageresult",
+    "name": "AIPageResult",
+    "file": "开发/API参考/应用框架/ArkWeb（方舟Web）/ArkTS API/@ohos.web.webview (Webview)/AIPageResult/AIPageResult.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipageresult",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-nativeabilitywrapper",
+    "name": "AbilityRuntime_NativeAbilityWrapper",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/AbilityRuntime_NativeAbilityWrapper/AbilityRuntime_NativeAbilityWrapper.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-nativeabilitywrapper",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-connectoptions",
+    "name": "OH_AbilityRuntime_ConnectOptions",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ConnectOptions/OH_AbilityRuntime_ConnectOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-connectoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modobjdispatcher-inputparams",
+    "name": "OH_AbilityRuntime_ModObjDispatcher_InputParams",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModObjDispatcher_InputParams/OH_AbilityRuntime_ModObjDispatcher_InputParams.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modobjdispatcher-inputparams",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modobjdispatcher-typeinfo",
+    "name": "OH_AbilityRuntime_ModObjDispatcher_TypeInfo",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModObjDispatcher_TypeInfo/OH_AbilityRuntime_ModObjDispatcher_TypeInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modobjdispatcher-typeinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modobjdispatcher-variant",
+    "name": "OH_AbilityRuntime_ModObjDispatcher_Variant",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModObjDispatcher_Variant/OH_AbilityRuntime_ModObjDispatcher_Variant.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modobjdispatcher-variant",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modobjextensioninstance8h",
+    "name": "OH_AbilityRuntime_ModObjExtensionInstance*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModObjExtensionInstance*/OH_AbilityRuntime_ModObjExtensionInstance＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modobjextensioninstance8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-array8h",
+    "name": "OH_AbilityRuntime_ModularObjectDispatcher_Array*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectDispatcher_Array*/OH_AbilityRuntime_ModularObjectDispatcher_Array＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-array8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-map8h",
+    "name": "OH_AbilityRuntime_ModularObjectDispatcher_Map*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectDispatcher_Map*/OH_AbilityRuntime_ModularObjectDispatcher_Map＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-map8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-set8h",
+    "name": "OH_AbilityRuntime_ModularObjectDispatcher_Set*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectDispatcher_Set*/OH_AbilityRuntime_ModularObjectDispatcher_Set＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-set8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-struct8h",
+    "name": "OH_AbilityRuntime_ModularObjectDispatcher_Struct*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectDispatcher_Struct*/OH_AbilityRuntime_ModularObjectDispatcher_Struct＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-struct8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-typedescriptor8h",
+    "name": "OH_AbilityRuntime_ModularObjectDispatcher_TypeDescriptor*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectDispatcher_TypeDescriptor*/OH_AbilityRuntime_ModularObjectDispatcher_TypeDescriptor＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-typedescriptor8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-vector8h",
+    "name": "OH_AbilityRuntime_ModularObjectDispatcher_Vector*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectDispatcher_Vector*/OH_AbilityRuntime_ModularObjectDispatcher_Vector＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher-vector8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher8h",
+    "name": "OH_AbilityRuntime_ModularObjectDispatcher*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectDispatcher*/OH_AbilityRuntime_ModularObjectDispatcher＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectdispatcher8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectextensioncontext8h",
+    "name": "OH_AbilityRuntime_ModularObjectExtensionContext*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectExtensionContext*/OH_AbilityRuntime_ModularObjectExtensionContext＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectextensioncontext8h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectextensioninstance",
+    "name": "OH_AbilityRuntime_ModularObjectExtensionInstance",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectExtensionInstance/OH_AbilityRuntime_ModularObjectExtensionInstance.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectextensioninstance",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-archive",
+    "name": "Archive",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/模块/Archive/Archive.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-archive",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-archive-archivereadctx",
+    "name": "ArchiveReadCtx*",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/结构体/ArchiveReadCtx*/ArchiveReadCtx＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-archive-archivereadctx",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-archive-archivestreamreadctx",
+    "name": "ArchiveStreamReadCtx*",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/结构体/ArchiveStreamReadCtx*/ArchiveStreamReadCtx＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-archive-archivestreamreadctx",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-archive-archivestreamwritectx",
+    "name": "ArchiveStreamWriteCtx*",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/结构体/ArchiveStreamWriteCtx*/ArchiveStreamWriteCtx＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-archive-archivestreamwritectx",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-archive-archivewritectx",
+    "name": "ArchiveWriteCtx*",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/结构体/ArchiveWriteCtx*/ArchiveWriteCtx＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-archive-archivewritectx",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-archive-oh-archive-stream-config",
+    "name": "OH_Archive_Stream_Config",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/结构体/OH_Archive_Stream_Config/OH_Archive_Stream_Config.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-archive-oh-archive-stream-config",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-archive-oh-archive-streaminfo",
+    "name": "OH_Archive_StreamInfo",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/结构体/OH_Archive_StreamInfo/OH_Archive_StreamInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-archive-oh-archive-streaminfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-error-code-h",
+    "name": "error_code.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/error_code.h/error_code.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-immersivematerial",
+    "name": "ArkUI_ImmersiveMaterial",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ImmersiveMaterial/ArkUI_ImmersiveMaterial.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-immersivematerial",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-immersivematerialhandle",
+    "name": "ArkUI_ImmersiveMaterial*",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ImmersiveMaterial*/ArkUI_ImmersiveMaterial＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-immersivematerialhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-lighteffectoptions",
+    "name": "ArkUI_LightEffectOptions",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_LightEffectOptions/ArkUI_LightEffectOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-lighteffectoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-lighteffectoptionshandle",
+    "name": "ArkUI_LightEffectOptions*",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_LightEffectOptions*/ArkUI_LightEffectOptions＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-lighteffectoptionshandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-nativegestureapi-3",
+    "name": "ArkUI_NativeGestureAPI_3",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_NativeGestureAPI_3/ArkUI_NativeGestureAPI_3.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativegestureapi-3",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-parallelgestureevent",
+    "name": "ArkUI_ParallelGestureEvent",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ParallelGestureEvent/ArkUI_ParallelGestureEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-parallelgestureevent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-rendernodeblurstyleoption",
+    "name": "ArkUI_RenderBlurStyleOption",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_RenderBlurStyleOption/ArkUI_RenderBlurStyleOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-rendernodeblurstyleoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-lineargradientoptions",
+    "name": "OH_ArkUI_LinearGradientOptions",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_LinearGradientOptions/OH_ArkUI_LinearGradientOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-lineargradientoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-radialgradientoptions",
+    "name": "OH_ArkUI_RadialGradientOptions",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_RadialGradientOptions/OH_ArkUI_RadialGradientOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-radialgradientoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-button-h",
+    "name": "button.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/button.h/button.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-button-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-checkbox-h",
+    "name": "checkbox.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/checkbox.h/checkbox.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-checkbox-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-common-attributes-h",
+    "name": "common_attributes.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/common_attributes.h/common_attributes.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-common-attributes-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-connect-options-h",
+    "name": "connect_options.h",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/头文件/connect_options.h/connect_options.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-connect-options-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-custom-span-h",
+    "name": "custom_span.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/custom_span.h/custom_span.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-custom-span-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-embedded-component-h",
+    "name": "embedded_component.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/embedded_component.h/embedded_component.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-embedded-component-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-game-controller-type-h",
+    "name": "game_controller_type.h",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/头文件/game_controller_type.h/game_controller_type.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-controller-type-h",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-game-device-event-h",
+    "name": "game_device_event.h",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/头文件/game_device_event.h/game_device_event.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-event-h",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-game-device-h",
+    "name": "game_device.h",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/头文件/game_device.h/game_device.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-h",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-game-pad-event-h",
+    "name": "game_pad_event.h",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/头文件/game_pad_event.h/game_pad_event.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-pad-event-h",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-game-pad-h",
+    "name": "game_pad.h",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/头文件/game_pad.h/game_pad.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-pad-h",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-gamecontroller",
+    "name": "GameController",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/模块/GameController/GameController.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-gamecontroller-gamedevice-alldeviceinfos",
+    "name": "GameDevice_AllDeviceInfos",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/结构体/GameDevice_AllDeviceInfos/GameDevice_AllDeviceInfos.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller-gamedevice-alldeviceinfos",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-gamecontroller-gamedevice-deviceevent",
+    "name": "GameDevice_DeviceEvent",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/结构体/GameDevice_DeviceEvent/GameDevice_DeviceEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller-gamedevice-deviceevent",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-gamecontroller-gamedevice-deviceinfo",
+    "name": "GameDevice_DeviceInfo",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/结构体/GameDevice_DeviceInfo/GameDevice_DeviceInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller-gamedevice-deviceinfo",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-gamecontroller-gamepad-axisevent",
+    "name": "GamePad_AxisEvent",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/结构体/GamePad_AxisEvent/GamePad_AxisEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller-gamepad-axisevent",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-gamecontroller-gamepad-buttonevent",
+    "name": "GamePad_ButtonEvent",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/结构体/GamePad_ButtonEvent/GamePad_ButtonEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller-gamepad-buttonevent",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-gamecontroller-gamepad-pressedbutton",
+    "name": "GamePad_PressedButton",
+    "file": "开发/API参考/应用服务/Game Controller Kit（游戏控制器服务）/C API/结构体/GamePad_PressedButton/GamePad_PressedButton.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-gamecontroller-gamepad-pressedbutton",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-grid-h",
+    "name": "grid.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/grid.h/grid.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-grid-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-hotspot-accelerate",
+    "name": "hotspot-accelerate（热点加速）",
+    "file": "开发/API参考/系统/基础功能/Linx Kit（灵犀加速库）/C API/模块/hotspot-accelerate（热点加速）/hotspot-accelerate（热点加速）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hotspot-accelerate",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-image-animator-h",
+    "name": "image_animator.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/image_animator.h/image_animator.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-animator-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-h",
+    "name": "image.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/image.h/image.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-picturenative-auxiliarypicturecopyitem",
+    "name": "OH_PictureNative_AuxiliaryPictureCopyItem",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/C API/结构体/OH_PictureNative_AuxiliaryPictureCopyItem/OH_PictureNative_AuxiliaryPictureCopyItem.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-picturenative-auxiliarypicturecopyitem",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-picturenative-metadatacopyitem",
+    "name": "OH_PictureNative_MetadataCopyItem",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/C API/结构体/OH_PictureNative_MetadataCopyItem/OH_PictureNative_MetadataCopyItem.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-picturenative-metadatacopyitem",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-image-span-h",
+    "name": "image_span.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/image_span.h/image_span.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-span-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-layout-h",
+    "name": "layout.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/layout.h/layout.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-layout-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-linx-hotspot-h",
+    "name": "linx_hotspot.h",
+    "file": "开发/API参考/系统/基础功能/Linx Kit（灵犀加速库）/C API/头文件/linx_hotspot.h/linx_hotspot.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-linx-hotspot-h",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-list-h",
+    "name": "list.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/list.h/list.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-list-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-metadata-object-ext-h",
+    "name": "metadata_object_ext.h",
+    "file": "开发/API参考/媒体/Camera Kit（相机服务）/C API/头文件/metadata_object_ext.h/metadata_object_ext.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-metadata-object-ext-h",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-modular-object-dispatcher-h",
+    "name": "modular_object_dispatcher.h",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/头文件/modular_object_dispatcher.h/modular_object_dispatcher.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-modular-object-dispatcher-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-modular-object-extension-ability-h",
+    "name": "modular_object_extension_ability.h",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/头文件/modular_object_extension_ability.h/modular_object_extension_ability.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-modular-object-extension-ability-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-modular-object-extension-context-h",
+    "name": "modular_object_extension_context.h",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/头文件/modular_object_extension_context.h/modular_object_extension_context.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-modular-object-extension-context-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-native-ability-wrapper-h",
+    "name": "native_ability_wrapper.h",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/头文件/native_ability_wrapper.h/native_ability_wrapper.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-ability-wrapper-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-native-audio-debugging-manager-h",
+    "name": "native_audio_debugging_manager.h",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/头文件/native_audio_debugging_manager.h/native_audio_debugging_manager.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-debugging-manager-h",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-native-audio-device-enhance-manager-h",
+    "name": "native_audio_device_enhance_manager.h",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/头文件/native_audio_device_enhance_manager.h/native_audio_device_enhance_manager.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-device-enhance-manager-h",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-native-avcodec-videobase-h",
+    "name": "native_avcodec_videobase.h",
+    "file": "开发/API参考/媒体/AVCodec Kit（音视频编解码服务）/C API/头文件/native_avcodec_videobase.h/native_avcodec_videobase.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videobase-h",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-native-material-h",
+    "name": "native_material.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/native_material.h/native_material.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-material-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-native-node-node-attributes-custom-attributes-h",
+    "name": "custom_attributes.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/custom_attributes.h/custom_attributes.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-node-attributes-custom-attributes-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-native-type-visual-h",
+    "name": "native_type_visual.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/native_type_visual.h/native_type_visual.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-visual-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-navigation-router-h",
+    "name": "navigation_router.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/navigation_router.h/navigation_router.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-navigation-router-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-net-ethernet-h",
+    "name": "net_ethernet.h",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/头文件/net_ethernet.h/net_ethernet.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-ethernet-h",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-net-ethernet-type-h",
+    "name": "net_ethernet_type.h",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/头文件/net_ethernet_type.h/net_ethernet_type.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-ethernet-type-h",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-net-trafficfilter-h",
+    "name": "net_trafficfilter.h",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/头文件/net_trafficfilter.h/net_trafficfilter.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-h",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-net-trafficfilter-type-h",
+    "name": "net_trafficfilter_type.h",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/头文件/net_trafficfilter_type.h/net_trafficfilter_type.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-netethernet",
+    "name": "NetEthernet",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/模块/NetEthernet/NetEthernet.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netethernet",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-netethernet-ethernet-macaddressinfo",
+    "name": "Ethernet_MacAddressInfo",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/Ethernet_MacAddressInfo/Ethernet_MacAddressInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netethernet-ethernet-macaddressinfo",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-netethernet-ethernet-macaddrinfolist",
+    "name": "Ethernet_MacAddrInfoList",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/Ethernet_MacAddrInfoList/Ethernet_MacAddrInfoList.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netethernet-ethernet-macaddrinfolist",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-netethernet-ethernet-netaddr",
+    "name": "Ethernet_NetAddr",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/Ethernet_NetAddr/Ethernet_NetAddr.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netethernet-ethernet-netaddr",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-netethernet-ethernet-netaddrinfo",
+    "name": "Ethernet_NetAddrInfo",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/Ethernet_NetAddrInfo/Ethernet_NetAddrInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netethernet-ethernet-netaddrinfo",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-netethernet-ethernet-netaddrlist",
+    "name": "Ethernet_NetAddrList",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/Ethernet_NetAddrList/Ethernet_NetAddrList.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netethernet-ethernet-netaddrlist",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-oh-archive-errcode-h",
+    "name": "oh_archive_errcode.h",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/头文件/oh_archive_errcode.h/oh_archive_errcode.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-archive-errcode-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-archive-h",
+    "name": "oh_archive.h",
+    "file": "开发/API参考/应用框架/Core File Kit（文件基础服务）/C API/头文件/oh_archive.h/oh_archive.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-archive-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-camera-camera-photocapturesettingext",
+    "name": "OH_Camera_PhotoCaptureSettingExt",
+    "file": "开发/API参考/媒体/Camera Kit（相机服务）/C API/结构体/OH_Camera_PhotoCaptureSettingExt/OH_Camera_PhotoCaptureSettingExt.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-photocapturesettingext",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-oh-camera-oh-camera-metadataobjectext",
+    "name": "OH_Camera_MetadataObjectExt",
+    "file": "开发/API参考/媒体/Camera Kit（相机服务）/C API/结构体/OH_Camera_MetadataObjectExt/OH_Camera_MetadataObjectExt.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-oh-camera-metadataobjectext",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-oh-camera-oh-camera-rect-ext",
+    "name": "OH_Camera_Rect_Ext",
+    "file": "开发/API参考/媒体/Camera Kit（相机服务）/C API/结构体/OH_Camera_Rect_Ext/OH_Camera_Rect_Ext.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-oh-camera-rect-ext",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-ohaudio-oh-audiodebuggingmanager",
+    "name": "OH_AudioDebuggingManager",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioDebuggingManager/OH_AudioDebuggingManager.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiodebuggingmanager",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-ohaudio-oh-audiodeviceenhancemanager",
+    "name": "OH_AudioDeviceEnhanceManager",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioDeviceEnhanceManager/OH_AudioDeviceEnhanceManager.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiodeviceenhancemanager",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-picker-h",
+    "name": "picker.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/picker.h/picker.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-picker-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-progress-h",
+    "name": "progress.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/progress.h/progress.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-progress-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-rich-editor-h",
+    "name": "rich_editor.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/rich_editor.h/rich_editor.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rich-editor-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-scroll-h",
+    "name": "scroll.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/scroll.h/scroll.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scroll-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-slider-h",
+    "name": "slider.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/slider.h/slider.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-slider-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-swiper-h",
+    "name": "swiper.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/swiper.h/swiper.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-swiper-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-text-area-h",
+    "name": "text_area.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/text_area.h/text_area.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-area-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-text-common-h",
+    "name": "text_common.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/text_common.h/text_common.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-common-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-text-h",
+    "name": "text.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/text.h/text.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-text-input-h",
+    "name": "text_input.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/text_input.h/text_input.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-input-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-trafficfilter",
+    "name": "TrafficFilter",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/模块/TrafficFilter/TrafficFilter.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-connectioninfo",
+    "name": "OH_TrafficFilter_ConnectionInfo",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_ConnectionInfo/OH_TrafficFilter_ConnectionInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-connectioninfo",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-interfacematch",
+    "name": "OH_TrafficFilter_InterfaceMatch",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_InterfaceMatch/OH_TrafficFilter_InterfaceMatch.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-interfacematch",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-ipaddress",
+    "name": "OH_TrafficFilter_IPAddress",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_IPAddress/OH_TrafficFilter_IPAddress.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-ipaddress",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-ipcidr",
+    "name": "OH_TrafficFilter_IPCidr",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_IPCidr/OH_TrafficFilter_IPCidr.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-ipcidr",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-ipmatch",
+    "name": "OH_TrafficFilter_IPMatch",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_IPMatch/OH_TrafficFilter_IPMatch.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-ipmatch",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-ipmulti",
+    "name": "OH_TrafficFilter_IPMulti",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_IPMulti/OH_TrafficFilter_IPMulti.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-ipmulti",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-iprange",
+    "name": "OH_TrafficFilter_IPRange",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_IPRange/OH_TrafficFilter_IPRange.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-iprange",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-portmatch",
+    "name": "OH_TrafficFilter_PortMatch",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_PortMatch/OH_TrafficFilter_PortMatch.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-portmatch",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-portmulti",
+    "name": "OH_TrafficFilter_PortMulti",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_PortMulti/OH_TrafficFilter_PortMulti.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-portmulti",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-portrange",
+    "name": "OH_TrafficFilter_PortRange",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_PortRange/OH_TrafficFilter_PortRange.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-portrange",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-processinfo",
+    "name": "OH_TrafficFilter_ProcessInfo",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_ProcessInfo/OH_TrafficFilter_ProcessInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-processinfo",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-redirector",
+    "name": "OH_TrafficFilter_Redirector",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_Redirector/OH_TrafficFilter_Redirector.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-redirector",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-trafficfilter-oh-trafficfilter-redirectrule",
+    "name": "OH_TrafficFilter_RedirectRule",
+    "file": "开发/API参考/系统/网络/Network Kit（网络服务）/C API/结构体/OH_TrafficFilter_RedirectRule/OH_TrafficFilter_RedirectRule.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trafficfilter-oh-trafficfilter-redirectrule",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-water-flow-h",
+    "name": "water_flow.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/water_flow.h/water_flow.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-water-flow-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-xcomponent-h",
+    "name": "xcomponent.h",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/头文件/xcomponent.h/xcomponent.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-xcomponent-h",
+    "section": "应用框架"
+  },
+  {
+    "slug": "confidentialspace-confidentialspace",
+    "name": "@hms.security.confidentialSpace (机密空间服务)",
+    "file": "开发/API参考/系统/安全/Confidential Space Kit（机密空间服务）/ArkTS API/@hms.security.confidentialSpace (机密空间服务)/@hms.security.confidentialSpace (机密空间服务).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/confidentialspace-confidentialspace",
+    "section": "系统"
+  },
+  {
+    "slug": "devicesecurity-capi-structs-securityaudit-authclientconfiguration",
+    "name": "SecurityAudit_AuthClientConfiguration",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/C API/结构体/SecurityAudit_AuthClientConfiguration/SecurityAudit_AuthClientConfiguration.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-authclientconfiguration",
+    "section": "系统"
+  },
+  {
+    "slug": "errorcode-aodnavigation",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/硬件/AOD Navigation Kit（熄屏导航服务）/ArkTS API/ArkTS API错误码/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation",
+    "section": "系统"
+  },
+  {
+    "slug": "errorcode-busmanager-serial",
+    "name": "串口管理错误码",
+    "file": "开发/API参考/系统/基础功能/Basic Services Kit（基础服务）/错误码/串口管理错误码/串口管理错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-busmanager-serial",
+    "section": "系统"
+  },
+  {
+    "slug": "errorcode-confidentialspace",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/安全/Confidential Space Kit（机密空间服务）/ArkTS API/ArkTS API错误码/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-confidentialspace",
+    "section": "系统"
+  },
+  {
+    "slug": "errorcode-hotspot-accelerate",
+    "name": "热点加速错误码",
+    "file": "开发/API参考/系统/基础功能/Linx Kit（灵犀加速库）/C API/错误码/热点加速错误码/热点加速错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hotspot-accelerate",
+    "section": "系统"
+  },
+  {
+    "slug": "errorcode-nearlink-service",
+    "name": "NearLink错误码",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/错误码/NearLink错误码/NearLink错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink-service",
+    "section": "系统"
+  },
+  {
+    "slug": "errorcode-service-support-kit",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/基础功能/Service Support Kit（服务与支持）/ArkTS API/ArkTS API错误码/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-service-support-kit",
+    "section": "系统"
+  },
+  {
+    "slug": "fast-kit--fast-poly",
+    "name": "FAST_Poly",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/C API/头文件和结构体/结构体/FAST_Poly/FAST_Poly.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit--fast-poly",
+    "section": "系统"
+  },
+  {
+    "slug": "fast-kit--hms-fast-sortdata",
+    "name": "HMS_FAST_SortData",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/C API/头文件和结构体/结构体/HMS_FAST_SortData/HMS_FAST_SortData.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit--hms-fast-sortdata",
+    "section": "系统"
+  },
+  {
+    "slug": "fast-kit-fast-solver-polynomial-8h",
+    "name": "fast_solver_polynomial.h",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/C API/头文件和结构体/头文件/fast_solver_polynomial.h/fast_solver_polynomial.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-solver-polynomial-8h",
+    "section": "系统"
+  },
+  {
+    "slug": "fast-kit-fast-utils-algorithm-8h",
+    "name": "fast_utils_algorithm.h",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/C API/头文件和结构体/头文件/fast_utils_algorithm.h/fast_utils_algorithm.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-utils-algorithm-8h",
+    "section": "系统"
+  },
+  {
+    "slug": "fast-kit-scheduling-optimization",
+    "name": "@hms.fast.schedulingOptimization (系统性能优化)",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/ArkTS API/@hms.fast.schedulingOptimization (系统性能优化)/@hms.fast.schedulingOptimization (系统性能优化).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-scheduling-optimization",
+    "section": "系统"
+  },
+  {
+    "slug": "fast-kit-scheduling-optimization-8h",
+    "name": "scheduling_optimization.h",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/C API/头文件和结构体/头文件/scheduling_optimization.h/scheduling_optimization.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-scheduling-optimization-8h",
+    "section": "系统"
+  },
+  {
+    "slug": "graphics-accelerate-gamebuddyservice",
+    "name": "gameBuddyService（游戏伴随服务）",
+    "file": "开发/API参考/图形/Graphics Accelerate Kit（图形加速服务）/ArkTS API/gameBuddyService（游戏伴随服务）/gameBuddyService（游戏伴随服务）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-gamebuddyservice",
+    "section": "图形"
+  },
+  {
+    "slug": "health-api-exercisesequencehelper",
+    "name": "exerciseSequenceHelper (锻炼记录类型常量)",
+    "file": "开发/API参考/应用服务/Health Service Kit（运动健康服务）/ArkTS API/运动健康数据类型常量及模型定义/exerciseSequenceHelper (锻炼记录类型常量)/exerciseSequenceHelper (锻炼记录类型常量).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper",
+    "section": "应用服务"
+  },
+  {
+    "slug": "health-api-exercisesequencehelper-lite",
+    "name": "exerciseSequenceHelper (锻炼记录类型常量)(Lite)",
+    "file": "开发/API参考/应用服务/Health Service Kit（运动健康服务）/ArkTS API/运动健康数据类型常量及模型定义/exerciseSequenceHelper (锻炼记录类型常量)(Lite)/exerciseSequenceHelper (锻炼记录类型常量)(Lite).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper-lite",
+    "section": "应用服务"
+  },
+  {
+    "slug": "hmaf-a2a-protocol",
+    "name": "A2A (A2A协议)",
+    "file": "开发/API参考/AI/Agent Framework Kit（智能体框架服务）/ArkTS API/A2A (A2A协议)/A2A (A2A协议).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-a2a-protocol",
+    "section": "AI"
+  },
+  {
+    "slug": "js-apis-arkui-lazylayoutalgorithm",
+    "name": "LazyLayoutAlgorithm",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/arkui/LazyLayoutAlgorithm/LazyLayoutAlgorithm.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-lazylayoutalgorithm",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-bundlemanager-pluginbundleinfo",
+    "name": "PluginBundleInfo",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/bundleManager/PluginBundleInfo/PluginBundleInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-pluginbundleinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-busmanager-serial",
+    "name": "@ohos.busManager.serial (串口通信管理)",
+    "file": "开发/API参考/系统/基础功能/Basic Services Kit（基础服务）/ArkTS API/设备管理/@ohos.busManager.serial (串口通信管理)/@ohos.busManager.serial (串口通信管理).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-busmanager-serial",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-collaboration-serviceinteraction",
+    "name": "@hms.collaboration.serviceInteraction (碰一碰)",
+    "file": "开发/API参考/系统/网络/Service Collaboration Kit（协同服务）/ArkTS API/@hms.collaboration.serviceInteraction (碰一碰)/@hms.collaboration.serviceInteraction (碰一碰).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-collaboration-serviceinteraction",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-fusionconnectivity-ranging",
+    "name": "@ohos.FusionConnectivity.ranging (融合测距模块)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.FusionConnectivity.ranging (融合测距模块)/@ohos.FusionConnectivity.ranging (融合测距模块).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-ranging",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-inner-application-autofillrect",
+    "name": "AutoFillRect",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/AutoFillRect/AutoFillRect.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-autofillrect",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-application-autofillrequest",
+    "name": "AutoFillRequest",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/AutoFillRequest/AutoFillRequest.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-autofillrequest",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-application-autofilltriggertype",
+    "name": "AutoFillTriggerType",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/AutoFillTriggerType/AutoFillTriggerType.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-autofilltriggertype",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-application-autofilltype",
+    "name": "AutoFillType",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/AutoFillType/AutoFillType.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-autofilltype",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-application-pagenodeinfo",
+    "name": "PageNodeInfo",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/PageNodeInfo/PageNodeInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-pagenodeinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-application-viewdata",
+    "name": "ViewData",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/ViewData/ViewData.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-viewdata",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-nearlink-advertising",
+    "name": "@ohos.nearlink.advertising (星闪广播能力)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.advertising (星闪广播能力)/@ohos.nearlink.advertising (星闪广播能力).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-advertising",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-nearlink-cdsm",
+    "name": "@ohos.nearlink.cdsm (星闪合作设备集合管理能力)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.cdsm (星闪合作设备集合管理能力)/@ohos.nearlink.cdsm (星闪合作设备集合管理能力).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-cdsm",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-nearlink-constant",
+    "name": "@ohos.nearlink.constant (星闪公共常量定义)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.constant (星闪公共常量定义)/@ohos.nearlink.constant (星闪公共常量定义).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-constant",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-nearlink-data-transfer-api",
+    "name": "@ohos.nearlink.dataTransfer (星闪数传能力)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.dataTransfer (星闪数传能力)/@ohos.nearlink.dataTransfer (星闪数传能力).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-data-transfer-api",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-nearlink-manager",
+    "name": "@ohos.nearlink.manager (星闪开关能力)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.manager (星闪开关能力)/@ohos.nearlink.manager (星闪开关能力).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-manager",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-nearlink-remote-device",
+    "name": "@ohos.nearlink.remoteDevice (对端设备的连接能力)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.remoteDevice (对端设备的连接能力)/@ohos.nearlink.remoteDevice (对端设备的连接能力).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-remote-device",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-nearlink-scan",
+    "name": "@ohos.nearlink.scan (星闪扫描能力)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.scan (星闪扫描能力)/@ohos.nearlink.scan (星闪扫描能力).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-scan",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-nearlink-ssap",
+    "name": "@ohos.nearlink.ssap (星闪SSAP连接能力)",
+    "file": "开发/API参考/系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.nearlink.ssap (星闪SSAP连接能力)/@ohos.nearlink.ssap (星闪SSAP连接能力).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nearlink-ssap",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-pluginbundlemanager",
+    "name": "@ohos.bundle.pluginBundleManager (pluginBundleManager模块)",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/通用能力的接口(推荐)/@ohos.bundle.pluginBundleManager (pluginBundleManager模块)/@ohos.bundle.pluginBundleManager (pluginBundleManager模块).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pluginbundlemanager",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-printextensioncontext",
+    "name": "PrintExtensionContext",
+    "file": "开发/API参考/系统/基础功能/Basic Services Kit（基础服务）/ArkTS API/数据文件处理/PrintExtensionContext/PrintExtensionContext.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-printextensioncontext",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-settings-lite",
+    "name": "@ohos.settingsLite (设置信息)",
+    "file": "开发/API参考/系统/基础功能/Basic Services Kit（基础服务）/ArkTS API/其他/@ohos.settingsLite (设置信息)/@ohos.settingsLite (设置信息).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-settings-lite",
+    "section": "系统"
+  },
+  {
+    "slug": "liveview-card-ability",
+    "name": "LiveViewCardExtensionAbility",
+    "file": "开发/API参考/应用服务/Live View Kit（实况窗服务）/ArkTS API/LiveViewCardExtensionAbility/LiveViewCardExtensionAbility.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-card-ability",
+    "section": "应用服务"
+  },
+  {
+    "slug": "liveview-card-context",
+    "name": "LiveViewCardExtensionContext",
+    "file": "开发/API参考/应用服务/Live View Kit（实况窗服务）/ArkTS API/LiveViewCardExtensionContext/LiveViewCardExtensionContext.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-card-context",
+    "section": "应用服务"
+  },
+  {
+    "slug": "map-map-mapsignalline",
+    "name": "Interface (MapSignalLine)",
+    "file": "开发/API参考/应用服务/Map Kit（地图服务）/ArkTS API/map（地图显示功能）/Interface (MapSignalLine)/Interface (MapSignalLine).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapsignalline",
+    "section": "应用服务"
+  },
+  {
+    "slug": "map-offline-map-data",
+    "name": "offlineMapData（离线地图）",
+    "file": "开发/API参考/应用服务/Map Kit（地图服务）/ArkTS API/offlineMapData（离线地图）/offlineMapData（离线地图）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-offline-map-data",
+    "section": "应用服务"
+  },
+  {
+    "slug": "natural-language-entity-type-api",
+    "name": "EntityType（实体类型）",
+    "file": "开发/API参考/AI/Natural Language Kit（自然语言理解服务）/ArkTS API/EntityType（实体类型）/EntityType（实体类型）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-entity-type-api",
+    "section": "AI"
+  },
+  {
+    "slug": "ohos-arkui-advanced-chipgroupv2",
+    "name": "ChipGroupV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/ChipGroupV2/ChipGroupV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroupv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-chipv2",
+    "name": "ChipV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/ChipV2/ChipV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-composelistitemv2",
+    "name": "ComposeListItemV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/ComposeListItemV2/ComposeListItemV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-composelistitemv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-composetitlebarv2",
+    "name": "ComposeTitleBarV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/ComposeTitleBarV2/ComposeTitleBarV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-composetitlebarv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-counterv2",
+    "name": "CounterV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/CounterV2/CounterV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-counterv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-datepickercomponent",
+    "name": "DatePickerComponent",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/DatePickerComponent/DatePickerComponent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-datepickercomponent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-editabletitlebarv2",
+    "name": "EditableTitleBarV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/EditableTitleBarV2/EditableTitleBarV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-editabletitlebarv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-exceptionpromptv2",
+    "name": "ExceptionPromptV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/ExceptionPromptV2/ExceptionPromptV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-exceptionpromptv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-popupv2",
+    "name": "PopupV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/PopupV2/PopupV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popupv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-swiperefresherv2",
+    "name": "SwipeRefresherV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/SwipeRefresherV2/SwipeRefresherV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-swiperefresherv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ohos-arkui-advanced-treeviewv2",
+    "name": "TreeViewV2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/系统预置UI组件库/TreeViewV2/TreeViewV2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-treeviewv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "pen-stylusframeboost",
+    "name": "StylusFrameBoost（手写笔跟手性加速功能）",
+    "file": "开发/API参考/系统/硬件/Pen Kit（手写笔服务）/ArkTS API/StylusFrameBoost（手写笔跟手性加速功能）/StylusFrameBoost（手写笔跟手性加速功能）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-stylusframeboost",
+    "section": "系统"
+  },
+  {
+    "slug": "remote-communication-error-field",
+    "name": "故障日志关键字段说明",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/故障日志关键字段说明/故障日志关键字段说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field",
+    "section": "系统"
+  },
+  {
+    "slug": "servicesupport-api-devicedetection",
+    "name": "deviceDetection (设备硬件一致性检测)",
+    "file": "开发/API参考/系统/基础功能/Service Support Kit（服务与支持）/ArkTS API/deviceDetection (设备硬件一致性检测)/deviceDetection (设备硬件一致性检测).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicesupport-api-devicedetection",
+    "section": "系统"
+  },
+  {
+    "slug": "ts-basic-components-selectioncontainer",
+    "name": "SelectionContainer",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/文本与输入/SelectionContainer/SelectionContainer.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-selectioncontainer",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-components-canvas-common-method",
+    "name": "画布绘制通用方法",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/画布绘制/画布绘制通用方法/画布绘制通用方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-components-canvas-common-property",
+    "name": "画布绘制通用属性",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/画布绘制/画布绘制通用属性/画布绘制通用属性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-container-lazycolumnlayout",
+    "name": "LazyColumnLayout",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/滚动与滑动/LazyColumnLayout/LazyColumnLayout.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazycolumnlayout",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-container-lazydynamiclayout",
+    "name": "LazyDynamicLayout",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/滚动与滑动/LazyDynamicLayout/LazyDynamicLayout.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazydynamiclayout",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-container-with-env",
+    "name": "WithEnv：环境变量容器",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/响应式环境变量/WithEnv：环境变量容器/WithEnv：环境变量容器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-env",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-custom-component-decorator-component",
+    "name": "@Component：自定义组件",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/自定义组件装饰器/@Component：自定义组件/@Component：自定义组件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-component",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-custom-component-decorator-componentv2",
+    "name": "@ComponentV2：自定义组件V2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/自定义组件装饰器/@ComponentV2：自定义组件V2/@ComponentV2：自定义组件V2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-componentv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-custom-component-decorator-extend",
+    "name": "@Extend：扩展组件样式",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@Extend：扩展组件样式/@Extend：扩展组件样式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-extend",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-custom-component-decorator-reusable",
+    "name": "@Reusable：组件复用",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@Reusable：组件复用/@Reusable：组件复用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-reusable",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-custom-component-decorator-reusablev2",
+    "name": "@ReusableV2：组件复用V2",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@ReusableV2：组件复用V2/@ReusableV2：组件复用V2.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-reusablev2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-custom-component-decorator-styles",
+    "name": "@Styles：组件重用样式",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@Styles：组件重用样式/@Styles：组件重用样式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-styles",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-custom-env-property",
+    "name": "@CustomEnv：自定义环境变量",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/响应式环境变量/@CustomEnv：自定义环境变量/@CustomEnv：自定义环境变量.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-env-property",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-drawing-components-common",
+    "name": "图形绘制通用属性",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/图形绘制/图形绘制通用属性/图形绘制通用属性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-common",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-computed",
+    "name": "@Computed：计算属性",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Computed：计算属性/@Computed：计算属性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-computed",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-consume",
+    "name": "@Consume：与后代组件双向同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@Consume：与后代组件双向同步/@Consume：与后代组件双向同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-consume",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-consumer",
+    "name": "@Consumer：跨组件层级双向同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Consumer：跨组件层级双向同步/@Consumer：跨组件层级双向同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-consumer",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-event",
+    "name": "@Event：规范组件输出",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Event：规范组件输出/@Event：规范组件输出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-event",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-link",
+    "name": "@Link：父子双向同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@Link：父子双向同步/@Link：父子双向同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-link",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-local",
+    "name": "@Local：组件内部状态",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Local：组件内部状态/@Local：组件内部状态.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-local",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-localstoragelink",
+    "name": "@LocalStorageLink：LocalStorage双向数据同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@LocalStorageLink：LocalStorage双向数据同步/@LocalStorageLink：LocalStorage双向数据同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-localstoragelink",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-localstorageprop",
+    "name": "@LocalStorageProp：LocalStorage单向数据同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@LocalStorageProp：LocalStorage单向数据同步/@LocalStorageProp：LocalStorage单向数据同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-localstorageprop",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-monitor",
+    "name": "@Monitor：状态变量修改监听",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Monitor：状态变量修改监听/@Monitor：状态变量修改监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-monitor",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-objectlink",
+    "name": "@ObjectLink：嵌套类对象属性变化",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@ObjectLink：嵌套类对象属性变化/@ObjectLink：嵌套类对象属性变化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-objectlink",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-observed",
+    "name": "@Observed：嵌套类对象属性变化",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@Observed：嵌套类对象属性变化/@Observed：嵌套类对象属性变化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-observed",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-observedv2",
+    "name": "@ObservedV2：类属性变化观测",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@ObservedV2：类属性变化观测/@ObservedV2：类属性变化观测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-observedv2",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-once",
+    "name": "@Once：初始化同步一次",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Once：初始化同步一次/@Once：初始化同步一次.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-once",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-param",
+    "name": "@Param：组件外部输入",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Param：组件外部输入/@Param：组件外部输入.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-param",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-prop",
+    "name": "@Prop：父子单向同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@Prop：父子单向同步/@Prop：父子单向同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-prop",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-provide",
+    "name": "@Provide：与后代组件双向同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@Provide：与后代组件双向同步/@Provide：与后代组件双向同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-provide",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-provider",
+    "name": "@Provider：跨组件层级双向同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Provider：跨组件层级双向同步/@Provider：跨组件层级双向同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-provider",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-state",
+    "name": "@State：组件内状态",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@State：组件内状态/@State：组件内状态.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-state",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-storagelink",
+    "name": "@StorageLink：AppStorage双向数据同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@StorageLink：AppStorage双向数据同步/@StorageLink：AppStorage双向数据同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-storagelink",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-storageprop",
+    "name": "@StorageProp：AppStorage单向数据同步",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@StorageProp：AppStorage单向数据同步/@StorageProp：AppStorage单向数据同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-storageprop",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-syncmonitor",
+    "name": "@SyncMonitor：状态变量修改同步监听",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@SyncMonitor：状态变量修改同步监听/@SyncMonitor：状态变量修改同步监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-syncmonitor",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-trace",
+    "name": "@Trace：类属性变化观测",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Trace：类属性变化观测/@Trace：类属性变化观测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-trace",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-track",
+    "name": "@Track：class对象属性级更新",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@Track：class对象属性级更新/@Track：class对象属性级更新.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-track",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-type",
+    "name": "@Type：标记类属性的类型",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V2装饰器/@Type：标记类属性的类型/@Type：标记类属性的类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-type",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-state-management-watch",
+    "name": "@Watch：状态变量更改通知",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/状态管理与渲染控制/状态管理V1装饰器/@Watch：状态变量更改通知/@Watch：状态变量更改通知.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-universal-attributes-inspector-label",
+    "name": "节点调测标签",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/通用属性/其他/节点调测标签/节点调测标签.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-inspector-label",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-universal-attributes-smart-gesture-shortcut",
+    "name": "智慧手势响应",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/通用属性/交互属性/智慧手势响应/智慧手势响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-smart-gesture-shortcut",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-universal-builder-dynamic",
+    "name": "@Builder装饰器：自定义构建函数",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@Builder装饰器：自定义构建函数/@Builder装饰器：自定义构建函数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-builder-dynamic",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-universal-builderparam-dynamic",
+    "name": "@BuilderParam装饰器：引用@Builder函数",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@BuilderParam装饰器：引用@Builder函数/@BuilderParam装饰器：引用@Builder函数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-builderparam-dynamic",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-universal-localbuilder",
+    "name": "@LocalBuilder装饰器：维持组件关系",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@LocalBuilder装饰器：维持组件关系/@LocalBuilder装饰器：维持组件关系.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-localbuilder",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ts-universal-require-dynamic",
+    "name": "@Require装饰器：校验构造传参",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/自定义组件/组件扩展装饰器/@Require装饰器：校验构造传参/@Require装饰器：校验构造传参.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-require-dynamic",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ui-design-hdscolorpicker",
+    "name": "HdsColorPicker (颜色选择器组件)",
+    "file": "开发/API参考/应用框架/UI Design Kit（UI设计套件）/ArkTS组件/HdsColorPicker (颜色选择器组件)/HdsColorPicker (颜色选择器组件).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdscolorpicker",
+    "section": "应用框架"
+  },
+  {
+    "slug": "wallet-rest-api-generalcard",
+    "name": "通用凭证接口",
+    "file": "开发/API参考/应用服务/Wallet Kit（钱包服务）/REST API/通用凭证接口/通用凭证接口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-generalcard",
+    "section": "应用服务"
+  },
+  {
+    "slug": "wallet-rest-api-hotel",
+    "name": "酒店房卡接口",
+    "file": "开发/API参考/应用服务/Wallet Kit（钱包服务）/REST API/酒店房卡接口/酒店房卡接口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-hotel",
+    "section": "应用服务"
+  },
+  {
+    "slug": "wallet-rest-api-member",
+    "name": "会员卡接口",
+    "file": "开发/API参考/应用服务/Wallet Kit（钱包服务）/REST API/会员卡接口/会员卡接口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-member",
+    "section": "应用服务"
+  },
+  {
+    "slug": "wallet-rest-api-park",
+    "name": "园区卡接口",
+    "file": "开发/API参考/应用服务/Wallet Kit（钱包服务）/REST API/园区卡接口/园区卡接口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-park",
+    "section": "应用服务"
+  },
+  {
+    "slug": "wallet-rest-api-ticket",
+    "name": "活动/景点门票接口",
+    "file": "开发/API参考/应用服务/Wallet Kit（钱包服务）/REST API/活动／景点门票接口/活动／景点门票接口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-ticket",
+    "section": "应用服务"
+  },
+  {
+    "slug": "wallet-rest-api-travel",
+    "name": "出行凭证接口",
+    "file": "开发/API参考/应用服务/Wallet Kit（钱包服务）/REST API/出行凭证接口/出行凭证接口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-travel",
+    "section": "应用服务"
+  },
+  {
+    "slug": "arkts-apis-uicontext-basegesturehandlingproposal",
+    "name": "Class (BaseGestureHandlingProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (BaseGestureHandlingProposal)/Class (BaseGestureHandlingProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-basegesturehandlingproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-targetedgestureproposal",
+    "name": "Class (TargetedGestureProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (TargetedGestureProposal)/Class (TargetedGestureProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-targetedgestureproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-clickactionproposal",
+    "name": "Class (ClickActionProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (ClickActionProposal)/Class (ClickActionProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-clickactionproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-selectactionproposal",
+    "name": "Class (SelectActionProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (SelectActionProposal)/Class (SelectActionProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-selectactionproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-noneactionproposal",
+    "name": "Class (NoneActionProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (NoneActionProposal)/Class (NoneActionProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-noneactionproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-backpressactionproposal",
+    "name": "Class (BackPressActionProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (BackPressActionProposal)/Class (BackPressActionProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-backpressactionproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-pageswitchactionproposal",
+    "name": "Class (PageSwitchActionProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (PageSwitchActionProposal)/Class (PageSwitchActionProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-pageswitchactionproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-scrollactionproposal",
+    "name": "Class (ScrollActionProposal)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (ScrollActionProposal)/Class (ScrollActionProposal).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-scrollactionproposal",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-uicontext-gesturehandlingresolution",
+    "name": "Class (GestureHandlingResolution)",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.UIContext (UIContext)/Class (GestureHandlingResolution)/Class (GestureHandlingResolution).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-gesturehandlingresolution",
+    "section": "应用框架"
   }
 ]

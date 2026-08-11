@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "bpta-always-on-market-watch",
+    "name": "全链路盯盘开发实践",
+    "file": "全链路盯盘开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-always-on-market-watch"
+  },
+  {
+    "slug": "bpta-game-prelaunch-practice",
+    "name": "游戏预启动开发实践",
+    "file": "游戏预启动开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-game-prelaunch-practice"
+  },
+  {
+    "slug": "bpta-wavewheel-for-image-editor",
+    "name": "实现修图软件的波轮菜单功能",
+    "file": "实现修图软件的波轮菜单功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-wavewheel-for-image-editor"
+  }
+]

@@ -30275,5 +30275,983 @@
     "name": "模拟器工具（Emulator）",
     "file": "开发/指南/开发/命令行工具/模拟器工具（Emulator）.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-commandline-emulator"
+  },
+  {
+    "slug": "account-authorize-by-qrcode",
+    "name": "扫码授权登录",
+    "file": "开发/指南/开发/应用服务/Account Kit（华为账号服务）/登录/扫码授权登录/扫码授权登录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-authorize-by-qrcode"
+  },
+  {
+    "slug": "account-notification-events",
+    "name": "Account Kit通知事件",
+    "file": "开发/指南/开发/应用服务/Account Kit（华为账号服务）/Account Kit通知事件/Account Kit通知事件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-notification-events"
+  },
+  {
+    "slug": "aodnavigation-development-guidance",
+    "name": "接入熄屏导航",
+    "file": "开发/指南/开发/系统/硬件/AOD Navigation Kit（熄屏导航服务）/接入熄屏导航/接入熄屏导航.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aodnavigation-development-guidance"
+  },
+  {
+    "slug": "aodnavigation-glossary",
+    "name": "AOD Navigation Kit术语",
+    "file": "开发/指南/开发/系统/硬件/AOD Navigation Kit（熄屏导航服务）/AOD Navigation Kit术语/AOD Navigation Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aodnavigation-glossary"
+  },
+  {
+    "slug": "aodnavigation-introduction",
+    "name": "AOD Navigation Kit简介",
+    "file": "开发/指南/开发/系统/硬件/AOD Navigation Kit（熄屏导航服务）/AOD Navigation Kit简介/AOD Navigation Kit简介.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aodnavigation-introduction"
+  },
+  {
+    "slug": "aodnavigation-preparations",
+    "name": "开发准备",
+    "file": "开发/指南/开发/系统/硬件/AOD Navigation Kit（熄屏导航服务）/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aodnavigation-preparations"
+  },
+  {
+    "slug": "appgallery-glossary",
+    "name": "AppGallery Kit术语",
+    "file": "开发/指南/开发/应用服务/AppGallery Kit（应用市场服务）/AppGallery Kit术语/AppGallery Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appgallery-glossary"
+  },
+  {
+    "slug": "archive-buffer-compression-guidelines",
+    "name": "缓冲区压缩解压缩(C/C++)",
+    "file": "开发/指南/开发/应用框架/Core File Kit（文件基础服务）/文件压缩解压缩/缓冲区压缩解压缩(C／C++)/缓冲区压缩解压缩(C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/archive-buffer-compression-guidelines"
+  },
+  {
+    "slug": "archive-file-compression-guidelines",
+    "name": "文件归档类压缩解压缩(C/C++)",
+    "file": "开发/指南/开发/应用框架/Core File Kit（文件基础服务）/文件压缩解压缩/文件归档类压缩解压缩(C／C++)/文件归档类压缩解压缩(C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/archive-file-compression-guidelines"
+  },
+  {
+    "slug": "archive-overview",
+    "name": "压缩解压缩概述",
+    "file": "开发/指南/开发/应用框架/Core File Kit（文件基础服务）/文件压缩解压缩/压缩解压缩概述/压缩解压缩概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/archive-overview"
+  },
+  {
+    "slug": "archive-stream-compression-guidelines",
+    "name": "流式压缩解压缩(C/C++)",
+    "file": "开发/指南/开发/应用框架/Core File Kit（文件基础服务）/文件压缩解压缩/流式压缩解压缩(C／C++)/流式压缩解压缩(C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/archive-stream-compression-guidelines"
+  },
+  {
+    "slug": "arkts-animation-usage-guide",
+    "name": "优化动画性能",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/使用动画/优化动画性能/优化动画性能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animation-usage-guide"
+  },
+  {
+    "slug": "arkts-common-events-smartgesture-event",
+    "name": "支持智慧手势输入事件",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/添加交互响应/输入设备与事件/支持智慧手势输入事件/支持智慧手势输入事件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-events-smartgesture-event"
+  },
+  {
+    "slug": "arkts-common-waterfall-flow-operations",
+    "name": "常见瀑布流操作",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/列表与网格/常见瀑布流操作/常见瀑布流操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-waterfall-flow-operations"
+  },
+  {
+    "slug": "arkts-custom-env-property",
+    "name": "@CustomEnv：自定义环境变量",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/学习响应式环境变量/@CustomEnv：自定义环境变量/@CustomEnv：自定义环境变量.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-custom-env-property"
+  },
+  {
+    "slug": "arkts-customize-keyboard",
+    "name": "自定义键盘",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/使用文本/自定义键盘/自定义键盘.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-customize-keyboard"
+  },
+  {
+    "slug": "arkts-grid-element-drag-exchange",
+    "name": "Grid网格元素拖拽",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/列表与网格/Grid网格元素拖拽/Grid网格元素拖拽.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-grid-element-drag-exchange"
+  },
+  {
+    "slug": "arkts-implementing-image-filters",
+    "name": "基于colorFilter实现图片滤镜效果",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/媒体展示/基于colorFilter实现图片滤镜效果/基于colorFilter实现图片滤镜效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-filters"
+  },
+  {
+    "slug": "arkts-implementing-image-resizable",
+    "name": "基于resizable实现图片拉伸效果",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/媒体展示/基于resizable实现图片拉伸效果/基于resizable实现图片拉伸效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-resizable"
+  },
+  {
+    "slug": "arkts-layout-development-create-lazy-custom-layout",
+    "name": "创建懒加载自定义布局 (LazyDynamicLayout)",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/列表与网格/创建懒加载自定义布局 (LazyDynamicLayout)/创建懒加载自定义布局 (LazyDynamicLayout).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-lazy-custom-layout"
+  },
+  {
+    "slug": "arkts-long-screenshot",
+    "name": "长截图",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/UI系统场景化能力/长截图/长截图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-long-screenshot"
+  },
+  {
+    "slug": "arkts-module-faq",
+    "name": "模块化常见问题",
+    "file": "开发/指南/开发/应用框架/ArkTS（方舟编程语言）/ArkTS运行时/ArkTS模块化/模块化常见问题/模块化常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-module-faq"
+  },
+  {
+    "slug": "arkts-ui-music-service-form",
+    "name": "音乐服务卡片",
+    "file": "开发/指南/开发/应用框架/Form Kit（卡片开发服务）/ArkTS卡片开发（推荐）/ArkTS卡片最佳实践/音乐服务卡片/音乐服务卡片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-music-service-form"
+  },
+  {
+    "slug": "arkts-v1-v2-migration-card",
+    "name": "卡片状态变量迁移",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/学习UI范式状态管理/状态管理V1-V2迁移指导/状态管理V1向V2迁移场景/卡片状态变量迁移/卡片状态变量迁移.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-migration-card"
+  },
+  {
+    "slug": "audio-glossary",
+    "name": "Audio Kit术语",
+    "file": "开发/指南/开发/媒体/Audio Kit（音频服务）/Audio Kit术语/Audio Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-glossary"
+  },
+  {
+    "slug": "audio-recording-no-audio-troubleshooting",
+    "name": "录音无声定位指导",
+    "file": "开发/指南/开发/媒体/Audio Kit（音频服务）/Audio Kit常见问题/录音无声定位指导/录音无声定位指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-recording-no-audio-troubleshooting"
+  },
+  {
+    "slug": "audio-runtime-debugging-info",
+    "name": "使用音频快照获取问题定位信息",
+    "file": "开发/指南/开发/媒体/Audio Kit（音频服务）/Audio Kit常见问题/使用音频快照获取问题定位信息/使用音频快照获取问题定位信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-runtime-debugging-info"
+  },
+  {
+    "slug": "audio-suite-format-converter",
+    "name": "音频格式转换(C/C++)",
+    "file": "开发/指南/开发/媒体/Audio Kit（音频服务）/音频编创/音频格式转换(C／C++)/音频格式转换(C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-format-converter"
+  },
+  {
+    "slug": "avsession-mediacentercontroltype-scene",
+    "name": "自定义播控中心控制按钮显示布局",
+    "file": "开发/指南/开发/媒体/AVSession Kit（音视频播控服务）/自定义播控中心控制按钮显示布局/自定义播控中心控制按钮显示布局.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-mediacentercontroltype-scene"
+  },
+  {
+    "slug": "background-recording",
+    "name": "实现后台录音",
+    "file": "开发/指南/开发/媒体/Audio Kit（音频服务）/音频录制/实现后台录音/实现后台录音.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/background-recording"
+  },
+  {
+    "slug": "background-tasks-glossary",
+    "name": "Background Tasks Kit术语",
+    "file": "开发/指南/开发/应用框架/Background Tasks Kit（后台任务开发服务）/Background Tasks Kit术语/Background Tasks Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/background-tasks-glossary"
+  },
+  {
+    "slug": "camera-api-faq",
+    "name": "相机API调用时序问题",
+    "file": "开发/指南/开发/媒体/Camera Kit（相机服务）/Camera Kit常见问题/相机无法启动/相机API调用时序问题/相机API调用时序问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-api-faq"
+  },
+  {
+    "slug": "camera-previewoutput-faq",
+    "name": "相机预览流启动问题",
+    "file": "开发/指南/开发/媒体/Camera Kit（相机服务）/Camera Kit常见问题/相机无法启动/相机预览流启动问题/相机预览流启动问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-previewoutput-faq"
+  },
+  {
+    "slug": "camera-rotation-faq",
+    "name": "相机预览画面旋转异常问题",
+    "file": "开发/指南/开发/媒体/Camera Kit（相机服务）/Camera Kit常见问题/相机预览画面旋转异常问题/相机预览画面旋转异常问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-faq"
+  },
+  {
+    "slug": "camera-sessionconfig-faq",
+    "name": "会话配置问题",
+    "file": "开发/指南/开发/媒体/Camera Kit（相机服务）/Camera Kit常见问题/相机无法启动/会话配置问题/会话配置问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-sessionconfig-faq"
+  },
+  {
+    "slug": "camera-whitebalance-faq",
+    "name": "白平衡相关问题",
+    "file": "开发/指南/开发/媒体/Camera Kit（相机服务）/Camera Kit常见问题/白平衡相关问题/白平衡相关问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-whitebalance-faq"
+  },
+  {
+    "slug": "command-testing",
+    "name": "命令行执行测试",
+    "file": "开发/指南/开发/应用测试/专项测试/DevEco Testing/命令行执行测试/命令行执行测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/command-testing"
+  },
+  {
+    "slug": "confidentialspace-calling",
+    "name": "运行数据应用处理数据",
+    "file": "开发/指南/开发/系统/安全/Confidential Space Kit（机密空间服务）/运行数据应用处理数据/运行数据应用处理数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/confidentialspace-calling"
+  },
+  {
+    "slug": "confidentialspace-glossary",
+    "name": "Confidential Space Kit术语",
+    "file": "开发/指南/开发/系统/安全/Confidential Space Kit（机密空间服务）/Confidential Space Kit术语/Confidential Space Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/confidentialspace-glossary"
+  },
+  {
+    "slug": "confidentialspace-introduction",
+    "name": "Confidential Space Kit简介",
+    "file": "开发/指南/开发/系统/安全/Confidential Space Kit（机密空间服务）/Confidential Space Kit简介/Confidential Space Kit简介.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/confidentialspace-introduction"
+  },
+  {
+    "slug": "crypto-kem-encapsulate-decapsulate",
+    "name": "使用KEM进行密钥封装解封装(ArkTS)",
+    "file": "开发/指南/开发/系统/安全/Crypto Architecture Kit（加解密算法框架服务）/密钥封装解封装/使用KEM进行密钥封装解封装(ArkTS)/使用KEM进行密钥封装解封装(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-kem-encapsulate-decapsulate"
+  },
+  {
+    "slug": "crypto-ml-dsa-sign-sig-verify",
+    "name": "使用ML-DSA密钥对签名验签(ArkTS)",
+    "file": "开发/指南/开发/系统/安全/Crypto Architecture Kit（加解密算法框架服务）/签名验签/签名验签开发指导/使用ML-DSA密钥对签名验签(ArkTS)/使用ML-DSA密钥对签名验签(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-ml-dsa-sign-sig-verify"
+  },
+  {
+    "slug": "dataguard-glossary",
+    "name": "Enterprise Data Guard Kit术语",
+    "file": "开发/指南/开发/系统/安全/Enterprise Data Guard Kit（企业数据保护服务）/Enterprise Data Guard Kit术语/Enterprise Data Guard Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataguard-glossary"
+  },
+  {
+    "slug": "desktop-extension-glossary",
+    "name": "Desktop Extension Kit 术语",
+    "file": "开发/指南/开发/系统/基础功能/Desktop Extension Kit（桌面拓展服务）/Desktop Extension Kit 术语/Desktop Extension Kit 术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/desktop-extension-glossary"
+  },
+  {
+    "slug": "devicesecurity-audit-acquireallauthclientsinfo-arkts",
+    "name": "阻断类客户端信息查询场景",
+    "file": "开发/指南/开发/系统/安全/Device Security Kit（设备安全服务）/安全审计/阻断类客户端信息查询场景/阻断类客户端信息查询场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-audit-acquireallauthclientsinfo-arkts"
+  },
+  {
+    "slug": "devicesecurity-audit-acquireallauthclientsinfo-c",
+    "name": "阻断类客户端信息查询场景（C/C++）",
+    "file": "开发/指南/开发/系统/安全/Device Security Kit（设备安全服务）/安全审计/阻断类客户端信息查询场景（C／C++）/阻断类客户端信息查询场景（C／C++）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-audit-acquireallauthclientsinfo-c"
+  },
+  {
+    "slug": "enterprisespace-cross-space-notification",
+    "name": "跨空间消息提醒",
+    "file": "开发/指南/开发/应用服务/Enterprise Space Kit（企业数字空间服务）/空间管理/跨空间消息提醒/跨空间消息提醒.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-cross-space-notification"
+  },
+  {
+    "slug": "fast-algorithm",
+    "name": "使用Sort进行通用和自然语言排序",
+    "file": "开发/指南/开发/系统/基础功能/FAST Kit（算法加速服务）/使用Sort进行通用和自然语言排序/使用Sort进行通用和自然语言排序.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-algorithm"
+  },
+  {
+    "slug": "fast-polynomial-root",
+    "name": "使用PolyRoot求解多项式根",
+    "file": "开发/指南/开发/系统/基础功能/FAST Kit（算法加速服务）/使用PolyRoot求解多项式根/使用PolyRoot求解多项式根.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-polynomial-root"
+  },
+  {
+    "slug": "fast-scheduling-optimization_arkts",
+    "name": "使用perfHint系统性能优化(ArkTS)",
+    "file": "开发/指南/开发/系统/基础功能/FAST Kit（算法加速服务）/perfHint系统性能优化/使用perfHint系统性能优化(ArkTS)/使用perfHint系统性能优化(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-scheduling-optimization_arkts"
+  },
+  {
+    "slug": "fast-scheduling-optimization_c",
+    "name": "使用perfHint系统性能优化(C/C++)",
+    "file": "开发/指南/开发/系统/基础功能/FAST Kit（算法加速服务）/perfHint系统性能优化/使用perfHint系统性能优化(C／C++)/使用perfHint系统性能优化(C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-scheduling-optimization_c"
+  },
+  {
+    "slug": "fileguard-managed-process-management",
+    "name": "进程管控时长管理",
+    "file": "开发/指南/开发/系统/安全/Enterprise Data Guard Kit（企业数据保护服务）/文件分级管控/进程管控时长管理/进程管控时长管理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-managed-process-management"
+  },
+  {
+    "slug": "form-refresh-and-data-interaction",
+    "name": "卡片更新与数据交互",
+    "file": "开发/指南/开发/应用框架/Form Kit（卡片开发服务）/ArkTS卡片开发（推荐）/ArkTS卡片最佳实践/卡片更新与数据交互/卡片更新与数据交互.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/form-refresh-and-data-interaction"
+  },
+  {
+    "slug": "graphics-accelerate-gamebuddyservice-development",
+    "name": "实现游戏伴随",
+    "file": "开发/指南/开发/图形/Graphics Accelerate Kit（图形加速服务）/游戏伴随服务/实现游戏伴随/实现游戏伴随.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-gamebuddyservice-development"
+  },
+  {
+    "slug": "graphics-accelerate-gamebuddyservice-faq-2",
+    "name": "游戏截图回调没有返回的文件描述符如何处理",
+    "file": "开发/指南/开发/图形/Graphics Accelerate Kit（图形加速服务）/Graphics Accelerate Kit常见问题/游戏伴随服务/游戏截图回调没有返回的文件描述符如何处理/游戏截图回调没有返回的文件描述符如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-gamebuddyservice-faq-2"
+  },
+  {
+    "slug": "graphics-accelerate-gamebuddyservice-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/图形/Graphics Accelerate Kit（图形加速服务）/游戏伴随服务/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-gamebuddyservice-prepare"
+  },
+  {
+    "slug": "graphics-accelerate-launch-faq-11",
+    "name": "团结引擎1.8.1～1.9.0版本在Tablet设备上调用秒启接口异常应该如何解决",
+    "file": "开发/指南/开发/图形/Graphics Accelerate Kit（图形加速服务）/Graphics Accelerate Kit常见问题/游戏启动加速服务/团结引擎1.8.1～1.9.0版本在Tablet设备上调用秒启接口异常应该如何解决/团结引擎1.8.1～1.9.0版本在Tablet设备上调用秒启接口异常应该如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-launch-faq-11"
+  },
+  {
+    "slug": "hdr-vivid-transcoding-sdr",
+    "name": "HDR Vivid视频转码SDR视频开发实践",
+    "file": "开发/指南/开发/媒体/AVCodec Kit（音视频编解码服务）/音视频编解码开发实践/HDR Vivid视频转码SDR视频开发实践/HDR Vivid视频转码SDR视频开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdr-vivid-transcoding-sdr"
+  },
+  {
+    "slug": "hdr-vivid-video-play-recording",
+    "name": "HDR Vivid视频播放与录制开发实践",
+    "file": "开发/指南/开发/媒体/AVCodec Kit（音视频编解码服务）/音视频编解码开发实践/HDR Vivid视频播放与录制开发实践/HDR Vivid视频播放与录制开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdr-vivid-video-play-recording"
+  },
+  {
+    "slug": "high-load-thread-priority",
+    "name": "高负载场景线程优先级设置",
+    "file": "开发/指南/开发/系统/基础功能/Kernel Enhance Kit（内核增强能力）/内存管理Purgeable内存开发指导/高负载场景线程优先级设置/高负载场景线程优先级设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/high-load-thread-priority"
+  },
+  {
+    "slug": "hmaf-a2a-dev-guide",
+    "name": "通过AgentAbilityExtension实现智能体间A2A协议通信",
+    "file": "开发/指南/开发/AI/Agent Framework Kit（智能体框架服务）/通过AgentAbilityExtension实现智能体间A2A协议通信/通过AgentAbilityExtension实现智能体间A2A协议通信.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hmaf-a2a-dev-guide"
+  },
+  {
+    "slug": "hotspot-accelerate-development",
+    "name": "启用热点加速",
+    "file": "开发/指南/开发/系统/基础功能/Linx Kit（灵犀加速库）/启用热点加速/启用热点加速.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hotspot-accelerate-development"
+  },
+  {
+    "slug": "huks-extension-set-property-arkts",
+    "name": "属性设置(ArkTS)",
+    "file": "开发/指南/开发/系统/安全/Universal Keystore Kit（密钥管理服务）/外部密钥管理扩展/通用操作/属性设置(ArkTS)/属性设置(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-extension-set-property-arkts"
+  },
+  {
+    "slug": "huks-kem-arkts",
+    "name": "密钥封装(ArkTS)",
+    "file": "开发/指南/开发/系统/安全/Universal Keystore Kit（密钥管理服务）/本地密钥管理/密钥使用/密钥封装/密钥封装(ArkTS)/密钥封装(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-kem-arkts"
+  },
+  {
+    "slug": "huks-kem-overview",
+    "name": "密钥封装机制介绍及算法规格",
+    "file": "开发/指南/开发/系统/安全/Universal Keystore Kit（密钥管理服务）/本地密钥管理/密钥使用/密钥封装/密钥封装机制介绍及算法规格/密钥封装机制介绍及算法规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-kem-overview"
+  },
+  {
+    "slug": "huks-ukey-get-error-info-arkts",
+    "name": "获取错误信息(ArkTS)",
+    "file": "开发/指南/开发/系统/安全/Universal Keystore Kit（密钥管理服务）/外部密钥管理扩展/通用操作/获取错误信息(ArkTS)/获取错误信息(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-get-error-info-arkts"
+  },
+  {
+    "slug": "ide-debug-native-child-process",
+    "name": "调试Native子进程",
+    "file": "开发/指南/开发/编写与调试应用/应用调试/代码调试/Native代码调试/调试Native子进程/调试Native子进程.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-native-child-process"
+  },
+  {
+    "slug": "ide-deprecate-api-check",
+    "name": "@compatibility/deprecate-api-check",
+    "file": "开发/指南/开发/编写与调试应用/代码编辑/代码检查/Code Linter代码检查规则/兼容性规则@compatibility/@compatibility／deprecate-api-check/@compatibility／deprecate-api-check.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deprecate-api-check"
+  },
+  {
+    "slug": "ide-deveco-cli-install",
+    "name": "下载与安装",
+    "file": "开发/指南/开发/AI Coding/DevEco CLI/下载与安装/下载与安装.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-cli-install"
+  },
+  {
+    "slug": "ide-deveco-cli-options",
+    "name": "常用命令",
+    "file": "开发/指南/开发/AI Coding/DevEco CLI/常用命令/常用命令.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-cli-options"
+  },
+  {
+    "slug": "ide-deveco-cli-overview",
+    "name": "工具概述",
+    "file": "开发/指南/开发/AI Coding/DevEco CLI/工具概述/工具概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-cli-overview"
+  },
+  {
+    "slug": "ide-deveco-code-agent",
+    "name": "Agent模式",
+    "file": "开发/指南/开发/AI Coding/DevEco Code/Agent模式/Agent模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-code-agent"
+  },
+  {
+    "slug": "ide-deveco-code-common-configure",
+    "name": "常用配置",
+    "file": "开发/指南/开发/AI Coding/DevEco Code/常用配置/常用配置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-code-common-configure"
+  },
+  {
+    "slug": "ide-deveco-code-install",
+    "name": "下载与安装",
+    "file": "开发/指南/开发/AI Coding/DevEco Code/下载与安装/下载与安装.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-code-install"
+  },
+  {
+    "slug": "ide-deveco-code-model",
+    "name": "模型配置",
+    "file": "开发/指南/开发/AI Coding/DevEco Code/模型配置/模型配置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-code-model"
+  },
+  {
+    "slug": "ide-deveco-code-overview",
+    "name": "工具概述",
+    "file": "开发/指南/开发/AI Coding/DevEco Code/工具概述/工具概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-deveco-code-overview"
+  },
+  {
+    "slug": "js-rawheap-translator",
+    "name": "js-rawheap-translator工具",
+    "file": "开发/指南/开发/系统/调测调优/调试命令/命令行工具/js-rawheap-translator工具/js-rawheap-translator工具.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-rawheap-translator"
+  },
+  {
+    "slug": "kernel-enhance-glossary",
+    "name": "术语",
+    "file": "开发/指南/开发/系统/基础功能/Kernel Enhance Kit（内核增强能力）/术语/术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/kernel-enhance-glossary"
+  },
+  {
+    "slug": "linx-kit-introduction",
+    "name": "Linx Kit简介",
+    "file": "开发/指南/开发/系统/基础功能/Linx Kit（灵犀加速库）/Linx Kit简介/Linx Kit简介.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/linx-kit-introduction"
+  },
+  {
+    "slug": "map-map-signal-line",
+    "name": "信号路线",
+    "file": "开发/指南/开发/应用服务/Map Kit（地图服务）/在地图上绘制/信号路线/信号路线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-map-signal-line"
+  },
+  {
+    "slug": "map-offlinemapdata",
+    "name": "离线地图",
+    "file": "开发/指南/开发/应用服务/Map Kit（地图服务）/离线地图/离线地图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-offlinemapdata"
+  },
+  {
+    "slug": "mdm-kit-appendix",
+    "name": "附录",
+    "file": "开发/指南/开发/系统/基础功能/MDM Kit（企业设备管理服务）/附录/附录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-appendix"
+  },
+  {
+    "slug": "modular-object-extension-ability-taihe",
+    "name": "使用Taihe实现ModularObjectExtensionAbility的IPC通信 (C/C++)",
+    "file": "开发/指南/开发/应用框架/Ability Kit（程序框架服务）/基于ModularObjectExtensionAbility的模块化对象开发指导 (C／C++)/使用Taihe实现ModularObjectExtensionAbility的IPC通信 (C／C++)/使用Taihe实现ModularObjectExtensionAbility的IPC通信 (C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/modular-object-extension-ability-taihe"
+  },
+  {
+    "slug": "modular-object-extension-development",
+    "name": "使用ModularObjectExtensionAbility实现模块化对象 (C/C++)",
+    "file": "开发/指南/开发/应用框架/Ability Kit（程序框架服务）/基于ModularObjectExtensionAbility的模块化对象开发指导 (C／C++)/使用ModularObjectExtensionAbility实现模块化对象 (C／C++)/使用ModularObjectExtensionAbility实现模块化对象 (C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/modular-object-extension-development"
+  },
+  {
+    "slug": "modular-object-extension-overview",
+    "name": "模块化对象模型概述 (C/C++)",
+    "file": "开发/指南/开发/应用框架/Ability Kit（程序框架服务）/基于ModularObjectExtensionAbility的模块化对象开发指导 (C／C++)/模块化对象模型概述 (C／C++)/模块化对象模型概述 (C／C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/modular-object-extension-overview"
+  },
+  {
+    "slug": "network-packet-analysis",
+    "name": "使用网络报文分析功能实现tcpdump抓包",
+    "file": "开发/指南/开发/系统/网络/网络调试调优/使用网络报文分析功能实现tcpdump抓包/使用网络报文分析功能实现tcpdump抓包.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-packet-analysis"
+  },
+  {
+    "slug": "online-authentication-glossary",
+    "name": "Online Authentication Kit术语",
+    "file": "开发/指南/开发/系统/安全/Online Authentication Kit（在线认证服务）/Online Authentication Kit术语/Online Authentication Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/online-authentication-glossary"
+  },
+  {
+    "slug": "pen-stylus-frame-boost",
+    "name": "接入手写笔跟手性加速",
+    "file": "开发/指南/开发/系统/硬件/Pen Kit（手写笔服务）/手写功能开发/接入手写笔跟手性加速/接入手写笔跟手性加速.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pen-stylus-frame-boost"
+  },
+  {
+    "slug": "pen-stylus-frame-boost-c",
+    "name": "接入手写笔跟手性加速",
+    "file": "开发/指南/开发/系统/硬件/Pen Kit（手写笔服务）/手写功能开发指导（C／C++）/接入手写笔跟手性加速/接入手写笔跟手性加速.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pen-stylus-frame-boost-c"
+  },
+  {
+    "slug": "push-skill-classification",
+    "name": "通知消息自分类权益推荐Skill",
+    "file": "开发/指南/开发/应用服务/Push Kit（推送服务）/（可选）接入Skill/通知消息自分类权益推荐Skill/通知消息自分类权益推荐Skill.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-skill-classification"
+  },
+  {
+    "slug": "push-skill-scenes",
+    "name": "场景化消息开发Skill",
+    "file": "开发/指南/开发/应用服务/Push Kit（推送服务）/（可选）接入Skill/场景化消息开发Skill/场景化消息开发Skill.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-skill-scenes"
+  },
+  {
+    "slug": "rendering-video-frames",
+    "name": "渲染视频画面",
+    "file": "开发/指南/开发/媒体/AVCodec Kit（音视频编解码服务）/音视频编解码开发实践/渲染视频画面/渲染视频画面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rendering-video-frames"
+  },
+  {
+    "slug": "scenario-next-focus",
+    "name": "自定义控件走焦顺序",
+    "file": "开发/指南/开发/应用框架/Accessibility Kit（无障碍服务）/提升应用的无障碍体验/提升屏幕朗读无障碍体验/自定义控件走焦顺序/自定义控件走焦顺序.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-next-focus"
+  },
+  {
+    "slug": "serial-guidelines",
+    "name": "串口通信开发指导",
+    "file": "开发/指南/开发/系统/基础功能/Basic Services Kit（基础服务）/串口通信服务/开发串口通信服务/串口通信开发指导/串口通信开发指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/serial-guidelines"
+  },
+  {
+    "slug": "service-support-devicedetection",
+    "name": "检测设备硬件一致性",
+    "file": "开发/指南/开发/系统/基础功能/Service Support Kit（服务与支持）/检测设备硬件一致性/检测设备硬件一致性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/service-support-devicedetection"
+  },
+  {
+    "slug": "service-support-introduction",
+    "name": "Service Support Kit简介",
+    "file": "开发/指南/开发/系统/基础功能/Service Support Kit（服务与支持）/Service Support Kit简介/Service Support Kit简介.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/service-support-introduction"
+  },
+  {
+    "slug": "serviceinteraction-dev-guides",
+    "name": "碰一碰实现设备间交互",
+    "file": "开发/指南/开发/系统/网络/Service Collaboration Kit（协同服务）/碰一碰实现设备间交互/碰一碰实现设备间交互.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/serviceinteraction-dev-guides"
+  },
+  {
+    "slug": "source-obfuscation-apply-code",
+    "name": "ArkGuard混淆实践指导",
+    "file": "开发/指南/开发/应用框架/ArkTS（方舟编程语言）/ArkTS编译工具链/ArkGuard源码混淆工具/ArkGuard混淆实践指导/ArkGuard混淆实践指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-apply-code"
+  },
+  {
+    "slug": "ui-blur-stutter-locating-guide",
+    "name": "模糊卡顿问题定位与指导",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/使用动画/动画效果/模糊/模糊卡顿问题定位与指导/模糊卡顿问题定位与指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-blur-stutter-locating-guide"
+  },
+  {
+    "slug": "ui-design-color-picker-favorites",
+    "name": "颜色选择与收藏管理",
+    "file": "开发/指南/开发/应用框架/UI Design Kit（UI设计套件）/颜色选择与收藏管理/颜色选择与收藏管理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-color-picker-favorites"
+  },
+  {
+    "slug": "ui-dynamic-vs-static-blur-examples",
+    "name": "对比动态模糊与静态模糊",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/使用动画/动画效果/模糊/对比动态模糊与静态模糊/对比动态模糊与静态模糊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-dynamic-vs-static-blur-examples"
+  },
+  {
+    "slug": "ui-use-blur-efficiently",
+    "name": "高效使用模糊",
+    "file": "开发/指南/开发/应用框架/ArkUI（方舟UI框架）/UI开发 (ArkTS声明式开发范式)/使用动画/动画效果/模糊/高效使用模糊/高效使用模糊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-use-blur-efficiently"
+  },
+  {
+    "slug": "using-right-sourcetype-for-recording",
+    "name": "选择合适的录制流类型",
+    "file": "开发/指南/开发/媒体/Audio Kit（音频服务）/音频录制/选择合适的录制流类型/选择合适的录制流类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-right-sourcetype-for-recording"
+  },
+  {
+    "slug": "using-right-streamusage-for-playback",
+    "name": "选择合适的播放流类型",
+    "file": "开发/指南/开发/媒体/Audio Kit（音频服务）/音频播放/选择合适的播放流类型/选择合适的播放流类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-right-streamusage-for-playback"
+  },
+  {
+    "slug": "video-encoding-surface",
+    "name": "基于Surface模式进行视频编码",
+    "file": "开发/指南/开发/媒体/AVCodec Kit（音视频编解码服务）/音视频编解码开发实践/基于Surface模式进行视频编码/基于Surface模式进行视频编码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding-surface"
+  },
+  {
+    "slug": "video-transcoding-buffer",
+    "name": "基于Buffer模式进行视频转码",
+    "file": "开发/指南/开发/媒体/AVCodec Kit（音视频编解码服务）/音视频编解码开发实践/基于Buffer模式进行视频转码/基于Buffer模式进行视频转码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-transcoding-buffer"
+  },
+  {
+    "slug": "wallet-carkey-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-prepare"
+  },
+  {
+    "slug": "wallet-carkey-scene-cloud",
+    "name": "上传车端数据到DK服务器",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发场景/上传车端数据到DK服务器/上传车端数据到DK服务器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-scene-cloud"
+  },
+  {
+    "slug": "wallet-carkey-scene-control",
+    "name": "使用车钥匙",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发场景/使用车钥匙/使用车钥匙.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-scene-control"
+  },
+  {
+    "slug": "wallet-carkey-scene-delete",
+    "name": "删除车钥匙",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发场景/删除车钥匙/删除车钥匙.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-scene-delete"
+  },
+  {
+    "slug": "wallet-carkey-scene-migration",
+    "name": "迁移车钥匙",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发场景/迁移车钥匙/迁移车钥匙.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-scene-migration"
+  },
+  {
+    "slug": "wallet-carkey-scene-open",
+    "name": "开通车钥匙",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发场景/开通车钥匙/开通车钥匙.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-scene-open"
+  },
+  {
+    "slug": "wallet-carkey-scene-update",
+    "name": "更新车钥匙",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发场景/更新车钥匙/更新车钥匙.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-scene-update"
+  },
+  {
+    "slug": "wallet-carkey-scene-view",
+    "name": "查看车钥匙",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/数字车钥匙/开发场景/查看车钥匙/查看车钥匙.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-carkey-scene-view"
+  },
+  {
+    "slug": "wallet-faq-1",
+    "name": "Wallet Kit支持在除手机外的设备中调用吗？",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/Wallet Kit常见问题/Wallet Kit支持在除手机外的设备中调用吗？/Wallet Kit支持在除手机外的设备中调用吗？.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-faq-1"
+  },
+  {
+    "slug": "wallet-generalcard-overview",
+    "name": "概述",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/通用凭证/概述/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-generalcard-overview"
+  },
+  {
+    "slug": "wallet-generalcard-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/通用凭证/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-generalcard-prepare"
+  },
+  {
+    "slug": "wallet-generalcard-scene-delete",
+    "name": "删除通用凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/通用凭证/开发场景/删除通用凭证/删除通用凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-generalcard-scene-delete"
+  },
+  {
+    "slug": "wallet-generalcard-scene-open",
+    "name": "开通通用凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/通用凭证/开发场景/开通通用凭证/开通通用凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-generalcard-scene-open"
+  },
+  {
+    "slug": "wallet-generalcard-scene-update",
+    "name": "更新通用凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/通用凭证/开发场景/更新通用凭证/更新通用凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-generalcard-scene-update"
+  },
+  {
+    "slug": "wallet-generalcard-scene-view",
+    "name": "查看通用凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/通用凭证/开发场景/查看通用凭证/查看通用凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-generalcard-scene-view"
+  },
+  {
+    "slug": "wallet-hotel-overview",
+    "name": "概述",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/酒店房卡/概述/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-hotel-overview"
+  },
+  {
+    "slug": "wallet-hotel-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/酒店房卡/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-hotel-prepare"
+  },
+  {
+    "slug": "wallet-hotel-scene-delete",
+    "name": "删除酒店房卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/酒店房卡/开发场景/删除酒店房卡/删除酒店房卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-hotel-scene-delete"
+  },
+  {
+    "slug": "wallet-hotel-scene-open",
+    "name": "开通酒店房卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/酒店房卡/开发场景/开通酒店房卡/开通酒店房卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-hotel-scene-open"
+  },
+  {
+    "slug": "wallet-hotel-scene-update",
+    "name": "更新酒店房卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/酒店房卡/开发场景/更新酒店房卡/更新酒店房卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-hotel-scene-update"
+  },
+  {
+    "slug": "wallet-hotel-scene-view",
+    "name": "查看酒店房卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/酒店房卡/开发场景/查看酒店房卡/查看酒店房卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-hotel-scene-view"
+  },
+  {
+    "slug": "wallet-member-overview",
+    "name": "概述",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/会员卡/概述/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-overview"
+  },
+  {
+    "slug": "wallet-member-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/会员卡/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-prepare"
+  },
+  {
+    "slug": "wallet-member-scene-delete",
+    "name": "删除会员卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/会员卡/开发场景/删除会员卡/删除会员卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-delete"
+  },
+  {
+    "slug": "wallet-member-scene-open",
+    "name": "开通会员卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/会员卡/开发场景/开通会员卡/开通会员卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-open"
+  },
+  {
+    "slug": "wallet-member-scene-update",
+    "name": "更新会员卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/会员卡/开发场景/更新会员卡/更新会员卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-update"
+  },
+  {
+    "slug": "wallet-member-scene-view",
+    "name": "查看会员卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/会员卡/开发场景/查看会员卡/查看会员卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-view"
+  },
+  {
+    "slug": "wallet-park-overview",
+    "name": "概述",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/园区卡/概述/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-overview"
+  },
+  {
+    "slug": "wallet-park-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/园区卡/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-prepare"
+  },
+  {
+    "slug": "wallet-park-scene-delete",
+    "name": "删除园区卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/园区卡/开发场景/删除园区卡/删除园区卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-scene-delete"
+  },
+  {
+    "slug": "wallet-park-scene-open",
+    "name": "开通园区卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/园区卡/开发场景/开通园区卡/开通园区卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-scene-open"
+  },
+  {
+    "slug": "wallet-park-scene-qr",
+    "name": "生成展示二维码",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/园区卡/开发场景/生成展示二维码/生成展示二维码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-scene-qr"
+  },
+  {
+    "slug": "wallet-park-scene-update",
+    "name": "更新园区卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/园区卡/开发场景/更新园区卡/更新园区卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-scene-update"
+  },
+  {
+    "slug": "wallet-park-scene-view",
+    "name": "查看园区卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/园区卡/开发场景/查看园区卡/查看园区卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-scene-view"
+  },
+  {
+    "slug": "wallet-skill",
+    "name": "Wallet Kit接入Skill说明",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/Wallet Kit接入Skill说明/Wallet Kit接入Skill说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-skill"
+  },
+  {
+    "slug": "wallet-ticket-overview",
+    "name": "概述",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/活动／景点门票/概述/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-ticket-overview"
+  },
+  {
+    "slug": "wallet-ticket-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/活动／景点门票/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-ticket-prepare"
+  },
+  {
+    "slug": "wallet-ticket-scene-delete",
+    "name": "删除活动/景点门票",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/活动／景点门票/开发场景/删除活动／景点门票/删除活动／景点门票.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-ticket-scene-delete"
+  },
+  {
+    "slug": "wallet-ticket-scene-open",
+    "name": "开通活动/景点门票",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/活动／景点门票/开发场景/开通活动／景点门票/开通活动／景点门票.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-ticket-scene-open"
+  },
+  {
+    "slug": "wallet-ticket-scene-update",
+    "name": "更新活动/景点门票",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/活动／景点门票/开发场景/更新活动／景点门票/更新活动／景点门票.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-ticket-scene-update"
+  },
+  {
+    "slug": "wallet-ticket-scene-view",
+    "name": "查看活动/景点门票",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/活动／景点门票/开发场景/查看活动／景点门票/查看活动／景点门票.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-ticket-scene-view"
+  },
+  {
+    "slug": "wallet-transitcard-overview",
+    "name": "概述",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/交通卡/概述/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-transitcard-overview"
+  },
+  {
+    "slug": "wallet-transitcard-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/交通卡/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-transitcard-prepare"
+  },
+  {
+    "slug": "wallet-transitcard-scene-delete",
+    "name": "删除交通卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/交通卡/开发场景/删除交通卡/删除交通卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-transitcard-scene-delete"
+  },
+  {
+    "slug": "wallet-transitcard-scene-open",
+    "name": "开通交通卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/交通卡/开发场景/开通交通卡/开通交通卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-transitcard-scene-open"
+  },
+  {
+    "slug": "wallet-transitcard-scene-recharge",
+    "name": "充值交通卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/交通卡/开发场景/充值交通卡/充值交通卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-transitcard-scene-recharge"
+  },
+  {
+    "slug": "wallet-transitcard-scene-update",
+    "name": "更新交通卡",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/交通卡/开发场景/更新交通卡/更新交通卡.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-transitcard-scene-update"
+  },
+  {
+    "slug": "wallet-travel-overview",
+    "name": "概述",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/出行凭证/概述/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-travel-overview"
+  },
+  {
+    "slug": "wallet-travel-prepare",
+    "name": "开发准备",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/出行凭证/开发准备/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-travel-prepare"
+  },
+  {
+    "slug": "wallet-travel-scene-delete",
+    "name": "删除出行凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/出行凭证/开发场景/删除出行凭证/删除出行凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-travel-scene-delete"
+  },
+  {
+    "slug": "wallet-travel-scene-open",
+    "name": "开通出行凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/出行凭证/开发场景/开通出行凭证/开通出行凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-travel-scene-open"
+  },
+  {
+    "slug": "wallet-travel-scene-update",
+    "name": "更新出行凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/出行凭证/开发场景/更新出行凭证/更新出行凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-travel-scene-update"
+  },
+  {
+    "slug": "wallet-travel-scene-view",
+    "name": "查看出行凭证",
+    "file": "开发/指南/开发/应用服务/Wallet Kit（钱包服务）/出行凭证/开发场景/查看出行凭证/查看出行凭证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-travel-scene-view"
+  },
+  {
+    "slug": "web-component-intercept-capab-usage",
+    "name": "Web组件拦截能力的使用",
+    "file": "开发/指南/开发/应用框架/ArkWeb（方舟Web）/管理网页加载与浏览记录/Web组件拦截能力的使用/Web组件拦截能力的使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-intercept-capab-usage"
+  },
+  {
+    "slug": "web-component-long-screenshot",
+    "name": "Web组件长截图",
+    "file": "开发/指南/开发/应用框架/ArkWeb（方舟Web）/处理网页内容/Web组件长截图/Web组件长截图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-long-screenshot"
+  },
+  {
+    "slug": "web-page-loading",
+    "name": "定位网页加载问题",
+    "file": "开发/指南/开发/应用框架/ArkWeb（方舟Web）/Web调试维测/定位网页加载问题/定位网页加载问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-page-loading"
+  },
+  {
+    "slug": "worker-postmessageatfront",
+    "name": "Worker向宿主线程进行消息插队通信",
+    "file": "开发/指南/开发/应用框架/ArkTS（方舟编程语言）/ArkTS并发/并发线程间通信/线程间通信场景/Worker向宿主线程进行消息插队通信/Worker向宿主线程进行消息插队通信.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-postmessageatfront"
   }
 ]

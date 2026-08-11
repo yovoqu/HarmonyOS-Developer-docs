@@ -1,0 +1,138 @@
+# Text组件实现长按全选内容并弹出自定义菜单
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1080
+
+#### 问题现象
+
+如何对Text组件绑定长按手势，实现文本内容全选并弹出自定义菜单的功能？
+ 
+ 
+
+#### 背景知识
+
+[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件用于显示一段文本的组件，可以包含文字、图片等。该组件提供了[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)接口用于设置自定义选择菜单。bindSelectionMenu长按响应时长为600ms，长按达到时长后弹出自定义菜单。为了触发组件长按手势，可为组件绑定[LongPressGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture)事件，触发长按手势的最少手指数为1，最短长按时间若不设置，默认值为500毫秒。即达到500毫秒或者自定义时间时，会触发手势回调。
+ 
+ 
+
+#### 解决方案
+1. 通过bindSelectionMenu设置自定义菜单选项，同时注意如下关键点：
+设置spanType为TextSpanType.DEFAULT，响应多种文本类型。
+2. 设置responseType为TextResponseType.DEFAULT，所有选中场景都触发自定义菜单。
+3. 自定义菜单关闭时，取消选中区域。
+4. 通过LongPressGesture触发长按手势回调，将选中区域设置为所有文本。
+ 
+代码实现如下：
+ 
+```text
+@Entry
+@Component
+struct TextExample {
+  optionsPopup: string[] = ['搜索', '复制', '粘贴'];
+  controller: TextController = new TextController();
+  options: TextOptions = { controller: this.controller };
+  @State start: number = -1;<em> // 选中区域开始光标</em>
+  @State end: number = -1; <em>// 选中区域结束光标</em>
+
+  build() {
+    Column() {
+      Column() {
+        Text(undefined, this.options) {
+        <em>  // 将Text内容设置为字图混合形式</em>
+          Span('Hello World')
+            .fontSize(36)
+          ImageSpan($r('app.media.startIcon'))
+            .width('120px')
+            .height('120px')
+            .objectFit(ImageFit.Fill)
+            .verticalAlign(ImageSpanAlignment.CENTER);
+        }
+        .selection(this.start, this.end) /<em>/ 选中区域</em>
+        .copyOption(CopyOptions.InApp) <em>// 设置可复制</em>
+        .bindSelectionMenu(TextSpanType.DEFAULT, this.LongPressTextCustomMenu, TextResponseType.DEFAULT) <em>// 自定义菜单</em>
+        .gesture(
+          LongPressGesture({ duration: 300 })
+            .onAction(() => {
+            <em>  // 调整选中区域，全选文本</em>
+              this.start = 0;
+              this.end = 12;
+            })
+        )
+        .width('100%')
+        .height(150);
+      }
+      .width('100%')
+      .backgroundColor(Color.White)
+      .alignItems(HorizontalAlign.Start)
+      .padding(25);
+    }
+    .height('100%');
+  }
+
+  <em>// 自定义菜单</em>
+  @Builder
+  LongPressTextCustomMenu() {
+    Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.SpaceEvenly, alignItems: ItemAlign.Center }) {
+      ForEach(this.optionsPopup, (item: string, index) => {
+        Text(item).height('100%')
+          .onClick(() => {
+          <em>  // 取消选中</em>
+            this.start = -1;
+            this.end = -1;
+            <em>// 关闭自定义菜单</em>
+            this.controller.closeSelectionMenu();
+          });
+        <em>// 设置间隔</em>
+        if (index < this.optionsPopup.length - 1) {
+          Divider().height(10).vertical(true);
+        }
+      });
+    }
+    .width(150)
+    .height(40)
+    .padding(10)
+    .shadow({
+      radius: 20,
+      color: '#f3f5f7',
+      offsetX: 0,
+      offsetY: 10
+    })
+    .borderRadius(20)
+  }
+}
+```
+ 
+ 
+运行效果如下：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/8HXqunwxT3SsNLDzm9PzcQ/zh-cn_image_0000002628407342.png?HW-CC-KV=V1&HW-CC-Date=20260811T005755Z&HW-CC-Expire=86400&HW-CC-Sign=DBD4F2708C9EF329F16CC7D23B6312F57196DB0C213A6AE61824887314F61288)
+
+ 
+
+#### 常见FAQ
+
+Q：为什么不使用onAppear做弹出菜单前的全选或者onDisappear做关闭菜单后的取消选中操作？
+ 
+A：菜单的重新生成会触发onAppear和onDisappear，重新生成的场景包括选中区域文本类型的变化（由纯文字变为图文混合等）。因此当拖动光标触发上述场景，onAppear会导致选中区域强制为全选，onDisappear会导致选中区域强制取消，不符合交互逻辑。
+ 
+Q：为什么将responseType为TextResponseType.LONG_PRESS，长按后弹出系统菜单，滑动光标后变为自定义菜单？
+ 
+A：通过section设置的光标滑动，会被认为是TextResponseType.SELECT，因此会触发系统菜单。滑动过程中需要手指长按，因此被识别为长按，唤起自定义菜单。
+ 
+Q：点击文本外的按钮触发弹窗事件，Text的文本选中菜单消失了但是不走onDisappear回调，是什么原因？
+ 
+A：系统弹窗弹出，文本菜单消失，只是隐藏了，依旧在组件树上，并没有销毁，不会走onDisappear回调，会触发onMenuHide事件。
+ 
+Q：RichText是否能使用自定义菜单？
+ 
+A：RichText无法通过自定义菜单控制文本选择，推荐使用[Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-web)组件或者使用[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-richeditor)组件，禁用编辑功能和键盘，再实现自定义菜单。
+ 
+Q：如何给TextInput的复制粘贴功能添加自定义功能点？
+ 
+A：可以使用editMenuOptions设置[自定义菜单扩展项](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#editmenuoptions12)。参考示例[文本扩展自定义菜单](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#示例14文本扩展自定义菜单)。
+ 
+Q：Text组件内自定义Span无法添加点击事件，如何实现点击文本弹出菜单的功能？
+ 
+A：通过onTextSelectionChange()方法来实现，根据选中的文本弹出菜单，文本选择的位置发生变化时，触发该回调。详情可参考官网：[示例8（文本绑定自定义菜单）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#示例8文本绑定自定义菜单)。

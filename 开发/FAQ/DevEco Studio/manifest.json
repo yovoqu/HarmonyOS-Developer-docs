@@ -2455,5 +2455,2153 @@
     "file": "编译构建/Deveco Studio中Cmake编译选项的优先级说明.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-196",
     "section": ""
+  },
+  {
+    "slug": "faqs-deveco-studio-arkts-1",
+    "name": "DevEco Studio频繁出现卡顿或卡死",
+    "file": "开发/FAQ/DevEco Studio/ArkTS语言/方舟编程语言（ArkTS）/DevEco Studio频繁出现卡顿或卡死/DevEco Studio频繁出现卡顿或卡死.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-studio-arkts-1"
+  },
+  {
+    "slug": "faqs-deveco-studio-arkts-1",
+    "name": "DevEco Studio频繁出现卡顿或卡死",
+    "file": "ArkTS语言/方舟编程语言（ArkTS）/DevEco Studio频繁出现卡顿或卡死.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-studio-arkts-1"
+  },
+  {
+    "slug": "faqs-coding-20",
+    "name": "DevEco Studio自动提示导入部分标准库异常",
+    "file": "开发/FAQ/DevEco Studio/代码编辑/DevEco Studio自动提示导入部分标准库异常/DevEco Studio自动提示导入部分标准库异常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-coding-20"
+  },
+  {
+    "slug": "faqs-coding-20",
+    "name": "DevEco Studio自动提示导入部分标准库异常",
+    "file": "代码编辑/DevEco Studio自动提示导入部分标准库异常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-coding-20"
+  },
+  {
+    "slug": "faqs-command-line-tool-32",
+    "name": "DevEco Studio使用ohpm install安装依赖报错问题汇总",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/DevEco Studio使用ohpm install安装依赖报错问题汇总/DevEco Studio使用ohpm install安装依赖报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-32"
+  },
+  {
+    "slug": "faqs-command-line-tool-32",
+    "name": "DevEco Studio使用ohpm install安装依赖报错问题汇总",
+    "file": "命令行工具/DevEco Studio使用ohpm install安装依赖报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-32"
+  },
+  {
+    "slug": "faqs-command-line-tool-17",
+    "name": "Profile文件解析与bundleName校验方法",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/Profile文件解析与bundleName校验方法/Profile文件解析与bundleName校验方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-17"
+  },
+  {
+    "slug": "faqs-command-line-tool-17",
+    "name": "Profile文件解析与bundleName校验方法",
+    "file": "命令行工具/Profile文件解析与bundleName校验方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-17"
+  },
+  {
+    "slug": "faqs-command-line-tool-14",
+    "name": "ohpm install下载三方库时报错",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/ohpm install下载三方库时报错/ohpm install下载三方库时报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-14"
+  },
+  {
+    "slug": "faqs-command-line-tool-14",
+    "name": "ohpm install下载三方库时报错",
+    "file": "命令行工具/ohpm install下载三方库时报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-14"
+  },
+  {
+    "slug": "faqs-command-line-tool-24",
+    "name": "ohpm publish发布SDK报错",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/ohpm publish发布SDK报错/ohpm publish发布SDK报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-24"
+  },
+  {
+    "slug": "faqs-command-line-tool-24",
+    "name": "ohpm publish发布SDK报错",
+    "file": "命令行工具/ohpm publish发布SDK报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-24"
+  },
+  {
+    "slug": "faqs-command-line-tool-29",
+    "name": "ohpm unpublish ${name} -f命令执行失败",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/ohpm unpublish ${name} -f命令执行失败/ohpm unpublish ${name} -f命令执行失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-29"
+  },
+  {
+    "slug": "faqs-command-line-tool-29",
+    "name": "ohpm unpublish ${name} -f命令执行失败",
+    "file": "命令行工具/ohpm unpublish ${name} -f命令执行失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-29"
+  },
+  {
+    "slug": "faqs-command-line-tool-23",
+    "name": "ohpm-repo私仓上传包失败，页面提示系统文件损坏",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/ohpm-repo私仓上传包失败，页面提示系统文件损坏/ohpm-repo私仓上传包失败，页面提示系统文件损坏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-23"
+  },
+  {
+    "slug": "faqs-command-line-tool-23",
+    "name": "ohpm-repo私仓上传包失败，页面提示系统文件损坏",
+    "file": "命令行工具/ohpm-repo私仓上传包失败，页面提示系统文件损坏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-23"
+  },
+  {
+    "slug": "faqs-command-line-tool-28",
+    "name": "ohpm-repo获取最近下载量失败",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/ohpm-repo获取最近下载量失败/ohpm-repo获取最近下载量失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-28"
+  },
+  {
+    "slug": "faqs-command-line-tool-28",
+    "name": "ohpm-repo获取最近下载量失败",
+    "file": "命令行工具/ohpm-repo获取最近下载量失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-28"
+  },
+  {
+    "slug": "faqs-command-line-tool-34",
+    "name": "ohpm命令常见报错问题汇总",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/ohpm命令常见报错问题汇总/ohpm命令常见报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-34"
+  },
+  {
+    "slug": "faqs-command-line-tool-34",
+    "name": "ohpm命令常见报错问题汇总",
+    "file": "命令行工具/ohpm命令常见报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-34"
+  },
+  {
+    "slug": "faqs-command-line-tool-20",
+    "name": "ohpm私仓安装私有SDK失败",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/ohpm私仓安装私有SDK失败/ohpm私仓安装私有SDK失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-20"
+  },
+  {
+    "slug": "faqs-command-line-tool-20",
+    "name": "ohpm私仓安装私有SDK失败",
+    "file": "命令行工具/ohpm私仓安装私有SDK失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-20"
+  },
+  {
+    "slug": "faqs-command-line-tool-25",
+    "name": "onClick中使用async方法导致codelinter扫描告警处理",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/onClick中使用async方法导致codelinter扫描告警处理/onClick中使用async方法导致codelinter扫描告警处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-25"
+  },
+  {
+    "slug": "faqs-command-line-tool-25",
+    "name": "onClick中使用async方法导致codelinter扫描告警处理",
+    "file": "命令行工具/onClick中使用async方法导致codelinter扫描告警处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-25"
+  },
+  {
+    "slug": "faqs-command-line-tool-27",
+    "name": "使用Dockerfile搭建Command Line Tools流水线",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/使用Dockerfile搭建Command Line Tools流水线/使用Dockerfile搭建Command Line Tools流水线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-27"
+  },
+  {
+    "slug": "faqs-command-line-tool-27",
+    "name": "使用Dockerfile搭建Command Line Tools流水线",
+    "file": "命令行工具/使用Dockerfile搭建Command Line Tools流水线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-27"
+  },
+  {
+    "slug": "faqs-command-line-tool-22",
+    "name": "使用codelinter实现IDE外静态代码分析",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/使用codelinter实现IDE外静态代码分析/使用codelinter实现IDE外静态代码分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-22"
+  },
+  {
+    "slug": "faqs-command-line-tool-22",
+    "name": "使用codelinter实现IDE外静态代码分析",
+    "file": "命令行工具/使用codelinter实现IDE外静态代码分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-22"
+  },
+  {
+    "slug": "faqs-command-line-tool-31",
+    "name": "使用hdc shell param命令查询软件版本报错",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/使用hdc shell param命令查询软件版本报错/使用hdc shell param命令查询软件版本报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-31"
+  },
+  {
+    "slug": "faqs-command-line-tool-31",
+    "name": "使用hdc shell param命令查询软件版本报错",
+    "file": "命令行工具/使用hdc shell param命令查询软件版本报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-31"
+  },
+  {
+    "slug": "faqs-command-line-tool-33",
+    "name": "动态共享包是否可以发布",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/动态共享包是否可以发布/动态共享包是否可以发布.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-33"
+  },
+  {
+    "slug": "faqs-command-line-tool-33",
+    "name": "动态共享包是否可以发布",
+    "file": "命令行工具/动态共享包是否可以发布.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-33"
+  },
+  {
+    "slug": "faqs-command-line-tool-16",
+    "name": "参数化配置是否支持代码读取",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/参数化配置是否支持代码读取/参数化配置是否支持代码读取.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-16"
+  },
+  {
+    "slug": "faqs-command-line-tool-16",
+    "name": "参数化配置是否支持代码读取",
+    "file": "命令行工具/参数化配置是否支持代码读取.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-16"
+  },
+  {
+    "slug": "faqs-command-line-tool-37",
+    "name": "如何获取当前最前台UI界面的应用包名",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何获取当前最前台UI界面的应用包名/如何获取当前最前台UI界面的应用包名.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-37"
+  },
+  {
+    "slug": "faqs-command-line-tool-30",
+    "name": "如何解决Could not find Node.js.Please install Node.js first",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何解决Could not find Node.js.Please install Node.js first/如何解决Could not find Node.js.Please install Node.js first.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-30"
+  },
+  {
+    "slug": "faqs-command-line-tool-30",
+    "name": "如何解决Could not find Node.js.Please install Node.js first",
+    "file": "命令行工具/如何解决Could not find Node.js.Please install Node.js first.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-30"
+  },
+  {
+    "slug": "faqs-command-line-tool-19",
+    "name": "如何解决使用ohpm发布包到私仓报404错误",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何解决使用ohpm发布包到私仓报404错误/如何解决使用ohpm发布包到私仓报404错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-19"
+  },
+  {
+    "slug": "faqs-command-line-tool-19",
+    "name": "如何解决使用ohpm发布包到私仓报404错误",
+    "file": "命令行工具/如何解决使用ohpm发布包到私仓报404错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-19"
+  },
+  {
+    "slug": "faqs-command-line-tool-18",
+    "name": "如何解决无法配置ohpm-repo私仓多域名的问题",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何解决无法配置ohpm-repo私仓多域名的问题/如何解决无法配置ohpm-repo私仓多域名的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-18"
+  },
+  {
+    "slug": "faqs-command-line-tool-18",
+    "name": "如何解决无法配置ohpm-repo私仓多域名的问题",
+    "file": "命令行工具/如何解决无法配置ohpm-repo私仓多域名的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-18"
+  },
+  {
+    "slug": "faqs-command-line-tool-36",
+    "name": "如何解决私仓上传包失败的问题",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何解决私仓上传包失败的问题/如何解决私仓上传包失败的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-36"
+  },
+  {
+    "slug": "faqs-command-line-tool-36",
+    "name": "如何解决私仓上传包失败的问题",
+    "file": "命令行工具/如何解决私仓上传包失败的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-36"
+  },
+  {
+    "slug": "faqs-command-line-tool-21",
+    "name": "如何通过USB线将手机相册里面图片传到电脑上",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何通过USB线将手机相册里面图片传到电脑上/如何通过USB线将手机相册里面图片传到电脑上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-21"
+  },
+  {
+    "slug": "faqs-command-line-tool-21",
+    "name": "如何通过USB线将手机相册里面图片传到电脑上",
+    "file": "命令行工具/如何通过USB线将手机相册里面图片传到电脑上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-21"
+  },
+  {
+    "slug": "faqs-command-line-tool-35",
+    "name": "如何通过命令行或流水线脚本方式构建并安装应用",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何通过命令行或流水线脚本方式构建并安装应用/如何通过命令行或流水线脚本方式构建并安装应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-35"
+  },
+  {
+    "slug": "faqs-command-line-tool-35",
+    "name": "如何通过命令行或流水线脚本方式构建并安装应用",
+    "file": "命令行工具/如何通过命令行或流水线脚本方式构建并安装应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-35"
+  },
+  {
+    "slug": "faqs-command-line-tool-15",
+    "name": "如何重命名本地引用库",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/如何重命名本地引用库/如何重命名本地引用库.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-15"
+  },
+  {
+    "slug": "faqs-command-line-tool-15",
+    "name": "如何重命名本地引用库",
+    "file": "命令行工具/如何重命名本地引用库.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-15"
+  },
+  {
+    "slug": "faqs-command-line-tool-26",
+    "name": "工程在IDE的终端无法识别ohpm",
+    "file": "开发/FAQ/DevEco Studio/命令行工具/工程在IDE的终端无法识别ohpm/工程在IDE的终端无法识别ohpm.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-26"
+  },
+  {
+    "slug": "faqs-command-line-tool-26",
+    "name": "工程在IDE的终端无法识别ohpm",
+    "file": "命令行工具/工程在IDE的终端无法识别ohpm.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-26"
+  },
+  {
+    "slug": "faqs-project-management-39",
+    "name": "app中如何统一同一三方库的不同版本",
+    "file": "开发/FAQ/DevEco Studio/工程管理/app中如何统一同一三方库的不同版本/app中如何统一同一三方库的不同版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-39"
+  },
+  {
+    "slug": "faqs-project-management-39",
+    "name": "app中如何统一同一三方库的不同版本",
+    "file": "工程管理/app中如何统一同一三方库的不同版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-39"
+  },
+  {
+    "slug": "faqs-project-management-37",
+    "name": "使用了新API打包的APP包如何兼容安装在老系统和其他不兼容该API的设备",
+    "file": "开发/FAQ/DevEco Studio/工程管理/使用了新API打包的APP包如何兼容安装在老系统和其他不兼容该API的设备/使用了新API打包的APP包如何兼容安装在老系统和其他不兼容该API的设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-37"
+  },
+  {
+    "slug": "faqs-project-management-37",
+    "name": "使用了新API打包的APP包如何兼容安装在老系统和其他不兼容该API的设备",
+    "file": "工程管理/使用了新API打包的APP包如何兼容安装在老系统和其他不兼容该API的设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-37"
+  },
+  {
+    "slug": "faqs-project-management-27",
+    "name": "使用发布证书打release包未成功的解决方案",
+    "file": "开发/FAQ/DevEco Studio/工程管理/使用发布证书打release包未成功的解决方案/使用发布证书打release包未成功的解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-27"
+  },
+  {
+    "slug": "faqs-project-management-27",
+    "name": "使用发布证书打release包未成功的解决方案",
+    "file": "工程管理/使用发布证书打release包未成功的解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-27"
+  },
+  {
+    "slug": "faqs-project-management-30",
+    "name": "如何在Entry模块中访问Library模块中的数据",
+    "file": "开发/FAQ/DevEco Studio/工程管理/如何在Entry模块中访问Library模块中的数据/如何在Entry模块中访问Library模块中的数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-30"
+  },
+  {
+    "slug": "faqs-project-management-30",
+    "name": "如何在Entry模块中访问Library模块中的数据",
+    "file": "工程管理/如何在Entry模块中访问Library模块中的数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-30"
+  },
+  {
+    "slug": "faqs-project-management-35",
+    "name": "如何方便地管理项目中各模块的依赖库版本",
+    "file": "开发/FAQ/DevEco Studio/工程管理/如何方便地管理项目中各模块的依赖库版本/如何方便地管理项目中各模块的依赖库版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-35"
+  },
+  {
+    "slug": "faqs-project-management-35",
+    "name": "如何方便地管理项目中各模块的依赖库版本",
+    "file": "工程管理/如何方便地管理项目中各模块的依赖库版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-35"
+  },
+  {
+    "slug": "faqs-project-management-33",
+    "name": "如何解决编译时报错owns a higher api version问题",
+    "file": "开发/FAQ/DevEco Studio/工程管理/如何解决编译时报错owns a higher api version问题/如何解决编译时报错owns a higher api version问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-33"
+  },
+  {
+    "slug": "faqs-project-management-33",
+    "name": "如何解决编译时报错owns a higher api version问题",
+    "file": "工程管理/如何解决编译时报错owns a higher api version问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-33"
+  },
+  {
+    "slug": "faqs-project-management-38",
+    "name": "字节码HAR的代码防泄漏安全程度如何",
+    "file": "开发/FAQ/DevEco Studio/工程管理/字节码HAR的代码防泄漏安全程度如何/字节码HAR的代码防泄漏安全程度如何.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-38"
+  },
+  {
+    "slug": "faqs-project-management-38",
+    "name": "字节码HAR的代码防泄漏安全程度如何",
+    "file": "工程管理/字节码HAR的代码防泄漏安全程度如何.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-38"
+  },
+  {
+    "slug": "faqs-project-management-29",
+    "name": "引用三方库图片资源报错",
+    "file": "开发/FAQ/DevEco Studio/工程管理/引用三方库图片资源报错/引用三方库图片资源报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-29"
+  },
+  {
+    "slug": "faqs-project-management-29",
+    "name": "引用三方库图片资源报错",
+    "file": "工程管理/引用三方库图片资源报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-29"
+  },
+  {
+    "slug": "faqs-project-management-28",
+    "name": "怎么解决打包时依赖的Har包没有打进去的问题",
+    "file": "开发/FAQ/DevEco Studio/工程管理/怎么解决打包时依赖的Har包没有打进去的问题/怎么解决打包时依赖的Har包没有打进去的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-28"
+  },
+  {
+    "slug": "faqs-project-management-28",
+    "name": "怎么解决打包时依赖的Har包没有打进去的问题",
+    "file": "工程管理/怎么解决打包时依赖的Har包没有打进去的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-28"
+  },
+  {
+    "slug": "faqs-project-management-36",
+    "name": "提交版本提示存在Beta版本API",
+    "file": "开发/FAQ/DevEco Studio/工程管理/提交版本提示存在Beta版本API/提交版本提示存在Beta版本API.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-36"
+  },
+  {
+    "slug": "faqs-project-management-36",
+    "name": "提交版本提示存在Beta版本API",
+    "file": "工程管理/提交版本提示存在Beta版本API.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-36"
+  },
+  {
+    "slug": "faqs-project-management-31",
+    "name": "构建多个不同的APP产物-icon和名称为何没有区别",
+    "file": "开发/FAQ/DevEco Studio/工程管理/构建多个不同的APP产物-icon和名称为何没有区别/构建多个不同的APP产物-icon和名称为何没有区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-31"
+  },
+  {
+    "slug": "faqs-project-management-31",
+    "name": "构建多个不同的APP产物-icon和名称为何没有区别",
+    "file": "工程管理/构建多个不同的APP产物-icon和名称为何没有区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-31"
+  },
+  {
+    "slug": "faqs-project-management-32",
+    "name": "超大字符串文件拆分解决资源引用卡顿问题",
+    "file": "开发/FAQ/DevEco Studio/工程管理/超大字符串文件拆分解决资源引用卡顿问题/超大字符串文件拆分解决资源引用卡顿问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-32"
+  },
+  {
+    "slug": "faqs-project-management-32",
+    "name": "超大字符串文件拆分解决资源引用卡顿问题",
+    "file": "工程管理/超大字符串文件拆分解决资源引用卡顿问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-32"
+  },
+  {
+    "slug": "faqs-project-management-34",
+    "name": "项目入口的Ability配置错误，导致项目启动白屏",
+    "file": "开发/FAQ/DevEco Studio/工程管理/项目入口的Ability配置错误，导致项目启动白屏/项目入口的Ability配置错误，导致项目启动白屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-34"
+  },
+  {
+    "slug": "faqs-project-management-34",
+    "name": "项目入口的Ability配置错误，导致项目启动白屏",
+    "file": "工程管理/项目入口的Ability配置错误，导致项目启动白屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-34"
+  },
+  {
+    "slug": "faqs-project-management-26",
+    "name": "项目构建时，报依赖库版本不一致",
+    "file": "开发/FAQ/DevEco Studio/工程管理/项目构建时，报依赖库版本不一致/项目构建时，报依赖库版本不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-26"
+  },
+  {
+    "slug": "faqs-project-management-26",
+    "name": "项目构建时，报依赖库版本不一致",
+    "file": "工程管理/项目构建时，报依赖库版本不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-26"
+  },
+  {
+    "slug": "faqs-ide-app-release-2",
+    "name": "直接用DevEco Studio上传软件包报错",
+    "file": "开发/FAQ/DevEco Studio/应用发布/直接用DevEco Studio上传软件包报错/直接用DevEco Studio上传软件包报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ide-app-release-2"
+  },
+  {
+    "slug": "faqs-ide-app-release-2",
+    "name": "直接用DevEco Studio上传软件包报错",
+    "file": "应用发布/直接用DevEco Studio上传软件包报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ide-app-release-2"
+  },
+  {
+    "slug": "faqs-app-test-new-00001",
+    "name": "AI自动化测试的实现方式",
+    "file": "开发/FAQ/DevEco Studio/应用测试/AI自动化测试的实现方式/AI自动化测试的实现方式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-new-00001"
+  },
+  {
+    "slug": "faqs-app-test-31",
+    "name": "DevEco Testing Hypium中的UiViewer使用中的常见问题和解决方案",
+    "file": "开发/FAQ/DevEco Studio/应用测试/DevEco Testing Hypium中的UiViewer使用中的常见问题和解决方案/DevEco Testing Hypium中的UiViewer使用中的常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-31"
+  },
+  {
+    "slug": "faqs-app-test-31",
+    "name": "DevEco Testing Hypium中的UiViewer使用中的常见问题和解决方案",
+    "file": "应用测试/DevEco Testing Hypium中的UiViewer使用中的常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-31"
+  },
+  {
+    "slug": "faqs-app-test-15",
+    "name": "DevEco Testing Hypium录制回放功能如何操作",
+    "file": "开发/FAQ/DevEco Studio/应用测试/DevEco Testing Hypium录制回放功能如何操作/DevEco Testing Hypium录制回放功能如何操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-15"
+  },
+  {
+    "slug": "faqs-app-test-15",
+    "name": "DevEco Testing Hypium录制回放功能如何操作",
+    "file": "应用测试/DevEco Testing Hypium录制回放功能如何操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-15"
+  },
+  {
+    "slug": "faqs-app-test-28",
+    "name": "Hypium中，执行脚本报错NameError: name 'UiParam' is not defined如何解决",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Hypium中，执行脚本报错NameError： name 'UiParam' is not defined如何解决/Hypium中，执行脚本报错NameError： name 'UiParam' is not defined如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-28"
+  },
+  {
+    "slug": "faqs-app-test-28",
+    "name": "Hypium中，执行脚本报错NameError: name 'UiParam' is not defined如何解决",
+    "file": "应用测试/Hypium中，执行脚本报错NameError： name 'UiParam' is not defined如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-28"
+  },
+  {
+    "slug": "faqs-app-test-42",
+    "name": "Hypium如何区别使用XPath和UiViewer的path路径",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Hypium如何区别使用XPath和UiViewer的path路径/Hypium如何区别使用XPath和UiViewer的path路径.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-42"
+  },
+  {
+    "slug": "faqs-app-test-42",
+    "name": "Hypium如何区别使用XPath和UiViewer的path路径",
+    "file": "应用测试/Hypium如何区别使用XPath和UiViewer的path路径.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-42"
+  },
+  {
+    "slug": "faqs-app-test-34",
+    "name": "Hypium怎么在多台设备上并行执行测试用例",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Hypium怎么在多台设备上并行执行测试用例/Hypium怎么在多台设备上并行执行测试用例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-34"
+  },
+  {
+    "slug": "faqs-app-test-34",
+    "name": "Hypium怎么在多台设备上并行执行测试用例",
+    "file": "应用测试/Hypium怎么在多台设备上并行执行测试用例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-34"
+  },
+  {
+    "slug": "faqs-app-test-23",
+    "name": "Hypium是否支持在模拟器上执行测试用例",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Hypium是否支持在模拟器上执行测试用例/Hypium是否支持在模拟器上执行测试用例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-23"
+  },
+  {
+    "slug": "faqs-app-test-23",
+    "name": "Hypium是否支持在模拟器上执行测试用例",
+    "file": "应用测试/Hypium是否支持在模拟器上执行测试用例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-23"
+  },
+  {
+    "slug": "faqs-app-test-14",
+    "name": "Hypium框架中的BY.XPath指令为何获取不到控件",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Hypium框架中的BY.XPath指令为何获取不到控件/Hypium框架中的BY.XPath指令为何获取不到控件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-14"
+  },
+  {
+    "slug": "faqs-app-test-14",
+    "name": "Hypium框架中的BY.XPath指令为何获取不到控件",
+    "file": "应用测试/Hypium框架中的BY.XPath指令为何获取不到控件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-14"
+  },
+  {
+    "slug": "faqs-app-test-16",
+    "name": "Hypium自动化测试如何访问设备的图库",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Hypium自动化测试如何访问设备的图库/Hypium自动化测试如何访问设备的图库.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-16"
+  },
+  {
+    "slug": "faqs-app-test-16",
+    "name": "Hypium自动化测试如何访问设备的图库",
+    "file": "应用测试/Hypium自动化测试如何访问设备的图库.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-16"
+  },
+  {
+    "slug": "faqs-app-test-22",
+    "name": "Hypium连接设备提示“选中设备中包含不兼容的设备”",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Hypium连接设备提示“选中设备中包含不兼容的设备”/Hypium连接设备提示“选中设备中包含不兼容的设备”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-22"
+  },
+  {
+    "slug": "faqs-app-test-22",
+    "name": "Hypium连接设备提示“选中设备中包含不兼容的设备”",
+    "file": "应用测试/Hypium连接设备提示“选中设备中包含不兼容的设备”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-22"
+  },
+  {
+    "slug": "faqs-app-test-17",
+    "name": "Instrument Test单元测试如何获取本地文件路径",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Instrument Test单元测试如何获取本地文件路径/Instrument Test单元测试如何获取本地文件路径.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-17"
+  },
+  {
+    "slug": "faqs-app-test-17",
+    "name": "Instrument Test单元测试如何获取本地文件路径",
+    "file": "应用测试/Instrument Test单元测试如何获取本地文件路径.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-17"
+  },
+  {
+    "slug": "faqs-app-test-41",
+    "name": "Mock使用中的常见问题和解决方案",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Mock使用中的常见问题和解决方案/Mock使用中的常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-41"
+  },
+  {
+    "slug": "faqs-app-test-41",
+    "name": "Mock使用中的常见问题和解决方案",
+    "file": "应用测试/Mock使用中的常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-41"
+  },
+  {
+    "slug": "faqs-app-test-24",
+    "name": "PyCharm运行Hypium项目报错“测试用例的设备条件不满足”或者“required device does not exist”如何解决",
+    "file": "开发/FAQ/DevEco Studio/应用测试/PyCharm运行Hypium项目报错“测试用例的设备条件不满足”或者“required device does not exist”如何解决/PyCharm运行Hypium项目报错“测试用例的设备条件不满足”或者“required device does not exist”如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-24"
+  },
+  {
+    "slug": "faqs-app-test-24",
+    "name": "PyCharm运行Hypium项目报错“测试用例的设备条件不满足”或者“required device does not exist”如何解决",
+    "file": "应用测试/PyCharm运行Hypium项目报错“测试用例的设备条件不满足”或者“required device does not exist”如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-24"
+  },
+  {
+    "slug": "faqs-app-test-32",
+    "name": "UI测试中如何在feature模块启动当前模块的ability",
+    "file": "开发/FAQ/DevEco Studio/应用测试/UI测试中如何在feature模块启动当前模块的ability/UI测试中如何在feature模块启动当前模块的ability.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-32"
+  },
+  {
+    "slug": "faqs-app-test-32",
+    "name": "UI测试中如何在feature模块启动当前模块的ability",
+    "file": "应用测试/UI测试中如何在feature模块启动当前模块的ability.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-32"
+  },
+  {
+    "slug": "faqs-app-test-38",
+    "name": "UI测试框架如何获取控件并进行操作",
+    "file": "开发/FAQ/DevEco Studio/应用测试/UI测试框架如何获取控件并进行操作/UI测试框架如何获取控件并进行操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-38"
+  },
+  {
+    "slug": "faqs-app-test-38",
+    "name": "UI测试框架如何获取控件并进行操作",
+    "file": "应用测试/UI测试框架如何获取控件并进行操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-38"
+  },
+  {
+    "slug": "faqs-app-test-35",
+    "name": "Unit Test如何Mock系统API i18n",
+    "file": "开发/FAQ/DevEco Studio/应用测试/Unit Test如何Mock系统API i18n/Unit Test如何Mock系统API i18n.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-35"
+  },
+  {
+    "slug": "faqs-app-test-35",
+    "name": "Unit Test如何Mock系统API i18n",
+    "file": "应用测试/Unit Test如何Mock系统API i18n.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-35"
+  },
+  {
+    "slug": "faqs-app-test-33",
+    "name": "wukong测试中的常见问题",
+    "file": "开发/FAQ/DevEco Studio/应用测试/wukong测试中的常见问题/wukong测试中的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-33"
+  },
+  {
+    "slug": "faqs-app-test-33",
+    "name": "wukong测试中的常见问题",
+    "file": "应用测试/wukong测试中的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-33"
+  },
+  {
+    "slug": "faqs-app-test-40",
+    "name": "使用DevEco Studio执行单元测试脚本常见问题和解决方案",
+    "file": "开发/FAQ/DevEco Studio/应用测试/使用DevEco Studio执行单元测试脚本常见问题和解决方案/使用DevEco Studio执行单元测试脚本常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-40"
+  },
+  {
+    "slug": "faqs-app-test-40",
+    "name": "使用DevEco Studio执行单元测试脚本常见问题和解决方案",
+    "file": "应用测试/使用DevEco Studio执行单元测试脚本常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-40"
+  },
+  {
+    "slug": "faqs-app-test-25",
+    "name": "使用Hypium自动化验证xpath控件的唯一性",
+    "file": "开发/FAQ/DevEco Studio/应用测试/使用Hypium自动化验证xpath控件的唯一性/使用Hypium自动化验证xpath控件的唯一性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-25"
+  },
+  {
+    "slug": "faqs-app-test-25",
+    "name": "使用Hypium自动化验证xpath控件的唯一性",
+    "file": "应用测试/使用Hypium自动化验证xpath控件的唯一性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-25"
+  },
+  {
+    "slug": "faqs-app-test-26",
+    "name": "使用命令行执行单元测试脚本常见问题和解决方案",
+    "file": "开发/FAQ/DevEco Studio/应用测试/使用命令行执行单元测试脚本常见问题和解决方案/使用命令行执行单元测试脚本常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-26"
+  },
+  {
+    "slug": "faqs-app-test-26",
+    "name": "使用命令行执行单元测试脚本常见问题和解决方案",
+    "file": "应用测试/使用命令行执行单元测试脚本常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-26"
+  },
+  {
+    "slug": "faqs-app-test-27",
+    "name": "单元测试中如何获取上下文Context",
+    "file": "开发/FAQ/DevEco Studio/应用测试/单元测试中如何获取上下文Context/单元测试中如何获取上下文Context.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-27"
+  },
+  {
+    "slug": "faqs-app-test-27",
+    "name": "单元测试中如何获取上下文Context",
+    "file": "应用测试/单元测试中如何获取上下文Context.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-27"
+  },
+  {
+    "slug": "faqs-app-test-39",
+    "name": "单元测试如何创建ArkTS测试用例",
+    "file": "开发/FAQ/DevEco Studio/应用测试/单元测试如何创建ArkTS测试用例/单元测试如何创建ArkTS测试用例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-39"
+  },
+  {
+    "slug": "faqs-app-test-39",
+    "name": "单元测试如何创建ArkTS测试用例",
+    "file": "应用测试/单元测试如何创建ArkTS测试用例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-39"
+  },
+  {
+    "slug": "faqs-app-test-36",
+    "name": "单元测试如何调用Socket服务",
+    "file": "开发/FAQ/DevEco Studio/应用测试/单元测试如何调用Socket服务/单元测试如何调用Socket服务.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-36"
+  },
+  {
+    "slug": "faqs-app-test-36",
+    "name": "单元测试如何调用Socket服务",
+    "file": "应用测试/单元测试如何调用Socket服务.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-36"
+  },
+  {
+    "slug": "faqs-app-test-29",
+    "name": "单元测试的it中执行Driver.create()报错",
+    "file": "开发/FAQ/DevEco Studio/应用测试/单元测试的it中执行Driver.create()报错/单元测试的it中执行Driver.create()报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-29"
+  },
+  {
+    "slug": "faqs-app-test-29",
+    "name": "单元测试的it中执行Driver.create()报错",
+    "file": "应用测试/单元测试的it中执行Driver.create()报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-29"
+  },
+  {
+    "slug": "faqs-app-test-30",
+    "name": "如何对C++项目的模块进行单元测试",
+    "file": "开发/FAQ/DevEco Studio/应用测试/如何对C++项目的模块进行单元测试/如何对C++项目的模块进行单元测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-30"
+  },
+  {
+    "slug": "faqs-app-test-30",
+    "name": "如何对C++项目的模块进行单元测试",
+    "file": "应用测试/如何对C++项目的模块进行单元测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-30"
+  },
+  {
+    "slug": "faqs-app-test-37",
+    "name": "如何整合多个module模块的单元测试",
+    "file": "开发/FAQ/DevEco Studio/应用测试/如何整合多个module模块的单元测试/如何整合多个module模块的单元测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-37"
+  },
+  {
+    "slug": "faqs-app-test-37",
+    "name": "如何整合多个module模块的单元测试",
+    "file": "应用测试/如何整合多个module模块的单元测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-37"
+  },
+  {
+    "slug": "faqs-app-test-18",
+    "name": "如何统计单元测试的覆盖率",
+    "file": "开发/FAQ/DevEco Studio/应用测试/如何统计单元测试的覆盖率/如何统计单元测试的覆盖率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-18"
+  },
+  {
+    "slug": "faqs-app-test-18",
+    "name": "如何统计单元测试的覆盖率",
+    "file": "应用测试/如何统计单元测试的覆盖率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-18"
+  },
+  {
+    "slug": "faqs-app-test-20",
+    "name": "如何解决mock中继承Base64Helper不生效的问题",
+    "file": "开发/FAQ/DevEco Studio/应用测试/如何解决mock中继承Base64Helper不生效的问题/如何解决mock中继承Base64Helper不生效的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-20"
+  },
+  {
+    "slug": "faqs-app-test-20",
+    "name": "如何解决mock中继承Base64Helper不生效的问题",
+    "file": "应用测试/如何解决mock中继承Base64Helper不生效的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-20"
+  },
+  {
+    "slug": "faqs-app-test-19",
+    "name": "自动化测试框架如何读取应用内的文件",
+    "file": "开发/FAQ/DevEco Studio/应用测试/自动化测试框架如何读取应用内的文件/自动化测试框架如何读取应用内的文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-19"
+  },
+  {
+    "slug": "faqs-app-test-19",
+    "name": "自动化测试框架如何读取应用内的文件",
+    "file": "应用测试/自动化测试框架如何读取应用内的文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-19"
+  },
+  {
+    "slug": "faqs-app-test-21",
+    "name": "自定义UI组件无类型、无id，UI测试该如何操作",
+    "file": "开发/FAQ/DevEco Studio/应用测试/自定义UI组件无类型、无id，UI测试该如何操作/自定义UI组件无类型、无id，UI测试该如何操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-21"
+  },
+  {
+    "slug": "faqs-app-test-21",
+    "name": "自定义UI组件无类型、无id，UI测试该如何操作",
+    "file": "应用测试/自定义UI组件无类型、无id，UI测试该如何操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-21"
+  },
+  {
+    "slug": "faqs-app-debugging-64",
+    "name": "HAP包在真机上安装失败如何解决",
+    "file": "开发/FAQ/DevEco Studio/应用调试/HAP包在真机上安装失败如何解决/HAP包在真机上安装失败如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-64"
+  },
+  {
+    "slug": "faqs-app-debugging-64",
+    "name": "HAP包在真机上安装失败如何解决",
+    "file": "应用调试/HAP包在真机上安装失败如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-64"
+  },
+  {
+    "slug": "faqs-app-debugging-71",
+    "name": "HarmonyOS应用指定设备发布hdc应用安装失败",
+    "file": "开发/FAQ/DevEco Studio/应用调试/HarmonyOS应用指定设备发布hdc应用安装失败/HarmonyOS应用指定设备发布hdc应用安装失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-71"
+  },
+  {
+    "slug": "faqs-app-debugging-71",
+    "name": "HarmonyOS应用指定设备发布hdc应用安装失败",
+    "file": "应用调试/HarmonyOS应用指定设备发布hdc应用安装失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-71"
+  },
+  {
+    "slug": "faqs-app-debugging-75",
+    "name": "Hypium中多种进行系统返回键操作方法",
+    "file": "开发/FAQ/DevEco Studio/应用调试/Hypium中多种进行系统返回键操作方法/Hypium中多种进行系统返回键操作方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-75"
+  },
+  {
+    "slug": "faqs-app-debugging-75",
+    "name": "Hypium中多种进行系统返回键操作方法",
+    "file": "应用调试/Hypium中多种进行系统返回键操作方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-75"
+  },
+  {
+    "slug": "faqs-app-debugging-74",
+    "name": "Hypium中，如何判断当前屏幕为横屏或竖屏",
+    "file": "开发/FAQ/DevEco Studio/应用调试/Hypium中，如何判断当前屏幕为横屏或竖屏/Hypium中，如何判断当前屏幕为横屏或竖屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-74"
+  },
+  {
+    "slug": "faqs-app-debugging-74",
+    "name": "Hypium中，如何判断当前屏幕为横屏或竖屏",
+    "file": "应用调试/Hypium中，如何判断当前屏幕为横屏或竖屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-74"
+  },
+  {
+    "slug": "faqs-app-debugging-78",
+    "name": "OpenHarmony类型的应用打包和调试常见问题",
+    "file": "开发/FAQ/DevEco Studio/应用调试/OpenHarmony类型的应用打包和调试常见问题/OpenHarmony类型的应用打包和调试常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-78"
+  },
+  {
+    "slug": "faqs-app-debugging-78",
+    "name": "OpenHarmony类型的应用打包和调试常见问题",
+    "file": "应用调试/OpenHarmony类型的应用打包和调试常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-78"
+  },
+  {
+    "slug": "faqs-app-debugging-76",
+    "name": "Wearable和Lite Wearable穿戴设备真机调试和调测",
+    "file": "开发/FAQ/DevEco Studio/应用调试/Wearable和Lite Wearable穿戴设备真机调试和调测/Wearable和Lite Wearable穿戴设备真机调试和调测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-76"
+  },
+  {
+    "slug": "faqs-app-debugging-76",
+    "name": "Wearable和Lite Wearable穿戴设备真机调试和调测",
+    "file": "应用调试/Wearable和Lite Wearable穿戴设备真机调试和调测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-76"
+  },
+  {
+    "slug": "faqs-app-debugging-82",
+    "name": "debug打包运行没问题，release打包后项目运行异常",
+    "file": "开发/FAQ/DevEco Studio/应用调试/debug打包运行没问题，release打包后项目运行异常/debug打包运行没问题，release打包后项目运行异常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-82"
+  },
+  {
+    "slug": "faqs-app-debugging-82",
+    "name": "debug打包运行没问题，release打包后项目运行异常",
+    "file": "应用调试/debug打包运行没问题，release打包后项目运行异常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-82"
+  },
+  {
+    "slug": "faqs-app-debugging-80",
+    "name": "云调试安装失败常见问题和解决方案",
+    "file": "开发/FAQ/DevEco Studio/应用调试/云调试安装失败常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-80"
+  },
+  {
+    "slug": "faqs-app-debugging-80",
+    "name": "云调试应用安装失败常见问题排查与解决方案",
+    "file": "应用调试/云调试应用安装失败常见问题排查与解决方案/云调试应用安装失败常见问题排查与解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-80"
+  },
+  {
+    "slug": "faqs-app-debugging-79",
+    "name": "云调试应用期间出现黑屏如何处理",
+    "file": "开发/FAQ/DevEco Studio/应用调试/云调试应用期间出现黑屏如何处理/云调试应用期间出现黑屏如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-79"
+  },
+  {
+    "slug": "faqs-app-debugging-79",
+    "name": "云调试应用期间出现黑屏如何处理",
+    "file": "应用调试/云调试应用期间出现黑屏如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-79"
+  },
+  {
+    "slug": "faqs-app-debugging-67",
+    "name": "在个别C++动态库中无法下断点单步调试",
+    "file": "开发/FAQ/DevEco Studio/应用调试/在个别C++动态库中无法下断点单步调试/在个别C++动态库中无法下断点单步调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-67"
+  },
+  {
+    "slug": "faqs-app-debugging-67",
+    "name": "在个别C++动态库中无法下断点单步调试",
+    "file": "应用调试/在个别C++动态库中无法下断点单步调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-67"
+  },
+  {
+    "slug": "faqs-app-debugging-73",
+    "name": "如何处理PyCharm创建的Hypium工程报错：未解析的引用‘devicetest’",
+    "file": "开发/FAQ/DevEco Studio/应用调试/如何处理PyCharm创建的Hypium工程报错：未解析的引用‘devicetest’/如何处理PyCharm创建的Hypium工程报错：未解析的引用‘devicetest’.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-73"
+  },
+  {
+    "slug": "faqs-app-debugging-73",
+    "name": "如何处理PyCharm创建的Hypium工程报错：未解析的引用‘devicetest’",
+    "file": "应用调试/如何处理PyCharm创建的Hypium工程报错：未解析的引用‘devicetest’.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-73"
+  },
+  {
+    "slug": "faqs-app-debugging-66",
+    "name": "如何搭建远程真机平台",
+    "file": "开发/FAQ/DevEco Studio/应用调试/如何搭建远程真机平台/如何搭建远程真机平台.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-66"
+  },
+  {
+    "slug": "faqs-app-debugging-66",
+    "name": "如何搭建远程真机平台",
+    "file": "应用调试/如何搭建远程真机平台.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-66"
+  },
+  {
+    "slug": "faqs-app-debugging-77",
+    "name": "如何获取应用打印的日志并写入文件",
+    "file": "开发/FAQ/DevEco Studio/应用调试/如何获取应用打印的日志并写入文件/如何获取应用打印的日志并写入文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-77"
+  },
+  {
+    "slug": "faqs-app-debugging-77",
+    "name": "如何获取应用打印的日志并写入文件",
+    "file": "应用调试/如何获取应用打印的日志并写入文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-77"
+  },
+  {
+    "slug": "faqs-app-debugging-65",
+    "name": "如何解决关闭开发者选项后应用白屏问题",
+    "file": "开发/FAQ/DevEco Studio/应用调试/如何解决关闭开发者选项后应用白屏问题/如何解决关闭开发者选项后应用白屏问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-65"
+  },
+  {
+    "slug": "faqs-app-debugging-65",
+    "name": "如何解决关闭开发者选项后应用白屏问题",
+    "file": "应用调试/如何解决关闭开发者选项后应用白屏问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-65"
+  },
+  {
+    "slug": "faqs-app-debugging-83",
+    "name": "如何让HAP能够安装到其他手机上",
+    "file": "开发/FAQ/DevEco Studio/应用调试/如何让HAP能够安装到其他手机上/如何让HAP能够安装到其他手机上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-83"
+  },
+  {
+    "slug": "faqs-app-debugging-83",
+    "name": "如何让HAP能够安装到其他手机上",
+    "file": "应用调试/如何让HAP能够安装到其他手机上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-83"
+  },
+  {
+    "slug": "faqs-app-debugging-68",
+    "name": "如何通过Hypium脚本实现多端连续滑动",
+    "file": "开发/FAQ/DevEco Studio/应用调试/如何通过Hypium脚本实现多端连续滑动/如何通过Hypium脚本实现多端连续滑动.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-68"
+  },
+  {
+    "slug": "faqs-app-debugging-68",
+    "name": "如何通过Hypium脚本实现多端连续滑动",
+    "file": "应用调试/如何通过Hypium脚本实现多端连续滑动.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-68"
+  },
+  {
+    "slug": "faqs-app-debugging-72",
+    "name": "已发布模块如何本地调试",
+    "file": "开发/FAQ/DevEco Studio/应用调试/已发布模块如何本地调试/已发布模块如何本地调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-72"
+  },
+  {
+    "slug": "faqs-app-debugging-72",
+    "name": "已发布模块如何本地调试",
+    "file": "应用调试/已发布模块如何本地调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-72"
+  },
+  {
+    "slug": "faqs-app-debugging-81",
+    "name": "应用在真机上安装时提示失败的原因有哪些",
+    "file": "开发/FAQ/DevEco Studio/应用调试/应用在真机上安装时提示失败的原因有哪些/应用在真机上安装时提示失败的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-81"
+  },
+  {
+    "slug": "faqs-app-debugging-81",
+    "name": "应用在真机上安装时提示失败的原因有哪些",
+    "file": "应用调试/应用在真机上安装时提示失败的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-81"
+  },
+  {
+    "slug": "faqs-app-debugging-70",
+    "name": "应用开发过程中如何将测试包安装到测试机",
+    "file": "开发/FAQ/DevEco Studio/应用调试/应用开发过程中如何将测试包安装到测试机/应用开发过程中如何将测试包安装到测试机.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-70"
+  },
+  {
+    "slug": "faqs-app-debugging-70",
+    "name": "应用开发过程中如何将测试包安装到测试机",
+    "file": "应用调试/应用开发过程中如何将测试包安装到测试机.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-70"
+  },
+  {
+    "slug": "faqs-app-debugging-69",
+    "name": "编译构建问题如何获取关键日志",
+    "file": "开发/FAQ/DevEco Studio/应用调试/编译构建问题如何获取关键日志/编译构建问题如何获取关键日志.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-69"
+  },
+  {
+    "slug": "faqs-app-debugging-69",
+    "name": "编译构建问题如何获取关键日志",
+    "file": "应用调试/编译构建问题如何获取关键日志.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-69"
+  },
+  {
+    "slug": "faqs-profiler-18",
+    "name": "DevEco Profile的SnapShot无法抓取ArkTS snapshot数据",
+    "file": "开发/FAQ/DevEco Studio/性能分析/DevEco Profile的SnapShot无法抓取ArkTS snapshot数据/DevEco Profile的SnapShot无法抓取ArkTS snapshot数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-profiler-18"
+  },
+  {
+    "slug": "faqs-profiler-18",
+    "name": "DevEco Profile的SnapShot无法抓取ArkTS snapshot数据",
+    "file": "性能分析/DevEco Profile的SnapShot无法抓取ArkTS snapshot数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-profiler-18"
+  },
+  {
+    "slug": "faqs-simulator-7",
+    "name": "DevEco Studio中模拟器如何自定义屏幕尺寸",
+    "file": "模拟器/DevEco Studio中模拟器如何自定义屏幕尺寸.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-7"
+  },
+  {
+    "slug": "faqs-simulator-8",
+    "name": "使用模拟器扩展能力的常见问题",
+    "file": "开发/FAQ/DevEco Studio/模拟器/使用模拟器扩展能力的常见问题/使用模拟器扩展能力的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-8"
+  },
+  {
+    "slug": "faqs-simulator-8",
+    "name": "使用模拟器扩展能力的常见问题",
+    "file": "模拟器/使用模拟器扩展能力的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-8"
+  },
+  {
+    "slug": "faqs-simulator-2",
+    "name": "本地模拟器已经启动，但是IDE显示NO Devices",
+    "file": "模拟器/本地模拟器已经启动，但是IDE显示NO Devices.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-2"
+  },
+  {
+    "slug": "faqs-simulator-4",
+    "name": "模拟器中应用安装和运行异常的原因有哪些",
+    "file": "开发/FAQ/DevEco Studio/模拟器/模拟器中应用安装和运行异常的原因有哪些/模拟器中应用安装和运行异常的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-4"
+  },
+  {
+    "slug": "faqs-simulator-4",
+    "name": "模拟器中应用安装和运行异常的原因有哪些",
+    "file": "模拟器/模拟器中应用安装和运行异常的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-4"
+  },
+  {
+    "slug": "faqs-simulator-9",
+    "name": "模拟器创建和启动失败的原因有哪些",
+    "file": "开发/FAQ/DevEco Studio/模拟器/模拟器创建和启动失败的原因有哪些/模拟器创建和启动失败的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-9"
+  },
+  {
+    "slug": "faqs-simulator-9",
+    "name": "模拟器创建和启动失败的原因有哪些",
+    "file": "模拟器/模拟器创建和启动失败的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-9"
+  },
+  {
+    "slug": "faqs-simulator-6",
+    "name": "模拟器无法连接网络问题定位",
+    "file": "开发/FAQ/DevEco Studio/模拟器/模拟器无法连接网络问题定位/模拟器无法连接网络问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-6"
+  },
+  {
+    "slug": "faqs-simulator-6",
+    "name": "模拟器无法连接网络问题定位",
+    "file": "模拟器/模拟器无法连接网络问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-6"
+  },
+  {
+    "slug": "faqs-simulator-3",
+    "name": "模拟器运行应用报错提示设备和应用的API版本不匹配",
+    "file": "开发/FAQ/DevEco Studio/模拟器/模拟器运行应用报错提示设备和应用的API版本不匹配/模拟器运行应用报错提示设备和应用的API版本不匹配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-3"
+  },
+  {
+    "slug": "faqs-simulator-3",
+    "name": "模拟器运行应用报错提示设备和应用的API版本不匹配",
+    "file": "模拟器/模拟器运行应用报错提示设备和应用的API版本不匹配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-3"
+  },
+  {
+    "slug": "faqs-simulator-5",
+    "name": "模拟器，真机，预览器调试具有哪些差异",
+    "file": "开发/FAQ/DevEco Studio/模拟器/模拟器，真机，预览器调试具有哪些差异/模拟器，真机，预览器调试具有哪些差异.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-5"
+  },
+  {
+    "slug": "faqs-simulator-5",
+    "name": "模拟器，真机，预览器调试具有哪些差异",
+    "file": "模拟器/模拟器，真机，预览器调试具有哪些差异.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-5"
+  },
+  {
+    "slug": "faqs-simulator-1",
+    "name": "登录模拟器时报白名单错误如何解决",
+    "file": "模拟器/登录模拟器时报白名单错误如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-1"
+  },
+  {
+    "slug": "faqs-development-environment-40",
+    "name": "DevEco Studio中快捷键使用常见问题",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio中快捷键使用常见问题/DevEco Studio中快捷键使用常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-40"
+  },
+  {
+    "slug": "faqs-development-environment-40",
+    "name": "DevEco Studio中快捷键使用常见问题",
+    "file": "环境准备/DevEco Studio中快捷键使用常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-40"
+  },
+  {
+    "slug": "faqs-development-environment-41",
+    "name": "DevEco Studio使用过程中闪退或报错问题汇总",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio使用过程中闪退或报错问题汇总/DevEco Studio使用过程中闪退或报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-41"
+  },
+  {
+    "slug": "faqs-development-environment-41",
+    "name": "DevEco Studio使用过程中闪退或报错问题汇总",
+    "file": "环境准备/DevEco Studio使用过程中闪退或报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-41"
+  },
+  {
+    "slug": "faqs-development-environment-37",
+    "name": "DevEco Studio占用内存高问题优化方法",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio占用内存高问题优化方法/DevEco Studio占用内存高问题优化方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-37"
+  },
+  {
+    "slug": "faqs-development-environment-37",
+    "name": "DevEco Studio占用内存高问题优化方法",
+    "file": "环境准备/DevEco Studio占用内存高问题优化方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-37"
+  },
+  {
+    "slug": "faqs-development-environment-21",
+    "name": "DevEco Studio启动项目报错Project sync failed",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio启动项目报错Project sync failed/DevEco Studio启动项目报错Project sync failed.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-21"
+  },
+  {
+    "slug": "faqs-development-environment-21",
+    "name": "DevEco Studio启动项目报错Project sync failed",
+    "file": "环境准备/DevEco Studio启动项目报错Project sync failed.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-21"
+  },
+  {
+    "slug": "faqs-development-environment-42",
+    "name": "DevEco Studio如何调整页面窗口布局",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio如何调整页面窗口布局/DevEco Studio如何调整页面窗口布局.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-42"
+  },
+  {
+    "slug": "faqs-development-environment-42",
+    "name": "DevEco Studio如何调整页面窗口布局",
+    "file": "环境准备/DevEco Studio如何调整页面窗口布局.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-42"
+  },
+  {
+    "slug": "faqs-development-environment-45",
+    "name": "DevEco Studio安装后使用过程中常见配置问题",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio安装后使用过程中常见配置问题/DevEco Studio安装后使用过程中常见配置问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-45"
+  },
+  {
+    "slug": "faqs-development-environment-45",
+    "name": "DevEco Studio安装后使用过程中常见配置问题",
+    "file": "环境准备/DevEco Studio安装后使用过程中常见配置问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-45"
+  },
+  {
+    "slug": "faqs-development-environment-44",
+    "name": "DevEco Studio安装插件异常的原因有哪些",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio安装插件异常的原因有哪些/DevEco Studio安装插件异常的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-44"
+  },
+  {
+    "slug": "faqs-development-environment-44",
+    "name": "DevEco Studio安装插件异常的原因有哪些",
+    "file": "环境准备/DevEco Studio安装插件异常的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-44"
+  },
+  {
+    "slug": "faqs-development-environment-33",
+    "name": "DevEco Studio新建项目失败的原因有哪些",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio新建项目失败的原因有哪些/DevEco Studio新建项目失败的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-33"
+  },
+  {
+    "slug": "faqs-development-environment-33",
+    "name": "DevEco Studio新建项目失败的原因有哪些",
+    "file": "环境准备/DevEco Studio新建项目失败的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-33"
+  },
+  {
+    "slug": "faqs-development-environment-30",
+    "name": "DevEco Studio无法启动",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio无法启动/DevEco Studio无法启动.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-30"
+  },
+  {
+    "slug": "faqs-development-environment-30",
+    "name": "DevEco Studio无法启动",
+    "file": "环境准备/DevEco Studio无法启动.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-30"
+  },
+  {
+    "slug": "faqs-development-environment-26",
+    "name": "DevEco Studio无法登录成功",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio无法登录成功/DevEco Studio无法登录成功.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-26"
+  },
+  {
+    "slug": "faqs-development-environment-26",
+    "name": "DevEco Studio无法登录成功",
+    "file": "环境准备/DevEco Studio无法登录成功.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-26"
+  },
+  {
+    "slug": "faqs-development-environment-35",
+    "name": "DevEco Studio无法识别到连接的真机可能是哪些原因",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio无法识别到连接的真机可能是哪些原因/DevEco Studio无法识别到连接的真机可能是哪些原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-35"
+  },
+  {
+    "slug": "faqs-development-environment-35",
+    "name": "DevEco Studio无法识别到连接的真机可能是哪些原因",
+    "file": "环境准备/DevEco Studio无法识别到连接的真机可能是哪些原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-35"
+  },
+  {
+    "slug": "faqs-development-environment-28",
+    "name": "DevEco Studio无法识别复制的模块",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio无法识别复制的模块/DevEco Studio无法识别复制的模块.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-28"
+  },
+  {
+    "slug": "faqs-development-environment-28",
+    "name": "DevEco Studio无法识别复制的模块",
+    "file": "环境准备/DevEco Studio无法识别复制的模块.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-28"
+  },
+  {
+    "slug": "faqs-development-environment-19",
+    "name": "DevEco Studio未识别到真机设备如何处理",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio未识别到真机设备如何处理/DevEco Studio未识别到真机设备如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-19"
+  },
+  {
+    "slug": "faqs-development-environment-19",
+    "name": "DevEco Studio未识别到真机设备如何处理",
+    "file": "环境准备/DevEco Studio未识别到真机设备如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-19"
+  },
+  {
+    "slug": "faqs-development-environment-34",
+    "name": "DevEco Studio版本更新后问题汇总",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio版本更新后问题汇总/DevEco Studio版本更新后问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-34"
+  },
+  {
+    "slug": "faqs-development-environment-34",
+    "name": "DevEco Studio版本更新后问题汇总",
+    "file": "环境准备/DevEco Studio版本更新后问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-34"
+  },
+  {
+    "slug": "faqs-development-environment-43",
+    "name": "DevEco Studio版本相关问题",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio版本相关问题/DevEco Studio版本相关问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-43"
+  },
+  {
+    "slug": "faqs-development-environment-43",
+    "name": "DevEco Studio版本相关问题",
+    "file": "环境准备/DevEco Studio版本相关问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-43"
+  },
+  {
+    "slug": "faqs-development-environment-47",
+    "name": "DevEco Studio的SDK常见环境问题",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio的SDK常见环境问题/DevEco Studio的SDK常见环境问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-47"
+  },
+  {
+    "slug": "faqs-development-environment-47",
+    "name": "DevEco Studio的SDK常见环境问题",
+    "file": "环境准备/DevEco Studio的SDK常见环境问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-47"
+  },
+  {
+    "slug": "faqs-development-environment-46",
+    "name": "DevEco Studio编译慢，模拟器启动慢",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio编译慢，模拟器启动慢/DevEco Studio编译慢，模拟器启动慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-46"
+  },
+  {
+    "slug": "faqs-development-environment-46",
+    "name": "DevEco Studio编译慢，模拟器启动慢",
+    "file": "环境准备/DevEco Studio编译慢，模拟器启动慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-46"
+  },
+  {
+    "slug": "faqs-development-environment-22",
+    "name": "DevEco Studio编译时报错FetchPackageInfo: \"@ohos/hamock\" failed",
+    "file": "开发/FAQ/DevEco Studio/环境准备/DevEco Studio编译时报错FetchPackageInfo： \"@ohos／hamock\" failed/DevEco Studio编译时报错FetchPackageInfo： ＂@ohos／hamock＂ failed.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-22"
+  },
+  {
+    "slug": "faqs-development-environment-22",
+    "name": "DevEco Studio编译时报错FetchPackageInfo: \"@ohos/hamock\" failed",
+    "file": "环境准备/DevEco Studio编译时报错FetchPackageInfo： ＂@ohos／hamock＂ failed.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-22"
+  },
+  {
+    "slug": "faqs-development-environment-48",
+    "name": "HarmonyOS中DevEco Studio缺少Device Manager入口及模拟器镜像下载报错的解决方案",
+    "file": "开发/FAQ/DevEco Studio/环境准备/HarmonyOS中DevEco Studio缺少Device Manager入口及模拟器镜像下载报错的解决方案/HarmonyOS中DevEco Studio缺少Device Manager入口及模拟器镜像下载报错的解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-48"
+  },
+  {
+    "slug": "faqs-development-environment-48",
+    "name": "HarmonyOS中DevEco Studio缺少Device Manager入口及模拟器镜像下载报错的解决方案",
+    "file": "环境准备/HarmonyOS中DevEco Studio缺少Device Manager入口及模拟器镜像下载报错的解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-48"
+  },
+  {
+    "slug": "faqs-development-environment-31",
+    "name": "IDE编写C++代码时没有提示",
+    "file": "开发/FAQ/DevEco Studio/环境准备/IDE编写C++代码时没有提示/IDE编写C++代码时没有提示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-31"
+  },
+  {
+    "slug": "faqs-development-environment-31",
+    "name": "IDE编写C++代码时没有提示",
+    "file": "环境准备/IDE编写C++代码时没有提示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-31"
+  },
+  {
+    "slug": "faqs-development-environment-32",
+    "name": "IDE编译报错：ERROR: SDK component missing解决方案",
+    "file": "开发/FAQ/DevEco Studio/环境准备/IDE编译报错：ERROR： SDK component missing解决方案/IDE编译报错：ERROR： SDK component missing解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-32"
+  },
+  {
+    "slug": "faqs-development-environment-32",
+    "name": "IDE编译报错：ERROR: SDK component missing解决方案",
+    "file": "环境准备/IDE编译报错：ERROR： SDK component missing解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-32"
+  },
+  {
+    "slug": "faqs-development-environment-25",
+    "name": "LSP Client Warning",
+    "file": "开发/FAQ/DevEco Studio/环境准备/LSP Client Warning/LSP Client Warning.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-25"
+  },
+  {
+    "slug": "faqs-development-environment-25",
+    "name": "LSP Client Warning",
+    "file": "环境准备/LSP Client Warning.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-25"
+  },
+  {
+    "slug": "faqs-development-environment-20",
+    "name": "Mac安装DevEco-Studio后启动报错“NSInternalInconsistencyException”如何解决",
+    "file": "开发/FAQ/DevEco Studio/环境准备/Mac安装DevEco-Studio后启动报错“NSInternalInconsistencyException”如何解决/Mac安装DevEco-Studio后启动报错“NSInternalInconsistencyException”如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-20"
+  },
+  {
+    "slug": "faqs-development-environment-20",
+    "name": "Mac安装DevEco-Studio后启动报错“NSInternalInconsistencyException”如何解决",
+    "file": "环境准备/Mac安装DevEco-Studio后启动报错“NSInternalInconsistencyException”如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-20"
+  },
+  {
+    "slug": "faqs-development-environment-39",
+    "name": "Mac安装运行DevEco Studio异常问题汇总",
+    "file": "开发/FAQ/DevEco Studio/环境准备/Mac安装运行DevEco Studio异常问题汇总/Mac安装运行DevEco Studio异常问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-39"
+  },
+  {
+    "slug": "faqs-development-environment-39",
+    "name": "Mac安装运行DevEco Studio异常问题汇总",
+    "file": "环境准备/Mac安装运行DevEco Studio异常问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-39"
+  },
+  {
+    "slug": "faqs-development-environment-23",
+    "name": "创建新工程Create Project为空白如何解决",
+    "file": "开发/FAQ/DevEco Studio/环境准备/创建新工程Create Project为空白如何解决/创建新工程Create Project为空白如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-23"
+  },
+  {
+    "slug": "faqs-development-environment-23",
+    "name": "创建新工程Create Project为空白如何解决",
+    "file": "环境准备/创建新工程Create Project为空白如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-23"
+  },
+  {
+    "slug": "faqs-development-environment-27",
+    "name": "在IDE的控制台中输入ohpm -v报错Failed to find the executable 'node' command怎么处理",
+    "file": "开发/FAQ/DevEco Studio/环境准备/在IDE的控制台中输入ohpm -v报错Failed to find the executable 'node' command怎么处理/在IDE的控制台中输入ohpm -v报错Failed to find the executable 'node' command怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-27"
+  },
+  {
+    "slug": "faqs-development-environment-27",
+    "name": "在IDE的控制台中输入ohpm -v报错Failed to find the executable 'node' command怎么处理",
+    "file": "环境准备/在IDE的控制台中输入ohpm -v报错Failed to find the executable 'node' command怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-27"
+  },
+  {
+    "slug": "faqs-development-environment-36",
+    "name": "在内网环境中使用DevEco Studio开发会有哪些常见问题",
+    "file": "开发/FAQ/DevEco Studio/环境准备/在内网环境中使用DevEco Studio开发会有哪些常见问题/在内网环境中使用DevEco Studio开发会有哪些常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-36"
+  },
+  {
+    "slug": "faqs-development-environment-36",
+    "name": "在内网环境中使用DevEco Studio开发会有哪些常见问题",
+    "file": "环境准备/在内网环境中使用DevEco Studio开发会有哪些常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-36"
+  },
+  {
+    "slug": "faqs-development-environment-38",
+    "name": "安装依赖的hvigor插件报错问题汇总",
+    "file": "开发/FAQ/DevEco Studio/环境准备/安装依赖的hvigor插件报错问题汇总/安装依赖的hvigor插件报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-38"
+  },
+  {
+    "slug": "faqs-development-environment-38",
+    "name": "安装依赖的hvigor插件报错问题汇总",
+    "file": "环境准备/安装依赖的hvigor插件报错问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-38"
+  },
+  {
+    "slug": "faqs-development-environment-24",
+    "name": "开发工具DevEco中，代码开发界面的白竖线如何删除",
+    "file": "开发/FAQ/DevEco Studio/环境准备/开发工具DevEco中，代码开发界面的白竖线如何删除/开发工具DevEco中，代码开发界面的白竖线如何删除.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-24"
+  },
+  {
+    "slug": "faqs-development-environment-24",
+    "name": "开发工具DevEco中，代码开发界面的白竖线如何删除",
+    "file": "环境准备/开发工具DevEco中，代码开发界面的白竖线如何删除.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-24"
+  },
+  {
+    "slug": "faqs-development-environment-18",
+    "name": "打开工程，反复执行“Updating indexes”",
+    "file": "开发/FAQ/DevEco Studio/环境准备/打开工程，反复执行“Updating indexes”/打开工程，反复执行“Updating indexes”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-18"
+  },
+  {
+    "slug": "faqs-development-environment-18",
+    "name": "打开工程，反复执行“Updating indexes”",
+    "file": "环境准备/打开工程，反复执行“Updating indexes”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-18"
+  },
+  {
+    "slug": "faqs-development-environment-29",
+    "name": "新建项目运行报错ROR:node",
+    "file": "开发/FAQ/DevEco Studio/环境准备/新建项目运行报错ROR：node/新建项目运行报错ROR：node.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-29"
+  },
+  {
+    "slug": "faqs-development-environment-29",
+    "name": "新建项目运行报错ROR:node",
+    "file": "环境准备/新建项目运行报错ROR：node.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-29"
+  },
+  {
+    "slug": "faqs-previewer-operating-8",
+    "name": "SVG图片在真机和DevEco Studio中颜色显示不一致该如何解决",
+    "file": "开发/FAQ/DevEco Studio/界面预览/SVG图片在真机和DevEco Studio中颜色显示不一致该如何解决/SVG图片在真机和DevEco Studio中颜色显示不一致该如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-8"
+  },
+  {
+    "slug": "faqs-previewer-operating-8",
+    "name": "SVG图片在真机和DevEco Studio中颜色显示不一致该如何解决",
+    "file": "界面预览/SVG图片在真机和DevEco Studio中颜色显示不一致该如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-8"
+  },
+  {
+    "slug": "faqs-previewer-operating-9",
+    "name": "previewer显示的UX效果和真机的显示实际不一致",
+    "file": "开发/FAQ/DevEco Studio/界面预览/previewer显示的UX效果和真机的显示实际不一致/previewer显示的UX效果和真机的显示实际不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-9"
+  },
+  {
+    "slug": "faqs-previewer-operating-9",
+    "name": "previewer显示的UX效果和真机的显示实际不一致",
+    "file": "界面预览/previewer显示的UX效果和真机的显示实际不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-9"
+  },
+  {
+    "slug": "faqs-previewer-operating-10",
+    "name": "更新IDE后Preview无法使用该如何解决",
+    "file": "开发/FAQ/DevEco Studio/界面预览/更新IDE后Preview无法使用该如何解决/更新IDE后Preview无法使用该如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-10"
+  },
+  {
+    "slug": "faqs-previewer-operating-10",
+    "name": "更新IDE后Preview无法使用该如何解决",
+    "file": "界面预览/更新IDE后Preview无法使用该如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-10"
+  },
+  {
+    "slug": "faqs-signature-service-21",
+    "name": "IDE在线签名报错该怎么解决",
+    "file": "开发/FAQ/DevEco Studio/签名服务/IDE在线签名报错该怎么解决/IDE在线签名报错该怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-21"
+  },
+  {
+    "slug": "faqs-signature-service-21",
+    "name": "IDE在线签名报错该怎么解决",
+    "file": "签名服务/IDE在线签名报错该怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-21"
+  },
+  {
+    "slug": "faqs-signature-service-24",
+    "name": "元服务编译打包时报错",
+    "file": "开发/FAQ/DevEco Studio/签名服务/元服务编译打包时报错/元服务编译打包时报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-24"
+  },
+  {
+    "slug": "faqs-signature-service-24",
+    "name": "元服务编译打包时报错",
+    "file": "签名服务/元服务编译打包时报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-24"
+  },
+  {
+    "slug": "faqs-signature-service-20",
+    "name": "如何处理密钥共享团队内部发生的merge冲突",
+    "file": "开发/FAQ/DevEco Studio/签名服务/如何处理密钥共享团队内部发生的merge冲突/如何处理密钥共享团队内部发生的merge冲突.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-20"
+  },
+  {
+    "slug": "faqs-signature-service-20",
+    "name": "如何处理密钥共享团队内部发生的merge冲突",
+    "file": "签名服务/如何处理密钥共享团队内部发生的merge冲突.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-20"
+  },
+  {
+    "slug": "faqs-signature-service-23",
+    "name": "安装应用时提示“安装失败，请重试”",
+    "file": "开发/FAQ/DevEco Studio/签名服务/安装应用时提示“安装失败，请重试”/安装应用时提示“安装失败，请重试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-23"
+  },
+  {
+    "slug": "faqs-signature-service-23",
+    "name": "安装应用时提示“安装失败，请重试”",
+    "file": "签名服务/安装应用时提示“安装失败，请重试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-23"
+  },
+  {
+    "slug": "faqs-signature-service-25",
+    "name": "手动签名失败的常见问题",
+    "file": "开发/FAQ/DevEco Studio/签名服务/手动签名失败的常见问题/手动签名失败的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-25"
+  },
+  {
+    "slug": "faqs-signature-service-25",
+    "name": "手动签名失败的常见问题",
+    "file": "签名服务/手动签名失败的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-25"
+  },
+  {
+    "slug": "faqs-signature-service-26",
+    "name": "打包后hap包安装失败，错误码：9568320",
+    "file": "开发/FAQ/DevEco Studio/签名服务/打包后hap包安装失败，错误码：9568320/打包后hap包安装失败，错误码：9568320.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-26"
+  },
+  {
+    "slug": "faqs-signature-service-26",
+    "name": "打包后hap包安装失败，错误码：9568320",
+    "file": "签名服务/打包后hap包安装失败，错误码：9568320.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-26"
+  },
+  {
+    "slug": "faqs-signature-service-27",
+    "name": "编译HAP时签名过期问题如何解决",
+    "file": "开发/FAQ/DevEco Studio/签名服务/编译HAP时签名过期问题如何解决/编译HAP时签名过期问题如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-27"
+  },
+  {
+    "slug": "faqs-signature-service-27",
+    "name": "编译HAP时签名过期问题如何解决",
+    "file": "签名服务/编译HAP时签名过期问题如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-27"
+  },
+  {
+    "slug": "faqs-signature-service-28",
+    "name": "编译构建时报错：签名工具错误问题汇总",
+    "file": "开发/FAQ/DevEco Studio/签名服务/编译构建时报错：签名工具错误问题汇总/编译构建时报错：签名工具错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-28"
+  },
+  {
+    "slug": "faqs-signature-service-28",
+    "name": "编译构建时报错：签名工具错误问题汇总",
+    "file": "签名服务/编译构建时报错：签名工具错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-28"
+  },
+  {
+    "slug": "faqs-signature-service-22",
+    "name": "自动签名报错常见问题定位",
+    "file": "开发/FAQ/DevEco Studio/签名服务/自动签名报错常见问题定位/自动签名报错常见问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-22"
+  },
+  {
+    "slug": "faqs-signature-service-22",
+    "name": "自动签名报错常见问题定位",
+    "file": "签名服务/自动签名报错常见问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-22"
+  },
+  {
+    "slug": "faqs-signature-service-19",
+    "name": "项目多人开发时会导致signingConfigs冲突，该如何协调",
+    "file": "开发/FAQ/DevEco Studio/签名服务/项目多人开发时会导致signingConfigs冲突，该如何协调/项目多人开发时会导致signingConfigs冲突，该如何协调.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-19"
+  },
+  {
+    "slug": "faqs-signature-service-19",
+    "name": "项目多人开发时会导致signingConfigs冲突，该如何协调",
+    "file": "签名服务/项目多人开发时会导致signingConfigs冲突，该如何协调.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-19"
+  },
+  {
+    "slug": "faqs-compiling-and-building-208",
+    "name": "Hvigor编译构建实现添加自定义文件至.har产物中",
+    "file": "开发/FAQ/DevEco Studio/编译构建/Hvigor编译构建实现添加自定义文件至.har产物中/Hvigor编译构建实现添加自定义文件至.har产物中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-208"
+  },
+  {
+    "slug": "faqs-compiling-and-building-208",
+    "name": "Hvigor编译构建实现添加自定义文件至.har产物中",
+    "file": "编译构建/Hvigor编译构建实现添加自定义文件至.har产物中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-208"
+  },
+  {
+    "slug": "faqs-compiling-and-building-201",
+    "name": "IDE编译报错Invalid dependency",
+    "file": "开发/FAQ/DevEco Studio/编译构建/IDE编译报错Invalid dependency/IDE编译报错Invalid dependency.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-201"
+  },
+  {
+    "slug": "faqs-compiling-and-building-201",
+    "name": "IDE编译报错Invalid dependency",
+    "file": "编译构建/IDE编译报错Invalid dependency.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-201"
+  },
+  {
+    "slug": "faqs-compiling-and-building-210",
+    "name": "Index.d.ts接口定义文件中语法检查报错如何处理",
+    "file": "开发/FAQ/DevEco Studio/编译构建/Index.d.ts接口定义文件中语法检查报错如何处理/Index.d.ts接口定义文件中语法检查报错如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-210"
+  },
+  {
+    "slug": "faqs-compiling-and-building-210",
+    "name": "Index.d.ts接口定义文件中语法检查报错如何处理",
+    "file": "编译构建/Index.d.ts接口定义文件中语法检查报错如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-210"
+  },
+  {
+    "slug": "faqs-compiling-and-building-225",
+    "name": "build-profile.json5中配置useNormalizedOHMUrl为true常见报错问题",
+    "file": "开发/FAQ/DevEco Studio/编译构建/build-profile.json5中配置useNormalizedOHMUrl为true常见报错问题/build-profile.json5中配置useNormalizedOHMUrl为true常见报错问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-225"
+  },
+  {
+    "slug": "faqs-compiling-and-building-225",
+    "name": "build-profile.json5中配置useNormalizedOHMUrl为true常见报错问题",
+    "file": "编译构建/build-profile.json5中配置useNormalizedOHMUrl为true常见报错问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-225"
+  },
+  {
+    "slug": "faqs-compiling-and-building-223",
+    "name": "es2abc常见问题定位",
+    "file": "开发/FAQ/DevEco Studio/编译构建/es2abc常见问题定位/es2abc常见问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-223"
+  },
+  {
+    "slug": "faqs-compiling-and-building-223",
+    "name": "es2abc常见问题定位",
+    "file": "编译构建/es2abc常见问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-223"
+  },
+  {
+    "slug": "faqs-compiling-and-building-211",
+    "name": "一键编译打包所有product",
+    "file": "开发/FAQ/DevEco Studio/编译构建/一键编译打包所有product/一键编译打包所有product.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-211"
+  },
+  {
+    "slug": "faqs-compiling-and-building-211",
+    "name": "一键编译打包所有product",
+    "file": "编译构建/一键编译打包所有product.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-211"
+  },
+  {
+    "slug": "faqs-compiling-and-building-218",
+    "name": "使用HMRouter报错moduleContext is null in hvigorfile",
+    "file": "开发/FAQ/DevEco Studio/编译构建/使用HMRouter报错moduleContext is null in hvigorfile/使用HMRouter报错moduleContext is null in hvigorfile.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-218"
+  },
+  {
+    "slug": "faqs-compiling-and-building-218",
+    "name": "使用HMRouter报错moduleContext is null in hvigorfile",
+    "file": "编译构建/使用HMRouter报错moduleContext is null in hvigorfile.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-218"
+  },
+  {
+    "slug": "faqs-compiling-and-building-213",
+    "name": "使用Hvigor自定义不同产物的配置数据",
+    "file": "开发/FAQ/DevEco Studio/编译构建/使用Hvigor自定义不同产物的配置数据/使用Hvigor自定义不同产物的配置数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-213"
+  },
+  {
+    "slug": "faqs-compiling-and-building-213",
+    "name": "使用Hvigor自定义不同产物的配置数据",
+    "file": "编译构建/使用Hvigor自定义不同产物的配置数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-213"
+  },
+  {
+    "slug": "faqs-compiling-and-building-203",
+    "name": "动态生成编译构建产物Hap和App的名称",
+    "file": "开发/FAQ/DevEco Studio/编译构建/动态生成编译构建产物Hap和App的名称/动态生成编译构建产物Hap和App的名称.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-203"
+  },
+  {
+    "slug": "faqs-compiling-and-building-203",
+    "name": "动态生成编译构建产物Hap和App的名称",
+    "file": "编译构建/动态生成编译构建产物Hap和App的名称.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-203"
+  },
+  {
+    "slug": "faqs-compiling-and-building-205",
+    "name": "基于hvigorfile.ts自定义打包文件名，如何删除同文件夹存在的安装包",
+    "file": "开发/FAQ/DevEco Studio/编译构建/基于hvigorfile.ts自定义打包文件名，如何删除同文件夹存在的安装包/基于hvigorfile.ts自定义打包文件名，如何删除同文件夹存在的安装包.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-205"
+  },
+  {
+    "slug": "faqs-compiling-and-building-205",
+    "name": "基于hvigorfile.ts自定义打包文件名，如何删除同文件夹存在的安装包",
+    "file": "编译构建/基于hvigorfile.ts自定义打包文件名，如何删除同文件夹存在的安装包.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-205"
+  },
+  {
+    "slug": "faqs-compiling-and-building-206",
+    "name": "如何动态修改oh-package.json5的内容",
+    "file": "开发/FAQ/DevEco Studio/编译构建/如何动态修改oh-package.json5的内容/如何动态修改oh-package.json5的内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-206"
+  },
+  {
+    "slug": "faqs-compiling-and-building-206",
+    "name": "如何动态修改oh-package.json5的内容",
+    "file": "编译构建/如何动态修改oh-package.json5的内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-206"
+  },
+  {
+    "slug": "faqs-compiling-and-building-212",
+    "name": "如何在构建打包时获取云端文件新增或更新到rawfile文件夹中",
+    "file": "开发/FAQ/DevEco Studio/编译构建/如何在构建打包时获取云端文件新增或更新到rawfile文件夹中/如何在构建打包时获取云端文件新增或更新到rawfile文件夹中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-212"
+  },
+  {
+    "slug": "faqs-compiling-and-building-212",
+    "name": "如何在构建打包时获取云端文件新增或更新到rawfile文件夹中",
+    "file": "编译构建/如何在构建打包时获取云端文件新增或更新到rawfile文件夹中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-212"
+  },
+  {
+    "slug": "faqs-compiling-and-building-215",
+    "name": "如何解决打包时提示删除自定义字体无权限问题",
+    "file": "开发/FAQ/DevEco Studio/编译构建/如何解决打包时提示删除自定义字体无权限问题/如何解决打包时提示删除自定义字体无权限问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-215"
+  },
+  {
+    "slug": "faqs-compiling-and-building-215",
+    "name": "如何解决打包时提示删除自定义字体无权限问题",
+    "file": "编译构建/如何解决打包时提示删除自定义字体无权限问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-215"
+  },
+  {
+    "slug": "faqs-compiling-and-building-214",
+    "name": "如何解决直接安装与命令安装的HAP包不一致问题",
+    "file": "开发/FAQ/DevEco Studio/编译构建/如何解决直接安装与命令安装的HAP包不一致问题/如何解决直接安装与命令安装的HAP包不一致问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-214"
+  },
+  {
+    "slug": "faqs-compiling-and-building-214",
+    "name": "如何解决直接安装与命令安装的HAP包不一致问题",
+    "file": "编译构建/如何解决直接安装与命令安装的HAP包不一致问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-214"
+  },
+  {
+    "slug": "faqs-compiling-and-building-199",
+    "name": "如何解决编译本地依赖包失败的问题",
+    "file": "开发/FAQ/DevEco Studio/编译构建/如何解决编译本地依赖包失败的问题/如何解决编译本地依赖包失败的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-199"
+  },
+  {
+    "slug": "faqs-compiling-and-building-199",
+    "name": "如何解决编译本地依赖包失败的问题",
+    "file": "编译构建/如何解决编译本地依赖包失败的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-199"
+  },
+  {
+    "slug": "faqs-compiling-and-building-220",
+    "name": "如何解决编译构建时间过长问题",
+    "file": "开发/FAQ/DevEco Studio/编译构建/如何解决编译构建时间过长问题/如何解决编译构建时间过长问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-220"
+  },
+  {
+    "slug": "faqs-compiling-and-building-220",
+    "name": "如何解决编译构建时间过长问题",
+    "file": "编译构建/如何解决编译构建时间过长问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-220"
+  },
+  {
+    "slug": "faqs-compiling-and-building-219",
+    "name": "如何进行App加固操作",
+    "file": "开发/FAQ/DevEco Studio/编译构建/如何进行App加固操作/如何进行App加固操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-219"
+  },
+  {
+    "slug": "faqs-compiling-and-building-219",
+    "name": "如何进行App加固操作",
+    "file": "编译构建/如何进行App加固操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-219"
+  },
+  {
+    "slug": "faqs-compiling-and-building-204",
+    "name": "打包App报错：input module vendor is different",
+    "file": "开发/FAQ/DevEco Studio/编译构建/打包App报错：input module vendor is different/打包App报错：input module vendor is different.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-204"
+  },
+  {
+    "slug": "faqs-compiling-and-building-204",
+    "name": "打包App报错：input module vendor is different",
+    "file": "编译构建/打包App报错：input module vendor is different.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-204"
+  },
+  {
+    "slug": "faqs-compiling-and-building-new-00001",
+    "name": "新建OpenHarmony工程仅修改打包方式未改配置导致加载so库闪退",
+    "file": "开发/FAQ/DevEco Studio/编译构建/新建OpenHarmony工程仅修改打包方式未改配置导致加载so库闪退/新建OpenHarmony工程仅修改打包方式未改配置导致加载so库闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-new-00001"
+  },
+  {
+    "slug": "faqs-compiling-and-building-209",
+    "name": "移除module.json5中label和icon字段导致photoAccessHelper接口报错",
+    "file": "开发/FAQ/DevEco Studio/编译构建/移除module.json5中label和icon字段导致photoAccessHelper接口报错/移除module.json5中label和icon字段导致photoAccessHelper接口报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-209"
+  },
+  {
+    "slug": "faqs-compiling-and-building-209",
+    "name": "移除module.json5中label和icon字段导致photoAccessHelper接口报错",
+    "file": "编译构建/移除module.json5中label和icon字段导致photoAccessHelper接口报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-209"
+  },
+  {
+    "slug": "faqs-compiling-and-building-216",
+    "name": "编译报错daemon connections达到上限",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译报错daemon connections达到上限/编译报错daemon connections达到上限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-216"
+  },
+  {
+    "slug": "faqs-compiling-and-building-216",
+    "name": "编译报错daemon connections达到上限",
+    "file": "编译构建/编译报错daemon connections达到上限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-216"
+  },
+  {
+    "slug": "faqs-compiling-and-building-221",
+    "name": "编译报错：ERROR: 00308002 Operation Error问题汇总",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译报错：ERROR： 00308002 Operation Error问题汇总/编译报错：ERROR： 00308002 Operation Error问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-221"
+  },
+  {
+    "slug": "faqs-compiling-and-building-221",
+    "name": "编译报错：ERROR: 00308002 Operation Error问题汇总",
+    "file": "编译构建/编译报错：ERROR： 00308002 Operation Error问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-221"
+  },
+  {
+    "slug": "faqs-compiling-and-building-224",
+    "name": "编译构建常见报错hvigor ERROR问题",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译构建常见报错hvigor ERROR问题/编译构建常见报错hvigor ERROR问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-224"
+  },
+  {
+    "slug": "faqs-compiling-and-building-224",
+    "name": "编译构建常见报错hvigor ERROR问题",
+    "file": "编译构建/编译构建常见报错hvigor ERROR问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-224"
+  },
+  {
+    "slug": "faqs-compiling-and-building-232",
+    "name": "编译构建时报错：权限错误问题汇总",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译构建时报错：权限错误问题汇总/编译构建时报错：权限错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-232"
+  },
+  {
+    "slug": "faqs-compiling-and-building-232",
+    "name": "编译构建时报错：权限错误问题汇总",
+    "file": "编译构建/编译构建时报错：权限错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-232"
+  },
+  {
+    "slug": "faqs-compiling-and-building-229",
+    "name": "编译构建时报错：系统错误问题汇总",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译构建时报错：系统错误问题汇总/编译构建时报错：系统错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-229"
+  },
+  {
+    "slug": "faqs-compiling-and-building-229",
+    "name": "编译构建时报错：系统错误问题汇总",
+    "file": "编译构建/编译构建时报错：系统错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-229"
+  },
+  {
+    "slug": "faqs-compiling-and-building-227",
+    "name": "编译构建时报错：语法错误问题汇总",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译构建时报错：语法错误问题汇总/编译构建时报错：语法错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-227"
+  },
+  {
+    "slug": "faqs-compiling-and-building-227",
+    "name": "编译构建时报错：语法错误问题汇总",
+    "file": "编译构建/编译构建时报错：语法错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-227"
+  },
+  {
+    "slug": "faqs-compiling-and-building-226",
+    "name": "编译构建时报错：资源缺失错误问题汇总",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译构建时报错：资源缺失错误问题汇总/编译构建时报错：资源缺失错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-226"
+  },
+  {
+    "slug": "faqs-compiling-and-building-226",
+    "name": "编译构建时报错：资源缺失错误问题汇总",
+    "file": "编译构建/编译构建时报错：资源缺失错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-226"
+  },
+  {
+    "slug": "faqs-compiling-and-building-230",
+    "name": "编译构建时报错：配置错误问题汇总",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译构建时报错：配置错误问题汇总/编译构建时报错：配置错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-230"
+  },
+  {
+    "slug": "faqs-compiling-and-building-230",
+    "name": "编译构建时报错：配置错误问题汇总",
+    "file": "编译构建/编译构建时报错：配置错误问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-230"
+  },
+  {
+    "slug": "faqs-compiling-and-building-200",
+    "name": "编译构建项目无法排除某些目录打包怎么处理",
+    "file": "开发/FAQ/DevEco Studio/编译构建/编译构建项目无法排除某些目录打包怎么处理/编译构建项目无法排除某些目录打包怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-200"
+  },
+  {
+    "slug": "faqs-compiling-and-building-200",
+    "name": "编译构建项目无法排除某些目录打包怎么处理",
+    "file": "编译构建/编译构建项目无法排除某些目录打包怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-200"
+  },
+  {
+    "slug": "faqs-compiling-and-building-207",
+    "name": "能否在编译打包时自定义版本号",
+    "file": "开发/FAQ/DevEco Studio/编译构建/能否在编译打包时自定义版本号/能否在编译打包时自定义版本号.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-207"
+  },
+  {
+    "slug": "faqs-compiling-and-building-207",
+    "name": "能否在编译打包时自定义版本号",
+    "file": "编译构建/能否在编译打包时自定义版本号.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-207"
+  },
+  {
+    "slug": "faqs-compiling-and-building-228",
+    "name": "自定义Hvigor插件是否能进行断点调试",
+    "file": "开发/FAQ/DevEco Studio/编译构建/自定义Hvigor插件是否能进行断点调试/自定义Hvigor插件是否能进行断点调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-228"
+  },
+  {
+    "slug": "faqs-compiling-and-building-228",
+    "name": "自定义Hvigor插件是否能进行断点调试",
+    "file": "编译构建/自定义Hvigor插件是否能进行断点调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-228"
+  },
+  {
+    "slug": "faqs-compiling-and-building-217",
+    "name": "获取Hap包的打包构建时间",
+    "file": "开发/FAQ/DevEco Studio/编译构建/获取Hap包的打包构建时间/获取Hap包的打包构建时间.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-217"
+  },
+  {
+    "slug": "faqs-compiling-and-building-217",
+    "name": "获取Hap包的打包构建时间",
+    "file": "编译构建/获取Hap包的打包构建时间.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-217"
+  },
+  {
+    "slug": "faqs-compiling-and-building-198",
+    "name": "通过命令行获取profile文件中的bundleName信息失败怎么办",
+    "file": "开发/FAQ/DevEco Studio/编译构建/通过命令行获取profile文件中的bundleName信息失败怎么办/通过命令行获取profile文件中的bundleName信息失败怎么办.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-198"
+  },
+  {
+    "slug": "faqs-compiling-and-building-198",
+    "name": "通过命令行获取profile文件中的bundleName信息失败怎么办",
+    "file": "编译构建/通过命令行获取profile文件中的bundleName信息失败怎么办.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-198"
+  },
+  {
+    "slug": "faqs-compiling-and-building-202",
+    "name": "配置useNormalizedOHMUrl为true模式下常见错误",
+    "file": "开发/FAQ/DevEco Studio/编译构建/配置useNormalizedOHMUrl为true模式下常见错误/配置useNormalizedOHMUrl为true模式下常见错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-202"
+  },
+  {
+    "slug": "faqs-compiling-and-building-202",
+    "name": "配置useNormalizedOHMUrl为true模式下常见错误",
+    "file": "编译构建/配置useNormalizedOHMUrl为true模式下常见错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-202"
+  },
+  {
+    "slug": "faqs-compiling-and-building-222",
+    "name": "集成第三方字节码HAR包报错汇总",
+    "file": "开发/FAQ/DevEco Studio/编译构建/集成第三方字节码HAR包报错汇总/集成第三方字节码HAR包报错汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-222"
+  },
+  {
+    "slug": "faqs-compiling-and-building-222",
+    "name": "集成第三方字节码HAR包报错汇总",
+    "file": "编译构建/集成第三方字节码HAR包报错汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-222"
+  },
+  {
+    "slug": "faqs-compiling-and-building-231",
+    "name": "项目代码构建报错Cannot read properties of undefined (reading 'xxxx')",
+    "file": "开发/FAQ/DevEco Studio/编译构建/项目代码构建报错Cannot read properties of undefined (reading 'xxxx')/项目代码构建报错Cannot read properties of undefined (reading 'xxxx').md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-231"
+  },
+  {
+    "slug": "faqs-compiling-and-building-231",
+    "name": "项目代码构建报错Cannot read properties of undefined (reading 'xxxx')",
+    "file": "编译构建/项目代码构建报错Cannot read properties of undefined (reading 'xxxx').md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-231"
+  },
+  {
+    "slug": "faqs-compiling-and-building-197",
+    "name": "预览器触发构建，编译时发生daemon相关报错",
+    "file": "开发/FAQ/DevEco Studio/编译构建/预览器触发构建，编译时发生daemon相关报错/预览器触发构建，编译时发生daemon相关报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-197"
+  },
+  {
+    "slug": "faqs-compiling-and-building-197",
+    "name": "预览器触发构建，编译时发生daemon相关报错",
+    "file": "编译构建/预览器触发构建，编译时发生daemon相关报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-197"
   }
 ]

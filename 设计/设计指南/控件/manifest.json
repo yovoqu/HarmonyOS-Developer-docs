@@ -250,5 +250,11 @@
     "name": "半模态面板",
     "file": "容器类/半模态面板.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/bindsheet-0000001956852753"
+  },
+  {
+    "slug": "color-picker-0000002574393143",
+    "name": "色彩选择器",
+    "file": "选择类/色彩选择器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/color-picker-0000002574393143"
   }
 ]

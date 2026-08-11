@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "bpta-antipeep-protection",
+    "name": "防窥保护",
+    "file": "防窥保护.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-antipeep-protection"
+  },
+  {
+    "slug": "bpta-live-form-development-practice",
+    "name": "互动卡片开发实践",
+    "file": "互动卡片开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-live-form-development-practice"
+  },
+  {
+    "slug": "bpta-live-streaming-optimization",
+    "name": "弱网直播优化",
+    "file": "弱网直播优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-live-streaming-optimization"
+  },
+  {
+    "slug": "bpta-pre-connect",
+    "name": "冷启网络预建链最佳实践",
+    "file": "冷启网络预建链最佳实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pre-connect"
+  },
+  {
+    "slug": "bpta-risk-control-engine",
+    "name": "星盾机密风控引擎",
+    "file": "星盾机密风控引擎.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-risk-control-engine"
+  },
+  {
+    "slug": "bpta-smart-reach",
+    "name": "智感握姿",
+    "file": "智感握姿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smart-reach"
+  },
+  {
+    "slug": "bpta-spatiality-immersive",
+    "name": "沉浸光感",
+    "file": "沉浸光感.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-spatiality-immersive"
+  }
+]

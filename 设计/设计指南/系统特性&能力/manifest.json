@@ -100,5 +100,23 @@
     "name": "智感握姿",
     "file": "系统能力/智感握姿.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-reachability-0000002556657823"
+  },
+  {
+    "slug": "floatview-0000002624640357",
+    "name": "闪控球和闪控窗",
+    "file": "系统特性/闪控球和闪控窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/floatview-0000002624640357"
+  },
+  {
+    "slug": "parallel_view-0000002588655180",
+    "name": "平行视界",
+    "file": "系统能力/平行视界.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/parallel_view-0000002588655180"
+  },
+  {
+    "slug": "shortcat-0000002550987962",
+    "name": "桌面快捷方式",
+    "file": "系统特性/桌面快捷方式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/shortcat-0000002550987962"
   }
 ]

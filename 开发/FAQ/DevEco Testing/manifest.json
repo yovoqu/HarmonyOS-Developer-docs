@@ -481,5 +481,221 @@
     "name": "UIViewer获取页面时，无法展示页面截图和元素树如何处理",
     "file": "实用工具/UIViewer/UIViewer获取页面时，无法展示页面截图和元素树如何处理.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-uiviewer-2"
+  },
+  {
+    "slug": "faqs-quality-test-5",
+    "name": "上架预检执行多个小时是否正常",
+    "file": "开发/FAQ/DevEco Testing/上架预检/上架预检执行多个小时是否正常/上架预检执行多个小时是否正常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-quality-test-5"
+  },
+  {
+    "slug": "faqs-quality-test-5",
+    "name": "上架预检执行多个小时是否正常",
+    "file": "上架预检/上架预检执行多个小时是否正常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-quality-test-5"
+  },
+  {
+    "slug": "faqs-ux-basic-quality-test-1",
+    "name": "如何定位UX测试结果不通过问题",
+    "file": "开发/FAQ/DevEco Testing/专项测试/UX基础质量测试/如何定位UX测试结果不通过问题/如何定位UX测试结果不通过问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ux-basic-quality-test-1"
+  },
+  {
+    "slug": "faqs-ux-basic-quality-test-1",
+    "name": "如何定位UX测试结果不通过问题",
+    "file": "专项测试/UX基础质量测试/如何定位UX测试结果不通过问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ux-basic-quality-test-1"
+  },
+  {
+    "slug": "faqs-scenario-based-performance-test-17",
+    "name": "场景化性能测试任务创建及执行失败的常见问题",
+    "file": "开发/FAQ/DevEco Testing/专项测试/场景化性能测试/场景化性能测试任务创建及执行失败的常见问题/场景化性能测试任务创建及执行失败的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-17"
+  },
+  {
+    "slug": "faqs-scenario-based-performance-test-17",
+    "name": "场景化性能测试任务创建及执行失败的常见问题",
+    "file": "专项测试/场景化性能测试/场景化性能测试任务创建及执行失败的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-17"
+  },
+  {
+    "slug": "faqs-scenario-based-performance-test-16",
+    "name": "如何解决场景化性能测试脚本运行报错：'NoneType' object has no attribute 'replace'",
+    "file": "开发/FAQ/DevEco Testing/专项测试/场景化性能测试/如何解决场景化性能测试脚本运行报错：'NoneType' object has no attribute 'replace'/如何解决场景化性能测试脚本运行报错：'NoneType' object has no attribute 'replace'.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-16"
+  },
+  {
+    "slug": "faqs-scenario-based-performance-test-16",
+    "name": "如何解决场景化性能测试脚本运行报错：'NoneType' object has no attribute 'replace'",
+    "file": "专项测试/场景化性能测试/如何解决场景化性能测试脚本运行报错：'NoneType' object has no attribute 'replace'.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-16"
+  },
+  {
+    "slug": "faqs-security-basic-quality-test-1",
+    "name": "如何定位安全基础质量测试检测不通过问题",
+    "file": "开发/FAQ/DevEco Testing/专项测试/安全基础质量测试/如何定位安全基础质量测试检测不通过问题/如何定位安全基础质量测试检测不通过问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-security-basic-quality-test-1"
+  },
+  {
+    "slug": "faqs-security-basic-quality-test-1",
+    "name": "如何定位安全基础质量测试检测不通过问题",
+    "file": "专项测试/安全基础质量测试/如何定位安全基础质量测试检测不通过问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-security-basic-quality-test-1"
+  },
+  {
+    "slug": "faqs-security-basic-quality-test-2",
+    "name": "如何执行安全基础质量测试和查看测试结果",
+    "file": "开发/FAQ/DevEco Testing/专项测试/安全基础质量测试/如何执行安全基础质量测试和查看测试结果/如何执行安全基础质量测试和查看测试结果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-security-basic-quality-test-2"
+  },
+  {
+    "slug": "faqs-security-basic-quality-test-2",
+    "name": "如何执行安全基础质量测试和查看测试结果",
+    "file": "专项测试/安全基础质量测试/如何执行安全基础质量测试和查看测试结果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-security-basic-quality-test-2"
+  },
+  {
+    "slug": "faqs-stability-basic-quality-test-6",
+    "name": "如何获取和查看DevEco Testing稳定性测试日志",
+    "file": "开发/FAQ/DevEco Testing/专项测试/稳定性基础质量测试/如何获取和查看DevEco Testing稳定性测试日志/如何获取和查看DevEco Testing稳定性测试日志.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-6"
+  },
+  {
+    "slug": "faqs-stability-basic-quality-test-6",
+    "name": "如何获取和查看DevEco Testing稳定性测试日志",
+    "file": "专项测试/稳定性基础质量测试/如何获取和查看DevEco Testing稳定性测试日志.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-6"
+  },
+  {
+    "slug": "faqs-stability-basic-quality-test-7",
+    "name": "稳定性测试常见咨询FAQ",
+    "file": "开发/FAQ/DevEco Testing/专项测试/稳定性基础质量测试/稳定性测试常见咨询FAQ/稳定性测试常见咨询FAQ.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-7"
+  },
+  {
+    "slug": "faqs-stability-basic-quality-test-7",
+    "name": "稳定性测试常见咨询FAQ",
+    "file": "专项测试/稳定性基础质量测试/稳定性测试常见咨询FAQ.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-7"
+  },
+  {
+    "slug": "faqs-regression-test-18",
+    "name": "如何解决Hypium测试用例转换为测试服务包时py_file字段获取为空的问题",
+    "file": "开发/FAQ/DevEco Testing/回归测试/如何解决Hypium测试用例转换为测试服务包时py_file字段获取为空的问题/如何解决Hypium测试用例转换为测试服务包时py_file字段获取为空的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-18"
+  },
+  {
+    "slug": "faqs-regression-test-18",
+    "name": "如何解决Hypium测试用例转换为测试服务包时py_file字段获取为空的问题",
+    "file": "回归测试/如何解决Hypium测试用例转换为测试服务包时py_file字段获取为空的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-18"
+  },
+  {
+    "slug": "faqs-utilities-cast-4",
+    "name": "DevEco Testing实用工具设备投屏一直提示加载中的排查方法",
+    "file": "开发/FAQ/DevEco Testing/实用工具/设备投屏/DevEco Testing实用工具设备投屏一直提示加载中的排查方法/DevEco Testing实用工具设备投屏一直提示加载中的排查方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-4"
+  },
+  {
+    "slug": "faqs-utilities-cast-4",
+    "name": "DevEco Testing实用工具设备投屏一直提示加载中的排查方法",
+    "file": "实用工具/设备投屏/DevEco Testing实用工具设备投屏一直提示加载中的排查方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-4"
+  },
+  {
+    "slug": "faqs-utilities-cast-3",
+    "name": "DevEco Testing设备投屏时切换流畅模式提示暂不支持如何解决",
+    "file": "开发/FAQ/DevEco Testing/实用工具/设备投屏/DevEco Testing设备投屏时切换流畅模式提示暂不支持如何解决/DevEco Testing设备投屏时切换流畅模式提示暂不支持如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-3"
+  },
+  {
+    "slug": "faqs-utilities-cast-3",
+    "name": "DevEco Testing设备投屏时切换流畅模式提示暂不支持如何解决",
+    "file": "实用工具/设备投屏/DevEco Testing设备投屏时切换流畅模式提示暂不支持如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-3"
+  },
+  {
+    "slug": "faqs-utilities-cast-5",
+    "name": "如何通过DevEco Testing将故障截图/录屏导出到电脑上",
+    "file": "开发/FAQ/DevEco Testing/实用工具/设备投屏/如何通过DevEco Testing将故障截图／录屏导出到电脑上/如何通过DevEco Testing将故障截图／录屏导出到电脑上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-5"
+  },
+  {
+    "slug": "faqs-utilities-cast-5",
+    "name": "如何通过DevEco Testing将故障截图/录屏导出到电脑上",
+    "file": "实用工具/设备投屏/如何通过DevEco Testing将故障截图／录屏导出到电脑上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-5"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-9",
+    "name": "DevEco Testing在无网络情况下能否使用",
+    "file": "开发/FAQ/DevEco Testing/常见问题/DevEco Testing在无网络情况下能否使用/DevEco Testing在无网络情况下能否使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-9"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-9",
+    "name": "DevEco Testing在无网络情况下能否使用",
+    "file": "常见问题/DevEco Testing在无网络情况下能否使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-9"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-12",
+    "name": "DevEco Testing支持的设备类型",
+    "file": "开发/FAQ/DevEco Testing/常见问题/DevEco Testing支持的设备类型/DevEco Testing支持的设备类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-12"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-12",
+    "name": "DevEco Testing支持的设备类型",
+    "file": "常见问题/DevEco Testing支持的设备类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-12"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-10",
+    "name": "DevEco Testing每次关闭再打开都需要重新输入账号密码如何解决",
+    "file": "开发/FAQ/DevEco Testing/常见问题/DevEco Testing每次关闭再打开都需要重新输入账号密码如何解决/DevEco Testing每次关闭再打开都需要重新输入账号密码如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-10"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-10",
+    "name": "DevEco Testing每次关闭再打开都需要重新输入账号密码如何解决",
+    "file": "常见问题/DevEco Testing每次关闭再打开都需要重新输入账号密码如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-10"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-13",
+    "name": "Hypium运行报错：imported module hypium中找不到引用UiDriver",
+    "file": "开发/FAQ/DevEco Testing/常见问题/Hypium运行报错：imported module hypium中找不到引用UiDriver/Hypium运行报错：imported module hypium中找不到引用UiDriver.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-13"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-13",
+    "name": "Hypium运行报错：imported module hypium中找不到引用UiDriver",
+    "file": "常见问题/Hypium运行报错：imported module hypium中找不到引用UiDriver.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-13"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-11",
+    "name": "如何使用DevEco Testing进行应用安装/卸载",
+    "file": "开发/FAQ/DevEco Testing/常见问题/如何使用DevEco Testing进行应用安装／卸载/如何使用DevEco Testing进行应用安装／卸载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-11"
+  },
+  {
+    "slug": "faqs-deveco-testing-faq-11",
+    "name": "如何使用DevEco Testing进行应用安装/卸载",
+    "file": "常见问题/如何使用DevEco Testing进行应用安装／卸载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-11"
+  },
+  {
+    "slug": "faqs-app-exploration-test-10",
+    "name": "如何对指定的页面进行压测",
+    "file": "开发/FAQ/DevEco Testing/探索测试/应用探索测试/如何对指定的页面进行压测/如何对指定的页面进行压测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-10"
+  },
+  {
+    "slug": "faqs-app-exploration-test-10",
+    "name": "如何对指定的页面进行压测",
+    "file": "探索测试/应用探索测试/如何对指定的页面进行压测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-10"
   }
 ]

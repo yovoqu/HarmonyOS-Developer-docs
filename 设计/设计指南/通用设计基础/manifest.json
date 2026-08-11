@@ -94,5 +94,29 @@
     "name": "隐私",
     "file": "隐私.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/privacy-0000001929972682"
+  },
+  {
+    "slug": "corner-radius-parameter-0000002556468705",
+    "name": "圆角参数",
+    "file": "视觉风格/圆角参数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/corner-radius-parameter-0000002556468705"
+  },
+  {
+    "slug": "immersivelight-0000002612101053",
+    "name": "沉浸光感",
+    "file": "视觉风格/沉浸光感.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053"
+  },
+  {
+    "slug": "interval-parameter-0000002562577161",
+    "name": "间隔参数",
+    "file": "视觉风格/间隔参数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/interval-parameter-0000002562577161"
+  },
+  {
+    "slug": "typography-0000002622688363",
+    "name": "文本排版",
+    "file": "视觉风格/文本排版.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/typography-0000002622688363"
   }
 ]

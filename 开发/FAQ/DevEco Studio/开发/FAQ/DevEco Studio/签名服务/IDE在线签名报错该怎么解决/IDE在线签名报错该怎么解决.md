@@ -1,0 +1,41 @@
+# IDE在线签名报错该怎么解决
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-21
+
+#### 问题现象
+
+IDE自动签名时报错，报错信息为：
+ 
+```text
+<span style="color: rgb(0,0,255);">The bundle name contains </span><span style="color: rgb(255,0,0);">7 </span><span style="color: rgb(0,0,255);">to </span><span style="color: rgb(255,0,0);">128 </span><span style="color: rgb(0,0,255);">characters</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">including only letters</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">and </span><span style="color: rgb(0,0,255);">underscores </span><span style="color: rgb(0,0,255);">( )</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">It must start </span>with <span style="color: rgb(0,0,255);">a letter and contain at least three segments separated by </span><span style="color: rgb(0,0,255);">periods </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">each of the segments ending </span>with <span style="color: rgb(0,0,255);">a digit or letter</span><span style="color: rgb(181,106,1);">.</span>
+```
+ 
+ 
+
+#### 背景知识
+
+进入File>Project Structure...>Project>Signing Configs界面，勾选“Automatically generate signature”（如果是HarmonyOS工程，需同时勾选“Support HarmonyOS”），即可完成签名。如果未登录，请先单击Sign In进行登录，然后自动完成签名。详情可参考[应用/元服务签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
+ 
+ 
+
+#### 问题定位
+
+自动签名时，bundleName没有带出，显示为空，导致出现上述报错。往上定位，发现是AppScope下的app.json5文件没有被识别到，继续定位，发现是设置了忽略app.json5文件。
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/YDZLw_0UQ6Oii6qsFA3cNQ/zh-cn_image_0000002658808643.png?HW-CC-KV=V1&HW-CC-Date=20260811T005525Z&HW-CC-Expire=86400&HW-CC-Sign=89C2EC1BDD6262C1F1C3D13D47A180C2F9E3A713B631C8B2F6573C9C9184DB5D)
+
+ 
+ 
+
+#### 分析结论
+
+设置忽略app.json5文件，导致没有识别出AppScope下的app.json5文件。
+ 
+ 
+
+#### 修改建议
+
+删除忽略app.json5文件设置。

@@ -61,5 +61,4193 @@
     "name": "在室内时，在持续定位场景中设置interval为1，为何不生效",
     "file": "位置服务（Location Kit）/在室内时，在持续定位场景中设置interval为1，为何不生效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-kit-3"
+  },
+  {
+    "slug": "faqs-pdf-9",
+    "name": "PDF Kit提供的PDF转图片的多个API有什么区别",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDF Kit提供的PDF转图片的多个API有什么区别/PDF Kit提供的PDF转图片的多个API有什么区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-9"
+  },
+  {
+    "slug": "faqs-pdf-9",
+    "name": "PDF Kit提供的PDF转图片的多个API有什么区别",
+    "file": "PDF文档解析服务（PDF Kit）/PDF Kit提供的PDF转图片的多个API有什么区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-9"
+  },
+  {
+    "slug": "faqs-pdf-17",
+    "name": "PDF Kit水印相关问题汇总",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDF Kit水印相关问题汇总/PDF Kit水印相关问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-17"
+  },
+  {
+    "slug": "faqs-pdf-17",
+    "name": "PDF Kit水印相关问题汇总",
+    "file": "PDF文档解析服务（PDF Kit）/PDF Kit水印相关问题汇总.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-17"
+  },
+  {
+    "slug": "faqs-pdf-11",
+    "name": "PDFService.searchKey如何获取关键字数量和所属页码",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDFService.searchKey如何获取关键字数量和所属页码/PDFService.searchKey如何获取关键字数量和所属页码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-11"
+  },
+  {
+    "slug": "faqs-pdf-11",
+    "name": "PDFService.searchKey如何获取关键字数量和所属页码",
+    "file": "PDF文档解析服务（PDF Kit）/PDFService.searchKey如何获取关键字数量和所属页码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-11"
+  },
+  {
+    "slug": "faqs-pdf-14",
+    "name": "PDFView拖拽能力",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDFView拖拽能力/PDFView拖拽能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-14"
+  },
+  {
+    "slug": "faqs-pdf-14",
+    "name": "PDFView拖拽能力",
+    "file": "PDF文档解析服务（PDF Kit）/PDFView拖拽能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-14"
+  },
+  {
+    "slug": "faqs-pdf-8",
+    "name": "PDF文档转换成的图片如何重命名",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDF文档转换成的图片如何重命名/PDF文档转换成的图片如何重命名.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-8"
+  },
+  {
+    "slug": "faqs-pdf-8",
+    "name": "PDF文档转换成的图片如何重命名",
+    "file": "PDF文档解析服务（PDF Kit）/PDF文档转换成的图片如何重命名.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-8"
+  },
+  {
+    "slug": "faqs-pdf-16",
+    "name": "PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决/PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-16"
+  },
+  {
+    "slug": "faqs-pdf-16",
+    "name": "PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决",
+    "file": "PDF文档解析服务（PDF Kit）/PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-16"
+  },
+  {
+    "slug": "faqs-pdf-20",
+    "name": "PDF添加水印是替换还是叠加",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDF添加水印是替换还是叠加/PDF添加水印是替换还是叠加.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-20"
+  },
+  {
+    "slug": "faqs-pdf-20",
+    "name": "PDF添加水印是替换还是叠加",
+    "file": "PDF文档解析服务（PDF Kit）/PDF添加水印是替换还是叠加.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-20"
+  },
+  {
+    "slug": "faqs-pdf-12",
+    "name": "PdfView如何禁用缩放",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PdfView如何禁用缩放/PdfView如何禁用缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-12"
+  },
+  {
+    "slug": "faqs-pdf-12",
+    "name": "PdfView如何禁用缩放",
+    "file": "PDF文档解析服务（PDF Kit）/PdfView如何禁用缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-12"
+  },
+  {
+    "slug": "faqs-pdf-10",
+    "name": "PdfView组件如何实时显示编辑后的PDF文件",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PdfView组件如何实时显示编辑后的PDF文件/PdfView组件如何实时显示编辑后的PDF文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-10"
+  },
+  {
+    "slug": "faqs-pdf-10",
+    "name": "PdfView组件如何实时显示编辑后的PDF文件",
+    "file": "PDF文档解析服务（PDF Kit）/PdfView组件如何实时显示编辑后的PDF文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-10"
+  },
+  {
+    "slug": "faqs-pdf-5",
+    "name": "PdfView能否获取目录",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PdfView能否获取目录/PdfView能否获取目录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-5"
+  },
+  {
+    "slug": "faqs-pdf-5",
+    "name": "PdfView能否获取目录",
+    "file": "PDF文档解析服务（PDF Kit）/PdfView能否获取目录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-5"
+  },
+  {
+    "slug": "faqs-pdf-15",
+    "name": "从相册中选择图片添加到PDF页面中",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/从相册中选择图片添加到PDF页面中/从相册中选择图片添加到PDF页面中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-15"
+  },
+  {
+    "slug": "faqs-pdf-15",
+    "name": "从相册中选择图片添加到PDF页面中",
+    "file": "PDF文档解析服务（PDF Kit）/从相册中选择图片添加到PDF页面中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-15"
+  },
+  {
+    "slug": "faqs-pdf-3",
+    "name": "在预览模式下，如何一键删除所有PDF标注",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/在预览模式下，如何一键删除所有PDF标注/在预览模式下，如何一键删除所有PDF标注.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-3"
+  },
+  {
+    "slug": "faqs-pdf-3",
+    "name": "在预览模式下，如何一键删除所有PDF标注",
+    "file": "PDF文档解析服务（PDF Kit）/在预览模式下，如何一键删除所有PDF标注.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-3"
+  },
+  {
+    "slug": "faqs-pdf-4",
+    "name": "如何为PDF添加指定的字符串生成新的PDF文件",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/如何为PDF添加指定的字符串生成新的PDF文件/如何为PDF添加指定的字符串生成新的PDF文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-4"
+  },
+  {
+    "slug": "faqs-pdf-4",
+    "name": "如何为PDF添加指定的字符串生成新的PDF文件",
+    "file": "PDF文档解析服务（PDF Kit）/如何为PDF添加指定的字符串生成新的PDF文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-4"
+  },
+  {
+    "slug": "faqs-pdf-13",
+    "name": "如何合并多个PDF以及给PDF添加页码",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/如何合并多个PDF以及给PDF添加页码/如何合并多个PDF以及给PDF添加页码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-13"
+  },
+  {
+    "slug": "faqs-pdf-13",
+    "name": "如何合并多个PDF以及给PDF添加页码",
+    "file": "PDF文档解析服务（PDF Kit）/如何合并多个PDF以及给PDF添加页码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-13"
+  },
+  {
+    "slug": "faqs-pdf-2",
+    "name": "如何实现PDF的预览缩略图",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/如何实现PDF的预览缩略图/如何实现PDF的预览缩略图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-2"
+  },
+  {
+    "slug": "faqs-pdf-2",
+    "name": "如何实现PDF的预览缩略图",
+    "file": "PDF文档解析服务（PDF Kit）/如何实现PDF的预览缩略图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-2"
+  },
+  {
+    "slug": "faqs-pdf-7",
+    "name": "如何将不同尺寸的图片添加到PDF里",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/如何将不同尺寸的图片添加到PDF里/如何将不同尺寸的图片添加到PDF里.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-7"
+  },
+  {
+    "slug": "faqs-pdf-7",
+    "name": "如何将不同尺寸的图片添加到PDF里",
+    "file": "PDF文档解析服务（PDF Kit）/如何将不同尺寸的图片添加到PDF里.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-7"
+  },
+  {
+    "slug": "faqs-pdf-6",
+    "name": "如何打开三方应用分享的PDF文件",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/如何打开三方应用分享的PDF文件/如何打开三方应用分享的PDF文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-6"
+  },
+  {
+    "slug": "faqs-pdf-6",
+    "name": "如何打开三方应用分享的PDF文件",
+    "file": "PDF文档解析服务（PDF Kit）/如何打开三方应用分享的PDF文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-6"
+  },
+  {
+    "slug": "faqs-pdf-18",
+    "name": "如何通过Canvas绘制图形并添加到PDF上",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/如何通过Canvas绘制图形并添加到PDF上/如何通过Canvas绘制图形并添加到PDF上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-18"
+  },
+  {
+    "slug": "faqs-pdf-18",
+    "name": "如何通过Canvas绘制图形并添加到PDF上",
+    "file": "PDF文档解析服务（PDF Kit）/如何通过Canvas绘制图形并添加到PDF上.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-18"
+  },
+  {
+    "slug": "faqs-pdf-1",
+    "name": "应用内PDF文件预览失败",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/应用内PDF文件预览失败/应用内PDF文件预览失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-1"
+  },
+  {
+    "slug": "faqs-pdf-1",
+    "name": "应用内PDF文件预览失败",
+    "file": "PDF文档解析服务（PDF Kit）/应用内PDF文件预览失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-1"
+  },
+  {
+    "slug": "faqs-callservice-6",
+    "name": "voip通话低延时模式场景下系统是否支持回声消除",
+    "file": "开发/FAQ/应用服务开发/VoIP通话服务（Call Service Kit）/voip通话低延时模式场景下系统是否支持回声消除/voip通话低延时模式场景下系统是否支持回声消除.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-6"
+  },
+  {
+    "slug": "faqs-callservice-6",
+    "name": "voip通话低延时模式场景下系统是否支持回声消除",
+    "file": "VoIP通话服务（Call Service Kit）/voip通话低延时模式场景下系统是否支持回声消除.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-6"
+  },
+  {
+    "slug": "faqs-callservice-2",
+    "name": "为什么企业来电显示中的\"陌生号码与信息识别\"页面设计两个按钮",
+    "file": "开发/FAQ/应用服务开发/VoIP通话服务（Call Service Kit）/为什么企业来电显示中的\"陌生号码与信息识别\"页面设计两个按钮/为什么企业来电显示中的＂陌生号码与信息识别＂页面设计两个按钮.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-2"
+  },
+  {
+    "slug": "faqs-callservice-2",
+    "name": "为什么企业来电显示中的\"陌生号码与信息识别\"页面设计两个按钮",
+    "file": "VoIP通话服务（Call Service Kit）/为什么企业来电显示中的＂陌生号码与信息识别＂页面设计两个按钮.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-2"
+  },
+  {
+    "slug": "faqs-callservice-4",
+    "name": "企业联系人来去电信息手机号国家码匹配",
+    "file": "开发/FAQ/应用服务开发/VoIP通话服务（Call Service Kit）/企业联系人来去电信息手机号国家码匹配/企业联系人来去电信息手机号国家码匹配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-4"
+  },
+  {
+    "slug": "faqs-callservice-4",
+    "name": "企业联系人来去电信息手机号国家码匹配",
+    "file": "VoIP通话服务（Call Service Kit）/企业联系人来去电信息手机号国家码匹配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-4"
+  },
+  {
+    "slug": "faqs-callservice-1",
+    "name": "应用内发起通话，已经接通后通话状态显示错误",
+    "file": "开发/FAQ/应用服务开发/VoIP通话服务（Call Service Kit）/应用内发起通话，已经接通后通话状态显示错误/应用内发起通话，已经接通后通话状态显示错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-1"
+  },
+  {
+    "slug": "faqs-callservice-1",
+    "name": "应用内发起通话，已经接通后通话状态显示错误",
+    "file": "VoIP通话服务（Call Service Kit）/应用内发起通话，已经接通后通话状态显示错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-1"
+  },
+  {
+    "slug": "faqs-callservice-3",
+    "name": "当应用主进程被杀死，企业联系人信息来去电页面显示的内容如何获取",
+    "file": "开发/FAQ/应用服务开发/VoIP通话服务（Call Service Kit）/当应用主进程被杀死，企业联系人信息来去电页面显示的内容如何获取/当应用主进程被杀死，企业联系人信息来去电页面显示的内容如何获取.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-3"
+  },
+  {
+    "slug": "faqs-callservice-3",
+    "name": "当应用主进程被杀死，企业联系人信息来去电页面显示的内容如何获取",
+    "file": "VoIP通话服务（Call Service Kit）/当应用主进程被杀死，企业联系人信息来去电页面显示的内容如何获取.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-3"
+  },
+  {
+    "slug": "faqs-callservice-5",
+    "name": "通话服务中callId是否可以自定义，需要保持一致吗",
+    "file": "开发/FAQ/应用服务开发/VoIP通话服务（Call Service Kit）/通话服务中callId是否可以自定义，需要保持一致吗/通话服务中callId是否可以自定义，需要保持一致吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-5"
+  },
+  {
+    "slug": "faqs-callservice-5",
+    "name": "通话服务中callId是否可以自定义，需要保持一致吗",
+    "file": "VoIP通话服务（Call Service Kit）/通话服务中callId是否可以自定义，需要保持一致吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-callservice-5"
+  },
+  {
+    "slug": "faqs-cloudfoundation-7",
+    "name": "云函数各触发器的场景使用",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/云函数各触发器的场景使用/云函数各触发器的场景使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-7"
+  },
+  {
+    "slug": "faqs-cloudfoundation-7",
+    "name": "云函数各触发器的场景使用",
+    "file": "云开发服务（Cloud Foundation Kit）/云函数各触发器的场景使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-7"
+  },
+  {
+    "slug": "faqs-cloudfoundation-13",
+    "name": "云托管创建站点域名中点（.）自动消失问题说明",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/云托管创建站点域名中点（.）自动消失问题说明/云托管创建站点域名中点（.）自动消失问题说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-13"
+  },
+  {
+    "slug": "faqs-cloudfoundation-13",
+    "name": "云托管创建站点域名中点（.）自动消失问题说明",
+    "file": "云开发服务（Cloud Foundation Kit）/云托管创建站点域名中点（.）自动消失问题说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-13"
+  },
+  {
+    "slug": "faqs-cloudfoundation-8",
+    "name": "云数据库服务器侧错误，报错代码1008231001",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/云数据库服务器侧错误，报错代码1008231001/云数据库服务器侧错误，报错代码1008231001.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-8"
+  },
+  {
+    "slug": "faqs-cloudfoundation-8",
+    "name": "云数据库服务器侧错误，报错代码1008231001",
+    "file": "云开发服务（Cloud Foundation Kit）/云数据库服务器侧错误，报错代码1008231001.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-8"
+  },
+  {
+    "slug": "faqs-cloudfoundation-12",
+    "name": "云数据库端云同步方案",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/云数据库端云同步方案/云数据库端云同步方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-12"
+  },
+  {
+    "slug": "faqs-cloudfoundation-12",
+    "name": "云数据库端云同步方案",
+    "file": "云开发服务（Cloud Foundation Kit）/云数据库端云同步方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-12"
+  },
+  {
+    "slug": "faqs-cloudfoundation-2",
+    "name": "使用AGC云数据库端云一体化开发，能否不使用服务器进行ICP备案",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/使用AGC云数据库端云一体化开发，能否不使用服务器进行ICP备案/使用AGC云数据库端云一体化开发，能否不使用服务器进行ICP备案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-2"
+  },
+  {
+    "slug": "faqs-cloudfoundation-2",
+    "name": "使用AGC云数据库端云一体化开发，能否不使用服务器进行ICP备案",
+    "file": "云开发服务（Cloud Foundation Kit）/使用AGC云数据库端云一体化开发，能否不使用服务器进行ICP备案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-2"
+  },
+  {
+    "slug": "faqs-cloudfoundation-5",
+    "name": "使用云存储进行身份验证如何获取用户ID",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/使用云存储进行身份验证如何获取用户ID/使用云存储进行身份验证如何获取用户ID.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-5"
+  },
+  {
+    "slug": "faqs-cloudfoundation-5",
+    "name": "使用云存储进行身份验证如何获取用户ID",
+    "file": "云开发服务（Cloud Foundation Kit）/使用云存储进行身份验证如何获取用户ID.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-5"
+  },
+  {
+    "slug": "faqs-cloudfoundation-10",
+    "name": "使用云数据库查询数据的时候，报“401:205525007:verify signature failed”",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/使用云数据库查询数据的时候，报“401：205525007：verify signature failed”/使用云数据库查询数据的时候，报“401：205525007：verify signature failed”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-10"
+  },
+  {
+    "slug": "faqs-cloudfoundation-10",
+    "name": "使用云数据库查询数据的时候，报“401:205525007:verify signature failed”",
+    "file": "云开发服务（Cloud Foundation Kit）/使用云数据库查询数据的时候，报“401：205525007：verify signature failed”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-10"
+  },
+  {
+    "slug": "faqs-cloudfoundation-6",
+    "name": "元服务使用云数据库是否需要获取用户凭据",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/元服务使用云数据库是否需要获取用户凭据/元服务使用云数据库是否需要获取用户凭据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-6"
+  },
+  {
+    "slug": "faqs-cloudfoundation-6",
+    "name": "元服务使用云数据库是否需要获取用户凭据",
+    "file": "云开发服务（Cloud Foundation Kit）/元服务使用云数据库是否需要获取用户凭据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-6"
+  },
+  {
+    "slug": "faqs-cloudfoundation-11",
+    "name": "关于云数据库访问限制的问题",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/关于云数据库访问限制的问题/关于云数据库访问限制的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-11"
+  },
+  {
+    "slug": "faqs-cloudfoundation-11",
+    "name": "关于云数据库访问限制的问题",
+    "file": "云开发服务（Cloud Foundation Kit）/关于云数据库访问限制的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-11"
+  },
+  {
+    "slug": "faqs-cloudfoundation-9",
+    "name": "如何处理部署云数据库对象失败：clouddb deploy failed. Reason is the index cannot be modified.",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/如何处理部署云数据库对象失败：clouddb deploy failed. Reason is the index cannot be modified./如何处理部署云数据库对象失败：clouddb deploy failed. Reason is the index cannot be modified..md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-9"
+  },
+  {
+    "slug": "faqs-cloudfoundation-9",
+    "name": "如何处理部署云数据库对象失败：clouddb deploy failed. Reason is the index cannot be modified.",
+    "file": "云开发服务（Cloud Foundation Kit）/如何处理部署云数据库对象失败：clouddb deploy failed. Reason is the index cannot be modified..md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-9"
+  },
+  {
+    "slug": "faqs-cloudfoundation-1",
+    "name": "如何开通手机号码认证服务",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/如何开通手机号码认证服务/如何开通手机号码认证服务.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-1"
+  },
+  {
+    "slug": "faqs-cloudfoundation-1",
+    "name": "如何开通手机号码认证服务",
+    "file": "云开发服务（Cloud Foundation Kit）/如何开通手机号码认证服务.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-1"
+  },
+  {
+    "slug": "faqs-cloudfoundation-3",
+    "name": "端云项目启动时crash报错问题",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/端云项目启动时crash报错问题/端云项目启动时crash报错问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-3"
+  },
+  {
+    "slug": "faqs-cloudfoundation-3",
+    "name": "端云项目启动时crash报错问题",
+    "file": "云开发服务（Cloud Foundation Kit）/端云项目启动时crash报错问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-3"
+  },
+  {
+    "slug": "faqs-cloudfoundation-4",
+    "name": "认证服务登录状态是否有时效",
+    "file": "开发/FAQ/应用服务开发/云开发服务（Cloud Foundation Kit）/认证服务登录状态是否有时效/认证服务登录状态是否有时效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-4"
+  },
+  {
+    "slug": "faqs-cloudfoundation-4",
+    "name": "认证服务登录状态是否有时效",
+    "file": "云开发服务（Cloud Foundation Kit）/认证服务登录状态是否有时效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cloudfoundation-4"
+  },
+  {
+    "slug": "faqs-location-21",
+    "name": "HarmonyOS在未连接网络时能否获取位置信息",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/HarmonyOS在未连接网络时能否获取位置信息/HarmonyOS在未连接网络时能否获取位置信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-21"
+  },
+  {
+    "slug": "faqs-location-21",
+    "name": "HarmonyOS在未连接网络时能否获取位置信息",
+    "file": "位置服务（Location Kit）/HarmonyOS在未连接网络时能否获取位置信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-21"
+  },
+  {
+    "slug": "faqs-location-18",
+    "name": "maxAccuracy设置太小导致定位API失败",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/maxAccuracy设置太小导致定位API失败/maxAccuracy设置太小导致定位API失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-18"
+  },
+  {
+    "slug": "faqs-location-18",
+    "name": "maxAccuracy设置太小导致定位API失败",
+    "file": "位置服务（Location Kit）/maxAccuracy设置太小导致定位API失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-18"
+  },
+  {
+    "slug": "faqs-location-27",
+    "name": "位置服务支持范围和能力说明",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/位置服务支持范围和能力说明/位置服务支持范围和能力说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-27"
+  },
+  {
+    "slug": "faqs-location-27",
+    "name": "位置服务支持范围和能力说明",
+    "file": "位置服务（Location Kit）/位置服务支持范围和能力说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-27"
+  },
+  {
+    "slug": "faqs-location-10",
+    "name": "位置权限关闭后，如何实现在应用内一步操作重新开启",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/位置权限关闭后，如何实现在应用内一步操作重新开启/位置权限关闭后，如何实现在应用内一步操作重新开启.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-10"
+  },
+  {
+    "slug": "faqs-location-10",
+    "name": "位置权限关闭后，如何实现在应用内一步操作重新开启",
+    "file": "位置服务（Location Kit）/位置权限关闭后，如何实现在应用内一步操作重新开启.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-10"
+  },
+  {
+    "slug": "faqs-location-13",
+    "name": "关于HarmonyOS系统地理围栏功能相关问题",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/关于HarmonyOS系统地理围栏功能相关问题/关于HarmonyOS系统地理围栏功能相关问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-13"
+  },
+  {
+    "slug": "faqs-location-13",
+    "name": "关于HarmonyOS系统地理围栏功能相关问题",
+    "file": "位置服务（Location Kit）/关于HarmonyOS系统地理围栏功能相关问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-13"
+  },
+  {
+    "slug": "faqs-location-12",
+    "name": "动态申请后台位置权限失败该如何处理",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/动态申请后台位置权限失败该如何处理/动态申请后台位置权限失败该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-12"
+  },
+  {
+    "slug": "faqs-location-12",
+    "name": "动态申请后台位置权限失败该如何处理",
+    "file": "位置服务（Location Kit）/动态申请后台位置权限失败该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-12"
+  },
+  {
+    "slug": "faqs-location-20",
+    "name": "地图添加标记返回undefined如何解决",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/地图添加标记返回undefined如何解决/地图添加标记返回undefined如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-20"
+  },
+  {
+    "slug": "faqs-location-20",
+    "name": "地图添加标记返回undefined如何解决",
+    "file": "位置服务（Location Kit）/地图添加标记返回undefined如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-20"
+  },
+  {
+    "slug": "faqs-location-13",
+    "name": "地理围栏功能的使用方式及常见问题解答",
+    "file": "位置服务（Location Kit）/地理围栏功能的使用方式及常见问题解答/地理围栏功能的使用方式及常见问题解答.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-13"
+  },
+  {
+    "slug": "faqs-location-22",
+    "name": "如何判断“访问我的位置”配置是否开启，若关闭如何跳转对应设置页面",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/如何判断“访问我的位置”配置是否开启，若关闭如何跳转对应设置页面/如何判断“访问我的位置”配置是否开启，若关闭如何跳转对应设置页面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-22"
+  },
+  {
+    "slug": "faqs-location-22",
+    "name": "如何判断“访问我的位置”配置是否开启，若关闭如何跳转对应设置页面",
+    "file": "位置服务（Location Kit）/如何判断“访问我的位置”配置是否开启，若关闭如何跳转对应设置页面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-22"
+  },
+  {
+    "slug": "faqs-location-15",
+    "name": "如何判断卫星是否参与定位",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/如何判断卫星是否参与定位/如何判断卫星是否参与定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-15"
+  },
+  {
+    "slug": "faqs-location-15",
+    "name": "如何判断卫星是否参与定位",
+    "file": "位置服务（Location Kit）/如何判断卫星是否参与定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-15"
+  },
+  {
+    "slug": "faqs-location-24",
+    "name": "如何监听/获取“位置”配置的开关状态",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/如何监听／获取“位置”配置的开关状态/如何监听／获取“位置”配置的开关状态.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-24"
+  },
+  {
+    "slug": "faqs-location-24",
+    "name": "如何监听/获取“位置”配置的开关状态",
+    "file": "位置服务（Location Kit）/如何监听／获取“位置”配置的开关状态.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-24"
+  },
+  {
+    "slug": "faqs-location-16",
+    "name": "如何自定义公式计算两点位置坐标的距离",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/如何自定义公式计算两点位置坐标的距离/如何自定义公式计算两点位置坐标的距离.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-16"
+  },
+  {
+    "slug": "faqs-location-16",
+    "name": "如何自定义公式计算两点位置坐标的距离",
+    "file": "位置服务（Location Kit）/如何自定义公式计算两点位置坐标的距离.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-16"
+  },
+  {
+    "slug": "faqs-location-26",
+    "name": "如何解决经纬度坐标在地图上显示与实际地点有偏差问题",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/如何解决经纬度坐标在地图上显示与实际地点有偏差问题/如何解决经纬度坐标在地图上显示与实际地点有偏差问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-26"
+  },
+  {
+    "slug": "faqs-location-26",
+    "name": "如何解决经纬度坐标在地图上显示与实际地点有偏差问题",
+    "file": "位置服务（Location Kit）/如何解决经纬度坐标在地图上显示与实际地点有偏差问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-26"
+  },
+  {
+    "slug": "faqs-location-19",
+    "name": "如何设置模拟器虚拟定位",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/如何设置模拟器虚拟定位/如何设置模拟器虚拟定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-19"
+  },
+  {
+    "slug": "faqs-location-19",
+    "name": "如何设置模拟器虚拟定位",
+    "file": "位置服务（Location Kit）/如何设置模拟器虚拟定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-19"
+  },
+  {
+    "slug": "faqs-location-28",
+    "name": "如何配置后台持续定位长时任务",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/如何配置后台持续定位长时任务/如何配置后台持续定位长时任务.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-28"
+  },
+  {
+    "slug": "faqs-location-28",
+    "name": "如何配置后台持续定位长时任务",
+    "file": "位置服务（Location Kit）/如何配置后台持续定位长时任务.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-28"
+  },
+  {
+    "slug": "faqs-location-17",
+    "name": "定位权限无法重复拉起如何解决",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/定位权限无法重复拉起如何解决/定位权限无法重复拉起如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-17"
+  },
+  {
+    "slug": "faqs-location-17",
+    "name": "定位权限无法重复拉起如何解决",
+    "file": "位置服务（Location Kit）/定位权限无法重复拉起如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-17"
+  },
+  {
+    "slug": "faqs-location-9",
+    "name": "已开启应用的位置权限，但仍然提示未开启位置权限",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/已开启应用的位置权限，但仍然提示未开启位置权限/已开启应用的位置权限，但仍然提示未开启位置权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-9"
+  },
+  {
+    "slug": "faqs-location-9",
+    "name": "已开启应用的位置权限，但仍然提示未开启位置权限",
+    "file": "位置服务（Location Kit）/已开启应用的位置权限，但仍然提示未开启位置权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-9"
+  },
+  {
+    "slug": "faqs-location-14",
+    "name": "应用如何获取定位权限",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/应用如何获取定位权限/应用如何获取定位权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-14"
+  },
+  {
+    "slug": "faqs-location-14",
+    "name": "应用如何获取定位权限",
+    "file": "位置服务（Location Kit）/应用如何获取定位权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-14"
+  },
+  {
+    "slug": "faqs-location-4",
+    "name": "开启定位后没有定位授权的弹窗",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/开启定位后没有定位授权的弹窗/开启定位后没有定位授权的弹窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-4"
+  },
+  {
+    "slug": "faqs-location-4",
+    "name": "开启定位后没有定位授权的弹窗",
+    "file": "位置服务（Location Kit）/开启定位后没有定位授权的弹窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-4"
+  },
+  {
+    "slug": "faqs-location-11",
+    "name": "持续定位首次定位之后间隔很久才开始二次定位",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/持续定位首次定位之后间隔很久才开始二次定位/持续定位首次定位之后间隔很久才开始二次定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-11"
+  },
+  {
+    "slug": "faqs-location-11",
+    "name": "持续定位首次定位之后间隔很久才开始二次定位",
+    "file": "位置服务（Location Kit）/持续定位首次定位之后间隔很久才开始二次定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-11"
+  },
+  {
+    "slug": "faqs-location-5",
+    "name": "无法获取设备当前定位信息",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/无法获取设备当前定位信息/无法获取设备当前定位信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-5"
+  },
+  {
+    "slug": "faqs-location-5",
+    "name": "无法获取设备当前定位信息",
+    "file": "位置服务（Location Kit）/无法获取设备当前定位信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-5"
+  },
+  {
+    "slug": "faqs-location-6",
+    "name": "自动获取定位信息失败",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/自动获取定位信息失败/自动获取定位信息失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-6"
+  },
+  {
+    "slug": "faqs-location-6",
+    "name": "自动获取定位信息失败",
+    "file": "位置服务（Location Kit）/自动获取定位信息失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-6"
+  },
+  {
+    "slug": "faqs-location-25",
+    "name": "获取位置信息的一般指导和常见问题解决方案",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/获取位置信息的一般指导和常见问题解决方案/获取位置信息的一般指导和常见问题解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-25"
+  },
+  {
+    "slug": "faqs-location-25",
+    "name": "获取位置信息的一般指导和常见问题解决方案",
+    "file": "位置服务（Location Kit）/获取位置信息的一般指导和常见问题解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-25"
+  },
+  {
+    "slug": "faqs-location-8",
+    "name": "获取当前位置信息有一定的延迟",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/获取当前位置信息有一定的延迟/获取当前位置信息有一定的延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-8"
+  },
+  {
+    "slug": "faqs-location-8",
+    "name": "获取当前位置信息有一定的延迟",
+    "file": "位置服务（Location Kit）/获取当前位置信息有一定的延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-8"
+  },
+  {
+    "slug": "faqs-location-23",
+    "name": "获取当前海拔高度信息失败",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/获取当前海拔高度信息失败/获取当前海拔高度信息失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-23"
+  },
+  {
+    "slug": "faqs-location-23",
+    "name": "获取当前海拔高度信息失败",
+    "file": "位置服务（Location Kit）/获取当前海拔高度信息失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-23"
+  },
+  {
+    "slug": "faqs-location-7",
+    "name": "获取当前设备位置信息不准确",
+    "file": "开发/FAQ/应用服务开发/位置服务（Location Kit）/获取当前设备位置信息不准确/获取当前设备位置信息不准确.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-7"
+  },
+  {
+    "slug": "faqs-location-7",
+    "name": "获取当前设备位置信息不准确",
+    "file": "位置服务（Location Kit）/获取当前设备位置信息不准确.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-7"
+  },
+  {
+    "slug": "faqs-share-8",
+    "name": "分享不显示缩略图的原因有哪些",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/分享不显示缩略图的原因有哪些/分享不显示缩略图的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-8"
+  },
+  {
+    "slug": "faqs-share-8",
+    "name": "分享不显示缩略图的原因有哪些",
+    "file": "内容分享服务（Share Kit）/分享不显示缩略图的原因有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-8"
+  },
+  {
+    "slug": "faqs-share-2",
+    "name": "分享图片到应用显示“您选择的文件不支持分享”",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/分享图片到应用显示“您选择的文件不支持分享”/分享图片到应用显示“您选择的文件不支持分享”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-2"
+  },
+  {
+    "slug": "faqs-share-2",
+    "name": "分享图片到应用显示“您选择的文件不支持分享”",
+    "file": "内容分享服务（Share Kit）/分享图片到应用显示“您选择的文件不支持分享”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-2"
+  },
+  {
+    "slug": "faqs-share-1",
+    "name": "华为分享将应用的页面分享到另一个手机后不能引导下载应用",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/华为分享将应用的页面分享到另一个手机后不能引导下载应用/华为分享将应用的页面分享到另一个手机后不能引导下载应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-1"
+  },
+  {
+    "slug": "faqs-share-1",
+    "name": "华为分享将应用的页面分享到另一个手机后不能引导下载应用",
+    "file": "内容分享服务（Share Kit）/华为分享将应用的页面分享到另一个手机后不能引导下载应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-1"
+  },
+  {
+    "slug": "faqs-share-12",
+    "name": "如何分享用户目录文件",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/如何分享用户目录文件/如何分享用户目录文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-12"
+  },
+  {
+    "slug": "faqs-share-12",
+    "name": "如何分享用户目录文件",
+    "file": "内容分享服务（Share Kit）/如何分享用户目录文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-12"
+  },
+  {
+    "slug": "faqs-share-3",
+    "name": "如何获取到其他应用分享的内容",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/如何获取到其他应用分享的内容/如何获取到其他应用分享的内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-3"
+  },
+  {
+    "slug": "faqs-share-3",
+    "name": "如何获取到其他应用分享的内容",
+    "file": "内容分享服务（Share Kit）/如何获取到其他应用分享的内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-3"
+  },
+  {
+    "slug": "faqs-share-4",
+    "name": "如何解决分享pdf文件到微信问题",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/如何解决分享pdf文件到微信问题/如何解决分享pdf文件到微信问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-4"
+  },
+  {
+    "slug": "faqs-share-4",
+    "name": "如何解决分享pdf文件到微信问题",
+    "file": "内容分享服务（Share Kit）/如何解决分享pdf文件到微信问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-4"
+  },
+  {
+    "slug": "faqs-share-10",
+    "name": "如何隔空传送打开App Linking链接直达应用",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/如何隔空传送打开App Linking链接直达应用/如何隔空传送打开App Linking链接直达应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-10"
+  },
+  {
+    "slug": "faqs-share-10",
+    "name": "如何隔空投送打开App Linking链接直达应用",
+    "file": "内容分享服务（Share Kit）/如何隔空投送打开App Linking链接直达应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-10"
+  },
+  {
+    "slug": "faqs-share-9",
+    "name": "应用中如何拦截弹出分享窗口",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/应用中如何拦截弹出分享窗口/应用中如何拦截弹出分享窗口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-9"
+  },
+  {
+    "slug": "faqs-share-9",
+    "name": "应用中如何拦截弹出分享窗口",
+    "file": "内容分享服务（Share Kit）/应用中如何拦截弹出分享窗口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-9"
+  },
+  {
+    "slug": "faqs-share-7",
+    "name": "碰一碰分享提示暂无可用打开方式",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/碰一碰分享提示暂无可用打开方式/碰一碰分享提示暂无可用打开方式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-7"
+  },
+  {
+    "slug": "faqs-share-7",
+    "name": "碰一碰分享提示暂无可用打开方式",
+    "file": "内容分享服务（Share Kit）/碰一碰分享提示暂无可用打开方式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-7"
+  },
+  {
+    "slug": "faqs-share-6",
+    "name": "碰一碰分享直接打开浏览器，未跳转至应用内页面",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/碰一碰分享直接打开浏览器，未跳转至应用内页面/碰一碰分享直接打开浏览器，未跳转至应用内页面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-6"
+  },
+  {
+    "slug": "faqs-share-6",
+    "name": "碰一碰分享直接打开浏览器，未跳转至应用内页面",
+    "file": "内容分享服务（Share Kit）/碰一碰分享直接打开浏览器，未跳转至应用内页面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-6"
+  },
+  {
+    "slug": "faqs-share-5",
+    "name": "系统分享常见使用场景",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/系统分享常见使用场景/系统分享常见使用场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-5"
+  },
+  {
+    "slug": "faqs-share-5",
+    "name": "系统分享常见使用场景",
+    "file": "内容分享服务（Share Kit）/系统分享常见使用场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-5"
+  },
+  {
+    "slug": "faqs-share-11",
+    "name": "跨端分享文件接收策略",
+    "file": "开发/FAQ/应用服务开发/内容分享服务（Share Kit）/跨端分享文件接收策略/跨端分享文件接收策略.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-11"
+  },
+  {
+    "slug": "faqs-share-11",
+    "name": "跨端分享文件接收策略",
+    "file": "内容分享服务（Share Kit）/跨端分享文件接收策略.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-11"
+  },
+  {
+    "slug": "faqs-payment-1",
+    "name": "华为支付拉起收银台，取消支付后点击重新支付不会跳转到开通页面",
+    "file": "开发/FAQ/应用服务开发/华为支付服务（Payment Kit）/华为支付拉起收银台，取消支付后点击重新支付不会跳转到开通页面/华为支付拉起收银台，取消支付后点击重新支付不会跳转到开通页面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-1"
+  },
+  {
+    "slug": "faqs-payment-1",
+    "name": "华为支付拉起收银台，取消支付后点击重新支付不会跳转到开通页面",
+    "file": "华为支付服务（Payment Kit）/华为支付拉起收银台，取消支付后点击重新支付不会跳转到开通页面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-1"
+  },
+  {
+    "slug": "faqs-payment-2",
+    "name": "华为支付服务元服务支付鉴权报错",
+    "file": "开发/FAQ/应用服务开发/华为支付服务（Payment Kit）/华为支付服务元服务支付鉴权报错/华为支付服务元服务支付鉴权报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-2"
+  },
+  {
+    "slug": "faqs-payment-2",
+    "name": "华为支付服务元服务支付鉴权报错",
+    "file": "华为支付服务（Payment Kit）/华为支付服务元服务支付鉴权报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-2"
+  },
+  {
+    "slug": "faqs-payment-7",
+    "name": "华为支付服务接入前常见问题",
+    "file": "开发/FAQ/应用服务开发/华为支付服务（Payment Kit）/华为支付服务接入前常见问题/华为支付服务接入前常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-7"
+  },
+  {
+    "slug": "faqs-payment-7",
+    "name": "华为支付服务接入前常见问题",
+    "file": "华为支付服务（Payment Kit）/华为支付服务接入前常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-7"
+  },
+  {
+    "slug": "faqs-payment-4",
+    "name": "华为支付预下单接口报错提示无效的商户号",
+    "file": "开发/FAQ/应用服务开发/华为支付服务（Payment Kit）/华为支付预下单接口报错提示无效的商户号/华为支付预下单接口报错提示无效的商户号.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-4"
+  },
+  {
+    "slug": "faqs-payment-4",
+    "name": "华为支付预下单接口报错提示无效的商户号",
+    "file": "华为支付服务（Payment Kit）/华为支付预下单接口报错提示无效的商户号.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-4"
+  },
+  {
+    "slug": "faqs-payment-3",
+    "name": "华为钱包和华为支付的区别是什么",
+    "file": "开发/FAQ/应用服务开发/华为支付服务（Payment Kit）/华为钱包和华为支付的区别是什么/华为钱包和华为支付的区别是什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-3"
+  },
+  {
+    "slug": "faqs-payment-3",
+    "name": "华为钱包和华为支付的区别是什么",
+    "file": "华为支付服务（Payment Kit）/华为钱包和华为支付的区别是什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-3"
+  },
+  {
+    "slug": "faqs-payment-5",
+    "name": "商户号如何绑定AppID",
+    "file": "开发/FAQ/应用服务开发/华为支付服务（Payment Kit）/商户号如何绑定AppID/商户号如何绑定AppID.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-5"
+  },
+  {
+    "slug": "faqs-payment-5",
+    "name": "商户号如何绑定AppID",
+    "file": "华为支付服务（Payment Kit）/商户号如何绑定AppID.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-5"
+  },
+  {
+    "slug": "faqs-payment-6",
+    "name": "收银台报错“服务暂不可用，请稍后重试”",
+    "file": "开发/FAQ/应用服务开发/华为支付服务（Payment Kit）/收银台报错“服务暂不可用，请稍后重试”/收银台报错“服务暂不可用，请稍后重试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-6"
+  },
+  {
+    "slug": "faqs-payment-6",
+    "name": "收银台报错“服务暂不可用，请稍后重试”",
+    "file": "华为支付服务（Payment Kit）/收银台报错“服务暂不可用，请稍后重试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-payment-6"
+  },
+  {
+    "slug": "faqs-account-5",
+    "name": "HarmonyOS如何开发青少年模式和老年模式",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/HarmonyOS如何开发青少年模式和老年模式/HarmonyOS如何开发青少年模式和老年模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-5"
+  },
+  {
+    "slug": "faqs-account-5",
+    "name": "HarmonyOS如何开发青少年模式和老年模式",
+    "file": "华为账号服务（Account Kit）/HarmonyOS如何开发青少年模式和老年模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-5"
+  },
+  {
+    "slug": "faqs-account-6",
+    "name": "HarmonyOS账号登录的OpenID和UnionID使用说明",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/HarmonyOS账号登录的OpenID和UnionID使用说明/HarmonyOS账号登录的OpenID和UnionID使用说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-6"
+  },
+  {
+    "slug": "faqs-account-6",
+    "name": "HarmonyOS账号登录的OpenID和UnionID使用说明",
+    "file": "华为账号服务（Account Kit）/HarmonyOS账号登录的OpenID和UnionID使用说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-6"
+  },
+  {
+    "slug": "faqs-account-11",
+    "name": "LoginWithHuaweiIDButton能否根据loginType的属性动态切换登录类型",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/LoginWithHuaweiIDButton能否根据loginType的属性动态切换登录类型/LoginWithHuaweiIDButton能否根据loginType的属性动态切换登录类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-11"
+  },
+  {
+    "slug": "faqs-account-11",
+    "name": "LoginWithHuaweiIDButton能否根据loginType的属性动态切换登录类型",
+    "file": "华为账号服务（Account Kit）/LoginWithHuaweiIDButton能否根据loginType的属性动态切换登录类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-11"
+  },
+  {
+    "slug": "faqs-account-4",
+    "name": "oauth-login.cloud.huawei.com域名ip不固定的原因",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/oauth-login.cloud.huawei.com域名ip不固定的原因/oauth-login.cloud.huawei.com域名ip不固定的原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-4"
+  },
+  {
+    "slug": "faqs-account-4",
+    "name": "oauth-login.cloud.huawei.com域名ip不固定的原因",
+    "file": "华为账号服务（Account Kit）/oauth-login.cloud.huawei.com域名ip不固定的原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-4"
+  },
+  {
+    "slug": "faqs-account-21",
+    "name": "两个华为账号登录获取的OpenID相同",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/两个华为账号登录获取的OpenID相同/两个华为账号登录获取的OpenID相同.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-21"
+  },
+  {
+    "slug": "faqs-account-21",
+    "name": "两个华为账号登录获取的OpenID相同",
+    "file": "华为账号服务（Account Kit）/两个华为账号登录获取的OpenID相同.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-21"
+  },
+  {
+    "slug": "faqs-account-19",
+    "name": "个人开发者是否可以使用一键登录",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/个人开发者是否可以使用一键登录/个人开发者是否可以使用一键登录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-19"
+  },
+  {
+    "slug": "faqs-account-19",
+    "name": "个人开发者是否可以使用一键登录",
+    "file": "华为账号服务（Account Kit）/个人开发者是否可以使用一键登录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-19"
+  },
+  {
+    "slug": "faqs-account-16",
+    "name": "仅支持三方用户账号登录的应用如何对接华为一键登录",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/仅支持三方用户账号登录的应用如何对接华为一键登录/仅支持三方用户账号登录的应用如何对接华为一键登录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-16"
+  },
+  {
+    "slug": "faqs-account-16",
+    "name": "仅支持三方用户账号登录的应用如何对接华为一键登录",
+    "file": "华为账号服务（Account Kit）/仅支持三方用户账号登录的应用如何对接华为一键登录.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-16"
+  },
+  {
+    "slug": "faqs-account-2",
+    "name": "使用华为账号一键登录成功后，用户名显示为长段随机字符",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/使用华为账号一键登录成功后，用户名显示为长段随机字符/使用华为账号一键登录成功后，用户名显示为长段随机字符.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-2"
+  },
+  {
+    "slug": "faqs-account-2",
+    "name": "使用华为账号一键登录成功后，用户名显示为长段随机字符",
+    "file": "华为账号服务（Account Kit）/使用华为账号一键登录成功后，用户名显示为长段随机字符.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-2"
+  },
+  {
+    "slug": "faqs-account-24",
+    "name": "使用华为账号登录，出口IP会有变化",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/使用华为账号登录，出口IP会有变化/使用华为账号登录，出口IP会有变化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-24"
+  },
+  {
+    "slug": "faqs-account-24",
+    "name": "使用华为账号登录，出口IP会有变化",
+    "file": "华为账号服务（Account Kit）/使用华为账号登录，出口IP会有变化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-24"
+  },
+  {
+    "slug": "faqs-account-9",
+    "name": "华为一键登录如何同时获取匿名手机号和头像、昵称",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为一键登录如何同时获取匿名手机号和头像、昵称/华为一键登录如何同时获取匿名手机号和头像、昵称.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-9"
+  },
+  {
+    "slug": "faqs-account-9",
+    "name": "华为一键登录如何同时获取匿名手机号和头像、昵称",
+    "file": "华为账号服务（Account Kit）/华为一键登录如何同时获取匿名手机号和头像、昵称.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-9"
+  },
+  {
+    "slug": "faqs-account-10",
+    "name": "华为账号一键登录后是否可以与应用自身账号体系解绑",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号一键登录后是否可以与应用自身账号体系解绑/华为账号一键登录后是否可以与应用自身账号体系解绑.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-10"
+  },
+  {
+    "slug": "faqs-account-10",
+    "name": "华为账号一键登录后是否可以与应用自身账号体系解绑",
+    "file": "华为账号服务（Account Kit）/华为账号一键登录后是否可以与应用自身账号体系解绑.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-10"
+  },
+  {
+    "slug": "faqs-account-1",
+    "name": "华为账号一键登录失败",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号一键登录失败/华为账号一键登录失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-1"
+  },
+  {
+    "slug": "faqs-account-1",
+    "name": "华为账号一键登录失败",
+    "file": "华为账号服务（Account Kit）/华为账号一键登录失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-1"
+  },
+  {
+    "slug": "faqs-account-17",
+    "name": "华为账号一键登录是否有第三方隐私政策链接",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号一键登录是否有第三方隐私政策链接/华为账号一键登录是否有第三方隐私政策链接.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-17"
+  },
+  {
+    "slug": "faqs-account-17",
+    "name": "华为账号一键登录是否有第三方隐私政策链接",
+    "file": "华为账号服务（Account Kit）/华为账号一键登录是否有第三方隐私政策链接.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-17"
+  },
+  {
+    "slug": "faqs-account-13",
+    "name": "华为账号一键登录的服务端开发部分是否可以在客户端实现",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号一键登录的服务端开发部分是否可以在客户端实现/华为账号一键登录的服务端开发部分是否可以在客户端实现.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-13"
+  },
+  {
+    "slug": "faqs-account-13",
+    "name": "华为账号一键登录的服务端开发部分是否可以在客户端实现",
+    "file": "华为账号服务（Account Kit）/华为账号一键登录的服务端开发部分是否可以在客户端实现.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-13"
+  },
+  {
+    "slug": "faqs-account-3",
+    "name": "华为账号一键登录获取不到手机号怎么解决",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号一键登录获取不到手机号怎么解决/华为账号一键登录获取不到手机号怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-3"
+  },
+  {
+    "slug": "faqs-account-3",
+    "name": "华为账号一键登录获取不到手机号怎么解决",
+    "file": "华为账号服务（Account Kit）/华为账号一键登录获取不到手机号怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-3"
+  },
+  {
+    "slug": "faqs-account-8",
+    "name": "华为账号一键登录获取的手机号与匿名手机号不符如何解决",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号一键登录获取的手机号与匿名手机号不符如何解决/华为账号一键登录获取的手机号与匿名手机号不符如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-8"
+  },
+  {
+    "slug": "faqs-account-8",
+    "name": "华为账号一键登录获取的手机号与匿名手机号不符如何解决",
+    "file": "华为账号服务（Account Kit）/华为账号一键登录获取的手机号与匿名手机号不符如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-8"
+  },
+  {
+    "slug": "faqs-account-23",
+    "name": "华为账号一键登录风控",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号一键登录风控/华为账号一键登录风控.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-23"
+  },
+  {
+    "slug": "faqs-account-23",
+    "name": "华为账号一键登录风控",
+    "file": "华为账号服务（Account Kit）/华为账号一键登录风控.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-23"
+  },
+  {
+    "slug": "faqs-account-20",
+    "name": "华为账号怎么切换到未成年人模式",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号怎么切换到未成年人模式/华为账号怎么切换到未成年人模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-20"
+  },
+  {
+    "slug": "faqs-account-20",
+    "name": "华为账号怎么切换到未成年人模式",
+    "file": "华为账号服务（Account Kit）/华为账号怎么切换到未成年人模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-20"
+  },
+  {
+    "slug": "faqs-account-7",
+    "name": "华为账号登录退出登录后路由栈清空问题",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/华为账号登录退出登录后路由栈清空问题/华为账号登录退出登录后路由栈清空问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-7"
+  },
+  {
+    "slug": "faqs-account-7",
+    "name": "华为账号登录退出登录后路由栈清空问题",
+    "file": "华为账号服务（Account Kit）/华为账号登录退出登录后路由栈清空问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-7"
+  },
+  {
+    "slug": "faqs-account-12",
+    "name": "如何取消华为账号对其他应用/服务的授权",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/如何取消华为账号对其他应用／服务的授权/如何取消华为账号对其他应用／服务的授权.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-12"
+  },
+  {
+    "slug": "faqs-account-12",
+    "name": "如何取消华为账号对其他应用/服务的授权",
+    "file": "华为账号服务（Account Kit）/如何取消华为账号对其他应用／服务的授权.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-12"
+  },
+  {
+    "slug": "faqs-account-18",
+    "name": "如何通过华为账号进行用户数据同步",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/如何通过华为账号进行用户数据同步/如何通过华为账号进行用户数据同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-18"
+  },
+  {
+    "slug": "faqs-account-18",
+    "name": "如何通过华为账号进行用户数据同步",
+    "file": "华为账号服务（Account Kit）/如何通过华为账号进行用户数据同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-18"
+  },
+  {
+    "slug": "faqs-account-22",
+    "name": "客户端获取的OpenID、UnionID和服务端获取的OpenID、UnionID有什么区别",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/客户端获取的OpenID、UnionID和服务端获取的OpenID、UnionID有什么区别/客户端获取的OpenID、UnionID和服务端获取的OpenID、UnionID有什么区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-22"
+  },
+  {
+    "slug": "faqs-account-22",
+    "name": "客户端获取的OpenID、UnionID和服务端获取的OpenID、UnionID有什么区别",
+    "file": "华为账号服务（Account Kit）/客户端获取的OpenID、UnionID和服务端获取的OpenID、UnionID有什么区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-22"
+  },
+  {
+    "slug": "faqs-account-14",
+    "name": "应用内关闭未成年人模式，却引导关闭系统未成年人模式",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/应用内关闭未成年人模式，却引导关闭系统未成年人模式/应用内关闭未成年人模式，却引导关闭系统未成年人模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-14"
+  },
+  {
+    "slug": "faqs-account-14",
+    "name": "应用内关闭未成年人模式，却引导关闭系统未成年人模式",
+    "file": "华为账号服务（Account Kit）/应用内关闭未成年人模式，却引导关闭系统未成年人模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-14"
+  },
+  {
+    "slug": "faqs-account-15",
+    "name": "获取未成年模式开启状态失败",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/获取未成年模式开启状态失败/获取未成年模式开启状态失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-15"
+  },
+  {
+    "slug": "faqs-account-15",
+    "name": "获取未成年模式开启状态失败",
+    "file": "华为账号服务（Account Kit）/获取未成年模式开启状态失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-15"
+  },
+  {
+    "slug": "faqs-account-kit-new-000001",
+    "name": "跨平台静默登录导致账号割裂如何解决",
+    "file": "开发/FAQ/应用服务开发/华为账号服务（Account Kit）/跨平台静默登录导致账号割裂如何解决/跨平台静默登录导致账号割裂如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-kit-new-000001"
+  },
+  {
+    "slug": "faqs-map-51",
+    "name": "HarmonyOS Map Kit获取多条公交与驾车规划路线的方法及花瓣地图一致性说明",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/HarmonyOS Map Kit获取多条公交与驾车规划路线的方法及花瓣地图一致性说明/HarmonyOS Map Kit获取多条公交与驾车规划路线的方法及花瓣地图一致性说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-51"
+  },
+  {
+    "slug": "faqs-map-52",
+    "name": "Map Kit使用报错1002600003如何解决",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit使用报错1002600003如何解决/Map Kit使用报错1002600003如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-52"
+  },
+  {
+    "slug": "faqs-map-52",
+    "name": "Map Kit使用报错1002600003如何解决",
+    "file": "地图服务（Map Kit）/Map Kit使用报错1002600003如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-52"
+  },
+  {
+    "slug": "faqs-map-24",
+    "name": "Map Kit加载地图时偶现不展示默认Marker标记",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit加载地图时偶现不展示默认Marker标记/Map Kit加载地图时偶现不展示默认Marker标记.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-24"
+  },
+  {
+    "slug": "faqs-map-24",
+    "name": "Map Kit加载地图时偶现不展示默认Marker标记",
+    "file": "地图服务（Map Kit）/Map Kit加载地图时偶现不展示默认Marker标记.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-24"
+  },
+  {
+    "slug": "faqs-map-43",
+    "name": "Map Kit地图如何不显示各省份名称",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit地图如何不显示各省份名称/Map Kit地图如何不显示各省份名称.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-43"
+  },
+  {
+    "slug": "faqs-map-43",
+    "name": "Map Kit地图如何不显示各省份名称",
+    "file": "地图服务（Map Kit）/Map Kit地图如何不显示各省份名称.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-43"
+  },
+  {
+    "slug": "faqs-map-26",
+    "name": "Map Kit地图无法加载显示",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit地图无法加载显示/Map Kit地图无法加载显示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-26"
+  },
+  {
+    "slug": "faqs-map-26",
+    "name": "Map Kit地图无法加载显示",
+    "file": "地图服务（Map Kit）/Map Kit地图无法加载显示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-26"
+  },
+  {
+    "slug": "faqs-map-20",
+    "name": "Map Kit地图服务如何设置我的位置图标实时指向当前设备移动方向",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit地图服务如何设置我的位置图标实时指向当前设备移动方向/Map Kit地图服务如何设置我的位置图标实时指向当前设备移动方向.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-20"
+  },
+  {
+    "slug": "faqs-map-20",
+    "name": "Map Kit地图服务如何设置我的位置图标实时指向当前设备移动方向",
+    "file": "地图服务（Map Kit）/Map Kit地图服务如何设置我的位置图标实时指向当前设备移动方向.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-20"
+  },
+  {
+    "slug": "faqs-map-25",
+    "name": "Map Kit如何实现离线地图能力",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit如何实现离线地图能力/Map Kit如何实现离线地图能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-25"
+  },
+  {
+    "slug": "faqs-map-25",
+    "name": "Map Kit如何实现离线地图能力",
+    "file": "地图服务（Map Kit）/Map Kit如何实现离线地图能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-25"
+  },
+  {
+    "slug": "faqs-map-45",
+    "name": "Map Kit如何添加自定义信息窗并实现点击响应",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit如何添加自定义信息窗并实现点击响应/Map Kit如何添加自定义信息窗并实现点击响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-45"
+  },
+  {
+    "slug": "faqs-map-45",
+    "name": "Map Kit如何添加自定义信息窗并实现点击响应",
+    "file": "地图服务（Map Kit）/Map Kit如何添加自定义信息窗并实现点击响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-45"
+  },
+  {
+    "slug": "faqs-map-13",
+    "name": "Map Kit如何知道地图进行了缩放",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit如何知道地图进行了缩放/Map Kit如何知道地图进行了缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-13"
+  },
+  {
+    "slug": "faqs-map-13",
+    "name": "Map Kit如何知道地图进行了缩放",
+    "file": "地图服务（Map Kit）/Map Kit如何知道地图进行了缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-13"
+  },
+  {
+    "slug": "faqs-map-49",
+    "name": "Map Kit如何设置“我的位置”模式（方向、跟随、移动）",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit如何设置“我的位置”模式（方向、跟随、移动）/Map Kit如何设置“我的位置”模式（方向、跟随、移动）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-49"
+  },
+  {
+    "slug": "faqs-map-49",
+    "name": "Map Kit如何设置“我的位置”模式（方向、跟随、移动）",
+    "file": "地图服务（Map Kit）/Map Kit如何设置“我的位置”模式（方向、跟随、移动）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-49"
+  },
+  {
+    "slug": "faqs-map-12",
+    "name": "Map Kit点聚合场景中，如何更新标记的图标",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/Map Kit点聚合场景中，如何更新标记的图标/Map Kit点聚合场景中，如何更新标记的图标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-12"
+  },
+  {
+    "slug": "faqs-map-12",
+    "name": "Map Kit点聚合场景中，如何更新标记的图标",
+    "file": "地图服务（Map Kit）/Map Kit点聚合场景中，如何更新标记的图标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-12"
+  },
+  {
+    "slug": "faqs-map-51",
+    "name": "Map kit的getTransitRoutes查询到的路线规划是否与花瓣地图一致",
+    "file": "地图服务（Map Kit）/Map kit的getTransitRoutes查询到的路线规划是否与花瓣地图一致/Map kit的getTransitRoutes查询到的路线规划是否与花瓣地图一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-51"
+  },
+  {
+    "slug": "faqs-map-51",
+    "name": "Map kit的getTransitRoutes查询到的路线规划是否与花瓣地图一致",
+    "file": "地图服务（Map Kit）/Map kit的getTransitRoutes查询到的路线规划是否与花瓣地图一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-51"
+  },
+  {
+    "slug": "faqs-map-23",
+    "name": "MapKit服务中使用TileOverlayOptions访问瓦片地址tileUrl时报错：1007900060",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/MapKit服务中使用TileOverlayOptions访问瓦片地址tileUrl时报错：1007900060/MapKit服务中使用TileOverlayOptions访问瓦片地址tileUrl时报错：1007900060.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-23"
+  },
+  {
+    "slug": "faqs-map-23",
+    "name": "MapKit服务中使用TileOverlayOptions访问瓦片地址tileUrl时报错：1007900060",
+    "file": "地图服务（Map Kit）/MapKit服务中使用TileOverlayOptions访问瓦片地址tileUrl时报错：1007900060.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-23"
+  },
+  {
+    "slug": "faqs-map-22",
+    "name": "为什么fromScreenLocation接口和getVisibleRegion接口获取的矩形顶点坐标不一致",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/为什么fromScreenLocation接口和getVisibleRegion接口获取的矩形顶点坐标不一致/为什么fromScreenLocation接口和getVisibleRegion接口获取的矩形顶点坐标不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-22"
+  },
+  {
+    "slug": "faqs-map-22",
+    "name": "为什么fromScreenLocation接口和getVisibleRegion接口获取的矩形顶点坐标不一致",
+    "file": "地图服务（Map Kit）/为什么fromScreenLocation接口和getVisibleRegion接口获取的矩形顶点坐标不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-22"
+  },
+  {
+    "slug": "faqs-map-10",
+    "name": "使用POI关键字搜索结果跟花瓣地图搜索不一致",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/使用POI关键字搜索结果跟花瓣地图搜索不一致/使用POI关键字搜索结果跟花瓣地图搜索不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-10"
+  },
+  {
+    "slug": "faqs-map-10",
+    "name": "使用POI关键字搜索结果跟花瓣地图搜索不一致",
+    "file": "地图服务（Map Kit）/使用POI关键字搜索结果跟花瓣地图搜索不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-10"
+  },
+  {
+    "slug": "faqs-map-14",
+    "name": "使用POI关键字搜索返回数据为空排查指导",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/使用POI关键字搜索返回数据为空排查指导/使用POI关键字搜索返回数据为空排查指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-14"
+  },
+  {
+    "slug": "faqs-map-14",
+    "name": "使用POI关键字搜索返回数据为空排查指导",
+    "file": "地图服务（Map Kit）/使用POI关键字搜索返回数据为空排查指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-14"
+  },
+  {
+    "slug": "faqs-map-30",
+    "name": "使用地图服务展示自定义信息窗时，返回上一页面产生崩溃如何解决",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/使用地图服务展示自定义信息窗时，返回上一页面产生崩溃如何解决/使用地图服务展示自定义信息窗时，返回上一页面产生崩溃如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-30"
+  },
+  {
+    "slug": "faqs-map-30",
+    "name": "使用地图服务展示自定义信息窗时，返回上一页面产生崩溃如何解决",
+    "file": "地图服务（Map Kit）/使用地图服务展示自定义信息窗时，返回上一页面产生崩溃如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-30"
+  },
+  {
+    "slug": "faqs-map-18",
+    "name": "初始化地图全屏蓝色如何解决",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/初始化地图全屏蓝色如何解决/初始化地图全屏蓝色如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-18"
+  },
+  {
+    "slug": "faqs-map-18",
+    "name": "初始化地图全屏蓝色如何解决",
+    "file": "地图服务（Map Kit）/初始化地图全屏蓝色如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-18"
+  },
+  {
+    "slug": "faqs-map-11",
+    "name": "在地图上实现定位功能",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/在地图上实现定位功能/在地图上实现定位功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-11"
+  },
+  {
+    "slug": "faqs-map-11",
+    "name": "在地图上实现定位功能",
+    "file": "地图服务（Map Kit）/在地图上实现定位功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-11"
+  },
+  {
+    "slug": "faqs-map-32",
+    "name": "地图POI搜索中adminCode是否可以仅返回区划代码",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图POI搜索中adminCode是否可以仅返回区划代码/地图POI搜索中adminCode是否可以仅返回区划代码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-32"
+  },
+  {
+    "slug": "faqs-map-32",
+    "name": "地图POI搜索中adminCode是否可以仅返回区划代码",
+    "file": "地图服务（Map Kit）/地图POI搜索中adminCode是否可以仅返回区划代码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-32"
+  },
+  {
+    "slug": "faqs-map-15",
+    "name": "地图事件监听中的覆盖物与聚合点事件的差异",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图事件监听中的覆盖物与聚合点事件的差异/地图事件监听中的覆盖物与聚合点事件的差异.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-15"
+  },
+  {
+    "slug": "faqs-map-15",
+    "name": "地图事件监听中的覆盖物与聚合点事件的差异",
+    "file": "地图服务（Map Kit）/地图事件监听中的覆盖物与聚合点事件的差异.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-15"
+  },
+  {
+    "slug": "faqs-map-27",
+    "name": "地图如何实现添加折线显示在地点名称和图标（底图POI）上层",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图如何实现添加折线显示在地点名称和图标（底图POI）上层/地图如何实现添加折线显示在地点名称和图标（底图POI）上层.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-27"
+  },
+  {
+    "slug": "faqs-map-27",
+    "name": "地图如何实现添加折线显示在地点名称和图标（底图POI）上层",
+    "file": "地图服务（Map Kit）/地图如何实现添加折线显示在地点名称和图标（底图POI）上层.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-27"
+  },
+  {
+    "slug": "faqs-map-21",
+    "name": "地图如何批量添加Marker",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图如何批量添加Marker/地图如何批量添加Marker.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-21"
+  },
+  {
+    "slug": "faqs-map-21",
+    "name": "地图如何批量添加Marker",
+    "file": "地图服务（Map Kit）/地图如何批量添加Marker.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-21"
+  },
+  {
+    "slug": "faqs-map-16",
+    "name": "地图服务使用报错",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图服务使用报错/地图服务使用报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-16"
+  },
+  {
+    "slug": "faqs-map-16",
+    "name": "地图服务使用报错",
+    "file": "地图服务（Map Kit）/地图服务使用报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-16"
+  },
+  {
+    "slug": "faqs-map-19",
+    "name": "地图服务覆盖物image如何添加网络图片url",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图服务覆盖物image如何添加网络图片url/地图服务覆盖物image如何添加网络图片url.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-19"
+  },
+  {
+    "slug": "faqs-map-19",
+    "name": "地图服务覆盖物image如何添加网络图片url",
+    "file": "地图服务（Map Kit）/地图服务覆盖物image如何添加网络图片url.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-19"
+  },
+  {
+    "slug": "faqs-map-3",
+    "name": "地图标记点在缩放地图时发生位置偏移",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图标记点在缩放地图时发生位置偏移/地图标记点在缩放地图时发生位置偏移.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-3"
+  },
+  {
+    "slug": "faqs-map-3",
+    "name": "地图标记点在缩放地图时发生位置偏移",
+    "file": "地图服务（Map Kit）/地图标记点在缩放地图时发生位置偏移.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-3"
+  },
+  {
+    "slug": "faqs-map-5",
+    "name": "地图组件如何添加多个Marker并自定义样式",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图组件如何添加多个Marker并自定义样式/地图组件如何添加多个Marker并自定义样式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-5"
+  },
+  {
+    "slug": "faqs-map-5",
+    "name": "地图组件如何添加多个Marker并自定义样式",
+    "file": "地图服务（Map Kit）/地图组件如何添加多个Marker并自定义样式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-5"
+  },
+  {
+    "slug": "faqs-map-8",
+    "name": "地图绘制在使用点聚合时并支持设置点信息窗和点注释功能",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图绘制在使用点聚合时并支持设置点信息窗和点注释功能/地图绘制在使用点聚合时并支持设置点信息窗和点注释功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-8"
+  },
+  {
+    "slug": "faqs-map-8",
+    "name": "地图绘制在使用点聚合时并支持设置点信息窗和点注释功能",
+    "file": "地图服务（Map Kit）/地图绘制在使用点聚合时并支持设置点信息窗和点注释功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-8"
+  },
+  {
+    "slug": "faqs-map-46",
+    "name": "地图视野范围如何设置",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/地图视野范围如何设置/地图视野范围如何设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-46"
+  },
+  {
+    "slug": "faqs-map-46",
+    "name": "地图视野范围如何设置",
+    "file": "地图服务（Map Kit）/地图视野范围如何设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-46"
+  },
+  {
+    "slug": "faqs-map-31",
+    "name": "基于指定的经纬度坐标点，如何进行地图缩放",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/基于指定的经纬度坐标点，如何进行地图缩放/基于指定的经纬度坐标点，如何进行地图缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-31"
+  },
+  {
+    "slug": "faqs-map-31",
+    "name": "基于指定的经纬度坐标点，如何进行地图缩放",
+    "file": "地图服务（Map Kit）/基于指定的经纬度坐标点，如何进行地图缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-31"
+  },
+  {
+    "slug": "faqs-map-37",
+    "name": "如何修改地图的折线纹理间距",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何修改地图的折线纹理间距/如何修改地图的折线纹理间距.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-37"
+  },
+  {
+    "slug": "faqs-map-37",
+    "name": "如何修改地图的折线纹理间距",
+    "file": "地图服务（Map Kit）/如何修改地图的折线纹理间距.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-37"
+  },
+  {
+    "slug": "faqs-map-47",
+    "name": "如何在Petal Maps Studio编辑器中修改水的颜色",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何在Petal Maps Studio编辑器中修改水的颜色/如何在Petal Maps Studio编辑器中修改水的颜色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-47"
+  },
+  {
+    "slug": "faqs-map-47",
+    "name": "如何在Petal Maps Studio编辑器中修改水的颜色",
+    "file": "地图服务（Map Kit）/如何在Petal Maps Studio编辑器中修改水的颜色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-47"
+  },
+  {
+    "slug": "faqs-map-39",
+    "name": "如何在WGS84坐标系实现FOLLOW_ROTATE相同定位展示效果",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何在WGS84坐标系实现FOLLOW_ROTATE相同定位展示效果/如何在WGS84坐标系实现FOLLOW_ROTATE相同定位展示效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-39"
+  },
+  {
+    "slug": "faqs-map-39",
+    "name": "如何在WGS84坐标系实现FOLLOW_ROTATE相同定位展示效果",
+    "file": "地图服务（Map Kit）/如何在WGS84坐标系实现FOLLOW_ROTATE相同定位展示效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-39"
+  },
+  {
+    "slug": "faqs-map-36",
+    "name": "如何在地图上绘制虚线",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何在地图上绘制虚线/如何在地图上绘制虚线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-36"
+  },
+  {
+    "slug": "faqs-map-36",
+    "name": "如何在地图上绘制虚线",
+    "file": "地图服务（Map Kit）/如何在地图上绘制虚线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-36"
+  },
+  {
+    "slug": "faqs-map-40",
+    "name": "如何在打开地图时，自动移动相机到当前设备位置",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何在打开地图时，自动移动相机到当前设备位置/如何在打开地图时，自动移动相机到当前设备位置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-40"
+  },
+  {
+    "slug": "faqs-map-40",
+    "name": "如何在打开地图时，自动移动相机到当前设备位置",
+    "file": "地图服务（Map Kit）/如何在打开地图时，自动移动相机到当前设备位置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-40"
+  },
+  {
+    "slug": "faqs-map-38",
+    "name": "如何处理自定义地图通过JSON指定元素无法显示问题",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何处理自定义地图通过JSON指定元素无法显示问题/如何处理自定义地图通过JSON指定元素无法显示问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-38"
+  },
+  {
+    "slug": "faqs-map-38",
+    "name": "如何处理自定义地图通过JSON指定元素无法显示问题",
+    "file": "地图服务（Map Kit）/如何处理自定义地图通过JSON指定元素无法显示问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-38"
+  },
+  {
+    "slug": "faqs-map-17",
+    "name": "如何实现MapComponent地图占满屏幕",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何实现MapComponent地图占满屏幕/如何实现MapComponent地图占满屏幕.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-17"
+  },
+  {
+    "slug": "faqs-map-17",
+    "name": "如何实现MapComponent地图占满屏幕",
+    "file": "地图服务（Map Kit）/如何实现MapComponent地图占满屏幕.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-17"
+  },
+  {
+    "slug": "faqs-map-29",
+    "name": "如何实现地图不显示地铁路线",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何实现地图不显示地铁路线/如何实现地图不显示地铁路线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-29"
+  },
+  {
+    "slug": "faqs-map-29",
+    "name": "如何实现地图不显示地铁路线",
+    "file": "地图服务（Map Kit）/如何实现地图不显示地铁路线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-29"
+  },
+  {
+    "slug": "faqs-map-34",
+    "name": "如何实现地图自动缩放并移动到中心点",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何实现地图自动缩放并移动到中心点/如何实现地图自动缩放并移动到中心点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-34"
+  },
+  {
+    "slug": "faqs-map-34",
+    "name": "如何实现地图自动缩放并移动到中心点",
+    "file": "地图服务（Map Kit）/如何实现地图自动缩放并移动到中心点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-34"
+  },
+  {
+    "slug": "faqs-map-28",
+    "name": "如何实现通过自定义滑块控制地图缩放",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何实现通过自定义滑块控制地图缩放/如何实现通过自定义滑块控制地图缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-28"
+  },
+  {
+    "slug": "faqs-map-28",
+    "name": "如何实现通过自定义滑块控制地图缩放",
+    "file": "地图服务（Map Kit）/如何实现通过自定义滑块控制地图缩放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-28"
+  },
+  {
+    "slug": "faqs-map-48",
+    "name": "如何将触摸点转换为地图经纬度坐标",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何将触摸点转换为地图经纬度坐标/如何将触摸点转换为地图经纬度坐标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-48"
+  },
+  {
+    "slug": "faqs-map-48",
+    "name": "如何将触摸点转换为地图经纬度坐标",
+    "file": "地图服务（Map Kit）/如何将触摸点转换为地图经纬度坐标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-48"
+  },
+  {
+    "slug": "faqs-map-9",
+    "name": "如何监听地图的移动",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何监听地图的移动/如何监听地图的移动.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-9"
+  },
+  {
+    "slug": "faqs-map-9",
+    "name": "如何监听地图的移动",
+    "file": "地图服务（Map Kit）/如何监听地图的移动.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-9"
+  },
+  {
+    "slug": "faqs-map-4",
+    "name": "如何给地图组件添加含数字角标的自定义图片标记",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何给地图组件添加含数字角标的自定义图片标记/如何给地图组件添加含数字角标的自定义图片标记.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-4"
+  },
+  {
+    "slug": "faqs-map-4",
+    "name": "如何给地图组件添加含数字角标的自定义图片标记",
+    "file": "地图服务（Map Kit）/如何给地图组件添加含数字角标的自定义图片标记.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-4"
+  },
+  {
+    "slug": "faqs-map-50",
+    "name": "如何自定义Marker样式",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何自定义Marker样式/如何自定义Marker样式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-50"
+  },
+  {
+    "slug": "faqs-map-50",
+    "name": "如何自定义Marker样式",
+    "file": "地图服务（Map Kit）/如何自定义Marker样式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-50"
+  },
+  {
+    "slug": "faqs-map-35",
+    "name": "如何解决模拟器加载地图显示空白",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何解决模拟器加载地图显示空白/如何解决模拟器加载地图显示空白.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-35"
+  },
+  {
+    "slug": "faqs-map-35",
+    "name": "如何解决模拟器加载地图显示空白",
+    "file": "地图服务（Map Kit）/如何解决模拟器加载地图显示空白.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-35"
+  },
+  {
+    "slug": "faqs-map-33",
+    "name": "如何解决自定义样式地图国境线不可见的问题",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何解决自定义样式地图国境线不可见的问题/如何解决自定义样式地图国境线不可见的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-33"
+  },
+  {
+    "slug": "faqs-map-33",
+    "name": "如何解决自定义样式地图国境线不可见的问题",
+    "file": "地图服务（Map Kit）/如何解决自定义样式地图国境线不可见的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-33"
+  },
+  {
+    "slug": "faqs-map-44",
+    "name": "如何设置地图深色模式、浅色模式和自定义颜色",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/如何设置地图深色模式、浅色模式和自定义颜色/如何设置地图深色模式、浅色模式和自定义颜色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-44"
+  },
+  {
+    "slug": "faqs-map-44",
+    "name": "如何设置地图深色模式、浅色模式和自定义颜色",
+    "file": "地图服务（Map Kit）/如何设置地图深色模式、浅色模式和自定义颜色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-44"
+  },
+  {
+    "slug": "faqs-map-1",
+    "name": "定位结果在地图上显示时存在偏差",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/定位结果在地图上显示时存在偏差/定位结果在地图上显示时存在偏差.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-1"
+  },
+  {
+    "slug": "faqs-map-1",
+    "name": "定位结果在地图上显示时存在偏差",
+    "file": "地图服务（Map Kit）/定位结果在地图上显示时存在偏差.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-1"
+  },
+  {
+    "slug": "faqs-map-7",
+    "name": "怎么在地图中确定某一段路线的方向",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/怎么在地图中确定某一段路线的方向/怎么在地图中确定某一段路线的方向.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-7"
+  },
+  {
+    "slug": "faqs-map-7",
+    "name": "怎么在地图中确定某一段路线的方向",
+    "file": "地图服务（Map Kit）/怎么在地图中确定某一段路线的方向.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-7"
+  },
+  {
+    "slug": "faqs-map-2",
+    "name": "搜索的地理位置信息不符合用户期望",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/搜索的地理位置信息不符合用户期望/搜索的地理位置信息不符合用户期望.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-2"
+  },
+  {
+    "slug": "faqs-map-2",
+    "name": "搜索的地理位置信息不符合用户期望",
+    "file": "地图服务（Map Kit）/搜索的地理位置信息不符合用户期望.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-2"
+  },
+  {
+    "slug": "faqs-map-41",
+    "name": "点击添加的marker位置与点击的位置不一致",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/点击添加的marker位置与点击的位置不一致/点击添加的marker位置与点击的位置不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-41"
+  },
+  {
+    "slug": "faqs-map-41",
+    "name": "点击添加的marker位置与点击的位置不一致",
+    "file": "地图服务（Map Kit）/点击添加的marker位置与点击的位置不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-41"
+  },
+  {
+    "slug": "faqs-map-6",
+    "name": "路径规划场景中绘制颜色渐变的路径，颜色不生效问题如何解决",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/路径规划场景中绘制颜色渐变的路径，颜色不生效问题如何解决/路径规划场景中绘制颜色渐变的路径，颜色不生效问题如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-6"
+  },
+  {
+    "slug": "faqs-map-6",
+    "name": "路径规划场景中绘制颜色渐变的路径，颜色不生效问题如何解决",
+    "file": "地图服务（Map Kit）/路径规划场景中绘制颜色渐变的路径，颜色不生效问题如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-6"
+  },
+  {
+    "slug": "faqs-map-42",
+    "name": "通过地图应用实现导航常见问题",
+    "file": "开发/FAQ/应用服务开发/地图服务（Map Kit）/通过地图应用实现导航常见问题/通过地图应用实现导航常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-42"
+  },
+  {
+    "slug": "faqs-map-42",
+    "name": "通过地图应用实现导航常见问题",
+    "file": "地图服务（Map Kit）/通过地图应用实现导航常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-42"
+  },
+  {
+    "slug": "faqs-weatherservice-1",
+    "name": "查询天气数据失败怎么解决",
+    "file": "开发/FAQ/应用服务开发/天气数据服务（Weather Service Kit）/查询天气数据失败怎么解决/查询天气数据失败怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-weatherservice-1"
+  },
+  {
+    "slug": "faqs-weatherservice-1",
+    "name": "查询天气数据失败怎么解决",
+    "file": "天气数据服务（Weather Service Kit）/查询天气数据失败怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-weatherservice-1"
+  },
+  {
+    "slug": "faqs-liveview-4",
+    "name": "为什么配置胶囊实况窗icon后，胶囊实况窗中显示应用icon",
+    "file": "开发/FAQ/应用服务开发/实况视图服务（Live View Kit）/为什么配置胶囊实况窗icon后，胶囊实况窗中显示应用icon/为什么配置胶囊实况窗icon后，胶囊实况窗中显示应用icon.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-4"
+  },
+  {
+    "slug": "faqs-liveview-4",
+    "name": "为什么配置胶囊实况窗icon后，胶囊实况窗中显示应用icon",
+    "file": "实况视图服务（Live View Kit）/为什么配置胶囊实况窗icon后，胶囊实况窗中显示应用icon.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-4"
+  },
+  {
+    "slug": "faqs-liveview-5",
+    "name": "哪些系统服务会自动接入实况窗",
+    "file": "开发/FAQ/应用服务开发/实况视图服务（Live View Kit）/哪些系统服务会自动接入实况窗/哪些系统服务会自动接入实况窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-5"
+  },
+  {
+    "slug": "faqs-liveview-5",
+    "name": "哪些系统服务会自动接入实况窗",
+    "file": "实况视图服务（Live View Kit）/哪些系统服务会自动接入实况窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-5"
+  },
+  {
+    "slug": "faqs-liveview-3",
+    "name": "如何监听实况窗计时器倒计时结束事件并关闭实况窗",
+    "file": "开发/FAQ/应用服务开发/实况视图服务（Live View Kit）/如何监听实况窗计时器倒计时结束事件并关闭实况窗/如何监听实况窗计时器倒计时结束事件并关闭实况窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-3"
+  },
+  {
+    "slug": "faqs-liveview-3",
+    "name": "如何监听实况窗计时器倒计时结束事件并关闭实况窗",
+    "file": "实况视图服务（Live View Kit）/如何监听实况窗计时器倒计时结束事件并关闭实况窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-3"
+  },
+  {
+    "slug": "faqs-liveview-1",
+    "name": "实况窗推送内容能否自定义",
+    "file": "开发/FAQ/应用服务开发/实况视图服务（Live View Kit）/实况窗推送内容能否自定义/实况窗推送内容能否自定义.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-1"
+  },
+  {
+    "slug": "faqs-liveview-1",
+    "name": "实况窗推送内容能否自定义",
+    "file": "实况视图服务（Live View Kit）/实况窗推送内容能否自定义.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-1"
+  },
+  {
+    "slug": "faqs-liveview-2",
+    "name": "实况窗有哪些支持对接的场景以及消息推送机制",
+    "file": "开发/FAQ/应用服务开发/实况视图服务（Live View Kit）/实况窗有哪些支持对接的场景以及消息推送机制/实况窗有哪些支持对接的场景以及消息推送机制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-2"
+  },
+  {
+    "slug": "faqs-liveview-2",
+    "name": "实况窗有哪些支持对接的场景以及消息推送机制",
+    "file": "实况视图服务（Live View Kit）/实况窗有哪些支持对接的场景以及消息推送机制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-liveview-2"
+  },
+  {
+    "slug": "faqs-screentimeguard-1",
+    "name": "如何设置不同时间策略实现屏幕时间守护",
+    "file": "开发/FAQ/应用服务开发/屏幕时长守护服务（Screen Time Guard Kit）/如何设置不同时间策略实现屏幕时间守护/如何设置不同时间策略实现屏幕时间守护.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-screentimeguard-1"
+  },
+  {
+    "slug": "faqs-screentimeguard-1",
+    "name": "如何设置不同时间策略实现屏幕时间守护",
+    "file": "屏幕时长守护服务（Screen Time Guard Kit）/如何设置不同时间策略实现屏幕时间守护.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-screentimeguard-1"
+  },
+  {
+    "slug": "faqs-ads-1",
+    "name": "如何解决华为开屏广告闪屏问题",
+    "file": "开发/FAQ/应用服务开发/广告变现服务（Ads Kit）/如何解决华为开屏广告闪屏问题/如何解决华为开屏广告闪屏问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-1"
+  },
+  {
+    "slug": "faqs-ads-1",
+    "name": "如何解决华为开屏广告闪屏问题",
+    "file": "广告变现服务（Ads Kit）/如何解决华为开屏广告闪屏问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-1"
+  },
+  {
+    "slug": "faqs-ads-4",
+    "name": "如何解决开屏广告未生效",
+    "file": "开发/FAQ/应用服务开发/广告变现服务（Ads Kit）/如何解决开屏广告未生效/如何解决开屏广告未生效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-4"
+  },
+  {
+    "slug": "faqs-ads-4",
+    "name": "如何解决开屏广告未生效",
+    "file": "广告变现服务（Ads Kit）/如何解决开屏广告未生效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-4"
+  },
+  {
+    "slug": "faqs-ads-3",
+    "name": "如何解决获取OAID异常的问题",
+    "file": "开发/FAQ/应用服务开发/广告变现服务（Ads Kit）/如何解决获取OAID异常的问题/如何解决获取OAID异常的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-3"
+  },
+  {
+    "slug": "faqs-ads-3",
+    "name": "如何解决获取OAID异常的问题",
+    "file": "广告变现服务（Ads Kit）/如何解决获取OAID异常的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-3"
+  },
+  {
+    "slug": "faqs-ads-2",
+    "name": "激励广告回调中无法弹出Toast弹窗",
+    "file": "开发/FAQ/应用服务开发/广告变现服务（Ads Kit）/激励广告回调中无法弹出Toast弹窗/激励广告回调中无法弹出Toast弹窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-2"
+  },
+  {
+    "slug": "faqs-ads-2",
+    "name": "激励广告回调中无法弹出Toast弹窗",
+    "file": "广告变现服务（Ads Kit）/激励广告回调中无法弹出Toast弹窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-2"
+  },
+  {
+    "slug": "faqs-iap-10",
+    "name": "JWT Payload参数填写要求和常见问题",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/JWT Payload参数填写要求和常见问题/JWT Payload参数填写要求和常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-10"
+  },
+  {
+    "slug": "faqs-iap-10",
+    "name": "JWT Payload参数填写要求和常见问题",
+    "file": "应用内支付服务（IAP Kit）/JWT Payload参数填写要求和常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-10"
+  },
+  {
+    "slug": "faqs-iap-4",
+    "name": "单机应用/元服务是否可以接入应用内支付",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/单机应用／元服务是否可以接入应用内支付/单机应用／元服务是否可以接入应用内支付.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-4"
+  },
+  {
+    "slug": "faqs-iap-4",
+    "name": "单机应用/元服务是否可以接入应用内支付",
+    "file": "应用内支付服务（IAP Kit）/单机应用／元服务是否可以接入应用内支付.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-4"
+  },
+  {
+    "slug": "faqs-iap-8",
+    "name": "如何对JWS格式的数据解码和验签以及JWS支持的证书类型",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/如何对JWS格式的数据解码和验签以及JWS支持的证书类型/如何对JWS格式的数据解码和验签以及JWS支持的证书类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-8"
+  },
+  {
+    "slug": "faqs-iap-8",
+    "name": "如何对JWS格式的数据解码和验签以及JWS支持的证书类型",
+    "file": "应用内支付服务（IAP Kit）/如何对JWS格式的数据解码和验签以及JWS支持的证书类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-8"
+  },
+  {
+    "slug": "faqs-iap-9",
+    "name": "如何查询应用内支付交易后的订单信息",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/如何查询应用内支付交易后的订单信息/如何查询应用内支付交易后的订单信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-9"
+  },
+  {
+    "slug": "faqs-iap-9",
+    "name": "如何查询应用内支付交易后的订单信息",
+    "file": "应用内支付服务（IAP Kit）/如何查询应用内支付交易后的订单信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-9"
+  },
+  {
+    "slug": "faqs-iap-11",
+    "name": "应用内支付常见错误码和解决方案",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/应用内支付常见错误码和解决方案/应用内支付常见错误码和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-11"
+  },
+  {
+    "slug": "faqs-iap-11",
+    "name": "应用内支付常见错误码和解决方案",
+    "file": "应用内支付服务（IAP Kit）/应用内支付常见错误码和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-11"
+  },
+  {
+    "slug": "faqs-iap-5",
+    "name": "应用内支付沙盒测试常见问题及解决方案",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/应用内支付沙盒测试常见问题及解决方案/应用内支付沙盒测试常见问题及解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-5"
+  },
+  {
+    "slug": "faqs-iap-5",
+    "name": "应用内支付沙盒测试常见问题及解决方案",
+    "file": "应用内支付服务（IAP Kit）/应用内支付沙盒测试常见问题及解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-5"
+  },
+  {
+    "slug": "faqs-iap-6",
+    "name": "应用内支付自动续期订阅常见问题分析",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/应用内支付自动续期订阅常见问题分析/应用内支付自动续期订阅常见问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-6"
+  },
+  {
+    "slug": "faqs-iap-2",
+    "name": "应用如何接入退款及常见问题",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/应用如何接入退款及常见问题/应用如何接入退款及常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-2"
+  },
+  {
+    "slug": "faqs-iap-2",
+    "name": "应用如何接入退款及常见问题",
+    "file": "应用内支付服务（IAP Kit）/应用如何接入退款及常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-2"
+  },
+  {
+    "slug": "faqs-iap-1",
+    "name": "数字商品配置后如何生效与测试",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/数字商品配置后如何生效与测试/数字商品配置后如何生效与测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-1"
+  },
+  {
+    "slug": "faqs-iap-1",
+    "name": "数字商品配置后如何生效与测试",
+    "file": "应用内支付服务（IAP Kit）/数字商品配置后如何生效与测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-1"
+  },
+  {
+    "slug": "faqs-iap-3",
+    "name": "服务器关键事件消息通知常见问题及解决方案",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/服务器关键事件消息通知常见问题及解决方案/服务器关键事件消息通知常见问题及解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-3"
+  },
+  {
+    "slug": "faqs-iap-3",
+    "name": "服务器关键事件消息通知常见问题及解决方案",
+    "file": "应用内支付服务（IAP Kit）/服务器关键事件消息通知常见问题及解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-3"
+  },
+  {
+    "slug": "faqs-iap-6",
+    "name": "自动续期订阅商品常见问题分析",
+    "file": "应用内支付服务（IAP Kit）/自动续期订阅商品常见问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-6"
+  },
+  {
+    "slug": "faqs-iap-7",
+    "name": "订阅退订之后获取到的商家订单号不是最新的",
+    "file": "开发/FAQ/应用服务开发/应用内支付服务（IAP Kit）/订阅退订之后获取到的商家订单号不是最新的/订阅退订之后获取到的商家订单号不是最新的.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-7"
+  },
+  {
+    "slug": "faqs-iap-7",
+    "name": "订阅退订之后获取到的商家订单号不是最新的",
+    "file": "应用内支付服务（IAP Kit）/订阅退订之后获取到的商家订单号不是最新的.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-iap-7"
+  },
+  {
+    "slug": "faqs-appgallery-86",
+    "name": "AGC上传软件包常见报错和解决方案",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC上传软件包常见报错和解决方案/AGC上传软件包常见报错和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-86"
+  },
+  {
+    "slug": "faqs-appgallery-86",
+    "name": "AGC上传软件包常见报错和解决方案",
+    "file": "应用市场服务（AppGallery Kit）/AGC上传软件包常见报错和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-86"
+  },
+  {
+    "slug": "faqs-appgallery-8",
+    "name": "AGC上创建应用时提示应用包名已经存在如何处理",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC上创建应用时提示应用包名已经存在如何处理/AGC上创建应用时提示应用包名已经存在如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-8"
+  },
+  {
+    "slug": "faqs-appgallery-8",
+    "name": "AGC上创建应用时提示应用包名已经存在如何处理",
+    "file": "应用市场服务（AppGallery Kit）/AGC上创建应用时提示应用包名已经存在如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-8"
+  },
+  {
+    "slug": "faqs-appgallery-7",
+    "name": "AGC上提交审核时提示检测到当前软件包的user_grant类型权限与隐私声明不一致",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC上提交审核时提示检测到当前软件包的user_grant类型权限与隐私声明不一致/AGC上提交审核时提示检测到当前软件包的user_grant类型权限与隐私声明不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-7"
+  },
+  {
+    "slug": "faqs-appgallery-7",
+    "name": "AGC上提交审核时提示检测到当前软件包的user_grant类型权限与隐私声明不一致",
+    "file": "应用市场服务（AppGallery Kit）/AGC上提交审核时提示检测到当前软件包的user_grant类型权限与隐私声明不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-7"
+  },
+  {
+    "slug": "faqs-appgallery-40",
+    "name": "AGC上架时如何指定应用版本号",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC上架时如何指定应用版本号/AGC上架时如何指定应用版本号.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-40"
+  },
+  {
+    "slug": "faqs-appgallery-40",
+    "name": "AGC上架时如何指定应用版本号",
+    "file": "应用市场服务（AppGallery Kit）/AGC上架时如何指定应用版本号.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-40"
+  },
+  {
+    "slug": "faqs-appgallery-33",
+    "name": "AGC审核驳回：在同意隐私政策前，应用获取了用户的个人信息",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC审核驳回：在同意隐私政策前，应用获取了用户的个人信息/AGC审核驳回：在同意隐私政策前，应用获取了用户的个人信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-33"
+  },
+  {
+    "slug": "faqs-appgallery-33",
+    "name": "AGC审核驳回：在同意隐私政策前，应用获取了用户的个人信息",
+    "file": "应用市场服务（AppGallery Kit）/AGC审核驳回：在同意隐私政策前，应用获取了用户的个人信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-33"
+  },
+  {
+    "slug": "faqs-appgallery-99",
+    "name": "AGC应用状态分类和相关操作",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC应用状态分类和相关操作/AGC应用状态分类和相关操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-99"
+  },
+  {
+    "slug": "faqs-appgallery-99",
+    "name": "AGC应用状态分类和相关操作",
+    "file": "应用市场服务（AppGallery Kit）/AGC应用状态分类和相关操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-99"
+  },
+  {
+    "slug": "faqs-appgallery-85",
+    "name": "AGC应用自检结果的不一致问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC应用自检结果的不一致问题/AGC应用自检结果的不一致问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-85"
+  },
+  {
+    "slug": "faqs-appgallery-85",
+    "name": "AGC应用自检结果的不一致问题",
+    "file": "应用市场服务（AppGallery Kit）/AGC应用自检结果的不一致问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-85"
+  },
+  {
+    "slug": "faqs-appgallery-23",
+    "name": "AGC添加的公钥指纹信息和证书文件指纹信息不一致",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC添加的公钥指纹信息和证书文件指纹信息不一致/AGC添加的公钥指纹信息和证书文件指纹信息不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-23"
+  },
+  {
+    "slug": "faqs-appgallery-23",
+    "name": "AGC添加的公钥指纹信息和证书文件指纹信息不一致",
+    "file": "应用市场服务（AppGallery Kit）/AGC添加的公钥指纹信息和证书文件指纹信息不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-23"
+  },
+  {
+    "slug": "faqs-appgallery-63",
+    "name": "AGC的控制台无法选择要提交的新版本",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC的控制台无法选择要提交的新版本/AGC的控制台无法选择要提交的新版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-63"
+  },
+  {
+    "slug": "faqs-appgallery-63",
+    "name": "AGC的控制台无法选择要提交的新版本",
+    "file": "应用市场服务（AppGallery Kit）/AGC的控制台无法选择要提交的新版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-63"
+  },
+  {
+    "slug": "faqs-appgallery-90",
+    "name": "AGC自定义隐私协议链接更新是否需要发布应用新版本",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC自定义隐私协议链接更新是否需要发布应用新版本/AGC自定义隐私协议链接更新是否需要发布应用新版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-90"
+  },
+  {
+    "slug": "faqs-appgallery-90",
+    "name": "AGC自定义隐私协议链接更新是否需要发布应用新版本",
+    "file": "应用市场服务（AppGallery Kit）/AGC自定义隐私协议链接更新是否需要发布应用新版本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-90"
+  },
+  {
+    "slug": "faqs-appgallery-70",
+    "name": "AGC自检结果是否阻塞上架提审",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC自检结果是否阻塞上架提审/AGC自检结果是否阻塞上架提审.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-70"
+  },
+  {
+    "slug": "faqs-appgallery-70",
+    "name": "AGC自检结果是否阻塞上架提审",
+    "file": "应用市场服务（AppGallery Kit）/AGC自检结果是否阻塞上架提审.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-70"
+  },
+  {
+    "slug": "faqs-appgallery-6",
+    "name": "AGC页面菜单缺失或点击菜单报错问题排查指导",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AGC页面菜单缺失或点击菜单报错问题排查指导/AGC页面菜单缺失或点击菜单报错问题排查指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-6"
+  },
+  {
+    "slug": "faqs-appgallery-6",
+    "name": "AGC页面菜单缺失或点击菜单报错问题排查指导",
+    "file": "应用市场服务（AppGallery Kit）/AGC页面菜单缺失或点击菜单报错问题排查指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-6"
+  },
+  {
+    "slug": "faqs-appgallery-61",
+    "name": "AppGallery Connect测试设备管理无法批量添加已删除的设备",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/AppGallery Connect测试设备管理无法批量添加已删除的设备/AppGallery Connect测试设备管理无法批量添加已删除的设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-61"
+  },
+  {
+    "slug": "faqs-appgallery-61",
+    "name": "AppGallery Connect测试设备管理无法批量添加已删除的设备",
+    "file": "应用市场服务（AppGallery Kit）/AppGallery Connect测试设备管理无法批量添加已删除的设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-61"
+  },
+  {
+    "slug": "faqs-appgallery-66",
+    "name": "HarmonyOS NEXT生态市场单独发布HAR包为什么需要工程签名",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/HarmonyOS NEXT生态市场单独发布HAR包为什么需要工程签名/HarmonyOS NEXT生态市场单独发布HAR包为什么需要工程签名.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-66"
+  },
+  {
+    "slug": "faqs-appgallery-66",
+    "name": "HarmonyOS NEXT生态市场单独发布HAR包为什么需要工程签名",
+    "file": "应用市场服务（AppGallery Kit）/HarmonyOS NEXT生态市场单独发布HAR包为什么需要工程签名.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-66"
+  },
+  {
+    "slug": "faqs-appgallery-97",
+    "name": "HarmonyOS应用上架包签名信息获取",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/HarmonyOS应用上架包签名信息获取/HarmonyOS应用上架包签名信息获取.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-97"
+  },
+  {
+    "slug": "faqs-appgallery-97",
+    "name": "HarmonyOS应用上架包签名信息获取",
+    "file": "应用市场服务（AppGallery Kit）/HarmonyOS应用上架包签名信息获取.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-97"
+  },
+  {
+    "slug": "faqs-appgallery-25",
+    "name": "HarmonyOS应用在AGC申请ACL受限权限与Profile配置流程及常见问题解决说明",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/HarmonyOS应用在AGC申请ACL受限权限与Profile配置流程及常见问题解决说明/HarmonyOS应用在AGC申请ACL受限权限与Profile配置流程及常见问题解决说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-25"
+  },
+  {
+    "slug": "faqs-appgallery-32",
+    "name": "HarmonyOS应用备案指导和常见问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/HarmonyOS应用备案指导和常见问题/HarmonyOS应用备案指导和常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-32"
+  },
+  {
+    "slug": "faqs-appgallery-32",
+    "name": "HarmonyOS应用备案指导和常见问题",
+    "file": "应用市场服务（AppGallery Kit）/HarmonyOS应用备案指导和常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-32"
+  },
+  {
+    "slug": "faqs-appgallery-93",
+    "name": "HarmonyOS指定设备发布常见错误码深度解析",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/HarmonyOS指定设备发布常见错误码深度解析/HarmonyOS指定设备发布常见错误码深度解析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-93"
+  },
+  {
+    "slug": "faqs-appgallery-93",
+    "name": "HarmonyOS指定设备发布常见错误码深度解析",
+    "file": "应用市场服务（AppGallery Kit）/HarmonyOS指定设备发布常见错误码深度解析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-93"
+  },
+  {
+    "slug": "faqs-appgallery-9",
+    "name": "HarmonyOS指定设备发布描述文件签名sign字段如何生成",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/HarmonyOS指定设备发布描述文件签名sign字段如何生成/HarmonyOS指定设备发布描述文件签名sign字段如何生成.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-9"
+  },
+  {
+    "slug": "faqs-appgallery-9",
+    "name": "HarmonyOS指定设备发布描述文件签名sign字段如何生成",
+    "file": "应用市场服务（AppGallery Kit）/HarmonyOS指定设备发布描述文件签名sign字段如何生成.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-9"
+  },
+  {
+    "slug": "faqs-appgallery-79",
+    "name": "HarmonyOS按需加载实现方法和常见问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/HarmonyOS按需加载实现方法和常见问题/HarmonyOS按需加载实现方法和常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-79"
+  },
+  {
+    "slug": "faqs-appgallery-79",
+    "name": "HarmonyOS按需加载实现方法和常见问题",
+    "file": "应用市场服务（AppGallery Kit）/HarmonyOS按需加载实现方法和常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-79"
+  },
+  {
+    "slug": "faqs-appgallery-80",
+    "name": "In-house应用发布指导和常见问题分析",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/In-house应用发布指导和常见问题分析/In-house应用发布指导和常见问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-80"
+  },
+  {
+    "slug": "faqs-appgallery-80",
+    "name": "In-house应用发布指导和常见问题分析",
+    "file": "应用市场服务（AppGallery Kit）/In-house应用发布指导和常见问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-80"
+  },
+  {
+    "slug": "faqs-appgallery-77",
+    "name": "Publishing API提交应用返回204144660的几种场景和解决方法",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/Publishing API提交应用返回204144660的几种场景和解决方法/Publishing API提交应用返回204144660的几种场景和解决方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-77"
+  },
+  {
+    "slug": "faqs-appgallery-77",
+    "name": "Publishing API提交应用返回204144660的几种场景和解决方法",
+    "file": "应用市场服务（AppGallery Kit）/Publishing API提交应用返回204144660的几种场景和解决方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-77"
+  },
+  {
+    "slug": "faqs-appgallery-74",
+    "name": "Publishing API更新应用软件包信息返回204144693如何解决",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/Publishing API更新应用软件包信息返回204144693如何解决/Publishing API更新应用软件包信息返回204144693如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-74"
+  },
+  {
+    "slug": "faqs-appgallery-74",
+    "name": "Publishing API更新应用软件包信息返回204144693如何解决",
+    "file": "应用市场服务（AppGallery Kit）/Publishing API更新应用软件包信息返回204144693如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-74"
+  },
+  {
+    "slug": "faqs-appgallery-89",
+    "name": "p12和csr文件丢失后如何找回并更新应用",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/p12和csr文件丢失后如何找回并更新应用/p12和csr文件丢失后如何找回并更新应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-89"
+  },
+  {
+    "slug": "faqs-appgallery-89",
+    "name": "p12和csr文件丢失后如何找回并更新应用",
+    "file": "应用市场服务（AppGallery Kit）/p12和csr文件丢失后如何找回并更新应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-89"
+  },
+  {
+    "slug": "faqs-appgallery-30",
+    "name": "上传应用图标到AGC报错文件类型不对",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/上传应用图标到AGC报错文件类型不对/上传应用图标到AGC报错文件类型不对.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-30"
+  },
+  {
+    "slug": "faqs-appgallery-30",
+    "name": "上传应用图标到AGC报错文件类型不对",
+    "file": "应用市场服务（AppGallery Kit）/上传应用图标到AGC报错文件类型不对.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-30"
+  },
+  {
+    "slug": "faqs-appgallery-10",
+    "name": "上架发布应用失败，提示“请使用发布版本的API开发应用申请上架”",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/上架发布应用失败，提示“请使用发布版本的API开发应用申请上架”/上架发布应用失败，提示“请使用发布版本的API开发应用申请上架”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-10"
+  },
+  {
+    "slug": "faqs-appgallery-10",
+    "name": "上架发布应用失败，提示“请使用发布版本的API开发应用申请上架”",
+    "file": "应用市场服务（AppGallery Kit）/上架发布应用失败，提示“请使用发布版本的API开发应用申请上架”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-10"
+  },
+  {
+    "slug": "faqs-appgallery-3",
+    "name": "上架审核提示软著不通过应该如何处理",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/上架审核提示软著不通过应该如何处理/上架审核提示软著不通过应该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-3"
+  },
+  {
+    "slug": "faqs-appgallery-3",
+    "name": "上架审核提示软著不通过应该如何处理",
+    "file": "应用市场服务（AppGallery Kit）/上架审核提示软著不通过应该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-3"
+  },
+  {
+    "slug": "faqs-appgallery-28",
+    "name": "上架时年龄分级结果与预期不符怎么处理",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/上架时年龄分级结果与预期不符怎么处理/上架时年龄分级结果与预期不符怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-28"
+  },
+  {
+    "slug": "faqs-appgallery-28",
+    "name": "上架时年龄分级结果与预期不符怎么处理",
+    "file": "应用市场服务（AppGallery Kit）/上架时年龄分级结果与预期不符怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-28"
+  },
+  {
+    "slug": "faqs-appgallery-55",
+    "name": "企业主体能否多个开发者账号实名认证",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/企业主体能否多个开发者账号实名认证/企业主体能否多个开发者账号实名认证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-55"
+  },
+  {
+    "slug": "faqs-appgallery-55",
+    "name": "企业主体能否多个开发者账号实名认证",
+    "file": "应用市场服务（AppGallery Kit）/企业主体能否多个开发者账号实名认证.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-55"
+  },
+  {
+    "slug": "faqs-appgallery-24",
+    "name": "低版本手机应用市场是否能搜索到高版本应用",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/低版本手机应用市场是否能搜索到高版本应用/低版本手机应用市场是否能搜索到高版本应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-24"
+  },
+  {
+    "slug": "faqs-appgallery-24",
+    "name": "低版本手机应用市场是否能搜索到高版本应用",
+    "file": "应用市场服务（AppGallery Kit）/低版本手机应用市场是否能搜索到高版本应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-24"
+  },
+  {
+    "slug": "faqs-appgallery-49",
+    "name": "使用AppGallery邀请测试打包使用什么类型的证书",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/使用AppGallery邀请测试打包使用什么类型的证书/使用AppGallery邀请测试打包使用什么类型的证书.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-49"
+  },
+  {
+    "slug": "faqs-appgallery-49",
+    "name": "使用AppGallery邀请测试打包使用什么类型的证书",
+    "file": "应用市场服务（AppGallery Kit）/使用AppGallery邀请测试打包使用什么类型的证书.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-49"
+  },
+  {
+    "slug": "faqs-appgallery-58",
+    "name": "使用Testing API的更新测试版本接口，报错204144691",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/使用Testing API的更新测试版本接口，报错204144691/使用Testing API的更新测试版本接口，报错204144691.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-58"
+  },
+  {
+    "slug": "faqs-appgallery-58",
+    "name": "使用Testing API的更新测试版本接口，报错204144691",
+    "file": "应用市场服务（AppGallery Kit）/使用Testing API的更新测试版本接口，报错204144691.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-58"
+  },
+  {
+    "slug": "faqs-appgallery-53",
+    "name": "使用productViewManager.loadProduct拉起的应用商店页如何在其他地方监听",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/使用productViewManager.loadProduct拉起的应用商店页如何在其他地方监听/使用productViewManager.loadProduct拉起的应用商店页如何在其他地方监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-53"
+  },
+  {
+    "slug": "faqs-appgallery-53",
+    "name": "使用productViewManager.loadProduct拉起的应用商店页如何在其他地方监听",
+    "file": "应用市场服务（AppGallery Kit）/使用productViewManager.loadProduct拉起的应用商店页如何在其他地方监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-53"
+  },
+  {
+    "slug": "faqs-appgallery-21",
+    "name": "加入HarmonyOS开发服务商，需要使用未经认证的新账号吗",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/加入HarmonyOS开发服务商，需要使用未经认证的新账号吗/加入HarmonyOS开发服务商，需要使用未经认证的新账号吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-21"
+  },
+  {
+    "slug": "faqs-appgallery-21",
+    "name": "加入HarmonyOS开发服务商，需要使用未经认证的新账号吗",
+    "file": "应用市场服务（AppGallery Kit）/加入HarmonyOS开发服务商，需要使用未经认证的新账号吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-21"
+  },
+  {
+    "slug": "faqs-appgallery-46",
+    "name": "多系统共用隐私政策协议时，需要注意哪些点",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/多系统共用隐私政策协议时，需要注意哪些点/多系统共用隐私政策协议时，需要注意哪些点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-46"
+  },
+  {
+    "slug": "faqs-appgallery-46",
+    "name": "多系统共用隐私政策协议时，需要注意哪些点",
+    "file": "应用市场服务（AppGallery Kit）/多系统共用隐私政策协议时，需要注意哪些点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-46"
+  },
+  {
+    "slug": "faqs-appgallery-5",
+    "name": "如何修复上架审核的定向推送问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何修复上架审核的定向推送问题/如何修复上架审核的定向推送问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-5"
+  },
+  {
+    "slug": "faqs-appgallery-5",
+    "name": "如何修复上架审核的定向推送问题",
+    "file": "应用市场服务（AppGallery Kit）/如何修复上架审核的定向推送问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-5"
+  },
+  {
+    "slug": "faqs-appgallery-75",
+    "name": "如何动态设置应用图标",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何动态设置应用图标/如何动态设置应用图标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-75"
+  },
+  {
+    "slug": "faqs-appgallery-75",
+    "name": "如何动态设置应用图标",
+    "file": "应用市场服务（AppGallery Kit）/如何动态设置应用图标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-75"
+  },
+  {
+    "slug": "faqs-appgallery-29",
+    "name": "如何发布企业内部应用",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何发布企业内部应用/如何发布企业内部应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-29"
+  },
+  {
+    "slug": "faqs-appgallery-29",
+    "name": "如何发布企业内部应用",
+    "file": "应用市场服务（AppGallery Kit）/如何发布企业内部应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-29"
+  },
+  {
+    "slug": "faqs-appgallery-44",
+    "name": "如何实现动态修改应用图标",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何实现动态修改应用图标/如何实现动态修改应用图标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-44"
+  },
+  {
+    "slug": "faqs-appgallery-44",
+    "name": "如何实现动态修改应用图标",
+    "file": "应用市场服务（AppGallery Kit）/如何实现动态修改应用图标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-44"
+  },
+  {
+    "slug": "faqs-appgallery-43",
+    "name": "如何实现应用升级自定义弹窗并监控点击事件",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何实现应用升级自定义弹窗并监控点击事件/如何实现应用升级自定义弹窗并监控点击事件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-43"
+  },
+  {
+    "slug": "faqs-appgallery-43",
+    "name": "如何实现应用升级自定义弹窗并监控点击事件",
+    "file": "应用市场服务（AppGallery Kit）/如何实现应用升级自定义弹窗并监控点击事件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-43"
+  },
+  {
+    "slug": "faqs-appgallery-31",
+    "name": "如何拉起应用市场并跳转至应用详情",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何拉起应用市场并跳转至应用详情/如何拉起应用市场并跳转至应用详情.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-31"
+  },
+  {
+    "slug": "faqs-appgallery-31",
+    "name": "如何拉起应用市场并跳转至应用详情",
+    "file": "应用市场服务（AppGallery Kit）/如何拉起应用市场并跳转至应用详情.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-31"
+  },
+  {
+    "slug": "faqs-appgallery-48",
+    "name": "如何接入AGC应用性能监测服务（含崩溃服务）",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何接入AGC应用性能监测服务（含崩溃服务）/如何接入AGC应用性能监测服务（含崩溃服务）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-48"
+  },
+  {
+    "slug": "faqs-appgallery-48",
+    "name": "如何接入AGC应用性能监测服务（含崩溃服务）",
+    "file": "应用市场服务（AppGallery Kit）/如何接入AGC应用性能监测服务（含崩溃服务）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-48"
+  },
+  {
+    "slug": "faqs-appgallery-96",
+    "name": "如何查看和管理HarmonyOS Next应用市场的用户评论数据",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何查看和管理HarmonyOS Next应用市场的用户评论数据/如何查看和管理HarmonyOS Next应用市场的用户评论数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-96"
+  },
+  {
+    "slug": "faqs-appgallery-96",
+    "name": "如何查看和管理HarmonyOS Next应用市场的用户评论数据",
+    "file": "应用市场服务（AppGallery Kit）/如何查看和管理HarmonyOS Next应用市场的用户评论数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-96"
+  },
+  {
+    "slug": "faqs-appgallery-25",
+    "name": "如何添加ACL受限权限",
+    "file": "应用市场服务（AppGallery Kit）/如何添加ACL受限权限/如何添加ACL受限权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-25"
+  },
+  {
+    "slug": "faqs-appgallery-25",
+    "name": "如何添加ACL受限权限",
+    "file": "应用市场服务（AppGallery Kit）/如何添加ACL受限权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-25"
+  },
+  {
+    "slug": "faqs-appgallery-17",
+    "name": "如何确保核心用户每次都能参与版本测试",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何确保核心用户每次都能参与版本测试/如何确保核心用户每次都能参与版本测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-17"
+  },
+  {
+    "slug": "faqs-appgallery-17",
+    "name": "如何确保核心用户每次都能参与版本测试",
+    "file": "应用市场服务（AppGallery Kit）/如何确保核心用户每次都能参与版本测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-17"
+  },
+  {
+    "slug": "faqs-appgallery-42",
+    "name": "如何解决关闭开发者模式时应用无法打开的问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何解决关闭开发者模式时应用无法打开的问题/如何解决关闭开发者模式时应用无法打开的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-42"
+  },
+  {
+    "slug": "faqs-appgallery-42",
+    "name": "如何解决关闭开发者模式时应用无法打开的问题",
+    "file": "应用市场服务（AppGallery Kit）/如何解决关闭开发者模式时应用无法打开的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-42"
+  },
+  {
+    "slug": "faqs-appgallery-60",
+    "name": "如何解决内部测试安装失败，报错误码17700018的问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何解决内部测试安装失败，报错误码17700018的问题/如何解决内部测试安装失败，报错误码17700018的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-60"
+  },
+  {
+    "slug": "faqs-appgallery-60",
+    "name": "如何解决内部测试安装失败，报错误码17700018的问题",
+    "file": "应用市场服务（AppGallery Kit）/如何解决内部测试安装失败，报错误码17700018的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-60"
+  },
+  {
+    "slug": "faqs-appgallery-14",
+    "name": "如何解决应用向用户索取权限使用目的说明不明确等问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何解决应用向用户索取权限使用目的说明不明确等问题/如何解决应用向用户索取权限使用目的说明不明确等问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-14"
+  },
+  {
+    "slug": "faqs-appgallery-14",
+    "name": "如何解决应用向用户索取权限使用目的说明不明确等问题",
+    "file": "应用市场服务（AppGallery Kit）/如何解决应用向用户索取权限使用目的说明不明确等问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-14"
+  },
+  {
+    "slug": "faqs-appgallery-11",
+    "name": "如何解决应用市场更新失败，报错code\"17700073\"的问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何解决应用市场更新失败，报错code\"17700073\"的问题/如何解决应用市场更新失败，报错code＂17700073＂的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-11"
+  },
+  {
+    "slug": "faqs-appgallery-11",
+    "name": "如何解决应用市场更新失败，报错code“17700073”的问题",
+    "file": "应用市场服务（AppGallery Kit）/如何解决应用市场更新失败，报错code“17700073”的问题/如何解决应用市场更新失败，报错code“17700073”的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-11"
+  },
+  {
+    "slug": "faqs-appgallery-11",
+    "name": "如何解决应用市场更新失败，报错code“17700073”的问题",
+    "file": "应用市场服务（AppGallery Kit）/如何解决应用市场更新失败，报错code“17700073”的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-11"
+  },
+  {
+    "slug": "faqs-appgallery-84",
+    "name": "如何解决首次运行弹出两个隐私政策弹窗的问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/如何解决首次运行弹出两个隐私政策弹窗的问题/如何解决首次运行弹出两个隐私政策弹窗的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-84"
+  },
+  {
+    "slug": "faqs-appgallery-84",
+    "name": "如何解决首次运行弹出两个隐私政策弹窗的问题",
+    "file": "应用市场服务（AppGallery Kit）/如何解决首次运行弹出两个隐私政策弹窗的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-84"
+  },
+  {
+    "slug": "faqs-appgallery-47",
+    "name": "已发布应用是否会被要求强制升级",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/已发布应用是否会被要求强制升级/已发布应用是否会被要求强制升级.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-47"
+  },
+  {
+    "slug": "faqs-appgallery-47",
+    "name": "已发布应用是否会被要求强制升级",
+    "file": "应用市场服务（AppGallery Kit）/已发布应用是否会被要求强制升级.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-47"
+  },
+  {
+    "slug": "faqs-appgallery-64",
+    "name": "已经修改SDK版本但上架仍提示应用含有beta版的API该如何处理",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/已经修改SDK版本但上架仍提示应用含有beta版的API该如何处理/已经修改SDK版本但上架仍提示应用含有beta版的API该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-64"
+  },
+  {
+    "slug": "faqs-appgallery-64",
+    "name": "已经修改SDK版本但上架仍提示应用含有beta版的API该如何处理",
+    "file": "应用市场服务（AppGallery Kit）/已经修改SDK版本但上架仍提示应用含有beta版的API该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-64"
+  },
+  {
+    "slug": "faqs-appgallery-16",
+    "name": "应用上架审核因稳定性被驳回如何获取相应的日志定位问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用上架审核因稳定性被驳回如何获取相应的日志定位问题/应用上架审核因稳定性被驳回如何获取相应的日志定位问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-16"
+  },
+  {
+    "slug": "faqs-appgallery-16",
+    "name": "应用上架审核因稳定性被驳回如何获取相应的日志定位问题",
+    "file": "应用市场服务（AppGallery Kit）/应用上架审核因稳定性被驳回如何获取相应的日志定位问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-16"
+  },
+  {
+    "slug": "faqs-appgallery-68",
+    "name": "应用上架必须通过AppFreeze异常检测吗",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用上架必须通过AppFreeze异常检测吗/应用上架必须通过AppFreeze异常检测吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-68"
+  },
+  {
+    "slug": "faqs-appgallery-68",
+    "name": "应用上架必须通过AppFreeze异常检测吗",
+    "file": "应用市场服务（AppGallery Kit）/应用上架必须通过AppFreeze异常检测吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-68"
+  },
+  {
+    "slug": "faqs-appgallery-34",
+    "name": "应用上架检测出未使用的权限",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用上架检测出未使用的权限/应用上架检测出未使用的权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-34"
+  },
+  {
+    "slug": "faqs-appgallery-34",
+    "name": "应用上架检测出未使用的权限",
+    "file": "应用市场服务（AppGallery Kit）/应用上架检测出未使用的权限.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-34"
+  },
+  {
+    "slug": "faqs-appgallery-39",
+    "name": "应用上架检测反馈存在RS前台空跑现象",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用上架检测反馈存在RS前台空跑现象/应用上架检测反馈存在RS前台空跑现象.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-39"
+  },
+  {
+    "slug": "faqs-appgallery-39",
+    "name": "应用上架检测反馈存在RS前台空跑现象",
+    "file": "应用市场服务（AppGallery Kit）/应用上架检测反馈存在RS前台空跑现象.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-39"
+  },
+  {
+    "slug": "faqs-appgallery-98",
+    "name": "应用内检查更新实现及常见问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用内检查更新实现及常见问题/应用内检查更新实现及常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-98"
+  },
+  {
+    "slug": "faqs-appgallery-98",
+    "name": "应用内检查更新实现及常见问题",
+    "file": "应用市场服务（AppGallery Kit）/应用内检查更新实现及常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-98"
+  },
+  {
+    "slug": "faqs-appgallery-35",
+    "name": "应用内点击检查更新跳转到应用市场后提示“此应用暂不支持在当前设备安装”",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用内点击检查更新跳转到应用市场后提示“此应用暂不支持在当前设备安装”/应用内点击检查更新跳转到应用市场后提示“此应用暂不支持在当前设备安装”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-35"
+  },
+  {
+    "slug": "faqs-appgallery-35",
+    "name": "应用内点击检查更新跳转到应用市场后提示“此应用暂不支持在当前设备安装”",
+    "file": "应用市场服务（AppGallery Kit）/应用内点击检查更新跳转到应用市场后提示“此应用暂不支持在当前设备安装”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-35"
+  },
+  {
+    "slug": "faqs-appgallery-51",
+    "name": "应用内需要提供举报功能，是需要使用华为提供的Kit吗",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用内需要提供举报功能，是需要使用华为提供的Kit吗/应用内需要提供举报功能，是需要使用华为提供的Kit吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-51"
+  },
+  {
+    "slug": "faqs-appgallery-51",
+    "name": "应用内需要提供举报功能，是需要使用华为提供的Kit吗",
+    "file": "应用市场服务（AppGallery Kit）/应用内需要提供举报功能，是需要使用华为提供的Kit吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-51"
+  },
+  {
+    "slug": "faqs-appgallery-1",
+    "name": "应用前台使用时发生闪退，或在后台时退出",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用前台使用时发生闪退，或在后台时退出/应用前台使用时发生闪退，或在后台时退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-1"
+  },
+  {
+    "slug": "faqs-appgallery-1",
+    "name": "应用前台使用时发生闪退，或在后台时退出",
+    "file": "应用市场服务（AppGallery Kit）/应用前台使用时发生闪退，或在后台时退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-1"
+  },
+  {
+    "slug": "faqs-appgallery-72",
+    "name": "应用包无法上传到AGC怎么办，是否网络限制",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用包无法上传到AGC怎么办，是否网络限制/应用包无法上传到AGC怎么办，是否网络限制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-72"
+  },
+  {
+    "slug": "faqs-appgallery-72",
+    "name": "应用包无法上传到AGC怎么办，是否网络限制",
+    "file": "应用市场服务（AppGallery Kit）/应用包无法上传到AGC怎么办，是否网络限制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-72"
+  },
+  {
+    "slug": "faqs-appgallery-41",
+    "name": "应用发布选取新包时提示较低版本包，无法选择",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用发布选取新包时提示较低版本包，无法选择/应用发布选取新包时提示较低版本包，无法选择.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-41"
+  },
+  {
+    "slug": "faqs-appgallery-41",
+    "name": "应用发布选取新包时提示较低版本包，无法选择",
+    "file": "应用市场服务（AppGallery Kit）/应用发布选取新包时提示较低版本包，无法选择.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-41"
+  },
+  {
+    "slug": "faqs-appgallery-56",
+    "name": "应用图标是否可以包含HarmonyOS的标识",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用图标是否可以包含HarmonyOS的标识/应用图标是否可以包含HarmonyOS的标识.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-56"
+  },
+  {
+    "slug": "faqs-appgallery-56",
+    "name": "应用图标是否可以包含HarmonyOS的标识",
+    "file": "应用市场服务（AppGallery Kit）/应用图标是否可以包含HarmonyOS的标识.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-56"
+  },
+  {
+    "slug": "faqs-appgallery-59",
+    "name": "应用在不同系统版本下应用市场的下载规则",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用在不同系统版本下应用市场的下载规则/应用在不同系统版本下应用市场的下载规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-59"
+  },
+  {
+    "slug": "faqs-appgallery-59",
+    "name": "应用在不同系统版本下应用市场的下载规则",
+    "file": "应用市场服务（AppGallery Kit）/应用在不同系统版本下应用市场的下载规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-59"
+  },
+  {
+    "slug": "faqs-appgallery-95",
+    "name": "应用备案相关前置许可前期准备材料和工作",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用备案相关前置许可前期准备材料和工作/应用备案相关前置许可前期准备材料和工作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-95"
+  },
+  {
+    "slug": "faqs-appgallery-95",
+    "name": "应用备案相关前置许可前期准备材料和工作",
+    "file": "应用市场服务（AppGallery Kit）/应用备案相关前置许可前期准备材料和工作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-95"
+  },
+  {
+    "slug": "faqs-appgallery-27",
+    "name": "应用如何上架分发到多端（手机、PC、平板）",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用如何上架分发到多端（手机、PC、平板）/应用如何上架分发到多端（手机、PC、平板）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-27"
+  },
+  {
+    "slug": "faqs-appgallery-27",
+    "name": "应用如何上架分发到多端（手机、PC、平板）",
+    "file": "应用市场服务（AppGallery Kit）/应用如何上架分发到多端（手机、PC、平板）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-27"
+  },
+  {
+    "slug": "faqs-appgallery-73",
+    "name": "应用市场提交版本时报错，软件包中含有不允许使用的权限，怎么定位",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用市场提交版本时报错，软件包中含有不允许使用的权限，怎么定位/应用市场提交版本时报错，软件包中含有不允许使用的权限，怎么定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-73"
+  },
+  {
+    "slug": "faqs-appgallery-73",
+    "name": "应用市场提交版本时报错，软件包中含有不允许使用的权限，怎么定位",
+    "file": "应用市场服务（AppGallery Kit）/应用市场提交版本时报错，软件包中含有不允许使用的权限，怎么定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-73"
+  },
+  {
+    "slug": "faqs-appgallery-91",
+    "name": "应用市场搜索不到应用排查指导",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用市场搜索不到应用排查指导/应用市场搜索不到应用排查指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-91"
+  },
+  {
+    "slug": "faqs-appgallery-91",
+    "name": "应用市场搜索不到应用排查指导",
+    "file": "应用市场服务（AppGallery Kit）/应用市场搜索不到应用排查指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-91"
+  },
+  {
+    "slug": "faqs-appgallery-52",
+    "name": "应用市场新版本app推送机制",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用市场新版本app推送机制/应用市场新版本app推送机制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-52"
+  },
+  {
+    "slug": "faqs-appgallery-52",
+    "name": "应用市场新版本app推送机制",
+    "file": "应用市场服务（AppGallery Kit）/应用市场新版本app推送机制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-52"
+  },
+  {
+    "slug": "faqs-appgallery-38",
+    "name": "应用市场评论互动服务账号使用问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用市场评论互动服务账号使用问题/应用市场评论互动服务账号使用问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-38"
+  },
+  {
+    "slug": "faqs-appgallery-38",
+    "name": "应用市场评论互动服务账号使用问题",
+    "file": "应用市场服务（AppGallery Kit）/应用市场评论互动服务账号使用问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-38"
+  },
+  {
+    "slug": "faqs-appgallery-57",
+    "name": "应用提交上架审核后，撤销上架还需要审核吗",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用提交上架审核后，撤销上架还需要审核吗/应用提交上架审核后，撤销上架还需要审核吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-57"
+  },
+  {
+    "slug": "faqs-appgallery-57",
+    "name": "应用提交上架审核后，撤销上架还需要审核吗",
+    "file": "应用市场服务（AppGallery Kit）/应用提交上架审核后，撤销上架还需要审核吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-57"
+  },
+  {
+    "slug": "faqs-appgallery-36",
+    "name": "应用更新无法拉起升级对话框",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用更新无法拉起升级对话框/应用更新无法拉起升级对话框.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-36"
+  },
+  {
+    "slug": "faqs-appgallery-36",
+    "name": "应用更新无法拉起升级对话框",
+    "file": "应用市场服务（AppGallery Kit）/应用更新无法拉起升级对话框.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-36"
+  },
+  {
+    "slug": "faqs-appgallery-82",
+    "name": "应用证书到期后的影响及处理方式",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用证书到期后的影响及处理方式/应用证书到期后的影响及处理方式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-82"
+  },
+  {
+    "slug": "faqs-appgallery-62",
+    "name": "应用误删后是否可以恢复",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用误删后是否可以恢复/应用误删后是否可以恢复.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-62"
+  },
+  {
+    "slug": "faqs-appgallery-62",
+    "name": "应用误删后是否可以恢复",
+    "file": "应用市场服务（AppGallery Kit）/应用误删后是否可以恢复.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-62"
+  },
+  {
+    "slug": "faqs-appgallery-4",
+    "name": "应用配置图标不符合UX设计规范要求尺寸1024px*1024px该如何解决",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/应用配置图标不符合UX设计规范要求尺寸1024px*1024px该如何解决/应用配置图标不符合UX设计规范要求尺寸1024px＊1024px该如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-4"
+  },
+  {
+    "slug": "faqs-appgallery-4",
+    "name": "应用配置图标不符合UX设计规范要求尺寸1024px*1024px该如何解决",
+    "file": "应用市场服务（AppGallery Kit）/应用配置图标不符合UX设计规范要求尺寸1024px＊1024px该如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-4"
+  },
+  {
+    "slug": "faqs-appgallery-26",
+    "name": "新建商品后不能复用之前的商品ID，应用后台是否支持更改商品类型",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/新建商品后不能复用之前的商品ID，应用后台是否支持更改商品类型/新建商品后不能复用之前的商品ID，应用后台是否支持更改商品类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-26"
+  },
+  {
+    "slug": "faqs-appgallery-26",
+    "name": "新建商品后不能复用之前的商品ID，应用后台是否支持更改商品类型",
+    "file": "应用市场服务（AppGallery Kit）/新建商品后不能复用之前的商品ID，应用后台是否支持更改商品类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-26"
+  },
+  {
+    "slug": "faqs-appgallery-101",
+    "name": "无权限签署华为开发者服务协议",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/无权限签署华为开发者服务协议/无权限签署华为开发者服务协议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-101"
+  },
+  {
+    "slug": "faqs-appgallery-101",
+    "name": "无权限签署华为开发者服务协议",
+    "file": "应用市场服务（AppGallery Kit）/无权限签署华为开发者服务协议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-101"
+  },
+  {
+    "slug": "faqs-appgallery-78",
+    "name": "权限分类及受限权限未审批前如何进行应用调试",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/权限分类及受限权限未审批前如何进行应用调试/权限分类及受限权限未审批前如何进行应用调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-78"
+  },
+  {
+    "slug": "faqs-appgallery-78",
+    "name": "权限分类及受限权限未审批前如何进行应用调试",
+    "file": "应用市场服务（AppGallery Kit）/权限分类及受限权限未审批前如何进行应用调试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-78"
+  },
+  {
+    "slug": "faqs-appgallery-71",
+    "name": "测试版本已审核通过，为何在AppGallery应用尝鲜中没有搜到",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/测试版本已审核通过，为何在AppGallery应用尝鲜中没有搜到/测试版本已审核通过，为何在AppGallery应用尝鲜中没有搜到.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-71"
+  },
+  {
+    "slug": "faqs-appgallery-71",
+    "name": "测试版本已审核通过，为何在AppGallery应用尝鲜中没有搜到",
+    "file": "应用市场服务（AppGallery Kit）/测试版本已审核通过，为何在AppGallery应用尝鲜中没有搜到.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-71"
+  },
+  {
+    "slug": "faqs-appgallery-88",
+    "name": "用户如何退出AppGallery邀请测试",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/用户如何退出AppGallery邀请测试/用户如何退出AppGallery邀请测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-88"
+  },
+  {
+    "slug": "faqs-appgallery-88",
+    "name": "用户如何退出AppGallery邀请测试",
+    "file": "应用市场服务（AppGallery Kit）/用户如何退出AppGallery邀请测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-88"
+  },
+  {
+    "slug": "faqs-appgallery-100",
+    "name": "用户如何退出AppTest邀请测试",
+    "file": "应用市场服务（AppGallery Kit）/用户如何退出AppTest邀请测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-100"
+  },
+  {
+    "slug": "faqs-appgallery-2",
+    "name": "用户尚未同意隐私政策，应用即申请收集用户信息",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/用户尚未同意隐私政策，应用即申请收集用户信息/用户尚未同意隐私政策，应用即申请收集用户信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-2"
+  },
+  {
+    "slug": "faqs-appgallery-2",
+    "name": "用户尚未同意隐私政策，应用即申请收集用户信息",
+    "file": "应用市场服务（AppGallery Kit）/用户尚未同意隐私政策，应用即申请收集用户信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-2"
+  },
+  {
+    "slug": "faqs-appgallery-69",
+    "name": "申请发布证书时提示上传的CSR文件无效怎么办",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/申请发布证书时提示上传的CSR文件无效怎么办/申请发布证书时提示上传的CSR文件无效怎么办.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-69"
+  },
+  {
+    "slug": "faqs-appgallery-69",
+    "name": "申请发布证书时提示上传的CSR文件无效怎么办",
+    "file": "应用市场服务（AppGallery Kit）/申请发布证书时提示上传的CSR文件无效怎么办.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-69"
+  },
+  {
+    "slug": "faqs-appgallery-19",
+    "name": "申请证书数量限制问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/申请证书数量限制问题/申请证书数量限制问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-19"
+  },
+  {
+    "slug": "faqs-appgallery-19",
+    "name": "申请证书数量限制问题",
+    "file": "应用市场服务（AppGallery Kit）/申请证书数量限制问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-19"
+  },
+  {
+    "slug": "faqs-appgallery-13",
+    "name": "私有云部署应用如何备案",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/私有云部署应用如何备案/私有云部署应用如何备案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-13"
+  },
+  {
+    "slug": "faqs-appgallery-13",
+    "name": "私有云部署应用如何备案",
+    "file": "应用市场服务（AppGallery Kit）/私有云部署应用如何备案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-13"
+  },
+  {
+    "slug": "faqs-appgallery-18",
+    "name": "解决同一个App包同时提交邀请测试和公开测试问题",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/解决同一个App包同时提交邀请测试和公开测试问题/解决同一个App包同时提交邀请测试和公开测试问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-18"
+  },
+  {
+    "slug": "faqs-appgallery-18",
+    "name": "解决同一个App包同时提交邀请测试和公开测试问题",
+    "file": "应用市场服务（AppGallery Kit）/解决同一个App包同时提交邀请测试和公开测试问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-18"
+  },
+  {
+    "slug": "faqs-appgallery-81",
+    "name": "证书和Profile类型及使用场景",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/证书和Profile类型及使用场景/证书和Profile类型及使用场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-81"
+  },
+  {
+    "slug": "faqs-appgallery-81",
+    "name": "证书和Profile类型及使用场景",
+    "file": "应用市场服务（AppGallery Kit）/证书和Profile类型及使用场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-81"
+  },
+  {
+    "slug": "faqs-appgallery-82",
+    "name": "证书有效期到期后有什么影响",
+    "file": "应用市场服务（AppGallery Kit）/证书有效期到期后有什么影响.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-82"
+  },
+  {
+    "slug": "faqs-appgallery-87",
+    "name": "证书有效期和创建密钥时不一致",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/证书有效期和创建密钥时不一致/证书有效期和创建密钥时不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-87"
+  },
+  {
+    "slug": "faqs-appgallery-87",
+    "name": "证书有效期和创建密钥时不一致",
+    "file": "应用市场服务（AppGallery Kit）/证书有效期和创建密钥时不一致.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-87"
+  },
+  {
+    "slug": "faqs-appgallery-54",
+    "name": "证书生效，但开发工具提示证书过期",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/证书生效，但开发工具提示证书过期/证书生效，但开发工具提示证书过期.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-54"
+  },
+  {
+    "slug": "faqs-appgallery-54",
+    "name": "证书生效，但开发工具提示证书过期",
+    "file": "应用市场服务（AppGallery Kit）/证书生效，但开发工具提示证书过期.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-54"
+  },
+  {
+    "slug": "faqs-appgallery-94",
+    "name": "试用调试Profile如何申请及注意事项",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/试用调试Profile如何申请及注意事项/试用调试Profile如何申请及注意事项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-94"
+  },
+  {
+    "slug": "faqs-appgallery-94",
+    "name": "试用调试Profile如何申请及注意事项",
+    "file": "应用市场服务（AppGallery Kit）/试用调试Profile如何申请及注意事项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-94"
+  },
+  {
+    "slug": "faqs-appgallery-45",
+    "name": "调用Comments API返回错误码20770002",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/调用Comments API返回错误码20770002/调用Comments API返回错误码20770002.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-45"
+  },
+  {
+    "slug": "faqs-appgallery-45",
+    "name": "调用Comments API返回错误码20770002",
+    "file": "应用市场服务（AppGallery Kit）/调用Comments API返回错误码20770002.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-45"
+  },
+  {
+    "slug": "faqs-appgallery-83",
+    "name": "调用Publishing API（HarmonyOS）的提交发布接口报错",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/调用Publishing API（HarmonyOS）的提交发布接口报错/调用Publishing API（HarmonyOS）的提交发布接口报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-83"
+  },
+  {
+    "slug": "faqs-appgallery-83",
+    "name": "调用Publishing API（HarmonyOS）的提交发布接口报错",
+    "file": "应用市场服务（AppGallery Kit）/调用Publishing API（HarmonyOS）的提交发布接口报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-83"
+  },
+  {
+    "slug": "faqs-appgallery-76",
+    "name": "通过打包工具构建的软件包上传AGC报错996如何解决",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/通过打包工具构建的软件包上传AGC报错996如何解决/通过打包工具构建的软件包上传AGC报错996如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-76"
+  },
+  {
+    "slug": "faqs-appgallery-76",
+    "name": "通过打包工具构建的软件包上传AGC报错996如何解决",
+    "file": "应用市场服务（AppGallery Kit）/通过打包工具构建的软件包上传AGC报错996如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-76"
+  },
+  {
+    "slug": "faqs-appgallery-20",
+    "name": "邀请测试中的版本如何继续添加测试人员",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/邀请测试中的版本如何继续添加测试人员/邀请测试中的版本如何继续添加测试人员.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-20"
+  },
+  {
+    "slug": "faqs-appgallery-20",
+    "name": "邀请测试中的版本如何继续添加测试人员",
+    "file": "应用市场服务（AppGallery Kit）/邀请测试中的版本如何继续添加测试人员.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-20"
+  },
+  {
+    "slug": "faqs-appgallery-102",
+    "name": "邀请测试任务失效后如何重新开启",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/邀请测试任务失效后如何重新开启/邀请测试任务失效后如何重新开启.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-102"
+  },
+  {
+    "slug": "faqs-appgallery-102",
+    "name": "邀请测试任务失效后如何重新开启",
+    "file": "应用市场服务（AppGallery Kit）/邀请测试任务失效后如何重新开启.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-102"
+  },
+  {
+    "slug": "faqs-appgallery-22",
+    "name": "邀请测试如何创建邀请码并使用",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/邀请测试如何创建邀请码并使用/邀请测试如何创建邀请码并使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-22"
+  },
+  {
+    "slug": "faqs-appgallery-22",
+    "name": "邀请测试如何创建邀请码并使用",
+    "file": "应用市场服务（AppGallery Kit）/邀请测试如何创建邀请码并使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-22"
+  },
+  {
+    "slug": "faqs-appgallery-65",
+    "name": "邀请测试时无法选取上传的软件包怎么办",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/邀请测试时无法选取上传的软件包怎么办/邀请测试时无法选取上传的软件包怎么办.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-65"
+  },
+  {
+    "slug": "faqs-appgallery-65",
+    "name": "邀请测试时无法选取上传的软件包怎么办",
+    "file": "应用市场服务（AppGallery Kit）/邀请测试时无法选取上传的软件包怎么办.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-65"
+  },
+  {
+    "slug": "faqs-appgallery-37",
+    "name": "邀请测试链接点击无法安装如何解决",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/邀请测试链接点击无法安装如何解决/邀请测试链接点击无法安装如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-37"
+  },
+  {
+    "slug": "faqs-appgallery-37",
+    "name": "邀请测试链接点击无法安装如何解决",
+    "file": "应用市场服务（AppGallery Kit）/邀请测试链接点击无法安装如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-37"
+  },
+  {
+    "slug": "faqs-appgallery-12",
+    "name": "重新生成profile发布的应用，是否会影响安装之前发布的应用",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/重新生成profile发布的应用，是否会影响安装之前发布的应用/重新生成profile发布的应用，是否会影响安装之前发布的应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-12"
+  },
+  {
+    "slug": "faqs-appgallery-12",
+    "name": "重新生成profile发布的应用，是否会影响安装之前发布的应用",
+    "file": "应用市场服务（AppGallery Kit）/重新生成profile发布的应用，是否会影响安装之前发布的应用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-12"
+  },
+  {
+    "slug": "faqs-appgallery-50",
+    "name": "隐私声明和用户协议，若用户没同意该如何处理",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/隐私声明和用户协议，若用户没同意该如何处理/隐私声明和用户协议，若用户没同意该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-50"
+  },
+  {
+    "slug": "faqs-appgallery-50",
+    "name": "隐私声明和用户协议，若用户没同意该如何处理",
+    "file": "应用市场服务（AppGallery Kit）/隐私声明和用户协议，若用户没同意该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-50"
+  },
+  {
+    "slug": "faqs-appgallery-67",
+    "name": "隐私托管使用的场景和测试条件",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/隐私托管使用的场景和测试条件/隐私托管使用的场景和测试条件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-67"
+  },
+  {
+    "slug": "faqs-appgallery-67",
+    "name": "隐私托管使用的场景和测试条件",
+    "file": "应用市场服务（AppGallery Kit）/隐私托管使用的场景和测试条件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-67"
+  },
+  {
+    "slug": "faqs-appgallery-15",
+    "name": "集成三方sdk是否必须在隐私政策中标注",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/集成三方sdk是否必须在隐私政策中标注/集成三方sdk是否必须在隐私政策中标注.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-15"
+  },
+  {
+    "slug": "faqs-appgallery-15",
+    "name": "集成三方sdk是否必须在隐私政策中标注",
+    "file": "应用市场服务（AppGallery Kit）/集成三方sdk是否必须在隐私政策中标注.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-15"
+  },
+  {
+    "slug": "faqs-appgallery-92",
+    "name": "预置应用（未上架应用市场），是否需在AGC创建APPID",
+    "file": "开发/FAQ/应用服务开发/应用市场服务（AppGallery Kit）/预置应用（未上架应用市场），是否需在AGC创建APPID/预置应用（未上架应用市场），是否需在AGC创建APPID.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-92"
+  },
+  {
+    "slug": "faqs-appgallery-92",
+    "name": "预置应用（未上架应用市场），是否需在AGC创建APPID",
+    "file": "应用市场服务（AppGallery Kit）/预置应用（未上架应用市场），是否需在AGC创建APPID.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-92"
+  },
+  {
+    "slug": "faqs-linking-2",
+    "name": "App Linking跳转问题",
+    "file": "开发/FAQ/应用服务开发/应用链接跳转服务（App Linking Kit）/App Linking跳转问题/App Linking跳转问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-2"
+  },
+  {
+    "slug": "faqs-linking-2",
+    "name": "App Linking跳转问题",
+    "file": "应用链接跳转服务（App Linking Kit）/App Linking跳转问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-2"
+  },
+  {
+    "slug": "faqs-linking-3",
+    "name": "如何在上架之前测试AppLinking导向自己App的链接",
+    "file": "开发/FAQ/应用服务开发/应用链接跳转服务（App Linking Kit）/如何在上架之前测试AppLinking导向自己App的链接/如何在上架之前测试AppLinking导向自己App的链接.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-3"
+  },
+  {
+    "slug": "faqs-linking-3",
+    "name": "如何在上架之前测试AppLinking导向自己App的链接",
+    "file": "应用链接跳转服务（App Linking Kit）/如何在上架之前测试AppLinking导向自己App的链接.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-3"
+  },
+  {
+    "slug": "faqs-linking-1",
+    "name": "如何解决AppLinking跳转与推送通知消息跳转配置冲突问题",
+    "file": "开发/FAQ/应用服务开发/应用链接跳转服务（App Linking Kit）/如何解决AppLinking跳转与推送通知消息跳转配置冲突问题/如何解决AppLinking跳转与推送通知消息跳转配置冲突问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-1"
+  },
+  {
+    "slug": "faqs-linking-1",
+    "name": "如何解决AppLinking跳转与推送通知消息跳转配置冲突问题",
+    "file": "应用链接跳转服务（App Linking Kit）/如何解决AppLinking跳转与推送通知消息跳转配置冲突问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-1"
+  },
+  {
+    "slug": "faq-calendar-3",
+    "name": "HarmonyOS下如何通过Calendar Kit实现日程提醒功能",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/HarmonyOS下如何通过Calendar Kit实现日程提醒功能/HarmonyOS下如何通过Calendar Kit实现日程提醒功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-3"
+  },
+  {
+    "slug": "faq-calendar-5",
+    "name": "ohos.calendarManager创建日历账户Calendar报未知类型错误",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/ohos.calendarManager创建日历账户Calendar报未知类型错误/ohos.calendarManager创建日历账户Calendar报未知类型错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-5"
+  },
+  {
+    "slug": "faq-calendar-5",
+    "name": "ohos.calendarManager创建日历账户Calendar报未知类型错误",
+    "file": "日历服务（Calendar Kit）/ohos.calendarManager创建日历账户Calendar报未知类型错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-5"
+  },
+  {
+    "slug": "faq-calendar-9",
+    "name": "三方应用如何获取系统日历中的日程",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/三方应用如何获取系统日历中的日程/三方应用如何获取系统日历中的日程.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-9"
+  },
+  {
+    "slug": "faq-calendar-9",
+    "name": "三方应用如何获取系统日历中的日程",
+    "file": "日历服务（Calendar Kit）/三方应用如何获取系统日历中的日程.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-9"
+  },
+  {
+    "slug": "faq-calendar-8",
+    "name": "如何使用editEvent接口新建日程",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/如何使用editEvent接口新建日程/如何使用editEvent接口新建日程.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-8"
+  },
+  {
+    "slug": "faq-calendar-8",
+    "name": "如何使用editEvent接口新建日程",
+    "file": "日历服务（Calendar Kit）/如何使用editEvent接口新建日程.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-8"
+  },
+  {
+    "slug": "faq-calendar-2",
+    "name": "如何修改已有日程的重复属性",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/如何修改已有日程的重复属性/如何修改已有日程的重复属性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-2"
+  },
+  {
+    "slug": "faq-calendar-2",
+    "name": "如何修改已有日程的重复属性",
+    "file": "日历服务（Calendar Kit）/如何修改已有日程的重复属性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-2"
+  },
+  {
+    "slug": "faq-calendar-3",
+    "name": "如何实现日程提醒功能",
+    "file": "日历服务（Calendar Kit）/如何实现日程提醒功能/如何实现日程提醒功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-3"
+  },
+  {
+    "slug": "faq-calendar-3",
+    "name": "如何实现日程提醒功能",
+    "file": "日历服务（Calendar Kit）/如何实现日程提醒功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-3"
+  },
+  {
+    "slug": "faq-calendar-4",
+    "name": "应用创建了日程事件但无相关提醒功能",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/应用创建了日程事件但无相关提醒功能/应用创建了日程事件但无相关提醒功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-4"
+  },
+  {
+    "slug": "faq-calendar-4",
+    "name": "应用创建了日程事件但无相关提醒功能",
+    "file": "日历服务（Calendar Kit）/应用创建了日程事件但无相关提醒功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-4"
+  },
+  {
+    "slug": "faq-calendar-6",
+    "name": "日历中的日程类型有什么区别",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/日历中的日程类型有什么区别/日历中的日程类型有什么区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-6"
+  },
+  {
+    "slug": "faq-calendar-6",
+    "name": "日历中的日程类型有什么区别",
+    "file": "日历服务（Calendar Kit）/日历中的日程类型有什么区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-6"
+  },
+  {
+    "slug": "faq-calendar-7",
+    "name": "日程删除方式及耗时的对比",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/日程删除方式及耗时的对比/日程删除方式及耗时的对比.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-7"
+  },
+  {
+    "slug": "faq-calendar-7",
+    "name": "日程删除方式及耗时的对比",
+    "file": "日历服务（Calendar Kit）/日程删除方式及耗时的对比.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-7"
+  },
+  {
+    "slug": "faq-calendar-1",
+    "name": "系统日历无法同步应用的日程信息",
+    "file": "开发/FAQ/应用服务开发/日历服务（Calendar Kit）/系统日历无法同步应用的日程信息/系统日历无法同步应用的日程信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-1"
+  },
+  {
+    "slug": "faq-calendar-1",
+    "name": "系统日历无法同步应用的日程信息",
+    "file": "日历服务（Calendar Kit）/系统日历无法同步应用的日程信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-1"
+  },
+  {
+    "slug": "faqs-push-11",
+    "name": "HarmonyOS 3.x/4.x已接入过华为推送，HarmonyOS Next/5.x及以上版本应用如何升级适配",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/HarmonyOS 3.x／4.x已接入过华为推送，HarmonyOS Next／5.x及以上版本应用如何升级适配/HarmonyOS 3.x／4.x已接入过华为推送，HarmonyOS Next／5.x及以上版本应用如何升级适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-11"
+  },
+  {
+    "slug": "faqs-push-11",
+    "name": "HarmonyOS 3.x/4.x已接入过华为推送，HarmonyOS Next/5.x及以上版本应用如何升级适配",
+    "file": "消息推送服务（Push Kit）/HarmonyOS 3.x／4.x已接入过华为推送，HarmonyOS Next／5.x及以上版本应用如何升级适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-11"
+  },
+  {
+    "slug": "faqs-push-10",
+    "name": "Push Kit推送服务接入常见错误码和解决方案",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/Push Kit推送服务接入常见错误码和解决方案/Push Kit推送服务接入常见错误码和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-10"
+  },
+  {
+    "slug": "faqs-push-10",
+    "name": "Push Kit推送服务接入常见错误码和解决方案",
+    "file": "消息推送服务（Push Kit）/Push Kit推送服务接入常见错误码和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-10"
+  },
+  {
+    "slug": "faqs-push-7",
+    "name": "Push Kit消息缓存时间",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/Push Kit消息缓存时间/Push Kit消息缓存时间.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-7"
+  },
+  {
+    "slug": "faqs-push-7",
+    "name": "Push Kit消息缓存时间",
+    "file": "消息推送服务（Push Kit）/Push Kit消息缓存时间.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-7"
+  },
+  {
+    "slug": "faqs-push-13",
+    "name": "发送无效消息是否会消耗频控额度",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/发送无效消息是否会消耗频控额度/发送无效消息是否会消耗频控额度.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-13"
+  },
+  {
+    "slug": "faqs-push-13",
+    "name": "发送无效消息是否会消耗频控额度",
+    "file": "消息推送服务（Push Kit）/发送无效消息是否会消耗频控额度.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-13"
+  },
+  {
+    "slug": "faqs-push-6",
+    "name": "如何判断APP是用户通过点击通知栏推送而唤起的？",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/如何判断APP是用户通过点击通知栏推送而唤起的？/如何判断APP是用户通过点击通知栏推送而唤起的？.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-6"
+  },
+  {
+    "slug": "faqs-push-6",
+    "name": "如何判断APP是用户通过点击通知栏推送而唤起的？",
+    "file": "消息推送服务（Push Kit）/如何判断APP是用户通过点击通知栏推送而唤起的？.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-6"
+  },
+  {
+    "slug": "faqs-push-8",
+    "name": "应用内通话消息是继承UIAbility还是VoIPExtensionAbility",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/应用内通话消息是继承UIAbility还是VoIPExtensionAbility/应用内通话消息是继承UIAbility还是VoIPExtensionAbility.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-8"
+  },
+  {
+    "slug": "faqs-push-8",
+    "name": "应用内通话消息是继承UIAbility还是VoIPExtensionAbility",
+    "file": "消息推送服务（Push Kit）/应用内通话消息是继承UIAbility还是VoIPExtensionAbility.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-8"
+  },
+  {
+    "slug": "faqs-push-12",
+    "name": "应用在前台时能否获取通知消息的内容",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/应用在前台时能否获取通知消息的内容/应用在前台时能否获取通知消息的内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-12"
+  },
+  {
+    "slug": "faqs-push-12",
+    "name": "应用在前台时能否获取通知消息的内容",
+    "file": "消息推送服务（Push Kit）/应用在前台时能否获取通知消息的内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-12"
+  },
+  {
+    "slug": "faqs-push-4",
+    "name": "收到推送但是没有铃声和震动提醒",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/收到推送但是没有铃声和震动提醒/收到推送但是没有铃声和震动提醒.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-4"
+  },
+  {
+    "slug": "faqs-push-4",
+    "name": "收到推送但是没有铃声和震动提醒",
+    "file": "消息推送服务（Push Kit）/收到推送但是没有铃声和震动提醒.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-4"
+  },
+  {
+    "slug": "faqs-push-3",
+    "name": "消息推送后手机未收到消息提示怎么处理",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/消息推送后手机未收到消息提示怎么处理/消息推送后手机未收到消息提示怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-3"
+  },
+  {
+    "slug": "faqs-push-3",
+    "name": "消息推送后手机未收到消息提示怎么处理",
+    "file": "消息推送服务（Push Kit）/消息推送后手机未收到消息提示怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-3"
+  },
+  {
+    "slug": "faqs-push-2",
+    "name": "消息推送限制和消息回执问题",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/消息推送限制和消息回执问题/消息推送限制和消息回执问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-2"
+  },
+  {
+    "slug": "faqs-push-2",
+    "name": "消息推送限制和消息回执问题",
+    "file": "消息推送服务（Push Kit）/消息推送限制和消息回执问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-2"
+  },
+  {
+    "slug": "faqs-push-14",
+    "name": "自助分析结果显示“未查询到消息处理”",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/自助分析结果显示“未查询到消息处理”/自助分析结果显示“未查询到消息处理”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-14"
+  },
+  {
+    "slug": "faqs-push-14",
+    "name": "自助分析结果显示“未查询到消息处理”",
+    "file": "消息推送服务（Push Kit）/自助分析结果显示“未查询到消息处理”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-14"
+  },
+  {
+    "slug": "faqs-push-5",
+    "name": "设备收不到服务端手动推送的离线消息",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/设备收不到服务端手动推送的离线消息/设备收不到服务端手动推送的离线消息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-5"
+  },
+  {
+    "slug": "faqs-push-5",
+    "name": "设备收不到服务端手动推送的离线消息",
+    "file": "消息推送服务（Push Kit）/设备收不到服务端手动推送的离线消息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-5"
+  },
+  {
+    "slug": "faqs-push-1",
+    "name": "进入应用阅读消息后，下滑通知栏中的消息通知没有自动消失",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/进入应用阅读消息后，下滑通知栏中的消息通知没有自动消失/进入应用阅读消息后，下滑通知栏中的消息通知没有自动消失.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-1"
+  },
+  {
+    "slug": "faqs-push-1",
+    "name": "进入应用阅读消息后，下滑通知栏中的消息通知没有自动消失",
+    "file": "消息推送服务（Push Kit）/进入应用阅读消息后，下滑通知栏中的消息通知没有自动消失.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-1"
+  },
+  {
+    "slug": "faqs-push-9",
+    "name": "通知扩展消息语音播放提前退出",
+    "file": "开发/FAQ/应用服务开发/消息推送服务（Push Kit）/通知扩展消息语音播放提前退出/通知扩展消息语音播放提前退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-9"
+  },
+  {
+    "slug": "faqs-push-9",
+    "name": "通知扩展消息语音播放提前退出",
+    "file": "消息推送服务（Push Kit）/通知扩展消息语音播放提前退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-9"
+  },
+  {
+    "slug": "faqs-gamecontroller-kit-0001",
+    "name": "Game Controller Kit暂不支持动态查询手柄按键类型及震动等高级特性",
+    "file": "开发/FAQ/应用服务开发/游戏手柄外设服务（Game Controller Kit）/Game Controller Kit暂不支持动态查询手柄按键类型及震动等高级特性/Game Controller Kit暂不支持动态查询手柄按键类型及震动等高级特性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-gamecontroller-kit-0001"
+  },
+  {
+    "slug": "faqs-notification-19",
+    "name": "如何判断应用启动是来自于Notification Kit拉起的",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/如何判断应用启动是来自于Notification Kit拉起的/如何判断应用启动是来自于Notification Kit拉起的.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-19"
+  },
+  {
+    "slug": "faqs-notification-19",
+    "name": "如何判断应用启动是来自于Notification Kit拉起的",
+    "file": "用户通知服务（Notification Kit）/如何判断应用启动是来自于Notification Kit拉起的.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-19"
+  },
+  {
+    "slug": "faqs-notification-16",
+    "name": "如何发布本地消息到通知中心",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/如何发布本地消息到通知中心/如何发布本地消息到通知中心.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-16"
+  },
+  {
+    "slug": "faqs-notification-16",
+    "name": "如何发布本地消息到通知中心",
+    "file": "用户通知服务（Notification Kit）/如何发布本地消息到通知中心.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-16"
+  },
+  {
+    "slug": "faqs-notification-17",
+    "name": "如何实现应用内提示音：系统通知与自定义消息场景",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/如何实现应用内提示音：系统通知与自定义消息场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-17"
+  },
+  {
+    "slug": "faqs-notification-17",
+    "name": "如何实现应用内提示音：通知与自定义消息场景",
+    "file": "用户通知服务（Notification Kit）/如何实现应用内提示音：通知与自定义消息场景/如何实现应用内提示音：通知与自定义消息场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-17"
+  },
+  {
+    "slug": "faqs-notification-15",
+    "name": "如何打开横幅通知",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/如何打开横幅通知/如何打开横幅通知.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-15"
+  },
+  {
+    "slug": "faqs-notification-15",
+    "name": "如何打开横幅通知",
+    "file": "用户通知服务（Notification Kit）/如何打开横幅通知.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-15"
+  },
+  {
+    "slug": "faqs-notification-18",
+    "name": "如何设置应用通知角标",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/如何设置应用通知角标/如何设置应用通知角标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-18"
+  },
+  {
+    "slug": "faqs-notification-18",
+    "name": "如何设置应用通知角标",
+    "file": "用户通知服务（Notification Kit）/如何设置应用通知角标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-18"
+  },
+  {
+    "slug": "faqs-notification-10",
+    "name": "应用通知点击跳转异常",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/应用通知点击跳转异常/应用通知点击跳转异常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-10"
+  },
+  {
+    "slug": "faqs-notification-10",
+    "name": "应用通知点击跳转异常",
+    "file": "用户通知服务（Notification Kit）/应用通知点击跳转异常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-10"
+  },
+  {
+    "slug": "faqs-notification-13",
+    "name": "录屏已结束，通知栏仍显示录屏",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/录屏已结束，通知栏仍显示录屏/录屏已结束，通知栏仍显示录屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-13"
+  },
+  {
+    "slug": "faqs-notification-13",
+    "name": "录屏已结束，通知栏仍显示录屏",
+    "file": "用户通知服务（Notification Kit）/录屏已结束，通知栏仍显示录屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-13"
+  },
+  {
+    "slug": "faqs-notification-12",
+    "name": "打开应用弹出的通知授权弹窗来不及点就消失了",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/打开应用弹出的通知授权弹窗来不及点就消失了/打开应用弹出的通知授权弹窗来不及点就消失了.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-12"
+  },
+  {
+    "slug": "faqs-notification-12",
+    "name": "打开应用弹出的通知授权弹窗来不及点就消失了",
+    "file": "用户通知服务（Notification Kit）/打开应用弹出的通知授权弹窗来不及点就消失了.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-12"
+  },
+  {
+    "slug": "faqs-notification-14",
+    "name": "点击消息通知跳转应用页面的方案",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/点击消息通知跳转应用页面的方案/点击消息通知跳转应用页面的方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-14"
+  },
+  {
+    "slug": "faqs-notification-14",
+    "name": "点击消息通知跳转应用页面的方案",
+    "file": "用户通知服务（Notification Kit）/点击消息通知跳转应用页面的方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-14"
+  },
+  {
+    "slug": "faqs-notification-11",
+    "name": "通知消息的角标信息显示不正确",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/通知消息的角标信息显示不正确/通知消息的角标信息显示不正确.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-11"
+  },
+  {
+    "slug": "faqs-notification-11",
+    "name": "通知消息的角标信息显示不正确",
+    "file": "用户通知服务（Notification Kit）/通知消息的角标信息显示不正确.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-11"
+  },
+  {
+    "slug": "faqs-notification-20",
+    "name": "通知订阅扩展能力常见问题",
+    "file": "开发/FAQ/应用服务开发/用户通知服务（Notification Kit）/通知订阅扩展能力常见问题/通知订阅扩展能力常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-20"
+  },
+  {
+    "slug": "faqs-notification-20",
+    "name": "通知订阅扩展能力常见问题",
+    "file": "用户通知服务（Notification Kit）/通知订阅扩展能力常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-20"
+  },
+  {
+    "slug": "faqs-reader-2",
+    "name": "Reader Kit中PageDataInfo的startDomPos或endDomPos值的含义是什么",
+    "file": "开发/FAQ/应用服务开发/电子书阅读服务（Reader Kit）/Reader Kit中PageDataInfo的startDomPos或endDomPos值的含义是什么/Reader Kit中PageDataInfo的startDomPos或endDomPos值的含义是什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-2"
+  },
+  {
+    "slug": "faqs-reader-2",
+    "name": "Reader Kit中PageDataInfo的startDomPos或endDomPos值的含义是什么",
+    "file": "电子书阅读服务（Reader Kit）/Reader Kit中PageDataInfo的startDomPos或endDomPos值的含义是什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-2"
+  },
+  {
+    "slug": "faqs-reader-1",
+    "name": "Reader Kit获取书籍具体页数",
+    "file": "开发/FAQ/应用服务开发/电子书阅读服务（Reader Kit）/Reader Kit获取书籍具体页数/Reader Kit获取书籍具体页数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-1"
+  },
+  {
+    "slug": "faqs-reader-1",
+    "name": "Reader Kit获取书籍具体页数",
+    "file": "电子书阅读服务（Reader Kit）/Reader Kit获取书籍具体页数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-1"
+  },
+  {
+    "slug": "faqs-reader-3",
+    "name": "Reader Kit（阅读服务）支持的能力及使用注意事项",
+    "file": "开发/FAQ/应用服务开发/电子书阅读服务（Reader Kit）/Reader Kit（阅读服务）支持的能力及使用注意事项/Reader Kit（阅读服务）支持的能力及使用注意事项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-3"
+  },
+  {
+    "slug": "faqs-reader-3",
+    "name": "Reader Kit（阅读服务）支持的能力及使用注意事项",
+    "file": "电子书阅读服务（Reader Kit）/Reader Kit（阅读服务）支持的能力及使用注意事项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-reader-3"
+  },
+  {
+    "slug": "faq-contacts-3",
+    "name": "使用ContactsKit中的selectContacts方法报错",
+    "file": "开发/FAQ/应用服务开发/联系人服务（Contacts Kit）/使用ContactsKit中的selectContacts方法报错/使用ContactsKit中的selectContacts方法报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-3"
+  },
+  {
+    "slug": "faq-contacts-3",
+    "name": "使用ContactsKit中的selectContacts方法报错",
+    "file": "联系人服务（Contacts Kit）/使用ContactsKit中的selectContacts方法报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-3"
+  },
+  {
+    "slug": "faq-contacts-1",
+    "name": "如何实现联系人管理功能",
+    "file": "开发/FAQ/应用服务开发/联系人服务（Contacts Kit）/如何实现联系人管理功能/如何实现联系人管理功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-1"
+  },
+  {
+    "slug": "faq-contacts-1",
+    "name": "如何实现联系人管理功能",
+    "file": "联系人服务（Contacts Kit）/如何实现联系人管理功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-1"
+  },
+  {
+    "slug": "faq-contacts-5",
+    "name": "如何通过拉起通讯录添加联系人",
+    "file": "开发/FAQ/应用服务开发/联系人服务（Contacts Kit）/如何通过拉起通讯录添加联系人/如何通过拉起通讯录添加联系人.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-5"
+  },
+  {
+    "slug": "faq-contacts-5",
+    "name": "如何通过拉起通讯录添加联系人",
+    "file": "联系人服务（Contacts Kit）/如何通过拉起通讯录添加联系人.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-5"
+  },
+  {
+    "slug": "faq-contacts-2",
+    "name": "调用queryContactsByPhoneNumber接口异常怎么解决",
+    "file": "开发/FAQ/应用服务开发/联系人服务（Contacts Kit）/调用queryContactsByPhoneNumber接口异常怎么解决/调用queryContactsByPhoneNumber接口异常怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-2"
+  },
+  {
+    "slug": "faq-contacts-2",
+    "name": "调用queryContactsByPhoneNumber接口异常怎么解决",
+    "file": "联系人服务（Contacts Kit）/调用queryContactsByPhoneNumber接口异常怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-2"
+  },
+  {
+    "slug": "faq-contacts-4",
+    "name": "调用联系人服务（ContactKit）的queryContacts接口导致应用闪退",
+    "file": "开发/FAQ/应用服务开发/联系人服务（Contacts Kit）/调用联系人服务（ContactKit）的queryContacts接口导致应用闪退/调用联系人服务（ContactKit）的queryContacts接口导致应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-4"
+  },
+  {
+    "slug": "faq-contacts-4",
+    "name": "调用联系人服务（ContactKit）的queryContacts接口导致应用闪退",
+    "file": "联系人服务（Contacts Kit）/调用联系人服务（ContactKit）的queryContacts接口导致应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-contacts-4"
+  },
+  {
+    "slug": "faqs-healthservice-9",
+    "name": "企业开发者同步运动健康数据指导",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/企业开发者同步运动健康数据指导/企业开发者同步运动健康数据指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-9"
+  },
+  {
+    "slug": "faqs-healthservice-9",
+    "name": "企业开发者同步运动健康数据指导",
+    "file": "运动健康数据服务（Health Service Kit）/企业开发者同步运动健康数据指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-9"
+  },
+  {
+    "slug": "faqs-healthservice-4",
+    "name": "华为运动健康服务中的基础运动健康数据是否包含血糖数据",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/华为运动健康服务中的基础运动健康数据是否包含血糖数据/华为运动健康服务中的基础运动健康数据是否包含血糖数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-4"
+  },
+  {
+    "slug": "faqs-healthservice-4",
+    "name": "华为运动健康服务中的基础运动健康数据是否包含血糖数据",
+    "file": "运动健康数据服务（Health Service Kit）/华为运动健康服务中的基础运动健康数据是否包含血糖数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-4"
+  },
+  {
+    "slug": "faqs-healthservice-6",
+    "name": "如何获取运动健康全量数据副本",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/如何获取运动健康全量数据副本/如何获取运动健康全量数据副本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-6"
+  },
+  {
+    "slug": "faqs-healthservice-6",
+    "name": "如何获取运动健康全量数据副本",
+    "file": "运动健康数据服务（Health Service Kit）/如何获取运动健康全量数据副本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-6"
+  },
+  {
+    "slug": "faqs-healthservice-1",
+    "name": "无法连接穿戴类设备",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/无法连接穿戴类设备/无法连接穿戴类设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-1"
+  },
+  {
+    "slug": "faqs-healthservice-1",
+    "name": "无法连接穿戴类设备",
+    "file": "运动健康数据服务（Health Service Kit）/无法连接穿戴类设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-1"
+  },
+  {
+    "slug": "faqs-healthservice-2",
+    "name": "用户已授权健康数据，但页面上的相关数据未刷新",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/用户已授权健康数据，但页面上的相关数据未刷新/用户已授权健康数据，但页面上的相关数据未刷新.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-2"
+  },
+  {
+    "slug": "faqs-healthservice-2",
+    "name": "用户已授权健康数据，但页面上的相关数据未刷新",
+    "file": "运动健康数据服务（Health Service Kit）/用户已授权健康数据，但页面上的相关数据未刷新.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-2"
+  },
+  {
+    "slug": "faqs-healthservice-7",
+    "name": "申请运动健康权限被拒问题排查定位",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/申请运动健康权限被拒问题排查定位/申请运动健康权限被拒问题排查定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-7"
+  },
+  {
+    "slug": "faqs-healthservice-7",
+    "name": "申请运动健康权限被拒问题排查定位",
+    "file": "运动健康数据服务（Health Service Kit）/申请运动健康权限被拒问题排查定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-7"
+  },
+  {
+    "slug": "faqs-healthservice-5",
+    "name": "运动健康无法获取数据常见问题和解决方案",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/运动健康无法获取数据常见问题和解决方案/运动健康无法获取数据常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-5"
+  },
+  {
+    "slug": "faqs-healthservice-5",
+    "name": "运动健康无法获取数据常见问题和解决方案",
+    "file": "运动健康数据服务（Health Service Kit）/运动健康无法获取数据常见问题和解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-5"
+  },
+  {
+    "slug": "faqs-healthservice-3",
+    "name": "运动健康服务授权及取消授权失败问题",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/运动健康服务授权及取消授权失败问题/运动健康服务授权及取消授权失败问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-3"
+  },
+  {
+    "slug": "faqs-healthservice-3",
+    "name": "运动健康服务授权及取消授权失败问题",
+    "file": "运动健康数据服务（Health Service Kit）/运动健康服务授权及取消授权失败问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-3"
+  },
+  {
+    "slug": "faqs-healthservice-8",
+    "name": "运动健康测试权限相关问题",
+    "file": "开发/FAQ/应用服务开发/运动健康数据服务（Health Service Kit）/运动健康测试权限相关问题/运动健康测试权限相关问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-8"
+  },
+  {
+    "slug": "faqs-healthservice-8",
+    "name": "运动健康测试权限相关问题",
+    "file": "运动健康数据服务（Health Service Kit）/运动健康测试权限相关问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-healthservice-8"
+  },
+  {
+    "slug": "faqs-preview-10",
+    "name": "Preview Kit暂不支持屏蔽分享与添加水印等安全定制能力",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/Preview Kit暂不支持屏蔽分享与添加水印等安全定制能力/Preview Kit暂不支持屏蔽分享与添加水印等安全定制能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-10"
+  },
+  {
+    "slug": "faqs-preview-1",
+    "name": "Preview Kit预览文件失败",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/Preview Kit预览文件失败/Preview Kit预览文件失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-1"
+  },
+  {
+    "slug": "faqs-preview-1",
+    "name": "Preview Kit预览文件失败",
+    "file": "通用文件预览服务（Preview Kit）/Preview Kit预览文件失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-1"
+  },
+  {
+    "slug": "faqs-preview-2",
+    "name": "Preview Kit（文件预览服务）使用指南和注意事项",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/Preview Kit（文件预览服务）使用指南和注意事项/Preview Kit（文件预览服务）使用指南和注意事项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-2"
+  },
+  {
+    "slug": "faqs-preview-2",
+    "name": "Preview Kit（文件预览服务）使用指南和注意事项",
+    "file": "通用文件预览服务（Preview Kit）/Preview Kit（文件预览服务）使用指南和注意事项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-2"
+  },
+  {
+    "slug": "faqs-preview-3",
+    "name": "Reader Kit如何进行小说章节跳转",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/Reader Kit如何进行小说章节跳转/Reader Kit如何进行小说章节跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-3"
+  },
+  {
+    "slug": "faqs-preview-3",
+    "name": "Reader Kit如何进行小说章节跳转",
+    "file": "通用文件预览服务（Preview Kit）/Reader Kit如何进行小说章节跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-3"
+  },
+  {
+    "slug": "faqs-preview-9",
+    "name": "如何使用ohos.file.fs打开gbk编码文档",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/如何使用ohos.file.fs打开gbk编码文档/如何使用ohos.file.fs打开gbk编码文档.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-9"
+  },
+  {
+    "slug": "faqs-preview-9",
+    "name": "如何使用ohos.file.fs打开gbk编码文档",
+    "file": "通用文件预览服务（Preview Kit）/如何使用ohos.file.fs打开gbk编码文档.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-9"
+  },
+  {
+    "slug": "faqs-preview-5",
+    "name": "如何使用预览打开OFD文件",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/如何使用预览打开OFD文件/如何使用预览打开OFD文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-5"
+  },
+  {
+    "slug": "faqs-preview-5",
+    "name": "如何使用预览打开OFD文件",
+    "file": "通用文件预览服务（Preview Kit）/如何使用预览打开OFD文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-5"
+  },
+  {
+    "slug": "faqs-preview-4",
+    "name": "如何实现Excel文件预览功能",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/如何实现Excel文件预览功能/如何实现Excel文件预览功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-4"
+  },
+  {
+    "slug": "faqs-preview-4",
+    "name": "如何实现Excel文件预览功能",
+    "file": "通用文件预览服务（Preview Kit）/如何实现Excel文件预览功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-4"
+  },
+  {
+    "slug": "faqs-preview-6",
+    "name": "如何实现Word文件预览功能",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/如何实现Word文件预览功能/如何实现Word文件预览功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-6"
+  },
+  {
+    "slug": "faqs-preview-6",
+    "name": "如何实现Word文件预览功能",
+    "file": "通用文件预览服务（Preview Kit）/如何实现Word文件预览功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-6"
+  },
+  {
+    "slug": "faqs-preview-7",
+    "name": "如何实现应用外预览pdf文件功能",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/如何实现应用外预览pdf文件功能/如何实现应用外预览pdf文件功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-7"
+  },
+  {
+    "slug": "faqs-preview-7",
+    "name": "如何实现应用外预览pdf文件功能",
+    "file": "通用文件预览服务（Preview Kit）/如何实现应用外预览pdf文件功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-7"
+  },
+  {
+    "slug": "faqs-preview-8",
+    "name": "如何实现通过文件选择器（FilePicker）选择文件进行预览",
+    "file": "开发/FAQ/应用服务开发/通用文件预览服务（Preview Kit）/如何实现通过文件选择器（FilePicker）选择文件进行预览/如何实现通过文件选择器（FilePicker）选择文件进行预览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-8"
+  },
+  {
+    "slug": "faqs-preview-8",
+    "name": "如何实现通过文件选择器（FilePicker）选择文件进行预览",
+    "file": "通用文件预览服务（Preview Kit）/如何实现通过文件选择器（FilePicker）选择文件进行预览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-8"
+  },
+  {
+    "slug": "faqs-pdf-19",
+    "name": "PDF添加水印是替换还是叠加",
+    "file": "开发/FAQ/应用服务开发/PDF文档解析服务（PDF Kit）/PDF添加水印是替换还是叠加/PDF添加水印是替换还是叠加.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-19"
   }
 ]

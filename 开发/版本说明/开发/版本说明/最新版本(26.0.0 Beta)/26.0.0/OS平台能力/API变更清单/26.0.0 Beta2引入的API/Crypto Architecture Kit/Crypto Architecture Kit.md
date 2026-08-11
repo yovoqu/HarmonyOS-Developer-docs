@@ -1,0 +1,35 @@
+# Crypto Architecture Kit
+
+更新时间：2026-07-28 11:14:31
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-cryptoarchitecturekit-7002
+
+| 操作 | 旧版本 | 新版本 | d.ts文件 |
+| --- | --- | --- | --- |
+| 新增错误码 | 类名：PubKey； API声明：getEncodedDer(format: string): DataBlob; 差异内容：NA | 类名：PubKey； API声明：getEncodedDer(format: string): DataBlob; 差异内容：17620003 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增错误码 | 类名：Sign； API声明：setSignSpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; 差异内容：NA | 类名：Sign； API声明：setSignSpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; 差异内容：17620002,17620003,17620004 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增错误码 | 类名：Verify； API声明：setVerifySpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; 差异内容：NA | 类名：Verify； API声明：setVerifySpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; 差异内容：17620002,17620003,17620004 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：SignSpecItem； API声明：ML_DSA_DETERMINISTIC_BOOL = 106 差异内容：ML_DSA_DETERMINISTIC_BOOL = 106 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：SignSpecItem； API声明：ML_DSA_MU_BOOL = 107 差异内容：ML_DSA_MU_BOOL = 107 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：SignSpecItem； API声明：ML_DSA_CONTEXT_UINT8ARR = 108 差异内容：ML_DSA_CONTEXT_UINT8ARR = 108 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：AsyKeyDataItem； API声明：ML_DSA_PRIVATE_SEED = 0 差异内容：ML_DSA_PRIVATE_SEED = 0 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：AsyKeyDataItem； API声明：ML_DSA_PRIVATE_RAW = 1 差异内容：ML_DSA_PRIVATE_RAW = 1 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：AsyKeyDataItem； API声明：ML_DSA_PUBLIC_RAW = 2 差异内容：ML_DSA_PUBLIC_RAW = 2 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：AsyKeyDataItem； API声明：ML_KEM_PRIVATE_SEED = 3 差异内容：ML_KEM_PRIVATE_SEED = 3 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：AsyKeyDataItem； API声明：ML_KEM_PRIVATE_RAW = 4 差异内容：ML_KEM_PRIVATE_RAW = 4 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：AsyKeyDataItem； API声明：ML_KEM_PUBLIC_RAW = 5 差异内容：ML_KEM_PUBLIC_RAW = 5 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：cryptoFramework； API声明：enum KemAlgNameId 差异内容：enum KemAlgNameId | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：KemAlgNameId； API声明：ML_KEM_512 = 0 差异内容：ML_KEM_512 = 0 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：KemAlgNameId； API声明：ML_KEM_768 = 1 差异内容：ML_KEM_768 = 1 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：KemAlgNameId； API声明：ML_KEM_1024 = 2 差异内容：ML_KEM_1024 = 2 | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：cryptoFramework； API声明：interface KemEncapResult 差异内容：interface KemEncapResult | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：KemEncapResult； API声明：sharedSecret: Uint8Array; 差异内容：sharedSecret: Uint8Array; | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：KemEncapResult； API声明：wrappedKey: Uint8Array; 差异内容：wrappedKey: Uint8Array; | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：cryptoFramework； API声明：interface Kem 差异内容：interface Kem | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：Kem； API声明：encapsulate(pubKey: PubKey, ikme: Uint8Array \| null): Promise&lt;KemEncapResult&gt;; 差异内容：encapsulate(pubKey: PubKey, ikme: Uint8Array \| null): Promise&lt;KemEncapResult&gt;; | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：Kem； API声明：encapsulateSync(pubKey: PubKey, ikme: Uint8Array \| null): KemEncapResult; 差异内容：encapsulateSync(pubKey: PubKey, ikme: Uint8Array \| null): KemEncapResult; | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：Kem； API声明：decapsulate(priKey: PriKey, wrappedKey: Uint8Array): Promise&lt;Uint8Array&gt;; 差异内容：decapsulate(priKey: PriKey, wrappedKey: Uint8Array): Promise&lt;Uint8Array&gt;; | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：Kem； API声明：decapsulateSync(priKey: PriKey, wrappedKey: Uint8Array): Uint8Array; 差异内容：decapsulateSync(priKey: PriKey, wrappedKey: Uint8Array): Uint8Array; | api/@ohos.security.cryptoFramework.d.ts |
+| 新增API | NA | 类名：cryptoFramework； API声明：function createKem(algNameId: KemAlgNameId): Kem; 差异内容：function createKem(algNameId: KemAlgNameId): Kem; | api/@ohos.security.cryptoFramework.d.ts |
+| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：Sign； API声明：setSignSpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; 差异内容：setSignSpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; | 类名：Sign； API声明：setSignSpec(itemType: SignSpecItem, itemValue: number \| Uint8Array \| boolean): void; 差异内容：setSignSpec(itemType: SignSpecItem, itemValue: number \| Uint8Array \| boolean): void; | api/@ohos.security.cryptoFramework.d.ts |
+| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：Verify； API声明：setVerifySpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; 差异内容：setVerifySpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void; | 类名：Verify； API声明：setVerifySpec(itemType: SignSpecItem, itemValue: number \| Uint8Array \| boolean): void; 差异内容：setVerifySpec(itemType: SignSpecItem, itemValue: number \| Uint8Array \| boolean): void; | api/@ohos.security.cryptoFramework.d.ts |

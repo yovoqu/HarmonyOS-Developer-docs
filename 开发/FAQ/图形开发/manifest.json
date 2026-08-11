@@ -75,5 +75,353 @@
     "name": "如何主动关闭CPU访问窗口缓冲区数据降低功耗",
     "file": "2D图形（ArkGraphics 2D）/如何主动关闭CPU访问窗口缓冲区数据降低功耗.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-14"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-25",
+    "name": "Canvas中clearRect无法清除上一绘画内容",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/Canvas中clearRect无法清除上一绘画内容/Canvas中clearRect无法清除上一绘画内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-25"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-25",
+    "name": "Canvas中clearRect无法清除上一绘画内容",
+    "file": "2D图形（ArkGraphics 2D）/Canvas中clearRect无法清除上一绘画内容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-25"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-39",
+    "name": "Canvas图片绘制的常见使用场景",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/Canvas图片绘制的常见使用场景/Canvas图片绘制的常见使用场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-39"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-39",
+    "name": "Canvas图片绘制的常见使用场景",
+    "file": "2D图形（ArkGraphics 2D）/Canvas图片绘制的常见使用场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-39"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-29",
+    "name": "Canvas实现六边形雷达图",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/Canvas实现六边形雷达图/Canvas实现六边形雷达图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-29"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-29",
+    "name": "Canvas实现六边形雷达图",
+    "file": "2D图形（ArkGraphics 2D）/Canvas实现六边形雷达图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-29"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-23",
+    "name": "Canvas实现镂空效果",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/Canvas实现镂空效果/Canvas实现镂空效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-23"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-23",
+    "name": "Canvas实现镂空效果",
+    "file": "2D图形（ArkGraphics 2D）/Canvas实现镂空效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-23"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-35",
+    "name": "Canvas绘制图形拖动卡顿",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/Canvas绘制图形拖动卡顿/Canvas绘制图形拖动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-35"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-35",
+    "name": "Canvas绘制图形拖动卡顿",
+    "file": "2D图形（ArkGraphics 2D）/Canvas绘制图形拖动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-35"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-19",
+    "name": "Canvas绘制翻角效果",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/Canvas绘制翻角效果/Canvas绘制翻角效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-19"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-19",
+    "name": "Canvas绘制翻角效果",
+    "file": "2D图形（ArkGraphics 2D）/Canvas绘制翻角效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-19"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-21",
+    "name": "DrawingRenderingContext绘制图像图形如何填充",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/DrawingRenderingContext绘制图像图形如何填充/DrawingRenderingContext绘制图像图形如何填充.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-21"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-21",
+    "name": "DrawingRenderingContext绘制图像图形如何填充",
+    "file": "2D图形（ArkGraphics 2D）/DrawingRenderingContext绘制图像图形如何填充.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-21"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-16",
+    "name": "HarmonyOS中如何实现图片取色",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/HarmonyOS中如何实现图片取色/HarmonyOS中如何实现图片取色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-16"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-16",
+    "name": "HarmonyOS中如何实现图片取色",
+    "file": "2D图形（ArkGraphics 2D）/HarmonyOS中如何实现图片取色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-16"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-42",
+    "name": "Harmony无法正常显示对应的字体",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/Harmony无法正常显示对应的字体/Harmony无法正常显示对应的字体.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-42"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-42",
+    "name": "Harmony无法正常显示对应的字体",
+    "file": "2D图形（ArkGraphics 2D）/Harmony无法正常显示对应的字体.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-42"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-20",
+    "name": "RGB和HSB颜色如何互相转换",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/RGB和HSB颜色如何互相转换/RGB和HSB颜色如何互相转换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-20"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-20",
+    "name": "RGB和HSB颜色如何互相转换",
+    "file": "2D图形（ArkGraphics 2D）/RGB和HSB颜色如何互相转换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-20"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-15",
+    "name": "使用drawTextBlob进行文本绘制的常见问题",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/使用drawTextBlob进行文本绘制的常见问题/使用drawTextBlob进行文本绘制的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-15"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-15",
+    "name": "使用drawTextBlob进行文本绘制的常见问题",
+    "file": "2D图形（ArkGraphics 2D）/使用drawTextBlob进行文本绘制的常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-15"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-27",
+    "name": "基于Canvas的弹幕遮罩人物过滤",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/基于Canvas的弹幕遮罩人物过滤/基于Canvas的弹幕遮罩人物过滤.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-27"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-27",
+    "name": "基于Canvas的弹幕遮罩人物过滤",
+    "file": "2D图形（ArkGraphics 2D）/基于Canvas的弹幕遮罩人物过滤.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-27"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-34",
+    "name": "大图添加水印性能优化",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/大图添加水印性能优化/大图添加水印性能优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-34"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-34",
+    "name": "大图添加水印性能优化",
+    "file": "2D图形（ArkGraphics 2D）/大图添加水印性能优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-34"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-41",
+    "name": "如何为图片、视频添加水印",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何为图片、视频添加水印/如何为图片、视频添加水印.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-41"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-41",
+    "name": "如何为图片、视频添加水印",
+    "file": "2D图形（ArkGraphics 2D）/如何为图片、视频添加水印.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-41"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-40",
+    "name": "如何使OffscreenCanvas绘制的内容同步到多个Canvas中",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何使OffscreenCanvas绘制的内容同步到多个Canvas中/如何使OffscreenCanvas绘制的内容同步到多个Canvas中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-40"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-40",
+    "name": "如何使OffscreenCanvas绘制的内容同步到多个Canvas中",
+    "file": "2D图形（ArkGraphics 2D）/如何使OffscreenCanvas绘制的内容同步到多个Canvas中.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-40"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-22",
+    "name": "如何在Canvas上绘制不同对齐方式的文字",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何在Canvas上绘制不同对齐方式的文字/如何在Canvas上绘制不同对齐方式的文字.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-22"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-22",
+    "name": "如何在Canvas上绘制不同对齐方式的文字",
+    "file": "2D图形（ArkGraphics 2D）/如何在Canvas上绘制不同对齐方式的文字.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-22"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-17",
+    "name": "如何实现多张图片的拼接",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何实现多张图片的拼接/如何实现多张图片的拼接.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-17"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-17",
+    "name": "如何实现多张图片的拼接",
+    "file": "2D图形（ArkGraphics 2D）/如何实现多张图片的拼接.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-17"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-38",
+    "name": "如何实现智能手表圆形环绕文字效果",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何实现智能手表圆形环绕文字效果/如何实现智能手表圆形环绕文字效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-38"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-38",
+    "name": "如何实现智能手表圆形环绕文字效果",
+    "file": "2D图形（ArkGraphics 2D）/如何实现智能手表圆形环绕文字效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-38"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-28",
+    "name": "如何实现绘制内容在指定区域透明化",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何实现绘制内容在指定区域透明化/如何实现绘制内容在指定区域透明化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-28"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-28",
+    "name": "如何实现绘制内容在指定区域透明化",
+    "file": "2D图形（ArkGraphics 2D）/如何实现绘制内容在指定区域透明化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-28"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-37",
+    "name": "如何绘制圆角矩形",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何绘制圆角矩形/如何绘制圆角矩形.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-37"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-37",
+    "name": "如何绘制圆角矩形",
+    "file": "2D图形（ArkGraphics 2D）/如何绘制圆角矩形.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-37"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-24",
+    "name": "如何绘制虚线",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何绘制虚线/如何绘制虚线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-24"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-24",
+    "name": "如何绘制虚线",
+    "file": "2D图形（ArkGraphics 2D）/如何绘制虚线.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-24"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-30",
+    "name": "如何给图片添加底色",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何给图片添加底色/如何给图片添加底色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-30"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-30",
+    "name": "如何给图片添加底色",
+    "file": "2D图形（ArkGraphics 2D）/如何给图片添加底色.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-30"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-33",
+    "name": "如何解决Canvas画板设置CanvasRenderingContext2D线条样式失败的问题",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/如何解决Canvas画板设置CanvasRenderingContext2D线条样式失败的问题/如何解决Canvas画板设置CanvasRenderingContext2D线条样式失败的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-33"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-33",
+    "name": "如何解决Canvas画板设置CanvasRenderingContext2D线条样式失败的问题",
+    "file": "2D图形（ArkGraphics 2D）/如何解决Canvas画板设置CanvasRenderingContext2D线条样式失败的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-33"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-43",
+    "name": "实现一个可拖动的环形进度条且头尾使用自定义图片",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/实现一个可拖动的环形进度条且头尾使用自定义图片/实现一个可拖动的环形进度条且头尾使用自定义图片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-43"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-43",
+    "name": "实现一个可拖动的环形进度条且头尾使用自定义图片",
+    "file": "2D图形（ArkGraphics 2D）/实现一个可拖动的环形进度条且头尾使用自定义图片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-43"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-18",
+    "name": "实现图片旋转、缩放裁剪预览效果",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/实现图片旋转、缩放裁剪预览效果/实现图片旋转、缩放裁剪预览效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-18"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-18",
+    "name": "实现图片旋转、缩放裁剪预览效果",
+    "file": "2D图形（ArkGraphics 2D）/实现图片旋转、缩放裁剪预览效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-18"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-36",
+    "name": "横竖屏切换时，如何防止画布被清空",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/横竖屏切换时，如何防止画布被清空/横竖屏切换时，如何防止画布被清空.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-36"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-36",
+    "name": "横竖屏切换时，如何防止画布被清空",
+    "file": "2D图形（ArkGraphics 2D）/横竖屏切换时，如何防止画布被清空.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-36"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-31",
+    "name": "段落如何居中画布",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/段落如何居中画布/段落如何居中画布.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-31"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-31",
+    "name": "段落如何居中画布",
+    "file": "2D图形（ArkGraphics 2D）/段落如何居中画布.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-31"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-32",
+    "name": "离屏获取文本像素图并使用OpenGL绘制",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/离屏获取文本像素图并使用OpenGL绘制/离屏获取文本像素图并使用OpenGL绘制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-32"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-32",
+    "name": "离屏获取文本像素图并使用OpenGL绘制",
+    "file": "2D图形（ArkGraphics 2D）/离屏获取文本像素图并使用OpenGL绘制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-32"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-26",
+    "name": "运动轨迹如何分享为图片",
+    "file": "开发/FAQ/图形开发/2D图形（ArkGraphics 2D）/运动轨迹如何分享为图片/运动轨迹如何分享为图片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-26"
+  },
+  {
+    "slug": "faqs-arkgraphics-2d-26",
+    "name": "运动轨迹如何分享为图片",
+    "file": "2D图形（ArkGraphics 2D）/运动轨迹如何分享为图片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-26"
   }
 ]

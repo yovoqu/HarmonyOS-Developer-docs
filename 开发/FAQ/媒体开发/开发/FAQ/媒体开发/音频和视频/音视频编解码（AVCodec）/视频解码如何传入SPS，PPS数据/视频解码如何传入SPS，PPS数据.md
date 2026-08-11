@@ -1,0 +1,104 @@
+# 视频解码如何传入SPS，PPS数据
+
+更新时间：2026-07-30 01:58:30
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-21
+
+#### 问题现象
+
+视频文件在解封装后得到H264裸流数据，然后使用编码器工具VideoDecoder组件时使用其硬解码功能，在创建解码器时，如何传入SPS，PPS数据给解码器？
+ 
+ 
+
+#### 背景知识
+
+SPS和PPS都为H264编码中的重要数据信息。
+ 
+- SPS：即Sequence Paramater Set，序列参数集。即原始视频的每一帧的像素数据经过编码之后的结构组成的序列。而每一帧的编码后数据所依赖的参数保存于图像参数集中。
+- PPS：Picture Paramater Set，图像参数集。即图像的一些参数，宽、高等。
+
+ 
+H264原始码流是由若干NALU组成的结构，如下图所示：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/7Rgl6J79RMmnom5Yji7RRw/zh-cn_image_0000002658791637.png?HW-CC-KV=V1&HW-CC-Date=20260811T005554Z&HW-CC-Expire=86400&HW-CC-Sign=76B322660B37A273C352F6EE4C4613BB9BA372FF720BC67C9FF432D5A1DC1BE4)
+
+ 
+- NALU（Network Abstraction Layer Units）：网络抽象层。每个NAL单元是一个有一定语法元素的可变长字节字符串，包括一个字节的NAL Header（用来表示数据类型），以及若干整数字节的原始字节序列负荷（RBSP）。在实际的H264数据帧中，往往帧前面带有00 00 00 01或00 00 01的分隔符，其后跟随NAL单元数据。一个NAL单元可以携带一个编码片，I帧、P帧、B帧、一个序列参数集（SPS）、或一个图像参数集（PPS）。
+
+  H264采用NAL单元可以适用于多种网络，而且能进一步提高其抗误码能力。通过序列号的设置可以发现丢失的是哪一个VLC单元，冗余编码图像使得基本编码图像丢失仍可得到较粗糙的图像。
+
+  NAL Header（1 byte）的组成为：forbidden_zero_bit(1bit)+nal_ref_idc(2bit)+nal_unit_type(5bit)
+
+  forbidden_zero_bit：禁止位，初始为0，当网络发现NAL单元有比特错误时可设置该比特为1，以便接收方纠错或丢掉该单元。
+
+  nal_ref_idc：nal重要性指示，标志该NAL单元的重要性，值越大，越重要，解码器在解码处理不过来的时候，可以丢掉重要性为0的NALU。
+
+  nal_unit_type：用来识别不同NAL单元类型：
+
+  
+| nal_unit_type | NAL单元和RBSP语法结构的内容 |
+| --- | --- |
+| 0 | 未指定 |
+| 1 | 一个非 IDR 图像的编码条带 |
+| 2 | 编码条带数据分割块A |
+| 3 | 编码条带数据分割块B |
+| 4 | 编码条带数据分割块C |
+| 5 | IDR图像的编码条带 |
+| 6 | 辅助增强信息 （SEI） |
+| 7 | 序列参数集 |
+| 8 | 图像参数集 |
+| 9 | 访问单元分隔符 |
+| 10 | 序列结尾 |
+| 11 | 流结尾 |
+| 12 | 填充数据 |
+| 13 | 序列参数集扩展 |
+| 14~18 | 保留 |
+| 19 | 未分割的辅助编码图像的编码条带 |
+| 20~23 | 保留 |
+| 24~31 | 未指定 |
+ 
+ 
+其中值为7和8的nal_unit_type就为需要设置的SPS和PPS参数。
+ 
+ 
+
+#### 解决方案
+
+使用AVCodec进行解码的流程中，给视频解码器传入SPS和PPS数据，都需要通过[OH_VideoDecoder_PushInputBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_pushinputbuffer)函数在传入首帧数据时传入SPS/PPS数据。
+ 
+传入SPS、PPS数据也分为首次传入和重新传入两种情况，两种情况的操作流程有一些区别：
+ 1. 首次传入SPS/PPS数据：在创建解码器并首次配置完回调函数和参数后，调用[OH_VideoDecoder_Start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_start)函数让解码器开始工作。然后通过调用OH_VideoDecoder_PushInputBuffer函数在首帧传入SPS/PPS帧和I帧的拼接帧或者仅传入SPS/PPS帧，即可首次传入SPS、PPS数据给解码器。
+
+  具体代码实现可以参考：[视频解码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)中调用OH_VideoDecoder_Start的步骤和调用OH_VideoDecoder_PushInputBuffer步骤。
+2. 重新传入SPS/PPS数据：在解码器创建之后，需要重新传入SPS/PPS数据或者分批次传入SPS/PPS的数据时，可以[使用OH_VideoDecoder_Flush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_flush)函数刷新解码器，在刷新解码器后，解码器仍处于运行态，但会清除解码器中缓存的输入和输出数据及参数集如H.264格式的PPS/SPS，此时调用OH_VideoDecoder_Start接口重新让解码器开始工作，再调用OH_VideoDecoder_PushInputBuffer函数传入SPS/PPS帧和I帧的拼接帧或者仅传入SPS/PPS帧，即可重新传入SPS、PPS数据给解码器。
+
+  具体代码实现可以参考：[视频解码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)中调用OH_VideoDecoder_Flush的步骤。
+ 
+ 
+
+#### 常见FAQ
+
+Q：如果在配置视频解码器时，已经通过OH_MD_KEY_CODEC_CONFIG设置了SPS/PPS，后续在输入解码帧时，是否需要继续输入SPS/PPS帧？
+ 
+A：即使在调用[OH_VideoDecoder_Configure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_configure)配置解码器时通过OH_MD_KEY_CODEC_CONFIG参数配置了SPS/PPS，后续写入解码数据时也必须传入SPS/PPS帧到输入缓冲区。解码时如果不传入SPS/PPS帧到视频解码器的缓冲区，将无法得到解码数据。
+ 
+Q：AVCodec官方示例代码中解封装视频文件后输入视频解码器的首帧为SPS/PPS帧与I帧的拼接帧（Flags为AVCODEC_BUFFER_FLAGS_CODEC_DATA|AVCODEC_BUFFER_FLAGS_SYNC_FRAME）。是否要求输入视频解码器的首帧必须是SPS/PPS帧和I帧的拼接帧？
+ 
+A：输入AVCodec视频解码器的首帧不一定要是SPS/PPS帧和I帧的拼接帧。可以首帧直接输入SPS/PPS帧和I帧的拼接帧（Flags为AVCODEC_BUFFER_FLAGS_CODEC_DATA|AVCODEC_BUFFER_FLAGS_SYNC_FRAME）；也可以先输入SPS/PPS帧（Flags为AVCODEC_BUFFER_FLAGS_CODEC_DATA）然后输入I帧（Flags为AVCODEC_BUFFER_FLAGS_SYNC_FRAME）。
+ 
+Q：视频解码Flush后，如何重新获取SPS/PPS数据？
+ 
+A：解码的首帧输入同时包含了SPS和PPS数据，可以将首帧buffer转换为16进制，buffer中以分隔符+x7（x为任意16进制数）开头到下一次分隔符的内容为SPS信息；以分隔符+x8（x为任意16进制数）开头到下一次分隔符的内容为PPS信息。将数据提取即可重新传入。
+ 
+Q：OH_VideoDecoder解码器输入的h264和h265的码流是AnnexB还是Avcc或者Hvcc？
+ 
+A：视频解码输入码流仅支持AnnexB格式，且支持的AnnexB格式支持多slice，要求同一帧的多个slice一次送入解码器。详细可参考：视频解码的[限制约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#注意事项)。
+ 
+Q：输入EOS packet，再调用视频解码器OH_VideoDecoder_Flush，然后调用OH_VideoDecoder_Start，此时概率性收到解码器的EOS output回调，按照预期，OH_VideoDecoder_Flush之后会失效所有input & output buffer，这是不是OH_VideoDecoder_Flush接口的bug?
+ 
+A：OH_VideoDecoder_Flush只负责清除队列里的数据，不影响已发出的数据接收，不是bug。
+ 
+Q：使用AVCodec Kit视频解码，如何判断手机是否支持H265？
+ 
+A：目前手机已都支持H265，也可以通过[获取支持的编解码能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/obtain-supported-codecs)判断指定类别中的编解码器能力。

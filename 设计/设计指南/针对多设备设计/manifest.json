@@ -100,5 +100,41 @@
     "name": "智慧屏",
     "file": "智慧屏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/vision-0000002321377950"
+  },
+  {
+    "slug": "smart-cockpit-application-architecture-0000002592486434",
+    "name": "应用架构",
+    "file": "智能座舱/应用架构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-cockpit-application-architecture-0000002592486434"
+  },
+  {
+    "slug": "smart-cockpit-basic-experience-0000002592646356",
+    "name": "基础体验要求",
+    "file": "智能座舱/基础体验要求.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-cockpit-basic-experience-0000002592646356"
+  },
+  {
+    "slug": "smart-cockpit-hicar-0000002592646358",
+    "name": "HUAWEI HiCar",
+    "file": "智能座舱/HUAWEI HiCar.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-cockpit-hicar-0000002592646358"
+  },
+  {
+    "slug": "smart-cockpit-overview-0000002592486432",
+    "name": "概述",
+    "file": "智能座舱/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-cockpit-overview-0000002592486432"
+  },
+  {
+    "slug": "smart-cockpit-system-architecture-0000002623086005",
+    "name": "系统架构",
+    "file": "智能座舱/系统架构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-cockpit-system-architecture-0000002623086005"
+  },
+  {
+    "slug": "smart-cockpit-ux-basic-0000002622965869",
+    "name": "设计基础",
+    "file": "智能座舱/设计基础.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-cockpit-ux-basic-0000002622965869"
   }
 ]

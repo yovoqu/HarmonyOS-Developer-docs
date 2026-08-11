@@ -1,0 +1,90 @@
+# 基于hvigorfile.ts自定义打包文件名，如何删除同文件夹存在的安装包
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-205
+
+#### 问题现象
+
+目前使用如下代码在打包时自定义包名，但是由于每次打包的包名都不一样，导致老的包一直存在打包路径下，请问如何能做到删除旧的构建产物？
+ 
+ 
+
+#### 背景知识
+
+Hvigor支持灵活定制编译，用户可以在hvigorfile.ts文件中开发[自定义任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-task)和[自定义插件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-plugin)。
+ 
+ 
+
+#### 解决方案
+
+可以参考如下代码中的deleteOldApp()方法，在构建之前遍历目标文件夹，删除旧的目标产物。
+ 
+```text
+import { appTasks , OhosPluginId} from '@ohos/hvigor-ohos-plugin';
+import { hvigor } from '@ohos/hvigor'
+import * as fs from 'fs';
+import * as path from 'path';
+
+<em>// 定义要删除的文件路径和文件格式</em>
+const dir = 'D:/Program/HarmonyProject/XXXXXX'; <em>// 替换为你的目标路径</em>
+const ext = '.app'; <em>// 要删除的文件格式</em>
+hvigor.afterNodeEvaluate((hvigorNode)=>{
+    const context = hvigorNode.getContext(OhosPluginId.OHOS_APP_PLUGIN)
+    if (context && context.getBuildProfileOpt) {
+        const buildProfile = context.getBuildProfileOpt();
+        const products = buildProfile.app.products;
+        deleteOldApp(dir, ext)
+        for (const product of products) {
+            if (product.name === context.getCurrentProduct().productBuildOpt.name) {
+                product.output={
+                    "artifactName": "app-v1.0.3-" + getTime()
+                }
+            }
+        }
+        context.setBuildProfileOpt(buildProfile);
+    }
+})
+
+function deleteOldApp(dir: string, ext: string): void {
+    if (!fs.existsSync(dir)) {
+        console.error(`Directory does not exist: ${dir}`);
+        return;
+    }
+    fs.readdir(dir, { withFileTypes: true }, (err, files) => {
+        if (err) {
+            console.error(`Error occurred while reading directory ${dir}:`, err);
+            return;
+        }
+        files.forEach(file => {
+            console.info(file.name)
+            const filePath = path.join(dir, file.name);
+            if (file.name.endsWith(ext)) {
+               <em> // 如果是目标文件，删除</em>
+                fs.unlink(filePath, err => {
+                    if (err) {
+                        console.error(`Error occurred while deleting file ${filePath}:`, err);
+                    } else {
+                        console.info(`Deleted file: ${filePath}`);
+                    }
+                });
+            }
+        });
+    });
+}
+
+function getTime(): string {
+    let date = new Date()
+    let year = date.getFullYear()
+    let month = (date.getMonth() + 1).toString().padStart(2, '0')
+    let day = date.getDate().toString().padStart(2, '0')
+    let hours = date.getHours().toString().padStart(2, '0')
+    let minutes = date.getMinutes().toString().padStart(2, '0')
+    return `${year}-${month}-${day}_${hours}_${minutes}`
+}
+
+export default {
+    system: appTasks, /* Built-in plugin of Hvigor. It cannot be modified. */
+    plugins:[] /* Custom plugin to extend the functionality of Hvigor. */
+}
+```

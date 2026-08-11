@@ -1,0 +1,185 @@
+# List组件滚动优先级如何高于Scroll组件
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-922
+
+#### 问题现象
+
+当TabBar吸顶且List组件上滑一段距离后，手指向下拖拽TabBar位置，如何实现以下效果：Scroll组件不进行下滑而是由List组件下滑，当List组件下滑到顶部时再由Scroll组件响应拖拽事件继续下滑。
+ 
+ 
+
+#### 效果预览
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/VxRaeWg_RXGk8vm2V1ULPA/zh-cn_image_0000002628400300.png?HW-CC-KV=V1&HW-CC-Date=20260811T005747Z&HW-CC-Expire=86400&HW-CC-Sign=5F30DD0C8051F7A746C3795B215F1F551110720254C0C185E60CDBD62896FB1E)
+
+ 
+ 
+
+#### 背景知识
+
+- [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)都是可滚动的容器组件，组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement)进行处理。
+- [onScrollFrameBegin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onscrollframebegin9)回调触发时，事件参数传入即将发生的滚动量，事件处理函数中可根据应用场景计算实际需要的滚动量并作为事件处理函数的返回值返回，Scroll将按照返回值的实际滚动量进行滚动。
+- [触摸事件onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)是组件的通用事件，在手指触摸动作时触发该回调，回调入参类型为[TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#touchevent对象说明)。
+
+ 
+ 
+
+#### 解决方案
+
+通过触摸事件onTouch记下手指按下的位置，同时判断当前列表是否滚动到顶部，如果当前列表在顶部则允许Scroll组件滚动，否则禁止Scroll组件滚动，并且在onScrollFrameBegin回调中根据scrollable的值判断是否滚动。
+ 
+onTouch关键部分代码如下：
+ 
+```text
+.onTouch(event => {
+  if (event.type === TouchType.Down) {
+    <em>// 当手指按下或滑动时禁用Scroll滚动</em>
+    this.scrollable = false;
+    this.lastPosition = event.changedTouches[0].y; <em>// 记录手指按下的位置</em>
+  }
+  if (event.type === TouchType.Up) {
+    this.scrollable = true;<em> // 当手指抬起时允许Scroll滚动</em>
+  }
+  if (event.type === TouchType.Move) {
+   <em> // 当手指移动时，手动滚动列表</em>
+    this.scrollerForList.scrollBy(0, this.lastPosition - event.changedTouches[0].y);
+  }
+  if (this.scrollerForList.currentOffset().yOffset === 0) {
+  <em>  // 当列表滚动到顶部时，允许Scroll滚动</em>
+    this.scrollable = true;
+  }
+});
+```
+ 
+完整示例代码如下：
+ 
+```text
+@Entry
+@Component
+struct StickyNestedScroll {
+  @State arr: number[] = []; <em>// 用于存储列表项的数据</em>
+  private scrollerForList: Scroller = new Scroller(); <em>// 用于控制列表的滚动</em>
+  private scrollable: boolean = true; <em>// 判断Scroll是否可以滚动</em>
+  private lastPosition: number = 0; <em>// 记录上一次触摸的位置</em>
+  private fontColor: string = '#182431';
+  private selectedFontColor: string = '#007DFF';
+  @State selectedIndex: number = 0;
+  @State currentIndex: number = 0;
+
+
+  @Styles
+  listCard() {
+    .backgroundColor(Color.White)
+    .height(72)
+    .width('100%')
+    .borderRadius(12);
+  }
+
+
+  @Builder
+  tabBuilder(index: number) {
+    Text('Tab' + (index + 1))
+      .fontColor(this.selectedIndex === index ? this.selectedFontColor : this.fontColor)
+      .fontSize(20)
+      .fontWeight(500)
+      .lineHeight(14)
+      .onTouch(event => {
+        if (event.type === TouchType.Down) {
+        <em>  // 当手指按下或滑动时禁用Scroll滚动</em>
+          this.scrollable = false;
+          this.lastPosition = event.changedTouches[0].y; <em>// 记录手指按下的位置</em>
+        }
+        if (event.type === TouchType.Up) {
+          this.scrollable = true; <em>// 当手指抬起时允许Scroll滚动</em>
+        }
+        if (event.type === TouchType.Move) {
+       <em>   // 当手指移动时，手动滚动列表</em>
+          this.scrollerForList.scrollBy(0, this.lastPosition - event.changedTouches[0].y);
+        }
+        if (this.scrollerForList.currentOffset().yOffset === 0) {
+        <em>  // 当列表滚动到顶部时，允许Scroll滚动</em>
+          this.scrollable = true;
+        }
+      });
+  }
+
+
+  build() {
+    Scroll() {
+      Column() {
+        Text('Scroll Area')
+          .width('100%')
+          .height('40%')
+          .backgroundColor('#0080DC')
+          .textAlign(TextAlign.Center);
+
+
+        Tabs({ barPosition: BarPosition.Start }) {
+          TabContent() {
+            List({ space: 10, scroller: this.scrollerForList }) {
+              ForEach(this.arr, (item: number) => {
+                ListItem() {
+                  Text('item' + item)
+                    .fontColor($r('sys.color.black'))
+                    .fontSize(16)
+                    .height(50);
+                }.listCard();
+              }, (item: string) => item);
+            }
+            .width('90%')
+            .margin({ left: 16, right: 16 })
+            .scrollBar(0)
+            .edgeEffect(EdgeEffect.Spring)
+            .nestedScroll({
+              scrollForward: NestedScrollMode.PARENT_FIRST, <em>// 设置向前滚动时的模式</em>
+              scrollBackward: NestedScrollMode.SELF_FIRST <em>// 设置向后滚动时的模式</em>
+            });
+          }.tabBar(this.tabBuilder(0));
+
+
+          TabContent() {
+          }.tabBar(this.tabBuilder(1));
+        }
+        .onChange((index: number) => {
+      <em>    // currentIndex控制TabContent显示页签</em>
+          this.currentIndex = index;
+          this.selectedIndex = index;
+        })
+        .onAnimationStart((index: number, targetIndex: number) => {
+          if (index === targetIndex) {
+            return;
+          }
+        <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+          this.selectedIndex = targetIndex;
+        })
+        .vertical(false)
+        .height('100%');
+      }.width('100%');
+    }
+    .edgeEffect(EdgeEffect.Spring)
+    .friction(0.6)<em> // 设置滚动视图的摩擦力</em>
+    .backgroundColor('#DCDCDC')
+    .scrollBar(BarState.Off)
+    .width('100%')
+    .height('100%')
+    .onScrollFrameBegin((offset: number) => {
+   <em>   // 设置滚动视图是否可以滚动</em>
+      if (this.scrollable) {
+        return { offsetRemain: offset };
+      } else {
+        return { offsetRemain: 0 };
+      }
+    });
+  }
+
+
+  aboutToAppear() {
+    for (let i = 0; i < 30; i++) {
+      this.arr.push(i);
+    }
+  }
+}
+```

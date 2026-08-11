@@ -348,5 +348,1757 @@
     "name": "hdc list targets回显慢",
     "file": "技术质量/运维/hdc list targets回显慢.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-76"
+  },
+  {
+    "slug": "faqs-power-footage-1",
+    "name": "应用前台CPU高负载",
+    "file": "开发/FAQ/应用质量/技术质量/功耗/应用前台CPU高负载/应用前台CPU高负载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-power-footage-1"
+  },
+  {
+    "slug": "faqs-power-footage-1",
+    "name": "应用前台CPU高负载",
+    "file": "技术质量/功耗/应用前台CPU高负载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-power-footage-1"
+  },
+  {
+    "slug": "faqs-performance-2",
+    "name": "ArkUI页面侧滑返回响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面侧滑返回响应慢/ArkUI页面侧滑返回响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-2"
+  },
+  {
+    "slug": "faqs-performance-2",
+    "name": "ArkUI页面侧滑返回响应慢",
+    "file": "技术质量/性能/ArkUI页面侧滑返回响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-2"
+  },
+  {
+    "slug": "faqs-performance-9",
+    "name": "ArkUI页面加载慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面加载慢/ArkUI页面加载慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-9"
+  },
+  {
+    "slug": "faqs-performance-9",
+    "name": "ArkUI页面加载慢",
+    "file": "技术质量/性能/ArkUI页面加载慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-9"
+  },
+  {
+    "slug": "faqs-performance-6",
+    "name": "ArkUI页面动画卡顿掉帧",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面动画卡顿掉帧/ArkUI页面动画卡顿掉帧.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-6"
+  },
+  {
+    "slug": "faqs-performance-6",
+    "name": "ArkUI页面动画卡顿掉帧",
+    "file": "技术质量/性能/ArkUI页面动画卡顿掉帧.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-6"
+  },
+  {
+    "slug": "faqs-performance-4",
+    "name": "ArkUI页面滑动卡顿",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面滑动卡顿/ArkUI页面滑动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-4"
+  },
+  {
+    "slug": "faqs-performance-4",
+    "name": "ArkUI页面滑动卡顿",
+    "file": "技术质量/性能/ArkUI页面滑动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-4"
+  },
+  {
+    "slug": "faqs-performance-53",
+    "name": "ArkUI页面滑动卡顿丢帧问题分析",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面滑动卡顿丢帧问题分析/ArkUI页面滑动卡顿丢帧问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-53"
+  },
+  {
+    "slug": "faqs-performance-53",
+    "name": "ArkUI页面滑动卡顿丢帧问题分析",
+    "file": "技术质量/性能/ArkUI页面滑动卡顿丢帧问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-53"
+  },
+  {
+    "slug": "faqs-performance-14",
+    "name": "ArkUI页面点击响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面点击响应慢/ArkUI页面点击响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-14"
+  },
+  {
+    "slug": "faqs-performance-14",
+    "name": "ArkUI页面点击响应慢",
+    "file": "技术质量/性能/ArkUI页面点击响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-14"
+  },
+  {
+    "slug": "faqs-performance-5",
+    "name": "ArkUI页面点击图片查看时加载缓慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面点击图片查看时加载缓慢/ArkUI页面点击图片查看时加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-5"
+  },
+  {
+    "slug": "faqs-performance-5",
+    "name": "ArkUI页面点击图片查看时加载缓慢",
+    "file": "技术质量/性能/ArkUI页面点击图片查看时加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-5"
+  },
+  {
+    "slug": "faqs-performance-12",
+    "name": "ArkUI页面的视频加载缓慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/ArkUI页面的视频加载缓慢/ArkUI页面的视频加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-12"
+  },
+  {
+    "slug": "faqs-performance-12",
+    "name": "ArkUI页面的视频加载缓慢",
+    "file": "技术质量/性能/ArkUI页面的视频加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-12"
+  },
+  {
+    "slug": "faqs-performance-10",
+    "name": "H5页面中的图片、视频加载缓慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/H5页面中的图片、视频加载缓慢/H5页面中的图片、视频加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-10"
+  },
+  {
+    "slug": "faqs-performance-10",
+    "name": "H5页面中的图片、视频加载缓慢",
+    "file": "技术质量/性能/H5页面中的图片、视频加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-10"
+  },
+  {
+    "slug": "faqs-performance-8",
+    "name": "H5页面加载缓慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/H5页面加载缓慢/H5页面加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-8"
+  },
+  {
+    "slug": "faqs-performance-8",
+    "name": "H5页面加载缓慢",
+    "file": "技术质量/性能/H5页面加载缓慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-8"
+  },
+  {
+    "slug": "faqs-performance-49",
+    "name": "Profiler监控SDK运行的性能时，如何延长录制时间",
+    "file": "开发/FAQ/应用质量/技术质量/性能/Profiler监控SDK运行的性能时，如何延长录制时间/Profiler监控SDK运行的性能时，如何延长录制时间.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-49"
+  },
+  {
+    "slug": "faqs-performance-49",
+    "name": "Profiler监控SDK运行的性能时，如何延长录制时间",
+    "file": "技术质量/性能/Profiler监控SDK运行的性能时，如何延长录制时间.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-49"
+  },
+  {
+    "slug": "faqs-performance-51",
+    "name": "WaterFlow组件切换列数时卡顿",
+    "file": "开发/FAQ/应用质量/技术质量/性能/WaterFlow组件切换列数时卡顿/WaterFlow组件切换列数时卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-51"
+  },
+  {
+    "slug": "faqs-performance-51",
+    "name": "WaterFlow组件切换列数时卡顿",
+    "file": "技术质量/性能/WaterFlow组件切换列数时卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-51"
+  },
+  {
+    "slug": "faqs-performance-7",
+    "name": "Web页面点击响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/Web页面点击响应慢/Web页面点击响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-7"
+  },
+  {
+    "slug": "faqs-performance-7",
+    "name": "Web页面点击响应慢",
+    "file": "技术质量/性能/Web页面点击响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-7"
+  },
+  {
+    "slug": "faqs-performance-1",
+    "name": "flutter页面滑动卡顿",
+    "file": "开发/FAQ/应用质量/技术质量/性能/flutter页面滑动卡顿/flutter页面滑动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-1"
+  },
+  {
+    "slug": "faqs-performance-1",
+    "name": "flutter页面滑动卡顿",
+    "file": "技术质量/性能/flutter页面滑动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-1"
+  },
+  {
+    "slug": "faqs-performance-40",
+    "name": "下拉页面列表刷新卡顿，延迟一段时间后突然回跳",
+    "file": "开发/FAQ/应用质量/技术质量/性能/下拉页面列表刷新卡顿，延迟一段时间后突然回跳/下拉页面列表刷新卡顿，延迟一段时间后突然回跳.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-40"
+  },
+  {
+    "slug": "faqs-performance-40",
+    "name": "下拉页面列表刷新卡顿，延迟一段时间后突然回跳",
+    "file": "技术质量/性能/下拉页面列表刷新卡顿，延迟一段时间后突然回跳.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-40"
+  },
+  {
+    "slug": "faqs-performance-25",
+    "name": "侧滑退出应用响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/侧滑退出应用响应慢/侧滑退出应用响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-25"
+  },
+  {
+    "slug": "faqs-performance-25",
+    "name": "侧滑退出应用响应慢",
+    "file": "技术质量/性能/侧滑退出应用响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-25"
+  },
+  {
+    "slug": "faqs-performance-36",
+    "name": "动态变化的页面卡住一段时间无变化",
+    "file": "开发/FAQ/应用质量/技术质量/性能/动态变化的页面卡住一段时间无变化/动态变化的页面卡住一段时间无变化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-36"
+  },
+  {
+    "slug": "faqs-performance-36",
+    "name": "动态变化的页面卡住一段时间无变化",
+    "file": "技术质量/性能/动态变化的页面卡住一段时间无变化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-36"
+  },
+  {
+    "slug": "faqs-performance-27",
+    "name": "双击图片放大时异常卡顿，不流畅",
+    "file": "开发/FAQ/应用质量/技术质量/性能/双击图片放大时异常卡顿，不流畅/双击图片放大时异常卡顿，不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-27"
+  },
+  {
+    "slug": "faqs-performance-27",
+    "name": "双击图片放大时异常卡顿，不流畅",
+    "file": "技术质量/性能/双击图片放大时异常卡顿，不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-27"
+  },
+  {
+    "slug": "faqs-performance-23",
+    "name": "双指缩放时抖动卡顿",
+    "file": "开发/FAQ/应用质量/技术质量/性能/双指缩放时抖动卡顿/双指缩放时抖动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-23"
+  },
+  {
+    "slug": "faqs-performance-23",
+    "name": "双指缩放时抖动卡顿",
+    "file": "技术质量/性能/双指缩放时抖动卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-23"
+  },
+  {
+    "slug": "faqs-performance-42",
+    "name": "在应用内各页面跳转时需要等待加载",
+    "file": "开发/FAQ/应用质量/技术质量/性能/在应用内各页面跳转时需要等待加载/在应用内各页面跳转时需要等待加载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-42"
+  },
+  {
+    "slug": "faqs-performance-42",
+    "name": "在应用内各页面跳转时需要等待加载",
+    "file": "技术质量/性能/在应用内各页面跳转时需要等待加载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-42"
+  },
+  {
+    "slug": "faqs-performance-41",
+    "name": "多次点击按键，声音播放有延迟",
+    "file": "开发/FAQ/应用质量/技术质量/性能/多次点击按键，声音播放有延迟/多次点击按键，声音播放有延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-41"
+  },
+  {
+    "slug": "faqs-performance-41",
+    "name": "多次点击按键，声音播放有延迟",
+    "file": "技术质量/性能/多次点击按键，声音播放有延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-41"
+  },
+  {
+    "slug": "faqs-performance-50",
+    "name": "如何获取CPU使用率",
+    "file": "开发/FAQ/应用质量/技术质量/性能/如何获取CPU使用率/如何获取CPU使用率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-50"
+  },
+  {
+    "slug": "faqs-performance-50",
+    "name": "如何获取CPU使用率",
+    "file": "技术质量/性能/如何获取CPU使用率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-50"
+  },
+  {
+    "slug": "faqs-performance-54",
+    "name": "如何获取应用性能监控数据",
+    "file": "开发/FAQ/应用质量/技术质量/性能/如何获取应用性能监控数据/如何获取应用性能监控数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-54"
+  },
+  {
+    "slug": "faqs-performance-38",
+    "name": "左右滑动图片切换时文字没有跟随图片同步更新",
+    "file": "开发/FAQ/应用质量/技术质量/性能/左右滑动图片切换时文字没有跟随图片同步更新/左右滑动图片切换时文字没有跟随图片同步更新.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-38"
+  },
+  {
+    "slug": "faqs-performance-38",
+    "name": "左右滑动图片切换时文字没有跟随图片同步更新",
+    "file": "技术质量/性能/左右滑动图片切换时文字没有跟随图片同步更新.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-38"
+  },
+  {
+    "slug": "faqs-performance-52",
+    "name": "左右滑动页面切换卡顿无动效",
+    "file": "开发/FAQ/应用质量/技术质量/性能/左右滑动页面切换卡顿无动效/左右滑动页面切换卡顿无动效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-52"
+  },
+  {
+    "slug": "faqs-performance-52",
+    "name": "左右滑动页面切换卡顿无动效",
+    "file": "技术质量/性能/左右滑动页面切换卡顿无动效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-52"
+  },
+  {
+    "slug": "faqs-performance-34",
+    "name": "应用内浏览文档上滑时不流畅",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用内浏览文档上滑时不流畅/应用内浏览文档上滑时不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-34"
+  },
+  {
+    "slug": "faqs-performance-34",
+    "name": "应用内浏览文档上滑时不流畅",
+    "file": "技术质量/性能/应用内浏览文档上滑时不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-34"
+  },
+  {
+    "slug": "faqs-performance-30",
+    "name": "应用内点击邀请好友生成分享图慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用内点击邀请好友生成分享图慢/应用内点击邀请好友生成分享图慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-30"
+  },
+  {
+    "slug": "faqs-performance-30",
+    "name": "应用内点击邀请好友生成分享图慢",
+    "file": "技术质量/性能/应用内点击邀请好友生成分享图慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-30"
+  },
+  {
+    "slug": "faqs-performance-11",
+    "name": "应用冷启动慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用冷启动慢/应用冷启动慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-11"
+  },
+  {
+    "slug": "faqs-performance-11",
+    "name": "应用冷启动慢",
+    "file": "技术质量/性能/应用冷启动慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-11"
+  },
+  {
+    "slug": "faqs-performance-35",
+    "name": "应用启动后停留闪屏页时间过长",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用启动后停留闪屏页时间过长/应用启动后停留闪屏页时间过长.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-35"
+  },
+  {
+    "slug": "faqs-performance-35",
+    "name": "应用启动后停留闪屏页时间过长",
+    "file": "技术质量/性能/应用启动后停留闪屏页时间过长.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-35"
+  },
+  {
+    "slug": "faqs-performance-48",
+    "name": "应用在横竖屏切换旋转过程中丢帧",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用在横竖屏切换旋转过程中丢帧/应用在横竖屏切换旋转过程中丢帧.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-48"
+  },
+  {
+    "slug": "faqs-performance-48",
+    "name": "应用在横竖屏切换旋转过程中丢帧",
+    "file": "技术质量/性能/应用在横竖屏切换旋转过程中丢帧.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-48"
+  },
+  {
+    "slug": "faqs-performance-3",
+    "name": "应用在页面跳转时发生卡顿的现象",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用在页面跳转时发生卡顿的现象/应用在页面跳转时发生卡顿的现象.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-3"
+  },
+  {
+    "slug": "faqs-performance-3",
+    "name": "应用在页面跳转时发生卡顿的现象",
+    "file": "技术质量/性能/应用在页面跳转时发生卡顿的现象.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-3"
+  },
+  {
+    "slug": "faqs-performance-15",
+    "name": "应用拍照时延长",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用拍照时延长/应用拍照时延长.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-15"
+  },
+  {
+    "slug": "faqs-performance-15",
+    "name": "应用拍照时延长",
+    "file": "技术质量/性能/应用拍照时延长.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-15"
+  },
+  {
+    "slug": "faqs-performance-24",
+    "name": "应用首次启动，隐私政策内容加载延迟",
+    "file": "开发/FAQ/应用质量/技术质量/性能/应用首次启动，隐私政策内容加载延迟/应用首次启动，隐私政策内容加载延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-24"
+  },
+  {
+    "slug": "faqs-performance-24",
+    "name": "应用首次启动，隐私政策内容加载延迟",
+    "file": "技术质量/性能/应用首次启动，隐私政策内容加载延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-24"
+  },
+  {
+    "slug": "faqs-performance-37",
+    "name": "开启倒计时铃声播放，后台音乐播放不流畅",
+    "file": "开发/FAQ/应用质量/技术质量/性能/开启倒计时铃声播放，后台音乐播放不流畅/开启倒计时铃声播放，后台音乐播放不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-37"
+  },
+  {
+    "slug": "faqs-performance-37",
+    "name": "开启倒计时铃声播放，后台音乐播放不流畅",
+    "file": "技术质量/性能/开启倒计时铃声播放，后台音乐播放不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-37"
+  },
+  {
+    "slug": "faqs-performance-44",
+    "name": "快速多次点击按键，声音播放有卡顿的情况",
+    "file": "开发/FAQ/应用质量/技术质量/性能/快速多次点击按键，声音播放有卡顿的情况/快速多次点击按键，声音播放有卡顿的情况.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-44"
+  },
+  {
+    "slug": "faqs-performance-44",
+    "name": "快速多次点击按键，声音播放有卡顿的情况",
+    "file": "技术质量/性能/快速多次点击按键，声音播放有卡顿的情况.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-44"
+  },
+  {
+    "slug": "faqs-performance-46",
+    "name": "快速滑动列表时数据加载延迟",
+    "file": "开发/FAQ/应用质量/技术质量/性能/快速滑动列表时数据加载延迟/快速滑动列表时数据加载延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-46"
+  },
+  {
+    "slug": "faqs-performance-46",
+    "name": "快速滑动列表时数据加载延迟",
+    "file": "技术质量/性能/快速滑动列表时数据加载延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-46"
+  },
+  {
+    "slug": "faqs-performance-32",
+    "name": "打开隐私政策页面，隐私政策内容加载慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/打开隐私政策页面，隐私政策内容加载慢/打开隐私政策页面，隐私政策内容加载慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-32"
+  },
+  {
+    "slug": "faqs-performance-32",
+    "name": "打开隐私政策页面，隐私政策内容加载慢",
+    "file": "技术质量/性能/打开隐私政策页面，隐私政策内容加载慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-32"
+  },
+  {
+    "slug": "faqs-performance-39",
+    "name": "折线图等复杂图表页面操作浏览丢帧",
+    "file": "开发/FAQ/应用质量/技术质量/性能/折线图等复杂图表页面操作浏览丢帧/折线图等复杂图表页面操作浏览丢帧.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-39"
+  },
+  {
+    "slug": "faqs-performance-39",
+    "name": "折线图等复杂图表页面操作浏览丢帧",
+    "file": "技术质量/性能/折线图等复杂图表页面操作浏览丢帧.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-39"
+  },
+  {
+    "slug": "faqs-performance-26",
+    "name": "文字翻转有延迟",
+    "file": "开发/FAQ/应用质量/技术质量/性能/文字翻转有延迟/文字翻转有延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-26"
+  },
+  {
+    "slug": "faqs-performance-26",
+    "name": "文字翻转有延迟",
+    "file": "技术质量/性能/文字翻转有延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-26"
+  },
+  {
+    "slug": "faqs-performance-31",
+    "name": "横竖屏切换卡顿",
+    "file": "开发/FAQ/应用质量/技术质量/性能/横竖屏切换卡顿/横竖屏切换卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-31"
+  },
+  {
+    "slug": "faqs-performance-31",
+    "name": "横竖屏切换卡顿",
+    "file": "技术质量/性能/横竖屏切换卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-31"
+  },
+  {
+    "slug": "faqs-performance-28",
+    "name": "滑动地图卡顿",
+    "file": "开发/FAQ/应用质量/技术质量/性能/滑动地图卡顿/滑动地图卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-28"
+  },
+  {
+    "slug": "faqs-performance-28",
+    "name": "滑动地图卡顿",
+    "file": "技术质量/性能/滑动地图卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-28"
+  },
+  {
+    "slug": "faqs-performance-13",
+    "name": "滑动浏览长图时有卡顿的情况",
+    "file": "开发/FAQ/应用质量/技术质量/性能/滑动浏览长图时有卡顿的情况/滑动浏览长图时有卡顿的情况.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-13"
+  },
+  {
+    "slug": "faqs-performance-13",
+    "name": "滑动浏览长图时有卡顿的情况",
+    "file": "技术质量/性能/滑动浏览长图时有卡顿的情况.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-13"
+  },
+  {
+    "slug": "faqs-performance-22",
+    "name": "滑动翻页时动效卡顿不流畅",
+    "file": "开发/FAQ/应用质量/技术质量/性能/滑动翻页时动效卡顿不流畅/滑动翻页时动效卡顿不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-22"
+  },
+  {
+    "slug": "faqs-performance-22",
+    "name": "滑动翻页时动效卡顿不流畅",
+    "file": "技术质量/性能/滑动翻页时动效卡顿不流畅.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-22"
+  },
+  {
+    "slug": "faqs-performance-17",
+    "name": "点击web页面分享按钮生成页面截图响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/点击web页面分享按钮生成页面截图响应慢/点击web页面分享按钮生成页面截图响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-17"
+  },
+  {
+    "slug": "faqs-performance-17",
+    "name": "点击web页面分享按钮生成页面截图响应慢",
+    "file": "技术质量/性能/点击web页面分享按钮生成页面截图响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-17"
+  },
+  {
+    "slug": "faqs-performance-33",
+    "name": "点击桌面应用卡片按钮，按钮状态变化响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/点击桌面应用卡片按钮，按钮状态变化响应慢/点击桌面应用卡片按钮，按钮状态变化响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-33"
+  },
+  {
+    "slug": "faqs-performance-33",
+    "name": "点击桌面应用卡片按钮，按钮状态变化响应慢",
+    "file": "技术质量/性能/点击桌面应用卡片按钮，按钮状态变化响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-33"
+  },
+  {
+    "slug": "faqs-performance-43",
+    "name": "点击视频播放按钮后长时间初始化",
+    "file": "开发/FAQ/应用质量/技术质量/性能/点击视频播放按钮后长时间初始化/点击视频播放按钮后长时间初始化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-43"
+  },
+  {
+    "slug": "faqs-performance-43",
+    "name": "点击视频播放按钮后长时间初始化",
+    "file": "技术质量/性能/点击视频播放按钮后长时间初始化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-43"
+  },
+  {
+    "slug": "faqs-performance-19",
+    "name": "点击评论框进入评论页面时，软键盘弹出慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/点击评论框进入评论页面时，软键盘弹出慢/点击评论框进入评论页面时，软键盘弹出慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-19"
+  },
+  {
+    "slug": "faqs-performance-19",
+    "name": "点击评论框进入评论页面时，软键盘弹出慢",
+    "file": "技术质量/性能/点击评论框进入评论页面时，软键盘弹出慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-19"
+  },
+  {
+    "slug": "faqs-performance-29",
+    "name": "点击返回按钮响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/点击返回按钮响应慢/点击返回按钮响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-29"
+  },
+  {
+    "slug": "faqs-performance-29",
+    "name": "点击返回按钮响应慢",
+    "file": "技术质量/性能/点击返回按钮响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-29"
+  },
+  {
+    "slug": "faqs-performance-20",
+    "name": "点击页签，页面切换响应慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/点击页签，页面切换响应慢/点击页签，页面切换响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-20"
+  },
+  {
+    "slug": "faqs-performance-20",
+    "name": "点击页签，页面切换响应慢",
+    "file": "技术质量/性能/点击页签，页面切换响应慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-20"
+  },
+  {
+    "slug": "faqs-performance-47",
+    "name": "移动滑块拼图验证慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/移动滑块拼图验证慢/移动滑块拼图验证慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-47"
+  },
+  {
+    "slug": "faqs-performance-47",
+    "name": "移动滑块拼图验证慢",
+    "file": "技术质量/性能/移动滑块拼图验证慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-47"
+  },
+  {
+    "slug": "faqs-performance-21",
+    "name": "视频录制完成后的加载时间过长",
+    "file": "开发/FAQ/应用质量/技术质量/性能/视频录制完成后的加载时间过长/视频录制完成后的加载时间过长.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-21"
+  },
+  {
+    "slug": "faqs-performance-21",
+    "name": "视频录制完成后的加载时间过长",
+    "file": "技术质量/性能/视频录制完成后的加载时间过长.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-21"
+  },
+  {
+    "slug": "faqs-performance-16",
+    "name": "视频播放页面退出时声音暂停有延迟",
+    "file": "开发/FAQ/应用质量/技术质量/性能/视频播放页面退出时声音暂停有延迟/视频播放页面退出时声音暂停有延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-16"
+  },
+  {
+    "slug": "faqs-performance-16",
+    "name": "视频播放页面退出时声音暂停有延迟",
+    "file": "技术质量/性能/视频播放页面退出时声音暂停有延迟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-16"
+  },
+  {
+    "slug": "faqs-performance-45",
+    "name": "页面向上滑动不流畅，到达底部时频繁等待加载",
+    "file": "开发/FAQ/应用质量/技术质量/性能/页面向上滑动不流畅，到达底部时频繁等待加载/页面向上滑动不流畅，到达底部时频繁等待加载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-45"
+  },
+  {
+    "slug": "faqs-performance-45",
+    "name": "页面向上滑动不流畅，到达底部时频繁等待加载",
+    "file": "技术质量/性能/页面向上滑动不流畅，到达底部时频繁等待加载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-45"
+  },
+  {
+    "slug": "faqs-performance-18",
+    "name": "页面文字、按钮等内容加载慢",
+    "file": "开发/FAQ/应用质量/技术质量/性能/页面文字、按钮等内容加载慢/页面文字、按钮等内容加载慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-18"
+  },
+  {
+    "slug": "faqs-performance-18",
+    "name": "页面文字、按钮等内容加载慢",
+    "file": "技术质量/性能/页面文字、按钮等内容加载慢.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-18"
+  },
+  {
+    "slug": "faq-stability-kit-new-00001",
+    "name": "API23/24版本JS OOM上报在CPP Crash中的原因",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/API23／24版本JS OOM上报在CPP Crash中的原因/API23／24版本JS OOM上报在CPP Crash中的原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-kit-new-00001"
+  },
+  {
+    "slug": "faq-stability-66",
+    "name": "AppFreeze-主线程卡死（THREAD_BLOCK_6S）故障定位",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/AppFreeze-主线程卡死（THREAD_BLOCK_6S）故障定位/AppFreeze-主线程卡死（THREAD_BLOCK_6S）故障定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-66"
+  },
+  {
+    "slug": "faq-stability-66",
+    "name": "AppFreeze-主线程卡死（THREAD_BLOCK_6S）故障定位",
+    "file": "技术质量/稳定性/AppFreeze-主线程卡死（THREAD_BLOCK_6S）故障定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-66"
+  },
+  {
+    "slug": "faq-stability-69",
+    "name": "AppFreeze-输入事件阻塞（APP_INPUT_BLOCK）故障定位",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/AppFreeze-输入事件阻塞（APP_INPUT_BLOCK）故障定位/AppFreeze-输入事件阻塞（APP_INPUT_BLOCK）故障定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-69"
+  },
+  {
+    "slug": "faq-stability-69",
+    "name": "AppFreeze-输入事件阻塞（APP_INPUT_BLOCK）故障定位",
+    "file": "技术质量/稳定性/AppFreeze-输入事件阻塞（APP_INPUT_BLOCK）故障定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-69"
+  },
+  {
+    "slug": "faq-stability-76",
+    "name": "ArkTS主线程执行高复杂度循环逻辑导致APP_INPUT_BLOCK卡顿",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/ArkTS主线程执行高复杂度循环逻辑导致APP_INPUT_BLOCK卡顿/ArkTS主线程执行高复杂度循环逻辑导致APP_INPUT_BLOCK卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-76"
+  },
+  {
+    "slug": "faq-stability-76",
+    "name": "ArkTS主线程执行高复杂度循环逻辑导致APP_INPUT_BLOCK卡顿",
+    "file": "技术质量/稳定性/ArkTS主线程执行高复杂度循环逻辑导致APP_INPUT_BLOCK卡顿.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-76"
+  },
+  {
+    "slug": "faq-stability-53",
+    "name": "Attach Debugger调试失效，无法正常拦截断点",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/Attach Debugger调试失效，无法正常拦截断点/Attach Debugger调试失效，无法正常拦截断点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-53"
+  },
+  {
+    "slug": "faq-stability-53",
+    "name": "Attach Debugger调试失效，无法正常拦截断点",
+    "file": "技术质量/稳定性/Attach Debugger调试失效，无法正常拦截断点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-53"
+  },
+  {
+    "slug": "faq-stability-63",
+    "name": "Attach Debugger调试无法识别包名",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/Attach Debugger调试无法识别包名/Attach Debugger调试无法识别包名.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-63"
+  },
+  {
+    "slug": "faq-stability-63",
+    "name": "Attach Debugger调试无法识别包名",
+    "file": "技术质量/稳定性/Attach Debugger调试无法识别包名.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-63"
+  },
+  {
+    "slug": "faq-stability-58",
+    "name": "C++代码如何配置trace打点数据",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/C++代码如何配置trace打点数据/C++代码如何配置trace打点数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-58"
+  },
+  {
+    "slug": "faq-stability-58",
+    "name": "C++代码配置trace打点数据",
+    "file": "技术质量/稳定性/C++代码配置trace打点数据/C++代码配置trace打点数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-58"
+  },
+  {
+    "slug": "faq-stability-58",
+    "name": "C++代码配置trace打点数据",
+    "file": "技术质量/稳定性/C++代码配置trace打点数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-58"
+  },
+  {
+    "slug": "faq-stability-78",
+    "name": "CppCrash-SIGABRT（进程终止）类崩溃问题排查",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/CppCrash-SIGABRT（进程终止）类崩溃问题排查/CppCrash-SIGABRT（进程终止）类崩溃问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-78"
+  },
+  {
+    "slug": "faq-stability-78",
+    "name": "CppCrash-SIGABRT（进程终止）类崩溃问题排查",
+    "file": "技术质量/稳定性/CppCrash-SIGABRT（进程终止）类崩溃问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-78"
+  },
+  {
+    "slug": "faq-stability-10",
+    "name": "CppCrash问题定位",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/CppCrash问题定位/CppCrash问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-10"
+  },
+  {
+    "slug": "faq-stability-10",
+    "name": "CppCrash问题定位",
+    "file": "技术质量/稳定性/CppCrash问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-10"
+  },
+  {
+    "slug": "faq-stability-54",
+    "name": "DevEco Studio使用热重载报错：JSONException",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/DevEco Studio使用热重载报错：JSONException/DevEco Studio使用热重载报错：JSONException.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-54"
+  },
+  {
+    "slug": "faq-stability-54",
+    "name": "DevEco Studio使用热重载报错：JSONException",
+    "file": "技术质量/稳定性/DevEco Studio使用热重载报错：JSONException.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-54"
+  },
+  {
+    "slug": "faq-stability-83",
+    "name": "HarmonyOS下hidumper与SP_daemon工具常见问题解析",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/HarmonyOS下hidumper与SP_daemon工具常见问题解析/HarmonyOS下hidumper与SP_daemon工具常见问题解析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-83"
+  },
+  {
+    "slug": "faq-stability-60",
+    "name": "HiAppEvent获取的日志过长无法传输",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/HiAppEvent获取的日志过长无法传输/HiAppEvent获取的日志过长无法传输.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-60"
+  },
+  {
+    "slug": "faq-stability-60",
+    "name": "HiAppEvent获取的日志过长无法传输",
+    "file": "技术质量/稳定性/HiAppEvent获取的日志过长无法传输.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-60"
+  },
+  {
+    "slug": "faq-stability-13",
+    "name": "JsCrash问题定位",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/JsCrash问题定位/JsCrash问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-13"
+  },
+  {
+    "slug": "faq-stability-13",
+    "name": "JsCrash问题定位",
+    "file": "技术质量/稳定性/JsCrash问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-13"
+  },
+  {
+    "slug": "faq-stability-70",
+    "name": "NDK工程bad_variant_access崩溃分析和解决",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/NDK工程bad_variant_access崩溃分析和解决/NDK工程bad_variant_access崩溃分析和解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-70"
+  },
+  {
+    "slug": "faq-stability-70",
+    "name": "NDK工程bad_variant_access崩溃分析和解决",
+    "file": "技术质量/稳定性/NDK工程bad_variant_access崩溃分析和解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-70"
+  },
+  {
+    "slug": "faq-stability-22",
+    "name": "NFC提示弹窗无法关闭",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/NFC提示弹窗无法关闭/NFC提示弹窗无法关闭.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-22"
+  },
+  {
+    "slug": "faq-stability-22",
+    "name": "NFC提示弹窗无法关闭",
+    "file": "技术质量/稳定性/NFC提示弹窗无法关闭.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-22"
+  },
+  {
+    "slug": "faq-stability-11",
+    "name": "Native内存泄漏导致应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/Native内存泄漏导致应用闪退/Native内存泄漏导致应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-11"
+  },
+  {
+    "slug": "faq-stability-11",
+    "name": "Native内存泄漏导致应用闪退",
+    "file": "技术质量/稳定性/Native内存泄漏导致应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-11"
+  },
+  {
+    "slug": "faq-stability-85",
+    "name": "Profiler录制没有数据",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/Profiler录制没有数据/Profiler录制没有数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-85"
+  },
+  {
+    "slug": "faq-stability-85",
+    "name": "Profiler录制没有数据",
+    "file": "技术质量/稳定性/Profiler录制没有数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-85"
+  },
+  {
+    "slug": "faq-stability-88",
+    "name": "aa命令常见问题",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/aa命令常见问题/aa命令常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-88"
+  },
+  {
+    "slug": "faq-stability-88",
+    "name": "aa命令常见问题",
+    "file": "技术质量/稳定性/aa命令常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-88"
+  },
+  {
+    "slug": "faq-stability-51",
+    "name": "aa命令拉起hipreview应用并预览本地文件失败",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/aa命令拉起hipreview应用并预览本地文件失败/aa命令拉起hipreview应用并预览本地文件失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-51"
+  },
+  {
+    "slug": "faq-stability-51",
+    "name": "aa命令拉起hipreview应用并预览本地文件失败",
+    "file": "技术质量/稳定性/aa命令拉起hipreview应用并预览本地文件失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-51"
+  },
+  {
+    "slug": "faq-stability-48",
+    "name": "hdc命令无法获取蓝牙HCI日志该怎么处理",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/hdc命令无法获取蓝牙HCI日志该怎么处理/hdc命令无法获取蓝牙HCI日志该怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-48"
+  },
+  {
+    "slug": "faq-stability-48",
+    "name": "hdc命令无法获取蓝牙HCI日志该怎么处理",
+    "file": "技术质量/稳定性/hdc命令无法获取蓝牙HCI日志该怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-48"
+  },
+  {
+    "slug": "faq-stability-83",
+    "name": "hidumper命令常见问题",
+    "file": "技术质量/稳定性/hidumper命令常见问题/hidumper命令常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-83"
+  },
+  {
+    "slug": "faq-stability-83",
+    "name": "hidumper命令常见问题",
+    "file": "技术质量/稳定性/hidumper命令常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-83"
+  },
+  {
+    "slug": "faq-stability-84",
+    "name": "代码调试报错常见问题",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/代码调试报错常见问题/代码调试报错常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-84"
+  },
+  {
+    "slug": "faq-stability-84",
+    "name": "代码调试报错常见问题",
+    "file": "技术质量/稳定性/代码调试报错常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-84"
+  },
+  {
+    "slug": "faq-stability-82",
+    "name": "代码调试断点不生效问题",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/代码调试断点不生效问题/代码调试断点不生效问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-82"
+  },
+  {
+    "slug": "faq-stability-82",
+    "name": "代码调试断点不生效问题",
+    "file": "技术质量/稳定性/代码调试断点不生效问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-82"
+  },
+  {
+    "slug": "faq-stability-61",
+    "name": "使用PersistenceV2.globalConnect获取持久化数据时应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/使用PersistenceV2.globalConnect获取持久化数据时应用闪退/使用PersistenceV2.globalConnect获取持久化数据时应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-61"
+  },
+  {
+    "slug": "faq-stability-61",
+    "name": "使用PersistenceV2.globalConnect获取持久化数据时应用闪退",
+    "file": "技术质量/稳定性/使用PersistenceV2.globalConnect获取持久化数据时应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-61"
+  },
+  {
+    "slug": "faq-stability-57",
+    "name": "使用hdc file recv命令接收文件失败",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/使用hdc file recv命令接收文件失败/使用hdc file recv命令接收文件失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-57"
+  },
+  {
+    "slug": "faq-stability-57",
+    "name": "使用hdc file recv命令接收文件失败",
+    "file": "技术质量/稳定性/使用hdc file recv命令接收文件失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-57"
+  },
+  {
+    "slug": "faq-stability-80",
+    "name": "使用hilog命令查看日志常见问题",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/使用hilog命令查看日志常见问题/使用hilog命令查看日志常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-80"
+  },
+  {
+    "slug": "faq-stability-80",
+    "name": "使用hilog命令查看日志常见问题",
+    "file": "技术质量/稳定性/使用hilog命令查看日志常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-80"
+  },
+  {
+    "slug": "faq-stability-7",
+    "name": "使用应用过程中卡死，无法响应用户任何操作",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/使用应用过程中卡死，无法响应用户任何操作/使用应用过程中卡死，无法响应用户任何操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-7"
+  },
+  {
+    "slug": "faq-stability-7",
+    "name": "使用应用过程中卡死，无法响应用户任何操作",
+    "file": "技术质量/稳定性/使用应用过程中卡死，无法响应用户任何操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-7"
+  },
+  {
+    "slug": "faq-stability-29",
+    "name": "使用手机验证码登录帐号后，应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/使用手机验证码登录帐号后，应用闪退/使用手机验证码登录帐号后，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-29"
+  },
+  {
+    "slug": "faq-stability-29",
+    "name": "使用手机验证码登录帐号后，应用闪退",
+    "file": "技术质量/稳定性/使用手机验证码登录帐号后，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-29"
+  },
+  {
+    "slug": "faq-stability-73",
+    "name": "内存泄漏-ashmem(KERNEL_MEMORY)问题排查",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/内存泄漏-ashmem(KERNEL_MEMORY)问题排查/内存泄漏-ashmem(KERNEL_MEMORY)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-73"
+  },
+  {
+    "slug": "faq-stability-73",
+    "name": "内存泄漏-ashmem(KERNEL_MEMORY)问题排查",
+    "file": "技术质量/稳定性/内存泄漏-ashmem(KERNEL_MEMORY)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-73"
+  },
+  {
+    "slug": "faq-stability-75",
+    "name": "内存泄漏-gpu/gpu_rs(KERNEL_MEMORY)问题排查",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/内存泄漏-gpu／gpu_rs(KERNEL_MEMORY)问题排查/内存泄漏-gpu／gpu_rs(KERNEL_MEMORY)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-75"
+  },
+  {
+    "slug": "faq-stability-75",
+    "name": "内存泄漏-gpu/gpu_rs(KERNEL_MEMORY)问题排查",
+    "file": "技术质量/稳定性/内存泄漏-gpu／gpu_rs(KERNEL_MEMORY)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-75"
+  },
+  {
+    "slug": "faq-stability-74",
+    "name": "内存泄漏-ion(KERNEL_MEMORY)问题排查",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/内存泄漏-ion(KERNEL_MEMORY)问题排查/内存泄漏-ion(KERNEL_MEMORY)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-74"
+  },
+  {
+    "slug": "faq-stability-74",
+    "name": "内存泄漏-ion(KERNEL_MEMORY)问题排查",
+    "file": "技术质量/稳定性/内存泄漏-ion(KERNEL_MEMORY)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-74"
+  },
+  {
+    "slug": "faq-stability-67",
+    "name": "内存泄漏-句柄泄漏(FD_LEAK)问题排查",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/内存泄漏-句柄泄漏(FD_LEAK)问题排查/内存泄漏-句柄泄漏(FD_LEAK)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-67"
+  },
+  {
+    "slug": "faq-stability-67",
+    "name": "内存泄漏-句柄泄漏(FD_LEAK)问题排查",
+    "file": "技术质量/稳定性/内存泄漏-句柄泄漏(FD_LEAK)问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-67"
+  },
+  {
+    "slug": "faq-stability-12",
+    "name": "内存溢出问题定位",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/内存溢出问题定位/内存溢出问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-12"
+  },
+  {
+    "slug": "faq-stability-12",
+    "name": "内存溢出问题定位",
+    "file": "技术质量/稳定性/内存溢出问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-12"
+  },
+  {
+    "slug": "faq-stability-67",
+    "name": "句柄泄漏(FD_LEAK)问题排查与解决",
+    "file": "技术质量/稳定性/句柄泄漏(FD_LEAK)问题排查与解决/句柄泄漏(FD_LEAK)问题排查与解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-67"
+  },
+  {
+    "slug": "faq-stability-19",
+    "name": "后台播放音乐或者录音时，应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/后台播放音乐或者录音时，应用闪退/后台播放音乐或者录音时，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-19"
+  },
+  {
+    "slug": "faq-stability-19",
+    "name": "后台播放音乐或者录音时，应用闪退",
+    "file": "技术质量/稳定性/后台播放音乐或者录音时，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-19"
+  },
+  {
+    "slug": "faq-stability-2",
+    "name": "启动应用时发生闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/启动应用时发生闪退/启动应用时发生闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-2"
+  },
+  {
+    "slug": "faq-stability-2",
+    "name": "启动应用时发生闪退",
+    "file": "技术质量/稳定性/启动应用时发生闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-2"
+  },
+  {
+    "slug": "faq-stability-14",
+    "name": "在使用发音跟读功能时，应用出现闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/在使用发音跟读功能时，应用出现闪退/在使用发音跟读功能时，应用出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-14"
+  },
+  {
+    "slug": "faq-stability-14",
+    "name": "在使用发音跟读功能时，应用出现闪退",
+    "file": "技术质量/稳定性/在使用发音跟读功能时，应用出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-14"
+  },
+  {
+    "slug": "faq-stability-81",
+    "name": "堆栈解析异常问题",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/堆栈解析异常问题/堆栈解析异常问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-81"
+  },
+  {
+    "slug": "faq-stability-81",
+    "name": "堆栈解析异常问题",
+    "file": "技术质量/稳定性/堆栈解析异常问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-81"
+  },
+  {
+    "slug": "faq-stability-35",
+    "name": "多指操作时应用出现闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/多指操作时应用出现闪退/多指操作时应用出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-35"
+  },
+  {
+    "slug": "faq-stability-35",
+    "name": "多指操作时应用出现闪退",
+    "file": "技术质量/稳定性/多指操作时应用出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-35"
+  },
+  {
+    "slug": "faq-stability-47",
+    "name": "如何定位应用中Native层出现的空指针解引用CppCrash",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/如何定位应用中Native层出现的空指针解引用CppCrash/如何定位应用中Native层出现的空指针解引用CppCrash.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-47"
+  },
+  {
+    "slug": "faq-stability-47",
+    "name": "如何定位应用中Native层出现的空指针解引用CppCrash",
+    "file": "技术质量/稳定性/如何定位应用中Native层出现的空指针解引用CppCrash.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-47"
+  },
+  {
+    "slug": "faq-stability-79",
+    "name": "如何收集应用崩溃信息",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/如何收集应用崩溃信息/如何收集应用崩溃信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-79"
+  },
+  {
+    "slug": "faq-stability-79",
+    "name": "如何收集应用崩溃信息",
+    "file": "技术质量/稳定性/如何收集应用崩溃信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-79"
+  },
+  {
+    "slug": "faq-stability-86",
+    "name": "如何检测资源泄漏问题",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/如何检测资源泄漏问题/如何检测资源泄漏问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-86"
+  },
+  {
+    "slug": "faq-stability-86",
+    "name": "如何检测资源泄漏问题",
+    "file": "技术质量/稳定性/如何检测资源泄漏问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-86"
+  },
+  {
+    "slug": "faq-stability-87",
+    "name": "如何获取应用打印的hilog日志到本地查看",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/如何获取应用打印的hilog日志到本地查看/如何获取应用打印的hilog日志到本地查看.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-87"
+  },
+  {
+    "slug": "faq-stability-87",
+    "name": "如何获取应用打印的hilog日志到本地查看",
+    "file": "技术质量/稳定性/如何获取应用打印的hilog日志到本地查看.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-87"
+  },
+  {
+    "slug": "faq-stability-49",
+    "name": "如何解决日志内容过大时控制台打印被截断的问题",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/如何解决日志内容过大时控制台打印被截断的问题/如何解决日志内容过大时控制台打印被截断的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-49"
+  },
+  {
+    "slug": "faq-stability-49",
+    "name": "如何解决日志内容过大时控制台打印被截断的问题",
+    "file": "技术质量/稳定性/如何解决日志内容过大时控制台打印被截断的问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-49"
+  },
+  {
+    "slug": "faq-stability-52",
+    "name": "如何通过hdc命令获取当前真机调试的页面信息",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/如何通过hdc命令获取当前真机调试的页面信息/如何通过hdc命令获取当前真机调试的页面信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-52"
+  },
+  {
+    "slug": "faq-stability-52",
+    "name": "如何通过hdc命令获取当前真机调试的页面信息",
+    "file": "技术质量/稳定性/如何通过hdc命令获取当前真机调试的页面信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-52"
+  },
+  {
+    "slug": "faq-stability-55",
+    "name": "如何通过无感监听实现Navigation根页面的埋点监听",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/如何通过无感监听实现Navigation根页面的埋点监听/如何通过无感监听实现Navigation根页面的埋点监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-55"
+  },
+  {
+    "slug": "faq-stability-55",
+    "name": "如何通过无感监听实现Navigation根页面的埋点监听",
+    "file": "技术质量/稳定性/如何通过无感监听实现Navigation根页面的埋点监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-55"
+  },
+  {
+    "slug": "faq-stability-9",
+    "name": "媒体服务线程泄漏导致应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/媒体服务线程泄漏导致应用闪退/媒体服务线程泄漏导致应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-9"
+  },
+  {
+    "slug": "faq-stability-9",
+    "name": "媒体服务线程泄漏导致应用闪退",
+    "file": "技术质量/稳定性/媒体服务线程泄漏导致应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-9"
+  },
+  {
+    "slug": "faq-stability-15",
+    "name": "应用使用卡顿，运行一段时间后出现闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用使用卡顿，运行一段时间后出现闪退/应用使用卡顿，运行一段时间后出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-15"
+  },
+  {
+    "slug": "faq-stability-15",
+    "name": "应用使用卡顿，运行一段时间后出现闪退",
+    "file": "技术质量/稳定性/应用使用卡顿，运行一段时间后出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-15"
+  },
+  {
+    "slug": "faq-stability-5",
+    "name": "应用使用时卡死无响应",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用使用时卡死无响应/应用使用时卡死无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5"
+  },
+  {
+    "slug": "faq-stability-5",
+    "name": "应用使用时卡死无响应",
+    "file": "技术质量/稳定性/应用使用时卡死无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5"
+  },
+  {
+    "slug": "faq-stability-36",
+    "name": "应用使用蓝牙功能时闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用使用蓝牙功能时闪退/应用使用蓝牙功能时闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-36"
+  },
+  {
+    "slug": "faq-stability-36",
+    "name": "应用使用蓝牙功能时闪退",
+    "file": "技术质量/稳定性/应用使用蓝牙功能时闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-36"
+  },
+  {
+    "slug": "faq-stability-32",
+    "name": "应用使用过程中自动退出",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用使用过程中自动退出/应用使用过程中自动退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-32"
+  },
+  {
+    "slug": "faq-stability-32",
+    "name": "应用使用过程中自动退出",
+    "file": "技术质量/稳定性/应用使用过程中自动退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-32"
+  },
+  {
+    "slug": "faq-stability-1",
+    "name": "应用切换深色模式时发生闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用切换深色模式时发生闪退/应用切换深色模式时发生闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1"
+  },
+  {
+    "slug": "faq-stability-1",
+    "name": "应用切换深色模式时发生闪退",
+    "file": "技术质量/稳定性/应用切换深色模式时发生闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1"
+  },
+  {
+    "slug": "faq-stability-17",
+    "name": "应用刷新页面时出现闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用刷新页面时出现闪退/应用刷新页面时出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-17"
+  },
+  {
+    "slug": "faq-stability-17",
+    "name": "应用刷新页面时出现闪退",
+    "file": "技术质量/稳定性/应用刷新页面时出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-17"
+  },
+  {
+    "slug": "faq-stability-46",
+    "name": "应用启动中进行加解密处理时，出现闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用启动中进行加解密处理时，出现闪退/应用启动中进行加解密处理时，出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-46"
+  },
+  {
+    "slug": "faq-stability-46",
+    "name": "应用启动中进行加解密处理时，出现闪退",
+    "file": "技术质量/稳定性/应用启动中进行加解密处理时，出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-46"
+  },
+  {
+    "slug": "faq-stability-kit-new-00003",
+    "name": "应用启动因Seccomp拦截mbind系统调用失败如何解决",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用启动因Seccomp拦截mbind系统调用失败如何解决/应用启动因Seccomp拦截mbind系统调用失败如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-kit-new-00003"
+  },
+  {
+    "slug": "faq-stability-28",
+    "name": "应用启动时一直闪退，无法打开",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用启动时一直闪退，无法打开/应用启动时一直闪退，无法打开.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-28"
+  },
+  {
+    "slug": "faq-stability-28",
+    "name": "应用启动时一直闪退，无法打开",
+    "file": "技术质量/稳定性/应用启动时一直闪退，无法打开.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-28"
+  },
+  {
+    "slug": "faq-stability-33",
+    "name": "应用启动时长时间白屏后启动失败",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用启动时长时间白屏后启动失败/应用启动时长时间白屏后启动失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-33"
+  },
+  {
+    "slug": "faq-stability-33",
+    "name": "应用启动时长时间白屏后启动失败",
+    "file": "技术质量/稳定性/应用启动时长时间白屏后启动失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-33"
+  },
+  {
+    "slug": "faq-stability-26",
+    "name": "应用在6.0版本系统上启动时发生闪退，5.0版本启动正常",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用在6.0版本系统上启动时发生闪退，5.0版本启动正常/应用在6.0版本系统上启动时发生闪退，5.0版本启动正常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-26"
+  },
+  {
+    "slug": "faq-stability-26",
+    "name": "应用在6.0版本系统上启动时发生闪退，5.0版本启动正常",
+    "file": "技术质量/稳定性/应用在6.0版本系统上启动时发生闪退，5.0版本启动正常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-26"
+  },
+  {
+    "slug": "faq-stability-20",
+    "name": "应用在使用过程中持续出现闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用在使用过程中持续出现闪退/应用在使用过程中持续出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-20"
+  },
+  {
+    "slug": "faq-stability-20",
+    "name": "应用在使用过程中持续出现闪退",
+    "file": "技术质量/稳定性/应用在使用过程中持续出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-20"
+  },
+  {
+    "slug": "faq-stability-39",
+    "name": "应用在后台时，一段时间后自动退出",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用在后台时，一段时间后自动退出/应用在后台时，一段时间后自动退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-39"
+  },
+  {
+    "slug": "faq-stability-39",
+    "name": "应用在后台时，一段时间后自动退出",
+    "file": "技术质量/稳定性/应用在后台时，一段时间后自动退出.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-39"
+  },
+  {
+    "slug": "faq-stability-8",
+    "name": "应用在启动加载时，卡死无响应后闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用在启动加载时，卡死无响应后闪退/应用在启动加载时，卡死无响应后闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-8"
+  },
+  {
+    "slug": "faq-stability-8",
+    "name": "应用在启动加载时，卡死无响应后闪退",
+    "file": "技术质量/稳定性/应用在启动加载时，卡死无响应后闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-8"
+  },
+  {
+    "slug": "faq-stability-30",
+    "name": "应用在弹窗消失后页面暗屏，点击侧滑无响应",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用在弹窗消失后页面暗屏，点击侧滑无响应/应用在弹窗消失后页面暗屏，点击侧滑无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-30"
+  },
+  {
+    "slug": "faq-stability-30",
+    "name": "应用在弹窗消失后页面暗屏，点击侧滑无响应",
+    "file": "技术质量/稳定性/应用在弹窗消失后页面暗屏，点击侧滑无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-30"
+  },
+  {
+    "slug": "faq-stability-45",
+    "name": "应用在背单词过程中出现闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用在背单词过程中出现闪退/应用在背单词过程中出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-45"
+  },
+  {
+    "slug": "faq-stability-45",
+    "name": "应用在背单词过程中出现闪退",
+    "file": "技术质量/稳定性/应用在背单词过程中出现闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-45"
+  },
+  {
+    "slug": "faq-stability-23",
+    "name": "应用导入大量图片后卡死",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用导入大量图片后卡死/应用导入大量图片后卡死.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-23"
+  },
+  {
+    "slug": "faq-stability-23",
+    "name": "应用导入大量图片后卡死",
+    "file": "技术质量/稳定性/应用导入大量图片后卡死.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-23"
+  },
+  {
+    "slug": "faq-stability-64",
+    "name": "应用无响应-UI或界面卡死（AppFreeze）场景分析与调优",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用无响应-UI或界面卡死（AppFreeze）场景分析与调优/应用无响应-UI或界面卡死（AppFreeze）场景分析与调优.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-64"
+  },
+  {
+    "slug": "faq-stability-64",
+    "name": "应用无响应-UI或界面卡死（AppFreeze）场景分析与调优",
+    "file": "技术质量/稳定性/应用无响应-UI或界面卡死（AppFreeze）场景分析与调优.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-64"
+  },
+  {
+    "slug": "faq-stability-6",
+    "name": "应用点击某功能时卡死无响应",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用点击某功能时卡死无响应/应用点击某功能时卡死无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-6"
+  },
+  {
+    "slug": "faq-stability-6",
+    "name": "应用点击某功能时卡死无响应",
+    "file": "技术质量/稳定性/应用点击某功能时卡死无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-6"
+  },
+  {
+    "slug": "faq-stability-68",
+    "name": "应用闪退-ArkTS运行时崩溃（JsCrash）异常全集与定位",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用闪退-ArkTS运行时崩溃（JsCrash）异常全集与定位/应用闪退-ArkTS运行时崩溃（JsCrash）异常全集与定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-68"
+  },
+  {
+    "slug": "faq-stability-68",
+    "name": "应用闪退-ArkTS运行时崩溃（JsCrash）异常全集与定位",
+    "file": "技术质量/稳定性/应用闪退-ArkTS运行时崩溃（JsCrash）异常全集与定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-68"
+  },
+  {
+    "slug": "faq-stability-71",
+    "name": "应用闪退-Native内存(PSS_MEMORY)泄漏问题排查",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用闪退-Native内存(PSS_MEMORY)泄漏问题排查/应用闪退-Native内存(PSS_MEMORY)泄漏问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-71"
+  },
+  {
+    "slug": "faq-stability-71",
+    "name": "应用闪退-Native内存(PSS_MEMORY)泄漏问题排查",
+    "file": "技术质量/稳定性/应用闪退-Native内存(PSS_MEMORY)泄漏问题排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-71"
+  },
+  {
+    "slug": "faq-stability-65",
+    "name": "应用闪退-Native运行时崩溃（CppCrash）信号与定位指导",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用闪退-Native运行时崩溃（CppCrash）信号与定位指导/应用闪退-Native运行时崩溃（CppCrash）信号与定位指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-65"
+  },
+  {
+    "slug": "faq-stability-65",
+    "name": "应用闪退-Native运行时崩溃（CppCrash）信号与定位指导",
+    "file": "技术质量/稳定性/应用闪退-Native运行时崩溃（CppCrash）信号与定位指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-65"
+  },
+  {
+    "slug": "faq-stability-77",
+    "name": "应用闪退无faultlog日志，如何定位解决",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用闪退无faultlog日志，如何定位解决/应用闪退无faultlog日志，如何定位解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-77"
+  },
+  {
+    "slug": "faq-stability-77",
+    "name": "应用闪退无faultlog日志，如何定位解决",
+    "file": "技术质量/稳定性/应用闪退无faultlog日志，如何定位解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-77"
+  },
+  {
+    "slug": "faq-stability-62",
+    "name": "应用闪退问题总结",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/应用闪退问题总结/应用闪退问题总结.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-62"
+  },
+  {
+    "slug": "faq-stability-62",
+    "name": "应用闪退问题总结",
+    "file": "技术质量/稳定性/应用闪退问题总结.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-62"
+  },
+  {
+    "slug": "faq-stability-50",
+    "name": "开启HWAsan监测后应用崩溃如何解决",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/开启HWAsan监测后应用崩溃如何解决/开启HWAsan监测后应用崩溃如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-50"
+  },
+  {
+    "slug": "faq-stability-50",
+    "name": "开启HWAsan监测后应用崩溃如何解决",
+    "file": "技术质量/稳定性/开启HWAsan监测后应用崩溃如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-50"
+  },
+  {
+    "slug": "faq-stability-44",
+    "name": "当跳转到新页面时提示登录超时，随后应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/当跳转到新页面时提示登录超时，随后应用闪退/当跳转到新页面时提示登录超时，随后应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-44"
+  },
+  {
+    "slug": "faq-stability-44",
+    "name": "当跳转到新页面时提示登录超时，随后应用闪退",
+    "file": "技术质量/稳定性/当跳转到新页面时提示登录超时，随后应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-44"
+  },
+  {
+    "slug": "faq-stability-40",
+    "name": "快速连续点击拍照按钮，应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/快速连续点击拍照按钮，应用闪退/快速连续点击拍照按钮，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-40"
+  },
+  {
+    "slug": "faq-stability-40",
+    "name": "快速连续点击拍照按钮，应用闪退",
+    "file": "技术质量/稳定性/快速连续点击拍照按钮，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-40"
+  },
+  {
+    "slug": "faq-stability-25",
+    "name": "截屏操作耗时较长，多次截屏操作后出现无响应的现象",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/截屏操作耗时较长，多次截屏操作后出现无响应的现象/截屏操作耗时较长，多次截屏操作后出现无响应的现象.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-25"
+  },
+  {
+    "slug": "faq-stability-25",
+    "name": "截屏操作耗时较长，多次截屏操作后出现无响应的现象",
+    "file": "技术质量/稳定性/截屏操作耗时较长，多次截屏操作后出现无响应的现象.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-25"
+  },
+  {
+    "slug": "faq-stability-38",
+    "name": "打开扫一扫，扫描二维码时应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/打开扫一扫，扫描二维码时应用闪退/打开扫一扫，扫描二维码时应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-38"
+  },
+  {
+    "slug": "faq-stability-38",
+    "name": "打开扫一扫，扫描二维码时应用闪退",
+    "file": "技术质量/稳定性/打开扫一扫，扫描二维码时应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-38"
+  },
+  {
+    "slug": "faq-stability-41",
+    "name": "未开启NFC情况下跳转NFC功能页面，应用闪退重启",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/未开启NFC情况下跳转NFC功能页面，应用闪退重启/未开启NFC情况下跳转NFC功能页面，应用闪退重启.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-41"
+  },
+  {
+    "slug": "faq-stability-41",
+    "name": "未开启NFC情况下跳转NFC功能页面，应用闪退重启",
+    "file": "技术质量/稳定性/未开启NFC情况下跳转NFC功能页面，应用闪退重启.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-41"
+  },
+  {
+    "slug": "faq-stability-16",
+    "name": "未申请JIT权限导致应用卡死在启动页",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/未申请JIT权限导致应用卡死在启动页/未申请JIT权限导致应用卡死在启动页.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-16"
+  },
+  {
+    "slug": "faq-stability-16",
+    "name": "未申请JIT权限导致应用卡死在启动页",
+    "file": "技术质量/稳定性/未申请JIT权限导致应用卡死在启动页.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-16"
+  },
+  {
+    "slug": "faq-stability-21",
+    "name": "点击保存按钮应用无响应",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/点击保存按钮应用无响应/点击保存按钮应用无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-21"
+  },
+  {
+    "slug": "faq-stability-21",
+    "name": "点击保存按钮应用无响应",
+    "file": "技术质量/稳定性/点击保存按钮应用无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-21"
+  },
+  {
+    "slug": "faq-stability-31",
+    "name": "点击拍照按钮后，页面上所有按钮点击无效",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/点击拍照按钮后，页面上所有按钮点击无效/点击拍照按钮后，页面上所有按钮点击无效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-31"
+  },
+  {
+    "slug": "faq-stability-31",
+    "name": "点击拍照按钮后，页面上所有按钮点击无效",
+    "file": "技术质量/稳定性/点击拍照按钮后，页面上所有按钮点击无效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-31"
+  },
+  {
+    "slug": "faq-stability-37",
+    "name": "点击桌面图标跳转到设置界面",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/点击桌面图标跳转到设置界面/点击桌面图标跳转到设置界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-37"
+  },
+  {
+    "slug": "faq-stability-37",
+    "name": "点击桌面图标跳转到设置界面",
+    "file": "技术质量/稳定性/点击桌面图标跳转到设置界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-37"
+  },
+  {
+    "slug": "faq-stability-42",
+    "name": "点击跳转三方支付时应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/点击跳转三方支付时应用闪退/点击跳转三方支付时应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-42"
+  },
+  {
+    "slug": "faq-stability-42",
+    "name": "点击跳转三方支付时应用闪退",
+    "file": "技术质量/稳定性/点击跳转三方支付时应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-42"
+  },
+  {
+    "slug": "faq-stability-24",
+    "name": "点击音频播放按钮，应用无响应",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/点击音频播放按钮，应用无响应/点击音频播放按钮，应用无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-24"
+  },
+  {
+    "slug": "faq-stability-24",
+    "name": "点击音频播放按钮，应用无响应",
+    "file": "技术质量/稳定性/点击音频播放按钮，应用无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-24"
+  },
+  {
+    "slug": "faq-stability-3",
+    "name": "用户打开视频播放时，应用发生闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/用户打开视频播放时，应用发生闪退/用户打开视频播放时，应用发生闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-3"
+  },
+  {
+    "slug": "faq-stability-3",
+    "name": "用户打开视频播放时，应用发生闪退",
+    "file": "技术质量/稳定性/用户打开视频播放时，应用发生闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-3"
+  },
+  {
+    "slug": "faq-stability-kit-new-00002",
+    "name": "系统更新后屏幕显示条纹如何解决",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/系统更新后屏幕显示条纹如何解决/系统更新后屏幕显示条纹如何解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-kit-new-00002"
+  },
+  {
+    "slug": "faq-stability-18",
+    "name": "线程泄漏问题定位",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/线程泄漏问题定位/线程泄漏问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-18"
+  },
+  {
+    "slug": "faq-stability-18",
+    "name": "线程泄漏问题定位",
+    "file": "技术质量/稳定性/线程泄漏问题定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-18"
+  },
+  {
+    "slug": "faq-stability-56",
+    "name": "自定义弹框资源未释放导致稳定性测试出现内存泄漏",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/自定义弹框资源未释放导致稳定性测试出现内存泄漏/自定义弹框资源未释放导致稳定性测试出现内存泄漏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-56"
+  },
+  {
+    "slug": "faq-stability-56",
+    "name": "自定义弹框资源未释放导致稳定性测试出现内存泄漏",
+    "file": "技术质量/稳定性/自定义弹框资源未释放导致稳定性测试出现内存泄漏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-56"
+  },
+  {
+    "slug": "faq-stability-27",
+    "name": "设备关闭定位情况下，应用获取位置时闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/设备关闭定位情况下，应用获取位置时闪退/设备关闭定位情况下，应用获取位置时闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-27"
+  },
+  {
+    "slug": "faq-stability-27",
+    "name": "设备关闭定位情况下，应用获取位置时闪退",
+    "file": "技术质量/稳定性/设备关闭定位情况下，应用获取位置时闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-27"
+  },
+  {
+    "slug": "faq-stability-43",
+    "name": "跳转到新页面时，应用闪退",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/跳转到新页面时，应用闪退/跳转到新页面时，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-43"
+  },
+  {
+    "slug": "faq-stability-43",
+    "name": "跳转到新页面时，应用闪退",
+    "file": "技术质量/稳定性/跳转到新页面时，应用闪退.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-43"
+  },
+  {
+    "slug": "faq-stability-59",
+    "name": "进入应用时一直停留在启动页",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/进入应用时一直停留在启动页/进入应用时一直停留在启动页.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-59"
+  },
+  {
+    "slug": "faq-stability-59",
+    "name": "进入应用时一直停留在启动页",
+    "file": "技术质量/稳定性/进入应用时一直停留在启动页.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-59"
+  },
+  {
+    "slug": "faq-stability-34",
+    "name": "页面内容在加载过程中，卡死无响应",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/页面内容在加载过程中，卡死无响应/页面内容在加载过程中，卡死无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-34"
+  },
+  {
+    "slug": "faq-stability-34",
+    "name": "页面内容在加载过程中，卡死无响应",
+    "file": "技术质量/稳定性/页面内容在加载过程中，卡死无响应.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-34"
+  },
+  {
+    "slug": "faq-stability-4",
+    "name": "页面发生卡死，无法响应点击或侧滑操作",
+    "file": "开发/FAQ/应用质量/技术质量/稳定性/页面发生卡死，无法响应点击或侧滑操作/页面发生卡死，无法响应点击或侧滑操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-4"
+  },
+  {
+    "slug": "faq-stability-4",
+    "name": "页面发生卡死，无法响应点击或侧滑操作",
+    "file": "技术质量/稳定性/页面发生卡死，无法响应点击或侧滑操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-4"
+  },
+  {
+    "slug": "faqs-performance-analysis-kit-77",
+    "name": "开启VPN后访问https资源报错，如何导出日志信息定界问题",
+    "file": "开发/FAQ/应用质量/技术质量/运维/开启VPN后访问https资源报错，如何导出日志信息定界问题/开启VPN后访问https资源报错，如何导出日志信息定界问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-77"
+  },
+  {
+    "slug": "faqs-performance-analysis-kit-77",
+    "name": "开启VPN后访问https资源报错，如何导出日志信息定界问题",
+    "file": "技术质量/运维/开启VPN后访问https资源报错，如何导出日志信息定界问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-77"
+  },
+  {
+    "slug": "faqs-privacy-and-security-1",
+    "name": "文件隔离后被隔离文件能否通过系统文管或系统UI查看和操作",
+    "file": "开发/FAQ/应用质量/文件隔离后被隔离文件能否通过系统文管或系统UI查看和操作/文件隔离后被隔离文件能否通过系统文管或系统UI查看和操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-privacy-and-security-1"
   }
 ]

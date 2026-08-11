@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "bpta-horizontal-vertical-scrolling-list",
+    "name": "基于List和Scroller实现双向滚动列表",
+    "file": "新闻阅读/基于List和Scroller实现双向滚动列表/基于List和Scroller实现双向滚动列表.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-horizontal-vertical-scrolling-list"
+  },
+  {
+    "slug": "bpta-karaoke-singing",
+    "name": "K歌解决方案",
+    "file": "影音娱乐/K歌解决方案/K歌解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-karaoke-singing"
+  },
+  {
+    "slug": "bpta-pixelmap-image-editing",
+    "name": "基于PixelMap实现图片编辑",
+    "file": "拍摄美化/基于PixelMap实现图片编辑/基于PixelMap实现图片编辑.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-image-editing"
+  },
+  {
+    "slug": "bpta-pixelmap-canvas-image-editing",
+    "name": "基于PixelMap与Canvas实现图片编辑",
+    "file": "拍摄美化/基于PixelMap与Canvas实现图片编辑/基于PixelMap与Canvas实现图片编辑.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-canvas-image-editing"
+  }
+]

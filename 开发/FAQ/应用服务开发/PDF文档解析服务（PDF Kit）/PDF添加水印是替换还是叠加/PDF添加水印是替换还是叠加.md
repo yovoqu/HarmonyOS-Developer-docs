@@ -2,7 +2,7 @@
 
 更新时间：2026-06-26 07:48:29
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-20
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-19
 
 #### 问题现象
 
